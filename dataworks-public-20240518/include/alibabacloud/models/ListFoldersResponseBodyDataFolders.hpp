@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->folderId_ != nullptr
-        && this->folderPath_ != nullptr; };
+    virtual bool empty() const override { return this->folderId_ == nullptr
+        && return this->folderPath_ == nullptr; };
     // folderId Field Functions 
     bool hasFolderId() const { return this->folderId_ != nullptr;};
     void deleteFolderId() { this->folderId_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The folder ID.
     std::shared_ptr<string> folderId_ = nullptr;
+    // The folder path.
     std::shared_ptr<string> folderPath_ = nullptr;
   };
 

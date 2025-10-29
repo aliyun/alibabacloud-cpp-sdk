@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->envType_ != nullptr
-        && this->taskId_ != nullptr && this->triggerTime_ != nullptr; };
+    virtual bool empty() const override { return this->envType_ == nullptr
+        && return this->taskId_ == nullptr && return this->triggerTime_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};

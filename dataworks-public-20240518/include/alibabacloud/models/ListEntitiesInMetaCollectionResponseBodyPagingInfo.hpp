@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entities_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->entities_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
     // entities Field Functions 
     bool hasEntities() const { return this->entities_ != nullptr;};
     void deleteEntities() { this->entities_ = nullptr;};
@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
-    // The entities in the collection.
+    // The list of entities in the collection.
     std::shared_ptr<vector<Models::ListEntitiesInMetaCollectionResponseBodyPagingInfoEntities>> entities_ = nullptr;
+    // The current page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The total number of records.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

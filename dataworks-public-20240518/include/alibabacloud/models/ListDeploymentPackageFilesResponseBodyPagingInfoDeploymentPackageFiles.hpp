@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeType_ != nullptr
-        && this->comment_ != nullptr && this->commitTime_ != nullptr && this->commitUser_ != nullptr && this->commitUserName_ != nullptr && this->fileId_ != nullptr
-        && this->fileName_ != nullptr && this->fileType_ != nullptr && this->fileVersion_ != nullptr && this->id_ != nullptr && this->isSameAsProductionVersion_ != nullptr
-        && this->nodeConfiguration_ != nullptr && this->nodeId_ != nullptr && this->projectId_ != nullptr && this->smokeTestStatus_ != nullptr && this->status_ != nullptr
-        && this->tenantId_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->changeType_ == nullptr
+        && return this->comment_ == nullptr && return this->commitTime_ == nullptr && return this->commitUser_ == nullptr && return this->commitUserName_ == nullptr && return this->fileId_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->fileVersion_ == nullptr && return this->id_ == nullptr && return this->isSameAsProductionVersion_ == nullptr
+        && return this->nodeConfiguration_ == nullptr && return this->nodeId_ == nullptr && return this->projectId_ == nullptr && return this->smokeTestStatus_ == nullptr && return this->status_ == nullptr
+        && return this->tenantId_ == nullptr && return this->useType_ == nullptr; };
     // changeType Field Functions 
     bool hasChangeType() const { return this->changeType_ != nullptr;};
     void deleteChangeType() { this->changeType_ = nullptr;};

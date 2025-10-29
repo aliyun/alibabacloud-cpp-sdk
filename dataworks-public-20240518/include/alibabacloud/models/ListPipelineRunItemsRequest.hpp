@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->pipelineRunId_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pipelineRunId_ == nullptr && return this->projectId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The page number, for pagination.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. The number of entries per page. Default: 10. Maximum: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The workflow task ID. To obtain the ID, see [ListPipelineRuns](https://help.aliyun.com/document_detail/438042.html).
+    // 
     // This parameter is required.
     std::shared_ptr<string> pipelineRunId_ = nullptr;
+    // The ID of the DataWorks workspace. You can obtain the workspace ID from the workspace configuration page in the DataWorks console.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> projectId_ = nullptr;
   };

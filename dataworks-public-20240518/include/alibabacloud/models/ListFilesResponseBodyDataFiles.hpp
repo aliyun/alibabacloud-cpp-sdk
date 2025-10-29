@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->absoluteFolderPath_ != nullptr
-        && this->autoParsing_ != nullptr && this->bizId_ != nullptr && this->businessId_ != nullptr && this->commitStatus_ != nullptr && this->connectionName_ != nullptr
-        && this->content_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->currentVersion_ != nullptr && this->fileDescription_ != nullptr
-        && this->fileFolderId_ != nullptr && this->fileId_ != nullptr && this->fileName_ != nullptr && this->fileType_ != nullptr && this->isMaxCompute_ != nullptr
-        && this->lastEditTime_ != nullptr && this->lastEditUser_ != nullptr && this->nodeId_ != nullptr && this->owner_ != nullptr && this->parentId_ != nullptr
-        && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->absoluteFolderPath_ == nullptr
+        && return this->autoParsing_ == nullptr && return this->bizId_ == nullptr && return this->businessId_ == nullptr && return this->commitStatus_ == nullptr && return this->connectionName_ == nullptr
+        && return this->content_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->currentVersion_ == nullptr && return this->fileDescription_ == nullptr
+        && return this->fileFolderId_ == nullptr && return this->fileId_ == nullptr && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->isMaxCompute_ == nullptr
+        && return this->lastEditTime_ == nullptr && return this->lastEditUser_ == nullptr && return this->nodeId_ == nullptr && return this->owner_ == nullptr && return this->parentId_ == nullptr
+        && return this->useType_ == nullptr; };
     // absoluteFolderPath Field Functions 
     bool hasAbsoluteFolderPath() const { return this->absoluteFolderPath_ != nullptr;};
     void deleteAbsoluteFolderPath() { this->absoluteFolderPath_ = nullptr;};
@@ -232,27 +232,63 @@ namespace Models
 
 
   protected:
+    // The path to the folder where the file is located.
     std::shared_ptr<string> absoluteFolderPath_ = nullptr;
+    // Specifies whether automatic parsing is enabled for the file. Valid values:
+    // 
+    // *   true: The file automatically parses code.
+    // *   false: The file does not automatically parse code.
+    // 
+    // This parameter corresponds to Analyze Code when you set Dependencies to Same Cycle in the scheduling configuration of a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<bool> autoParsing_ = nullptr;
+    // The ID of the workflow to which the file belongs. This parameter is deprecated. Use the BusinessId parameter instead.
     std::shared_ptr<int64_t> bizId_ = nullptr;
+    // The ID of the workflow to which the file belongs.
     std::shared_ptr<int64_t> businessId_ = nullptr;
+    // The current commit status of the file. Valid values: 0 (the latest code is not committed) and 1 (the latest code is committed).
     std::shared_ptr<int32_t> commitStatus_ = nullptr;
+    // The data source name used by the task.
     std::shared_ptr<string> connectionName_ = nullptr;
+    // This parameter is deprecated. You can call the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation to query this information.
     std::shared_ptr<string> content_ = nullptr;
+    // The timestamp (in milliseconds) when the file was created.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // The Alibaba Cloud account ID of the file creator.
     std::shared_ptr<string> createUser_ = nullptr;
+    // The latest version of the file.
     std::shared_ptr<int32_t> currentVersion_ = nullptr;
+    // The description of the file.
     std::shared_ptr<string> fileDescription_ = nullptr;
+    // The ID of the folder where the file is located.
     std::shared_ptr<string> fileFolderId_ = nullptr;
+    // The file ID.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The file name.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The file type. Different file types have different code. For more information, see [DataWorks node types](https://help.aliyun.com/document_detail/600169.html).
     std::shared_ptr<int32_t> fileType_ = nullptr;
+    // If the current file is a MaxCompute resource file, this parameter specifies whether the resource file needs to be uploaded to MaxCompute.
+    // 
+    // You only need to configure this parameter when the file is a MaxCompute resource file.
     std::shared_ptr<bool> isMaxCompute_ = nullptr;
+    // The timestamp (in milliseconds) when the file was last modified.
     std::shared_ptr<int64_t> lastEditTime_ = nullptr;
+    // The Alibaba Cloud account ID of the user who last updated the file.
     std::shared_ptr<string> lastEditUser_ = nullptr;
+    // The ID of the scheduling task generated in the scheduling system after the file is committed.
     std::shared_ptr<int64_t> nodeId_ = nullptr;
+    // The Alibaba Cloud account ID of the file owner.
     std::shared_ptr<string> owner_ = nullptr;
+    // If the current file is an internal file of a combined node, this parameter specifies the ID of the corresponding combined node file.
     std::shared_ptr<int64_t> parentId_ = nullptr;
+    // The functional module to which the file belongs. Valid values:
+    // 
+    // *   NORMAL: Data Studio
+    // *   MANUAL: Manually triggered node
+    // *   MANUAL_BIZ: Manually triggered workflow
+    // *   SKIP: Dry-run scheduling in Data Studio
+    // *   ADHOCQUERY: Ad hoc query
+    // *   COMPONENT: Component management
     std::shared_ptr<string> useType_ = nullptr;
   };
 

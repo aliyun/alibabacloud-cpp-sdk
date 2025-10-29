@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->component_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->component_ == nullptr
+        && return this->requestId_ == nullptr; };
     // component Field Functions 
     bool hasComponent() const { return this->component_ != nullptr;};
     void deleteComponent() { this->component_ = nullptr;};
@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // JSON serialization of the component module.
     std::shared_ptr<GetComponentResponseBodyComponent> component_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

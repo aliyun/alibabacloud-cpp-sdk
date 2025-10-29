@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstEntityId_ != nullptr
-        && this->dstEntityName_ != nullptr && this->needAttachRelationship_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->sortBy_ != nullptr && this->srcEntityId_ != nullptr && this->srcEntityName_ != nullptr; };
+    virtual bool empty() const override { return this->dstEntityId_ == nullptr
+        && return this->dstEntityName_ == nullptr && return this->needAttachRelationship_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->sortBy_ == nullptr && return this->srcEntityId_ == nullptr && return this->srcEntityName_ == nullptr; };
     // dstEntityId Field Functions 
     bool hasDstEntityId() const { return this->dstEntityId_ != nullptr;};
     void deleteDstEntityId() { this->dstEntityId_ = nullptr;};
@@ -112,16 +112,26 @@ namespace Models
 
 
   protected:
-    // The destination entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+    // The destination entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     std::shared_ptr<string> dstEntityId_ = nullptr;
+    // The destination entity name. Supports fuzzy matching.
     std::shared_ptr<string> dstEntityName_ = nullptr;
+    // Specifies whether to return lineage information.
     std::shared_ptr<bool> needAttachRelationship_ = nullptr;
+    // The sort order. Default value: Asc. Valid values:
+    // 
+    // *   Asc
+    // *   Desc
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The sort field. Default value: Name.
     std::shared_ptr<string> sortBy_ = nullptr;
-    // The source entity ID. For more information, see the table ID or field ID in the response returned by the ListTables or ListColumns operation. You can also specify a custom entity ID.
+    // The source entity ID. You can refer to the table or column ID returned by the ListTables or ListColumns operation, or use a custom entity ID.
     std::shared_ptr<string> srcEntityId_ = nullptr;
+    // The source entity name. Supports fuzzy matching.
     std::shared_ptr<string> srcEntityName_ = nullptr;
   };
 

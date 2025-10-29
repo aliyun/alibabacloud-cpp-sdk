@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstEntity_ != nullptr
-        && this->relationships_ != nullptr && this->srcEntity_ != nullptr; };
+    virtual bool empty() const override { return this->dstEntity_ == nullptr
+        && return this->relationships_ == nullptr && return this->srcEntity_ == nullptr; };
     // dstEntity Field Functions 
     bool hasDstEntity() const { return this->dstEntity_ != nullptr;};
     void deleteDstEntity() { this->dstEntity_ = nullptr;};
@@ -66,8 +66,11 @@ namespace Models
 
 
   protected:
+    // The destination entity.
     std::shared_ptr<Models::LineageEntity> dstEntity_ = nullptr;
+    // The lineage details.
     std::shared_ptr<vector<Models::LineageRelationship>> relationships_ = nullptr;
+    // The source entity.
     std::shared_ptr<Models::LineageEntity> srcEntity_ = nullptr;
   };
 

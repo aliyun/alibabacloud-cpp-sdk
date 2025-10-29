@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_TO_JSON(ModifyUser, modifyUser_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(StartedTime, startedTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_TO_JSON(WorkflowParameters, workflowParameters_);
+      DARABONBA_PTR_TO_JSON(WorkflowTaskInstanceId, workflowTaskInstanceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetWorkflowInstanceResponseBodyWorkflowInstance& obj) { 
       DARABONBA_PTR_FROM_JSON(BizDate, bizDate_);
@@ -42,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_FROM_JSON(ModifyUser, modifyUser_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(StartedTime, startedTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -49,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_FROM_JSON(WorkflowParameters, workflowParameters_);
+      DARABONBA_PTR_FROM_JSON(WorkflowTaskInstanceId, workflowTaskInstanceId_);
     };
     GetWorkflowInstanceResponseBodyWorkflowInstance() = default ;
     GetWorkflowInstanceResponseBodyWorkflowInstance(const GetWorkflowInstanceResponseBodyWorkflowInstance &) = default ;
@@ -61,10 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizDate_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->envType_ != nullptr && this->finishedTime_ != nullptr && this->id_ != nullptr
-        && this->modifyTime_ != nullptr && this->modifyUser_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr && this->startedTime_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr && this->workflowId_ != nullptr && this->workflowParameters_ != nullptr; };
+    virtual bool empty() const override { return this->bizDate_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->envType_ == nullptr && return this->finishedTime_ == nullptr && return this->id_ == nullptr
+        && return this->modifyTime_ == nullptr && return this->modifyUser_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr
+        && return this->startedTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr
+        && return this->workflowParameters_ == nullptr && return this->workflowTaskInstanceId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
@@ -128,6 +133,13 @@ namespace Models
     inline GetWorkflowInstanceResponseBodyWorkflowInstance& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // owner Field Functions 
+    bool hasOwner() const { return this->owner_ != nullptr;};
+    void deleteOwner() { this->owner_ = nullptr;};
+    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline GetWorkflowInstanceResponseBodyWorkflowInstance& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -179,6 +191,13 @@ namespace Models
     inline GetWorkflowInstanceResponseBodyWorkflowInstance& setWorkflowParameters(string workflowParameters) { DARABONBA_PTR_SET_VALUE(workflowParameters_, workflowParameters) };
 
 
+    // workflowTaskInstanceId Field Functions 
+    bool hasWorkflowTaskInstanceId() const { return this->workflowTaskInstanceId_ != nullptr;};
+    void deleteWorkflowTaskInstanceId() { this->workflowTaskInstanceId_ = nullptr;};
+    inline int64_t workflowTaskInstanceId() const { DARABONBA_PTR_GET_DEFAULT(workflowTaskInstanceId_, 0L) };
+    inline GetWorkflowInstanceResponseBodyWorkflowInstance& setWorkflowTaskInstanceId(int64_t workflowTaskInstanceId) { DARABONBA_PTR_SET_VALUE(workflowTaskInstanceId_, workflowTaskInstanceId) };
+
+
   protected:
     // The data timestamp.
     std::shared_ptr<int64_t> bizDate_ = nullptr;
@@ -201,6 +220,7 @@ namespace Models
     std::shared_ptr<string> modifyUser_ = nullptr;
     // The name of the workflow instance.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> owner_ = nullptr;
     // The workspace ID.
     std::shared_ptr<int64_t> projectId_ = nullptr;
     // The time when the instance started to run.
@@ -216,6 +236,7 @@ namespace Models
     // *   Success: The instance is successfully run.
     // *   Checking: Data quality is being checked for the instance.
     std::shared_ptr<string> status_ = nullptr;
+    // The task tag.
     std::shared_ptr<vector<Models::GetWorkflowInstanceResponseBodyWorkflowInstanceTags>> tags_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
@@ -227,7 +248,9 @@ namespace Models
     std::shared_ptr<string> type_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
+    // The workflow parameters.
     std::shared_ptr<string> workflowParameters_ = nullptr;
+    std::shared_ptr<int64_t> workflowTaskInstanceId_ = nullptr;
   };
 
   } // namespace Models

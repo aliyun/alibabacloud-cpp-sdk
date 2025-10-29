@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessId_ != nullptr
-        && this->businessName_ != nullptr && this->description_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->businessId_ == nullptr
+        && return this->businessName_ == nullptr && return this->description_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->useType_ == nullptr; };
     // businessId Field Functions 
     bool hasBusinessId() const { return this->businessId_ != nullptr;};
     void deleteBusinessId() { this->businessId_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The workflow ID.
     std::shared_ptr<int64_t> businessId_ = nullptr;
+    // The name of the workflow. Workflow names must be unique within the same workspace.
     std::shared_ptr<string> businessName_ = nullptr;
+    // The description of the workflow.
     std::shared_ptr<string> description_ = nullptr;
+    // The Alibaba Cloud account ID of the workflow owner.
     std::shared_ptr<string> owner_ = nullptr;
+    // The ID of the workspace where the workflow resides.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The functional module to which the workflow belongs. Valid values: NORMAL (Data Studio) and MANUAL_BIZ (Manually Triggered Workflow)
     std::shared_ptr<string> useType_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->name_ != nullptr
-        && this->tableId_ != nullptr; };
+    virtual bool empty() const override { return this->name_ == nullptr
+        && return this->tableId_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -48,9 +48,11 @@ namespace Models
 
 
   protected:
+    // The partition name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
-    // The table ID. For more details, refer to the response of the ListTables operation and [description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
+    // The table ID. You can refer to the result returned by the ListTables operation and [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // This parameter is required.
     std::shared_ptr<string> tableId_ = nullptr;

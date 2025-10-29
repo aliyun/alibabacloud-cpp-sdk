@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeResource_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->description_ != nullptr && this->hooks_ != nullptr && this->id_ != nullptr
-        && this->modifyTime_ != nullptr && this->modifyUser_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->parameters_ != nullptr
-        && this->projectId_ != nullptr && this->runtimeResource_ != nullptr && this->trigger_ != nullptr; };
+    virtual bool empty() const override { return this->computeResource_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->description_ == nullptr && return this->hooks_ == nullptr && return this->id_ == nullptr
+        && return this->modifyTime_ == nullptr && return this->modifyUser_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->parameters_ == nullptr
+        && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->trigger_ == nullptr; };
     // computeResource Field Functions 
     bool hasComputeResource() const { return this->computeResource_ != nullptr;};
     void deleteComputeResource() { this->computeResource_ = nullptr;};

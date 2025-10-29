@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creator_ != nullptr
-        && this->endCreateTime_ != nullptr && this->endExecuteTime_ != nullptr && this->executor_ != nullptr && this->keyword_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->creator_ == nullptr
+        && return this->endCreateTime_ == nullptr && return this->endExecuteTime_ == nullptr && return this->executor_ == nullptr && return this->keyword_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->status_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};
@@ -121,15 +121,30 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account ID of the deployment package creator.
     std::shared_ptr<string> creator_ = nullptr;
+    // The maximum millisecond timestamp for when the deployment package was created.
     std::shared_ptr<int64_t> endCreateTime_ = nullptr;
+    // The maximum millisecond timestamp for when the deployment package started executing.
     std::shared_ptr<int64_t> endExecuteTime_ = nullptr;
+    // The Alibaba Cloud account ID of the deployment package executor.
     std::shared_ptr<string> executor_ = nullptr;
+    // The keyword in the deployment package name. DataWorks supports fuzzy matching, meaning you can enter a keyword to query for deployment packages that contain it.
     std::shared_ptr<string> keyword_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the workspace configuration page to query the ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces. Either this parameter or ProjectId must be specified to determine which DataWorks workspace this API call operates on.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // The status of the deployment package. Valid values:
+    // 
+    // *   0: It is ready.
+    // *   1: It was successfully deployed.
+    // *   2: It failed to be deployed.
+    // *   6: It was rejected.
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

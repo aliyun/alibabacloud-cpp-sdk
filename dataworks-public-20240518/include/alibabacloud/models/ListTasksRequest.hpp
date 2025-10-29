@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ids_ != nullptr
-        && this->name_ != nullptr && this->owner_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectEnv_ != nullptr
-        && this->projectId_ != nullptr && this->runtimeResource_ != nullptr && this->sortBy_ != nullptr && this->taskType_ != nullptr && this->triggerRecurrence_ != nullptr
-        && this->triggerType_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->ids_ == nullptr
+        && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectEnv_ == nullptr
+        && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->sortBy_ == nullptr && return this->taskType_ == nullptr && return this->triggerRecurrence_ == nullptr
+        && return this->triggerType_ == nullptr && return this->workflowId_ == nullptr; };
     // ids Field Functions 
     bool hasIds() const { return this->ids_ != nullptr;};
     void deleteIds() { this->ids_ = nullptr;};

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizDate_ != nullptr
-        && this->ids_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->projectId_ != nullptr && this->sortBy_ != nullptr && this->type_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->bizDate_ == nullptr
+        && return this->ids_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
@@ -154,11 +154,11 @@ namespace Models
     std::shared_ptr<string> sortBy_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
-    // *   Normal
-    // *   Manual
-    // *   SmokeTest
-    // *   SupplementData
-    // *   ManualWorkflow
+    // *   Normal: Scheduled execution
+    // *   Manual: Manually triggered node
+    // *   SmokeTest: Smoke test
+    // *   SupplementData: Data backfill
+    // *   ManualWorkflow: Manually triggered workflow
     std::shared_ptr<string> type_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;

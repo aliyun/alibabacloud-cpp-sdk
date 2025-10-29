@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->id_ != nullptr && this->message_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr && this->spec_ != nullptr
-        && this->status_ != nullptr && this->type_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->id_ == nullptr && return this->message_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr && return this->spec_ == nullptr
+        && return this->status_ == nullptr && return this->type_ == nullptr && return this->version_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -112,19 +112,34 @@ namespace Models
 
 
   protected:
-    // 发布包创建时间戳
+    // The deployment creation time.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // The unique identifier of the deployment.
     std::shared_ptr<int64_t> id_ = nullptr;
-    // 创建人
+    // The error message if the deployment failed.
     std::shared_ptr<string> message_ = nullptr;
-    // 修改时间
+    // The time when the deployment was last modified.
     std::shared_ptr<int64_t> modifyTime_ = nullptr;
+    // The deployment name.
     std::shared_ptr<string> name_ = nullptr;
+    // The FlowSpec information describing this deployment. For detailed specifications, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
     std::shared_ptr<string> spec_ = nullptr;
-    // 发布流程状态
+    // The deployment status. Valid values:
+    // 
+    // *   Init: Initializing
+    // *   Running
+    // *   Success
+    // *   Fail
+    // *   Termination
     std::shared_ptr<string> status_ = nullptr;
+    // The deployment type. Valid values:
+    // 
+    // *   Node
+    // *   WorkflowDefinition: Workflow definition.
+    // *   Resource
+    // *   Function: The object is a function.
     std::shared_ptr<string> type_ = nullptr;
-    // 项目Id
+    // The deployment version.
     std::shared_ptr<int64_t> version_ = nullptr;
   };
 

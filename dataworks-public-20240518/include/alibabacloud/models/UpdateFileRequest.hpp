@@ -93,14 +93,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedSettings_ != nullptr
-        && this->applyScheduleImmediately_ != nullptr && this->autoParsing_ != nullptr && this->autoRerunIntervalMillis_ != nullptr && this->autoRerunTimes_ != nullptr && this->connectionName_ != nullptr
-        && this->content_ != nullptr && this->cronExpress_ != nullptr && this->cycleType_ != nullptr && this->dependentNodeIdList_ != nullptr && this->dependentType_ != nullptr
-        && this->endEffectDate_ != nullptr && this->fileDescription_ != nullptr && this->fileFolderPath_ != nullptr && this->fileId_ != nullptr && this->fileName_ != nullptr
-        && this->ignoreParentSkipRunningProperty_ != nullptr && this->imageId_ != nullptr && this->inputList_ != nullptr && this->inputParameters_ != nullptr && this->outputList_ != nullptr
-        && this->outputParameters_ != nullptr && this->owner_ != nullptr && this->paraValue_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr
-        && this->rerunMode_ != nullptr && this->resourceGroupIdentifier_ != nullptr && this->schedulerType_ != nullptr && this->startEffectDate_ != nullptr && this->startImmediately_ != nullptr
-        && this->stop_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->advancedSettings_ == nullptr
+        && return this->applyScheduleImmediately_ == nullptr && return this->autoParsing_ == nullptr && return this->autoRerunIntervalMillis_ == nullptr && return this->autoRerunTimes_ == nullptr && return this->connectionName_ == nullptr
+        && return this->content_ == nullptr && return this->cronExpress_ == nullptr && return this->cycleType_ == nullptr && return this->dependentNodeIdList_ == nullptr && return this->dependentType_ == nullptr
+        && return this->endEffectDate_ == nullptr && return this->fileDescription_ == nullptr && return this->fileFolderPath_ == nullptr && return this->fileId_ == nullptr && return this->fileName_ == nullptr
+        && return this->ignoreParentSkipRunningProperty_ == nullptr && return this->imageId_ == nullptr && return this->inputList_ == nullptr && return this->inputParameters_ == nullptr && return this->outputList_ == nullptr
+        && return this->outputParameters_ == nullptr && return this->owner_ == nullptr && return this->paraValue_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr
+        && return this->rerunMode_ == nullptr && return this->resourceGroupIdentifier_ == nullptr && return this->schedulerType_ == nullptr && return this->startEffectDate_ == nullptr && return this->startImmediately_ == nullptr
+        && return this->stop_ == nullptr && return this->timeout_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};
@@ -333,39 +333,154 @@ namespace Models
 
 
   protected:
+    // The advanced settings for the task.
+    // 
+    // This parameter corresponds to the Advanced Settings in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // Currently, only EMR Spark Streaming and EMR Streaming SQL tasks support this parameter, and the parameter must be in JSON format.
     std::shared_ptr<string> advancedSettings_ = nullptr;
+    // Specifies whether to apply the scheduling configuration immediately after the file is published.
     std::shared_ptr<bool> applyScheduleImmediately_ = nullptr;
+    // Specifies whether to enable automatic parsing for the file. Valid values:
+    // 
+    // *   true
+    // *   false
+    // 
+    // This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<bool> autoParsing_ = nullptr;
+    // The interval at which the node is automatically rerun after a failure. Unit: milliseconds. Maximum value: 1800000 milliseconds (30 minutes).
+    // 
+    // This parameter corresponds to the Rerun interval parameter in Properties > Schedule > Auto Rerun upon Failure for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
     std::shared_ptr<int32_t> autoRerunIntervalMillis_ = nullptr;
+    // The number of automatic reruns after the file execution fails.
     std::shared_ptr<int32_t> autoRerunTimes_ = nullptr;
+    // The name of the data source that is used to run the node. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the available data sources.
     std::shared_ptr<string> connectionName_ = nullptr;
+    // The file code content. Different code types (fileType) have different code formats. In Operation Center, you can right-click a task of the corresponding type and select View Code to view the specific code format.
     std::shared_ptr<string> content_ = nullptr;
+    // The cron expression for scheduled execution. This parameter corresponds to the Cron Expression setting in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure Scheduling Cycle and Scheduled Time, DataWorks automatically generates a cron expression.
+    // 
+    // Examples:
+    // 
+    // *   Scheduled at 05:30 every day: `00 30 05 * * ?`
+    // *   Scheduled at the 15th minute of every hour: `00 15 * * * ?`
+    // *   Scheduled every 10 minutes: `00 00/10 * * * ?`
+    // *   Scheduled every 10 minutes between 08:00 and 23:00 every day: `00 00-59/10 8-23 * * * ?`
+    // *   Scheduled at 00:20 on the 1st day of every month: `00 20 00 1 * ?`
+    // *   Scheduled every 3 months starting from 00:10 on January 1: `00 10 00 1 1-12/3 ?`
+    // *   Scheduled at 00:05 on every Tuesday and Friday: `00 05 00 * * 2,5`
+    // 
+    // Due to the rules of the DataWorks scheduling system, cron expressions have the following restrictions:
+    // 
+    // *   The minimum scheduling interval is 5 minutes.
+    // *   The earliest scheduling time each day is 00:05.
     std::shared_ptr<string> cronExpress_ = nullptr;
+    // The type of scheduling cycle. Valid values: NOT_DAY (minute, hour) and DAY (day, week, month).
+    // 
+    // This parameter corresponds to the Scheduling Cycle setting in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<string> cycleType_ = nullptr;
+    // The IDs of the nodes on which the current node depends. This parameter takes effect only when the DependentType parameter is set to USER_DEFINE. Separate multiple node IDs with commas (,).
+    // 
+    // This parameter corresponds to the Other Nodes option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<string> dependentNodeIdList_ = nullptr;
+    // The dependency mode on the previous cycle. Valid values:
+    // 
+    // *   SELF: Depends on the current node.
+    // *   CHILD: Depends on the child nodes.
+    // *   USER_DEFINE: Depends on other nodes.
+    // *   NONE: No dependencies. Does not depend on the previous cycle.
     std::shared_ptr<string> dependentType_ = nullptr;
+    // The timestamp (in milliseconds) when automatic scheduling stops.
+    // 
+    // This parameter corresponds to the end time of Effective Period in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<int64_t> endEffectDate_ = nullptr;
+    // The file description.
     std::shared_ptr<string> fileDescription_ = nullptr;
+    // The path to the folder where the file is located.
     std::shared_ptr<string> fileFolderPath_ = nullptr;
+    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the file ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The file name. You can modify the file name by setting a new value for FileName. For example, you can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the file ID in the target directory, and then call the [UpdateFile](https://help.aliyun.com/document_detail/173951.html) operation with the file ID specified in the FileId parameter and a new value specified in the FileName parameter to modify the file name.
     std::shared_ptr<string> fileName_ = nullptr;
+    // This parameter corresponds to the Skip The Dry-Run Property Of The Ancestor Node option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) when Instances of Current Node or Level-1 Child Node is selected for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<bool> ignoreParentSkipRunningProperty_ = nullptr;
+    // The custom image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The output names of the ancestor nodes on which the current node depends. Separate multiple output names with commas (,).
+    // 
+    // This parameter corresponds to the Output Name of Ancestor Node setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // > This parameter is required when you call the CreateDISyncTask or UpdateFile operation to create a batch synchronization node.
     std::shared_ptr<string> inputList_ = nullptr;
+    // The input context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the InputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+    // 
+    // This parameter corresponds to the Input Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<string> inputParameters_ = nullptr;
+    // The outputs of the node.
+    // 
+    // This parameter corresponds to the Output Name setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<string> outputList_ = nullptr;
+    // The output context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the OutputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
+    // 
+    // This parameter corresponds to the Output Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<string> outputParameters_ = nullptr;
+    // The file owner ID.
     std::shared_ptr<string> owner_ = nullptr;
+    // The scheduling parameters of the node.
+    // 
+    // This parameter corresponds to the Scheduling Parameter setting in Properties for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
     std::shared_ptr<string> paraValue_ = nullptr;
+    // The DataWorks workspace ID. To obtain the ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace management page.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The DataWorks workspace name. To obtain the workspace name, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
+    // 
+    // You must specify either this parameter or ProjectId to identify the target DataWorks workspace for this API call.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // The rerun policy. Valid values:
+    // 
+    // *   ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
+    // *   FAILURE_ALLOWED: Reruns are allowed only when the task fails.
+    // *   ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
+    // 
+    // This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // Valid values:
+    // 
+    // *   ALL_ALLOWD
+    // *   FAILURE_ALLOWED
+    // *   ALL_DENIED
+    // *   ALL_ALLOWED
     std::shared_ptr<string> rerunMode_ = nullptr;
+    // The resource group for the task published from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
     std::shared_ptr<string> resourceGroupIdentifier_ = nullptr;
+    // The scheduling type. Valid values:
+    // 
+    // *   NORMAL: Normal scheduled task.
+    // *   MANUAL: Manually triggered node. Not scheduled for daily execution. Corresponds to nodes in manually triggered workflows.
+    // *   PAUSE: Paused task.
+    // *   SKIP: Dry-run task. Scheduled for daily execution but is directly marked as successful when scheduling starts.
     std::shared_ptr<string> schedulerType_ = nullptr;
+    // The timestamp (in milliseconds) when automatic scheduling starts.
+    // 
+    // This parameter corresponds to the start time of Effective Period in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<int64_t> startEffectDate_ = nullptr;
+    // Specifies whether to start the task immediately after it is published. Valid values:
+    // 
+    // *   true: Start the task immediately after it is published.
+    // *   false: Do not start the task immediately after it is published.
+    // 
+    // This parameter corresponds to the Start Method setting in Configuration > Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<bool> startImmediately_ = nullptr;
+    // Specifies whether to skip execution. Valid values:
+    // 
+    // *   true
+    // *   false
+    // 
+    // This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<bool> stop_ = nullptr;
+    // The timeout settings for scheduling configuration.
     std::shared_ptr<int32_t> timeout_ = nullptr;
   };
 

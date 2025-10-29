@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataAssetIdsShrink_ != nullptr
-        && this->dataAssetType_ != nullptr && this->envType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr
-        && this->tagsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->dataAssetIdsShrink_ == nullptr
+        && return this->dataAssetType_ == nullptr && return this->envType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr
+        && return this->tagsShrink_ == nullptr; };
     // dataAssetIdsShrink Field Functions 
     bool hasDataAssetIdsShrink() const { return this->dataAssetIdsShrink_ != nullptr;};
     void deleteDataAssetIdsShrink() { this->dataAssetIdsShrink_ = nullptr;};

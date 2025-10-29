@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deploymentId_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->deploymentId_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // If the file has already been submitted, the DeleteFile operation also triggers an asynchronous deletion process in the scheduling system. You must use the DeploymentId returned by the DeleteFile operation to call GetDeployment and poll the status of the triggered asynchronous deletion process.
+    // 
+    // If this field is empty, the file has been deleted and no further polling is required.
     std::shared_ptr<int64_t> deploymentId_ = nullptr;
+    // The error code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The request ID. Used for troubleshooting when an error occurs.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // *   true: success.
+    // *   false: failure.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

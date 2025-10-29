@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->partitionList_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->partitionList_ == nullptr && return this->totalCount_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The list of table partitions.
     std::shared_ptr<vector<Models::Partition>> partitionList_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

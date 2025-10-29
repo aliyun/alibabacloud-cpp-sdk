@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkingConfig_ != nullptr
-        && this->code_ != nullptr && this->directoryPath_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr && this->samplingConfig_ != nullptr
-        && this->tenantId_ != nullptr && this->visibleScope_ != nullptr; };
+    virtual bool empty() const override { return this->checkingConfig_ == nullptr
+        && return this->code_ == nullptr && return this->directoryPath_ == nullptr && return this->name_ == nullptr && return this->projectId_ == nullptr && return this->samplingConfig_ == nullptr
+        && return this->tenantId_ == nullptr && return this->visibleScope_ == nullptr; };
     // checkingConfig Field Functions 
     bool hasCheckingConfig() const { return this->checkingConfig_ != nullptr;};
     void deleteCheckingConfig() { this->checkingConfig_ = nullptr;};

@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRerunAlertEnabled_ != nullptr
-        && this->streamTaskIds_ != nullptr; };
+    virtual bool empty() const override { return this->autoRerunAlertEnabled_ == nullptr
+        && return this->streamTaskIds_ == nullptr; };
     // autoRerunAlertEnabled Field Functions 
     bool hasAutoRerunAlertEnabled() const { return this->autoRerunAlertEnabled_ != nullptr;};
     void deleteAutoRerunAlertEnabled() { this->autoRerunAlertEnabled_ = nullptr;};

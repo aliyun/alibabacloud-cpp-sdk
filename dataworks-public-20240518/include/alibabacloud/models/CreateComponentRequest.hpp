@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->projectId_ != nullptr && this->spec_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->projectId_ == nullptr && return this->spec_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/2852607.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The FlowSpec information for this UDF function. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+    // 
     // This parameter is required.
     std::shared_ptr<string> spec_ = nullptr;
   };

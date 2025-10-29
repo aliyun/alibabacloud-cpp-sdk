@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientUniqueCode_ != nullptr
-        && this->dataSourceShrink_ != nullptr && this->dependenciesShrink_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->id_ != nullptr
-        && this->inputsShrink_ != nullptr && this->instanceMode_ != nullptr && this->name_ != nullptr && this->outputsShrink_ != nullptr && this->owner_ != nullptr
-        && this->rerunInterval_ != nullptr && this->rerunMode_ != nullptr && this->rerunTimes_ != nullptr && this->runtimeResourceShrink_ != nullptr && this->scriptShrink_ != nullptr
-        && this->tagsShrink_ != nullptr && this->timeout_ != nullptr && this->triggerShrink_ != nullptr; };
+    virtual bool empty() const override { return this->clientUniqueCode_ == nullptr
+        && return this->dataSourceShrink_ == nullptr && return this->dependenciesShrink_ == nullptr && return this->description_ == nullptr && return this->envType_ == nullptr && return this->id_ == nullptr
+        && return this->inputsShrink_ == nullptr && return this->instanceMode_ == nullptr && return this->name_ == nullptr && return this->outputsShrink_ == nullptr && return this->owner_ == nullptr
+        && return this->rerunInterval_ == nullptr && return this->rerunMode_ == nullptr && return this->rerunTimes_ == nullptr && return this->runtimeResourceShrink_ == nullptr && return this->scriptShrink_ == nullptr
+        && return this->tagsShrink_ == nullptr && return this->timeout_ == nullptr && return this->triggerShrink_ == nullptr; };
     // clientUniqueCode Field Functions 
     bool hasClientUniqueCode() const { return this->clientUniqueCode_ != nullptr;};
     void deleteClientUniqueCode() { this->clientUniqueCode_ = nullptr;};
@@ -223,7 +223,7 @@ namespace Models
     std::shared_ptr<int64_t> id_ = nullptr;
     // The input information.
     std::shared_ptr<string> inputsShrink_ = nullptr;
-    // The instance generation mode. Valid values:
+    // The instance generation mode.
     // 
     // *   T+1: the next day
     // *   Immediately
@@ -234,7 +234,7 @@ namespace Models
     std::shared_ptr<string> outputsShrink_ = nullptr;
     // The account ID of the task owner.
     std::shared_ptr<string> owner_ = nullptr;
-    // The rerun interval. Unit: seconds.
+    // The rerun interval. Unit: milliseconds. Must not exceed 1800000.
     std::shared_ptr<int32_t> rerunInterval_ = nullptr;
     // The rerun mode. Valid values:
     // 
@@ -250,7 +250,7 @@ namespace Models
     std::shared_ptr<string> scriptShrink_ = nullptr;
     // The tags.
     std::shared_ptr<string> tagsShrink_ = nullptr;
-    // The timeout period of task running. Unit: seconds.
+    // Task execution timeout in seconds. Must be greater than 3600.
     std::shared_ptr<int32_t> timeout_ = nullptr;
     // The triggering method.
     std::shared_ptr<string> triggerShrink_ = nullptr;

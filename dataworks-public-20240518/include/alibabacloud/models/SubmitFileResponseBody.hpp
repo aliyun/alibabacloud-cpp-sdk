@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -84,11 +84,20 @@ namespace Models
 
 
   protected:
+    // The deployment package ID. You must specify this ID as a parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment.
     std::shared_ptr<int64_t> data_ = nullptr;
+    // The error code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the call was successful.
+    // 
+    // *   true: success.
+    // *   false: failure.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

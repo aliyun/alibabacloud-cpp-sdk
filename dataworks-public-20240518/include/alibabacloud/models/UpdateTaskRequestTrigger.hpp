@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cron_ != nullptr
-        && this->cycleType_ != nullptr && this->endTime_ != nullptr && this->recurrence_ != nullptr && this->startTime_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->cron_ == nullptr
+        && return this->cycleType_ == nullptr && return this->endTime_ == nullptr && return this->recurrence_ == nullptr && return this->startTime_ == nullptr && return this->type_ == nullptr; };
     // cron Field Functions 
     bool hasCron() const { return this->cron_ != nullptr;};
     void deleteCron() { this->cron_ = nullptr;};
@@ -86,6 +86,10 @@ namespace Models
   protected:
     // The Cron expression. This parameter takes effect only if the Type parameter is set to Scheduler.
     std::shared_ptr<string> cron_ = nullptr;
+    // Cycle type. This parameter takes effect only when Type is set to Scheduler and the cron expression specifies hourly scheduling. Default value: Daily
+    // 
+    // *   Daily: Schedules jobs on a daily basis.
+    // *   NotDaily: Schedules jobs on an hourly basis.
     std::shared_ptr<string> cycleType_ = nullptr;
     // The expiration time of periodic triggering. Takes effect only when type is set to Scheduler. The value of this parameter is in the`yyyy-mm-dd hh:mm:ss` format.
     std::shared_ptr<string> endTime_ = nullptr;

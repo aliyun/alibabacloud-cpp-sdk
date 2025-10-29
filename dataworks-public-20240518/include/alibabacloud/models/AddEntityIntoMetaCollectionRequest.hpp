@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->metaCollectionId_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && return this->metaCollectionId_ == nullptr && return this->remark_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The entity ID. Currently, entities can only be tables. You can call the ListTables operation to query the ID.
+    // The entity ID. Currently, only table entities are supported. You can call the ListTables operation to obtain the ID.
     // 
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;
-    // The collection ID. You can call the ListMetaCollections operation to query the ID.
+    // The collection ID. You can refer to the return result of the ListMetaCollections operation.
     // 
     // This parameter is required.
     std::shared_ptr<string> metaCollectionId_ = nullptr;
+    // Remarks added when adding the entity to a collection. This parameter is currently valid only for album collections.
     std::shared_ptr<string> remark_ = nullptr;
   };
 

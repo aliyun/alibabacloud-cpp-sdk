@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr; };
+    virtual bool empty() const override { return this->fileId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // The file ID. You can call [ListFiles](https://help.aliyun.com/document_detail/173942.html) to query the file ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The page number for pagination.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
+    // 
+    // Either this parameter or ProjectId must be specified to identify the target DataWorks workspace for this API call.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
   };
 

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notificationChannels_ != nullptr
-        && this->notificationReceivers_ != nullptr; };
+    virtual bool empty() const override { return this->notificationChannels_ == nullptr
+        && return this->notificationReceivers_ == nullptr; };
     // notificationChannels Field Functions 
     bool hasNotificationChannels() const { return this->notificationChannels_ != nullptr;};
     void deleteNotificationChannels() { this->notificationChannels_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->noticeType_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->noticeType_ == nullptr
+        && return this->type_ == nullptr; };
     // noticeType Field Functions 
     bool hasNoticeType() const { return this->noticeType_ != nullptr;};
     void deleteNoticeType() { this->noticeType_ = nullptr;};
@@ -51,7 +51,7 @@ namespace Models
     // The alert notification method. Valid values:
     // 
     // *   Sms: SMS only.
-    // *   Mail: mail only.
+    // *   Mail: Mail only.
     // *   SmsMail: SMS and mail.
     std::shared_ptr<string> noticeType_ = nullptr;
     // The alerting policy. Valid values:

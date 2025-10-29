@@ -111,15 +111,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineId_ != nullptr
-        && this->bizdate_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->dataSource_ != nullptr && this->description_ != nullptr
-        && this->finishedTime_ != nullptr && this->id_ != nullptr && this->inputs_ != nullptr && this->modifyTime_ != nullptr && this->modifyUser_ != nullptr
-        && this->outputs_ != nullptr && this->owner_ != nullptr && this->periodNumber_ != nullptr && this->priority_ != nullptr && this->projectEnv_ != nullptr
-        && this->projectId_ != nullptr && this->rerunMode_ != nullptr && this->runNumber_ != nullptr && this->runtime_ != nullptr && this->runtimeResource_ != nullptr
-        && this->script_ != nullptr && this->startedTime_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->taskType_ != nullptr && this->timeout_ != nullptr && this->triggerRecurrence_ != nullptr && this->triggerTime_ != nullptr
-        && this->triggerType_ != nullptr && this->waitingResourceTime_ != nullptr && this->waitingTriggerTime_ != nullptr && this->workflowId_ != nullptr && this->workflowInstanceId_ != nullptr
-        && this->workflowInstanceType_ != nullptr && this->workflowName_ != nullptr; };
+    virtual bool empty() const override { return this->baselineId_ == nullptr
+        && return this->bizdate_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->dataSource_ == nullptr && return this->description_ == nullptr
+        && return this->finishedTime_ == nullptr && return this->id_ == nullptr && return this->inputs_ == nullptr && return this->modifyTime_ == nullptr && return this->modifyUser_ == nullptr
+        && return this->outputs_ == nullptr && return this->owner_ == nullptr && return this->periodNumber_ == nullptr && return this->priority_ == nullptr && return this->projectEnv_ == nullptr
+        && return this->projectId_ == nullptr && return this->rerunMode_ == nullptr && return this->runNumber_ == nullptr && return this->runtime_ == nullptr && return this->runtimeResource_ == nullptr
+        && return this->script_ == nullptr && return this->startedTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->timeout_ == nullptr && return this->triggerRecurrence_ == nullptr && return this->triggerTime_ == nullptr
+        && return this->triggerType_ == nullptr && return this->waitingResourceTime_ == nullptr && return this->waitingTriggerTime_ == nullptr && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr
+        && return this->workflowInstanceType_ == nullptr && return this->workflowName_ == nullptr; };
     // baselineId Field Functions 
     bool hasBaselineId() const { return this->baselineId_ != nullptr;};
     void deleteBaselineId() { this->baselineId_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->className_ != nullptr
-        && this->cmdDescription_ != nullptr && this->createFolderIfNotExists_ != nullptr && this->example_ != nullptr && this->fileFolderPath_ != nullptr && this->fileName_ != nullptr
-        && this->functionType_ != nullptr && this->parameterDescription_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->resources_ != nullptr
-        && this->returnValue_ != nullptr && this->udfDescription_ != nullptr; };
+    virtual bool empty() const override { return this->className_ == nullptr
+        && return this->cmdDescription_ == nullptr && return this->createFolderIfNotExists_ == nullptr && return this->example_ == nullptr && return this->fileFolderPath_ == nullptr && return this->fileName_ == nullptr
+        && return this->functionType_ == nullptr && return this->parameterDescription_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->resources_ == nullptr
+        && return this->returnValue_ == nullptr && return this->udfDescription_ == nullptr; };
     // className Field Functions 
     bool hasClassName() const { return this->className_ != nullptr;};
     void deleteClassName() { this->className_ = nullptr;};
@@ -149,23 +149,44 @@ namespace Models
 
 
   protected:
+    // The class name where the function is defined, corresponding to the class name field in the Create Function form.
+    // 
     // This parameter is required.
     std::shared_ptr<string> className_ = nullptr;
+    // The command format for invoking the function, corresponding to the command format field in the Create Function form.
     std::shared_ptr<string> cmdDescription_ = nullptr;
+    // Specifies whether to automatically create the directory if the specified path (FileFolderPath) does not exist. Valid values:
+    // 
+    // *   true: Automatically creates the directory if it does not exist.
+    // *   false: The call fails if the directory does not exist.
     std::shared_ptr<bool> createFolderIfNotExists_ = nullptr;
+    // An example demonstrating how to call the function, corresponding to the example field in the Create Function form.
     std::shared_ptr<string> example_ = nullptr;
+    // The path to the folder containing the function file.
+    // 
     // This parameter is required.
     std::shared_ptr<string> fileFolderPath_ = nullptr;
+    // The function name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The function category, corresponding to the function type field in the Create Function form. Valid values: MATH (mathematical functions), AGGREGATE (aggregate functions), STRING (string processing functions), DATE (date processing functions), ANALYTIC (window functions), and OTHER (other functions).
+    // 
     // This parameter is required.
     std::shared_ptr<string> functionType_ = nullptr;
+    // The function parameter description, corresponding to the parameter description field in the Create Function form.
     std::shared_ptr<string> parameterDescription_ = nullptr;
+    // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // A comma-separated list of resource names referenced by the function, corresponding to the resource list field in the Create Function form.
+    // 
     // This parameter is required.
     std::shared_ptr<string> resources_ = nullptr;
+    // The return value description, corresponding to the return value field in the Create Function form.
     std::shared_ptr<string> returnValue_ = nullptr;
+    // The function purpose description, corresponding to the description field in the Create Function form.
     std::shared_ptr<string> udfDescription_ = nullptr;
   };
 

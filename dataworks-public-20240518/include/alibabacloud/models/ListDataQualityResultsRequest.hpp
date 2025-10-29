@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizdateFrom_ != nullptr
-        && this->bizdateTo_ != nullptr && this->createTimeFrom_ != nullptr && this->createTimeTo_ != nullptr && this->dataQualityEvaluationTaskId_ != nullptr && this->dataQualityEvaluationTaskInstanceId_ != nullptr
-        && this->dataQualityRuleId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->bizdateFrom_ == nullptr
+        && return this->bizdateTo_ == nullptr && return this->createTimeFrom_ == nullptr && return this->createTimeTo_ == nullptr && return this->dataQualityEvaluationTaskId_ == nullptr && return this->dataQualityEvaluationTaskInstanceId_ == nullptr
+        && return this->dataQualityRuleId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr; };
     // bizdateFrom Field Functions 
     bool hasBizdateFrom() const { return this->bizdateFrom_ != nullptr;};
     void deleteBizdateFrom() { this->bizdateFrom_ = nullptr;};

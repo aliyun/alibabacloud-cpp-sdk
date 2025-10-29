@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;

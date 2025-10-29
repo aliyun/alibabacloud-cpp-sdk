@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeResourceShrink_ != nullptr
-        && this->description_ != nullptr && this->hooksShrink_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->parametersShrink_ != nullptr && this->projectId_ != nullptr && this->runtimeResourceShrink_ != nullptr && this->spec_ != nullptr && this->triggerShrink_ != nullptr; };
+    virtual bool empty() const override { return this->computeResourceShrink_ == nullptr
+        && return this->description_ == nullptr && return this->hooksShrink_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->parametersShrink_ == nullptr && return this->projectId_ == nullptr && return this->runtimeResourceShrink_ == nullptr && return this->spec_ == nullptr && return this->triggerShrink_ == nullptr; };
     // computeResourceShrink Field Functions 
     bool hasComputeResourceShrink() const { return this->computeResourceShrink_ != nullptr;};
     void deleteComputeResourceShrink() { this->computeResourceShrink_ = nullptr;};

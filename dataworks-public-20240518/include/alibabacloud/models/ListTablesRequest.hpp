@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->parentMetaEntityId_ != nullptr
-        && this->sortBy_ != nullptr && this->tableTypes_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->parentMetaEntityId_ == nullptr
+        && return this->sortBy_ == nullptr && return this->tableTypes_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -106,47 +106,65 @@ namespace Models
 
 
   protected:
+    // The comment. Supports fuzzy matching.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name. Supports fuzzy matching.
     std::shared_ptr<string> name_ = nullptr;
+    // The order in which the tables are sorted. Default value: Asc. Valid values:
+    // 
+    // *   Asc
+    // *   Desc
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The parent metadata entity ID. You can refer to the responses of the ListDatabases or ListSchemas operation and [Description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
     // 
     // *   The parent metadata entity is a database: The format of `ParentMetaEntityId` is `${EntityType}:${Instance ID or encoded URL}:${Catalog Identifier}:${Database Name}`. Use an empty string (\\`""\\`) as a placeholder for any non-existent level.
-    // *   The parent metadata entity is a database schema:. The format of `ParentMetaEntityId` is `${EntityType}:${Instance ID or encoded URL}:${Catalog Identifier}:${Database Name}:${Schema Name}`. Use an empty string (\\`""\\`) as a placeholder for any non-existent level.
+    // *   The parent metadata entity is a database schema: The format of `ParentMetaEntityId` is `${EntityType}:${Instance ID or encoded URL}:${Catalog Identifier}:${Database Name}:${Schema Name}`. Use an empty string (\\`""\\`) as a placeholder for any non-existent level.
     // 
-    // >  The schema level in `ParentMetaEntityId` is supported only for database types that support schemas, such as MaxCompute (with schema enabled), Hologres, PostgreSQL, SQL Server, HybridDB for PostgreSQL, and Oracle.``
+    // > 
     // 
-    // >  For MaxCompute and DLF types, use empty strings as the instance ID. For MaxCompute, the database name is the same as the project name.
+    // *   The schema level in `ParentMetaEntityId` is supported only for database services, such as `MaxCompute (with schema enabled), Hologres, PostgreSQL, SQL Server, HybridDB for PostgreSQL, and Oracle`.
     // 
-    // >  For the StarRocks type, the catalog identifier is the catalog name. For the DLF type, it refers to the catalog ID. Other types do not support a catalog-level hierarchy and the catalog identifier must be replaced with an empty string as a placeholder.
+    // *   For the MaxCompute and DLF types, use an empty string as the placeholder for the instance ID. For MaxCompute, the database name is the same as the project name.
+    // 
+    // *   For StarRocks, the catalog identifier is the catalog name. For DLF, it is the catalog ID. Other types do not support the catalog level and you can use an empty string as a placeholder.
     // 
     // Examples of common ParentMetaEntityId formats
     // 
-    // `maxcompute-project:::project_name`
+    // *   `maxcompute-project:::project_name`
+    // *   `maxcompute-schema:::project_name:schema_name` (for MaxCompute projects with schema enabled)
+    // *   `dlf-database::catalog_id:database_name`
+    // *   `hms-database:instance_id::database_name`
+    // *   `holo-schema:instance_id::database_name:schema_name`
+    // *   `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
     // 
-    // `maxcompute-schema:::project_name:schema_name` (for MaxCompute projects with schema enabled)
+    // > 
     // 
-    // `dlf-database::catalog_id:database_name`
+    // *   `instance_id`: The instance ID, which is required when the data source is registered in instance mode.
     // 
-    // `hms-database:instance_id::database_name`
+    // *   `encoded_jdbc_url`: The URLEncoded JDBC connection string, which is requiredwhen the data source is registered using a connection string.
     // 
-    // `holo-schema:instance_id::database_name:schema_name`
+    // *   `catalog_id`: The DLF catalog ID.
     // 
-    // `mysql-database:(instance_id|encoded_jdbc_url)::database_name`
+    // *   `project_name`: The MaxCompute project name.
     // 
-    // > \\
-    // `instance_id`: The instance ID, required when the data source is registered in instance mode.\\
-    // `encoded_jdbc_url`: The JDBC connection string that has been URL encoded, required for the data source registered via a connection string.\\
-    // `catalog_id`: The DLF catalog ID.\\
-    // `project_name`: The MaxCompute project name.\\
-    // `database_name`: The database name.\\
-    // `schema_name`: The schema name.
+    // *   `database_name`: The database name.
+    // 
+    // *   `schema_name`: The schema name.
     // 
     // This parameter is required.
     std::shared_ptr<string> parentMetaEntityId_ = nullptr;
+    // The sort field. Default value: CreateTime. Valid values:
+    // 
+    // *   CreateTime
+    // *   ModifyTime
+    // *   Name
+    // *   TableType
     std::shared_ptr<string> sortBy_ = nullptr;
+    // The list of table types to query. If it\\"s left empty, all types will be queried.
     std::shared_ptr<vector<string>> tableTypes_ = nullptr;
   };
 

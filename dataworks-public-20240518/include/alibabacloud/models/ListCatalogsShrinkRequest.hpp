@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->parentMetaEntityId_ != nullptr
-        && this->sortBy_ != nullptr && this->typesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->parentMetaEntityId_ == nullptr
+        && return this->sortBy_ == nullptr && return this->typesShrink_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -103,25 +103,40 @@ namespace Models
 
 
   protected:
+    // The comment. Supports token-based matching.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name. Supports fuzzy matching.
     std::shared_ptr<string> name_ = nullptr;
+    // The order in which the tables are sorted. Default value: Asc. Valid values:
+    // 
+    // *   Asc: ascending order.
+    // *   Desc: descending order.
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The parent entity ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
     // 
-    // Only DLF and StarRocks data sources support this parameter.
+    // Currently, only the DLF and StarRocks types are supported.
     // 
-    // *   For DLF data sources, you can call this API operation to query all catalogs. In this case, you must set the `ParentMetaEntityId` parameter to `dlf`.
-    // *   For StarRocks data sources, you can call this API operation to query the catalogs in a specific instance. In this case, you can configure the `ParentMetaEntityId` parameter in the `starrocks:(instance_id|encoded_jdbc_url)` format.
+    // *   For the DLF type, you can query all catalog lists. The format of `ParentMetaEntityId` is `DLF`.
+    // *   For the StarRocks type, you can query the catalogs of a specific instance. The format of `ParentMetaEntityId` `is StarRocks:(instance_id|encoded_jdbc_url)`.
     // 
     // > \\
-    // `instance_id`: the ID of an instance. If the related data source is added to DataWorks in Alibaba Cloud instance mode, you must configure this parameter.\\
-    // `encoded_jdbc_url`: the JDBC connection string that is URL-encoded. If the related data source is added to DataWorks in connection string mode, you must configure this parameter.
+    // `instance_id`: The instance ID. Required if the data source is registered in instance mode.\\
+    // `encoded_jdbc_url`: The JDBC connection string encoded with URL encoding. Required if the data source is registered in connection-string mode.
     // 
     // This parameter is required.
     std::shared_ptr<string> parentMetaEntityId_ = nullptr;
+    // The sort field. Default value: CreateTime. Valid values:
+    // 
+    // *   CreateTime
+    // *   ModifyTime
+    // *   Name
+    // *   Type
     std::shared_ptr<string> sortBy_ = nullptr;
+    // The type. Supports exact match. If left empty, all types are queried.
     std::shared_ptr<string> typesShrink_ = nullptr;
   };
 

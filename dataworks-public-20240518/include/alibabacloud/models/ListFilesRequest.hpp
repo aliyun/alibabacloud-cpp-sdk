@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commitStatus_ != nullptr
-        && this->exactFileName_ != nullptr && this->fileFolderPath_ != nullptr && this->fileIdIn_ != nullptr && this->fileTypes_ != nullptr && this->keyword_ != nullptr
-        && this->lastEditUser_ != nullptr && this->needAbsoluteFolderPath_ != nullptr && this->needContent_ != nullptr && this->nodeId_ != nullptr && this->owner_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->commitStatus_ == nullptr
+        && return this->exactFileName_ == nullptr && return this->fileFolderPath_ == nullptr && return this->fileIdIn_ == nullptr && return this->fileTypes_ == nullptr && return this->keyword_ == nullptr
+        && return this->lastEditUser_ == nullptr && return this->needAbsoluteFolderPath_ == nullptr && return this->needContent_ == nullptr && return this->nodeId_ == nullptr && return this->owner_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->useType_ == nullptr; };
     // commitStatus Field Functions 
     bool hasCommitStatus() const { return this->commitStatus_ != nullptr;};
     void deleteCommitStatus() { this->commitStatus_ = nullptr;};
@@ -176,21 +176,50 @@ namespace Models
 
 
   protected:
+    // The current commit status of the file. Valid values: 0 (the latest code is not committed) and 1 (the latest code is committed).
     std::shared_ptr<int32_t> commitStatus_ = nullptr;
+    // The exact file name. The file name in the query result must exactly match this parameter.
     std::shared_ptr<string> exactFileName_ = nullptr;
+    // The path to the folder where the file is located.
     std::shared_ptr<string> fileFolderPath_ = nullptr;
+    // The list of file IDs. The file IDs in the query result must be a subset of this list. You can specify up to 50 file IDs at a time.
     std::shared_ptr<string> fileIdIn_ = nullptr;
+    // The code type of the file.
+    // 
+    // The code type of the file. Common code types and their corresponding file types include: 6 (Shell), 10 (ODPS SQL), 11 (ODPS MR), 23 (Data Integration), 24 (ODPS Script), 97 (PAI), 98 (Combined node), 99 (Virtual node), 221 (PyODPS 2), 225 (ODPS Spark), 227 (EMR Hive), 228 (EMR Spark), 229 (EMR Spark SQL), 230 (EMR MR), 239 (OSS object inspection), 257 (EMR Shell), 258 (EMR Spark Shell), 259 (EMR Presto), 260 (EMR Impala), 900 (Real-time sync), 1002 (PAI internal node), 1089 (Cross-tenant node), 1091 (Hologres development), 1093 (Hologres SQL), 1100 (Assignment node), 1106 (ForEach node), 1221 (PyODPS 3).
     std::shared_ptr<string> fileTypes_ = nullptr;
+    // The keyword for the file name. Fuzzy match is supported. You can enter a keyword to query all files that contain the keyword.
     std::shared_ptr<string> keyword_ = nullptr;
+    // The Alibaba Cloud account ID of the user who last updated the file.
     std::shared_ptr<string> lastEditUser_ = nullptr;
+    // Specifies whether the query result includes the path to the folder where the file is located.
     std::shared_ptr<bool> needAbsoluteFolderPath_ = nullptr;
+    // Specifies whether the query result includes the file content. For files with large content, network transmission delays may occur.
     std::shared_ptr<bool> needContent_ = nullptr;
+    // The ID of the scheduling node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to obtain the node ID.
     std::shared_ptr<int64_t> nodeId_ = nullptr;
+    // The ID of the file owner.
     std::shared_ptr<string> owner_ = nullptr;
+    // The page number for pagination.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
+    // 
+    // You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The DataWorks workspace name. To obtain the workspace name, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace configuration page.
+    // 
+    // You must specify either this parameter or ProjectId to identify the target DataWorks workspace for this API call.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // The functional module to which the file belongs. Valid values:
+    // 
+    // *   NORMAL: Data Studio
+    // *   MANUAL: Manually triggered node
+    // *   MANUAL_BIZ: Manually triggered workflow
+    // *   SKIP: Dry-run scheduling in Data Studio
+    // *   ADHOCQUERY: Ad hoc query
+    // *   COMPONENT: Component management
     std::shared_ptr<string> useType_ = nullptr;
   };
 

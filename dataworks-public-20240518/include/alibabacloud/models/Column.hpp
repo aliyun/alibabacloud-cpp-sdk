@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessMetadata_ != nullptr
-        && this->comment_ != nullptr && this->foreignKey_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->partitionKey_ != nullptr
-        && this->position_ != nullptr && this->primaryKey_ != nullptr && this->tableId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->businessMetadata_ == nullptr
+        && return this->comment_ == nullptr && return this->foreignKey_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->partitionKey_ == nullptr
+        && return this->position_ == nullptr && return this->primaryKey_ == nullptr && return this->tableId_ == nullptr && return this->type_ == nullptr; };
     // businessMetadata Field Functions 
     bool hasBusinessMetadata() const { return this->businessMetadata_ != nullptr;};
     void deleteBusinessMetadata() { this->businessMetadata_ = nullptr;};

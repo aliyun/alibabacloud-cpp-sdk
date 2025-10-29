@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->sortBy_ != nullptr
-        && this->tableId_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr
+        && return this->tableId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -94,13 +94,25 @@ namespace Models
 
 
   protected:
+    // The comment. Fuzzy match is supported.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name. Fuzzy match is supported.
     std::shared_ptr<string> name_ = nullptr;
+    // The sort order. Default value: Asc. Valid values:
+    // 
+    // *   Asc
+    // *   Desc
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The sort field. Default value: Position. Valid values:
+    // 
+    // *   Name
+    // *   Position
     std::shared_ptr<string> sortBy_ = nullptr;
-    // The ID of the table to which the columns belong. You can call the ListTables operation to query the ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // The table ID. You can refer to the return result of the ListTables operation. and the [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // This parameter is required.
     std::shared_ptr<string> tableId_ = nullptr;

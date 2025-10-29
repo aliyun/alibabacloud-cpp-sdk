@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The lineage ID. For more information, see the response returned by the ListLineageRelationships operation.
+    // The lineage ID. You can refer to the ListLineageRelationships operation.
     // 
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;

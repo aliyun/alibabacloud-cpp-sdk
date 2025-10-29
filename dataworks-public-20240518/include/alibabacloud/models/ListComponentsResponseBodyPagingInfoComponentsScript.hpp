@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->path_ != nullptr && this->runtime_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && return this->path_ == nullptr && return this->runtime_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -62,9 +62,9 @@ namespace Models
   protected:
     // ID
     std::shared_ptr<string> id_ = nullptr;
-    // 脚本路径
+    // The script path.
     std::shared_ptr<string> path_ = nullptr;
-    // 脚本的运行时信息
+    // The runtime.
     std::shared_ptr<Models::ListComponentsResponseBodyPagingInfoComponentsScriptRuntime> runtime_ = nullptr;
   };
 

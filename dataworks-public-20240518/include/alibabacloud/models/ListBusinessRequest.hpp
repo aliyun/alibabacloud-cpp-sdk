@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->keyword_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr; };
+    virtual bool empty() const override { return this->keyword_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The keyword, used for fuzzy match of workflow names.
     std::shared_ptr<string> keyword_ = nullptr;
+    // The requested page number, used for pagination.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default: 10. Maximum: 100.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
   };
 

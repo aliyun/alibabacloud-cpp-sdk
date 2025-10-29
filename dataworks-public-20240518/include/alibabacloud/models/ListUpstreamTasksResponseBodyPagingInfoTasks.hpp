@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineId_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->dataSource_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr
-        && this->id_ != nullptr && this->instanceMode_ != nullptr && this->modifyTime_ != nullptr && this->modifyUser_ != nullptr && this->name_ != nullptr
-        && this->owner_ != nullptr && this->priority_ != nullptr && this->projectEnv_ != nullptr && this->projectId_ != nullptr && this->rerunInterval_ != nullptr
-        && this->rerunMode_ != nullptr && this->rerunTimes_ != nullptr && this->runtimeResource_ != nullptr && this->stepType_ != nullptr && this->timeout_ != nullptr
-        && this->trigger_ != nullptr && this->type_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->baselineId_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->dataSource_ == nullptr && return this->description_ == nullptr && return this->envType_ == nullptr
+        && return this->id_ == nullptr && return this->instanceMode_ == nullptr && return this->modifyTime_ == nullptr && return this->modifyUser_ == nullptr && return this->name_ == nullptr
+        && return this->owner_ == nullptr && return this->priority_ == nullptr && return this->projectEnv_ == nullptr && return this->projectId_ == nullptr && return this->rerunInterval_ == nullptr
+        && return this->rerunMode_ == nullptr && return this->rerunTimes_ == nullptr && return this->runtimeResource_ == nullptr && return this->stepType_ == nullptr && return this->timeout_ == nullptr
+        && return this->trigger_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr; };
     // baselineId Field Functions 
     bool hasBaselineId() const { return this->baselineId_ != nullptr;};
     void deleteBaselineId() { this->baselineId_ = nullptr;};

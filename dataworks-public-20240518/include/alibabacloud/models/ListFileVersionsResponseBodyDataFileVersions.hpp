@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeType_ != nullptr
-        && this->comment_ != nullptr && this->commitTime_ != nullptr && this->commitUser_ != nullptr && this->fileContent_ != nullptr && this->fileName_ != nullptr
-        && this->filePropertyContent_ != nullptr && this->fileVersion_ != nullptr && this->isCurrentProd_ != nullptr && this->nodeContent_ != nullptr && this->nodeId_ != nullptr
-        && this->status_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->changeType_ == nullptr
+        && return this->comment_ == nullptr && return this->commitTime_ == nullptr && return this->commitUser_ == nullptr && return this->fileContent_ == nullptr && return this->fileName_ == nullptr
+        && return this->filePropertyContent_ == nullptr && return this->fileVersion_ == nullptr && return this->isCurrentProd_ == nullptr && return this->nodeContent_ == nullptr && return this->nodeId_ == nullptr
+        && return this->status_ == nullptr && return this->useType_ == nullptr; };
     // changeType Field Functions 
     bool hasChangeType() const { return this->changeType_ != nullptr;};
     void deleteChangeType() { this->changeType_ = nullptr;};
@@ -149,18 +149,34 @@ namespace Models
 
 
   protected:
+    // The change type for this file version. Valid values: CREATE, UPDATE, and DELETE.
     std::shared_ptr<string> changeType_ = nullptr;
+    // The description of this file version.
     std::shared_ptr<string> comment_ = nullptr;
+    // The timestamp (in milliseconds) when the file version was created.
     std::shared_ptr<int64_t> commitTime_ = nullptr;
+    // The Alibaba Cloud account ID of the user who created this file version.
     std::shared_ptr<string> commitUser_ = nullptr;
+    // The file code for this version.
     std::shared_ptr<string> fileContent_ = nullptr;
+    // The file name for this file version.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The text information for this file version.
     std::shared_ptr<string> filePropertyContent_ = nullptr;
+    // The file version.
     std::shared_ptr<int32_t> fileVersion_ = nullptr;
+    // Indicates whether this file version is the latest version in the production environment.
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<bool> isCurrentProd_ = nullptr;
+    // The scheduling configuration for this file version.
     std::shared_ptr<string> nodeContent_ = nullptr;
+    // The scheduling task ID associated with this file version.
     std::shared_ptr<int64_t> nodeId_ = nullptr;
+    // The current status of the file version. Valid values: COMMITTING (committing), COMMITTED or CHECK_OK (committed), PACKAGED (ready for deployment), DEPLOYING (deploying), DEPLOYED (deployed), and CANCELLED (deployment canceled).
     std::shared_ptr<string> status_ = nullptr;
+    // The functional module to which the file belongs. Valid values: NORMAL (Data Studio), MANUAL (manual task), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in Data Studio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
     std::shared_ptr<string> useType_ = nullptr;
   };
 

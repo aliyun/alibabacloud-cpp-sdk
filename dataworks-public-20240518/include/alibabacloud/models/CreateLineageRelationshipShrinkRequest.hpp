@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstEntityShrink_ != nullptr
-        && this->srcEntityShrink_ != nullptr && this->taskShrink_ != nullptr; };
+    virtual bool empty() const override { return this->dstEntityShrink_ == nullptr
+        && return this->srcEntityShrink_ == nullptr && return this->taskShrink_ == nullptr; };
     // dstEntityShrink Field Functions 
     bool hasDstEntityShrink() const { return this->dstEntityShrink_ != nullptr;};
     void deleteDstEntityShrink() { this->dstEntityShrink_ = nullptr;};
@@ -57,7 +57,9 @@ namespace Models
 
 
   protected:
+    // The destination entity.
     std::shared_ptr<string> dstEntityShrink_ = nullptr;
+    // The source entity.
     std::shared_ptr<string> srcEntityShrink_ = nullptr;
     // The task information.
     std::shared_ptr<string> taskShrink_ = nullptr;

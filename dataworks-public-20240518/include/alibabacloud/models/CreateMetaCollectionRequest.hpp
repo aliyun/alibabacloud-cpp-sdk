@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->name_ != nullptr && this->parentId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->name_ == nullptr && return this->parentId_ == nullptr && return this->type_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -66,11 +66,20 @@ namespace Models
 
 
   protected:
+    // The collection description.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the collection.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
-    // The ID of the collection of an ancestor node.
+    // The parent collection ID.
     std::shared_ptr<string> parentId_ = nullptr;
+    // The collection name.
+    // 
+    // *   Category
+    // *   Album
+    // *   AlbumCategory: Album subcategory.
+    // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
   };

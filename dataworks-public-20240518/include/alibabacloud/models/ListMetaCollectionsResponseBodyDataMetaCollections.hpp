@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administrators_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->description_ != nullptr && this->id_ != nullptr && this->modifyTime_ != nullptr
-        && this->name_ != nullptr && this->parentId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->administrators_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->description_ == nullptr && return this->id_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->name_ == nullptr && return this->parentId_ == nullptr && return this->type_ == nullptr; };
     // administrators Field Functions 
     bool hasAdministrators() const { return this->administrators_ != nullptr;};
     void deleteAdministrators() { this->administrators_ = nullptr;};
@@ -115,18 +115,27 @@ namespace Models
 
 
   protected:
+    // The list of administrator IDs. Supported only for album types. Administrators must be users within the same tenant. Multiple administrators can be specified.
     std::shared_ptr<vector<string>> administrators_ = nullptr;
-    // The time when the collection was created. The value is a UNIX timestamp. Unit: milliseconds.
+    // The creation time in milliseconds (timestamp).
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // The creator user ID.
     std::shared_ptr<string> createUser_ = nullptr;
+    // The collection description.
     std::shared_ptr<string> description_ = nullptr;
-    // The ID of the collection.
+    // The collection name.
     std::shared_ptr<string> id_ = nullptr;
-    // The time when the collection was modified. The value is a UNIX timestamp. Unit: milliseconds.
+    // The modification time in milliseconds (timestamp).
     std::shared_ptr<int64_t> modifyTime_ = nullptr;
+    // The collection name.
     std::shared_ptr<string> name_ = nullptr;
-    // The ID of the collection of the ancestor node. This parameter can be left empty.
+    // The ID of the parent collection. Can be empty.
     std::shared_ptr<string> parentId_ = nullptr;
+    // The collection type. Valid values:
+    // 
+    // *   Category
+    // *   Album
+    // *   AlbumCategory: Album subcategory
     std::shared_ptr<string> type_ = nullptr;
   };
 

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->components_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->components_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
     // components Field Functions 
     bool hasComponents() const { return this->components_ != nullptr;};
     void deleteComponents() { this->components_ = nullptr;};
@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The UID of the user who created the dataset acceleration component. In Alibaba Cloud, this is the RAM user ID (or the Alibaba Cloud account ID if created by the account itself).
     std::shared_ptr<vector<Models::ListComponentsResponseBodyPagingInfoComponents>> components_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

@@ -175,7 +175,7 @@ namespace DataworksPublic20240518
       Models::CreateBusinessResponse createBusiness(const Models::CreateBusinessRequest &request);
 
       /**
-       * @summary 创建组件
+       * @summary Creates components.
        *
        * @param request CreateComponentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -184,7 +184,7 @@ namespace DataworksPublic20240518
       Models::CreateComponentResponse createComponentWithOptions(const Models::CreateComponentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建组件
+       * @summary Creates components.
        *
        * @param request CreateComponentRequest
        * @return CreateComponentResponse
@@ -1573,7 +1573,9 @@ namespace DataworksPublic20240518
       Models::GetColumnResponse getColumn(const Models::GetColumnRequest &request);
 
       /**
-       * @summary 获取组件信息
+       * @summary Gets component information.
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
        *
        * @param request GetComponentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1582,7 +1584,9 @@ namespace DataworksPublic20240518
       Models::GetComponentResponse getComponentWithOptions(const Models::GetComponentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取组件信息
+       * @summary Gets component information.
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
        *
        * @param request GetComponentRequest
        * @return GetComponentResponse
@@ -2059,7 +2063,10 @@ namespace DataworksPublic20240518
       Models::GetNodeResponse getNode(const Models::GetNodeRequest &request);
 
       /**
-       * @summary 获取数据表的分区详情
+       * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
        *
        * @param request GetPartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2068,7 +2075,10 @@ namespace DataworksPublic20240518
       Models::GetPartitionResponse getPartitionWithOptions(const Models::GetPartitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据表的分区详情
+       * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
        *
        * @param request GetPartitionRequest
        * @return GetPartitionResponse
@@ -2542,7 +2552,9 @@ namespace DataworksPublic20240518
       Models::ListColumnsResponse listColumns(const Models::ListColumnsRequest &request);
 
       /**
-       * @summary 获取组件列表
+       * @summary Retrieves a list of components.
+       *
+       * @description This API operation is available for all DataWorks editions.
        *
        * @param request ListComponentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2563,9 @@ namespace DataworksPublic20240518
       Models::ListComponentsResponse listComponentsWithOptions(const Models::ListComponentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取组件列表
+       * @summary Retrieves a list of components.
+       *
+       * @description This API operation is available for all DataWorks editions.
        *
        * @param request ListComponentsRequest
        * @return ListComponentsResponse
@@ -2983,7 +2997,7 @@ namespace DataworksPublic20240518
       Models::ListDeploymentPackageFilesResponse listDeploymentPackageFiles(const Models::ListDeploymentPackageFilesRequest &request);
 
       /**
-       * @summary 查询发布包列表
+       * @summary Queries a list of deployment packages.
        *
        * @param request ListDeploymentPackagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2992,7 +3006,7 @@ namespace DataworksPublic20240518
       Models::ListDeploymentPackagesResponse listDeploymentPackagesWithOptions(const Models::ListDeploymentPackagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询发布包列表
+       * @summary Queries a list of deployment packages.
        *
        * @param request ListDeploymentPackagesRequest
        * @return ListDeploymentPackagesResponse
@@ -3234,7 +3248,7 @@ namespace DataworksPublic20240518
       Models::ListPartitionsResponse listPartitions(const Models::ListPartitionsRequest &request);
 
       /**
-       * @summary 通过发布流程的ID获取发布内容
+       * @summary Queries the information about deployment objects by deployment process ID.
        *
        * @param request ListPipelineRunItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3243,7 +3257,7 @@ namespace DataworksPublic20240518
       Models::ListPipelineRunItemsResponse listPipelineRunItemsWithOptions(const Models::ListPipelineRunItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过发布流程的ID获取发布内容
+       * @summary Queries the information about deployment objects by deployment process ID.
        *
        * @param request ListPipelineRunItemsRequest
        * @return ListPipelineRunItemsResponse
@@ -3399,7 +3413,7 @@ namespace DataworksPublic20240518
       Models::ListSchemasResponse listSchemas(const Models::ListSchemasRequest &request);
 
       /**
-       * @summary 查询数据表列表
+       * @summary Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
        *
        * @param tmpReq ListTablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3408,7 +3422,7 @@ namespace DataworksPublic20240518
       Models::ListTablesResponse listTablesWithOptions(const Models::ListTablesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据表列表
+       * @summary Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
        *
        * @param request ListTablesRequest
        * @return ListTablesResponse

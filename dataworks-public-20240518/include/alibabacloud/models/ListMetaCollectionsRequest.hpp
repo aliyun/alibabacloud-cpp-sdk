@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->administrator_ != nullptr
-        && this->createUser_ != nullptr && this->description_ != nullptr && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->parentId_ != nullptr && this->sortBy_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->administrator_ == nullptr
+        && return this->createUser_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->parentId_ == nullptr && return this->sortBy_ == nullptr && return this->type_ == nullptr; };
     // administrator Field Functions 
     bool hasAdministrator() const { return this->administrator_ != nullptr;};
     void deleteAdministrator() { this->administrator_ = nullptr;};
@@ -121,21 +121,38 @@ namespace Models
 
 
   protected:
+    // The administrator ID. Valid only for album types. Default: The current user ID.
     std::shared_ptr<string> administrator_ = nullptr;
+    // The creator user ID. Valid only for album types. Default: The current user ID.
     std::shared_ptr<string> createUser_ = nullptr;
+    // The collection description. Supports fuzzy matching.
     std::shared_ptr<string> description_ = nullptr;
+    // The collection name. Supports fuzzy matching.
     std::shared_ptr<string> name_ = nullptr;
+    // The sort order. Valid values:
+    // 
+    // *   Asc (default): Ascending order
+    // *   Desc
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default: 10. Maximum: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The ID of the collection of an ancestor node.
+    // The ID of the parent collection.
     std::shared_ptr<string> parentId_ = nullptr;
+    // The sort field. Valid values:
+    // 
+    // *   Id (default)
+    // *   Name
+    // *   CreateUser: Creator ID
+    // *   CreateTime: Creation time
+    // *   ModifyTime: Modification time
     std::shared_ptr<string> sortBy_ = nullptr;
-    // The type of the collection. Valid values:
+    // The collection type. Valid values:
     // 
     // *   Category
     // *   Album
-    // *   AlbumCategory
+    // *   AlbumCategory: Album subcategory
     // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;

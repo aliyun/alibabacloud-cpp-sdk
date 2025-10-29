@@ -76,11 +76,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseLineId_ != nullptr
-        && this->clientUniqueCode_ != nullptr && this->dataSource_ != nullptr && this->dependencies_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr
-        && this->id_ != nullptr && this->inputs_ != nullptr && this->name_ != nullptr && this->outputs_ != nullptr && this->owner_ != nullptr
-        && this->rerunInterval_ != nullptr && this->rerunMode_ != nullptr && this->rerunTimes_ != nullptr && this->runtimeResource_ != nullptr && this->script_ != nullptr
-        && this->tags_ != nullptr && this->timeout_ != nullptr && this->trigger_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->baseLineId_ == nullptr
+        && return this->clientUniqueCode_ == nullptr && return this->dataSource_ == nullptr && return this->dependencies_ == nullptr && return this->description_ == nullptr && return this->envType_ == nullptr
+        && return this->id_ == nullptr && return this->inputs_ == nullptr && return this->name_ == nullptr && return this->outputs_ == nullptr && return this->owner_ == nullptr
+        && return this->rerunInterval_ == nullptr && return this->rerunMode_ == nullptr && return this->rerunTimes_ == nullptr && return this->runtimeResource_ == nullptr && return this->script_ == nullptr
+        && return this->tags_ == nullptr && return this->timeout_ == nullptr && return this->trigger_ == nullptr && return this->type_ == nullptr; };
     // baseLineId Field Functions 
     bool hasBaseLineId() const { return this->baseLineId_ != nullptr;};
     void deleteBaseLineId() { this->baseLineId_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileId_ != nullptr
-        && this->fileVersion_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->fileId_ == nullptr
+        && return this->fileVersion_ == nullptr && return this->status_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};
@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The file ID.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The file version.
     std::shared_ptr<int64_t> fileVersion_ = nullptr;
+    // *   UNPUBLISHED(0)
+    // *   SUCCESS(1)
+    // *   ERROR(2)
+    // *   CLONED(3)
+    // *   DEPLOY_ERROR(4)
+    // *   CLONING(5)
+    // *   REJECT(6)
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

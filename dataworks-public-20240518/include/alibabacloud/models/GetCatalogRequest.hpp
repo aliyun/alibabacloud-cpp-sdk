@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -38,15 +38,15 @@ namespace Models
 
 
   protected:
-    // Data catalog entity ID. Currently, only DLF and StarRocks types are supported. You can refer to the response of the ListCatalogs operation and [the description of metadata entity concepts.](https://help.aliyun.com/document_detail/2880092.html)
+    // The catalog entity ID. Currently supports dlf and starrocks types. You can refer to the results returned by the ListCatalogs operation and the [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
     // 
     // *   For the DLF type, the format is `dlf-catalog::catalog_id`.
     // *   For the StarRocks type, the format is `starrocks-catalog:(instance_id|encoded_jdbc_url):catalog_name`.
     // 
-    // >  Parameter descriptions:\\
-    // `catalog_id`: The DLF catalog ID.\\
-    // `instance_id`: The instance ID, required for the data source registered in instance mode.\\
-    // `encoded_jdbc_url`: The JDBC connection string that has been URL encoded, required for the data source registered via a connection string.\\
+    // > \\
+    // `catalog_id`: The ID of the DLF catalog.\\
+    // `instance_id`: The instance ID, required if the data source is registered in instance mode.\\
+    // `encoded_jdbc_url`: The URL-encoded JDBC connection string. Required if the data source is registered in connection string mode.\\
     // `catalog_name`: The name of the StarRocks catalog.
     // 
     // This parameter is required.

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkingStatus_ != nullptr
-        && this->createTime_ != nullptr && this->creatorId_ != nullptr && this->errorMessage_ != nullptr && this->executeTime_ != nullptr && this->fromEnvironment_ != nullptr
-        && this->handlerId_ != nullptr && this->name_ != nullptr && this->status_ != nullptr && this->toEnvironment_ != nullptr; };
+    virtual bool empty() const override { return this->checkingStatus_ == nullptr
+        && return this->createTime_ == nullptr && return this->creatorId_ == nullptr && return this->errorMessage_ == nullptr && return this->executeTime_ == nullptr && return this->fromEnvironment_ == nullptr
+        && return this->handlerId_ == nullptr && return this->name_ == nullptr && return this->status_ == nullptr && return this->toEnvironment_ == nullptr; };
     // checkingStatus Field Functions 
     bool hasCheckingStatus() const { return this->checkingStatus_ != nullptr;};
     void deleteCheckingStatus() { this->checkingStatus_ = nullptr;};
@@ -121,15 +121,28 @@ namespace Models
 
 
   protected:
+    // The validation status of nodes in the deployment package. For packages deployed to the development environment (toEnviroment=1), you can only proceed to deploy to production if the package Status is 1 (succeeded) and CheckingStatus is empty (validation complete).
+    // 
+    // *   7: Validation failed
+    // *   8: Validation in progress
     std::shared_ptr<int32_t> checkingStatus_ = nullptr;
+    // The timestamp (in milliseconds) when the deployment package was created.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // The Alibaba Cloud account ID of the user who created the deployment package.
     std::shared_ptr<string> creatorId_ = nullptr;
+    // The detailed error message when the deployment package fails (status is 2).
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The timestamp (in milliseconds) when the deployment started.
     std::shared_ptr<int64_t> executeTime_ = nullptr;
+    // The environment where the deployment is executed. Valid values: 0 (local) and 1 (development).
     std::shared_ptr<int32_t> fromEnvironment_ = nullptr;
+    // The Alibaba Cloud account ID of the user who executed the deployment.
     std::shared_ptr<string> handlerId_ = nullptr;
+    // The deployment package name, displayed on the Deploy Center > Deployment Packages page.
     std::shared_ptr<string> name_ = nullptr;
+    // The current status of the deployment package. Valid values: 0 (ready), 1 (succeeded), and 2 (failed).
     std::shared_ptr<int32_t> status_ = nullptr;
+    // The target environment for the deployment. Valid values: 1 (development) and 2 (production).
     std::shared_ptr<int32_t> toEnvironment_ = nullptr;
   };
 

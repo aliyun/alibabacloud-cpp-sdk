@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lineages_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->lineages_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
     // lineages Field Functions 
     bool hasLineages() const { return this->lineages_ != nullptr;};
     void deleteLineages() { this->lineages_ = nullptr;};
@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The lineage information list.
     std::shared_ptr<vector<Models::ListLineagesResponseBodyPagingInfoLineages>> lineages_ = nullptr;
+    // The requested page number for pagination.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The page size. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Total record count.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

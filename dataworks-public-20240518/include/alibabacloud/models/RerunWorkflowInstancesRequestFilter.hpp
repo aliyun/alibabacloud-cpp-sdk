@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rerunDownstreamEnabled_ != nullptr
-        && this->taskIds_ != nullptr && this->taskInstanceStatuses_ != nullptr && this->taskName_ != nullptr && this->taskTypes_ != nullptr; };
+    virtual bool empty() const override { return this->rerunDownstreamEnabled_ == nullptr
+        && return this->taskIds_ == nullptr && return this->taskInstanceStatuses_ == nullptr && return this->taskName_ == nullptr && return this->taskTypes_ == nullptr; };
     // rerunDownstreamEnabled Field Functions 
     bool hasRerunDownstreamEnabled() const { return this->rerunDownstreamEnabled_ != nullptr;};
     void deleteRerunDownstreamEnabled() { this->rerunDownstreamEnabled_ = nullptr;};

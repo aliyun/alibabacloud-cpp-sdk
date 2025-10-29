@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoStartEnabled_ != nullptr
-        && this->comment_ != nullptr && this->defaultRunProperties_ != nullptr && this->envType_ != nullptr && this->name_ != nullptr && this->periods_ != nullptr
-        && this->projectId_ != nullptr && this->tagCreationPolicy_ != nullptr && this->tags_ != nullptr && this->taskParameters_ != nullptr && this->type_ != nullptr
-        && this->workflowId_ != nullptr && this->workflowParameters_ != nullptr; };
+    virtual bool empty() const override { return this->autoStartEnabled_ == nullptr
+        && return this->comment_ == nullptr && return this->defaultRunProperties_ == nullptr && return this->envType_ == nullptr && return this->name_ == nullptr && return this->periods_ == nullptr
+        && return this->projectId_ == nullptr && return this->tagCreationPolicy_ == nullptr && return this->tags_ == nullptr && return this->taskParameters_ == nullptr && return this->type_ == nullptr
+        && return this->workflowId_ == nullptr && return this->workflowParameters_ == nullptr; };
     // autoStartEnabled Field Functions 
     bool hasAutoStartEnabled() const { return this->autoStartEnabled_ != nullptr;};
     void deleteAutoStartEnabled() { this->autoStartEnabled_ = nullptr;};
@@ -165,7 +165,7 @@ namespace Models
     std::shared_ptr<string> comment_ = nullptr;
     // The runtime configuration.
     std::shared_ptr<CreateWorkflowInstancesRequestDefaultRunProperties> defaultRunProperties_ = nullptr;
-    // The project environment.
+    // The project environment. Valid values:
     // 
     // *   Prod
     // *   Dev
@@ -192,9 +192,10 @@ namespace Models
     // The type of the workflow instance. Valid values:
     // 
     // *   SupplementData: Data backfill. The usage of RootTaskIds and IncludeTaskIds varies based on the backfill mode. See the description of the DefaultRunProperties.Mode parameter.
-    // *   ManualWorkflow: Manual workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
+    // *   ManualWorkflow: Manually triggered workflow. WorkflowId is required for a manual workflow. RootTaskIds is optional. If not specified, the system uses the default root task list of the manual workflow.
     // *   Manual: Manual task. You only need to specify RootTaskIds. This is the list of manual tasks to run.
     // *   SmokeTest: Smoke test. You only need to specify RootTaskIds. This is the list of test tasks to run.
+    // *   TriggerWorkflow: Triggered Workflow You must specify the WorkflowId of the triggered workflow. IncludeTaskIds is optional. If you do not specify IncludeTaskIds, the entire workflow runs.
     // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
@@ -202,7 +203,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
-    // The workflow parameters. This parameter takes effect only when you set the `WorkflowId` parameter to a value other than 1. If your workflow is an auto triggered workflow, configure this parameter in the key=value format. The parameters that you configure in this parameter have a lower priority than task parameters. If your workflow is a manually triggered workflow, configure this parameter in the JSON format. The parameters that you configure in this parameter have a higher priority than task parameters.
+    // The workflow parameters. This parameter takes effect when a specific workflow is specified (`WorkflowId != 1`). For scheduled workflows and triggered workflows, the format is key=value, and these parameters have lower priority than task parameters. For manual workflows, the format is JSON, and these parameters have higher priority than task parameters.
     std::shared_ptr<string> workflowParameters_ = nullptr;
   };
 

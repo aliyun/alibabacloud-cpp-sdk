@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->name_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->parentMetaEntityId_ != nullptr
-        && this->sortBy_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->name_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->parentMetaEntityId_ == nullptr
+        && return this->sortBy_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -94,33 +94,45 @@ namespace Models
 
 
   protected:
+    // The comment. Supports fuzzy match.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name. Supports fuzzy match.
     std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> order_ = nullptr;
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The parent entity ID. For more information, see [description of concepts related to metadata entities.](https://help.aliyun.com/document_detail/2880092.html)
+    // The sort order. Default value: Asc. Valid values:
     // 
-    // The type of the parent entity can be found in the response of the ListCrawlerTypes operation.
+    // *   Asc: ascending.
+    // *   Desc: descending.
+    std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
+    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default: 10. Maximum: 100.
+    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The parent entity ID. For more information, see [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).
+    // 
+    // You can refer to the ListCrawlerTypes operation for the parent entity type.
     // 
     // *   If the parent entity is a catalog, the format of `ParentMetaEntityId` follows the response of the ListCatalogs API.
-    // *   If the parent entity is a metadata crawler, the format of `ParentMetaEntityId` is `${CrawlerType}:${Instance ID or encoded URL}.`
+    // *   If the parent entity is a metadata crawler, the format of `ParentMetaEntityId` is `${CrawlerType}:${Instance ID or encoded URL}`.
     // 
     // ParentMetaEntityId format examples
     // 
-    // `dlf-catalog::catalog_id`
+    // *   `dlf-catalog::catalog_id`
+    // *   `holo:instance_id`
+    // *   `mysql:(instance_id|encoded_jdbc_url)`
     // 
-    // `holo:instance_id`
+    // > 
     // 
-    // `mysql:(instance_id|encoded_jdbc_url)`
-    // 
-    // > \\
-    // `catalog_id`: The DLF catalog ID.\\
-    // `instance_id`: The instance ID, required for the data source registered in instance mode.\\
-    // `encoded_jdbc_url`: The JDBC connection string that has been URL encoded, required for the data source registered via a connection string.
+    // *   `catalog_id`: The ID of the DLF catalog.
+    // *   `instance_id`: The instance ID. Required when the data source is registered in instance mode.
+    // *   `encoded_jdbc_url`: The URL-encoded JDBC connection string. Required when the data source is registered by connection string.
     // 
     // This parameter is required.
     std::shared_ptr<string> parentMetaEntityId_ = nullptr;
+    // The sort field. Default value: CreateTime. Valid values:
+    // 
+    // *   CreateTime
+    // *   ModifyTime
+    // *   Name
     std::shared_ptr<string> sortBy_ = nullptr;
   };
 

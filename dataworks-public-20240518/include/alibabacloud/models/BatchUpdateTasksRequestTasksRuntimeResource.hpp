@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cu_ != nullptr
-        && this->image_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->cu_ == nullptr
+        && return this->image_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // cu Field Functions 
     bool hasCu() const { return this->cu_ != nullptr;};
     void deleteCu() { this->cu_ = nullptr;};
@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The default number of compute units (CUs) configured for task running.
     std::shared_ptr<string> cu_ = nullptr;
-    // The ID of the image configured for task running.
+    // The image ID used in the task runtime configuration.
     std::shared_ptr<string> image_ = nullptr;
-    // The ID of the resource group for scheduling configured for task running.
+    // The identifier of the scheduling resource group used in the task runtime configuration.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
   };
 

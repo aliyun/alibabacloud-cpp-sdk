@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->armResource_ != nullptr
-        && this->className_ != nullptr && this->commandDescription_ != nullptr && this->createTime_ != nullptr && this->dataSource_ != nullptr && this->databaseName_ != nullptr
-        && this->description_ != nullptr && this->embeddedCode_ != nullptr && this->embeddedCodeType_ != nullptr && this->embeddedResourceType_ != nullptr && this->exampleDescription_ != nullptr
-        && this->fileResource_ != nullptr && this->id_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->parameterDescription_ != nullptr && this->projectId_ != nullptr && this->returnValueDescription_ != nullptr && this->runtimeResource_ != nullptr && this->script_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->armResource_ == nullptr
+        && return this->className_ == nullptr && return this->commandDescription_ == nullptr && return this->createTime_ == nullptr && return this->dataSource_ == nullptr && return this->databaseName_ == nullptr
+        && return this->description_ == nullptr && return this->embeddedCode_ == nullptr && return this->embeddedCodeType_ == nullptr && return this->embeddedResourceType_ == nullptr && return this->exampleDescription_ == nullptr
+        && return this->fileResource_ == nullptr && return this->id_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->parameterDescription_ == nullptr && return this->projectId_ == nullptr && return this->returnValueDescription_ == nullptr && return this->runtimeResource_ == nullptr && return this->script_ == nullptr
+        && return this->type_ == nullptr; };
     // armResource Field Functions 
     bool hasArmResource() const { return this->armResource_ != nullptr;};
     void deleteArmResource() { this->armResource_ = nullptr;};

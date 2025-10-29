@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deployedItems_ != nullptr
-        && this->deployment_ != nullptr; };
+    virtual bool empty() const override { return this->deployedItems_ == nullptr
+        && return this->deployment_ == nullptr; };
     // deployedItems Field Functions 
     bool hasDeployedItems() const { return this->deployedItems_ != nullptr;};
     void deleteDeployedItems() { this->deployedItems_ = nullptr;};
@@ -55,7 +55,9 @@ namespace Models
 
 
   protected:
+    // The deployment item details.
     std::shared_ptr<vector<Models::GetDeploymentPackageResponseBodyDataDeployedItems>> deployedItems_ = nullptr;
+    // The deployment package details.
     std::shared_ptr<Models::GetDeploymentPackageResponseBodyDataDeployment> deployment_ = nullptr;
   };
 

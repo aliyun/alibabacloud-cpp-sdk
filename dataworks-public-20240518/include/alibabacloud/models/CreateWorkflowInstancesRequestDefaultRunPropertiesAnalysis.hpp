@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blocked_ != nullptr
-        && this->enabled_ != nullptr; };
+    virtual bool empty() const override { return this->blocked_ == nullptr
+        && return this->enabled_ == nullptr; };
     // blocked Field Functions 
     bool hasBlocked() const { return this->blocked_ != nullptr;};
     void deleteBlocked() { this->blocked_ = nullptr;};
@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to block execution if the analysis fails. Required when Type is set to SupplementData.
+    // Specifies whether to block execution if the analysis fails. Required when Type = SupplementData.
     std::shared_ptr<bool> blocked_ = nullptr;
-    // Specifies whether to enable the analysis feature. Required when Type is set to SupplementData.
+    // Specifies whether to enable the analysis feature. Required when Type = SupplementData.
     std::shared_ptr<bool> enabled_ = nullptr;
   };
 

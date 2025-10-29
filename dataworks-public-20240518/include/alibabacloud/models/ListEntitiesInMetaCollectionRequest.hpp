@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityDescription_ != nullptr
-        && this->entityName_ != nullptr && this->entityType_ != nullptr && this->id_ != nullptr && this->order_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->sortBy_ != nullptr; };
+    virtual bool empty() const override { return this->entityDescription_ == nullptr
+        && return this->entityName_ == nullptr && return this->entityType_ == nullptr && return this->id_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr; };
     // entityDescription Field Functions 
     bool hasEntityDescription() const { return this->entityDescription_ != nullptr;};
     void deleteEntityDescription() { this->entityDescription_ = nullptr;};
@@ -103,16 +103,29 @@ namespace Models
 
 
   protected:
+    // The description specified when the entity was added to the collection. Supports fuzzy matching. Valid only for the album type.
     std::shared_ptr<string> entityDescription_ = nullptr;
+    // The entity name. Supports fuzzy matching.
     std::shared_ptr<string> entityName_ = nullptr;
+    // The entity type.
     std::shared_ptr<string> entityType_ = nullptr;
     // The collection ID.
     // 
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;
+    // The sort order. Valid values:
+    // 
+    // *   Asc (default): ascending order.
+    // *   Desc
     std::shared_ptr<string> order_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page. Default value: 10. Maximum value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The sort field. Valid values:
+    // 
+    // *   Name (default)
+    // *   CreateTime
     std::shared_ptr<string> sortBy_ = nullptr;
   };
 

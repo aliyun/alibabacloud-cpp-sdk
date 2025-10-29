@@ -552,7 +552,7 @@ CreateBusinessResponse Client::createBusiness(const CreateBusinessRequest &reque
 }
 
 /**
- * @summary 创建组件
+ * @summary Creates components.
  *
  * @param request CreateComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ CreateComponentResponse Client::createComponentWithOptions(const CreateComponent
 }
 
 /**
- * @summary 创建组件
+ * @summary Creates components.
  *
  * @param request CreateComponentRequest
  * @return CreateComponentResponse
@@ -4994,7 +4994,9 @@ GetColumnResponse Client::getColumn(const GetColumnRequest &request) {
 }
 
 /**
- * @summary 获取组件信息
+ * @summary Gets component information.
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
  *
  * @param request GetComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5029,7 +5031,9 @@ GetComponentResponse Client::getComponentWithOptions(const GetComponentRequest &
 }
 
 /**
- * @summary 获取组件信息
+ * @summary Gets component information.
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
  *
  * @param request GetComponentRequest
  * @return GetComponentResponse
@@ -6126,7 +6130,10 @@ GetNodeResponse Client::getNode(const GetNodeRequest &request) {
 }
 
 /**
- * @summary 获取数据表的分区详情
+ * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
  *
  * @param request GetPartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6153,7 +6160,10 @@ GetPartitionResponse Client::getPartitionWithOptions(const GetPartitionRequest &
 }
 
 /**
- * @summary 获取数据表的分区详情
+ * @summary Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  This operation supports MaxCompute and HMS (EMR cluster) tables only.
  *
  * @param request GetPartitionRequest
  * @return GetPartitionResponse
@@ -7344,7 +7354,9 @@ ListColumnsResponse Client::listColumns(const ListColumnsRequest &request) {
 }
 
 /**
- * @summary 获取组件列表
+ * @summary Retrieves a list of components.
+ *
+ * @description This API operation is available for all DataWorks editions.
  *
  * @param request ListComponentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7387,7 +7399,9 @@ ListComponentsResponse Client::listComponentsWithOptions(const ListComponentsReq
 }
 
 /**
- * @summary 获取组件列表
+ * @summary Retrieves a list of components.
+ *
+ * @description This API operation is available for all DataWorks editions.
  *
  * @param request ListComponentsRequest
  * @return ListComponentsResponse
@@ -8431,7 +8445,7 @@ ListDeploymentPackageFilesResponse Client::listDeploymentPackageFiles(const List
 }
 
 /**
- * @summary 查询发布包列表
+ * @summary Queries a list of deployment packages.
  *
  * @param request ListDeploymentPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8498,7 +8512,7 @@ ListDeploymentPackagesResponse Client::listDeploymentPackagesWithOptions(const L
 }
 
 /**
- * @summary 查询发布包列表
+ * @summary Queries a list of deployment packages.
  *
  * @param request ListDeploymentPackagesRequest
  * @return ListDeploymentPackagesResponse
@@ -9141,7 +9155,7 @@ ListPartitionsResponse Client::listPartitions(const ListPartitionsRequest &reque
 }
 
 /**
- * @summary 通过发布流程的ID获取发布内容
+ * @summary Queries the information about deployment objects by deployment process ID.
  *
  * @param request ListPipelineRunItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9168,7 +9182,7 @@ ListPipelineRunItemsResponse Client::listPipelineRunItemsWithOptions(const ListP
 }
 
 /**
- * @summary 通过发布流程的ID获取发布内容
+ * @summary Queries the information about deployment objects by deployment process ID.
  *
  * @param request ListPipelineRunItemsRequest
  * @return ListPipelineRunItemsResponse
@@ -9633,7 +9647,7 @@ ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
 }
 
 /**
- * @summary 查询数据表列表
+ * @summary Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
  *
  * @param tmpReq ListTablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9666,7 +9680,7 @@ ListTablesResponse Client::listTablesWithOptions(const ListTablesRequest &tmpReq
 }
 
 /**
- * @summary 查询数据表列表
+ * @summary Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
  *
  * @param request ListTablesRequest
  * @return ListTablesResponse

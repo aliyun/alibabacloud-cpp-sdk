@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSource_ != nullptr
-        && this->description_ != nullptr && this->envType_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->rerunInterval_ != nullptr && this->rerunMode_ != nullptr && this->rerunTimes_ != nullptr && this->runtimeResource_ != nullptr && this->tags_ != nullptr
-        && this->timeout_ != nullptr && this->trigger_ != nullptr; };
+    virtual bool empty() const override { return this->dataSource_ == nullptr
+        && return this->description_ == nullptr && return this->envType_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->rerunInterval_ == nullptr && return this->rerunMode_ == nullptr && return this->rerunTimes_ == nullptr && return this->runtimeResource_ == nullptr && return this->tags_ == nullptr
+        && return this->timeout_ == nullptr && return this->trigger_ == nullptr; };
     // dataSource Field Functions 
     bool hasDataSource() const { return this->dataSource_ != nullptr;};
     void deleteDataSource() { this->dataSource_ = nullptr;};
@@ -162,14 +162,14 @@ namespace Models
 
 
   protected:
-    // The information about the associated data source.
+    // Associated data source information.
     std::shared_ptr<Models::BatchUpdateTasksRequestTasksDataSource> dataSource_ = nullptr;
     // The description.
     std::shared_ptr<string> description_ = nullptr;
-    // The environment of the workspace. Valid values:
+    // The project environment.
     // 
-    // *   Prod: production environment
-    // *   Dev: development environment
+    // *   Prod: Production
+    // *   Dev: Development
     std::shared_ptr<string> envType_ = nullptr;
     // The task ID.
     // 
@@ -179,23 +179,23 @@ namespace Models
     std::shared_ptr<string> name_ = nullptr;
     // The account ID of the task owner.
     std::shared_ptr<string> owner_ = nullptr;
-    // The rerun interval. Unit: seconds.
+    // The retry interval in seconds.
     std::shared_ptr<int32_t> rerunInterval_ = nullptr;
     // The rerun mode. Valid values:
     // 
-    // *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-    // *   FailureAllowed: The task can be rerun only after it fails to run.
-    // *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+    // *   AllDenied: The task cannot be rerun.
+    // *   FailureAllowed: The task can be rerun only after it fails.
+    // *   AllAllowed: The task can always be rerun.
     std::shared_ptr<string> rerunMode_ = nullptr;
-    // The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+    // The number of retry attempts. Takes effect when the task is configured to allow reruns.
     std::shared_ptr<int32_t> rerunTimes_ = nullptr;
-    // The configurations of the runtime environment, such as the resource group information.
+    // Runtime environment configurations, such as resource group information.
     std::shared_ptr<Models::BatchUpdateTasksRequestTasksRuntimeResource> runtimeResource_ = nullptr;
-    // The tags.
+    // The list of task tags.
     std::shared_ptr<vector<Models::BatchUpdateTasksRequestTasksTags>> tags_ = nullptr;
-    // The timeout period of task running. Unit: seconds.
+    // The task execution timeout in seconds. The value should be greater than 3600.
     std::shared_ptr<int32_t> timeout_ = nullptr;
-    // The trigger method.
+    // The task trigger configurations.
     std::shared_ptr<Models::BatchUpdateTasksRequestTasksTrigger> trigger_ = nullptr;
   };
 

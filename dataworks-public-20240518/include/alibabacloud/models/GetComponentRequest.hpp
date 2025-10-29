@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentId_ != nullptr
-        && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->componentId_ == nullptr
+        && return this->projectId_ == nullptr; };
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The component ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> componentId_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must configure either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace to which the operation is applied.
     std::shared_ptr<int64_t> projectId_ = nullptr;
   };
 

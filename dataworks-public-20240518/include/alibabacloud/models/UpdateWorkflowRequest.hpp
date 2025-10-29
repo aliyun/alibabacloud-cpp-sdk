@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientUniqueCode_ != nullptr
-        && this->dependencies_ != nullptr && this->description_ != nullptr && this->envType_ != nullptr && this->id_ != nullptr && this->instanceMode_ != nullptr
-        && this->name_ != nullptr && this->outputs_ != nullptr && this->owner_ != nullptr && this->parameters_ != nullptr && this->tags_ != nullptr
-        && this->tasks_ != nullptr && this->trigger_ != nullptr; };
+    virtual bool empty() const override { return this->clientUniqueCode_ == nullptr
+        && return this->dependencies_ == nullptr && return this->description_ == nullptr && return this->envType_ == nullptr && return this->id_ == nullptr && return this->instanceMode_ == nullptr
+        && return this->name_ == nullptr && return this->outputs_ == nullptr && return this->owner_ == nullptr && return this->parameters_ == nullptr && return this->tags_ == nullptr
+        && return this->tasks_ == nullptr && return this->trigger_ == nullptr; };
     // clientUniqueCode Field Functions 
     bool hasClientUniqueCode() const { return this->clientUniqueCode_ != nullptr;};
     void deleteClientUniqueCode() { this->clientUniqueCode_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alert_ != nullptr
-        && this->analysis_ != nullptr && this->excludeProjectIds_ != nullptr && this->excludeTaskIds_ != nullptr && this->includeProjectIds_ != nullptr && this->includeTaskIds_ != nullptr
-        && this->mode_ != nullptr && this->order_ != nullptr && this->parallelism_ != nullptr && this->priority_ != nullptr && this->priorityWeightStrategy_ != nullptr
-        && this->rootTaskIds_ != nullptr && this->runPolicy_ != nullptr && this->runtimeResource_ != nullptr; };
+    virtual bool empty() const override { return this->alert_ == nullptr
+        && return this->analysis_ == nullptr && return this->excludeProjectIds_ == nullptr && return this->excludeTaskIds_ == nullptr && return this->includeProjectIds_ == nullptr && return this->includeTaskIds_ == nullptr
+        && return this->mode_ == nullptr && return this->order_ == nullptr && return this->parallelism_ == nullptr && return this->priority_ == nullptr && return this->priorityWeightStrategy_ == nullptr
+        && return this->rootTaskIds_ == nullptr && return this->runPolicy_ == nullptr && return this->runtimeResource_ == nullptr; };
     // alert Field Functions 
     bool hasAlert() const { return this->alert_ != nullptr;};
     void deleteAlert() { this->alert_ = nullptr;};
@@ -180,7 +180,7 @@ namespace Models
   protected:
     // The alert settings.
     std::shared_ptr<Models::CreateWorkflowInstancesRequestDefaultRunPropertiesAlert> alert_ = nullptr;
-    // The analysis configuration. Required when Type is set to SupplementData.
+    // The analysis configuration. Required when Type = SupplementData.
     std::shared_ptr<Models::CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis> analysis_ = nullptr;
     // The IDs of the projects not to run.
     std::shared_ptr<vector<int64_t>> excludeProjectIds_ = nullptr;
@@ -220,7 +220,7 @@ namespace Models
     std::shared_ptr<vector<int64_t>> rootTaskIds_ = nullptr;
     // The run policy. If the parameter is left empty, the task configuration is used.
     std::shared_ptr<Models::CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy> runPolicy_ = nullptr;
-    // Custom scheduling resource group ID. If left empty, the task configuration is used.
+    // The custom scheduling resource group ID. If left empty, the task configuration is used.
     std::shared_ptr<string> runtimeResource_ = nullptr;
   };
 

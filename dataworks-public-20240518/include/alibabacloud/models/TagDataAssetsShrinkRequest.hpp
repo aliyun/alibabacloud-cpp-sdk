@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoTraceEnabled_ != nullptr
-        && this->dataAssetIdsShrink_ != nullptr && this->dataAssetType_ != nullptr && this->envType_ != nullptr && this->projectId_ != nullptr && this->tagsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->autoTraceEnabled_ == nullptr
+        && return this->dataAssetIdsShrink_ == nullptr && return this->dataAssetType_ == nullptr && return this->envType_ == nullptr && return this->projectId_ == nullptr && return this->tagsShrink_ == nullptr; };
     // autoTraceEnabled Field Functions 
     bool hasAutoTraceEnabled() const { return this->autoTraceEnabled_ != nullptr;};
     void deleteAutoTraceEnabled() { this->autoTraceEnabled_ = nullptr;};

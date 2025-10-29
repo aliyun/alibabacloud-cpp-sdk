@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->id_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->id_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr
+        && return this->type_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -94,14 +94,19 @@ namespace Models
 
 
   protected:
+    // The entity comment.
     std::shared_ptr<string> comment_ = nullptr;
+    // The creation time in milliseconds.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // The description specified when the entity was added to the collection. Valid only for albums.
     std::shared_ptr<string> description_ = nullptr;
-    // The entity ID. Entities can only be tables. This parameter is left empty if the entity is deleted.
+    // The ID of the entity. Currently, only the Table type is supported. If the entity is deleted, this field is empty.
     std::shared_ptr<string> id_ = nullptr;
+    // The last modified time in milliseconds.
     std::shared_ptr<int64_t> modifyTime_ = nullptr;
+    // The entity name.
     std::shared_ptr<string> name_ = nullptr;
-    // The type of the entity.
+    // The entity type.
     std::shared_ptr<string> type_ = nullptr;
   };
 

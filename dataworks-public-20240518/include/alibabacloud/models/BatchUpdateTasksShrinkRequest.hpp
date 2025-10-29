@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->tasksShrink_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->tasksShrink_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The remarks.
     std::shared_ptr<string> comment_ = nullptr;
-    // The tasks.
+    // The list of tasks.
     std::shared_ptr<string> tasksShrink_ = nullptr;
   };
 

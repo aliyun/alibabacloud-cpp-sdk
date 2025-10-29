@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataQualityRules_ != nullptr
-        && this->dataSourceId_ != nullptr && this->description_ != nullptr && this->hooks_ != nullptr && this->name_ != nullptr && this->notifications_ != nullptr
-        && this->projectId_ != nullptr && this->runtimeConf_ != nullptr && this->target_ != nullptr && this->trigger_ != nullptr; };
+    virtual bool empty() const override { return this->dataQualityRules_ == nullptr
+        && return this->dataSourceId_ == nullptr && return this->description_ == nullptr && return this->hooks_ == nullptr && return this->name_ == nullptr && return this->notifications_ == nullptr
+        && return this->projectId_ == nullptr && return this->runtimeConf_ == nullptr && return this->target_ == nullptr && return this->trigger_ == nullptr; };
     // dataQualityRules Field Functions 
     bool hasDataQualityRules() const { return this->dataQualityRules_ != nullptr;};
     void deleteDataQualityRules() { this->dataQualityRules_ = nullptr;};

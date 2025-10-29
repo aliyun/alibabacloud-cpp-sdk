@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunResourceGroupId_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunResourceGroupId_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->remark_ == nullptr; };
     // aliyunResourceGroupId Field Functions 
     bool hasAliyunResourceGroupId() const { return this->aliyunResourceGroupId_ != nullptr;};
     void deleteAliyunResourceGroupId() { this->aliyunResourceGroupId_ = nullptr;};

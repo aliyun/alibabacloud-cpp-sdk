@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedSettings_ != nullptr
-        && this->autoParsing_ != nullptr && this->bizId_ != nullptr && this->businessId_ != nullptr && this->commitStatus_ != nullptr && this->connectionName_ != nullptr
-        && this->content_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->currentVersion_ != nullptr && this->deletedStatus_ != nullptr
-        && this->fileDescription_ != nullptr && this->fileFolderId_ != nullptr && this->fileId_ != nullptr && this->fileName_ != nullptr && this->fileType_ != nullptr
-        && this->isMaxCompute_ != nullptr && this->lastEditTime_ != nullptr && this->lastEditUser_ != nullptr && this->nodeId_ != nullptr && this->owner_ != nullptr
-        && this->parentId_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->advancedSettings_ == nullptr
+        && return this->autoParsing_ == nullptr && return this->bizId_ == nullptr && return this->businessId_ == nullptr && return this->commitStatus_ == nullptr && return this->connectionName_ == nullptr
+        && return this->content_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->currentVersion_ == nullptr && return this->deletedStatus_ == nullptr
+        && return this->fileDescription_ == nullptr && return this->fileFolderId_ == nullptr && return this->fileId_ == nullptr && return this->fileName_ == nullptr && return this->fileType_ == nullptr
+        && return this->isMaxCompute_ == nullptr && return this->lastEditTime_ == nullptr && return this->lastEditUser_ == nullptr && return this->nodeId_ == nullptr && return this->owner_ == nullptr
+        && return this->parentId_ == nullptr && return this->useType_ == nullptr; };
     // advancedSettings Field Functions 
     bool hasAdvancedSettings() const { return this->advancedSettings_ != nullptr;};
     void deleteAdvancedSettings() { this->advancedSettings_ = nullptr;};

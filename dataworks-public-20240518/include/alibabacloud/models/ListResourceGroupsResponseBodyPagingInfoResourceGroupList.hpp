@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliyunResourceGroupId_ != nullptr
-        && this->aliyunResourceTags_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->defaultVpcId_ != nullptr && this->defaultVswicthId_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->orderInstanceId_ != nullptr && this->paymentType_ != nullptr && this->remark_ != nullptr
-        && this->resourceGroupType_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->aliyunResourceGroupId_ == nullptr
+        && return this->aliyunResourceTags_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->defaultVpcId_ == nullptr && return this->defaultVswicthId_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->orderInstanceId_ == nullptr && return this->paymentType_ == nullptr && return this->remark_ == nullptr
+        && return this->resourceGroupType_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr; };
     // aliyunResourceGroupId Field Functions 
     bool hasAliyunResourceGroupId() const { return this->aliyunResourceGroupId_ != nullptr;};
     void deleteAliyunResourceGroupId() { this->aliyunResourceGroupId_ = nullptr;};

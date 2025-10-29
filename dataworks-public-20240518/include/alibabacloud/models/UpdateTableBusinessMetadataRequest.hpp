@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->readme_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && return this->readme_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -48,10 +48,11 @@ namespace Models
 
 
   protected:
-    // The data table ID. You can call the ListTables operation to query the ID.
+    // The table ID. You can refer to the format of the table ID returned by the ListTables operation.
     // 
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;
+    // The usage notes. The rich text format is supported.
     std::shared_ptr<string> readme_ = nullptr;
   };
 

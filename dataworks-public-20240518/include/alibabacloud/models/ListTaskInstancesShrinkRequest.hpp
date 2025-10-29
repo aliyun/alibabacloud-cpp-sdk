@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizdate_ != nullptr
-        && this->id_ != nullptr && this->idsShrink_ != nullptr && this->owner_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->projectEnv_ != nullptr && this->projectId_ != nullptr && this->runtimeResource_ != nullptr && this->sortBy_ != nullptr && this->status_ != nullptr
-        && this->taskId_ != nullptr && this->taskIdsShrink_ != nullptr && this->taskName_ != nullptr && this->taskType_ != nullptr && this->triggerRecurrence_ != nullptr
-        && this->triggerType_ != nullptr && this->workflowId_ != nullptr && this->workflowInstanceId_ != nullptr && this->workflowInstanceType_ != nullptr; };
+    virtual bool empty() const override { return this->bizdate_ == nullptr
+        && return this->id_ == nullptr && return this->idsShrink_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->projectEnv_ == nullptr && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskIdsShrink_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->triggerRecurrence_ == nullptr
+        && return this->triggerType_ == nullptr && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowInstanceType_ == nullptr; };
     // bizdate Field Functions 
     bool hasBizdate() const { return this->bizdate_ != nullptr;};
     void deleteBizdate() { this->bizdate_ = nullptr;};

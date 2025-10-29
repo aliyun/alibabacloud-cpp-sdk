@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentId_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->projectId_ != nullptr && this->regionId_ != nullptr && this->spec_ != nullptr; };
+    virtual bool empty() const override { return this->componentId_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->projectId_ == nullptr && return this->regionId_ == nullptr && return this->spec_ == nullptr; };
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
@@ -112,16 +112,27 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset acceleration component. For information on how to obtain the component ID, see [ListComponents](https://help.aliyun.com/document_detail/2979566.html).
     std::shared_ptr<string> componentId_ = nullptr;
+    // The creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // The modification time (millisecond-level timestamp).
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     std::shared_ptr<string> modifyTime_ = nullptr;
+    // Parameter
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the task owner.
     std::shared_ptr<string> owner_ = nullptr;
+    // The DataWorks workspace ID.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The region ID, such as ap-southeast-1. The region ID is automatically parsed from your endpoint.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
     std::shared_ptr<string> spec_ = nullptr;
   };
 

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataQualityRulesShrink_ != nullptr
-        && this->dataSourceId_ != nullptr && this->description_ != nullptr && this->hooksShrink_ != nullptr && this->name_ != nullptr && this->notificationsShrink_ != nullptr
-        && this->projectId_ != nullptr && this->runtimeConf_ != nullptr && this->targetShrink_ != nullptr && this->triggerShrink_ != nullptr; };
+    virtual bool empty() const override { return this->dataQualityRulesShrink_ == nullptr
+        && return this->dataSourceId_ == nullptr && return this->description_ == nullptr && return this->hooksShrink_ == nullptr && return this->name_ == nullptr && return this->notificationsShrink_ == nullptr
+        && return this->projectId_ == nullptr && return this->runtimeConf_ == nullptr && return this->targetShrink_ == nullptr && return this->triggerShrink_ == nullptr; };
     // dataQualityRulesShrink Field Functions 
     bool hasDataQualityRulesShrink() const { return this->dataQualityRulesShrink_ != nullptr;};
     void deleteDataQualityRulesShrink() { this->dataQualityRulesShrink_ = nullptr;};

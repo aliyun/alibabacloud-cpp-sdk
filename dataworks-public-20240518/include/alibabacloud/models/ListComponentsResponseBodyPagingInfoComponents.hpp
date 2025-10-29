@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentId_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->inputs_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr
-        && this->outputs_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr && this->script_ != nullptr; };
+    virtual bool empty() const override { return this->componentId_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->inputs_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr
+        && return this->outputs_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->script_ == nullptr; };
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
@@ -131,23 +131,29 @@ namespace Models
 
 
   protected:
+    // The component ID. This parameter can be used in requests to query, modify, or delete director components.
     std::shared_ptr<string> componentId_ = nullptr;
+    // The creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     std::shared_ptr<string> createTime_ = nullptr;
-    // 对组件的描述
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
-    // 组件的输入参数列表
+    // The input parameters.
     std::shared_ptr<vector<Models::ListComponentsResponseBodyPagingInfoComponentsInputs>> inputs_ = nullptr;
+    // The timestamp when the publishing process was modified.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     std::shared_ptr<string> modifyTime_ = nullptr;
-    // 代表资源名称的资源属性字段
+    // The resource name.
     std::shared_ptr<string> name_ = nullptr;
-    // 组件的输出参数列表
+    // The output parameters.
     std::shared_ptr<vector<Models::ListComponentsResponseBodyPagingInfoComponentsOutputs>> outputs_ = nullptr;
-    // 组件责任人
+    // The owner.
     std::shared_ptr<string> owner_ = nullptr;
+    // The DataWorks workspace ID. To obtain the workspace ID, log on to the DataWorks console and navigate to the workspace configuration page. You must specify either this parameter or ProjectIdentifier to identify the target DataWorks workspace for this API call.
     std::shared_ptr<int64_t> projectId_ = nullptr;
-    // 工作流的脚本信息
+    // The script information.
     std::shared_ptr<Models::ListComponentsResponseBodyPagingInfoComponentsScript> script_ = nullptr;
   };
 

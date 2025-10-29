@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->fileId_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->skipAllDeployFileExtensions_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->fileId_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->skipAllDeployFileExtensions_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -75,11 +75,20 @@ namespace Models
 
 
   protected:
+    // The description of the submission.
     std::shared_ptr<string> comment_ = nullptr;
+    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // Whether to skip the pre-deployment check after the file is submitted:
+    // 
+    // *   false: Do not skip. After the file is submitted, the system automatically triggers the pre-deployment check. The file becomes available for deployment only after the check is passed.
+    // *   true: Skip. After the file is submitted, the system does not trigger the pre-deployment check. The file can proceed directly to deployment.
     std::shared_ptr<bool> skipAllDeployFileExtensions_ = nullptr;
   };
 

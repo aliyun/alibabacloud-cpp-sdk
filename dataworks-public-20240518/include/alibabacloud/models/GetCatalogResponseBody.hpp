@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalog_ != nullptr
-        && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->catalog_ == nullptr
+        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // catalog Field Functions 
     bool hasCatalog() const { return this->catalog_ != nullptr;};
     void deleteCatalog() { this->catalog_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Catalog information.
     std::shared_ptr<Catalog> catalog_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

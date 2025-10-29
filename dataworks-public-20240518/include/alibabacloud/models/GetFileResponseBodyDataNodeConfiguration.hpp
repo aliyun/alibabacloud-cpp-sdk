@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyScheduleImmediately_ != nullptr
-        && this->autoRerunIntervalMillis_ != nullptr && this->autoRerunTimes_ != nullptr && this->cronExpress_ != nullptr && this->cycleType_ != nullptr && this->dependentNodeIdList_ != nullptr
-        && this->dependentType_ != nullptr && this->endEffectDate_ != nullptr && this->ignoreParentSkipRunningProperty_ != nullptr && this->imageId_ != nullptr && this->inputList_ != nullptr
-        && this->inputParameters_ != nullptr && this->outputList_ != nullptr && this->outputParameters_ != nullptr && this->paraValue_ != nullptr && this->rerunMode_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->schedulerType_ != nullptr && this->startEffectDate_ != nullptr && this->startImmediately_ != nullptr && this->stop_ != nullptr
-        && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->applyScheduleImmediately_ == nullptr
+        && return this->autoRerunIntervalMillis_ == nullptr && return this->autoRerunTimes_ == nullptr && return this->cronExpress_ == nullptr && return this->cycleType_ == nullptr && return this->dependentNodeIdList_ == nullptr
+        && return this->dependentType_ == nullptr && return this->endEffectDate_ == nullptr && return this->ignoreParentSkipRunningProperty_ == nullptr && return this->imageId_ == nullptr && return this->inputList_ == nullptr
+        && return this->inputParameters_ == nullptr && return this->outputList_ == nullptr && return this->outputParameters_ == nullptr && return this->paraValue_ == nullptr && return this->rerunMode_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->schedulerType_ == nullptr && return this->startEffectDate_ == nullptr && return this->startImmediately_ == nullptr && return this->stop_ == nullptr
+        && return this->timeout_ == nullptr; };
     // applyScheduleImmediately Field Functions 
     bool hasApplyScheduleImmediately() const { return this->applyScheduleImmediately_ != nullptr;};
     void deleteApplyScheduleImmediately() { this->applyScheduleImmediately_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentId_ != nullptr
-        && this->projectId_ != nullptr && this->spec_ != nullptr; };
+    virtual bool empty() const override { return this->componentId_ == nullptr
+        && return this->projectId_ == nullptr && return this->spec_ == nullptr; };
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
@@ -57,6 +57,8 @@ namespace Models
 
 
   protected:
+    // The component ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> componentId_ = nullptr;
     // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.

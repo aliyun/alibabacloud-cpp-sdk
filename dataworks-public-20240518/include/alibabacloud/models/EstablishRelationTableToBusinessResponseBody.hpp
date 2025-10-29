@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The error code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The unique ID of this request. You can use this ID to troubleshoot issues if errors occur.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<bool> success_ = nullptr;
   };
 

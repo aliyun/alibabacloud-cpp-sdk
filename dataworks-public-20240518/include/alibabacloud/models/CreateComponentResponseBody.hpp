@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->componentId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->componentId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // componentId Field Functions 
     bool hasComponentId() const { return this->componentId_ != nullptr;};
     void deleteComponentId() { this->componentId_ = nullptr;};
@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset acceleration component. To obtain the component ID, see [ListComponents](https://help.aliyun.com/document_detail/2979566.html).
     std::shared_ptr<string> componentId_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

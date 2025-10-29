@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certificateFile_ != nullptr
-        && this->description_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->certificateFile_ == nullptr
+        && return this->description_ == nullptr && return this->name_ == nullptr && return this->projectId_ == nullptr; };
     // certificateFile Field Functions 
     bool hasCertificateFile() const { return this->certificateFile_ != nullptr;};
     void deleteCertificateFile() { this->certificateFile_ = nullptr;};
@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The certificate file to upload. Upload method: Upload the file by creating an InputStream.
+    // 
     // This parameter is required.
     std::shared_ptr<string> certificateFile_ = nullptr;
+    // The description of the task.
     std::shared_ptr<string> description_ = nullptr;
+    // The certificate file name. In a project workspace, certificate file names must be unique.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the workspace to which the certificate file belongs.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> projectId_ = nullptr;
   };

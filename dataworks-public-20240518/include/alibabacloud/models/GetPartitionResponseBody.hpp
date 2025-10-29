@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->partition_ != nullptr
-        && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->partition_ == nullptr
+        && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // partition Field Functions 
     bool hasPartition() const { return this->partition_ != nullptr;};
     void deletePartition() { this->partition_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Partition details.
     std::shared_ptr<Partition> partition_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

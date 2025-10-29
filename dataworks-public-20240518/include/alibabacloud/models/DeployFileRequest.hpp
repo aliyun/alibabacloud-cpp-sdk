@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->fileId_ != nullptr && this->nodeId_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->fileId_ == nullptr && return this->nodeId_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The description of the deployment.
     std::shared_ptr<string> comment_ = nullptr;
+    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID. You need to configure either this parameter or the NodeId parameter.
     std::shared_ptr<int64_t> fileId_ = nullptr;
+    // The task ID of the file to be deployed in the scheduling system. You need to configure either this parameter or the FileId parameter.
     std::shared_ptr<int64_t> nodeId_ = nullptr;
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
   };
 

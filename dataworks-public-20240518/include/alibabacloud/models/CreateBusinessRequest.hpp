@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessName_ != nullptr
-        && this->description_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr && this->projectIdentifier_ != nullptr && this->useType_ != nullptr; };
+    virtual bool empty() const override { return this->businessName_ == nullptr
+        && return this->description_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->projectIdentifier_ == nullptr && return this->useType_ == nullptr; };
     // businessName Field Functions 
     bool hasBusinessName() const { return this->businessName_ != nullptr;};
     void deleteBusinessName() { this->businessName_ = nullptr;};
@@ -84,12 +84,22 @@ namespace Models
 
 
   protected:
+    // The name of the workflow. Workflow names must be unique within the same workspace.
+    // 
     // This parameter is required.
     std::shared_ptr<string> businessName_ = nullptr;
+    // The description of the workflow.
     std::shared_ptr<string> description_ = nullptr;
+    // The Alibaba Cloud account ID of the person responsible for the workflow. You can view the account ID by hovering over the user avatar in the top-right corner of the [DataWorks console](https://workbench.data.aliyun.com/console). If this parameter is not specified, the account ID of the API caller is used by default.
     std::shared_ptr<string> owner_ = nullptr;
+    // The ID of the DataWorks workspace. You can view the workspace ID on the workspace management page in the [DataWorks console](https://workbench.data.aliyun.com/console).
     std::shared_ptr<int64_t> projectId_ = nullptr;
+    // The unique identifier of the DataWorks workspace, This is the identifier shown in the workspace switch at the top of the Data Studio page. Either this parameter or ProjectId must be specified to determine which DataWorks project this API call operates on.
     std::shared_ptr<string> projectIdentifier_ = nullptr;
+    // The module to which the workflow belongs. Valid values:
+    // 
+    // *   NORMAL: Data Studio
+    // *   MANUAL_BIZ: Manually triggered workflow
     std::shared_ptr<string> useType_ = nullptr;
   };
 

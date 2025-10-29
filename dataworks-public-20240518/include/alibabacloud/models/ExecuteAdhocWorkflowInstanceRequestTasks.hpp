@@ -56,9 +56,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientUniqueCode_ != nullptr
-        && this->dataSource_ != nullptr && this->dependencies_ != nullptr && this->inputs_ != nullptr && this->name_ != nullptr && this->outputs_ != nullptr
-        && this->owner_ != nullptr && this->runtimeResource_ != nullptr && this->script_ != nullptr && this->timeout_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->clientUniqueCode_ == nullptr
+        && return this->dataSource_ == nullptr && return this->dependencies_ == nullptr && return this->inputs_ == nullptr && return this->name_ == nullptr && return this->outputs_ == nullptr
+        && return this->owner_ == nullptr && return this->runtimeResource_ == nullptr && return this->script_ == nullptr && return this->timeout_ == nullptr && return this->type_ == nullptr; };
     // clientUniqueCode Field Functions 
     bool hasClientUniqueCode() const { return this->clientUniqueCode_ != nullptr;};
     void deleteClientUniqueCode() { this->clientUniqueCode_ = nullptr;};

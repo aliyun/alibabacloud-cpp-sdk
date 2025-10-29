@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->fileDescription_ != nullptr && this->fileFolderPath_ != nullptr && this->fileName_ != nullptr && this->fileType_ != nullptr && this->originResourceName_ != nullptr
-        && this->owner_ != nullptr && this->projectId_ != nullptr && this->registerToCalcEngine_ != nullptr && this->resourceFileObject_ != nullptr && this->storageURL_ != nullptr
-        && this->uploadMode_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->fileDescription_ == nullptr && return this->fileFolderPath_ == nullptr && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->originResourceName_ == nullptr
+        && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->registerToCalcEngine_ == nullptr && return this->resourceFileObject_ == nullptr && return this->storageURL_ == nullptr
+        && return this->uploadMode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
