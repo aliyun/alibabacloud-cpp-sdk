@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hostAuthorityScore_ != nullptr
-        && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr
-        && this->markdownText_ != nullptr && this->publishedTime_ != nullptr && this->rerankScore_ != nullptr && this->richMainBody_ != nullptr && this->snippet_ != nullptr
-        && this->summary_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->hostAuthorityScore_ == nullptr
+        && return this->hostLogo_ == nullptr && return this->hostname_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr && return this->mainText_ == nullptr
+        && return this->markdownText_ == nullptr && return this->publishedTime_ == nullptr && return this->rerankScore_ == nullptr && return this->richMainBody_ == nullptr && return this->snippet_ == nullptr
+        && return this->summary_ == nullptr && return this->title_ == nullptr; };
     // hostAuthorityScore Field Functions 
     bool hasHostAuthorityScore() const { return this->hostAuthorityScore_ != nullptr;};
     void deleteHostAuthorityScore() { this->hostAuthorityScore_ = nullptr;};

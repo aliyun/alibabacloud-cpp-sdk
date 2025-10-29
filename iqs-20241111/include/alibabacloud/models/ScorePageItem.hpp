@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardType_ != nullptr
-        && this->displayLink_ != nullptr && this->hostAuthorityScore_ != nullptr && this->hostLogo_ != nullptr && this->hostname_ != nullptr && this->htmlSnippet_ != nullptr
-        && this->htmlTitle_ != nullptr && this->images_ != nullptr && this->link_ != nullptr && this->mainText_ != nullptr && this->markdownText_ != nullptr
-        && this->mime_ != nullptr && this->pageMap_ != nullptr && this->publishTime_ != nullptr && this->richMainBody_ != nullptr && this->score_ != nullptr
-        && this->siteLabel_ != nullptr && this->snippet_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->cardType_ == nullptr
+        && return this->displayLink_ == nullptr && return this->hostAuthorityScore_ == nullptr && return this->hostLogo_ == nullptr && return this->hostname_ == nullptr && return this->htmlSnippet_ == nullptr
+        && return this->htmlTitle_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr && return this->mainText_ == nullptr && return this->markdownText_ == nullptr
+        && return this->mime_ == nullptr && return this->pageMap_ == nullptr && return this->publishTime_ == nullptr && return this->richMainBody_ == nullptr && return this->score_ == nullptr
+        && return this->siteLabel_ == nullptr && return this->snippet_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr; };
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};

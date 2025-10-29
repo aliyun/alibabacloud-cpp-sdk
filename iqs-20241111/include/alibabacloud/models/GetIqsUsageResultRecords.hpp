@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->api_ != nullptr
-        && this->billingQps_ != nullptr && this->date_ != nullptr && this->engineType_ != nullptr && this->failedCalls_ != nullptr && this->ladderType_ != nullptr
-        && this->mainAccountId_ != nullptr && this->subAccountId_ != nullptr && this->successCalls_ != nullptr && this->totalCalls_ != nullptr && this->valueAddedAdvanced_ != nullptr
-        && this->valueAddedSummary_ != nullptr; };
+    virtual bool empty() const override { return this->api_ == nullptr
+        && return this->billingQps_ == nullptr && return this->date_ == nullptr && return this->engineType_ == nullptr && return this->failedCalls_ == nullptr && return this->ladderType_ == nullptr
+        && return this->mainAccountId_ == nullptr && return this->subAccountId_ == nullptr && return this->successCalls_ == nullptr && return this->totalCalls_ == nullptr && return this->valueAddedAdvanced_ == nullptr
+        && return this->valueAddedSummary_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};

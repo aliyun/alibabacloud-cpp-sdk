@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(html, html_);
       DARABONBA_PTR_TO_JSON(markdown, markdown_);
       DARABONBA_PTR_TO_JSON(rawHtml, rawHtml_);
+      DARABONBA_PTR_TO_JSON(screenshot, screenshot_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(text, text_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(html, html_);
       DARABONBA_PTR_FROM_JSON(markdown, markdown_);
       DARABONBA_PTR_FROM_JSON(rawHtml, rawHtml_);
+      DARABONBA_PTR_FROM_JSON(screenshot, screenshot_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(text, text_);
     };
@@ -39,8 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorMessage_ != nullptr
-        && this->html_ != nullptr && this->markdown_ != nullptr && this->rawHtml_ != nullptr && this->statusCode_ != nullptr && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->errorMessage_ == nullptr
+        && return this->html_ == nullptr && return this->markdown_ == nullptr && return this->rawHtml_ == nullptr && return this->screenshot_ == nullptr && return this->statusCode_ == nullptr
+        && return this->text_ == nullptr; };
     // errorMessage Field Functions 
     bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
     void deleteErrorMessage() { this->errorMessage_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline ReadPageItem& setRawHtml(string rawHtml) { DARABONBA_PTR_SET_VALUE(rawHtml_, rawHtml) };
 
 
+    // screenshot Field Functions 
+    bool hasScreenshot() const { return this->screenshot_ != nullptr;};
+    void deleteScreenshot() { this->screenshot_ = nullptr;};
+    inline string screenshot() const { DARABONBA_PTR_GET_DEFAULT(screenshot_, "") };
+    inline ReadPageItem& setScreenshot(string screenshot) { DARABONBA_PTR_SET_VALUE(screenshot_, screenshot) };
+
+
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
@@ -88,6 +98,7 @@ namespace Models
     std::shared_ptr<string> html_ = nullptr;
     std::shared_ptr<string> markdown_ = nullptr;
     std::shared_ptr<string> rawHtml_ = nullptr;
+    std::shared_ptr<string> screenshot_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
     std::shared_ptr<string> text_ = nullptr;
   };

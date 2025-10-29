@@ -218,14 +218,24 @@ GenericAdvancedSearchResponse Client::genericAdvancedSearch(const GenericAdvance
 /**
  * @summary 通用搜索
  *
- * @param request GenericSearchRequest
+ * @param tmpReq GenericSearchRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenericSearchResponse
  */
-GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GenericSearchResponse Client::genericSearchWithOptions(const GenericSearchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenericSearchShrinkRequest request = GenericSearchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAdvancedParams()) {
+    request.setAdvancedParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.advancedParams(), "advancedParams", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAdvancedParamsShrink()) {
+    query["advancedParams"] = request.advancedParamsShrink();
+  }
+
   if (!!request.hasEnableRerank()) {
     query["enableRerank"] = request.enableRerank();
   }
@@ -440,6 +450,46 @@ ReadPageBasicResponse Client::readPageBasic(const ReadPageBasicRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return readPageBasicWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 动态页面解析
+ *
+ * @param request ReadPageScrapeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReadPageScrapeResponse
+ */
+ReadPageScrapeResponse Client::readPageScrapeWithOptions(const ReadPageScrapeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "ReadPageScrape"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/readpage/scrape")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReadPageScrapeResponse>();
+}
+
+/**
+ * @summary 动态页面解析
+ *
+ * @param request ReadPageScrapeRequest
+ * @return ReadPageScrapeResponse
+ */
+ReadPageScrapeResponse Client::readPageScrape(const ReadPageScrapeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return readPageScrapeWithOptions(request, headers, runtime);
 }
 
 /**

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_READPAGEBODYREADABILITY_HPP_
-#define ALIBABACLOUD_MODELS_READPAGEBODYREADABILITY_HPP_
+#ifndef ALIBABACLOUD_MODELS_READPAGESCRAPEBODYREADABILITY_HPP_
+#define ALIBABACLOUD_MODELS_READPAGESCRAPEBODYREADABILITY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,27 +11,27 @@ namespace IQS20241111
 {
 namespace Models
 {
-  class ReadPageBodyReadability : public Darabonba::Model {
+  class ReadPageScrapeBodyReadability : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ReadPageBodyReadability& obj) { 
+    friend void to_json(Darabonba::Json& j, const ReadPageScrapeBodyReadability& obj) { 
       DARABONBA_PTR_TO_JSON(excludeAllImages, excludeAllImages_);
       DARABONBA_PTR_TO_JSON(excludeAllLinks, excludeAllLinks_);
       DARABONBA_PTR_TO_JSON(excludedTags, excludedTags_);
       DARABONBA_PTR_TO_JSON(readabilityMode, readabilityMode_);
     };
-    friend void from_json(const Darabonba::Json& j, ReadPageBodyReadability& obj) { 
+    friend void from_json(const Darabonba::Json& j, ReadPageScrapeBodyReadability& obj) { 
       DARABONBA_PTR_FROM_JSON(excludeAllImages, excludeAllImages_);
       DARABONBA_PTR_FROM_JSON(excludeAllLinks, excludeAllLinks_);
       DARABONBA_PTR_FROM_JSON(excludedTags, excludedTags_);
       DARABONBA_PTR_FROM_JSON(readabilityMode, readabilityMode_);
     };
-    ReadPageBodyReadability() = default ;
-    ReadPageBodyReadability(const ReadPageBodyReadability &) = default ;
-    ReadPageBodyReadability(ReadPageBodyReadability &&) = default ;
-    ReadPageBodyReadability(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ReadPageBodyReadability() = default ;
-    ReadPageBodyReadability& operator=(const ReadPageBodyReadability &) = default ;
-    ReadPageBodyReadability& operator=(ReadPageBodyReadability &&) = default ;
+    ReadPageScrapeBodyReadability() = default ;
+    ReadPageScrapeBodyReadability(const ReadPageScrapeBodyReadability &) = default ;
+    ReadPageScrapeBodyReadability(ReadPageScrapeBodyReadability &&) = default ;
+    ReadPageScrapeBodyReadability(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ReadPageScrapeBodyReadability() = default ;
+    ReadPageScrapeBodyReadability& operator=(const ReadPageScrapeBodyReadability &) = default ;
+    ReadPageScrapeBodyReadability& operator=(ReadPageScrapeBodyReadability &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,14 +42,14 @@ namespace Models
     bool hasExcludeAllImages() const { return this->excludeAllImages_ != nullptr;};
     void deleteExcludeAllImages() { this->excludeAllImages_ = nullptr;};
     inline bool excludeAllImages() const { DARABONBA_PTR_GET_DEFAULT(excludeAllImages_, false) };
-    inline ReadPageBodyReadability& setExcludeAllImages(bool excludeAllImages) { DARABONBA_PTR_SET_VALUE(excludeAllImages_, excludeAllImages) };
+    inline ReadPageScrapeBodyReadability& setExcludeAllImages(bool excludeAllImages) { DARABONBA_PTR_SET_VALUE(excludeAllImages_, excludeAllImages) };
 
 
     // excludeAllLinks Field Functions 
     bool hasExcludeAllLinks() const { return this->excludeAllLinks_ != nullptr;};
     void deleteExcludeAllLinks() { this->excludeAllLinks_ = nullptr;};
     inline bool excludeAllLinks() const { DARABONBA_PTR_GET_DEFAULT(excludeAllLinks_, false) };
-    inline ReadPageBodyReadability& setExcludeAllLinks(bool excludeAllLinks) { DARABONBA_PTR_SET_VALUE(excludeAllLinks_, excludeAllLinks) };
+    inline ReadPageScrapeBodyReadability& setExcludeAllLinks(bool excludeAllLinks) { DARABONBA_PTR_SET_VALUE(excludeAllLinks_, excludeAllLinks) };
 
 
     // excludedTags Field Functions 
@@ -57,15 +57,15 @@ namespace Models
     void deleteExcludedTags() { this->excludedTags_ = nullptr;};
     inline const vector<string> & excludedTags() const { DARABONBA_PTR_GET_CONST(excludedTags_, vector<string>) };
     inline vector<string> excludedTags() { DARABONBA_PTR_GET(excludedTags_, vector<string>) };
-    inline ReadPageBodyReadability& setExcludedTags(const vector<string> & excludedTags) { DARABONBA_PTR_SET_VALUE(excludedTags_, excludedTags) };
-    inline ReadPageBodyReadability& setExcludedTags(vector<string> && excludedTags) { DARABONBA_PTR_SET_RVALUE(excludedTags_, excludedTags) };
+    inline ReadPageScrapeBodyReadability& setExcludedTags(const vector<string> & excludedTags) { DARABONBA_PTR_SET_VALUE(excludedTags_, excludedTags) };
+    inline ReadPageScrapeBodyReadability& setExcludedTags(vector<string> && excludedTags) { DARABONBA_PTR_SET_RVALUE(excludedTags_, excludedTags) };
 
 
     // readabilityMode Field Functions 
     bool hasReadabilityMode() const { return this->readabilityMode_ != nullptr;};
     void deleteReadabilityMode() { this->readabilityMode_ = nullptr;};
     inline string readabilityMode() const { DARABONBA_PTR_GET_DEFAULT(readabilityMode_, "") };
-    inline ReadPageBodyReadability& setReadabilityMode(string readabilityMode) { DARABONBA_PTR_SET_VALUE(readabilityMode_, readabilityMode) };
+    inline ReadPageScrapeBodyReadability& setReadabilityMode(string readabilityMode) { DARABONBA_PTR_SET_VALUE(readabilityMode_, readabilityMode) };
 
 
   protected:

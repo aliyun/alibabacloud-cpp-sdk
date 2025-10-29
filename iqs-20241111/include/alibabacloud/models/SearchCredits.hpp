@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->genericTextSearch_ != nullptr
-        && this->liteAdvancedTextSearch_ != nullptr; };
+    virtual bool empty() const override { return this->genericTextSearch_ == nullptr
+        && return this->liteAdvancedTextSearch_ == nullptr; };
     // genericTextSearch Field Functions 
     bool hasGenericTextSearch() const { return this->genericTextSearch_ != nullptr;};
     void deleteGenericTextSearch() { this->genericTextSearch_ = nullptr;};

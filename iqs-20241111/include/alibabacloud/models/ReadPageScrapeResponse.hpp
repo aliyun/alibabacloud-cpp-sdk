@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GLOBALSEARCHRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_GLOBALSEARCHRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_READPAGESCRAPERESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_READPAGESCRAPERESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/GlobalSearchResult.hpp>
+#include <alibabacloud/models/ReadPageScrapeResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace IQS20241111
 {
 namespace Models
 {
-  class GlobalSearchResponse : public Darabonba::Model {
+  class ReadPageScrapeResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GlobalSearchResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const ReadPageScrapeResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, GlobalSearchResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, ReadPageScrapeResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    GlobalSearchResponse() = default ;
-    GlobalSearchResponse(const GlobalSearchResponse &) = default ;
-    GlobalSearchResponse(GlobalSearchResponse &&) = default ;
-    GlobalSearchResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GlobalSearchResponse() = default ;
-    GlobalSearchResponse& operator=(const GlobalSearchResponse &) = default ;
-    GlobalSearchResponse& operator=(GlobalSearchResponse &&) = default ;
+    ReadPageScrapeResponse() = default ;
+    ReadPageScrapeResponse(const ReadPageScrapeResponse &) = default ;
+    ReadPageScrapeResponse(ReadPageScrapeResponse &&) = default ;
+    ReadPageScrapeResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ReadPageScrapeResponse() = default ;
+    ReadPageScrapeResponse& operator=(const ReadPageScrapeResponse &) = default ;
+    ReadPageScrapeResponse& operator=(ReadPageScrapeResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline GlobalSearchResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline GlobalSearchResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline ReadPageScrapeResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline ReadPageScrapeResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline GlobalSearchResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline ReadPageScrapeResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GlobalSearchResult & body() const { DARABONBA_PTR_GET_CONST(body_, GlobalSearchResult) };
-    inline GlobalSearchResult body() { DARABONBA_PTR_GET(body_, GlobalSearchResult) };
-    inline GlobalSearchResponse& setBody(const GlobalSearchResult & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GlobalSearchResponse& setBody(GlobalSearchResult && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const ReadPageScrapeResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, ReadPageScrapeResponseBody) };
+    inline ReadPageScrapeResponseBody body() { DARABONBA_PTR_GET(body_, ReadPageScrapeResponseBody) };
+    inline ReadPageScrapeResponse& setBody(const ReadPageScrapeResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline ReadPageScrapeResponse& setBody(ReadPageScrapeResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     std::shared_ptr<map<string, string>> headers_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<GlobalSearchResult> body_ = nullptr;
+    std::shared_ptr<ReadPageScrapeResponseBody> body_ = nullptr;
   };
 
   } // namespace Models

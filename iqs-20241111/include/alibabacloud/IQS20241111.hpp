@@ -69,12 +69,12 @@ namespace IQS20241111
       /**
        * @summary 通用搜索
        *
-       * @param request GenericSearchRequest
+       * @param tmpReq GenericSearchRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenericSearchResponse
        */
-      Models::GenericSearchResponse genericSearchWithOptions(const Models::GenericSearchRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::GenericSearchResponse genericSearchWithOptions(const Models::GenericSearchRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 通用搜索
@@ -137,6 +137,24 @@ namespace IQS20241111
        * @return ReadPageBasicResponse
        */
       Models::ReadPageBasicResponse readPageBasic(const Models::ReadPageBasicRequest &request);
+
+      /**
+       * @summary 动态页面解析
+       *
+       * @param request ReadPageScrapeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReadPageScrapeResponse
+       */
+      Models::ReadPageScrapeResponse readPageScrapeWithOptions(const Models::ReadPageScrapeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 动态页面解析
+       *
+       * @param request ReadPageScrapeRequest
+       * @return ReadPageScrapeResponse
+       */
+      Models::ReadPageScrapeResponse readPageScrape(const Models::ReadPageScrapeRequest &request);
 
       /**
        * @summary 通晓统一搜索API
