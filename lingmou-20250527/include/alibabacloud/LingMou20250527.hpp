@@ -39,6 +39,42 @@ namespace LingMou20250527
       Models::CloseChatInstanceSessionsResponse closeChatInstanceSessions(const string &instanceId, const Models::CloseChatInstanceSessionsRequest &request);
 
       /**
+       * @summary 创建背景素材
+       *
+       * @param request CreateBackgroundPicRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBackgroundPicResponse
+       */
+      Models::CreateBackgroundPicResponse createBackgroundPicWithOptions(const Models::CreateBackgroundPicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建背景素材
+       *
+       * @param request CreateBackgroundPicRequest
+       * @return CreateBackgroundPicResponse
+       */
+      Models::CreateBackgroundPicResponse createBackgroundPic(const Models::CreateBackgroundPicRequest &request);
+
+      /**
+       * @summary 背景配置
+       *
+       * @param request CreateChatConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateChatConfigResponse
+       */
+      Models::CreateChatConfigResponse createChatConfigWithOptions(const Models::CreateChatConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 背景配置
+       *
+       * @param request CreateChatConfigRequest
+       * @return CreateChatConfigResponse
+       */
+      Models::CreateChatConfigResponse createChatConfig(const Models::CreateChatConfigRequest &request);
+
+      /**
        * @summary 创建数字人会话
        *
        * @param request CreateChatSessionRequest
@@ -55,6 +91,42 @@ namespace LingMou20250527
        * @return CreateChatSessionResponse
        */
       Models::CreateChatSessionResponse createChatSession(const string &id, const Models::CreateChatSessionRequest &request);
+
+      /**
+       * @summary 创建对话免训照片数字人
+       *
+       * @param request CreateNoTrainPicAvatarRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateNoTrainPicAvatarResponse
+       */
+      Models::CreateNoTrainPicAvatarResponse createNoTrainPicAvatarWithOptions(const Models::CreateNoTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建对话免训照片数字人
+       *
+       * @param request CreateNoTrainPicAvatarRequest
+       * @return CreateNoTrainPicAvatarResponse
+       */
+      Models::CreateNoTrainPicAvatarResponse createNoTrainPicAvatar(const Models::CreateNoTrainPicAvatarRequest &request);
+
+      /**
+       * @summary 获取对话免训图片素材上传凭证
+       *
+       * @param request GetUploadPolicyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUploadPolicyResponse
+       */
+      Models::GetUploadPolicyResponse getUploadPolicyWithOptions(const Models::GetUploadPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取对话免训图片素材上传凭证
+       *
+       * @param request GetUploadPolicyRequest
+       * @return GetUploadPolicyResponse
+       */
+      Models::GetUploadPolicyResponse getUploadPolicy(const Models::GetUploadPolicyRequest &request);
 
       /**
        * @summary 查询会话实例session

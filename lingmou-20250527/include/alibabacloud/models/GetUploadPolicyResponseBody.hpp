@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_QUERYCHATINSTANCESESSIONSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_QUERYCHATINSTANCESESSIONSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETUPLOADPOLICYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETUPLOADPOLICYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
-#include <alibabacloud/models/ChatSessionInfo.hpp>
+#include <alibabacloud/models/GetUploadPolicyResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,9 +11,9 @@ namespace LingMou20250527
 {
 namespace Models
 {
-  class QueryChatInstanceSessionsResponseBody : public Darabonba::Model {
+  class GetUploadPolicyResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const QueryChatInstanceSessionsResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetUploadPolicyResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(code, code_);
       DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(httpStatusCode, httpStatusCode_);
@@ -22,7 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, QueryChatInstanceSessionsResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetUploadPolicyResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(httpStatusCode, httpStatusCode_);
@@ -30,13 +29,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
     };
-    QueryChatInstanceSessionsResponseBody() = default ;
-    QueryChatInstanceSessionsResponseBody(const QueryChatInstanceSessionsResponseBody &) = default ;
-    QueryChatInstanceSessionsResponseBody(QueryChatInstanceSessionsResponseBody &&) = default ;
-    QueryChatInstanceSessionsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~QueryChatInstanceSessionsResponseBody() = default ;
-    QueryChatInstanceSessionsResponseBody& operator=(const QueryChatInstanceSessionsResponseBody &) = default ;
-    QueryChatInstanceSessionsResponseBody& operator=(QueryChatInstanceSessionsResponseBody &&) = default ;
+    GetUploadPolicyResponseBody() = default ;
+    GetUploadPolicyResponseBody(const GetUploadPolicyResponseBody &) = default ;
+    GetUploadPolicyResponseBody(GetUploadPolicyResponseBody &&) = default ;
+    GetUploadPolicyResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetUploadPolicyResponseBody() = default ;
+    GetUploadPolicyResponseBody& operator=(const GetUploadPolicyResponseBody &) = default ;
+    GetUploadPolicyResponseBody& operator=(GetUploadPolicyResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -47,49 +46,49 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline QueryChatInstanceSessionsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline GetUploadPolicyResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ChatSessionInfo> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ChatSessionInfo>) };
-    inline vector<ChatSessionInfo> data() { DARABONBA_PTR_GET(data_, vector<ChatSessionInfo>) };
-    inline QueryChatInstanceSessionsResponseBody& setData(const vector<ChatSessionInfo> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline QueryChatInstanceSessionsResponseBody& setData(vector<ChatSessionInfo> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const GetUploadPolicyResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, GetUploadPolicyResponseBodyData) };
+    inline GetUploadPolicyResponseBodyData data() { DARABONBA_PTR_GET(data_, GetUploadPolicyResponseBodyData) };
+    inline GetUploadPolicyResponseBody& setData(const GetUploadPolicyResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetUploadPolicyResponseBody& setData(GetUploadPolicyResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
     inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
-    inline QueryChatInstanceSessionsResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+    inline GetUploadPolicyResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline QueryChatInstanceSessionsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline GetUploadPolicyResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline QueryChatInstanceSessionsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetUploadPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline QueryChatInstanceSessionsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline GetUploadPolicyResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<vector<ChatSessionInfo>> data_ = nullptr;
+    std::shared_ptr<GetUploadPolicyResponseBodyData> data_ = nullptr;
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;

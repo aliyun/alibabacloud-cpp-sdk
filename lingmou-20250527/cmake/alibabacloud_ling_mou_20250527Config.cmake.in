@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_ling_mou_20250527Targets.cmake")
-check_required_components("alibabacloud_ling_mou_20250527")

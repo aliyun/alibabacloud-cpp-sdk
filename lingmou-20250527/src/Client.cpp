@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -65,7 +65,7 @@ CloseChatInstanceSessionsResponse Client::closeChatInstanceSessionsWithOptions(c
     {"action" , "CloseChatInstanceSessions"},
     {"version" , "2025-05-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/sessions/close")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/sessions/close")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -85,6 +85,104 @@ CloseChatInstanceSessionsResponse Client::closeChatInstanceSessions(const string
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return closeChatInstanceSessionsWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建背景素材
+ *
+ * @param request CreateBackgroundPicRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBackgroundPicResponse
+ */
+CreateBackgroundPicResponse Client::createBackgroundPicWithOptions(const CreateBackgroundPicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilename()) {
+    query["filename"] = request.filename();
+  }
+
+  if (!!request.hasOssKey()) {
+    query["ossKey"] = request.ossKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBackgroundPic"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/createBackgroundPic")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBackgroundPicResponse>();
+}
+
+/**
+ * @summary 创建背景素材
+ *
+ * @param request CreateBackgroundPicRequest
+ * @return CreateBackgroundPicResponse
+ */
+CreateBackgroundPicResponse Client::createBackgroundPic(const CreateBackgroundPicRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createBackgroundPicWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 背景配置
+ *
+ * @param request CreateChatConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateChatConfigResponse
+ */
+CreateChatConfigResponse Client::createChatConfigWithOptions(const CreateChatConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAvatarId()) {
+    query["avatarId"] = request.avatarId();
+  }
+
+  if (!!request.hasBackgroundId()) {
+    query["backgroundId"] = request.backgroundId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateChatConfig"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/createChatConfig")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateChatConfigResponse>();
+}
+
+/**
+ * @summary 背景配置
+ *
+ * @param request CreateChatConfigRequest
+ * @return CreateChatConfigResponse
+ */
+CreateChatConfigResponse Client::createChatConfig(const CreateChatConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createChatConfigWithOptions(request, headers, runtime);
 }
 
 /**
@@ -118,7 +216,7 @@ CreateChatSessionResponse Client::createChatSessionWithOptions(const string &id,
     {"action" , "CreateChatSession"},
     {"version" , "2025-05-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/init/" , Darabonba::Http::URL::percentEncode(id))},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/init/" , Darabonba::Encode::Encoder::percentEncode(id))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -138,6 +236,124 @@ CreateChatSessionResponse Client::createChatSession(const string &id, const Crea
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createChatSessionWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 创建对话免训照片数字人
+ *
+ * @param request CreateNoTrainPicAvatarRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNoTrainPicAvatarResponse
+ */
+CreateNoTrainPicAvatarResponse Client::createNoTrainPicAvatarWithOptions(const CreateNoTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExpressiveness()) {
+    query["expressiveness"] = request.expressiveness();
+  }
+
+  if (!!request.hasGender()) {
+    query["gender"] = request.gender();
+  }
+
+  if (!!request.hasGenerateAssets()) {
+    query["generateAssets"] = request.generateAssets();
+  }
+
+  if (!!request.hasImageOssPath()) {
+    query["imageOssPath"] = request.imageOssPath();
+  }
+
+  if (!!request.hasJwtToken()) {
+    query["jwtToken"] = request.jwtToken();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasTransparent()) {
+    query["transparent"] = request.transparent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateNoTrainPicAvatar"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/createNoTrainPicAvatar")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNoTrainPicAvatarResponse>();
+}
+
+/**
+ * @summary 创建对话免训照片数字人
+ *
+ * @param request CreateNoTrainPicAvatarRequest
+ * @return CreateNoTrainPicAvatarResponse
+ */
+CreateNoTrainPicAvatarResponse Client::createNoTrainPicAvatar(const CreateNoTrainPicAvatarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createNoTrainPicAvatarWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取对话免训图片素材上传凭证
+ *
+ * @param request GetUploadPolicyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUploadPolicyResponse
+ */
+GetUploadPolicyResponse Client::getUploadPolicyWithOptions(const GetUploadPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJwtToken()) {
+    query["jwtToken"] = request.jwtToken();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUploadPolicy"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/getUploadPolicy")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUploadPolicyResponse>();
+}
+
+/**
+ * @summary 获取对话免训图片素材上传凭证
+ *
+ * @param request GetUploadPolicyRequest
+ * @return GetUploadPolicyResponse
+ */
+GetUploadPolicyResponse Client::getUploadPolicy(const GetUploadPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getUploadPolicyWithOptions(request, headers, runtime);
 }
 
 /**
@@ -169,7 +385,7 @@ QueryChatInstanceSessionsResponse Client::queryChatInstanceSessionsWithOptions(c
     {"action" , "QueryChatInstanceSessions"},
     {"version" , "2025-05-27"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/sessions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/chat/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/sessions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
