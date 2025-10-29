@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     std::shared_ptr<int32_t> code_ = nullptr;
+    // The ID of the system event.
     std::shared_ptr<string> eventId_ = nullptr;
+    // The message of the operation. If the value of the Code parameter is 200, the value of this parameter is successful.
     std::shared_ptr<string> message_ = nullptr;
+    // The resource IDs.
     std::shared_ptr<string> resourceId_ = nullptr;
   };
 

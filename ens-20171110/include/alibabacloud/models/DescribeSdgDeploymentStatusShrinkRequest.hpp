@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSDGDeploymentStatusShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DeploymentType, deploymentType_);
+      DARABONBA_PTR_TO_JSON(DiskIds, diskIdsShrink_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeSDGDeploymentStatusShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeploymentType, deploymentType_);
+      DARABONBA_PTR_FROM_JSON(DiskIds, diskIdsShrink_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentType_ == nullptr
-        && return this->instanceIdsShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionIdsShrink_ == nullptr && return this->SDGId_ == nullptr
-        && return this->status_ == nullptr; };
+        && return this->diskIdsShrink_ == nullptr && return this->instanceIdsShrink_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionIdsShrink_ == nullptr
+        && return this->SDGId_ == nullptr && return this->status_ == nullptr; };
     // deploymentType Field Functions 
     bool hasDeploymentType() const { return this->deploymentType_ != nullptr;};
     void deleteDeploymentType() { this->deploymentType_ = nullptr;};
     inline string deploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
     inline DescribeSDGDeploymentStatusShrinkRequest& setDeploymentType(string deploymentType) { DARABONBA_PTR_SET_VALUE(deploymentType_, deploymentType) };
+
+
+    // diskIdsShrink Field Functions 
+    bool hasDiskIdsShrink() const { return this->diskIdsShrink_ != nullptr;};
+    void deleteDiskIdsShrink() { this->diskIdsShrink_ = nullptr;};
+    inline string diskIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(diskIdsShrink_, "") };
+    inline DescribeSDGDeploymentStatusShrinkRequest& setDiskIdsShrink(string diskIdsShrink) { DARABONBA_PTR_SET_VALUE(diskIdsShrink_, diskIdsShrink) };
 
 
     // instanceIdsShrink Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     // The deployment type.
     std::shared_ptr<string> deploymentType_ = nullptr;
+    std::shared_ptr<string> diskIdsShrink_ = nullptr;
     // IDs of Android in Container (AIC) instances.
     std::shared_ptr<string> instanceIdsShrink_ = nullptr;
     // The number of the page to return. Pages start from page **1**. Default value: **1**.

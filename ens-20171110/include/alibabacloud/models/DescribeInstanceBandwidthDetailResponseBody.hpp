@@ -79,11 +79,15 @@ namespace Models
 
 
   protected:
+    // Details about the maximum public bandwidth.
     std::shared_ptr<vector<DescribeInstanceBandwidthDetailResponseBodyBandwidths>> bandwidths_ = nullptr;
+    // The page number of the current page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

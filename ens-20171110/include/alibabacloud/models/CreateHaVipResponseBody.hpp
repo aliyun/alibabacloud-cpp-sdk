@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The IDs of the HAVIPs.
     std::shared_ptr<vector<string>> haVipIds_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

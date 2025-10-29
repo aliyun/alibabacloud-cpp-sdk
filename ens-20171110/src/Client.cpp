@@ -784,7 +784,10 @@ AuthorizeSecurityGroupEgressResponse Client::authorizeSecurityGroupEgress(const 
 }
 
 /**
- * @summary 因底层升级批量迁移
+ * @summary Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+ *
+ * @description ## [](#)Request description
+ * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
  *
  * @param tmpReq BatchEventMigrateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -821,7 +824,10 @@ BatchEventMigrateInstanceResponse Client::batchEventMigrateInstanceWithOptions(c
 }
 
 /**
- * @summary 因底层升级批量迁移
+ * @summary Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+ *
+ * @description ## [](#)Request description
+ * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
  *
  * @param request BatchEventMigrateInstanceRequest
  * @return BatchEventMigrateInstanceResponse
@@ -832,15 +838,9 @@ BatchEventMigrateInstanceResponse Client::batchEventMigrateInstance(const BatchE
 }
 
 /**
- * @summary 批量因系统维护实例重启
+ * @summary The event that is used to immediately redeploy specified resources in batches or by appointment
  *
- * @description ## 请求说明
- * - `Action` 参数固定为 `BatchEventRebootInstance`。
- * - `Version` 参数固定为 `2017-11-10`。
- * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
- * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
- * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
- * - 错误情况下，返回相应的错误代码和消息。
+ * @description *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
  *
  * @param tmpReq BatchEventRebootInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -877,15 +877,9 @@ BatchEventRebootInstanceResponse Client::batchEventRebootInstanceWithOptions(con
 }
 
 /**
- * @summary 批量因系统维护实例重启
+ * @summary The event that is used to immediately redeploy specified resources in batches or by appointment
  *
- * @description ## 请求说明
- * - `Action` 参数固定为 `BatchEventRebootInstance`。
- * - `Version` 参数固定为 `2017-11-10`。
- * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
- * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
- * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
- * - 错误情况下，返回相应的错误代码和消息。
+ * @description *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
  *
  * @param request BatchEventRebootInstanceRequest
  * @return BatchEventRebootInstanceResponse
@@ -896,7 +890,9 @@ BatchEventRebootInstanceResponse Client::batchEventRebootInstance(const BatchEve
 }
 
 /**
- * @summary 批量操作重新部署
+ * @summary Batch redeployment
+ *
+ * @description - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
  *
  * @param tmpReq BatchEventRedeployInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -933,7 +929,9 @@ BatchEventRedeployInstanceResponse Client::batchEventRedeployInstanceWithOptions
 }
 
 /**
- * @summary 批量操作重新部署
+ * @summary Batch redeployment
+ *
+ * @description - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
  *
  * @param request BatchEventRedeployInstanceRequest
  * @return BatchEventRedeployInstanceResponse
@@ -1878,7 +1876,7 @@ CreateForwardEntryResponse Client::createForwardEntry(const CreateForwardEntryRe
 }
 
 /**
- * @summary 创建高可用VIP
+ * @summary Creates a high-availability virtual IP address (HAVIP).
  *
  * @param request CreateHaVipRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1925,7 +1923,7 @@ CreateHaVipResponse Client::createHaVipWithOptions(const CreateHaVipRequest &req
 }
 
 /**
- * @summary 创建高可用VIP
+ * @summary Creates a high-availability virtual IP address (HAVIP).
  *
  * @param request CreateHaVipRequest
  * @return CreateHaVipResponse
@@ -3586,6 +3584,48 @@ CreateVSwitchResponse Client::createVSwitch(const CreateVSwitchRequest &request)
 }
 
 /**
+ * @summary 删除托管公钥
+ *
+ * @param request DeleteAICPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAICPublicKeyResponse
+ */
+DeleteAICPublicKeyResponse Client::deleteAICPublicKeyWithOptions(const DeleteAICPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.keyName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAICPublicKey"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAICPublicKeyResponse>();
+}
+
+/**
+ * @summary 删除托管公钥
+ *
+ * @param request DeleteAICPublicKeyRequest
+ * @return DeleteAICPublicKeyResponse
+ */
+DeleteAICPublicKeyResponse Client::deleteAICPublicKey(const DeleteAICPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAICPublicKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
  *
  * @param request DeleteApplicationRequest
@@ -4102,7 +4142,7 @@ DeleteForwardEntryResponse Client::deleteForwardEntry(const DeleteForwardEntryRe
 }
 
 /**
- * @summary 删除高可用VIP实例
+ * @summary Deletes a high-availability VIP (HAVIP).
  *
  * @param tmpReq DeleteHaVipsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4139,7 +4179,7 @@ DeleteHaVipsResponse Client::deleteHaVipsWithOptions(const DeleteHaVipsRequest &
 }
 
 /**
- * @summary 删除高可用VIP实例
+ * @summary Deletes a high-availability VIP (HAVIP).
  *
  * @param request DeleteHaVipsRequest
  * @return DeleteHaVipsResponse
@@ -4526,7 +4566,7 @@ DeleteNetworkAclEntryResponse Client::deleteNetworkAclEntry(const DeleteNetworkA
 }
 
 /**
- * @summary 删除弹性网卡
+ * @summary Deletes an elastic network interface (ENI).
  *
  * @param tmpReq DeleteNetworkInterfacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4563,7 +4603,7 @@ DeleteNetworkInterfacesResponse Client::deleteNetworkInterfacesWithOptions(const
 }
 
 /**
- * @summary 删除弹性网卡
+ * @summary Deletes an elastic network interface (ENI).
  *
  * @param request DeleteNetworkInterfacesRequest
  * @return DeleteNetworkInterfacesResponse
@@ -7368,6 +7408,8 @@ DescribeHaVipsResponse Client::describeHaVips(const DescribeHaVipsRequest &reque
 /**
  * @summary Queries instance system events.
  *
+ * @description *   You must specify an event type to query. You can query multiple event types at the same time.
+ *
  * @param tmpReq DescribeHistoryEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeHistoryEventsResponse
@@ -7436,6 +7478,8 @@ DescribeHistoryEventsResponse Client::describeHistoryEventsWithOptions(const Des
 
 /**
  * @summary Queries instance system events.
+ *
+ * @description *   You must specify an event type to query. You can query multiple event types at the same time.
  *
  * @param request DescribeHistoryEventsRequest
  * @return DescribeHistoryEventsResponse
@@ -7654,7 +7698,11 @@ DescribeInstanceAutoRenewAttributeResponse Client::describeInstanceAutoRenewAttr
 }
 
 /**
- * @summary 查询实例5分钟粒度带宽明细
+ * @summary Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+ *
+ * @description *   You can call this operation up to 800 times per second per account.
+ * *   You can call this operation up to 100 times per second per user.
+ * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
  *
  * @param request DescribeInstanceBandwidthDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7681,7 +7729,11 @@ DescribeInstanceBandwidthDetailResponse Client::describeInstanceBandwidthDetailW
 }
 
 /**
- * @summary 查询实例5分钟粒度带宽明细
+ * @summary Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+ *
+ * @description *   You can call this operation up to 800 times per second per account.
+ * *   You can call this operation up to 100 times per second per user.
+ * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
  *
  * @param request DescribeInstanceBandwidthDetailRequest
  * @return DescribeInstanceBandwidthDetailResponse
@@ -9422,6 +9474,10 @@ DescribeSDGDeploymentStatusResponse Client::describeSDGDeploymentStatusWithOptio
   tmpReq.validate();
   DescribeSDGDeploymentStatusShrinkRequest request = DescribeSDGDeploymentStatusShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDiskIds()) {
+    request.setDiskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.diskIds(), "DiskIds", "json"));
+  }
+
   if (!!tmpReq.hasInstanceIds()) {
     request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.instanceIds(), "InstanceIds", "json"));
   }
@@ -9433,6 +9489,10 @@ DescribeSDGDeploymentStatusResponse Client::describeSDGDeploymentStatusWithOptio
   json query = {};
   if (!!request.hasDeploymentType()) {
     query["DeploymentType"] = request.deploymentType();
+  }
+
+  if (!!request.hasDiskIdsShrink()) {
+    query["DiskIds"] = request.diskIdsShrink();
   }
 
   if (!!request.hasInstanceIdsShrink()) {
@@ -9485,6 +9545,64 @@ DescribeSDGDeploymentStatusResponse Client::describeSDGDeploymentStatusWithOptio
 DescribeSDGDeploymentStatusResponse Client::describeSDGDeploymentStatus(const DescribeSDGDeploymentStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSDGDeploymentStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SDG下的共享盘
+ *
+ * @param request DescribeSDGSharedDisksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSDGSharedDisksResponse
+ */
+DescribeSDGSharedDisksResponse Client::describeSDGSharedDisksWithOptions(const DescribeSDGSharedDisksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSdgId()) {
+    query["SdgId"] = request.sdgId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSDGSharedDisks"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSDGSharedDisksResponse>();
+}
+
+/**
+ * @summary 查询SDG下的共享盘
+ *
+ * @param request DescribeSDGSharedDisksRequest
+ * @return DescribeSDGSharedDisksResponse
+ */
+DescribeSDGSharedDisksResponse Client::describeSDGSharedDisks(const DescribeSDGSharedDisksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSDGSharedDisksWithOptions(request, runtime);
 }
 
 /**
@@ -10242,7 +10360,7 @@ DescribeUserBandWidthDataResponse Client::describeUserBandWidthData(const Descri
 }
 
 /**
- * @summary 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+ * @summary Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
  *
  * @param request DescribeVSwitchAttributesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10273,7 +10391,7 @@ DescribeVSwitchAttributesResponse Client::describeVSwitchAttributesWithOptions(c
 }
 
 /**
- * @summary 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+ * @summary Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
  *
  * @param request DescribeVSwitchAttributesRequest
  * @return DescribeVSwitchAttributesResponse
@@ -10556,7 +10674,9 @@ DistApplicationDataResponse Client::distApplicationData(const DistApplicationDat
 }
 
 /**
- * @summary 因底层升级需要迁移
+ * @summary Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+ *
+ * @description *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
  *
  * @param request EventMigrateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10607,7 +10727,9 @@ EventMigrateInstanceResponse Client::eventMigrateInstanceWithOptions(const Event
 }
 
 /**
- * @summary 因底层升级需要迁移
+ * @summary Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+ *
+ * @description *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
  *
  * @param request EventMigrateInstanceRequest
  * @return EventMigrateInstanceResponse
@@ -10618,13 +10740,9 @@ EventMigrateInstanceResponse Client::eventMigrateInstance(const EventMigrateInst
 }
 
 /**
- * @summary 因系统维护实例重启
+ * @summary Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
  *
- * @description ## 请求说明
- * - 该API用于触发一个实例的重启事件。
- * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
- * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
- * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+ * @description *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
  *
  * @param request EventRebootInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10667,13 +10785,9 @@ EventRebootInstanceResponse Client::eventRebootInstanceWithOptions(const EventRe
 }
 
 /**
- * @summary 因系统维护实例重启
+ * @summary Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
  *
- * @description ## 请求说明
- * - 该API用于触发一个实例的重启事件。
- * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
- * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
- * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+ * @description *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
  *
  * @param request EventRebootInstanceRequest
  * @return EventRebootInstanceResponse
@@ -10684,7 +10798,9 @@ EventRebootInstanceResponse Client::eventRebootInstance(const EventRebootInstanc
 }
 
 /**
- * @summary 节点内迁移
+ * @summary The event that is used to immediately redeploy a specified resource or by appointment
+ *
+ * @description *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
  *
  * @param request EventRedeployInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10727,7 +10843,9 @@ EventRedeployInstanceResponse Client::eventRedeployInstanceWithOptions(const Eve
 }
 
 /**
- * @summary 节点内迁移
+ * @summary The event that is used to immediately redeploy a specified resource or by appointment
+ *
+ * @description *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
  *
  * @param request EventRedeployInstanceRequest
  * @return EventRedeployInstanceResponse
@@ -11098,7 +11216,7 @@ GetOssUsageDataResponse Client::getOssUsageData(const GetOssUsageDataRequest &re
 }
 
 /**
- * @summary 调用ImportImage导入一份您的镜像文件到云服务器。
+ * @summary Call ImportImage to import your image file to the cloud server.
  *
  * @param tmpReq ImportImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11183,7 +11301,7 @@ ImportImageResponse Client::importImageWithOptions(const ImportImageRequest &tmp
 }
 
 /**
- * @summary 调用ImportImage导入一份您的镜像文件到云服务器。
+ * @summary Call ImportImage to import your image file to the cloud server.
  *
  * @param request ImportImageRequest
  * @return ImportImageResponse
@@ -11447,6 +11565,126 @@ LeaveSecurityGroupResponse Client::leaveSecurityGroupWithOptions(const LeaveSecu
 LeaveSecurityGroupResponse Client::leaveSecurityGroup(const LeaveSecurityGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return leaveSecurityGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询公钥下发信息
+ *
+ * @param request ListAICPublicKeyDeliveriesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAICPublicKeyDeliveriesResponse
+ */
+ListAICPublicKeyDeliveriesResponse Client::listAICPublicKeyDeliveriesWithOptions(const ListAICPublicKeyDeliveriesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasKeyGroup()) {
+    query["KeyGroup"] = request.keyGroup();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.keyName();
+  }
+
+  if (!!request.hasKeyType()) {
+    query["KeyType"] = request.keyType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAICPublicKeyDeliveries"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAICPublicKeyDeliveriesResponse>();
+}
+
+/**
+ * @summary 查询公钥下发信息
+ *
+ * @param request ListAICPublicKeyDeliveriesRequest
+ * @return ListAICPublicKeyDeliveriesResponse
+ */
+ListAICPublicKeyDeliveriesResponse Client::listAICPublicKeyDeliveries(const ListAICPublicKeyDeliveriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAICPublicKeyDeliveriesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询所有托管的公钥
+ *
+ * @param request ListAICPublicKeysRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAICPublicKeysResponse
+ */
+ListAICPublicKeysResponse Client::listAICPublicKeysWithOptions(const ListAICPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyGroup()) {
+    query["KeyGroup"] = request.keyGroup();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.keyName();
+  }
+
+  if (!!request.hasKeyType()) {
+    query["KeyType"] = request.keyType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAICPublicKeys"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAICPublicKeysResponse>();
+}
+
+/**
+ * @summary 查询所有托管的公钥
+ *
+ * @param request ListAICPublicKeysRequest
+ * @return ListAICPublicKeysResponse
+ */
+ListAICPublicKeysResponse Client::listAICPublicKeys(const ListAICPublicKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAICPublicKeysWithOptions(request, runtime);
 }
 
 /**
@@ -11723,6 +11961,60 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
+ * @summary AIC公钥登入管理
+ *
+ * @param request ManageAICLoginRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ManageAICLoginResponse
+ */
+ManageAICLoginResponse Client::manageAICLoginWithOptions(const ManageAICLoginRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionName()) {
+    query["ActionName"] = request.actionName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasKeyGroup()) {
+    query["KeyGroup"] = request.keyGroup();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.keyName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ManageAICLogin"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ManageAICLoginResponse>();
+}
+
+/**
+ * @summary AIC公钥登入管理
+ *
+ * @param request ManageAICLoginRequest
+ * @return ManageAICLoginResponse
+ */
+ManageAICLoginResponse Client::manageAICLogin(const ManageAICLoginRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return manageAICLoginWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
  *
  * @param request ModifyEnsEipAddressAttributeRequest
@@ -11777,7 +12069,7 @@ ModifyEnsEipAddressAttributeResponse Client::modifyEnsEipAddressAttribute(const 
 }
 
 /**
- * @summary 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+ * @summary Modifies the name and description of a custom route.
  *
  * @param request ModifyEnsRouteEntryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11816,7 +12108,7 @@ ModifyEnsRouteEntryResponse Client::modifyEnsRouteEntryWithOptions(const ModifyE
 }
 
 /**
- * @summary 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+ * @summary Modifies the name and description of a custom route.
  *
  * @param request ModifyEnsRouteEntryRequest
  * @return ModifyEnsRouteEntryResponse
@@ -12271,7 +12563,11 @@ ModifyInstanceAutoRenewAttributeResponse Client::modifyInstanceAutoRenewAttribut
 }
 
 /**
- * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+ * @summary Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+ *
+ * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+ * *   If the instance is in the Running state, you cannot change the password of the instance.
+ * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
  *
  * @param request ModifyInstanceBootConfigurationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12298,7 +12594,11 @@ ModifyInstanceBootConfigurationResponse Client::modifyInstanceBootConfigurationW
 }
 
 /**
- * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+ * @summary Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+ *
+ * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+ * *   If the instance is in the Running state, you cannot change the password of the instance.
+ * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
  *
  * @param request ModifyInstanceBootConfigurationRequest
  * @return ModifyInstanceBootConfigurationResponse
@@ -14774,6 +15074,18 @@ RunInstancesResponse Client::runInstancesWithOptions(const RunInstancesRequest &
     query["KeyPairName"] = request.keyPairName();
   }
 
+  if (!!request.hasLaunchTemplateId()) {
+    query["LaunchTemplateId"] = request.launchTemplateId();
+  }
+
+  if (!!request.hasLaunchTemplateName()) {
+    query["LaunchTemplateName"] = request.launchTemplateName();
+  }
+
+  if (!!request.hasLaunchTemplateVersion()) {
+    query["LaunchTemplateVersion"] = request.launchTemplateVersion();
+  }
+
   if (!!request.hasNetDistrictCode()) {
     query["NetDistrictCode"] = request.netDistrictCode();
   }
@@ -15526,6 +15838,58 @@ SetLoadBalancerUDPListenerAttributeResponse Client::setLoadBalancerUDPListenerAt
 SetLoadBalancerUDPListenerAttributeResponse Client::setLoadBalancerUDPListenerAttribute(const SetLoadBalancerUDPListenerAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 共享AIC镜像
+ *
+ * @param tmpReq ShareAICImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ShareAICImageResponse
+ */
+ShareAICImageResponse Client::shareAICImageWithOptions(const ShareAICImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ShareAICImageShrinkRequest request = ShareAICImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUsers()) {
+    request.setUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.users(), "Users", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasUsersShrink()) {
+    query["Users"] = request.usersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ShareAICImage"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ShareAICImageResponse>();
+}
+
+/**
+ * @summary 共享AIC镜像
+ *
+ * @param request ShareAICImageRequest
+ * @return ShareAICImageResponse
+ */
+ShareAICImageResponse Client::shareAICImage(const ShareAICImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return shareAICImageWithOptions(request, runtime);
 }
 
 /**
@@ -16572,6 +16936,64 @@ UpgradeApplicationResponse Client::upgradeApplicationWithOptions(const UpgradeAp
 UpgradeApplicationResponse Client::upgradeApplication(const UpgradeApplicationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return upgradeApplicationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传公钥
+ *
+ * @param request UploadAICPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadAICPublicKeyResponse
+ */
+UploadAICPublicKeyResponse Client::uploadAICPublicKeyWithOptions(const UploadAICPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.content();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasKeyGroup()) {
+    query["KeyGroup"] = request.keyGroup();
+  }
+
+  if (!!request.hasKeyName()) {
+    query["KeyName"] = request.keyName();
+  }
+
+  if (!!request.hasKeyType()) {
+    query["KeyType"] = request.keyType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadAICPublicKey"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadAICPublicKeyResponse>();
+}
+
+/**
+ * @summary 上传公钥
+ *
+ * @param request UploadAICPublicKeyRequest
+ * @return UploadAICPublicKeyResponse
+ */
+UploadAICPublicKeyResponse Client::uploadAICPublicKey(const UploadAICPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadAICPublicKeyWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Ens20171110

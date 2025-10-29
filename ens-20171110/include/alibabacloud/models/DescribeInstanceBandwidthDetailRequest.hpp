@@ -103,16 +103,24 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The maximum interval between the beginning time and the end time is 86400 seconds. The interval is left-closed and right-open. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // 
     // This parameter is required.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The ID of the ENS node.
     std::shared_ptr<string> ensRegionId_ = nullptr;
+    // The plan ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The type of the instance, such as vm, eip, single_tenant, and nc. You can leave this parameter empty. The type of the instance, such as vm, eip, single_tenant, and nc.
     std::shared_ptr<string> instanceType_ = nullptr;
     // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Default value: 200.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The type of the service, such as vm, eip, esk, and meta.
     std::shared_ptr<string> serviceType_ = nullptr;
+    // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+    // 
     // This parameter is required.
     std::shared_ptr<string> startTime_ = nullptr;
   };

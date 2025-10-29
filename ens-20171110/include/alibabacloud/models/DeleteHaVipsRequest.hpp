@@ -41,6 +41,8 @@ namespace Models
 
 
   protected:
+    // The IDs of high-availability virtual IP addresses (HAVIPs).
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> haVipIds_ = nullptr;
   };

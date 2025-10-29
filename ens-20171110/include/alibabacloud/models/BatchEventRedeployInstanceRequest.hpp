@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // List of events.
     std::shared_ptr<vector<BatchEventRedeployInstanceRequestEventInfos>> eventInfos_ = nullptr;
   };
 

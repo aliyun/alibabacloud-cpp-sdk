@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // List of results.
     std::shared_ptr<vector<BatchEventRedeployInstanceResponseBodyResults>> results_ = nullptr;
   };
 

@@ -84,13 +84,33 @@ namespace Models
 
 
   protected:
+    // The data migration policy. Valid values:
+    // 
+    // *   abandon: does not migrate data. This is the default value.
+    // *   force_transfer: forcibly migrates data.
+    // *   try_transfer: Migrate data as much as possible.
     std::shared_ptr<string> dataPolicy_ = nullptr;
+    // The ID of the system event.
+    // 
     // This parameter is required.
     std::shared_ptr<string> eventId_ = nullptr;
+    // The type of the O\\&M task. Valid values:
+    // 
+    // *   immediate
+    // *   scheduled
+    // 
     // This parameter is required.
     std::shared_ptr<string> opsType_ = nullptr;
+    // The password of the instance. This parameter is optional. If you do not specify this parameter, a random password is used.
+    // 
+    // The password must be 8 to 30 characters in length. The password must contain uppercase letters, lowercase letters, digits, and special characters.
+    // 
+    // Note that you cannot enter a password for scheduled execution.
     std::shared_ptr<string> password_ = nullptr;
+    // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
     std::shared_ptr<int64_t> planTime_ = nullptr;
+    // The ID of the resource.
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceId_ = nullptr;
   };

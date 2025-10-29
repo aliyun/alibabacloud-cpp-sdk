@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // List of events.
     std::shared_ptr<string> eventInfosShrink_ = nullptr;
   };
 

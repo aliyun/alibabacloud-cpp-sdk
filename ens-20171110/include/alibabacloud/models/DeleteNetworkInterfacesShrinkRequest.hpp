@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The IDs of the elastic network interfaces (ENIs).
+    // 
     // This parameter is required.
     std::shared_ptr<string> networkInterfaceIdsShrink_ = nullptr;
   };

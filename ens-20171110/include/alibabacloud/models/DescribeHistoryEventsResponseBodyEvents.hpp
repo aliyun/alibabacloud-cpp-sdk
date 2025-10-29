@@ -112,14 +112,45 @@ namespace Models
 
 
   protected:
+    // The ID of the event.
     std::shared_ptr<string> eventId_ = nullptr;
+    // The level of the specific event. Valid values:
+    // 
+    // *   CRITICAL
+    // *   WARN
+    // *   INFO
     std::shared_ptr<string> eventLevel_ = nullptr;
+    // The status of the event. Valid values:
+    // 
+    // *   Inquiring
+    // *   Scheduled
+    // *   Executing
+    // *   Executed
+    // *   Failed
+    // *   Canceled
+    // *   Avoided
     std::shared_ptr<string> eventStatus_ = nullptr;
+    // The type of the event. Description:
+    // 
+    // *   Instance:SystemFailure.Redeploy: The instance is redeployed due to system issues.
+    // *   Instance:SystemFailure.Reboot: The instance is restarted due to a system error.
+    // *   Instance:RegionNetworkDown: The node network is interrupted.
+    // *   Disk:Stalled: The disk performance is impaired.
+    // *   EnsRegion:NetworkMigration: The instance is migrated due to a system error.
+    // *   IP:SafeRisk: IP alerts.
+    // *   IP:SafeBan: IP blocking.
+    // *   Instance:SystemUpgrade.Migrate: The instance needs to be migrated due to underlying upgrades.
+    // *   Instance:SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
     std::shared_ptr<string> eventType_ = nullptr;
+    // The extended attributes.
     std::shared_ptr<string> extendedAttribute_ = nullptr;
+    // The scheduled execution time of the event in milliseconds.
     std::shared_ptr<int64_t> notBefore_ = nullptr;
+    // The release time in milliseconds.
     std::shared_ptr<int64_t> publishTime_ = nullptr;
+    // The event cause.
     std::shared_ptr<string> reason_ = nullptr;
+    // The ID of the associated resources.
     std::shared_ptr<string> resourceId_ = nullptr;
   };
 

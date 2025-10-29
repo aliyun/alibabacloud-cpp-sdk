@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The results.
     std::shared_ptr<vector<BatchEventMigrateInstanceResponseBodyResults>> results_ = nullptr;
   };
 

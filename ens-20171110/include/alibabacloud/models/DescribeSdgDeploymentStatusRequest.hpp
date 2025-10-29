@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSDGDeploymentStatusRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DeploymentType, deploymentType_);
+      DARABONBA_PTR_TO_JSON(DiskIds, diskIds_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeSDGDeploymentStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DeploymentType, deploymentType_);
+      DARABONBA_PTR_FROM_JSON(DiskIds, diskIds_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -43,13 +45,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentType_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionIds_ == nullptr && return this->SDGId_ == nullptr
-        && return this->status_ == nullptr; };
+        && return this->diskIds_ == nullptr && return this->instanceIds_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionIds_ == nullptr
+        && return this->SDGId_ == nullptr && return this->status_ == nullptr; };
     // deploymentType Field Functions 
     bool hasDeploymentType() const { return this->deploymentType_ != nullptr;};
     void deleteDeploymentType() { this->deploymentType_ = nullptr;};
     inline string deploymentType() const { DARABONBA_PTR_GET_DEFAULT(deploymentType_, "") };
     inline DescribeSDGDeploymentStatusRequest& setDeploymentType(string deploymentType) { DARABONBA_PTR_SET_VALUE(deploymentType_, deploymentType) };
+
+
+    // diskIds Field Functions 
+    bool hasDiskIds() const { return this->diskIds_ != nullptr;};
+    void deleteDiskIds() { this->diskIds_ = nullptr;};
+    inline const vector<string> & diskIds() const { DARABONBA_PTR_GET_CONST(diskIds_, vector<string>) };
+    inline vector<string> diskIds() { DARABONBA_PTR_GET(diskIds_, vector<string>) };
+    inline DescribeSDGDeploymentStatusRequest& setDiskIds(const vector<string> & diskIds) { DARABONBA_PTR_SET_VALUE(diskIds_, diskIds) };
+    inline DescribeSDGDeploymentStatusRequest& setDiskIds(vector<string> && diskIds) { DARABONBA_PTR_SET_RVALUE(diskIds_, diskIds) };
 
 
     // instanceIds Field Functions 
@@ -101,6 +112,7 @@ namespace Models
   protected:
     // The deployment type.
     std::shared_ptr<string> deploymentType_ = nullptr;
+    std::shared_ptr<vector<string>> diskIds_ = nullptr;
     // IDs of Android in Container (AIC) instances.
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     // The number of the page to return. Pages start from page **1**. Default value: **1**.

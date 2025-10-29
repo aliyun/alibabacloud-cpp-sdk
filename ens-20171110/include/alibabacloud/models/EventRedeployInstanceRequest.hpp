@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // The ID of the system event.
+    // 
     // This parameter is required.
     std::shared_ptr<string> eventId_ = nullptr;
+    // The type of the O\\&M task. Valid values:
+    // 
+    // *   immediate
+    // *   scheduled
+    // 
     // This parameter is required.
     std::shared_ptr<string> opsType_ = nullptr;
+    // The execution time of the reservation. The timestamp is measured in milliseconds. If the OpsType parameter is set to scheduled, this parameter is required.
     std::shared_ptr<int64_t> planTime_ = nullptr;
+    // The ID of the resource.
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceId_ = nullptr;
   };

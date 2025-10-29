@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the VSwitch.
+    // 
     // This parameter is required.
     std::shared_ptr<string> vSwitchId_ = nullptr;
   };

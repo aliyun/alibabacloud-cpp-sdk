@@ -189,6 +189,9 @@
 #include <alibabacloud/models/CreateVSwitchRequest.hpp>
 #include <alibabacloud/models/CreateVSwitchResponseBody.hpp>
 #include <alibabacloud/models/CreateVSwitchResponse.hpp>
+#include <alibabacloud/models/DeleteAicPublicKeyRequest.hpp>
+#include <alibabacloud/models/DeleteAicPublicKeyResponseBody.hpp>
+#include <alibabacloud/models/DeleteAicPublicKeyResponse.hpp>
 #include <alibabacloud/models/DeleteApplicationRequest.hpp>
 #include <alibabacloud/models/DeleteApplicationResponseBody.hpp>
 #include <alibabacloud/models/DeleteApplicationResponse.hpp>
@@ -543,6 +546,9 @@
 #include <alibabacloud/models/DescribeSdgDeploymentStatusShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeSdgDeploymentStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeSdgDeploymentStatusResponse.hpp>
+#include <alibabacloud/models/DescribeSdgSharedDisksRequest.hpp>
+#include <alibabacloud/models/DescribeSdgSharedDisksResponseBody.hpp>
+#include <alibabacloud/models/DescribeSdgSharedDisksResponse.hpp>
 #include <alibabacloud/models/DescribeSdGsRequest.hpp>
 #include <alibabacloud/models/DescribeSdGsShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeSdGsResponseBody.hpp>
@@ -657,6 +663,12 @@
 #include <alibabacloud/models/LeaveSecurityGroupRequest.hpp>
 #include <alibabacloud/models/LeaveSecurityGroupResponseBody.hpp>
 #include <alibabacloud/models/LeaveSecurityGroupResponse.hpp>
+#include <alibabacloud/models/ListAicPublicKeyDeliveriesRequest.hpp>
+#include <alibabacloud/models/ListAicPublicKeyDeliveriesResponseBody.hpp>
+#include <alibabacloud/models/ListAicPublicKeyDeliveriesResponse.hpp>
+#include <alibabacloud/models/ListAicPublicKeysRequest.hpp>
+#include <alibabacloud/models/ListAicPublicKeysResponseBody.hpp>
+#include <alibabacloud/models/ListAicPublicKeysResponse.hpp>
 #include <alibabacloud/models/ListApplicationsRequest.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListApplicationsResponse.hpp>
@@ -671,6 +683,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ManageAicLoginRequest.hpp>
+#include <alibabacloud/models/ManageAicLoginResponseBody.hpp>
+#include <alibabacloud/models/ManageAicLoginResponse.hpp>
 #include <alibabacloud/models/ModifyEnsEipAddressAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyEnsEipAddressAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyEnsEipAddressAttributeResponse.hpp>
@@ -878,6 +893,10 @@
 #include <alibabacloud/models/SetLoadBalancerUdpListenerAttributeRequest.hpp>
 #include <alibabacloud/models/SetLoadBalancerUdpListenerAttributeResponseBody.hpp>
 #include <alibabacloud/models/SetLoadBalancerUdpListenerAttributeResponse.hpp>
+#include <alibabacloud/models/ShareAicImageRequest.hpp>
+#include <alibabacloud/models/ShareAicImageShrinkRequest.hpp>
+#include <alibabacloud/models/ShareAicImageResponseBody.hpp>
+#include <alibabacloud/models/ShareAicImageResponse.hpp>
 #include <alibabacloud/models/StartEpnInstanceRequest.hpp>
 #include <alibabacloud/models/StartEpnInstanceResponseBody.hpp>
 #include <alibabacloud/models/StartEpnInstanceResponse.hpp>
@@ -947,6 +966,9 @@
 #include <alibabacloud/models/UpgradeApplicationRequest.hpp>
 #include <alibabacloud/models/UpgradeApplicationResponseBody.hpp>
 #include <alibabacloud/models/UpgradeApplicationResponse.hpp>
+#include <alibabacloud/models/UploadAicPublicKeyRequest.hpp>
+#include <alibabacloud/models/UploadAicPublicKeyResponseBody.hpp>
+#include <alibabacloud/models/UploadAicPublicKeyResponse.hpp>
 #include <alibabacloud/models/TagsInParamsTag.hpp>
 #include <alibabacloud/models/AccosicateNetworkAclRequestResource.hpp>
 #include <alibabacloud/models/AddBackendServersRequestBackendServers.hpp>
@@ -1261,6 +1283,7 @@
 #include <alibabacloud/models/DescribeSdgResponseBodySdGsPreloadInfos.hpp>
 #include <alibabacloud/models/DescribeSdgResponseBodySdGs.hpp>
 #include <alibabacloud/models/DescribeSdgDeploymentStatusResponseBodyDeploymentStatus.hpp>
+#include <alibabacloud/models/DescribeSdgSharedDisksResponseBodySharedDisks.hpp>
 #include <alibabacloud/models/DescribeSdGsResponseBodySdGsAvaliableRegionIds.hpp>
 #include <alibabacloud/models/DescribeSdGsResponseBodySdGsDeployedInstanceIds.hpp>
 #include <alibabacloud/models/DescribeSdGsResponseBodySdGs.hpp>
@@ -1308,6 +1331,8 @@
 #include <alibabacloud/models/GetOssStorageAndAccByBucketsResponseBodyBucketList.hpp>
 #include <alibabacloud/models/GetOssUsageDataResponseBodyUsageList.hpp>
 #include <alibabacloud/models/ImportImageRequestDiskDeviceMapping.hpp>
+#include <alibabacloud/models/ListAicPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo.hpp>
+#include <alibabacloud/models/ListAicPublicKeysResponseBodyPublicKeys.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBodyApplicationsApplicationAppListApp.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBodyApplicationsApplicationAppList.hpp>
 #include <alibabacloud/models/ListApplicationsResponseBodyApplicationsApplication.hpp>

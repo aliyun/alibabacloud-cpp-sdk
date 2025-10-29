@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The description of the route entry. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the custom route.
+    // 
     // This parameter is required.
     std::shared_ptr<string> routeEntryId_ = nullptr;
+    // The name of the route.
+    // 
+    // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     std::shared_ptr<string> routeEntryName_ = nullptr;
   };
 

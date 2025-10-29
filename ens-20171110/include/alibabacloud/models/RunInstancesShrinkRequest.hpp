@@ -35,6 +35,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(Ipv6AddressCount, ipv6AddressCount_);
       DARABONBA_PTR_TO_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_TO_JSON(LaunchTemplateId, launchTemplateId_);
+      DARABONBA_PTR_TO_JSON(LaunchTemplateName, launchTemplateName_);
+      DARABONBA_PTR_TO_JSON(LaunchTemplateVersion, launchTemplateVersion_);
       DARABONBA_PTR_TO_JSON(NetDistrictCode, netDistrictCode_);
       DARABONBA_PTR_TO_JSON(NetWorkId, netWorkId_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -76,6 +79,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(Ipv6AddressCount, ipv6AddressCount_);
       DARABONBA_PTR_FROM_JSON(KeyPairName, keyPairName_);
+      DARABONBA_PTR_FROM_JSON(LaunchTemplateId, launchTemplateId_);
+      DARABONBA_PTR_FROM_JSON(LaunchTemplateName, launchTemplateName_);
+      DARABONBA_PTR_FROM_JSON(LaunchTemplateVersion, launchTemplateVersion_);
       DARABONBA_PTR_FROM_JSON(NetDistrictCode, netDistrictCode_);
       DARABONBA_PTR_FROM_JSON(NetWorkId, netWorkId_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -111,11 +117,12 @@ namespace Models
         && return this->autoReleaseTime_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->billingCycle_ == nullptr && return this->carrier_ == nullptr
         && return this->dataDiskShrink_ == nullptr && return this->deletionProtection_ == nullptr && return this->ensRegionId_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr
         && return this->instanceChargeStrategy_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->internetChargeType_ == nullptr
-        && return this->internetMaxBandwidthOut_ == nullptr && return this->ipType_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->keyPairName_ == nullptr && return this->netDistrictCode_ == nullptr
-        && return this->netWorkId_ == nullptr && return this->password_ == nullptr && return this->passwordInherit_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
-        && return this->privateIpAddress_ == nullptr && return this->publicIpIdentification_ == nullptr && return this->scheduleAreaLevel_ == nullptr && return this->schedulingPriceStrategy_ == nullptr && return this->schedulingStrategy_ == nullptr
-        && return this->securityId_ == nullptr && return this->spotDuration_ == nullptr && return this->spotStrategy_ == nullptr && return this->systemDiskShrink_ == nullptr && return this->tag_ == nullptr
-        && return this->uniqueSuffix_ == nullptr && return this->userData_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && return this->internetMaxBandwidthOut_ == nullptr && return this->ipType_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->keyPairName_ == nullptr && return this->launchTemplateId_ == nullptr
+        && return this->launchTemplateName_ == nullptr && return this->launchTemplateVersion_ == nullptr && return this->netDistrictCode_ == nullptr && return this->netWorkId_ == nullptr && return this->password_ == nullptr
+        && return this->passwordInherit_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->privateIpAddress_ == nullptr && return this->publicIpIdentification_ == nullptr
+        && return this->scheduleAreaLevel_ == nullptr && return this->schedulingPriceStrategy_ == nullptr && return this->schedulingStrategy_ == nullptr && return this->securityId_ == nullptr && return this->spotDuration_ == nullptr
+        && return this->spotStrategy_ == nullptr && return this->systemDiskShrink_ == nullptr && return this->tag_ == nullptr && return this->uniqueSuffix_ == nullptr && return this->userData_ == nullptr
+        && return this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -256,6 +263,27 @@ namespace Models
     inline RunInstancesShrinkRequest& setKeyPairName(string keyPairName) { DARABONBA_PTR_SET_VALUE(keyPairName_, keyPairName) };
 
 
+    // launchTemplateId Field Functions 
+    bool hasLaunchTemplateId() const { return this->launchTemplateId_ != nullptr;};
+    void deleteLaunchTemplateId() { this->launchTemplateId_ = nullptr;};
+    inline string launchTemplateId() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateId_, "") };
+    inline RunInstancesShrinkRequest& setLaunchTemplateId(string launchTemplateId) { DARABONBA_PTR_SET_VALUE(launchTemplateId_, launchTemplateId) };
+
+
+    // launchTemplateName Field Functions 
+    bool hasLaunchTemplateName() const { return this->launchTemplateName_ != nullptr;};
+    void deleteLaunchTemplateName() { this->launchTemplateName_ = nullptr;};
+    inline string launchTemplateName() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateName_, "") };
+    inline RunInstancesShrinkRequest& setLaunchTemplateName(string launchTemplateName) { DARABONBA_PTR_SET_VALUE(launchTemplateName_, launchTemplateName) };
+
+
+    // launchTemplateVersion Field Functions 
+    bool hasLaunchTemplateVersion() const { return this->launchTemplateVersion_ != nullptr;};
+    void deleteLaunchTemplateVersion() { this->launchTemplateVersion_ = nullptr;};
+    inline int32_t launchTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(launchTemplateVersion_, 0) };
+    inline RunInstancesShrinkRequest& setLaunchTemplateVersion(int32_t launchTemplateVersion) { DARABONBA_PTR_SET_VALUE(launchTemplateVersion_, launchTemplateVersion) };
+
+
     // netDistrictCode Field Functions 
     bool hasNetDistrictCode() const { return this->netDistrictCode_ != nullptr;};
     void deleteNetDistrictCode() { this->netDistrictCode_ = nullptr;};
@@ -393,8 +421,6 @@ namespace Models
 
   protected:
     // The number of instances that you want to create. Valid values: 1 to 100.
-    // 
-    // This parameter is required.
     std::shared_ptr<int64_t> amount_ = nullptr;
     // The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
     // 
@@ -443,16 +469,12 @@ namespace Models
     // 
     // *   **PrePaid**: subscription.
     // *   **PostPaid:** pay-as-you-go.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> instanceChargeType_ = nullptr;
     // The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     // 
     // The default value of this parameter is the value of the InstanceId parameter.
     std::shared_ptr<string> instanceName_ = nullptr;
     // The instance type.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> instanceType_ = nullptr;
     // The bandwidth billing method. Valid values:
     // 
@@ -462,8 +484,6 @@ namespace Models
     // >  This parameter is required if you purchase an ENS instance for the first time. The value that you specified is used as the default value for subsequent purchases.
     std::shared_ptr<string> internetChargeType_ = nullptr;
     // The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is assigned to the instance.
-    // 
-    // This parameter is required.
     std::shared_ptr<int64_t> internetMaxBandwidthOut_ = nullptr;
     // The type of the IP address. Valid values:
     // 
@@ -477,6 +497,9 @@ namespace Models
     // 
     // >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
     std::shared_ptr<string> keyPairName_ = nullptr;
+    std::shared_ptr<string> launchTemplateId_ = nullptr;
+    std::shared_ptr<string> launchTemplateName_ = nullptr;
+    std::shared_ptr<int32_t> launchTemplateVersion_ = nullptr;
     // The code of the region.
     // 
     // >  This parameter is not available if ScheduleAreaLevel is set to Region and is required if ScheduleAreaLevel is set to other values.
@@ -518,8 +541,6 @@ namespace Models
     // *   **Middle**: province
     // *   **Small**: city
     // *   **Region**: node
-    // 
-    // This parameter is required.
     std::shared_ptr<string> scheduleAreaLevel_ = nullptr;
     // The scheduling price policy. Valid values:
     // 

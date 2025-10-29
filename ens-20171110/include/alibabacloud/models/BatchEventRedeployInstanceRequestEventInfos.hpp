@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // System event ID.
     std::shared_ptr<string> eventId_ = nullptr;
+    // Operation type, value range:
+    // 
+    // - immediate: Execute immediately.
+    // - scheduled: Scheduled execution.
     std::shared_ptr<string> opsType_ = nullptr;
+    // Scheduled execution time, in timestamp, unit is milliseconds. This field is required when OpsType=scheduled.
     std::shared_ptr<int64_t> planTime_ = nullptr;
+    // Resource ID.
     std::shared_ptr<string> resourceId_ = nullptr;
   };
 

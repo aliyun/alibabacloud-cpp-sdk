@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The details of events.
     std::shared_ptr<vector<BatchEventMigrateInstanceRequestEventInfos>> eventInfos_ = nullptr;
   };
 

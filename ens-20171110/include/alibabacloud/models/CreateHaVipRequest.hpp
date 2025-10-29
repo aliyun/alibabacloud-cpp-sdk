@@ -79,9 +79,13 @@ namespace Models
     // 
     // Default value: 1.
     std::shared_ptr<int32_t> amount_ = nullptr;
+    // The description of the HAVIP.
     std::shared_ptr<string> description_ = nullptr;
+    // The IP address of the HAVIP.
     std::shared_ptr<string> ipAddress_ = nullptr;
+    // The name of the HAVIP.
     std::shared_ptr<string> name_ = nullptr;
+    // The vSwitch ID of the HAVIP.
     std::shared_ptr<string> vSwitchId_ = nullptr;
   };
 

@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The user ID.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // The bandwidth service time. The data granularity is 5 minutes.
     std::shared_ptr<string> bizTime_ = nullptr;
+    // The node ID.
     std::shared_ptr<string> ensRegionId_ = nullptr;
+    // The type of the bandwidth. Valid values: 1, which indicates public network bandwidth. 2, which indicates internal network bandwidth.
     std::shared_ptr<int32_t> flowType_ = nullptr;
+    // The plan ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The type of the instance, such as vm, eip, single_tenant, and nc.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // null
     std::shared_ptr<string> ip_ = nullptr;
+    // The Internet service provider to which the IP address belongs.
     std::shared_ptr<string> isp_ = nullptr;
+    // null
     std::shared_ptr<int64_t> rxBw_ = nullptr;
+    // The type of the service, such as vm, eip, esk, and meta.
     std::shared_ptr<string> serviceType_ = nullptr;
+    // null
     std::shared_ptr<int64_t> txBw_ = nullptr;
   };
 

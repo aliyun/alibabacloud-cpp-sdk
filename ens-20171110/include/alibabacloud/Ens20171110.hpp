@@ -304,7 +304,10 @@ namespace Ens20171110
       Models::AuthorizeSecurityGroupEgressResponse authorizeSecurityGroupEgress(const Models::AuthorizeSecurityGroupEgressRequest &request);
 
       /**
-       * @summary 因底层升级批量迁移
+       * @summary Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+       *
+       * @description ## [](#)Request description
+       * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
        *
        * @param tmpReq BatchEventMigrateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -313,7 +316,10 @@ namespace Ens20171110
       Models::BatchEventMigrateInstanceResponse batchEventMigrateInstanceWithOptions(const Models::BatchEventMigrateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 因底层升级批量迁移
+       * @summary Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+       *
+       * @description ## [](#)Request description
+       * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
        *
        * @param request BatchEventMigrateInstanceRequest
        * @return BatchEventMigrateInstanceResponse
@@ -321,15 +327,9 @@ namespace Ens20171110
       Models::BatchEventMigrateInstanceResponse batchEventMigrateInstance(const Models::BatchEventMigrateInstanceRequest &request);
 
       /**
-       * @summary 批量因系统维护实例重启
+       * @summary The event that is used to immediately redeploy specified resources in batches or by appointment
        *
-       * @description ## 请求说明
-       * - `Action` 参数固定为 `BatchEventRebootInstance`。
-       * - `Version` 参数固定为 `2017-11-10`。
-       * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
-       * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
-       * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
-       * - 错误情况下，返回相应的错误代码和消息。
+       * @description *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
        *
        * @param tmpReq BatchEventRebootInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -338,15 +338,9 @@ namespace Ens20171110
       Models::BatchEventRebootInstanceResponse batchEventRebootInstanceWithOptions(const Models::BatchEventRebootInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量因系统维护实例重启
+       * @summary The event that is used to immediately redeploy specified resources in batches or by appointment
        *
-       * @description ## 请求说明
-       * - `Action` 参数固定为 `BatchEventRebootInstance`。
-       * - `Version` 参数固定为 `2017-11-10`。
-       * - `EventInfos` 是一个数组，每个元素包含需要重启实例的信息，包括事件ID、资源ID、操作类型（立即执行或预约执行）以及可选的计划时间戳（毫秒）。
-       * - 如果选择预约执行，则必须提供 `PlanTime` 字段的时间戳。
-       * - 返回结果中，`Results` 数组包含了每个请求的结果信息，包括消息、资源ID、事件ID和状态码。
-       * - 错误情况下，返回相应的错误代码和消息。
+       * @description *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
        *
        * @param request BatchEventRebootInstanceRequest
        * @return BatchEventRebootInstanceResponse
@@ -354,7 +348,9 @@ namespace Ens20171110
       Models::BatchEventRebootInstanceResponse batchEventRebootInstance(const Models::BatchEventRebootInstanceRequest &request);
 
       /**
-       * @summary 批量操作重新部署
+       * @summary Batch redeployment
+       *
+       * @description - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
        *
        * @param tmpReq BatchEventRedeployInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -363,7 +359,9 @@ namespace Ens20171110
       Models::BatchEventRedeployInstanceResponse batchEventRedeployInstanceWithOptions(const Models::BatchEventRedeployInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量操作重新部署
+       * @summary Batch redeployment
+       *
+       * @description - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
        *
        * @param request BatchEventRedeployInstanceRequest
        * @return BatchEventRedeployInstanceResponse
@@ -638,7 +636,7 @@ namespace Ens20171110
       Models::CreateForwardEntryResponse createForwardEntry(const Models::CreateForwardEntryRequest &request);
 
       /**
-       * @summary 创建高可用VIP
+       * @summary Creates a high-availability virtual IP address (HAVIP).
        *
        * @param request CreateHaVipRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -647,7 +645,7 @@ namespace Ens20171110
       Models::CreateHaVipResponse createHaVipWithOptions(const Models::CreateHaVipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建高可用VIP
+       * @summary Creates a high-availability virtual IP address (HAVIP).
        *
        * @param request CreateHaVipRequest
        * @return CreateHaVipResponse
@@ -1095,6 +1093,23 @@ namespace Ens20171110
       Models::CreateVSwitchResponse createVSwitch(const Models::CreateVSwitchRequest &request);
 
       /**
+       * @summary 删除托管公钥
+       *
+       * @param request DeleteAICPublicKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAICPublicKeyResponse
+       */
+      Models::DeleteAICPublicKeyResponse deleteAICPublicKeyWithOptions(const Models::DeleteAICPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除托管公钥
+       *
+       * @param request DeleteAICPublicKeyRequest
+       * @return DeleteAICPublicKeyResponse
+       */
+      Models::DeleteAICPublicKeyResponse deleteAICPublicKey(const Models::DeleteAICPublicKeyRequest &request);
+
+      /**
        * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
        *
        * @param request DeleteApplicationRequest
@@ -1296,7 +1311,7 @@ namespace Ens20171110
       Models::DeleteForwardEntryResponse deleteForwardEntry(const Models::DeleteForwardEntryRequest &request);
 
       /**
-       * @summary 删除高可用VIP实例
+       * @summary Deletes a high-availability VIP (HAVIP).
        *
        * @param tmpReq DeleteHaVipsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1320,7 @@ namespace Ens20171110
       Models::DeleteHaVipsResponse deleteHaVipsWithOptions(const Models::DeleteHaVipsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除高可用VIP实例
+       * @summary Deletes a high-availability VIP (HAVIP).
        *
        * @param request DeleteHaVipsRequest
        * @return DeleteHaVipsResponse
@@ -1465,7 +1480,7 @@ namespace Ens20171110
       Models::DeleteNetworkAclEntryResponse deleteNetworkAclEntry(const Models::DeleteNetworkAclEntryRequest &request);
 
       /**
-       * @summary 删除弹性网卡
+       * @summary Deletes an elastic network interface (ENI).
        *
        * @param tmpReq DeleteNetworkInterfacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1474,7 +1489,7 @@ namespace Ens20171110
       Models::DeleteNetworkInterfacesResponse deleteNetworkInterfacesWithOptions(const Models::DeleteNetworkInterfacesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除弹性网卡
+       * @summary Deletes an elastic network interface (ENI).
        *
        * @param request DeleteNetworkInterfacesRequest
        * @return DeleteNetworkInterfacesResponse
@@ -2449,6 +2464,8 @@ namespace Ens20171110
       /**
        * @summary Queries instance system events.
        *
+       * @description *   You must specify an event type to query. You can query multiple event types at the same time.
+       *
        * @param tmpReq DescribeHistoryEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeHistoryEventsResponse
@@ -2457,6 +2474,8 @@ namespace Ens20171110
 
       /**
        * @summary Queries instance system events.
+       *
+       * @description *   You must specify an event type to query. You can query multiple event types at the same time.
        *
        * @param request DescribeHistoryEventsRequest
        * @return DescribeHistoryEventsResponse
@@ -2532,7 +2551,11 @@ namespace Ens20171110
       Models::DescribeInstanceAutoRenewAttributeResponse describeInstanceAutoRenewAttribute(const Models::DescribeInstanceAutoRenewAttributeRequest &request);
 
       /**
-       * @summary 查询实例5分钟粒度带宽明细
+       * @summary Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+       *
+       * @description *   You can call this operation up to 800 times per second per account.
+       * *   You can call this operation up to 100 times per second per user.
+       * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
        *
        * @param request DescribeInstanceBandwidthDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2564,11 @@ namespace Ens20171110
       Models::DescribeInstanceBandwidthDetailResponse describeInstanceBandwidthDetailWithOptions(const Models::DescribeInstanceBandwidthDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例5分钟粒度带宽明细
+       * @summary Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+       *
+       * @description *   You can call this operation up to 800 times per second per account.
+       * *   You can call this operation up to 100 times per second per user.
+       * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
        *
        * @param request DescribeInstanceBandwidthDetailRequest
        * @return DescribeInstanceBandwidthDetailResponse
@@ -3189,6 +3216,23 @@ namespace Ens20171110
       Models::DescribeSDGDeploymentStatusResponse describeSDGDeploymentStatus(const Models::DescribeSDGDeploymentStatusRequest &request);
 
       /**
+       * @summary 查询SDG下的共享盘
+       *
+       * @param request DescribeSDGSharedDisksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSDGSharedDisksResponse
+       */
+      Models::DescribeSDGSharedDisksResponse describeSDGSharedDisksWithOptions(const Models::DescribeSDGSharedDisksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SDG下的共享盘
+       *
+       * @param request DescribeSDGSharedDisksRequest
+       * @return DescribeSDGSharedDisksResponse
+       */
+      Models::DescribeSDGSharedDisksResponse describeSDGSharedDisks(const Models::DescribeSDGSharedDisksRequest &request);
+
+      /**
        * @summary Queries information about created shared data groups (SDGs).
        *
        * @param tmpReq DescribeSDGsRequest
@@ -3439,7 +3483,7 @@ namespace Ens20171110
       Models::DescribeUserBandWidthDataResponse describeUserBandWidthData(const Models::DescribeUserBandWidthDataRequest &request);
 
       /**
-       * @summary 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+       * @summary Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
        *
        * @param request DescribeVSwitchAttributesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3448,7 +3492,7 @@ namespace Ens20171110
       Models::DescribeVSwitchAttributesResponse describeVSwitchAttributesWithOptions(const Models::DescribeVSwitchAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用DescribeVSwitchAttributes接口查询指定交换机的配置信息。
+       * @summary Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
        *
        * @param request DescribeVSwitchAttributesRequest
        * @return DescribeVSwitchAttributesResponse
@@ -3553,7 +3597,9 @@ namespace Ens20171110
       Models::DistApplicationDataResponse distApplicationData(const Models::DistApplicationDataRequest &request);
 
       /**
-       * @summary 因底层升级需要迁移
+       * @summary Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+       *
+       * @description *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
        *
        * @param request EventMigrateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3562,7 +3608,9 @@ namespace Ens20171110
       Models::EventMigrateInstanceResponse eventMigrateInstanceWithOptions(const Models::EventMigrateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 因底层升级需要迁移
+       * @summary Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+       *
+       * @description *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
        *
        * @param request EventMigrateInstanceRequest
        * @return EventMigrateInstanceResponse
@@ -3570,13 +3618,9 @@ namespace Ens20171110
       Models::EventMigrateInstanceResponse eventMigrateInstance(const Models::EventMigrateInstanceRequest &request);
 
       /**
-       * @summary 因系统维护实例重启
+       * @summary Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
        *
-       * @description ## 请求说明
-       * - 该API用于触发一个实例的重启事件。
-       * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
-       * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
-       * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+       * @description *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
        *
        * @param request EventRebootInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3585,13 +3629,9 @@ namespace Ens20171110
       Models::EventRebootInstanceResponse eventRebootInstanceWithOptions(const Models::EventRebootInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 因系统维护实例重启
+       * @summary Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
        *
-       * @description ## 请求说明
-       * - 该API用于触发一个实例的重启事件。
-       * - `OpsType`参数可选，若不提供，默认为`scheduled`（预约执行）。
-       * - 当选择`scheduled`时，必须提供`PlanTime`参数，格式为时间戳（毫秒）。
-       * - 如果需要立即执行重启，请设置`OpsType`为`immediate`。
+       * @description *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
        *
        * @param request EventRebootInstanceRequest
        * @return EventRebootInstanceResponse
@@ -3599,7 +3639,9 @@ namespace Ens20171110
       Models::EventRebootInstanceResponse eventRebootInstance(const Models::EventRebootInstanceRequest &request);
 
       /**
-       * @summary 节点内迁移
+       * @summary The event that is used to immediately redeploy a specified resource or by appointment
+       *
+       * @description *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
        *
        * @param request EventRedeployInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3608,7 +3650,9 @@ namespace Ens20171110
       Models::EventRedeployInstanceResponse eventRedeployInstanceWithOptions(const Models::EventRedeployInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 节点内迁移
+       * @summary The event that is used to immediately redeploy a specified resource or by appointment
+       *
+       * @description *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
        *
        * @param request EventRedeployInstanceRequest
        * @return EventRedeployInstanceResponse
@@ -3756,7 +3800,7 @@ namespace Ens20171110
       Models::GetOssUsageDataResponse getOssUsageData(const Models::GetOssUsageDataRequest &request);
 
       /**
-       * @summary 调用ImportImage导入一份您的镜像文件到云服务器。
+       * @summary Call ImportImage to import your image file to the cloud server.
        *
        * @param tmpReq ImportImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3765,7 +3809,7 @@ namespace Ens20171110
       Models::ImportImageResponse importImageWithOptions(const Models::ImportImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用ImportImage导入一份您的镜像文件到云服务器。
+       * @summary Call ImportImage to import your image file to the cloud server.
        *
        * @param request ImportImageRequest
        * @return ImportImageResponse
@@ -3876,6 +3920,40 @@ namespace Ens20171110
       Models::LeaveSecurityGroupResponse leaveSecurityGroup(const Models::LeaveSecurityGroupRequest &request);
 
       /**
+       * @summary 查询公钥下发信息
+       *
+       * @param request ListAICPublicKeyDeliveriesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAICPublicKeyDeliveriesResponse
+       */
+      Models::ListAICPublicKeyDeliveriesResponse listAICPublicKeyDeliveriesWithOptions(const Models::ListAICPublicKeyDeliveriesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询公钥下发信息
+       *
+       * @param request ListAICPublicKeyDeliveriesRequest
+       * @return ListAICPublicKeyDeliveriesResponse
+       */
+      Models::ListAICPublicKeyDeliveriesResponse listAICPublicKeyDeliveries(const Models::ListAICPublicKeyDeliveriesRequest &request);
+
+      /**
+       * @summary 查询所有托管的公钥
+       *
+       * @param request ListAICPublicKeysRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAICPublicKeysResponse
+       */
+      Models::ListAICPublicKeysResponse listAICPublicKeysWithOptions(const Models::ListAICPublicKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询所有托管的公钥
+       *
+       * @param request ListAICPublicKeysRequest
+       * @return ListAICPublicKeysResponse
+       */
+      Models::ListAICPublicKeysResponse listAICPublicKeys(const Models::ListAICPublicKeysRequest &request);
+
+      /**
        * @summary Queries the created applications.
        *
        * @param request ListApplicationsRequest
@@ -3960,6 +4038,23 @@ namespace Ens20171110
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary AIC公钥登入管理
+       *
+       * @param request ManageAICLoginRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ManageAICLoginResponse
+       */
+      Models::ManageAICLoginResponse manageAICLoginWithOptions(const Models::ManageAICLoginRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AIC公钥登入管理
+       *
+       * @param request ManageAICLoginRequest
+       * @return ManageAICLoginResponse
+       */
+      Models::ManageAICLoginResponse manageAICLogin(const Models::ManageAICLoginRequest &request);
+
+      /**
        * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
        *
        * @param request ModifyEnsEipAddressAttributeRequest
@@ -3977,7 +4072,7 @@ namespace Ens20171110
       Models::ModifyEnsEipAddressAttributeResponse modifyEnsEipAddressAttribute(const Models::ModifyEnsEipAddressAttributeRequest &request);
 
       /**
-       * @summary 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+       * @summary Modifies the name and description of a custom route.
        *
        * @param request ModifyEnsRouteEntryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3986,7 +4081,7 @@ namespace Ens20171110
       Models::ModifyEnsRouteEntryResponse modifyEnsRouteEntryWithOptions(const Models::ModifyEnsRouteEntryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用ModifyEnsRouteEntry接口修改自定义路由条目名称、描述。
+       * @summary Modifies the name and description of a custom route.
        *
        * @param request ModifyEnsRouteEntryRequest
        * @return ModifyEnsRouteEntryResponse
@@ -4138,7 +4233,11 @@ namespace Ens20171110
       Models::ModifyInstanceAutoRenewAttributeResponse modifyInstanceAutoRenewAttribute(const Models::ModifyInstanceAutoRenewAttributeRequest &request);
 
       /**
-       * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+       * @summary Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+       *
+       * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+       * *   If the instance is in the Running state, you cannot change the password of the instance.
+       * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
        *
        * @param request ModifyInstanceBootConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4147,7 +4246,11 @@ namespace Ens20171110
       Models::ModifyInstanceBootConfigurationResponse modifyInstanceBootConfigurationWithOptions(const Models::ModifyInstanceBootConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改启动配置，只支持异构实例(PCFarm裸金属)。
+       * @summary Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+       *
+       * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+       * *   If the instance is in the Running state, you cannot change the password of the instance.
+       * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
        *
        * @param request ModifyInstanceBootConfigurationRequest
        * @return ModifyInstanceBootConfigurationResponse
@@ -5187,6 +5290,23 @@ namespace Ens20171110
       Models::SetLoadBalancerUDPListenerAttributeResponse setLoadBalancerUDPListenerAttribute(const Models::SetLoadBalancerUDPListenerAttributeRequest &request);
 
       /**
+       * @summary 共享AIC镜像
+       *
+       * @param tmpReq ShareAICImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ShareAICImageResponse
+       */
+      Models::ShareAICImageResponse shareAICImageWithOptions(const Models::ShareAICImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 共享AIC镜像
+       *
+       * @param request ShareAICImageRequest
+       * @return ShareAICImageResponse
+       */
+      Models::ShareAICImageResponse shareAICImage(const Models::ShareAICImageRequest &request);
+
+      /**
        * @summary Starts an edge network instance.
        *
        * @param request StartEpnInstanceRequest
@@ -5574,6 +5694,23 @@ namespace Ens20171110
        * @return UpgradeApplicationResponse
        */
       Models::UpgradeApplicationResponse upgradeApplication(const Models::UpgradeApplicationRequest &request);
+
+      /**
+       * @summary 上传公钥
+       *
+       * @param request UploadAICPublicKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadAICPublicKeyResponse
+       */
+      Models::UploadAICPublicKeyResponse uploadAICPublicKeyWithOptions(const Models::UploadAICPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传公钥
+       *
+       * @param request UploadAICPublicKeyRequest
+       * @return UploadAICPublicKeyResponse
+       */
+      Models::UploadAICPublicKeyResponse uploadAICPublicKey(const Models::UploadAICPublicKeyRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Ens20171110

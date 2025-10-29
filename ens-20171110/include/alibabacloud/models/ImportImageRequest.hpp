@@ -153,23 +153,56 @@ namespace Models
 
 
   protected:
+    // System architecture. Allowed values:</br>
+    // 
+    // - x86_64.</br>
+    // 
+    // Currently, only x86_64 is supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> architecture_ = nullptr;
+    // `Image Type`
+    // ens_vm: ens virtual machine image (default)
+    // 
     // This parameter is required.
     std::shared_ptr<string> computeType_ = nullptr;
+    // List of custom image information being created.
     std::shared_ptr<vector<ImportImageRequestDiskDeviceMapping>> diskDeviceMapping_ = nullptr;
+    // Image format. Allowed values:</br>
+    // qcow2.</br>
+    // Currently, only qcow2 is supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageFormat_ = nullptr;
+    // Image name. The length should be [2, 128] English or Chinese characters. It must start with a letter (uppercase or lowercase) or a Chinese character, and cannot start with http:// or https://. It can contain numbers, colons (:), underscores (_), or hyphens (-).
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageName_ = nullptr;
     std::shared_ptr<string> licenseType_ = nullptr;
+    // The OSS Bucket where the image file is located.
     std::shared_ptr<string> OSSBucket_ = nullptr;
+    // The name of the image file.
     std::shared_ptr<string> OSSObject_ = nullptr;
+    // The Region where the image is located. Currently, only cn-beijing is supported.
     std::shared_ptr<string> OSSRegion_ = nullptr;
+    // Operating system platform type. Allowed values:
+    // 
+    // - windows.
+    // - linux.
+    // 
+    // Currently, only linux is supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> OSType_ = nullptr;
+    // Operating system distribution version
     std::shared_ptr<string> OSVersion_ = nullptr;
+    // Operating system distribution. Allowed values:
+    // * centos
+    // * ubuntu
     std::shared_ptr<string> platform_ = nullptr;
+    // The target OSS region where the image will be stored.</br>
+    // 
+    // > Currently, only cn-beijing and ap-southeast-1 are supported.
     std::shared_ptr<string> targetOSSRegionId_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The OSS Bucket where the image is stored.
     std::shared_ptr<string> OSSBucket_ = nullptr;
+    // The filename (key) of the image file after it is uploaded to the OSS Bucket.
     std::shared_ptr<string> OSSObject_ = nullptr;
+    // The Region where the image is located.
     std::shared_ptr<string> OSSRegion_ = nullptr;
   };
 

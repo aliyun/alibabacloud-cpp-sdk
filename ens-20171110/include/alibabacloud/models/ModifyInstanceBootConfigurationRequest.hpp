@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The startup method.
     std::shared_ptr<string> bootSet_ = nullptr;
+    // The startup type.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bootType_ = nullptr;
+    // Specifies whether the startup depends on the disk.
     std::shared_ptr<string> diskSet_ = nullptr;
+    // The ID of the instance for which you want to modify the configuration. You can specify only one ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
   };

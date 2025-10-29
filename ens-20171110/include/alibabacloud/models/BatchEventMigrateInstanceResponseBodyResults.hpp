@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The error code.
     std::shared_ptr<int32_t> code_ = nullptr;
+    // The ID of the event.
     std::shared_ptr<string> eventId_ = nullptr;
+    // When Code!=200, it indicates the specific error message.
     std::shared_ptr<string> message_ = nullptr;
+    // The resource IDs.
     std::shared_ptr<string> resourceId_ = nullptr;
   };
 

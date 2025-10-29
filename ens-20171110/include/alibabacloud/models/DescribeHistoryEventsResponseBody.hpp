@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The queried events.
     std::shared_ptr<vector<DescribeHistoryEventsResponseBodyEvents>> events_ = nullptr;
+    // The page number. Pages start from page 1. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

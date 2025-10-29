@@ -182,20 +182,39 @@ namespace Models
 
 
   protected:
+    // The number of available IP addresses in the VSwitch.
     std::shared_ptr<int64_t> availableIpAddressCount_ = nullptr;
+    // The IPv4 CIDR block of the network.
     std::shared_ptr<string> cidrBlock_ = nullptr;
+    // The creation time, in UTC format (yyyy-MM-ddTHH:mm:ssZ).
     std::shared_ptr<string> createdTime_ = nullptr;
+    // The description of the VSwitch.
     std::shared_ptr<string> description_ = nullptr;
+    // The ENS node ID.
     std::shared_ptr<string> ensRegionId_ = nullptr;
+    // A list of high-availability VIP instance IDs.
     std::shared_ptr<DescribeVSwitchAttributesResponseBodyHaVipIds> haVipIds_ = nullptr;
+    // A list of instance IDs.
     std::shared_ptr<DescribeVSwitchAttributesResponseBodyInstanceIds> instanceIds_ = nullptr;
+    // A list of load balancer instance IDs.
     std::shared_ptr<DescribeVSwitchAttributesResponseBodyLoadBalancerIds> loadBalancerIds_ = nullptr;
+    // A list of NAT gateway IDs.
     std::shared_ptr<DescribeVSwitchAttributesResponseBodyNatGatewayIds> natGatewayIds_ = nullptr;
+    // The network ID.
     std::shared_ptr<string> networkId_ = nullptr;
+    // A list of elastic network interface IDs.
     std::shared_ptr<DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds> networkInterfaceIds_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the VSwitch, as follows:
+    // 
+    // - Pending
+    // - Available
+    // - Releasing
     std::shared_ptr<string> status_ = nullptr;
+    // The ID of the VSwitch.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    // The name of the VSwitch.
     std::shared_ptr<string> vSwitchName_ = nullptr;
   };
 

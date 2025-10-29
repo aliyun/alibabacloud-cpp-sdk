@@ -96,6 +96,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The IDs of resources.
     std::shared_ptr<string> resourceIdsShrink_ = nullptr;
   };
 
