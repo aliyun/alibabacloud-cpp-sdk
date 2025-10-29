@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deployConfigs_ != nullptr
-        && this->description_ != nullptr && this->dryRun_ != nullptr && this->gatewayId_ != nullptr && this->mcpRouteId_ != nullptr && this->name_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->specContentBase64_ != nullptr && this->specFileUrl_ != nullptr && this->specOssConfig_ != nullptr && this->strategy_ != nullptr
-        && this->targetHttpApiId_ != nullptr && this->versionConfig_ != nullptr; };
+    virtual bool empty() const override { return this->deployConfigs_ == nullptr
+        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->gatewayId_ == nullptr && return this->mcpRouteId_ == nullptr && return this->name_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->specContentBase64_ == nullptr && return this->specFileUrl_ == nullptr && return this->specOssConfig_ == nullptr && return this->strategy_ == nullptr
+        && return this->targetHttpApiId_ == nullptr && return this->versionConfig_ == nullptr; };
     // deployConfigs Field Functions 
     bool hasDeployConfigs() const { return this->deployConfigs_ != nullptr;};
     void deleteDeployConfigs() { this->deployConfigs_ = nullptr;};

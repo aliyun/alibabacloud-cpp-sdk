@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->certId_ != nullptr && this->certIdentifier_ != nullptr && this->certName_ != nullptr && this->commonName_ != nullptr && this->domain_ != nullptr
-        && this->domainMatchCert_ != nullptr && this->fingerprint_ != nullptr && this->instanceId_ != nullptr && this->isChainCompleted_ != nullptr && this->issuer_ != nullptr
-        && this->keySize_ != nullptr && this->md5_ != nullptr && this->notAfterTimestamp_ != nullptr && this->notBeforeTimestamp_ != nullptr && this->sans_ != nullptr
-        && this->serialNo_ != nullptr && this->sha2_ != nullptr && this->signAlgorithm_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->certId_ == nullptr && return this->certIdentifier_ == nullptr && return this->certName_ == nullptr && return this->commonName_ == nullptr && return this->domain_ == nullptr
+        && return this->domainMatchCert_ == nullptr && return this->fingerprint_ == nullptr && return this->instanceId_ == nullptr && return this->isChainCompleted_ == nullptr && return this->issuer_ == nullptr
+        && return this->keySize_ == nullptr && return this->md5_ == nullptr && return this->notAfterTimestamp_ == nullptr && return this->notBeforeTimestamp_ == nullptr && return this->sans_ == nullptr
+        && return this->serialNo_ == nullptr && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

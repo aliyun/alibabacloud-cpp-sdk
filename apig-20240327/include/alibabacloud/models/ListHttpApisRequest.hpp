@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayId_ != nullptr
-        && this->gatewayType_ != nullptr && this->keyword_ != nullptr && this->name_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->types_ != nullptr && this->withAPIsPublishedToEnvironment_ != nullptr && this->withAuthPolicyInEnvironmentId_ != nullptr && this->withAuthPolicyList_ != nullptr
-        && this->withConsumerInfoById_ != nullptr && this->withEnvironmentInfo_ != nullptr && this->withEnvironmentInfoById_ != nullptr && this->withIngressInfo_ != nullptr && this->withPluginAttachmentByPluginId_ != nullptr
-        && this->withPolicyConfigs_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayId_ == nullptr
+        && return this->gatewayType_ == nullptr && return this->keyword_ == nullptr && return this->name_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->types_ == nullptr && return this->withAPIsPublishedToEnvironment_ == nullptr && return this->withAuthPolicyInEnvironmentId_ == nullptr && return this->withAuthPolicyList_ == nullptr
+        && return this->withConsumerInfoById_ == nullptr && return this->withEnvironmentInfo_ == nullptr && return this->withEnvironmentInfoById_ == nullptr && return this->withIngressInfo_ == nullptr && return this->withPluginAttachmentByPluginId_ == nullptr
+        && return this->withPolicyConfigs_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};

@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backend_ != nullptr
-        && this->createTimestamp_ != nullptr && this->deployStatus_ != nullptr && this->description_ != nullptr && this->domainInfos_ != nullptr && this->environmentInfo_ != nullptr
-        && this->gatewayStatus_ != nullptr && this->match_ != nullptr && this->mcpServerInfo_ != nullptr && this->name_ != nullptr && this->routeId_ != nullptr
-        && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->backend_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->deployStatus_ == nullptr && return this->description_ == nullptr && return this->domainInfos_ == nullptr && return this->environmentInfo_ == nullptr
+        && return this->gatewayStatus_ == nullptr && return this->match_ == nullptr && return this->mcpServerInfo_ == nullptr && return this->name_ == nullptr && return this->routeId_ == nullptr
+        && return this->updateTimestamp_ == nullptr; };
     // backend Field Functions 
     bool hasBackend() const { return this->backend_ != nullptr;};
     void deleteBackend() { this->backend_ = nullptr;};

@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(addressIpVersion, addressIpVersion_);
       DARABONBA_PTR_TO_JSON(addressType, addressType_);
       DARABONBA_PTR_TO_JSON(gatewayDefault, gatewayDefault_);
+      DARABONBA_PTR_TO_JSON(ipv4Addresses, ipv4Addresses_);
+      DARABONBA_PTR_TO_JSON(ipv6Addresses, ipv6Addresses_);
       DARABONBA_PTR_TO_JSON(loadBalancerId, loadBalancerId_);
       DARABONBA_PTR_TO_JSON(mode, mode_);
       DARABONBA_PTR_TO_JSON(ports, ports_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(addressIpVersion, addressIpVersion_);
       DARABONBA_PTR_FROM_JSON(addressType, addressType_);
       DARABONBA_PTR_FROM_JSON(gatewayDefault, gatewayDefault_);
+      DARABONBA_PTR_FROM_JSON(ipv4Addresses, ipv4Addresses_);
+      DARABONBA_PTR_FROM_JSON(ipv6Addresses, ipv6Addresses_);
       DARABONBA_PTR_FROM_JSON(loadBalancerId, loadBalancerId_);
       DARABONBA_PTR_FROM_JSON(mode, mode_);
       DARABONBA_PTR_FROM_JSON(ports, ports_);
@@ -47,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->addressIpVersion_ != nullptr && this->addressType_ != nullptr && this->gatewayDefault_ != nullptr && this->loadBalancerId_ != nullptr && this->mode_ != nullptr
-        && this->ports_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->addressIpVersion_ == nullptr && return this->addressType_ == nullptr && return this->gatewayDefault_ == nullptr && return this->ipv4Addresses_ == nullptr && return this->ipv6Addresses_ == nullptr
+        && return this->loadBalancerId_ == nullptr && return this->mode_ == nullptr && return this->ports_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -76,6 +80,24 @@ namespace Models
     void deleteGatewayDefault() { this->gatewayDefault_ = nullptr;};
     inline bool gatewayDefault() const { DARABONBA_PTR_GET_DEFAULT(gatewayDefault_, false) };
     inline GetGatewayResponseBodyDataLoadBalancers& setGatewayDefault(bool gatewayDefault) { DARABONBA_PTR_SET_VALUE(gatewayDefault_, gatewayDefault) };
+
+
+    // ipv4Addresses Field Functions 
+    bool hasIpv4Addresses() const { return this->ipv4Addresses_ != nullptr;};
+    void deleteIpv4Addresses() { this->ipv4Addresses_ = nullptr;};
+    inline const vector<string> & ipv4Addresses() const { DARABONBA_PTR_GET_CONST(ipv4Addresses_, vector<string>) };
+    inline vector<string> ipv4Addresses() { DARABONBA_PTR_GET(ipv4Addresses_, vector<string>) };
+    inline GetGatewayResponseBodyDataLoadBalancers& setIpv4Addresses(const vector<string> & ipv4Addresses) { DARABONBA_PTR_SET_VALUE(ipv4Addresses_, ipv4Addresses) };
+    inline GetGatewayResponseBodyDataLoadBalancers& setIpv4Addresses(vector<string> && ipv4Addresses) { DARABONBA_PTR_SET_RVALUE(ipv4Addresses_, ipv4Addresses) };
+
+
+    // ipv6Addresses Field Functions 
+    bool hasIpv6Addresses() const { return this->ipv6Addresses_ != nullptr;};
+    void deleteIpv6Addresses() { this->ipv6Addresses_ = nullptr;};
+    inline const vector<string> & ipv6Addresses() const { DARABONBA_PTR_GET_CONST(ipv6Addresses_, vector<string>) };
+    inline vector<string> ipv6Addresses() { DARABONBA_PTR_GET(ipv6Addresses_, vector<string>) };
+    inline GetGatewayResponseBodyDataLoadBalancers& setIpv6Addresses(const vector<string> & ipv6Addresses) { DARABONBA_PTR_SET_VALUE(ipv6Addresses_, ipv6Addresses) };
+    inline GetGatewayResponseBodyDataLoadBalancers& setIpv6Addresses(vector<string> && ipv6Addresses) { DARABONBA_PTR_SET_RVALUE(ipv6Addresses_, ipv6Addresses) };
 
 
     // loadBalancerId Field Functions 
@@ -130,6 +152,8 @@ namespace Models
     std::shared_ptr<string> addressType_ = nullptr;
     // Indicates whether the address is the default ingress address of the instance.
     std::shared_ptr<bool> gatewayDefault_ = nullptr;
+    std::shared_ptr<vector<string>> ipv4Addresses_ = nullptr;
+    std::shared_ptr<vector<string>> ipv6Addresses_ = nullptr;
     // The load balancer ID.
     std::shared_ptr<string> loadBalancerId_ = nullptr;
     // The mode in which the load balancer is provided. Valid values:

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exposedUriPath_ != nullptr
-        && this->protocol_ != nullptr; };
+    virtual bool empty() const override { return this->exposedUriPath_ == nullptr
+        && return this->protocol_ == nullptr; };
     // exposedUriPath Field Functions 
     bool hasExposedUriPath() const { return this->exposedUriPath_ != nullptr;};
     void deleteExposedUriPath() { this->exposedUriPath_ = nullptr;};

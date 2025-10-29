@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->caCertIdentifier_ != nullptr && this->certIdentifier_ != nullptr && this->certName_ != nullptr && this->clientCACert_ != nullptr && this->createFrom_ != nullptr
-        && this->createTimestamp_ != nullptr && this->default_ != nullptr && this->domainId_ != nullptr && this->forceHttps_ != nullptr && this->http2Option_ != nullptr
-        && this->issuer_ != nullptr && this->mTLSEnabled_ != nullptr && this->name_ != nullptr && this->notAfterTimstamp_ != nullptr && this->notBeforeTimestamp_ != nullptr
-        && this->protocol_ != nullptr && this->resourceGroupId_ != nullptr && this->sans_ != nullptr && this->statisticsInfo_ != nullptr && this->tlsCipherSuitesConfig_ != nullptr
-        && this->tlsMax_ != nullptr && this->tlsMin_ != nullptr && this->updatetimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->caCertIdentifier_ == nullptr && return this->certIdentifier_ == nullptr && return this->certName_ == nullptr && return this->clientCACert_ == nullptr && return this->createFrom_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->default_ == nullptr && return this->domainId_ == nullptr && return this->forceHttps_ == nullptr && return this->http2Option_ == nullptr
+        && return this->issuer_ == nullptr && return this->mTLSEnabled_ == nullptr && return this->name_ == nullptr && return this->notAfterTimstamp_ == nullptr && return this->notBeforeTimestamp_ == nullptr
+        && return this->protocol_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr && return this->statisticsInfo_ == nullptr && return this->tlsCipherSuitesConfig_ == nullptr
+        && return this->tlsMax_ == nullptr && return this->tlsMin_ == nullptr && return this->updatetimestamp_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

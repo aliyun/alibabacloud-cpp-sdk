@@ -75,11 +75,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addresses_ != nullptr
-        && this->agentServiceConfig_ != nullptr && this->aiServiceConfig_ != nullptr && this->createTimestamp_ != nullptr && this->expressType_ != nullptr && this->gatewayId_ != nullptr
-        && this->groupName_ != nullptr && this->healthCheck_ != nullptr && this->healthStatus_ != nullptr && this->labelDetails_ != nullptr && this->name_ != nullptr
-        && this->namespace_ != nullptr && this->outlierEndpoints_ != nullptr && this->ports_ != nullptr && this->protocol_ != nullptr && this->qualifier_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serviceId_ != nullptr && this->sourceType_ != nullptr && this->unhealthyEndpoints_ != nullptr && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->addresses_ == nullptr
+        && return this->agentServiceConfig_ == nullptr && return this->aiServiceConfig_ == nullptr && return this->createTimestamp_ == nullptr && return this->expressType_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->groupName_ == nullptr && return this->healthCheck_ == nullptr && return this->healthStatus_ == nullptr && return this->labelDetails_ == nullptr && return this->name_ == nullptr
+        && return this->namespace_ == nullptr && return this->outlierEndpoints_ == nullptr && return this->ports_ == nullptr && return this->protocol_ == nullptr && return this->qualifier_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->serviceId_ == nullptr && return this->sourceType_ == nullptr && return this->unhealthyEndpoints_ == nullptr && return this->updateTimestamp_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};

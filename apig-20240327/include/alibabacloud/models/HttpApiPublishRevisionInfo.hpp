@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backendScene_ != nullptr
-        && this->backendType_ != nullptr && this->cloudProductConfig_ != nullptr && this->createTimestamp_ != nullptr && this->customDomains_ != nullptr && this->dnsConfigs_ != nullptr
-        && this->environmentInfo_ != nullptr && this->isCurrentVersion_ != nullptr && this->operations_ != nullptr && this->revisionId_ != nullptr && this->serviceConfigs_ != nullptr
-        && this->subDomains_ != nullptr && this->vipConfigs_ != nullptr; };
+    virtual bool empty() const override { return this->backendScene_ == nullptr
+        && return this->backendType_ == nullptr && return this->cloudProductConfig_ == nullptr && return this->createTimestamp_ == nullptr && return this->customDomains_ == nullptr && return this->dnsConfigs_ == nullptr
+        && return this->environmentInfo_ == nullptr && return this->isCurrentVersion_ == nullptr && return this->operations_ == nullptr && return this->revisionId_ == nullptr && return this->serviceConfigs_ == nullptr
+        && return this->subDomains_ == nullptr && return this->vipConfigs_ == nullptr; };
     // backendScene Field Functions 
     bool hasBackendScene() const { return this->backendScene_ != nullptr;};
     void deleteBackendScene() { this->backendScene_ = nullptr;};

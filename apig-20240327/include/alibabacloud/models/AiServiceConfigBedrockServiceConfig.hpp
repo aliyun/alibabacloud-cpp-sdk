@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->awsAccessKey_ != nullptr
-        && this->awsRegion_ != nullptr && this->awsSecretKey_ != nullptr; };
+    virtual bool empty() const override { return this->awsAccessKey_ == nullptr
+        && return this->awsRegion_ == nullptr && return this->awsSecretKey_ == nullptr; };
     // awsAccessKey Field Functions 
     bool hasAwsAccessKey() const { return this->awsAccessKey_ != nullptr;};
     void deleteAwsAccessKey() { this->awsAccessKey_ = nullptr;};

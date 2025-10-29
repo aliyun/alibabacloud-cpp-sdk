@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachResourceType_ != nullptr
-        && this->enable_ != nullptr && this->environmentInfo_ != nullptr && this->parentResourceInfo_ != nullptr && this->pluginAttachmentId_ != nullptr && this->pluginClassInfo_ != nullptr
-        && this->pluginConfig_ != nullptr && this->pluginId_ != nullptr && this->resourceInfos_ != nullptr; };
+    virtual bool empty() const override { return this->attachResourceType_ == nullptr
+        && return this->enable_ == nullptr && return this->environmentInfo_ == nullptr && return this->parentResourceInfo_ == nullptr && return this->pluginAttachmentId_ == nullptr && return this->pluginClassInfo_ == nullptr
+        && return this->pluginConfig_ == nullptr && return this->pluginId_ == nullptr && return this->resourceInfos_ == nullptr; };
     // attachResourceType Field Functions 
     bool hasAttachResourceType() const { return this->attachResourceType_ != nullptr;};
     void deleteAttachResourceType() { this->attachResourceType_ = nullptr;};

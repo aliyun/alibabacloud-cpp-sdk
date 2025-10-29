@@ -19,6 +19,7 @@ namespace Models
   class ListMcpServersResponseBodyDataItems : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListMcpServersResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_TO_JSON(apiId, apiId_);
       DARABONBA_PTR_TO_JSON(assembledSources, assembledSources_);
       DARABONBA_PTR_TO_JSON(backend, backend_);
       DARABONBA_PTR_TO_JSON(createFromType, createFromType_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ListMcpServersResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiId, apiId_);
       DARABONBA_PTR_FROM_JSON(assembledSources, assembledSources_);
       DARABONBA_PTR_FROM_JSON(backend, backend_);
       DARABONBA_PTR_FROM_JSON(createFromType, createFromType_);
@@ -73,11 +75,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assembledSources_ != nullptr
-        && this->backend_ != nullptr && this->createFromType_ != nullptr && this->deployStatus_ != nullptr && this->description_ != nullptr && this->domainIds_ != nullptr
-        && this->domainInfos_ != nullptr && this->environmentId_ != nullptr && this->exposedUriPath_ != nullptr && this->gatewayId_ != nullptr && this->match_ != nullptr
-        && this->mcpServerConfig_ != nullptr && this->mcpServerId_ != nullptr && this->mcpServerPath_ != nullptr && this->mcpStatisticsEnable_ != nullptr && this->nacosMcpSyncInfo_ != nullptr
-        && this->name_ != nullptr && this->protocol_ != nullptr && this->routeId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->assembledSources_ == nullptr && return this->backend_ == nullptr && return this->createFromType_ == nullptr && return this->deployStatus_ == nullptr && return this->description_ == nullptr
+        && return this->domainIds_ == nullptr && return this->domainInfos_ == nullptr && return this->environmentId_ == nullptr && return this->exposedUriPath_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->match_ == nullptr && return this->mcpServerConfig_ == nullptr && return this->mcpServerId_ == nullptr && return this->mcpServerPath_ == nullptr && return this->mcpStatisticsEnable_ == nullptr
+        && return this->nacosMcpSyncInfo_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->routeId_ == nullptr && return this->type_ == nullptr; };
+    // apiId Field Functions 
+    bool hasApiId() const { return this->apiId_ != nullptr;};
+    void deleteApiId() { this->apiId_ = nullptr;};
+    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+    inline ListMcpServersResponseBodyDataItems& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
+
+
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -231,6 +240,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<vector<Models::ListMcpServersResponseBodyDataItemsAssembledSources>> assembledSources_ = nullptr;
     std::shared_ptr<Models::Backend> backend_ = nullptr;
     std::shared_ptr<string> createFromType_ = nullptr;

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiNameLike_ != nullptr
-        && this->consumerId_ != nullptr && this->consumerNameLike_ != nullptr && this->environmentId_ != nullptr && this->groupByApi_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->parentResourceId_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->resourceTypes_ != nullptr; };
+    virtual bool empty() const override { return this->apiNameLike_ == nullptr
+        && return this->consumerId_ == nullptr && return this->consumerNameLike_ == nullptr && return this->environmentId_ == nullptr && return this->groupByApi_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->parentResourceId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceTypes_ == nullptr; };
     // apiNameLike Field Functions 
     bool hasApiNameLike() const { return this->apiNameLike_ != nullptr;};
     void deleteApiNameLike() { this->apiNameLike_ = nullptr;};

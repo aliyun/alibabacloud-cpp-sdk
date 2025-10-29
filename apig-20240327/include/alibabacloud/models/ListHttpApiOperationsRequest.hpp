@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumerAuthorizationRuleId_ != nullptr
-        && this->enableAuth_ != nullptr && this->forDeploy_ != nullptr && this->gatewayId_ != nullptr && this->method_ != nullptr && this->name_ != nullptr
-        && this->nameLike_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->pathLike_ != nullptr && this->withConsumerInEnvironmentId_ != nullptr
-        && this->withConsumerInfoById_ != nullptr && this->withPluginAttachmentByPluginId_ != nullptr; };
+    virtual bool empty() const override { return this->consumerAuthorizationRuleId_ == nullptr
+        && return this->enableAuth_ == nullptr && return this->forDeploy_ == nullptr && return this->gatewayId_ == nullptr && return this->method_ == nullptr && return this->name_ == nullptr
+        && return this->nameLike_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->pathLike_ == nullptr && return this->withConsumerInEnvironmentId_ == nullptr
+        && return this->withConsumerInfoById_ == nullptr && return this->withPluginAttachmentByPluginId_ == nullptr; };
     // consumerAuthorizationRuleId Field Functions 
     bool hasConsumerAuthorizationRuleId() const { return this->consumerAuthorizationRuleId_ != nullptr;};
     void deleteConsumerAuthorizationRuleId() { this->consumerAuthorizationRuleId_ = nullptr;};

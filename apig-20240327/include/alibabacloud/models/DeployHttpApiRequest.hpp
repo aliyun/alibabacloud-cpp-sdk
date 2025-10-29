@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->httpApiConfig_ != nullptr
-        && this->restApiConfig_ != nullptr && this->routeId_ != nullptr; };
+    virtual bool empty() const override { return this->httpApiConfig_ == nullptr
+        && return this->restApiConfig_ == nullptr && return this->routeId_ == nullptr; };
     // httpApiConfig Field Functions 
     bool hasHttpApiConfig() const { return this->httpApiConfig_ != nullptr;};
     void deleteHttpApiConfig() { this->httpApiConfig_ = nullptr;};

@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chargeType_ != nullptr
-        && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayEdition_ != nullptr && this->gatewayId_ != nullptr
-        && this->gatewayType_ != nullptr && this->legacy_ != nullptr && this->loadBalancers_ != nullptr && this->name_ != nullptr && this->replicas_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->securityGroup_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->subDomainInfos_ != nullptr
-        && this->tags_ != nullptr && this->targetVersion_ != nullptr && this->updateTimestamp_ != nullptr && this->vSwitch_ != nullptr && this->version_ != nullptr
-        && this->vpc_ != nullptr && this->zones_ != nullptr; };
+    virtual bool empty() const override { return this->chargeType_ == nullptr
+        && return this->createFrom_ == nullptr && return this->createTimestamp_ == nullptr && return this->expireTimestamp_ == nullptr && return this->gatewayEdition_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->gatewayType_ == nullptr && return this->legacy_ == nullptr && return this->loadBalancers_ == nullptr && return this->name_ == nullptr && return this->replicas_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->securityGroup_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr && return this->subDomainInfos_ == nullptr
+        && return this->tags_ == nullptr && return this->targetVersion_ == nullptr && return this->updateTimestamp_ == nullptr && return this->vSwitch_ == nullptr && return this->version_ == nullptr
+        && return this->vpc_ == nullptr && return this->zones_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};

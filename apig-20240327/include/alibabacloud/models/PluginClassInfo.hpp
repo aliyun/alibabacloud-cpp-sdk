@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->configExample_ != nullptr && this->description_ != nullptr && this->executePriority_ != nullptr && this->executeStage_ != nullptr && this->imageName_ != nullptr
-        && this->innerPlugin_ != nullptr && this->mode_ != nullptr && this->name_ != nullptr && this->pluginClassId_ != nullptr && this->source_ != nullptr
-        && this->supportedMinGatewayVersion_ != nullptr && this->type_ != nullptr && this->version_ != nullptr && this->versionDescription_ != nullptr && this->wasmLanguage_ != nullptr
-        && this->wasmUrl_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->configExample_ == nullptr && return this->description_ == nullptr && return this->executePriority_ == nullptr && return this->executeStage_ == nullptr && return this->imageName_ == nullptr
+        && return this->innerPlugin_ == nullptr && return this->mode_ == nullptr && return this->name_ == nullptr && return this->pluginClassId_ == nullptr && return this->source_ == nullptr
+        && return this->supportedMinGatewayVersion_ == nullptr && return this->type_ == nullptr && return this->version_ == nullptr && return this->versionDescription_ == nullptr && return this->wasmLanguage_ == nullptr
+        && return this->wasmUrl_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->securityGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->securityGroupId_ == nullptr; };
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};

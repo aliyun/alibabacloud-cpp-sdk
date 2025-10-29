@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caCertIdentifier_ != nullptr
-        && this->certIdentifier_ != nullptr && this->clientCACert_ != nullptr && this->forceHttps_ != nullptr && this->http2Option_ != nullptr && this->mTLSEnabled_ != nullptr
-        && this->protocol_ != nullptr && this->tlsCipherSuitesConfig_ != nullptr && this->tlsMax_ != nullptr && this->tlsMin_ != nullptr; };
+    virtual bool empty() const override { return this->caCertIdentifier_ == nullptr
+        && return this->certIdentifier_ == nullptr && return this->clientCACert_ == nullptr && return this->forceHttps_ == nullptr && return this->http2Option_ == nullptr && return this->mTLSEnabled_ == nullptr
+        && return this->protocol_ == nullptr && return this->tlsCipherSuitesConfig_ == nullptr && return this->tlsMax_ == nullptr && return this->tlsMin_ == nullptr; };
     // caCertIdentifier Field Functions 
     bool hasCaCertIdentifier() const { return this->caCertIdentifier_ != nullptr;};
     void deleteCaCertIdentifier() { this->caCertIdentifier_ = nullptr;};

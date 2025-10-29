@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiInfo_ != nullptr
-        && this->consumerAuthorizationRuleId_ != nullptr && this->consumerId_ != nullptr && this->consumerInfo_ != nullptr && this->createTimestamp_ != nullptr && this->deployStatus_ != nullptr
-        && this->environmentInfo_ != nullptr && this->expireMode_ != nullptr && this->expireStatus_ != nullptr && this->expireTimestamp_ != nullptr && this->gatewayInfo_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceInfo_ != nullptr && this->resourceType_ != nullptr && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->apiInfo_ == nullptr
+        && return this->consumerAuthorizationRuleId_ == nullptr && return this->consumerId_ == nullptr && return this->consumerInfo_ == nullptr && return this->createTimestamp_ == nullptr && return this->deployStatus_ == nullptr
+        && return this->environmentInfo_ == nullptr && return this->expireMode_ == nullptr && return this->expireStatus_ == nullptr && return this->expireTimestamp_ == nullptr && return this->gatewayInfo_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceInfo_ == nullptr && return this->resourceType_ == nullptr && return this->updateTimestamp_ == nullptr; };
     // apiInfo Field Functions 
     bool hasApiInfo() const { return this->apiInfo_ != nullptr;};
     void deleteApiInfo() { this->apiInfo_ = nullptr;};

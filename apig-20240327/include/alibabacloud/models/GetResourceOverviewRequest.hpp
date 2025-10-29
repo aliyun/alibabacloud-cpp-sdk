@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayType_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayType_ == nullptr; };
     // gatewayType Field Functions 
     bool hasGatewayType() const { return this->gatewayType_ != nullptr;};
     void deleteGatewayType() { this->gatewayType_ = nullptr;};

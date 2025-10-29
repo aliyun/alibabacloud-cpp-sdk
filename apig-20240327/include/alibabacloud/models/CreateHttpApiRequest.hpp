@@ -64,10 +64,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentProtocols_ != nullptr
-        && this->aiProtocols_ != nullptr && this->authConfig_ != nullptr && this->basePath_ != nullptr && this->deployConfigs_ != nullptr && this->description_ != nullptr
-        && this->enableAuth_ != nullptr && this->firstByteTimeout_ != nullptr && this->ingressConfig_ != nullptr && this->modelCategory_ != nullptr && this->name_ != nullptr
-        && this->protocols_ != nullptr && this->removeBasePathOnForward_ != nullptr && this->resourceGroupId_ != nullptr && this->type_ != nullptr && this->versionConfig_ != nullptr; };
+    virtual bool empty() const override { return this->agentProtocols_ == nullptr
+        && return this->aiProtocols_ == nullptr && return this->authConfig_ == nullptr && return this->basePath_ == nullptr && return this->deployConfigs_ == nullptr && return this->description_ == nullptr
+        && return this->enableAuth_ == nullptr && return this->firstByteTimeout_ == nullptr && return this->ingressConfig_ == nullptr && return this->modelCategory_ == nullptr && return this->name_ == nullptr
+        && return this->protocols_ == nullptr && return this->removeBasePathOnForward_ == nullptr && return this->resourceGroupId_ == nullptr && return this->type_ == nullptr && return this->versionConfig_ == nullptr; };
     // agentProtocols Field Functions 
     bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
     void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};

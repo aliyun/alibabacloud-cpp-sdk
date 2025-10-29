@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->specContentBase64_ != nullptr; };
+    virtual bool empty() const override { return this->specContentBase64_ == nullptr; };
     // specContentBase64 Field Functions 
     bool hasSpecContentBase64() const { return this->specContentBase64_ != nullptr;};
     void deleteSpecContentBase64() { this->specContentBase64_ = nullptr;};

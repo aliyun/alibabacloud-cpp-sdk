@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arn_ != nullptr
-        && this->assumeRolePolicyDocument_ != nullptr && this->createDate_ != nullptr && this->description_ != nullptr && this->isServiceLinkedRole_ != nullptr && this->roleId_ != nullptr
-        && this->roleName_ != nullptr && this->rolePrincipalName_ != nullptr; };
+    virtual bool empty() const override { return this->arn_ == nullptr
+        && return this->assumeRolePolicyDocument_ == nullptr && return this->createDate_ == nullptr && return this->description_ == nullptr && return this->isServiceLinkedRole_ == nullptr && return this->roleId_ == nullptr
+        && return this->roleName_ == nullptr && return this->rolePrincipalName_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};

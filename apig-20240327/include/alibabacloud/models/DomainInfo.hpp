@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certIdentifier_ != nullptr
-        && this->clientCACert_ != nullptr && this->createFrom_ != nullptr && this->createTimestamp_ != nullptr && this->domainId_ != nullptr && this->forceHttps_ != nullptr
-        && this->mTLSEnabled_ != nullptr && this->name_ != nullptr && this->protocol_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr
-        && this->updateTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->certIdentifier_ == nullptr
+        && return this->clientCACert_ == nullptr && return this->createFrom_ == nullptr && return this->createTimestamp_ == nullptr && return this->domainId_ == nullptr && return this->forceHttps_ == nullptr
+        && return this->mTLSEnabled_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr
+        && return this->updateTimestamp_ == nullptr; };
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};

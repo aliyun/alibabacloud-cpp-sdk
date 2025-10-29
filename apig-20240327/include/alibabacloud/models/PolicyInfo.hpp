@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachments_ != nullptr
-        && this->classAlias_ != nullptr && this->className_ != nullptr && this->config_ != nullptr && this->direction_ != nullptr && this->executePriority_ != nullptr
-        && this->executeStage_ != nullptr && this->name_ != nullptr && this->policyId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->attachments_ == nullptr
+        && return this->classAlias_ == nullptr && return this->className_ == nullptr && return this->config_ == nullptr && return this->direction_ == nullptr && return this->executePriority_ == nullptr
+        && return this->executeStage_ == nullptr && return this->name_ == nullptr && return this->policyId_ == nullptr && return this->type_ == nullptr; };
     // attachments Field Functions 
     bool hasAttachments() const { return this->attachments_ != nullptr;};
     void deleteAttachments() { this->attachments_ = nullptr;};

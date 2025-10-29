@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createFromTypes_ != nullptr
-        && this->deployStatuses_ != nullptr && this->gatewayId_ != nullptr && this->nameLike_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->createFromTypes_ == nullptr
+        && return this->deployStatuses_ == nullptr && return this->gatewayId_ == nullptr && return this->nameLike_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->type_ == nullptr; };
     // createFromTypes Field Functions 
     bool hasCreateFromTypes() const { return this->createFromTypes_ != nullptr;};
     void deleteCreateFromTypes() { this->createFromTypes_ = nullptr;};
