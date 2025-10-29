@@ -9468,6 +9468,10 @@ DescribeVulnerabilityProtectedListResponse Client::describeVulnerabilityProtecte
     query["PageSize"] = request.pageSize();
   }
 
+  if (!!request.hasRuleTag()) {
+    query["RuleTag"] = request.ruleTag();
+  }
+
   if (!!request.hasSortKey()) {
     query["SortKey"] = request.sortKey();
   }
