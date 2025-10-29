@@ -20,10 +20,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Caller, caller_);
       DARABONBA_PTR_TO_JSON(ConnId, connId_);
       DARABONBA_PTR_TO_JSON(ContactId, contactId_);
+      DARABONBA_PTR_TO_JSON(EmployeeCode, employeeCode_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(RelatedId, relatedId_);
       DARABONBA_PTR_TO_JSON(SecretMobile, secretMobile_);
       DARABONBA_PTR_TO_JSON(SkillType, skillType_);
+      DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, RecordCallCenterEventForPartnerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
@@ -33,10 +35,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Caller, caller_);
       DARABONBA_PTR_FROM_JSON(ConnId, connId_);
       DARABONBA_PTR_FROM_JSON(ContactId, contactId_);
+      DARABONBA_PTR_FROM_JSON(EmployeeCode, employeeCode_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(RelatedId, relatedId_);
       DARABONBA_PTR_FROM_JSON(SecretMobile, secretMobile_);
       DARABONBA_PTR_FROM_JSON(SkillType, skillType_);
+      DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
     };
     RecordCallCenterEventForPartnerRequest() = default ;
     RecordCallCenterEventForPartnerRequest(const RecordCallCenterEventForPartnerRequest &) = default ;
@@ -51,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && return this->bizType_ == nullptr && return this->callAction_ == nullptr && return this->callee_ == nullptr && return this->caller_ == nullptr && return this->connId_ == nullptr
-        && return this->contactId_ == nullptr && return this->jobId_ == nullptr && return this->relatedId_ == nullptr && return this->secretMobile_ == nullptr && return this->skillType_ == nullptr; };
+        && return this->contactId_ == nullptr && return this->employeeCode_ == nullptr && return this->jobId_ == nullptr && return this->relatedId_ == nullptr && return this->secretMobile_ == nullptr
+        && return this->skillType_ == nullptr && return this->tenantId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -101,6 +106,13 @@ namespace Models
     inline RecordCallCenterEventForPartnerRequest& setContactId(string contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
 
 
+    // employeeCode Field Functions 
+    bool hasEmployeeCode() const { return this->employeeCode_ != nullptr;};
+    void deleteEmployeeCode() { this->employeeCode_ = nullptr;};
+    inline string employeeCode() const { DARABONBA_PTR_GET_DEFAULT(employeeCode_, "") };
+    inline RecordCallCenterEventForPartnerRequest& setEmployeeCode(string employeeCode) { DARABONBA_PTR_SET_VALUE(employeeCode_, employeeCode) };
+
+
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -129,6 +141,13 @@ namespace Models
     inline RecordCallCenterEventForPartnerRequest& setSkillType(int32_t skillType) { DARABONBA_PTR_SET_VALUE(skillType_, skillType) };
 
 
+    // tenantId Field Functions 
+    bool hasTenantId() const { return this->tenantId_ != nullptr;};
+    void deleteTenantId() { this->tenantId_ = nullptr;};
+    inline string tenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+    inline RecordCallCenterEventForPartnerRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
   protected:
     std::shared_ptr<string> bizId_ = nullptr;
     std::shared_ptr<string> bizType_ = nullptr;
@@ -137,11 +156,13 @@ namespace Models
     std::shared_ptr<string> caller_ = nullptr;
     std::shared_ptr<string> connId_ = nullptr;
     std::shared_ptr<string> contactId_ = nullptr;
+    std::shared_ptr<string> employeeCode_ = nullptr;
     std::shared_ptr<string> jobId_ = nullptr;
     // RequestId
     std::shared_ptr<int64_t> relatedId_ = nullptr;
     std::shared_ptr<string> secretMobile_ = nullptr;
     std::shared_ptr<int32_t> skillType_ = nullptr;
+    std::shared_ptr<string> tenantId_ = nullptr;
   };
 
   } // namespace Models

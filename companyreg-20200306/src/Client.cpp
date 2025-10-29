@@ -1400,6 +1400,10 @@ RecordCallCenterEventForPartnerResponse Client::recordCallCenterEventForPartnerW
     query["ContactId"] = request.contactId();
   }
 
+  if (!!request.hasEmployeeCode()) {
+    query["EmployeeCode"] = request.employeeCode();
+  }
+
   if (!!request.hasJobId()) {
     query["JobId"] = request.jobId();
   }
@@ -1414,6 +1418,10 @@ RecordCallCenterEventForPartnerResponse Client::recordCallCenterEventForPartnerW
 
   if (!!request.hasSkillType()) {
     query["SkillType"] = request.skillType();
+  }
+
+  if (!!request.hasTenantId()) {
+    query["TenantId"] = request.tenantId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
