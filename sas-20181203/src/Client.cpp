@@ -31268,6 +31268,10 @@ GrantSwitchAgreementResponse Client::grantSwitchAgreementWithOptions(const Grant
     query["IsAgree"] = request.isAgree();
   }
 
+  if (!!request.hasIsConfirmed()) {
+    query["IsConfirmed"] = request.isConfirmed();
+  }
+
   if (!!request.hasIsImmediate()) {
     query["IsImmediate"] = request.isImmediate();
   }

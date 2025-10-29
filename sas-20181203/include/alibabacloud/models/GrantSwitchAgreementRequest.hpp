@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GrantSwitchAgreementRequest& obj) { 
       DARABONBA_PTR_TO_JSON(IsAgree, isAgree_);
+      DARABONBA_PTR_TO_JSON(IsConfirmed, isConfirmed_);
       DARABONBA_PTR_TO_JSON(IsImmediate, isImmediate_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, GrantSwitchAgreementRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(IsAgree, isAgree_);
+      DARABONBA_PTR_FROM_JSON(IsConfirmed, isConfirmed_);
       DARABONBA_PTR_FROM_JSON(IsImmediate, isImmediate_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->isAgree_ == nullptr
-        && return this->isImmediate_ == nullptr && return this->lang_ == nullptr && return this->type_ == nullptr; };
+        && return this->isConfirmed_ == nullptr && return this->isImmediate_ == nullptr && return this->lang_ == nullptr && return this->type_ == nullptr; };
     // isAgree Field Functions 
     bool hasIsAgree() const { return this->isAgree_ != nullptr;};
     void deleteIsAgree() { this->isAgree_ = nullptr;};
     inline bool isAgree() const { DARABONBA_PTR_GET_DEFAULT(isAgree_, false) };
     inline GrantSwitchAgreementRequest& setIsAgree(bool isAgree) { DARABONBA_PTR_SET_VALUE(isAgree_, isAgree) };
+
+
+    // isConfirmed Field Functions 
+    bool hasIsConfirmed() const { return this->isConfirmed_ != nullptr;};
+    void deleteIsConfirmed() { this->isConfirmed_ = nullptr;};
+    inline bool isConfirmed() const { DARABONBA_PTR_GET_DEFAULT(isConfirmed_, false) };
+    inline GrantSwitchAgreementRequest& setIsConfirmed(bool isConfirmed) { DARABONBA_PTR_SET_VALUE(isConfirmed_, isConfirmed) };
 
 
     // isImmediate Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     // Indicates whether to agree to migrate the client connections from overseas servers to the Singapore center.
     std::shared_ptr<bool> isAgree_ = nullptr;
+    std::shared_ptr<bool> isConfirmed_ = nullptr;
     std::shared_ptr<bool> isImmediate_ = nullptr;
     // The language type for requests and responses. The default value is **zh**. Possible values:
     // 

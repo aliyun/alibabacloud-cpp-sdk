@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtNoticed, gmtNoticed_);
       DARABONBA_PTR_TO_JSON(IsAgree, isAgree_);
       DARABONBA_PTR_TO_JSON(IsNoticed, isNoticed_);
+      DARABONBA_PTR_TO_JSON(NeedNotice, needNotice_);
       DARABONBA_PTR_TO_JSON(NeedSwitch, needSwitch_);
       DARABONBA_PTR_TO_JSON(RegionStatus, regionStatus_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtNoticed, gmtNoticed_);
       DARABONBA_PTR_FROM_JSON(IsAgree, isAgree_);
       DARABONBA_PTR_FROM_JSON(IsNoticed, isNoticed_);
+      DARABONBA_PTR_FROM_JSON(NeedNotice, needNotice_);
       DARABONBA_PTR_FROM_JSON(NeedSwitch, needSwitch_);
       DARABONBA_PTR_FROM_JSON(RegionStatus, regionStatus_);
     };
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gmtIsAgreeModified_ == nullptr
-        && return this->gmtNoticed_ == nullptr && return this->isAgree_ == nullptr && return this->isNoticed_ == nullptr && return this->needSwitch_ == nullptr && return this->regionStatus_ == nullptr; };
+        && return this->gmtNoticed_ == nullptr && return this->isAgree_ == nullptr && return this->isNoticed_ == nullptr && return this->needNotice_ == nullptr && return this->needSwitch_ == nullptr
+        && return this->regionStatus_ == nullptr; };
     // gmtIsAgreeModified Field Functions 
     bool hasGmtIsAgreeModified() const { return this->gmtIsAgreeModified_ != nullptr;};
     void deleteGmtIsAgreeModified() { this->gmtIsAgreeModified_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     inline GetSwitchRegionDetailResponseBodyData& setIsNoticed(string isNoticed) { DARABONBA_PTR_SET_VALUE(isNoticed_, isNoticed) };
 
 
+    // needNotice Field Functions 
+    bool hasNeedNotice() const { return this->needNotice_ != nullptr;};
+    void deleteNeedNotice() { this->needNotice_ = nullptr;};
+    inline bool needNotice() const { DARABONBA_PTR_GET_DEFAULT(needNotice_, false) };
+    inline GetSwitchRegionDetailResponseBodyData& setNeedNotice(bool needNotice) { DARABONBA_PTR_SET_VALUE(needNotice_, needNotice) };
+
+
     // needSwitch Field Functions 
     bool hasNeedSwitch() const { return this->needSwitch_ != nullptr;};
     void deleteNeedSwitch() { this->needSwitch_ = nullptr;};
@@ -96,6 +106,7 @@ namespace Models
     std::shared_ptr<string> isAgree_ = nullptr;
     // Indicates whether the notification is sent.
     std::shared_ptr<string> isNoticed_ = nullptr;
+    std::shared_ptr<bool> needNotice_ = nullptr;
     std::shared_ptr<bool> needSwitch_ = nullptr;
     // The status of the switching to the region.
     std::shared_ptr<vector<Models::GetSwitchRegionDetailResponseBodyDataRegionStatus>> regionStatus_ = nullptr;
