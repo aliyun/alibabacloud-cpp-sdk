@@ -2985,6 +2985,10 @@ DescribeConnectionCountRecordsResponse Client::describeConnectionCountRecordsWit
     query["OwnerId"] = request.ownerId();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
   if (!!request.hasResourceOwnerAccount()) {
     query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
   }
