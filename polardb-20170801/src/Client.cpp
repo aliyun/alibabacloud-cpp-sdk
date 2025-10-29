@@ -280,6 +280,56 @@ AddFirewallRulesResponse Client::addFirewallRules(const AddFirewallRulesRequest 
 }
 
 /**
+ * @summary 新增PolarFs Quota规则
+ *
+ * @param request AddPolarFsQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddPolarFsQuotaResponse
+ */
+AddPolarFsQuotaResponse Client::addPolarFsQuotaWithOptions(const AddPolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  if (!!request.hasQuotas()) {
+    query["Quotas"] = request.quotas();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddPolarFsQuota"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddPolarFsQuotaResponse>();
+}
+
+/**
+ * @summary 新增PolarFs Quota规则
+ *
+ * @param request AddPolarFsQuotaRequest
+ * @return AddPolarFsQuotaResponse
+ */
+AddPolarFsQuotaResponse Client::addPolarFsQuota(const AddPolarFsQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addPolarFsQuotaWithOptions(request, runtime);
+}
+
+/**
  * @summary 添加SQL限流规则
  *
  * @param request AddSQLRateLimitingRulesRequest
@@ -529,6 +579,56 @@ CancelCronJobPolicyServerlessResponse Client::cancelCronJobPolicyServerlessWithO
 CancelCronJobPolicyServerlessResponse Client::cancelCronJobPolicyServerless(const CancelCronJobPolicyServerlessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cancelCronJobPolicyServerlessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消目录的配额
+ *
+ * @param request CancelPolarFsFileQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelPolarFsFileQuotaResponse
+ */
+CancelPolarFsFileQuotaResponse Client::cancelPolarFsFileQuotaWithOptions(const CancelPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFilePathIds()) {
+    query["FilePathIds"] = request.filePathIds();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelPolarFsFileQuota"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelPolarFsFileQuotaResponse>();
+}
+
+/**
+ * @summary 取消目录的配额
+ *
+ * @param request CancelPolarFsFileQuotaRequest
+ * @return CancelPolarFsFileQuotaResponse
+ */
+CancelPolarFsFileQuotaResponse Client::cancelPolarFsFileQuota(const CancelPolarFsFileQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelPolarFsFileQuotaWithOptions(request, runtime);
 }
 
 /**
@@ -5029,6 +5129,56 @@ DeleteParameterGroupResponse Client::deleteParameterGroupWithOptions(const Delet
 DeleteParameterGroupResponse Client::deleteParameterGroup(const DeleteParameterGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteParameterGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除PolarFs Quota规则
+ *
+ * @param request DeletePolarFsQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePolarFsQuotaResponse
+ */
+DeletePolarFsQuotaResponse Client::deletePolarFsQuotaWithOptions(const DeletePolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  if (!!request.hasQuotas()) {
+    query["Quotas"] = request.quotas();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePolarFsQuota"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePolarFsQuotaResponse>();
+}
+
+/**
+ * @summary 删除PolarFs Quota规则
+ *
+ * @param request DeletePolarFsQuotaRequest
+ * @return DeletePolarFsQuotaResponse
+ */
+DeletePolarFsQuotaResponse Client::deletePolarFsQuota(const DeletePolarFsQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePolarFsQuotaWithOptions(request, runtime);
 }
 
 /**
@@ -11171,6 +11321,106 @@ DescribePendingMaintenanceActionsResponse Client::describePendingMaintenanceActi
 DescribePendingMaintenanceActionsResponse Client::describePendingMaintenanceActions(const DescribePendingMaintenanceActionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePendingMaintenanceActionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取PolarFS实例详情
+ *
+ * @param request DescribePolarFsAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsAttributeResponse
+ */
+DescribePolarFsAttributeResponse Client::describePolarFsAttributeWithOptions(const DescribePolarFsAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  if (!!request.hasQueryFuseMountInfo()) {
+    query["QueryFuseMountInfo"] = request.queryFuseMountInfo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsAttribute"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsAttributeResponse>();
+}
+
+/**
+ * @summary 获取PolarFS实例详情
+ *
+ * @param request DescribePolarFsAttributeRequest
+ * @return DescribePolarFsAttributeResponse
+ */
+DescribePolarFsAttributeResponse Client::describePolarFsAttribute(const DescribePolarFsAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询配额规则
+ *
+ * @param request DescribePolarFsQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsQuotaResponse
+ */
+DescribePolarFsQuotaResponse Client::describePolarFsQuotaWithOptions(const DescribePolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsQuota"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsQuotaResponse>();
+}
+
+/**
+ * @summary 查询配额规则
+ *
+ * @param request DescribePolarFsQuotaRequest
+ * @return DescribePolarFsQuotaResponse
+ */
+DescribePolarFsQuotaResponse Client::describePolarFsQuota(const DescribePolarFsQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsQuotaWithOptions(request, runtime);
 }
 
 /**
@@ -19042,6 +19292,56 @@ RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonalWithOptio
 RevokeAccountPrivilegeZonalResponse Client::revokeAccountPrivilegeZonal(const RevokeAccountPrivilegeZonalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revokeAccountPrivilegeZonalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 为目录应用配额规则
+ *
+ * @param request SetPolarFsFileQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetPolarFsFileQuotaResponse
+ */
+SetPolarFsFileQuotaResponse Client::setPolarFsFileQuotaWithOptions(const SetPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFilePathQuotas()) {
+    query["FilePathQuotas"] = request.filePathQuotas();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.polarFsInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetPolarFsFileQuota"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetPolarFsFileQuotaResponse>();
+}
+
+/**
+ * @summary 为目录应用配额规则
+ *
+ * @param request SetPolarFsFileQuotaRequest
+ * @return SetPolarFsFileQuotaResponse
+ */
+SetPolarFsFileQuotaResponse Client::setPolarFsFileQuota(const SetPolarFsFileQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setPolarFsFileQuotaWithOptions(request, runtime);
 }
 
 /**

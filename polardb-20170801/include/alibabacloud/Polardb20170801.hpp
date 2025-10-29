@@ -68,6 +68,23 @@ namespace Polardb20170801
       Models::AddFirewallRulesResponse addFirewallRules(const Models::AddFirewallRulesRequest &request);
 
       /**
+       * @summary 新增PolarFs Quota规则
+       *
+       * @param request AddPolarFsQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddPolarFsQuotaResponse
+       */
+      Models::AddPolarFsQuotaResponse addPolarFsQuotaWithOptions(const Models::AddPolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增PolarFs Quota规则
+       *
+       * @param request AddPolarFsQuotaRequest
+       * @return AddPolarFsQuotaResponse
+       */
+      Models::AddPolarFsQuotaResponse addPolarFsQuota(const Models::AddPolarFsQuotaRequest &request);
+
+      /**
        * @summary 添加SQL限流规则
        *
        * @param request AddSQLRateLimitingRulesRequest
@@ -134,6 +151,23 @@ namespace Polardb20170801
        * @return CancelCronJobPolicyServerlessResponse
        */
       Models::CancelCronJobPolicyServerlessResponse cancelCronJobPolicyServerless(const Models::CancelCronJobPolicyServerlessRequest &request);
+
+      /**
+       * @summary 取消目录的配额
+       *
+       * @param request CancelPolarFsFileQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelPolarFsFileQuotaResponse
+       */
+      Models::CancelPolarFsFileQuotaResponse cancelPolarFsFileQuotaWithOptions(const Models::CancelPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消目录的配额
+       *
+       * @param request CancelPolarFsFileQuotaRequest
+       * @return CancelPolarFsFileQuotaResponse
+       */
+      Models::CancelPolarFsFileQuotaResponse cancelPolarFsFileQuota(const Models::CancelPolarFsFileQuotaRequest &request);
 
       /**
        * @summary Cancels scheduled tasks that are not yet started.
@@ -1221,6 +1255,23 @@ namespace Polardb20170801
        * @return DeleteParameterGroupResponse
        */
       Models::DeleteParameterGroupResponse deleteParameterGroup(const Models::DeleteParameterGroupRequest &request);
+
+      /**
+       * @summary 删除PolarFs Quota规则
+       *
+       * @param request DeletePolarFsQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePolarFsQuotaResponse
+       */
+      Models::DeletePolarFsQuotaResponse deletePolarFsQuotaWithOptions(const Models::DeletePolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除PolarFs Quota规则
+       *
+       * @param request DeletePolarFsQuotaRequest
+       * @return DeletePolarFsQuotaResponse
+       */
+      Models::DeletePolarFsQuotaResponse deletePolarFsQuota(const Models::DeletePolarFsQuotaRequest &request);
 
       /**
        * @summary 删除SQL限流规则
@@ -2808,6 +2859,40 @@ namespace Polardb20170801
        * @return DescribePendingMaintenanceActionsResponse
        */
       Models::DescribePendingMaintenanceActionsResponse describePendingMaintenanceActions(const Models::DescribePendingMaintenanceActionsRequest &request);
+
+      /**
+       * @summary 获取PolarFS实例详情
+       *
+       * @param request DescribePolarFsAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsAttributeResponse
+       */
+      Models::DescribePolarFsAttributeResponse describePolarFsAttributeWithOptions(const Models::DescribePolarFsAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取PolarFS实例详情
+       *
+       * @param request DescribePolarFsAttributeRequest
+       * @return DescribePolarFsAttributeResponse
+       */
+      Models::DescribePolarFsAttributeResponse describePolarFsAttribute(const Models::DescribePolarFsAttributeRequest &request);
+
+      /**
+       * @summary 查询配额规则
+       *
+       * @param request DescribePolarFsQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsQuotaResponse
+       */
+      Models::DescribePolarFsQuotaResponse describePolarFsQuotaWithOptions(const Models::DescribePolarFsQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询配额规则
+       *
+       * @param request DescribePolarFsQuotaRequest
+       * @return DescribePolarFsQuotaResponse
+       */
+      Models::DescribePolarFsQuotaResponse describePolarFsQuota(const Models::DescribePolarFsQuotaRequest &request);
 
       /**
        * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
@@ -4711,6 +4796,23 @@ namespace Polardb20170801
        * @return RevokeAccountPrivilegeZonalResponse
        */
       Models::RevokeAccountPrivilegeZonalResponse revokeAccountPrivilegeZonal(const Models::RevokeAccountPrivilegeZonalRequest &request);
+
+      /**
+       * @summary 为目录应用配额规则
+       *
+       * @param request SetPolarFsFileQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetPolarFsFileQuotaResponse
+       */
+      Models::SetPolarFsFileQuotaResponse setPolarFsFileQuotaWithOptions(const Models::SetPolarFsFileQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为目录应用配额规则
+       *
+       * @param request SetPolarFsFileQuotaRequest
+       * @return SetPolarFsFileQuotaResponse
+       */
+      Models::SetPolarFsFileQuotaResponse setPolarFsFileQuota(const Models::SetPolarFsFileQuotaRequest &request);
 
       /**
        * @param request SwitchOverGlobalDatabaseNetworkRequest

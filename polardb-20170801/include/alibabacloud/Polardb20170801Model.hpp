@@ -11,6 +11,9 @@
 #include <alibabacloud/models/AddFirewallRulesRequest.hpp>
 #include <alibabacloud/models/AddFirewallRulesResponseBody.hpp>
 #include <alibabacloud/models/AddFirewallRulesResponse.hpp>
+#include <alibabacloud/models/AddPolarFsQuotaRequest.hpp>
+#include <alibabacloud/models/AddPolarFsQuotaResponseBody.hpp>
+#include <alibabacloud/models/AddPolarFsQuotaResponse.hpp>
 #include <alibabacloud/models/AddSqlRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/AddSqlRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/AddSqlRateLimitingRulesResponse.hpp>
@@ -23,6 +26,9 @@
 #include <alibabacloud/models/CancelCronJobPolicyServerlessRequest.hpp>
 #include <alibabacloud/models/CancelCronJobPolicyServerlessResponseBody.hpp>
 #include <alibabacloud/models/CancelCronJobPolicyServerlessResponse.hpp>
+#include <alibabacloud/models/CancelPolarFsFileQuotaRequest.hpp>
+#include <alibabacloud/models/CancelPolarFsFileQuotaResponseBody.hpp>
+#include <alibabacloud/models/CancelPolarFsFileQuotaResponse.hpp>
 #include <alibabacloud/models/CancelScheduleTasksRequest.hpp>
 #include <alibabacloud/models/CancelScheduleTasksResponseBody.hpp>
 #include <alibabacloud/models/CancelScheduleTasksResponse.hpp>
@@ -201,6 +207,9 @@
 #include <alibabacloud/models/DeleteParameterGroupRequest.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteParameterGroupResponse.hpp>
+#include <alibabacloud/models/DeletePolarFsQuotaRequest.hpp>
+#include <alibabacloud/models/DeletePolarFsQuotaResponseBody.hpp>
+#include <alibabacloud/models/DeletePolarFsQuotaResponse.hpp>
 #include <alibabacloud/models/DeleteSqlRateLimitingRulesRequest.hpp>
 #include <alibabacloud/models/DeleteSqlRateLimitingRulesResponseBody.hpp>
 #include <alibabacloud/models/DeleteSqlRateLimitingRulesResponse.hpp>
@@ -469,6 +478,12 @@
 #include <alibabacloud/models/DescribePendingMaintenanceActionsRequest.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionsResponse.hpp>
+#include <alibabacloud/models/DescribePolarFsAttributeRequest.hpp>
+#include <alibabacloud/models/DescribePolarFsAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarFsAttributeResponse.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaRequest.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaResponse.hpp>
 #include <alibabacloud/models/DescribePolarSqlCollectorPolicyRequest.hpp>
 #include <alibabacloud/models/DescribePolarSqlCollectorPolicyResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarSqlCollectorPolicyResponse.hpp>
@@ -794,6 +809,9 @@
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalRequest.hpp>
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalResponseBody.hpp>
 #include <alibabacloud/models/RevokeAccountPrivilegeZonalResponse.hpp>
+#include <alibabacloud/models/SetPolarFsFileQuotaRequest.hpp>
+#include <alibabacloud/models/SetPolarFsFileQuotaResponseBody.hpp>
+#include <alibabacloud/models/SetPolarFsFileQuotaResponse.hpp>
 #include <alibabacloud/models/SwitchOverGlobalDatabaseNetworkRequest.hpp>
 #include <alibabacloud/models/SwitchOverGlobalDatabaseNetworkResponseBody.hpp>
 #include <alibabacloud/models/SwitchOverGlobalDatabaseNetworkResponse.hpp>
@@ -818,6 +836,7 @@
 #include <alibabacloud/models/UpgradeDbClusterVersionZonalRequest.hpp>
 #include <alibabacloud/models/UpgradeDbClusterVersionZonalResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDbClusterVersionZonalResponse.hpp>
+#include <alibabacloud/models/AddPolarFsQuotaRequestQuotas.hpp>
 #include <alibabacloud/models/CreateApplicationRequestComponents.hpp>
 #include <alibabacloud/models/CreateApplicationRequestEndpoints.hpp>
 #include <alibabacloud/models/CreateApplicationResponseBodyComponents.hpp>
@@ -827,6 +846,7 @@
 #include <alibabacloud/models/CreateDbNodesResponseBodyDbNodeIds.hpp>
 #include <alibabacloud/models/CreateGlobalSecurityIpGroupResponseBodyGlobalSecurityIpGroup.hpp>
 #include <alibabacloud/models/DeleteGlobalSecurityIpGroupResponseBodyGlobalSecurityIpGroup.hpp>
+#include <alibabacloud/models/DeletePolarFsQuotaRequestQuotas.hpp>
 #include <alibabacloud/models/DescribeAidbClusterAttributeResponseBodyDbNodesChildVolumes.hpp>
 #include <alibabacloud/models/DescribeAidbClusterAttributeResponseBodyDbNodes.hpp>
 #include <alibabacloud/models/DescribeAidbClusterAttributeResponseBodyEndpointListNetInfoItems.hpp>
@@ -1006,6 +1026,8 @@
 #include <alibabacloud/models/DescribeParameterTemplatesResponseBodyParameters.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribePendingMaintenanceActionsResponseBodyTypeList.hpp>
+#include <alibabacloud/models/DescribePolarFsAttributeResponseBodyMountInfo.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaResponseBodyPolicyItems.hpp>
 #include <alibabacloud/models/DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch.hpp>
 #include <alibabacloud/models/DescribeRdsVSwitchsResponseBodyVSwitches.hpp>
 #include <alibabacloud/models/DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs.hpp>
@@ -1047,6 +1069,7 @@
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupResponseBodyGlobalSecurityIpGroup.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupNameResponseBodyGlobalSecurityIpGroup.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupRelationResponseBodyGlobalSecurityIpGroupRel.hpp>
+#include <alibabacloud/models/SetPolarFsFileQuotaRequestFilePathQuotas.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
 #include <alibabacloud/models/TempModifyDbNodeRequestDbNode.hpp>
 
