@@ -27,7 +27,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(executeType, executeType_);
       DARABONBA_PTR_TO_JSON(isPassAssertCheck, isPassAssertCheck_);
       DARABONBA_PTR_TO_JSON(jobId, jobId_);
+      DARABONBA_ANY_TO_JSON(logFile, logFile_);
       DARABONBA_PTR_TO_JSON(output, output_);
+      DARABONBA_ANY_TO_JSON(outputJsonPlan, outputJsonPlan_);
       DARABONBA_PTR_TO_JSON(parameters, parameters_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusDetail, statusDetail_);
@@ -45,7 +47,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(executeType, executeType_);
       DARABONBA_PTR_FROM_JSON(isPassAssertCheck, isPassAssertCheck_);
       DARABONBA_PTR_FROM_JSON(jobId, jobId_);
+      DARABONBA_ANY_FROM_JSON(logFile, logFile_);
       DARABONBA_PTR_FROM_JSON(output, output_);
+      DARABONBA_ANY_FROM_JSON(outputJsonPlan, outputJsonPlan_);
       DARABONBA_PTR_FROM_JSON(parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusDetail, statusDetail_);
@@ -64,10 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assertCheckDetail_ != nullptr
-        && this->config_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->downloadUrl_ != nullptr && this->elapsedTime_ != nullptr
-        && this->executeType_ != nullptr && this->isPassAssertCheck_ != nullptr && this->jobId_ != nullptr && this->output_ != nullptr && this->parameters_ != nullptr
-        && this->status_ != nullptr && this->statusDetail_ != nullptr && this->taskId_ != nullptr && this->taskType_ != nullptr && this->terraformProviderVersion_ != nullptr; };
+    virtual bool empty() const override { return this->assertCheckDetail_ == nullptr
+        && return this->config_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->downloadUrl_ == nullptr && return this->elapsedTime_ == nullptr
+        && return this->executeType_ == nullptr && return this->isPassAssertCheck_ == nullptr && return this->jobId_ == nullptr && return this->logFile_ == nullptr && return this->output_ == nullptr
+        && return this->outputJsonPlan_ == nullptr && return this->parameters_ == nullptr && return this->status_ == nullptr && return this->statusDetail_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskType_ == nullptr && return this->terraformProviderVersion_ == nullptr; };
     // assertCheckDetail Field Functions 
     bool hasAssertCheckDetail() const { return this->assertCheckDetail_ != nullptr;};
     void deleteAssertCheckDetail() { this->assertCheckDetail_ = nullptr;};
@@ -137,11 +142,29 @@ namespace Models
     inline GetJobResponseBodyJob& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
+    // logFile Field Functions 
+    bool hasLogFile() const { return this->logFile_ != nullptr;};
+    void deleteLogFile() { this->logFile_ = nullptr;};
+    inline     const Darabonba::Json & logFile() const { DARABONBA_GET(logFile_) };
+    Darabonba::Json & logFile() { DARABONBA_GET(logFile_) };
+    inline GetJobResponseBodyJob& setLogFile(const Darabonba::Json & logFile) { DARABONBA_SET_VALUE(logFile_, logFile) };
+    inline GetJobResponseBodyJob& setLogFile(Darabonba::Json & logFile) { DARABONBA_SET_RVALUE(logFile_, logFile) };
+
+
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
     inline string output() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
     inline GetJobResponseBodyJob& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
+
+
+    // outputJsonPlan Field Functions 
+    bool hasOutputJsonPlan() const { return this->outputJsonPlan_ != nullptr;};
+    void deleteOutputJsonPlan() { this->outputJsonPlan_ = nullptr;};
+    inline     const Darabonba::Json & outputJsonPlan() const { DARABONBA_GET(outputJsonPlan_) };
+    Darabonba::Json & outputJsonPlan() { DARABONBA_GET(outputJsonPlan_) };
+    inline GetJobResponseBodyJob& setOutputJsonPlan(const Darabonba::Json & outputJsonPlan) { DARABONBA_SET_VALUE(outputJsonPlan_, outputJsonPlan) };
+    inline GetJobResponseBodyJob& setOutputJsonPlan(Darabonba::Json & outputJsonPlan) { DARABONBA_SET_RVALUE(outputJsonPlan_, outputJsonPlan) };
 
 
     // parameters Field Functions 
@@ -200,7 +223,9 @@ namespace Models
     std::shared_ptr<string> executeType_ = nullptr;
     std::shared_ptr<bool> isPassAssertCheck_ = nullptr;
     std::shared_ptr<string> jobId_ = nullptr;
+    Darabonba::Json logFile_ = nullptr;
     std::shared_ptr<string> output_ = nullptr;
+    Darabonba::Json outputJsonPlan_ = nullptr;
     std::shared_ptr<map<string, string>> parameters_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<map<string, Models::JobStatusDetailValue>> statusDetail_ = nullptr;

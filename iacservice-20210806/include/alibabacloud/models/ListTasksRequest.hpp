@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupId_ != nullptr
-        && this->keyword_ != nullptr && this->moduleId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectId_ != nullptr
-        && this->status_ != nullptr && this->tag_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->groupId_ == nullptr
+        && return this->keyword_ == nullptr && return this->moduleId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectId_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->taskId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};

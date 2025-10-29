@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->operations_ != nullptr && this->product_ != nullptr && this->productName_ != nullptr && this->productNameEn_ != nullptr && this->properties_ != nullptr
-        && this->resourceDetailPageUrl_ != nullptr && this->resourceListPageUrl_ != nullptr && this->status_ != nullptr && this->statusStartVersion_ != nullptr && this->subcategory_ != nullptr
-        && this->supportExported_ != nullptr && this->terraformProviderVersion_ != nullptr && this->terraformResourceType_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->operations_ == nullptr && return this->product_ == nullptr && return this->productName_ == nullptr && return this->productNameEn_ == nullptr && return this->properties_ == nullptr
+        && return this->resourceDetailPageUrl_ == nullptr && return this->resourceListPageUrl_ == nullptr && return this->status_ == nullptr && return this->statusStartVersion_ == nullptr && return this->subcategory_ == nullptr
+        && return this->supportExported_ == nullptr && return this->terraformProviderVersion_ == nullptr && return this->terraformResourceType_ == nullptr && return this->title_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

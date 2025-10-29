@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoApply_ != nullptr
-        && this->autoDestroy_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->groupInfo_ != nullptr && this->initModuleState_ != nullptr
-        && this->moduleId_ != nullptr && this->moduleVersion_ != nullptr && this->name_ != nullptr && this->protectionStrategy_ != nullptr && this->ramRole_ != nullptr
-        && this->skipPropertyValidation_ != nullptr && this->tags_ != nullptr && this->taskBackend_ != nullptr && this->terraformVersion_ != nullptr && this->triggerStrategy_ != nullptr; };
+    virtual bool empty() const override { return this->autoApply_ == nullptr
+        && return this->autoDestroy_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->groupInfo_ == nullptr && return this->initModuleState_ == nullptr
+        && return this->moduleId_ == nullptr && return this->moduleVersion_ == nullptr && return this->name_ == nullptr && return this->protectionStrategy_ == nullptr && return this->ramRole_ == nullptr
+        && return this->skipPropertyValidation_ == nullptr && return this->tags_ == nullptr && return this->taskBackend_ == nullptr && return this->terraformVersion_ == nullptr && return this->triggerStrategy_ == nullptr; };
     // autoApply Field Functions 
     bool hasAutoApply() const { return this->autoApply_ != nullptr;};
     void deleteAutoApply() { this->autoApply_ = nullptr;};

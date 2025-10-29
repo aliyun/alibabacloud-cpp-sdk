@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->exportToModule_ != nullptr && this->includeRules_ != nullptr && this->name_ != nullptr && this->ramRole_ != nullptr
-        && this->terraformProviderVersion_ != nullptr && this->terraformVersion_ != nullptr && this->triggerStrategy_ != nullptr && this->variables_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->exportToModule_ == nullptr && return this->includeRules_ == nullptr && return this->name_ == nullptr && return this->ramRole_ == nullptr
+        && return this->terraformProviderVersion_ == nullptr && return this->terraformVersion_ == nullptr && return this->triggerStrategy_ == nullptr && return this->variables_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

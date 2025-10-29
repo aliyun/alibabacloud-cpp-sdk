@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->keyword_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->sort_ != nullptr && this->status_ != nullptr && this->supportTerraformer_ != nullptr
-        && this->terraformProviderVersion_ != nullptr; };
+    virtual bool empty() const override { return this->keyword_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->sort_ == nullptr && return this->status_ == nullptr && return this->supportTerraformer_ == nullptr
+        && return this->terraformProviderVersion_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};

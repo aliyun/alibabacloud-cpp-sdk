@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->triggerStrategy_ != nullptr
-        && this->triggerValue_ != nullptr; };
+    virtual bool empty() const override { return this->triggerStrategy_ == nullptr
+        && return this->triggerValue_ == nullptr; };
     // triggerStrategy Field Functions 
     bool hasTriggerStrategy() const { return this->triggerStrategy_ != nullptr;};
     void deleteTriggerStrategy() { this->triggerStrategy_ = nullptr;};

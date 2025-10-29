@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->elapsedTime_ != nullptr && this->exportTaskId_ != nullptr && this->exportToModule_ != nullptr && this->exportVersion_ != nullptr
-        && this->failedReason_ != nullptr && this->includeRules_ != nullptr && this->modules_ != nullptr && this->name_ != nullptr && this->ramRole_ != nullptr
-        && this->status_ != nullptr && this->taskOutputPath_ != nullptr && this->terraformContext_ != nullptr && this->terraformProviderVersion_ != nullptr && this->terraformVersion_ != nullptr
-        && this->triggerStrategy_ != nullptr && this->variables_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->elapsedTime_ == nullptr && return this->exportTaskId_ == nullptr && return this->exportToModule_ == nullptr && return this->exportVersion_ == nullptr
+        && return this->failedReason_ == nullptr && return this->includeRules_ == nullptr && return this->modules_ == nullptr && return this->name_ == nullptr && return this->ramRole_ == nullptr
+        && return this->status_ == nullptr && return this->taskOutputPath_ == nullptr && return this->terraformContext_ == nullptr && return this->terraformProviderVersion_ == nullptr && return this->terraformVersion_ == nullptr
+        && return this->triggerStrategy_ == nullptr && return this->variables_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoApply_ != nullptr
-        && this->autoDestroy_ != nullptr && this->createTime_ != nullptr && this->currentJobId_ != nullptr && this->currentJobStatus_ != nullptr && this->deletionProtection_ != nullptr
-        && this->description_ != nullptr && this->groupInfo_ != nullptr && this->initModuleState_ != nullptr && this->latestModuleVersion_ != nullptr && this->moduleId_ != nullptr
-        && this->moduleName_ != nullptr && this->moduleVersion_ != nullptr && this->name_ != nullptr && this->protectionStrategy_ != nullptr && this->ramRole_ != nullptr
-        && this->skipPropertyValidation_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->taskBackend_ != nullptr && this->taskId_ != nullptr
-        && this->taskOutputPath_ != nullptr && this->terraformVersion_ != nullptr && this->triggerStrategy_ != nullptr; };
+    virtual bool empty() const override { return this->autoApply_ == nullptr
+        && return this->autoDestroy_ == nullptr && return this->createTime_ == nullptr && return this->currentJobId_ == nullptr && return this->currentJobStatus_ == nullptr && return this->deletionProtection_ == nullptr
+        && return this->description_ == nullptr && return this->groupInfo_ == nullptr && return this->initModuleState_ == nullptr && return this->latestModuleVersion_ == nullptr && return this->moduleId_ == nullptr
+        && return this->moduleName_ == nullptr && return this->moduleVersion_ == nullptr && return this->name_ == nullptr && return this->protectionStrategy_ == nullptr && return this->ramRole_ == nullptr
+        && return this->skipPropertyValidation_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->taskBackend_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskOutputPath_ == nullptr && return this->terraformVersion_ == nullptr && return this->triggerStrategy_ == nullptr; };
     // autoApply Field Functions 
     bool hasAutoApply() const { return this->autoApply_ != nullptr;};
     void deleteAutoApply() { this->autoApply_ = nullptr;};

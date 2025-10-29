@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->elapsedTime_ != nullptr && this->executeType_ != nullptr && this->isPassAssertCheck_ != nullptr
-        && this->jobId_ != nullptr && this->status_ != nullptr && this->statusDetail_ != nullptr && this->taskId_ != nullptr && this->terraformProviderVersion_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->elapsedTime_ == nullptr && return this->executeType_ == nullptr && return this->isPassAssertCheck_ == nullptr
+        && return this->jobId_ == nullptr && return this->status_ == nullptr && return this->statusDetail_ == nullptr && return this->taskId_ == nullptr && return this->terraformProviderVersion_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};

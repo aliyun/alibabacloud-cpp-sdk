@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoDestroy_ != nullptr
-        && this->autoTrigger_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->forcedSetting_ != nullptr && this->name_ != nullptr
-        && this->notifyConfig_ != nullptr && this->notifyOperationTypes_ != nullptr && this->ramRole_ != nullptr && this->reportExportField_ != nullptr && this->reportExportPath_ != nullptr
-        && this->terraformProviderVersion_ != nullptr && this->triggerConfig_ != nullptr && this->triggerResourceType_ != nullptr; };
+    virtual bool empty() const override { return this->autoDestroy_ == nullptr
+        && return this->autoTrigger_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->forcedSetting_ == nullptr && return this->name_ == nullptr
+        && return this->notifyConfig_ == nullptr && return this->notifyOperationTypes_ == nullptr && return this->ramRole_ == nullptr && return this->reportExportField_ == nullptr && return this->reportExportPath_ == nullptr
+        && return this->terraformProviderVersion_ == nullptr && return this->triggerConfig_ == nullptr && return this->triggerResourceType_ == nullptr; };
     // autoDestroy Field Functions 
     bool hasAutoDestroy() const { return this->autoDestroy_ != nullptr;};
     void deleteAutoDestroy() { this->autoDestroy_ = nullptr;};

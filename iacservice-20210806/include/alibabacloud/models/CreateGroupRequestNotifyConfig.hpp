@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notifyPath_ != nullptr
-        && this->notifyType_ != nullptr; };
+    virtual bool empty() const override { return this->notifyPath_ == nullptr
+        && return this->notifyType_ == nullptr; };
     // notifyPath Field Functions 
     bool hasNotifyPath() const { return this->notifyPath_ != nullptr;};
     void deleteNotifyPath() { this->notifyPath_ = nullptr;};
