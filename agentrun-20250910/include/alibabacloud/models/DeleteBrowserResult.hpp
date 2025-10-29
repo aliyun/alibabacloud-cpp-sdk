@@ -62,7 +62,9 @@ namespace Models
   protected:
     // SUCCESS 为成功，失败情况返回对应错误类型，比如 ERR_BAD_REQUEST ERR_VALIDATION_FAILED ERR_INTERNAL_SERVER_ERROR
     std::shared_ptr<string> code_ = nullptr;
+    // 被删除的浏览器详细信息
     std::shared_ptr<Browser> data_ = nullptr;
+    // 唯一的请求标识符，用于问题追踪
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

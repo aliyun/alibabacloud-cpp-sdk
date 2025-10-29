@@ -199,11 +199,14 @@ namespace Models
   protected:
     std::shared_ptr<string> agentRuntimeName_ = nullptr;
     std::shared_ptr<string> artifactType_ = nullptr;
+    // 当artifactType为Code时的代码配置信息，包括代码源、入口文件等
     std::shared_ptr<CodeConfiguration> codeConfiguration_ = nullptr;
+    // 当artifactType为Container时的容器配置信息，包括镜像地址、启动命令等
     std::shared_ptr<ContainerConfiguration> containerConfiguration_ = nullptr;
     // This parameter is required.
     std::shared_ptr<float> cpu_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
+    // 智能体运行时的环境变量配置，用于在运行时传递配置参数
     std::shared_ptr<map<string, string>> environmentVariables_ = nullptr;
     // 为智能体运行时提供访问云服务权限的执行角色ARN
     std::shared_ptr<string> executionRoleArn_ = nullptr;
@@ -212,8 +215,10 @@ namespace Models
     // SLS（简单日志服务）配置
     std::shared_ptr<LogConfiguration> logConfiguration_ = nullptr;
     std::shared_ptr<int32_t> memory_ = nullptr;
+    // 智能体运行时的网络配置，包括VPC、安全组等网络访问设置
     std::shared_ptr<NetworkConfiguration> networkConfiguration_ = nullptr;
     std::shared_ptr<int32_t> port_ = nullptr;
+    // 智能体运行时的通信协议配置，定义运行时如何与外部系统交互
     std::shared_ptr<ProtocolConfiguration> protocolConfiguration_ = nullptr;
     // 每个运行时实例允许的最大并发会话数
     std::shared_ptr<int32_t> sessionConcurrencyLimitPerInstance_ = nullptr;

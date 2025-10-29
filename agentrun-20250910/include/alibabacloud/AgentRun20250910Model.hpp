@@ -19,6 +19,7 @@
 #include <alibabacloud/models/AiFallbackServiceConfig.hpp>
 #include <alibabacloud/models/AiFallbackConfig.hpp>
 #include <alibabacloud/models/AiServiceConfig.hpp>
+#include <alibabacloud/models/ApigLlmModel.hpp>
 #include <alibabacloud/models/AttachPolicyConfig.hpp>
 #include <alibabacloud/models/BrowserOssLocation.hpp>
 #include <alibabacloud/models/BrowserRecordingConfiguration.hpp>
@@ -41,6 +42,7 @@
 #include <alibabacloud/models/CreateAgentRuntimeEndpointInput.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeInput.hpp>
 #include <alibabacloud/models/CreateAgentRuntimeVersionInput.hpp>
+#include <alibabacloud/models/CreateApigLlmModelInput.hpp>
 #include <alibabacloud/models/CreateBrowserInput.hpp>
 #include <alibabacloud/models/CreateCodeInterpreterInput.hpp>
 #include <alibabacloud/models/CreateCredentialInput.hpp>
@@ -119,6 +121,7 @@
 #include <alibabacloud/models/TriggerConfig.hpp>
 #include <alibabacloud/models/UpdateAgentRuntimeEndpointInput.hpp>
 #include <alibabacloud/models/UpdateAgentRuntimeInput.hpp>
+#include <alibabacloud/models/UpdateApigLlmModelInput.hpp>
 #include <alibabacloud/models/UpdateCredentialInput.hpp>
 #include <alibabacloud/models/UpdateCredentialOutput.hpp>
 #include <alibabacloud/models/UpdateDomainInput.hpp>

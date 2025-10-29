@@ -106,6 +106,7 @@ namespace Models
 
 
   protected:
+    // 凭证的配置参数，以键值对形式存储
     std::shared_ptr<map<string, string>> config_ = nullptr;
     std::shared_ptr<string> createdAt_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
