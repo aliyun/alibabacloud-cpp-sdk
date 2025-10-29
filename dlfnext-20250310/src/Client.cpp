@@ -1593,6 +1593,42 @@ GetTableResponse Client::getTable(const string &catalogId, const string &databas
 }
 
 /**
+ * @summary 查看表Compaction详情
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableCompactionResponse
+ */
+GetTableCompactionResponse Client::getTableCompactionWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableCompaction"},
+    {"version" , "2025-03-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dlf/v1/" , Darabonba::Encode::Encoder::percentEncode(catalogId) , "/databases/" , Darabonba::Encode::Encoder::percentEncode(database) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(table) , "/compaction")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableCompactionResponse>();
+}
+
+/**
+ * @summary 查看表Compaction详情
+ *
+ * @return GetTableCompactionResponse
+ */
+GetTableCompactionResponse Client::getTableCompaction(const string &catalogId, const string &database, const string &table) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTableCompactionWithOptions(catalogId, database, table, headers, runtime);
+}
+
+/**
  * @summary 查看表快照
  *
  * @param headers map

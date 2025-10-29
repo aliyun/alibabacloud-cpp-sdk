@@ -23,10 +23,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(deltaManifestList, deltaManifestList_);
       DARABONBA_PTR_TO_JSON(deltaRecordCount, deltaRecordCount_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(idString, idString_);
       DARABONBA_PTR_TO_JSON(indexManifest, indexManifest_);
       DARABONBA_PTR_TO_JSON(logOffsets, logOffsets_);
+      DARABONBA_PTR_TO_JSON(parentIdString, parentIdString_);
       DARABONBA_PTR_TO_JSON(schemaId, schemaId_);
+      DARABONBA_PTR_TO_JSON(sequenceNumber, sequenceNumber_);
       DARABONBA_PTR_TO_JSON(statistics, statistics_);
+      DARABONBA_PTR_TO_JSON(summary, summary_);
       DARABONBA_PTR_TO_JSON(timeMillis, timeMillis_);
       DARABONBA_PTR_TO_JSON(totalRecordCount, totalRecordCount_);
       DARABONBA_PTR_TO_JSON(version, version_);
@@ -42,10 +46,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(deltaManifestList, deltaManifestList_);
       DARABONBA_PTR_FROM_JSON(deltaRecordCount, deltaRecordCount_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(idString, idString_);
       DARABONBA_PTR_FROM_JSON(indexManifest, indexManifest_);
       DARABONBA_PTR_FROM_JSON(logOffsets, logOffsets_);
+      DARABONBA_PTR_FROM_JSON(parentIdString, parentIdString_);
       DARABONBA_PTR_FROM_JSON(schemaId, schemaId_);
+      DARABONBA_PTR_FROM_JSON(sequenceNumber, sequenceNumber_);
       DARABONBA_PTR_FROM_JSON(statistics, statistics_);
+      DARABONBA_PTR_FROM_JSON(summary, summary_);
       DARABONBA_PTR_FROM_JSON(timeMillis, timeMillis_);
       DARABONBA_PTR_FROM_JSON(totalRecordCount, totalRecordCount_);
       DARABONBA_PTR_FROM_JSON(version, version_);
@@ -64,9 +72,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baseManifestList_ == nullptr
         && return this->changelogManifestList_ == nullptr && return this->changelogRecordCount_ == nullptr && return this->commitIdentifier_ == nullptr && return this->commitKind_ == nullptr && return this->commitUser_ == nullptr
-        && return this->deltaManifestList_ == nullptr && return this->deltaRecordCount_ == nullptr && return this->id_ == nullptr && return this->indexManifest_ == nullptr && return this->logOffsets_ == nullptr
-        && return this->schemaId_ == nullptr && return this->statistics_ == nullptr && return this->timeMillis_ == nullptr && return this->totalRecordCount_ == nullptr && return this->version_ == nullptr
-        && return this->watermark_ == nullptr; };
+        && return this->deltaManifestList_ == nullptr && return this->deltaRecordCount_ == nullptr && return this->id_ == nullptr && return this->idString_ == nullptr && return this->indexManifest_ == nullptr
+        && return this->logOffsets_ == nullptr && return this->parentIdString_ == nullptr && return this->schemaId_ == nullptr && return this->sequenceNumber_ == nullptr && return this->statistics_ == nullptr
+        && return this->summary_ == nullptr && return this->timeMillis_ == nullptr && return this->totalRecordCount_ == nullptr && return this->version_ == nullptr && return this->watermark_ == nullptr; };
     // baseManifestList Field Functions 
     bool hasBaseManifestList() const { return this->baseManifestList_ != nullptr;};
     void deleteBaseManifestList() { this->baseManifestList_ = nullptr;};
@@ -130,6 +138,13 @@ namespace Models
     inline Snapshot& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // idString Field Functions 
+    bool hasIdString() const { return this->idString_ != nullptr;};
+    void deleteIdString() { this->idString_ = nullptr;};
+    inline string idString() const { DARABONBA_PTR_GET_DEFAULT(idString_, "") };
+    inline Snapshot& setIdString(string idString) { DARABONBA_PTR_SET_VALUE(idString_, idString) };
+
+
     // indexManifest Field Functions 
     bool hasIndexManifest() const { return this->indexManifest_ != nullptr;};
     void deleteIndexManifest() { this->indexManifest_ = nullptr;};
@@ -146,6 +161,13 @@ namespace Models
     inline Snapshot& setLogOffsets(map<string, int64_t> && logOffsets) { DARABONBA_PTR_SET_RVALUE(logOffsets_, logOffsets) };
 
 
+    // parentIdString Field Functions 
+    bool hasParentIdString() const { return this->parentIdString_ != nullptr;};
+    void deleteParentIdString() { this->parentIdString_ = nullptr;};
+    inline string parentIdString() const { DARABONBA_PTR_GET_DEFAULT(parentIdString_, "") };
+    inline Snapshot& setParentIdString(string parentIdString) { DARABONBA_PTR_SET_VALUE(parentIdString_, parentIdString) };
+
+
     // schemaId Field Functions 
     bool hasSchemaId() const { return this->schemaId_ != nullptr;};
     void deleteSchemaId() { this->schemaId_ = nullptr;};
@@ -153,11 +175,27 @@ namespace Models
     inline Snapshot& setSchemaId(int64_t schemaId) { DARABONBA_PTR_SET_VALUE(schemaId_, schemaId) };
 
 
+    // sequenceNumber Field Functions 
+    bool hasSequenceNumber() const { return this->sequenceNumber_ != nullptr;};
+    void deleteSequenceNumber() { this->sequenceNumber_ = nullptr;};
+    inline int64_t sequenceNumber() const { DARABONBA_PTR_GET_DEFAULT(sequenceNumber_, 0L) };
+    inline Snapshot& setSequenceNumber(int64_t sequenceNumber) { DARABONBA_PTR_SET_VALUE(sequenceNumber_, sequenceNumber) };
+
+
     // statistics Field Functions 
     bool hasStatistics() const { return this->statistics_ != nullptr;};
     void deleteStatistics() { this->statistics_ = nullptr;};
     inline string statistics() const { DARABONBA_PTR_GET_DEFAULT(statistics_, "") };
     inline Snapshot& setStatistics(string statistics) { DARABONBA_PTR_SET_VALUE(statistics_, statistics) };
+
+
+    // summary Field Functions 
+    bool hasSummary() const { return this->summary_ != nullptr;};
+    void deleteSummary() { this->summary_ = nullptr;};
+    inline const map<string, string> & summary() const { DARABONBA_PTR_GET_CONST(summary_, map<string, string>) };
+    inline map<string, string> summary() { DARABONBA_PTR_GET(summary_, map<string, string>) };
+    inline Snapshot& setSummary(const map<string, string> & summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
+    inline Snapshot& setSummary(map<string, string> && summary) { DARABONBA_PTR_SET_RVALUE(summary_, summary) };
 
 
     // timeMillis Field Functions 
@@ -198,10 +236,14 @@ namespace Models
     std::shared_ptr<string> deltaManifestList_ = nullptr;
     std::shared_ptr<int64_t> deltaRecordCount_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> idString_ = nullptr;
     std::shared_ptr<string> indexManifest_ = nullptr;
     std::shared_ptr<map<string, int64_t>> logOffsets_ = nullptr;
+    std::shared_ptr<string> parentIdString_ = nullptr;
     std::shared_ptr<int64_t> schemaId_ = nullptr;
+    std::shared_ptr<int64_t> sequenceNumber_ = nullptr;
     std::shared_ptr<string> statistics_ = nullptr;
+    std::shared_ptr<map<string, string>> summary_ = nullptr;
     std::shared_ptr<int64_t> timeMillis_ = nullptr;
     std::shared_ptr<int64_t> totalRecordCount_ = nullptr;
     std::shared_ptr<int32_t> version_ = nullptr;

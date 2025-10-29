@@ -112,6 +112,7 @@
 #include <alibabacloud/models/GetRoleResponse.hpp>
 #include <alibabacloud/models/GetShareResponse.hpp>
 #include <alibabacloud/models/GetTableResponse.hpp>
+#include <alibabacloud/models/GetTableCompactionResponse.hpp>
 #include <alibabacloud/models/GetTableSnapshotResponse.hpp>
 #include <alibabacloud/models/GetTableSummaryRequest.hpp>
 #include <alibabacloud/models/GetTableSummaryResponse.hpp>

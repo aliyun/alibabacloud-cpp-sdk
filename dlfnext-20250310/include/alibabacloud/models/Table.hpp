@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_TABLE_HPP_
 #define ALIBABACLOUD_MODELS_TABLE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/IcebergTableMetadata.hpp>
 #include <alibabacloud/models/Schema.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -16,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const Table& obj) { 
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
+      DARABONBA_PTR_TO_JSON(icebergTableMetadata, icebergTableMetadata_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(isExternal, isExternal_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -26,12 +28,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(storageAction, storageAction_);
       DARABONBA_PTR_TO_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_TO_JSON(storageClass, storageClass_);
+      DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_TO_JSON(updatedBy, updatedBy_);
     };
     friend void from_json(const Darabonba::Json& j, Table& obj) { 
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
+      DARABONBA_PTR_FROM_JSON(icebergTableMetadata, icebergTableMetadata_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(isExternal, isExternal_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -42,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(storageAction, storageAction_);
       DARABONBA_PTR_FROM_JSON(storageActionTimestamp, storageActionTimestamp_);
       DARABONBA_PTR_FROM_JSON(storageClass, storageClass_);
+      DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
       DARABONBA_PTR_FROM_JSON(updatedBy, updatedBy_);
     };
@@ -57,9 +62,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->createdBy_ == nullptr && return this->id_ == nullptr && return this->isExternal_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
-        && return this->path_ == nullptr && return this->schema_ == nullptr && return this->schemaId_ == nullptr && return this->storageAction_ == nullptr && return this->storageActionTimestamp_ == nullptr
-        && return this->storageClass_ == nullptr && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr; };
+        && return this->createdBy_ == nullptr && return this->icebergTableMetadata_ == nullptr && return this->id_ == nullptr && return this->isExternal_ == nullptr && return this->name_ == nullptr
+        && return this->owner_ == nullptr && return this->path_ == nullptr && return this->schema_ == nullptr && return this->schemaId_ == nullptr && return this->storageAction_ == nullptr
+        && return this->storageActionTimestamp_ == nullptr && return this->storageClass_ == nullptr && return this->type_ == nullptr && return this->updatedAt_ == nullptr && return this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -72,6 +77,15 @@ namespace Models
     void deleteCreatedBy() { this->createdBy_ = nullptr;};
     inline string createdBy() const { DARABONBA_PTR_GET_DEFAULT(createdBy_, "") };
     inline Table& setCreatedBy(string createdBy) { DARABONBA_PTR_SET_VALUE(createdBy_, createdBy) };
+
+
+    // icebergTableMetadata Field Functions 
+    bool hasIcebergTableMetadata() const { return this->icebergTableMetadata_ != nullptr;};
+    void deleteIcebergTableMetadata() { this->icebergTableMetadata_ = nullptr;};
+    inline const IcebergTableMetadata & icebergTableMetadata() const { DARABONBA_PTR_GET_CONST(icebergTableMetadata_, IcebergTableMetadata) };
+    inline IcebergTableMetadata icebergTableMetadata() { DARABONBA_PTR_GET(icebergTableMetadata_, IcebergTableMetadata) };
+    inline Table& setIcebergTableMetadata(const IcebergTableMetadata & icebergTableMetadata) { DARABONBA_PTR_SET_VALUE(icebergTableMetadata_, icebergTableMetadata) };
+    inline Table& setIcebergTableMetadata(IcebergTableMetadata && icebergTableMetadata) { DARABONBA_PTR_SET_RVALUE(icebergTableMetadata_, icebergTableMetadata) };
 
 
     // id Field Functions 
@@ -146,6 +160,13 @@ namespace Models
     inline Table& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline Table& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
     // updatedAt Field Functions 
     bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
     void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -163,6 +184,7 @@ namespace Models
   protected:
     std::shared_ptr<int64_t> createdAt_ = nullptr;
     std::shared_ptr<string> createdBy_ = nullptr;
+    std::shared_ptr<IcebergTableMetadata> icebergTableMetadata_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<bool> isExternal_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
@@ -173,6 +195,7 @@ namespace Models
     std::shared_ptr<string> storageAction_ = nullptr;
     std::shared_ptr<int64_t> storageActionTimestamp_ = nullptr;
     std::shared_ptr<string> storageClass_ = nullptr;
+    std::shared_ptr<string> type_ = nullptr;
     std::shared_ptr<int64_t> updatedAt_ = nullptr;
     std::shared_ptr<string> updatedBy_ = nullptr;
   };

@@ -16,8 +16,10 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const IcebergSnapshot& obj) { 
       DARABONBA_PTR_TO_JSON(addedRows, addedRows_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(idString, idString_);
       DARABONBA_PTR_TO_JSON(operation, operation_);
       DARABONBA_PTR_TO_JSON(parentId, parentId_);
+      DARABONBA_PTR_TO_JSON(parentIdString, parentIdString_);
       DARABONBA_PTR_TO_JSON(schemaId, schemaId_);
       DARABONBA_PTR_TO_JSON(sequenceNumber, sequenceNumber_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
@@ -26,8 +28,10 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, IcebergSnapshot& obj) { 
       DARABONBA_PTR_FROM_JSON(addedRows, addedRows_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(idString, idString_);
       DARABONBA_PTR_FROM_JSON(operation, operation_);
       DARABONBA_PTR_FROM_JSON(parentId, parentId_);
+      DARABONBA_PTR_FROM_JSON(parentIdString, parentIdString_);
       DARABONBA_PTR_FROM_JSON(schemaId, schemaId_);
       DARABONBA_PTR_FROM_JSON(sequenceNumber, sequenceNumber_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
@@ -45,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addedRows_ == nullptr
-        && return this->id_ == nullptr && return this->operation_ == nullptr && return this->parentId_ == nullptr && return this->schemaId_ == nullptr && return this->sequenceNumber_ == nullptr
-        && return this->summary_ == nullptr && return this->timestampMillis_ == nullptr; };
+        && return this->id_ == nullptr && return this->idString_ == nullptr && return this->operation_ == nullptr && return this->parentId_ == nullptr && return this->parentIdString_ == nullptr
+        && return this->schemaId_ == nullptr && return this->sequenceNumber_ == nullptr && return this->summary_ == nullptr && return this->timestampMillis_ == nullptr; };
     // addedRows Field Functions 
     bool hasAddedRows() const { return this->addedRows_ != nullptr;};
     void deleteAddedRows() { this->addedRows_ = nullptr;};
@@ -61,6 +65,13 @@ namespace Models
     inline IcebergSnapshot& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // idString Field Functions 
+    bool hasIdString() const { return this->idString_ != nullptr;};
+    void deleteIdString() { this->idString_ = nullptr;};
+    inline string idString() const { DARABONBA_PTR_GET_DEFAULT(idString_, "") };
+    inline IcebergSnapshot& setIdString(string idString) { DARABONBA_PTR_SET_VALUE(idString_, idString) };
+
+
     // operation Field Functions 
     bool hasOperation() const { return this->operation_ != nullptr;};
     void deleteOperation() { this->operation_ = nullptr;};
@@ -73,6 +84,13 @@ namespace Models
     void deleteParentId() { this->parentId_ = nullptr;};
     inline int64_t parentId() const { DARABONBA_PTR_GET_DEFAULT(parentId_, 0L) };
     inline IcebergSnapshot& setParentId(int64_t parentId) { DARABONBA_PTR_SET_VALUE(parentId_, parentId) };
+
+
+    // parentIdString Field Functions 
+    bool hasParentIdString() const { return this->parentIdString_ != nullptr;};
+    void deleteParentIdString() { this->parentIdString_ = nullptr;};
+    inline string parentIdString() const { DARABONBA_PTR_GET_DEFAULT(parentIdString_, "") };
+    inline IcebergSnapshot& setParentIdString(string parentIdString) { DARABONBA_PTR_SET_VALUE(parentIdString_, parentIdString) };
 
 
     // schemaId Field Functions 
@@ -108,8 +126,10 @@ namespace Models
   protected:
     std::shared_ptr<int64_t> addedRows_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> idString_ = nullptr;
     std::shared_ptr<string> operation_ = nullptr;
     std::shared_ptr<int64_t> parentId_ = nullptr;
+    std::shared_ptr<string> parentIdString_ = nullptr;
     std::shared_ptr<int64_t> schemaId_ = nullptr;
     std::shared_ptr<int64_t> sequenceNumber_ = nullptr;
     std::shared_ptr<map<string, string>> summary_ = nullptr;

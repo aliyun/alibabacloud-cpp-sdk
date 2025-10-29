@@ -637,6 +637,22 @@ namespace DlfNext20250310
       Models::GetTableResponse getTable(const string &catalogId, const string &database, const string &table);
 
       /**
+       * @summary 查看表Compaction详情
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableCompactionResponse
+       */
+      Models::GetTableCompactionResponse getTableCompactionWithOptions(const string &catalogId, const string &database, const string &table, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看表Compaction详情
+       *
+       * @return GetTableCompactionResponse
+       */
+      Models::GetTableCompactionResponse getTableCompaction(const string &catalogId, const string &database, const string &table);
+
+      /**
        * @summary 查看表快照
        *
        * @param headers map
