@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GPU, GPU_);
       DARABONBA_PTR_TO_JSON(LinkIP, linkIP_);
       DARABONBA_PTR_TO_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_TO_JSON(VNodeId, VNodeId_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GPU, GPU_);
       DARABONBA_PTR_FROM_JSON(LinkIP, linkIP_);
       DARABONBA_PTR_FROM_JSON(MemorySize, memorySize_);
+      DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_FROM_JSON(VNodeId, VNodeId_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->childVolumes_ == nullptr
         && return this->cpuCores_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeDescription_ == nullptr && return this->DBNodeId_ == nullptr && return this->DBNodeStatus_ == nullptr
-        && return this->GPU_ == nullptr && return this->linkIP_ == nullptr && return this->memorySize_ == nullptr && return this->VNodeId_ == nullptr && return this->VPCId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->GPU_ == nullptr && return this->linkIP_ == nullptr && return this->memorySize_ == nullptr && return this->publicIp_ == nullptr && return this->VNodeId_ == nullptr
+        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // childVolumes Field Functions 
     bool hasChildVolumes() const { return this->childVolumes_ != nullptr;};
     void deleteChildVolumes() { this->childVolumes_ = nullptr;};
@@ -124,6 +126,13 @@ namespace Models
     inline DescribeAIDBClusterAttributeResponseBodyDBNodes& setMemorySize(string memorySize) { DARABONBA_PTR_SET_VALUE(memorySize_, memorySize) };
 
 
+    // publicIp Field Functions 
+    bool hasPublicIp() const { return this->publicIp_ != nullptr;};
+    void deletePublicIp() { this->publicIp_ = nullptr;};
+    inline string publicIp() const { DARABONBA_PTR_GET_DEFAULT(publicIp_, "") };
+    inline DescribeAIDBClusterAttributeResponseBodyDBNodes& setPublicIp(string publicIp) { DARABONBA_PTR_SET_VALUE(publicIp_, publicIp) };
+
+
     // VNodeId Field Functions 
     bool hasVNodeId() const { return this->VNodeId_ != nullptr;};
     void deleteVNodeId() { this->VNodeId_ = nullptr;};
@@ -162,6 +171,7 @@ namespace Models
     std::shared_ptr<string> GPU_ = nullptr;
     std::shared_ptr<string> linkIP_ = nullptr;
     std::shared_ptr<string> memorySize_ = nullptr;
+    std::shared_ptr<string> publicIp_ = nullptr;
     std::shared_ptr<string> VNodeId_ = nullptr;
     std::shared_ptr<string> VPCId_ = nullptr;
     std::shared_ptr<string> vSwitchId_ = nullptr;
