@@ -750,6 +750,7 @@
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupRelationResponseBody.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupRelationResponse.hpp>
 #include <alibabacloud/models/ModifyLogBackupPolicyRequest.hpp>
+#include <alibabacloud/models/ModifyLogBackupPolicyShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyLogBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyLogBackupPolicyResponse.hpp>
 #include <alibabacloud/models/ModifyMaskingRulesRequest.hpp>
@@ -1069,6 +1070,7 @@
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupResponseBodyGlobalSecurityIpGroup.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupNameResponseBodyGlobalSecurityIpGroup.hpp>
 #include <alibabacloud/models/ModifyGlobalSecurityIpGroupRelationResponseBodyGlobalSecurityIpGroupRel.hpp>
+#include <alibabacloud/models/ModifyLogBackupPolicyRequestAdvancedLogPolicies.hpp>
 #include <alibabacloud/models/SetPolarFsFileQuotaRequestFilePathQuotas.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
 #include <alibabacloud/models/TempModifyDbNodeRequestDbNode.hpp>

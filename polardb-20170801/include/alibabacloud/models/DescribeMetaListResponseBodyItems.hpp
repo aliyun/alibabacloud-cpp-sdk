@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMetaListResponseBodyItems& obj) { 
       DARABONBA_PTR_TO_JSON(Database, database_);
+      DARABONBA_PTR_TO_JSON(Size, size_);
       DARABONBA_PTR_TO_JSON(Tables, tables_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMetaListResponseBodyItems& obj) { 
       DARABONBA_PTR_FROM_JSON(Database, database_);
+      DARABONBA_PTR_FROM_JSON(Size, size_);
       DARABONBA_PTR_FROM_JSON(Tables, tables_);
     };
     DescribeMetaListResponseBodyItems() = default ;
@@ -33,12 +35,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->database_ == nullptr
-        && return this->tables_ == nullptr; };
+        && return this->size_ == nullptr && return this->tables_ == nullptr; };
     // database Field Functions 
     bool hasDatabase() const { return this->database_ != nullptr;};
     void deleteDatabase() { this->database_ = nullptr;};
     inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline DescribeMetaListResponseBodyItems& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+
+
+    // size Field Functions 
+    bool hasSize() const { return this->size_ != nullptr;};
+    void deleteSize() { this->size_ = nullptr;};
+    inline const vector<int64_t> & size() const { DARABONBA_PTR_GET_CONST(size_, vector<int64_t>) };
+    inline vector<int64_t> size() { DARABONBA_PTR_GET(size_, vector<int64_t>) };
+    inline DescribeMetaListResponseBodyItems& setSize(const vector<int64_t> & size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+    inline DescribeMetaListResponseBodyItems& setSize(vector<int64_t> && size) { DARABONBA_PTR_SET_RVALUE(size_, size) };
 
 
     // tables Field Functions 
@@ -53,6 +64,7 @@ namespace Models
   protected:
     // The name of the database that can be restored.
     std::shared_ptr<string> database_ = nullptr;
+    std::shared_ptr<vector<int64_t>> size_ = nullptr;
     // The name of the table that can be restored.
     std::shared_ptr<vector<string>> tables_ = nullptr;
   };

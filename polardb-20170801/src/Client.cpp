@@ -17955,13 +17955,23 @@ ModifyGlobalSecurityIPGroupRelationResponse Client::modifyGlobalSecurityIPGroupR
 /**
  * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
  *
- * @param request ModifyLogBackupPolicyRequest
+ * @param tmpReq ModifyLogBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyLogBackupPolicyResponse
  */
-ModifyLogBackupPolicyResponse Client::modifyLogBackupPolicyWithOptions(const ModifyLogBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyLogBackupPolicyResponse Client::modifyLogBackupPolicyWithOptions(const ModifyLogBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyLogBackupPolicyShrinkRequest request = ModifyLogBackupPolicyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAdvancedLogPolicies()) {
+    request.setAdvancedLogPoliciesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.advancedLogPolicies(), "AdvancedLogPolicies", "json"));
+  }
+
   json query = {};
+  if (!!request.hasAdvancedLogPoliciesShrink()) {
+    query["AdvancedLogPolicies"] = request.advancedLogPoliciesShrink();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }

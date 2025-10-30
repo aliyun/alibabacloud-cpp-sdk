@@ -4454,11 +4454,11 @@ namespace Polardb20170801
       /**
        * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
        *
-       * @param request ModifyLogBackupPolicyRequest
+       * @param tmpReq ModifyLogBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyLogBackupPolicyResponse
        */
-      Models::ModifyLogBackupPolicyResponse modifyLogBackupPolicyWithOptions(const Models::ModifyLogBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyLogBackupPolicyResponse modifyLogBackupPolicyWithOptions(const Models::ModifyLogBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
