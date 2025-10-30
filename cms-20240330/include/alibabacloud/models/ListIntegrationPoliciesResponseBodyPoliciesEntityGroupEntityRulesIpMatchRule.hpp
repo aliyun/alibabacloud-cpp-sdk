@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // IP segment
     std::shared_ptr<string> ipCidr_ = nullptr;
+    // Key of the IP field
     std::shared_ptr<string> ipFieldKey_ = nullptr;
   };
 

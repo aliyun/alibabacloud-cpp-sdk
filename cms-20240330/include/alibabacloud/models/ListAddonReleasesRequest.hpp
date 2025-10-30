@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Addon component name.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Parent AddonReleaseId.
     std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
   };
 

@@ -190,25 +190,46 @@ namespace Models
 
 
   protected:
+    // Aggregation task group configuration.
+    // Currently, only the “RecordingRuleYaml” format is supported, which must comply with the format requirements of open-source Prometheus RecordingRules.
+    // 
     // This parameter is required.
     std::shared_ptr<string> aggTaskGroupConfig_ = nullptr;
+    // Aggregation task group configuration type, default is “RecordingRuleYaml” (open-source Prometheus RecordingRule format).
     std::shared_ptr<string> aggTaskGroupConfigType_ = nullptr;
+    // Aggregation task group name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> aggTaskGroupName_ = nullptr;
+    // When the scheduling mode is selected as “Cron”, this is the specific scheduling expression. For example, “0/1 * * * *” means starting from 0 minutes and scheduling every 1 minute.
     std::shared_ptr<string> cronExpr_ = nullptr;
+    // Fixed delay time for scheduling, in seconds, default is 30.
     std::shared_ptr<int32_t> delay_ = nullptr;
+    // Description of the aggregation task group.
     std::shared_ptr<string> description_ = nullptr;
+    // The second-level timestamp corresponding to the start time of the schedule.
     std::shared_ptr<int64_t> fromTime_ = nullptr;
+    // Maximum number of retries for executing the aggregation task, default is 20.
     std::shared_ptr<int32_t> maxRetries_ = nullptr;
+    // Maximum retry time for executing the aggregation task, in seconds, default is 600.
     std::shared_ptr<int32_t> maxRunTimeInSeconds_ = nullptr;
+    // Pre-check configuration, no configuration by default. The input string needs to be correctly parsed as JSON.
     std::shared_ptr<string> precheckString_ = nullptr;
+    // Scheduling mode, either “Cron” or “FixedRate”, default is “FixedRate”.
     std::shared_ptr<string> scheduleMode_ = nullptr;
+    // Scheduling time expression, recommended “@s” or “@m”, indicating the alignment granularity of the scheduling time window, default is “@m”.
     std::shared_ptr<string> scheduleTimeExpr_ = nullptr;
+    // Status of the aggregation task group, either “Running” or “Stopped”. Default is Running.
     std::shared_ptr<string> status_ = nullptr;
+    // Resource group tags.
     std::shared_ptr<vector<CreateAggTaskGroupRequestTags>> tags_ = nullptr;
+    // The target Prometheus instance ID of the aggregation task group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> targetPrometheusId_ = nullptr;
+    // The second-level timestamp corresponding to the end time of the schedule, 0 indicates that the scheduling does not stop.
     std::shared_ptr<int64_t> toTime_ = nullptr;
+    // Whether to overwrite and update if a resource with the same name exists when creating an aggregation task group.
     std::shared_ptr<bool> overrideIfExists_ = nullptr;
   };
 

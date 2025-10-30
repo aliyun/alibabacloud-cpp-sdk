@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // 免登录票据。
     std::shared_ptr<string> ticket_ = nullptr;
   };
 

@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // List of alert action configurations.
     std::shared_ptr<vector<ListAlertActionsResponseBodyAlertActions>> alertActions_ = nullptr;
+    // Page number.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // Page size.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of items.
     std::shared_ptr<int32_t> total_ = nullptr;
   };
 

@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // Extended information.
     std::shared_ptr<string> attributes_ = nullptr;
+    // Creation time
     std::shared_ptr<string> createTime_ = nullptr;
+    // Description, only valid when serviceType=RUM.
     std::shared_ptr<string> description_ = nullptr;
+    // Display name, only valid when serviceType=RUM.
     std::shared_ptr<string> displayName_ = nullptr;
+    // Legacy ARMS application ID
     std::shared_ptr<string> pid_ = nullptr;
+    // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
+    // Service ID.
     std::shared_ptr<string> serviceId_ = nullptr;
+    // Service name
     std::shared_ptr<string> serviceName_ = nullptr;
+    // Service status, only valid when serviceType=RUM.
     std::shared_ptr<string> serviceStatus_ = nullptr;
+    // Service type.
     std::shared_ptr<string> serviceType_ = nullptr;
+    // Workspace name
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

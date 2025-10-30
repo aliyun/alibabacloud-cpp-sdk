@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Entity group ID.
     std::shared_ptr<string> entityGroupId_ = nullptr;
+    // Policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
+    // Policy name.
     std::shared_ptr<string> policyName_ = nullptr;
+    // Policy type.
     std::shared_ptr<string> policyType_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // The workspace where the Policy resides.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

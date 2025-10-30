@@ -297,34 +297,61 @@ namespace Models
 
 
   protected:
+    // Addon name.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Number of alert rules.
     std::shared_ptr<int64_t> alertRuleCount_ = nullptr;
+    // API version.
     std::shared_ptr<string> apiVersion_ = nullptr;
+    // Installation phase information.
     std::shared_ptr<vector<Models::ListAddonReleasesResponseBodyReleasesConditions>> conditions_ = nullptr;
+    // Component configuration information.
     std::shared_ptr<string> config_ = nullptr;
+    // Access time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Number of dashboards.
     std::shared_ptr<int64_t> dashboardCount_ = nullptr;
+    // Entity details.
     std::shared_ptr<Models::EntityGroupBase> entityRules_ = nullptr;
+    // Environment type.
     std::shared_ptr<string> envType_ = nullptr;
+    // Environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // Number of plugins.
     std::shared_ptr<int64_t> exporterCount_ = nullptr;
+    // Whether there is a configuration.
     std::shared_ptr<bool> haveConfig_ = nullptr;
+    // Access user ID.
     std::shared_ptr<string> installUserId_ = nullptr;
+    // Language.
     std::shared_ptr<string> language_ = nullptr;
+    // Whether it is a managed component.
     std::shared_ptr<bool> managed_ = nullptr;
+    // Starting version number for the remaining list.
     std::shared_ptr<string> nextVersion_ = nullptr;
+    // Parent AddonReleaseId.
     std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
+    // Policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
-    // Release ID。
+    // Release ID.
     std::shared_ptr<string> releaseId_ = nullptr;
+    // Release name.
     std::shared_ptr<string> releaseName_ = nullptr;
+    // Component scenario.
     std::shared_ptr<string> scene_ = nullptr;
+    // Status.
     std::shared_ptr<string> status_ = nullptr;
+    // Sub-AddonRelease statistics.
     std::shared_ptr<Models::ListAddonReleasesResponseBodyReleasesSubAddonRelease> subAddonRelease_ = nullptr;
+    // Update time.
     std::shared_ptr<string> updateTime_ = nullptr;
+    // Owner user ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Component version.
     std::shared_ptr<string> version_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

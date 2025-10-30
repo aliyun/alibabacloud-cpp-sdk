@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Common Umodel Schema group
     std::shared_ptr<string> group_ = nullptr;
+    // Version
     std::shared_ptr<string> version_ = nullptr;
   };
 

@@ -50,7 +50,10 @@ namespace Models
 
 
   protected:
+    // Query conditions
     Darabonba::Json content_ = nullptr;
+    // Method
+    // 
     // This parameter is required.
     std::shared_ptr<string> method_ = nullptr;
   };

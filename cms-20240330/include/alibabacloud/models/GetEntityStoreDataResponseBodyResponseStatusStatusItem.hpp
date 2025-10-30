@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Status code
     std::shared_ptr<string> code_ = nullptr;
+    // Status level
     std::shared_ptr<string> level_ = nullptr;
+    // Calculation execution information
     std::shared_ptr<string> message_ = nullptr;
+    // Suggestions when an error occurs during execution
     std::shared_ptr<string> suggestion_ = nullptr;
   };
 

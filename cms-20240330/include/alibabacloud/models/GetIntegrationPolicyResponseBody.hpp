@@ -51,8 +51,9 @@ namespace Models
 
 
   protected:
+    // Access policy.
     std::shared_ptr<GetIntegrationPolicyResponseBodyPolicy> policy_ = nullptr;
-    // Id of the request
+    // ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

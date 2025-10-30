@@ -61,9 +61,11 @@ namespace Models
 
 
   protected:
+    // List of Prometheus instance dashboards.
     std::shared_ptr<vector<ListPrometheusDashboardsResponseBodyPrometheusDashboards>> prometheusDashboards_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of instances
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

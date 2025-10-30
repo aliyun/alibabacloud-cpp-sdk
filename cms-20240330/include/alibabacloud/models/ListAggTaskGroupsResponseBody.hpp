@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // List of aggregation task groups.
     std::shared_ptr<vector<ListAggTaskGroupsResponseBodyAggTaskGroups>> aggTaskGroups_ = nullptr;
+    // The maximum number of records returned.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Token for the next query.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of instances.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

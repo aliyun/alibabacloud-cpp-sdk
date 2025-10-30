@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Addon name. When AddonName is provided, it will ignore the ReleaseName parameter and batch uninstall all AddonReleases belonging to the same Addon.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Whether to force deletion, default is false.
     std::shared_ptr<bool> force_ = nullptr;
+    // The name of the AddonRelease.
     std::shared_ptr<string> releaseName_ = nullptr;
   };
 

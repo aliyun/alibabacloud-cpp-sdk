@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to return in this request.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Token for the next query, an empty value indicates the last page.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Service type
     std::shared_ptr<string> serviceType_ = nullptr;
   };
 

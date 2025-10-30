@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // Page size
+    // Default value:
+    // 	50
+    // Maximum value:
+    // 	50
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Pagination Token
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Region
     std::shared_ptr<string> region_ = nullptr;
+    // Workspace name, fuzzy search
     std::shared_ptr<string> workspaceName_ = nullptr;
+    // Workspace name, exact match
     std::shared_ptr<vector<string>> workspaceNameList_ = nullptr;
   };
 

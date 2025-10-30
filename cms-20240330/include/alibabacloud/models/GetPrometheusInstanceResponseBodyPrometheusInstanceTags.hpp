@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Tag key.
     std::shared_ptr<string> key_ = nullptr;
+    // Matched value.
     std::shared_ptr<string> value_ = nullptr;
   };
 

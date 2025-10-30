@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // Password-free read policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // Whether to support password-free read.
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to support authToken.
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // List of Prometheus instances.
     std::shared_ptr<vector<UpdatePrometheusViewRequestPrometheusInstances>> prometheusInstances_ = nullptr;
+    // Prometheus view name.
     std::shared_ptr<string> prometheusViewName_ = nullptr;
+    // Running status.
     std::shared_ptr<string> status_ = nullptr;
+    // Belonging workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

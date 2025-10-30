@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Umodel description
     std::shared_ptr<string> description_ = nullptr;
   };
 

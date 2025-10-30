@@ -96,11 +96,17 @@ namespace Models
 
 
   protected:
+    // Collection of AddonReleases.
     std::shared_ptr<vector<string>> addonReleaseNames_ = nullptr;
+    // API Version
     std::shared_ptr<string> apiVersion_ = nullptr;
+    // Resource kind
     std::shared_ptr<string> kind_ = nullptr;
+    // Metadata
     std::shared_ptr<Models::ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata> metadata_ = nullptr;
+    // Resource spec
     std::shared_ptr<Models::ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec> spec_ = nullptr;
+    // Storage requirement status
     std::shared_ptr<Models::ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsStatus> status_ = nullptr;
   };
 

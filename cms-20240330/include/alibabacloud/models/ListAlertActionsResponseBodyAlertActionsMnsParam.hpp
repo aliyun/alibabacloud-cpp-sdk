@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Resource type of the Lightweight Message Queue (formerly MNS).
     std::shared_ptr<string> mnsType_ = nullptr;
+    // Resource name.
+    // 
+    // - If the resource type is queue, the resource name is the queue name.
+    // - If the resource type is topic, the resource name is the topic name.
     std::shared_ptr<string> name_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Set of add-on component information.
     std::shared_ptr<vector<ListAddonReleasesResponseBodyReleases>> releases_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Number of components.
     std::shared_ptr<int64_t> total_ = nullptr;
   };
 

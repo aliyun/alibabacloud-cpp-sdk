@@ -120,14 +120,23 @@ namespace Models
 
 
   protected:
+    // Endpoint and Authentication Information
     std::shared_ptr<GetServiceObservabilityResponseBodyEntryPointInfo> entryPointInfo_ = nullptr;
+    // Billing Type
     std::shared_ptr<string> feeType_ = nullptr;
+    // Quota Configuration
     std::shared_ptr<map<string, string>> quotas_ = nullptr;
+    // Region
     std::shared_ptr<string> regionId_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // System Configuration
     std::shared_ptr<map<string, string>> settings_ = nullptr;
+    // Resource Initialization Status
     std::shared_ptr<string> status_ = nullptr;
+    // Application Observability Type
     std::shared_ptr<string> type_ = nullptr;
+    // Workspace Name
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

@@ -144,18 +144,38 @@ namespace Models
 
 
   protected:
+    // The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days is as follows:
+    // * V1: 60~365 days.
+    // * V2: 60~3650 days (3650 indicates permanent storage).
     std::shared_ptr<int32_t> archiveDuration_ = nullptr;
+    // Password-free read policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // Password-free write policy.
     std::shared_ptr<string> authFreeWritePolicy_ = nullptr;
+    // Whether to enable password-free read (only supported in V2 version).
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to enable password-free write (only supported in V2 version).
     std::shared_ptr<bool> enableAuthFreeWrite_ = nullptr;
+    // Whether to enable authorization Token (only supported in V1 version).
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // Billing method:
+    // * POSTPAY: Postpaid by metric reporting volume.
+    // * POSTPAY_GB: Postpaid by metric write volume.
+    // Note, if left blank, the user\\"s default billing method configuration will be used. If the user has not configured a default, the system defaults to billing by metric reporting volume.
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Instance name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    // Instance status.
     std::shared_ptr<string> status_ = nullptr;
+    // Storage duration (days):
+    // * By write volume: 90, 180.
+    // * By metric reporting volume: 15, 30, 60, 90, 180.
     std::shared_ptr<int32_t> storageDuration_ = nullptr;
+    // Tag values.
     std::shared_ptr<vector<CreatePrometheusInstanceRequestTags>> tags_ = nullptr;
+    // Belonging workspace, default value: default-cms-{userId}-{regionId}.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

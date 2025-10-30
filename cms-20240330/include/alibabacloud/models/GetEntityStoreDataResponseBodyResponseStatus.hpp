@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Information during the execution process
     std::shared_ptr<string> executionStates_ = nullptr;
+    // Status level
     std::shared_ptr<string> level_ = nullptr;
+    // Execution result
     std::shared_ptr<string> result_ = nullptr;
+    // Retry policy
     std::shared_ptr<string> retryPolicy_ = nullptr;
+    // Detailed status information list
     std::shared_ptr<vector<Models::GetEntityStoreDataResponseBodyResponseStatusStatusItem>> statusItem_ = nullptr;
   };
 

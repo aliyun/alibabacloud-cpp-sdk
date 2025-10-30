@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Description.
     std::shared_ptr<string> description_ = nullptr;
   };
 

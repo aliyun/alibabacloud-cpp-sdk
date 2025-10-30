@@ -91,12 +91,19 @@ namespace Models
 
 
   protected:
+    // Entity group for creating the policy. Policies can be quickly created using the entity group, and `clusterId` and `vpcId` are independent of each other.
     std::shared_ptr<CreateIntegrationPolicyRequestEntityGroup> entityGroup_ = nullptr;
+    // Policy name
     std::shared_ptr<string> policyName_ = nullptr;
+    // Policy type: CS/ECS/Cloud
+    // 
     // This parameter is required.
     std::shared_ptr<string> policyType_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Resource tags.
     std::shared_ptr<vector<CreateIntegrationPolicyRequestTags>> tags_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

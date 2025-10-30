@@ -74,9 +74,13 @@ namespace Models
 
 
   protected:
+    // Total list of returned data
     std::shared_ptr<vector<vector<string>>> data_ = nullptr;
+    // List of request headers
     std::shared_ptr<vector<string>> header_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result status
     std::shared_ptr<GetEntityStoreDataResponseBodyResponseStatus> responseStatus_ = nullptr;
   };
 

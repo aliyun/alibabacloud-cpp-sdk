@@ -134,14 +134,23 @@ namespace Models
 
 
   protected:
+    // Annotations
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAnnotations>> annotations_ = nullptr;
+    // List of entity types
     std::shared_ptr<vector<string>> entityTypes_ = nullptr;
+    // Field rules
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFieldRules>> fieldRules_ = nullptr;
+    // Instance IDs.
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    // IP match rule
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule> ipMatchRule_ = nullptr;
+    // Labels
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels>> labels_ = nullptr;
+    // List of region IDs
     std::shared_ptr<vector<string>> regionIds_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Instance tag information.
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTags>> tags_ = nullptr;
   };
 

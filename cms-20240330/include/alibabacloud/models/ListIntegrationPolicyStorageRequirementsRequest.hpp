@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Addon Release Name
     std::shared_ptr<string> addonName_ = nullptr;
+    // Name of AddonRelease.
     std::shared_ptr<string> addonReleaseName_ = nullptr;
+    // Storage Type, LogStore/Prometheus/TraceStore/EventStore/EntityStore.
     std::shared_ptr<string> storageType_ = nullptr;
   };
 

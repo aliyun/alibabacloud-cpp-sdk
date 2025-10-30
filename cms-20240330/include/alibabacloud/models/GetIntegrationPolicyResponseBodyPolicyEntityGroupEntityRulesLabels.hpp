@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The operation to be performed.
     std::shared_ptr<string> op_ = nullptr;
+    // The tag key of the instance.
     std::shared_ptr<string> tagKey_ = nullptr;
+    // List of tag values.
     std::shared_ptr<vector<string>> tagValues_ = nullptr;
   };
 

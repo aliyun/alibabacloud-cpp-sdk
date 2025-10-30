@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the field.
     std::shared_ptr<string> fieldKey_ = nullptr;
+    // Field content, multiple values separated by commas.
     std::shared_ptr<vector<string>> fieldValues_ = nullptr;
+    // Operation to be performed.
     std::shared_ptr<string> op_ = nullptr;
   };
 

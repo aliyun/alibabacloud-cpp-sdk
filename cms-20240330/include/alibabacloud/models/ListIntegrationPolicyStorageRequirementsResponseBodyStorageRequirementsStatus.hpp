@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Instance ID
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Internal URL
     std::shared_ptr<string> interUrl_ = nullptr;
+    // External URL
     std::shared_ptr<string> intraUrl_ = nullptr;
+    // 存储需求名称
     std::shared_ptr<string> name_ = nullptr;
+    // 存储需求项目
     std::shared_ptr<string> project_ = nullptr;
+    // Prom\\"s metric center
     std::shared_ptr<string> promMetricStore_ = nullptr;
+    // Region
     std::shared_ptr<string> region_ = nullptr;
+    // Instance storage type
     std::shared_ptr<string> storageType_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

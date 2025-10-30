@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // - Access token expiration time (in seconds), which is the expiration time for the user to access the page interface. The default value is 86400 seconds (one day), and the range of values is from 0 to 86400 seconds (one day).
+    // - The access token expiration time is the minimum value between `accessTokenExpirationTime` and `expirationTime`.
+    // - If called through STS, the access token expiration time (i.e., the time during which the user can access the page interface) is the minimum value among `accessTokenExpirationTime`, `expirationTime`, and the STS expiration time.
     std::shared_ptr<int64_t> accessTokenExpirationTime_ = nullptr;
+    // - Expiration time (in seconds), which is the expiration time for the embedded page URL. The default value is 86400 seconds (one day), and the range of values is from 0 to 2592000 seconds (30 days).
     std::shared_ptr<int64_t> expirationTime_ = nullptr;
   };
 

@@ -124,17 +124,29 @@ namespace Models
 
 
   protected:
+    // The Addon name of the component that needs to be monitored.
+    // 
     // This parameter is required.
     std::shared_ptr<string> addonName_ = nullptr;
+    // The language type of the component.
     std::shared_ptr<string> aliyunLang_ = nullptr;
+    // Whether it is a dry run, default is false.
     std::shared_ptr<bool> dryRun_ = nullptr;
+    // Field rules
     std::shared_ptr<EntityDiscoverRule> entityRules_ = nullptr;
+    // Environment type. If the Policy type is CS and ECS, use accordingly; otherwise, it is unified as Cloud.
     std::shared_ptr<string> envType_ = nullptr;
+    // Parent AddonReleaseId.
     std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
+    // The plugin name after access. If not specified, a default rule name will be generated.
     std::shared_ptr<string> releaseName_ = nullptr;
+    // Input metadata.
     std::shared_ptr<string> values_ = nullptr;
+    // The version of the Addon component that needs to be monitored.
+    // 
     // This parameter is required.
     std::shared_ptr<string> version_ = nullptr;
+    // The workspace name for installing the component resources.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

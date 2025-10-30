@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // This field does not need to be filled currently
     std::shared_ptr<vector<GetUmodelResponseBodyCommonSchemaRef>> commonSchemaRef_ = nullptr;
+    // Umodel description
     std::shared_ptr<string> description_ = nullptr;
+    // Region
     std::shared_ptr<string> regionId_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Workspace name
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

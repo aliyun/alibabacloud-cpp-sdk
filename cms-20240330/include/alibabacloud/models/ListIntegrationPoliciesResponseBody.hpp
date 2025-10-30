@@ -79,11 +79,19 @@ namespace Models
 
 
   protected:
+    // Page size
+    // Default value:
+    // 	50
+    // Maximum value:
+    // 	50
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Pagination Token
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Access policy list
     std::shared_ptr<vector<ListIntegrationPoliciesResponseBodyPolicies>> policies_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of entries
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

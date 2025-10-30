@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Language environment, default is Chinese zh | en
     std::shared_ptr<string> aliyunLang_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
   };
 

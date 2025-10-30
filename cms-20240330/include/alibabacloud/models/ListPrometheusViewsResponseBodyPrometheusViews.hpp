@@ -171,20 +171,37 @@ namespace Models
 
 
   protected:
+    // Instance creation time, using UTC+0 time, formatted as yyyy-MM-ddTHH:mmZ
     std::shared_ptr<string> createTime_ = nullptr;
+    // Instance type:
+    // prom-view: new version aggregated view
+    // global-view: old version aggregated view
     std::shared_ptr<string> instanceType_ = nullptr;
+    // Payment type. Currently, the fixed value is FREE (free).
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Product that the prom instance belongs to (arms or cms).
     std::shared_ptr<string> product_ = nullptr;
+    // Number of Prometheus instances in the view.
     std::shared_ptr<int32_t> prometheusInstanceCount_ = nullptr;
+    // Prometheus view ID.
     std::shared_ptr<string> prometheusViewId_ = nullptr;
+    // Prometheus view name.
     std::shared_ptr<string> prometheusViewName_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Fixed value: PrometheusView.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // Backend data storage status.
     std::shared_ptr<string> status_ = nullptr;
+    // Tag values.
     std::shared_ptr<vector<Models::ListPrometheusViewsResponseBodyPrometheusViewsTags>> tags_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Version.
     std::shared_ptr<string> version_ = nullptr;
+    // Workspace that the prom instance belongs to.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

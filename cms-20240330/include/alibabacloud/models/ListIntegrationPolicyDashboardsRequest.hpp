@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Addon Name.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Query Language
     std::shared_ptr<string> language_ = nullptr;
+    // Component Scenario.
     std::shared_ptr<string> scene_ = nullptr;
   };
 

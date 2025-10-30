@@ -128,18 +128,32 @@ namespace Models
 
 
   protected:
+    // Not enabled yet
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // Whether to support password-free read
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to support authToken
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // List of Prometheus instances.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<CreatePrometheusViewRequestPrometheusInstances>> prometheusInstances_ = nullptr;
+    // Prometheus view name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> prometheusViewName_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Not enabled yet.
     std::shared_ptr<string> status_ = nullptr;
+    // The operation to be performed.
     std::shared_ptr<vector<CreatePrometheusViewRequestTags>> tags_ = nullptr;
+    // - V1: Old version
+    // - V2: New version
+    // 
     // This parameter is required.
     std::shared_ptr<string> version_ = nullptr;
+    // Default value: default-cms-{userId}-{regionId}
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

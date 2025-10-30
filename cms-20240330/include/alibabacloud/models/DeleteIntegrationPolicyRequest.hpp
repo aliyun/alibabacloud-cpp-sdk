@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Whether to forcibly delete the cloud-native all-in-one machine,
+    // default value: `false`.
     std::shared_ptr<bool> force_ = nullptr;
   };
 

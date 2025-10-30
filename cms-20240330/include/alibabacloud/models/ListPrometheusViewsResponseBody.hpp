@@ -79,11 +79,15 @@ namespace Models
 
 
   protected:
+    // Maximum number of records to return.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Token for the next query.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // List of Prometheus view instances.
     std::shared_ptr<vector<ListPrometheusViewsResponseBodyPrometheusViews>> prometheusViews_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of instances
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

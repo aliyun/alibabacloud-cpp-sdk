@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Status of the aggregation task group, either “Running” or “Stopped”. Default is Running.
+    // 
     // This parameter is required.
     std::shared_ptr<string> status_ = nullptr;
   };

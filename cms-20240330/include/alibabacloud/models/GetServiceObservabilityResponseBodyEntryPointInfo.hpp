@@ -66,10 +66,13 @@ namespace Models
 
 
   protected:
+    // Authentication Token for Data Reporting
     std::shared_ptr<string> authToken_ = nullptr;
+    // Private Network Access Address
     std::shared_ptr<string> privateDomain_ = nullptr;
     // SLS Project
     std::shared_ptr<string> project_ = nullptr;
+    // Public Network Access Address
     std::shared_ptr<string> publicDomain_ = nullptr;
   };
 

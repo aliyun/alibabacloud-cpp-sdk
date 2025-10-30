@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // First transition time.
     std::shared_ptr<string> firstTransitionTime_ = nullptr;
+    // Last transition time.
     std::shared_ptr<string> lastTransitionTime_ = nullptr;
+    // Detailed information.
     std::shared_ptr<string> message_ = nullptr;
+    // Phase status.
     std::shared_ptr<string> status_ = nullptr;
+    // Phase type.
     std::shared_ptr<string> type_ = nullptr;
   };
 

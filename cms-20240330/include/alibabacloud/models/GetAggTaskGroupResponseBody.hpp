@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Aggregation task group.
     std::shared_ptr<GetAggTaskGroupResponseBodyAggTaskGroup> aggTaskGroup_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the request was successful
     std::shared_ptr<bool> success_ = nullptr;
   };
 

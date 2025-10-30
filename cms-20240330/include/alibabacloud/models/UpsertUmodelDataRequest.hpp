@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Element content
     std::shared_ptr<vector<Darabonba::Json>> elements_ = nullptr;
+    // Method
     std::shared_ptr<string> method_ = nullptr;
   };
 

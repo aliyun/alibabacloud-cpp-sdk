@@ -106,13 +106,23 @@ namespace Models
 
 
   protected:
+    // Dashboard engine:
+    // grafana: shared grafana.
+    // cms: cms self-developed dashboard engine.
     std::shared_ptr<string> engine_ = nullptr;
+    // UID of the dashboard folder.
     std::shared_ptr<string> folderUid_ = nullptr;
+    // Dashboard name
     std::shared_ptr<string> name_ = nullptr;
+    // Region
     std::shared_ptr<string> region_ = nullptr;
+    // List of tags.
     std::shared_ptr<vector<string>> tags_ = nullptr;
+    // Title of the UI module (not name)
     std::shared_ptr<string> title_ = nullptr;
+    // ID of the current Alibaba Cloud primary account, read-only
     std::shared_ptr<string> uid_ = nullptr;
+    // pagerDuty integration webhook. Supports V1 and V2 versions
     std::shared_ptr<string> url_ = nullptr;
   };
 

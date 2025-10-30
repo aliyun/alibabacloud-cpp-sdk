@@ -135,16 +135,27 @@ namespace Models
 
 
   protected:
+    // Instance ID, which can be specified if you need to pinpoint to the instance level. It depends on the data in EntityStore.
     std::shared_ptr<string> entityId_ = nullptr;
+    // Prom Instance ID.
     std::shared_ptr<string> instance_ = nullptr;
+    // Prom instance name
     std::shared_ptr<string> instanceName_ = nullptr;
+    // Optional parameter, determined based on the current environment type
     std::shared_ptr<string> project_ = nullptr;
+    // Region
     std::shared_ptr<string> region_ = nullptr;
+    // Storage sharing scope: Environment | Region | Workspace | Custom
     std::shared_ptr<string> shareScope_ = nullptr;
+    // Instance storage type
     std::shared_ptr<string> storageType_ = nullptr;
+    // Tags to be applied to the target storage (injected as system tags)
     std::shared_ptr<map<string, string>> systemTags_ = nullptr;
+    // Tags to be applied to the target storage (injected as regular tags)
     std::shared_ptr<map<string, string>> tags_ = nullptr;
+    // User ID
     std::shared_ptr<string> userId_ = nullptr;
+    // Workspace
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

@@ -94,18 +94,23 @@ namespace Models
 
 
   protected:
+    // Creation time
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     std::shared_ptr<string> createTime_ = nullptr;
-    // 工作空间描述
+    // Workspace description
     std::shared_ptr<string> description_ = nullptr;
+    // Workspace display name
     std::shared_ptr<string> displayName_ = nullptr;
+    // Last modified time
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     std::shared_ptr<string> lastModifyTime_ = nullptr;
-    // 地域ID
+    // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
-    // 工作空间绑定的日志服务项目名称
+    // Log Service project name
     std::shared_ptr<string> slsProject_ = nullptr;
-    // 工作空间名称
+    // Workspace name
     // 
     // This parameter is required.
     std::shared_ptr<string> workspaceName_ = nullptr;

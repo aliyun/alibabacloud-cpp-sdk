@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Details.
     std::shared_ptr<string> message_ = nullptr;
+    // Error type
     std::shared_ptr<string> type_ = nullptr;
   };
 

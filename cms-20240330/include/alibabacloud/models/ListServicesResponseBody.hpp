@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Maximum number of results to return, with a maximum value of 200
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Pagination token
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // List of service information.
     std::shared_ptr<vector<ListServicesResponseBodyServices>> services_ = nullptr;
+    // Total count
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

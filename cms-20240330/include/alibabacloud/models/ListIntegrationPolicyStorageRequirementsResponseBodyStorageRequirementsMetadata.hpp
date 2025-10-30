@@ -71,9 +71,13 @@ namespace Models
 
 
   protected:
+    // Annotations
     std::shared_ptr<map<string, string>> annotations_ = nullptr;
+    // Resource labels
     std::shared_ptr<map<string, string>> labels_ = nullptr;
+    // Resource name
     std::shared_ptr<string> name_ = nullptr;
+    // Namespace
     std::shared_ptr<string> namespace_ = nullptr;
   };
 

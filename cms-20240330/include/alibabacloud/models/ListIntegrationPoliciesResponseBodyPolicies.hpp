@@ -20,7 +20,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListIntegrationPoliciesResponseBodyPolicies& obj) { 
       DARABONBA_PTR_TO_JSON(bindResource, bindResource_);
+      DARABONBA_PTR_TO_JSON(csUmodelStatus, csUmodelStatus_);
       DARABONBA_PTR_TO_JSON(entityGroup, entityGroup_);
+      DARABONBA_PTR_TO_JSON(feePackage, feePackage_);
       DARABONBA_PTR_TO_JSON(managedInfo, managedInfo_);
       DARABONBA_PTR_TO_JSON(policyId, policyId_);
       DARABONBA_PTR_TO_JSON(policyName, policyName_);
@@ -34,7 +36,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListIntegrationPoliciesResponseBodyPolicies& obj) { 
       DARABONBA_PTR_FROM_JSON(bindResource, bindResource_);
+      DARABONBA_PTR_FROM_JSON(csUmodelStatus, csUmodelStatus_);
       DARABONBA_PTR_FROM_JSON(entityGroup, entityGroup_);
+      DARABONBA_PTR_FROM_JSON(feePackage, feePackage_);
       DARABONBA_PTR_FROM_JSON(managedInfo, managedInfo_);
       DARABONBA_PTR_FROM_JSON(policyId, policyId_);
       DARABONBA_PTR_FROM_JSON(policyName, policyName_);
@@ -58,9 +62,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindResource_ == nullptr
-        && return this->entityGroup_ == nullptr && return this->managedInfo_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr && return this->policyType_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->subAddonRelease_ == nullptr && return this->tags_ == nullptr && return this->userId_ == nullptr
-        && return this->workspace_ == nullptr; };
+        && return this->csUmodelStatus_ == nullptr && return this->entityGroup_ == nullptr && return this->feePackage_ == nullptr && return this->managedInfo_ == nullptr && return this->policyId_ == nullptr
+        && return this->policyName_ == nullptr && return this->policyType_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->subAddonRelease_ == nullptr
+        && return this->tags_ == nullptr && return this->userId_ == nullptr && return this->workspace_ == nullptr; };
     // bindResource Field Functions 
     bool hasBindResource() const { return this->bindResource_ != nullptr;};
     void deleteBindResource() { this->bindResource_ = nullptr;};
@@ -70,6 +74,13 @@ namespace Models
     inline ListIntegrationPoliciesResponseBodyPolicies& setBindResource(Models::ListIntegrationPoliciesResponseBodyPoliciesBindResource && bindResource) { DARABONBA_PTR_SET_RVALUE(bindResource_, bindResource) };
 
 
+    // csUmodelStatus Field Functions 
+    bool hasCsUmodelStatus() const { return this->csUmodelStatus_ != nullptr;};
+    void deleteCsUmodelStatus() { this->csUmodelStatus_ = nullptr;};
+    inline bool csUmodelStatus() const { DARABONBA_PTR_GET_DEFAULT(csUmodelStatus_, false) };
+    inline ListIntegrationPoliciesResponseBodyPolicies& setCsUmodelStatus(bool csUmodelStatus) { DARABONBA_PTR_SET_VALUE(csUmodelStatus_, csUmodelStatus) };
+
+
     // entityGroup Field Functions 
     bool hasEntityGroup() const { return this->entityGroup_ != nullptr;};
     void deleteEntityGroup() { this->entityGroup_ = nullptr;};
@@ -77,6 +88,13 @@ namespace Models
     inline Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup entityGroup() { DARABONBA_PTR_GET(entityGroup_, Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup) };
     inline ListIntegrationPoliciesResponseBodyPolicies& setEntityGroup(const Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup & entityGroup) { DARABONBA_PTR_SET_VALUE(entityGroup_, entityGroup) };
     inline ListIntegrationPoliciesResponseBodyPolicies& setEntityGroup(Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup && entityGroup) { DARABONBA_PTR_SET_RVALUE(entityGroup_, entityGroup) };
+
+
+    // feePackage Field Functions 
+    bool hasFeePackage() const { return this->feePackage_ != nullptr;};
+    void deleteFeePackage() { this->feePackage_ = nullptr;};
+    inline string feePackage() const { DARABONBA_PTR_GET_DEFAULT(feePackage_, "") };
+    inline ListIntegrationPoliciesResponseBodyPolicies& setFeePackage(string feePackage) { DARABONBA_PTR_SET_VALUE(feePackage_, feePackage) };
 
 
     // managedInfo Field Functions 
@@ -156,17 +174,32 @@ namespace Models
 
 
   protected:
+    // Bound resource information
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesBindResource> bindResource_ = nullptr;
+    // Cs Umodel Status
+    std::shared_ptr<bool> csUmodelStatus_ = nullptr;
+    // Entity group
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup> entityGroup_ = nullptr;
+    std::shared_ptr<string> feePackage_ = nullptr;
+    // Policy network management information.
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesManagedInfo> managedInfo_ = nullptr;
+    // Policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
+    // Rule name.
     std::shared_ptr<string> policyName_ = nullptr;
+    // Access center policy type
     std::shared_ptr<string> policyType_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Number of sub-releases
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease> subAddonRelease_ = nullptr;
+    // Resource tag key values.
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesTags>> tags_ = nullptr;
+    // User ID
     std::shared_ptr<string> userId_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

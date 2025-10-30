@@ -287,32 +287,59 @@ namespace Models
 
 
   protected:
+    // Password-free read policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // authToken string.
     std::shared_ptr<string> authToken_ = nullptr;
+    // Instance creation time, using UTC+0 time, format is yyyy-MM-ddTHH:mmZ.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Whether to enable password-free read.
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to enable authToken.
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // Observability dashboard URL.
     std::shared_ptr<string> folderUrl_ = nullptr;
+    // Bound managed Grafana instance ID.
     std::shared_ptr<string> grafanaInstanceId_ = nullptr;
+    // Bound managed Grafana instance name.
     std::shared_ptr<string> grafanaInstanceName_ = nullptr;
+    // Public HTTP address.
     std::shared_ptr<string> httpApiInterUrl_ = nullptr;
+    // Private HTTP address.
     std::shared_ptr<string> httpApiIntraUrl_ = nullptr;
+    // Instance type, fixed value prom-view.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // Payment type. Currently, the fixed value is FREE (free).
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Product that the prom instance belongs to.
     std::shared_ptr<string> product_ = nullptr;
+    // Prometheus instance list.
     std::shared_ptr<vector<Models::GetPrometheusViewResponseBodyPrometheusViewPrometheusInstances>> prometheusInstances_ = nullptr;
+    // Prometheus view ID.
     std::shared_ptr<string> prometheusViewId_ = nullptr;
+    // Prometheus view name.
     std::shared_ptr<string> prometheusViewName_ = nullptr;
+    // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
+    // Remote read public URL.
     std::shared_ptr<string> remoteReadInterUrl_ = nullptr;
+    // Remote read intranet URL.
     std::shared_ptr<string> remoteReadIntraUrl_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Fixed value: PrometheusView
     std::shared_ptr<string> resourceType_ = nullptr;
+    // Backend data storage status
     std::shared_ptr<string> status_ = nullptr;
+    // Supported authentication types.
     std::shared_ptr<vector<string>> supportAuthTypes_ = nullptr;
+    // Instance tag keys.
     std::shared_ptr<vector<Models::GetPrometheusViewResponseBodyPrometheusViewTags>> tags_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Version.
     std::shared_ptr<string> version_ = nullptr;
+    // Workspace to which the environment belongs
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

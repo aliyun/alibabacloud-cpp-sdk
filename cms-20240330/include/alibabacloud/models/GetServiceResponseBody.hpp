@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Service object.
     std::shared_ptr<GetServiceResponseBodyService> service_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Integration key for PagerDuty.
     std::shared_ptr<string> key_ = nullptr;
+    // Integration webhook for PagerDuty. Supports V1 and V2 versions.
     std::shared_ptr<string> url_ = nullptr;
   };
 

@@ -266,30 +266,55 @@ namespace Models
 
 
   protected:
+    // The Addon name of the component being monitored.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Number of alert groups.
     std::shared_ptr<int64_t> alertRuleCount_ = nullptr;
+    // Component installation phase information.
     std::shared_ptr<vector<Models::CreateAddonReleaseResponseBodyReleaseConditions>> conditions_ = nullptr;
+    // Component configuration.
     std::shared_ptr<string> config_ = nullptr;
+    // Connection time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Number of dashboards.
     std::shared_ptr<int64_t> dashboardCount_ = nullptr;
+    // Entity details.
     std::shared_ptr<Models::EntityGroupBase> entityRules_ = nullptr;
+    // Environment type.
     std::shared_ptr<string> envType_ = nullptr;
+    // Environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // Number of plugins.
     std::shared_ptr<int64_t> exporterCount_ = nullptr;
+    // Whether it has configuration.
     std::shared_ptr<bool> haveConfig_ = nullptr;
+    // ID of the user who installed it.
     std::shared_ptr<string> installUserId_ = nullptr;
+    // Language.
     std::shared_ptr<string> language_ = nullptr;
+    // Whether it is a managed component.
     std::shared_ptr<bool> managed_ = nullptr;
+    // Parent AddonReleaseId.
     std::shared_ptr<string> parentAddonReleaseId_ = nullptr;
+    // Policy environment ID.
     std::shared_ptr<string> policyId_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // ReleaseID after installation.
     std::shared_ptr<string> releaseId_ = nullptr;
+    // Name of the Release.
     std::shared_ptr<string> releaseName_ = nullptr;
+    // Component scenario.
     std::shared_ptr<string> scene_ = nullptr;
+    // Component status.
     std::shared_ptr<string> status_ = nullptr;
+    // Update time.
     std::shared_ptr<string> updateTime_ = nullptr;
+    // ID of the owner user.
     std::shared_ptr<string> userId_ = nullptr;
+    // Component version.
     std::shared_ptr<string> version_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

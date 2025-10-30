@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

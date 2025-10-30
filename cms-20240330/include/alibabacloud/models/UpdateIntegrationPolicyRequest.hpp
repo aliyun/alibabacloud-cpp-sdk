@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // Fee package type, CS_Pro/CS_Basic/empty.
     std::shared_ptr<string> feePackage_ = nullptr;
+    // Rule name, minimum 3 characters, maximum 63 characters, must start with a letter.
     std::shared_ptr<string> policyName_ = nullptr;
+    // Resource group ID of the instance.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Resource tags.
     std::shared_ptr<vector<UpdateIntegrationPolicyRequestTags>> tags_ = nullptr;
   };
 

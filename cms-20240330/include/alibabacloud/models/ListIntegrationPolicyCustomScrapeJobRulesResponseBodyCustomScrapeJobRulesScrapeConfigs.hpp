@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // Scraping job name
     std::shared_ptr<string> jobName_ = nullptr;
+    // Detailed information.
     std::shared_ptr<string> message_ = nullptr;
+    // Metrics path
     std::shared_ptr<string> metricsPath_ = nullptr;
+    // Call method.
     std::shared_ptr<string> scheme_ = nullptr;
+    // Scrape interval
     std::shared_ptr<string> scrapeInterval_ = nullptr;
+    // Scrape timeout
     std::shared_ptr<string> scrapeTimeout_ = nullptr;
+    // Service discovery configuration
     std::shared_ptr<vector<string>> serviceDiscoveryConfigs_ = nullptr;
   };
 

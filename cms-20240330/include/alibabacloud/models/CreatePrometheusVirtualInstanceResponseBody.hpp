@@ -51,8 +51,9 @@ namespace Models
 
 
   protected:
+    // Instance ID
     std::shared_ptr<CreatePrometheusVirtualInstanceResponseBodyInstance> instance_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

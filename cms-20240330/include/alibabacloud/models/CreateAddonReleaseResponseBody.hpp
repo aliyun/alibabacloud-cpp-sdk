@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Accessed component information.
     std::shared_ptr<CreateAddonReleaseResponseBodyRelease> release_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

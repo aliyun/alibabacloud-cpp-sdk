@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(disablePolicyShare, disablePolicyShare_);
       DARABONBA_PTR_TO_JSON(entityGroupId, entityGroupId_);
+      DARABONBA_PTR_TO_JSON(entityUserId, entityUserId_);
       DARABONBA_PTR_TO_JSON(vpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIntegrationPolicyRequestEntityGroup& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(disablePolicyShare, disablePolicyShare_);
       DARABONBA_PTR_FROM_JSON(entityGroupId, entityGroupId_);
+      DARABONBA_PTR_FROM_JSON(entityUserId, entityUserId_);
       DARABONBA_PTR_FROM_JSON(vpcId, vpcId_);
     };
     CreateIntegrationPolicyRequestEntityGroup() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterEntityType_ == nullptr
-        && return this->clusterId_ == nullptr && return this->disablePolicyShare_ == nullptr && return this->entityGroupId_ == nullptr && return this->vpcId_ == nullptr; };
+        && return this->clusterId_ == nullptr && return this->disablePolicyShare_ == nullptr && return this->entityGroupId_ == nullptr && return this->entityUserId_ == nullptr && return this->vpcId_ == nullptr; };
     // clusterEntityType Field Functions 
     bool hasClusterEntityType() const { return this->clusterEntityType_ != nullptr;};
     void deleteClusterEntityType() { this->clusterEntityType_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline CreateIntegrationPolicyRequestEntityGroup& setEntityGroupId(string entityGroupId) { DARABONBA_PTR_SET_VALUE(entityGroupId_, entityGroupId) };
 
 
+    // entityUserId Field Functions 
+    bool hasEntityUserId() const { return this->entityUserId_ != nullptr;};
+    void deleteEntityUserId() { this->entityUserId_ = nullptr;};
+    inline string entityUserId() const { DARABONBA_PTR_GET_DEFAULT(entityUserId_, "") };
+    inline CreateIntegrationPolicyRequestEntityGroup& setEntityUserId(string entityUserId) { DARABONBA_PTR_SET_VALUE(entityUserId_, entityUserId) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -75,10 +84,16 @@ namespace Models
 
 
   protected:
+    // Cluster entity type, such as acs.ack.cluster/acs.one.cluster/acs.asi.cluster or others.
     std::shared_ptr<string> clusterEntityType_ = nullptr;
+    // Cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // Whether to disable unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
     std::shared_ptr<bool> disablePolicyShare_ = nullptr;
+    // Entity group ID.
     std::shared_ptr<string> entityGroupId_ = nullptr;
+    std::shared_ptr<string> entityUserId_ = nullptr;
+    // VPC (Virtual Private Cloud) ID.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

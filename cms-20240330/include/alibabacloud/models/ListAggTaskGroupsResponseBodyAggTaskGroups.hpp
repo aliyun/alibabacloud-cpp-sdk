@@ -208,24 +208,43 @@ namespace Models
 
 
   protected:
+    // Hash of the aggregation task group configuration.
     std::shared_ptr<string> aggTaskGroupConfigHash_ = nullptr;
+    // ID of the aggregation task group.
     std::shared_ptr<string> aggTaskGroupId_ = nullptr;
+    // Name of the aggregation task group.
     std::shared_ptr<string> aggTaskGroupName_ = nullptr;
+    // Cron expression for the aggregation task group when the scheduling mode is set to \\"Cron\\".
     std::shared_ptr<string> cronExpr_ = nullptr;
+    // Fixed delay time (in seconds) for scheduling.
     std::shared_ptr<int32_t> delay_ = nullptr;
+    // Description of the aggregation task group.
     std::shared_ptr<string> description_ = nullptr;
+    // Start time of the schedule in seconds since epoch.
     std::shared_ptr<int64_t> fromTime_ = nullptr;
+    // Scheduling interval.
     std::shared_ptr<string> interval_ = nullptr;
+    // Maximum number of retries for the aggregation task.
     std::shared_ptr<int32_t> maxRetries_ = nullptr;
+    // Maximum retry time (in seconds) for the aggregation task.
     std::shared_ptr<int32_t> maxRunTimeInSeconds_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Scheduling mode.
     std::shared_ptr<string> scheduleMode_ = nullptr;
+    // Scheduling time expression.
     std::shared_ptr<string> scheduleTimeExpr_ = nullptr;
+    // The source Prometheus instance ID of the aggregation task group.
     std::shared_ptr<string> sourcePrometheusId_ = nullptr;
+    // Status of the aggregation task group.
     std::shared_ptr<string> status_ = nullptr;
+    // Resource group tags
     std::shared_ptr<vector<Models::ListAggTaskGroupsResponseBodyAggTaskGroupsTags>> tags_ = nullptr;
+    // The target Prometheus instance ID of the aggregation task group.
     std::shared_ptr<string> targetPrometheusId_ = nullptr;
+    // The second-level timestamp corresponding to the end time of scheduling.
     std::shared_ptr<int64_t> toTime_ = nullptr;
+    // Update time of the aggregation task group.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

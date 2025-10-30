@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Historical compatible ARMS application ID
     std::shared_ptr<string> pid_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Service ID
     std::shared_ptr<string> serviceId_ = nullptr;
   };
 

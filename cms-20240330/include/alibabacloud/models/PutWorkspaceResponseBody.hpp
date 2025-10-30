@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Name of the workspace.
     std::shared_ptr<string> workspaceName_ = nullptr;
   };
 

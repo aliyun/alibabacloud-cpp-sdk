@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Addon version information.
     std::shared_ptr<string> addonVersion_ = nullptr;
+    // Whether to pre-check this request.
     std::shared_ptr<bool> dryRun_ = nullptr;
+    // Entity discovery rules.
     std::shared_ptr<EntityDiscoverRule> entityRules_ = nullptr;
+    // Metadata information.
     std::shared_ptr<string> values_ = nullptr;
   };
 

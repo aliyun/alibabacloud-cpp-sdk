@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Extended attributes.
     std::shared_ptr<string> attributes_ = nullptr;
+    // Service description, only valid when serviceType=RUM.
     std::shared_ptr<string> description_ = nullptr;
+    // Display name, only valid when serviceType=RUM.
     std::shared_ptr<string> displayName_ = nullptr;
+    // Service status, only valid when serviceType=RUM.
     std::shared_ptr<string> serviceStatus_ = nullptr;
   };
 

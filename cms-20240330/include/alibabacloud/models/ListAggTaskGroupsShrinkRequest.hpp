@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // List of IDs for the aggregation task groups, which must be JSON parseable.
     std::shared_ptr<string> filterAggTaskGroupIds_ = nullptr;
+    // List of names for the aggregation task groups, which must be JSON parseable.
     std::shared_ptr<string> filterAggTaskGroupNames_ = nullptr;
+    // Maximum number of records to return.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Query token.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Name search, supports fuzzy matching.
     std::shared_ptr<string> query_ = nullptr;
+    // Status of the aggregation task group, either \\"Running\\" or \\"Stopped\\". Default is Running.
     std::shared_ptr<string> status_ = nullptr;
+    // Resource group tags.
     std::shared_ptr<string> tagsShrink_ = nullptr;
+    // The target Prometheus instance ID for the aggregation task group.
     std::shared_ptr<string> targetPrometheusId_ = nullptr;
   };
 

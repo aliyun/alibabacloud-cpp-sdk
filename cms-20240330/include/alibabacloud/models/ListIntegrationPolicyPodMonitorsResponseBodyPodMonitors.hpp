@@ -125,15 +125,25 @@ namespace Models
 
 
   protected:
+    // Addon name.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Addon Release name.
     std::shared_ptr<string> addonReleaseName_ = nullptr;
+    // Addon version.
     std::shared_ptr<string> addonVersion_ = nullptr;
+    // Configuration yaml.
     std::shared_ptr<string> configYaml_ = nullptr;
+    // Enable status.
     std::shared_ptr<string> enableStatus_ = nullptr;
+    // Encrypt yaml.
     std::shared_ptr<bool> encryptYaml_ = nullptr;
+    // Instance endpoints.
     std::shared_ptr<vector<Models::ListIntegrationPolicyPodMonitorsResponseBodyPodMonitorsEndpoints>> endpoints_ = nullptr;
+    // Number of matched pods
     std::shared_ptr<int64_t> matchedPodCount_ = nullptr;
+    // Collection name.
     std::shared_ptr<string> name_ = nullptr;
+    // Namespace
     std::shared_ptr<string> namespace_ = nullptr;
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // Cluster type.
     std::shared_ptr<string> clusterType_ = nullptr;
+    // VPC CIDR
     std::shared_ptr<string> vpcCidr_ = nullptr;
+    // Virtual Private Cloud (VPC).
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

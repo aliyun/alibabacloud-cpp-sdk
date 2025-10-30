@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Optional cloud product
     std::shared_ptr<string> namespace_ = nullptr;
   };
 

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Summary of the aggregation task group configuration.
     std::shared_ptr<string> aggTaskGroupConfigHash_ = nullptr;
+    // Aggregation task group ID.
     std::shared_ptr<string> aggTaskGroupId_ = nullptr;
+    // Aggregation task group name.
     std::shared_ptr<string> aggTaskGroupName_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Source Prometheus instance ID of the aggregation task group.
     std::shared_ptr<string> sourcePrometheusId_ = nullptr;
+    // The current status of the aggregated task group.
     std::shared_ptr<string> status_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Addon Release name.
     std::shared_ptr<string> addonReleaseName_ = nullptr;
+    // Whether to encrypt Yaml.
     std::shared_ptr<bool> encryptYaml_ = nullptr;
+    // Namespace.
     std::shared_ptr<string> namespace_ = nullptr;
   };
 

@@ -52,6 +52,7 @@ namespace Models
 
   protected:
     std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
+    // Content encoding type for the compression algorithm
     std::shared_ptr<string> acceptEncoding_ = nullptr;
   };
 

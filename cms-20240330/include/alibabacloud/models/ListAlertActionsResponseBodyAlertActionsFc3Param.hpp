@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Function name of the Function Compute service.
     std::shared_ptr<string> function_ = nullptr;
+    // Version or alias of the function.
     std::shared_ptr<string> qualifier_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

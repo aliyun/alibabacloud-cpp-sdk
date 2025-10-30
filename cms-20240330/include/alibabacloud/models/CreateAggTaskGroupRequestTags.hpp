@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Key of the resource group tag.
     std::shared_ptr<string> key_ = nullptr;
+    // Value of the resource group tag.
     std::shared_ptr<string> value_ = nullptr;
   };
 

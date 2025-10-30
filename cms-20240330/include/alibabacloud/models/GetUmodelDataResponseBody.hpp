@@ -92,11 +92,17 @@ namespace Models
 
 
   protected:
+    // Error information
     std::shared_ptr<vector<GetUmodelDataResponseBodyErrors>> errors_ = nullptr;
+    // List of node link relationships
     std::shared_ptr<vector<Darabonba::Json>> links_ = nullptr;
+    // List of nodes
     std::shared_ptr<vector<Darabonba::Json>> nodes_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total number of node links
     std::shared_ptr<int32_t> totalLinksCount_ = nullptr;
+    // Total number of nodes
     std::shared_ptr<int32_t> totalNodesCount_ = nullptr;
   };
 

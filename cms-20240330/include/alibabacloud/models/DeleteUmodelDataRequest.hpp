@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Can specify the name of a specific Umodel data, leaving it blank means all
     std::shared_ptr<string> domain_ = nullptr;
+    // Can specify the kind of a specific Umodel data, leaving it blank means all
     std::shared_ptr<string> kind_ = nullptr;
+    // Can specify the name of a specific Umodel data, leaving it blank means all
     std::shared_ptr<string> name_ = nullptr;
   };
 

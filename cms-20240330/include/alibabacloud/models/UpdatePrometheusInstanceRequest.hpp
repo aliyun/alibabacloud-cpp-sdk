@@ -130,16 +130,33 @@ namespace Models
 
 
   protected:
+    // The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days:
+    // V1: 1~365 days. Only supported for metric write volume.
+    // V2: 1~3650 days (3650 indicates permanent storage).
     std::shared_ptr<int32_t> archiveDuration_ = nullptr;
+    // Password-free read policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // Password-free write policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeWritePolicy_ = nullptr;
+    // Whether to enable password-free read.
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to enable password-free write.
     std::shared_ptr<bool> enableAuthFreeWrite_ = nullptr;
+    // Whether to enable access token authentication.
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // Billing method (can only be modified once during the instance\\"s lifecycle):
+    // POSTPAY: Postpaid by metric reporting volume.
+    // POSTPAY_GB: Postpaid by metric write volume.
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Instance name.
     std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    // Instance storage DB status (only supports RUNNING). If empty, the storage DB status will not be changed.
     std::shared_ptr<string> status_ = nullptr;
+    // Storage duration (days):
+    // By write volume: 90, 180.
+    // By metric reporting volume: 15, 30, 60, 90, 180.
     std::shared_ptr<int32_t> storageDuration_ = nullptr;
+    // Belonging workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

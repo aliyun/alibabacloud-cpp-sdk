@@ -134,16 +134,27 @@ namespace Models
 
 
   protected:
+    // Addon name.
     std::shared_ptr<string> addonName_ = nullptr;
+    // Addon Release name
     std::shared_ptr<string> addonReleaseName_ = nullptr;
+    // Addon version
     std::shared_ptr<string> addonVersion_ = nullptr;
+    // Configuration yaml
     std::shared_ptr<string> configYaml_ = nullptr;
+    // Enable status
     std::shared_ptr<string> enableStatus_ = nullptr;
+    // Encrypt yaml
     std::shared_ptr<bool> encryptYaml_ = nullptr;
+    // Matched pod count
     std::shared_ptr<int64_t> matchedPodCount_ = nullptr;
+    // Detailed information.
     std::shared_ptr<string> message_ = nullptr;
+    // Service name.
     std::shared_ptr<string> name_ = nullptr;
+    // Namespace
     std::shared_ptr<string> namespace_ = nullptr;
+    // Custom configurations
     std::shared_ptr<vector<Models::ListIntegrationPolicyCustomScrapeJobRulesResponseBodyCustomScrapeJobRulesScrapeConfigs>> scrapeConfigs_ = nullptr;
   };
 

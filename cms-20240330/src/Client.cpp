@@ -38,7 +38,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 安装接入组件，代表进行一次接入
+ * @summary Install the access component, representing a single access attempt
+ *
+ * @description Used to create a site monitoring task
  *
  * @param request CreateAddonReleaseRequest
  * @param headers map
@@ -107,7 +109,9 @@ CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary 安装接入组件，代表进行一次接入
+ * @summary Install the access component, representing a single access attempt
+ *
+ * @description Used to create a site monitoring task
  *
  * @param request CreateAddonReleaseRequest
  * @return CreateAddonReleaseResponse
@@ -119,7 +123,7 @@ CreateAddonReleaseResponse Client::createAddonRelease(const string &policyId, co
 }
 
 /**
- * @summary 创建聚合任务组
+ * @summary Create Aggregation Task Group
  *
  * @param request CreateAggTaskGroupRequest
  * @param headers map
@@ -218,7 +222,7 @@ CreateAggTaskGroupResponse Client::createAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary 创建聚合任务组
+ * @summary Create Aggregation Task Group
  *
  * @param request CreateAggTaskGroupRequest
  * @return CreateAggTaskGroupResponse
@@ -230,7 +234,7 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary 创建EntityStore相关存储
+ * @summary Create storage related to EntityStore
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -255,7 +259,7 @@ CreateEntityStoreResponse Client::createEntityStoreWithOptions(const string &wor
 }
 
 /**
- * @summary 创建EntityStore相关存储
+ * @summary Create storage related to EntityStore
  *
  * @return CreateEntityStoreResponse
  */
@@ -266,7 +270,9 @@ CreateEntityStoreResponse Client::createEntityStore(const string &workspaceName)
 }
 
 /**
- * @summary 创建接入中心策略
+ * @summary Create Access Center Policy
+ *
+ * @description This interface is used to support users in creating event integration.
  *
  * @param request CreateIntegrationPolicyRequest
  * @param headers map
@@ -319,7 +325,9 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicyWithOptions(const
 }
 
 /**
- * @summary 创建接入中心策略
+ * @summary Create Access Center Policy
+ *
+ * @description This interface is used to support users in creating event integration.
  *
  * @param request CreateIntegrationPolicyRequest
  * @return CreateIntegrationPolicyResponse
@@ -331,7 +339,7 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicy(const CreateInte
 }
 
 /**
- * @summary 创建Prometheus监控实例
+ * @summary Create a Prometheus monitoring instance
  *
  * @param request CreatePrometheusInstanceRequest
  * @param headers map
@@ -408,7 +416,7 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary 创建Prometheus监控实例
+ * @summary Create a Prometheus monitoring instance
  *
  * @param request CreatePrometheusInstanceRequest
  * @return CreatePrometheusInstanceResponse
@@ -420,7 +428,9 @@ CreatePrometheusInstanceResponse Client::createPrometheusInstance(const CreatePr
 }
 
 /**
- * @summary 创建prometheus视图
+ * @summary Create Prometheus View
+ *
+ * @description Used to create a site monitoring task
  *
  * @param request CreatePrometheusViewRequest
  * @param headers map
@@ -489,7 +499,9 @@ CreatePrometheusViewResponse Client::createPrometheusViewWithOptions(const Creat
 }
 
 /**
- * @summary 创建prometheus视图
+ * @summary Create Prometheus View
+ *
+ * @description Used to create a site monitoring task
  *
  * @param request CreatePrometheusViewRequest
  * @return CreatePrometheusViewResponse
@@ -501,7 +513,9 @@ CreatePrometheusViewResponse Client::createPrometheusView(const CreatePrometheus
 }
 
 /**
- * @summary 创建Prometheus监控实例
+ * @summary Create Prometheus Monitoring Instance
+ *
+ * @description Create a Prometheus monitoring virtual instance.
  *
  * @param request CreatePrometheusVirtualInstanceRequest
  * @param headers map
@@ -534,7 +548,9 @@ CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstanceW
 }
 
 /**
- * @summary 创建Prometheus监控实例
+ * @summary Create Prometheus Monitoring Instance
+ *
+ * @description Create a Prometheus monitoring virtual instance.
  *
  * @param request CreatePrometheusVirtualInstanceRequest
  * @return CreatePrometheusVirtualInstanceResponse
@@ -546,7 +562,7 @@ CreatePrometheusVirtualInstanceResponse Client::createPrometheusVirtualInstance(
 }
 
 /**
- * @summary 创建Service
+ * @summary Create Service
  *
  * @param request CreateServiceRequest
  * @param headers map
@@ -603,7 +619,7 @@ CreateServiceResponse Client::createServiceWithOptions(const string &workspace, 
 }
 
 /**
- * @summary 创建Service
+ * @summary Create Service
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -615,7 +631,7 @@ CreateServiceResponse Client::createService(const string &workspace, const Creat
 }
 
 /**
- * @summary 创建票据
+ * @summary Create Ticket
  *
  * @param request CreateTicketRequest
  * @param headers map
@@ -652,7 +668,7 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 }
 
 /**
- * @summary 创建票据
+ * @summary Create Ticket
  *
  * @param request CreateTicketRequest
  * @return CreateTicketResponse
@@ -664,7 +680,9 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
- * @summary 创建Umodel配置
+ * @summary Create Umodel configuration
+ *
+ * @description Create Umodel configuration in the specified workspace
  *
  * @param request CreateUmodelRequest
  * @param headers map
@@ -697,7 +715,9 @@ CreateUmodelResponse Client::createUmodelWithOptions(const string &workspace, co
 }
 
 /**
- * @summary 创建Umodel配置
+ * @summary Create Umodel configuration
+ *
+ * @description Create Umodel configuration in the specified workspace
  *
  * @param request CreateUmodelRequest
  * @return CreateUmodelResponse
@@ -709,7 +729,7 @@ CreateUmodelResponse Client::createUmodel(const string &workspace, const CreateU
 }
 
 /**
- * @summary 删除addon release信息
+ * @summary Delete addon release information
  *
  * @param request DeleteAddonReleaseRequest
  * @param headers map
@@ -750,7 +770,7 @@ DeleteAddonReleaseResponse Client::deleteAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary 删除addon release信息
+ * @summary Delete addon release information
  *
  * @param request DeleteAddonReleaseRequest
  * @return DeleteAddonReleaseResponse
@@ -762,7 +782,7 @@ DeleteAddonReleaseResponse Client::deleteAddonRelease(const string &policyId, co
 }
 
 /**
- * @summary 删除聚合任务组
+ * @summary Delete Aggregation Task Group
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +807,7 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary 删除聚合任务组
+ * @summary Delete Aggregation Task Group
  *
  * @return DeleteAggTaskGroupResponse
  */
@@ -798,7 +818,7 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary 删除EntityStore相关存储
+ * @summary Delete EntityStore related storage
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -823,7 +843,7 @@ DeleteEntityStoreResponse Client::deleteEntityStoreWithOptions(const string &wor
 }
 
 /**
- * @summary 删除EntityStore相关存储
+ * @summary Delete EntityStore related storage
  *
  * @return DeleteEntityStoreResponse
  */
@@ -834,7 +854,7 @@ DeleteEntityStoreResponse Client::deleteEntityStore(const string &workspaceName)
 }
 
 /**
- * @summary 删除接入中心策略
+ * @summary Delete Access Center Policy
  *
  * @param request DeleteIntegrationPolicyRequest
  * @param headers map
@@ -867,7 +887,7 @@ DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicyWithOptions(const
 }
 
 /**
- * @summary 删除接入中心策略
+ * @summary Delete Access Center Policy
  *
  * @param request DeleteIntegrationPolicyRequest
  * @return DeleteIntegrationPolicyResponse
@@ -879,7 +899,9 @@ DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicy(const string &po
 }
 
 /**
- * @summary 删除prom实例
+ * @summary Delete prom instance
+ *
+ * @description Delete a Prometheus instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -904,7 +926,9 @@ DeletePrometheusInstanceResponse Client::deletePrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary 删除prom实例
+ * @summary Delete prom instance
+ *
+ * @description Delete a Prometheus instance.
  *
  * @return DeletePrometheusInstanceResponse
  */
@@ -915,7 +939,9 @@ DeletePrometheusInstanceResponse Client::deletePrometheusInstance(const string &
 }
 
 /**
- * @summary 删除prometheus视图实例
+ * @summary Delete prometheus view instance
+ *
+ * @description Delete prometheus view instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -940,7 +966,9 @@ DeletePrometheusViewResponse Client::deletePrometheusViewWithOptions(const strin
 }
 
 /**
- * @summary 删除prometheus视图实例
+ * @summary Delete prometheus view instance
+ *
+ * @description Delete prometheus view instance.
  *
  * @return DeletePrometheusViewResponse
  */
@@ -951,7 +979,7 @@ DeletePrometheusViewResponse Client::deletePrometheusView(const string &promethe
 }
 
 /**
- * @summary 删除Service
+ * @summary Delete Service
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -976,7 +1004,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &workspace, 
 }
 
 /**
- * @summary 删除Service
+ * @summary Delete Service
  *
  * @return DeleteServiceResponse
  */
@@ -987,7 +1015,9 @@ DeleteServiceResponse Client::deleteService(const string &workspace, const strin
 }
 
 /**
- * @summary 删除Umodel配置信息
+ * @summary Delete Umodel configuration information
+ *
+ * @description Delete the Umodel under the specified workspace
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1012,7 +1042,9 @@ DeleteUmodelResponse Client::deleteUmodelWithOptions(const string &workspace, co
 }
 
 /**
- * @summary 删除Umodel配置信息
+ * @summary Delete Umodel configuration information
+ *
+ * @description Delete the Umodel under the specified workspace
  *
  * @return DeleteUmodelResponse
  */
@@ -1023,7 +1055,9 @@ DeleteUmodelResponse Client::deleteUmodel(const string &workspace) {
 }
 
 /**
- * @summary 删除 Umodel Elements
+ * @summary Delete Umodel Elements
+ *
+ * @description Delete the Umodel Data under a specified workspace
  *
  * @param request DeleteUmodelDataRequest
  * @param headers map
@@ -1064,7 +1098,9 @@ DeleteUmodelDataResponse Client::deleteUmodelDataWithOptions(const string &works
 }
 
 /**
- * @summary 删除 Umodel Elements
+ * @summary Delete Umodel Elements
+ *
+ * @description Delete the Umodel Data under a specified workspace
  *
  * @param request DeleteUmodelDataRequest
  * @return DeleteUmodelDataResponse
@@ -1076,7 +1112,7 @@ DeleteUmodelDataResponse Client::deleteUmodelData(const string &workspace, const
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Delete Workspace
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1137,7 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspa
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Delete Workspace
  *
  * @return DeleteWorkspaceResponse
  */
@@ -1112,7 +1148,7 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName) {
 }
 
 /**
- * @summary 查看addon release(查看接入状态)
+ * @summary Check addon release (view connection status)
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1137,7 +1173,7 @@ GetAddonReleaseResponse Client::getAddonReleaseWithOptions(const string &release
 }
 
 /**
- * @summary 查看addon release(查看接入状态)
+ * @summary Check addon release (view connection status)
  *
  * @return GetAddonReleaseResponse
  */
@@ -1148,7 +1184,7 @@ GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const
 }
 
 /**
- * @summary 描述聚合任务组
+ * @summary Describes the aggregation task group
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1173,7 +1209,7 @@ GetAggTaskGroupResponse Client::getAggTaskGroupWithOptions(const string &instanc
 }
 
 /**
- * @summary 描述聚合任务组
+ * @summary Describes the aggregation task group
  *
  * @return GetAggTaskGroupResponse
  */
@@ -1184,7 +1220,7 @@ GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const 
 }
 
 /**
- * @summary 获取EntityStore相关存储信息
+ * @summary Get EntityStore related storage information
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1209,7 +1245,7 @@ GetEntityStoreResponse Client::getEntityStoreWithOptions(const string &workspace
 }
 
 /**
- * @summary 获取EntityStore相关存储信息
+ * @summary Get EntityStore related storage information
  *
  * @return GetEntityStoreResponse
  */
@@ -1220,7 +1256,7 @@ GetEntityStoreResponse Client::getEntityStore(const string &workspaceName) {
 }
 
 /**
- * @summary 查询指定Workspace下的实体和关系数据，返回结果显示某时间区间中的实体数据（返回结果压缩后传输）。
+ * @summary Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
  *
  * @param request GetEntityStoreDataRequest
  * @param headers GetEntityStoreDataHeaders
@@ -1270,7 +1306,7 @@ GetEntityStoreDataResponse Client::getEntityStoreDataWithOptions(const string &w
 }
 
 /**
- * @summary 查询指定Workspace下的实体和关系数据，返回结果显示某时间区间中的实体数据（返回结果压缩后传输）。
+ * @summary Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
  *
  * @param request GetEntityStoreDataRequest
  * @return GetEntityStoreDataResponse
@@ -1282,7 +1318,7 @@ GetEntityStoreDataResponse Client::getEntityStoreData(const string &workspace, c
 }
 
 /**
- * @summary 查询接入中心策略列表信息
+ * @summary Query the list of access center policies
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1307,7 +1343,7 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicyWithOptions(const strin
 }
 
 /**
- * @summary 查询接入中心策略列表信息
+ * @summary Query the list of access center policies
  *
  * @return GetIntegrationPolicyResponse
  */
@@ -1318,7 +1354,9 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicy(const string &policyId
 }
 
 /**
- * @summary 查询指定环境实例
+ * @summary Query the instance in a specified environment
+ *
+ * @description Retrieve details of a Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @param headers map
@@ -1355,7 +1393,9 @@ GetPrometheusInstanceResponse Client::getPrometheusInstanceWithOptions(const str
 }
 
 /**
- * @summary 查询指定环境实例
+ * @summary Query the instance in a specified environment
+ *
+ * @description Retrieve details of a Prometheus instance.
  *
  * @param request GetPrometheusInstanceRequest
  * @return GetPrometheusInstanceResponse
@@ -1367,7 +1407,9 @@ GetPrometheusInstanceResponse Client::getPrometheusInstance(const string &promet
 }
 
 /**
- * @summary 查询指定Prometheus视图实例
+ * @summary Query a specified Prometheus view instance
+ *
+ * @description Query a specified Prometheus view instance.
  *
  * @param request GetPrometheusViewRequest
  * @param headers map
@@ -1404,7 +1446,9 @@ GetPrometheusViewResponse Client::getPrometheusViewWithOptions(const string &pro
 }
 
 /**
- * @summary 查询指定Prometheus视图实例
+ * @summary Query a specified Prometheus view instance
+ *
+ * @description Query a specified Prometheus view instance.
  *
  * @param request GetPrometheusViewRequest
  * @return GetPrometheusViewResponse
@@ -1416,7 +1460,7 @@ GetPrometheusViewResponse Client::getPrometheusView(const string &prometheusView
 }
 
 /**
- * @summary 查询 Service
+ * @summary Query Service
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1485,7 @@ GetServiceResponse Client::getServiceWithOptions(const string &workspace, const 
 }
 
 /**
- * @summary 查询 Service
+ * @summary Query Service
  *
  * @return GetServiceResponse
  */
@@ -1452,7 +1496,7 @@ GetServiceResponse Client::getService(const string &workspace, const string &ser
 }
 
 /**
- * @summary 获取应用可观测实例
+ * @summary Get Application Observability Instance
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1477,7 +1521,7 @@ GetServiceObservabilityResponse Client::getServiceObservabilityWithOptions(const
 }
 
 /**
- * @summary 获取应用可观测实例
+ * @summary Get Application Observability Instance
  *
  * @return GetServiceObservabilityResponse
  */
@@ -1488,7 +1532,9 @@ GetServiceObservabilityResponse Client::getServiceObservability(const string &wo
 }
 
 /**
- * @summary 获取Umodel配置信息
+ * @summary Get Umodel configuration information
+ *
+ * @description Get Umodel configuration information
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1513,7 +1559,9 @@ GetUmodelResponse Client::getUmodelWithOptions(const string &workspace, const ma
 }
 
 /**
- * @summary 获取Umodel配置信息
+ * @summary Get Umodel configuration information
+ *
+ * @description Get Umodel configuration information
  *
  * @return GetUmodelResponse
  */
@@ -1524,7 +1572,9 @@ GetUmodelResponse Client::getUmodel(const string &workspace) {
 }
 
 /**
- * @summary 获取相关联的 Umodel 图数据
+ * @summary Retrieve associated Umodel graph data
+ *
+ * @description Find Umodel
  *
  * @param request GetUmodelDataRequest
  * @param headers map
@@ -1563,7 +1613,9 @@ GetUmodelDataResponse Client::getUmodelDataWithOptions(const string &workspace, 
 }
 
 /**
- * @summary 获取相关联的 Umodel 图数据
+ * @summary Retrieve associated Umodel graph data
+ *
+ * @description Find Umodel
  *
  * @param request GetUmodelDataRequest
  * @return GetUmodelDataResponse
@@ -1575,7 +1627,7 @@ GetUmodelDataResponse Client::getUmodelData(const string &workspace, const GetUm
 }
 
 /**
- * @summary 获取工作空间
+ * @summary Get Workspace
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1600,7 +1652,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceName
 }
 
 /**
- * @summary 获取工作空间
+ * @summary Get Workspace
  *
  * @return GetWorkspaceResponse
  */
@@ -1611,7 +1663,9 @@ GetWorkspaceResponse Client::getWorkspace(const string &workspaceName) {
 }
 
 /**
- * @summary addon的release列表
+ * @summary List of addon releases
+ *
+ * @description Query the list of access configurations
  *
  * @param request ListAddonReleasesRequest
  * @param headers map
@@ -1648,7 +1702,9 @@ ListAddonReleasesResponse Client::listAddonReleasesWithOptions(const string &pol
 }
 
 /**
- * @summary addon的release列表
+ * @summary List of addon releases
+ *
+ * @description Query the list of access configurations
  *
  * @param request ListAddonReleasesRequest
  * @return ListAddonReleasesResponse
@@ -1660,7 +1716,7 @@ ListAddonReleasesResponse Client::listAddonReleases(const string &policyId, cons
 }
 
 /**
- * @summary 列举聚合任务组
+ * @summary List Aggregation Task Groups
  *
  * @param tmpReq ListAggTaskGroupsRequest
  * @param headers map
@@ -1727,7 +1783,7 @@ ListAggTaskGroupsResponse Client::listAggTaskGroupsWithOptions(const string &ins
 }
 
 /**
- * @summary 列举聚合任务组
+ * @summary List Aggregation Task Groups
  *
  * @param request ListAggTaskGroupsRequest
  * @return ListAggTaskGroupsResponse
@@ -1739,7 +1795,7 @@ ListAggTaskGroupsResponse Client::listAggTaskGroups(const string &instanceId, co
 }
 
 /**
- * @summary 查询告警动作
+ * @summary Query Alert Actions
  *
  * @param tmpReq ListAlertActionsRequest
  * @param headers map
@@ -1794,7 +1850,7 @@ ListAlertActionsResponse Client::listAlertActionsWithOptions(const ListAlertActi
 }
 
 /**
- * @summary 查询告警动作
+ * @summary Query Alert Actions
  *
  * @param request ListAlertActionsRequest
  * @return ListAlertActionsResponse
@@ -1806,7 +1862,9 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
- * @summary 查询接入中心策略列表信息
+ * @summary Query Access Center Policy List Information
+ *
+ * @description Query Integration List
  *
  * @param tmpReq ListIntegrationPoliciesRequest
  * @param headers map
@@ -1897,7 +1955,9 @@ ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const
 }
 
 /**
- * @summary 查询接入中心策略列表信息
+ * @summary Query Access Center Policy List Information
+ *
+ * @description Query Integration List
  *
  * @param request ListIntegrationPoliciesRequest
  * @return ListIntegrationPoliciesResponse
@@ -1909,7 +1969,7 @@ ListIntegrationPoliciesResponse Client::listIntegrationPolicies(const ListIntegr
 }
 
 /**
- * @summary 获取接入中心策略的存储要求信息
+ * @summary Get storage requirement information for the access center policy
  *
  * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
  * @param headers map
@@ -1950,7 +2010,7 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
 }
 
 /**
- * @summary 获取接入中心策略的存储要求信息
+ * @summary Get storage requirement information for the access center policy
  *
  * @param request ListIntegrationPolicyCustomScrapeJobRulesRequest
  * @return ListIntegrationPolicyCustomScrapeJobRulesResponse
@@ -1962,7 +2022,9 @@ ListIntegrationPolicyCustomScrapeJobRulesResponse Client::listIntegrationPolicyC
 }
 
 /**
- * @summary 策略大盘列表
+ * @summary Policy Dashboard List
+ *
+ * @description This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyDashboardsRequest
  * @param headers map
@@ -2003,7 +2065,9 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboardsW
 }
 
 /**
- * @summary 策略大盘列表
+ * @summary Policy Dashboard List
+ *
+ * @description This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyDashboardsRequest
  * @return ListIntegrationPolicyDashboardsResponse
@@ -2015,7 +2079,9 @@ ListIntegrationPolicyDashboardsResponse Client::listIntegrationPolicyDashboards(
 }
 
 /**
- * @summary 获取接入中心策略的PodMonitor资源
+ * @summary Get PodMonitor Resources of Access Center Policy
+ *
+ * @description This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @param headers map
@@ -2056,7 +2122,9 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
 }
 
 /**
- * @summary 获取接入中心策略的PodMonitor资源
+ * @summary Get PodMonitor Resources of Access Center Policy
+ *
+ * @description This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
  *
  * @param request ListIntegrationPolicyPodMonitorsRequest
  * @return ListIntegrationPolicyPodMonitorsResponse
@@ -2068,7 +2136,11 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
 }
 
 /**
- * @summary 获取接入中心策略的存储要求信息
+ * @summary Get Storage Requirements Information for Access Center Policy
+ *
+ * @description During the effective period of the policy, all alarms within the application group will no longer send notifications.
+ *  
+ * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
  *
  * @param request ListIntegrationPolicyStorageRequirementsRequest
  * @param headers map
@@ -2109,7 +2181,11 @@ ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicySt
 }
 
 /**
- * @summary 获取接入中心策略的存储要求信息
+ * @summary Get Storage Requirements Information for Access Center Policy
+ *
+ * @description During the effective period of the policy, all alarms within the application group will no longer send notifications.
+ *  
+ * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
  *
  * @param request ListIntegrationPolicyStorageRequirementsRequest
  * @return ListIntegrationPolicyStorageRequirementsResponse
@@ -2121,7 +2197,9 @@ ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicySt
 }
 
 /**
- * @summary 获取Prometheus实例大盘列表
+ * @summary Get Prometheus Instance Dashboard List
+ *
+ * @description Get the list of Prometheus instance dashboards.
  *
  * @param request ListPrometheusDashboardsRequest
  * @param headers map
@@ -2158,7 +2236,9 @@ ListPrometheusDashboardsResponse Client::listPrometheusDashboardsWithOptions(con
 }
 
 /**
- * @summary 获取Prometheus实例大盘列表
+ * @summary Get Prometheus Instance Dashboard List
+ *
+ * @description Get the list of Prometheus instance dashboards.
  *
  * @param request ListPrometheusDashboardsRequest
  * @return ListPrometheusDashboardsResponse
@@ -2170,7 +2250,9 @@ ListPrometheusDashboardsResponse Client::listPrometheusDashboards(const string &
 }
 
 /**
- * @summary 获取Prometheus实例信息列表
+ * @summary Get the list of Prometheus instance information
+ *
+ * @description Get the list of Prometheus instances.
  *
  * @param tmpReq ListPrometheusInstancesRequest
  * @param headers map
@@ -2241,7 +2323,9 @@ ListPrometheusInstancesResponse Client::listPrometheusInstancesWithOptions(const
 }
 
 /**
- * @summary 获取Prometheus实例信息列表
+ * @summary Get the list of Prometheus instance information
+ *
+ * @description Get the list of Prometheus instances.
  *
  * @param request ListPrometheusInstancesRequest
  * @return ListPrometheusInstancesResponse
@@ -2253,7 +2337,9 @@ ListPrometheusInstancesResponse Client::listPrometheusInstances(const ListPromet
 }
 
 /**
- * @summary 获取Prometheus视图实例信息列表
+ * @summary Retrieve a list of Prometheus view instance information
+ *
+ * @description Retrieve a list of Prometheus view instance information.
  *
  * @param tmpReq ListPrometheusViewsRequest
  * @param headers map
@@ -2328,7 +2414,9 @@ ListPrometheusViewsResponse Client::listPrometheusViewsWithOptions(const ListPro
 }
 
 /**
- * @summary 获取Prometheus视图实例信息列表
+ * @summary Retrieve a list of Prometheus view instance information
+ *
+ * @description Retrieve a list of Prometheus view instance information.
  *
  * @param request ListPrometheusViewsRequest
  * @return ListPrometheusViewsResponse
@@ -2340,7 +2428,9 @@ ListPrometheusViewsResponse Client::listPrometheusViews(const ListPrometheusView
 }
 
 /**
- * @summary 获取Prometheus虚拟实例
+ * @summary Get Prometheus Virtual Instance
+ *
+ * @description Used for creating a site monitoring task
  *
  * @param request ListPrometheusVirtualInstancesRequest
  * @param headers map
@@ -2373,7 +2463,9 @@ ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstancesWit
 }
 
 /**
- * @summary 获取Prometheus虚拟实例
+ * @summary Get Prometheus Virtual Instance
+ *
+ * @description Used for creating a site monitoring task
  *
  * @param request ListPrometheusVirtualInstancesRequest
  * @return ListPrometheusVirtualInstancesResponse
@@ -2385,7 +2477,7 @@ ListPrometheusVirtualInstancesResponse Client::listPrometheusVirtualInstances(co
 }
 
 /**
- * @summary 列出资源Service
+ * @summary List Resource Services
  *
  * @param request ListServicesRequest
  * @param headers map
@@ -2426,7 +2518,7 @@ ListServicesResponse Client::listServicesWithOptions(const string &workspace, co
 }
 
 /**
- * @summary 列出资源Service
+ * @summary List Resource Services
  *
  * @param request ListServicesRequest
  * @return ListServicesResponse
@@ -2438,7 +2530,7 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
- * @summary 获取工作空间列表
+ * @summary Get Workspace List
  *
  * @param tmpReq ListWorkspacesRequest
  * @param headers map
@@ -2493,7 +2585,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary 获取工作空间列表
+ * @summary Get Workspace List
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -2505,7 +2597,7 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Create Workspace
  *
  * @param request PutWorkspaceRequest
  * @param headers map
@@ -2546,7 +2638,7 @@ PutWorkspaceResponse Client::putWorkspaceWithOptions(const string &workspaceName
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Create Workspace
  *
  * @param request PutWorkspaceRequest
  * @return PutWorkspaceResponse
@@ -2558,7 +2650,7 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 }
 
 /**
- * @summary 升级接入组件
+ * @summary Upgrade Access Component
  *
  * @param request UpdateAddonReleaseRequest
  * @param headers map
@@ -2603,7 +2695,7 @@ UpdateAddonReleaseResponse Client::updateAddonReleaseWithOptions(const string &r
 }
 
 /**
- * @summary 升级接入组件
+ * @summary Upgrade Access Component
  *
  * @param request UpdateAddonReleaseRequest
  * @return UpdateAddonReleaseResponse
@@ -2615,7 +2707,7 @@ UpdateAddonReleaseResponse Client::updateAddonRelease(const string &releaseName,
 }
 
 /**
- * @summary 应用聚合任务组
+ * @summary Apply Aggregation Task Group
  *
  * @param request UpdateAggTaskGroupRequest
  * @param headers map
@@ -2708,7 +2800,7 @@ UpdateAggTaskGroupResponse Client::updateAggTaskGroupWithOptions(const string &i
 }
 
 /**
- * @summary 应用聚合任务组
+ * @summary Apply Aggregation Task Group
  *
  * @param request UpdateAggTaskGroupRequest
  * @return UpdateAggTaskGroupResponse
@@ -2720,7 +2812,7 @@ UpdateAggTaskGroupResponse Client::updateAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary 更新聚合任务组状态
+ * @summary Update Aggregation Task Group Status
  *
  * @param request UpdateAggTaskGroupStatusRequest
  * @param headers map
@@ -2753,7 +2845,7 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatusWithOptions(con
 }
 
 /**
- * @summary 更新聚合任务组状态
+ * @summary Update Aggregation Task Group Status
  *
  * @param request UpdateAggTaskGroupStatusRequest
  * @return UpdateAggTaskGroupStatusResponse
@@ -2765,7 +2857,7 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
 }
 
 /**
- * @summary 更新指定策略
+ * @summary Update the specified policy
  *
  * @param request UpdateIntegrationPolicyRequest
  * @param headers map
@@ -2810,7 +2902,7 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicyWithOptions(const
 }
 
 /**
- * @summary 更新指定策略
+ * @summary Update the specified policy
  *
  * @param request UpdateIntegrationPolicyRequest
  * @return UpdateIntegrationPolicyResponse
@@ -2822,7 +2914,9 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
 }
 
 /**
- * @summary 更新Prom实例信息
+ * @summary Update Prometheus instance information
+ *
+ * @description Update Prometheus instance information.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @param headers map
@@ -2895,7 +2989,9 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstanceWithOptions(con
 }
 
 /**
- * @summary 更新Prom实例信息
+ * @summary Update Prometheus instance information
+ *
+ * @description Update Prometheus instance information.
  *
  * @param request UpdatePrometheusInstanceRequest
  * @return UpdatePrometheusInstanceResponse
@@ -2907,7 +3003,9 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstance(const string &
 }
 
 /**
- * @summary 更新Prom视图实例信息
+ * @summary Update Prometheus view instance information
+ *
+ * @description Update Prometheus view instance information.
  *
  * @param request UpdatePrometheusViewRequest
  * @param headers map
@@ -2964,7 +3062,9 @@ UpdatePrometheusViewResponse Client::updatePrometheusViewWithOptions(const strin
 }
 
 /**
- * @summary 更新Prom视图实例信息
+ * @summary Update Prometheus view instance information
+ *
+ * @description Update Prometheus view instance information.
  *
  * @param request UpdatePrometheusViewRequest
  * @return UpdatePrometheusViewResponse
@@ -2976,7 +3076,7 @@ UpdatePrometheusViewResponse Client::updatePrometheusView(const string &promethe
 }
 
 /**
- * @summary 更新UpdateService
+ * @summary Update Service
  *
  * @param request UpdateServiceRequest
  * @param headers map
@@ -3021,7 +3121,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &workspace, 
 }
 
 /**
- * @summary 更新UpdateService
+ * @summary Update Service
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse
@@ -3033,7 +3133,9 @@ UpdateServiceResponse Client::updateService(const string &workspace, const strin
 }
 
 /**
- * @summary 更新Umodel配置信息
+ * @summary Update Umodel configuration information
+ *
+ * @description Update Umodel configuration information
  *
  * @param request UpdateUmodelRequest
  * @param headers map
@@ -3066,7 +3168,9 @@ UpdateUmodelResponse Client::updateUmodelWithOptions(const string &workspace, co
 }
 
 /**
- * @summary 更新Umodel配置信息
+ * @summary Update Umodel configuration information
+ *
+ * @description Update Umodel configuration information
  *
  * @param request UpdateUmodelRequest
  * @return UpdateUmodelResponse
@@ -3078,7 +3182,7 @@ UpdateUmodelResponse Client::updateUmodel(const string &workspace, const UpdateU
 }
 
 /**
- * @summary 写入 Umodel Elements
+ * @summary Write Umodel Elements
  *
  * @param request UpsertUmodelDataRequest
  * @param headers map
@@ -3117,7 +3221,7 @@ UpsertUmodelDataResponse Client::upsertUmodelDataWithOptions(const string &works
 }
 
 /**
- * @summary 写入 Umodel Elements
+ * @summary Write Umodel Elements
  *
  * @param request UpsertUmodelDataRequest
  * @return UpsertUmodelDataResponse

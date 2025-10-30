@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Component configuration.
     std::shared_ptr<string> config_ = nullptr;
+    // Detailed information.
     std::shared_ptr<GetAddonReleaseResponseBodyRelease> release_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

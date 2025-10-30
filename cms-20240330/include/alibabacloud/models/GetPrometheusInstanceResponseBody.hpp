@@ -51,8 +51,9 @@ namespace Models
 
 
   protected:
+    // Details of the Prometheus instance.
     std::shared_ptr<GetPrometheusInstanceResponseBodyPrometheusInstance> prometheusInstance_ = nullptr;
-    // Id of the request
+    // Unique identifier for the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

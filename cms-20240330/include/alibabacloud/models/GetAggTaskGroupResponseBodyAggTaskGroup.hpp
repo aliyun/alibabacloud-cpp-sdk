@@ -226,26 +226,47 @@ namespace Models
 
 
   protected:
+    // Aggregation task group configuration.
     std::shared_ptr<string> aggTaskGroupConfig_ = nullptr;
+    // Summary of the aggregation task group configuration.
     std::shared_ptr<string> aggTaskGroupConfigHash_ = nullptr;
+    // ID of the aggregation task group.
     std::shared_ptr<string> aggTaskGroupId_ = nullptr;
+    // Name of the aggregation task group.
     std::shared_ptr<string> aggTaskGroupName_ = nullptr;
+    // Scheduling expression for the aggregation task group when the scheduling mode is \\"Cron\\".
     std::shared_ptr<string> cronExpr_ = nullptr;
+    // Fixed delay time (in seconds) for scheduling.
     std::shared_ptr<int32_t> delay_ = nullptr;
+    // Description of the aggregation task group.
     std::shared_ptr<string> description_ = nullptr;
+    // Second-level timestamp corresponding to the start time of scheduling (not yet effective).
     std::shared_ptr<int64_t> fromTime_ = nullptr;
+    // Maximum number of retries for executing the aggregation task.
     std::shared_ptr<int32_t> maxRetries_ = nullptr;
+    // Maximum retry time for executing the aggregation task.
     std::shared_ptr<int32_t> maxRunTimeInSeconds_ = nullptr;
+    // Pre-check configuration.
     std::shared_ptr<string> precheckString_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Scheduling mode.
     std::shared_ptr<string> scheduleMode_ = nullptr;
+    // Scheduling time expression.
     std::shared_ptr<string> scheduleTimeExpr_ = nullptr;
+    // ID of the source Prometheus instance for the aggregation task group.
     std::shared_ptr<string> sourcePrometheusId_ = nullptr;
+    // Status of the aggregation task group.
     std::shared_ptr<string> status_ = nullptr;
+    // Resource group tags
     std::shared_ptr<vector<Models::GetAggTaskGroupResponseBodyAggTaskGroupTags>> tags_ = nullptr;
+    // The target Prometheus instance ID of the aggregation task group.
     std::shared_ptr<string> targetPrometheusId_ = nullptr;
+    // The second-level timestamp corresponding to the end time of the scheduling.
     std::shared_ptr<int64_t> toTime_ = nullptr;
+    // The update time (timestamp) of the aggregation task group.
     std::shared_ptr<string> updateTime_ = nullptr;
+    // The user to whom the aggregation task group belongs.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // Start time of the query.
+    // 
+    // Unix timestamp format, representing the number of seconds since 1970-1-1 00:00:00 UTC.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> from_ = nullptr;
+    // Query statement
+    // 
     // This parameter is required.
     std::shared_ptr<string> query_ = nullptr;
+    // End time of the query.
+    // 
+    // Unix timestamp format, representing the number of seconds since 1970-1-1 00:00:00 UTC.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> to_ = nullptr;
   };

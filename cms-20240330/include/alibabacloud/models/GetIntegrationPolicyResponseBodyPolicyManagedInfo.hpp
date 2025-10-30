@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Security group ID.
     std::shared_ptr<string> securityGroupId_ = nullptr;
+    // VSwitch ID.
     std::shared_ptr<string> vswitchId_ = nullptr;
   };
 

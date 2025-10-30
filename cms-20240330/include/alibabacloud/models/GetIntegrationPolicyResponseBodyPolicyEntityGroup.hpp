@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // Description.
     std::shared_ptr<string> description_ = nullptr;
+    // Entity group ID.
     std::shared_ptr<string> entityGroupId_ = nullptr;
+    // Entity group name.
     std::shared_ptr<string> entityGroupName_ = nullptr;
+    // Entity rules.
     std::shared_ptr<Models::GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules> entityRules_ = nullptr;
+    // For querying
     std::shared_ptr<string> query_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Workspace.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

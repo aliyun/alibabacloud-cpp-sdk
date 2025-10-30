@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Creation time
     std::shared_ptr<string> createdAt_ = nullptr;
+    // HTTP API query address
     std::shared_ptr<string> httpApiUrl_ = nullptr;
+    // Region ID
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Cloud product
     std::shared_ptr<string> namespace_ = nullptr;
+    // User ID
     std::shared_ptr<string> regionId_ = nullptr;
+    // User ID
     std::shared_ptr<string> userId_ = nullptr;
   };
 

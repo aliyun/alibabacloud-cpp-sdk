@@ -379,43 +379,82 @@ namespace Models
 
 
   protected:
+    // Access type:
+    // readWrite, readOnly, httpReadOnly
     std::shared_ptr<string> accessType_ = nullptr;
+    // Number of days to automatically archive and save after storage expiration. 0 means no archiving, 3650 means permanent saving.
     std::shared_ptr<int32_t> archiveDuration_ = nullptr;
+    // Password-free read policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeReadPolicy_ = nullptr;
+    // Password-free write policy (supports IP segments and VpcId).
     std::shared_ptr<string> authFreeWritePolicy_ = nullptr;
+    // authToken string.
     std::shared_ptr<string> authToken_ = nullptr;
+    // Instance creation time, using UTC+0, formatted as yyyy-MM-ddTHH:mmZ.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Whether to enable password-free reading.
     std::shared_ptr<bool> enableAuthFreeRead_ = nullptr;
+    // Whether to enable password-free writing.
     std::shared_ptr<bool> enableAuthFreeWrite_ = nullptr;
+    // Whether to enable authentication token.
     std::shared_ptr<bool> enableAuthToken_ = nullptr;
+    // Additional information.
     std::shared_ptr<map<string, string>> extraInfo_ = nullptr;
+    // URL of the visualization dashboard directory.
     std::shared_ptr<string> folderUrl_ = nullptr;
+    // ID of the managed Grafana instance that is bound.
     std::shared_ptr<string> grafanaInstanceId_ = nullptr;
+    // Name of the managed Grafana instance that is bound.
     std::shared_ptr<string> grafanaInstanceName_ = nullptr;
+    // HTTP public network address.
     std::shared_ptr<string> httpApiInterUrl_ = nullptr;
+    // HTTP intranet address.
     std::shared_ptr<string> httpApiIntraUrl_ = nullptr;
-    // remote-write（Prometheus for Remote Write）
+    // Prometheus instance type.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // Billing method:
+    // POSTPAY: Pay-as-you-go based on metric reporting volume.
+    // POSTPAY_GB: Pay-as-you-go based on metric write volume.
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Time when the billing method of the instance was updated.
     std::shared_ptr<string> paymentTypeUpdateTime_ = nullptr;
+    // The product to which the Prometheus instance belongs (arms or cms).
     std::shared_ptr<string> product_ = nullptr;
+    // Instance ID.
     std::shared_ptr<string> prometheusInstanceId_ = nullptr;
+    // Instance name.
     std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    // Public network address of PushGateway.
     std::shared_ptr<string> pushGatewayInterUrl_ = nullptr;
+    // Intranet address of PushGateway.
     std::shared_ptr<string> pushGatewayIntraUrl_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Public network read address.
     std::shared_ptr<string> remoteReadInterUrl_ = nullptr;
+    // Intranet read address.
     std::shared_ptr<string> remoteReadIntraUrl_ = nullptr;
+    // Public network write address.
     std::shared_ptr<string> remoteWriteInterUrl_ = nullptr;
+    // Intranet write address.
     std::shared_ptr<string> remoteWriteIntraUrl_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Fixed value: PrometheusInstance.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // Instance status.
     std::shared_ptr<string> status_ = nullptr;
+    // Storage duration (in days).
     std::shared_ptr<int32_t> storageDuration_ = nullptr;
+    // Supported authentication types.
     std::shared_ptr<vector<string>> supportAuthTypes_ = nullptr;
+    // List of tags.
     std::shared_ptr<vector<Models::GetPrometheusInstanceResponseBodyPrometheusInstanceTags>> tags_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Version.
     std::shared_ptr<string> version_ = nullptr;
+    // The workspace to which the Prometheus instance belongs.
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

@@ -61,9 +61,11 @@ namespace Models
 
 
   protected:
+    // List of dashboards.
     std::shared_ptr<vector<ListIntegrationPolicyDashboardsResponseBodyDashboards>> dashboards_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Number of components.
     std::shared_ptr<int32_t> total_ = nullptr;
   };
 

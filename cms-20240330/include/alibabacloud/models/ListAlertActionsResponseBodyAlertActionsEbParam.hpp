@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Event source.
     std::shared_ptr<string> ebSource_ = nullptr;
+    // Event bus name.
     std::shared_ptr<string> eventBusName_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Subject.
     std::shared_ptr<string> subject_ = nullptr;
   };
 

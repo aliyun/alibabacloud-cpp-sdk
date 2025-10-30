@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Elastic scaling group ID.
     std::shared_ptr<string> essGroupId_ = nullptr;
+    // Elastic scaling rule ID.
     std::shared_ptr<string> essRuleId_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

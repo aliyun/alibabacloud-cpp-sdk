@@ -182,21 +182,41 @@ namespace Models
 
 
   protected:
+    // Access type:
+    // readWrite, readOnly, httpReadOnly
     std::shared_ptr<string> accessType_ = nullptr;
+    // Instance creation time, using UTC+0 time, formatted as yyyy-MM-ddTHH:mmZ
     std::shared_ptr<string> createTime_ = nullptr;
+    // Instance type.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // POSTPAY: Postpaid by metric.
+    // POSTPAY_GB: Postpaid by write volume.
+    // PREPAY: Prepaid.
+    // FREE: Free.
     std::shared_ptr<string> paymentType_ = nullptr;
+    // Product to which the prom instance belongs
     std::shared_ptr<string> product_ = nullptr;
+    // Instance ID.
     std::shared_ptr<string> prometheusInstanceId_ = nullptr;
+    // Instance name.
     std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Resource type.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // Backend data storage status
     std::shared_ptr<string> status_ = nullptr;
+    // Supported authentication types.
     std::shared_ptr<vector<string>> supportAuthTypes_ = nullptr;
+    // Tags key.
     std::shared_ptr<vector<Models::ListPrometheusInstancesResponseBodyPrometheusInstancesTags>> tags_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // Version
     std::shared_ptr<string> version_ = nullptr;
+    // Workspace to which the Prometheus instance belongs
     std::shared_ptr<string> workspace_ = nullptr;
   };
 

@@ -87,11 +87,17 @@ namespace Models
 
 
   protected:
+    // Dashboard ID.
     std::shared_ptr<string> id_ = nullptr;
+    // Dashboard name.
     std::shared_ptr<string> name_ = nullptr;
+    // Tags.
     std::shared_ptr<vector<string>> tags_ = nullptr;
+    // Dashboard title.
     std::shared_ptr<string> title_ = nullptr;
+    // Dashboard UID.
     std::shared_ptr<string> uid_ = nullptr;
+    // Dashboard URL address.
     std::shared_ptr<string> url_ = nullptr;
   };
 

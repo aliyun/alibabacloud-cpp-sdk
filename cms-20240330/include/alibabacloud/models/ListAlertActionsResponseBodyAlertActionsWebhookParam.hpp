@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Data format, effective when the request method is POST.
     std::shared_ptr<string> contentType_ = nullptr;
+    // Request headers.
     std::shared_ptr<map<string, string>> headers_ = nullptr;
+    // Webhook request method.
     std::shared_ptr<string> method_ = nullptr;
+    // The URL address for the alarm callback.
     std::shared_ptr<string> url_ = nullptr;
   };
 

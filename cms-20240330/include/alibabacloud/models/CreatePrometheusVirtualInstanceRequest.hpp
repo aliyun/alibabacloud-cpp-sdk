@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Each cloud product can only create one virtual instance in each region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespace_ = nullptr;
   };

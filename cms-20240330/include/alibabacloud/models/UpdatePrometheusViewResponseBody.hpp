@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // Prometheus view instance ID.
     std::shared_ptr<string> prometheusViewId_ = nullptr;
-    // Id of the request
+    // ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

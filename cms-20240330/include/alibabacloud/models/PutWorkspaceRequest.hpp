@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // 工作空间描述
+    // Description of the workspace
     std::shared_ptr<string> description_ = nullptr;
+    // Display name of the workspace
     std::shared_ptr<string> displayName_ = nullptr;
-    // 工作空间绑定的日志服务项目名称
+    // Name of the Log Service project
     // 
     // This parameter is required.
     std::shared_ptr<string> slsProject_ = nullptr;

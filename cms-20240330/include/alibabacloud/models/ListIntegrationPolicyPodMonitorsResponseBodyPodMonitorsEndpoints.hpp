@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Collection interval
     std::shared_ptr<string> interval_ = nullptr;
+    // Number of matched targets
     std::shared_ptr<int64_t> matchedTargetCount_ = nullptr;
+    // Metric collection path
     std::shared_ptr<string> path_ = nullptr;
+    // Port number
     std::shared_ptr<string> port_ = nullptr;
+    // Target port
     std::shared_ptr<string> targetPort_ = nullptr;
   };
 

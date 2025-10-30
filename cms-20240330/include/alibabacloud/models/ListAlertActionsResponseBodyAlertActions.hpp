@@ -154,16 +154,27 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the action integration.
     std::shared_ptr<string> alertActionId_ = nullptr;
+    // Alert action name.
     std::shared_ptr<string> alertActionName_ = nullptr;
+    // Event Bridge parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsEbParam> ebParam_ = nullptr;
+    // Elastic scaling parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsEssParam> essParam_ = nullptr;
+    // Function Compute 3.0 parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsFc3Param> fc3Param_ = nullptr;
+    // Function Compute parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsFcParam> fcParam_ = nullptr;
+    // Lightweight Message Queue (formerly MNS) parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsMnsParam> mnsParam_ = nullptr;
+    // PagerDuty parameters
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsPagerDutyParam> pagerDutyParam_ = nullptr;
+    // Log Service parameters.
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsSlsParam> slsParam_ = nullptr;
+    // Action integration type.
     std::shared_ptr<string> type_ = nullptr;
+    // Webhook parameters
     std::shared_ptr<Models::ListAlertActionsResponseBodyAlertActionsWebhookParam> webhookParam_ = nullptr;
   };
 

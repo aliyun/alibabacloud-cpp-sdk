@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of ready sub-Releases.
     std::shared_ptr<int32_t> ready_ = nullptr;
+    // Number of sub-Releases.
     std::shared_ptr<int32_t> total_ = nullptr;
   };
 

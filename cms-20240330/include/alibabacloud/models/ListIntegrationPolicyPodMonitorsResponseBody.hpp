@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
+    // Cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // PodMonitor list
     std::shared_ptr<vector<ListIntegrationPolicyPodMonitorsResponseBodyPodMonitors>> podMonitors_ = nullptr;
+    // Policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
-    // Id of the request
+    // ID of the request
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

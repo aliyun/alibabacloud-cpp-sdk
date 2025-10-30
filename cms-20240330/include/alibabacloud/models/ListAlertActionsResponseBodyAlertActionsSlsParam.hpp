@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Logstore name of the Log Service.
     std::shared_ptr<string> logstore_ = nullptr;
+    // Log Service project name.
     std::shared_ptr<string> project_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

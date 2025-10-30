@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // ENI card ID of the managed probe. For example: eni-xxxx.
     std::shared_ptr<string> eniId_ = nullptr;
+    // Security group ID
     std::shared_ptr<string> securityGroupId_ = nullptr;
+    // VSwitch ID.
     std::shared_ptr<string> vswitchId_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     std::shared_ptr<string> prometheusInstanceId_ = nullptr;
+    // Region.
     std::shared_ptr<string> regionId_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

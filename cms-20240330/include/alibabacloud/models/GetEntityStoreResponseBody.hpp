@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Region ID
     std::shared_ptr<string> regionId_ = nullptr;
+    // Request ID
     std::shared_ptr<string> requestId_ = nullptr;
+    // Workspace name
     std::shared_ptr<string> workspaceName_ = nullptr;
   };
 

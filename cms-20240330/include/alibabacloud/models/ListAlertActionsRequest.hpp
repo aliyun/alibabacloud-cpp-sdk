@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // Unique identifier for the action integration.
     std::shared_ptr<vector<string>> alertActionIds_ = nullptr;
+    // Name of the action integration.
     std::shared_ptr<string> alertActionName_ = nullptr;
+    // Page number. Default is 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // Page size. Default is 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Type of the action integration.
     std::shared_ptr<string> type_ = nullptr;
   };
 

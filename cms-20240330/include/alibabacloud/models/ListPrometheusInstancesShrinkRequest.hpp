@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Specified list of regionIds to filter (comma-separated).
     std::shared_ptr<string> filterRegionIds_ = nullptr;
+    // Maximum number of records to return.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Query token.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // List of instance IDs (comma-separated)
     std::shared_ptr<string> prometheusInstanceIds_ = nullptr;
+    // Instance name (partial match supported)
     std::shared_ptr<string> prometheusInstanceName_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // Resource type of the instance.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // List of tags.
     std::shared_ptr<string> tagShrink_ = nullptr;
+    // Instance version: V1 or V2
     std::shared_ptr<string> version_ = nullptr;
   };
 

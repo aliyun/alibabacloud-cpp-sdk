@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // Creation time
     std::shared_ptr<string> createdAt_ = nullptr;
+    // HTTP API URL.
     std::shared_ptr<string> httpApiUrl_ = nullptr;
+    // Applicable data source type: PROMETHEUS_DS
+    // 
+    // Prometheus instance ID
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Applicable query type: CMS_BASIC_QUERY.
+    // 
+    // Namespace of the metric
     std::shared_ptr<string> namespace_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // User ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 
