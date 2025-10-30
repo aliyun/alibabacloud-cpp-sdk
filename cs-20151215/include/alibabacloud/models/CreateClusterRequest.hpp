@@ -244,28 +244,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessControlList_ != nullptr
-        && this->addons_ != nullptr && this->apiAudiences_ != nullptr && this->auditLogConfig_ != nullptr && this->autoMode_ != nullptr && this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->chargeType_ != nullptr && this->cisEnabled_ != nullptr && this->cloudMonitorFlags_ != nullptr && this->clusterDomain_ != nullptr
-        && this->clusterSpec_ != nullptr && this->clusterType_ != nullptr && this->containerCidr_ != nullptr && this->controlPlaneConfig_ != nullptr && this->controlplaneLogComponents_ != nullptr
-        && this->controlplaneLogProject_ != nullptr && this->controlplaneLogTtl_ != nullptr && this->cpuPolicy_ != nullptr && this->customSan_ != nullptr && this->deletionProtection_ != nullptr
-        && this->disableRollback_ != nullptr && this->enableRrsa_ != nullptr && this->encryptionProviderKey_ != nullptr && this->endpointPublicAccess_ != nullptr && this->extraSans_ != nullptr
-        && this->formatDisk_ != nullptr && this->imageId_ != nullptr && this->imageType_ != nullptr && this->instances_ != nullptr && this->ipStack_ != nullptr
-        && this->isEnterpriseSecurityGroup_ != nullptr && this->keepInstanceName_ != nullptr && this->keyPair_ != nullptr && this->kubernetesVersion_ != nullptr && this->loadBalancerId_ != nullptr
-        && this->loadBalancerSpec_ != nullptr && this->loggingType_ != nullptr && this->loginPassword_ != nullptr && this->maintenanceWindow_ != nullptr && this->masterAutoRenew_ != nullptr
-        && this->masterAutoRenewPeriod_ != nullptr && this->masterCount_ != nullptr && this->masterInstanceChargeType_ != nullptr && this->masterInstanceTypes_ != nullptr && this->masterPeriod_ != nullptr
-        && this->masterPeriodUnit_ != nullptr && this->masterSystemDiskCategory_ != nullptr && this->masterSystemDiskPerformanceLevel_ != nullptr && this->masterSystemDiskSize_ != nullptr && this->masterSystemDiskSnapshotPolicyId_ != nullptr
-        && this->masterVswitchIds_ != nullptr && this->name_ != nullptr && this->natGateway_ != nullptr && this->nodeCidrMask_ != nullptr && this->nodeNameMode_ != nullptr
-        && this->nodePortRange_ != nullptr && this->nodepools_ != nullptr && this->numOfNodes_ != nullptr && this->operationPolicy_ != nullptr && this->osType_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->platform_ != nullptr && this->podVswitchIds_ != nullptr && this->profile_ != nullptr
-        && this->proxyMode_ != nullptr && this->rdsInstances_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->rrsaConfig_ != nullptr
-        && this->runtime_ != nullptr && this->securityGroupId_ != nullptr && this->securityHardeningOs_ != nullptr && this->serviceAccountIssuer_ != nullptr && this->serviceCidr_ != nullptr
-        && this->serviceDiscoveryTypes_ != nullptr && this->snatEntry_ != nullptr && this->socEnabled_ != nullptr && this->sshFlags_ != nullptr && this->tags_ != nullptr
-        && this->taints_ != nullptr && this->timeoutMins_ != nullptr && this->timezone_ != nullptr && this->userCa_ != nullptr && this->userData_ != nullptr
-        && this->vpcid_ != nullptr && this->vswitchIds_ != nullptr && this->workerAutoRenew_ != nullptr && this->workerAutoRenewPeriod_ != nullptr && this->workerDataDisks_ != nullptr
-        && this->workerInstanceChargeType_ != nullptr && this->workerInstanceTypes_ != nullptr && this->workerPeriod_ != nullptr && this->workerPeriodUnit_ != nullptr && this->workerSystemDiskCategory_ != nullptr
-        && this->workerSystemDiskPerformanceLevel_ != nullptr && this->workerSystemDiskSize_ != nullptr && this->workerSystemDiskSnapshotPolicyId_ != nullptr && this->workerVswitchIds_ != nullptr && this->zoneId_ != nullptr
-        && this->zoneIds_ != nullptr; };
+    virtual bool empty() const override { return this->accessControlList_ == nullptr
+        && return this->addons_ == nullptr && return this->apiAudiences_ == nullptr && return this->auditLogConfig_ == nullptr && return this->autoMode_ == nullptr && return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->chargeType_ == nullptr && return this->cisEnabled_ == nullptr && return this->cloudMonitorFlags_ == nullptr && return this->clusterDomain_ == nullptr
+        && return this->clusterSpec_ == nullptr && return this->clusterType_ == nullptr && return this->containerCidr_ == nullptr && return this->controlPlaneConfig_ == nullptr && return this->controlplaneLogComponents_ == nullptr
+        && return this->controlplaneLogProject_ == nullptr && return this->controlplaneLogTtl_ == nullptr && return this->cpuPolicy_ == nullptr && return this->customSan_ == nullptr && return this->deletionProtection_ == nullptr
+        && return this->disableRollback_ == nullptr && return this->enableRrsa_ == nullptr && return this->encryptionProviderKey_ == nullptr && return this->endpointPublicAccess_ == nullptr && return this->extraSans_ == nullptr
+        && return this->formatDisk_ == nullptr && return this->imageId_ == nullptr && return this->imageType_ == nullptr && return this->instances_ == nullptr && return this->ipStack_ == nullptr
+        && return this->isEnterpriseSecurityGroup_ == nullptr && return this->keepInstanceName_ == nullptr && return this->keyPair_ == nullptr && return this->kubernetesVersion_ == nullptr && return this->loadBalancerId_ == nullptr
+        && return this->loadBalancerSpec_ == nullptr && return this->loggingType_ == nullptr && return this->loginPassword_ == nullptr && return this->maintenanceWindow_ == nullptr && return this->masterAutoRenew_ == nullptr
+        && return this->masterAutoRenewPeriod_ == nullptr && return this->masterCount_ == nullptr && return this->masterInstanceChargeType_ == nullptr && return this->masterInstanceTypes_ == nullptr && return this->masterPeriod_ == nullptr
+        && return this->masterPeriodUnit_ == nullptr && return this->masterSystemDiskCategory_ == nullptr && return this->masterSystemDiskPerformanceLevel_ == nullptr && return this->masterSystemDiskSize_ == nullptr && return this->masterSystemDiskSnapshotPolicyId_ == nullptr
+        && return this->masterVswitchIds_ == nullptr && return this->name_ == nullptr && return this->natGateway_ == nullptr && return this->nodeCidrMask_ == nullptr && return this->nodeNameMode_ == nullptr
+        && return this->nodePortRange_ == nullptr && return this->nodepools_ == nullptr && return this->numOfNodes_ == nullptr && return this->operationPolicy_ == nullptr && return this->osType_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->platform_ == nullptr && return this->podVswitchIds_ == nullptr && return this->profile_ == nullptr
+        && return this->proxyMode_ == nullptr && return this->rdsInstances_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->rrsaConfig_ == nullptr
+        && return this->runtime_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityHardeningOs_ == nullptr && return this->serviceAccountIssuer_ == nullptr && return this->serviceCidr_ == nullptr
+        && return this->serviceDiscoveryTypes_ == nullptr && return this->snatEntry_ == nullptr && return this->socEnabled_ == nullptr && return this->sshFlags_ == nullptr && return this->tags_ == nullptr
+        && return this->taints_ == nullptr && return this->timeoutMins_ == nullptr && return this->timezone_ == nullptr && return this->userCa_ == nullptr && return this->userData_ == nullptr
+        && return this->vpcid_ == nullptr && return this->vswitchIds_ == nullptr && return this->workerAutoRenew_ == nullptr && return this->workerAutoRenewPeriod_ == nullptr && return this->workerDataDisks_ == nullptr
+        && return this->workerInstanceChargeType_ == nullptr && return this->workerInstanceTypes_ == nullptr && return this->workerPeriod_ == nullptr && return this->workerPeriodUnit_ == nullptr && return this->workerSystemDiskCategory_ == nullptr
+        && return this->workerSystemDiskPerformanceLevel_ == nullptr && return this->workerSystemDiskSize_ == nullptr && return this->workerSystemDiskSnapshotPolicyId_ == nullptr && return this->workerVswitchIds_ == nullptr && return this->zoneId_ == nullptr
+        && return this->zoneIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};

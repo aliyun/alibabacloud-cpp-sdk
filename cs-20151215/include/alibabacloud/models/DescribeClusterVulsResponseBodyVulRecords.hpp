@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cveList_ != nullptr
-        && this->necessity_ != nullptr && this->nodeCount_ != nullptr && this->nodepoolId_ != nullptr && this->nodepoolName_ != nullptr && this->vulAliasName_ != nullptr
-        && this->vulName_ != nullptr && this->vulType_ != nullptr; };
+    virtual bool empty() const override { return this->cveList_ == nullptr
+        && return this->necessity_ == nullptr && return this->nodeCount_ == nullptr && return this->nodepoolId_ == nullptr && return this->nodepoolName_ == nullptr && return this->vulAliasName_ == nullptr
+        && return this->vulName_ == nullptr && return this->vulType_ == nullptr; };
     // cveList Field Functions 
     bool hasCveList() const { return this->cveList_ != nullptr;};
     void deleteCveList() { this->cveList_ = nullptr;};

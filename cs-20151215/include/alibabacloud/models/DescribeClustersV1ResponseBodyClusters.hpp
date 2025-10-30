@@ -105,15 +105,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterDomain_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterSpec_ != nullptr && this->clusterType_ != nullptr && this->containerCidr_ != nullptr && this->created_ != nullptr
-        && this->currentVersion_ != nullptr && this->deletionProtection_ != nullptr && this->dockerVersion_ != nullptr && this->externalLoadbalancerId_ != nullptr && this->initVersion_ != nullptr
-        && this->ipStack_ != nullptr && this->maintenanceWindow_ != nullptr && this->masterUrl_ != nullptr && this->metaData_ != nullptr && this->name_ != nullptr
-        && this->networkMode_ != nullptr && this->nextVersion_ != nullptr && this->operationPolicy_ != nullptr && this->privateZone_ != nullptr && this->profile_ != nullptr
-        && this->proxyMode_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroupId_ != nullptr && this->serviceCidr_ != nullptr
-        && this->size_ != nullptr && this->state_ != nullptr && this->subnetCidr_ != nullptr && this->tags_ != nullptr && this->timezone_ != nullptr
-        && this->updated_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr && this->vswitchIds_ != nullptr && this->workerRamRoleName_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterDomain_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterSpec_ == nullptr && return this->clusterType_ == nullptr && return this->containerCidr_ == nullptr && return this->created_ == nullptr
+        && return this->currentVersion_ == nullptr && return this->deletionProtection_ == nullptr && return this->dockerVersion_ == nullptr && return this->externalLoadbalancerId_ == nullptr && return this->initVersion_ == nullptr
+        && return this->ipStack_ == nullptr && return this->maintenanceWindow_ == nullptr && return this->masterUrl_ == nullptr && return this->metaData_ == nullptr && return this->name_ == nullptr
+        && return this->networkMode_ == nullptr && return this->nextVersion_ == nullptr && return this->operationPolicy_ == nullptr && return this->privateZone_ == nullptr && return this->profile_ == nullptr
+        && return this->proxyMode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceCidr_ == nullptr
+        && return this->size_ == nullptr && return this->state_ == nullptr && return this->subnetCidr_ == nullptr && return this->tags_ == nullptr && return this->timezone_ == nullptr
+        && return this->updated_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr && return this->vswitchIds_ == nullptr && return this->workerRamRoleName_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // clusterDomain Field Functions 
     bool hasClusterDomain() const { return this->clusterDomain_ != nullptr;};
     void deleteClusterDomain() { this->clusterDomain_ = nullptr;};

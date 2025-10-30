@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSnapshotPolicyId_ != nullptr
-        && this->category_ != nullptr && this->encrypted_ != nullptr && this->size_ != nullptr; };
+    virtual bool empty() const override { return this->autoSnapshotPolicyId_ == nullptr
+        && return this->category_ == nullptr && return this->encrypted_ == nullptr && return this->size_ == nullptr; };
     // autoSnapshotPolicyId Field Functions 
     bool hasAutoSnapshotPolicyId() const { return this->autoSnapshotPolicyId_ != nullptr;};
     void deleteAutoSnapshotPolicyId() { this->autoSnapshotPolicyId_ = nullptr;};

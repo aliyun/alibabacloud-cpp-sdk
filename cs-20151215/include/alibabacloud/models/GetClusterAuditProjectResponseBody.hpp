@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditEnabled_ != nullptr
-        && this->slsProjectName_ != nullptr; };
+    virtual bool empty() const override { return this->auditEnabled_ == nullptr
+        && return this->slsProjectName_ == nullptr; };
     // auditEnabled Field Functions 
     bool hasAuditEnabled() const { return this->auditEnabled_ != nullptr;};
     void deleteAuditEnabled() { this->auditEnabled_ = nullptr;};

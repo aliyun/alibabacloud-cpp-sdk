@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coolDownDuration_ != nullptr
-        && this->daemonsetEvictionForNodes_ != nullptr && this->expander_ != nullptr && this->gpuUtilizationThreshold_ != nullptr && this->maxGracefulTerminationSec_ != nullptr && this->minReplicaCount_ != nullptr
-        && this->priorities_ != nullptr && this->recycleNodeDeletionEnabled_ != nullptr && this->scaleDownEnabled_ != nullptr && this->scaleUpFromZero_ != nullptr && this->scalerType_ != nullptr
-        && this->scanInterval_ != nullptr && this->skipNodesWithLocalStorage_ != nullptr && this->skipNodesWithSystemPods_ != nullptr && this->unneededDuration_ != nullptr && this->utilizationThreshold_ != nullptr; };
+    virtual bool empty() const override { return this->coolDownDuration_ == nullptr
+        && return this->daemonsetEvictionForNodes_ == nullptr && return this->expander_ == nullptr && return this->gpuUtilizationThreshold_ == nullptr && return this->maxGracefulTerminationSec_ == nullptr && return this->minReplicaCount_ == nullptr
+        && return this->priorities_ == nullptr && return this->recycleNodeDeletionEnabled_ == nullptr && return this->scaleDownEnabled_ == nullptr && return this->scaleUpFromZero_ == nullptr && return this->scalerType_ == nullptr
+        && return this->scanInterval_ == nullptr && return this->skipNodesWithLocalStorage_ == nullptr && return this->skipNodesWithSystemPods_ == nullptr && return this->unneededDuration_ == nullptr && return this->utilizationThreshold_ == nullptr; };
     // coolDownDuration Field Functions 
     bool hasCoolDownDuration() const { return this->coolDownDuration_ != nullptr;};
     void deleteCoolDownDuration() { this->coolDownDuration_ = nullptr;};

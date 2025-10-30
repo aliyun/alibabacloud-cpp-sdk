@@ -65,10 +65,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoMode_ != nullptr
-        && this->autoScaling_ != nullptr && this->hostNetwork_ != nullptr && this->interconnectConfig_ != nullptr && this->interconnectMode_ != nullptr && this->intranet_ != nullptr
-        && this->kubernetesConfig_ != nullptr && this->management_ != nullptr && this->maxNodes_ != nullptr && this->nodeConfig_ != nullptr && this->nodepoolInfo_ != nullptr
-        && this->scalingGroup_ != nullptr && this->status_ != nullptr && this->teeConfig_ != nullptr; };
+    virtual bool empty() const override { return this->autoMode_ == nullptr
+        && return this->autoScaling_ == nullptr && return this->hostNetwork_ == nullptr && return this->interconnectConfig_ == nullptr && return this->interconnectMode_ == nullptr && return this->intranet_ == nullptr
+        && return this->kubernetesConfig_ == nullptr && return this->management_ == nullptr && return this->maxNodes_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr
+        && return this->scalingGroup_ == nullptr && return this->status_ == nullptr && return this->teeConfig_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};

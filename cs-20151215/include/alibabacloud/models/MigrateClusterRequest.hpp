@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ossBucketEndpoint_ != nullptr
-        && this->ossBucketName_ != nullptr; };
+    virtual bool empty() const override { return this->ossBucketEndpoint_ == nullptr
+        && return this->ossBucketName_ == nullptr; };
     // ossBucketEndpoint Field Functions 
     bool hasOssBucketEndpoint() const { return this->ossBucketEndpoint_ != nullptr;};
     void deleteOssBucketEndpoint() { this->ossBucketEndpoint_ = nullptr;};

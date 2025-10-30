@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageId_ != nullptr
-        && this->kubernetesVersion_ != nullptr && this->nodeNames_ != nullptr && this->rollingPolicy_ != nullptr && this->runtimeType_ != nullptr && this->runtimeVersion_ != nullptr
-        && this->useReplace_ != nullptr; };
+    virtual bool empty() const override { return this->imageId_ == nullptr
+        && return this->kubernetesVersion_ == nullptr && return this->nodeNames_ == nullptr && return this->rollingPolicy_ == nullptr && return this->runtimeType_ == nullptr && return this->runtimeVersion_ == nullptr
+        && return this->useReplace_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};

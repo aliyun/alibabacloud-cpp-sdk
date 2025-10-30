@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->khugepagedAllocSleepMillisecs_ != nullptr
-        && this->khugepagedDefrag_ != nullptr && this->khugepagedPagesToScan_ != nullptr && this->khugepagedScanSleepMillisecs_ != nullptr && this->transparentDefrag_ != nullptr && this->transparentEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->khugepagedAllocSleepMillisecs_ == nullptr
+        && return this->khugepagedDefrag_ == nullptr && return this->khugepagedPagesToScan_ == nullptr && return this->khugepagedScanSleepMillisecs_ == nullptr && return this->transparentDefrag_ == nullptr && return this->transparentEnabled_ == nullptr; };
     // khugepagedAllocSleepMillisecs Field Functions 
     bool hasKhugepagedAllocSleepMillisecs() const { return this->khugepagedAllocSleepMillisecs_ != nullptr;};
     void deleteKhugepagedAllocSleepMillisecs() { this->khugepagedAllocSleepMillisecs_ = nullptr;};

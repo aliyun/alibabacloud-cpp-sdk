@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRepair_ != nullptr
-        && this->autoRepairPolicy_ != nullptr && this->autoUpgrade_ != nullptr && this->autoUpgradePolicy_ != nullptr && this->autoVulFix_ != nullptr && this->autoVulFixPolicy_ != nullptr
-        && this->enable_ != nullptr && this->upgradeConfig_ != nullptr; };
+    virtual bool empty() const override { return this->autoRepair_ == nullptr
+        && return this->autoRepairPolicy_ == nullptr && return this->autoUpgrade_ == nullptr && return this->autoUpgradePolicy_ == nullptr && return this->autoVulFix_ == nullptr && return this->autoVulFixPolicy_ == nullptr
+        && return this->enable_ == nullptr && return this->upgradeConfig_ == nullptr; };
     // autoRepair Field Functions 
     bool hasAutoRepair() const { return this->autoRepair_ != nullptr;};
     void deleteAutoRepair() { this->autoRepair_ = nullptr;};

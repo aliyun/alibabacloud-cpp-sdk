@@ -74,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cloudMonitorFlags_ != nullptr
-        && this->count_ != nullptr && this->cpuPolicy_ != nullptr && this->imageId_ != nullptr && this->keyPair_ != nullptr && this->loginPassword_ != nullptr
-        && this->rdsInstances_ != nullptr && this->runtime_ != nullptr && this->tags_ != nullptr && this->taints_ != nullptr && this->userData_ != nullptr
-        && this->vswitchIds_ != nullptr && this->workerAutoRenew_ != nullptr && this->workerAutoRenewPeriod_ != nullptr && this->workerDataDisks_ != nullptr && this->workerInstanceChargeType_ != nullptr
-        && this->workerInstanceTypes_ != nullptr && this->workerPeriod_ != nullptr && this->workerPeriodUnit_ != nullptr && this->workerSystemDiskCategory_ != nullptr && this->workerSystemDiskSize_ != nullptr; };
+    virtual bool empty() const override { return this->cloudMonitorFlags_ == nullptr
+        && return this->count_ == nullptr && return this->cpuPolicy_ == nullptr && return this->imageId_ == nullptr && return this->keyPair_ == nullptr && return this->loginPassword_ == nullptr
+        && return this->rdsInstances_ == nullptr && return this->runtime_ == nullptr && return this->tags_ == nullptr && return this->taints_ == nullptr && return this->userData_ == nullptr
+        && return this->vswitchIds_ == nullptr && return this->workerAutoRenew_ == nullptr && return this->workerAutoRenewPeriod_ == nullptr && return this->workerDataDisks_ == nullptr && return this->workerInstanceChargeType_ == nullptr
+        && return this->workerInstanceTypes_ == nullptr && return this->workerPeriod_ == nullptr && return this->workerPeriodUnit_ == nullptr && return this->workerSystemDiskCategory_ == nullptr && return this->workerSystemDiskSize_ == nullptr; };
     // cloudMonitorFlags Field Functions 
     bool hasCloudMonitorFlags() const { return this->cloudMonitorFlags_ != nullptr;};
     void deleteCloudMonitorFlags() { this->cloudMonitorFlags_ = nullptr;};

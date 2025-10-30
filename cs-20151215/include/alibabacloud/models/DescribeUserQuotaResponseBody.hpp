@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amkClusterQuota_ != nullptr
-        && this->askClusterQuota_ != nullptr && this->clusterNodepoolQuota_ != nullptr && this->clusterQuota_ != nullptr && this->edgeImprovedNodepoolQuota_ != nullptr && this->nodeQuota_ != nullptr
-        && this->quotas_ != nullptr; };
+    virtual bool empty() const override { return this->amkClusterQuota_ == nullptr
+        && return this->askClusterQuota_ == nullptr && return this->clusterNodepoolQuota_ == nullptr && return this->clusterQuota_ == nullptr && return this->edgeImprovedNodepoolQuota_ == nullptr && return this->nodeQuota_ == nullptr
+        && return this->quotas_ == nullptr; };
     // amkClusterQuota Field Functions 
     bool hasAmkClusterQuota() const { return this->amkClusterQuota_ != nullptr;};
     void deleteAmkClusterQuota() { this->amkClusterQuota_ = nullptr;};

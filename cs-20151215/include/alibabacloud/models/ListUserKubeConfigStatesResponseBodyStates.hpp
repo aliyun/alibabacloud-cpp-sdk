@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certExpireTime_ != nullptr
-        && this->certState_ != nullptr && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterState_ != nullptr; };
+    virtual bool empty() const override { return this->certExpireTime_ == nullptr
+        && return this->certState_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterState_ == nullptr; };
     // certExpireTime Field Functions 
     bool hasCertExpireTime() const { return this->certExpireTime_ != nullptr;};
     void deleteCertExpireTime() { this->certExpireTime_ = nullptr;};

@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->errorMessage_ != nullptr && this->expiredTime_ != nullptr && this->hostName_ != nullptr && this->imageId_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceRole_ != nullptr && this->instanceStatus_ != nullptr && this->instanceType_ != nullptr
-        && this->instanceTypeFamily_ != nullptr && this->ipAddress_ != nullptr && this->isAliyunNode_ != nullptr && this->nodeName_ != nullptr && this->nodeStatus_ != nullptr
-        && this->nodepoolId_ != nullptr && this->source_ != nullptr && this->spotStrategy_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->expiredTime_ == nullptr && return this->hostName_ == nullptr && return this->imageId_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceRole_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr
+        && return this->instanceTypeFamily_ == nullptr && return this->ipAddress_ == nullptr && return this->isAliyunNode_ == nullptr && return this->nodeName_ == nullptr && return this->nodeStatus_ == nullptr
+        && return this->nodepoolId_ == nullptr && return this->source_ == nullptr && return this->spotStrategy_ == nullptr && return this->state_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

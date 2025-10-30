@@ -116,15 +116,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->compensateWithOnDemand_ != nullptr && this->dataDisks_ != nullptr && this->deploymentsetId_ != nullptr && this->desiredSize_ != nullptr
-        && this->imageId_ != nullptr && this->imageType_ != nullptr && this->instanceChargeType_ != nullptr && this->instancePatterns_ != nullptr && this->instanceTypes_ != nullptr
-        && this->internetChargeType_ != nullptr && this->internetMaxBandwidthOut_ != nullptr && this->keyPair_ != nullptr && this->loginPassword_ != nullptr && this->multiAzPolicy_ != nullptr
-        && this->onDemandBaseCapacity_ != nullptr && this->onDemandPercentageAboveBaseCapacity_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->platform_ != nullptr
-        && this->privatePoolOptions_ != nullptr && this->rdsInstances_ != nullptr && this->resourcePoolOptions_ != nullptr && this->scalingPolicy_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->spotInstancePools_ != nullptr && this->spotInstanceRemedy_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->systemDiskBurstingEnabled_ != nullptr
-        && this->systemDiskCategories_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskEncryptAlgorithm_ != nullptr && this->systemDiskEncrypted_ != nullptr && this->systemDiskKmsKeyId_ != nullptr
-        && this->systemDiskPerformanceLevel_ != nullptr && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr && this->tags_ != nullptr && this->vswitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->compensateWithOnDemand_ == nullptr && return this->dataDisks_ == nullptr && return this->deploymentsetId_ == nullptr && return this->desiredSize_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageType_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instancePatterns_ == nullptr && return this->instanceTypes_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->internetMaxBandwidthOut_ == nullptr && return this->keyPair_ == nullptr && return this->loginPassword_ == nullptr && return this->multiAzPolicy_ == nullptr
+        && return this->onDemandBaseCapacity_ == nullptr && return this->onDemandPercentageAboveBaseCapacity_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->platform_ == nullptr
+        && return this->privatePoolOptions_ == nullptr && return this->rdsInstances_ == nullptr && return this->resourcePoolOptions_ == nullptr && return this->scalingPolicy_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->spotInstancePools_ == nullptr && return this->spotInstanceRemedy_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->systemDiskBurstingEnabled_ == nullptr
+        && return this->systemDiskCategories_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskEncryptAlgorithm_ == nullptr && return this->systemDiskEncrypted_ == nullptr && return this->systemDiskKmsKeyId_ == nullptr
+        && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskProvisionedIops_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->vswitchIds_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

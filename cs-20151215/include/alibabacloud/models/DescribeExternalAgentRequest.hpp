@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentMode_ != nullptr
-        && this->privateIpAddress_ != nullptr; };
+    virtual bool empty() const override { return this->agentMode_ == nullptr
+        && return this->privateIpAddress_ == nullptr; };
     // agentMode Field Functions 
     bool hasAgentMode() const { return this->agentMode_ != nullptr;};
     void deleteAgentMode() { this->agentMode_ = nullptr;};

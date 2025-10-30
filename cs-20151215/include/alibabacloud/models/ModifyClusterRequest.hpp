@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessControlList_ != nullptr
-        && this->apiServerCustomCertSans_ != nullptr && this->apiServerEip_ != nullptr && this->apiServerEipId_ != nullptr && this->clusterName_ != nullptr && this->controlPlaneConfig_ != nullptr
-        && this->deletionProtection_ != nullptr && this->enableRrsa_ != nullptr && this->ingressDomainRebinding_ != nullptr && this->ingressLoadbalancerId_ != nullptr && this->instanceDeletionProtection_ != nullptr
-        && this->maintenanceWindow_ != nullptr && this->operationPolicy_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroupId_ != nullptr && this->systemEventsLogging_ != nullptr
-        && this->timezone_ != nullptr && this->vswitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->accessControlList_ == nullptr
+        && return this->apiServerCustomCertSans_ == nullptr && return this->apiServerEip_ == nullptr && return this->apiServerEipId_ == nullptr && return this->clusterName_ == nullptr && return this->controlPlaneConfig_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->enableRrsa_ == nullptr && return this->ingressDomainRebinding_ == nullptr && return this->ingressLoadbalancerId_ == nullptr && return this->instanceDeletionProtection_ == nullptr
+        && return this->maintenanceWindow_ == nullptr && return this->operationPolicy_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupId_ == nullptr && return this->systemEventsLogging_ == nullptr
+        && return this->timezone_ == nullptr && return this->vswitchIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};

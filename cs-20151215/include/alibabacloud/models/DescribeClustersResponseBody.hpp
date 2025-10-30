@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterType_ != nullptr && this->created_ != nullptr && this->currentVersion_ != nullptr && this->dataDiskCategory_ != nullptr && this->dataDiskSize_ != nullptr
-        && this->deletionProtection_ != nullptr && this->dockerVersion_ != nullptr && this->externalLoadbalancerId_ != nullptr && this->initVersion_ != nullptr && this->masterUrl_ != nullptr
-        && this->metaData_ != nullptr && this->name_ != nullptr && this->networkMode_ != nullptr && this->privateZone_ != nullptr && this->profile_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroupId_ != nullptr && this->size_ != nullptr && this->state_ != nullptr
-        && this->subnetCidr_ != nullptr && this->tags_ != nullptr && this->updated_ != nullptr && this->vpcId_ != nullptr && this->vswitchCidr_ != nullptr
-        && this->vswitchId_ != nullptr && this->workerRamRoleName_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterType_ == nullptr && return this->created_ == nullptr && return this->currentVersion_ == nullptr && return this->dataDiskCategory_ == nullptr && return this->dataDiskSize_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->dockerVersion_ == nullptr && return this->externalLoadbalancerId_ == nullptr && return this->initVersion_ == nullptr && return this->masterUrl_ == nullptr
+        && return this->metaData_ == nullptr && return this->name_ == nullptr && return this->networkMode_ == nullptr && return this->privateZone_ == nullptr && return this->profile_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupId_ == nullptr && return this->size_ == nullptr && return this->state_ == nullptr
+        && return this->subnetCidr_ == nullptr && return this->tags_ == nullptr && return this->updated_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchCidr_ == nullptr
+        && return this->vswitchId_ == nullptr && return this->workerRamRoleName_ == nullptr && return this->zoneId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

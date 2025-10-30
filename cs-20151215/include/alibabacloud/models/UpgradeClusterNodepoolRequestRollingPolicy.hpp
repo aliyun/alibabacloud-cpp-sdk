@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchInterval_ != nullptr
-        && this->maxParallelism_ != nullptr && this->pausePolicy_ != nullptr; };
+    virtual bool empty() const override { return this->batchInterval_ == nullptr
+        && return this->maxParallelism_ == nullptr && return this->pausePolicy_ == nullptr; };
     // batchInterval Field Functions 
     bool hasBatchInterval() const { return this->batchInterval_ != nullptr;};
     void deleteBatchInterval() { this->batchInterval_ = nullptr;};

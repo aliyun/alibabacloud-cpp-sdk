@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disabledCheckItems_ != nullptr
-        && this->enabled_ != nullptr && this->scheduleTime_ != nullptr; };
+    virtual bool empty() const override { return this->disabledCheckItems_ == nullptr
+        && return this->enabled_ == nullptr && return this->scheduleTime_ == nullptr; };
     // disabledCheckItems Field Functions 
     bool hasDisabledCheckItems() const { return this->disabledCheckItems_ != nullptr;};
     void deleteDisabledCheckItems() { this->disabledCheckItems_ = nullptr;};

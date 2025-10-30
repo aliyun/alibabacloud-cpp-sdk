@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->created_ != nullptr && this->instanceId_ != nullptr && this->resourceInfo_ != nullptr && this->resourceType_ != nullptr && this->state_ != nullptr
-        && this->autoCreate_ != nullptr && this->dependencies_ != nullptr && this->associatedObject_ != nullptr && this->deleteBehavior_ != nullptr && this->creatorType_ != nullptr
-        && this->extraInfo_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->created_ == nullptr && return this->instanceId_ == nullptr && return this->resourceInfo_ == nullptr && return this->resourceType_ == nullptr && return this->state_ == nullptr
+        && return this->autoCreate_ == nullptr && return this->dependencies_ == nullptr && return this->associatedObject_ == nullptr && return this->deleteBehavior_ == nullptr && return this->creatorType_ == nullptr
+        && return this->extraInfo_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

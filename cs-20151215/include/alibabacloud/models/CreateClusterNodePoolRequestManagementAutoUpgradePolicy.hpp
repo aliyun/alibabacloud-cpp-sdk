@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoUpgradeKubelet_ != nullptr
-        && this->autoUpgradeOs_ != nullptr && this->autoUpgradeRuntime_ != nullptr; };
+    virtual bool empty() const override { return this->autoUpgradeKubelet_ == nullptr
+        && return this->autoUpgradeOs_ == nullptr && return this->autoUpgradeRuntime_ == nullptr; };
     // autoUpgradeKubelet Field Functions 
     bool hasAutoUpgradeKubelet() const { return this->autoUpgradeKubelet_ != nullptr;};
     void deleteAutoUpgradeKubelet() { this->autoUpgradeKubelet_ = nullptr;};

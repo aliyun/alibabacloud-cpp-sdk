@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrency_ != nullptr
-        && this->drainNode_ != nullptr && this->instanceIdsShrink_ != nullptr && this->nodesShrink_ != nullptr && this->releaseNode_ != nullptr; };
+    virtual bool empty() const override { return this->concurrency_ == nullptr
+        && return this->drainNode_ == nullptr && return this->instanceIdsShrink_ == nullptr && return this->nodesShrink_ == nullptr && return this->releaseNode_ == nullptr; };
     // concurrency Field Functions 
     bool hasConcurrency() const { return this->concurrency_ != nullptr;};
     void deleteConcurrency() { this->concurrency_ = nullptr;};

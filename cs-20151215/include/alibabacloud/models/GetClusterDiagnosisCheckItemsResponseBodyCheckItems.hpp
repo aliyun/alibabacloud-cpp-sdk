@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desc_ != nullptr
-        && this->display_ != nullptr && this->group_ != nullptr && this->level_ != nullptr && this->message_ != nullptr && this->name_ != nullptr
-        && this->refer_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->desc_ == nullptr
+        && return this->display_ == nullptr && return this->group_ == nullptr && return this->level_ == nullptr && return this->message_ == nullptr && return this->name_ == nullptr
+        && return this->refer_ == nullptr && return this->value_ == nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};

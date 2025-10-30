@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuPolicy_ != nullptr
-        && this->formatDisk_ != nullptr && this->imageId_ != nullptr && this->instances_ != nullptr && this->isEdgeWorker_ != nullptr && this->keepInstanceName_ != nullptr
-        && this->keyPair_ != nullptr && this->nodepoolId_ != nullptr && this->password_ != nullptr && this->rdsInstances_ != nullptr && this->runtime_ != nullptr
-        && this->tags_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->cpuPolicy_ == nullptr
+        && return this->formatDisk_ == nullptr && return this->imageId_ == nullptr && return this->instances_ == nullptr && return this->isEdgeWorker_ == nullptr && return this->keepInstanceName_ == nullptr
+        && return this->keyPair_ == nullptr && return this->nodepoolId_ == nullptr && return this->password_ == nullptr && return this->rdsInstances_ == nullptr && return this->runtime_ == nullptr
+        && return this->tags_ == nullptr && return this->userData_ == nullptr; };
     // cpuPolicy Field Functions 
     bool hasCpuPolicy() const { return this->cpuPolicy_ != nullptr;};
     void deleteCpuPolicy() { this->cpuPolicy_ = nullptr;};

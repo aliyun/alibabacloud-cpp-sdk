@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->minimumClusterVersion_ != nullptr
-        && this->upgradable_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->minimumClusterVersion_ == nullptr
+        && return this->upgradable_ == nullptr && return this->version_ == nullptr; };
     // minimumClusterVersion Field Functions 
     bool hasMinimumClusterVersion() const { return this->minimumClusterVersion_ != nullptr;};
     void deleteMinimumClusterVersion() { this->minimumClusterVersion_ = nullptr;};

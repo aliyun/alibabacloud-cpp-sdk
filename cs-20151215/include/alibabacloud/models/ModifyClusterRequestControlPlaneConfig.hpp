@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->chargeType_ != nullptr && this->cloudMonitorFlags_ != nullptr && this->cpuPolicy_ != nullptr && this->deploymentsetId_ != nullptr
-        && this->imageId_ != nullptr && this->imageType_ != nullptr && this->instanceTypes_ != nullptr && this->keyPair_ != nullptr && this->loginPassword_ != nullptr
-        && this->nodePortRange_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->runtime_ != nullptr && this->securityHardeningOs_ != nullptr
-        && this->size_ != nullptr && this->socEnabled_ != nullptr && this->systemDiskBurstingEnabled_ != nullptr && this->systemDiskCategory_ != nullptr && this->systemDiskPerformanceLevel_ != nullptr
-        && this->systemDiskProvisionedIops_ != nullptr && this->systemDiskSize_ != nullptr && this->systemDiskSnapshotPolicyId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->chargeType_ == nullptr && return this->cloudMonitorFlags_ == nullptr && return this->cpuPolicy_ == nullptr && return this->deploymentsetId_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageType_ == nullptr && return this->instanceTypes_ == nullptr && return this->keyPair_ == nullptr && return this->loginPassword_ == nullptr
+        && return this->nodePortRange_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->runtime_ == nullptr && return this->securityHardeningOs_ == nullptr
+        && return this->size_ == nullptr && return this->socEnabled_ == nullptr && return this->systemDiskBurstingEnabled_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr
+        && return this->systemDiskProvisionedIops_ == nullptr && return this->systemDiskSize_ == nullptr && return this->systemDiskSnapshotPolicyId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxParallelism_ != nullptr; };
+    virtual bool empty() const override { return this->maxParallelism_ == nullptr; };
     // maxParallelism Field Functions 
     bool hasMaxParallelism() const { return this->maxParallelism_ != nullptr;};
     void deleteMaxParallelism() { this->maxParallelism_ = nullptr;};

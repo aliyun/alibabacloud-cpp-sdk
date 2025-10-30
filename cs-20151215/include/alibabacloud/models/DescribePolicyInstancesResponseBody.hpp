@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->clusterId_ != nullptr && this->instanceName_ != nullptr && this->policyName_ != nullptr && this->policyCategory_ != nullptr && this->policyDescription_ != nullptr
-        && this->policyParameters_ != nullptr && this->policySeverity_ != nullptr && this->policyScope_ != nullptr && this->policyAction_ != nullptr && this->created_ != nullptr
-        && this->updated_ != nullptr && this->resourceId_ != nullptr && this->totalViolations_ != nullptr && this->isDeleted_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->clusterId_ == nullptr && return this->instanceName_ == nullptr && return this->policyName_ == nullptr && return this->policyCategory_ == nullptr && return this->policyDescription_ == nullptr
+        && return this->policyParameters_ == nullptr && return this->policySeverity_ == nullptr && return this->policyScope_ == nullptr && return this->policyAction_ == nullptr && return this->created_ == nullptr
+        && return this->updated_ == nullptr && return this->resourceId_ == nullptr && return this->totalViolations_ == nullptr && return this->isDeleted_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

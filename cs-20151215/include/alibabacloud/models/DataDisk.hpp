@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoFormat_ != nullptr
-        && this->autoSnapshotPolicyId_ != nullptr && this->burstingEnabled_ != nullptr && this->category_ != nullptr && this->device_ != nullptr && this->diskName_ != nullptr
-        && this->encrypted_ != nullptr && this->fileSystem_ != nullptr && this->kmsKeyId_ != nullptr && this->mountTarget_ != nullptr && this->performanceLevel_ != nullptr
-        && this->provisionedIops_ != nullptr && this->size_ != nullptr && this->snapshotId_ != nullptr; };
+    virtual bool empty() const override { return this->autoFormat_ == nullptr
+        && return this->autoSnapshotPolicyId_ == nullptr && return this->burstingEnabled_ == nullptr && return this->category_ == nullptr && return this->device_ == nullptr && return this->diskName_ == nullptr
+        && return this->encrypted_ == nullptr && return this->fileSystem_ == nullptr && return this->kmsKeyId_ == nullptr && return this->mountTarget_ == nullptr && return this->performanceLevel_ == nullptr
+        && return this->provisionedIops_ == nullptr && return this->size_ == nullptr && return this->snapshotId_ == nullptr; };
     // autoFormat Field Functions 
     bool hasAutoFormat() const { return this->autoFormat_ != nullptr;};
     void deleteAutoFormat() { this->autoFormat_ = nullptr;};

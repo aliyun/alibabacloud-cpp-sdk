@@ -94,14 +94,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedUnsafeSysctls_ != nullptr
-        && this->clusterDNS_ != nullptr && this->containerLogMaxFiles_ != nullptr && this->containerLogMaxSize_ != nullptr && this->containerLogMaxWorkers_ != nullptr && this->containerLogMonitorInterval_ != nullptr
-        && this->cpuCFSQuota_ != nullptr && this->cpuCFSQuotaPeriod_ != nullptr && this->cpuManagerPolicy_ != nullptr && this->eventBurst_ != nullptr && this->eventRecordQPS_ != nullptr
-        && this->evictionHard_ != nullptr && this->evictionSoft_ != nullptr && this->evictionSoftGracePeriod_ != nullptr && this->featureGates_ != nullptr && this->imageGCHighThresholdPercent_ != nullptr
-        && this->imageGCLowThresholdPercent_ != nullptr && this->kubeAPIBurst_ != nullptr && this->kubeAPIQPS_ != nullptr && this->kubeReserved_ != nullptr && this->maxPods_ != nullptr
-        && this->memoryManagerPolicy_ != nullptr && this->podPidsLimit_ != nullptr && this->readOnlyPort_ != nullptr && this->registryBurst_ != nullptr && this->registryPullQPS_ != nullptr
-        && this->reservedMemory_ != nullptr && this->serializeImagePulls_ != nullptr && this->serverTLSBootstrap_ != nullptr && this->systemReserved_ != nullptr && this->topologyManagerPolicy_ != nullptr
-        && this->tracing_ != nullptr; };
+    virtual bool empty() const override { return this->allowedUnsafeSysctls_ == nullptr
+        && return this->clusterDNS_ == nullptr && return this->containerLogMaxFiles_ == nullptr && return this->containerLogMaxSize_ == nullptr && return this->containerLogMaxWorkers_ == nullptr && return this->containerLogMonitorInterval_ == nullptr
+        && return this->cpuCFSQuota_ == nullptr && return this->cpuCFSQuotaPeriod_ == nullptr && return this->cpuManagerPolicy_ == nullptr && return this->eventBurst_ == nullptr && return this->eventRecordQPS_ == nullptr
+        && return this->evictionHard_ == nullptr && return this->evictionSoft_ == nullptr && return this->evictionSoftGracePeriod_ == nullptr && return this->featureGates_ == nullptr && return this->imageGCHighThresholdPercent_ == nullptr
+        && return this->imageGCLowThresholdPercent_ == nullptr && return this->kubeAPIBurst_ == nullptr && return this->kubeAPIQPS_ == nullptr && return this->kubeReserved_ == nullptr && return this->maxPods_ == nullptr
+        && return this->memoryManagerPolicy_ == nullptr && return this->podPidsLimit_ == nullptr && return this->readOnlyPort_ == nullptr && return this->registryBurst_ == nullptr && return this->registryPullQPS_ == nullptr
+        && return this->reservedMemory_ == nullptr && return this->serializeImagePulls_ == nullptr && return this->serverTLSBootstrap_ == nullptr && return this->systemReserved_ == nullptr && return this->topologyManagerPolicy_ == nullptr
+        && return this->tracing_ == nullptr; };
     // allowedUnsafeSysctls Field Functions 
     bool hasAllowedUnsafeSysctls() const { return this->allowedUnsafeSysctls_ != nullptr;};
     void deleteAllowedUnsafeSysctls() { this->allowedUnsafeSysctls_ = nullptr;};

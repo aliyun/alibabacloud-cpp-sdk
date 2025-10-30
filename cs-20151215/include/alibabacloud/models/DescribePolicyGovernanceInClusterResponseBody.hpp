@@ -2,11 +2,10 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPOLICYGOVERNANCEINCLUSTERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPOLICYGOVERNANCEINCLUSTERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribePolicyGovernanceInClusterResponseBodyViolation.hpp>
 #include <alibabacloud/models/DescribePolicyGovernanceInClusterResponseBodyAdmitLog.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribePolicyGovernanceInClusterResponseBodyOnState.hpp>
-#include <alibabacloud/models/DescribePolicyGovernanceInClusterResponseBodyTotalViolations.hpp>
-#include <alibabacloud/models/DescribePolicyGovernanceInClusterResponseBodyViolations.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,16 +17,14 @@ namespace Models
   class DescribePolicyGovernanceInClusterResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolicyGovernanceInClusterResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Violation, violation_);
       DARABONBA_PTR_TO_JSON(admit_log, admitLog_);
       DARABONBA_PTR_TO_JSON(on_state, onState_);
-      DARABONBA_PTR_TO_JSON(totalViolations, totalViolations_);
-      DARABONBA_PTR_TO_JSON(violations, violations_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolicyGovernanceInClusterResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Violation, violation_);
       DARABONBA_PTR_FROM_JSON(admit_log, admitLog_);
       DARABONBA_PTR_FROM_JSON(on_state, onState_);
-      DARABONBA_PTR_FROM_JSON(totalViolations, totalViolations_);
-      DARABONBA_PTR_FROM_JSON(violations, violations_);
     };
     DescribePolicyGovernanceInClusterResponseBody() = default ;
     DescribePolicyGovernanceInClusterResponseBody(const DescribePolicyGovernanceInClusterResponseBody &) = default ;
@@ -40,8 +37,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->admitLog_ != nullptr
-        && this->onState_ != nullptr && this->totalViolations_ != nullptr && this->violations_ != nullptr; };
+    virtual bool empty() const override { return this->violation_ == nullptr
+        && return this->admitLog_ == nullptr && return this->onState_ == nullptr; };
+    // violation Field Functions 
+    bool hasViolation() const { return this->violation_ != nullptr;};
+    void deleteViolation() { this->violation_ = nullptr;};
+    inline const DescribePolicyGovernanceInClusterResponseBodyViolation & violation() const { DARABONBA_PTR_GET_CONST(violation_, DescribePolicyGovernanceInClusterResponseBodyViolation) };
+    inline DescribePolicyGovernanceInClusterResponseBodyViolation violation() { DARABONBA_PTR_GET(violation_, DescribePolicyGovernanceInClusterResponseBodyViolation) };
+    inline DescribePolicyGovernanceInClusterResponseBody& setViolation(const DescribePolicyGovernanceInClusterResponseBodyViolation & violation) { DARABONBA_PTR_SET_VALUE(violation_, violation) };
+    inline DescribePolicyGovernanceInClusterResponseBody& setViolation(DescribePolicyGovernanceInClusterResponseBodyViolation && violation) { DARABONBA_PTR_SET_RVALUE(violation_, violation) };
+
+
     // admitLog Field Functions 
     bool hasAdmitLog() const { return this->admitLog_ != nullptr;};
     void deleteAdmitLog() { this->admitLog_ = nullptr;};
@@ -60,33 +66,12 @@ namespace Models
     inline DescribePolicyGovernanceInClusterResponseBody& setOnState(vector<DescribePolicyGovernanceInClusterResponseBodyOnState> && onState) { DARABONBA_PTR_SET_RVALUE(onState_, onState) };
 
 
-    // totalViolations Field Functions 
-    bool hasTotalViolations() const { return this->totalViolations_ != nullptr;};
-    void deleteTotalViolations() { this->totalViolations_ = nullptr;};
-    inline const DescribePolicyGovernanceInClusterResponseBodyTotalViolations & totalViolations() const { DARABONBA_PTR_GET_CONST(totalViolations_, DescribePolicyGovernanceInClusterResponseBodyTotalViolations) };
-    inline DescribePolicyGovernanceInClusterResponseBodyTotalViolations totalViolations() { DARABONBA_PTR_GET(totalViolations_, DescribePolicyGovernanceInClusterResponseBodyTotalViolations) };
-    inline DescribePolicyGovernanceInClusterResponseBody& setTotalViolations(const DescribePolicyGovernanceInClusterResponseBodyTotalViolations & totalViolations) { DARABONBA_PTR_SET_VALUE(totalViolations_, totalViolations) };
-    inline DescribePolicyGovernanceInClusterResponseBody& setTotalViolations(DescribePolicyGovernanceInClusterResponseBodyTotalViolations && totalViolations) { DARABONBA_PTR_SET_RVALUE(totalViolations_, totalViolations) };
-
-
-    // violations Field Functions 
-    bool hasViolations() const { return this->violations_ != nullptr;};
-    void deleteViolations() { this->violations_ = nullptr;};
-    inline const DescribePolicyGovernanceInClusterResponseBodyViolations & violations() const { DARABONBA_PTR_GET_CONST(violations_, DescribePolicyGovernanceInClusterResponseBodyViolations) };
-    inline DescribePolicyGovernanceInClusterResponseBodyViolations violations() { DARABONBA_PTR_GET(violations_, DescribePolicyGovernanceInClusterResponseBodyViolations) };
-    inline DescribePolicyGovernanceInClusterResponseBody& setViolations(const DescribePolicyGovernanceInClusterResponseBodyViolations & violations) { DARABONBA_PTR_SET_VALUE(violations_, violations) };
-    inline DescribePolicyGovernanceInClusterResponseBody& setViolations(DescribePolicyGovernanceInClusterResponseBodyViolations && violations) { DARABONBA_PTR_SET_RVALUE(violations_, violations) };
-
-
   protected:
+    std::shared_ptr<DescribePolicyGovernanceInClusterResponseBodyViolation> violation_ = nullptr;
     // The audit logs of the policies in the cluster.
     std::shared_ptr<DescribePolicyGovernanceInClusterResponseBodyAdmitLog> admitLog_ = nullptr;
     // Details about the policies of different severity levels that are enabled for the cluster.
     std::shared_ptr<vector<DescribePolicyGovernanceInClusterResponseBodyOnState>> onState_ = nullptr;
-    // Details about the blocking and alerting events that are triggered by policies of different severity levels.
-    std::shared_ptr<DescribePolicyGovernanceInClusterResponseBodyTotalViolations> totalViolations_ = nullptr;
-    // Details about the blocking and alerting events that are triggered by different policies.
-    std::shared_ptr<DescribePolicyGovernanceInClusterResponseBodyViolations> violations_ = nullptr;
   };
 
   } // namespace Models

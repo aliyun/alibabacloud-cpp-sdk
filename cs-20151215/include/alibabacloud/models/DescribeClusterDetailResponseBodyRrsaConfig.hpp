@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audience_ != nullptr
-        && this->enabled_ != nullptr && this->issuer_ != nullptr && this->jwksUrl_ != nullptr && this->maxOidcTokenExpiration_ != nullptr && this->oidcArn_ != nullptr
-        && this->oidcName_ != nullptr && this->openApiConfigurationUrl_ != nullptr; };
+    virtual bool empty() const override { return this->audience_ == nullptr
+        && return this->enabled_ == nullptr && return this->issuer_ == nullptr && return this->jwksUrl_ == nullptr && return this->maxOidcTokenExpiration_ == nullptr && return this->oidcArn_ == nullptr
+        && return this->oidcName_ == nullptr && return this->openApiConfigurationUrl_ == nullptr; };
     // audience Field Functions 
     bool hasAudience() const { return this->audience_ != nullptr;};
     void deleteAudience() { this->audience_ = nullptr;};
