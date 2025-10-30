@@ -259,6 +259,23 @@ namespace WafOpenapi20211001
       Models::CreateHybridCloudGroupResponse createHybridCloudGroup(const Models::CreateHybridCloudGroupRequest &request);
 
       /**
+       * @summary Creates a hybrid cloud log delivery configuration.
+       *
+       * @param request CreateLogDeliveryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateLogDeliveryConfigResponse
+       */
+      Models::CreateLogDeliveryConfigResponse createLogDeliveryConfigWithOptions(const Models::CreateLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a hybrid cloud log delivery configuration.
+       *
+       * @param request CreateLogDeliveryConfigRequest
+       * @return CreateLogDeliveryConfigResponse
+       */
+      Models::CreateLogDeliveryConfigResponse createLogDeliveryConfig(const Models::CreateLogDeliveryConfigRequest &request);
+
+      /**
        * @summary Creates an IP address blacklist for major event protection.
        *
        * @description This operation is available only on the China site (aliyun.com).
@@ -533,6 +550,40 @@ namespace WafOpenapi20211001
        * @return DeleteHybridCloudClusterRuleResponse
        */
       Models::DeleteHybridCloudClusterRuleResponse deleteHybridCloudClusterRule(const Models::DeleteHybridCloudClusterRuleRequest &request);
+
+      /**
+       * @summary 删除组信息
+       *
+       * @param request DeleteHybridCloudGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHybridCloudGroupResponse
+       */
+      Models::DeleteHybridCloudGroupResponse deleteHybridCloudGroupWithOptions(const Models::DeleteHybridCloudGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除组信息
+       *
+       * @param request DeleteHybridCloudGroupRequest
+       * @return DeleteHybridCloudGroupResponse
+       */
+      Models::DeleteHybridCloudGroupResponse deleteHybridCloudGroup(const Models::DeleteHybridCloudGroupRequest &request);
+
+      /**
+       * @summary 删除日志外发配置
+       *
+       * @param request DeleteLogDeliveryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLogDeliveryConfigResponse
+       */
+      Models::DeleteLogDeliveryConfigResponse deleteLogDeliveryConfigWithOptions(const Models::DeleteLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除日志外发配置
+       *
+       * @param request DeleteLogDeliveryConfigRequest
+       * @return DeleteLogDeliveryConfigResponse
+       */
+      Models::DeleteLogDeliveryConfigResponse deleteLogDeliveryConfig(const Models::DeleteLogDeliveryConfigRequest &request);
 
       /**
        * @summary Deletes an IP address blacklist for major event protection.
@@ -1725,6 +1776,23 @@ namespace WafOpenapi20211001
       Models::DescribeHybridCloudProcessMonitorResponse describeHybridCloudProcessMonitor(const Models::DescribeHybridCloudProcessMonitorRequest &request);
 
       /**
+       * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+       *
+       * @param request DescribeHybridCloudProtectableCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHybridCloudProtectableCountResponse
+       */
+      Models::DescribeHybridCloudProtectableCountResponse describeHybridCloudProtectableCountWithOptions(const Models::DescribeHybridCloudProtectableCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+       *
+       * @param request DescribeHybridCloudProtectableCountRequest
+       * @return DescribeHybridCloudProtectableCountResponse
+       */
+      Models::DescribeHybridCloudProtectableCountResponse describeHybridCloudProtectableCount(const Models::DescribeHybridCloudProtectableCountRequest &request);
+
+      /**
        * @summary 查询混合云域名详情
        *
        * @param request DescribeHybridCloudResourceDetailRequest
@@ -1893,6 +1961,40 @@ namespace WafOpenapi20211001
        * @return DescribeIpAbroadCountryInfosResponse
        */
       Models::DescribeIpAbroadCountryInfosResponse describeIpAbroadCountryInfos(const Models::DescribeIpAbroadCountryInfosRequest &request);
+
+      /**
+       * @summary Queries a hybrid cloud log delivery configuration.
+       *
+       * @param request DescribeLogDeliveryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLogDeliveryConfigResponse
+       */
+      Models::DescribeLogDeliveryConfigResponse describeLogDeliveryConfigWithOptions(const Models::DescribeLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a hybrid cloud log delivery configuration.
+       *
+       * @param request DescribeLogDeliveryConfigRequest
+       * @return DescribeLogDeliveryConfigResponse
+       */
+      Models::DescribeLogDeliveryConfigResponse describeLogDeliveryConfig(const Models::DescribeLogDeliveryConfigRequest &request);
+
+      /**
+       * @summary Queries all hybrid cloud log delivery configurations.
+       *
+       * @param request DescribeLogDeliveryConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLogDeliveryConfigsResponse
+       */
+      Models::DescribeLogDeliveryConfigsResponse describeLogDeliveryConfigsWithOptions(const Models::DescribeLogDeliveryConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries all hybrid cloud log delivery configurations.
+       *
+       * @param request DescribeLogDeliveryConfigsRequest
+       * @return DescribeLogDeliveryConfigsResponse
+       */
+      Models::DescribeLogDeliveryConfigsResponse describeLogDeliveryConfigs(const Models::DescribeLogDeliveryConfigsRequest &request);
 
       /**
        * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
@@ -2065,6 +2167,40 @@ namespace WafOpenapi20211001
       Models::DescribeResourceInstanceCertsResponse describeResourceInstanceCerts(const Models::DescribeResourceInstanceCertsRequest &request);
 
       /**
+       * @summary 查询防护对象日志外发状态
+       *
+       * @param request DescribeResourceLogDeliveryStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResourceLogDeliveryStatusResponse
+       */
+      Models::DescribeResourceLogDeliveryStatusResponse describeResourceLogDeliveryStatusWithOptions(const Models::DescribeResourceLogDeliveryStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询防护对象日志外发状态
+       *
+       * @param request DescribeResourceLogDeliveryStatusRequest
+       * @return DescribeResourceLogDeliveryStatusResponse
+       */
+      Models::DescribeResourceLogDeliveryStatusResponse describeResourceLogDeliveryStatus(const Models::DescribeResourceLogDeliveryStatusRequest &request);
+
+      /**
+       * @summary 查询防护对象日志字段配置
+       *
+       * @param request DescribeResourceLogFieldConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeResourceLogFieldConfigResponse
+       */
+      Models::DescribeResourceLogFieldConfigResponse describeResourceLogFieldConfigWithOptions(const Models::DescribeResourceLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询防护对象日志字段配置
+       *
+       * @param request DescribeResourceLogFieldConfigRequest
+       * @return DescribeResourceLogFieldConfigResponse
+       */
+      Models::DescribeResourceLogFieldConfigResponse describeResourceLogFieldConfig(const Models::DescribeResourceLogFieldConfigRequest &request);
+
+      /**
        * @summary Queries whether the log collection feature is enabled for a protected object.
        *
        * @param request DescribeResourceLogStatusRequest
@@ -2148,6 +2284,23 @@ namespace WafOpenapi20211001
        * @return DescribeResponseCodeTrendGraphResponse
        */
       Models::DescribeResponseCodeTrendGraphResponse describeResponseCodeTrendGraph(const Models::DescribeResponseCodeTrendGraphRequest &request);
+
+      /**
+       * @summary 查询授权状态
+       *
+       * @param request DescribeRoleAuthStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRoleAuthStatusResponse
+       */
+      Models::DescribeRoleAuthStatusResponse describeRoleAuthStatusWithOptions(const Models::DescribeRoleAuthStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询授权状态
+       *
+       * @param request DescribeRoleAuthStatusRequest
+       * @return DescribeRoleAuthStatusResponse
+       */
+      Models::DescribeRoleAuthStatusResponse describeRoleAuthStatus(const Models::DescribeRoleAuthStatusRequest &request);
 
       /**
        * @summary Queries regular expression rule groups by page.
@@ -2792,6 +2945,23 @@ namespace WafOpenapi20211001
       Models::DescribeWafSourceIpSegmentResponse describeWafSourceIpSegment(const Models::DescribeWafSourceIpSegmentRequest &request);
 
       /**
+       * @summary 创建WAF服务关联角色
+       *
+       * @param request InitializeWafOperationRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitializeWafOperationRoleResponse
+       */
+      Models::InitializeWafOperationRoleResponse initializeWafOperationRoleWithOptions(const Models::InitializeWafOperationRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建WAF服务关联角色
+       *
+       * @param request InitializeWafOperationRoleRequest
+       * @return InitializeWafOperationRoleResponse
+       */
+      Models::InitializeWafOperationRoleResponse initializeWafOperationRole(const Models::InitializeWafOperationRoleRequest &request);
+
+      /**
        * @summary Queries tag keys.
        *
        * @param request ListTagKeysRequest
@@ -2979,6 +3149,23 @@ namespace WafOpenapi20211001
       Models::ModifyCloudResourceResponse modifyCloudResource(const Models::ModifyCloudResourceRequest &request);
 
       /**
+       * @summary 修改云产品接入的证书
+       *
+       * @param request ModifyCloudResourceCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCloudResourceCertResponse
+       */
+      Models::ModifyCloudResourceCertResponse modifyCloudResourceCertWithOptions(const Models::ModifyCloudResourceCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改云产品接入的证书
+       *
+       * @param request ModifyCloudResourceCertRequest
+       * @return ModifyCloudResourceCertResponse
+       */
+      Models::ModifyCloudResourceCertResponse modifyCloudResourceCert(const Models::ModifyCloudResourceCertRequest &request);
+
+      /**
        * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
        *
        * @param request ModifyDefaultHttpsRequest
@@ -3149,6 +3336,23 @@ namespace WafOpenapi20211001
       Models::ModifyDomainResponse modifyDomain(const Models::ModifyDomainRequest &request);
 
       /**
+       * @summary 修改域名的证书
+       *
+       * @param request ModifyDomainCertRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDomainCertResponse
+       */
+      Models::ModifyDomainCertResponse modifyDomainCertWithOptions(const Models::ModifyDomainCertRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改域名的证书
+       *
+       * @param request ModifyDomainCertRequest
+       * @return ModifyDomainCertResponse
+       */
+      Models::ModifyDomainCertResponse modifyDomainCert(const Models::ModifyDomainCertRequest &request);
+
+      /**
        * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
        *
        * @param request ModifyDomainPunishStatusRequest
@@ -3302,6 +3506,23 @@ namespace WafOpenapi20211001
       Models::ModifyHybridCloudServerResponse modifyHybridCloudServer(const Models::ModifyHybridCloudServerRequest &request);
 
       /**
+       * @summary Modifies a hybrid cloud log delivery configuration.
+       *
+       * @param request ModifyLogDeliveryConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyLogDeliveryConfigResponse
+       */
+      Models::ModifyLogDeliveryConfigResponse modifyLogDeliveryConfigWithOptions(const Models::ModifyLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modifies a hybrid cloud log delivery configuration.
+       *
+       * @param request ModifyLogDeliveryConfigRequest
+       * @return ModifyLogDeliveryConfigResponse
+       */
+      Models::ModifyLogDeliveryConfigResponse modifyLogDeliveryConfig(const Models::ModifyLogDeliveryConfigRequest &request);
+
+      /**
        * @summary Modifies an IP address blacklist for major event protection.
        *
        * @param request ModifyMajorProtectionBlackIpRequest
@@ -3351,6 +3572,40 @@ namespace WafOpenapi20211001
        * @return ModifyPauseProtectionStatusResponse
        */
       Models::ModifyPauseProtectionStatusResponse modifyPauseProtectionStatus(const Models::ModifyPauseProtectionStatusRequest &request);
+
+      /**
+       * @summary 修改防护对象日志外发状态
+       *
+       * @param request ModifyResourceLogDeliveryStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyResourceLogDeliveryStatusResponse
+       */
+      Models::ModifyResourceLogDeliveryStatusResponse modifyResourceLogDeliveryStatusWithOptions(const Models::ModifyResourceLogDeliveryStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改防护对象日志外发状态
+       *
+       * @param request ModifyResourceLogDeliveryStatusRequest
+       * @return ModifyResourceLogDeliveryStatusResponse
+       */
+      Models::ModifyResourceLogDeliveryStatusResponse modifyResourceLogDeliveryStatus(const Models::ModifyResourceLogDeliveryStatusRequest &request);
+
+      /**
+       * @summary 修改防护对象的日志字段配置
+       *
+       * @param request ModifyResourceLogFieldConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyResourceLogFieldConfigResponse
+       */
+      Models::ModifyResourceLogFieldConfigResponse modifyResourceLogFieldConfigWithOptions(const Models::ModifyResourceLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改防护对象的日志字段配置
+       *
+       * @param request ModifyResourceLogFieldConfigRequest
+       * @return ModifyResourceLogFieldConfigResponse
+       */
+      Models::ModifyResourceLogFieldConfigResponse modifyResourceLogFieldConfig(const Models::ModifyResourceLogFieldConfigRequest &request);
 
       /**
        * @summary Enables or disables the log collection feature for a protected object.

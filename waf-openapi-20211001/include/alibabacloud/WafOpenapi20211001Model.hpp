@@ -47,6 +47,9 @@
 #include <alibabacloud/models/CreateHybridCloudGroupRequest.hpp>
 #include <alibabacloud/models/CreateHybridCloudGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateHybridCloudGroupResponse.hpp>
+#include <alibabacloud/models/CreateLogDeliveryConfigRequest.hpp>
+#include <alibabacloud/models/CreateLogDeliveryConfigResponseBody.hpp>
+#include <alibabacloud/models/CreateLogDeliveryConfigResponse.hpp>
 #include <alibabacloud/models/CreateMajorProtectionBlackIpRequest.hpp>
 #include <alibabacloud/models/CreateMajorProtectionBlackIpResponseBody.hpp>
 #include <alibabacloud/models/CreateMajorProtectionBlackIpResponse.hpp>
@@ -95,6 +98,12 @@
 #include <alibabacloud/models/DeleteHybridCloudClusterRuleRequest.hpp>
 #include <alibabacloud/models/DeleteHybridCloudClusterRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteHybridCloudClusterRuleResponse.hpp>
+#include <alibabacloud/models/DeleteHybridCloudGroupRequest.hpp>
+#include <alibabacloud/models/DeleteHybridCloudGroupResponseBody.hpp>
+#include <alibabacloud/models/DeleteHybridCloudGroupResponse.hpp>
+#include <alibabacloud/models/DeleteLogDeliveryConfigRequest.hpp>
+#include <alibabacloud/models/DeleteLogDeliveryConfigResponseBody.hpp>
+#include <alibabacloud/models/DeleteLogDeliveryConfigResponse.hpp>
 #include <alibabacloud/models/DeleteMajorProtectionBlackIpRequest.hpp>
 #include <alibabacloud/models/DeleteMajorProtectionBlackIpResponseBody.hpp>
 #include <alibabacloud/models/DeleteMajorProtectionBlackIpResponse.hpp>
@@ -306,6 +315,9 @@
 #include <alibabacloud/models/DescribeHybridCloudProcessMonitorRequest.hpp>
 #include <alibabacloud/models/DescribeHybridCloudProcessMonitorResponseBody.hpp>
 #include <alibabacloud/models/DescribeHybridCloudProcessMonitorResponse.hpp>
+#include <alibabacloud/models/DescribeHybridCloudProtectableCountRequest.hpp>
+#include <alibabacloud/models/DescribeHybridCloudProtectableCountResponseBody.hpp>
+#include <alibabacloud/models/DescribeHybridCloudProtectableCountResponse.hpp>
 #include <alibabacloud/models/DescribeHybridCloudResourceDetailRequest.hpp>
 #include <alibabacloud/models/DescribeHybridCloudResourceDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeHybridCloudResourceDetailResponse.hpp>
@@ -336,6 +348,12 @@
 #include <alibabacloud/models/DescribeIpAbroadCountryInfosRequest.hpp>
 #include <alibabacloud/models/DescribeIpAbroadCountryInfosResponseBody.hpp>
 #include <alibabacloud/models/DescribeIpAbroadCountryInfosResponse.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigRequest.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigResponse.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigsRequest.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigsResponseBody.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigsResponse.hpp>
 #include <alibabacloud/models/DescribeMajorProtectionBlackIpsRequest.hpp>
 #include <alibabacloud/models/DescribeMajorProtectionBlackIpsResponseBody.hpp>
 #include <alibabacloud/models/DescribeMajorProtectionBlackIpsResponse.hpp>
@@ -368,6 +386,12 @@
 #include <alibabacloud/models/DescribeResourceInstanceCertsRequest.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponse.hpp>
+#include <alibabacloud/models/DescribeResourceLogDeliveryStatusRequest.hpp>
+#include <alibabacloud/models/DescribeResourceLogDeliveryStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribeResourceLogDeliveryStatusResponse.hpp>
+#include <alibabacloud/models/DescribeResourceLogFieldConfigRequest.hpp>
+#include <alibabacloud/models/DescribeResourceLogFieldConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeResourceLogFieldConfigResponse.hpp>
 #include <alibabacloud/models/DescribeResourceLogStatusRequest.hpp>
 #include <alibabacloud/models/DescribeResourceLogStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeResourceLogStatusResponse.hpp>
@@ -383,6 +407,9 @@
 #include <alibabacloud/models/DescribeResponseCodeTrendGraphRequest.hpp>
 #include <alibabacloud/models/DescribeResponseCodeTrendGraphResponseBody.hpp>
 #include <alibabacloud/models/DescribeResponseCodeTrendGraphResponse.hpp>
+#include <alibabacloud/models/DescribeRoleAuthStatusRequest.hpp>
+#include <alibabacloud/models/DescribeRoleAuthStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribeRoleAuthStatusResponse.hpp>
 #include <alibabacloud/models/DescribeRuleGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeRuleGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRuleGroupsResponse.hpp>
@@ -494,6 +521,9 @@
 #include <alibabacloud/models/DescribeWafSourceIpSegmentRequest.hpp>
 #include <alibabacloud/models/DescribeWafSourceIpSegmentResponseBody.hpp>
 #include <alibabacloud/models/DescribeWafSourceIpSegmentResponse.hpp>
+#include <alibabacloud/models/InitializeWafOperationRoleRequest.hpp>
+#include <alibabacloud/models/InitializeWafOperationRoleResponseBody.hpp>
+#include <alibabacloud/models/InitializeWafOperationRoleResponse.hpp>
 #include <alibabacloud/models/ListTagKeysRequest.hpp>
 #include <alibabacloud/models/ListTagKeysResponseBody.hpp>
 #include <alibabacloud/models/ListTagKeysResponse.hpp>
@@ -528,6 +558,9 @@
 #include <alibabacloud/models/ModifyCloudResourceShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/ModifyCloudResourceResponse.hpp>
+#include <alibabacloud/models/ModifyCloudResourceCertRequest.hpp>
+#include <alibabacloud/models/ModifyCloudResourceCertResponseBody.hpp>
+#include <alibabacloud/models/ModifyCloudResourceCertResponse.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsRequest.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsResponseBody.hpp>
 #include <alibabacloud/models/ModifyDefaultHttpsResponse.hpp>
@@ -559,6 +592,9 @@
 #include <alibabacloud/models/ModifyDomainShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyDomainResponseBody.hpp>
 #include <alibabacloud/models/ModifyDomainResponse.hpp>
+#include <alibabacloud/models/ModifyDomainCertRequest.hpp>
+#include <alibabacloud/models/ModifyDomainCertResponseBody.hpp>
+#include <alibabacloud/models/ModifyDomainCertResponse.hpp>
 #include <alibabacloud/models/ModifyDomainPunishStatusRequest.hpp>
 #include <alibabacloud/models/ModifyDomainPunishStatusResponseBody.hpp>
 #include <alibabacloud/models/ModifyDomainPunishStatusResponse.hpp>
@@ -586,6 +622,9 @@
 #include <alibabacloud/models/ModifyHybridCloudServerRequest.hpp>
 #include <alibabacloud/models/ModifyHybridCloudServerResponseBody.hpp>
 #include <alibabacloud/models/ModifyHybridCloudServerResponse.hpp>
+#include <alibabacloud/models/ModifyLogDeliveryConfigRequest.hpp>
+#include <alibabacloud/models/ModifyLogDeliveryConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyLogDeliveryConfigResponse.hpp>
 #include <alibabacloud/models/ModifyMajorProtectionBlackIpRequest.hpp>
 #include <alibabacloud/models/ModifyMajorProtectionBlackIpResponseBody.hpp>
 #include <alibabacloud/models/ModifyMajorProtectionBlackIpResponse.hpp>
@@ -595,6 +634,12 @@
 #include <alibabacloud/models/ModifyPauseProtectionStatusRequest.hpp>
 #include <alibabacloud/models/ModifyPauseProtectionStatusResponseBody.hpp>
 #include <alibabacloud/models/ModifyPauseProtectionStatusResponse.hpp>
+#include <alibabacloud/models/ModifyResourceLogDeliveryStatusRequest.hpp>
+#include <alibabacloud/models/ModifyResourceLogDeliveryStatusResponseBody.hpp>
+#include <alibabacloud/models/ModifyResourceLogDeliveryStatusResponse.hpp>
+#include <alibabacloud/models/ModifyResourceLogFieldConfigRequest.hpp>
+#include <alibabacloud/models/ModifyResourceLogFieldConfigResponseBody.hpp>
+#include <alibabacloud/models/ModifyResourceLogFieldConfigResponse.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusRequest.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusResponseBody.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusResponse.hpp>
@@ -730,6 +775,8 @@
 #include <alibabacloud/models/DescribeInstanceResponseBodyDetails.hpp>
 #include <alibabacloud/models/DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions.hpp>
 #include <alibabacloud/models/DescribeIpAbroadCountryInfosResponseBodyAbroadInfos.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigResponseBodyDeliveryConfig.hpp>
+#include <alibabacloud/models/DescribeLogDeliveryConfigsResponseBodyDeliveryConfigs.hpp>
 #include <alibabacloud/models/DescribeMajorProtectionBlackIpsResponseBodyIpList.hpp>
 #include <alibabacloud/models/DescribeMemberAccountsResponseBodyAccountInfos.hpp>
 #include <alibabacloud/models/DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions.hpp>
@@ -751,6 +798,7 @@
 #include <alibabacloud/models/DescribeProductInstancesResponseBodyProductInstancesResourcePorts.hpp>
 #include <alibabacloud/models/DescribeProductInstancesResponseBodyProductInstances.hpp>
 #include <alibabacloud/models/DescribeResourceInstanceCertsResponseBodyCerts.hpp>
+#include <alibabacloud/models/DescribeResourceLogDeliveryStatusResponseBodyLogConfigs.hpp>
 #include <alibabacloud/models/DescribeResourceLogStatusResponseBodyResult.hpp>
 #include <alibabacloud/models/DescribeResponseCodeTrendGraphResponseBodyResponseCodes.hpp>
 #include <alibabacloud/models/DescribeRuleGroupsResponseBodyRuleGroups.hpp>
@@ -809,6 +857,7 @@
 #include <alibabacloud/models/ModifyCloudResourceRequestListen.hpp>
 #include <alibabacloud/models/ModifyCloudResourceRequestRedirectRequestHeaders.hpp>
 #include <alibabacloud/models/ModifyCloudResourceRequestRedirect.hpp>
+#include <alibabacloud/models/ModifyCloudResourceCertRequestCertificates.hpp>
 #include <alibabacloud/models/ModifyDefenseResourceXffRequestResponseHeaders.hpp>
 #include <alibabacloud/models/ModifyDomainRequestListen.hpp>
 #include <alibabacloud/models/ModifyDomainRequestRedirectBackendPorts.hpp>

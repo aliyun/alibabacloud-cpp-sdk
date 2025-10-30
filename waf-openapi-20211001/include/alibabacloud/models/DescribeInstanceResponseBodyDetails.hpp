@@ -41,7 +41,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Dlp, dlp_);
       DARABONBA_PTR_TO_JSON(DlpRuleInTemplateMaxCount, dlpRuleInTemplateMaxCount_);
       DARABONBA_PTR_TO_JSON(DlpTemplateMaxCount, dlpTemplateMaxCount_);
+      DARABONBA_PTR_TO_JSON(ElasticQps, elasticQps_);
       DARABONBA_PTR_TO_JSON(ExclusiveIp, exclusiveIp_);
+      DARABONBA_PTR_TO_JSON(ExtendQps, extendQps_);
+      DARABONBA_PTR_TO_JSON(FreeQps, freeQps_);
       DARABONBA_PTR_TO_JSON(Gslb, gslb_);
       DARABONBA_PTR_TO_JSON(HttpPorts, httpPorts_);
       DARABONBA_PTR_TO_JSON(HttpsPorts, httpsPorts_);
@@ -53,6 +56,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogService, logService_);
       DARABONBA_PTR_TO_JSON(MajorProtection, majorProtection_);
       DARABONBA_PTR_TO_JSON(MajorProtectionTemplateMaxCount, majorProtectionTemplateMaxCount_);
+      DARABONBA_PTR_TO_JSON(QpsBillingCap, qpsBillingCap_);
       DARABONBA_PTR_TO_JSON(Tamperproof, tamperproof_);
       DARABONBA_PTR_TO_JSON(TamperproofRuleInTemplateMaxCount, tamperproofRuleInTemplateMaxCount_);
       DARABONBA_PTR_TO_JSON(TamperproofTemplateMaxCount, tamperproofTemplateMaxCount_);
@@ -94,7 +98,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Dlp, dlp_);
       DARABONBA_PTR_FROM_JSON(DlpRuleInTemplateMaxCount, dlpRuleInTemplateMaxCount_);
       DARABONBA_PTR_FROM_JSON(DlpTemplateMaxCount, dlpTemplateMaxCount_);
+      DARABONBA_PTR_FROM_JSON(ElasticQps, elasticQps_);
       DARABONBA_PTR_FROM_JSON(ExclusiveIp, exclusiveIp_);
+      DARABONBA_PTR_FROM_JSON(ExtendQps, extendQps_);
+      DARABONBA_PTR_FROM_JSON(FreeQps, freeQps_);
       DARABONBA_PTR_FROM_JSON(Gslb, gslb_);
       DARABONBA_PTR_FROM_JSON(HttpPorts, httpPorts_);
       DARABONBA_PTR_FROM_JSON(HttpsPorts, httpsPorts_);
@@ -106,6 +113,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogService, logService_);
       DARABONBA_PTR_FROM_JSON(MajorProtection, majorProtection_);
       DARABONBA_PTR_FROM_JSON(MajorProtectionTemplateMaxCount, majorProtectionTemplateMaxCount_);
+      DARABONBA_PTR_FROM_JSON(QpsBillingCap, qpsBillingCap_);
       DARABONBA_PTR_FROM_JSON(Tamperproof, tamperproof_);
       DARABONBA_PTR_FROM_JSON(TamperproofRuleInTemplateMaxCount, tamperproofRuleInTemplateMaxCount_);
       DARABONBA_PTR_FROM_JSON(TamperproofTemplateMaxCount, tamperproofTemplateMaxCount_);
@@ -135,11 +143,12 @@ namespace Models
         && return this->cnameResourceMaxCount_ == nullptr && return this->customResponse_ == nullptr && return this->customResponseRuleInTemplateMaxCount_ == nullptr && return this->customResponseTemplateMaxCount_ == nullptr && return this->customRule_ == nullptr
         && return this->customRuleAction_ == nullptr && return this->customRuleCondition_ == nullptr && return this->customRuleInTemplateMaxCount_ == nullptr && return this->customRuleRatelimitor_ == nullptr && return this->customRuleTemplateMaxCount_ == nullptr
         && return this->defenseGroupMaxCount_ == nullptr && return this->defenseObjectInGroupMaxCount_ == nullptr && return this->defenseObjectInTemplateMaxCount_ == nullptr && return this->defenseObjectMaxCount_ == nullptr && return this->dlp_ == nullptr
-        && return this->dlpRuleInTemplateMaxCount_ == nullptr && return this->dlpTemplateMaxCount_ == nullptr && return this->exclusiveIp_ == nullptr && return this->gslb_ == nullptr && return this->httpPorts_ == nullptr
-        && return this->httpsPorts_ == nullptr && return this->ipBlacklist_ == nullptr && return this->ipBlacklistIpInRuleMaxCount_ == nullptr && return this->ipBlacklistRuleInTemplateMaxCount_ == nullptr && return this->ipBlacklistTemplateMaxCount_ == nullptr
-        && return this->ipv6_ == nullptr && return this->logService_ == nullptr && return this->majorProtection_ == nullptr && return this->majorProtectionTemplateMaxCount_ == nullptr && return this->tamperproof_ == nullptr
-        && return this->tamperproofRuleInTemplateMaxCount_ == nullptr && return this->tamperproofTemplateMaxCount_ == nullptr && return this->vastIpBlacklistInFileMaxCount_ == nullptr && return this->vastIpBlacklistInOperationMaxCount_ == nullptr && return this->vastIpBlacklistMaxCount_ == nullptr
-        && return this->whitelist_ == nullptr && return this->whitelistLogical_ == nullptr && return this->whitelistRuleCondition_ == nullptr && return this->whitelistRuleInTemplateMaxCount_ == nullptr && return this->whitelistTemplateMaxCount_ == nullptr; };
+        && return this->dlpRuleInTemplateMaxCount_ == nullptr && return this->dlpTemplateMaxCount_ == nullptr && return this->elasticQps_ == nullptr && return this->exclusiveIp_ == nullptr && return this->extendQps_ == nullptr
+        && return this->freeQps_ == nullptr && return this->gslb_ == nullptr && return this->httpPorts_ == nullptr && return this->httpsPorts_ == nullptr && return this->ipBlacklist_ == nullptr
+        && return this->ipBlacklistIpInRuleMaxCount_ == nullptr && return this->ipBlacklistRuleInTemplateMaxCount_ == nullptr && return this->ipBlacklistTemplateMaxCount_ == nullptr && return this->ipv6_ == nullptr && return this->logService_ == nullptr
+        && return this->majorProtection_ == nullptr && return this->majorProtectionTemplateMaxCount_ == nullptr && return this->qpsBillingCap_ == nullptr && return this->tamperproof_ == nullptr && return this->tamperproofRuleInTemplateMaxCount_ == nullptr
+        && return this->tamperproofTemplateMaxCount_ == nullptr && return this->vastIpBlacklistInFileMaxCount_ == nullptr && return this->vastIpBlacklistInOperationMaxCount_ == nullptr && return this->vastIpBlacklistMaxCount_ == nullptr && return this->whitelist_ == nullptr
+        && return this->whitelistLogical_ == nullptr && return this->whitelistRuleCondition_ == nullptr && return this->whitelistRuleInTemplateMaxCount_ == nullptr && return this->whitelistTemplateMaxCount_ == nullptr; };
     // aclRuleMaxIpCount Field Functions 
     bool hasAclRuleMaxIpCount() const { return this->aclRuleMaxIpCount_ != nullptr;};
     void deleteAclRuleMaxIpCount() { this->aclRuleMaxIpCount_ = nullptr;};
@@ -336,11 +345,32 @@ namespace Models
     inline DescribeInstanceResponseBodyDetails& setDlpTemplateMaxCount(int64_t dlpTemplateMaxCount) { DARABONBA_PTR_SET_VALUE(dlpTemplateMaxCount_, dlpTemplateMaxCount) };
 
 
+    // elasticQps Field Functions 
+    bool hasElasticQps() const { return this->elasticQps_ != nullptr;};
+    void deleteElasticQps() { this->elasticQps_ = nullptr;};
+    inline int32_t elasticQps() const { DARABONBA_PTR_GET_DEFAULT(elasticQps_, 0) };
+    inline DescribeInstanceResponseBodyDetails& setElasticQps(int32_t elasticQps) { DARABONBA_PTR_SET_VALUE(elasticQps_, elasticQps) };
+
+
     // exclusiveIp Field Functions 
     bool hasExclusiveIp() const { return this->exclusiveIp_ != nullptr;};
     void deleteExclusiveIp() { this->exclusiveIp_ = nullptr;};
     inline bool exclusiveIp() const { DARABONBA_PTR_GET_DEFAULT(exclusiveIp_, false) };
     inline DescribeInstanceResponseBodyDetails& setExclusiveIp(bool exclusiveIp) { DARABONBA_PTR_SET_VALUE(exclusiveIp_, exclusiveIp) };
+
+
+    // extendQps Field Functions 
+    bool hasExtendQps() const { return this->extendQps_ != nullptr;};
+    void deleteExtendQps() { this->extendQps_ = nullptr;};
+    inline int32_t extendQps() const { DARABONBA_PTR_GET_DEFAULT(extendQps_, 0) };
+    inline DescribeInstanceResponseBodyDetails& setExtendQps(int32_t extendQps) { DARABONBA_PTR_SET_VALUE(extendQps_, extendQps) };
+
+
+    // freeQps Field Functions 
+    bool hasFreeQps() const { return this->freeQps_ != nullptr;};
+    void deleteFreeQps() { this->freeQps_ = nullptr;};
+    inline int32_t freeQps() const { DARABONBA_PTR_GET_DEFAULT(freeQps_, 0) };
+    inline DescribeInstanceResponseBodyDetails& setFreeQps(int32_t freeQps) { DARABONBA_PTR_SET_VALUE(freeQps_, freeQps) };
 
 
     // gslb Field Functions 
@@ -418,6 +448,13 @@ namespace Models
     void deleteMajorProtectionTemplateMaxCount() { this->majorProtectionTemplateMaxCount_ = nullptr;};
     inline int64_t majorProtectionTemplateMaxCount() const { DARABONBA_PTR_GET_DEFAULT(majorProtectionTemplateMaxCount_, 0L) };
     inline DescribeInstanceResponseBodyDetails& setMajorProtectionTemplateMaxCount(int64_t majorProtectionTemplateMaxCount) { DARABONBA_PTR_SET_VALUE(majorProtectionTemplateMaxCount_, majorProtectionTemplateMaxCount) };
+
+
+    // qpsBillingCap Field Functions 
+    bool hasQpsBillingCap() const { return this->qpsBillingCap_ != nullptr;};
+    void deleteQpsBillingCap() { this->qpsBillingCap_ = nullptr;};
+    inline int32_t qpsBillingCap() const { DARABONBA_PTR_GET_DEFAULT(qpsBillingCap_, 0) };
+    inline DescribeInstanceResponseBodyDetails& setQpsBillingCap(int32_t qpsBillingCap) { DARABONBA_PTR_SET_VALUE(qpsBillingCap_, qpsBillingCap) };
 
 
     // tamperproof Field Functions 
@@ -578,11 +615,14 @@ namespace Models
     std::shared_ptr<int64_t> dlpRuleInTemplateMaxCount_ = nullptr;
     // The maximum number of data leakage prevention rule templates that can be configured.
     std::shared_ptr<int64_t> dlpTemplateMaxCount_ = nullptr;
+    std::shared_ptr<int32_t> elasticQps_ = nullptr;
     // Indicates whether exclusive IP addresses are supported. Valid values:
     // 
     // *   **true:** Exclusive IP addresses are supported.
     // *   **false:** Exclusive IP addresses are not supported.
     std::shared_ptr<bool> exclusiveIp_ = nullptr;
+    std::shared_ptr<int32_t> extendQps_ = nullptr;
+    std::shared_ptr<int32_t> freeQps_ = nullptr;
     // Indicates whether global server load balancing (GSLB) is supported. Valid values:
     // 
     // *   **true:** GSLB is supported.
@@ -620,6 +660,7 @@ namespace Models
     std::shared_ptr<bool> majorProtection_ = nullptr;
     // The maximum number of major event protection rule templates that can be configured.
     std::shared_ptr<int64_t> majorProtectionTemplateMaxCount_ = nullptr;
+    std::shared_ptr<int32_t> qpsBillingCap_ = nullptr;
     // Indicates whether the website tamper-proofing module is supported. Valid values:
     // 
     // *   **true:** The website tamper-proofing module is supported.

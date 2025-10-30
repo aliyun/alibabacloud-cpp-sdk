@@ -1082,6 +1082,68 @@ CreateHybridCloudGroupResponse Client::createHybridCloudGroup(const CreateHybrid
 }
 
 /**
+ * @summary Creates a hybrid cloud log delivery configuration.
+ *
+ * @param request CreateLogDeliveryConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateLogDeliveryConfigResponse
+ */
+CreateLogDeliveryConfigResponse Client::createLogDeliveryConfigWithOptions(const CreateLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryDetail()) {
+    query["DeliveryDetail"] = request.deliveryDetail();
+  }
+
+  if (!!request.hasDeliveryName()) {
+    query["DeliveryName"] = request.deliveryName();
+  }
+
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateLogDeliveryConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateLogDeliveryConfigResponse>();
+}
+
+/**
+ * @summary Creates a hybrid cloud log delivery configuration.
+ *
+ * @param request CreateLogDeliveryConfigRequest
+ * @return CreateLogDeliveryConfigResponse
+ */
+CreateLogDeliveryConfigResponse Client::createLogDeliveryConfig(const CreateLogDeliveryConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createLogDeliveryConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an IP address blacklist for major event protection.
  *
  * @description This operation is available only on the China site (aliyun.com).
@@ -2027,6 +2089,118 @@ DeleteHybridCloudClusterRuleResponse Client::deleteHybridCloudClusterRuleWithOpt
 DeleteHybridCloudClusterRuleResponse Client::deleteHybridCloudClusterRule(const DeleteHybridCloudClusterRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteHybridCloudClusterRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除组信息
+ *
+ * @param request DeleteHybridCloudGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHybridCloudGroupResponse
+ */
+DeleteHybridCloudGroupResponse Client::deleteHybridCloudGroupWithOptions(const DeleteHybridCloudGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteHybridCloudGroup"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHybridCloudGroupResponse>();
+}
+
+/**
+ * @summary 删除组信息
+ *
+ * @param request DeleteHybridCloudGroupRequest
+ * @return DeleteHybridCloudGroupResponse
+ */
+DeleteHybridCloudGroupResponse Client::deleteHybridCloudGroup(const DeleteHybridCloudGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHybridCloudGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除日志外发配置
+ *
+ * @param request DeleteLogDeliveryConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLogDeliveryConfigResponse
+ */
+DeleteLogDeliveryConfigResponse Client::deleteLogDeliveryConfigWithOptions(const DeleteLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryName()) {
+    query["DeliveryName"] = request.deliveryName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLogDeliveryConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLogDeliveryConfigResponse>();
+}
+
+/**
+ * @summary 删除日志外发配置
+ *
+ * @param request DeleteLogDeliveryConfigRequest
+ * @return DeleteLogDeliveryConfigResponse
+ */
+DeleteLogDeliveryConfigResponse Client::deleteLogDeliveryConfig(const DeleteLogDeliveryConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLogDeliveryConfigWithOptions(request, runtime);
 }
 
 /**
@@ -6544,6 +6718,56 @@ DescribeHybridCloudProcessMonitorResponse Client::describeHybridCloudProcessMoni
 }
 
 /**
+ * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+ *
+ * @param request DescribeHybridCloudProtectableCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHybridCloudProtectableCountResponse
+ */
+DescribeHybridCloudProtectableCountResponse Client::describeHybridCloudProtectableCountWithOptions(const DescribeHybridCloudProtectableCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeHybridCloudProtectableCount"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHybridCloudProtectableCountResponse>();
+}
+
+/**
+ * @summary Queries the number of protection nodes that can be added to a hybrid cloud cluster.
+ *
+ * @param request DescribeHybridCloudProtectableCountRequest
+ * @return DescribeHybridCloudProtectableCountResponse
+ */
+DescribeHybridCloudProtectableCountResponse Client::describeHybridCloudProtectableCount(const DescribeHybridCloudProtectableCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHybridCloudProtectableCountWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询混合云域名详情
  *
  * @param request DescribeHybridCloudResourceDetailRequest
@@ -7113,6 +7337,126 @@ DescribeIpAbroadCountryInfosResponse Client::describeIpAbroadCountryInfosWithOpt
 DescribeIpAbroadCountryInfosResponse Client::describeIpAbroadCountryInfos(const DescribeIpAbroadCountryInfosRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeIpAbroadCountryInfosWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a hybrid cloud log delivery configuration.
+ *
+ * @param request DescribeLogDeliveryConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLogDeliveryConfigResponse
+ */
+DescribeLogDeliveryConfigResponse Client::describeLogDeliveryConfigWithOptions(const DescribeLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryName()) {
+    query["DeliveryName"] = request.deliveryName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLogDeliveryConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLogDeliveryConfigResponse>();
+}
+
+/**
+ * @summary Queries a hybrid cloud log delivery configuration.
+ *
+ * @param request DescribeLogDeliveryConfigRequest
+ * @return DescribeLogDeliveryConfigResponse
+ */
+DescribeLogDeliveryConfigResponse Client::describeLogDeliveryConfig(const DescribeLogDeliveryConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLogDeliveryConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries all hybrid cloud log delivery configurations.
+ *
+ * @param request DescribeLogDeliveryConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLogDeliveryConfigsResponse
+ */
+DescribeLogDeliveryConfigsResponse Client::describeLogDeliveryConfigsWithOptions(const DescribeLogDeliveryConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryNameLike()) {
+    query["DeliveryNameLike"] = request.deliveryNameLike();
+  }
+
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLogDeliveryConfigs"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLogDeliveryConfigsResponse>();
+}
+
+/**
+ * @summary Queries all hybrid cloud log delivery configurations.
+ *
+ * @param request DescribeLogDeliveryConfigsRequest
+ * @return DescribeLogDeliveryConfigsResponse
+ */
+DescribeLogDeliveryConfigsResponse Client::describeLogDeliveryConfigs(const DescribeLogDeliveryConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLogDeliveryConfigsWithOptions(request, runtime);
 }
 
 /**
@@ -7760,6 +8104,118 @@ DescribeResourceInstanceCertsResponse Client::describeResourceInstanceCerts(cons
 }
 
 /**
+ * @summary 查询防护对象日志外发状态
+ *
+ * @param request DescribeResourceLogDeliveryStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeResourceLogDeliveryStatusResponse
+ */
+DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliveryStatusWithOptions(const DescribeResourceLogDeliveryStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasResources()) {
+    query["Resources"] = request.resources();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeResourceLogDeliveryStatus"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeResourceLogDeliveryStatusResponse>();
+}
+
+/**
+ * @summary 查询防护对象日志外发状态
+ *
+ * @param request DescribeResourceLogDeliveryStatusRequest
+ * @return DescribeResourceLogDeliveryStatusResponse
+ */
+DescribeResourceLogDeliveryStatusResponse Client::describeResourceLogDeliveryStatus(const DescribeResourceLogDeliveryStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeResourceLogDeliveryStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询防护对象日志字段配置
+ *
+ * @param request DescribeResourceLogFieldConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeResourceLogFieldConfigResponse
+ */
+DescribeResourceLogFieldConfigResponse Client::describeResourceLogFieldConfigWithOptions(const DescribeResourceLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    query["Resource"] = request.resource();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeResourceLogFieldConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeResourceLogFieldConfigResponse>();
+}
+
+/**
+ * @summary 查询防护对象日志字段配置
+ *
+ * @param request DescribeResourceLogFieldConfigRequest
+ * @return DescribeResourceLogFieldConfigResponse
+ */
+DescribeResourceLogFieldConfigResponse Client::describeResourceLogFieldConfig(const DescribeResourceLogFieldConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeResourceLogFieldConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries whether the log collection feature is enabled for a protected object.
  *
  * @param request DescribeResourceLogStatusRequest
@@ -8039,6 +8495,52 @@ DescribeResponseCodeTrendGraphResponse Client::describeResponseCodeTrendGraphWit
 DescribeResponseCodeTrendGraphResponse Client::describeResponseCodeTrendGraph(const DescribeResponseCodeTrendGraphRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeResponseCodeTrendGraphWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询授权状态
+ *
+ * @param request DescribeRoleAuthStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRoleAuthStatusResponse
+ */
+DescribeRoleAuthStatusResponse Client::describeRoleAuthStatusWithOptions(const DescribeRoleAuthStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRoleAuthStatus"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRoleAuthStatusResponse>();
+}
+
+/**
+ * @summary 查询授权状态
+ *
+ * @param request DescribeRoleAuthStatusRequest
+ * @return DescribeRoleAuthStatusResponse
+ */
+DescribeRoleAuthStatusResponse Client::describeRoleAuthStatus(const DescribeRoleAuthStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRoleAuthStatusWithOptions(request, runtime);
 }
 
 /**
@@ -10354,6 +10856,56 @@ DescribeWafSourceIpSegmentResponse Client::describeWafSourceIpSegment(const Desc
 }
 
 /**
+ * @summary 创建WAF服务关联角色
+ *
+ * @param request InitializeWafOperationRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitializeWafOperationRoleResponse
+ */
+InitializeWafOperationRoleResponse Client::initializeWafOperationRoleWithOptions(const InitializeWafOperationRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InitializeWafOperationRole"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitializeWafOperationRoleResponse>();
+}
+
+/**
+ * @summary 创建WAF服务关联角色
+ *
+ * @param request InitializeWafOperationRoleRequest
+ * @return InitializeWafOperationRoleResponse
+ */
+InitializeWafOperationRoleResponse Client::initializeWafOperationRole(const InitializeWafOperationRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initializeWafOperationRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries tag keys.
  *
  * @param request ListTagKeysRequest
@@ -11046,6 +11598,68 @@ ModifyCloudResourceResponse Client::modifyCloudResource(const ModifyCloudResourc
 }
 
 /**
+ * @summary 修改云产品接入的证书
+ *
+ * @param request ModifyCloudResourceCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCloudResourceCertResponse
+ */
+ModifyCloudResourceCertResponse Client::modifyCloudResourceCertWithOptions(const ModifyCloudResourceCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertificates()) {
+    query["Certificates"] = request.certificates();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceInstanceId()) {
+    query["ResourceInstanceId"] = request.resourceInstanceId();
+  }
+
+  if (!!request.hasResourceProduct()) {
+    query["ResourceProduct"] = request.resourceProduct();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCloudResourceCert"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCloudResourceCertResponse>();
+}
+
+/**
+ * @summary 修改云产品接入的证书
+ *
+ * @param request ModifyCloudResourceCertRequest
+ * @return ModifyCloudResourceCertResponse
+ */
+ModifyCloudResourceCertResponse Client::modifyCloudResourceCert(const ModifyCloudResourceCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCloudResourceCertWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
  *
  * @param request ModifyDefaultHttpsRequest
@@ -11714,6 +12328,76 @@ ModifyDomainResponse Client::modifyDomain(const ModifyDomainRequest &request) {
 }
 
 /**
+ * @summary 修改域名的证书
+ *
+ * @param request ModifyDomainCertRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDomainCertResponse
+ */
+ModifyDomainCertResponse Client::modifyDomainCertWithOptions(const ModifyDomainCertRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertId()) {
+    query["CertId"] = request.certId();
+  }
+
+  if (!!request.hasCipherSuite()) {
+    query["CipherSuite"] = request.cipherSuite();
+  }
+
+  if (!!request.hasCustomCiphers()) {
+    query["CustomCiphers"] = request.customCiphers();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.domain();
+  }
+
+  if (!!request.hasEnableTLSv3()) {
+    query["EnableTLSv3"] = request.enableTLSv3();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTLSVersion()) {
+    query["TLSVersion"] = request.TLSVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDomainCert"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDomainCertResponse>();
+}
+
+/**
+ * @summary 修改域名的证书
+ *
+ * @param request ModifyDomainCertRequest
+ * @return ModifyDomainCertResponse
+ */
+ModifyDomainCertResponse Client::modifyDomainCert(const ModifyDomainCertRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDomainCertWithOptions(request, runtime);
+}
+
+/**
  * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
  *
  * @param request ModifyDomainPunishStatusRequest
@@ -12312,6 +12996,68 @@ ModifyHybridCloudServerResponse Client::modifyHybridCloudServer(const ModifyHybr
 }
 
 /**
+ * @summary Modifies a hybrid cloud log delivery configuration.
+ *
+ * @param request ModifyLogDeliveryConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyLogDeliveryConfigResponse
+ */
+ModifyLogDeliveryConfigResponse Client::modifyLogDeliveryConfigWithOptions(const ModifyLogDeliveryConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryDetail()) {
+    query["DeliveryDetail"] = request.deliveryDetail();
+  }
+
+  if (!!request.hasDeliveryName()) {
+    query["DeliveryName"] = request.deliveryName();
+  }
+
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyLogDeliveryConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyLogDeliveryConfigResponse>();
+}
+
+/**
+ * @summary Modifies a hybrid cloud log delivery configuration.
+ *
+ * @param request ModifyLogDeliveryConfigRequest
+ * @return ModifyLogDeliveryConfigResponse
+ */
+ModifyLogDeliveryConfigResponse Client::modifyLogDeliveryConfig(const ModifyLogDeliveryConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyLogDeliveryConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies an IP address blacklist for major event protection.
  *
  * @param request ModifyMajorProtectionBlackIpRequest
@@ -12495,6 +13241,138 @@ ModifyPauseProtectionStatusResponse Client::modifyPauseProtectionStatusWithOptio
 ModifyPauseProtectionStatusResponse Client::modifyPauseProtectionStatus(const ModifyPauseProtectionStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyPauseProtectionStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改防护对象日志外发状态
+ *
+ * @param request ModifyResourceLogDeliveryStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyResourceLogDeliveryStatusResponse
+ */
+ModifyResourceLogDeliveryStatusResponse Client::modifyResourceLogDeliveryStatusWithOptions(const ModifyResourceLogDeliveryStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryName()) {
+    query["DeliveryName"] = request.deliveryName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    query["Resource"] = request.resource();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyResourceLogDeliveryStatus"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyResourceLogDeliveryStatusResponse>();
+}
+
+/**
+ * @summary 修改防护对象日志外发状态
+ *
+ * @param request ModifyResourceLogDeliveryStatusRequest
+ * @return ModifyResourceLogDeliveryStatusResponse
+ */
+ModifyResourceLogDeliveryStatusResponse Client::modifyResourceLogDeliveryStatus(const ModifyResourceLogDeliveryStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyResourceLogDeliveryStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改防护对象的日志字段配置
+ *
+ * @param request ModifyResourceLogFieldConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyResourceLogFieldConfigResponse
+ */
+ModifyResourceLogFieldConfigResponse Client::modifyResourceLogFieldConfigWithOptions(const ModifyResourceLogFieldConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDeliveryType()) {
+    query["DeliveryType"] = request.deliveryType();
+  }
+
+  if (!!request.hasExtendConfig()) {
+    query["ExtendConfig"] = request.extendConfig();
+  }
+
+  if (!!request.hasFieldList()) {
+    query["FieldList"] = request.fieldList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogDeliveryStrategy()) {
+    query["LogDeliveryStrategy"] = request.logDeliveryStrategy();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    query["Resource"] = request.resource();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyResourceLogFieldConfig"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyResourceLogFieldConfigResponse>();
+}
+
+/**
+ * @summary 修改防护对象的日志字段配置
+ *
+ * @param request ModifyResourceLogFieldConfigRequest
+ * @return ModifyResourceLogFieldConfigResponse
+ */
+ModifyResourceLogFieldConfigResponse Client::modifyResourceLogFieldConfig(const ModifyResourceLogFieldConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyResourceLogFieldConfigWithOptions(request, runtime);
 }
 
 /**
