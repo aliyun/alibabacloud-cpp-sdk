@@ -38,6 +38,23 @@ namespace Eiam20211201
       Models::AddApplicationAccountToUserResponse addApplicationAccountToUser(const Models::AddApplicationAccountToUserRequest &request);
 
       /**
+       * @summary 添加条款到品牌
+       *
+       * @param request AddCustomPrivacyPoliciesToBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddCustomPrivacyPoliciesToBrandResponse
+       */
+      Models::AddCustomPrivacyPoliciesToBrandResponse addCustomPrivacyPoliciesToBrandWithOptions(const Models::AddCustomPrivacyPoliciesToBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加条款到品牌
+       *
+       * @param request AddCustomPrivacyPoliciesToBrandRequest
+       * @return AddCustomPrivacyPoliciesToBrandResponse
+       */
+      Models::AddCustomPrivacyPoliciesToBrandResponse addCustomPrivacyPoliciesToBrand(const Models::AddCustomPrivacyPoliciesToBrandRequest &request);
+
+      /**
        * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
        *
        * @param request AddUserToOrganizationalUnitsRequest
@@ -231,6 +248,23 @@ namespace Eiam20211201
        * @return CreateConditionalAccessPolicyResponse
        */
       Models::CreateConditionalAccessPolicyResponse createConditionalAccessPolicy(const Models::CreateConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 创建自定义条款
+       *
+       * @param request CreateCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomPrivacyPolicyResponse
+       */
+      Models::CreateCustomPrivacyPolicyResponse createCustomPrivacyPolicyWithOptions(const Models::CreateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义条款
+       *
+       * @param request CreateCustomPrivacyPolicyRequest
+       * @return CreateCustomPrivacyPolicyResponse
+       */
+      Models::CreateCustomPrivacyPolicyResponse createCustomPrivacyPolicy(const Models::CreateCustomPrivacyPolicyRequest &request);
 
       /**
        * @summary Creates a custom domain name for an Employee Identity and Access Management (EIAM) instance.
@@ -511,6 +545,23 @@ namespace Eiam20211201
        * @return DeleteConditionalAccessPolicyResponse
        */
       Models::DeleteConditionalAccessPolicyResponse deleteConditionalAccessPolicy(const Models::DeleteConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 删除自定义条款
+       *
+       * @param request DeleteCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomPrivacyPolicyResponse
+       */
+      Models::DeleteCustomPrivacyPolicyResponse deleteCustomPrivacyPolicyWithOptions(const Models::DeleteCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自定义条款
+       *
+       * @param request DeleteCustomPrivacyPolicyRequest
+       * @return DeleteCustomPrivacyPolicyResponse
+       */
+      Models::DeleteCustomPrivacyPolicyResponse deleteCustomPrivacyPolicy(const Models::DeleteCustomPrivacyPolicyRequest &request);
 
       /**
        * @summary Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
@@ -865,6 +916,23 @@ namespace Eiam20211201
       Models::DisableConditionalAccessPolicyResponse disableConditionalAccessPolicy(const Models::DisableConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 禁用自定义条款
+       *
+       * @param request DisableCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableCustomPrivacyPolicyResponse
+       */
+      Models::DisableCustomPrivacyPolicyResponse disableCustomPrivacyPolicyWithOptions(const Models::DisableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用自定义条款
+       *
+       * @param request DisableCustomPrivacyPolicyRequest
+       * @return DisableCustomPrivacyPolicyResponse
+       */
+      Models::DisableCustomPrivacyPolicyResponse disableCustomPrivacyPolicy(const Models::DisableCustomPrivacyPolicyRequest &request);
+
+      /**
        * @summary Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
        *
        * @param request DisableDomainProxyTokenRequest
@@ -1124,6 +1192,23 @@ namespace Eiam20211201
       Models::EnableConditionalAccessPolicyResponse enableConditionalAccessPolicy(const Models::EnableConditionalAccessPolicyRequest &request);
 
       /**
+       * @summary 启用自定义条款
+       *
+       * @param request EnableCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableCustomPrivacyPolicyResponse
+       */
+      Models::EnableCustomPrivacyPolicyResponse enableCustomPrivacyPolicyWithOptions(const Models::EnableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用自定义条款
+       *
+       * @param request EnableCustomPrivacyPolicyRequest
+       * @return EnableCustomPrivacyPolicyResponse
+       */
+      Models::EnableCustomPrivacyPolicyResponse enableCustomPrivacyPolicy(const Models::EnableCustomPrivacyPolicyRequest &request);
+
+      /**
        * @summary Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
        *
        * @param request EnableDomainProxyTokenRequest
@@ -1381,6 +1466,23 @@ namespace Eiam20211201
        * @return GetConditionalAccessPolicyResponse
        */
       Models::GetConditionalAccessPolicyResponse getConditionalAccessPolicy(const Models::GetConditionalAccessPolicyRequest &request);
+
+      /**
+       * @summary 获取自定义条款
+       *
+       * @param request GetCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomPrivacyPolicyResponse
+       */
+      Models::GetCustomPrivacyPolicyResponse getCustomPrivacyPolicyWithOptions(const Models::GetCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取自定义条款
+       *
+       * @param request GetCustomPrivacyPolicyRequest
+       * @return GetCustomPrivacyPolicyResponse
+       */
+      Models::GetCustomPrivacyPolicyResponse getCustomPrivacyPolicy(const Models::GetCustomPrivacyPolicyRequest &request);
 
       /**
        * @summary Queries the information about a domain name of an Employee Identity and Access Management (EIAM) instance.
@@ -2045,6 +2147,40 @@ namespace Eiam20211201
       Models::ListConditionalAccessPoliciesForUserResponse listConditionalAccessPoliciesForUser(const Models::ListConditionalAccessPoliciesForUserRequest &request);
 
       /**
+       * @summary 自定义条款列表查询。
+       *
+       * @param request ListCustomPrivacyPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomPrivacyPoliciesResponse
+       */
+      Models::ListCustomPrivacyPoliciesResponse listCustomPrivacyPoliciesWithOptions(const Models::ListCustomPrivacyPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 自定义条款列表查询。
+       *
+       * @param request ListCustomPrivacyPoliciesRequest
+       * @return ListCustomPrivacyPoliciesResponse
+       */
+      Models::ListCustomPrivacyPoliciesResponse listCustomPrivacyPolicies(const Models::ListCustomPrivacyPoliciesRequest &request);
+
+      /**
+       * @summary 获取品牌关联资源的资源
+       *
+       * @param request ListCustomPrivacyPoliciesForBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomPrivacyPoliciesForBrandResponse
+       */
+      Models::ListCustomPrivacyPoliciesForBrandResponse listCustomPrivacyPoliciesForBrandWithOptions(const Models::ListCustomPrivacyPoliciesForBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取品牌关联资源的资源
+       *
+       * @param request ListCustomPrivacyPoliciesForBrandRequest
+       * @return ListCustomPrivacyPoliciesForBrandResponse
+       */
+      Models::ListCustomPrivacyPoliciesForBrandResponse listCustomPrivacyPoliciesForBrand(const Models::ListCustomPrivacyPoliciesForBrandRequest &request);
+
+      /**
        * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
        *
        * @param request ListDomainProxyTokensRequest
@@ -2516,6 +2652,23 @@ namespace Eiam20211201
        * @return RemoveApplicationAccountFromUserResponse
        */
       Models::RemoveApplicationAccountFromUserResponse removeApplicationAccountFromUser(const Models::RemoveApplicationAccountFromUserRequest &request);
+
+      /**
+       * @summary 移除品牌关联条款
+       *
+       * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+       */
+      Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrandWithOptions(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除品牌关联条款
+       *
+       * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
+       * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+       */
+      Models::RemoveCustomPrivacyPoliciesFromBrandResponse removeCustomPrivacyPoliciesFromBrand(const Models::RemoveCustomPrivacyPoliciesFromBrandRequest &request);
 
       /**
        * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
@@ -3038,6 +3191,23 @@ namespace Eiam20211201
        * @return UpdateConditionalAccessPolicyDescriptionResponse
        */
       Models::UpdateConditionalAccessPolicyDescriptionResponse updateConditionalAccessPolicyDescription(const Models::UpdateConditionalAccessPolicyDescriptionRequest &request);
+
+      /**
+       * @summary 更新自定义条款
+       *
+       * @param request UpdateCustomPrivacyPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomPrivacyPolicyResponse
+       */
+      Models::UpdateCustomPrivacyPolicyResponse updateCustomPrivacyPolicyWithOptions(const Models::UpdateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义条款
+       *
+       * @param request UpdateCustomPrivacyPolicyRequest
+       * @return UpdateCustomPrivacyPolicyResponse
+       */
+      Models::UpdateCustomPrivacyPolicyResponse updateCustomPrivacyPolicy(const Models::UpdateCustomPrivacyPolicyRequest &request);
 
       /**
        * @summary 修改域名关联的品牌。

@@ -90,6 +90,56 @@ AddApplicationAccountToUserResponse Client::addApplicationAccountToUser(const Ad
 }
 
 /**
+ * @summary 添加条款到品牌
+ *
+ * @param request AddCustomPrivacyPoliciesToBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddCustomPrivacyPoliciesToBrandResponse
+ */
+AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrandWithOptions(const AddCustomPrivacyPoliciesToBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyIds()) {
+    query["CustomPrivacyPolicyIds"] = request.customPrivacyPolicyIds();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddCustomPrivacyPoliciesToBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddCustomPrivacyPoliciesToBrandResponse>();
+}
+
+/**
+ * @summary 添加条款到品牌
+ *
+ * @param request AddCustomPrivacyPoliciesToBrandRequest
+ * @return AddCustomPrivacyPoliciesToBrandResponse
+ */
+AddCustomPrivacyPoliciesToBrandResponse Client::addCustomPrivacyPoliciesToBrand(const AddCustomPrivacyPoliciesToBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addCustomPrivacyPoliciesToBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
  *
  * @param request AddUserToOrganizationalUnitsRequest
@@ -709,6 +759,72 @@ CreateConditionalAccessPolicyResponse Client::createConditionalAccessPolicyWithO
 CreateConditionalAccessPolicyResponse Client::createConditionalAccessPolicy(const CreateConditionalAccessPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createConditionalAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建自定义条款
+ *
+ * @param request CreateCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomPrivacyPolicyResponse
+ */
+CreateCustomPrivacyPolicyResponse Client::createCustomPrivacyPolicyWithOptions(const CreateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyContents()) {
+    query["CustomPrivacyPolicyContents"] = request.customPrivacyPolicyContents();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyName()) {
+    query["CustomPrivacyPolicyName"] = request.customPrivacyPolicyName();
+  }
+
+  if (!!request.hasDefaultLanguageCode()) {
+    query["DefaultLanguageCode"] = request.defaultLanguageCode();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasUserConsentType()) {
+    query["UserConsentType"] = request.userConsentType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 创建自定义条款
+ *
+ * @param request CreateCustomPrivacyPolicyRequest
+ * @return CreateCustomPrivacyPolicyResponse
+ */
+CreateCustomPrivacyPolicyResponse Client::createCustomPrivacyPolicy(const CreateCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomPrivacyPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -1668,6 +1784,52 @@ DeleteConditionalAccessPolicyResponse Client::deleteConditionalAccessPolicy(cons
 }
 
 /**
+ * @summary 删除自定义条款
+ *
+ * @param request DeleteCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomPrivacyPolicyResponse
+ */
+DeleteCustomPrivacyPolicyResponse Client::deleteCustomPrivacyPolicyWithOptions(const DeleteCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyId()) {
+    query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 删除自定义条款
+ *
+ * @param request DeleteCustomPrivacyPolicyRequest
+ * @return DeleteCustomPrivacyPolicyResponse
+ */
+DeleteCustomPrivacyPolicyResponse Client::deleteCustomPrivacyPolicy(const DeleteCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomPrivacyPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
  *
  * @param request DeleteDomainRequest
@@ -2612,6 +2774,52 @@ DisableConditionalAccessPolicyResponse Client::disableConditionalAccessPolicy(co
 }
 
 /**
+ * @summary 禁用自定义条款
+ *
+ * @param request DisableCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableCustomPrivacyPolicyResponse
+ */
+DisableCustomPrivacyPolicyResponse Client::disableCustomPrivacyPolicyWithOptions(const DisableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyId()) {
+    query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 禁用自定义条款
+ *
+ * @param request DisableCustomPrivacyPolicyRequest
+ * @return DisableCustomPrivacyPolicyResponse
+ */
+DisableCustomPrivacyPolicyResponse Client::disableCustomPrivacyPolicy(const DisableCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableCustomPrivacyPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
  *
  * @param request DisableDomainProxyTokenRequest
@@ -3318,6 +3526,52 @@ EnableConditionalAccessPolicyResponse Client::enableConditionalAccessPolicy(cons
 }
 
 /**
+ * @summary 启用自定义条款
+ *
+ * @param request EnableCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableCustomPrivacyPolicyResponse
+ */
+EnableCustomPrivacyPolicyResponse Client::enableCustomPrivacyPolicyWithOptions(const EnableCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyId()) {
+    query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 启用自定义条款
+ *
+ * @param request EnableCustomPrivacyPolicyRequest
+ * @return EnableCustomPrivacyPolicyResponse
+ */
+EnableCustomPrivacyPolicyResponse Client::enableCustomPrivacyPolicy(const EnableCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableCustomPrivacyPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
  *
  * @param request EnableDomainProxyTokenRequest
@@ -4009,6 +4263,52 @@ GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicyWithOptions
 GetConditionalAccessPolicyResponse Client::getConditionalAccessPolicy(const GetConditionalAccessPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getConditionalAccessPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取自定义条款
+ *
+ * @param request GetCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomPrivacyPolicyResponse
+ */
+GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicyWithOptions(const GetCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyId()) {
+    query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 获取自定义条款
+ *
+ * @param request GetCustomPrivacyPolicyRequest
+ * @return GetCustomPrivacyPolicyResponse
+ */
+GetCustomPrivacyPolicyResponse Client::getCustomPrivacyPolicy(const GetCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCustomPrivacyPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -5896,6 +6196,122 @@ ListConditionalAccessPoliciesForUserResponse Client::listConditionalAccessPolici
 }
 
 /**
+ * @summary 自定义条款列表查询。
+ *
+ * @param request ListCustomPrivacyPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomPrivacyPoliciesResponse
+ */
+ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPoliciesWithOptions(const ListCustomPrivacyPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyNameStartsWith()) {
+    query["CustomPrivacyPolicyNameStartsWith"] = request.customPrivacyPolicyNameStartsWith();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomPrivacyPolicies"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomPrivacyPoliciesResponse>();
+}
+
+/**
+ * @summary 自定义条款列表查询。
+ *
+ * @param request ListCustomPrivacyPoliciesRequest
+ * @return ListCustomPrivacyPoliciesResponse
+ */
+ListCustomPrivacyPoliciesResponse Client::listCustomPrivacyPolicies(const ListCustomPrivacyPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomPrivacyPoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取品牌关联资源的资源
+ *
+ * @param request ListCustomPrivacyPoliciesForBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomPrivacyPoliciesForBrandResponse
+ */
+ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBrandWithOptions(const ListCustomPrivacyPoliciesForBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomPrivacyPoliciesForBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomPrivacyPoliciesForBrandResponse>();
+}
+
+/**
+ * @summary 获取品牌关联资源的资源
+ *
+ * @param request ListCustomPrivacyPoliciesForBrandRequest
+ * @return ListCustomPrivacyPoliciesForBrandResponse
+ */
+ListCustomPrivacyPoliciesForBrandResponse Client::listCustomPrivacyPoliciesForBrand(const ListCustomPrivacyPoliciesForBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomPrivacyPoliciesForBrandWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the proxy tokens of a domain name of an Employee Identity and Access Management (EIAM) instance.
  *
  * @param request ListDomainProxyTokensRequest
@@ -7410,6 +7826,56 @@ RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUse
 RemoveApplicationAccountFromUserResponse Client::removeApplicationAccountFromUser(const RemoveApplicationAccountFromUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeApplicationAccountFromUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除品牌关联条款
+ *
+ * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+ */
+RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPoliciesFromBrandWithOptions(const RemoveCustomPrivacyPoliciesFromBrandRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBrandId()) {
+    query["BrandId"] = request.brandId();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyIds()) {
+    query["CustomPrivacyPolicyIds"] = request.customPrivacyPolicyIds();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveCustomPrivacyPoliciesFromBrand"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveCustomPrivacyPoliciesFromBrandResponse>();
+}
+
+/**
+ * @summary 移除品牌关联条款
+ *
+ * @param request RemoveCustomPrivacyPoliciesFromBrandRequest
+ * @return RemoveCustomPrivacyPoliciesFromBrandResponse
+ */
+RemoveCustomPrivacyPoliciesFromBrandResponse Client::removeCustomPrivacyPoliciesFromBrand(const RemoveCustomPrivacyPoliciesFromBrandRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeCustomPrivacyPoliciesFromBrandWithOptions(request, runtime);
 }
 
 /**
@@ -9078,6 +9544,68 @@ UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccess
 UpdateConditionalAccessPolicyDescriptionResponse Client::updateConditionalAccessPolicyDescription(const UpdateConditionalAccessPolicyDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateConditionalAccessPolicyDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新自定义条款
+ *
+ * @param request UpdateCustomPrivacyPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomPrivacyPolicyResponse
+ */
+UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicyWithOptions(const UpdateCustomPrivacyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomPrivacyPolicyContents()) {
+    query["CustomPrivacyPolicyContents"] = request.customPrivacyPolicyContents();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyId()) {
+    query["CustomPrivacyPolicyId"] = request.customPrivacyPolicyId();
+  }
+
+  if (!!request.hasCustomPrivacyPolicyName()) {
+    query["CustomPrivacyPolicyName"] = request.customPrivacyPolicyName();
+  }
+
+  if (!!request.hasDefaultLanguageCode()) {
+    query["DefaultLanguageCode"] = request.defaultLanguageCode();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserConsentType()) {
+    query["UserConsentType"] = request.userConsentType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCustomPrivacyPolicy"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomPrivacyPolicyResponse>();
+}
+
+/**
+ * @summary 更新自定义条款
+ *
+ * @param request UpdateCustomPrivacyPolicyRequest
+ * @return UpdateCustomPrivacyPolicyResponse
+ */
+UpdateCustomPrivacyPolicyResponse Client::updateCustomPrivacyPolicy(const UpdateCustomPrivacyPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCustomPrivacyPolicyWithOptions(request, runtime);
 }
 
 /**
