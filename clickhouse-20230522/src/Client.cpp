@@ -351,6 +351,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["DBInstanceDescription"] = request.DBInstanceDescription();
   }
 
+  if (!!request.hasDBTimeZone()) {
+    query["DBTimeZone"] = request.DBTimeZone();
+  }
+
   if (!!request.hasDeploySchema()) {
     query["DeploySchema"] = request.deploySchema();
   }

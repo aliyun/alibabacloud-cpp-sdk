@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupSetId, backupSetId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBInstanceDescription, DBInstanceDescription_);
+      DARABONBA_PTR_TO_JSON(DBTimeZone, DBTimeZone_);
       DARABONBA_PTR_TO_JSON(DeploySchema, deploySchema_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupSetId, backupSetId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBInstanceDescription, DBInstanceDescription_);
+      DARABONBA_PTR_FROM_JSON(DBTimeZone, DBTimeZone_);
       DARABONBA_PTR_FROM_JSON(DeploySchema, deploySchema_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
@@ -68,10 +70,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupSetId_ == nullptr
-        && return this->clientToken_ == nullptr && return this->DBInstanceDescription_ == nullptr && return this->deploySchema_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->multiZoneShrink_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeScaleMax_ == nullptr && return this->nodeScaleMin_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->sourceDBInstanceId_ == nullptr && return this->storageQuota_ == nullptr
-        && return this->storageType_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->clientToken_ == nullptr && return this->DBInstanceDescription_ == nullptr && return this->DBTimeZone_ == nullptr && return this->deploySchema_ == nullptr && return this->engine_ == nullptr
+        && return this->engineVersion_ == nullptr && return this->multiZoneShrink_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeScaleMax_ == nullptr && return this->nodeScaleMin_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->sourceDBInstanceId_ == nullptr
+        && return this->storageQuota_ == nullptr && return this->storageType_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // backupSetId Field Functions 
     bool hasBackupSetId() const { return this->backupSetId_ != nullptr;};
     void deleteBackupSetId() { this->backupSetId_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     void deleteDBInstanceDescription() { this->DBInstanceDescription_ = nullptr;};
     inline string DBInstanceDescription() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceDescription_, "") };
     inline CreateDBInstanceShrinkRequest& setDBInstanceDescription(string DBInstanceDescription) { DARABONBA_PTR_SET_VALUE(DBInstanceDescription_, DBInstanceDescription) };
+
+
+    // DBTimeZone Field Functions 
+    bool hasDBTimeZone() const { return this->DBTimeZone_ != nullptr;};
+    void deleteDBTimeZone() { this->DBTimeZone_ = nullptr;};
+    inline string DBTimeZone() const { DARABONBA_PTR_GET_DEFAULT(DBTimeZone_, "") };
+    inline CreateDBInstanceShrinkRequest& setDBTimeZone(string DBTimeZone) { DARABONBA_PTR_SET_VALUE(DBTimeZone_, DBTimeZone) };
 
 
     // deploySchema Field Functions 
@@ -219,6 +228,7 @@ namespace Models
     std::shared_ptr<string> clientToken_ = nullptr;
     // The cluster description.
     std::shared_ptr<string> DBInstanceDescription_ = nullptr;
+    std::shared_ptr<string> DBTimeZone_ = nullptr;
     // The deployment status of the cluster.
     std::shared_ptr<string> deploySchema_ = nullptr;
     // The engine type.
