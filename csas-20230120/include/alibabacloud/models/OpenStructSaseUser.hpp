@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeUnix_ != nullptr
-        && this->customFields_ != nullptr && this->departments_ != nullptr && this->description_ != nullptr && this->email_ != nullptr && this->idpConfigId_ != nullptr
-        && this->leaveTimeUnix_ != nullptr && this->loginTimeUnix_ != nullptr && this->saseUserId_ != nullptr && this->saseUserStatus_ != nullptr && this->syncTimeUnix_ != nullptr
-        && this->telephone_ != nullptr && this->title_ != nullptr && this->updateTimeUnix_ != nullptr && this->username_ != nullptr && this->workStatus_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeUnix_ == nullptr
+        && return this->customFields_ == nullptr && return this->departments_ == nullptr && return this->description_ == nullptr && return this->email_ == nullptr && return this->idpConfigId_ == nullptr
+        && return this->leaveTimeUnix_ == nullptr && return this->loginTimeUnix_ == nullptr && return this->saseUserId_ == nullptr && return this->saseUserStatus_ == nullptr && return this->syncTimeUnix_ == nullptr
+        && return this->telephone_ == nullptr && return this->title_ == nullptr && return this->updateTimeUnix_ == nullptr && return this->username_ == nullptr && return this->workStatus_ == nullptr; };
     // createTimeUnix Field Functions 
     bool hasCreateTimeUnix() const { return this->createTimeUnix_ != nullptr;};
     void deleteCreateTimeUnix() { this->createTimeUnix_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->height_ != nullptr
-        && this->imageControlShrink_ != nullptr && this->opacity_ != nullptr && this->scale_ != nullptr && this->width_ != nullptr && this->wmInfoBytesB64_ != nullptr
-        && this->wmInfoSize_ != nullptr && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr && this->comment_ != nullptr; };
+    virtual bool empty() const override { return this->height_ == nullptr
+        && return this->imageControlShrink_ == nullptr && return this->opacity_ == nullptr && return this->scale_ == nullptr && return this->width_ == nullptr && return this->wmInfoBytesB64_ == nullptr
+        && return this->wmInfoSize_ == nullptr && return this->wmInfoUint_ == nullptr && return this->wmType_ == nullptr && return this->comment_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};

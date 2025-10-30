@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->department_ != nullptr
-        && this->devTag_ != nullptr && this->deviceBasicInfo_ != nullptr && this->deviceStatusInfo_ != nullptr && this->disposalActions_ != nullptr && this->disposalProcessId_ != nullptr
-        && this->disposalTime_ != nullptr && this->dynamicPolicyId_ != nullptr && this->dynamicPolicyName_ != nullptr && this->hostname_ != nullptr && this->recoveryType_ != nullptr
-        && this->ruleContent_ != nullptr && this->saseUserId_ != nullptr && this->status_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->department_ == nullptr
+        && return this->devTag_ == nullptr && return this->deviceBasicInfo_ == nullptr && return this->deviceStatusInfo_ == nullptr && return this->disposalActions_ == nullptr && return this->disposalProcessId_ == nullptr
+        && return this->disposalTime_ == nullptr && return this->dynamicPolicyId_ == nullptr && return this->dynamicPolicyName_ == nullptr && return this->hostname_ == nullptr && return this->recoveryType_ == nullptr
+        && return this->ruleContent_ == nullptr && return this->saseUserId_ == nullptr && return this->status_ == nullptr && return this->userName_ == nullptr; };
     // department Field Functions 
     bool hasDepartment() const { return this->department_ != nullptr;};
     void deleteDepartment() { this->department_ = nullptr;};

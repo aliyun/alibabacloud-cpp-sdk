@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalIds_ != nullptr
-        && this->createEndTime_ != nullptr && this->createStartTime_ != nullptr && this->creatorDepartment_ != nullptr && this->creatorDevTag_ != nullptr && this->creatorUserId_ != nullptr
-        && this->creatorUsername_ != nullptr && this->currentPage_ != nullptr && this->operatorUserId_ != nullptr && this->operatorUsername_ != nullptr && this->pageSize_ != nullptr
-        && this->policyType_ != nullptr && this->processId_ != nullptr && this->processName_ != nullptr && this->schemaId_ != nullptr && this->schemaName_ != nullptr
-        && this->statuses_ != nullptr; };
+    virtual bool empty() const override { return this->approvalIds_ == nullptr
+        && return this->createEndTime_ == nullptr && return this->createStartTime_ == nullptr && return this->creatorDepartment_ == nullptr && return this->creatorDevTag_ == nullptr && return this->creatorUserId_ == nullptr
+        && return this->creatorUsername_ == nullptr && return this->currentPage_ == nullptr && return this->operatorUserId_ == nullptr && return this->operatorUsername_ == nullptr && return this->pageSize_ == nullptr
+        && return this->policyType_ == nullptr && return this->processId_ == nullptr && return this->processName_ == nullptr && return this->schemaId_ == nullptr && return this->schemaName_ == nullptr
+        && return this->statuses_ == nullptr; };
     // approvalIds Field Functions 
     bool hasApprovalIds() const { return this->approvalIds_ != nullptr;};
     void deleteApprovalIds() { this->approvalIds_ = nullptr;};

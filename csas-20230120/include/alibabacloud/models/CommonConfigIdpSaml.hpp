@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acs_ != nullptr
-        && this->metadata_ != nullptr; };
+    virtual bool empty() const override { return this->acs_ == nullptr
+        && return this->metadata_ == nullptr; };
     // acs Field Functions 
     bool hasAcs() const { return this->acs_ != nullptr;};
     void deleteAcs() { this->acs_ = nullptr;};

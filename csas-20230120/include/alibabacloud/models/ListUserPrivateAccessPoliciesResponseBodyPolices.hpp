@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customUserAttributes_ != nullptr
-        && this->deviceAttributeName_ != nullptr && this->matchedUserGroup_ != nullptr && this->name_ != nullptr && this->policyAction_ != nullptr && this->policyId_ != nullptr
-        && this->priority_ != nullptr && this->trustedProcessGroupIds_ != nullptr && this->trustedSoftwareIds_ != nullptr && this->userGroupMode_ != nullptr; };
+    virtual bool empty() const override { return this->customUserAttributes_ == nullptr
+        && return this->deviceAttributeName_ == nullptr && return this->matchedUserGroup_ == nullptr && return this->name_ == nullptr && return this->policyAction_ == nullptr && return this->policyId_ == nullptr
+        && return this->priority_ == nullptr && return this->trustedProcessGroupIds_ == nullptr && return this->trustedSoftwareIds_ == nullptr && return this->userGroupMode_ == nullptr; };
     // customUserAttributes Field Functions 
     bool hasCustomUserAttributes() const { return this->customUserAttributes_ != nullptr;};
     void deleteCustomUserAttributes() { this->customUserAttributes_ = nullptr;};

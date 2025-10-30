@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authReportInterval_ != nullptr
-        && this->recoveryActions_ != nullptr; };
+    virtual bool empty() const override { return this->authReportInterval_ == nullptr
+        && return this->recoveryActions_ == nullptr; };
     // authReportInterval Field Functions 
     bool hasAuthReportInterval() const { return this->authReportInterval_ != nullptr;};
     void deleteAuthReportInterval() { this->authReportInterval_ = nullptr;};

@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applications_ != nullptr
-        && this->clusterIP_ != nullptr && this->clusterPort_ != nullptr && this->connectorClients_ != nullptr && this->connectorId_ != nullptr && this->createTime_ != nullptr
-        && this->name_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->switchStatus_ != nullptr && this->upgradeTime_ != nullptr; };
+    virtual bool empty() const override { return this->applications_ == nullptr
+        && return this->clusterIP_ == nullptr && return this->clusterPort_ == nullptr && return this->connectorClients_ == nullptr && return this->connectorId_ == nullptr && return this->createTime_ == nullptr
+        && return this->name_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->switchStatus_ == nullptr && return this->upgradeTime_ == nullptr; };
     // applications Field Functions 
     bool hasApplications() const { return this->applications_ != nullptr;};
     void deleteApplications() { this->applications_ = nullptr;};

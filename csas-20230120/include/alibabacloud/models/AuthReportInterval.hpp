@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->timeUnit_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->timeUnit_ == nullptr
+        && return this->value_ == nullptr; };
     // timeUnit Field Functions 
     bool hasTimeUnit() const { return this->timeUnit_ != nullptr;};
     void deleteTimeUnit() { this->timeUnit_ = nullptr;};

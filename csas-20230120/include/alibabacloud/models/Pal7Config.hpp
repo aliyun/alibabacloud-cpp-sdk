@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bypassConfig_ != nullptr
-        && this->certId_ != nullptr && this->dnsConfig_ != nullptr && this->jsHookConfig_ != nullptr && this->proxyDomainTypes_ != nullptr && this->requestHeaderRewriteConfig_ != nullptr
-        && this->requestQueryRewriteConfig_ != nullptr && this->responseHeaderRewriteConfig_ != nullptr && this->responseRewriteConfig_ != nullptr; };
+    virtual bool empty() const override { return this->bypassConfig_ == nullptr
+        && return this->certId_ == nullptr && return this->dnsConfig_ == nullptr && return this->jsHookConfig_ == nullptr && return this->proxyDomainTypes_ == nullptr && return this->requestHeaderRewriteConfig_ == nullptr
+        && return this->requestQueryRewriteConfig_ == nullptr && return this->responseHeaderRewriteConfig_ == nullptr && return this->responseRewriteConfig_ == nullptr; };
     // bypassConfig Field Functions 
     bool hasBypassConfig() const { return this->bypassConfig_ != nullptr;};
     void deleteBypassConfig() { this->bypassConfig_ = nullptr;};

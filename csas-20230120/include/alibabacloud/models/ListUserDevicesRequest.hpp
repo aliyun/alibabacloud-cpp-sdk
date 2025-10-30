@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appStatuses_ != nullptr
-        && this->appVersions_ != nullptr && this->autoLoginStatuses_ != nullptr && this->currentPage_ != nullptr && this->department_ != nullptr && this->deviceBelong_ != nullptr
-        && this->deviceGroupId_ != nullptr && this->deviceStatuses_ != nullptr && this->deviceTags_ != nullptr && this->deviceTypes_ != nullptr && this->dlpStatuses_ != nullptr
-        && this->hostname_ != nullptr && this->iaStatuses_ != nullptr && this->innerIp_ != nullptr && this->mac_ != nullptr && this->nacStatuses_ != nullptr
-        && this->paStatuses_ != nullptr && this->pageSize_ != nullptr && this->saseUserId_ != nullptr && this->sharingStatus_ != nullptr && this->snSystem_ != nullptr
-        && this->sortBy_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr; };
+    virtual bool empty() const override { return this->appStatuses_ == nullptr
+        && return this->appVersions_ == nullptr && return this->autoLoginStatuses_ == nullptr && return this->currentPage_ == nullptr && return this->department_ == nullptr && return this->deviceBelong_ == nullptr
+        && return this->deviceGroupId_ == nullptr && return this->deviceStatuses_ == nullptr && return this->deviceTags_ == nullptr && return this->deviceTypes_ == nullptr && return this->dlpStatuses_ == nullptr
+        && return this->hostname_ == nullptr && return this->iaStatuses_ == nullptr && return this->innerIp_ == nullptr && return this->mac_ == nullptr && return this->nacStatuses_ == nullptr
+        && return this->paStatuses_ == nullptr && return this->pageSize_ == nullptr && return this->saseUserId_ == nullptr && return this->sharingStatus_ == nullptr && return this->snSystem_ == nullptr
+        && return this->sortBy_ == nullptr && return this->username_ == nullptr && return this->workshop_ == nullptr; };
     // appStatuses Field Functions 
     bool hasAppStatuses() const { return this->appStatuses_ != nullptr;};
     void deleteAppStatuses() { this->appStatuses_ = nullptr;};

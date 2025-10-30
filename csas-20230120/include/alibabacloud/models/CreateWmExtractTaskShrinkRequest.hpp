@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->csvControlShrink_ != nullptr
-        && this->documentIsCapture_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageExtractParamsOpenApiShrink_ != nullptr && this->isClientEmbed_ != nullptr
-        && this->videoIsLong_ != nullptr && this->videoSpeed_ != nullptr && this->wmInfoSize_ != nullptr && this->wmType_ != nullptr; };
+    virtual bool empty() const override { return this->csvControlShrink_ == nullptr
+        && return this->documentIsCapture_ == nullptr && return this->fileUrl_ == nullptr && return this->filename_ == nullptr && return this->imageExtractParamsOpenApiShrink_ == nullptr && return this->isClientEmbed_ == nullptr
+        && return this->videoIsLong_ == nullptr && return this->videoSpeed_ == nullptr && return this->wmInfoSize_ == nullptr && return this->wmType_ == nullptr; };
     // csvControlShrink Field Functions 
     bool hasCsvControlShrink() const { return this->csvControlShrink_ != nullptr;};
     void deleteCsvControlShrink() { this->csvControlShrink_ = nullptr;};

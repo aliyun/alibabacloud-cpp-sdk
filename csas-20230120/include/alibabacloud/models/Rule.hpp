@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->combinator_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->operator_ != nullptr && this->ruleSubType_ != nullptr && this->ruleType_ != nullptr
-        && this->rules_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->combinator_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->operator_ == nullptr && return this->ruleSubType_ == nullptr && return this->ruleType_ == nullptr
+        && return this->rules_ == nullptr && return this->values_ == nullptr; };
     // combinator Field Functions 
     bool hasCombinator() const { return this->combinator_ != nullptr;};
     void deleteCombinator() { this->combinator_ = nullptr;};

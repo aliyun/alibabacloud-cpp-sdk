@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerationType_ != nullptr
-        && this->description_ != nullptr && this->eapId_ != nullptr && this->enabled_ != nullptr && this->name_ != nullptr && this->onTls_ != nullptr
-        && this->priority_ != nullptr && this->showInClient_ != nullptr && this->upstreamHost_ != nullptr && this->upstreamPort_ != nullptr && this->upstreamType_ != nullptr
-        && this->userAttributeGroup_ != nullptr; };
+    virtual bool empty() const override { return this->accelerationType_ == nullptr
+        && return this->description_ == nullptr && return this->eapId_ == nullptr && return this->enabled_ == nullptr && return this->name_ == nullptr && return this->onTls_ == nullptr
+        && return this->priority_ == nullptr && return this->showInClient_ == nullptr && return this->upstreamHost_ == nullptr && return this->upstreamPort_ == nullptr && return this->upstreamType_ == nullptr
+        && return this->userAttributeGroup_ == nullptr; };
     // accelerationType Field Functions 
     bool hasAccelerationType() const { return this->accelerationType_ != nullptr;};
     void deleteAccelerationType() { this->accelerationType_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowReport_ != nullptr
-        && this->blockContent_ != nullptr && this->createTime_ != nullptr && this->isAntiUninstall_ != nullptr && this->isBoot_ != nullptr && this->policyId_ != nullptr
-        && this->reportProcessId_ != nullptr && this->updateTime_ != nullptr && this->userGroupIds_ != nullptr && this->whitelistUsers_ != nullptr; };
+    virtual bool empty() const override { return this->allowReport_ == nullptr
+        && return this->blockContent_ == nullptr && return this->createTime_ == nullptr && return this->isAntiUninstall_ == nullptr && return this->isBoot_ == nullptr && return this->policyId_ == nullptr
+        && return this->reportProcessId_ == nullptr && return this->updateTime_ == nullptr && return this->userGroupIds_ == nullptr && return this->whitelistUsers_ == nullptr; };
     // allowReport Field Functions 
     bool hasAllowReport() const { return this->allowReport_ != nullptr;};
     void deleteAllowReport() { this->allowReport_ = nullptr;};

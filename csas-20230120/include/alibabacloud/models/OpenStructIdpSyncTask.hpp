@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->departmentFailed_ != nullptr
-        && this->departmentTotal_ != nullptr && this->endTimeUnix_ != nullptr && this->failType_ != nullptr && this->idpConfigId_ != nullptr && this->startTimeUnix_ != nullptr
-        && this->status_ != nullptr && this->syncTaskId_ != nullptr && this->updateTimeUnix_ != nullptr && this->userFailed_ != nullptr && this->userTotal_ != nullptr; };
+    virtual bool empty() const override { return this->departmentFailed_ == nullptr
+        && return this->departmentTotal_ == nullptr && return this->endTimeUnix_ == nullptr && return this->failType_ == nullptr && return this->idpConfigId_ == nullptr && return this->startTimeUnix_ == nullptr
+        && return this->status_ == nullptr && return this->syncTaskId_ == nullptr && return this->updateTimeUnix_ == nullptr && return this->userFailed_ == nullptr && return this->userTotal_ == nullptr; };
     // departmentFailed Field Functions 
     bool hasDepartmentFailed() const { return this->departmentFailed_ != nullptr;};
     void deleteDepartmentFailed() { this->departmentFailed_ = nullptr;};

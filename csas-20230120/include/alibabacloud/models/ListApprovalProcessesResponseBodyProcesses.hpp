@@ -68,10 +68,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appUninstallPolicies_ != nullptr
-        && this->approvalType_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->deviceRegistrationPolicies_ != nullptr && this->dlpSendPolicies_ != nullptr
-        && this->domainBlacklistPolicies_ != nullptr && this->domainWhitelistPolicies_ != nullptr && this->endpointHardeningPolicies_ != nullptr && this->peripheralBlockPolicies_ != nullptr && this->processId_ != nullptr
-        && this->processName_ != nullptr && this->processNodes_ != nullptr && this->softwareBlockPolicies_ != nullptr && this->softwareHardeningPolicies_ != nullptr; };
+    virtual bool empty() const override { return this->appUninstallPolicies_ == nullptr
+        && return this->approvalType_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->deviceRegistrationPolicies_ == nullptr && return this->dlpSendPolicies_ == nullptr
+        && return this->domainBlacklistPolicies_ == nullptr && return this->domainWhitelistPolicies_ == nullptr && return this->endpointHardeningPolicies_ == nullptr && return this->peripheralBlockPolicies_ == nullptr && return this->processId_ == nullptr
+        && return this->processName_ == nullptr && return this->processNodes_ == nullptr && return this->softwareBlockPolicies_ == nullptr && return this->softwareHardeningPolicies_ == nullptr; };
     // appUninstallPolicies Field Functions 
     bool hasAppUninstallPolicies() const { return this->appUninstallPolicies_ != nullptr;};
     void deleteAppUninstallPolicies() { this->appUninstallPolicies_ = nullptr;};

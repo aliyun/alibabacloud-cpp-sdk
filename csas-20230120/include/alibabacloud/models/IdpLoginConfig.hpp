@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mobileLoginType_ != nullptr
-        && this->mobileMfaTypes_ != nullptr && this->pcLoginType_ != nullptr && this->pcMfaTypes_ != nullptr && this->totpCorpVerifyAesKey_ != nullptr && this->totpCorpVerifyToken_ != nullptr
-        && this->totpCorpVerifyUrl_ != nullptr; };
+    virtual bool empty() const override { return this->mobileLoginType_ == nullptr
+        && return this->mobileMfaTypes_ == nullptr && return this->pcLoginType_ == nullptr && return this->pcMfaTypes_ == nullptr && return this->totpCorpVerifyAesKey_ == nullptr && return this->totpCorpVerifyToken_ == nullptr
+        && return this->totpCorpVerifyUrl_ == nullptr; };
     // mobileLoginType Field Functions 
     bool hasMobileLoginType() const { return this->mobileLoginType_ != nullptr;};
     void deleteMobileLoginType() { this->mobileLoginType_ = nullptr;};

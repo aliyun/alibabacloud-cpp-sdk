@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->wmInfoSize_ != nullptr
-        && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    virtual bool empty() const override { return this->wmInfoSize_ == nullptr
+        && return this->wmInfoUint_ == nullptr && return this->wmType_ == nullptr; };
     // wmInfoSize Field Functions 
     bool hasWmInfoSize() const { return this->wmInfoSize_ != nullptr;};
     void deleteWmInfoSize() { this->wmInfoSize_ = nullptr;};

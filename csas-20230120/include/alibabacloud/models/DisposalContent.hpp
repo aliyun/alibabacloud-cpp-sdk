@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertContent_ != nullptr
-        && this->alertContentEn_ != nullptr && this->alertIntervalSeconds_ != nullptr && this->alertTitle_ != nullptr && this->alertTitleEn_ != nullptr && this->nacDemotionPolicyIds_ != nullptr
-        && this->noticeContent_ != nullptr && this->noticeContentEn_ != nullptr && this->notifyActions_ != nullptr && this->prohibitActions_ != nullptr && this->prohibitSoftwareIds_ != nullptr; };
+    virtual bool empty() const override { return this->alertContent_ == nullptr
+        && return this->alertContentEn_ == nullptr && return this->alertIntervalSeconds_ == nullptr && return this->alertTitle_ == nullptr && return this->alertTitleEn_ == nullptr && return this->nacDemotionPolicyIds_ == nullptr
+        && return this->noticeContent_ == nullptr && return this->noticeContentEn_ == nullptr && return this->notifyActions_ == nullptr && return this->prohibitActions_ == nullptr && return this->prohibitSoftwareIds_ == nullptr; };
     // alertContent Field Functions 
     bool hasAlertContent() const { return this->alertContent_ != nullptr;};
     void deleteAlertContent() { this->alertContent_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalDetail_ != nullptr
-        && this->approvalId_ != nullptr && this->approvalProgresses_ != nullptr && this->createTime_ != nullptr && this->creatorDevTag_ != nullptr && this->creatorUserId_ != nullptr
-        && this->endTimestamp_ != nullptr && this->policyType_ != nullptr && this->processId_ != nullptr && this->processName_ != nullptr && this->reason_ != nullptr
-        && this->schemaContent_ != nullptr && this->schemaId_ != nullptr && this->schemaName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->approvalDetail_ == nullptr
+        && return this->approvalId_ == nullptr && return this->approvalProgresses_ == nullptr && return this->createTime_ == nullptr && return this->creatorDevTag_ == nullptr && return this->creatorUserId_ == nullptr
+        && return this->endTimestamp_ == nullptr && return this->policyType_ == nullptr && return this->processId_ == nullptr && return this->processName_ == nullptr && return this->reason_ == nullptr
+        && return this->schemaContent_ == nullptr && return this->schemaId_ == nullptr && return this->schemaName_ == nullptr && return this->status_ == nullptr; };
     // approvalDetail Field Functions 
     bool hasApprovalDetail() const { return this->approvalDetail_ != nullptr;};
     void deleteApprovalDetail() { this->approvalDetail_ = nullptr;};

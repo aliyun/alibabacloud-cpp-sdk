@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionStatus_ != nullptr
-        && this->devTag_ != nullptr && this->hostname_ != nullptr && this->publicIp_ != nullptr; };
+    virtual bool empty() const override { return this->connectionStatus_ == nullptr
+        && return this->devTag_ == nullptr && return this->hostname_ == nullptr && return this->publicIp_ == nullptr; };
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};

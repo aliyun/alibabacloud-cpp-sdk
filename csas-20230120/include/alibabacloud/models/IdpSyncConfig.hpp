@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSyncEnabled_ != nullptr
-        && this->idpDepartmentInfos_ != nullptr && this->scheduleSyncIntervalSecond_ != nullptr && this->userSyncEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->autoSyncEnabled_ == nullptr
+        && return this->idpDepartmentInfos_ == nullptr && return this->scheduleSyncIntervalSecond_ == nullptr && return this->userSyncEnabled_ == nullptr; };
     // autoSyncEnabled Field Functions 
     bool hasAutoSyncEnabled() const { return this->autoSyncEnabled_ != nullptr;};
     void deleteAutoSyncEnabled() { this->autoSyncEnabled_ = nullptr;};

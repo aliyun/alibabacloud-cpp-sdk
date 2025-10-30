@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->companyLimitType_ != nullptr
-        && this->currentPage_ != nullptr && this->matchMode_ != nullptr && this->name_ != nullptr && this->pageSize_ != nullptr && this->personalLimitType_ != nullptr
-        && this->policyIds_ != nullptr && this->status_ != nullptr && this->userGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->companyLimitType_ == nullptr
+        && return this->currentPage_ == nullptr && return this->matchMode_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->personalLimitType_ == nullptr
+        && return this->policyIds_ == nullptr && return this->status_ == nullptr && return this->userGroupId_ == nullptr; };
     // companyLimitType Field Functions 
     bool hasCompanyLimitType() const { return this->companyLimitType_ != nullptr;};
     void deleteCompanyLimitType() { this->companyLimitType_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->angle_ != nullptr
-        && this->fontColor_ != nullptr && this->fontSize_ != nullptr && this->margin_ != nullptr && this->mode_ != nullptr && this->opacity_ != nullptr
-        && this->posAx_ != nullptr && this->posAy_ != nullptr && this->posX_ != nullptr && this->posY_ != nullptr && this->spaceX_ != nullptr
-        && this->spaceY_ != nullptr && this->visible_ != nullptr && this->visibleText_ != nullptr; };
+    virtual bool empty() const override { return this->angle_ == nullptr
+        && return this->fontColor_ == nullptr && return this->fontSize_ == nullptr && return this->margin_ == nullptr && return this->mode_ == nullptr && return this->opacity_ == nullptr
+        && return this->posAx_ == nullptr && return this->posAy_ == nullptr && return this->posX_ == nullptr && return this->posY_ == nullptr && return this->spaceX_ == nullptr
+        && return this->spaceY_ == nullptr && return this->visible_ == nullptr && return this->visibleText_ == nullptr; };
     // angle Field Functions 
     bool hasAngle() const { return this->angle_ != nullptr;};
     void deleteAngle() { this->angle_ = nullptr;};

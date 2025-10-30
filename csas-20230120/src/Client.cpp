@@ -1846,6 +1846,8 @@ DeleteUserGroupResponse Client::deleteUserGroup(const DeleteUserGroupRequest &re
 }
 
 /**
+ * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+ *
  * @summary 卸载connector的应用
  *
  * @param tmpReq DetachApplication2ConnectorRequest
@@ -1887,6 +1889,8 @@ DetachApplication2ConnectorResponse Client::detachApplication2ConnectorWithOptio
 }
 
 /**
+ * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+ *
  * @summary 卸载connector的应用
  *
  * @param request DetachApplication2ConnectorRequest

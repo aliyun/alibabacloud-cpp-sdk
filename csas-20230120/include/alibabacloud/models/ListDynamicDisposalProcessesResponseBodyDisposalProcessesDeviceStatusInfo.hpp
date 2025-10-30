@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appVersion_ != nullptr
-        && this->department_ != nullptr && this->dlpStatus_ != nullptr && this->internetIp_ != nullptr && this->laStatus_ != nullptr && this->loginStatus_ != nullptr
-        && this->nacStatus_ != nullptr && this->privateIp_ != nullptr && this->saseUserId_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr
-        && this->ztnaStatus_ != nullptr; };
+    virtual bool empty() const override { return this->appVersion_ == nullptr
+        && return this->department_ == nullptr && return this->dlpStatus_ == nullptr && return this->internetIp_ == nullptr && return this->laStatus_ == nullptr && return this->loginStatus_ == nullptr
+        && return this->nacStatus_ == nullptr && return this->privateIp_ == nullptr && return this->saseUserId_ == nullptr && return this->username_ == nullptr && return this->workshop_ == nullptr
+        && return this->ztnaStatus_ == nullptr; };
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};

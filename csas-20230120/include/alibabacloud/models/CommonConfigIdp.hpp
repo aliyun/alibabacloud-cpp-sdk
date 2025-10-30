@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apOidcCallbackUrl_ != nullptr
-        && this->dingtalk_ != nullptr && this->feishu_ != nullptr && this->idaas2_ != nullptr && this->saml_ != nullptr; };
+    virtual bool empty() const override { return this->apOidcCallbackUrl_ == nullptr
+        && return this->dingtalk_ == nullptr && return this->feishu_ == nullptr && return this->idaas2_ == nullptr && return this->saml_ == nullptr; };
     // apOidcCallbackUrl Field Functions 
     bool hasApOidcCallbackUrl() const { return this->apOidcCallbackUrl_ != nullptr;};
     void deleteApOidcCallbackUrl() { this->apOidcCallbackUrl_ = nullptr;};

@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->schemaIds_ != nullptr; };
+    virtual bool empty() const override { return this->schemaIds_ == nullptr; };
     // schemaIds Field Functions 
     bool hasSchemaIds() const { return this->schemaIds_ != nullptr;};
     void deleteSchemaIds() { this->schemaIds_ = nullptr;};

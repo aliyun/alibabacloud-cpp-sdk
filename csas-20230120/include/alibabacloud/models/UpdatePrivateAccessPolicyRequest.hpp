@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationIds_ != nullptr
-        && this->applicationType_ != nullptr && this->customUserAttributes_ != nullptr && this->description_ != nullptr && this->deviceAttributeAction_ != nullptr && this->deviceAttributeId_ != nullptr
-        && this->modifyType_ != nullptr && this->policyAction_ != nullptr && this->policyId_ != nullptr && this->priority_ != nullptr && this->status_ != nullptr
-        && this->tagIds_ != nullptr && this->triggerTemplateId_ != nullptr && this->trustedProcessGroupIds_ != nullptr && this->trustedProcessStatus_ != nullptr && this->trustedSoftwareIds_ != nullptr
-        && this->userGroupIds_ != nullptr && this->userGroupMode_ != nullptr; };
+    virtual bool empty() const override { return this->applicationIds_ == nullptr
+        && return this->applicationType_ == nullptr && return this->customUserAttributes_ == nullptr && return this->description_ == nullptr && return this->deviceAttributeAction_ == nullptr && return this->deviceAttributeId_ == nullptr
+        && return this->modifyType_ == nullptr && return this->policyAction_ == nullptr && return this->policyId_ == nullptr && return this->priority_ == nullptr && return this->status_ == nullptr
+        && return this->tagIds_ == nullptr && return this->triggerTemplateId_ == nullptr && return this->trustedProcessGroupIds_ == nullptr && return this->trustedProcessStatus_ == nullptr && return this->trustedSoftwareIds_ == nullptr
+        && return this->userGroupIds_ == nullptr && return this->userGroupMode_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};

@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attrMapConfig_ != nullptr
-        && this->connectConfig_ != nullptr && this->description_ != nullptr && this->dingtalkConfig_ != nullptr && this->enabled_ != nullptr && this->feishuConfig_ != nullptr
-        && this->idaasConfig_ != nullptr && this->idpConfigId_ != nullptr && this->lastSyncTimeUnix_ != nullptr && this->ldapConfig_ != nullptr && this->loginConfig_ != nullptr
-        && this->name_ != nullptr && this->syncConfig_ != nullptr && this->syncStatus_ != nullptr && this->type_ != nullptr && this->weixinConfig_ != nullptr
-        && this->wuyingConfig_ != nullptr; };
+    virtual bool empty() const override { return this->attrMapConfig_ == nullptr
+        && return this->connectConfig_ == nullptr && return this->description_ == nullptr && return this->dingtalkConfig_ == nullptr && return this->enabled_ == nullptr && return this->feishuConfig_ == nullptr
+        && return this->idaasConfig_ == nullptr && return this->idpConfigId_ == nullptr && return this->lastSyncTimeUnix_ == nullptr && return this->ldapConfig_ == nullptr && return this->loginConfig_ == nullptr
+        && return this->name_ == nullptr && return this->syncConfig_ == nullptr && return this->syncStatus_ == nullptr && return this->type_ == nullptr && return this->weixinConfig_ == nullptr
+        && return this->wuyingConfig_ == nullptr; };
     // attrMapConfig Field Functions 
     bool hasAttrMapConfig() const { return this->attrMapConfig_ != nullptr;};
     void deleteAttrMapConfig() { this->attrMapConfig_ = nullptr;};

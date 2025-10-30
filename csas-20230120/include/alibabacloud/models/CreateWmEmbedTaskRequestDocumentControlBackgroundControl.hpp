@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bgAddInvisible_ != nullptr
-        && this->bgAddVisible_ != nullptr && this->bgInvisibleControl_ != nullptr && this->bgVisibleControl_ != nullptr; };
+    virtual bool empty() const override { return this->bgAddInvisible_ == nullptr
+        && return this->bgAddVisible_ == nullptr && return this->bgInvisibleControl_ == nullptr && return this->bgVisibleControl_ == nullptr; };
     // bgAddInvisible Field Functions 
     bool hasBgAddInvisible() const { return this->bgAddInvisible_ != nullptr;};
     void deleteBgAddInvisible() { this->bgAddInvisible_ = nullptr;};

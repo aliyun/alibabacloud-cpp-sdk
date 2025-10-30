@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseDn_ != nullptr
-        && this->groupBaseDn_ != nullptr && this->groupFilter_ != nullptr && this->groupMembershipAttr_ != nullptr && this->groupNameAttr_ != nullptr && this->loginNameAttr_ != nullptr
-        && this->serverAddr_ != nullptr && this->serverPort_ != nullptr && this->serverType_ != nullptr && this->useSsl_ != nullptr && this->userDn_ != nullptr
-        && this->userFilter_ != nullptr && this->userPassword_ != nullptr; };
+    virtual bool empty() const override { return this->baseDn_ == nullptr
+        && return this->groupBaseDn_ == nullptr && return this->groupFilter_ == nullptr && return this->groupMembershipAttr_ == nullptr && return this->groupNameAttr_ == nullptr && return this->loginNameAttr_ == nullptr
+        && return this->serverAddr_ == nullptr && return this->serverPort_ == nullptr && return this->serverType_ == nullptr && return this->useSsl_ == nullptr && return this->userDn_ == nullptr
+        && return this->userFilter_ == nullptr && return this->userPassword_ == nullptr; };
     // baseDn Field Functions 
     bool hasBaseDn() const { return this->baseDn_ != nullptr;};
     void deleteBaseDn() { this->baseDn_ = nullptr;};

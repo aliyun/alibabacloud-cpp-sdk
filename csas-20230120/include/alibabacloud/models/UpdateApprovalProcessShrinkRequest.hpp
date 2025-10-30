@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalType_ != nullptr
-        && this->description_ != nullptr && this->eventLabel_ != nullptr && this->externalConfig_ != nullptr && this->matchSchemaConfigsShrink_ != nullptr && this->matchSchemasShrink_ != nullptr
-        && this->processId_ != nullptr && this->processName_ != nullptr && this->processNodes_ != nullptr; };
+    virtual bool empty() const override { return this->approvalType_ == nullptr
+        && return this->description_ == nullptr && return this->eventLabel_ == nullptr && return this->externalConfig_ == nullptr && return this->matchSchemaConfigsShrink_ == nullptr && return this->matchSchemasShrink_ == nullptr
+        && return this->processId_ == nullptr && return this->processName_ == nullptr && return this->processNodes_ == nullptr; };
     // approvalType Field Functions 
     bool hasApprovalType() const { return this->approvalType_ != nullptr;};
     void deleteApprovalType() { this->approvalType_ = nullptr;};

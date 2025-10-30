@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backgroundControl_ != nullptr
-        && this->invisibleAntiAllCopy_ != nullptr && this->invisibleAntiTextCopy_ != nullptr; };
+    virtual bool empty() const override { return this->backgroundControl_ == nullptr
+        && return this->invisibleAntiAllCopy_ == nullptr && return this->invisibleAntiTextCopy_ == nullptr; };
     // backgroundControl Field Functions 
     bool hasBackgroundControl() const { return this->backgroundControl_ != nullptr;};
     void deleteBackgroundControl() { this->backgroundControl_ = nullptr;};

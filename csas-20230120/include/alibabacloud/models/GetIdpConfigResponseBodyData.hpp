@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessKey_ != nullptr
-        && this->accessKeySecret_ != nullptr && this->description_ != nullptr && this->getGroupUrl_ != nullptr && this->id_ != nullptr && this->idpMetadata_ != nullptr
-        && this->mfaConfigType_ != nullptr && this->mobileLoginType_ != nullptr && this->mobileMfaConfigType_ != nullptr && this->multiIdpInfo_ != nullptr && this->name_ != nullptr
-        && this->pcLoginType_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr && this->verifyAesKey_ != nullptr
-        && this->verifyToken_ != nullptr && this->verifyUrl_ != nullptr; };
+    virtual bool empty() const override { return this->accessKey_ == nullptr
+        && return this->accessKeySecret_ == nullptr && return this->description_ == nullptr && return this->getGroupUrl_ == nullptr && return this->id_ == nullptr && return this->idpMetadata_ == nullptr
+        && return this->mfaConfigType_ == nullptr && return this->mobileLoginType_ == nullptr && return this->mobileMfaConfigType_ == nullptr && return this->multiIdpInfo_ == nullptr && return this->name_ == nullptr
+        && return this->pcLoginType_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->verifyAesKey_ == nullptr
+        && return this->verifyToken_ == nullptr && return this->verifyUrl_ == nullptr; };
     // accessKey Field Functions 
     bool hasAccessKey() const { return this->accessKey_ != nullptr;};
     void deleteAccessKey() { this->accessKey_ = nullptr;};

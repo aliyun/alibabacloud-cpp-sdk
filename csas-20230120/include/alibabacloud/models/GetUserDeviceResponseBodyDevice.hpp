@@ -102,14 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appStatus_ != nullptr
-        && this->appVersion_ != nullptr && this->autoLoginStatus_ != nullptr && this->CPU_ != nullptr && this->createTime_ != nullptr && this->department_ != nullptr
-        && this->deviceBelong_ != nullptr && this->deviceModel_ != nullptr && this->deviceStatus_ != nullptr && this->deviceTag_ != nullptr && this->deviceType_ != nullptr
-        && this->deviceVersion_ != nullptr && this->disk_ != nullptr && this->dlpStatus_ != nullptr && this->edrStatus_ != nullptr && this->historyUsers_ != nullptr
-        && this->hostname_ != nullptr && this->iaStatus_ != nullptr && this->innerIP_ != nullptr && this->mac_ != nullptr && this->matchDeviceGroupIds_ != nullptr
-        && this->memory_ != nullptr && this->nacStatus_ != nullptr && this->netInterfaceInfo_ != nullptr && this->paStatus_ != nullptr && this->saseUserId_ != nullptr
-        && this->sharingStatus_ != nullptr && this->snBaseBoard_ != nullptr && this->snBios_ != nullptr && this->snDiskDrive_ != nullptr && this->snProcessor_ != nullptr
-        && this->snSystem_ != nullptr && this->srcIP_ != nullptr && this->updateTime_ != nullptr && this->username_ != nullptr && this->workshop_ != nullptr; };
+    virtual bool empty() const override { return this->appStatus_ == nullptr
+        && return this->appVersion_ == nullptr && return this->autoLoginStatus_ == nullptr && return this->CPU_ == nullptr && return this->createTime_ == nullptr && return this->department_ == nullptr
+        && return this->deviceBelong_ == nullptr && return this->deviceModel_ == nullptr && return this->deviceStatus_ == nullptr && return this->deviceTag_ == nullptr && return this->deviceType_ == nullptr
+        && return this->deviceVersion_ == nullptr && return this->disk_ == nullptr && return this->dlpStatus_ == nullptr && return this->edrStatus_ == nullptr && return this->historyUsers_ == nullptr
+        && return this->hostname_ == nullptr && return this->iaStatus_ == nullptr && return this->innerIP_ == nullptr && return this->mac_ == nullptr && return this->matchDeviceGroupIds_ == nullptr
+        && return this->memory_ == nullptr && return this->nacStatus_ == nullptr && return this->netInterfaceInfo_ == nullptr && return this->paStatus_ == nullptr && return this->saseUserId_ == nullptr
+        && return this->sharingStatus_ == nullptr && return this->snBaseBoard_ == nullptr && return this->snBios_ == nullptr && return this->snDiskDrive_ == nullptr && return this->snProcessor_ == nullptr
+        && return this->snSystem_ == nullptr && return this->srcIP_ == nullptr && return this->updateTime_ == nullptr && return this->username_ == nullptr && return this->workshop_ == nullptr; };
     // appStatus Field Functions 
     bool hasAppStatus() const { return this->appStatus_ != nullptr;};
     void deleteAppStatus() { this->appStatus_ = nullptr;};

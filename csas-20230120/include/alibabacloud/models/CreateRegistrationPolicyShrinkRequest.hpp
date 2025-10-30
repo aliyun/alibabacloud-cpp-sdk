@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->companyLimitCountShrink_ != nullptr
-        && this->companyLimitType_ != nullptr && this->description_ != nullptr && this->matchMode_ != nullptr && this->name_ != nullptr && this->personalLimitCountShrink_ != nullptr
-        && this->personalLimitType_ != nullptr && this->priority_ != nullptr && this->status_ != nullptr && this->userGroupIds_ != nullptr && this->whitelist_ != nullptr; };
+    virtual bool empty() const override { return this->companyLimitCountShrink_ == nullptr
+        && return this->companyLimitType_ == nullptr && return this->description_ == nullptr && return this->matchMode_ == nullptr && return this->name_ == nullptr && return this->personalLimitCountShrink_ == nullptr
+        && return this->personalLimitType_ == nullptr && return this->priority_ == nullptr && return this->status_ == nullptr && return this->userGroupIds_ == nullptr && return this->whitelist_ == nullptr; };
     // companyLimitCountShrink Field Functions 
     bool hasCompanyLimitCountShrink() const { return this->companyLimitCountShrink_ != nullptr;};
     void deleteCompanyLimitCountShrink() { this->companyLimitCountShrink_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appUninstallSchemaId_ != nullptr
-        && this->deviceRegistrationSchemaId_ != nullptr && this->dlpSendSchemaId_ != nullptr && this->domainBlacklistSchemaId_ != nullptr && this->domainWhitelistSchemaId_ != nullptr && this->endpointHardeningSchemaId_ != nullptr
-        && this->peripheralBlockSchemaId_ != nullptr && this->softwareBlockSchemaId_ != nullptr && this->softwareHardeningSchemaId_ != nullptr; };
+    virtual bool empty() const override { return this->appUninstallSchemaId_ == nullptr
+        && return this->deviceRegistrationSchemaId_ == nullptr && return this->dlpSendSchemaId_ == nullptr && return this->domainBlacklistSchemaId_ == nullptr && return this->domainWhitelistSchemaId_ == nullptr && return this->endpointHardeningSchemaId_ == nullptr
+        && return this->peripheralBlockSchemaId_ == nullptr && return this->softwareBlockSchemaId_ == nullptr && return this->softwareHardeningSchemaId_ == nullptr; };
     // appUninstallSchemaId Field Functions 
     bool hasAppUninstallSchemaId() const { return this->appUninstallSchemaId_ != nullptr;};
     void deleteAppUninstallSchemaId() { this->appUninstallSchemaId_ = nullptr;};

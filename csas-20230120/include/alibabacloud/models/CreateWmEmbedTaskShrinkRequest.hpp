@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioControlShrink_ != nullptr
-        && this->csvControlShrink_ != nullptr && this->documentControlShrink_ != nullptr && this->fileUrl_ != nullptr && this->filename_ != nullptr && this->imageControlShrink_ != nullptr
-        && this->imageEmbedJpegQuality_ != nullptr && this->imageEmbedLevel_ != nullptr && this->invisibleEnable_ != nullptr && this->videoBitrate_ != nullptr && this->videoControlShrink_ != nullptr
-        && this->videoIsLong_ != nullptr && this->wmInfoBytesB64_ != nullptr && this->wmInfoSize_ != nullptr && this->wmInfoUint_ != nullptr && this->wmType_ != nullptr; };
+    virtual bool empty() const override { return this->audioControlShrink_ == nullptr
+        && return this->csvControlShrink_ == nullptr && return this->documentControlShrink_ == nullptr && return this->fileUrl_ == nullptr && return this->filename_ == nullptr && return this->imageControlShrink_ == nullptr
+        && return this->imageEmbedJpegQuality_ == nullptr && return this->imageEmbedLevel_ == nullptr && return this->invisibleEnable_ == nullptr && return this->videoBitrate_ == nullptr && return this->videoControlShrink_ == nullptr
+        && return this->videoIsLong_ == nullptr && return this->wmInfoBytesB64_ == nullptr && return this->wmInfoSize_ == nullptr && return this->wmInfoUint_ == nullptr && return this->wmType_ == nullptr; };
     // audioControlShrink Field Functions 
     bool hasAudioControlShrink() const { return this->audioControlShrink_ != nullptr;};
     void deleteAudioControlShrink() { this->audioControlShrink_ = nullptr;};

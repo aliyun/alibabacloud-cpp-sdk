@@ -539,6 +539,8 @@ namespace Csas20230120
       Models::DeleteUserGroupResponse deleteUserGroup(const Models::DeleteUserGroupRequest &request);
 
       /**
+       * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+       *
        * @summary 卸载connector的应用
        *
        * @param tmpReq DetachApplication2ConnectorRequest
@@ -548,6 +550,8 @@ namespace Csas20230120
       Models::DetachApplication2ConnectorResponse detachApplication2ConnectorWithOptions(const Models::DetachApplication2ConnectorRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead.
+       *
        * @summary 卸载connector的应用
        *
        * @param request DetachApplication2ConnectorRequest

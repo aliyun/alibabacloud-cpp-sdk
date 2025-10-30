@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->externalProcessId_ != nullptr
-        && this->fieldMap_ != nullptr && this->policyIds_ != nullptr && this->schemaId_ != nullptr; };
+    virtual bool empty() const override { return this->externalProcessId_ == nullptr
+        && return this->fieldMap_ == nullptr && return this->policyIds_ == nullptr && return this->schemaId_ == nullptr; };
     // externalProcessId Field Functions 
     bool hasExternalProcessId() const { return this->externalProcessId_ != nullptr;};
     void deleteExternalProcessId() { this->externalProcessId_ = nullptr;};

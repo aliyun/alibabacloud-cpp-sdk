@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationIds_ != nullptr
-        && this->applicationType_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->dynamicRouteId_ != nullptr && this->dynamicRouteType_ != nullptr
-        && this->name_ != nullptr && this->nextHop_ != nullptr && this->priority_ != nullptr && this->regionIds_ != nullptr && this->status_ != nullptr
-        && this->tagIds_ != nullptr; };
+    virtual bool empty() const override { return this->applicationIds_ == nullptr
+        && return this->applicationType_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->dynamicRouteId_ == nullptr && return this->dynamicRouteType_ == nullptr
+        && return this->name_ == nullptr && return this->nextHop_ == nullptr && return this->priority_ == nullptr && return this->regionIds_ == nullptr && return this->status_ == nullptr
+        && return this->tagIds_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};

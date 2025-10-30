@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationId_ != nullptr
-        && this->createTime_ != nullptr && this->department_ != nullptr && this->devTag_ != nullptr && this->devType_ != nullptr && this->hostname_ != nullptr
-        && this->idpName_ != nullptr && this->isUninstall_ != nullptr && this->mac_ != nullptr && this->reason_ != nullptr && this->saseUserId_ != nullptr
-        && this->status_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->applicationId_ == nullptr
+        && return this->createTime_ == nullptr && return this->department_ == nullptr && return this->devTag_ == nullptr && return this->devType_ == nullptr && return this->hostname_ == nullptr
+        && return this->idpName_ == nullptr && return this->isUninstall_ == nullptr && return this->mac_ == nullptr && return this->reason_ == nullptr && return this->saseUserId_ == nullptr
+        && return this->status_ == nullptr && return this->username_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};

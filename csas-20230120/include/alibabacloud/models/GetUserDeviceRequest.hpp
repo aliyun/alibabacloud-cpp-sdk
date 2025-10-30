@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceTag_ != nullptr; };
+    virtual bool empty() const override { return this->deviceTag_ == nullptr; };
     // deviceTag Field Functions 
     bool hasDeviceTag() const { return this->deviceTag_ != nullptr;};
     void deleteDeviceTag() { this->deviceTag_ = nullptr;};
