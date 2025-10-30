@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The maximum number of entries returned on each page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // The information about the user groups.
     std::shared_ptr<vector<ListAuthorizedUserGroupsResponseBodyUserGroups>> userGroups_ = nullptr;
   };
 

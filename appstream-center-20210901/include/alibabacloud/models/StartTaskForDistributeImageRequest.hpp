@@ -87,12 +87,25 @@ namespace Models
 
 
   protected:
+    // The regions to which you want to replicate the image.
     std::shared_ptr<vector<string>> destinationRegionList_ = nullptr;
+    // The image ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The product type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudDesktop: Elastic Desktop Service
+    // *   CloudApp: App Streaming
+    // *   WuyingServer: Workstation
     std::shared_ptr<string> productType_ = nullptr;
+    // This parameter is not publicly available.
     std::shared_ptr<string> retryType_ = nullptr;
+    // The region where the source image is located. If you leave this parameter empty, a random region is selected.
     std::shared_ptr<string> sourceRegion_ = nullptr;
+    // The ID of the image version. If you do not specify this parameter, the latest image version is used by default.
     std::shared_ptr<string> versionId_ = nullptr;
   };
 

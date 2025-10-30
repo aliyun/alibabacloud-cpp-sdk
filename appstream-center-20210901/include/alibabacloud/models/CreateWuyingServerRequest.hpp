@@ -256,29 +256,65 @@ namespace Models
 
 
   protected:
+    // Quantity.
     std::shared_ptr<int32_t> amount_ = nullptr;
+    // Auto payment.
     std::shared_ptr<bool> autoPay_ = nullptr;
+    // Auto-renewal.
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    // bandwidth value, the NetworkStrategyType is valid for DirectIp. Unit: Mbps, range 2~100
     std::shared_ptr<int32_t> bandwidth_ = nullptr;
+    // Region.
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    // The billing method.
+    // 
+    // Valid values:
+    // 
+    // *   PrePaid: subscription
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The list of data disks.
     std::shared_ptr<vector<CreateWuyingServerRequestDataDisk>> dataDisk_ = nullptr;
+    // Idempotence token to ensure operation uniqueness
     std::shared_ptr<string> idempotenceToken_ = nullptr;
+    // The ID of the image.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The type of the network policy (in invitational preview).
     std::shared_ptr<string> networkStrategyType_ = nullptr;
+    // The office network IDs.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // Workstation login password.
     std::shared_ptr<string> password_ = nullptr;
+    // The subscription period.
     std::shared_ptr<int32_t> period_ = nullptr;
+    // The time unit.
+    // 
+    // Valid values:
+    // 
+    // *   Month
+    // *   Year
     std::shared_ptr<string> periodUnit_ = nullptr;
+    // The ID of the discount.
+    // 
+    // >  If PromotionId is set, it will try to apply the corresponding discount.
     std::shared_ptr<string> promotionId_ = nullptr;
     std::shared_ptr<string> savingPlanId_ = nullptr;
+    // Workstation specifications.
     std::shared_ptr<string> serverInstanceType_ = nullptr;
     std::shared_ptr<string> serverPortRange_ = nullptr;
+    // The system disk category.
+    // 
+    // Valid values:
+    // 
+    // *   cloud_auto.
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
+    // The performance level (PL) of the system disk.
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
+    // The size of the system disk. Unit: GB.
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    // The list of office network vSwitches.
     std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
     std::shared_ptr<string> virtualNodePoolId_ = nullptr;
+    // The name of the workstation. The numeric suffix is automatically added when multiple workstations are created.
     std::shared_ptr<string> wuyingServerName_ = nullptr;
   };
 

@@ -360,7 +360,7 @@ CreateAppInstanceGroupResponse Client::createAppInstanceGroup(const CreateAppIns
 }
 
 /**
- * @summary 通过实例创建镜像
+ * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
  *
  * @param request CreateImageByInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -423,7 +423,7 @@ CreateImageByInstanceResponse Client::createImageByInstanceWithOptions(const Cre
 }
 
 /**
- * @summary 通过实例创建镜像
+ * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
  *
  * @param request CreateImageByInstanceRequest
  * @return CreateImageByInstanceResponse
@@ -484,7 +484,14 @@ CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroup(
 }
 
 /**
- * @summary 创建一台或多台研发主机
+ * @summary Create one or more workstations.
+ *
+ * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+ * 2.  If there are multiple versions behind the input parameter ContentId:
+ *     **
+ *     **Note** The default version is used.
+ *     Bind simultaneously
+ * 3.  You can call the current interface only if the default version of Content is available.
  *
  * @param request CreateWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -613,7 +620,14 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
 }
 
 /**
- * @summary 创建一台或多台研发主机
+ * @summary Create one or more workstations.
+ *
+ * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+ * 2.  If there are multiple versions behind the input parameter ContentId:
+ *     **
+ *     **Note** The default version is used.
+ *     Bind simultaneously
+ * 3.  You can call the current interface only if the default version of Content is available.
  *
  * @param request CreateWuyingServerRequest
  * @return CreateWuyingServerResponse
@@ -728,6 +742,13 @@ DeleteAppInstancesResponse Client::deleteAppInstances(const DeleteAppInstancesRe
 }
 
 /**
+ * @summary Delete a custom RDS image
+ *
+ * @description *   You can only delete custom images to which a user belongs.
+ * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+ * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+ * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+ *
  * @param request DeleteImageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteImageResponse
@@ -757,6 +778,13 @@ DeleteImageResponse Client::deleteImageWithOptions(const DeleteImageRequest &req
 }
 
 /**
+ * @summary Delete a custom RDS image
+ *
+ * @description *   You can only delete custom images to which a user belongs.
+ * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+ * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+ * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+ *
  * @param request DeleteImageRequest
  * @return DeleteImageResponse
  */
@@ -767,6 +795,8 @@ DeleteImageResponse Client::deleteImage(const DeleteImageRequest &request) {
 
 /**
  * @summary 删除工作站
+ *
+ * @description Deletes a workstation.
  *
  * @param request DeleteWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -799,6 +829,8 @@ DeleteWuyingServerResponse Client::deleteWuyingServerWithOptions(const DeleteWuy
 /**
  * @summary 删除工作站
  *
+ * @description Deletes a workstation.
+ *
  * @param request DeleteWuyingServerRequest
  * @return DeleteWuyingServerResponse
  */
@@ -808,7 +840,7 @@ DeleteWuyingServerResponse Client::deleteWuyingServer(const DeleteWuyingServerRe
 }
 
 /**
- * @summary 查询无影工作站EIP信息
+ * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
  *
  * @param request DescribeWuyingServerEipInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -843,7 +875,7 @@ DescribeWuyingServerEipInfoResponse Client::describeWuyingServerEipInfoWithOptio
 }
 
 /**
- * @summary 查询无影工作站EIP信息
+ * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
  *
  * @param request DescribeWuyingServerEipInfoRequest
  * @return DescribeWuyingServerEipInfoResponse
@@ -1366,7 +1398,7 @@ ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest 
 }
 
 /**
- * @summary 通过交付组查询展示授权的用户组列表
+ * @summary Queries the user groups authorized by a delivery group.
  *
  * @param request ListAuthorizedUserGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1417,7 +1449,7 @@ ListAuthorizedUserGroupsResponse Client::listAuthorizedUserGroupsWithOptions(con
 }
 
 /**
- * @summary 通过交付组查询展示授权的用户组列表
+ * @summary Queries the user groups authorized by a delivery group.
  *
  * @param request ListAuthorizedUserGroupsRequest
  * @return ListAuthorizedUserGroupsResponse
@@ -2019,7 +2051,7 @@ ListTenantConfigResponse Client::listTenantConfig() {
 }
 
 /**
- * @summary 查询研发主机列表
+ * @summary Queries the list of workstations.
  *
  * @param request ListWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2098,7 +2130,7 @@ ListWuyingServerResponse Client::listWuyingServerWithOptions(const ListWuyingSer
 }
 
 /**
- * @summary 查询研发主机列表
+ * @summary Queries the list of workstations.
  *
  * @param request ListWuyingServerRequest
  * @return ListWuyingServerResponse
@@ -2261,7 +2293,7 @@ ModifyAppInstanceGroupAttributeResponse Client::modifyAppInstanceGroupAttribute(
 }
 
 /**
- * @summary 修改策略信息
+ * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
  *
  * @param tmpReq ModifyAppPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2306,7 +2338,7 @@ ModifyAppPolicyResponse Client::modifyAppPolicyWithOptions(const ModifyAppPolicy
 }
 
 /**
- * @summary 修改策略信息
+ * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
  *
  * @param request ModifyAppPolicyRequest
  * @return ModifyAppPolicyResponse
@@ -2573,7 +2605,7 @@ ModifyTenantConfigResponse Client::modifyTenantConfig(const ModifyTenantConfigRe
 }
 
 /**
- * @summary 修改研发主机属性
+ * @summary Modify workstation properties.
  *
  * @param request ModifyWuyingServerAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2612,7 +2644,7 @@ ModifyWuyingServerAttributeResponse Client::modifyWuyingServerAttributeWithOptio
 }
 
 /**
- * @summary 修改研发主机属性
+ * @summary Modify workstation properties.
  *
  * @param request ModifyWuyingServerAttributeRequest
  * @return ModifyWuyingServerAttributeResponse
@@ -2761,7 +2793,7 @@ RenewAppInstanceGroupResponse Client::renewAppInstanceGroup(const RenewAppInstan
 }
 
 /**
- * @summary 续费研发主机
+ * @summary Renew one workstation.
  *
  * @param request RenewWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2808,7 +2840,7 @@ RenewWuyingServerResponse Client::renewWuyingServerWithOptions(const RenewWuying
 }
 
 /**
- * @summary 续费研发主机
+ * @summary Renew one workstation.
  *
  * @param request RenewWuyingServerRequest
  * @return RenewWuyingServerResponse
@@ -2819,7 +2851,7 @@ RenewWuyingServerResponse Client::renewWuyingServer(const RenewWuyingServerReque
 }
 
 /**
- * @summary 重启研发主机
+ * @summary Restarts the workstation.
  *
  * @param request RestartWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2854,7 +2886,7 @@ RestartWuyingServerResponse Client::restartWuyingServerWithOptions(const Restart
 }
 
 /**
- * @summary 重启研发主机
+ * @summary Restarts the workstation.
  *
  * @param request RestartWuyingServerRequest
  * @return RestartWuyingServerResponse
@@ -2865,6 +2897,8 @@ RestartWuyingServerResponse Client::restartWuyingServer(const RestartWuyingServe
 }
 
 /**
+ * @summary Initiates a task to replicate an image to another region.
+ *
  * @param request StartTaskForDistributeImageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartTaskForDistributeImageResponse
@@ -2914,6 +2948,8 @@ StartTaskForDistributeImageResponse Client::startTaskForDistributeImageWithOptio
 }
 
 /**
+ * @summary Initiates a task to replicate an image to another region.
+ *
  * @param request StartTaskForDistributeImageRequest
  * @return StartTaskForDistributeImageResponse
  */
@@ -2923,7 +2959,7 @@ StartTaskForDistributeImageResponse Client::startTaskForDistributeImage(const St
 }
 
 /**
- * @summary 启动研发主机
+ * @summary Start the workstation.
  *
  * @param request StartWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2958,7 +2994,7 @@ StartWuyingServerResponse Client::startWuyingServerWithOptions(const StartWuying
 }
 
 /**
- * @summary 启动研发主机
+ * @summary Start the workstation.
  *
  * @param request StartWuyingServerRequest
  * @return StartWuyingServerResponse
@@ -2969,7 +3005,7 @@ StartWuyingServerResponse Client::startWuyingServer(const StartWuyingServerReque
 }
 
 /**
- * @summary 停止研发主机
+ * @summary Stops the workstation.
  *
  * @param request StopWuyingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3008,7 +3044,7 @@ StopWuyingServerResponse Client::stopWuyingServerWithOptions(const StopWuyingSer
 }
 
 /**
- * @summary 停止研发主机
+ * @summary Stops the workstation.
  *
  * @param request StopWuyingServerRequest
  * @return StopWuyingServerResponse

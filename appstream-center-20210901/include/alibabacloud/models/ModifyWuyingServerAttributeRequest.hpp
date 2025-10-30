@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Workstation login password.
     std::shared_ptr<string> password_ = nullptr;
+    // The ID of the workstation.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
+    // The name.
     std::shared_ptr<string> wuyingServerName_ = nullptr;
   };
 

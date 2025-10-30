@@ -146,16 +146,26 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<string>> addVirtualNodePoolStatusList_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    // The billing method of the Internet access package.
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The office network IDs.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of records per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Workstation specifications.
     std::shared_ptr<string> serverInstanceType_ = nullptr;
+    // The status of the workstation.
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> virtualNodePoolId_ = nullptr;
+    // The list of workstation IDs.
     std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
+    // The workstation name or workstation ID.
     std::shared_ptr<string> wuyingServerNameOrId_ = nullptr;
   };
 

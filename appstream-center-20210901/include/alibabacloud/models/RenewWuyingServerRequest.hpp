@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // Automatic payment.
     std::shared_ptr<bool> autoPay_ = nullptr;
+    // The renewal duration.
     std::shared_ptr<int32_t> period_ = nullptr;
+    // The unit of the renewal time.
+    // 
+    // Valid values:
+    // 
+    // *   Month: month.
+    // *   Year: year.
     std::shared_ptr<string> periodUnit_ = nullptr;
+    // The discount ID.
     std::shared_ptr<string> promotionId_ = nullptr;
+    // The ID of the workstation.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
   };
 

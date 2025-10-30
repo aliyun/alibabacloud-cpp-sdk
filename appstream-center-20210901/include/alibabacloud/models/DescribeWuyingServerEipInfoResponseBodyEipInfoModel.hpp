@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The public IP address.
     std::shared_ptr<string> ipAddress_ = nullptr;
+    // The ID of the elastic network interface (ENI).
     std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    // The port range.
     std::shared_ptr<string> serverPortRange_ = nullptr;
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The key of a tag. The value must be 1 to 128 characters in length and is case-sensitive. The name must be 1 to 128 characters in length.
+    // 
     // This parameter is required.
     std::shared_ptr<string> key_ = nullptr;
+    // The value of a tag. The value must be 1 to 128 characters in length and is case-sensitive. The name must be 1 to 128 characters in length.
+    // 
     // This parameter is required.
     std::shared_ptr<string> value_ = nullptr;
   };

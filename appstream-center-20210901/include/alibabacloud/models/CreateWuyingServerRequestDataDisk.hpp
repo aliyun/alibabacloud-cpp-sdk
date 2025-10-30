@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The data disk category.
+    // 
+    // Valid values:
+    // 
+    // *   cloud_auto.
     std::shared_ptr<string> dataDiskCategory_ = nullptr;
+    // The PL of the data disk.
     std::shared_ptr<string> dataDiskPerformanceLevel_ = nullptr;
+    // The data disk size.
     std::shared_ptr<int32_t> dataDiskSize_ = nullptr;
   };
 

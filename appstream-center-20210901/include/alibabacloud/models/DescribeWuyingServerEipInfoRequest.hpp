@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // The Internet service provider (ISP). Valid values:
+    // 
+    // *   ChinaMobile: China Mobile
+    // *   ChinaTelecom: China Telecom
+    // *   ChinaUnicom: China Unicom
     std::shared_ptr<string> isp_ = nullptr;
+    // The ID of the workstation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
   };

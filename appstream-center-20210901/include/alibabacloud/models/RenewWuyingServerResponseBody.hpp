@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The order ID.
     std::shared_ptr<string> orderId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

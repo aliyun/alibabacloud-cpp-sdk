@@ -20,6 +20,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DisconnectKeepSession, disconnectKeepSession_);
       DARABONBA_PTR_TO_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
       DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
+      DARABONBA_PTR_TO_JSON(NoOperationDisconnect, noOperationDisconnect_);
+      DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
       DARABONBA_PTR_TO_JSON(PolicyId, policyId_);
       DARABONBA_PTR_TO_JSON(PolicyVersion, policyVersion_);
       DARABONBA_PTR_TO_JSON(VideoPolicy, videoPolicy_);
@@ -30,6 +32,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DisconnectKeepSession, disconnectKeepSession_);
       DARABONBA_PTR_FROM_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
       DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
+      DARABONBA_PTR_FROM_JSON(NoOperationDisconnect, noOperationDisconnect_);
+      DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
       DARABONBA_PTR_FROM_JSON(PolicyId, policyId_);
       DARABONBA_PTR_FROM_JSON(PolicyVersion, policyVersion_);
       DARABONBA_PTR_FROM_JSON(VideoPolicy, videoPolicy_);
@@ -47,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clipboardPolicy_ == nullptr
-        && return this->disconnectKeepSession_ == nullptr && return this->disconnectKeepSessionTime_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->policyId_ == nullptr && return this->policyVersion_ == nullptr
-        && return this->videoPolicy_ == nullptr && return this->watermarkPolicy_ == nullptr; };
+        && return this->disconnectKeepSession_ == nullptr && return this->disconnectKeepSessionTime_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->noOperationDisconnect_ == nullptr && return this->noOperationDisconnectTime_ == nullptr
+        && return this->policyId_ == nullptr && return this->policyVersion_ == nullptr && return this->videoPolicy_ == nullptr && return this->watermarkPolicy_ == nullptr; };
     // clipboardPolicy Field Functions 
     bool hasClipboardPolicy() const { return this->clipboardPolicy_ != nullptr;};
     void deleteClipboardPolicy() { this->clipboardPolicy_ = nullptr;};
@@ -77,6 +81,20 @@ namespace Models
     void deleteHtml5FileTransfer() { this->html5FileTransfer_ = nullptr;};
     inline string html5FileTransfer() const { DARABONBA_PTR_GET_DEFAULT(html5FileTransfer_, "") };
     inline ModifyBrowserInstanceGroupRequestPolicy& setHtml5FileTransfer(string html5FileTransfer) { DARABONBA_PTR_SET_VALUE(html5FileTransfer_, html5FileTransfer) };
+
+
+    // noOperationDisconnect Field Functions 
+    bool hasNoOperationDisconnect() const { return this->noOperationDisconnect_ != nullptr;};
+    void deleteNoOperationDisconnect() { this->noOperationDisconnect_ = nullptr;};
+    inline string noOperationDisconnect() const { DARABONBA_PTR_GET_DEFAULT(noOperationDisconnect_, "") };
+    inline ModifyBrowserInstanceGroupRequestPolicy& setNoOperationDisconnect(string noOperationDisconnect) { DARABONBA_PTR_SET_VALUE(noOperationDisconnect_, noOperationDisconnect) };
+
+
+    // noOperationDisconnectTime Field Functions 
+    bool hasNoOperationDisconnectTime() const { return this->noOperationDisconnectTime_ != nullptr;};
+    void deleteNoOperationDisconnectTime() { this->noOperationDisconnectTime_ = nullptr;};
+    inline int32_t noOperationDisconnectTime() const { DARABONBA_PTR_GET_DEFAULT(noOperationDisconnectTime_, 0) };
+    inline ModifyBrowserInstanceGroupRequestPolicy& setNoOperationDisconnectTime(int32_t noOperationDisconnectTime) { DARABONBA_PTR_SET_VALUE(noOperationDisconnectTime_, noOperationDisconnectTime) };
 
 
     // policyId Field Functions 
@@ -116,6 +134,8 @@ namespace Models
     std::shared_ptr<string> disconnectKeepSession_ = nullptr;
     std::shared_ptr<int32_t> disconnectKeepSessionTime_ = nullptr;
     std::shared_ptr<string> html5FileTransfer_ = nullptr;
+    std::shared_ptr<string> noOperationDisconnect_ = nullptr;
+    std::shared_ptr<int32_t> noOperationDisconnectTime_ = nullptr;
     std::shared_ptr<string> policyId_ = nullptr;
     std::shared_ptr<string> policyVersion_ = nullptr;
     std::shared_ptr<Models::ModifyBrowserInstanceGroupRequestPolicyVideoPolicy> videoPolicy_ = nullptr;

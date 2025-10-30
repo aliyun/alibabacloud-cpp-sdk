@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // The policy ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appPolicyId_ = nullptr;
+    // The product type.
+    // 
+    // Enumerated values:
+    // 
+    // *   CloudApp: RDS Cloud App
+    // 
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
+    // Displays the policy.
     std::shared_ptr<string> videoPolicyShrink_ = nullptr;
   };
 

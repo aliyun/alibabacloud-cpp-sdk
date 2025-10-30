@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The order ID.
     std::shared_ptr<string> orderId_ = nullptr;
+    // The list of workstation IDs.
     std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
   };
 

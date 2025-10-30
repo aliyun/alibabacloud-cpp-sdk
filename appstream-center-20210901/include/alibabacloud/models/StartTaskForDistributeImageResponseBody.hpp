@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The error code if an error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The ID of the image replication task.
     std::shared_ptr<string> data_ = nullptr;
+    // The error message if an error occurred.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the task is successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

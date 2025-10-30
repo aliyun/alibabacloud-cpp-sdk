@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the RDS image.
     std::shared_ptr<string> imageId_ = nullptr;
   };
 

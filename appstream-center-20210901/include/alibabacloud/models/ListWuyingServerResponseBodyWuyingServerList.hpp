@@ -254,27 +254,47 @@ namespace Models
 
   protected:
     std::shared_ptr<string> addVirtualNodePoolStatus_ = nullptr;
+    // Region.
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    // The billing method.
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The time when the storage resource was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The data disks.
     std::shared_ptr<vector<Models::ListWuyingServerResponseBodyWuyingServerListDataDisk>> dataDisk_ = nullptr;
+    // The time when the subscription instance expires.
     std::shared_ptr<string> expiredTime_ = nullptr;
+    // The ID of the custom image.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The image name.
     std::shared_ptr<string> imageName_ = nullptr;
+    // The list of information about the workstation instance.
     std::shared_ptr<vector<Models::ListWuyingServerResponseBodyWuyingServerListInstanceInfoList>> instanceInfoList_ = nullptr;
+    // The private IP address.
     std::shared_ptr<string> networkInterfaceIp_ = nullptr;
+    // The ID of the office network.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The office network name.
     std::shared_ptr<string> officeSiteName_ = nullptr;
+    // The type of the office network.
     std::shared_ptr<string> officeSiteType_ = nullptr;
+    // The OS type.
     std::shared_ptr<string> osType_ = nullptr;
     std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
+    // The specifications.
     std::shared_ptr<Models::ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo> serverInstanceTypeInfo_ = nullptr;
+    // The status of the workstation.
     std::shared_ptr<string> status_ = nullptr;
+    // The type of the system disk.
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
+    // The performance level (PL) of the system disk.
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
+    // The size of the system disk. Unit: GiB.
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
     std::shared_ptr<string> virtualNodePoolId_ = nullptr;
+    // The ID of the workstation.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
+    // The name of the workstation.
     std::shared_ptr<string> wuyingServerName_ = nullptr;
   };
 

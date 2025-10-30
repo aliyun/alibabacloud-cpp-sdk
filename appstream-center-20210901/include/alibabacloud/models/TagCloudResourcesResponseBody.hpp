@@ -52,6 +52,7 @@ namespace Models
 
 
   protected:
+    // The cloud resources on which the operation failed and the corresponding tags.
     std::shared_ptr<vector<TagCloudResourcesResponseBodyFailedResources>> failedResources_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
   };

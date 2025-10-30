@@ -63,9 +63,31 @@ namespace Models
 
 
   protected:
+    // The resource IDs. You can specify up to 50 resource IDs. You do not need to specify this parameter if you set ResourceType to AliUid.
     std::shared_ptr<vector<string>> resourceIds_ = nullptr;
+    // The type of the cloud resource.
+    // 
+    // Valid values:
+    // 
+    // *   CenterImageId: center image ID.
+    // *   AppId: app ID.
+    // *   WyId: Alibaba Cloud Workspace user ID.
+    // *   AppInstanceGroupId: delivery group ID.
+    // *   AliUid: tenant ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The tags that you want to remove from the cloud resources. System and custom tags are supported.
+    // 
+    // *   Valid values for system tags:
+    // 
+    //     *   `System/Scheduler/GRAYSCALE`: canary tags.
+    //     *   `System/Scheduler/STOP_NEW_USER_CONNECTION`: tags used to stop new users bound to the delivery group from establishing a connection.
+    // 
+    // *   You can create up to 20 custom tags.
+    // 
+    // > Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<TagCloudResourcesRequestTags>> tags_ = nullptr;
   };

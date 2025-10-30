@@ -51,7 +51,14 @@ namespace Models
 
 
   protected:
+    // Force restart.
+    // 
+    // Valid values:
+    // 
+    // *   True.
+    // *   False
     std::shared_ptr<bool> force_ = nullptr;
+    // The list of workstation IDs.
     std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
   };
 

@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The error code.
     std::shared_ptr<string> code_ = nullptr;
+    // The returned data.
     std::shared_ptr<CreateImageByInstanceResponseBodyData> data_ = nullptr;
+    // The error message.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values: true and false.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // Status code:
+    // 
+    // *   `200`: Success.
+    // *   `400`: An error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // Whether the deletion is successful.
+    // 
+    // Enumerated values:
+    // 
+    // *   true:Deleted successfully.
+    // *   false:Deletion failure.
     std::shared_ptr<bool> data_ = nullptr;
+    // The error message.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

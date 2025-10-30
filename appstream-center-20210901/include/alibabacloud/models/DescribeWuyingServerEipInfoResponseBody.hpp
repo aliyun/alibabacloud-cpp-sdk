@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // The information about the associated EIP.
     std::shared_ptr<DescribeWuyingServerEipInfoResponseBodyEipInfoModel> eipInfoModel_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

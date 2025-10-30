@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The list of workstation IDs.
     std::shared_ptr<vector<string>> wuyingServerIdList_ = nullptr;
   };
 

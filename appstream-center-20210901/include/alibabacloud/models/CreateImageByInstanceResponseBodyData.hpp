@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the RDS image.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The ID of the image creation task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // The version of the image.
     std::shared_ptr<string> versionId_ = nullptr;
   };
 

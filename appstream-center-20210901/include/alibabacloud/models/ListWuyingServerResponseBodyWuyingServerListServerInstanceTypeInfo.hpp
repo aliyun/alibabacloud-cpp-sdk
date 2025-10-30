@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of vCPUs.
     std::shared_ptr<string> cpu_ = nullptr;
+    // The number of GPUs.
     std::shared_ptr<string> gpu_ = nullptr;
+    // The memory size. Unit: MB.
     std::shared_ptr<int32_t> gpuMemory_ = nullptr;
+    // The memory size. Unit: MB.
     std::shared_ptr<int32_t> memory_ = nullptr;
+    // Workstation specifications.
     std::shared_ptr<string> serverInstanceType_ = nullptr;
   };
 

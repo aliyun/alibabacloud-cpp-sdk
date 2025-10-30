@@ -82,6 +82,15 @@ namespace Models
     std::shared_ptr<string> code_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;
     std::shared_ptr<string> resourceId_ = nullptr;
+    // The type of the cloud resource.
+    // 
+    // Valid values:
+    // 
+    // *   CenterImageId: center image ID.
+    // *   AppId: app ID.
+    // *   WyId: Alibaba Cloud Workspace user ID.
+    // *   AppInstanceGroupId: delivery group ID.
+    // *   AliUid: tenant ID.
     std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<vector<Models::TagCloudResourcesResponseBodyFailedResourcesTags>> tags_ = nullptr;
   };

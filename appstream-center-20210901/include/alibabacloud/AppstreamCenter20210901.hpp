@@ -72,7 +72,7 @@ namespace AppstreamCenter20210901
       Models::CreateAppInstanceGroupResponse createAppInstanceGroup(const Models::CreateAppInstanceGroupRequest &request);
 
       /**
-       * @summary 通过实例创建镜像
+       * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
        *
        * @param request CreateImageByInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace AppstreamCenter20210901
       Models::CreateImageByInstanceResponse createImageByInstanceWithOptions(const Models::CreateImageByInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过实例创建镜像
+       * @summary Create a custom image from a deployed instance. This allows you to quickly create more instances with the same configurations and avoid repeatedly configuring the instance environment each time you create the instance.
        *
        * @param request CreateImageByInstanceRequest
        * @return CreateImageByInstanceResponse
@@ -106,7 +106,14 @@ namespace AppstreamCenter20210901
       Models::CreateImageFromAppInstanceGroupResponse createImageFromAppInstanceGroup(const Models::CreateImageFromAppInstanceGroupRequest &request);
 
       /**
-       * @summary 创建一台或多台研发主机
+       * @summary Create one or more workstations.
+       *
+       * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+       * 2.  If there are multiple versions behind the input parameter ContentId:
+       *     **
+       *     **Note** The default version is used.
+       *     Bind simultaneously
+       * 3.  You can call the current interface only if the default version of Content is available.
        *
        * @param request CreateWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +122,14 @@ namespace AppstreamCenter20210901
       Models::CreateWuyingServerResponse createWuyingServerWithOptions(const Models::CreateWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一台或多台研发主机
+       * @summary Create one or more workstations.
+       *
+       * @description 1.  Project is equivalent to the Resource Configuration module of the Cloud Flow console
+       * 2.  If there are multiple versions behind the input parameter ContentId:
+       *     **
+       *     **Note** The default version is used.
+       *     Bind simultaneously
+       * 3.  You can call the current interface only if the default version of Content is available.
        *
        * @param request CreateWuyingServerRequest
        * @return CreateWuyingServerResponse
@@ -165,6 +179,13 @@ namespace AppstreamCenter20210901
       Models::DeleteAppInstancesResponse deleteAppInstances(const Models::DeleteAppInstancesRequest &request);
 
       /**
+       * @summary Delete a custom RDS image
+       *
+       * @description *   You can only delete custom images to which a user belongs.
+       * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+       * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+       * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+       *
        * @param request DeleteImageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteImageResponse
@@ -172,6 +193,13 @@ namespace AppstreamCenter20210901
       Models::DeleteImageResponse deleteImageWithOptions(const Models::DeleteImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Delete a custom RDS image
+       *
+       * @description *   You can only delete custom images to which a user belongs.
+       * *   If the product line is an image of the RDS cloud computer pool, RDS cloud application, and RDS workstation, make sure that no RDS instances use the image before you delete it.
+       * *   The RDS CloudDesktop template references an image. When you delete an image, the template is also deleted.
+       * *   If the image contains multiple regions, the images in all regions are deleted when the image is deleted.
+       *
        * @param request DeleteImageRequest
        * @return DeleteImageResponse
        */
@@ -179,6 +207,8 @@ namespace AppstreamCenter20210901
 
       /**
        * @summary 删除工作站
+       *
+       * @description Deletes a workstation.
        *
        * @param request DeleteWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -189,13 +219,15 @@ namespace AppstreamCenter20210901
       /**
        * @summary 删除工作站
        *
+       * @description Deletes a workstation.
+       *
        * @param request DeleteWuyingServerRequest
        * @return DeleteWuyingServerResponse
        */
       Models::DeleteWuyingServerResponse deleteWuyingServer(const Models::DeleteWuyingServerRequest &request);
 
       /**
-       * @summary 查询无影工作站EIP信息
+       * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
        *
        * @param request DescribeWuyingServerEipInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +236,7 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfoWithOptions(const Models::DescribeWuyingServerEipInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询无影工作站EIP信息
+       * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
        *
        * @param request DescribeWuyingServerEipInfoRequest
        * @return DescribeWuyingServerEipInfoResponse
@@ -356,7 +388,7 @@ namespace AppstreamCenter20210901
       Models::ListAppInstancesResponse listAppInstances(const Models::ListAppInstancesRequest &request);
 
       /**
-       * @summary 通过交付组查询展示授权的用户组列表
+       * @summary Queries the user groups authorized by a delivery group.
        *
        * @param request ListAuthorizedUserGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +397,7 @@ namespace AppstreamCenter20210901
       Models::ListAuthorizedUserGroupsResponse listAuthorizedUserGroupsWithOptions(const Models::ListAuthorizedUserGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过交付组查询展示授权的用户组列表
+       * @summary Queries the user groups authorized by a delivery group.
        *
        * @param request ListAuthorizedUserGroupsRequest
        * @return ListAuthorizedUserGroupsResponse
@@ -529,7 +561,7 @@ namespace AppstreamCenter20210901
       Models::ListTenantConfigResponse listTenantConfig();
 
       /**
-       * @summary 查询研发主机列表
+       * @summary Queries the list of workstations.
        *
        * @param request ListWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -538,7 +570,7 @@ namespace AppstreamCenter20210901
       Models::ListWuyingServerResponse listWuyingServerWithOptions(const Models::ListWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询研发主机列表
+       * @summary Queries the list of workstations.
        *
        * @param request ListWuyingServerRequest
        * @return ListWuyingServerResponse
@@ -584,7 +616,7 @@ namespace AppstreamCenter20210901
       Models::ModifyAppInstanceGroupAttributeResponse modifyAppInstanceGroupAttribute(const Models::ModifyAppInstanceGroupAttributeRequest &request);
 
       /**
-       * @summary 修改策略信息
+       * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
        *
        * @param tmpReq ModifyAppPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +625,7 @@ namespace AppstreamCenter20210901
       Models::ModifyAppPolicyResponse modifyAppPolicyWithOptions(const Models::ModifyAppPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改策略信息
+       * @summary Modify the delivery group display policy, including settings such as frame rate, resolution, and protocol type.
        *
        * @param request ModifyAppPolicyRequest
        * @return ModifyAppPolicyResponse
@@ -681,7 +713,7 @@ namespace AppstreamCenter20210901
       Models::ModifyTenantConfigResponse modifyTenantConfig(const Models::ModifyTenantConfigRequest &request);
 
       /**
-       * @summary 修改研发主机属性
+       * @summary Modify workstation properties.
        *
        * @param request ModifyWuyingServerAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +722,7 @@ namespace AppstreamCenter20210901
       Models::ModifyWuyingServerAttributeResponse modifyWuyingServerAttributeWithOptions(const Models::ModifyWuyingServerAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改研发主机属性
+       * @summary Modify workstation properties.
        *
        * @param request ModifyWuyingServerAttributeRequest
        * @return ModifyWuyingServerAttributeResponse
@@ -736,7 +768,7 @@ namespace AppstreamCenter20210901
       Models::RenewAppInstanceGroupResponse renewAppInstanceGroup(const Models::RenewAppInstanceGroupRequest &request);
 
       /**
-       * @summary 续费研发主机
+       * @summary Renew one workstation.
        *
        * @param request RenewWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +777,7 @@ namespace AppstreamCenter20210901
       Models::RenewWuyingServerResponse renewWuyingServerWithOptions(const Models::RenewWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 续费研发主机
+       * @summary Renew one workstation.
        *
        * @param request RenewWuyingServerRequest
        * @return RenewWuyingServerResponse
@@ -753,7 +785,7 @@ namespace AppstreamCenter20210901
       Models::RenewWuyingServerResponse renewWuyingServer(const Models::RenewWuyingServerRequest &request);
 
       /**
-       * @summary 重启研发主机
+       * @summary Restarts the workstation.
        *
        * @param request RestartWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -762,7 +794,7 @@ namespace AppstreamCenter20210901
       Models::RestartWuyingServerResponse restartWuyingServerWithOptions(const Models::RestartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启研发主机
+       * @summary Restarts the workstation.
        *
        * @param request RestartWuyingServerRequest
        * @return RestartWuyingServerResponse
@@ -770,6 +802,8 @@ namespace AppstreamCenter20210901
       Models::RestartWuyingServerResponse restartWuyingServer(const Models::RestartWuyingServerRequest &request);
 
       /**
+       * @summary Initiates a task to replicate an image to another region.
+       *
        * @param request StartTaskForDistributeImageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StartTaskForDistributeImageResponse
@@ -777,13 +811,15 @@ namespace AppstreamCenter20210901
       Models::StartTaskForDistributeImageResponse startTaskForDistributeImageWithOptions(const Models::StartTaskForDistributeImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Initiates a task to replicate an image to another region.
+       *
        * @param request StartTaskForDistributeImageRequest
        * @return StartTaskForDistributeImageResponse
        */
       Models::StartTaskForDistributeImageResponse startTaskForDistributeImage(const Models::StartTaskForDistributeImageRequest &request);
 
       /**
-       * @summary 启动研发主机
+       * @summary Start the workstation.
        *
        * @param request StartWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -792,7 +828,7 @@ namespace AppstreamCenter20210901
       Models::StartWuyingServerResponse startWuyingServerWithOptions(const Models::StartWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动研发主机
+       * @summary Start the workstation.
        *
        * @param request StartWuyingServerRequest
        * @return StartWuyingServerResponse
@@ -800,7 +836,7 @@ namespace AppstreamCenter20210901
       Models::StartWuyingServerResponse startWuyingServer(const Models::StartWuyingServerRequest &request);
 
       /**
-       * @summary 停止研发主机
+       * @summary Stops the workstation.
        *
        * @param request StopWuyingServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -809,7 +845,7 @@ namespace AppstreamCenter20210901
       Models::StopWuyingServerResponse stopWuyingServerWithOptions(const Models::StopWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止研发主机
+       * @summary Stops the workstation.
        *
        * @param request StopWuyingServerRequest
        * @return StopWuyingServerResponse

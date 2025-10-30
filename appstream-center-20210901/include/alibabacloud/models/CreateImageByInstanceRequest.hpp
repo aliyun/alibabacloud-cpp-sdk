@@ -112,14 +112,38 @@ namespace Models
 
 
   protected:
+    // This parameter is applicable only to scenarios in which the instance type is Cloud Desktop. Specifies whether to clear private data of users. If this parameter is set to true, the created image clears data in directories other than Administrator and Public in the C:\\Users directory.
+    // 
+    // Valid values:
+    // 
+    // *   true: cleanup.
+    // *   false: does not clear.
     std::shared_ptr<bool> autoCleanUserdata_ = nullptr;
+    // This parameter is not publicly available.
     std::shared_ptr<int32_t> bizType_ = nullptr;
+    // The description of the image.
     std::shared_ptr<string> description_ = nullptr;
+    // The type of disk data contained in the image. By default, the system disk and data disk of the instance are included.
+    // 
+    // Valid values:
+    // 
+    // *   SYSTEM: only system disk.
+    // *   ALL: system disk + data disk
     std::shared_ptr<string> diskType_ = nullptr;
+    // The name of the image.
     std::shared_ptr<string> imageName_ = nullptr;
+    // The ID of the RDS instance. The instance can be a CloudDesktop instance, a workstation instance. To ensure data consistency in the image, we recommend that you shut down the instance before you create an image.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The instance type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudDesktop: Cloud Desktop.
+    // *   WuyingServer: Workstation
     std::shared_ptr<string> instanceType_ = nullptr;
+    // This parameter is not publicly available.
     std::shared_ptr<string> productType_ = nullptr;
+    // The ID of the child instance. This parameter is not used in cloud computing scenarios. Workstation scenarios, you need to specify a persistent session ID to ensure that a specific instance is located.
     std::shared_ptr<string> subInstanceId_ = nullptr;
   };
 

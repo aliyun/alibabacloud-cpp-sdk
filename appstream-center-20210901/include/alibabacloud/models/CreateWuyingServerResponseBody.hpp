@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The response data.
     std::shared_ptr<CreateWuyingServerResponseBodyData> data_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

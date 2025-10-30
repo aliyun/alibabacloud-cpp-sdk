@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The ID of the ENI.
     std::shared_ptr<string> networkInterfaceId_ = nullptr;
   };
 

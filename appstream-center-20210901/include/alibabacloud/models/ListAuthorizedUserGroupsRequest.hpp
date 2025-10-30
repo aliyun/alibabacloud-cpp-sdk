@@ -84,14 +84,28 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The ID of the user group (exact match).
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the user group (fuzzy match).
     std::shared_ptr<string> groupName_ = nullptr;
+    // The page number. Pages start from page 1.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The maximum number of entries returned per page.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The product type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudApp: App Streaming
+    // 
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
   };

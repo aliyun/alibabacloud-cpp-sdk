@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the workstation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
   };

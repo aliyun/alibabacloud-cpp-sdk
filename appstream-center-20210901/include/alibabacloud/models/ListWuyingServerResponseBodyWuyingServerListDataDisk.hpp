@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The category of data disk.
     std::shared_ptr<string> dataDiskCategory_ = nullptr;
+    // The PL of the data disk.
     std::shared_ptr<string> dataDiskPerformanceLevel_ = nullptr;
+    // The size of the data disk. Unit: GB.
     std::shared_ptr<int32_t> dataDiskSize_ = nullptr;
   };
 

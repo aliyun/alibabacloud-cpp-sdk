@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
+    // The list of workstation information.
     std::shared_ptr<vector<ListWuyingServerResponseBodyWuyingServerList>> wuyingServerList_ = nullptr;
   };
 

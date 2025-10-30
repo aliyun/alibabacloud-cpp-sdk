@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The authorization mode.
+    // 
+    // Valid values:
+    // 
+    // *   App: authorizes access to apps.
+    // *   AppInstanceGroup: authorizes access to delivery groups.
+    // *   Session: authorizes access to sessions.
     std::shared_ptr<string> authMode_ = nullptr;
+    // The ID of the user group.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the user group.
     std::shared_ptr<string> groupName_ = nullptr;
   };
 
