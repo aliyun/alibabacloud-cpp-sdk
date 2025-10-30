@@ -18,7 +18,7 @@ namespace PaiDsw20220101
 {
 
 AlibabaCloud::PaiDsw20220101::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("pai-dsw", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }

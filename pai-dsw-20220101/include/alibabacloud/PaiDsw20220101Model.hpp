@@ -122,6 +122,7 @@
 #include <alibabacloud/models/CreateInstanceSnapshotRequestLabels.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyAffinityCpu.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyAffinity.hpp>
+#include <alibabacloud/models/GetInstanceResponseBodyCloudDisksStatus.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyCloudDisks.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDatasets.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyIdleInstanceCuller.hpp>
