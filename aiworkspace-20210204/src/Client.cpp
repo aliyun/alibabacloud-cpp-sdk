@@ -18,7 +18,49 @@ namespace AIWorkSpace20210204
 {
 
 AlibabaCloud::AIWorkSpace20210204::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-northeast-2-pop" , "aiworkspace.aliyuncs.com"},
+    {"ap-southeast-2" , "aiworkspace.aliyuncs.com"},
+    {"ap-southeast-5" , "aiworkspace-vpc.ap-southeast-5.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-beijing-finance-pop" , "aiworkspace.aliyuncs.com"},
+    {"cn-beijing-gov-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-beijing-nu16-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-edge-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-fujian" , "aiworkspace.aliyuncs.com"},
+    {"cn-haidian-cm12-c01" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3" , "aiworkspace.aliyuncs.com"},
+    {"cn-hangzhou-test-306" , "aiworkspace.aliyuncs.com"},
+    {"cn-hongkong-finance-pop" , "aiworkspace.aliyuncs.com"},
+    {"cn-huhehaote" , "aiworkspace.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-qingdao" , "aiworkspace.aliyuncs.com"},
+    {"cn-qingdao-nebula" , "aiworkspace.aliyuncs.com"},
+    {"cn-shanghai-et15-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-shanghai-et2-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-shanghai-inner" , "aiworkspace.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-shenzhen-finance-1" , "aiworkspace.aliyuncs.com"},
+    {"cn-shenzhen-inner" , "aiworkspace.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01" , "aiworkspace.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-wuhan" , "aiworkspace.aliyuncs.com"},
+    {"cn-yushanfang" , "aiworkspace.aliyuncs.com"},
+    {"cn-zhangbei" , "aiworkspace.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01" , "aiworkspace.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01" , "aiworkspace.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1" , "aiworkspace.aliyuncs.com"},
+    {"eu-west-1" , "aiworkspace.aliyuncs.com"},
+    {"eu-west-1-oxs" , "aiworkspace.aliyuncs.com"},
+    {"me-east-1" , "aiworkspace.aliyuncs.com"},
+    {"rus-west-1-pop" , "aiworkspace.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("aiworkspace", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
