@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnDefault_ != nullptr
-        && this->comment_ != nullptr && this->dataType_ != nullptr && this->isCaseSensitive_ != nullptr && this->isCurrency_ != nullptr && this->isPrimaryKey_ != nullptr
-        && this->isSigned_ != nullptr && this->maxLength_ != nullptr && this->name_ != nullptr && this->nullable_ != nullptr && this->precision_ != nullptr
-        && this->scale_ != nullptr && this->schemaName_ != nullptr && this->tableName_ != nullptr && this->udtName_ != nullptr; };
+    virtual bool empty() const override { return this->columnDefault_ == nullptr
+        && return this->comment_ == nullptr && return this->dataType_ == nullptr && return this->isCaseSensitive_ == nullptr && return this->isCurrency_ == nullptr && return this->isPrimaryKey_ == nullptr
+        && return this->isSigned_ == nullptr && return this->maxLength_ == nullptr && return this->name_ == nullptr && return this->nullable_ == nullptr && return this->precision_ == nullptr
+        && return this->scale_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr && return this->udtName_ == nullptr; };
     // columnDefault Field Functions 
     bool hasColumnDefault() const { return this->columnDefault_ != nullptr;};
     void deleteColumnDefault() { this->columnDefault_ = nullptr;};

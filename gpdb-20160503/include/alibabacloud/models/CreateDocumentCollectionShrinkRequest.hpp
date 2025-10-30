@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collection_ != nullptr
-        && this->DBInstanceId_ != nullptr && this->dimension_ != nullptr && this->embeddingModel_ != nullptr && this->enableGraph_ != nullptr && this->entityTypesShrink_ != nullptr
-        && this->externalStorage_ != nullptr && this->fullTextRetrievalFields_ != nullptr && this->hnswEfConstruction_ != nullptr && this->hnswM_ != nullptr && this->LLMModel_ != nullptr
-        && this->language_ != nullptr && this->managerAccount_ != nullptr && this->managerAccountPassword_ != nullptr && this->metadata_ != nullptr && this->metadataIndices_ != nullptr
-        && this->metrics_ != nullptr && this->namespace_ != nullptr && this->ownerId_ != nullptr && this->parser_ != nullptr && this->pqEnable_ != nullptr
-        && this->regionId_ != nullptr && this->relationshipTypesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->collection_ == nullptr
+        && return this->DBInstanceId_ == nullptr && return this->dimension_ == nullptr && return this->embeddingModel_ == nullptr && return this->enableGraph_ == nullptr && return this->entityTypesShrink_ == nullptr
+        && return this->externalStorage_ == nullptr && return this->fullTextRetrievalFields_ == nullptr && return this->hnswEfConstruction_ == nullptr && return this->hnswM_ == nullptr && return this->LLMModel_ == nullptr
+        && return this->language_ == nullptr && return this->managerAccount_ == nullptr && return this->managerAccountPassword_ == nullptr && return this->metadata_ == nullptr && return this->metadataIndices_ == nullptr
+        && return this->metrics_ == nullptr && return this->namespace_ == nullptr && return this->ownerId_ == nullptr && return this->parser_ == nullptr && return this->pqEnable_ == nullptr
+        && return this->regionId_ == nullptr && return this->relationshipTypesShrink_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};

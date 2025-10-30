@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelParams, modelParams_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PromptParams, promptParams_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ChatWithKnowledgeBaseRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelParams, modelParams_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PromptParams, promptParams_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     ChatWithKnowledgeBaseRequest() = default ;
     ChatWithKnowledgeBaseRequest(const ChatWithKnowledgeBaseRequest &) = default ;
@@ -41,8 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBInstanceId_ != nullptr
-        && this->includeKnowledgeBaseResults_ != nullptr && this->knowledgeParams_ != nullptr && this->modelParams_ != nullptr && this->ownerId_ != nullptr && this->promptParams_ != nullptr; };
+    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
+        && return this->includeKnowledgeBaseResults_ == nullptr && return this->knowledgeParams_ == nullptr && return this->modelParams_ == nullptr && return this->ownerId_ == nullptr && return this->promptParams_ == nullptr
+        && return this->regionId_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
@@ -89,6 +92,13 @@ namespace Models
     inline ChatWithKnowledgeBaseRequest& setPromptParams(string promptParams) { DARABONBA_PTR_SET_VALUE(promptParams_, promptParams) };
 
 
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline ChatWithKnowledgeBaseRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
@@ -98,6 +108,7 @@ namespace Models
     std::shared_ptr<ChatWithKnowledgeBaseRequestModelParams> modelParams_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<string> promptParams_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
   };
 
   } // namespace Models

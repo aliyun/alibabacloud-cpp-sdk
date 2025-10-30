@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->dashboardPassword_ != nullptr && this->dashboardUserName_ != nullptr && this->diskPerformanceLevel_ != nullptr && this->engine_ != nullptr && this->engineVersion_ != nullptr
-        && this->privateConnectUrl_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->projectSpec_ != nullptr && this->publicConnectUrl_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->securityIpList_ != nullptr && this->status_ != nullptr && this->storageSize_ != nullptr
-        && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->dashboardPassword_ == nullptr && return this->dashboardUserName_ == nullptr && return this->diskPerformanceLevel_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
+        && return this->privateConnectUrl_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->projectSpec_ == nullptr && return this->publicConnectUrl_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr && return this->status_ == nullptr && return this->storageSize_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountPassword_ != nullptr
-        && this->clientToken_ != nullptr && this->diskPerformanceLevel_ != nullptr && this->projectName_ != nullptr && this->projectSpec_ != nullptr && this->regionId_ != nullptr
-        && this->securityIPList_ != nullptr && this->storageSize_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->accountPassword_ == nullptr
+        && return this->clientToken_ == nullptr && return this->diskPerformanceLevel_ == nullptr && return this->projectName_ == nullptr && return this->projectSpec_ == nullptr && return this->regionId_ == nullptr
+        && return this->securityIPList_ == nullptr && return this->storageSize_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};

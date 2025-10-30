@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aiNodes_ != nullptr
-        && this->apiKey_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->modelName_ != nullptr && this->modelParams_ != nullptr
-        && this->modelServiceId_ != nullptr && this->privateConnectUrl_ != nullptr && this->publicConnectUrl_ != nullptr && this->requestId_ != nullptr && this->securityIpList_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->aiNodes_ == nullptr
+        && return this->apiKey_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->modelName_ == nullptr && return this->modelParams_ == nullptr
+        && return this->modelServiceId_ == nullptr && return this->privateConnectUrl_ == nullptr && return this->publicConnectUrl_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr
+        && return this->status_ == nullptr; };
     // aiNodes Field Functions 
     bool hasAiNodes() const { return this->aiNodes_ != nullptr;};
     void deleteAiNodes() { this->aiNodes_ = nullptr;};

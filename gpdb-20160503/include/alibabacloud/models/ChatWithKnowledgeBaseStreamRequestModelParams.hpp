@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxTokens_ != nullptr
-        && this->messages_ != nullptr && this->model_ != nullptr && this->n_ != nullptr && this->presencePenalty_ != nullptr && this->seed_ != nullptr
-        && this->stop_ != nullptr && this->temperature_ != nullptr && this->tools_ != nullptr && this->topP_ != nullptr; };
+    virtual bool empty() const override { return this->maxTokens_ == nullptr
+        && return this->messages_ == nullptr && return this->model_ == nullptr && return this->n_ == nullptr && return this->presencePenalty_ == nullptr && return this->seed_ == nullptr
+        && return this->stop_ == nullptr && return this->temperature_ == nullptr && return this->tools_ == nullptr && return this->topP_ == nullptr; };
     // maxTokens Field Functions 
     bool hasMaxTokens() const { return this->maxTokens_ != nullptr;};
     void deleteMaxTokens() { this->maxTokens_ = nullptr;};

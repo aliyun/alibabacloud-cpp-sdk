@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBInstanceId_ != nullptr
-        && this->dimension_ != nullptr && this->fullTextRetrievalFields_ != nullptr && this->message_ != nullptr && this->metadata_ != nullptr && this->metrics_ != nullptr
-        && this->namespace_ != nullptr && this->parser_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->sparseVectorMetrics_ != nullptr
-        && this->status_ != nullptr && this->supportSparse_ != nullptr; };
+    virtual bool empty() const override { return this->DBInstanceId_ == nullptr
+        && return this->dimension_ == nullptr && return this->fullTextRetrievalFields_ == nullptr && return this->message_ == nullptr && return this->metadata_ == nullptr && return this->metrics_ == nullptr
+        && return this->namespace_ == nullptr && return this->parser_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->sparseVectorMetrics_ == nullptr
+        && return this->status_ == nullptr && return this->supportSparse_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};

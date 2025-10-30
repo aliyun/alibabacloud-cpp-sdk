@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completionTokens_ != nullptr
-        && this->promptTokens_ != nullptr && this->promptTokensDetails_ != nullptr && this->totalTokens_ != nullptr; };
+    virtual bool empty() const override { return this->completionTokens_ == nullptr
+        && return this->promptTokens_ == nullptr && return this->promptTokensDetails_ == nullptr && return this->totalTokens_ == nullptr; };
     // completionTokens Field Functions 
     bool hasCompletionTokens() const { return this->completionTokens_ != nullptr;};
     void deleteCompletionTokens() { this->completionTokens_ = nullptr;};

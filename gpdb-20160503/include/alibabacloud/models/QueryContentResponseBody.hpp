@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->embeddingTokens_ != nullptr
-        && this->entities_ != nullptr && this->matches_ != nullptr && this->message_ != nullptr && this->relations_ != nullptr && this->requestId_ != nullptr
-        && this->status_ != nullptr && this->usage_ != nullptr && this->windowMatches_ != nullptr; };
+    virtual bool empty() const override { return this->embeddingTokens_ == nullptr
+        && return this->entities_ == nullptr && return this->matches_ == nullptr && return this->message_ == nullptr && return this->relations_ == nullptr && return this->requestId_ == nullptr
+        && return this->status_ == nullptr && return this->usage_ == nullptr && return this->windowMatches_ == nullptr; };
     // embeddingTokens Field Functions 
     bool hasEmbeddingTokens() const { return this->embeddingTokens_ != nullptr;};
     void deleteEmbeddingTokens() { this->embeddingTokens_ = nullptr;};

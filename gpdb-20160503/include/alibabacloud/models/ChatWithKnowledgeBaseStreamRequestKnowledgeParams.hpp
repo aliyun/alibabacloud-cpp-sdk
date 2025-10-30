@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mergeMethod_ != nullptr
-        && this->mergeMethodArgs_ != nullptr && this->rerankFactor_ != nullptr && this->sourceCollection_ != nullptr && this->topK_ != nullptr; };
+    virtual bool empty() const override { return this->mergeMethod_ == nullptr
+        && return this->mergeMethodArgs_ == nullptr && return this->rerankFactor_ == nullptr && return this->sourceCollection_ == nullptr && return this->topK_ == nullptr; };
     // mergeMethod Field Functions 
     bool hasMergeMethod() const { return this->mergeMethod_ != nullptr;};
     void deleteMergeMethod() { this->mergeMethod_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->supportedEngines_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->supportedEngines_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // supportedEngines Field Functions 
     bool hasSupportedEngines() const { return this->supportedEngines_ != nullptr;};
     void deleteSupportedEngines() { this->supportedEngines_ = nullptr;};

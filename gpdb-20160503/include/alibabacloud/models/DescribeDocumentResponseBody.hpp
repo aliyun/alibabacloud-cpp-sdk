@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkFileUrl_ != nullptr
-        && this->docsCount_ != nullptr && this->documentLoader_ != nullptr && this->documentLoaderResultFileUrl_ != nullptr && this->fileExt_ != nullptr && this->fileMd5_ != nullptr
-        && this->fileMtime_ != nullptr && this->fileName_ != nullptr && this->fileSize_ != nullptr && this->fileUrl_ != nullptr && this->fileVersion_ != nullptr
-        && this->message_ != nullptr && this->plainChunkFileUrl_ != nullptr && this->requestId_ != nullptr && this->source_ != nullptr && this->status_ != nullptr
-        && this->textSplitter_ != nullptr; };
+    virtual bool empty() const override { return this->chunkFileUrl_ == nullptr
+        && return this->docsCount_ == nullptr && return this->documentLoader_ == nullptr && return this->documentLoaderResultFileUrl_ == nullptr && return this->fileExt_ == nullptr && return this->fileMd5_ == nullptr
+        && return this->fileMtime_ == nullptr && return this->fileName_ == nullptr && return this->fileSize_ == nullptr && return this->fileUrl_ == nullptr && return this->fileVersion_ == nullptr
+        && return this->message_ == nullptr && return this->plainChunkFileUrl_ == nullptr && return this->requestId_ == nullptr && return this->source_ == nullptr && return this->status_ == nullptr
+        && return this->textSplitter_ == nullptr; };
     // chunkFileUrl Field Functions 
     bool hasChunkFileUrl() const { return this->chunkFileUrl_ != nullptr;};
     void deleteChunkFileUrl() { this->chunkFileUrl_ = nullptr;};

@@ -72,10 +72,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adbgpSegmentDiskUsagePercentMax_ != nullptr
-        && this->adbpgConnectionStatus_ != nullptr && this->adbpgDiskStatus_ != nullptr && this->adbpgDiskUsagePercent_ != nullptr && this->adbpgInstanceColdDataGb_ != nullptr && this->adbpgInstanceHotDataGb_ != nullptr
-        && this->adbpgInstanceTotalDataGb_ != nullptr && this->adbpgMasterDiskUsagePercentMax_ != nullptr && this->adbpgMasterStatus_ != nullptr && this->adbpgSegmentStatus_ != nullptr && this->adbpgStatus_ != nullptr
-        && this->nodeMasterConnectionStatus_ != nullptr && this->nodeMasterStatus_ != nullptr && this->nodeSegmentConnectionStatus_ != nullptr && this->nodeSegmentDiskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->adbgpSegmentDiskUsagePercentMax_ == nullptr
+        && return this->adbpgConnectionStatus_ == nullptr && return this->adbpgDiskStatus_ == nullptr && return this->adbpgDiskUsagePercent_ == nullptr && return this->adbpgInstanceColdDataGb_ == nullptr && return this->adbpgInstanceHotDataGb_ == nullptr
+        && return this->adbpgInstanceTotalDataGb_ == nullptr && return this->adbpgMasterDiskUsagePercentMax_ == nullptr && return this->adbpgMasterStatus_ == nullptr && return this->adbpgSegmentStatus_ == nullptr && return this->adbpgStatus_ == nullptr
+        && return this->nodeMasterConnectionStatus_ == nullptr && return this->nodeMasterStatus_ == nullptr && return this->nodeSegmentConnectionStatus_ == nullptr && return this->nodeSegmentDiskStatus_ == nullptr; };
     // adbgpSegmentDiskUsagePercentMax Field Functions 
     bool hasAdbgpSegmentDiskUsagePercentMax() const { return this->adbgpSegmentDiskUsagePercentMax_ != nullptr;};
     void deleteAdbgpSegmentDiskUsagePercentMax() { this->adbgpSegmentDiskUsagePercentMax_ = nullptr;};

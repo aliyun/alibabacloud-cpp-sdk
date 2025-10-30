@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collection_ != nullptr
-        && this->DBInstanceId_ != nullptr && this->filter_ != nullptr && this->idsShrink_ != nullptr && this->metadataShrink_ != nullptr && this->namespace_ != nullptr
-        && this->namespacePassword_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->collection_ == nullptr
+        && return this->DBInstanceId_ == nullptr && return this->filter_ == nullptr && return this->idsShrink_ == nullptr && return this->metadataShrink_ == nullptr && return this->namespace_ == nullptr
+        && return this->namespacePassword_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->workspaceId_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatCompletion_ != nullptr
-        && this->message_ != nullptr && this->multiCollectionRecallResult_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->chatCompletion_ == nullptr
+        && return this->message_ == nullptr && return this->multiCollectionRecallResult_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr; };
     // chatCompletion Field Functions 
     bool hasChatCompletion() const { return this->chatCompletion_ != nullptr;};
     void deleteChatCompletion() { this->chatCompletion_ = nullptr;};

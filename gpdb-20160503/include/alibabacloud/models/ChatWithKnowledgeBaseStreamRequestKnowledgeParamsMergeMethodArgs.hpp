@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rrf_ != nullptr
-        && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->rrf_ == nullptr
+        && return this->weight_ == nullptr; };
     // rrf Field Functions 
     bool hasRrf() const { return this->rrf_ != nullptr;};
     void deleteRrf() { this->rrf_ = nullptr;};

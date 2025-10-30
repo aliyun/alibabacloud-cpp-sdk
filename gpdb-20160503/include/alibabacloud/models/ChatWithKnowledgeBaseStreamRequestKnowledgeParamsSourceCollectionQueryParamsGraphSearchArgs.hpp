@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->graphTopK_ != nullptr; };
+    virtual bool empty() const override { return this->graphTopK_ == nullptr; };
     // graphTopK Field Functions 
     bool hasGraphTopK() const { return this->graphTopK_ != nullptr;};
     void deleteGraphTopK() { this->graphTopK_ = nullptr;};

@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkOverlap_ != nullptr
-        && this->chunkSize_ != nullptr && this->collection_ != nullptr && this->DBInstanceId_ != nullptr && this->documentLoaderName_ != nullptr && this->dryRun_ != nullptr
-        && this->fileName_ != nullptr && this->fileUrl_ != nullptr && this->metadata_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->separators_ != nullptr && this->splitterModel_ != nullptr && this->textSplitterName_ != nullptr
-        && this->vlEnhance_ != nullptr && this->zhTitleEnhance_ != nullptr; };
+    virtual bool empty() const override { return this->chunkOverlap_ == nullptr
+        && return this->chunkSize_ == nullptr && return this->collection_ == nullptr && return this->DBInstanceId_ == nullptr && return this->documentLoaderName_ == nullptr && return this->dryRun_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->metadata_ == nullptr && return this->namespace_ == nullptr && return this->namespacePassword_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->separators_ == nullptr && return this->splitterModel_ == nullptr && return this->textSplitterName_ == nullptr
+        && return this->vlEnhance_ == nullptr && return this->zhTitleEnhance_ == nullptr; };
     // chunkOverlap Field Functions 
     bool hasChunkOverlap() const { return this->chunkOverlap_ != nullptr;};
     void deleteChunkOverlap() { this->chunkOverlap_ = nullptr;};

@@ -32,6 +32,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Metrics, metrics_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(NamespacePassword, namespacePassword_);
+      DARABONBA_PTR_TO_JSON(Offset, offset_);
+      DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RecallWindow, recallWindow_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -57,6 +59,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Metrics, metrics_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(NamespacePassword, namespacePassword_);
+      DARABONBA_PTR_FROM_JSON(Offset, offset_);
+      DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RecallWindow, recallWindow_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -76,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collection_ != nullptr
-        && this->content_ != nullptr && this->DBInstanceId_ != nullptr && this->fileName_ != nullptr && this->fileUrl_ != nullptr && this->filter_ != nullptr
-        && this->graphEnhance_ != nullptr && this->graphSearchArgs_ != nullptr && this->hybridSearch_ != nullptr && this->hybridSearchArgs_ != nullptr && this->includeFileUrl_ != nullptr
-        && this->includeMetadataFields_ != nullptr && this->includeVector_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr
-        && this->ownerId_ != nullptr && this->recallWindow_ != nullptr && this->regionId_ != nullptr && this->rerankFactor_ != nullptr && this->topK_ != nullptr
-        && this->urlExpiration_ != nullptr && this->useFullTextRetrieval_ != nullptr; };
+    virtual bool empty() const override { return this->collection_ == nullptr
+        && return this->content_ == nullptr && return this->DBInstanceId_ == nullptr && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->filter_ == nullptr
+        && return this->graphEnhance_ == nullptr && return this->graphSearchArgs_ == nullptr && return this->hybridSearch_ == nullptr && return this->hybridSearchArgs_ == nullptr && return this->includeFileUrl_ == nullptr
+        && return this->includeMetadataFields_ == nullptr && return this->includeVector_ == nullptr && return this->metrics_ == nullptr && return this->namespace_ == nullptr && return this->namespacePassword_ == nullptr
+        && return this->offset_ == nullptr && return this->orderBy_ == nullptr && return this->ownerId_ == nullptr && return this->recallWindow_ == nullptr && return this->regionId_ == nullptr
+        && return this->rerankFactor_ == nullptr && return this->topK_ == nullptr && return this->urlExpiration_ == nullptr && return this->useFullTextRetrieval_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};
@@ -196,6 +200,20 @@ namespace Models
     void deleteNamespacePassword() { this->namespacePassword_ = nullptr;};
     inline string namespacePassword() const { DARABONBA_PTR_GET_DEFAULT(namespacePassword_, "") };
     inline QueryContentRequest& setNamespacePassword(string namespacePassword) { DARABONBA_PTR_SET_VALUE(namespacePassword_, namespacePassword) };
+
+
+    // offset Field Functions 
+    bool hasOffset() const { return this->offset_ != nullptr;};
+    void deleteOffset() { this->offset_ = nullptr;};
+    inline int32_t offset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
+    inline QueryContentRequest& setOffset(int32_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
+
+
+    // orderBy Field Functions 
+    bool hasOrderBy() const { return this->orderBy_ != nullptr;};
+    void deleteOrderBy() { this->orderBy_ = nullptr;};
+    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline QueryContentRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // ownerId Field Functions 
@@ -333,6 +351,8 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> namespacePassword_ = nullptr;
+    std::shared_ptr<int32_t> offset_ = nullptr;
+    std::shared_ptr<string> orderBy_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
     // > - Recommended when documents are fragmented and retrieval may lose contextual information.

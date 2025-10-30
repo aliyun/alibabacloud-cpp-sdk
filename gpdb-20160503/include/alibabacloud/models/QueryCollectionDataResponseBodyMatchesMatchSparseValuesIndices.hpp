@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->indice_ != nullptr; };
+    virtual bool empty() const override { return this->indice_ == nullptr; };
     // indice Field Functions 
     bool hasIndice() const { return this->indice_ != nullptr;};
     void deleteIndice() { this->indice_ = nullptr;};

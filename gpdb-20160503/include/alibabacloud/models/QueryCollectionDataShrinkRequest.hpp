@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->collection_ != nullptr
-        && this->content_ != nullptr && this->DBInstanceId_ != nullptr && this->filter_ != nullptr && this->hybridSearch_ != nullptr && this->hybridSearchArgsShrink_ != nullptr
-        && this->includeMetadataFields_ != nullptr && this->includeSparseValues_ != nullptr && this->includeValues_ != nullptr && this->metrics_ != nullptr && this->namespace_ != nullptr
-        && this->namespacePassword_ != nullptr && this->offset_ != nullptr && this->orderBy_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->relationalTableFilterShrink_ != nullptr && this->sparseVectorShrink_ != nullptr && this->topK_ != nullptr && this->vectorShrink_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->collection_ == nullptr
+        && return this->content_ == nullptr && return this->DBInstanceId_ == nullptr && return this->filter_ == nullptr && return this->hybridSearch_ == nullptr && return this->hybridSearchArgsShrink_ == nullptr
+        && return this->includeMetadataFields_ == nullptr && return this->includeSparseValues_ == nullptr && return this->includeValues_ == nullptr && return this->metrics_ == nullptr && return this->namespace_ == nullptr
+        && return this->namespacePassword_ == nullptr && return this->offset_ == nullptr && return this->orderBy_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->relationalTableFilterShrink_ == nullptr && return this->sparseVectorShrink_ == nullptr && return this->topK_ == nullptr && return this->vectorShrink_ == nullptr && return this->workspaceId_ == nullptr; };
     // collection Field Functions 
     bool hasCollection() const { return this->collection_ != nullptr;};
     void deleteCollection() { this->collection_ = nullptr;};

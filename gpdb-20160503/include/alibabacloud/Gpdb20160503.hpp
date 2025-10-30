@@ -3787,6 +3787,23 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentAdvance(const Models::QueryContentAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 多知识库查询
+       *
+       * @param tmpReq QueryKnowledgeBasesContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryKnowledgeBasesContentResponse
+       */
+      Models::QueryKnowledgeBasesContentResponse queryKnowledgeBasesContentWithOptions(const Models::QueryKnowledgeBasesContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多知识库查询
+       *
+       * @param request QueryKnowledgeBasesContentRequest
+       * @return QueryKnowledgeBasesContentResponse
+       */
+      Models::QueryKnowledgeBasesContentResponse queryKnowledgeBasesContent(const Models::QueryKnowledgeBasesContentRequest &request);
+
+      /**
        * @summary Rebalances an AnalyticDB for PostgreSQL instance.
        *
        * @param request RebalanceDBInstanceRequest

@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->account_ != nullptr
-        && this->consistency_ != nullptr && this->DBInstanceId_ != nullptr && this->destColumns_ != nullptr && this->destDatabase_ != nullptr && this->destSchema_ != nullptr
-        && this->destTable_ != nullptr && this->errorLimitCount_ != nullptr && this->fallbackOffset_ != nullptr && this->groupName_ != nullptr && this->jobConfig_ != nullptr
-        && this->jobDescription_ != nullptr && this->jobId_ != nullptr && this->matchColumns_ != nullptr && this->password_ != nullptr && this->regionId_ != nullptr
-        && this->srcColumns_ != nullptr && this->tryRun_ != nullptr && this->updateColumns_ != nullptr && this->writeMode_ != nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->consistency_ == nullptr && return this->DBInstanceId_ == nullptr && return this->destColumns_ == nullptr && return this->destDatabase_ == nullptr && return this->destSchema_ == nullptr
+        && return this->destTable_ == nullptr && return this->errorLimitCount_ == nullptr && return this->fallbackOffset_ == nullptr && return this->groupName_ == nullptr && return this->jobConfig_ == nullptr
+        && return this->jobDescription_ == nullptr && return this->jobId_ == nullptr && return this->matchColumns_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr
+        && return this->srcColumns_ == nullptr && return this->tryRun_ == nullptr && return this->updateColumns_ == nullptr && return this->writeMode_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};

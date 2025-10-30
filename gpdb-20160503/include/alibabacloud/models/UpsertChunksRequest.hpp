@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowInsertWithFilter_ != nullptr
-        && this->collection_ != nullptr && this->DBInstanceId_ != nullptr && this->fileName_ != nullptr && this->namespace_ != nullptr && this->namespacePassword_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->shouldReplaceFile_ != nullptr && this->textChunks_ != nullptr; };
+    virtual bool empty() const override { return this->allowInsertWithFilter_ == nullptr
+        && return this->collection_ == nullptr && return this->DBInstanceId_ == nullptr && return this->fileName_ == nullptr && return this->namespace_ == nullptr && return this->namespacePassword_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->shouldReplaceFile_ == nullptr && return this->textChunks_ == nullptr; };
     // allowInsertWithFilter Field Functions 
     bool hasAllowInsertWithFilter() const { return this->allowInsertWithFilter_ != nullptr;};
     void deleteAllowInsertWithFilter() { this->allowInsertWithFilter_ = nullptr;};

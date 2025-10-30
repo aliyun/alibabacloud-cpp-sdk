@@ -16,11 +16,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage& obj) { 
       DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(ReasoningContent, reasoningContent_);
       DARABONBA_PTR_TO_JSON(Role, role_);
       DARABONBA_PTR_TO_JSON(ToolCalls, toolCalls_);
     };
     friend void from_json(const Darabonba::Json& j, ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(ReasoningContent, reasoningContent_);
       DARABONBA_PTR_FROM_JSON(Role, role_);
       DARABONBA_PTR_FROM_JSON(ToolCalls, toolCalls_);
     };
@@ -35,13 +37,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->role_ != nullptr && this->toolCalls_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->reasoningContent_ == nullptr && return this->role_ == nullptr && return this->toolCalls_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
     inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // reasoningContent Field Functions 
+    bool hasReasoningContent() const { return this->reasoningContent_ != nullptr;};
+    void deleteReasoningContent() { this->reasoningContent_ = nullptr;};
+    inline string reasoningContent() const { DARABONBA_PTR_GET_DEFAULT(reasoningContent_, "") };
+    inline ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage& setReasoningContent(string reasoningContent) { DARABONBA_PTR_SET_VALUE(reasoningContent_, reasoningContent) };
 
 
     // role Field Functions 
@@ -62,6 +71,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<string> reasoningContent_ = nullptr;
     std::shared_ptr<string> role_ = nullptr;
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls>> toolCalls_ = nullptr;
   };

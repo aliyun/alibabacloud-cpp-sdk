@@ -510,6 +510,10 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBaseWithOptions(const Cha
     query["PromptParams"] = request.promptParams();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -586,6 +590,10 @@ FutrueGenerator<ChatWithKnowledgeBaseStreamResponse> Client::chatWithKnowledgeBa
     query["PromptParams"] = request.promptParams();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -659,6 +667,10 @@ ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStreamWithOptio
 
   if (!!request.hasPromptParams()) {
     query["PromptParams"] = request.promptParams();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -12771,6 +12783,14 @@ QueryContentResponse Client::queryContentWithOptions(const QueryContentRequest &
     query["NamespacePassword"] = request.namespacePassword();
   }
 
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.offset();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
   }
@@ -12917,6 +12937,90 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
 
   QueryContentResponse queryContentResp = queryContentWithOptions(queryContentReq, runtime);
   return queryContentResp;
+}
+
+/**
+ * @summary 多知识库查询
+ *
+ * @param tmpReq QueryKnowledgeBasesContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryKnowledgeBasesContentResponse
+ */
+QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions(const QueryKnowledgeBasesContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryKnowledgeBasesContentShrinkRequest request = QueryKnowledgeBasesContentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMergeMethodArgs()) {
+    request.setMergeMethodArgsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.mergeMethodArgs(), "MergeMethodArgs", "json"));
+  }
+
+  if (!!tmpReq.hasSourceCollection()) {
+    request.setSourceCollectionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceCollection(), "SourceCollection", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.content();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasMergeMethod()) {
+    query["MergeMethod"] = request.mergeMethod();
+  }
+
+  if (!!request.hasMergeMethodArgsShrink()) {
+    query["MergeMethodArgs"] = request.mergeMethodArgsShrink();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRerankFactor()) {
+    query["RerankFactor"] = request.rerankFactor();
+  }
+
+  if (!!request.hasSourceCollectionShrink()) {
+    query["SourceCollection"] = request.sourceCollectionShrink();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.topK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryKnowledgeBasesContent"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryKnowledgeBasesContentResponse>();
+}
+
+/**
+ * @summary 多知识库查询
+ *
+ * @param request QueryKnowledgeBasesContentRequest
+ * @return QueryKnowledgeBasesContentResponse
+ */
+QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContent(const QueryKnowledgeBasesContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryKnowledgeBasesContentWithOptions(request, runtime);
 }
 
 /**
