@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
+    // The ID of the instance to be deleted.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceIds_ = nullptr;
   };

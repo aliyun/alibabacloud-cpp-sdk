@@ -303,7 +303,7 @@ namespace Sae20190506
       Models::CreateNamespaceResponse createNamespace(const Models::CreateNamespaceRequest &request);
 
       /**
-       * @summary 创建或者更新泳道
+       * @summary Creates or updates a lane.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneRequest
        * @param headers map
@@ -313,7 +313,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLaneWithOptions(const Models::CreateOrUpdateSwimmingLaneRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或者更新泳道
+       * @summary Creates or updates a lane.
        *
        * @param request CreateOrUpdateSwimmingLaneRequest
        * @return CreateOrUpdateSwimmingLaneResponse
@@ -321,7 +321,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneResponse createOrUpdateSwimmingLane(const Models::CreateOrUpdateSwimmingLaneRequest &request);
 
       /**
-       * @summary 创建或者更新泳道组
+       * @summary Creates or updates a lane group.
        *
        * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
        * @param headers map
@@ -331,7 +331,7 @@ namespace Sae20190506
       Models::CreateOrUpdateSwimmingLaneGroupResponse createOrUpdateSwimmingLaneGroupWithOptions(const Models::CreateOrUpdateSwimmingLaneGroupRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或者更新泳道组
+       * @summary Creates or updates a lane group.
        *
        * @param request CreateOrUpdateSwimmingLaneGroupRequest
        * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -509,7 +509,7 @@ namespace Sae20190506
       Models::DeleteIngressResponse deleteIngress(const Models::DeleteIngressRequest &request);
 
       /**
-       * @summary 删除实例
+       * @summary Deletes an application instance.
        *
        * @param request DeleteInstancesRequest
        * @param headers map
@@ -519,7 +519,7 @@ namespace Sae20190506
       Models::DeleteInstancesResponse deleteInstancesWithOptions(const Models::DeleteInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除实例
+       * @summary Deletes an application instance.
        *
        * @param request DeleteInstancesRequest
        * @return DeleteInstancesResponse
@@ -581,7 +581,7 @@ namespace Sae20190506
       Models::DeleteSecretResponse deleteSecret(const Models::DeleteSecretRequest &request);
 
       /**
-       * @summary 删除泳道组
+       * @summary Deletes a lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @param headers map
@@ -591,7 +591,7 @@ namespace Sae20190506
       Models::DeleteSwimmingLaneGroupResponse deleteSwimmingLaneGroupWithOptions(const Models::DeleteSwimmingLaneGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除泳道组
+       * @summary Deletes a lane group.
        *
        * @param request DeleteSwimmingLaneGroupRequest
        * @return DeleteSwimmingLaneGroupResponse
@@ -1213,7 +1213,7 @@ namespace Sae20190506
       Models::DescribeSecretResponse describeSecret(const Models::DescribeSecretRequest &request);
 
       /**
-       * @summary 查询泳道详情
+       * @summary Queries details about swimlanes.
        *
        * @param request DescribeSwimmingLaneRequest
        * @param headers map
@@ -1223,7 +1223,7 @@ namespace Sae20190506
       Models::DescribeSwimmingLaneResponse describeSwimmingLaneWithOptions(const Models::DescribeSwimmingLaneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询泳道详情
+       * @summary Queries details about swimlanes.
        *
        * @param request DescribeSwimmingLaneRequest
        * @return DescribeSwimmingLaneResponse
@@ -1399,7 +1399,7 @@ namespace Sae20190506
       Models::DisableApplicationScalingRuleResponse disableApplicationScalingRule(const Models::DisableApplicationScalingRuleRequest &request);
 
       /**
-       * @summary Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+       * @summary Disable ARMS Advanced Edition monitoring.
        *
        * @param request DowngradeApplicationApmServiceRequest
        * @param headers map
@@ -1409,7 +1409,7 @@ namespace Sae20190506
       Models::DowngradeApplicationApmServiceResponse downgradeApplicationApmServiceWithOptions(const Models::DowngradeApplicationApmServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+       * @summary Disable ARMS Advanced Edition monitoring.
        *
        * @param request DowngradeApplicationApmServiceRequest
        * @return DowngradeApplicationApmServiceResponse
@@ -1575,7 +1575,7 @@ namespace Sae20190506
       Models::GetWebshellTokenResponse getWebshellToken(const Models::GetWebshellTokenRequest &request);
 
       /**
-       * @summary 查询所有泳道组
+       * @summary Queries all lane groups.
        *
        * @param request ListAllSwimmingLaneGroupsRequest
        * @param headers map
@@ -1585,7 +1585,7 @@ namespace Sae20190506
       Models::ListAllSwimmingLaneGroupsResponse listAllSwimmingLaneGroupsWithOptions(const Models::ListAllSwimmingLaneGroupsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有泳道组
+       * @summary Queries all lane groups.
        *
        * @param request ListAllSwimmingLaneGroupsRequest
        * @return ListAllSwimmingLaneGroupsResponse
@@ -1593,7 +1593,7 @@ namespace Sae20190506
       Models::ListAllSwimmingLaneGroupsResponse listAllSwimmingLaneGroups(const Models::ListAllSwimmingLaneGroupsRequest &request);
 
       /**
-       * @summary 查询所有泳道
+       * @summary Queries all swimlanes.
        *
        * @param request ListAllSwimmingLanesRequest
        * @param headers map
@@ -1603,7 +1603,7 @@ namespace Sae20190506
       Models::ListAllSwimmingLanesResponse listAllSwimmingLanesWithOptions(const Models::ListAllSwimmingLanesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有泳道
+       * @summary Queries all swimlanes.
        *
        * @param request ListAllSwimmingLanesRequest
        * @return ListAllSwimmingLanesResponse
@@ -1701,7 +1701,7 @@ namespace Sae20190506
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
-       * @summary 获取应用列表，供全链路灰度拉取应用列表
+       * @summary Obtains the application list for the end-to-end grayscale pull application list.
        *
        * @param request ListApplicationsForSwimmingLaneRequest
        * @param headers map
@@ -1711,7 +1711,7 @@ namespace Sae20190506
       Models::ListApplicationsForSwimmingLaneResponse listApplicationsForSwimmingLaneWithOptions(const Models::ListApplicationsForSwimmingLaneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用列表，供全链路灰度拉取应用列表
+       * @summary Obtains the application list for the end-to-end grayscale pull application list.
        *
        * @param request ListApplicationsForSwimmingLaneRequest
        * @return ListApplicationsForSwimmingLaneResponse
@@ -1903,7 +1903,7 @@ namespace Sae20190506
       Models::ListSecretsResponse listSecrets(const Models::ListSecretsRequest &request);
 
       /**
-       * @summary 查询泳道可选的网关路由
+       * @summary Query the gateway routes that are available for a lane
        *
        * @param request ListSwimmingLaneGatewayRoutesRequest
        * @param headers map
@@ -1913,7 +1913,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutesWithOptions(const Models::ListSwimmingLaneGatewayRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询泳道可选的网关路由
+       * @summary Query the gateway routes that are available for a lane
        *
        * @param request ListSwimmingLaneGatewayRoutesRequest
        * @return ListSwimmingLaneGatewayRoutesResponse
@@ -1921,7 +1921,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGatewayRoutesResponse listSwimmingLaneGatewayRoutes(const Models::ListSwimmingLaneGatewayRoutesRequest &request);
 
       /**
-       * @summary 查询所有泳道标签列表
+       * @summary Queries all lane tags.
        *
        * @param request ListSwimmingLaneGroupTagsRequest
        * @param headers map
@@ -1931,7 +1931,7 @@ namespace Sae20190506
       Models::ListSwimmingLaneGroupTagsResponse listSwimmingLaneGroupTagsWithOptions(const Models::ListSwimmingLaneGroupTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有泳道标签列表
+       * @summary Queries all lane tags.
        *
        * @param request ListSwimmingLaneGroupTagsRequest
        * @return ListSwimmingLaneGroupTagsResponse
@@ -2397,7 +2397,7 @@ namespace Sae20190506
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 应用闲置模式更新
+       * @summary Application Idle Mode Update
        *
        * @param request UpdateAppModeRequest
        * @param headers map
@@ -2407,7 +2407,7 @@ namespace Sae20190506
       Models::UpdateAppModeResponse updateAppModeWithOptions(const Models::UpdateAppModeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用闲置模式更新
+       * @summary Application Idle Mode Update
        *
        * @param request UpdateAppModeRequest
        * @return UpdateAppModeResponse
@@ -2583,6 +2583,24 @@ namespace Sae20190506
       Models::UpdateNamespaceResponse updateNamespace(const Models::UpdateNamespaceRequest &request);
 
       /**
+       * @summary 更新命名空间级别sls配置
+       *
+       * @param request UpdateNamespaceSlsConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNamespaceSlsConfigsResponse
+       */
+      Models::UpdateNamespaceSlsConfigsResponse updateNamespaceSlsConfigsWithOptions(const Models::UpdateNamespaceSlsConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新命名空间级别sls配置
+       *
+       * @param request UpdateNamespaceSlsConfigsRequest
+       * @return UpdateNamespaceSlsConfigsResponse
+       */
+      Models::UpdateNamespaceSlsConfigsResponse updateNamespaceSlsConfigs(const Models::UpdateNamespaceSlsConfigsRequest &request);
+
+      /**
        * @summary cn-beijing:test
        *
        * @param request UpdateNamespaceVpcRequest
@@ -2627,7 +2645,7 @@ namespace Sae20190506
       Models::UpdateSecretResponse updateSecret(const Models::UpdateSecretRequest &request);
 
       /**
-       * @summary 更新泳道的启用属性
+       * @summary Update the enabled property of the swimlane.
        *
        * @param request UpdateSwimmingLaneEnableAttributeRequest
        * @param headers map
@@ -2637,7 +2655,7 @@ namespace Sae20190506
       Models::UpdateSwimmingLaneEnableAttributeResponse updateSwimmingLaneEnableAttributeWithOptions(const Models::UpdateSwimmingLaneEnableAttributeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新泳道的启用属性
+       * @summary Update the enabled property of the swimlane.
        *
        * @param request UpdateSwimmingLaneEnableAttributeRequest
        * @return UpdateSwimmingLaneEnableAttributeResponse

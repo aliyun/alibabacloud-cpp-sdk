@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The path matching rule.
     std::shared_ptr<Models::DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicatePathPredicate> pathPredicate_ = nullptr;
   };
 

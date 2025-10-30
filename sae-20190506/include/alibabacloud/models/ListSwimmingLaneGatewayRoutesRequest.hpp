@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique ID of the gateway.
     std::shared_ptr<string> gatewayUniqueId_ = nullptr;
+    // The ID of the namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };
 

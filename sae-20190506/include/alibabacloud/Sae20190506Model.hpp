@@ -558,6 +558,9 @@
 #include <alibabacloud/models/UpdateNamespaceRequest.hpp>
 #include <alibabacloud/models/UpdateNamespaceResponseBody.hpp>
 #include <alibabacloud/models/UpdateNamespaceResponse.hpp>
+#include <alibabacloud/models/UpdateNamespaceSlsConfigsRequest.hpp>
+#include <alibabacloud/models/UpdateNamespaceSlsConfigsResponseBody.hpp>
+#include <alibabacloud/models/UpdateNamespaceSlsConfigsResponse.hpp>
 #include <alibabacloud/models/UpdateNamespaceVpcRequest.hpp>
 #include <alibabacloud/models/UpdateNamespaceVpcResponseBody.hpp>
 #include <alibabacloud/models/UpdateNamespaceVpcResponse.hpp>

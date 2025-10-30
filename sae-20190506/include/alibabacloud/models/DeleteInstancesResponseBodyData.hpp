@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the release order.
     std::shared_ptr<string> changeOrderId_ = nullptr;
   };
 

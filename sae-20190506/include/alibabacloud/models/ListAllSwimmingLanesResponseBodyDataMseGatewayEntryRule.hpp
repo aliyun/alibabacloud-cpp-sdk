@@ -106,12 +106,19 @@ namespace Models
 
 
   protected:
+    // The logical connector between conditions.
     std::shared_ptr<string> conditionJoiner_ = nullptr;
+    // The matching condition.
     std::shared_ptr<vector<Models::ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleConditions>> conditions_ = nullptr;
+    // Whether to enable proportional grayscale.
     std::shared_ptr<bool> independentPercentageEnable_ = nullptr;
+    // The proportion of path traffic.
     std::shared_ptr<int32_t> percentage_ = nullptr;
+    // The traffic configuration.
     std::shared_ptr<map<string, int32_t>> percentageByRoute_ = nullptr;
+    // The IDs of the route tables.
     std::shared_ptr<vector<int64_t>> routeIds_ = nullptr;
+    // The detailed configuration of the routing rule.
     std::shared_ptr<vector<Models::ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRuleRoutes>> routes_ = nullptr;
   };
 

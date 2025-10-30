@@ -66,8 +66,15 @@ namespace Models
 
 
   protected:
+    // The app ID.
     std::shared_ptr<string> appId_ = nullptr;
     std::shared_ptr<string> appIds_ = nullptr;
+    // Enable Idle Mode?
+    // 
+    // Enumeration value:
+    // 
+    // *   true: enables.
+    // *   false: disables.
     std::shared_ptr<bool> enableIdle_ = nullptr;
     std::shared_ptr<string> namespaceId_ = nullptr;
   };

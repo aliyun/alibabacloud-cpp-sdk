@@ -112,14 +112,33 @@ namespace Models
 
 
   protected:
+    // The route configuration of the gateway.
+    // 
+    // >  This parameter is required if the gateway entry of the lane group is Java.
     std::shared_ptr<string> appEntryRuleShrink_ = nullptr;
+    // Full-link Grayscale Mode:
+    // 
+    // *   0: The request is routed based on the content of the request.
+    // *   1: routing based on percentages
     std::shared_ptr<int32_t> canaryModel_ = nullptr;
+    // Lane Status
+    // 
+    // *   true: enabled
+    // *   false: disabled
     std::shared_ptr<bool> enable_ = nullptr;
+    // The ID of the lane group to which the lane belongs.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The ID of the lane.
     std::shared_ptr<int64_t> laneId_ = nullptr;
+    // The name of the lane.
     std::shared_ptr<string> laneName_ = nullptr;
+    // The tag of the lane.
     std::shared_ptr<string> laneTag_ = nullptr;
+    // The route configuration of the MSE gateway.
+    // 
+    // >  If the **EntryAppType** is set to **apig** or **mse-gw**, it is required.
     std::shared_ptr<string> mseGatewayEntryRuleShrink_ = nullptr;
+    // The namespace ID.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the application group. You can call the [DescribeApplicationGroups](https://help.aliyun.com/document_detail/126249.html) operation to obtain the ID.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The ID of a namespace.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespaceId_ = nullptr;
+    // The canary tag
     std::shared_ptr<string> tag_ = nullptr;
   };
 

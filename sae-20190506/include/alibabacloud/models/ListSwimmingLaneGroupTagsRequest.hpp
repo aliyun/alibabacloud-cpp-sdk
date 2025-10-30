@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the lane group.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The ID of a namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };
 

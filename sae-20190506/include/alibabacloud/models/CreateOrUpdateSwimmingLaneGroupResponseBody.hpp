@@ -97,12 +97,33 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: Redirection.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: Server error.
     std::shared_ptr<string> code_ = nullptr;
+    // The application information.
     std::shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBodyData> data_ = nullptr;
+    // The status code. Value values:
+    // 
+    // *   If the request was successful, **ErrorCode** is not returned.
+    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // Additional information. Valid values:
+    // 
+    // *   The error message returned because the request is normal and **success** is returned.
+    // *   If the request is abnormal, the specific exception error code is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the lane group is created. Valid values:
+    // 
+    // *   **true**: Created successfully.
+    // *   **false**: The ConfigMap failed to be created.
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the trace. This parameter is used to query the exact call information.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

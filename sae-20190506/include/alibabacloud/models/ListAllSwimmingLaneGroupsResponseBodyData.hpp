@@ -139,16 +139,34 @@ namespace Models
 
 
   protected:
+    // The IDs of the applications associated with the lane group.
     std::shared_ptr<vector<string>> appIds_ = nullptr;
+    // The application information.
     std::shared_ptr<vector<Models::ListAllSwimmingLaneGroupsResponseBodyDataApps>> apps_ = nullptr;
+    // Full-link Grayscale Mode:
+    // 
+    // *   0: The request is routed based on the content of the request.
+    // *   1: Proportional routing
     std::shared_ptr<int32_t> canaryModel_ = nullptr;
+    // The entry application.
     std::shared_ptr<Models::ListAllSwimmingLaneGroupsResponseBodyDataEntryApp> entryApp_ = nullptr;
+    // The ID of the gateway.
     std::shared_ptr<string> entryAppId_ = nullptr;
+    // The application entry type (gateway type).
+    // 
+    // *   **apig:** cloud-native API Gateway
+    // *   **mse-gw:** an MSE cloud original gateway
+    // *   **mse:** Java Services Gateway
     std::shared_ptr<string> entryAppType_ = nullptr;
+    // The ID of the lane group.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The name of a lane group.
     std::shared_ptr<string> groupName_ = nullptr;
+    // The ID of the namespace to which the MSE instance belongs.
     std::shared_ptr<string> mseNamespaceId_ = nullptr;
+    // The ID of the namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
+    // The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
     std::shared_ptr<string> swimVersion_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The metadata.
     std::shared_ptr<string> metadata_ = nullptr;
+    // The label of the lane.
     std::shared_ptr<string> tag_ = nullptr;
   };
 

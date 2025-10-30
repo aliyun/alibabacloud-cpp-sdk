@@ -84,11 +84,31 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The status code. Value values:
+    // 
+    // *   If the request was successful, **ErrorCode** is not returned.
+    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // null null
+    // 
+    // *   null****
+    // *   null
     std::shared_ptr<string> message_ = nullptr;
+    // null
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values: Valid values:
+    // 
+    // *   **true**: The policy was deleted.
+    // *   **false**: Delete failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // null
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

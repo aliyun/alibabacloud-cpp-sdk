@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The ID of the baseline application.
     std::shared_ptr<string> appIdsShrink_ = nullptr;
+    // The unique ID of the corresponding gateway.
     std::shared_ptr<string> entryAppId_ = nullptr;
+    // The application entry type (gateway type).
+    // 
+    // *   **apig:** cloud-native API Gateway
+    // *   **mse:** Java Services Gateway
+    // *   **mse-gw:** MSE cloud-native Gateway
     std::shared_ptr<string> entryAppType_ = nullptr;
+    // The ID of the lane group. This is required when you update a lane group.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The name of the lane group.
     std::shared_ptr<string> groupName_ = nullptr;
+    // The ID of a namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
+    // The end-to-end grayscale version. Valid values: 0 and 2 (recommended).
     std::shared_ptr<string> swimVersion_ = nullptr;
   };
 

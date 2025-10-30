@@ -93,11 +93,23 @@ namespace Models
 
 
   protected:
+    // Logical connectors between conditions:
+    // 
+    // *   AND: All conditions are met at the same time.
+    // *   OR: Any condition is met.
     std::shared_ptr<string> conditionJoiner_ = nullptr;
+    // Routing Condition
     std::shared_ptr<vector<Models::CreateOrUpdateSwimmingLaneRequestMseGatewayEntryRuleConditions>> conditions_ = nullptr;
+    // Whether to enable proportional grayscale.
+    // 
+    // *   true: Enabled. After you enable this parameter, you must configure the PercentageByPath.
+    // *   false: Disabled.
     std::shared_ptr<bool> independentPercentageEnable_ = nullptr;
+    // The percentage of traffic replication. Valid values: 0 to 100.
     std::shared_ptr<int32_t> percentage_ = nullptr;
+    // The traffic configuration.
     std::shared_ptr<map<string, int32_t>> percentageByRoute_ = nullptr;
+    // The ID of the route.
     std::shared_ptr<vector<int64_t>> routeIds_ = nullptr;
   };
 

@@ -93,11 +93,23 @@ namespace Models
 
 
   protected:
+    // Logical connectors between conditions:
+    // 
+    // *   AND: All conditions are met at the same time.
+    // *   OR: Any condition is met.
     std::shared_ptr<string> conditionJoiner_ = nullptr;
+    // The conditions that trigger circuit breaking.
     std::shared_ptr<vector<Models::CreateOrUpdateSwimmingLaneRequestAppEntryRuleConditions>> conditions_ = nullptr;
+    // Whether to enable proportional grayscale.
+    // 
+    // *   true: enabled. After you enable this parameter, you must configure the PercentageByPath.
+    // *   false: disables the service.
     std::shared_ptr<bool> independentPercentageEnable_ = nullptr;
+    // The matched request path.
     std::shared_ptr<vector<string>> paths_ = nullptr;
+    // The traffic ratio. Valid values: 0 to 100.
     std::shared_ptr<int32_t> percentage_ = nullptr;
+    // The traffic configuration.
     std::shared_ptr<map<string, int32_t>> percentageByPath_ = nullptr;
   };
 

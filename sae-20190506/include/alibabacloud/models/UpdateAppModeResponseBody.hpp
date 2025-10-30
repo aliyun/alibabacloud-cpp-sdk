@@ -84,12 +84,28 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // Error code. Valid values:
+    // 
+    // *   If the request was successful, **ErrorCode** is not returned.
+    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes**.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The message returned. The following limits are imposed on the ID:
+    // 
+    // *   The request is normal. **success** is returned.
+    // *   If the request is abnormal, the specific exception error code is returned.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the application was created. true and false. false
     std::shared_ptr<string> success_ = nullptr;
+    // The ID of the trace. This parameter is used to query the exact call information.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

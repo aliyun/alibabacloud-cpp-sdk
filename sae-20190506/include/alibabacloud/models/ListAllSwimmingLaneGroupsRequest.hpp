@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of a namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };
 

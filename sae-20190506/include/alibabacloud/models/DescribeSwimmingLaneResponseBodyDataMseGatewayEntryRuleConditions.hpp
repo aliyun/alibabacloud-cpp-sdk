@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The matching rule.
     std::shared_ptr<string> condition_ = nullptr;
+    // The parameter name.
     std::shared_ptr<string> name_ = nullptr;
+    // The type of the parameter.
     std::shared_ptr<string> type_ = nullptr;
+    // The match value of the condition.
     std::shared_ptr<string> value_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The route URL.
     std::shared_ptr<string> path_ = nullptr;
+    // The type of the protection rule.
     std::shared_ptr<string> type_ = nullptr;
   };
 

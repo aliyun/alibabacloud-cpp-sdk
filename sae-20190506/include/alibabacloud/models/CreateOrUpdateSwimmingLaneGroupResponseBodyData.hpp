@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the lane group.
     std::shared_ptr<int64_t> groupId_ = nullptr;
   };
 

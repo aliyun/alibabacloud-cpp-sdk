@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
     std::shared_ptr<string> appId_ = nullptr;
+    // The name of the application.
     std::shared_ptr<string> appName_ = nullptr;
+    // The ID of the baseline application.
     std::shared_ptr<string> baseAppId_ = nullptr;
+    // The name of the baseline application.
     std::shared_ptr<string> baseAppName_ = nullptr;
+    // The ID of the MSE instance.
     std::shared_ptr<string> mseAppId_ = nullptr;
+    // MSE Instance Name
     std::shared_ptr<string> mseAppName_ = nullptr;
+    // The ID of the namespace to which the MSE instance belongs.
     std::shared_ptr<string> mseNamespaceId_ = nullptr;
+    // The canary tag configured for the application.
     std::shared_ptr<map<string, string>> serviceTags_ = nullptr;
   };
 

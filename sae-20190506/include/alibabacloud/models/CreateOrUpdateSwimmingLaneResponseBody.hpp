@@ -97,12 +97,33 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: Success.
+    // *   **3xx**: Redirection.
+    // *   **4xx**: Request error.
+    // *   **5xx**: Server error.
     std::shared_ptr<string> code_ = nullptr;
+    // The returned information.
     std::shared_ptr<CreateOrUpdateSwimmingLaneResponseBodyData> data_ = nullptr;
+    // The status code. Value values:
+    // 
+    // *   If the request was successful, **ErrorCode** is not returned.
+    // *   If the request failed, **ErrorCode** is returned. For more information, see **Error codes** in this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The message returned. Value description:
+    // 
+    // *   If the request was successful, a success message is returned.
+    // *   An error code is returned if the request failed.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Whether the creation or update was successful. Valid values:
+    // 
+    // *   true: created.
+    // *   false: failed to create.
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the trace. The ID is used to query the details of a request.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

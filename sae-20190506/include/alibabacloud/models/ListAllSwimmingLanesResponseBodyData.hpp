@@ -122,14 +122,29 @@ namespace Models
 
 
   protected:
+    // Apply ingress rules.
     std::shared_ptr<Models::ListAllSwimmingLanesResponseBodyDataAppEntryRule> appEntryRule_ = nullptr;
+    // The associated application.
     std::shared_ptr<vector<Models::ListAllSwimmingLanesResponseBodyDataApps>> apps_ = nullptr;
+    // Full-link Grayscale Mode:
+    // 
+    // *   0: The request is routed based on the content of the request.
+    // *   1: Proportional routing
     std::shared_ptr<int32_t> canaryModel_ = nullptr;
+    // Lane status:
+    // 
+    // *   true: enabled
+    // *   false: disabled
     std::shared_ptr<bool> enable_ = nullptr;
+    // Whether the traffic rule is enabled.
     std::shared_ptr<bool> enableRules_ = nullptr;
+    // The ID of the lane.
     std::shared_ptr<int64_t> laneId_ = nullptr;
+    // The name of the lane group.
     std::shared_ptr<string> laneName_ = nullptr;
+    // The tag of the lane.
     std::shared_ptr<string> laneTag_ = nullptr;
+    // MSE gateway routing
     std::shared_ptr<Models::ListAllSwimmingLanesResponseBodyDataMseGatewayEntryRule> mseGatewayEntryRule_ = nullptr;
   };
 

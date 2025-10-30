@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The route ID.
     std::shared_ptr<int64_t> routeId_ = nullptr;
+    // The name of the route.
     std::shared_ptr<string> routeName_ = nullptr;
+    // The routing rule.
     std::shared_ptr<Models::DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredicate> routePredicate_ = nullptr;
   };
 

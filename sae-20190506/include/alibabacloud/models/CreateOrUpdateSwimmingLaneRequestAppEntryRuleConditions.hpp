@@ -66,9 +66,23 @@ namespace Models
 
 
   protected:
+    // Matching Rule:
+    // 
+    // *   The exact match. The condition is met if the traffic value and the condition value are exactly the same.
+    // *   The exact match. The condition is met if the traffic value and the condition value are exactly the same.
+    // *   The inclusive match. The condition is met if the traffic value is included in the specified list.
+    // *   The percentage match. Principle: The condition is met if \\"hash(get(`key`)) % 100 < value\\".
+    // *   Regular match: a regular expression match. The condition is met when the match is based on regular expression rules.
     std::shared_ptr<string> condition_ = nullptr;
+    // The parameter name.
     std::shared_ptr<string> name_ = nullptr;
+    // The parameter type. Valid values:
+    // 
+    // *   header
+    // *   param
+    // *   Cookie: forwards requests based on cookies.
     std::shared_ptr<string> type_ = nullptr;
+    // The match value of the condition.
     std::shared_ptr<string> value_ = nullptr;
   };
 

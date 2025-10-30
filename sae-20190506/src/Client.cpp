@@ -1518,7 +1518,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary 创建或者更新泳道
+ * @summary Creates or updates a lane.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneRequest
  * @param headers map
@@ -1593,7 +1593,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLaneWithOptions
 }
 
 /**
- * @summary 创建或者更新泳道
+ * @summary Creates or updates a lane.
  *
  * @param request CreateOrUpdateSwimmingLaneRequest
  * @return CreateOrUpdateSwimmingLaneResponse
@@ -1605,7 +1605,7 @@ CreateOrUpdateSwimmingLaneResponse Client::createOrUpdateSwimmingLane(const Crea
 }
 
 /**
- * @summary 创建或者更新泳道组
+ * @summary Creates or updates a lane group.
  *
  * @param tmpReq CreateOrUpdateSwimmingLaneGroupRequest
  * @param headers map
@@ -1668,7 +1668,7 @@ CreateOrUpdateSwimmingLaneGroupResponse Client::createOrUpdateSwimmingLaneGroupW
 }
 
 /**
- * @summary 创建或者更新泳道组
+ * @summary Creates or updates a lane group.
  *
  * @param request CreateOrUpdateSwimmingLaneGroupRequest
  * @return CreateOrUpdateSwimmingLaneGroupResponse
@@ -2121,7 +2121,7 @@ DeleteIngressResponse Client::deleteIngress(const DeleteIngressRequest &request)
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes an application instance.
  *
  * @param request DeleteInstancesRequest
  * @param headers map
@@ -2158,7 +2158,7 @@ DeleteInstancesResponse Client::deleteInstancesWithOptions(const DeleteInstances
 }
 
 /**
- * @summary 删除实例
+ * @summary Deletes an application instance.
  *
  * @param request DeleteInstancesRequest
  * @return DeleteInstancesResponse
@@ -2313,7 +2313,7 @@ DeleteSecretResponse Client::deleteSecret(const DeleteSecretRequest &request) {
 }
 
 /**
- * @summary 删除泳道组
+ * @summary Deletes a lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @param headers map
@@ -2350,7 +2350,7 @@ DeleteSwimmingLaneGroupResponse Client::deleteSwimmingLaneGroupWithOptions(const
 }
 
 /**
- * @summary 删除泳道组
+ * @summary Deletes a lane group.
  *
  * @param request DeleteSwimmingLaneGroupRequest
  * @return DeleteSwimmingLaneGroupResponse
@@ -3793,6 +3793,10 @@ DescribeInstanceLogResponse Client::describeInstanceLogWithOptions(const Describ
     query["InstanceId"] = request.instanceId();
   }
 
+  if (!!request.hasPrevious()) {
+    query["Previous"] = request.previous();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -4341,7 +4345,7 @@ DescribeSecretResponse Client::describeSecret(const DescribeSecretRequest &reque
 }
 
 /**
- * @summary 查询泳道详情
+ * @summary Queries details about swimlanes.
  *
  * @param request DescribeSwimmingLaneRequest
  * @param headers map
@@ -4382,7 +4386,7 @@ DescribeSwimmingLaneResponse Client::describeSwimmingLaneWithOptions(const Descr
 }
 
 /**
- * @summary 查询泳道详情
+ * @summary Queries details about swimlanes.
  *
  * @param request DescribeSwimmingLaneRequest
  * @return DescribeSwimmingLaneResponse
@@ -4794,7 +4798,7 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRule(cons
 }
 
 /**
- * @summary Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+ * @summary Disable ARMS Advanced Edition monitoring.
  *
  * @param request DowngradeApplicationApmServiceRequest
  * @param headers map
@@ -4827,7 +4831,7 @@ DowngradeApplicationApmServiceResponse Client::downgradeApplicationApmServiceWit
 }
 
 /**
- * @summary Disables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
+ * @summary Disable ARMS Advanced Edition monitoring.
  *
  * @param request DowngradeApplicationApmServiceRequest
  * @return DowngradeApplicationApmServiceResponse
@@ -5392,7 +5396,7 @@ GetWebshellTokenResponse Client::getWebshellToken(const GetWebshellTokenRequest 
 }
 
 /**
- * @summary 查询所有泳道组
+ * @summary Queries all lane groups.
  *
  * @param request ListAllSwimmingLaneGroupsRequest
  * @param headers map
@@ -5425,7 +5429,7 @@ ListAllSwimmingLaneGroupsResponse Client::listAllSwimmingLaneGroupsWithOptions(c
 }
 
 /**
- * @summary 查询所有泳道组
+ * @summary Queries all lane groups.
  *
  * @param request ListAllSwimmingLaneGroupsRequest
  * @return ListAllSwimmingLaneGroupsResponse
@@ -5437,7 +5441,7 @@ ListAllSwimmingLaneGroupsResponse Client::listAllSwimmingLaneGroups(const ListAl
 }
 
 /**
- * @summary 查询所有泳道
+ * @summary Queries all swimlanes.
  *
  * @param request ListAllSwimmingLanesRequest
  * @param headers map
@@ -5474,7 +5478,7 @@ ListAllSwimmingLanesResponse Client::listAllSwimmingLanesWithOptions(const ListA
 }
 
 /**
- * @summary 查询所有泳道
+ * @summary Queries all swimlanes.
  *
  * @param request ListAllSwimmingLanesRequest
  * @return ListAllSwimmingLanesResponse
@@ -5823,7 +5827,7 @@ ListApplicationsResponse Client::listApplications(const ListApplicationsRequest 
 }
 
 /**
- * @summary 获取应用列表，供全链路灰度拉取应用列表
+ * @summary Obtains the application list for the end-to-end grayscale pull application list.
  *
  * @param request ListApplicationsForSwimmingLaneRequest
  * @param headers map
@@ -5864,7 +5868,7 @@ ListApplicationsForSwimmingLaneResponse Client::listApplicationsForSwimmingLaneW
 }
 
 /**
- * @summary 获取应用列表，供全链路灰度拉取应用列表
+ * @summary Obtains the application list for the end-to-end grayscale pull application list.
  *
  * @param request ListApplicationsForSwimmingLaneRequest
  * @return ListApplicationsForSwimmingLaneResponse
@@ -6434,7 +6438,7 @@ ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
 }
 
 /**
- * @summary 查询泳道可选的网关路由
+ * @summary Query the gateway routes that are available for a lane
  *
  * @param request ListSwimmingLaneGatewayRoutesRequest
  * @param headers map
@@ -6471,7 +6475,7 @@ ListSwimmingLaneGatewayRoutesResponse Client::listSwimmingLaneGatewayRoutesWithO
 }
 
 /**
- * @summary 查询泳道可选的网关路由
+ * @summary Query the gateway routes that are available for a lane
  *
  * @param request ListSwimmingLaneGatewayRoutesRequest
  * @return ListSwimmingLaneGatewayRoutesResponse
@@ -6483,7 +6487,7 @@ ListSwimmingLaneGatewayRoutesResponse Client::listSwimmingLaneGatewayRoutes(cons
 }
 
 /**
- * @summary 查询所有泳道标签列表
+ * @summary Queries all lane tags.
  *
  * @param request ListSwimmingLaneGroupTagsRequest
  * @param headers map
@@ -6520,7 +6524,7 @@ ListSwimmingLaneGroupTagsResponse Client::listSwimmingLaneGroupTagsWithOptions(c
 }
 
 /**
- * @summary 查询所有泳道标签列表
+ * @summary Queries all lane tags.
  *
  * @param request ListSwimmingLaneGroupTagsRequest
  * @return ListSwimmingLaneGroupTagsResponse
@@ -7866,7 +7870,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 应用闲置模式更新
+ * @summary Application Idle Mode Update
  *
  * @param request UpdateAppModeRequest
  * @param headers map
@@ -7911,7 +7915,7 @@ UpdateAppModeResponse Client::updateAppModeWithOptions(const UpdateAppModeReques
 }
 
 /**
- * @summary 应用闲置模式更新
+ * @summary Application Idle Mode Update
  *
  * @param request UpdateAppModeRequest
  * @return UpdateAppModeResponse
@@ -8672,6 +8676,59 @@ UpdateNamespaceResponse Client::updateNamespace(const UpdateNamespaceRequest &re
 }
 
 /**
+ * @summary 更新命名空间级别sls配置
+ *
+ * @param request UpdateNamespaceSlsConfigsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNamespaceSlsConfigsResponse
+ */
+UpdateNamespaceSlsConfigsResponse Client::updateNamespaceSlsConfigsWithOptions(const UpdateNamespaceSlsConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNameSpaceShortId()) {
+    query["NameSpaceShortId"] = request.nameSpaceShortId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  if (!!request.hasSlsConfigs()) {
+    query["SlsConfigs"] = request.slsConfigs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateNamespaceSlsConfigs"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/cas/namespace/updateNamespaceSlsConfigs")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNamespaceSlsConfigsResponse>();
+}
+
+/**
+ * @summary 更新命名空间级别sls配置
+ *
+ * @param request UpdateNamespaceSlsConfigsRequest
+ * @return UpdateNamespaceSlsConfigsResponse
+ */
+UpdateNamespaceSlsConfigsResponse Client::updateNamespaceSlsConfigs(const UpdateNamespaceSlsConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateNamespaceSlsConfigsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary cn-beijing:test
  *
  * @param request UpdateNamespaceVpcRequest
@@ -8792,7 +8849,7 @@ UpdateSecretResponse Client::updateSecret(const UpdateSecretRequest &request) {
 }
 
 /**
- * @summary 更新泳道的启用属性
+ * @summary Update the enabled property of the swimlane.
  *
  * @param request UpdateSwimmingLaneEnableAttributeRequest
  * @param headers map
@@ -8837,7 +8894,7 @@ UpdateSwimmingLaneEnableAttributeResponse Client::updateSwimmingLaneEnableAttrib
 }
 
 /**
- * @summary 更新泳道的启用属性
+ * @summary Update the enabled property of the swimlane.
  *
  * @param request UpdateSwimmingLaneEnableAttributeRequest
  * @return UpdateSwimmingLaneEnableAttributeResponse

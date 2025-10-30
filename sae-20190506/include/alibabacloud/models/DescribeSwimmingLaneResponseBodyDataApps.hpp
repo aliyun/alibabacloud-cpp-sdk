@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the application.
     std::shared_ptr<string> appId_ = nullptr;
+    // The name of the application.
     std::shared_ptr<string> appName_ = nullptr;
+    // The ID of the MSE instance.
     std::shared_ptr<string> mseAppId_ = nullptr;
+    // The name of the MSE instance.
     std::shared_ptr<string> mseAppName_ = nullptr;
+    // The ID of the MSE namespace.
     std::shared_ptr<string> mseNamespaceId_ = nullptr;
   };
 

@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // Lane status:
+    // 
+    // *   true: enabled
+    // *   false: disabled
     std::shared_ptr<bool> enable_ = nullptr;
+    // The ID of the lane group.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The ID of the lane.
     std::shared_ptr<int64_t> laneId_ = nullptr;
+    // The ID of a namespace.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };
 

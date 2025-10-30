@@ -98,6 +98,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> code_ = nullptr;
+    // Response
     std::shared_ptr<GetWebshellTokenResponseBodyData> data_ = nullptr;
     std::shared_ptr<string> errorCode_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;

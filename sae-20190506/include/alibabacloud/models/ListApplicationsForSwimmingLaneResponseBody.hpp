@@ -88,11 +88,31 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The list of applications.
     std::shared_ptr<vector<ListApplicationsForSwimmingLaneResponseBodyData>> data_ = nullptr;
+    // The status code. Value values:
+    // 
+    // *   If the request was successful, **ErrorCode** is not returned.
+    // *   If the request failed, the **ErrorCode** parameter is returned. For more information, see **Error codes** section in this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The message returned. The following limits are imposed on the ID:
+    // 
+    // *   If the request was successful, **success** is returned.
+    // *   An error code is returned when a request failed.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the trace. The ID is used to query the details of a request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the list of application instances was queried. Valid values:
+    // 
+    // *   **true**: The instance groups were obtained.
+    // *   **false**: The instance groups failed to be obtained.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

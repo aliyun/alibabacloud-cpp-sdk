@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The path.
     std::shared_ptr<string> path_ = nullptr;
+    // The matching rule.
     std::shared_ptr<string> type_ = nullptr;
   };
 

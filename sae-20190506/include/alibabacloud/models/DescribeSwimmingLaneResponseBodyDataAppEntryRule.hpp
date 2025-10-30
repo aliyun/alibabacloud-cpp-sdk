@@ -93,11 +93,20 @@ namespace Models
 
 
   protected:
+    // Logical connectors between conditions:
+    // 
+    // *   AND: All conditions are met at the same time.
+    // *   OR: Any condition is met.
     std::shared_ptr<string> conditionJoiner_ = nullptr;
+    // The matching condition.
     std::shared_ptr<vector<Models::DescribeSwimmingLaneResponseBodyDataAppEntryRuleConditions>> conditions_ = nullptr;
+    // Whether to enable proportional grayscale.
     std::shared_ptr<bool> independentPercentageEnable_ = nullptr;
+    // The request path.
     std::shared_ptr<vector<string>> paths_ = nullptr;
+    // The traffic ratio. Valid values: 0 to 100.
     std::shared_ptr<int32_t> percentage_ = nullptr;
+    // Traffic matching.
     std::shared_ptr<map<string, int32_t>> percentageByPath_ = nullptr;
   };
 

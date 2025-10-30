@@ -66,9 +66,23 @@ namespace Models
 
 
   protected:
+    // The matching rule.
+    // 
+    // *   \\==: exact match.
+    // *   ! =: exact match.
+    // *   in: contains matches.
+    // *   Percentage: Percentage matching.
+    // *   Regular matching: specifies whether a regular expression is used to search for the original string.
     std::shared_ptr<string> condition_ = nullptr;
+    // The parameter name.
     std::shared_ptr<string> name_ = nullptr;
+    // The parameter type. Valid values:
+    // 
+    // *   header
+    // *   param
+    // *   Cookie: forwards requests based on cookies.
     std::shared_ptr<string> type_ = nullptr;
+    // The match value of the condition.
     std::shared_ptr<string> value_ = nullptr;
   };
 
