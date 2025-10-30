@@ -154,6 +154,10 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
     query["ParentIdentifier"] = request.parentIdentifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasSanType()) {
     query["SanType"] = request.sanType();
   }
@@ -164,6 +168,10 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
 
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
@@ -272,6 +280,10 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
     query["ParentIdentifier"] = request.parentIdentifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasSanType()) {
     query["SanType"] = request.sanType();
   }
@@ -282,6 +294,10 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
 
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
@@ -366,6 +382,14 @@ CreateCustomCertificateResponse Client::createCustomCertificateWithOptions(const
     query["ParentIdentifier"] = request.parentIdentifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
+  }
+
   if (!!request.hasValidity()) {
     query["Validity"] = request.validity();
   }
@@ -440,6 +464,14 @@ CreateExternalCACertificateResponse Client::createExternalCACertificateWithOptio
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasValidity()) {
@@ -569,8 +601,16 @@ CreateRootCACertificateResponse Client::createRootCACertificateWithOptions(const
     query["OrganizationUnit"] = request.organizationUnit();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
@@ -680,8 +720,16 @@ CreateServerCertificateResponse Client::createServerCertificateWithOptions(const
     query["ParentIdentifier"] = request.parentIdentifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
@@ -793,8 +841,16 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsrWit
     query["ParentIdentifier"] = request.parentIdentifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
@@ -891,17 +947,31 @@ CreateSubCACertificateResponse Client::createSubCACertificateWithOptions(const C
     query["PathLenConstraint"] = request.pathLenConstraint();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   if (!!request.hasState()) {
     query["State"] = request.state();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   if (!!request.hasYears()) {
     query["Years"] = request.years();
   }
 
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateSubCACertificate"},
     {"version" , "2020-06-30"},
@@ -1107,6 +1177,10 @@ DescribeCACertificateListResponse Client::describeCACertificateListWithOptions(c
 
   if (!!request.hasIssuerType()) {
     query["IssuerType"] = request.issuerType();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
   }
 
   if (!!request.hasShowSize()) {
@@ -1481,6 +1555,10 @@ ListClientCertificateResponse Client::listClientCertificateWithOptions(const Lis
 
   if (!!request.hasIdentifier()) {
     query["Identifier"] = request.identifier();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
   }
 
   if (!!request.hasShowSize()) {

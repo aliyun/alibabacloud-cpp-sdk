@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->algorithm_ != nullptr && this->beforeDate_ != nullptr && this->certificateType_ != nullptr && this->commonName_ != nullptr && this->countryCode_ != nullptr
-        && this->identifier_ != nullptr && this->keySize_ != nullptr && this->locality_ != nullptr && this->md5_ != nullptr && this->organization_ != nullptr
-        && this->organizationUnit_ != nullptr && this->parentIdentifier_ != nullptr && this->revokeDate_ != nullptr && this->sans_ != nullptr && this->serialNumber_ != nullptr
-        && this->sha2_ != nullptr && this->signAlgorithm_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->subjectDN_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->algorithm_ == nullptr && return this->beforeDate_ == nullptr && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr
+        && return this->identifier_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->md5_ == nullptr && return this->organization_ == nullptr
+        && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->revokeDate_ == nullptr && return this->sans_ == nullptr && return this->serialNumber_ == nullptr
+        && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->subjectDN_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

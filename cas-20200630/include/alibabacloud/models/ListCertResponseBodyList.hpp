@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->afterTime_ != nullptr && this->algorithm_ != nullptr && this->aliasName_ != nullptr && this->beforeDate_ != nullptr && this->beforeTime_ != nullptr
-        && this->certificateType_ != nullptr && this->commonName_ != nullptr && this->extra_ != nullptr && this->id_ != nullptr && this->identifier_ != nullptr
-        && this->keyExportable_ != nullptr && this->organization_ != nullptr && this->organizationUnit_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr
-        && this->subjectDn_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->afterTime_ == nullptr && return this->algorithm_ == nullptr && return this->aliasName_ == nullptr && return this->beforeDate_ == nullptr && return this->beforeTime_ == nullptr
+        && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->extra_ == nullptr && return this->id_ == nullptr && return this->identifier_ == nullptr
+        && return this->keyExportable_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->serialNumber_ == nullptr && return this->status_ == nullptr
+        && return this->subjectDn_ == nullptr && return this->tags_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

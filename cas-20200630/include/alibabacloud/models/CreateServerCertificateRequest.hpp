@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESERVERCERTIFICATEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATESERVERCERTIFICATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateServerCertificateRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -27,7 +29,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Organization, organization_);
       DARABONBA_PTR_TO_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_TO_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(State, state_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Years, years_);
     };
     friend void from_json(const Darabonba::Json& j, CreateServerCertificateRequest& obj) { 
@@ -45,7 +49,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Organization, organization_);
       DARABONBA_PTR_FROM_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_FROM_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(State, state_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Years, years_);
     };
     CreateServerCertificateRequest() = default ;
@@ -59,10 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterTime_ != nullptr
-        && this->algorithm_ != nullptr && this->beforeTime_ != nullptr && this->commonName_ != nullptr && this->country_ != nullptr && this->days_ != nullptr
-        && this->domain_ != nullptr && this->enableCrl_ != nullptr && this->immediately_ != nullptr && this->locality_ != nullptr && this->months_ != nullptr
-        && this->organization_ != nullptr && this->organizationUnit_ != nullptr && this->parentIdentifier_ != nullptr && this->state_ != nullptr && this->years_ != nullptr; };
+    virtual bool empty() const override { return this->afterTime_ == nullptr
+        && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->days_ == nullptr
+        && return this->domain_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr && return this->months_ == nullptr
+        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->state_ == nullptr
+        && return this->tags_ == nullptr && return this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -161,11 +168,27 @@ namespace Models
     inline CreateServerCertificateRequest& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreateServerCertificateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // state Field Functions 
     bool hasState() const { return this->state_ != nullptr;};
     void deleteState() { this->state_ = nullptr;};
     inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline CreateServerCertificateRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateServerCertificateRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateServerCertificateRequestTags>) };
+    inline vector<CreateServerCertificateRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateServerCertificateRequestTags>) };
+    inline CreateServerCertificateRequest& setTags(const vector<CreateServerCertificateRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateServerCertificateRequest& setTags(vector<CreateServerCertificateRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // years Field Functions 
@@ -246,8 +269,10 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> parentIdentifier_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The province, municipality, or autonomous region in which the organization is located. The value can contain letters. The default value is the name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
     std::shared_ptr<string> state_ = nullptr;
+    std::shared_ptr<vector<CreateServerCertificateRequestTags>> tags_ = nullptr;
     // The validity period of the server certificate. Unit: years.
     std::shared_ptr<int32_t> years_ = nullptr;
   };

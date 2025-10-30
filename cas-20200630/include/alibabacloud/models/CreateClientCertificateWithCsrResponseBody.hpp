@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certKmcRep1_ != nullptr
-        && this->certSignBufKmc_ != nullptr && this->certificateChain_ != nullptr && this->identifier_ != nullptr && this->requestId_ != nullptr && this->serialNumber_ != nullptr
-        && this->x509Certificate_ != nullptr; };
+    virtual bool empty() const override { return this->certKmcRep1_ == nullptr
+        && return this->certSignBufKmc_ == nullptr && return this->certificateChain_ == nullptr && return this->identifier_ == nullptr && return this->requestId_ == nullptr && return this->serialNumber_ == nullptr
+        && return this->x509Certificate_ == nullptr; };
     // certKmcRep1 Field Functions 
     bool hasCertKmcRep1() const { return this->certKmcRep1_ != nullptr;};
     void deleteCertKmcRep1() { this->certKmcRep1_ = nullptr;};

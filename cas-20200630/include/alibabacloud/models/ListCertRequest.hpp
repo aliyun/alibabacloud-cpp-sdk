@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->beforeDate_ != nullptr && this->currentPage_ != nullptr && this->instanceUuid_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->showSize_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->beforeDate_ == nullptr && return this->currentPage_ == nullptr && return this->instanceUuid_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->showSize_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

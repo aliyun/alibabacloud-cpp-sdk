@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_CREATECUSTOMCERTIFICATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CreateCustomCertificateRequestApiPassthrough.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateCustomCertificateRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_TO_JSON(Immediately, immediately_);
       DARABONBA_PTR_TO_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Validity, validity_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomCertificateRequest& obj) { 
@@ -27,6 +31,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_FROM_JSON(Immediately, immediately_);
       DARABONBA_PTR_FROM_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Validity, validity_);
     };
     CreateCustomCertificateRequest() = default ;
@@ -40,8 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiPassthrough_ != nullptr
-        && this->csr_ != nullptr && this->enableCrl_ != nullptr && this->immediately_ != nullptr && this->parentIdentifier_ != nullptr && this->validity_ != nullptr; };
+    virtual bool empty() const override { return this->apiPassthrough_ == nullptr
+        && return this->csr_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tags_ == nullptr && return this->validity_ == nullptr; };
     // apiPassthrough Field Functions 
     bool hasApiPassthrough() const { return this->apiPassthrough_ != nullptr;};
     void deleteApiPassthrough() { this->apiPassthrough_ = nullptr;};
@@ -79,6 +86,22 @@ namespace Models
     inline CreateCustomCertificateRequest& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreateCustomCertificateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateCustomCertificateRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateCustomCertificateRequestTags>) };
+    inline vector<CreateCustomCertificateRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateCustomCertificateRequestTags>) };
+    inline CreateCustomCertificateRequest& setTags(const vector<CreateCustomCertificateRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateCustomCertificateRequest& setTags(vector<CreateCustomCertificateRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // validity Field Functions 
     bool hasValidity() const { return this->validity_ != nullptr;};
     void deleteValidity() { this->validity_ = nullptr;};
@@ -108,6 +131,8 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> parentIdentifier_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    std::shared_ptr<vector<CreateCustomCertificateRequestTags>> tags_ = nullptr;
     // The validity period of the certificate. The value cannot exceed the validity period of the certificate instance. Relative time and absolute time are supported.
     // 
     // Units of relative time: year, month, and day.

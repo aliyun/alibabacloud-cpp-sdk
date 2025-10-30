@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contentCommitment_ != nullptr
-        && this->dataEncipherment_ != nullptr && this->decipherOnly_ != nullptr && this->digitalSignature_ != nullptr && this->encipherOnly_ != nullptr && this->keyAgreement_ != nullptr
-        && this->keyEncipherment_ != nullptr && this->nonRepudiation_ != nullptr; };
+    virtual bool empty() const override { return this->contentCommitment_ == nullptr
+        && return this->dataEncipherment_ == nullptr && return this->decipherOnly_ == nullptr && return this->digitalSignature_ == nullptr && return this->encipherOnly_ == nullptr && return this->keyAgreement_ == nullptr
+        && return this->keyEncipherment_ == nullptr && return this->nonRepudiation_ == nullptr; };
     // contentCommitment Field Functions 
     bool hasContentCommitment() const { return this->contentCommitment_ != nullptr;};
     void deleteContentCommitment() { this->contentCommitment_ = nullptr;};

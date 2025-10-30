@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECLIENTCERTIFICATERESPONSEBODYCERTIFICATE_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECLIENTCERTIFICATERESPONSEBODYCERTIFICATE_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeClientCertificateResponseBodyCertificateTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -27,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Organization, organization_);
       DARABONBA_PTR_TO_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_TO_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Sans, sans_);
       DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_TO_JSON(Sha2, sha2_);
@@ -34,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(State, state_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubjectDN, subjectDN_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(X509Certificate, x509Certificate_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClientCertificateResponseBodyCertificate& obj) { 
@@ -51,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Organization, organization_);
       DARABONBA_PTR_FROM_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_FROM_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Sans, sans_);
       DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
       DARABONBA_PTR_FROM_JSON(Sha2, sha2_);
@@ -58,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(State, state_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubjectDN, subjectDN_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(X509Certificate, x509Certificate_);
     };
     DescribeClientCertificateResponseBodyCertificate() = default ;
@@ -71,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->algorithm_ != nullptr && this->beforeDate_ != nullptr && this->certificateType_ != nullptr && this->commonName_ != nullptr && this->countryCode_ != nullptr
-        && this->days_ != nullptr && this->identifier_ != nullptr && this->keySize_ != nullptr && this->locality_ != nullptr && this->md5_ != nullptr
-        && this->organization_ != nullptr && this->organizationUnit_ != nullptr && this->parentIdentifier_ != nullptr && this->sans_ != nullptr && this->serialNumber_ != nullptr
-        && this->sha2_ != nullptr && this->signAlgorithm_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->subjectDN_ != nullptr
-        && this->x509Certificate_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->algorithm_ == nullptr && return this->beforeDate_ == nullptr && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr
+        && return this->days_ == nullptr && return this->identifier_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->md5_ == nullptr
+        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr
+        && return this->serialNumber_ == nullptr && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr
+        && return this->subjectDN_ == nullptr && return this->tags_ == nullptr && return this->x509Certificate_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -175,6 +181,13 @@ namespace Models
     inline DescribeClientCertificateResponseBodyCertificate& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribeClientCertificateResponseBodyCertificate& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // sans Field Functions 
     bool hasSans() const { return this->sans_ != nullptr;};
     void deleteSans() { this->sans_ = nullptr;};
@@ -224,6 +237,15 @@ namespace Models
     inline DescribeClientCertificateResponseBodyCertificate& setSubjectDN(string subjectDN) { DARABONBA_PTR_SET_VALUE(subjectDN_, subjectDN) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<Models::DescribeClientCertificateResponseBodyCertificateTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Models::DescribeClientCertificateResponseBodyCertificateTags>) };
+    inline vector<Models::DescribeClientCertificateResponseBodyCertificateTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::DescribeClientCertificateResponseBodyCertificateTags>) };
+    inline DescribeClientCertificateResponseBodyCertificate& setTags(const vector<Models::DescribeClientCertificateResponseBodyCertificateTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeClientCertificateResponseBodyCertificate& setTags(vector<Models::DescribeClientCertificateResponseBodyCertificateTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // x509Certificate Field Functions 
     bool hasX509Certificate() const { return this->x509Certificate_ != nullptr;};
     void deleteX509Certificate() { this->x509Certificate_ = nullptr;};
@@ -269,6 +291,7 @@ namespace Models
     std::shared_ptr<string> organizationUnit_ = nullptr;
     // The unique identifier of the intermediate certificate from which the client certificate is issued.
     std::shared_ptr<string> parentIdentifier_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The subject alternative name (SAN) extension of the certificate. The value indicates additional information, including the additional domain names or IP addresses that are associated with the certificate.
     // 
     // The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that corresponds to a SAN extension. A SAN extension struct contains the following parameters:
@@ -304,6 +327,7 @@ namespace Models
     // *   **ST**: the province, municipality, or autonomous region
     // *   **CN**: the common name
     std::shared_ptr<string> subjectDN_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeClientCertificateResponseBodyCertificateTags>> tags_ = nullptr;
     // The content of the certificate.
     std::shared_ptr<string> x509Certificate_ = nullptr;
   };

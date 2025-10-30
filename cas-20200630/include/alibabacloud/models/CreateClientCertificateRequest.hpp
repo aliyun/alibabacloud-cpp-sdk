@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATECLIENTCERTIFICATEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATECLIENTCERTIFICATEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateClientCertificateRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -26,9 +28,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Organization, organization_);
       DARABONBA_PTR_TO_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_TO_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SanType, sanType_);
       DARABONBA_PTR_TO_JSON(SanValue, sanValue_);
       DARABONBA_PTR_TO_JSON(State, state_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Years, years_);
     };
     friend void from_json(const Darabonba::Json& j, CreateClientCertificateRequest& obj) { 
@@ -45,9 +49,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Organization, organization_);
       DARABONBA_PTR_FROM_JSON(OrganizationUnit, organizationUnit_);
       DARABONBA_PTR_FROM_JSON(ParentIdentifier, parentIdentifier_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SanType, sanType_);
       DARABONBA_PTR_FROM_JSON(SanValue, sanValue_);
       DARABONBA_PTR_FROM_JSON(State, state_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Years, years_);
     };
     CreateClientCertificateRequest() = default ;
@@ -61,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterTime_ != nullptr
-        && this->algorithm_ != nullptr && this->beforeTime_ != nullptr && this->commonName_ != nullptr && this->country_ != nullptr && this->days_ != nullptr
-        && this->enableCrl_ != nullptr && this->immediately_ != nullptr && this->locality_ != nullptr && this->months_ != nullptr && this->organization_ != nullptr
-        && this->organizationUnit_ != nullptr && this->parentIdentifier_ != nullptr && this->sanType_ != nullptr && this->sanValue_ != nullptr && this->state_ != nullptr
-        && this->years_ != nullptr; };
+    virtual bool empty() const override { return this->afterTime_ == nullptr
+        && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->days_ == nullptr
+        && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr && return this->months_ == nullptr && return this->organization_ == nullptr
+        && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sanType_ == nullptr && return this->sanValue_ == nullptr
+        && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -157,6 +163,13 @@ namespace Models
     inline CreateClientCertificateRequest& setParentIdentifier(string parentIdentifier) { DARABONBA_PTR_SET_VALUE(parentIdentifier_, parentIdentifier) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CreateClientCertificateRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // sanType Field Functions 
     bool hasSanType() const { return this->sanType_ != nullptr;};
     void deleteSanType() { this->sanType_ = nullptr;};
@@ -176,6 +189,15 @@ namespace Models
     void deleteState() { this->state_ = nullptr;};
     inline string state() const { DARABONBA_PTR_GET_DEFAULT(state_, "") };
     inline CreateClientCertificateRequest& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateClientCertificateRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateClientCertificateRequestTags>) };
+    inline vector<CreateClientCertificateRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateClientCertificateRequestTags>) };
+    inline CreateClientCertificateRequest& setTags(const vector<CreateClientCertificateRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateClientCertificateRequest& setTags(vector<CreateClientCertificateRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // years Field Functions 
@@ -246,6 +268,7 @@ namespace Models
     // 
     // > You can call the [DescribeCACertificateList] operation to query the unique identifier of an intermediate CA certificate.
     std::shared_ptr<string> parentIdentifier_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The type of the Subject Alternative Name (SAN) extension that is supported by the client certificate. Valid values:
     // 
     // *   **1**: an email address
@@ -255,6 +278,7 @@ namespace Models
     std::shared_ptr<string> sanValue_ = nullptr;
     // The province, municipality, or autonomous region in which the organization is located. The value can contain letters. The default value is the name of the province, municipality, or autonomous region in which the organization is located. The organization is associated with the intermediate CA certificate from which the certificate is issued.
     std::shared_ptr<string> state_ = nullptr;
+    std::shared_ptr<vector<CreateClientCertificateRequestTags>> tags_ = nullptr;
     // The validity period of the client certificate. Unit: years.
     std::shared_ptr<int32_t> years_ = nullptr;
   };
