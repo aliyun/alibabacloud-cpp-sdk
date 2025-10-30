@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->clientFileName_ != nullptr && this->clientPath_ != nullptr && this->fileType_ != nullptr && this->regId_ != nullptr && this->sampleTag_ != nullptr
-        && this->sampleType_ != nullptr && this->sampleValues_ != nullptr && this->uploadType_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && return this->clientFileName_ == nullptr && return this->clientPath_ == nullptr && return this->fileType_ == nullptr && return this->regId_ == nullptr && return this->sampleTag_ == nullptr
+        && return this->sampleType_ == nullptr && return this->sampleValues_ == nullptr && return this->uploadType_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};

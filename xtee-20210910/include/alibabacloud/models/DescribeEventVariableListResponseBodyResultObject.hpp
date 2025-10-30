@@ -69,10 +69,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actions_ != nullptr
-        && this->deviceVariables_ != nullptr && this->expressionVariables_ != nullptr && this->favoriteVariables_ != nullptr && this->middleVariables_ != nullptr && this->modelVariables_ != nullptr
-        && this->nameList_ != nullptr && this->nativeVariableFunctions_ != nullptr && this->nativeVariables_ != nullptr && this->queryVariables_ != nullptr && this->selfVariables_ != nullptr
-        && this->sysVariables_ != nullptr && this->thirdVariables_ != nullptr && this->velocityVariables_ != nullptr; };
+    virtual bool empty() const override { return this->actions_ == nullptr
+        && return this->deviceVariables_ == nullptr && return this->expressionVariables_ == nullptr && return this->favoriteVariables_ == nullptr && return this->middleVariables_ == nullptr && return this->modelVariables_ == nullptr
+        && return this->nameList_ == nullptr && return this->nativeVariableFunctions_ == nullptr && return this->nativeVariables_ == nullptr && return this->queryVariables_ == nullptr && return this->selfVariables_ == nullptr
+        && return this->sysVariables_ == nullptr && return this->thirdVariables_ == nullptr && return this->velocityVariables_ == nullptr; };
     // actions Field Functions 
     bool hasActions() const { return this->actions_ != nullptr;};
     void deleteActions() { this->actions_ = nullptr;};

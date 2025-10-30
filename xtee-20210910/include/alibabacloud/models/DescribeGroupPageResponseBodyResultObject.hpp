@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->communityNo_ != nullptr
-        && this->createTime_ != nullptr && this->groupRisk_ != nullptr && this->groupScale_ != nullptr && this->id_ != nullptr && this->sceneName_ != nullptr
-        && this->taskId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->communityNo_ == nullptr
+        && return this->createTime_ == nullptr && return this->groupRisk_ == nullptr && return this->groupScale_ == nullptr && return this->id_ == nullptr && return this->sceneName_ == nullptr
+        && return this->taskId_ == nullptr && return this->userId_ == nullptr; };
     // communityNo Field Functions 
     bool hasCommunityNo() const { return this->communityNo_ != nullptr;};
     void deleteCommunityNo() { this->communityNo_ = nullptr;};

@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->apiRegionId_ != nullptr && this->apiType_ != nullptr && this->createType_ != nullptr && this->defineId_ != nullptr && this->defineIds_ != nullptr
-        && this->description_ != nullptr && this->eventCode_ != nullptr && this->exceptionValue_ != nullptr && this->id_ != nullptr && this->outputField_ != nullptr
-        && this->outputType_ != nullptr && this->params_ != nullptr && this->paramsList_ != nullptr && this->regId_ != nullptr && this->sourceType_ != nullptr
-        && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && return this->apiRegionId_ == nullptr && return this->apiType_ == nullptr && return this->createType_ == nullptr && return this->defineId_ == nullptr && return this->defineIds_ == nullptr
+        && return this->description_ == nullptr && return this->eventCode_ == nullptr && return this->exceptionValue_ == nullptr && return this->id_ == nullptr && return this->outputField_ == nullptr
+        && return this->outputType_ == nullptr && return this->params_ == nullptr && return this->paramsList_ == nullptr && return this->regId_ == nullptr && return this->sourceType_ == nullptr
+        && return this->title_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};

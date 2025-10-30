@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consoleAudit_ != nullptr
-        && this->consoleRuleId_ != nullptr && this->consoleRuleMemo_ != nullptr && this->consoleRuleName_ != nullptr && this->eventCode_ != nullptr && this->eventType_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->lastOperator_ != nullptr && this->priority_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->consoleAudit_ == nullptr
+        && return this->consoleRuleId_ == nullptr && return this->consoleRuleMemo_ == nullptr && return this->consoleRuleName_ == nullptr && return this->eventCode_ == nullptr && return this->eventType_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->lastOperator_ == nullptr && return this->priority_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleStatus_ == nullptr && return this->ruleType_ == nullptr && return this->version_ == nullptr; };
     // consoleAudit Field Functions 
     bool hasConsoleAudit() const { return this->consoleAudit_ != nullptr;};
     void deleteConsoleAudit() { this->consoleAudit_ = nullptr;};

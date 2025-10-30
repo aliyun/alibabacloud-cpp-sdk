@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchCopyFlag_ != nullptr
-        && this->consoleRuleId_ != nullptr && this->ruleId_ != nullptr && this->ruleVersionId_ != nullptr; };
+    virtual bool empty() const override { return this->batchCopyFlag_ == nullptr
+        && return this->consoleRuleId_ == nullptr && return this->ruleId_ == nullptr && return this->ruleVersionId_ == nullptr; };
     // batchCopyFlag Field Functions 
     bool hasBatchCopyFlag() const { return this->batchCopyFlag_ != nullptr;};
     void deleteBatchCopyFlag() { this->batchCopyFlag_ = nullptr;};

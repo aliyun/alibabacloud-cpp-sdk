@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classificationType_ != nullptr
-        && this->dataDistributed_ != nullptr && this->dataTitle_ != nullptr && this->deleteTag_ != nullptr && this->description_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->normalSize_ != nullptr && this->recallConfig_ != nullptr
-        && this->riskSize_ != nullptr && this->riskValue_ != nullptr && this->sampleLabelDetail_ != nullptr && this->sampleSize_ != nullptr && this->scene_ != nullptr
-        && this->status_ != nullptr && this->storePath_ != nullptr && this->storeType_ != nullptr && this->supportRecall_ != nullptr && this->userId_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->classificationType_ == nullptr
+        && return this->dataDistributed_ == nullptr && return this->dataTitle_ == nullptr && return this->deleteTag_ == nullptr && return this->description_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->normalSize_ == nullptr && return this->recallConfig_ == nullptr
+        && return this->riskSize_ == nullptr && return this->riskValue_ == nullptr && return this->sampleLabelDetail_ == nullptr && return this->sampleSize_ == nullptr && return this->scene_ == nullptr
+        && return this->status_ == nullptr && return this->storePath_ == nullptr && return this->storeType_ == nullptr && return this->supportRecall_ == nullptr && return this->userId_ == nullptr
+        && return this->version_ == nullptr; };
     // classificationType Field Functions 
     bool hasClassificationType() const { return this->classificationType_ != nullptr;};
     void deleteClassificationType() { this->classificationType_ = nullptr;};

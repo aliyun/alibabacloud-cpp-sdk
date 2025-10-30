@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->condition_ != nullptr && this->createType_ != nullptr && this->description_ != nullptr && this->eventCodes_ != nullptr && this->historyValueType_ != nullptr
-        && this->object_ != nullptr && this->outputs_ != nullptr && this->regId_ != nullptr && this->subject_ != nullptr && this->timeType_ != nullptr
-        && this->title_ != nullptr && this->twCount_ != nullptr && this->velocityFC_ != nullptr && this->velocityTW_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && return this->condition_ == nullptr && return this->createType_ == nullptr && return this->description_ == nullptr && return this->eventCodes_ == nullptr && return this->historyValueType_ == nullptr
+        && return this->object_ == nullptr && return this->outputs_ == nullptr && return this->regId_ == nullptr && return this->subject_ == nullptr && return this->timeType_ == nullptr
+        && return this->title_ == nullptr && return this->twCount_ == nullptr && return this->velocityFC_ == nullptr && return this->velocityTW_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};

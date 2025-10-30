@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventCode_ != nullptr
-        && this->eventName_ != nullptr && this->expectVelocities_ != nullptr && this->gmtCreate_ != nullptr && this->normalSize_ != nullptr && this->recommendRuleDTOs_ != nullptr
-        && this->recommendVariableDTOs_ != nullptr && this->riskSize_ != nullptr && this->sampleName_ != nullptr && this->sampleScene_ != nullptr && this->sampleSceneName_ != nullptr
-        && this->taskId_ != nullptr && this->taskName_ != nullptr && this->taskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->eventCode_ == nullptr
+        && return this->eventName_ == nullptr && return this->expectVelocities_ == nullptr && return this->gmtCreate_ == nullptr && return this->normalSize_ == nullptr && return this->recommendRuleDTOs_ == nullptr
+        && return this->recommendVariableDTOs_ == nullptr && return this->riskSize_ == nullptr && return this->sampleName_ == nullptr && return this->sampleScene_ == nullptr && return this->sampleSceneName_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskStatus_ == nullptr; };
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};

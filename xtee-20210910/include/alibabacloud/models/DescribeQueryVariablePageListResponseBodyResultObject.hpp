@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSourceCode_ != nullptr
-        && this->dataSourceName_ != nullptr && this->description_ != nullptr && this->eventName_ != nullptr && this->fieldType_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->status_ != nullptr && this->total_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->dataSourceCode_ == nullptr
+        && return this->dataSourceName_ == nullptr && return this->description_ == nullptr && return this->eventName_ == nullptr && return this->fieldType_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->status_ == nullptr && return this->total_ == nullptr
+        && return this->version_ == nullptr; };
     // dataSourceCode Field Functions 
     bool hasDataSourceCode() const { return this->dataSourceCode_ != nullptr;};
     void deleteDataSourceCode() { this->dataSourceCode_ = nullptr;};

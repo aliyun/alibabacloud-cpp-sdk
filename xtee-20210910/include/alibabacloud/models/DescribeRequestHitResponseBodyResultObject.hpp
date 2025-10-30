@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventCode_ != nullptr
-        && this->eventName_ != nullptr && this->inputs_ != nullptr && this->outputs_ != nullptr && this->requestTime_ != nullptr && this->ruleHitRecords_ != nullptr
-        && this->sRequestId_ != nullptr && this->totalCost_ != nullptr; };
+    virtual bool empty() const override { return this->eventCode_ == nullptr
+        && return this->eventName_ == nullptr && return this->inputs_ == nullptr && return this->outputs_ == nullptr && return this->requestTime_ == nullptr && return this->ruleHitRecords_ == nullptr
+        && return this->sRequestId_ == nullptr && return this->totalCost_ == nullptr; };
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};

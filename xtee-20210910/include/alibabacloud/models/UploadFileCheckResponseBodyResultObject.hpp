@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveNumber_ != nullptr
-        && this->resultList_ != nullptr && this->totalNumber_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveNumber_ == nullptr
+        && return this->resultList_ == nullptr && return this->totalNumber_ == nullptr; };
     // effectiveNumber Field Functions 
     bool hasEffectiveNumber() const { return this->effectiveNumber_ != nullptr;};
     void deleteEffectiveNumber() { this->effectiveNumber_ = nullptr;};

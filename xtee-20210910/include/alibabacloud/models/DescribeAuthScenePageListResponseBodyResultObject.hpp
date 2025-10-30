@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonRuleCount_ != nullptr
-        && this->customRuleCount_ != nullptr && this->eventCode_ != nullptr && this->sceneName_ != nullptr && this->serverName_ != nullptr; };
+    virtual bool empty() const override { return this->commonRuleCount_ == nullptr
+        && return this->customRuleCount_ == nullptr && return this->eventCode_ == nullptr && return this->sceneName_ == nullptr && return this->serverName_ == nullptr; };
     // commonRuleCount Field Functions 
     bool hasCommonRuleCount() const { return this->commonRuleCount_ != nullptr;};
     void deleteCommonRuleCount() { this->commonRuleCount_ = nullptr;};

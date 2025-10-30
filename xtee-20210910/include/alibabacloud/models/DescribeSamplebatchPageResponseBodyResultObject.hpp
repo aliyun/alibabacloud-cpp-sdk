@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchName_ != nullptr
-        && this->creator_ != nullptr && this->dataType_ != nullptr && this->description_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->initValidFileRow_ != nullptr && this->sampleBatchType_ != nullptr && this->services_ != nullptr && this->updator_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->batchName_ == nullptr
+        && return this->creator_ == nullptr && return this->dataType_ == nullptr && return this->description_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->initValidFileRow_ == nullptr && return this->sampleBatchType_ == nullptr && return this->services_ == nullptr && return this->updator_ == nullptr && return this->uuid_ == nullptr; };
     // batchName Field Functions 
     bool hasBatchName() const { return this->batchName_ != nullptr;};
     void deleteBatchName() { this->batchName_ = nullptr;};

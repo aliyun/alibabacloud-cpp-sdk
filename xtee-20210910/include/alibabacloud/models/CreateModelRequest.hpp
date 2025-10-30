@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bucId_ != nullptr
-        && this->counts_ != nullptr && this->fileMD5_ != nullptr && this->filePath_ != nullptr && this->modelName_ != nullptr && this->modelScene_ != nullptr
-        && this->parameterNum_ != nullptr && this->regId_ != nullptr && this->userLocalFileName_ != nullptr; };
+    virtual bool empty() const override { return this->bucId_ == nullptr
+        && return this->counts_ == nullptr && return this->fileMD5_ == nullptr && return this->filePath_ == nullptr && return this->modelName_ == nullptr && return this->modelScene_ == nullptr
+        && return this->parameterNum_ == nullptr && return this->regId_ == nullptr && return this->userLocalFileName_ == nullptr; };
     // bucId Field Functions 
     bool hasBucId() const { return this->bucId_ != nullptr;};
     void deleteBucId() { this->bucId_ = nullptr;};

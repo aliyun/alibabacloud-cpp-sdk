@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lang_ != nullptr
-        && this->accountIdPRP_ != nullptr && this->beginTime_ != nullptr && this->condition1AL_ != nullptr && this->condition2AL_ != nullptr && this->condition3AL_ != nullptr
-        && this->currentPage_ != nullptr && this->deviceTypeLRP_ != nullptr && this->emailPRP_ != nullptr && this->endTime_ != nullptr && this->failReasonLRP_ != nullptr
-        && this->ipPRP_ != nullptr && this->loginResultARP_ != nullptr && this->loginTypeLRP_ != nullptr && this->macPRP_ != nullptr && this->mobilePRP_ != nullptr
-        && this->nickNamePRP_ != nullptr && this->operateSourceLRP_ != nullptr && this->pageSize_ != nullptr && this->referPRP_ != nullptr && this->regId_ != nullptr
-        && this->registerIpPRP_ != nullptr && this->reqIdPBS_ != nullptr && this->scoreEBS_ != nullptr && this->scoreSBS_ != nullptr && this->serviceABS_ != nullptr
-        && this->tagsLBS_ != nullptr && this->umidPDI_ != nullptr && this->userAgentPRP_ != nullptr && this->userNameTypeLRP_ != nullptr; };
+    virtual bool empty() const override { return this->lang_ == nullptr
+        && return this->accountIdPRP_ == nullptr && return this->beginTime_ == nullptr && return this->condition1AL_ == nullptr && return this->condition2AL_ == nullptr && return this->condition3AL_ == nullptr
+        && return this->currentPage_ == nullptr && return this->deviceTypeLRP_ == nullptr && return this->emailPRP_ == nullptr && return this->endTime_ == nullptr && return this->failReasonLRP_ == nullptr
+        && return this->ipPRP_ == nullptr && return this->loginResultARP_ == nullptr && return this->loginTypeLRP_ == nullptr && return this->macPRP_ == nullptr && return this->mobilePRP_ == nullptr
+        && return this->nickNamePRP_ == nullptr && return this->operateSourceLRP_ == nullptr && return this->pageSize_ == nullptr && return this->referPRP_ == nullptr && return this->regId_ == nullptr
+        && return this->registerIpPRP_ == nullptr && return this->reqIdPBS_ == nullptr && return this->scoreEBS_ == nullptr && return this->scoreSBS_ == nullptr && return this->serviceABS_ == nullptr
+        && return this->tagsLBS_ == nullptr && return this->umidPDI_ == nullptr && return this->userAgentPRP_ == nullptr && return this->userNameTypeLRP_ == nullptr; };
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};

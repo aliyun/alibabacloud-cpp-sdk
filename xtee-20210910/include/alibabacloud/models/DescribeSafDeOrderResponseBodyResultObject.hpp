@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBESAFDEORDERRESPONSEBODYRESULTOBJECT_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBESAFDEORDERRESPONSEBODYRESULTOBJECT_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeSafDeOrderResponseBodyResultObjectRegions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,10 +17,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeSafDeOrderResponseBodyResultObject& obj) { 
       DARABONBA_PTR_TO_JSON(expirationDate, expirationDate_);
       DARABONBA_PTR_TO_JSON(openUserType, openUserType_);
+      DARABONBA_PTR_TO_JSON(regions, regions_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSafDeOrderResponseBodyResultObject& obj) { 
       DARABONBA_PTR_FROM_JSON(expirationDate, expirationDate_);
       DARABONBA_PTR_FROM_JSON(openUserType, openUserType_);
+      DARABONBA_PTR_FROM_JSON(regions, regions_);
     };
     DescribeSafDeOrderResponseBodyResultObject() = default ;
     DescribeSafDeOrderResponseBodyResultObject(const DescribeSafDeOrderResponseBodyResultObject &) = default ;
@@ -31,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expirationDate_ != nullptr
-        && this->openUserType_ != nullptr; };
+    virtual bool empty() const override { return this->expirationDate_ == nullptr
+        && return this->openUserType_ == nullptr && return this->regions_ == nullptr; };
     // expirationDate Field Functions 
     bool hasExpirationDate() const { return this->expirationDate_ != nullptr;};
     void deleteExpirationDate() { this->expirationDate_ = nullptr;};
@@ -47,6 +51,15 @@ namespace Models
     inline DescribeSafDeOrderResponseBodyResultObject& setOpenUserType(int32_t openUserType) { DARABONBA_PTR_SET_VALUE(openUserType_, openUserType) };
 
 
+    // regions Field Functions 
+    bool hasRegions() const { return this->regions_ != nullptr;};
+    void deleteRegions() { this->regions_ = nullptr;};
+    inline const vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions> & regions() const { DARABONBA_PTR_GET_CONST(regions_, vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions>) };
+    inline vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions> regions() { DARABONBA_PTR_GET(regions_, vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions>) };
+    inline DescribeSafDeOrderResponseBodyResultObject& setRegions(const vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions> & regions) { DARABONBA_PTR_SET_VALUE(regions_, regions) };
+    inline DescribeSafDeOrderResponseBodyResultObject& setRegions(vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions> && regions) { DARABONBA_PTR_SET_RVALUE(regions_, regions) };
+
+
   protected:
     // Expiration time
     std::shared_ptr<int64_t> expirationDate_ = nullptr;
@@ -56,6 +69,7 @@ namespace Models
     //      2. Old Customer (Subscription): Customers who have purchased the SAF product.
     //      3. Pay-As-You-Go: Customers who have purchased the SAF_BAG product or activated SAF_POS.
     std::shared_ptr<int32_t> openUserType_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions>> regions_ = nullptr;
   };
 
   } // namespace Models

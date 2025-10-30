@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->logicExpression_ != nullptr
-        && this->memo_ != nullptr && this->ruleActions_ != nullptr && this->ruleAuthType_ != nullptr && this->ruleExpressions_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr; };
+    virtual bool empty() const override { return this->logicExpression_ == nullptr
+        && return this->memo_ == nullptr && return this->ruleActions_ == nullptr && return this->ruleAuthType_ == nullptr && return this->ruleExpressions_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleStatus_ == nullptr; };
     // logicExpression Field Functions 
     bool hasLogicExpression() const { return this->logicExpression_ != nullptr;};
     void deleteLogicExpression() { this->logicExpression_ = nullptr;};

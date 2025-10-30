@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authType_ != nullptr
-        && this->consoleAudit_ != nullptr && this->eventCode_ != nullptr && this->eventName_ != nullptr && this->eventType_ != nullptr && this->externalRuleName_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->hasNewVersion_ != nullptr && this->id_ != nullptr && this->mainRuleId_ != nullptr
-        && this->priority_ != nullptr && this->ruleAuthType_ != nullptr && this->ruleId_ != nullptr && this->ruleMemo_ != nullptr && this->ruleName_ != nullptr
-        && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr && this->ruleVersionId_ != nullptr && this->templateId_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->authType_ == nullptr
+        && return this->consoleAudit_ == nullptr && return this->eventCode_ == nullptr && return this->eventName_ == nullptr && return this->eventType_ == nullptr && return this->externalRuleName_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->hasNewVersion_ == nullptr && return this->id_ == nullptr && return this->mainRuleId_ == nullptr
+        && return this->priority_ == nullptr && return this->ruleAuthType_ == nullptr && return this->ruleId_ == nullptr && return this->ruleMemo_ == nullptr && return this->ruleName_ == nullptr
+        && return this->ruleStatus_ == nullptr && return this->ruleType_ == nullptr && return this->ruleVersionId_ == nullptr && return this->templateId_ == nullptr && return this->version_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};

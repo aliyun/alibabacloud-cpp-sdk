@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizVersion_ != nullptr
-        && this->eventCode_ != nullptr && this->eventName_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->logicExpression_ != nullptr
-        && this->memo_ != nullptr && this->ruleActions_ != nullptr && this->ruleBody_ != nullptr && this->ruleExpressions_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr; };
+    virtual bool empty() const override { return this->bizVersion_ == nullptr
+        && return this->eventCode_ == nullptr && return this->eventName_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->logicExpression_ == nullptr
+        && return this->memo_ == nullptr && return this->ruleActions_ == nullptr && return this->ruleBody_ == nullptr && return this->ruleExpressions_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleStatus_ == nullptr && return this->ruleType_ == nullptr; };
     // bizVersion Field Functions 
     bool hasBizVersion() const { return this->bizVersion_ != nullptr;};
     void deleteBizVersion() { this->bizVersion_ = nullptr;};

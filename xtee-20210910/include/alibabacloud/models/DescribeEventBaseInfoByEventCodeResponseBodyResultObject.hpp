@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizVersion_ != nullptr
-        && this->eventCode_ != nullptr && this->eventName_ != nullptr && this->eventStauts_ != nullptr && this->inputFields_ != nullptr && this->memo_ != nullptr
-        && this->ruleDetails_ != nullptr && this->templateCode_ != nullptr && this->templateName_ != nullptr && this->templateType_ != nullptr; };
+    virtual bool empty() const override { return this->bizVersion_ == nullptr
+        && return this->eventCode_ == nullptr && return this->eventName_ == nullptr && return this->eventStauts_ == nullptr && return this->inputFields_ == nullptr && return this->memo_ == nullptr
+        && return this->ruleDetails_ == nullptr && return this->templateCode_ == nullptr && return this->templateName_ == nullptr && return this->templateType_ == nullptr; };
     // bizVersion Field Functions 
     bool hasBizVersion() const { return this->bizVersion_ != nullptr;};
     void deleteBizVersion() { this->bizVersion_ = nullptr;};

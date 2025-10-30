@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyUserId_ != nullptr
-        && this->applyUserName_ != nullptr && this->auditMsg_ != nullptr && this->auditRealUserId_ != nullptr && this->auditRealUserName_ != nullptr && this->auditRemark_ != nullptr
-        && this->auditStatus_ != nullptr && this->auditTime_ != nullptr && this->auditUserId_ != nullptr && this->auditUserName_ != nullptr && this->gmtCreate_ != nullptr
-        && this->id_ != nullptr && this->relationExt_ != nullptr && this->relationId_ != nullptr && this->relationName_ != nullptr && this->relationType_ != nullptr; };
+    virtual bool empty() const override { return this->applyUserId_ == nullptr
+        && return this->applyUserName_ == nullptr && return this->auditMsg_ == nullptr && return this->auditRealUserId_ == nullptr && return this->auditRealUserName_ == nullptr && return this->auditRemark_ == nullptr
+        && return this->auditStatus_ == nullptr && return this->auditTime_ == nullptr && return this->auditUserId_ == nullptr && return this->auditUserName_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->id_ == nullptr && return this->relationExt_ == nullptr && return this->relationId_ == nullptr && return this->relationName_ == nullptr && return this->relationType_ == nullptr; };
     // applyUserId Field Functions 
     bool hasApplyUserId() const { return this->applyUserId_ != nullptr;};
     void deleteApplyUserId() { this->applyUserId_ = nullptr;};

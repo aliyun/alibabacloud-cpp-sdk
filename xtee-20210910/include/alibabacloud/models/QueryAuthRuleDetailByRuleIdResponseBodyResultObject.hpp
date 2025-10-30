@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditId_ != nullptr
-        && this->authType_ != nullptr && this->authUsers_ != nullptr && this->consoleRuleId_ != nullptr && this->eventCode_ != nullptr && this->eventName_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->logicExpression_ != nullptr && this->memo_ != nullptr && this->priority_ != nullptr
-        && this->ruleActionMap_ != nullptr && this->ruleActions_ != nullptr && this->ruleAuthType_ != nullptr && this->ruleExpressions_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr && this->ruleVersionId_ != nullptr && this->templateType_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->auditId_ == nullptr
+        && return this->authType_ == nullptr && return this->authUsers_ == nullptr && return this->consoleRuleId_ == nullptr && return this->eventCode_ == nullptr && return this->eventName_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->logicExpression_ == nullptr && return this->memo_ == nullptr && return this->priority_ == nullptr
+        && return this->ruleActionMap_ == nullptr && return this->ruleActions_ == nullptr && return this->ruleAuthType_ == nullptr && return this->ruleExpressions_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleStatus_ == nullptr && return this->ruleType_ == nullptr && return this->ruleVersionId_ == nullptr && return this->templateType_ == nullptr
+        && return this->version_ == nullptr; };
     // auditId Field Functions 
     bool hasAuditId() const { return this->auditId_ != nullptr;};
     void deleteAuditId() { this->auditId_ = nullptr;};

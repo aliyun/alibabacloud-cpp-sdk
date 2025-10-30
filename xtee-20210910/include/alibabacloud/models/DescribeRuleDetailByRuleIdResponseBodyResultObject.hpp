@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authType_ != nullptr
-        && this->bizVersion_ != nullptr && this->consoleRuleId_ != nullptr && this->createType_ != nullptr && this->eventCode_ != nullptr && this->eventName_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->logicExpression_ != nullptr && this->mainEventCode_ != nullptr && this->memo_ != nullptr
-        && this->ruleActionMap_ != nullptr && this->ruleActions_ != nullptr && this->ruleAuthType_ != nullptr && this->ruleBody_ != nullptr && this->ruleExpressions_ != nullptr
-        && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->ruleStatus_ != nullptr && this->ruleType_ != nullptr && this->ruleVersionId_ != nullptr; };
+    virtual bool empty() const override { return this->authType_ == nullptr
+        && return this->bizVersion_ == nullptr && return this->consoleRuleId_ == nullptr && return this->createType_ == nullptr && return this->eventCode_ == nullptr && return this->eventName_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->logicExpression_ == nullptr && return this->mainEventCode_ == nullptr && return this->memo_ == nullptr
+        && return this->ruleActionMap_ == nullptr && return this->ruleActions_ == nullptr && return this->ruleAuthType_ == nullptr && return this->ruleBody_ == nullptr && return this->ruleExpressions_ == nullptr
+        && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->ruleStatus_ == nullptr && return this->ruleType_ == nullptr && return this->ruleVersionId_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};

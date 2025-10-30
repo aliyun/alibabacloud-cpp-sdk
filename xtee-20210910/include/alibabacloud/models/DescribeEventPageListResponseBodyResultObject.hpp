@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->children_ != nullptr
-        && this->eventCode_ != nullptr && this->eventName_ != nullptr && this->eventStatus_ != nullptr && this->eventType_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->ruleCount_ != nullptr && this->templateCode_ != nullptr && this->templateName_ != nullptr
-        && this->templateType_ != nullptr && this->userCount_ != nullptr; };
+    virtual bool empty() const override { return this->children_ == nullptr
+        && return this->eventCode_ == nullptr && return this->eventName_ == nullptr && return this->eventStatus_ == nullptr && return this->eventType_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->ruleCount_ == nullptr && return this->templateCode_ == nullptr && return this->templateName_ == nullptr
+        && return this->templateType_ == nullptr && return this->userCount_ == nullptr; };
     // children Field Functions 
     bool hasChildren() const { return this->children_ != nullptr;};
     void deleteChildren() { this->children_ = nullptr;};

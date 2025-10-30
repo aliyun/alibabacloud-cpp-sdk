@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeExpression_ != nullptr
-        && this->hitSample_ != nullptr && this->id_ != nullptr && this->notHitSample_ != nullptr && this->recommendRules_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->status_ != nullptr && this->velocities_ != nullptr; };
+    virtual bool empty() const override { return this->computeExpression_ == nullptr
+        && return this->hitSample_ == nullptr && return this->id_ == nullptr && return this->notHitSample_ == nullptr && return this->recommendRules_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->status_ == nullptr && return this->velocities_ == nullptr; };
     // computeExpression Field Functions 
     bool hasComputeExpression() const { return this->computeExpression_ != nullptr;};
     void deleteComputeExpression() { this->computeExpression_ = nullptr;};

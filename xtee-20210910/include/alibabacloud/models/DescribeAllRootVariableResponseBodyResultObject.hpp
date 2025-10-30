@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->description_ != nullptr && this->displayType_ != nullptr && this->favoriteFlag_ != nullptr && this->fieldRank_ != nullptr && this->fieldType_ != nullptr
-        && this->id_ != nullptr && this->inputFieldType_ != nullptr && this->inputs_ != nullptr && this->name_ != nullptr && this->outputThreshold_ != nullptr
-        && this->sourceType_ != nullptr && this->title_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->description_ == nullptr && return this->displayType_ == nullptr && return this->favoriteFlag_ == nullptr && return this->fieldRank_ == nullptr && return this->fieldType_ == nullptr
+        && return this->id_ == nullptr && return this->inputFieldType_ == nullptr && return this->inputs_ == nullptr && return this->name_ == nullptr && return this->outputThreshold_ == nullptr
+        && return this->sourceType_ == nullptr && return this->title_ == nullptr && return this->type_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

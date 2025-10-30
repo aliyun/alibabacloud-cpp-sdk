@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowModify_ != nullptr
-        && this->defineId_ != nullptr && this->defineTitle_ != nullptr && this->description_ != nullptr && this->eventCode_ != nullptr && this->id_ != nullptr
-        && this->params_ != nullptr && this->relationRules_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->allowModify_ == nullptr
+        && return this->defineId_ == nullptr && return this->defineTitle_ == nullptr && return this->description_ == nullptr && return this->eventCode_ == nullptr && return this->id_ == nullptr
+        && return this->params_ == nullptr && return this->relationRules_ == nullptr && return this->title_ == nullptr; };
     // allowModify Field Functions 
     bool hasAllowModify() const { return this->allowModify_ != nullptr;};
     void deleteAllowModify() { this->allowModify_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->highRiskIPCity_ != nullptr
-        && this->highRiskIPProvince_ != nullptr && this->highRiskMobileCity_ != nullptr && this->highRiskMobileProvince_ != nullptr; };
+    virtual bool empty() const override { return this->highRiskIPCity_ == nullptr
+        && return this->highRiskIPProvince_ == nullptr && return this->highRiskMobileCity_ == nullptr && return this->highRiskMobileProvince_ == nullptr; };
     // highRiskIPCity Field Functions 
     bool hasHighRiskIPCity() const { return this->highRiskIPCity_ != nullptr;};
     void deleteHighRiskIPCity() { this->highRiskIPCity_ = nullptr;};

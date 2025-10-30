@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expectVelocities_ != nullptr
-        && this->gmtCreate_ != nullptr && this->normalCount_ != nullptr && this->normalSize_ != nullptr && this->riskCount_ != nullptr && this->riskSize_ != nullptr
-        && this->sampleName_ != nullptr && this->sampleScene_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr && this->taskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->expectVelocities_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->normalCount_ == nullptr && return this->normalSize_ == nullptr && return this->riskCount_ == nullptr && return this->riskSize_ == nullptr
+        && return this->sampleName_ == nullptr && return this->sampleScene_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskStatus_ == nullptr; };
     // expectVelocities Field Functions 
     bool hasExpectVelocities() const { return this->expectVelocities_ != nullptr;};
     void deleteExpectVelocities() { this->expectVelocities_ = nullptr;};

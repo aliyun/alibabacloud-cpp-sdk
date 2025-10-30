@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowBind_ != nullptr
-        && this->chargingMode_ != nullptr && this->chargingModeDesc_ != nullptr && this->creator_ != nullptr && this->dataDisplay_ != nullptr && this->dataThreshold_ != nullptr
-        && this->deductionFactor_ != nullptr && this->description_ != nullptr && this->frontAllowBind_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->inputRequired_ != nullptr && this->inputs_ != nullptr && this->inputsDesc_ != nullptr && this->invokeKey_ != nullptr
-        && this->invokeRt_ != nullptr && this->invokeSuccessRate_ != nullptr && this->invokeTimes_ != nullptr && this->lastModifiedOperator_ != nullptr && this->name_ != nullptr
-        && this->outputs_ != nullptr && this->outputsDesc_ != nullptr && this->scene_ != nullptr && this->sceneDesc_ != nullptr && this->showOrder_ != nullptr
-        && this->source_ != nullptr && this->sourceDesc_ != nullptr && this->status_ != nullptr && this->supportRegions_ != nullptr && this->title_ != nullptr
-        && this->type_ != nullptr && this->typeDesc_ != nullptr && this->xLabel_ != nullptr && this->yLabel_ != nullptr; };
+    virtual bool empty() const override { return this->allowBind_ == nullptr
+        && return this->chargingMode_ == nullptr && return this->chargingModeDesc_ == nullptr && return this->creator_ == nullptr && return this->dataDisplay_ == nullptr && return this->dataThreshold_ == nullptr
+        && return this->deductionFactor_ == nullptr && return this->description_ == nullptr && return this->frontAllowBind_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->inputRequired_ == nullptr && return this->inputs_ == nullptr && return this->inputsDesc_ == nullptr && return this->invokeKey_ == nullptr
+        && return this->invokeRt_ == nullptr && return this->invokeSuccessRate_ == nullptr && return this->invokeTimes_ == nullptr && return this->lastModifiedOperator_ == nullptr && return this->name_ == nullptr
+        && return this->outputs_ == nullptr && return this->outputsDesc_ == nullptr && return this->scene_ == nullptr && return this->sceneDesc_ == nullptr && return this->showOrder_ == nullptr
+        && return this->source_ == nullptr && return this->sourceDesc_ == nullptr && return this->status_ == nullptr && return this->supportRegions_ == nullptr && return this->title_ == nullptr
+        && return this->type_ == nullptr && return this->typeDesc_ == nullptr && return this->xLabel_ == nullptr && return this->yLabel_ == nullptr; };
     // allowBind Field Functions 
     bool hasAllowBind() const { return this->allowBind_ != nullptr;};
     void deleteAllowBind() { this->allowBind_ = nullptr;};

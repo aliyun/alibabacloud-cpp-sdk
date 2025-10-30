@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consoleRuleId_ != nullptr
-        && this->createType_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->memo_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->ruleVersionId_ != nullptr && this->status_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->consoleRuleId_ == nullptr
+        && return this->createType_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->memo_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->ruleVersionId_ == nullptr && return this->status_ == nullptr && return this->version_ == nullptr; };
     // consoleRuleId Field Functions 
     bool hasConsoleRuleId() const { return this->consoleRuleId_ != nullptr;};
     void deleteConsoleRuleId() { this->consoleRuleId_ = nullptr;};

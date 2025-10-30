@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->dataDisplay_ != nullptr && this->defineId_ != nullptr && this->description_ != nullptr && this->displayType_ != nullptr && this->expressionTitle_ != nullptr
-        && this->favoriteFlag_ != nullptr && this->fieldDetail_ != nullptr && this->fieldRank_ != nullptr && this->fieldSource_ != nullptr && this->fieldType_ != nullptr
-        && this->id_ != nullptr && this->inputFieldType_ != nullptr && this->inputRequired_ != nullptr && this->inputs_ != nullptr && this->name_ != nullptr
-        && this->outlier_ != nullptr && this->outputThreshold_ != nullptr && this->parentName_ != nullptr && this->sourceType_ != nullptr && this->title_ != nullptr
-        && this->type_ != nullptr && this->variableVelocity_ != nullptr && this->xLabel_ != nullptr && this->yLabel_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->dataDisplay_ == nullptr && return this->defineId_ == nullptr && return this->description_ == nullptr && return this->displayType_ == nullptr && return this->expressionTitle_ == nullptr
+        && return this->favoriteFlag_ == nullptr && return this->fieldDetail_ == nullptr && return this->fieldRank_ == nullptr && return this->fieldSource_ == nullptr && return this->fieldType_ == nullptr
+        && return this->id_ == nullptr && return this->inputFieldType_ == nullptr && return this->inputRequired_ == nullptr && return this->inputs_ == nullptr && return this->name_ == nullptr
+        && return this->outlier_ == nullptr && return this->outputThreshold_ == nullptr && return this->parentName_ == nullptr && return this->sourceType_ == nullptr && return this->title_ == nullptr
+        && return this->type_ == nullptr && return this->variableVelocity_ == nullptr && return this->xLabel_ == nullptr && return this->yLabel_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
