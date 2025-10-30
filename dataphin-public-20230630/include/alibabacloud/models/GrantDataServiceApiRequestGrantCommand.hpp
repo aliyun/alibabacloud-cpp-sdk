@@ -18,6 +18,8 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GrantDataServiceApiRequestGrantCommand& obj) { 
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(ApplyDev, applyDev_);
+      DARABONBA_PTR_TO_JSON(ApplyProd, applyProd_);
       DARABONBA_PTR_TO_JSON(DevFieldList, devFieldList_);
       DARABONBA_PTR_TO_JSON(ExpireDate, expireDate_);
       DARABONBA_PTR_TO_JSON(ProdFieldList, prodFieldList_);
@@ -26,6 +28,8 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GrantDataServiceApiRequestGrantCommand& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(ApplyDev, applyDev_);
+      DARABONBA_PTR_FROM_JSON(ApplyProd, applyProd_);
       DARABONBA_PTR_FROM_JSON(DevFieldList, devFieldList_);
       DARABONBA_PTR_FROM_JSON(ExpireDate, expireDate_);
       DARABONBA_PTR_FROM_JSON(ProdFieldList, prodFieldList_);
@@ -42,8 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->appId_ != nullptr && this->devFieldList_ != nullptr && this->expireDate_ != nullptr && this->prodFieldList_ != nullptr && this->reason_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->appId_ == nullptr && return this->applyDev_ == nullptr && return this->applyProd_ == nullptr && return this->devFieldList_ == nullptr && return this->expireDate_ == nullptr
+        && return this->prodFieldList_ == nullptr && return this->reason_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
@@ -56,6 +61,20 @@ namespace Models
     void deleteAppId() { this->appId_ = nullptr;};
     inline int32_t appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, 0) };
     inline GrantDataServiceApiRequestGrantCommand& setAppId(int32_t appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // applyDev Field Functions 
+    bool hasApplyDev() const { return this->applyDev_ != nullptr;};
+    void deleteApplyDev() { this->applyDev_ = nullptr;};
+    inline bool applyDev() const { DARABONBA_PTR_GET_DEFAULT(applyDev_, false) };
+    inline GrantDataServiceApiRequestGrantCommand& setApplyDev(bool applyDev) { DARABONBA_PTR_SET_VALUE(applyDev_, applyDev) };
+
+
+    // applyProd Field Functions 
+    bool hasApplyProd() const { return this->applyProd_ != nullptr;};
+    void deleteApplyProd() { this->applyProd_ = nullptr;};
+    inline bool applyProd() const { DARABONBA_PTR_GET_DEFAULT(applyProd_, false) };
+    inline GrantDataServiceApiRequestGrantCommand& setApplyProd(bool applyProd) { DARABONBA_PTR_SET_VALUE(applyProd_, applyProd) };
 
 
     // devFieldList Field Functions 
@@ -97,6 +116,8 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> appId_ = nullptr;
+    std::shared_ptr<bool> applyDev_ = nullptr;
+    std::shared_ptr<bool> applyProd_ = nullptr;
     std::shared_ptr<vector<Models::GrantDataServiceApiRequestGrantCommandDevFieldList>> devFieldList_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> expireDate_ = nullptr;

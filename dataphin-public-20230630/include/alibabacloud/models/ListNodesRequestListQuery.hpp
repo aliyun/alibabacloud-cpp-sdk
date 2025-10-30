@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dryRun_ != nullptr
-        && this->nodeBizType_ != nullptr && this->nodeSubBizTypeList_ != nullptr && this->ownerList_ != nullptr && this->page_ != nullptr && this->pageSize_ != nullptr
-        && this->priorityList_ != nullptr && this->projectId_ != nullptr && this->schedulePaused_ != nullptr && this->schedulePeriodList_ != nullptr && this->scheduleType_ != nullptr
-        && this->searchText_ != nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && return this->nodeBizType_ == nullptr && return this->nodeSubBizTypeList_ == nullptr && return this->ownerList_ == nullptr && return this->page_ == nullptr && return this->pageSize_ == nullptr
+        && return this->priorityList_ == nullptr && return this->projectId_ == nullptr && return this->schedulePaused_ == nullptr && return this->schedulePeriodList_ == nullptr && return this->scheduleType_ == nullptr
+        && return this->searchText_ == nullptr; };
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rowPermissionId_ != nullptr; };
+    virtual bool empty() const override { return this->rowPermissionId_ == nullptr; };
     // rowPermissionId Field Functions 
     bool hasRowPermissionId() const { return this->rowPermissionId_ != nullptr;};
     void deleteRowPermissionId() { this->rowPermissionId_ = nullptr;};

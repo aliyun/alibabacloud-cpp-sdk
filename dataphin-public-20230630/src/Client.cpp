@@ -152,6 +152,60 @@ AddProjectMemberResponse Client::addProjectMember(const AddProjectMemberRequest 
 }
 
 /**
+ * @summary 新增注册血缘。
+ *
+ * @param tmpReq AddRegisterLineageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddRegisterLineageResponse
+ */
+AddRegisterLineageResponse Client::addRegisterLineageWithOptions(const AddRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddRegisterLineageShrinkRequest request = AddRegisterLineageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddRegisterLineageCommand()) {
+    request.setAddRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addRegisterLineageCommand(), "AddRegisterLineageCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasAddRegisterLineageCommandShrink()) {
+    body["AddRegisterLineageCommand"] = request.addRegisterLineageCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddRegisterLineage"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddRegisterLineageResponse>();
+}
+
+/**
+ * @summary 新增注册血缘。
+ *
+ * @param request AddRegisterLineageRequest
+ * @return AddRegisterLineageResponse
+ */
+AddRegisterLineageResponse Client::addRegisterLineage(const AddRegisterLineageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addRegisterLineageWithOptions(request, runtime);
+}
+
+/**
  * @summary 新增租户成员
  *
  * @param tmpReq AddTenantMembersRequest
@@ -1274,6 +1328,130 @@ CreateNodeSupplementResponse Client::createNodeSupplement(const CreateNodeSupple
 }
 
 /**
+ * @summary 创建集成管道任务。
+ *
+ * @param tmpReq CreatePipelineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipelineWithOptions(const CreatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePipelineShrinkRequest request = CreatePipelineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.createCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePipeline"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePipelineResponse>();
+}
+
+/**
+ * @summary 创建集成管道任务。
+ *
+ * @param request CreatePipelineRequest
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipeline(const CreatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPipelineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 异步创建集成管道任务。
+ *
+ * @param tmpReq CreatePipelineByAsyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePipelineByAsyncResponse
+ */
+CreatePipelineByAsyncResponse Client::createPipelineByAsyncWithOptions(const CreatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePipelineByAsyncShrinkRequest request = CreatePipelineByAsyncShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasCreateCommand()) {
+    request.setCreateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.createCommand(), "CreateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasCreateCommandShrink()) {
+    body["CreateCommand"] = request.createCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePipelineByAsync"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePipelineByAsyncResponse>();
+}
+
+/**
+ * @summary 异步创建集成管道任务。
+ *
+ * @param request CreatePipelineByAsyncRequest
+ * @return CreatePipelineByAsyncResponse
+ */
+CreatePipelineByAsyncResponse Client::createPipelineByAsync(const CreatePipelineByAsyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPipelineByAsyncWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建数据集成任务。
  *
  * @param tmpReq CreatePipelineNodeRequest
@@ -1999,6 +2177,60 @@ DeleteDirectoryResponse Client::deleteDirectoryWithOptions(const DeleteDirectory
 DeleteDirectoryResponse Client::deleteDirectory(const DeleteDirectoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDirectoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除注册血缘。
+ *
+ * @param tmpReq DeleteRegisterLineageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRegisterLineageResponse
+ */
+DeleteRegisterLineageResponse Client::deleteRegisterLineageWithOptions(const DeleteRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteRegisterLineageShrinkRequest request = DeleteRegisterLineageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDeleteRegisterLineageCommand()) {
+    request.setDeleteRegisterLineageCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.deleteRegisterLineageCommand(), "DeleteRegisterLineageCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDeleteRegisterLineageCommandShrink()) {
+    body["DeleteRegisterLineageCommand"] = request.deleteRegisterLineageCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteRegisterLineage"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRegisterLineageResponse>();
+}
+
+/**
+ * @summary 删除注册血缘。
+ *
+ * @param request DeleteRegisterLineageRequest
+ * @return DeleteRegisterLineageResponse
+ */
+DeleteRegisterLineageResponse Client::deleteRegisterLineage(const DeleteRegisterLineageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteRegisterLineageWithOptions(request, runtime);
 }
 
 /**
@@ -4653,6 +4885,126 @@ GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLogWithOptio
 GetPhysicalNodeOperationLogResponse Client::getPhysicalNodeOperationLog(const GetPhysicalNodeOperationLogRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getPhysicalNodeOperationLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询异步操作管道任务的执行结果。
+ *
+ * @param tmpReq GetPipelineAsyncResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPipelineAsyncResultResponse
+ */
+GetPipelineAsyncResultResponse Client::getPipelineAsyncResultWithOptions(const GetPipelineAsyncResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetPipelineAsyncResultShrinkRequest request = GetPipelineAsyncResultShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAsyncId()) {
+    query["AsyncId"] = request.asyncId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetPipelineAsyncResult"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPipelineAsyncResultResponse>();
+}
+
+/**
+ * @summary 查询异步操作管道任务的执行结果。
+ *
+ * @param request GetPipelineAsyncResultRequest
+ * @return GetPipelineAsyncResultResponse
+ */
+GetPipelineAsyncResultResponse Client::getPipelineAsyncResult(const GetPipelineAsyncResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPipelineAsyncResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据管道任务id查询管道任务。
+ *
+ * @param tmpReq GetPipelineByIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPipelineByIdResponse
+ */
+GetPipelineByIdResponse Client::getPipelineByIdWithOptions(const GetPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetPipelineByIdShrinkRequest request = GetPipelineByIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasQueryId()) {
+    request.setQueryIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryId(), "QueryId", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasQueryIdShrink()) {
+    body["QueryId"] = request.queryIdShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetPipelineById"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPipelineByIdResponse>();
+}
+
+/**
+ * @summary 根据管道任务id查询管道任务。
+ *
+ * @param request GetPipelineByIdRequest
+ * @return GetPipelineByIdResponse
+ */
+GetPipelineByIdResponse Client::getPipelineById(const GetPipelineByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPipelineByIdWithOptions(request, runtime);
 }
 
 /**
@@ -7636,6 +7988,130 @@ OfflineBizEntityResponse Client::offlineBizEntity(const OfflineBizEntityRequest 
 }
 
 /**
+ * @summary 下线集成管道任务。
+ *
+ * @param tmpReq OfflinePipelineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflinePipelineResponse
+ */
+OfflinePipelineResponse Client::offlinePipelineWithOptions(const OfflinePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  OfflinePipelineShrinkRequest request = OfflinePipelineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasOfflineCommand()) {
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand(), "OfflineCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasOfflineCommandShrink()) {
+    body["OfflineCommand"] = request.offlineCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OfflinePipeline"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflinePipelineResponse>();
+}
+
+/**
+ * @summary 下线集成管道任务。
+ *
+ * @param request OfflinePipelineRequest
+ * @return OfflinePipelineResponse
+ */
+OfflinePipelineResponse Client::offlinePipeline(const OfflinePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return offlinePipelineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 异步下线集成管道任务。
+ *
+ * @param tmpReq OfflinePipelineByAsyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OfflinePipelineByAsyncResponse
+ */
+OfflinePipelineByAsyncResponse Client::offlinePipelineByAsyncWithOptions(const OfflinePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  OfflinePipelineByAsyncShrinkRequest request = OfflinePipelineByAsyncShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasOfflineCommand()) {
+    request.setOfflineCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.offlineCommand(), "OfflineCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasOfflineCommandShrink()) {
+    body["OfflineCommand"] = request.offlineCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OfflinePipelineByAsync"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OfflinePipelineByAsyncResponse>();
+}
+
+/**
+ * @summary 异步下线集成管道任务。
+ *
+ * @param request OfflinePipelineByAsyncRequest
+ * @return OfflinePipelineByAsyncResponse
+ */
+OfflinePipelineByAsyncResponse Client::offlinePipelineByAsync(const OfflinePipelineByAsyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return offlinePipelineByAsyncWithOptions(request, runtime);
+}
+
+/**
  * @summary 上线业务实体。
  *
  * @param tmpReq OnlineBizEntityRequest
@@ -9165,6 +9641,130 @@ UpdateFileNameResponse Client::updateFileNameWithOptions(const UpdateFileNameReq
 UpdateFileNameResponse Client::updateFileName(const UpdateFileNameRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateFileNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新集成管道任务。
+ *
+ * @param tmpReq UpdatePipelineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePipelineResponse
+ */
+UpdatePipelineResponse Client::updatePipelineWithOptions(const UpdatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePipelineShrinkRequest request = UpdatePipelineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.updateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePipeline"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePipelineResponse>();
+}
+
+/**
+ * @summary 更新集成管道任务。
+ *
+ * @param request UpdatePipelineRequest
+ * @return UpdatePipelineResponse
+ */
+UpdatePipelineResponse Client::updatePipeline(const UpdatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePipelineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 异步更新集成管道任务。
+ *
+ * @param tmpReq UpdatePipelineByAsyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePipelineByAsyncResponse
+ */
+UpdatePipelineByAsyncResponse Client::updatePipelineByAsyncWithOptions(const UpdatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePipelineByAsyncShrinkRequest request = UpdatePipelineByAsyncShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.context(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasUpdateCommand()) {
+    request.setUpdateCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.updateCommand(), "UpdateCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.contextShrink();
+  }
+
+  if (!!request.hasUpdateCommandShrink()) {
+    body["UpdateCommand"] = request.updateCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePipelineByAsync"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePipelineByAsyncResponse>();
+}
+
+/**
+ * @summary 异步更新集成管道任务。
+ *
+ * @param request UpdatePipelineByAsyncRequest
+ * @return UpdatePipelineByAsyncResponse
+ */
+UpdatePipelineByAsyncResponse Client::updatePipelineByAsync(const UpdatePipelineByAsyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePipelineByAsyncWithOptions(request, runtime);
 }
 
 /**

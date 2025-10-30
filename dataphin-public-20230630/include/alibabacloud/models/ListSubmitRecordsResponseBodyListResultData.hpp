@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeType_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModify_ != nullptr && this->id_ != nullptr && this->nodeId_ != nullptr && this->objectId_ != nullptr
-        && this->objectName_ != nullptr && this->objectType_ != nullptr && this->objectVersion_ != nullptr && this->projectId_ != nullptr && this->submitComment_ != nullptr
-        && this->submitter_ != nullptr && this->submitterName_ != nullptr; };
+    virtual bool empty() const override { return this->changeType_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModify_ == nullptr && return this->id_ == nullptr && return this->nodeId_ == nullptr && return this->objectId_ == nullptr
+        && return this->objectName_ == nullptr && return this->objectType_ == nullptr && return this->objectVersion_ == nullptr && return this->projectId_ == nullptr && return this->submitComment_ == nullptr
+        && return this->submitter_ == nullptr && return this->submitterName_ == nullptr; };
     // changeType Field Functions 
     bool hasChangeType() const { return this->changeType_ != nullptr;};
     void deleteChangeType() { this->changeType_ = nullptr;};

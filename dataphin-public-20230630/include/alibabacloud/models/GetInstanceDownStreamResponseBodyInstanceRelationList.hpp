@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->downStreamDepth_ != nullptr
-        && this->extendInfo_ != nullptr && this->fieldInstanceList_ != nullptr && this->instanceInfo_ != nullptr && this->runStatus_ != nullptr && this->selectStatus_ != nullptr
-        && this->selectStatusCause_ != nullptr; };
+    virtual bool empty() const override { return this->downStreamDepth_ == nullptr
+        && return this->extendInfo_ == nullptr && return this->fieldInstanceList_ == nullptr && return this->instanceInfo_ == nullptr && return this->runStatus_ == nullptr && return this->selectStatus_ == nullptr
+        && return this->selectStatusCause_ == nullptr; };
     // downStreamDepth Field Functions 
     bool hasDownStreamDepth() const { return this->downStreamDepth_ != nullptr;};
     void deleteDownStreamDepth() { this->downStreamDepth_ = nullptr;};

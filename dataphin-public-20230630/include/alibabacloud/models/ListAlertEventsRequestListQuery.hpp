@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertEndTime_ != nullptr
-        && this->alertObjectTypeList_ != nullptr && this->alertReasonList_ != nullptr && this->alertStartTime_ != nullptr && this->bizNameList_ != nullptr && this->keyword_ != nullptr
-        && this->monitoredItemIdList_ != nullptr && this->page_ != nullptr && this->pageSize_ != nullptr && this->projectNameList_ != nullptr && this->sourceSystem_ != nullptr
-        && this->statusList_ != nullptr && this->userIdList_ != nullptr; };
+    virtual bool empty() const override { return this->alertEndTime_ == nullptr
+        && return this->alertObjectTypeList_ == nullptr && return this->alertReasonList_ == nullptr && return this->alertStartTime_ == nullptr && return this->bizNameList_ == nullptr && return this->keyword_ == nullptr
+        && return this->monitoredItemIdList_ == nullptr && return this->page_ == nullptr && return this->pageSize_ == nullptr && return this->projectNameList_ == nullptr && return this->sourceSystem_ == nullptr
+        && return this->statusList_ == nullptr && return this->userIdList_ == nullptr; };
     // alertEndTime Field Functions 
     bool hasAlertEndTime() const { return this->alertEndTime_ != nullptr;};
     void deleteAlertEndTime() { this->alertEndTime_ = nullptr;};

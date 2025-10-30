@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abbreviation_ != nullptr
-        && this->bizUnitId_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->lastModifier_ != nullptr && this->lastModifierName_ != nullptr && this->name_ != nullptr && this->ownerName_ != nullptr
-        && this->ownerUserId_ != nullptr && this->parentId_ != nullptr; };
+    virtual bool empty() const override { return this->abbreviation_ == nullptr
+        && return this->bizUnitId_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->lastModifier_ == nullptr && return this->lastModifierName_ == nullptr && return this->name_ == nullptr && return this->ownerName_ == nullptr
+        && return this->ownerUserId_ == nullptr && return this->parentId_ == nullptr; };
     // abbreviation Field Functions 
     bool hasAbbreviation() const { return this->abbreviation_ != nullptr;};
     void deleteAbbreviation() { this->abbreviation_ = nullptr;};

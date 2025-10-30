@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSourceCatalog_ != nullptr
-        && this->dataSourceId_ != nullptr && this->dataSourceSchema_ != nullptr && this->description_ != nullptr && this->directory_ != nullptr && this->engine_ != nullptr
-        && this->name_ != nullptr && this->projectId_ != nullptr && this->pythonModuleList_ != nullptr && this->scheduleType_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->dataSourceCatalog_ == nullptr
+        && return this->dataSourceId_ == nullptr && return this->dataSourceSchema_ == nullptr && return this->description_ == nullptr && return this->directory_ == nullptr && return this->engine_ == nullptr
+        && return this->name_ == nullptr && return this->projectId_ == nullptr && return this->pythonModuleList_ == nullptr && return this->scheduleType_ == nullptr && return this->taskType_ == nullptr; };
     // dataSourceCatalog Field Functions 
     bool hasDataSourceCatalog() const { return this->dataSourceCatalog_ != nullptr;};
     void deleteDataSourceCatalog() { this->dataSourceCatalog_ = nullptr;};

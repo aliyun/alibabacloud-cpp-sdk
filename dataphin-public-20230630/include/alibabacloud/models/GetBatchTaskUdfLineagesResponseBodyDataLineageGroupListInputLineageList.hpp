@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizUnitId_ != nullptr
-        && this->bizUnitName_ != nullptr && this->columnList_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->env_ != nullptr
-        && this->fullTable_ != nullptr && this->guid_ != nullptr && this->name_ != nullptr && this->ownerName_ != nullptr && this->ownerUserId_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->subType_ != nullptr; };
+    virtual bool empty() const override { return this->bizUnitId_ == nullptr
+        && return this->bizUnitName_ == nullptr && return this->columnList_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->env_ == nullptr
+        && return this->fullTable_ == nullptr && return this->guid_ == nullptr && return this->name_ == nullptr && return this->ownerName_ == nullptr && return this->ownerUserId_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->subType_ == nullptr; };
     // bizUnitId Field Functions 
     bool hasBizUnitId() const { return this->bizUnitId_ != nullptr;};
     void deleteBizUnitId() { this->bizUnitId_ = nullptr;};

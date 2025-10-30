@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalId_ != nullptr
-        && this->approvalStatus_ != nullptr && this->bizEventEntityIdList_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->hasDependent_ != nullptr && this->id_ != nullptr && this->lastModifier_ != nullptr && this->lastModifierName_ != nullptr
-        && this->name_ != nullptr && this->onlineStatus_ != nullptr && this->ownerName_ != nullptr && this->ownerUserId_ != nullptr && this->preBizProcessIdList_ != nullptr
-        && this->refBizEntityIdList_ != nullptr && this->refFactTableCount_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->approvalId_ == nullptr
+        && return this->approvalStatus_ == nullptr && return this->bizEventEntityIdList_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->hasDependent_ == nullptr && return this->id_ == nullptr && return this->lastModifier_ == nullptr && return this->lastModifierName_ == nullptr
+        && return this->name_ == nullptr && return this->onlineStatus_ == nullptr && return this->ownerName_ == nullptr && return this->ownerUserId_ == nullptr && return this->preBizProcessIdList_ == nullptr
+        && return this->refBizEntityIdList_ == nullptr && return this->refFactTableCount_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
     // approvalId Field Functions 
     bool hasApprovalId() const { return this->approvalId_ != nullptr;};
     void deleteApprovalId() { this->approvalId_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configItemList_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->creatorName_ != nullptr && this->description_ != nullptr && this->env_ != nullptr
-        && this->id_ != nullptr && this->modifyTime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->ownerName_ != nullptr
-        && this->scope_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->configItemList_ == nullptr
+        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->creatorName_ == nullptr && return this->description_ == nullptr && return this->env_ == nullptr
+        && return this->id_ == nullptr && return this->modifyTime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->ownerName_ == nullptr
+        && return this->scope_ == nullptr && return this->type_ == nullptr; };
     // configItemList Field Functions 
     bool hasConfigItemList() const { return this->configItemList_ != nullptr;};
     void deleteConfigItemList() { this->configItemList_ = nullptr;};

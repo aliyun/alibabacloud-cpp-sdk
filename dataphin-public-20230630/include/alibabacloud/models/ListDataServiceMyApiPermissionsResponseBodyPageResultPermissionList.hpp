@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->apiName_ != nullptr && this->createUserName_ != nullptr && this->creator_ != nullptr && this->owner_ != nullptr && this->ownerUserName_ != nullptr
-        && this->privilegeBelongTo_ != nullptr && this->privilegeFrom_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->role_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->apiName_ == nullptr && return this->createUserName_ == nullptr && return this->creator_ == nullptr && return this->owner_ == nullptr && return this->ownerUserName_ == nullptr
+        && return this->privilegeBelongTo_ == nullptr && return this->privilegeFrom_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->role_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

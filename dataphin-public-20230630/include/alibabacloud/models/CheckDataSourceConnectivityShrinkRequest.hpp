@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkCommandShrink_ != nullptr
-        && this->opTenantId_ != nullptr; };
+    virtual bool empty() const override { return this->checkCommandShrink_ == nullptr
+        && return this->opTenantId_ == nullptr; };
     // checkCommandShrink Field Functions 
     bool hasCheckCommandShrink() const { return this->checkCommandShrink_ != nullptr;};
     void deleteCheckCommandShrink() { this->checkCommandShrink_ = nullptr;};

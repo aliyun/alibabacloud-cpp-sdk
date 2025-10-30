@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inputBizUnitId_ != nullptr
-        && this->inputColumnId_ != nullptr && this->inputColumnName_ != nullptr && this->inputDataSourceId_ != nullptr && this->inputDataSourceType_ != nullptr && this->inputDbType_ != nullptr
-        && this->inputEnv_ != nullptr && this->inputProjectId_ != nullptr && this->inputTableDeleted_ != nullptr && this->inputTableId_ != nullptr && this->inputTableName_ != nullptr
-        && this->inputTableType_ != nullptr && this->outputBizUnitId_ != nullptr && this->outputColumnId_ != nullptr && this->outputColumnName_ != nullptr && this->outputDataSourceId_ != nullptr
-        && this->outputDataSourceType_ != nullptr && this->outputDbType_ != nullptr && this->outputEnv_ != nullptr && this->outputProjectId_ != nullptr && this->outputTableDeleted_ != nullptr
-        && this->outputTableId_ != nullptr && this->outputTableName_ != nullptr && this->outputTableType_ != nullptr && this->taskEnv_ != nullptr && this->taskId_ != nullptr
-        && this->tenantId_ != nullptr; };
+    virtual bool empty() const override { return this->inputBizUnitId_ == nullptr
+        && return this->inputColumnId_ == nullptr && return this->inputColumnName_ == nullptr && return this->inputDataSourceId_ == nullptr && return this->inputDataSourceType_ == nullptr && return this->inputDbType_ == nullptr
+        && return this->inputEnv_ == nullptr && return this->inputProjectId_ == nullptr && return this->inputTableDeleted_ == nullptr && return this->inputTableId_ == nullptr && return this->inputTableName_ == nullptr
+        && return this->inputTableType_ == nullptr && return this->outputBizUnitId_ == nullptr && return this->outputColumnId_ == nullptr && return this->outputColumnName_ == nullptr && return this->outputDataSourceId_ == nullptr
+        && return this->outputDataSourceType_ == nullptr && return this->outputDbType_ == nullptr && return this->outputEnv_ == nullptr && return this->outputProjectId_ == nullptr && return this->outputTableDeleted_ == nullptr
+        && return this->outputTableId_ == nullptr && return this->outputTableName_ == nullptr && return this->outputTableType_ == nullptr && return this->taskEnv_ == nullptr && return this->taskId_ == nullptr
+        && return this->tenantId_ == nullptr; };
     // inputBizUnitId Field Functions 
     bool hasInputBizUnitId() const { return this->inputBizUnitId_ != nullptr;};
     void deleteInputBizUnitId() { this->inputBizUnitId_ = nullptr;};

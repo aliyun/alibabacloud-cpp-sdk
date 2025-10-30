@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryType_ != nullptr
-        && this->creator_ != nullptr && this->creatorName_ != nullptr && this->dataCellId_ != nullptr && this->dirName_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->lastModifier_ != nullptr && this->lastModifierName_ != nullptr && this->name_ != nullptr
-        && this->projectId_ != nullptr && this->stringId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->categoryType_ == nullptr
+        && return this->creator_ == nullptr && return this->creatorName_ == nullptr && return this->dataCellId_ == nullptr && return this->dirName_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->lastModifier_ == nullptr && return this->lastModifierName_ == nullptr && return this->name_ == nullptr
+        && return this->projectId_ == nullptr && return this->stringId_ == nullptr && return this->type_ == nullptr; };
     // categoryType Field Functions 
     bool hasCategoryType() const { return this->categoryType_ != nullptr;};
     void deleteCategoryType() { this->categoryType_ = nullptr;};

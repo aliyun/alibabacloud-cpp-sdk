@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizUnitDisplayName_ != nullptr
-        && this->bizUnitId_ != nullptr && this->computeSourceId_ != nullptr && this->computeSourceName_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr
-        && this->env_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->mode_ != nullptr
-        && this->name_ != nullptr && this->nameSpaceTag_ != nullptr && this->owner_ != nullptr && this->ownerName_ != nullptr && this->streamComputeSourceId_ != nullptr
-        && this->streamComputeSourceName_ != nullptr && this->type_ != nullptr && this->whiteLists_ != nullptr; };
+    virtual bool empty() const override { return this->bizUnitDisplayName_ == nullptr
+        && return this->bizUnitId_ == nullptr && return this->computeSourceId_ == nullptr && return this->computeSourceName_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr
+        && return this->env_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->mode_ == nullptr
+        && return this->name_ == nullptr && return this->nameSpaceTag_ == nullptr && return this->owner_ == nullptr && return this->ownerName_ == nullptr && return this->streamComputeSourceId_ == nullptr
+        && return this->streamComputeSourceName_ == nullptr && return this->type_ == nullptr && return this->whiteLists_ == nullptr; };
     // bizUnitDisplayName Field Functions 
     bool hasBizUnitDisplayName() const { return this->bizUnitDisplayName_ != nullptr;};
     void deleteBizUnitDisplayName() { this->bizUnitDisplayName_ = nullptr;};

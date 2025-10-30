@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->appKey_ != nullptr && this->appName_ != nullptr && this->callCount_ != nullptr && this->clientFailCount_ != nullptr && this->clientIp_ != nullptr
-        && this->errorApiCount_ != nullptr && this->errorCount_ != nullptr && this->errorRate_ != nullptr && this->lastCallTime_ != nullptr && this->minute_ != nullptr
-        && this->offlineCount_ != nullptr && this->successTimeCost_ != nullptr && this->totalCount_ != nullptr && this->totalTimeCost_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->appKey_ == nullptr && return this->appName_ == nullptr && return this->callCount_ == nullptr && return this->clientFailCount_ == nullptr && return this->clientIp_ == nullptr
+        && return this->errorApiCount_ == nullptr && return this->errorCount_ == nullptr && return this->errorRate_ == nullptr && return this->lastCallTime_ == nullptr && return this->minute_ == nullptr
+        && return this->offlineCount_ == nullptr && return this->successTimeCost_ == nullptr && return this->totalCount_ == nullptr && return this->totalTimeCost_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->downStreamDepth_ != nullptr
-        && this->env_ != nullptr && this->nodeId_ != nullptr && this->opTenantId_ != nullptr && this->projectId_ != nullptr && this->upStreamDepth_ != nullptr; };
+    virtual bool empty() const override { return this->downStreamDepth_ == nullptr
+        && return this->env_ == nullptr && return this->nodeId_ == nullptr && return this->opTenantId_ == nullptr && return this->projectId_ == nullptr && return this->upStreamDepth_ == nullptr; };
     // downStreamDepth Field Functions 
     bool hasDownStreamDepth() const { return this->downStreamDepth_ != nullptr;};
     void deleteDownStreamDepth() { this->downStreamDepth_ = nullptr;};

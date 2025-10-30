@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->belongToBizEntityIdList_ != nullptr
-        && this->bizUnitId_ != nullptr && this->childBizEntityIdList_ != nullptr && this->dataDomainId_ != nullptr && this->description_ != nullptr && this->displayName_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->hasChildBizEntity_ != nullptr && this->id_ != nullptr && this->lastModifier_ != nullptr
-        && this->lastModifierName_ != nullptr && this->levelSubBizObject_ != nullptr && this->name_ != nullptr && this->onlineStatus_ != nullptr && this->ownerName_ != nullptr
-        && this->ownerUserId_ != nullptr && this->refBizEntityIdList_ != nullptr && this->refTableCount_ != nullptr && this->status_ != nullptr && this->subType_ != nullptr
-        && this->suffixBizEntityIdList_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->belongToBizEntityIdList_ == nullptr
+        && return this->bizUnitId_ == nullptr && return this->childBizEntityIdList_ == nullptr && return this->dataDomainId_ == nullptr && return this->description_ == nullptr && return this->displayName_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->hasChildBizEntity_ == nullptr && return this->id_ == nullptr && return this->lastModifier_ == nullptr
+        && return this->lastModifierName_ == nullptr && return this->levelSubBizObject_ == nullptr && return this->name_ == nullptr && return this->onlineStatus_ == nullptr && return this->ownerName_ == nullptr
+        && return this->ownerUserId_ == nullptr && return this->refBizEntityIdList_ == nullptr && return this->refTableCount_ == nullptr && return this->status_ == nullptr && return this->subType_ == nullptr
+        && return this->suffixBizEntityIdList_ == nullptr && return this->type_ == nullptr; };
     // belongToBizEntityIdList Field Functions 
     bool hasBelongToBizEntityIdList() const { return this->belongToBizEntityIdList_ != nullptr;};
     void deleteBelongToBizEntityIdList() { this->belongToBizEntityIdList_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containAllDownStream_ != nullptr
-        && this->downStreamNodeIdList_ != nullptr && this->endBizDate_ != nullptr && this->filterList_ != nullptr && this->globalParamList_ != nullptr && this->maxDueTime_ != nullptr
-        && this->minDueTime_ != nullptr && this->name_ != nullptr && this->nodeIdList_ != nullptr && this->nodeParamsList_ != nullptr && this->parallelism_ != nullptr
-        && this->projectId_ != nullptr && this->startBizDate_ != nullptr; };
+    virtual bool empty() const override { return this->containAllDownStream_ == nullptr
+        && return this->downStreamNodeIdList_ == nullptr && return this->endBizDate_ == nullptr && return this->filterList_ == nullptr && return this->globalParamList_ == nullptr && return this->maxDueTime_ == nullptr
+        && return this->minDueTime_ == nullptr && return this->name_ == nullptr && return this->nodeIdList_ == nullptr && return this->nodeParamsList_ == nullptr && return this->parallelism_ == nullptr
+        && return this->projectId_ == nullptr && return this->startBizDate_ == nullptr; };
     // containAllDownStream Field Functions 
     bool hasContainAllDownStream() const { return this->containAllDownStream_ != nullptr;};
     void deleteContainAllDownStream() { this->containAllDownStream_ = nullptr;};

@@ -116,16 +116,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiNo_ != nullptr
-        && this->apiTimeout_ != nullptr && this->appName_ != nullptr && this->bizModuleEnName_ != nullptr && this->cacheSwitch_ != nullptr && this->cacheTime_ != nullptr
-        && this->createType_ != nullptr && this->dbEnv_ != nullptr && this->description_ != nullptr && this->directDatasourceId_ != nullptr && this->directDatasourceName_ != nullptr
-        && this->groupId_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr && this->isLogicalTable_ != nullptr && this->isPagedQuery_ != nullptr
-        && this->maxReturnNum_ != nullptr && this->modelType_ != nullptr && this->name_ != nullptr && this->projId_ != nullptr && this->projName_ != nullptr
-        && this->protocol_ != nullptr && this->protocolName_ != nullptr && this->publicParamList_ != nullptr && this->registerApi_ != nullptr && this->requestMethod_ != nullptr
-        && this->requestMethodName_ != nullptr && this->requestParamList_ != nullptr && this->resourceGroupName_ != nullptr && this->responseParamList_ != nullptr && this->resultSample_ != nullptr
-        && this->returnType_ != nullptr && this->returnTypeName_ != nullptr && this->rsGrpId_ != nullptr && this->scriptType_ != nullptr && this->specialSql_ != nullptr
-        && this->sqlStatement_ != nullptr && this->tableName_ != nullptr && this->timeout_ != nullptr && this->updateRate_ != nullptr && this->updateRateName_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->apiNo_ == nullptr
+        && return this->apiTimeout_ == nullptr && return this->appName_ == nullptr && return this->bizModuleEnName_ == nullptr && return this->cacheSwitch_ == nullptr && return this->cacheTime_ == nullptr
+        && return this->createType_ == nullptr && return this->dbEnv_ == nullptr && return this->description_ == nullptr && return this->directDatasourceId_ == nullptr && return this->directDatasourceName_ == nullptr
+        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr && return this->isLogicalTable_ == nullptr && return this->isPagedQuery_ == nullptr
+        && return this->maxReturnNum_ == nullptr && return this->modelType_ == nullptr && return this->name_ == nullptr && return this->projId_ == nullptr && return this->projName_ == nullptr
+        && return this->protocol_ == nullptr && return this->protocolName_ == nullptr && return this->publicParamList_ == nullptr && return this->registerApi_ == nullptr && return this->requestMethod_ == nullptr
+        && return this->requestMethodName_ == nullptr && return this->requestParamList_ == nullptr && return this->resourceGroupName_ == nullptr && return this->responseParamList_ == nullptr && return this->resultSample_ == nullptr
+        && return this->returnType_ == nullptr && return this->returnTypeName_ == nullptr && return this->rsGrpId_ == nullptr && return this->scriptType_ == nullptr && return this->specialSql_ == nullptr
+        && return this->sqlStatement_ == nullptr && return this->tableName_ == nullptr && return this->timeout_ == nullptr && return this->updateRate_ == nullptr && return this->updateRateName_ == nullptr
+        && return this->version_ == nullptr; };
     // apiNo Field Functions 
     bool hasApiNo() const { return this->apiNo_ != nullptr;};
     void deleteApiNo() { this->apiNo_ = nullptr;};

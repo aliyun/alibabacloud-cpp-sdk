@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoParse_ != nullptr
-        && this->bizType_ != nullptr && this->bizUnitId_ != nullptr && this->bizUnitName_ != nullptr && this->cronExpression_ != nullptr && this->customCronExpression_ != nullptr
-        && this->dependFieldList_ != nullptr && this->dependencyPeriod_ != nullptr && this->dependencyStrategy_ != nullptr && this->dimMidNode_ != nullptr && this->effectFieldList_ != nullptr
-        && this->externalBizInfo_ != nullptr && this->manuallyAdd_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->nodeOutputName_ != nullptr
-        && this->nodeOutputTableName_ != nullptr && this->nodeType_ != nullptr && this->outputContextParamList_ != nullptr && this->ownerList_ != nullptr && this->periodDiff_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->scheduleType_ != nullptr && this->selfDepend_ != nullptr && this->subBizType_ != nullptr
-        && this->valid_ != nullptr; };
+    virtual bool empty() const override { return this->autoParse_ == nullptr
+        && return this->bizType_ == nullptr && return this->bizUnitId_ == nullptr && return this->bizUnitName_ == nullptr && return this->cronExpression_ == nullptr && return this->customCronExpression_ == nullptr
+        && return this->dependFieldList_ == nullptr && return this->dependencyPeriod_ == nullptr && return this->dependencyStrategy_ == nullptr && return this->dimMidNode_ == nullptr && return this->effectFieldList_ == nullptr
+        && return this->externalBizInfo_ == nullptr && return this->manuallyAdd_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->nodeOutputName_ == nullptr
+        && return this->nodeOutputTableName_ == nullptr && return this->nodeType_ == nullptr && return this->outputContextParamList_ == nullptr && return this->ownerList_ == nullptr && return this->periodDiff_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->scheduleType_ == nullptr && return this->selfDepend_ == nullptr && return this->subBizType_ == nullptr
+        && return this->valid_ == nullptr; };
     // autoParse Field Functions 
     bool hasAutoParse() const { return this->autoParse_ != nullptr;};
     void deleteAutoParse() { this->autoParse_ = nullptr;};

@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->annotations_ != nullptr
-        && this->clusterId_ != nullptr && this->createAt_ != nullptr && this->flinkImageRegistry_ != nullptr && this->flinkImageRepository_ != nullptr && this->flinkImageTag_ != nullptr
-        && this->flinkVersion_ != nullptr && this->labels_ != nullptr && this->maxVcore_ != nullptr && this->modifiedAt_ != nullptr && this->namespace_ != nullptr
-        && this->queueName_ != nullptr && this->resourceVersion_ != nullptr && this->spec_ != nullptr && this->vvpClusterType_ != nullptr; };
+    virtual bool empty() const override { return this->annotations_ == nullptr
+        && return this->clusterId_ == nullptr && return this->createAt_ == nullptr && return this->flinkImageRegistry_ == nullptr && return this->flinkImageRepository_ == nullptr && return this->flinkImageTag_ == nullptr
+        && return this->flinkVersion_ == nullptr && return this->labels_ == nullptr && return this->maxVcore_ == nullptr && return this->modifiedAt_ == nullptr && return this->namespace_ == nullptr
+        && return this->queueName_ == nullptr && return this->resourceVersion_ == nullptr && return this->spec_ == nullptr && return this->vvpClusterType_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};

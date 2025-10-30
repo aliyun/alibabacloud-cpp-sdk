@@ -72,11 +72,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->cronExpression_ != nullptr && this->customScheduleConfig_ != nullptr && this->dataSourceCatalog_ != nullptr && this->dataSourceId_ != nullptr && this->dataSourceSchema_ != nullptr
-        && this->engine_ != nullptr && this->fileId_ != nullptr && this->name_ != nullptr && this->nodeDescription_ != nullptr && this->nodeOutputNameList_ != nullptr
-        && this->nodeStatus_ != nullptr && this->paramList_ != nullptr && this->priority_ != nullptr && this->projectId_ != nullptr && this->pythonModuleList_ != nullptr
-        && this->schedulePeriod_ != nullptr && this->sparkClientInfo_ != nullptr && this->taskType_ != nullptr && this->upStreamList_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->cronExpression_ == nullptr && return this->customScheduleConfig_ == nullptr && return this->dataSourceCatalog_ == nullptr && return this->dataSourceId_ == nullptr && return this->dataSourceSchema_ == nullptr
+        && return this->engine_ == nullptr && return this->fileId_ == nullptr && return this->name_ == nullptr && return this->nodeDescription_ == nullptr && return this->nodeOutputNameList_ == nullptr
+        && return this->nodeStatus_ == nullptr && return this->paramList_ == nullptr && return this->priority_ == nullptr && return this->projectId_ == nullptr && return this->pythonModuleList_ == nullptr
+        && return this->schedulePeriod_ == nullptr && return this->sparkClientInfo_ == nullptr && return this->taskType_ == nullptr && return this->upStreamList_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountName_ != nullptr
-        && this->dingNumber_ != nullptr && this->displayName_ != nullptr && this->displayNameWithoutStatus_ != nullptr && this->enableWhiteIp_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->mail_ != nullptr && this->mobilePhone_ != nullptr && this->name_ != nullptr
-        && this->nickName_ != nullptr && this->realName_ != nullptr && this->roleList_ != nullptr && this->sourceId_ != nullptr && this->sourceType_ != nullptr
-        && this->userGroupList_ != nullptr && this->whiteIp_ != nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && return this->dingNumber_ == nullptr && return this->displayName_ == nullptr && return this->displayNameWithoutStatus_ == nullptr && return this->enableWhiteIp_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->mail_ == nullptr && return this->mobilePhone_ == nullptr && return this->name_ == nullptr
+        && return this->nickName_ == nullptr && return this->realName_ == nullptr && return this->roleList_ == nullptr && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr
+        && return this->userGroupList_ == nullptr && return this->whiteIp_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};

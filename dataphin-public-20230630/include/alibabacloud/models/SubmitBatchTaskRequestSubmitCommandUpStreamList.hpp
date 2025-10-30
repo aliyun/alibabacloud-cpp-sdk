@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dependPeriod_ != nullptr
-        && this->dependStrategy_ != nullptr && this->fieldList_ != nullptr && this->nodeType_ != nullptr && this->periodDiff_ != nullptr && this->sourceNodeEnabled_ != nullptr
-        && this->sourceNodeId_ != nullptr && this->sourceNodeOutputName_ != nullptr && this->sourceTableName_ != nullptr; };
+    virtual bool empty() const override { return this->dependPeriod_ == nullptr
+        && return this->dependStrategy_ == nullptr && return this->fieldList_ == nullptr && return this->nodeType_ == nullptr && return this->periodDiff_ == nullptr && return this->sourceNodeEnabled_ == nullptr
+        && return this->sourceNodeId_ == nullptr && return this->sourceNodeOutputName_ == nullptr && return this->sourceTableName_ == nullptr; };
     // dependPeriod Field Functions 
     bool hasDependPeriod() const { return this->dependPeriod_ != nullptr;};
     void deleteDependPeriod() { this->dependPeriod_ = nullptr;};

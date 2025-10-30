@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appName_ != nullptr && this->applyUserId_ != nullptr && this->applyUserName_ != nullptr && this->expireDate_ != nullptr && this->id_ != nullptr
-        && this->isProjectManager_ != nullptr && this->owner_ != nullptr && this->ownerUserName_ != nullptr && this->privilegeAccount_ != nullptr && this->privilegeType_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->realHasOwnerPrivilege_ != nullptr && this->realHasPrivilege_ != nullptr && this->remarkForDebugList_ != nullptr
-        && this->revocable_ != nullptr && this->revocableDetail_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appName_ == nullptr && return this->applyUserId_ == nullptr && return this->applyUserName_ == nullptr && return this->expireDate_ == nullptr && return this->id_ == nullptr
+        && return this->isProjectManager_ == nullptr && return this->owner_ == nullptr && return this->ownerUserName_ == nullptr && return this->privilegeAccount_ == nullptr && return this->privilegeType_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->realHasOwnerPrivilege_ == nullptr && return this->realHasPrivilege_ == nullptr && return this->remarkForDebugList_ == nullptr
+        && return this->revocable_ == nullptr && return this->revocableDetail_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

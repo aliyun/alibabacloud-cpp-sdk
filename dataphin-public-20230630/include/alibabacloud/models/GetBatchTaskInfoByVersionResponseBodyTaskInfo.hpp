@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->cronExpression_ != nullptr && this->customScheduleConfig_ != nullptr && this->dagId_ != nullptr && this->dataSourceCatalog_ != nullptr && this->dataSourceId_ != nullptr
-        && this->dataSourceSchema_ != nullptr && this->fileId_ != nullptr && this->hasDevNode_ != nullptr && this->name_ != nullptr && this->needPublish_ != nullptr
-        && this->nodeDescription_ != nullptr && this->nodeFrom_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->nodeOutputNameList_ != nullptr
-        && this->nodeStatus_ != nullptr && this->operatorUserId_ != nullptr && this->ownerName_ != nullptr && this->ownerUserId_ != nullptr && this->paramList_ != nullptr
-        && this->paused_ != nullptr && this->priority_ != nullptr && this->projectId_ != nullptr && this->published_ != nullptr && this->remark_ != nullptr
-        && this->rerunable_ != nullptr && this->schedulePeriod_ != nullptr && this->scheduleType_ != nullptr && this->sparkClientInfo_ != nullptr && this->status_ != nullptr
-        && this->taskType_ != nullptr && this->upStreamList_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->cronExpression_ == nullptr && return this->customScheduleConfig_ == nullptr && return this->dagId_ == nullptr && return this->dataSourceCatalog_ == nullptr && return this->dataSourceId_ == nullptr
+        && return this->dataSourceSchema_ == nullptr && return this->fileId_ == nullptr && return this->hasDevNode_ == nullptr && return this->name_ == nullptr && return this->needPublish_ == nullptr
+        && return this->nodeDescription_ == nullptr && return this->nodeFrom_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->nodeOutputNameList_ == nullptr
+        && return this->nodeStatus_ == nullptr && return this->operatorUserId_ == nullptr && return this->ownerName_ == nullptr && return this->ownerUserId_ == nullptr && return this->paramList_ == nullptr
+        && return this->paused_ == nullptr && return this->priority_ == nullptr && return this->projectId_ == nullptr && return this->published_ == nullptr && return this->remark_ == nullptr
+        && return this->rerunable_ == nullptr && return this->schedulePeriod_ == nullptr && return this->scheduleType_ == nullptr && return this->sparkClientInfo_ == nullptr && return this->status_ == nullptr
+        && return this->taskType_ == nullptr && return this->upStreamList_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

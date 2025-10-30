@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizUnitName_ != nullptr
-        && this->createTime_ != nullptr && this->creator_ != nullptr && this->description_ != nullptr && this->dryRun_ != nullptr && this->from_ != nullptr
-        && this->hasDev_ != nullptr && this->hasProd_ != nullptr && this->id_ != nullptr && this->lastModifiedTime_ != nullptr && this->modifier_ != nullptr
-        && this->name_ != nullptr && this->ownerList_ != nullptr && this->priorityList_ != nullptr && this->resourceGroupList_ != nullptr && this->schedulePaused_ != nullptr
-        && this->schedulePeriodList_ != nullptr && this->subDetailType_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->bizUnitName_ == nullptr
+        && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->from_ == nullptr
+        && return this->hasDev_ == nullptr && return this->hasProd_ == nullptr && return this->id_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->modifier_ == nullptr
+        && return this->name_ == nullptr && return this->ownerList_ == nullptr && return this->priorityList_ == nullptr && return this->resourceGroupList_ == nullptr && return this->schedulePaused_ == nullptr
+        && return this->schedulePeriodList_ == nullptr && return this->subDetailType_ == nullptr && return this->type_ == nullptr; };
     // bizUnitName Field Functions 
     bool hasBizUnitName() const { return this->bizUnitName_ != nullptr;};
     void deleteBizUnitName() { this->bizUnitName_ = nullptr;};

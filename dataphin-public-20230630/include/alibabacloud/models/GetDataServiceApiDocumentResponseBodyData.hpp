@@ -104,14 +104,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->apiRegisterInfo_ != nullptr && this->apiTimeout_ != nullptr && this->bizUnitName_ != nullptr && this->cacheTime_ != nullptr && this->createType_ != nullptr
-        && this->description_ != nullptr && this->directDatasourceId_ != nullptr && this->directDatasourceName_ != nullptr && this->env_ != nullptr && this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->isLogicalTable_ != nullptr && this->isPagedQuery_ != nullptr && this->isSpecialSql_ != nullptr && this->mode_ != nullptr
-        && this->name_ != nullptr && this->openCache_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->protocol_ != nullptr
-        && this->publicParamList_ != nullptr && this->requestMethod_ != nullptr && this->requestParamList_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceGroupName_ != nullptr
-        && this->responseParamList_ != nullptr && this->resultSample_ != nullptr && this->returnLimit_ != nullptr && this->returnType_ != nullptr && this->scriptType_ != nullptr
-        && this->sql_ != nullptr && this->tableName_ != nullptr && this->timeout_ != nullptr && this->updateRate_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->apiRegisterInfo_ == nullptr && return this->apiTimeout_ == nullptr && return this->bizUnitName_ == nullptr && return this->cacheTime_ == nullptr && return this->createType_ == nullptr
+        && return this->description_ == nullptr && return this->directDatasourceId_ == nullptr && return this->directDatasourceName_ == nullptr && return this->env_ == nullptr && return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->isLogicalTable_ == nullptr && return this->isPagedQuery_ == nullptr && return this->isSpecialSql_ == nullptr && return this->mode_ == nullptr
+        && return this->name_ == nullptr && return this->openCache_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->protocol_ == nullptr
+        && return this->publicParamList_ == nullptr && return this->requestMethod_ == nullptr && return this->requestParamList_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupName_ == nullptr
+        && return this->responseParamList_ == nullptr && return this->resultSample_ == nullptr && return this->returnLimit_ == nullptr && return this->returnType_ == nullptr && return this->scriptType_ == nullptr
+        && return this->sql_ == nullptr && return this->tableName_ == nullptr && return this->timeout_ == nullptr && return this->updateRate_ == nullptr && return this->version_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

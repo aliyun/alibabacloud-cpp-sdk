@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiGroupId_ != nullptr
-        && this->apiGroupName_ != nullptr && this->apiName_ != nullptr && this->apiType_ != nullptr && this->bizProtocol_ != nullptr && this->cacheTimeout_ != nullptr
-        && this->callMode_ != nullptr && this->customUpdateRate_ != nullptr && this->description_ != nullptr && this->executionTimeout_ != nullptr && this->mode_ != nullptr
-        && this->projectId_ != nullptr && this->requestType_ != nullptr && this->scriptDetails_ != nullptr && this->timeout_ != nullptr && this->updateRate_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->apiGroupId_ == nullptr
+        && return this->apiGroupName_ == nullptr && return this->apiName_ == nullptr && return this->apiType_ == nullptr && return this->bizProtocol_ == nullptr && return this->cacheTimeout_ == nullptr
+        && return this->callMode_ == nullptr && return this->customUpdateRate_ == nullptr && return this->description_ == nullptr && return this->executionTimeout_ == nullptr && return this->mode_ == nullptr
+        && return this->projectId_ == nullptr && return this->requestType_ == nullptr && return this->scriptDetails_ == nullptr && return this->timeout_ == nullptr && return this->updateRate_ == nullptr
+        && return this->version_ == nullptr; };
     // apiGroupId Field Functions 
     bool hasApiGroupId() const { return this->apiGroupId_ != nullptr;};
     void deleteApiGroupId() { this->apiGroupId_ = nullptr;};

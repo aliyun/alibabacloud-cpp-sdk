@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertChannelType_ != nullptr
-        && this->customAlertChannelId_ != nullptr && this->onCallTableId_ != nullptr && this->onCallTableName_ != nullptr && this->type_ != nullptr && this->user_ != nullptr; };
+    virtual bool empty() const override { return this->alertChannelType_ == nullptr
+        && return this->customAlertChannelId_ == nullptr && return this->onCallTableId_ == nullptr && return this->onCallTableName_ == nullptr && return this->type_ == nullptr && return this->user_ == nullptr; };
     // alertChannelType Field Functions 
     bool hasAlertChannelType() const { return this->alertChannelType_ != nullptr;};
     void deleteAlertChannelType() { this->alertChannelType_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->apiName_ != nullptr && this->appNameList_ != nullptr && this->authorizedAppCount_ != nullptr && this->avgResponseTime_ != nullptr && this->callCount_ != nullptr
-        && this->creator_ != nullptr && this->errorCount_ != nullptr && this->errorRate_ != nullptr && this->lastCallTime_ != nullptr && this->offlineRate_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->sqlId_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->apiName_ == nullptr && return this->appNameList_ == nullptr && return this->authorizedAppCount_ == nullptr && return this->avgResponseTime_ == nullptr && return this->callCount_ == nullptr
+        && return this->creator_ == nullptr && return this->errorCount_ == nullptr && return this->errorRate_ == nullptr && return this->lastCallTime_ == nullptr && return this->offlineRate_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->sqlId_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

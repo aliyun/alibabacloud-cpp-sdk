@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->apiName_ != nullptr && this->appCount_ != nullptr && this->appInfoList_ != nullptr && this->applyStatus_ != nullptr && this->callCount_ != nullptr
-        && this->createType_ != nullptr && this->customUpdateRate_ != nullptr && this->deployTime_ != nullptr && this->description_ != nullptr && this->executeMode_ != nullptr
-        && this->groupId_ != nullptr && this->groupName_ != nullptr && this->logicUnitNo_ != nullptr && this->mode_ != nullptr && this->owner_ != nullptr
-        && this->ownerUserName_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr && this->updateRate_ != nullptr && this->updateTime_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->apiName_ == nullptr && return this->appCount_ == nullptr && return this->appInfoList_ == nullptr && return this->applyStatus_ == nullptr && return this->callCount_ == nullptr
+        && return this->createType_ == nullptr && return this->customUpdateRate_ == nullptr && return this->deployTime_ == nullptr && return this->description_ == nullptr && return this->executeMode_ == nullptr
+        && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->logicUnitNo_ == nullptr && return this->mode_ == nullptr && return this->owner_ == nullptr
+        && return this->ownerUserName_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->updateRate_ == nullptr && return this->updateTime_ == nullptr
+        && return this->version_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

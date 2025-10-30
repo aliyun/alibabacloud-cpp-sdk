@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dateFormat_ != nullptr
-        && this->defaultValue_ != nullptr && this->description_ != nullptr && this->descriptionCode_ != nullptr && this->id_ != nullptr && this->initialValue_ != nullptr
-        && this->mappingColumn_ != nullptr && this->must_ != nullptr && this->operator_ != nullptr && this->optional_ != nullptr && this->originalColumn_ != nullptr
-        && this->paramName_ != nullptr && this->paramType_ != nullptr && this->parameterLocation_ != nullptr && this->sample_ != nullptr && this->tableAndDsList_ != nullptr; };
+    virtual bool empty() const override { return this->dateFormat_ == nullptr
+        && return this->defaultValue_ == nullptr && return this->description_ == nullptr && return this->descriptionCode_ == nullptr && return this->id_ == nullptr && return this->initialValue_ == nullptr
+        && return this->mappingColumn_ == nullptr && return this->must_ == nullptr && return this->operator_ == nullptr && return this->optional_ == nullptr && return this->originalColumn_ == nullptr
+        && return this->paramName_ == nullptr && return this->paramType_ == nullptr && return this->parameterLocation_ == nullptr && return this->sample_ == nullptr && return this->tableAndDsList_ == nullptr; };
     // dateFormat Field Functions 
     bool hasDateFormat() const { return this->dateFormat_ != nullptr;};
     void deleteDateFormat() { this->dateFormat_ = nullptr;};

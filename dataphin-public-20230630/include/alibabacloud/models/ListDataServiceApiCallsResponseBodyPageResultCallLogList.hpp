@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->apiName_ != nullptr && this->appKey_ != nullptr && this->appName_ != nullptr && this->bizCode_ != nullptr && this->bizCodeDescription_ != nullptr
-        && this->clientIp_ != nullptr && this->costTime_ != nullptr && this->endTime_ != nullptr && this->env_ != nullptr && this->executeCostTime_ != nullptr
-        && this->executeMode_ != nullptr && this->httpStatusCode_ != nullptr && this->httpStatusDescription_ != nullptr && this->jobId_ != nullptr && this->projectId_ != nullptr
-        && this->projectName_ != nullptr && this->requestId_ != nullptr && this->requestParameter_ != nullptr && this->requestSize_ != nullptr && this->responseParameter_ != nullptr
-        && this->responseSize_ != nullptr && this->resultCount_ != nullptr && this->sql_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->successful_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->apiName_ == nullptr && return this->appKey_ == nullptr && return this->appName_ == nullptr && return this->bizCode_ == nullptr && return this->bizCodeDescription_ == nullptr
+        && return this->clientIp_ == nullptr && return this->costTime_ == nullptr && return this->endTime_ == nullptr && return this->env_ == nullptr && return this->executeCostTime_ == nullptr
+        && return this->executeMode_ == nullptr && return this->httpStatusCode_ == nullptr && return this->httpStatusDescription_ == nullptr && return this->jobId_ == nullptr && return this->projectId_ == nullptr
+        && return this->projectName_ == nullptr && return this->requestId_ == nullptr && return this->requestParameter_ == nullptr && return this->requestSize_ == nullptr && return this->responseParameter_ == nullptr
+        && return this->responseSize_ == nullptr && return this->resultCount_ == nullptr && return this->sql_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->successful_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

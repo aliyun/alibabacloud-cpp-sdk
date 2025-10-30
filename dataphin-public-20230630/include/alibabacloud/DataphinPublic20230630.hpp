@@ -55,6 +55,23 @@ namespace DataphinPublic20230630
       Models::AddProjectMemberResponse addProjectMember(const Models::AddProjectMemberRequest &request);
 
       /**
+       * @summary 新增注册血缘。
+       *
+       * @param tmpReq AddRegisterLineageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddRegisterLineageResponse
+       */
+      Models::AddRegisterLineageResponse addRegisterLineageWithOptions(const Models::AddRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增注册血缘。
+       *
+       * @param request AddRegisterLineageRequest
+       * @return AddRegisterLineageResponse
+       */
+      Models::AddRegisterLineageResponse addRegisterLineage(const Models::AddRegisterLineageRequest &request);
+
+      /**
        * @summary 新增租户成员
        *
        * @param tmpReq AddTenantMembersRequest
@@ -412,6 +429,40 @@ namespace DataphinPublic20230630
       Models::CreateNodeSupplementResponse createNodeSupplement(const Models::CreateNodeSupplementRequest &request);
 
       /**
+       * @summary 创建集成管道任务。
+       *
+       * @param tmpReq CreatePipelineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipelineWithOptions(const Models::CreatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建集成管道任务。
+       *
+       * @param request CreatePipelineRequest
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipeline(const Models::CreatePipelineRequest &request);
+
+      /**
+       * @summary 异步创建集成管道任务。
+       *
+       * @param tmpReq CreatePipelineByAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePipelineByAsyncResponse
+       */
+      Models::CreatePipelineByAsyncResponse createPipelineByAsyncWithOptions(const Models::CreatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 异步创建集成管道任务。
+       *
+       * @param request CreatePipelineByAsyncRequest
+       * @return CreatePipelineByAsyncResponse
+       */
+      Models::CreatePipelineByAsyncResponse createPipelineByAsync(const Models::CreatePipelineByAsyncRequest &request);
+
+      /**
        * @summary 创建数据集成任务。
        *
        * @param tmpReq CreatePipelineNodeRequest
@@ -648,6 +699,23 @@ namespace DataphinPublic20230630
        * @return DeleteDirectoryResponse
        */
       Models::DeleteDirectoryResponse deleteDirectory(const Models::DeleteDirectoryRequest &request);
+
+      /**
+       * @summary 删除注册血缘。
+       *
+       * @param tmpReq DeleteRegisterLineageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRegisterLineageResponse
+       */
+      Models::DeleteRegisterLineageResponse deleteRegisterLineageWithOptions(const Models::DeleteRegisterLineageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除注册血缘。
+       *
+       * @param request DeleteRegisterLineageRequest
+       * @return DeleteRegisterLineageResponse
+       */
+      Models::DeleteRegisterLineageResponse deleteRegisterLineage(const Models::DeleteRegisterLineageRequest &request);
 
       /**
        * @summary 删除资源文件。
@@ -1515,6 +1583,40 @@ namespace DataphinPublic20230630
        * @return GetPhysicalNodeOperationLogResponse
        */
       Models::GetPhysicalNodeOperationLogResponse getPhysicalNodeOperationLog(const Models::GetPhysicalNodeOperationLogRequest &request);
+
+      /**
+       * @summary 查询异步操作管道任务的执行结果。
+       *
+       * @param tmpReq GetPipelineAsyncResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPipelineAsyncResultResponse
+       */
+      Models::GetPipelineAsyncResultResponse getPipelineAsyncResultWithOptions(const Models::GetPipelineAsyncResultRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询异步操作管道任务的执行结果。
+       *
+       * @param request GetPipelineAsyncResultRequest
+       * @return GetPipelineAsyncResultResponse
+       */
+      Models::GetPipelineAsyncResultResponse getPipelineAsyncResult(const Models::GetPipelineAsyncResultRequest &request);
+
+      /**
+       * @summary 根据管道任务id查询管道任务。
+       *
+       * @param tmpReq GetPipelineByIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPipelineByIdResponse
+       */
+      Models::GetPipelineByIdResponse getPipelineByIdWithOptions(const Models::GetPipelineByIdRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据管道任务id查询管道任务。
+       *
+       * @param request GetPipelineByIdRequest
+       * @return GetPipelineByIdResponse
+       */
+      Models::GetPipelineByIdResponse getPipelineById(const Models::GetPipelineByIdRequest &request);
 
       /**
        * @summary 获取项目详情。
@@ -2469,6 +2571,40 @@ namespace DataphinPublic20230630
       Models::OfflineBizEntityResponse offlineBizEntity(const Models::OfflineBizEntityRequest &request);
 
       /**
+       * @summary 下线集成管道任务。
+       *
+       * @param tmpReq OfflinePipelineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflinePipelineResponse
+       */
+      Models::OfflinePipelineResponse offlinePipelineWithOptions(const Models::OfflinePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下线集成管道任务。
+       *
+       * @param request OfflinePipelineRequest
+       * @return OfflinePipelineResponse
+       */
+      Models::OfflinePipelineResponse offlinePipeline(const Models::OfflinePipelineRequest &request);
+
+      /**
+       * @summary 异步下线集成管道任务。
+       *
+       * @param tmpReq OfflinePipelineByAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OfflinePipelineByAsyncResponse
+       */
+      Models::OfflinePipelineByAsyncResponse offlinePipelineByAsyncWithOptions(const Models::OfflinePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 异步下线集成管道任务。
+       *
+       * @param request OfflinePipelineByAsyncRequest
+       * @return OfflinePipelineByAsyncResponse
+       */
+      Models::OfflinePipelineByAsyncResponse offlinePipelineByAsync(const Models::OfflinePipelineByAsyncRequest &request);
+
+      /**
        * @summary 上线业务实体。
        *
        * @param tmpReq OnlineBizEntityRequest
@@ -2943,6 +3079,40 @@ namespace DataphinPublic20230630
        * @return UpdateFileNameResponse
        */
       Models::UpdateFileNameResponse updateFileName(const Models::UpdateFileNameRequest &request);
+
+      /**
+       * @summary 更新集成管道任务。
+       *
+       * @param tmpReq UpdatePipelineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePipelineResponse
+       */
+      Models::UpdatePipelineResponse updatePipelineWithOptions(const Models::UpdatePipelineRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新集成管道任务。
+       *
+       * @param request UpdatePipelineRequest
+       * @return UpdatePipelineResponse
+       */
+      Models::UpdatePipelineResponse updatePipeline(const Models::UpdatePipelineRequest &request);
+
+      /**
+       * @summary 异步更新集成管道任务。
+       *
+       * @param tmpReq UpdatePipelineByAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePipelineByAsyncResponse
+       */
+      Models::UpdatePipelineByAsyncResponse updatePipelineByAsyncWithOptions(const Models::UpdatePipelineByAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 异步更新集成管道任务。
+       *
+       * @param request UpdatePipelineByAsyncRequest
+       * @return UpdatePipelineByAsyncResponse
+       */
+      Models::UpdatePipelineByAsyncResponse updatePipelineByAsync(const Models::UpdatePipelineByAsyncRequest &request);
 
       /**
        * @summary 增加项目成员。

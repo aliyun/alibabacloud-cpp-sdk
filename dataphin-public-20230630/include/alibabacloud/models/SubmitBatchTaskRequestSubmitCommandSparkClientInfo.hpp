@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sparkClientVersion_ != nullptr; };
+    virtual bool empty() const override { return this->sparkClientVersion_ == nullptr; };
     // sparkClientVersion Field Functions 
     bool hasSparkClientVersion() const { return this->sparkClientVersion_ != nullptr;};
     void deleteSparkClientVersion() { this->sparkClientVersion_ = nullptr;};

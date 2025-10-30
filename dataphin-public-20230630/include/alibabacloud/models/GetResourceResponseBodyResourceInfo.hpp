@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->computeEngineType_ != nullptr
-        && this->creator_ != nullptr && this->description_ != nullptr && this->directory_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->lastModifier_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr && this->resourceType_ != nullptr
-        && this->size_ != nullptr && this->storageAddress_ != nullptr; };
+    virtual bool empty() const override { return this->computeEngineType_ == nullptr
+        && return this->creator_ == nullptr && return this->description_ == nullptr && return this->directory_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->lastModifier_ == nullptr && return this->name_ == nullptr && return this->projectId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->size_ == nullptr && return this->storageAddress_ == nullptr; };
     // computeEngineType Field Functions 
     bool hasComputeEngineType() const { return this->computeEngineType_ != nullptr;};
     void deleteComputeEngineType() { this->computeEngineType_ = nullptr;};

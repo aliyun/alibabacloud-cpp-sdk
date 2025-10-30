@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creator_ != nullptr
-        && this->flowId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->lastModifier_ != nullptr && this->newOwner_ != nullptr
-        && this->oldOwner_ != nullptr && this->privilegeTransferMode_ != nullptr && this->privilegeTransferResultEntries_ != nullptr && this->proposalId_ != nullptr && this->title_ != nullptr
-        && this->transferComment_ != nullptr && this->transferStatus_ != nullptr; };
+    virtual bool empty() const override { return this->creator_ == nullptr
+        && return this->flowId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->lastModifier_ == nullptr && return this->newOwner_ == nullptr
+        && return this->oldOwner_ == nullptr && return this->privilegeTransferMode_ == nullptr && return this->privilegeTransferResultEntries_ == nullptr && return this->proposalId_ == nullptr && return this->title_ == nullptr
+        && return this->transferComment_ == nullptr && return this->transferStatus_ == nullptr; };
     // creator Field Functions 
     bool hasCreator() const { return this->creator_ != nullptr;};
     void deleteCreator() { this->creator_ = nullptr;};

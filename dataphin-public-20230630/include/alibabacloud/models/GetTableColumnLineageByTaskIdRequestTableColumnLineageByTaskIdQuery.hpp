@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->needNotExistObject_ != nullptr
-        && this->taskEnv_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->needNotExistObject_ == nullptr
+        && return this->taskEnv_ == nullptr && return this->taskId_ == nullptr; };
     // needNotExistObject Field Functions 
     bool hasNeedNotExistObject() const { return this->needNotExistObject_ != nullptr;};
     void deleteNeedNotExistObject() { this->needNotExistObject_ = nullptr;};

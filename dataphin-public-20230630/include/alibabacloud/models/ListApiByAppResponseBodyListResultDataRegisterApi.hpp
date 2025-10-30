@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiId_ != nullptr
-        && this->authenticationMode_ != nullptr && this->datasourceId_ != nullptr && this->datasourceName_ != nullptr && this->failExample_ != nullptr && this->httpMethod_ != nullptr
-        && this->modelType_ != nullptr && this->path_ != nullptr && this->protocol_ != nullptr && this->successExample_ != nullptr && this->timeout_ != nullptr
-        && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->apiId_ == nullptr
+        && return this->authenticationMode_ == nullptr && return this->datasourceId_ == nullptr && return this->datasourceName_ == nullptr && return this->failExample_ == nullptr && return this->httpMethod_ == nullptr
+        && return this->modelType_ == nullptr && return this->path_ == nullptr && return this->protocol_ == nullptr && return this->successExample_ == nullptr && return this->timeout_ == nullptr
+        && return this->url_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};

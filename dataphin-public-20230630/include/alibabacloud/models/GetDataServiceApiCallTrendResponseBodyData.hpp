@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callErrorImpactTrendList_ != nullptr
-        && this->callErrorTrendList_ != nullptr; };
+    virtual bool empty() const override { return this->callErrorImpactTrendList_ == nullptr
+        && return this->callErrorTrendList_ == nullptr; };
     // callErrorImpactTrendList Field Functions 
     bool hasCallErrorImpactTrendList() const { return this->callErrorImpactTrendList_ != nullptr;};
     void deleteCallErrorImpactTrendList() { this->callErrorImpactTrendList_ = nullptr;};

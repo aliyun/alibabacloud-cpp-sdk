@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertReasonList_ != nullptr
-        && this->channelTypeList_ != nullptr && this->customChannelIdList_ != nullptr && this->keyword_ != nullptr && this->monitoredItemIdList_ != nullptr && this->notifyEndTime_ != nullptr
-        && this->notifyStartTime_ != nullptr && this->page_ != nullptr && this->pageSize_ != nullptr && this->sourceSystem_ != nullptr && this->statusList_ != nullptr
-        && this->userIdList_ != nullptr; };
+    virtual bool empty() const override { return this->alertReasonList_ == nullptr
+        && return this->channelTypeList_ == nullptr && return this->customChannelIdList_ == nullptr && return this->keyword_ == nullptr && return this->monitoredItemIdList_ == nullptr && return this->notifyEndTime_ == nullptr
+        && return this->notifyStartTime_ == nullptr && return this->page_ == nullptr && return this->pageSize_ == nullptr && return this->sourceSystem_ == nullptr && return this->statusList_ == nullptr
+        && return this->userIdList_ == nullptr; };
     // alertReasonList Field Functions 
     bool hasAlertReasonList() const { return this->alertReasonList_ != nullptr;};
     void deleteAlertReasonList() { this->alertReasonList_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->periodOffset_ != nullptr
-        && this->periodType_ != nullptr; };
+    virtual bool empty() const override { return this->periodOffset_ == nullptr
+        && return this->periodType_ == nullptr; };
     // periodOffset Field Functions 
     bool hasPeriodOffset() const { return this->periodOffset_ != nullptr;};
     void deletePeriodOffset() { this->periodOffset_ = nullptr;};

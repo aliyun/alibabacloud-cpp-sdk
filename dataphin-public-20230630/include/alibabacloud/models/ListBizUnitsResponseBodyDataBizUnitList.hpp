@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountList_ != nullptr
-        && this->description_ != nullptr && this->displayName_ != nullptr && this->env_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->icon_ != nullptr && this->id_ != nullptr && this->lastModifier_ != nullptr && this->lastModifierName_ != nullptr && this->mode_ != nullptr
-        && this->name_ != nullptr && this->ownerName_ != nullptr && this->ownerUserId_ != nullptr; };
+    virtual bool empty() const override { return this->accountList_ == nullptr
+        && return this->description_ == nullptr && return this->displayName_ == nullptr && return this->env_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->icon_ == nullptr && return this->id_ == nullptr && return this->lastModifier_ == nullptr && return this->lastModifierName_ == nullptr && return this->mode_ == nullptr
+        && return this->name_ == nullptr && return this->ownerName_ == nullptr && return this->ownerUserId_ == nullptr; };
     // accountList Field Functions 
     bool hasAccountList() const { return this->accountList_ != nullptr;};
     void deleteAccountList() { this->accountList_ = nullptr;};

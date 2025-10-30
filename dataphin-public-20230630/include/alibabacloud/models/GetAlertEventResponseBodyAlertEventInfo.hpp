@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertFrequency_ != nullptr
-        && this->alertObject_ != nullptr && this->alertReason_ != nullptr && this->alertReceiverList_ != nullptr && this->belongProject_ != nullptr && this->doNotDisturbEndTime_ != nullptr
-        && this->firstAlertTime_ != nullptr && this->id_ != nullptr && this->latestAlertTime_ != nullptr && this->status_ != nullptr && this->totalAlertTimes_ != nullptr
-        && this->urlConfig_ != nullptr; };
+    virtual bool empty() const override { return this->alertFrequency_ == nullptr
+        && return this->alertObject_ == nullptr && return this->alertReason_ == nullptr && return this->alertReceiverList_ == nullptr && return this->belongProject_ == nullptr && return this->doNotDisturbEndTime_ == nullptr
+        && return this->firstAlertTime_ == nullptr && return this->id_ == nullptr && return this->latestAlertTime_ == nullptr && return this->status_ == nullptr && return this->totalAlertTimes_ == nullptr
+        && return this->urlConfig_ == nullptr; };
     // alertFrequency Field Functions 
     bool hasAlertFrequency() const { return this->alertFrequency_ != nullptr;};
     void deleteAlertFrequency() { this->alertFrequency_ = nullptr;};
