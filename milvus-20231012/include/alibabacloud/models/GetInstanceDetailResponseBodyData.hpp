@@ -25,9 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterInfo, clusterInfo_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(EnableHa, enableHa_);
+      DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
+      DARABONBA_PTR_TO_JSON(KmsKeyId, kmsKeyId_);
       DARABONBA_PTR_TO_JSON(MeasureConfig, measureConfig_);
       DARABONBA_PTR_TO_JSON(MultiZoneMode, multiZoneMode_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
@@ -56,9 +58,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterInfo, clusterInfo_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(EnableHa, enableHa_);
+      DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
+      DARABONBA_PTR_FROM_JSON(KmsKeyId, kmsKeyId_);
       DARABONBA_PTR_FROM_JSON(MeasureConfig, measureConfig_);
       DARABONBA_PTR_FROM_JSON(MultiZoneMode, multiZoneMode_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
@@ -92,11 +96,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aclId_ == nullptr
         && return this->beginTime_ == nullptr && return this->bucketName_ == nullptr && return this->bucketPath_ == nullptr && return this->clusterInfo_ == nullptr && return this->clusterName_ == nullptr
-        && return this->enableHa_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr && return this->measureConfig_ == nullptr
-        && return this->multiZoneMode_ == nullptr && return this->nodeType_ == nullptr && return this->openPublicNet_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr
-        && return this->productCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runningTime_ == nullptr && return this->sgId_ == nullptr
-        && return this->tags_ == nullptr && return this->templateVersion_ == nullptr && return this->userConfig_ == nullptr && return this->vSwitches_ == nullptr && return this->version_ == nullptr
-        && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->enableHa_ == nullptr && return this->encrypted_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr
+        && return this->kmsKeyId_ == nullptr && return this->measureConfig_ == nullptr && return this->multiZoneMode_ == nullptr && return this->nodeType_ == nullptr && return this->openPublicNet_ == nullptr
+        && return this->packageType_ == nullptr && return this->payType_ == nullptr && return this->productCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->runningTime_ == nullptr && return this->sgId_ == nullptr && return this->tags_ == nullptr && return this->templateVersion_ == nullptr && return this->userConfig_ == nullptr
+        && return this->vSwitches_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr && return this->zoneId_ == nullptr; };
     // aclId Field Functions 
     bool hasAclId() const { return this->aclId_ != nullptr;};
     void deleteAclId() { this->aclId_ = nullptr;};
@@ -148,6 +152,13 @@ namespace Models
     inline GetInstanceDetailResponseBodyData& setEnableHa(bool enableHa) { DARABONBA_PTR_SET_VALUE(enableHa_, enableHa) };
 
 
+    // encrypted Field Functions 
+    bool hasEncrypted() const { return this->encrypted_ != nullptr;};
+    void deleteEncrypted() { this->encrypted_ = nullptr;};
+    inline string encrypted() const { DARABONBA_PTR_GET_DEFAULT(encrypted_, "") };
+    inline GetInstanceDetailResponseBodyData& setEncrypted(string encrypted) { DARABONBA_PTR_SET_VALUE(encrypted_, encrypted) };
+
+
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
@@ -167,6 +178,13 @@ namespace Models
     void deleteInstanceStatus() { this->instanceStatus_ = nullptr;};
     inline string instanceStatus() const { DARABONBA_PTR_GET_DEFAULT(instanceStatus_, "") };
     inline GetInstanceDetailResponseBodyData& setInstanceStatus(string instanceStatus) { DARABONBA_PTR_SET_VALUE(instanceStatus_, instanceStatus) };
+
+
+    // kmsKeyId Field Functions 
+    bool hasKmsKeyId() const { return this->kmsKeyId_ != nullptr;};
+    void deleteKmsKeyId() { this->kmsKeyId_ = nullptr;};
+    inline string kmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
+    inline GetInstanceDetailResponseBodyData& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
 
 
     // measureConfig Field Functions 
@@ -322,6 +340,7 @@ namespace Models
     // The instance name.
     std::shared_ptr<string> clusterName_ = nullptr;
     std::shared_ptr<bool> enableHa_ = nullptr;
+    std::shared_ptr<string> encrypted_ = nullptr;
     // The expiration time.
     std::shared_ptr<int64_t> expireTime_ = nullptr;
     // The ID of the instance.
@@ -335,6 +354,7 @@ namespace Models
     // *   deleting.
     // *   deleted.
     std::shared_ptr<string> instanceStatus_ = nullptr;
+    std::shared_ptr<string> kmsKeyId_ = nullptr;
     std::shared_ptr<Models::GetInstanceDetailResponseBodyDataMeasureConfig> measureConfig_ = nullptr;
     std::shared_ptr<string> multiZoneMode_ = nullptr;
     std::shared_ptr<string> nodeType_ = nullptr;

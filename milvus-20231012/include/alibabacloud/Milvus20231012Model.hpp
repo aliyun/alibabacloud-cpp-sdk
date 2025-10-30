@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MILVUS20231012MODEL_HPP_
 #define ALIBABACLOUD_MILVUS20231012MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/InstanceDetail.hpp>
 #include <alibabacloud/models/CreateDefaultRoleResponseBody.hpp>
 #include <alibabacloud/models/CreateDefaultRoleResponse.hpp>
 #include <alibabacloud/models/DescribeAccessControlListRequest.hpp>
@@ -29,6 +30,9 @@
 #include <alibabacloud/models/UpdatePublicNetworkStatusRequest.hpp>
 #include <alibabacloud/models/UpdatePublicNetworkStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdatePublicNetworkStatusResponse.hpp>
+#include <alibabacloud/models/InstanceDetailComponents.hpp>
+#include <alibabacloud/models/InstanceDetailTags.hpp>
+#include <alibabacloud/models/InstanceDetailVSwitchIds.hpp>
 #include <alibabacloud/models/DescribeAccessControlListResponseBodyData.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList.hpp>
 #include <alibabacloud/models/GetInstanceDetailResponseBodyDataClusterInfo.hpp>
