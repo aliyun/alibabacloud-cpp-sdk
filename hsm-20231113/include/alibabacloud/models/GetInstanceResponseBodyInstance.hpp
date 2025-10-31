@@ -13,6 +13,8 @@ namespace Models
   class GetInstanceResponseBodyInstance : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceResponseBodyInstance& obj) { 
+      DARABONBA_PTR_TO_JSON(Certification, certification_);
+      DARABONBA_PTR_TO_JSON(CertificationUrl, certificationUrl_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
@@ -35,6 +37,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceResponseBodyInstance& obj) { 
+      DARABONBA_PTR_FROM_JSON(Certification, certification_);
+      DARABONBA_PTR_FROM_JSON(CertificationUrl, certificationUrl_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -67,11 +71,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->createTime_ != nullptr && this->deviceType_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr
-        && this->ip_ != nullptr && this->isTrial_ != nullptr && this->master_ != nullptr && this->orderId_ != nullptr && this->pqcEnabled_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr && this->tenantIsolationType_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vendor_ != nullptr && this->vpcId_ != nullptr && this->whitelist_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->certification_ == nullptr
+        && return this->certificationUrl_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->createTime_ == nullptr && return this->deviceType_ == nullptr
+        && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->ip_ == nullptr && return this->isTrial_ == nullptr && return this->master_ == nullptr
+        && return this->orderId_ == nullptr && return this->pqcEnabled_ == nullptr && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr
+        && return this->tenantIsolationType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vendor_ == nullptr && return this->vpcId_ == nullptr && return this->whitelist_ == nullptr
+        && return this->zoneId_ == nullptr; };
+    // certification Field Functions 
+    bool hasCertification() const { return this->certification_ != nullptr;};
+    void deleteCertification() { this->certification_ = nullptr;};
+    inline string certification() const { DARABONBA_PTR_GET_DEFAULT(certification_, "") };
+    inline GetInstanceResponseBodyInstance& setCertification(string certification) { DARABONBA_PTR_SET_VALUE(certification_, certification) };
+
+
+    // certificationUrl Field Functions 
+    bool hasCertificationUrl() const { return this->certificationUrl_ != nullptr;};
+    void deleteCertificationUrl() { this->certificationUrl_ = nullptr;};
+    inline string certificationUrl() const { DARABONBA_PTR_GET_DEFAULT(certificationUrl_, "") };
+    inline GetInstanceResponseBodyInstance& setCertificationUrl(string certificationUrl) { DARABONBA_PTR_SET_VALUE(certificationUrl_, certificationUrl) };
+
+
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -213,6 +232,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> certification_ = nullptr;
+    std::shared_ptr<string> certificationUrl_ = nullptr;
     // The ID of the cluster to which the HSM belongs.
     std::shared_ptr<string> clusterId_ = nullptr;
     // The name of the cluster.

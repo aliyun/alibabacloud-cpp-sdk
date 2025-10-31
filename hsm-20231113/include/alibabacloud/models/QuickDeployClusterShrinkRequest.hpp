@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certManaged_ != nullptr
-        && this->clusterName_ != nullptr && this->instanceListShrink_ != nullptr && this->regionId_ != nullptr && this->vSwitchIdListShrink_ != nullptr && this->vpcId_ != nullptr
-        && this->whiteListShrink_ != nullptr; };
+    virtual bool empty() const override { return this->certManaged_ == nullptr
+        && return this->clusterName_ == nullptr && return this->instanceListShrink_ == nullptr && return this->regionId_ == nullptr && return this->vSwitchIdListShrink_ == nullptr && return this->vpcId_ == nullptr
+        && return this->whiteListShrink_ == nullptr; };
     // certManaged Field Functions 
     bool hasCertManaged() const { return this->certManaged_ != nullptr;};
     void deleteCertManaged() { this->certManaged_ = nullptr;};

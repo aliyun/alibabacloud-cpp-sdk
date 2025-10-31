@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoImageCount_ != nullptr
-        && this->backupHourInDay_ != nullptr && this->backupId_ != nullptr && this->backupPeriod_ != nullptr && this->createTime_ != nullptr && this->expireTime_ != nullptr
-        && this->instanceId_ != nullptr && this->maxImageCount_ != nullptr && this->name_ != nullptr && this->nextImageCreateTime_ != nullptr && this->ownerInstanceId_ != nullptr
-        && this->regionId_ != nullptr && this->releaseTime_ != nullptr && this->remark_ != nullptr && this->spInstanceId_ != nullptr && this->status_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->autoImageCount_ == nullptr
+        && return this->backupHourInDay_ == nullptr && return this->backupId_ == nullptr && return this->backupPeriod_ == nullptr && return this->createTime_ == nullptr && return this->expireTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->maxImageCount_ == nullptr && return this->name_ == nullptr && return this->nextImageCreateTime_ == nullptr && return this->ownerInstanceId_ == nullptr
+        && return this->regionId_ == nullptr && return this->releaseTime_ == nullptr && return this->remark_ == nullptr && return this->spInstanceId_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr; };
     // autoImageCount Field Functions 
     bool hasAutoImageCount() const { return this->autoImageCount_ != nullptr;};
     void deleteAutoImageCount() { this->autoImageCount_ = nullptr;};

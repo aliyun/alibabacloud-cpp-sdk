@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupId_ != nullptr
-        && this->copyTime_ != nullptr && this->exportTime_ != nullptr && this->imageId_ != nullptr && this->instanceId_ != nullptr && this->mode_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->sourceBackupUid_ != nullptr && this->sourceImageUid_ != nullptr && this->sourceInstanceId_ != nullptr
-        && this->sourceRegionId_ != nullptr && this->status_ != nullptr && this->vsmDigest_ != nullptr; };
+    virtual bool empty() const override { return this->backupId_ == nullptr
+        && return this->copyTime_ == nullptr && return this->exportTime_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr && return this->mode_ == nullptr
+        && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->sourceBackupUid_ == nullptr && return this->sourceImageUid_ == nullptr && return this->sourceInstanceId_ == nullptr
+        && return this->sourceRegionId_ == nullptr && return this->status_ == nullptr && return this->vsmDigest_ == nullptr; };
     // backupId Field Functions 
     bool hasBackupId() const { return this->backupId_ != nullptr;};
     void deleteBackupId() { this->backupId_ = nullptr;};

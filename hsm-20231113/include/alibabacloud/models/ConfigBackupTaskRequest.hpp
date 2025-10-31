@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupHourInDay_ != nullptr
-        && this->backupId_ != nullptr && this->backupPeriod_ != nullptr && this->manual2PeriodicList_ != nullptr && this->periodic2ManualList_ != nullptr; };
+    virtual bool empty() const override { return this->backupHourInDay_ == nullptr
+        && return this->backupId_ == nullptr && return this->backupPeriod_ == nullptr && return this->manual2PeriodicList_ == nullptr && return this->periodic2ManualList_ == nullptr; };
     // backupHourInDay Field Functions 
     bool hasBackupHourInDay() const { return this->backupHourInDay_ != nullptr;};
     void deleteBackupHourInDay() { this->backupHourInDay_ = nullptr;};
