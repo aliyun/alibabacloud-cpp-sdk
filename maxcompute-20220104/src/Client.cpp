@@ -1329,6 +1329,14 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
     query["verbose"] = request.verbose();
   }
 
+  if (!!request.hasWithQuotaProductType()) {
+    query["withQuotaProductType"] = request.withQuotaProductType();
+  }
+
+  if (!!request.hasWithStorageTierInfo()) {
+    query["withStorageTierInfo"] = request.withStorageTierInfo();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -2765,6 +2773,10 @@ ListMmsJobsResponse Client::listMmsJobsWithOptions(const string &sourceId, const
 
   if (!!request.hasStopped()) {
     query["stopped"] = request.stopped();
+  }
+
+  if (!!request.hasTimerId()) {
+    query["timerId"] = request.timerId();
   }
 
   if (!!request.hasSorter()) {

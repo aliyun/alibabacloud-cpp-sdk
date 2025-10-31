@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(srcTableName, srcTableName_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(stopped, stopped_);
+      DARABONBA_PTR_TO_JSON(timerId, timerId_);
     };
     friend void from_json(const Darabonba::Json& j, ListMmsJobsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(sorter, sorter_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(srcTableName, srcTableName_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(stopped, stopped_);
+      DARABONBA_PTR_FROM_JSON(timerId, timerId_);
     };
     ListMmsJobsRequest() = default ;
     ListMmsJobsRequest(const ListMmsJobsRequest &) = default ;
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->sorter_ == nullptr
         && return this->dstDbName_ == nullptr && return this->dstTableName_ == nullptr && return this->name_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr
-        && return this->srcDbName_ == nullptr && return this->srcTableName_ == nullptr && return this->status_ == nullptr && return this->stopped_ == nullptr; };
+        && return this->srcDbName_ == nullptr && return this->srcTableName_ == nullptr && return this->status_ == nullptr && return this->stopped_ == nullptr && return this->timerId_ == nullptr; };
     // sorter Field Functions 
     bool hasSorter() const { return this->sorter_ != nullptr;};
     void deleteSorter() { this->sorter_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     inline ListMmsJobsRequest& setStopped(int64_t stopped) { DARABONBA_PTR_SET_VALUE(stopped_, stopped) };
 
 
+    // timerId Field Functions 
+    bool hasTimerId() const { return this->timerId_ != nullptr;};
+    void deleteTimerId() { this->timerId_ = nullptr;};
+    inline int64_t timerId() const { DARABONBA_PTR_GET_DEFAULT(timerId_, 0L) };
+    inline ListMmsJobsRequest& setTimerId(int64_t timerId) { DARABONBA_PTR_SET_VALUE(timerId_, timerId) };
+
+
   protected:
     std::shared_ptr<ListMmsJobsRequestSorter> sorter_ = nullptr;
     std::shared_ptr<string> dstDbName_ = nullptr;
@@ -134,6 +143,7 @@ namespace Models
     std::shared_ptr<string> srcTableName_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<int64_t> stopped_ = nullptr;
+    std::shared_ptr<int64_t> timerId_ = nullptr;
   };
 
   } // namespace Models
