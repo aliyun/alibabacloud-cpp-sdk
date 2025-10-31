@@ -455,6 +455,14 @@ CreateDetectionRuleResponse Client::createDetectionRuleWithOptions(const CreateD
     body["DetectionRuleStatus"] = request.detectionRuleStatus();
   }
 
+  if (!!request.hasDetectionRuleTemplateId()) {
+    body["DetectionRuleTemplateId"] = request.detectionRuleTemplateId();
+  }
+
+  if (!!request.hasDetectionRuleTemplateVersion()) {
+    body["DetectionRuleTemplateVersion"] = request.detectionRuleTemplateVersion();
+  }
+
   if (!!request.hasDetectionRuleType()) {
     body["DetectionRuleType"] = request.detectionRuleType();
   }

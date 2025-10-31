@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_TO_JSON(IncidentRemark, incidentRemark_);
       DARABONBA_PTR_TO_JSON(IncidentStatus, incidentStatus_);
+      DARABONBA_PTR_TO_JSON(IncidentTags, incidentTags_);
       DARABONBA_PTR_TO_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_TO_JSON(RelateAlertCount, relateAlertCount_);
       DARABONBA_PTR_TO_JSON(RelateAssetCount, relateAssetCount_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IncidentName, incidentName_);
       DARABONBA_PTR_FROM_JSON(IncidentRemark, incidentRemark_);
       DARABONBA_PTR_FROM_JSON(IncidentStatus, incidentStatus_);
+      DARABONBA_PTR_FROM_JSON(IncidentTags, incidentTags_);
       DARABONBA_PTR_FROM_JSON(IncidentUuid, incidentUuid_);
       DARABONBA_PTR_FROM_JSON(RelateAlertCount, relateAlertCount_);
       DARABONBA_PTR_FROM_JSON(RelateAssetCount, relateAssetCount_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->incidentName_ == nullptr && return this->incidentRemark_ == nullptr && return this->incidentStatus_ == nullptr && return this->incidentUuid_ == nullptr && return this->relateAlertCount_ == nullptr
-        && return this->relateAssetCount_ == nullptr && return this->threatLevel_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->incidentName_ == nullptr && return this->incidentRemark_ == nullptr && return this->incidentStatus_ == nullptr && return this->incidentTags_ == nullptr && return this->incidentUuid_ == nullptr
+        && return this->relateAlertCount_ == nullptr && return this->relateAssetCount_ == nullptr && return this->threatLevel_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteIncidentStatus() { this->incidentStatus_ = nullptr;};
     inline int32_t incidentStatus() const { DARABONBA_PTR_GET_DEFAULT(incidentStatus_, 0) };
     inline ListIncidentsResponseBodyIncidents& setIncidentStatus(int32_t incidentStatus) { DARABONBA_PTR_SET_VALUE(incidentStatus_, incidentStatus) };
+
+
+    // incidentTags Field Functions 
+    bool hasIncidentTags() const { return this->incidentTags_ != nullptr;};
+    void deleteIncidentTags() { this->incidentTags_ = nullptr;};
+    inline string incidentTags() const { DARABONBA_PTR_GET_DEFAULT(incidentTags_, "") };
+    inline ListIncidentsResponseBodyIncidents& setIncidentTags(string incidentTags) { DARABONBA_PTR_SET_VALUE(incidentTags_, incidentTags) };
 
 
     // incidentUuid Field Functions 
@@ -116,6 +125,7 @@ namespace Models
     std::shared_ptr<string> incidentName_ = nullptr;
     std::shared_ptr<string> incidentRemark_ = nullptr;
     std::shared_ptr<int32_t> incidentStatus_ = nullptr;
+    std::shared_ptr<string> incidentTags_ = nullptr;
     std::shared_ptr<string> incidentUuid_ = nullptr;
     std::shared_ptr<int32_t> relateAlertCount_ = nullptr;
     std::shared_ptr<int32_t> relateAssetCount_ = nullptr;

@@ -26,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DetectionRuleDescription, detectionRuleDescription_);
       DARABONBA_PTR_TO_JSON(DetectionRuleName, detectionRuleName_);
       DARABONBA_PTR_TO_JSON(DetectionRuleStatus, detectionRuleStatus_);
+      DARABONBA_PTR_TO_JSON(DetectionRuleTemplateId, detectionRuleTemplateId_);
+      DARABONBA_PTR_TO_JSON(DetectionRuleTemplateVersion, detectionRuleTemplateVersion_);
       DARABONBA_PTR_TO_JSON(DetectionRuleType, detectionRuleType_);
       DARABONBA_PTR_TO_JSON(EntityMappings, entityMappings_);
       DARABONBA_PTR_TO_JSON(IncidentAggregationExpression, incidentAggregationExpression_);
@@ -58,6 +60,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DetectionRuleDescription, detectionRuleDescription_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleName, detectionRuleName_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleStatus, detectionRuleStatus_);
+      DARABONBA_PTR_FROM_JSON(DetectionRuleTemplateId, detectionRuleTemplateId_);
+      DARABONBA_PTR_FROM_JSON(DetectionRuleTemplateVersion, detectionRuleTemplateVersion_);
       DARABONBA_PTR_FROM_JSON(DetectionRuleType, detectionRuleType_);
       DARABONBA_PTR_FROM_JSON(EntityMappings, entityMappings_);
       DARABONBA_PTR_FROM_JSON(IncidentAggregationExpression, incidentAggregationExpression_);
@@ -90,10 +94,11 @@ namespace Models
     virtual bool empty() const override { return this->alertAttCk_ == nullptr
         && return this->alertLevel_ == nullptr && return this->alertSchemaId_ == nullptr && return this->alertTacticId_ == nullptr && return this->alertThresholdCount_ == nullptr && return this->alertThresholdGroup_ == nullptr
         && return this->alertThresholdPeriod_ == nullptr && return this->alertType_ == nullptr && return this->detectionExpressionContent_ == nullptr && return this->detectionExpressionType_ == nullptr && return this->detectionRuleDescription_ == nullptr
-        && return this->detectionRuleName_ == nullptr && return this->detectionRuleStatus_ == nullptr && return this->detectionRuleType_ == nullptr && return this->entityMappings_ == nullptr && return this->incidentAggregationExpression_ == nullptr
-        && return this->incidentAggregationType_ == nullptr && return this->lang_ == nullptr && return this->logCategoryId_ == nullptr && return this->logSchemaId_ == nullptr && return this->playbookParameters_ == nullptr
-        && return this->playbookUuid_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr && return this->scheduleBeginTime_ == nullptr && return this->scheduleExpression_ == nullptr
-        && return this->scheduleMaxRetries_ == nullptr && return this->scheduleMaxTimeout_ == nullptr && return this->scheduleType_ == nullptr && return this->scheduleWindow_ == nullptr; };
+        && return this->detectionRuleName_ == nullptr && return this->detectionRuleStatus_ == nullptr && return this->detectionRuleTemplateId_ == nullptr && return this->detectionRuleTemplateVersion_ == nullptr && return this->detectionRuleType_ == nullptr
+        && return this->entityMappings_ == nullptr && return this->incidentAggregationExpression_ == nullptr && return this->incidentAggregationType_ == nullptr && return this->lang_ == nullptr && return this->logCategoryId_ == nullptr
+        && return this->logSchemaId_ == nullptr && return this->playbookParameters_ == nullptr && return this->playbookUuid_ == nullptr && return this->regionId_ == nullptr && return this->roleFor_ == nullptr
+        && return this->scheduleBeginTime_ == nullptr && return this->scheduleExpression_ == nullptr && return this->scheduleMaxRetries_ == nullptr && return this->scheduleMaxTimeout_ == nullptr && return this->scheduleType_ == nullptr
+        && return this->scheduleWindow_ == nullptr; };
     // alertAttCk Field Functions 
     bool hasAlertAttCk() const { return this->alertAttCk_ != nullptr;};
     void deleteAlertAttCk() { this->alertAttCk_ = nullptr;};
@@ -183,6 +188,20 @@ namespace Models
     void deleteDetectionRuleStatus() { this->detectionRuleStatus_ = nullptr;};
     inline string detectionRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleStatus_, "") };
     inline CreateDetectionRuleRequest& setDetectionRuleStatus(string detectionRuleStatus) { DARABONBA_PTR_SET_VALUE(detectionRuleStatus_, detectionRuleStatus) };
+
+
+    // detectionRuleTemplateId Field Functions 
+    bool hasDetectionRuleTemplateId() const { return this->detectionRuleTemplateId_ != nullptr;};
+    void deleteDetectionRuleTemplateId() { this->detectionRuleTemplateId_ = nullptr;};
+    inline string detectionRuleTemplateId() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleTemplateId_, "") };
+    inline CreateDetectionRuleRequest& setDetectionRuleTemplateId(string detectionRuleTemplateId) { DARABONBA_PTR_SET_VALUE(detectionRuleTemplateId_, detectionRuleTemplateId) };
+
+
+    // detectionRuleTemplateVersion Field Functions 
+    bool hasDetectionRuleTemplateVersion() const { return this->detectionRuleTemplateVersion_ != nullptr;};
+    void deleteDetectionRuleTemplateVersion() { this->detectionRuleTemplateVersion_ = nullptr;};
+    inline string detectionRuleTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(detectionRuleTemplateVersion_, "") };
+    inline CreateDetectionRuleRequest& setDetectionRuleTemplateVersion(string detectionRuleTemplateVersion) { DARABONBA_PTR_SET_VALUE(detectionRuleTemplateVersion_, detectionRuleTemplateVersion) };
 
 
     // detectionRuleType Field Functions 
@@ -322,6 +341,8 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> detectionRuleName_ = nullptr;
     std::shared_ptr<string> detectionRuleStatus_ = nullptr;
+    std::shared_ptr<string> detectionRuleTemplateId_ = nullptr;
+    std::shared_ptr<string> detectionRuleTemplateVersion_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> detectionRuleType_ = nullptr;
     std::shared_ptr<string> entityMappings_ = nullptr;
