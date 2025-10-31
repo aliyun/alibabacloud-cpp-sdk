@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_eipanycast20200309Targets.cmake")
+check_required_components("alibabacloud_eipanycast20200309")

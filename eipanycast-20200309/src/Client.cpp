@@ -77,9 +77,13 @@ AllocateAnycastEipAddressResponse Client::allocateAnycastEipAddressWithOptions(c
     query["ServiceLocation"] = request.serviceLocation();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AllocateAnycastEipAddress"},
     {"version" , "2020-03-09"},
@@ -90,7 +94,7 @@ AllocateAnycastEipAddressResponse Client::allocateAnycastEipAddressWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AllocateAnycastEipAddressResponse>();
 }
 
@@ -153,7 +157,7 @@ AssociateAnycastEipAddressResponse Client::associateAnycastEipAddressWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "AssociateAnycastEipAddress"},
     {"version" , "2020-03-09"},
@@ -164,7 +168,7 @@ AssociateAnycastEipAddressResponse Client::associateAnycastEipAddressWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AssociateAnycastEipAddressResponse>();
 }
 
@@ -203,7 +207,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ChangeResourceGroup"},
     {"version" , "2020-03-09"},
@@ -214,7 +218,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeResourceGroupResponse>();
 }
 
@@ -253,7 +257,7 @@ DescribeAnycastEipAddressResponse Client::describeAnycastEipAddressWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAnycastEipAddress"},
     {"version" , "2020-03-09"},
@@ -264,7 +268,7 @@ DescribeAnycastEipAddressResponse Client::describeAnycastEipAddressWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAnycastEipAddressResponse>();
 }
 
@@ -295,7 +299,7 @@ DescribeAnycastPopLocationsResponse Client::describeAnycastPopLocationsWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAnycastPopLocations"},
     {"version" , "2020-03-09"},
@@ -306,7 +310,7 @@ DescribeAnycastPopLocationsResponse Client::describeAnycastPopLocationsWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAnycastPopLocationsResponse>();
 }
 
@@ -337,7 +341,7 @@ DescribeAnycastServerRegionsResponse Client::describeAnycastServerRegionsWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeAnycastServerRegions"},
     {"version" , "2020-03-09"},
@@ -348,7 +352,7 @@ DescribeAnycastServerRegionsResponse Client::describeAnycastServerRegionsWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeAnycastServerRegionsResponse>();
 }
 
@@ -431,7 +435,7 @@ ListAnycastEipAddressesResponse Client::listAnycastEipAddressesWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListAnycastEipAddresses"},
     {"version" , "2020-03-09"},
@@ -442,7 +446,7 @@ ListAnycastEipAddressesResponse Client::listAnycastEipAddressesWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListAnycastEipAddressesResponse>();
 }
 
@@ -489,7 +493,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListTagResources"},
     {"version" , "2020-03-09"},
@@ -500,7 +504,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
 }
 
@@ -539,7 +543,7 @@ ModifyAnycastEipAddressAttributeResponse Client::modifyAnycastEipAddressAttribut
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyAnycastEipAddressAttribute"},
     {"version" , "2020-03-09"},
@@ -550,7 +554,7 @@ ModifyAnycastEipAddressAttributeResponse Client::modifyAnycastEipAddressAttribut
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyAnycastEipAddressAttributeResponse>();
 }
 
@@ -585,7 +589,7 @@ ModifyAnycastEipAddressSpecResponse Client::modifyAnycastEipAddressSpecWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyAnycastEipAddressSpec"},
     {"version" , "2020-03-09"},
@@ -596,7 +600,7 @@ ModifyAnycastEipAddressSpecResponse Client::modifyAnycastEipAddressSpecWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyAnycastEipAddressSpecResponse>();
 }
 
@@ -631,7 +635,7 @@ ReleaseAnycastEipAddressResponse Client::releaseAnycastEipAddressWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ReleaseAnycastEipAddress"},
     {"version" , "2020-03-09"},
@@ -642,7 +646,7 @@ ReleaseAnycastEipAddressResponse Client::releaseAnycastEipAddressWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ReleaseAnycastEipAddressResponse>();
 }
 
@@ -681,7 +685,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "TagResources"},
     {"version" , "2020-03-09"},
@@ -692,7 +696,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
 }
 
@@ -747,7 +751,7 @@ UnassociateAnycastEipAddressResponse Client::unassociateAnycastEipAddressWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UnassociateAnycastEipAddress"},
     {"version" , "2020-03-09"},
@@ -758,7 +762,7 @@ UnassociateAnycastEipAddressResponse Client::unassociateAnycastEipAddressWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UnassociateAnycastEipAddressResponse>();
 }
 
@@ -797,7 +801,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UntagResources"},
     {"version" , "2020-03-09"},
@@ -808,7 +812,7 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
 }
 
@@ -863,7 +867,7 @@ UpdateAnycastEipAddressAssociationsResponse Client::updateAnycastEipAddressAssoc
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateAnycastEipAddressAssociations"},
     {"version" , "2020-03-09"},
@@ -874,7 +878,7 @@ UpdateAnycastEipAddressAssociationsResponse Client::updateAnycastEipAddressAssoc
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateAnycastEipAddressAssociationsResponse>();
 }
 

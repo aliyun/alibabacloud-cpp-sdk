@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->anycastEipBindInfoList_ != nullptr && this->anycastId_ != nullptr && this->bandwidth_ != nullptr && this->bid_ != nullptr && this->businessStatus_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->ipAddress_ != nullptr
-        && this->name_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->serviceLocation_ != nullptr && this->serviceManaged_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->anycastEipBindInfoList_ == nullptr && return this->anycastId_ == nullptr && return this->bandwidth_ == nullptr && return this->bid_ == nullptr && return this->businessStatus_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipAddress_ == nullptr
+        && return this->name_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceLocation_ == nullptr && return this->serviceManaged_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

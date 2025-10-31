@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anycastServerRegionList_ != nullptr
-        && this->count_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->anycastServerRegionList_ == nullptr
+        && return this->count_ == nullptr && return this->requestId_ == nullptr; };
     // anycastServerRegionList Field Functions 
     bool hasAnycastServerRegionList() const { return this->anycastServerRegionList_ != nullptr;};
     void deleteAnycastServerRegionList() { this->anycastServerRegionList_ = nullptr;};

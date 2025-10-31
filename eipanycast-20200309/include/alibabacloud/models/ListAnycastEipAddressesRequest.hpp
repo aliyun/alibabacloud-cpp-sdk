@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anycastEipAddress_ != nullptr
-        && this->anycastId_ != nullptr && this->anycastIds_ != nullptr && this->bindInstanceIds_ != nullptr && this->businessStatus_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->internetChargeType_ != nullptr && this->maxResults_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->serviceLocation_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->anycastEipAddress_ == nullptr
+        && return this->anycastId_ == nullptr && return this->anycastIds_ == nullptr && return this->bindInstanceIds_ == nullptr && return this->businessStatus_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->serviceLocation_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // anycastEipAddress Field Functions 
     bool hasAnycastEipAddress() const { return this->anycastEipAddress_ != nullptr;};
     void deleteAnycastEipAddress() { this->anycastEipAddress_ = nullptr;};

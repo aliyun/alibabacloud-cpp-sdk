@@ -47,6 +47,7 @@
 #include <alibabacloud/models/UpdateAnycastEipAddressAssociationsRequest.hpp>
 #include <alibabacloud/models/UpdateAnycastEipAddressAssociationsResponseBody.hpp>
 #include <alibabacloud/models/UpdateAnycastEipAddressAssociationsResponse.hpp>
+#include <alibabacloud/models/AllocateAnycastEipAddressRequestTag.hpp>
 #include <alibabacloud/models/AssociateAnycastEipAddressRequestPopLocations.hpp>
 #include <alibabacloud/models/DescribeAnycastEipAddressResponseBodyAnycastEipBindInfoListPopLocations.hpp>
 #include <alibabacloud/models/DescribeAnycastEipAddressResponseBodyAnycastEipBindInfoList.hpp>

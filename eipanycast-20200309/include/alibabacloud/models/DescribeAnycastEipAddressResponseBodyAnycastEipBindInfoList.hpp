@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associationMode_ != nullptr
-        && this->bindInstanceId_ != nullptr && this->bindInstanceRegionId_ != nullptr && this->bindInstanceType_ != nullptr && this->bindTime_ != nullptr && this->popLocations_ != nullptr
-        && this->privateIpAddress_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->associationMode_ == nullptr
+        && return this->bindInstanceId_ == nullptr && return this->bindInstanceRegionId_ == nullptr && return this->bindInstanceType_ == nullptr && return this->bindTime_ == nullptr && return this->popLocations_ == nullptr
+        && return this->privateIpAddress_ == nullptr && return this->status_ == nullptr; };
     // associationMode Field Functions 
     bool hasAssociationMode() const { return this->associationMode_ != nullptr;};
     void deleteAssociationMode() { this->associationMode_ = nullptr;};

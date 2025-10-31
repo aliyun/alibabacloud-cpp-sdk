@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_ALLOCATEANYCASTEIPADDRESSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_ALLOCATEANYCASTEIPADDRESSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/AllocateAnycastEipAddressRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -21,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ServiceLocation, serviceLocation_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, AllocateAnycastEipAddressRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -31,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ServiceLocation, serviceLocation_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     AllocateAnycastEipAddressRequest() = default ;
     AllocateAnycastEipAddressRequest(const AllocateAnycastEipAddressRequest &) = default ;
@@ -43,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->clientToken_ != nullptr && this->description_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->name_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serviceLocation_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr && return this->name_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->serviceLocation_ == nullptr && return this->tag_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -102,6 +106,15 @@ namespace Models
     inline AllocateAnycastEipAddressRequest& setServiceLocation(string serviceLocation) { DARABONBA_PTR_SET_VALUE(serviceLocation_, serviceLocation) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<AllocateAnycastEipAddressRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<AllocateAnycastEipAddressRequestTag>) };
+    inline vector<AllocateAnycastEipAddressRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<AllocateAnycastEipAddressRequestTag>) };
+    inline AllocateAnycastEipAddressRequest& setTag(const vector<AllocateAnycastEipAddressRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline AllocateAnycastEipAddressRequest& setTag(vector<AllocateAnycastEipAddressRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
   protected:
     // The maximum bandwidth of the Anycast EIP. Unit: Mbit/s.
     // 
@@ -141,6 +154,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> serviceLocation_ = nullptr;
+    std::shared_ptr<vector<AllocateAnycastEipAddressRequestTag>> tag_ = nullptr;
   };
 
   } // namespace Models
