@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllInstances, allInstances_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Keys, keys_);
+      DARABONBA_PTR_TO_JSON(LabelKeys, labelKeys_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteResourceInstanceLabelRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllInstances, allInstances_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Keys, keys_);
+      DARABONBA_PTR_FROM_JSON(LabelKeys, labelKeys_);
     };
     DeleteResourceInstanceLabelRequest() = default ;
     DeleteResourceInstanceLabelRequest(const DeleteResourceInstanceLabelRequest &) = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allInstances_ == nullptr
-        && return this->instanceIds_ == nullptr && return this->keys_ == nullptr; };
+        && return this->instanceIds_ == nullptr && return this->keys_ == nullptr && return this->labelKeys_ == nullptr; };
     // allInstances Field Functions 
     bool hasAllInstances() const { return this->allInstances_ != nullptr;};
     void deleteAllInstances() { this->allInstances_ = nullptr;};
@@ -61,6 +63,15 @@ namespace Models
     inline DeleteResourceInstanceLabelRequest& setKeys(vector<string> && keys) { DARABONBA_PTR_SET_RVALUE(keys_, keys) };
 
 
+    // labelKeys Field Functions 
+    bool hasLabelKeys() const { return this->labelKeys_ != nullptr;};
+    void deleteLabelKeys() { this->labelKeys_ = nullptr;};
+    inline const vector<string> & labelKeys() const { DARABONBA_PTR_GET_CONST(labelKeys_, vector<string>) };
+    inline vector<string> labelKeys() { DARABONBA_PTR_GET(labelKeys_, vector<string>) };
+    inline DeleteResourceInstanceLabelRequest& setLabelKeys(const vector<string> & labelKeys) { DARABONBA_PTR_SET_VALUE(labelKeys_, labelKeys) };
+    inline DeleteResourceInstanceLabelRequest& setLabelKeys(vector<string> && labelKeys) { DARABONBA_PTR_SET_RVALUE(labelKeys_, labelKeys) };
+
+
   protected:
     // Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
     std::shared_ptr<bool> allInstances_ = nullptr;
@@ -68,6 +79,7 @@ namespace Models
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     // The keys of the tags that you want to delete.
     std::shared_ptr<vector<string>> keys_ = nullptr;
+    std::shared_ptr<vector<string>> labelKeys_ = nullptr;
   };
 
   } // namespace Models

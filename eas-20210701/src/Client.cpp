@@ -1355,6 +1355,10 @@ DeleteResourceInstanceLabelResponse Client::deleteResourceInstanceLabelWithOptio
     request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.keys(), "Keys", "simple"));
   }
 
+  if (!!tmpReq.hasLabelKeys()) {
+    request.setLabelKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.labelKeys(), "LabelKeys", "json"));
+  }
+
   json query = {};
   if (!!request.hasAllInstances()) {
     query["AllInstances"] = request.allInstances();
@@ -1366,6 +1370,10 @@ DeleteResourceInstanceLabelResponse Client::deleteResourceInstanceLabelWithOptio
 
   if (!!request.hasKeysShrink()) {
     query["Keys"] = request.keysShrink();
+  }
+
+  if (!!request.hasLabelKeysShrink()) {
+    query["LabelKeys"] = request.labelKeysShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1660,9 +1668,17 @@ DeleteServiceLabelResponse Client::deleteServiceLabelWithOptions(const string &C
     request.setKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.keys(), "Keys", "simple"));
   }
 
+  if (!!tmpReq.hasLabelKeys()) {
+    request.setLabelKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.labelKeys(), "LabelKeys", "json"));
+  }
+
   json query = {};
   if (!!request.hasKeysShrink()) {
     query["Keys"] = request.keysShrink();
+  }
+
+  if (!!request.hasLabelKeysShrink()) {
+    query["LabelKeys"] = request.labelKeysShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

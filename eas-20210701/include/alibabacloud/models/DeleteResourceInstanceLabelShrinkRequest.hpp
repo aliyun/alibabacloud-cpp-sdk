@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllInstances, allInstances_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_TO_JSON(Keys, keysShrink_);
+      DARABONBA_PTR_TO_JSON(LabelKeys, labelKeysShrink_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteResourceInstanceLabelShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllInstances, allInstances_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIdsShrink_);
       DARABONBA_PTR_FROM_JSON(Keys, keysShrink_);
+      DARABONBA_PTR_FROM_JSON(LabelKeys, labelKeysShrink_);
     };
     DeleteResourceInstanceLabelShrinkRequest() = default ;
     DeleteResourceInstanceLabelShrinkRequest(const DeleteResourceInstanceLabelShrinkRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allInstances_ == nullptr
-        && return this->instanceIdsShrink_ == nullptr && return this->keysShrink_ == nullptr; };
+        && return this->instanceIdsShrink_ == nullptr && return this->keysShrink_ == nullptr && return this->labelKeysShrink_ == nullptr; };
     // allInstances Field Functions 
     bool hasAllInstances() const { return this->allInstances_ != nullptr;};
     void deleteAllInstances() { this->allInstances_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline DeleteResourceInstanceLabelShrinkRequest& setKeysShrink(string keysShrink) { DARABONBA_PTR_SET_VALUE(keysShrink_, keysShrink) };
 
 
+    // labelKeysShrink Field Functions 
+    bool hasLabelKeysShrink() const { return this->labelKeysShrink_ != nullptr;};
+    void deleteLabelKeysShrink() { this->labelKeysShrink_ = nullptr;};
+    inline string labelKeysShrink() const { DARABONBA_PTR_GET_DEFAULT(labelKeysShrink_, "") };
+    inline DeleteResourceInstanceLabelShrinkRequest& setLabelKeysShrink(string labelKeysShrink) { DARABONBA_PTR_SET_VALUE(labelKeysShrink_, labelKeysShrink) };
+
+
   protected:
     // Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
     std::shared_ptr<bool> allInstances_ = nullptr;
@@ -63,6 +72,7 @@ namespace Models
     std::shared_ptr<string> instanceIdsShrink_ = nullptr;
     // The keys of the tags that you want to delete.
     std::shared_ptr<string> keysShrink_ = nullptr;
+    std::shared_ptr<string> labelKeysShrink_ = nullptr;
   };
 
   } // namespace Models
