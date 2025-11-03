@@ -17,6 +17,7 @@ namespace Models
   class ListConnectorsResponseBodyConnectors : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListConnectorsResponseBodyConnectors& obj) { 
+      DARABONBA_PTR_TO_JSON(AccelerateStatus, accelerateStatus_);
       DARABONBA_PTR_TO_JSON(Applications, applications_);
       DARABONBA_PTR_TO_JSON(ClusterIP, clusterIP_);
       DARABONBA_PTR_TO_JSON(ClusterPort, clusterPort_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UpgradeTime, upgradeTime_);
     };
     friend void from_json(const Darabonba::Json& j, ListConnectorsResponseBodyConnectors& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccelerateStatus, accelerateStatus_);
       DARABONBA_PTR_FROM_JSON(Applications, applications_);
       DARABONBA_PTR_FROM_JSON(ClusterIP, clusterIP_);
       DARABONBA_PTR_FROM_JSON(ClusterPort, clusterPort_);
@@ -53,9 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applications_ == nullptr
-        && return this->clusterIP_ == nullptr && return this->clusterPort_ == nullptr && return this->connectorClients_ == nullptr && return this->connectorId_ == nullptr && return this->createTime_ == nullptr
-        && return this->name_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->switchStatus_ == nullptr && return this->upgradeTime_ == nullptr; };
+    virtual bool empty() const override { return this->accelerateStatus_ == nullptr
+        && return this->applications_ == nullptr && return this->clusterIP_ == nullptr && return this->clusterPort_ == nullptr && return this->connectorClients_ == nullptr && return this->connectorId_ == nullptr
+        && return this->createTime_ == nullptr && return this->name_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->switchStatus_ == nullptr
+        && return this->upgradeTime_ == nullptr; };
+    // accelerateStatus Field Functions 
+    bool hasAccelerateStatus() const { return this->accelerateStatus_ != nullptr;};
+    void deleteAccelerateStatus() { this->accelerateStatus_ = nullptr;};
+    inline string accelerateStatus() const { DARABONBA_PTR_GET_DEFAULT(accelerateStatus_, "") };
+    inline ListConnectorsResponseBodyConnectors& setAccelerateStatus(string accelerateStatus) { DARABONBA_PTR_SET_VALUE(accelerateStatus_, accelerateStatus) };
+
+
     // applications Field Functions 
     bool hasApplications() const { return this->applications_ != nullptr;};
     void deleteApplications() { this->applications_ = nullptr;};
@@ -140,6 +150,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accelerateStatus_ = nullptr;
     // Collection of associated internal network access applications.
     std::shared_ptr<vector<Models::ListConnectorsResponseBodyConnectorsApplications>> applications_ = nullptr;
     // Cluster IP.
