@@ -268,30 +268,65 @@ namespace Models
 
 
   protected:
+    // The connection status of the cloud desktop.
     std::shared_ptr<string> connectionStatus_ = nullptr;
+    // The number of vCPUs.
     std::shared_ptr<int32_t> cpu_ = nullptr;
+    // The ID of the cloud computer share.
     std::shared_ptr<string> desktopGroupId_ = nullptr;
+    // The name of the cloud computer share.
     std::shared_ptr<string> desktopGroupName_ = nullptr;
+    // The cloud computer IDs.
     std::shared_ptr<string> desktopId_ = nullptr;
+    // The cloud computer name.
     std::shared_ptr<string> desktopName_ = nullptr;
+    // 桌面状态
     std::shared_ptr<string> desktopStatus_ = nullptr;
+    // The end user ID.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // The list of assigned terminal user IDs.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    // The size of the GPU memory.
     std::shared_ptr<string> gpuSpec_ = nullptr;
+    // The duration of the last connection to the cloud computer. Unit: seconds
     std::shared_ptr<int64_t> latestConnectionTime_ = nullptr;
+    // The memory of the cloud computer. Unit: MiB.
     std::shared_ptr<int64_t> memory_ = nullptr;
+    // The office network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The office network name.
     std::shared_ptr<string> officeSiteName_ = nullptr;
+    // The OS type. Valid values:
+    // 
+    // *   Windows
+    // *   Linux
     std::shared_ptr<string> osType_ = nullptr;
+    // The specific model of the operating system.
     std::shared_ptr<string> platform_ = nullptr;
+    // Protocol type.
+    // 
+    // *   HDX
+    // *   ASP
     std::shared_ptr<string> protocolType_ = nullptr;
+    // The ID of the region where the instance resides.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The name of the enterprise resource group.
     std::shared_ptr<vector<Models::DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups>> resourceGroups_ = nullptr;
+    // The idle duration of the session. Unit: minutes.
     std::shared_ptr<int64_t> sessionIdleTime_ = nullptr;
+    // The session details.
     std::shared_ptr<vector<Models::DescribeGlobalDesktopRecordsResponseBodySessionsSessions>> sessions_ = nullptr;
+    // The time when the status of the cloud computer was changed.
     std::shared_ptr<int64_t> statusChangeTime_ = nullptr;
+    // The billing method of the cloud computer. Valid values:
+    // 
+    // *   prePaid: The monthly purchase is unlimited.
+    // *   postPaid: pay-as-you-go
+    // *   monthPackage: monthly duration.
     std::shared_ptr<string> subPayType_ = nullptr;
+    // The total connection duration. Unit: seconds
     std::shared_ptr<int64_t> totalConnectionTime_ = nullptr;
+    // The startup duration of the cloud computer. Unit: seconds
     std::shared_ptr<int64_t> upTime_ = nullptr;
   };
 

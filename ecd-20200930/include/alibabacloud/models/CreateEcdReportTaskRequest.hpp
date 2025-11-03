@@ -79,11 +79,31 @@ namespace Models
 
 
   protected:
+    // The filter conditions for filtering query results. The logical relationship between each filter condition is "and" (&). Each filter condition contains FilterKey and FilterValues, which indicate the key and value for the filter condition.
     std::shared_ptr<vector<CreateEcdReportTaskRequestFilterList>> filterList_ = nullptr;
+    // The language of the report. An enumerated type.
+    // 
+    // Valid values:
+    // 
+    // *   zh-CN (default): Chinese
+    // *   en-GB: English
     std::shared_ptr<string> langType_ = nullptr;
+    // The name of the report file.
     std::shared_ptr<string> reportFileName_ = nullptr;
+    // The sub-type of the report export task.
+    // 
+    // Valid value:
+    // 
+    // *   DESKTOP: cloud computer
+    // 
     // This parameter is required.
     std::shared_ptr<string> subType_ = nullptr;
+    // The type of the report task.
+    // 
+    // Valid value:
+    // 
+    // *   RESOURCE_REPORT
+    // 
     // This parameter is required.
     std::shared_ptr<string> taskType_ = nullptr;
   };

@@ -221,8 +221,6 @@ namespace Models
     std::shared_ptr<string> fileType_ = nullptr;
     std::shared_ptr<string> groupId_ = nullptr;
     // The ID of the parent folder.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> parentFileId_ = nullptr;
     // The region ID.
     // 

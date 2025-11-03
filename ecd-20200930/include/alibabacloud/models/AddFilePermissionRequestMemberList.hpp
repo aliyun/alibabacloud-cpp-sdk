@@ -77,23 +77,23 @@ namespace Models
     std::shared_ptr<bool> disinheritSubGroup_ = nullptr;
     // The time when the authorization expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. The value never expires. You can specify a value that is predefined by the system for this parameter. Example: 4775500800000.
     std::shared_ptr<int64_t> expireTime_ = nullptr;
-    // The ID of the role to which you want to attach the folder permissions. To configure the folder permissions: you can specify a role or create custom operation permissions. You can use RoleId to specify a role. RoleId is mutually exclusive with ActionList. If you specify both of them, the value of RoleId takes precedence.
+    // You can set permissions by specifying roles or by customizing operation permissions. This field is used to set permissions by specifying roles. This field is mutually exclusive with `ActionList`.
     // 
     // Valid values:
     // 
-    // * SystemFileEditorWithoutShareLink
-    // * SystemFileUploaderAndDownloaderWithShareLink
-    // * SystemFileDownloader
-    // * SystemFileEditorWithoutDelete
-    // * SystemFileOwner
-    // * SystemFileDownloaderWithShareLink
-    // * SystemFileUploaderAndViewer
-    // * SystemFileViewer
-    // * SystemFileEditor
-    // * SystemFileUploaderWithShareLink
-    // * SystemFileUploader
-    // * SystemFileUploaderAndDownloader
-    // * SystemFileMetaViewer
+    // *   SystemFileEditorWithoutShareLink: The role that can edit but cannot share files.
+    // *   SystemFileUploaderAndDownloaderWithShareLink: The role that can upload, download, and share files.
+    // *   SystemFileDownloader: The role that can download files.
+    // *   SystemFileEditorWithoutDelete: The role that can edit but cannot edit files.
+    // *   SystemFileOwner: The role that can collaborate with others on files.
+    // *   SystemFileDownloaderWithShareLink: The role that can download and share files.
+    // *   SystemFileUploaderAndViewer: The role that can preview and upload files.
+    // *   SystemFileViewer: The role that can preview files.
+    // *   SystemFileEditor: The role that can edit files.
+    // *   SystemFileUploaderWithShareLink: The role that can upload and share files.
+    // *   SystemFileUploader: The role that can upload files.
+    // *   SystemFileUploaderAndDownloader: The role that can upload and download files.
+    // *   SystemFileMetaViewer: The role that can view file list.
     // 
     // This parameter is required.
     std::shared_ptr<string> roleId_ = nullptr;

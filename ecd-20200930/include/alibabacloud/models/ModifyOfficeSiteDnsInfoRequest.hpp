@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // The IP addresses of the custom DNS servers. Up to 2 IP addresses can be specified.
     std::shared_ptr<vector<string>> dnsAddress_ = nullptr;
+    // The office network ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

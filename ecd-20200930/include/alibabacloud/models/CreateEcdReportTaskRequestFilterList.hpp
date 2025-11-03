@@ -51,7 +51,36 @@ namespace Models
 
 
   protected:
+    // The key of the filter condition for filtering query results. When SubType is set to:
+    // 
+    // 1.  DESKTOP (indicating a cloud computer report), the following filter conditions are available:
+    // 
+    // *   KeyWord: cloud computer keyword (supports automatic recognition)
+    // *   RegionId: region ID
+    // *   DesktopId: cloud computer ID
+    // *   DesktopName: cloud computer name (supports fuzzy matching)
+    // *   OfficeSiteId: office network ID
+    // *   OfficeSiteName: office network name (supports fuzzy matching)
+    // *   Status: cloud computer status
+    // *   DesktopType: desktop type
+    // *   DesktopIP: cloud computer IP address
+    // *   SubPayType: billing method
+    // *   EndUserId: user name (supports fuzzy matching)
+    // *   ExpireTime: expiration date and time, in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format
+    // *   IncludeAssignedUser: indicates whether the cloud computer is assigned to users or not
+    // *   ResourceGroupId: resource group ID
+    // *   PolicyId: policy ID
+    // *   Tag:{Tag Key value}: cloud computer tag (To filter data using multiple tags, specify multiple filter condition objects.)
     std::shared_ptr<string> filterKey_ = nullptr;
+    // The value of the filter condition. Only the first value of the FilterValues parameter is used, if FilterKey is set to one of the following values:
+    // 
+    // *   KeyWord
+    // *   DesktopName
+    // *   OfficeSiteName
+    // *   DesktopIP
+    // *   EndUserId
+    // *   ExpireTime
+    // *   IncludeAssignedUser
     std::shared_ptr<vector<string>> filterValues_ = nullptr;
   };
 

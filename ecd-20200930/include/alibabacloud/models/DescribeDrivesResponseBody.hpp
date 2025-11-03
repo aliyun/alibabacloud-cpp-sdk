@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The response code. The value 200 indicates that the request was successful.
     std::shared_ptr<string> code_ = nullptr;
+    // The total number of storage resources.
     std::shared_ptr<int32_t> count_ = nullptr;
+    // The user-level storage resources.
     std::shared_ptr<vector<DescribeDrivesResponseBodyDrives>> drives_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

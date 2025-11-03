@@ -75,51 +75,25 @@ namespace Models
 
 
   protected:
-    // The operation result. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+    // The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
     // Indicates whether the data is returned.
     // 
-    // Valid values:
+    // Valid value:
     // 
     // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
     // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     std::shared_ptr<string> data_ = nullptr;
-    // The returned message.
+    // Error message. This parameter is not returned if the value of Code is `success`.
     std::shared_ptr<string> message_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // Indicates whether the request was successful.
+    // Indicates whether the operation was successful.
     // 
-    // Valid values:
+    // Valid value:
     // 
     // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
     // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     std::shared_ptr<bool> success_ = nullptr;
   };
 

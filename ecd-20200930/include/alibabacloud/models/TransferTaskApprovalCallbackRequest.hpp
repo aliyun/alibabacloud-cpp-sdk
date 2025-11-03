@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The name of the OSS bucket where the file resides.
     std::shared_ptr<string> ossBucketName_ = nullptr;
+    // The region where the OSS bucket storing the file resides.
     std::shared_ptr<string> ossBucketRegionId_ = nullptr;
+    // The approval result.
+    // 
+    // Valid values:
+    // 
+    // *   Approved
+    // *   Rejected
     std::shared_ptr<string> result_ = nullptr;
+    // The ID of the transmission task.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

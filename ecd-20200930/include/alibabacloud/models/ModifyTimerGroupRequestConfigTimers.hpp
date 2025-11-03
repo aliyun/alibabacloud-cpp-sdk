@@ -136,7 +136,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow end users to configure scheduled tasks.
+    // Specifies whether to allow end users to configure the scheduled task.
     std::shared_ptr<bool> allowClientSetting_ = nullptr;
     // The cron expression specified in the scheduled task.
     // 
@@ -154,18 +154,18 @@ namespace Models
     // *   Hibernate: scheduled hibernation.
     // *   Shutdown: scheduled shutdown.
     std::shared_ptr<string> operationType_ = nullptr;
-    // The process whitelist. If whitelisted processes are running, the scheduled task does not take effect upon inactivity.
+    // The process whitelist. If whitelisted processes are running, the scheduled task does not take effect.
     std::shared_ptr<vector<string>> processWhitelist_ = nullptr;
     // The reset option.
     // 
-    // Valid values:
+    // Valid value:
     // 
     // *   RESET_TYPE_SYSTEM: resets the system disk.
     // *   RESET_TYPE_USER_DISK: resets the data disk.
     // *   RESET_TYPE_BOTH: resets the system disk and data disk.
     std::shared_ptr<string> resetType_ = nullptr;
     std::shared_ptr<vector<Models::ModifyTimerGroupRequestConfigTimersSegmentTimers>> segmentTimers_ = nullptr;
-    // The scheduled task type.
+    // The type of the scheduled task.
     // 
     // Valid value:
     // 
@@ -177,7 +177,7 @@ namespace Models
     // *   NoOperationHibernate: scheduled hibernation upon inactivity.
     // *   TimerShutdown: scheduled shutdown.
     // *   NoOperationReboot: scheduled restart upon inactivity.
-    // *   TimerReboot: scheduled restart.
+    // *   TimerReboot: Restarts the cloud computers on schedule.
     std::shared_ptr<string> timerType_ = nullptr;
     // The method to trigger the scheduled task upon inactivity.
     // 

@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The response code. The value 200 indicates that the request was successful.
     std::shared_ptr<string> code_ = nullptr;
+    // The user-level storage resource.
     std::shared_ptr<CreateDriveResponseBodyDrive> drive_ = nullptr;
+    // The response message.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The information about the scheduled task group.
+    // The configuration group.
     std::shared_ptr<DescribeTimerGroupResponseBodyData> data_ = nullptr;
     // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;

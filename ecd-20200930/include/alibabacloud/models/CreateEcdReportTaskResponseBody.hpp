@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The request result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The error message returned if the request failed. This parameter is not returned if the value of Code is success.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request is successful.
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the report export task.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

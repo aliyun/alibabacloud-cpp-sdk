@@ -80,7 +80,7 @@ namespace Ecd20200930
       Models::AddDevicesResponse addDevices(const Models::AddDevicesRequest &request);
 
       /**
-       * @summary Shares a folder of a cloud disk with other users.
+       * @summary Adds a shared folder to the network disk.
        *
        * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
        *
@@ -91,7 +91,7 @@ namespace Ecd20200930
       Models::AddFilePermissionResponse addFilePermissionWithOptions(const Models::AddFilePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Shares a folder of a cloud disk with other users.
+       * @summary Adds a shared folder to the network disk.
        *
        * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
        *
@@ -444,7 +444,7 @@ namespace Ecd20200930
       Models::ClonePolicyGroupResponse clonePolicyGroup(const Models::ClonePolicyGroupRequest &request);
 
       /**
-       * @summary Completes a file uploading task.
+       * @summary After you create an object upload task, call this operation to upload the object.
        *
        * @param request CompleteCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -453,7 +453,7 @@ namespace Ecd20200930
       Models::CompleteCdsFileResponse completeCdsFileWithOptions(const Models::CompleteCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Completes a file uploading task.
+       * @summary After you create an object upload task, call this operation to upload the object.
        *
        * @param request CompleteCdsFileRequest
        * @return CompleteCdsFileResponse
@@ -876,7 +876,7 @@ namespace Ecd20200930
       Models::CreateDiskEncryptionServiceResponse createDiskEncryptionService(const Models::CreateDiskEncryptionServiceRequest &request);
 
       /**
-       * @summary 创建网盘
+       * @summary Creates a user-level storage resource.
        *
        * @param request CreateDriveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -885,7 +885,7 @@ namespace Ecd20200930
       Models::CreateDriveResponse createDriveWithOptions(const Models::CreateDriveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建网盘
+       * @summary Creates a user-level storage resource.
        *
        * @param request CreateDriveRequest
        * @return CreateDriveResponse
@@ -893,7 +893,7 @@ namespace Ecd20200930
       Models::CreateDriveResponse createDrive(const Models::CreateDriveRequest &request);
 
       /**
-       * @summary 创建无影数据报表导出任务
+       * @summary Creates a data report export task.
        *
        * @param request CreateEcdReportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -902,7 +902,7 @@ namespace Ecd20200930
       Models::CreateEcdReportTaskResponse createEcdReportTaskWithOptions(const Models::CreateEcdReportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建无影数据报表导出任务
+       * @summary Creates a data report export task.
        *
        * @param request CreateEcdReportTaskRequest
        * @return CreateEcdReportTaskResponse
@@ -1169,7 +1169,7 @@ namespace Ecd20200930
       Models::CreateSubnetResponse createSubnet(const Models::CreateSubnetRequest &request);
 
       /**
-       * @summary 创建模板
+       * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
        *
        * @param request CreateTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1178,7 +1178,7 @@ namespace Ecd20200930
       Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模板
+       * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -1220,7 +1220,7 @@ namespace Ecd20200930
       Models::DeleteBundlesResponse deleteBundles(const Models::DeleteBundlesRequest &request);
 
       /**
-       * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+       * @summary Delete files or folders from the network disk.
        *
        * @param request DeleteCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1229,7 @@ namespace Ecd20200930
       Models::DeleteCdsFileResponse deleteCdsFileWithOptions(const Models::DeleteCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+       * @summary Delete files or folders from the network disk.
        *
        * @param request DeleteCdsFileRequest
        * @return DeleteCdsFileResponse
@@ -1389,7 +1389,7 @@ namespace Ecd20200930
       Models::DeleteDirectoriesResponse deleteDirectories(const Models::DeleteDirectoriesRequest &request);
 
       /**
-       * @summary 删除网盘
+       * @summary Deletes a drive.
        *
        * @param request DeleteDriveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1398,7 @@ namespace Ecd20200930
       Models::DeleteDriveResponse deleteDriveWithOptions(const Models::DeleteDriveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网盘
+       * @summary Deletes a drive.
        *
        * @param request DeleteDriveRequest
        * @return DeleteDriveResponse
@@ -1824,6 +1824,40 @@ namespace Ecd20200930
       Models::DescribeClientEventsResponse describeClientEvents(const Models::DescribeClientEventsRequest &request);
 
       /**
+       * @summary 查询云盘团队空间列表
+       *
+       * @param request DescribeCloudDiskGroupDrivesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCloudDiskGroupDrivesResponse
+       */
+      Models::DescribeCloudDiskGroupDrivesResponse describeCloudDiskGroupDrivesWithOptions(const Models::DescribeCloudDiskGroupDrivesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云盘团队空间列表
+       *
+       * @param request DescribeCloudDiskGroupDrivesRequest
+       * @return DescribeCloudDiskGroupDrivesResponse
+       */
+      Models::DescribeCloudDiskGroupDrivesResponse describeCloudDiskGroupDrives(const Models::DescribeCloudDiskGroupDrivesRequest &request);
+
+      /**
+       * @summary 查询云盘团队列表
+       *
+       * @param request DescribeCloudDiskGroupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCloudDiskGroupsResponse
+       */
+      Models::DescribeCloudDiskGroupsResponse describeCloudDiskGroupsWithOptions(const Models::DescribeCloudDiskGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云盘团队列表
+       *
+       * @param request DescribeCloudDiskGroupsRequest
+       * @return DescribeCloudDiskGroupsResponse
+       */
+      Models::DescribeCloudDiskGroupsResponse describeCloudDiskGroups(const Models::DescribeCloudDiskGroupsRequest &request);
+
+      /**
        * @summary Queries a list of authorized team spaces.
        *
        * @param request DescribeCloudDriveGroupsRequest
@@ -1905,7 +1939,7 @@ namespace Ecd20200930
       Models::DescribeCustomizedListHeadersResponse describeCustomizedListHeaders(const Models::DescribeCustomizedListHeadersRequest &request);
 
       /**
-       * @summary Queries sessions in a desktop group.
+       * @summary Queries cloud computer shares.
        *
        * @param request DescribeDesktopGroupSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1914,7 +1948,7 @@ namespace Ecd20200930
       Models::DescribeDesktopGroupSessionsResponse describeDesktopGroupSessionsWithOptions(const Models::DescribeDesktopGroupSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries sessions in a desktop group.
+       * @summary Queries cloud computer shares.
        *
        * @param request DescribeDesktopGroupSessionsRequest
        * @return DescribeDesktopGroupSessionsResponse
@@ -2117,7 +2151,7 @@ namespace Ecd20200930
       Models::DescribeDirectoriesResponse describeDirectories(const Models::DescribeDirectoriesRequest &request);
 
       /**
-       * @summary 查询网盘列表
+       * @summary Queries user-level storage resources.
        *
        * @param request DescribeDrivesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2126,7 +2160,7 @@ namespace Ecd20200930
       Models::DescribeDrivesResponse describeDrivesWithOptions(const Models::DescribeDrivesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网盘列表
+       * @summary Queries user-level storage resources.
        *
        * @param request DescribeDrivesRequest
        * @return DescribeDrivesResponse
@@ -2134,7 +2168,7 @@ namespace Ecd20200930
       Models::DescribeDrivesResponse describeDrives(const Models::DescribeDrivesRequest &request);
 
       /**
-       * @summary 查询数据报表导出任务列表
+       * @summary Queries data report export tasks.
        *
        * @param request DescribeEcdReportTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2143,7 +2177,7 @@ namespace Ecd20200930
       Models::DescribeEcdReportTasksResponse describeEcdReportTasksWithOptions(const Models::DescribeEcdReportTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询数据报表导出任务列表
+       * @summary Queries data report export tasks.
        *
        * @param request DescribeEcdReportTasksRequest
        * @return DescribeEcdReportTasksResponse
@@ -2240,7 +2274,12 @@ namespace Ecd20200930
       Models::DescribeFotaTasksResponse describeFotaTasks(const Models::DescribeFotaTasksRequest &request);
 
       /**
-       * @summary 查询全局桌面记录
+       * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+       *
+       * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+       * *   By default, you can query all cloud computers that are deleted or not deleted.
+       * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+       * *   Sort criteria cannot be shared with other criteria.
        *
        * @param request DescribeGlobalDesktopRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2249,7 +2288,12 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecordsWithOptions(const Models::DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全局桌面记录
+       * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+       *
+       * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+       * *   By default, you can query all cloud computers that are deleted or not deleted.
+       * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+       * *   Sort criteria cannot be shared with other criteria.
        *
        * @param request DescribeGlobalDesktopRecordsRequest
        * @return DescribeGlobalDesktopRecordsResponse
@@ -2772,7 +2816,7 @@ namespace Ecd20200930
       Models::DescribeSubnetsResponse describeSubnets(const Models::DescribeSubnetsRequest &request);
 
       /**
-       * @summary 查询模板列表
+       * @summary Queries the details of cloud computer templates.
        *
        * @param request DescribeTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2781,7 +2825,7 @@ namespace Ecd20200930
       Models::DescribeTemplatesResponse describeTemplatesWithOptions(const Models::DescribeTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模板列表
+       * @summary Queries the details of cloud computer templates.
        *
        * @param request DescribeTemplatesRequest
        * @return DescribeTemplatesResponse
@@ -3260,7 +3304,7 @@ namespace Ecd20200930
       Models::HibernateDesktopsResponse hibernateDesktops(const Models::HibernateDesktopsRequest &request);
 
       /**
-       * @summary Queries the files in a cloud disk.
+       * @summary Queries the list of files in the network disk and obtain the download link of the file.
        *
        * @param tmpReq ListCdsFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3269,7 +3313,7 @@ namespace Ecd20200930
       Models::ListCdsFilesResponse listCdsFilesWithOptions(const Models::ListCdsFilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the files in a cloud disk.
+       * @summary Queries the list of files in the network disk and obtain the download link of the file.
        *
        * @param request ListCdsFilesRequest
        * @return ListCdsFilesResponse
@@ -3298,7 +3342,7 @@ namespace Ecd20200930
       Models::ListDirectoryUsersResponse listDirectoryUsers(const Models::ListDirectoryUsersRequest &request);
 
       /**
-       * @summary Queries the information about shared files of cloud disks.
+       * @summary Queries the permissions on a shared file on a drive.
        *
        * @param request ListFilePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3307,12 +3351,29 @@ namespace Ecd20200930
       Models::ListFilePermissionResponse listFilePermissionWithOptions(const Models::ListFilePermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about shared files of cloud disks.
+       * @summary Queries the permissions on a shared file on a drive.
        *
        * @param request ListFilePermissionRequest
        * @return ListFilePermissionResponse
        */
       Models::ListFilePermissionResponse listFilePermission(const Models::ListFilePermissionRequest &request);
+
+      /**
+       * @summary 查询桌面内安装的应用
+       *
+       * @param request ListInstalledAppsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstalledAppsResponse
+       */
+      Models::ListInstalledAppsResponse listInstalledAppsWithOptions(const Models::ListInstalledAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面内安装的应用
+       *
+       * @param request ListInstalledAppsRequest
+       * @return ListInstalledAppsResponse
+       */
+      Models::ListInstalledAppsResponse listInstalledApps(const Models::ListInstalledAppsRequest &request);
 
       /**
        * @summary Queries information about an office network, including its status, cloud computer quantity, virtual private cloud (VPC) type, and more.
@@ -3370,7 +3431,7 @@ namespace Ecd20200930
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 获取文件下载地址
+       * @summary Queries the file information of a file transmission task.
        *
        * @param request ListTransferFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3379,7 +3440,7 @@ namespace Ecd20200930
       Models::ListTransferFilesResponse listTransferFilesWithOptions(const Models::ListTransferFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件下载地址
+       * @summary Queries the file information of a file transmission task.
        *
        * @param request ListTransferFilesRequest
        * @return ListTransferFilesResponse
@@ -3560,7 +3621,7 @@ namespace Ecd20200930
       Models::ModifyBundleResponse modifyBundle(const Models::ModifyBundleRequest &request);
 
       /**
-       * @summary Modifies the files in a cloud disk.
+       * @summary Modifies the attributes of a disk file or folder, such as the file name.
        *
        * @param request ModifyCdsFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3569,7 +3630,7 @@ namespace Ecd20200930
       Models::ModifyCdsFileResponse modifyCdsFileWithOptions(const Models::ModifyCdsFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the files in a cloud disk.
+       * @summary Modifies the attributes of a disk file or folder, such as the file name.
        *
        * @param request ModifyCdsFileRequest
        * @return ModifyCdsFileResponse
@@ -4115,7 +4176,7 @@ namespace Ecd20200930
       Models::ModifyOfficeSiteCrossDesktopAccessResponse modifyOfficeSiteCrossDesktopAccess(const Models::ModifyOfficeSiteCrossDesktopAccessRequest &request);
 
       /**
-       * @summary 修改工作区DNS信息
+       * @summary Modifies the DNS information of an office network.
        *
        * @param request ModifyOfficeSiteDnsInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4124,7 +4185,7 @@ namespace Ecd20200930
       Models::ModifyOfficeSiteDnsInfoResponse modifyOfficeSiteDnsInfoWithOptions(const Models::ModifyOfficeSiteDnsInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改工作区DNS信息
+       * @summary Modifies the DNS information of an office network.
        *
        * @param request ModifyOfficeSiteDnsInfoRequest
        * @return ModifyOfficeSiteDnsInfoResponse
@@ -4196,7 +4257,7 @@ namespace Ecd20200930
       Models::ModifySecurityGroupAttributeResponse modifySecurityGroupAttribute(const Models::ModifySecurityGroupAttributeRequest &request);
 
       /**
-       * @summary 模板全量更新
+       * @summary Modifies a custom cloud computer template.
        *
        * @param request ModifyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4205,7 +4266,7 @@ namespace Ecd20200930
       Models::ModifyTemplateResponse modifyTemplateWithOptions(const Models::ModifyTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 模板全量更新
+       * @summary Modifies a custom cloud computer template.
        *
        * @param request ModifyTemplateRequest
        * @return ModifyTemplateResponse
@@ -4215,7 +4276,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
        *
-       * @description You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+       * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4226,7 +4287,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
        *
-       * @description You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+       * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @return ModifyTemplateBaseInfoResponse
@@ -4375,7 +4436,7 @@ namespace Ecd20200930
       Models::ReleaseIpAddressResponse releaseIpAddress(const Models::ReleaseIpAddressRequest &request);
 
       /**
-       * @summary Removes the file sharing feature of a folder in a cloud disk.
+       * @summary Unshare a folder on the network disk.
        *
        * @param tmpReq RemoveFilePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4384,7 +4445,7 @@ namespace Ecd20200930
       Models::RemoveFilePermissionResponse removeFilePermissionWithOptions(const Models::RemoveFilePermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes the file sharing feature of a folder in a cloud disk.
+       * @summary Unshare a folder on the network disk.
        *
        * @param request RemoveFilePermissionRequest
        * @return RemoveFilePermissionResponse
@@ -4673,7 +4734,9 @@ namespace Ecd20200930
       Models::SetDesktopGroupTimerStatusResponse setDesktopGroupTimerStatus(const Models::SetDesktopGroupTimerStatusRequest &request);
 
       /**
-       * @summary 设置桌面维护模式
+       * @summary Set the cloud computer maintenance mode.
+       *
+       * @description If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
        *
        * @param request SetDesktopMaintenanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4682,7 +4745,9 @@ namespace Ecd20200930
       Models::SetDesktopMaintenanceResponse setDesktopMaintenanceWithOptions(const Models::SetDesktopMaintenanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置桌面维护模式
+       * @summary Set the cloud computer maintenance mode.
+       *
+       * @description If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
        *
        * @param request SetDesktopMaintenanceRequest
        * @return SetDesktopMaintenanceResponse
@@ -4850,7 +4915,7 @@ namespace Ecd20200930
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 文件传输审批回调
+       * @summary Queries the transmission and approval result for a submitted file.
        *
        * @param request TransferTaskApprovalCallbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4859,7 +4924,7 @@ namespace Ecd20200930
       Models::TransferTaskApprovalCallbackResponse transferTaskApprovalCallbackWithOptions(const Models::TransferTaskApprovalCallbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文件传输审批回调
+       * @summary Queries the transmission and approval result for a submitted file.
        *
        * @param request TransferTaskApprovalCallbackRequest
        * @return TransferTaskApprovalCallbackResponse

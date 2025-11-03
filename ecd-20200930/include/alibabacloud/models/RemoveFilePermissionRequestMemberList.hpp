@@ -55,165 +55,23 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<Models::RemoveFilePermissionRequestMemberListCdsIdentity> cdsIdentity_ = nullptr;
-    // The role ID. You can configure permissions on roles or actions. This parameter is used to specify the permissions on roles, which conflicts with the ActionList parameter. When you configure both the parameters, this parameter shall prevail.
+    // You can set permissions by specifying roles or by customizing operation permissions. This field is used to set permissions by specifying roles. This field is mutually exclusive with `ActionList`.
     // 
     // Valid values:
     // 
-    // *   SystemFileEditorWithoutShareLink
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to edit files but cannot share files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileUploaderAndDownloaderWithShareLink
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to upload, download, and share files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileDownloader
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to download files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileEditorWithoutDelete
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to edit files but cannot delete files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileOwner
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to collaborate with others
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileDownloaderWithShareLink
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to download and share files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileUploaderAndViewer
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to preview or upload files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileViewer
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to preview files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileEditor
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to edit files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileUploaderWithShareLink
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to upload or share files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileUploader
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permission to upload files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileUploaderAndDownloader
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to upload or download files
-    // 
-    //     <!-- -->
-    // 
-    // *   SystemFileMetaViewer
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     the role that has the permissions to view files
-    // 
-    //     <!-- -->
+    // *   SystemFileEditorWithoutShareLink: the role that has the permissions to edit files but cannot share files.
+    // *   SystemFileUploaderAndDownloaderWithShareLink: the role that has the permissions to upload, download, and share files.
+    // *   SystemFileDownloader: the role that has the permissions to download files.
+    // *   SystemFileEditorWithoutDelete: the role that has the permissions to edit files but cannot delete files.
+    // *   SystemFileOwner: the role that has the permissions to collaborate with others.
+    // *   SystemFileDownloaderWithShareLink: the role that has the permissions to download and share files
+    // *   SystemFileUploaderAndViewer: the role that has the permissions to preview or upload files.
+    // *   SystemFileViewer: the role that has the permissions to preview files.
+    // *   SystemFileEditor: the role that has the permissions to edit files
+    // *   SystemFileUploaderWithShareLink: the role that has the permissions to upload or share files.
+    // *   SystemFileUploader: the role that has the permission to upload files.
+    // *   SystemFileUploaderAndDownloader: the role that has the permissions to upload or download files.
+    // *   SystemFileMetaViewer: the role that has the permissions to view files
     // 
     // This parameter is required.
     std::shared_ptr<string> roleId_ = nullptr;

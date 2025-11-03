@@ -87,11 +87,33 @@ namespace Models
 
 
   protected:
+    // The number of the page to return. Pages start from page 1. Default value: 1.
     std::shared_ptr<int32_t> pageNum_ = nullptr;
+    // The number of entries returned per page. Maximum value: 200.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The task status.
+    // 
+    // Valid values:
+    // 
+    // *   INIT: initializing
+    // *   FAILED
+    // *   RUNNING
+    // *   EXPIRED
+    // *   FINISHED
     std::shared_ptr<vector<string>> status_ = nullptr;
+    // The sub-type of the report export task.
+    // 
+    // Valid value:
+    // 
+    // *   DESKTOP: cloud computer
     std::shared_ptr<string> subType_ = nullptr;
+    // The ID of the report export task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // The type of the report.
+    // 
+    // Valid value:
+    // 
+    // *   RESOURCE_REPORT
     std::shared_ptr<string> taskType_ = nullptr;
   };
 

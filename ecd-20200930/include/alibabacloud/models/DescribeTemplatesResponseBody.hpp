@@ -117,6 +117,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> code_ = nullptr;
+    // The templates.
     std::shared_ptr<vector<DescribeTemplatesResponseBodyData>> data_ = nullptr;
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;

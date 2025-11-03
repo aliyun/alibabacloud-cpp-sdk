@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // The ID of the enterprise drive.
     // 
     // This parameter is required.
     std::shared_ptr<string> cdsId_ = nullptr;
-    // The ID of the end user who uses the cloud disk.
+    // The ID of the user who uses the network disk.
     std::shared_ptr<string> endUserId_ = nullptr;
-    // The ID of the file. The ID is a unique identifier for the file.
+    // The file ID. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileId_ = nullptr;
-    // The group ID.
+    // The ID of the team space.
     std::shared_ptr<string> groupId_ = nullptr;
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;

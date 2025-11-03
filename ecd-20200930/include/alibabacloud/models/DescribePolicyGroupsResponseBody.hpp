@@ -89,7 +89,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int32_t> count_ = nullptr;
-    // The cloud computer policies.
+    // The details of the cloud computer policies.
     std::shared_ptr<vector<DescribePolicyGroupsResponseBodyDescribePolicyGroups>> describePolicyGroups_ = nullptr;
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;

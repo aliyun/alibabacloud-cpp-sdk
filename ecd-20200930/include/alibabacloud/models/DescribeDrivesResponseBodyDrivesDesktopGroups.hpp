@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the cloud computer pool.
     std::shared_ptr<string> desktopGroupId_ = nullptr;
+    // The name of the cloud computer pool.
     std::shared_ptr<string> desktopGroupName_ = nullptr;
   };
 

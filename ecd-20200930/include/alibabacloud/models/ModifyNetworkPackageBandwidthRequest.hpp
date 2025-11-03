@@ -108,11 +108,11 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<bool> autoPay_ = nullptr;
-    // The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
+    // The maximum bandwidth of the premium bandwidth plan, in Mbit/s. Valid range: The allowed range depends on the billing method:
     // 
-    // *   Valid values if the premium bandwidth plan is a subscription plan: 2 to 1000.
-    // *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by data transfer (PayByTraffic): 2 to 200.
-    // *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by fixed bandwidth (PayByBandwidth): 2 to 1000.
+    // *   Subscription: 2 to 1000
+    // *   Pay-as-you-go, by data transfer (PayByTraffic): 2 to 200
+    // *   Pay-as-you-go, by fixed bandwidth (PayByBandwidth): 2 to 1000
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> bandwidth_ = nullptr;

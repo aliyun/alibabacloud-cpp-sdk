@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The response code. The value 200 indicates that the request was successful.
     std::shared_ptr<string> code_ = nullptr;
+    // Indicates whether the delete operation was successful.
     std::shared_ptr<bool> data_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request is successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

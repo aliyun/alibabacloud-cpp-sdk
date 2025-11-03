@@ -176,22 +176,57 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account.
     std::shared_ptr<string> aliUid_ = nullptr;
+    // The description of the storage resource.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the storage resource.
     std::shared_ptr<string> domainId_ = nullptr;
+    // The ID of the user-level storage resource.
     std::shared_ptr<string> driveId_ = nullptr;
+    // The ID of the external user-level storage resource.
+    // 
+    // >  A value is returned for this parameter only if ResourceType is set to PDS.
     std::shared_ptr<string> externalDriveId_ = nullptr;
+    // The ID of the external user.
     std::shared_ptr<string> externalUserId_ = nullptr;
+    // The time when the storage resource was created.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The time when the storage resource was last modified.
     std::shared_ptr<string> gmtModified_ = nullptr;
-    // ID。
+    // The ID.
     std::shared_ptr<string> id_ = nullptr;
+    // The name of the storage resource.
     std::shared_ptr<string> name_ = nullptr;
+    // >  This parameter is deprecated.
     std::shared_ptr<bool> profileRoaming_ = nullptr;
+    // The status of the user-level storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   INIT: initializing
+    // *   MAINTAIN: maintaining
+    // *   DELETING
+    // *   INVALID
+    // *   NORMAL
+    // *   FAIL: failed
     std::shared_ptr<string> status_ = nullptr;
+    // The total amount of the user-level storage resource capacity.
+    // 
+    // >  Unit: bytes.
     std::shared_ptr<int64_t> totalSize_ = nullptr;
+    // The usage of the storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   DESKTOP: data disk space
+    // *   USER_PROFILE: space for personal data of the user
     std::shared_ptr<string> type_ = nullptr;
+    // The amount of user-level storage resource capacity used.
+    // 
+    // >  Unit: bytes.
     std::shared_ptr<int64_t> usedSize_ = nullptr;
+    // The user ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

@@ -87,11 +87,25 @@ namespace Models
 
 
   protected:
+    // The IDs of the storage resources.
     std::shared_ptr<vector<string>> domainIds_ = nullptr;
+    // The number of entries per page.
+    // 
+    // *   Maximum value: 500.
+    // *   Default value: 20.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The type of the storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   NAS: NAS storage
+    // *   PDS: PDS storage
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The user ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

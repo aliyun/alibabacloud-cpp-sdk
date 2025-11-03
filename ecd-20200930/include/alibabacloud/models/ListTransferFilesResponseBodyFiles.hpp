@@ -103,13 +103,41 @@ namespace Models
 
 
   protected:
+    // The URL of the file icon.
+    // 
+    // > 
+    // 
+    // *   For image file types (.png, .jpg, .jpeg, .gif, .webp, and .svg), the URL of the specific image is returned.
+    // 
+    // *   For other file types, the URL of the default image is returned.
     std::shared_ptr<string> iconUrl_ = nullptr;
+    // The file ID.
     std::shared_ptr<string> id_ = nullptr;
+    // The file name.
     std::shared_ptr<string> name_ = nullptr;
+    // The name of the object stored in OSS.
+    // 
+    // > 
+    // 
+    // *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
     std::shared_ptr<string> ossFileName_ = nullptr;
+    // The path of the object in the OSS bucket.
+    // 
+    // > 
+    // 
+    // *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
     std::shared_ptr<string> ossFilePath_ = nullptr;
+    // The file size.
     std::shared_ptr<string> size_ = nullptr;
+    // The file status.
+    // 
+    // Valid values:
+    // 
+    // *   DELETING
+    // *   DELETED
+    // *   UPLOADED
     std::shared_ptr<string> status_ = nullptr;
+    // The file type.
     std::shared_ptr<string> type_ = nullptr;
   };
 

@@ -235,38 +235,42 @@ namespace Models
 
 
   protected:
+    // 账号类型
     std::shared_ptr<string> accountType_ = nullptr;
     // The IP address of the client.
     std::shared_ptr<string> clientIp_ = nullptr;
-    // The OS that the client runs.
+    // The operating system of the client.
     std::shared_ptr<string> clientOS_ = nullptr;
     // The version of the client.
     std::shared_ptr<string> clientVersion_ = nullptr;
-    // The ID of the desktop group.
+    // The ID of the shared cloud computer.
     std::shared_ptr<string> desktopGroupId_ = nullptr;
-    // The name of the desktop group.
+    // The name of the cloud computer share.
     std::shared_ptr<string> desktopGroupName_ = nullptr;
-    // If the session is being established, the value of this parameter indicates the ID of the current cloud desktop. If the session is disconnected, the value of this parameter indicates the ID of the cloud desktop that was most recently connected.
+    // If the session status is Connected, it indicates the ID of the cloud computer that is currently connected. If the session status is Disconnected, it indicates the ID of the cloud computer that was last connected.
     std::shared_ptr<string> desktopId_ = nullptr;
+    // 办公网络类型
     std::shared_ptr<string> directoryType_ = nullptr;
     // The point in time when the end user applies for administrator assistance.
     std::shared_ptr<int64_t> endUserApplyCoordinateTime_ = nullptr;
-    // The ID of the end user.
+    // The user ID of the terminal that connects to the session.
     std::shared_ptr<string> endUserId_ = nullptr;
     // The end time of the most recent connection.
     std::shared_ptr<string> lastSessionEndTime_ = nullptr;
     // The start time of the most recent connection.
     std::shared_ptr<string> lastSessionStartTime_ = nullptr;
-    // The duration of the most recent session.
+    // The duration of the most recent session. Unit: seconds.
     std::shared_ptr<int64_t> latestConnectionTime_ = nullptr;
-    // The ID of the workspace.
+    // The office network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
-    // The name of the workspace.
+    // The office network name.
     std::shared_ptr<string> officeSiteName_ = nullptr;
-    // The OS. Valid values:
+    // The operating system type of the cloud computer.
     // 
-    // *   Windows
-    // *   Linux
+    // Valid values:
+    // 
+    // *   linux.
+    // *   Windows.
     std::shared_ptr<string> osType_ = nullptr;
     // The type of the session.
     // 
@@ -275,9 +279,14 @@ namespace Models
     // *   0: single-session
     // *   1: multi-session
     std::shared_ptr<int32_t> ownType_ = nullptr;
-    // The type of the protocol.
+    // The protocol type supported by the rule.
+    // 
+    // Valid value:
+    // 
+    // *   High-definition Experience (HDX).
+    // *   ASP.
     std::shared_ptr<string> protocolType_ = nullptr;
-    // The duration during which the cloud desktop stays in the Idle state.
+    // The idle duration of the cloud computer. Unit: seconds.
     std::shared_ptr<int64_t> sessionIdleTime_ = nullptr;
     // The state of the session.
     // 
@@ -299,8 +308,9 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<string> sessionStatus_ = nullptr;
+    // Terminal Info
     std::shared_ptr<Models::DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo> terminalInfo_ = nullptr;
-    // The total duration of the sessions.
+    // The total duration of the sessions. Unit: seconds.
     std::shared_ptr<int64_t> totalConnectionDuration_ = nullptr;
   };
 

@@ -48,29 +48,16 @@ namespace Models
 
 
   protected:
-    // The ID of the user.
+    // The ID of the convenience user.
     // 
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;
-    // The type of the user.
+    // The user type.
     // 
-    // Valid values:
+    // Set the value to TENANT_ADMIN.
     // 
-    // *   <!-- -->
-    // 
-    //     IT_Group
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     IT_User
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // *   IT_Group: group.
+    // *   IT_User: user.
     // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;

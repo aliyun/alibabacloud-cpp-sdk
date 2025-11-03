@@ -1165,7 +1165,7 @@ namespace Models
     std::shared_ptr<int32_t> noOperationDisconnectTime_ = nullptr;
     // The policy ID.
     std::shared_ptr<string> policyGroupId_ = nullptr;
-    // The policy type.
+    // The type of the policy.
     std::shared_ptr<string> policyGroupType_ = nullptr;
     // The status of the cloud computer policy.
     std::shared_ptr<string> policyStatus_ = nullptr;

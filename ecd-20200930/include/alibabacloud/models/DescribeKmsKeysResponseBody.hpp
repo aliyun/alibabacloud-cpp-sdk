@@ -71,10 +71,20 @@ namespace Models
 
   protected:
     // The authorization status.
+    // 
+    // Valid value:
+    // 
+    // *   not_authorized
+    // *   authorized
     std::shared_ptr<string> authorizeStatus_ = nullptr;
-    // Details about the customer master keys (CMKs).
+    // Customer master key (CMK)
     std::shared_ptr<vector<DescribeKmsKeysResponseBodyKeys>> keys_ = nullptr;
     // Indicates whether KMS is activated.
+    // 
+    // Valid value:
+    // 
+    // *   disabled
+    // *   enabled
     std::shared_ptr<string> kmsServiceStatus_ = nullptr;
     // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;

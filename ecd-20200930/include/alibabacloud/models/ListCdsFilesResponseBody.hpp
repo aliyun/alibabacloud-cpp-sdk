@@ -98,37 +98,24 @@ namespace Models
 
 
   protected:
-    // The result of the operation. A value of success indicates that the operation is successful. If the operation failed, an error message is returned.
+    // The response parameters. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
-    // The total number of entries.
+    // The total number of file list entries.
     std::shared_ptr<string> count_ = nullptr;
     // The files.
     std::shared_ptr<vector<ListCdsFilesResponseBodyFileModels>> fileModels_ = nullptr;
-    // The error message returned if the request failed. This parameter is empty if the value of Code is success.
+    // Error message. This parameter is not returned if the value of Code is `success`.
     std::shared_ptr<string> message_ = nullptr;
-    // The token used for the next query. If this parameter is empty, all results have been returned.
+    // The token used to start the next query. If the `NextToken` is empty, the next query does not exist.
     std::shared_ptr<string> nextToken_ = nullptr;
-    // The request ID. An ID is the unique identifier of the request.
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // Indicates whether the request is successful.
+    // Indicates whether the operation was successful.
     // 
-    // Valid values:
+    // Valid value:
     // 
     // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   <!-- -->
-    // 
-    //     false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // *   false
     std::shared_ptr<bool> success_ = nullptr;
   };
 

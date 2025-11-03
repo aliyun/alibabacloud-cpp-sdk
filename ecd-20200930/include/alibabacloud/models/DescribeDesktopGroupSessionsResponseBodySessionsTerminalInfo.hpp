@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The type of the terminal.
     std::shared_ptr<string> model_ = nullptr;
+    // The terminal type.
     std::shared_ptr<string> productName_ = nullptr;
+    // Terminal Serial Number
     std::shared_ptr<string> serialNumber_ = nullptr;
+    // The terminal UUID.
     std::shared_ptr<string> uuid_ = nullptr;
   };
 

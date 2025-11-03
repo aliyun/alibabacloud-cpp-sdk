@@ -170,21 +170,56 @@ namespace Models
 
 
   protected:
+    // The cloud computer IDs. You can specify 1 to 100 office network IDs.
     std::shared_ptr<vector<string>> desktopId_ = nullptr;
+    // The name of the cloud computer.
     std::shared_ptr<string> desktopName_ = nullptr;
+    // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
     std::shared_ptr<string> desktopType_ = nullptr;
+    // The end time. The interval between the start time and end time can be up to 30 days. Supported formats:
+    // 
+    // *   Format: YYYY-MM-DDThh:mm:ssZ.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The end user ID.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // The office network IDs.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order. Valid values:
+    // 
+    // *   uptime: indicates that the cloud computers are sorted by startup duration.
     std::shared_ptr<string> orderBy_ = nullptr;
+    // The page number of the current page.\\
+    // Default value: 1
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries to return on each page. Valid values: 1 to 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The region ID.
+    // 
+    // *   China (Shanghai)
+    // *   Singapore
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The query range. This parameter is empty by default. Optional values are:
+    // 
+    // *   ADVANCED: indicates that statistics such as the connection duration are queried.
     std::shared_ptr<string> scope_ = nullptr;
+    // The sorting method. Default value: ascending. Valid value:
+    // 
+    // *   Asc: ascending order
+    // *   Desc: descending.
     std::shared_ptr<string> sortType_ = nullptr;
+    // The start time. Supported formats:
+    // 
+    // *   Format: YYYY-MM-DDThh:mm:ssZ.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The way to purchase cloud computers. Valid values:
+    // 
+    // *   prePaid: The monthly purchase is unlimited.
+    // *   postPaid: pay-as-you-go
+    // *   monthPackage: monthly duration.
     std::shared_ptr<string> subPayType_ = nullptr;
   };
 

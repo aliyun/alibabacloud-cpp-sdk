@@ -217,25 +217,72 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // The introduction to the storage resource.
     std::shared_ptr<string> description_ = nullptr;
+    // The number of associated cloud computer pools.
+    // 
+    // >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
     std::shared_ptr<int32_t> desktopGroupCount_ = nullptr;
+    // The details of the associated cloud computers.
+    // 
+    // >  This parameter is returned only if ResourceType is set to NAS and Type is set to USER_PROFILE.
     std::shared_ptr<vector<Models::DescribeDrivesResponseBodyDrivesDesktopGroups>> desktopGroups_ = nullptr;
+    // The ID of the storage resource.
     std::shared_ptr<string> domainId_ = nullptr;
+    // The ID of the user-level storage resource.
     std::shared_ptr<string> driveId_ = nullptr;
+    // Indicates whether the UPM feature is enabled.
     std::shared_ptr<bool> enableProfileManagement_ = nullptr;
+    // The ID of the external storage resource.
+    // 
+    // *   If ResourceType is set to NAS, the NAS ID is returned for this parameter.
+    // *   If ResourceType is set to PDS, the PDS ID is returned for this parameter.
     std::shared_ptr<string> externalDomainId_ = nullptr;
+    // The ID of the storage resource at the external user level.
+    // 
+    // >  This parameter is returned only if ResourceType is set to PDS.
     std::shared_ptr<string> externalDriveId_ = nullptr;
+    // The ID of the external user.
+    // 
+    // >  This parameter is returned only if ResourceType is set to PDS.
     std::shared_ptr<string> externalUserId_ = nullptr;
+    // The time when the storage resource was created.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The time when the storage resource was modified.
     std::shared_ptr<string> gmtModified_ = nullptr;
+    // The user ID.
+    // 
+    // >  You can ignore this parameter.
     std::shared_ptr<string> id_ = nullptr;
+    // The name of the storage resource.
     std::shared_ptr<string> name_ = nullptr;
+    // >  This parameter is deprecated.
     std::shared_ptr<bool> profileRoaming_ = nullptr;
+    // The status of the user-level storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   INIT: initializing
+    // *   MAINTAIN: maintaining
+    // *   DELETING: deleting
+    // *   INVALID: invalid
+    // *   NORMAL: normal
+    // *   FAIL: failed
     std::shared_ptr<string> status_ = nullptr;
+    // The total amount of user-level storage capacity.
     std::shared_ptr<int64_t> totalSize_ = nullptr;
+    // The usage of the storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   DESKTOP: data disk space
+    // *   USER_PROFILE: personal data space
     std::shared_ptr<string> type_ = nullptr;
+    // The amount of user-level storage capacity used.
     std::shared_ptr<int64_t> usedSize_ = nullptr;
+    // The user ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

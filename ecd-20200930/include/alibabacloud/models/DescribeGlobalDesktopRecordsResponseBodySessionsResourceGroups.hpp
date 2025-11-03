@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the enterprise resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The queried resource group name.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
   };
 

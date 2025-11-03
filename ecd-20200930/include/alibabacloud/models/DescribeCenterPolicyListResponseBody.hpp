@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // The cloud computer policies.
+    // The details about the cloud computer policies.
     std::shared_ptr<vector<DescribeCenterPolicyListResponseBodyDescribePolicyGroups>> describePolicyGroups_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;

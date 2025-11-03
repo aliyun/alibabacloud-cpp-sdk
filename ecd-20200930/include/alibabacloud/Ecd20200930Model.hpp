@@ -292,6 +292,12 @@
 #include <alibabacloud/models/DescribeClientEventsRequest.hpp>
 #include <alibabacloud/models/DescribeClientEventsResponseBody.hpp>
 #include <alibabacloud/models/DescribeClientEventsResponse.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupDrivesRequest.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupDrivesResponseBody.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupDrivesResponse.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupsRequest.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupsResponseBody.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupsResponse.hpp>
 #include <alibabacloud/models/DescribeCloudDriveGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeCloudDriveGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudDriveGroupsResponse.hpp>
@@ -542,6 +548,9 @@
 #include <alibabacloud/models/ListFilePermissionRequest.hpp>
 #include <alibabacloud/models/ListFilePermissionResponseBody.hpp>
 #include <alibabacloud/models/ListFilePermissionResponse.hpp>
+#include <alibabacloud/models/ListInstalledAppsRequest.hpp>
+#include <alibabacloud/models/ListInstalledAppsResponseBody.hpp>
+#include <alibabacloud/models/ListInstalledAppsResponse.hpp>
 #include <alibabacloud/models/ListOfficeSiteOverviewRequest.hpp>
 #include <alibabacloud/models/ListOfficeSiteOverviewResponseBody.hpp>
 #include <alibabacloud/models/ListOfficeSiteOverviewResponse.hpp>
@@ -879,6 +888,8 @@
 #include <alibabacloud/models/DescribeCenterPolicyListResponseBodyDescribePolicyGroups.hpp>
 #include <alibabacloud/models/DescribeClientEventsResponseBodyEventsTerminalInfo.hpp>
 #include <alibabacloud/models/DescribeClientEventsResponseBodyEvents.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups.hpp>
+#include <alibabacloud/models/DescribeCloudDiskGroupsResponseBodyCloudDriveGroups.hpp>
 #include <alibabacloud/models/DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos.hpp>
 #include <alibabacloud/models/DescribeCloudDriveGroupsResponseBodyCloudDriveGroups.hpp>
 #include <alibabacloud/models/DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels.hpp>
@@ -1017,6 +1028,7 @@
 #include <alibabacloud/models/GetDesktopGroupDetailResponseBodyDesktops.hpp>
 #include <alibabacloud/models/ListCdsFilesResponseBodyFileModels.hpp>
 #include <alibabacloud/models/ListDirectoryUsersResponseBodyUsers.hpp>
+#include <alibabacloud/models/ListInstalledAppsResponseBodyApps.hpp>
 #include <alibabacloud/models/ListOfficeSiteOverviewResponseBodyOfficeSiteOverviewResults.hpp>
 #include <alibabacloud/models/ListOfficeSiteUsersResponseBodyUsers.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>

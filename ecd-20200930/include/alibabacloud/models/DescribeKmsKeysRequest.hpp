@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

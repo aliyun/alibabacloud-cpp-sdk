@@ -123,7 +123,7 @@ namespace Models
     std::shared_ptr<int32_t> bindCount_ = nullptr;
     // The number of bound resources.
     std::shared_ptr<map<string, int32_t>> bindCountMap_ = nullptr;
-    // The scheduled task configurations.
+    // The scheduled tasks.
     std::shared_ptr<vector<Models::DescribeTimerGroupResponseBodyDataConfigTimers>> configTimers_ = nullptr;
     // The description of the configuration group.
     std::shared_ptr<string> description_ = nullptr;

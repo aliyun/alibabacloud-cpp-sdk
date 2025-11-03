@@ -222,7 +222,7 @@ namespace Models
 
 
   protected:
-    // The file category. PDS categorizes files based on their suffixes and MIME types. The following major categories are included: doc, image, audio, and video.
+    // File type classification. The network disk will classify files according to their suffix and MIME Type. The main categories are `doc`, `image`, `audio` and `video`.
     std::shared_ptr<string> category_ = nullptr;
     // The content type of the file.
     std::shared_ptr<string> contentType_ = nullptr;
@@ -232,7 +232,7 @@ namespace Models
     std::shared_ptr<string> creator_ = nullptr;
     // The file description.
     std::shared_ptr<string> description_ = nullptr;
-    // The URL that is used to download the file. The download URL is valid for only 15 minutes. If the URL is expired, you can call the GetFile operation to obtain the file.
+    // The download link. The default validity period is 15 minutes.
     std::shared_ptr<string> downloadUrl_ = nullptr;
     // The filename extension.
     std::shared_ptr<string> fileExtension_ = nullptr;
@@ -241,14 +241,19 @@ namespace Models
     // The file path.
     std::shared_ptr<string> filePath_ = nullptr;
     // The file type.
+    // 
+    // Valid value:
+    // 
+    // *   file
+    // *   folder
     std::shared_ptr<string> fileType_ = nullptr;
-    // The MD5 value of the file.
+    // The MD5 hash of the object.
     std::shared_ptr<string> md5_ = nullptr;
     // The time when the file was last modified.
     std::shared_ptr<string> modifiedTime_ = nullptr;
-    // The user who modified the file.
+    // Modifier.
     std::shared_ptr<string> modifier_ = nullptr;
-    // The file name.
+    // The name of the file.
     std::shared_ptr<string> name_ = nullptr;
     // The time when the file was last opened.
     std::shared_ptr<string> openTime_ = nullptr;
@@ -256,11 +261,11 @@ namespace Models
     std::shared_ptr<int64_t> openTimeStamp_ = nullptr;
     // The ID of the parent folder.
     std::shared_ptr<string> parentId_ = nullptr;
-    // The region ID You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by cloud computers.
     std::shared_ptr<string> regionId_ = nullptr;
-    // The SHA 1 file.
+    // The SHA1 hash of the data file.
     std::shared_ptr<string> sha1_ = nullptr;
-    // The file size. Unit: bits.
+    // The size of the file. Unit: bytes.
     std::shared_ptr<int64_t> size_ = nullptr;
     // The URL of the thumbnail.
     std::shared_ptr<string> thumbnail_ = nullptr;

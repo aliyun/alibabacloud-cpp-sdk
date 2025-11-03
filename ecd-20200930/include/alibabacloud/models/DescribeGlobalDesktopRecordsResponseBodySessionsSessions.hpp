@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The end user ID.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // The time when the session was created.
     std::shared_ptr<string> establishmentTime_ = nullptr;
   };
 

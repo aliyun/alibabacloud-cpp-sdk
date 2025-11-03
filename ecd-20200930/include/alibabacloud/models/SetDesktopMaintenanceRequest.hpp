@@ -60,10 +60,21 @@ namespace Models
 
 
   protected:
+    // A list of cloud computer IDs for which you want to set maintenance mode. A maximum of 100 cloud computer IDs are supported.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> desktopIds_ = nullptr;
+    // Enter or exit cloud computer maintenance mode.
+    // 
+    // Enumerated values:
+    // 
+    // *   ENTER: The enters the maintenance mode.
+    // *   EXIT: The exits the maintenance mode.
+    // 
     // This parameter is required.
     std::shared_ptr<string> mode_ = nullptr;
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

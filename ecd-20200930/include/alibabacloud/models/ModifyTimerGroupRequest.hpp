@@ -79,7 +79,7 @@ namespace Models
 
 
   protected:
-    // The scheduled task groups.
+    // The scheduled tasks.
     std::shared_ptr<vector<ModifyTimerGroupRequestConfigTimers>> configTimers_ = nullptr;
     // The description of the configuration group.
     std::shared_ptr<string> description_ = nullptr;

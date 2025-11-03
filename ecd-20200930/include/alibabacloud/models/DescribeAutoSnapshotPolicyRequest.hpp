@@ -75,10 +75,10 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page.
+    // The number of entries per page.
     // 
-    // *   Maximum value: 100
-    // *   Default value: 20
+    // *   Maximum value: 50.
+    // *   Default value: 50.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
     // The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
     std::shared_ptr<string> nextToken_ = nullptr;

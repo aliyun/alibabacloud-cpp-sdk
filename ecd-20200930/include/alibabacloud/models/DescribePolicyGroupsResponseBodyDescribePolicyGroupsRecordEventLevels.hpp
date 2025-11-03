@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The event severity.
     std::shared_ptr<string> eventLevel_ = nullptr;
+    // The event type.
     std::shared_ptr<string> eventType_ = nullptr;
   };
 

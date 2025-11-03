@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The number of entries to return on each page.
+    // 
+    // Maximum value: 100.
+    // 
+    // Default value: 20.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The ID of the transmission task.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

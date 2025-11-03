@@ -56,29 +56,8 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   IT_Group
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     group
-    // 
-    //     <!-- -->
-    // 
-    // *   IT_User
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     user
-    // 
-    //     <!-- -->
+    // *   IT_Group: group.
+    // *   IT_User: user.
     // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;

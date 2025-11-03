@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The report export tasks.
     std::shared_ptr<vector<DescribeEcdReportTasksResponseBodyExportTaskList>> exportTaskList_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

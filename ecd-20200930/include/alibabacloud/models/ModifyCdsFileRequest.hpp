@@ -94,63 +94,32 @@ namespace Models
 
 
   protected:
-    // The cloud disk ID.
+    // The enterprise drive ID.
     // 
     // This parameter is required.
     std::shared_ptr<string> cdsId_ = nullptr;
-    // The processing mode of files that have the same name.
+    // The processing policy when a file with the same name appears.
     // 
     // Valid values:
     // 
-    // *   refuse
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     refuses to create a file that has the same name as the file in the cloud.
-    // 
-    //     <!-- -->
-    // 
-    // *   auto_rename
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     automatically renames a file if the file has the same name as another file. By default, the current point in time is appended. Example: xxx20060102_150405.
-    // 
-    //     <!-- -->
-    // 
-    // *   ignore
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     allows files with the same name.
-    // 
-    //     <!-- -->
+    // *   refuse: If you want to create a file that uses the same name as an existing file in the cloud, the system denies your request and returns the details of the existing file.
+    // *   auto_rename: automatically renames a file if the file has the same name as an existing file in the cloud. By default, the current point in time is appended to the end of the original file name. Example: xxx20240102_150405.
+    // *   ignore: allows the file to be with the same name.
+    // *   over_write: After you create a file that uses the same name as an existing file in the cloud, the new file overwrites the existing file.
     std::shared_ptr<string> conflictPolicy_ = nullptr;
-    // The ID of the end user who uses the cloud disk.
+    // The ID of the user who uses the network disk.
     std::shared_ptr<string> endUserId_ = nullptr;
-    // The file ID.
+    // The ID of the file. You can call the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) operation to query the ID of the file.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileId_ = nullptr;
-    // The file name.
+    // The name of the file.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileName_ = nullptr;
-    // The group ID.
+    // The ID of the team space.
     std::shared_ptr<string> groupId_ = nullptr;
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;

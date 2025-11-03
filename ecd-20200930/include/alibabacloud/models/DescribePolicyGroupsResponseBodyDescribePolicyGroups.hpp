@@ -1181,6 +1181,7 @@ namespace Models
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ = nullptr;
     // The security group rules.
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ = nullptr;
+    // The automatic client connection recovery configurations.
     std::shared_ptr<string> autoReconnect_ = nullptr;
     // Indicates whether the webcam redirection feature is enabled.
     // 
@@ -1350,6 +1351,7 @@ namespace Models
     // - off: not provided.
     // - on: provided.
     std::shared_ptr<string> mobileRestart_ = nullptr;
+    // Indicates whether the Windows security control is enabled for mobile clients.
     std::shared_ptr<string> mobileSafeMenu_ = nullptr;
     // Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
     // 
@@ -1360,7 +1362,9 @@ namespace Models
     // - off: not provided.
     // - on: provided.
     std::shared_ptr<string> mobileShutdown_ = nullptr;
+    // Indicates whether the Cloud Computer Manager is enabled for mobile clients.
     std::shared_ptr<string> mobileWuyingKeeper_ = nullptr;
+    // Indicates whether the Xiaoying AI Assistant is enabled for mobile clients.
     std::shared_ptr<string> mobileWyAssistant_ = nullptr;
     // The name of the cloud computer policy.
     std::shared_ptr<string> name_ = nullptr;
@@ -1428,9 +1432,11 @@ namespace Models
     std::shared_ptr<int64_t> recordContentExpires_ = nullptr;
     // The recording duration since a target event is detected by the screen recording audit policy. Unit: Minute. Valid values: 10-60.
     std::shared_ptr<int32_t> recordEventDuration_ = nullptr;
+    // The screen recording file suffix.
     std::shared_ptr<vector<string>> recordEventFileExts_ = nullptr;
     // The array of absolute paths of the monitored files in the screen recording audit policy.
     std::shared_ptr<vector<string>> recordEventFilePaths_ = nullptr;
+    // Indicates whether the screen recording event severity is enabled.
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels>> recordEventLevels_ = nullptr;
     // The array of absolute paths of the monitored registry entries in the screen recording audit policy.
     std::shared_ptr<vector<string>> recordEventRegisters_ = nullptr;

@@ -143,17 +143,21 @@ namespace Models
 
 
   protected:
+    // The IDs of shared desktop groups.
     std::shared_ptr<vector<string>> desktopGroupIds_ = nullptr;
+    // The name of the shared desktop.
     std::shared_ptr<string> desktopGroupName_ = nullptr;
     // The end of the time range to query.
     std::shared_ptr<string> endTime_ = nullptr;
-    // The ID of the end user.
+    // The user ID of the terminal that connects to the session.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // Whether to supplement terminal information.
     std::shared_ptr<bool> fillTerminalInfo_ = nullptr;
+    // The language of the response.
     std::shared_ptr<string> language_ = nullptr;
     // The number of entries per page.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
     // The type of the session.
     // 
@@ -162,7 +166,7 @@ namespace Models
     // *   0: single-session
     // *   1: multi-session
     std::shared_ptr<int32_t> ownType_ = nullptr;
-    // The region ID.
+    // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     std::shared_ptr<string> regionId_ = nullptr;
     // The status of the session.
     // 

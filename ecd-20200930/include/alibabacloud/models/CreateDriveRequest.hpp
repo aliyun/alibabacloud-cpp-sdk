@@ -121,15 +121,39 @@ namespace Models
 
 
   protected:
+    // The ID of your Alibaba Cloud account.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // The description of the user-level storage resource.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the storage resource.
+    // 
+    // >  Call the DescribeDrives operation to retrieve the storage resource ID.
     std::shared_ptr<string> domainId_ = nullptr;
+    // The name of the user-level storage resource.
     std::shared_ptr<string> driveName_ = nullptr;
+    // The ID of the external storage resource.
+    // 
+    // >  Call the DescribeDrives operation to retrieve the external storage resource ID.
     std::shared_ptr<string> externalDomainId_ = nullptr;
+    // >  This parameter is deprecated.
     std::shared_ptr<bool> profileRoaming_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The type of the storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   NAS: File Storage NAS
+    // *   PDS: Drive and Photo Service
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The usage of the storage resource.
+    // 
+    // Valid values:
+    // 
+    // *   DESKTOP: data disk space
+    // *   USER_PROFILE: space for personal data of the user
     std::shared_ptr<string> type_ = nullptr;
+    // The user ID.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the user-level storage resource.
     std::shared_ptr<string> driveId_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

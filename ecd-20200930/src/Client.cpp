@@ -198,7 +198,7 @@ AddDevicesResponse Client::addDevices(const AddDevicesRequest &request) {
 }
 
 /**
- * @summary Shares a folder of a cloud disk with other users.
+ * @summary Adds a shared folder to the network disk.
  *
  * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
  *
@@ -257,7 +257,7 @@ AddFilePermissionResponse Client::addFilePermissionWithOptions(const AddFilePerm
 }
 
 /**
- * @summary Shares a folder of a cloud disk with other users.
+ * @summary Adds a shared folder to the network disk.
  *
  * @description You can call this operation to share a specific folder with other users. You can also configure the folder permissions.
  *
@@ -1320,7 +1320,7 @@ ClonePolicyGroupResponse Client::clonePolicyGroup(const ClonePolicyGroupRequest 
 }
 
 /**
- * @summary Completes a file uploading task.
+ * @summary After you create an object upload task, call this operation to upload the object.
  *
  * @param request CompleteCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1371,7 +1371,7 @@ CompleteCdsFileResponse Client::completeCdsFileWithOptions(const CompleteCdsFile
 }
 
 /**
- * @summary Completes a file uploading task.
+ * @summary After you create an object upload task, call this operation to upload the object.
  *
  * @param request CompleteCdsFileRequest
  * @return CompleteCdsFileResponse
@@ -3764,7 +3764,7 @@ CreateDiskEncryptionServiceResponse Client::createDiskEncryptionService(const Cr
 }
 
 /**
- * @summary 创建网盘
+ * @summary Creates a user-level storage resource.
  *
  * @param request CreateDriveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3831,7 +3831,7 @@ CreateDriveResponse Client::createDriveWithOptions(const CreateDriveRequest &req
 }
 
 /**
- * @summary 创建网盘
+ * @summary Creates a user-level storage resource.
  *
  * @param request CreateDriveRequest
  * @return CreateDriveResponse
@@ -3842,7 +3842,7 @@ CreateDriveResponse Client::createDrive(const CreateDriveRequest &request) {
 }
 
 /**
- * @summary 创建无影数据报表导出任务
+ * @summary Creates a data report export task.
  *
  * @param request CreateEcdReportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3889,7 +3889,7 @@ CreateEcdReportTaskResponse Client::createEcdReportTaskWithOptions(const CreateE
 }
 
 /**
- * @summary 创建无影数据报表导出任务
+ * @summary Creates a data report export task.
  *
  * @param request CreateEcdReportTaskRequest
  * @return CreateEcdReportTaskResponse
@@ -5032,7 +5032,7 @@ CreateSubnetResponse Client::createSubnet(const CreateSubnetRequest &request) {
 }
 
 /**
- * @summary 创建模板
+ * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
  *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5151,7 +5151,7 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 }
 
 /**
- * @summary 创建模板
+ * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -5254,7 +5254,7 @@ DeleteBundlesResponse Client::deleteBundles(const DeleteBundlesRequest &request)
 }
 
 /**
- * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+ * @summary Delete files or folders from the network disk.
  *
  * @param request DeleteCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5301,7 +5301,7 @@ DeleteCdsFileResponse Client::deleteCdsFileWithOptions(const DeleteCdsFileReques
 }
 
 /**
- * @summary Deletes a file from a cloud disk in Cloud Drive Service.
+ * @summary Delete files or folders from the network disk.
  *
  * @param request DeleteCdsFileRequest
  * @return DeleteCdsFileResponse
@@ -5728,7 +5728,7 @@ DeleteDirectoriesResponse Client::deleteDirectories(const DeleteDirectoriesReque
 }
 
 /**
- * @summary 删除网盘
+ * @summary Deletes a drive.
  *
  * @param request DeleteDriveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5763,7 +5763,7 @@ DeleteDriveResponse Client::deleteDriveWithOptions(const DeleteDriveRequest &req
 }
 
 /**
- * @summary 删除网盘
+ * @summary Deletes a drive.
  *
  * @param request DeleteDriveRequest
  * @return DeleteDriveResponse
@@ -7058,6 +7058,122 @@ DescribeClientEventsResponse Client::describeClientEvents(const DescribeClientEv
 }
 
 /**
+ * @summary 查询云盘团队空间列表
+ *
+ * @param request DescribeCloudDiskGroupDrivesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCloudDiskGroupDrivesResponse
+ */
+DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrivesWithOptions(const DescribeCloudDiskGroupDrivesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCdsId()) {
+    query["CdsId"] = request.cdsId();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCloudDiskGroupDrives"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCloudDiskGroupDrivesResponse>();
+}
+
+/**
+ * @summary 查询云盘团队空间列表
+ *
+ * @param request DescribeCloudDiskGroupDrivesRequest
+ * @return DescribeCloudDiskGroupDrivesResponse
+ */
+DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrives(const DescribeCloudDiskGroupDrivesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCloudDiskGroupDrivesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云盘团队列表
+ *
+ * @param request DescribeCloudDiskGroupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCloudDiskGroupsResponse
+ */
+DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroupsWithOptions(const DescribeCloudDiskGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCdsId()) {
+    query["CdsId"] = request.cdsId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasParentOrgId()) {
+    query["ParentOrgId"] = request.parentOrgId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCloudDiskGroups"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCloudDiskGroupsResponse>();
+}
+
+/**
+ * @summary 查询云盘团队列表
+ *
+ * @param request DescribeCloudDiskGroupsRequest
+ * @return DescribeCloudDiskGroupsResponse
+ */
+DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroups(const DescribeCloudDiskGroupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCloudDiskGroupsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of authorized team spaces.
  *
  * @param request DescribeCloudDriveGroupsRequest
@@ -7368,7 +7484,7 @@ DescribeCustomizedListHeadersResponse Client::describeCustomizedListHeaders(cons
 }
 
 /**
- * @summary Queries sessions in a desktop group.
+ * @summary Queries cloud computer shares.
  *
  * @param request DescribeDesktopGroupSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7443,7 +7559,7 @@ DescribeDesktopGroupSessionsResponse Client::describeDesktopGroupSessionsWithOpt
 }
 
 /**
- * @summary Queries sessions in a desktop group.
+ * @summary Queries cloud computer shares.
  *
  * @param request DescribeDesktopGroupSessionsRequest
  * @return DescribeDesktopGroupSessionsResponse
@@ -8412,7 +8528,7 @@ DescribeDirectoriesResponse Client::describeDirectories(const DescribeDirectorie
 }
 
 /**
- * @summary 查询网盘列表
+ * @summary Queries user-level storage resources.
  *
  * @param request DescribeDrivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8463,7 +8579,7 @@ DescribeDrivesResponse Client::describeDrivesWithOptions(const DescribeDrivesReq
 }
 
 /**
- * @summary 查询网盘列表
+ * @summary Queries user-level storage resources.
  *
  * @param request DescribeDrivesRequest
  * @return DescribeDrivesResponse
@@ -8474,7 +8590,7 @@ DescribeDrivesResponse Client::describeDrives(const DescribeDrivesRequest &reque
 }
 
 /**
- * @summary 查询数据报表导出任务列表
+ * @summary Queries data report export tasks.
  *
  * @param request DescribeEcdReportTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8525,7 +8641,7 @@ DescribeEcdReportTasksResponse Client::describeEcdReportTasksWithOptions(const D
 }
 
 /**
- * @summary 查询数据报表导出任务列表
+ * @summary Queries data report export tasks.
  *
  * @param request DescribeEcdReportTasksRequest
  * @return DescribeEcdReportTasksResponse
@@ -8862,7 +8978,12 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 }
 
 /**
- * @summary 查询全局桌面记录
+ * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+ *
+ * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+ * *   By default, you can query all cloud computers that are deleted or not deleted.
+ * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+ * *   Sort criteria cannot be shared with other criteria.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8949,7 +9070,12 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 }
 
 /**
- * @summary 查询全局桌面记录
+ * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+ *
+ * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
+ * *   By default, you can query all cloud computers that are deleted or not deleted.
+ * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
+ * *   Sort criteria cannot be shared with other criteria.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @return DescribeGlobalDesktopRecordsResponse
@@ -10852,7 +10978,7 @@ DescribeSubnetsResponse Client::describeSubnets(const DescribeSubnetsRequest &re
 }
 
 /**
- * @summary 查询模板列表
+ * @summary Queries the details of cloud computer templates.
  *
  * @param request DescribeTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10919,7 +11045,7 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const DescribeTem
 }
 
 /**
- * @summary 查询模板列表
+ * @summary Queries the details of cloud computer templates.
  *
  * @param request DescribeTemplatesRequest
  * @return DescribeTemplatesResponse
@@ -12462,7 +12588,7 @@ HibernateDesktopsResponse Client::hibernateDesktops(const HibernateDesktopsReque
 }
 
 /**
- * @summary Queries the files in a cloud disk.
+ * @summary Queries the list of files in the network disk and obtain the download link of the file.
  *
  * @param tmpReq ListCdsFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12535,7 +12661,7 @@ ListCdsFilesResponse Client::listCdsFilesWithOptions(const ListCdsFilesRequest &
 }
 
 /**
- * @summary Queries the files in a cloud disk.
+ * @summary Queries the list of files in the network disk and obtain the download link of the file.
  *
  * @param request ListCdsFilesRequest
  * @return ListCdsFilesResponse
@@ -12624,7 +12750,7 @@ ListDirectoryUsersResponse Client::listDirectoryUsers(const ListDirectoryUsersRe
 }
 
 /**
- * @summary Queries the information about shared files of cloud disks.
+ * @summary Queries the permissions on a shared file on a drive.
  *
  * @param request ListFilePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12671,7 +12797,7 @@ ListFilePermissionResponse Client::listFilePermissionWithOptions(const ListFileP
 }
 
 /**
- * @summary Queries the information about shared files of cloud disks.
+ * @summary Queries the permissions on a shared file on a drive.
  *
  * @param request ListFilePermissionRequest
  * @return ListFilePermissionResponse
@@ -12679,6 +12805,56 @@ ListFilePermissionResponse Client::listFilePermissionWithOptions(const ListFileP
 ListFilePermissionResponse Client::listFilePermission(const ListFilePermissionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFilePermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询桌面内安装的应用
+ *
+ * @param request ListInstalledAppsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstalledAppsResponse
+ */
+ListInstalledAppsResponse Client::listInstalledAppsWithOptions(const ListInstalledAppsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.desktopId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstalledApps"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstalledAppsResponse>();
+}
+
+/**
+ * @summary 查询桌面内安装的应用
+ *
+ * @param request ListInstalledAppsRequest
+ * @return ListInstalledAppsResponse
+ */
+ListInstalledAppsResponse Client::listInstalledApps(const ListInstalledAppsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstalledAppsWithOptions(request, runtime);
 }
 
 /**
@@ -12884,7 +13060,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 获取文件下载地址
+ * @summary Queries the file information of a file transmission task.
  *
  * @param request ListTransferFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12923,7 +13099,7 @@ ListTransferFilesResponse Client::listTransferFilesWithOptions(const ListTransfe
 }
 
 /**
- * @summary 获取文件下载地址
+ * @summary Queries the file information of a file transmission task.
  *
  * @param request ListTransferFilesRequest
  * @return ListTransferFilesResponse
@@ -13516,7 +13692,7 @@ ModifyBundleResponse Client::modifyBundle(const ModifyBundleRequest &request) {
 }
 
 /**
- * @summary Modifies the files in a cloud disk.
+ * @summary Modifies the attributes of a disk file or folder, such as the file name.
  *
  * @param request ModifyCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13571,7 +13747,7 @@ ModifyCdsFileResponse Client::modifyCdsFileWithOptions(const ModifyCdsFileReques
 }
 
 /**
- * @summary Modifies the files in a cloud disk.
+ * @summary Modifies the attributes of a disk file or folder, such as the file name.
  *
  * @param request ModifyCdsFileRequest
  * @return ModifyCdsFileResponse
@@ -15806,7 +15982,7 @@ ModifyOfficeSiteCrossDesktopAccessResponse Client::modifyOfficeSiteCrossDesktopA
 }
 
 /**
- * @summary 修改工作区DNS信息
+ * @summary Modifies the DNS information of an office network.
  *
  * @param request ModifyOfficeSiteDnsInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15845,7 +16021,7 @@ ModifyOfficeSiteDnsInfoResponse Client::modifyOfficeSiteDnsInfoWithOptions(const
 }
 
 /**
- * @summary 修改工作区DNS信息
+ * @summary Modifies the DNS information of an office network.
  *
  * @param request ModifyOfficeSiteDnsInfoRequest
  * @return ModifyOfficeSiteDnsInfoResponse
@@ -16304,7 +16480,7 @@ ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttribute(const 
 }
 
 /**
- * @summary 模板全量更新
+ * @summary Modifies a custom cloud computer template.
  *
  * @param request ModifyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16419,7 +16595,7 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 }
 
 /**
- * @summary 模板全量更新
+ * @summary Modifies a custom cloud computer template.
  *
  * @param request ModifyTemplateRequest
  * @return ModifyTemplateResponse
@@ -16432,7 +16608,7 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 /**
  * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
  *
- * @description You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+ * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
  *
  * @param request ModifyTemplateBaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16473,7 +16649,7 @@ ModifyTemplateBaseInfoResponse Client::modifyTemplateBaseInfoWithOptions(const M
 /**
  * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
  *
- * @description You can use this operation to modify only the name and description of a custom cloud computer template. To change other parameters of the template, use the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
+ * @description This operation allows you to modify only the name and description of a custom cloud computer template. To change other parameters of the template, call the [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html) operation.
  *
  * @param request ModifyTemplateBaseInfoRequest
  * @return ModifyTemplateBaseInfoResponse
@@ -16896,7 +17072,7 @@ ReleaseIpAddressResponse Client::releaseIpAddress(const ReleaseIpAddressRequest 
 }
 
 /**
- * @summary Removes the file sharing feature of a folder in a cloud disk.
+ * @summary Unshare a folder on the network disk.
  *
  * @param tmpReq RemoveFilePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16953,7 +17129,7 @@ RemoveFilePermissionResponse Client::removeFilePermissionWithOptions(const Remov
 }
 
 /**
- * @summary Removes the file sharing feature of a folder in a cloud disk.
+ * @summary Unshare a folder on the network disk.
  *
  * @param request RemoveFilePermissionRequest
  * @return RemoveFilePermissionResponse
@@ -17884,7 +18060,9 @@ SetDesktopGroupTimerStatusResponse Client::setDesktopGroupTimerStatus(const SetD
 }
 
 /**
- * @summary 设置桌面维护模式
+ * @summary Set the cloud computer maintenance mode.
+ *
+ * @description If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
  *
  * @param request SetDesktopMaintenanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17923,7 +18101,9 @@ SetDesktopMaintenanceResponse Client::setDesktopMaintenanceWithOptions(const Set
 }
 
 /**
- * @summary 设置桌面维护模式
+ * @summary Set the cloud computer maintenance mode.
+ *
+ * @description If you need to perform some maintenance operations on the cloud computer and want to prohibit end user from connecting and using the cloud computer during this period, you can switch it to maintenance mode.
  *
  * @param request SetDesktopMaintenanceRequest
  * @return SetDesktopMaintenanceResponse
@@ -18376,7 +18556,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 文件传输审批回调
+ * @summary Queries the transmission and approval result for a submitted file.
  *
  * @param request TransferTaskApprovalCallbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18419,7 +18599,7 @@ TransferTaskApprovalCallbackResponse Client::transferTaskApprovalCallbackWithOpt
 }
 
 /**
- * @summary 文件传输审批回调
+ * @summary Queries the transmission and approval result for a submitted file.
  *
  * @param request TransferTaskApprovalCallbackRequest
  * @return TransferTaskApprovalCallbackResponse

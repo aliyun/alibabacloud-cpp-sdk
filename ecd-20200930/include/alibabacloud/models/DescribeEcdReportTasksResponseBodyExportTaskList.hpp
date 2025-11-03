@@ -130,16 +130,35 @@ namespace Models
 
 
   protected:
+    // The download URL of the report file.
     std::shared_ptr<string> downloadUrl_ = nullptr;
+    // The error code returned.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message.
     std::shared_ptr<string> errorMsg_ = nullptr;
+    // The time when the task was created.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The time when the task was last modified.
     std::shared_ptr<string> gmtModified_ = nullptr;
+    // The progress of the report export task. Unit: %.
     std::shared_ptr<float> progress_ = nullptr;
+    // The name of the report file.
     std::shared_ptr<string> reportFileName_ = nullptr;
+    // The task status.
     std::shared_ptr<string> status_ = nullptr;
+    // The sub-type of the report export task.
+    // 
+    // Valid value:
+    // 
+    // *   DESKTOP: cloud computer
     std::shared_ptr<string> subType_ = nullptr;
+    // The ID of the report export task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // The type of the report.
+    // 
+    // Valid value:
+    // 
+    // *   RESOURCE_REPORT
     std::shared_ptr<string> taskType_ = nullptr;
   };
 

@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The session details.
     std::shared_ptr<vector<DescribeGlobalDesktopRecordsResponseBodySessions>> sessions_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 
