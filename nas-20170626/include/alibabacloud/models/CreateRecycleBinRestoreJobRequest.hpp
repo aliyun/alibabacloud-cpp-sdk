@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->fileId_ != nullptr && this->fileSystemId_ != nullptr && this->targetFileId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->fileId_ == nullptr && return this->fileSystemId_ == nullptr && return this->targetFileId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -74,7 +74,7 @@ namespace Models
     std::shared_ptr<string> clientToken_ = nullptr;
     // The ID of the file or directory that you want to restore.
     // 
-    // You can call the [ListRecycleBinJobs](https://help.aliyun.com/document_detail/264192.html) operation to query the value of the FileId parameter.
+    // You can call the [ListRecycledDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412174.html) operation to query the FileId of the deleted data.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileId_ = nullptr;
@@ -83,6 +83,9 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;
     // The ID of the directory to which the file is restored.
+    // 
+    // *   You can call the [ListRecentlyRecycledDirectories](https://help.aliyun.com/document_detail/2412173.html) operation to query the TargetFileId for recently deleted directories.
+    // *   You can call the [ListDirectoriesAndFiles](https://help.aliyun.com/document_detail/2412163.html) operation to query the TargetFileId for existing directories.
     // 
     // This parameter is required.
     std::shared_ptr<string> targetFileId_ = nullptr;

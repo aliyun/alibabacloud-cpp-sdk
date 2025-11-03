@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->atime_ != nullptr
-        && this->ctime_ != nullptr && this->fileId_ != nullptr && this->hasArchiveFile_ != nullptr && this->hasInfrequentAccessFile_ != nullptr && this->inode_ != nullptr
-        && this->mtime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->retrieveTime_ != nullptr && this->size_ != nullptr
-        && this->storageType_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->atime_ == nullptr
+        && return this->ctime_ == nullptr && return this->fileId_ == nullptr && return this->hasArchiveFile_ == nullptr && return this->hasInfrequentAccessFile_ == nullptr && return this->inode_ == nullptr
+        && return this->mtime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->retrieveTime_ == nullptr && return this->size_ == nullptr
+        && return this->storageType_ == nullptr && return this->type_ == nullptr; };
     // atime Field Functions 
     bool hasAtime() const { return this->atime_ != nullptr;};
     void deleteAtime() { this->atime_ = nullptr;};

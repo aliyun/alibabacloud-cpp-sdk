@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completedTime_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->encryptType_ != nullptr && this->fileSystemType_ != nullptr && this->progress_ != nullptr
-        && this->remainTime_ != nullptr && this->retentionDays_ != nullptr && this->snapshotId_ != nullptr && this->snapshotName_ != nullptr && this->snapshotType_ != nullptr
-        && this->sourceFileSystemId_ != nullptr && this->sourceFileSystemSize_ != nullptr && this->sourceFileSystemVersion_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->completedTime_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->encryptType_ == nullptr && return this->fileSystemType_ == nullptr && return this->progress_ == nullptr
+        && return this->remainTime_ == nullptr && return this->retentionDays_ == nullptr && return this->snapshotId_ == nullptr && return this->snapshotName_ == nullptr && return this->snapshotType_ == nullptr
+        && return this->sourceFileSystemId_ == nullptr && return this->sourceFileSystemSize_ == nullptr && return this->sourceFileSystemVersion_ == nullptr && return this->status_ == nullptr; };
     // completedTime Field Functions 
     bool hasCompletedTime() const { return this->completedTime_ != nullptr;};
     void deleteCompletedTime() { this->completedTime_ = nullptr;};

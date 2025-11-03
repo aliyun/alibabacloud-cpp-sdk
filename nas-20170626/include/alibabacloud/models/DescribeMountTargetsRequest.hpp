@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dualStackMountTargetDomain_ != nullptr
-        && this->fileSystemId_ != nullptr && this->mountTargetDomain_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->dualStackMountTargetDomain_ == nullptr
+        && return this->fileSystemId_ == nullptr && return this->mountTargetDomain_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
     // dualStackMountTargetDomain Field Functions 
     bool hasDualStackMountTargetDomain() const { return this->dualStackMountTargetDomain_ != nullptr;};
     void deleteDualStackMountTargetDomain() { this->dualStackMountTargetDomain_ = nullptr;};

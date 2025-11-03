@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileSystemId_ != nullptr
-        && this->ownerGroupId_ != nullptr && this->ownerUserId_ != nullptr && this->permission_ != nullptr && this->recursion_ != nullptr && this->rootDirectory_ != nullptr; };
+    virtual bool empty() const override { return this->fileSystemId_ == nullptr
+        && return this->ownerGroupId_ == nullptr && return this->ownerUserId_ == nullptr && return this->permission_ == nullptr && return this->recursion_ == nullptr && return this->rootDirectory_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};

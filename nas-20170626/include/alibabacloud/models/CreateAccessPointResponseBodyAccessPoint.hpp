@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointDomain_ != nullptr
-        && this->accessPointId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointDomain_ == nullptr
+        && return this->accessPointId_ == nullptr; };
     // accessPointDomain Field Functions 
     bool hasAccessPointDomain() const { return this->accessPointDomain_ != nullptr;};
     void deleteAccessPointDomain() { this->accessPointDomain_ = nullptr;};

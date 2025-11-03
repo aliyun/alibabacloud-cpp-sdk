@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->posixGroupId_ != nullptr
-        && this->posixSecondaryGroupIds_ != nullptr && this->posixUserId_ != nullptr; };
+    virtual bool empty() const override { return this->posixGroupId_ == nullptr
+        && return this->posixSecondaryGroupIds_ == nullptr && return this->posixUserId_ == nullptr; };
     // posixGroupId Field Functions 
     bool hasPosixGroupId() const { return this->posixGroupId_ != nullptr;};
     void deletePosixGroupId() { this->posixGroupId_ = nullptr;};

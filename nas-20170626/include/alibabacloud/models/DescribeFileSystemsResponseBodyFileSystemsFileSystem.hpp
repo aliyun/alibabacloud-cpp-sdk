@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointCount_ != nullptr
-        && this->autoSnapshotPolicyId_ != nullptr && this->bandwidth_ != nullptr && this->capacity_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr
-        && this->description_ != nullptr && this->encryptType_ != nullptr && this->expiredTime_ != nullptr && this->fileSystemId_ != nullptr && this->fileSystemType_ != nullptr
-        && this->KMSKeyId_ != nullptr && this->ldap_ != nullptr && this->meteredArchiveSize_ != nullptr && this->meteredIASize_ != nullptr && this->meteredSize_ != nullptr
-        && this->mountTargets_ != nullptr && this->options_ != nullptr && this->packages_ != nullptr && this->protocolType_ != nullptr && this->quorumVswId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->storageType_ != nullptr && this->supportedFeatures_ != nullptr
-        && this->tags_ != nullptr && this->version_ != nullptr && this->vpcId_ != nullptr && this->vscTarget_ != nullptr && this->vswIds_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointCount_ == nullptr
+        && return this->autoSnapshotPolicyId_ == nullptr && return this->bandwidth_ == nullptr && return this->capacity_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->encryptType_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemId_ == nullptr && return this->fileSystemType_ == nullptr
+        && return this->KMSKeyId_ == nullptr && return this->ldap_ == nullptr && return this->meteredArchiveSize_ == nullptr && return this->meteredIASize_ == nullptr && return this->meteredSize_ == nullptr
+        && return this->mountTargets_ == nullptr && return this->options_ == nullptr && return this->packages_ == nullptr && return this->protocolType_ == nullptr && return this->quorumVswId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->supportedFeatures_ == nullptr
+        && return this->tags_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vscTarget_ == nullptr && return this->vswIds_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // accessPointCount Field Functions 
     bool hasAccessPointCount() const { return this->accessPointCount_ != nullptr;};
     void deleteAccessPointCount() { this->accessPointCount_ = nullptr;};

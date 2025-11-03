@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessGroup_ != nullptr
-        && this->clientMasterNodes_ != nullptr && this->dualStackMountTargetDomain_ != nullptr && this->IPVersion_ != nullptr && this->mountTargetDomain_ != nullptr && this->networkType_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr && this->vswId_ != nullptr; };
+    virtual bool empty() const override { return this->accessGroup_ == nullptr
+        && return this->clientMasterNodes_ == nullptr && return this->dualStackMountTargetDomain_ == nullptr && return this->IPVersion_ == nullptr && return this->mountTargetDomain_ == nullptr && return this->networkType_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr; };
     // accessGroup Field Functions 
     bool hasAccessGroup() const { return this->accessGroup_ != nullptr;};
     void deleteAccessGroup() { this->accessGroup_ = nullptr;};

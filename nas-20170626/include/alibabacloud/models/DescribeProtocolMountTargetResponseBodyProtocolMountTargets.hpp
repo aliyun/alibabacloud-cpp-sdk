@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessGroupName_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->exportId_ != nullptr && this->fsetId_ != nullptr && this->path_ != nullptr
-        && this->protocolMountTargetDomain_ != nullptr && this->protocolServiceId_ != nullptr && this->protocolType_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accessGroupName_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->exportId_ == nullptr && return this->fsetId_ == nullptr && return this->path_ == nullptr
+        && return this->protocolMountTargetDomain_ == nullptr && return this->protocolServiceId_ == nullptr && return this->protocolType_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};

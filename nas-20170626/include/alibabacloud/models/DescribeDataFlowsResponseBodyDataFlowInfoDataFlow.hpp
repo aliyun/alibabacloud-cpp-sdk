@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRefresh_ != nullptr
-        && this->autoRefreshInterval_ != nullptr && this->autoRefreshPolicy_ != nullptr && this->createTime_ != nullptr && this->dataFlowId_ != nullptr && this->description_ != nullptr
-        && this->errorMessage_ != nullptr && this->fileSystemId_ != nullptr && this->fileSystemPath_ != nullptr && this->fsetDescription_ != nullptr && this->fsetId_ != nullptr
-        && this->sourceSecurityType_ != nullptr && this->sourceStorage_ != nullptr && this->sourceStoragePath_ != nullptr && this->status_ != nullptr && this->throughput_ != nullptr
-        && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->autoRefresh_ == nullptr
+        && return this->autoRefreshInterval_ == nullptr && return this->autoRefreshPolicy_ == nullptr && return this->createTime_ == nullptr && return this->dataFlowId_ == nullptr && return this->description_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->fileSystemId_ == nullptr && return this->fileSystemPath_ == nullptr && return this->fsetDescription_ == nullptr && return this->fsetId_ == nullptr
+        && return this->sourceSecurityType_ == nullptr && return this->sourceStorage_ == nullptr && return this->sourceStoragePath_ == nullptr && return this->status_ == nullptr && return this->throughput_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // autoRefresh Field Functions 
     bool hasAutoRefresh() const { return this->autoRefresh_ != nullptr;};
     void deleteAutoRefresh() { this->autoRefresh_ = nullptr;};

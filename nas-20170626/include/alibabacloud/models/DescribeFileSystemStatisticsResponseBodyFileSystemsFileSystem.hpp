@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->capacity_ != nullptr
-        && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->expiredTime_ != nullptr && this->fileSystemId_ != nullptr
-        && this->fileSystemType_ != nullptr && this->meteredIASize_ != nullptr && this->meteredSize_ != nullptr && this->packages_ != nullptr && this->protocolType_ != nullptr
-        && this->regionId_ != nullptr && this->status_ != nullptr && this->storageType_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->capacity_ == nullptr
+        && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemId_ == nullptr
+        && return this->fileSystemType_ == nullptr && return this->meteredIASize_ == nullptr && return this->meteredSize_ == nullptr && return this->packages_ == nullptr && return this->protocolType_ == nullptr
+        && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->zoneId_ == nullptr; };
     // capacity Field Functions 
     bool hasCapacity() const { return this->capacity_ != nullptr;};
     void deleteCapacity() { this->capacity_ = nullptr;};

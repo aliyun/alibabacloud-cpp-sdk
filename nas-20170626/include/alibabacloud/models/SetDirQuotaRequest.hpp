@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileCountLimit_ != nullptr
-        && this->fileSystemId_ != nullptr && this->path_ != nullptr && this->quotaType_ != nullptr && this->sizeLimit_ != nullptr && this->userId_ != nullptr
-        && this->userType_ != nullptr; };
+    virtual bool empty() const override { return this->fileCountLimit_ == nullptr
+        && return this->fileSystemId_ == nullptr && return this->path_ == nullptr && return this->quotaType_ == nullptr && return this->sizeLimit_ == nullptr && return this->userId_ == nullptr
+        && return this->userType_ == nullptr; };
     // fileCountLimit Field Functions 
     bool hasFileCountLimit() const { return this->fileCountLimit_ != nullptr;};
     void deleteFileCountLimit() { this->fileCountLimit_ = nullptr;};

@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conflictPolicy_ != nullptr
-        && this->createTime_ != nullptr && this->dataFlowId_ != nullptr && this->dataType_ != nullptr && this->directory_ != nullptr && this->dstDirectory_ != nullptr
-        && this->endTime_ != nullptr && this->errorMsg_ != nullptr && this->fileSystemPath_ != nullptr && this->filesystemId_ != nullptr && this->fsPath_ != nullptr
-        && this->includes_ != nullptr && this->originator_ != nullptr && this->progress_ != nullptr && this->progressStats_ != nullptr && this->reportPath_ != nullptr
-        && this->reports_ != nullptr && this->sourceStorage_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->taskAction_ != nullptr
-        && this->taskId_ != nullptr && this->transferFileListPath_ != nullptr; };
+    virtual bool empty() const override { return this->conflictPolicy_ == nullptr
+        && return this->createTime_ == nullptr && return this->dataFlowId_ == nullptr && return this->dataType_ == nullptr && return this->directory_ == nullptr && return this->dstDirectory_ == nullptr
+        && return this->endTime_ == nullptr && return this->errorMsg_ == nullptr && return this->fileSystemPath_ == nullptr && return this->filesystemId_ == nullptr && return this->fsPath_ == nullptr
+        && return this->includes_ == nullptr && return this->originator_ == nullptr && return this->progress_ == nullptr && return this->progressStats_ == nullptr && return this->reportPath_ == nullptr
+        && return this->reports_ == nullptr && return this->sourceStorage_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->taskAction_ == nullptr
+        && return this->taskId_ == nullptr && return this->transferFileListPath_ == nullptr; };
     // conflictPolicy Field Functions 
     bool hasConflictPolicy() const { return this->conflictPolicy_ != nullptr;};
     void deleteConflictPolicy() { this->conflictPolicy_ = nullptr;};

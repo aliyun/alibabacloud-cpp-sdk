@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->capacity_ != nullptr && this->chargeType_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->dryRun_ != nullptr
-        && this->duration_ != nullptr && this->encryptType_ != nullptr && this->fileSystemType_ != nullptr && this->kmsKeyId_ != nullptr && this->protocolType_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->snapshotId_ != nullptr && this->storageType_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->capacity_ == nullptr && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr
+        && return this->duration_ == nullptr && return this->encryptType_ == nullptr && return this->fileSystemType_ == nullptr && return this->kmsKeyId_ == nullptr && return this->protocolType_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->snapshotId_ == nullptr && return this->storageType_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

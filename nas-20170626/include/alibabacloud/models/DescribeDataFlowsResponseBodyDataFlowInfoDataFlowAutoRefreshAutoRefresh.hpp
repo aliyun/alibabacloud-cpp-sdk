@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->refreshPath_ != nullptr; };
+    virtual bool empty() const override { return this->refreshPath_ == nullptr; };
     // refreshPath Field Functions 
     bool hasRefreshPath() const { return this->refreshPath_ != nullptr;};
     void deleteRefreshPath() { this->refreshPath_ = nullptr;};

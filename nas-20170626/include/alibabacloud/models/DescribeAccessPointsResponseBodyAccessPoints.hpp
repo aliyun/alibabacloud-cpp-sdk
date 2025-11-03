@@ -4,6 +4,8 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DescribeAccessPointsResponseBodyAccessPointsPosixUser.hpp>
 #include <alibabacloud/models/DescribeAccessPointsResponseBodyAccessPointsRootPathPermission.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeAccessPointsResponseBodyAccessPointsTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RootPathPermission, rootPathPermission_);
       DARABONBA_PTR_TO_JSON(RootPathStatus, rootPathStatus_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
@@ -47,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RootPathPermission, rootPathPermission_);
       DARABONBA_PTR_FROM_JSON(RootPathStatus, rootPathStatus_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
@@ -61,10 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ARN_ != nullptr
-        && this->accessGroup_ != nullptr && this->accessPointId_ != nullptr && this->accessPointName_ != nullptr && this->createTime_ != nullptr && this->domainName_ != nullptr
-        && this->enabledRam_ != nullptr && this->fileSystemId_ != nullptr && this->modifyTime_ != nullptr && this->posixUser_ != nullptr && this->rootPath_ != nullptr
-        && this->rootPathPermission_ != nullptr && this->rootPathStatus_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->ARN_ == nullptr
+        && return this->accessGroup_ == nullptr && return this->accessPointId_ == nullptr && return this->accessPointName_ == nullptr && return this->createTime_ == nullptr && return this->domainName_ == nullptr
+        && return this->enabledRam_ == nullptr && return this->fileSystemId_ == nullptr && return this->modifyTime_ == nullptr && return this->posixUser_ == nullptr && return this->rootPath_ == nullptr
+        && return this->rootPathPermission_ == nullptr && return this->rootPathStatus_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // ARN Field Functions 
     bool hasARN() const { return this->ARN_ != nullptr;};
     void deleteARN() { this->ARN_ = nullptr;};
@@ -167,6 +172,15 @@ namespace Models
     inline DescribeAccessPointsResponseBodyAccessPoints& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags>) };
+    inline vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags>) };
+    inline DescribeAccessPointsResponseBodyAccessPoints& setTags(const vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeAccessPointsResponseBodyAccessPoints& setTags(vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -225,6 +239,7 @@ namespace Models
     // 
     // >  You can mount a file system only if the access point is in the Active state.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeAccessPointsResponseBodyAccessPointsTags>> tags_ = nullptr;
     // The vSwitch ID.
     std::shared_ptr<string> vSwitchId_ = nullptr;
     // The VPC ID.

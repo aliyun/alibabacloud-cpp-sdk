@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->conflictPolicy_ != nullptr && this->createDirIfNotExist_ != nullptr && this->dataFlowId_ != nullptr && this->dataType_ != nullptr && this->directory_ != nullptr
-        && this->dryRun_ != nullptr && this->dstDirectory_ != nullptr && this->entryList_ != nullptr && this->fileSystemId_ != nullptr && this->includes_ != nullptr
-        && this->srcTaskId_ != nullptr && this->taskAction_ != nullptr && this->transferFileListPath_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->conflictPolicy_ == nullptr && return this->createDirIfNotExist_ == nullptr && return this->dataFlowId_ == nullptr && return this->dataType_ == nullptr && return this->directory_ == nullptr
+        && return this->dryRun_ == nullptr && return this->dstDirectory_ == nullptr && return this->entryList_ == nullptr && return this->fileSystemId_ == nullptr && return this->includes_ == nullptr
+        && return this->srcTaskId_ == nullptr && return this->taskAction_ == nullptr && return this->transferFileListPath_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

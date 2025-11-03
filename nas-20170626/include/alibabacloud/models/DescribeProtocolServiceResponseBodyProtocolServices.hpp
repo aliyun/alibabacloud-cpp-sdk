@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->fileSystemId_ != nullptr && this->instanceBaseThroughput_ != nullptr && this->instanceBurstThroughput_ != nullptr && this->instanceRAM_ != nullptr
-        && this->modifyTime_ != nullptr && this->mountTargetCount_ != nullptr && this->protocolServiceId_ != nullptr && this->protocolSpec_ != nullptr && this->protocolThroughput_ != nullptr
-        && this->protocolType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->fileSystemId_ == nullptr && return this->instanceBaseThroughput_ == nullptr && return this->instanceBurstThroughput_ == nullptr && return this->instanceRAM_ == nullptr
+        && return this->modifyTime_ == nullptr && return this->mountTargetCount_ == nullptr && return this->protocolServiceId_ == nullptr && return this->protocolSpec_ == nullptr && return this->protocolThroughput_ == nullptr
+        && return this->protocolType_ == nullptr && return this->status_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

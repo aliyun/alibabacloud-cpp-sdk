@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSnapshotPolicyName_ != nullptr
-        && this->fileSystemType_ != nullptr && this->repeatWeekdays_ != nullptr && this->retentionDays_ != nullptr && this->timePoints_ != nullptr; };
+    virtual bool empty() const override { return this->autoSnapshotPolicyName_ == nullptr
+        && return this->fileSystemType_ == nullptr && return this->repeatWeekdays_ == nullptr && return this->retentionDays_ == nullptr && return this->timePoints_ == nullptr; };
     // autoSnapshotPolicyName Field Functions 
     bool hasAutoSnapshotPolicyName() const { return this->autoSnapshotPolicyName_ != nullptr;};
     void deleteAutoSnapshotPolicyName() { this->autoSnapshotPolicyName_ = nullptr;};

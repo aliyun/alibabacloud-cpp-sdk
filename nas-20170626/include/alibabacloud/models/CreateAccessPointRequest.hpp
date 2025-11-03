@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEACCESSPOINTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEACCESSPOINTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateAccessPointRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PosixSecondaryGroupIds, posixSecondaryGroupIds_);
       DARABONBA_PTR_TO_JSON(PosixUserId, posixUserId_);
       DARABONBA_PTR_TO_JSON(RootDirectory, rootDirectory_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswId, vswId_);
     };
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PosixSecondaryGroupIds, posixSecondaryGroupIds_);
       DARABONBA_PTR_FROM_JSON(PosixUserId, posixUserId_);
       DARABONBA_PTR_FROM_JSON(RootDirectory, rootDirectory_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswId, vswId_);
     };
@@ -53,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessGroup_ != nullptr
-        && this->accessPointName_ != nullptr && this->enabledRam_ != nullptr && this->fileSystemId_ != nullptr && this->ownerGroupId_ != nullptr && this->ownerUserId_ != nullptr
-        && this->permission_ != nullptr && this->posixGroupId_ != nullptr && this->posixSecondaryGroupIds_ != nullptr && this->posixUserId_ != nullptr && this->rootDirectory_ != nullptr
-        && this->vpcId_ != nullptr && this->vswId_ != nullptr; };
+    virtual bool empty() const override { return this->accessGroup_ == nullptr
+        && return this->accessPointName_ == nullptr && return this->enabledRam_ == nullptr && return this->fileSystemId_ == nullptr && return this->ownerGroupId_ == nullptr && return this->ownerUserId_ == nullptr
+        && return this->permission_ == nullptr && return this->posixGroupId_ == nullptr && return this->posixSecondaryGroupIds_ == nullptr && return this->posixUserId_ == nullptr && return this->rootDirectory_ == nullptr
+        && return this->tag_ == nullptr && return this->vpcId_ == nullptr && return this->vswId_ == nullptr; };
     // accessGroup Field Functions 
     bool hasAccessGroup() const { return this->accessGroup_ != nullptr;};
     void deleteAccessGroup() { this->accessGroup_ = nullptr;};
@@ -134,6 +138,15 @@ namespace Models
     inline CreateAccessPointRequest& setRootDirectory(string rootDirectory) { DARABONBA_PTR_SET_VALUE(rootDirectory_, rootDirectory) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateAccessPointRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateAccessPointRequestTag>) };
+    inline vector<CreateAccessPointRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateAccessPointRequestTag>) };
+    inline CreateAccessPointRequest& setTag(const vector<CreateAccessPointRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateAccessPointRequest& setTag(vector<CreateAccessPointRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -190,6 +203,7 @@ namespace Models
     std::shared_ptr<int32_t> posixUserId_ = nullptr;
     // The root directory of the access point. The default value is /. If the directory does not exist, you must also specify the OwnerUserId and OwnerGroupId parameters.
     std::shared_ptr<string> rootDirectory_ = nullptr;
+    std::shared_ptr<vector<CreateAccessPointRequestTag>> tag_ = nullptr;
     // The VPC ID.
     // 
     // This parameter is required.

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableOplock_ != nullptr; };
+    virtual bool empty() const override { return this->enableOplock_ == nullptr; };
     // enableOplock Field Functions 
     bool hasEnableOplock() const { return this->enableOplock_ != nullptr;};
     void deleteEnableOplock() { this->enableOplock_ = nullptr;};

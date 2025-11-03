@@ -957,6 +957,10 @@ CreateAccessPointResponse Client::createAccessPointWithOptions(const CreateAcces
     query["RootDirectory"] = request.rootDirectory();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
   if (!!request.hasVpcId()) {
     query["VpcId"] = request.vpcId();
   }
@@ -2368,8 +2372,7 @@ CreateRecycleBinDeleteJobResponse Client::createRecycleBinDeleteJob(const Create
 /**
  * @summary Restores a file or directory from the recycle bin.
  *
- * @description ### Usage notes
- * *   Only General-purpose NAS file systems support this operation.
+ * @description *   Only General-purpose NAS file systems support this operation.
  * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
  * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
  * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
@@ -2401,8 +2404,7 @@ CreateRecycleBinRestoreJobResponse Client::createRecycleBinRestoreJobWithOptions
 /**
  * @summary Restores a file or directory from the recycle bin.
  *
- * @description ### Usage notes
- * *   Only General-purpose NAS file systems support this operation.
+ * @description *   Only General-purpose NAS file systems support this operation.
  * *   You can run only one job at a time for a single file system to restore files to or clear files from the file system. You cannot create a restore or cleanup job when files are being restored from the recycle bin.
  * *   You can restore only one file or directory in a single restore job. If you restore a specified directory, all files in the directory are recursively restored.
  * *   After files are restored, the data of the files is defragmented. When the data is being defragmented, the read performance is slightly degraded.
@@ -3365,6 +3367,10 @@ DescribeAccessPointsResponse Client::describeAccessPointsWithOptions(const Descr
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

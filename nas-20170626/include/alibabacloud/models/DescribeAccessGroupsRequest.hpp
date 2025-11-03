@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessGroupName_ != nullptr
-        && this->fileSystemType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->useUTCDateTime_ != nullptr; };
+    virtual bool empty() const override { return this->accessGroupName_ == nullptr
+        && return this->fileSystemType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->useUTCDateTime_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
@@ -86,9 +86,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system
-    // *   extreme: Extreme NAS file system
-    // *   cpfs: Cloud Parallel File Storage (CPFS) file system
+    // *   standard (default): General-purpose NAS file system.
+    // *   extreme: Extreme NAS file system.
+    // *   cpfs: Cloud Parallel File Storage (CPFS) file system.
     // 
     // > CPFS file systems are available only on the China site (aliyun.com).
     std::shared_ptr<string> fileSystemType_ = nullptr;
