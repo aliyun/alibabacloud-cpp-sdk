@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->after_ != nullptr
-        && this->applicationType_ != nullptr && this->before_ != nullptr && this->context_ != nullptr && this->extend_ != nullptr && this->offset_ != nullptr
-        && this->op_ != nullptr && this->partition_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->after_ == nullptr
+        && return this->applicationType_ == nullptr && return this->before_ == nullptr && return this->context_ == nullptr && return this->extend_ == nullptr && return this->offset_ == nullptr
+        && return this->op_ == nullptr && return this->partition_ == nullptr && return this->workspaceId_ == nullptr; };
     // after Field Functions 
     bool hasAfter() const { return this->after_ != nullptr;};
     void deleteAfter() { this->after_ = nullptr;};

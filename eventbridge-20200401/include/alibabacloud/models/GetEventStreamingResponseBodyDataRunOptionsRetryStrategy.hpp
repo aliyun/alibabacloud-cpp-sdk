@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maximumEventAgeInSeconds_ != nullptr
-        && this->maximumRetryAttempts_ != nullptr && this->pushRetryStrategy_ != nullptr; };
+    virtual bool empty() const override { return this->maximumEventAgeInSeconds_ == nullptr
+        && return this->maximumRetryAttempts_ == nullptr && return this->pushRetryStrategy_ == nullptr; };
     // maximumEventAgeInSeconds Field Functions 
     bool hasMaximumEventAgeInSeconds() const { return this->maximumEventAgeInSeconds_ != nullptr;};
     void deleteMaximumEventAgeInSeconds() { this->maximumEventAgeInSeconds_ = nullptr;};

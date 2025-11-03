@@ -2,17 +2,17 @@
 #ifndef ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSINK_HPP_
 #define ALIBABACLOUD_MODELS_LISTEVENTSTREAMINGSRESPONSEBODYDATAEVENTSTREAMINGSSINK_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters.hpp>
+#include <alibabacloud/models/SinkApiDestinationParameters.hpp>
 #include <alibabacloud/models/SinkBaiLianParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters.hpp>
-#include <alibabacloud/models/SinkDataWorksTriggerParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters.hpp>
+#include <alibabacloud/models/SinkHttpsParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkMNSParameters.hpp>
 #include <alibabacloud/models/ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkOpenSourceRabbitMQParameters.hpp>
@@ -31,17 +31,17 @@ namespace Models
   class ListEventStreamingsResponseBodyDataEventStreamingsSink : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListEventStreamingsResponseBodyDataEventStreamingsSink& obj) { 
-      DARABONBA_PTR_TO_JSON(SinkApacheKafkaParameters, sinkApacheKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SinkApacheRocketMQCheckpointParameters, sinkApacheRocketMQCheckpointParameters_);
+      DARABONBA_PTR_TO_JSON(SinkApiDestinationParameters, sinkApiDestinationParameters_);
       DARABONBA_PTR_TO_JSON(SinkBaiLianParameters, sinkBaiLianParameters_);
       DARABONBA_PTR_TO_JSON(SinkCustomizedKafkaConnectorParameters, sinkCustomizedKafkaConnectorParameters_);
       DARABONBA_PTR_TO_JSON(SinkCustomizedKafkaParameters, sinkCustomizedKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SinkDashVectorParameters, sinkDashVectorParameters_);
       DARABONBA_PTR_TO_JSON(SinkDataHubParameters, sinkDataHubParameters_);
-      DARABONBA_PTR_TO_JSON(SinkDataWorksTriggerParameters, sinkDataWorksTriggerParameters_);
       DARABONBA_PTR_TO_JSON(SinkDorisParameters, sinkDorisParameters_);
       DARABONBA_PTR_TO_JSON(SinkFcParameters, sinkFcParameters_);
       DARABONBA_PTR_TO_JSON(SinkFnfParameters, sinkFnfParameters_);
+      DARABONBA_PTR_TO_JSON(SinkHttpsParameters, sinkHttpsParameters_);
       DARABONBA_PTR_TO_JSON(SinkKafkaParameters, sinkKafkaParameters_);
       DARABONBA_PTR_TO_JSON(SinkMNSParameters, sinkMNSParameters_);
       DARABONBA_PTR_TO_JSON(SinkOpenSourceRabbitMQParameters, sinkOpenSourceRabbitMQParameters_);
@@ -51,17 +51,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SinkSLSParameters, sinkSLSParameters_);
     };
     friend void from_json(const Darabonba::Json& j, ListEventStreamingsResponseBodyDataEventStreamingsSink& obj) { 
-      DARABONBA_PTR_FROM_JSON(SinkApacheKafkaParameters, sinkApacheKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SinkApacheRocketMQCheckpointParameters, sinkApacheRocketMQCheckpointParameters_);
+      DARABONBA_PTR_FROM_JSON(SinkApiDestinationParameters, sinkApiDestinationParameters_);
       DARABONBA_PTR_FROM_JSON(SinkBaiLianParameters, sinkBaiLianParameters_);
       DARABONBA_PTR_FROM_JSON(SinkCustomizedKafkaConnectorParameters, sinkCustomizedKafkaConnectorParameters_);
       DARABONBA_PTR_FROM_JSON(SinkCustomizedKafkaParameters, sinkCustomizedKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDashVectorParameters, sinkDashVectorParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDataHubParameters, sinkDataHubParameters_);
-      DARABONBA_PTR_FROM_JSON(SinkDataWorksTriggerParameters, sinkDataWorksTriggerParameters_);
       DARABONBA_PTR_FROM_JSON(SinkDorisParameters, sinkDorisParameters_);
       DARABONBA_PTR_FROM_JSON(SinkFcParameters, sinkFcParameters_);
       DARABONBA_PTR_FROM_JSON(SinkFnfParameters, sinkFnfParameters_);
+      DARABONBA_PTR_FROM_JSON(SinkHttpsParameters, sinkHttpsParameters_);
       DARABONBA_PTR_FROM_JSON(SinkKafkaParameters, sinkKafkaParameters_);
       DARABONBA_PTR_FROM_JSON(SinkMNSParameters, sinkMNSParameters_);
       DARABONBA_PTR_FROM_JSON(SinkOpenSourceRabbitMQParameters, sinkOpenSourceRabbitMQParameters_);
@@ -81,20 +81,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sinkApacheKafkaParameters_ != nullptr
-        && this->sinkApacheRocketMQCheckpointParameters_ != nullptr && this->sinkBaiLianParameters_ != nullptr && this->sinkCustomizedKafkaConnectorParameters_ != nullptr && this->sinkCustomizedKafkaParameters_ != nullptr && this->sinkDashVectorParameters_ != nullptr
-        && this->sinkDataHubParameters_ != nullptr && this->sinkDataWorksTriggerParameters_ != nullptr && this->sinkDorisParameters_ != nullptr && this->sinkFcParameters_ != nullptr && this->sinkFnfParameters_ != nullptr
-        && this->sinkKafkaParameters_ != nullptr && this->sinkMNSParameters_ != nullptr && this->sinkOpenSourceRabbitMQParameters_ != nullptr && this->sinkRabbitMQParameters_ != nullptr && this->sinkRocketMQCheckpointParameters_ != nullptr
-        && this->sinkRocketMQParameters_ != nullptr && this->sinkSLSParameters_ != nullptr; };
-    // sinkApacheKafkaParameters Field Functions 
-    bool hasSinkApacheKafkaParameters() const { return this->sinkApacheKafkaParameters_ != nullptr;};
-    void deleteSinkApacheKafkaParameters() { this->sinkApacheKafkaParameters_ = nullptr;};
-    inline const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters & sinkApacheKafkaParameters() const { DARABONBA_PTR_GET_CONST(sinkApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters) };
-    inline Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters sinkApacheKafkaParameters() { DARABONBA_PTR_GET(sinkApacheKafkaParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters) };
-    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheKafkaParameters(const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters & sinkApacheKafkaParameters) { DARABONBA_PTR_SET_VALUE(sinkApacheKafkaParameters_, sinkApacheKafkaParameters) };
-    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheKafkaParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters && sinkApacheKafkaParameters) { DARABONBA_PTR_SET_RVALUE(sinkApacheKafkaParameters_, sinkApacheKafkaParameters) };
-
-
+    virtual bool empty() const override { return this->sinkApacheRocketMQCheckpointParameters_ == nullptr
+        && return this->sinkApiDestinationParameters_ == nullptr && return this->sinkBaiLianParameters_ == nullptr && return this->sinkCustomizedKafkaConnectorParameters_ == nullptr && return this->sinkCustomizedKafkaParameters_ == nullptr && return this->sinkDashVectorParameters_ == nullptr
+        && return this->sinkDataHubParameters_ == nullptr && return this->sinkDorisParameters_ == nullptr && return this->sinkFcParameters_ == nullptr && return this->sinkFnfParameters_ == nullptr && return this->sinkHttpsParameters_ == nullptr
+        && return this->sinkKafkaParameters_ == nullptr && return this->sinkMNSParameters_ == nullptr && return this->sinkOpenSourceRabbitMQParameters_ == nullptr && return this->sinkRabbitMQParameters_ == nullptr && return this->sinkRocketMQCheckpointParameters_ == nullptr
+        && return this->sinkRocketMQParameters_ == nullptr && return this->sinkSLSParameters_ == nullptr; };
     // sinkApacheRocketMQCheckpointParameters Field Functions 
     bool hasSinkApacheRocketMQCheckpointParameters() const { return this->sinkApacheRocketMQCheckpointParameters_ != nullptr;};
     void deleteSinkApacheRocketMQCheckpointParameters() { this->sinkApacheRocketMQCheckpointParameters_ = nullptr;};
@@ -102,6 +93,15 @@ namespace Models
     inline Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters sinkApacheRocketMQCheckpointParameters() { DARABONBA_PTR_GET(sinkApacheRocketMQCheckpointParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters) };
     inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheRocketMQCheckpointParameters(const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters & sinkApacheRocketMQCheckpointParameters) { DARABONBA_PTR_SET_VALUE(sinkApacheRocketMQCheckpointParameters_, sinkApacheRocketMQCheckpointParameters) };
     inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApacheRocketMQCheckpointParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters && sinkApacheRocketMQCheckpointParameters) { DARABONBA_PTR_SET_RVALUE(sinkApacheRocketMQCheckpointParameters_, sinkApacheRocketMQCheckpointParameters) };
+
+
+    // sinkApiDestinationParameters Field Functions 
+    bool hasSinkApiDestinationParameters() const { return this->sinkApiDestinationParameters_ != nullptr;};
+    void deleteSinkApiDestinationParameters() { this->sinkApiDestinationParameters_ = nullptr;};
+    inline const Models::SinkApiDestinationParameters & sinkApiDestinationParameters() const { DARABONBA_PTR_GET_CONST(sinkApiDestinationParameters_, Models::SinkApiDestinationParameters) };
+    inline Models::SinkApiDestinationParameters sinkApiDestinationParameters() { DARABONBA_PTR_GET(sinkApiDestinationParameters_, Models::SinkApiDestinationParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApiDestinationParameters(const Models::SinkApiDestinationParameters & sinkApiDestinationParameters) { DARABONBA_PTR_SET_VALUE(sinkApiDestinationParameters_, sinkApiDestinationParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkApiDestinationParameters(Models::SinkApiDestinationParameters && sinkApiDestinationParameters) { DARABONBA_PTR_SET_RVALUE(sinkApiDestinationParameters_, sinkApiDestinationParameters) };
 
 
     // sinkBaiLianParameters Field Functions 
@@ -149,15 +149,6 @@ namespace Models
     inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkDataHubParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters && sinkDataHubParameters) { DARABONBA_PTR_SET_RVALUE(sinkDataHubParameters_, sinkDataHubParameters) };
 
 
-    // sinkDataWorksTriggerParameters Field Functions 
-    bool hasSinkDataWorksTriggerParameters() const { return this->sinkDataWorksTriggerParameters_ != nullptr;};
-    void deleteSinkDataWorksTriggerParameters() { this->sinkDataWorksTriggerParameters_ = nullptr;};
-    inline const Models::SinkDataWorksTriggerParameters & sinkDataWorksTriggerParameters() const { DARABONBA_PTR_GET_CONST(sinkDataWorksTriggerParameters_, Models::SinkDataWorksTriggerParameters) };
-    inline Models::SinkDataWorksTriggerParameters sinkDataWorksTriggerParameters() { DARABONBA_PTR_GET(sinkDataWorksTriggerParameters_, Models::SinkDataWorksTriggerParameters) };
-    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkDataWorksTriggerParameters(const Models::SinkDataWorksTriggerParameters & sinkDataWorksTriggerParameters) { DARABONBA_PTR_SET_VALUE(sinkDataWorksTriggerParameters_, sinkDataWorksTriggerParameters) };
-    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkDataWorksTriggerParameters(Models::SinkDataWorksTriggerParameters && sinkDataWorksTriggerParameters) { DARABONBA_PTR_SET_RVALUE(sinkDataWorksTriggerParameters_, sinkDataWorksTriggerParameters) };
-
-
     // sinkDorisParameters Field Functions 
     bool hasSinkDorisParameters() const { return this->sinkDorisParameters_ != nullptr;};
     void deleteSinkDorisParameters() { this->sinkDorisParameters_ = nullptr;};
@@ -183,6 +174,15 @@ namespace Models
     inline Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters sinkFnfParameters() { DARABONBA_PTR_GET(sinkFnfParameters_, Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters) };
     inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkFnfParameters(const Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters & sinkFnfParameters) { DARABONBA_PTR_SET_VALUE(sinkFnfParameters_, sinkFnfParameters) };
     inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkFnfParameters(Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters && sinkFnfParameters) { DARABONBA_PTR_SET_RVALUE(sinkFnfParameters_, sinkFnfParameters) };
+
+
+    // sinkHttpsParameters Field Functions 
+    bool hasSinkHttpsParameters() const { return this->sinkHttpsParameters_ != nullptr;};
+    void deleteSinkHttpsParameters() { this->sinkHttpsParameters_ = nullptr;};
+    inline const Models::SinkHttpsParameters & sinkHttpsParameters() const { DARABONBA_PTR_GET_CONST(sinkHttpsParameters_, Models::SinkHttpsParameters) };
+    inline Models::SinkHttpsParameters sinkHttpsParameters() { DARABONBA_PTR_GET(sinkHttpsParameters_, Models::SinkHttpsParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkHttpsParameters(const Models::SinkHttpsParameters & sinkHttpsParameters) { DARABONBA_PTR_SET_VALUE(sinkHttpsParameters_, sinkHttpsParameters) };
+    inline ListEventStreamingsResponseBodyDataEventStreamingsSink& setSinkHttpsParameters(Models::SinkHttpsParameters && sinkHttpsParameters) { DARABONBA_PTR_SET_RVALUE(sinkHttpsParameters_, sinkHttpsParameters) };
 
 
     // sinkKafkaParameters Field Functions 
@@ -249,19 +249,19 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheKafkaParameters> sinkApacheKafkaParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkApacheRocketMQCheckpointParameters> sinkApacheRocketMQCheckpointParameters_ = nullptr;
+    std::shared_ptr<Models::SinkApiDestinationParameters> sinkApiDestinationParameters_ = nullptr;
     std::shared_ptr<Models::SinkBaiLianParameters> sinkBaiLianParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters> sinkCustomizedKafkaConnectorParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters> sinkCustomizedKafkaParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters> sinkDashVectorParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters> sinkDataHubParameters_ = nullptr;
-    std::shared_ptr<Models::SinkDataWorksTriggerParameters> sinkDataWorksTriggerParameters_ = nullptr;
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDorisParameters> sinkDorisParameters_ = nullptr;
     // The parameters that are returned if Function Compute is specified as the event target.
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters> sinkFcParameters_ = nullptr;
     // The parameters that are returned if CloudFlow is specified as the event target.
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters> sinkFnfParameters_ = nullptr;
+    std::shared_ptr<Models::SinkHttpsParameters> sinkHttpsParameters_ = nullptr;
     // The parameters that are returned if ApsaraMQ for Kafka is specified as the event target.
     std::shared_ptr<Models::ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParameters> sinkKafkaParameters_ = nullptr;
     // The parameters that are returned if MNS is specified as the event target.

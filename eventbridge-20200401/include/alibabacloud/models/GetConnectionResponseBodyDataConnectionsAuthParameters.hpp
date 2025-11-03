@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiKeyAuthParameters_ != nullptr
-        && this->authorizationType_ != nullptr && this->basicAuthParameters_ != nullptr && this->OAuthParameters_ != nullptr; };
+    virtual bool empty() const override { return this->apiKeyAuthParameters_ == nullptr
+        && return this->authorizationType_ == nullptr && return this->basicAuthParameters_ == nullptr && return this->OAuthParameters_ == nullptr; };
     // apiKeyAuthParameters Field Functions 
     bool hasApiKeyAuthParameters() const { return this->apiKeyAuthParameters_ != nullptr;};
     void deleteApiKeyAuthParameters() { this->apiKeyAuthParameters_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdTimestamp_ != nullptr
-        && this->description_ != nullptr && this->detailMap_ != nullptr && this->eventBusName_ != nullptr && this->filterPattern_ != nullptr && this->ruleARN_ != nullptr
-        && this->ruleName_ != nullptr && this->status_ != nullptr && this->targets_ != nullptr; };
+    virtual bool empty() const override { return this->createdTimestamp_ == nullptr
+        && return this->description_ == nullptr && return this->detailMap_ == nullptr && return this->eventBusName_ == nullptr && return this->filterPattern_ == nullptr && return this->ruleARN_ == nullptr
+        && return this->ruleName_ == nullptr && return this->status_ == nullptr && return this->targets_ == nullptr; };
     // createdTimestamp Field Functions 
     bool hasCreatedTimestamp() const { return this->createdTimestamp_ != nullptr;};
     void deleteCreatedTimestamp() { this->createdTimestamp_ = nullptr;};

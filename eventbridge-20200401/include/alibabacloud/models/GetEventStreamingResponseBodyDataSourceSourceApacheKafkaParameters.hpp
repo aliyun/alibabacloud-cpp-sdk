@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bootstraps_ != nullptr
-        && this->consumerGroup_ != nullptr && this->networkType_ != nullptr && this->offsetReset_ != nullptr && this->saslMechanism_ != nullptr && this->saslPassword_ != nullptr
-        && this->saslUser_ != nullptr && this->securityGroupId_ != nullptr && this->securityProtocol_ != nullptr && this->topic_ != nullptr && this->vSwitchIds_ != nullptr
-        && this->valueDataType_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->bootstraps_ == nullptr
+        && return this->consumerGroup_ == nullptr && return this->networkType_ == nullptr && return this->offsetReset_ == nullptr && return this->saslMechanism_ == nullptr && return this->saslPassword_ == nullptr
+        && return this->saslUser_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityProtocol_ == nullptr && return this->topic_ == nullptr && return this->vSwitchIds_ == nullptr
+        && return this->valueDataType_ == nullptr && return this->vpcId_ == nullptr; };
     // bootstraps Field Functions 
     bool hasBootstraps() const { return this->bootstraps_ != nullptr;};
     void deleteBootstraps() { this->bootstraps_ = nullptr;};

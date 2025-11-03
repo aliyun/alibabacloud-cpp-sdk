@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->countBasedWindow_ != nullptr
-        && this->timeBasedWindow_ != nullptr; };
+    virtual bool empty() const override { return this->countBasedWindow_ == nullptr
+        && return this->timeBasedWindow_ == nullptr; };
     // countBasedWindow Field Functions 
     bool hasCountBasedWindow() const { return this->countBasedWindow_ != nullptr;};
     void deleteCountBasedWindow() { this->countBasedWindow_ = nullptr;};

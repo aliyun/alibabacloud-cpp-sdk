@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEEVENTSTREAMINGREQUESTSINKSINKDASHVECTORPARAMETERS_HPP_
 #define ALIBABACLOUD_MODELS_CREATEEVENTSTREAMINGREQUESTSINKSINKDASHVECTORPARAMETERS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters.hpp>
 #include <alibabacloud/models/CreateEventStreamingRequestSinkSinkDashVectorParametersPartition.hpp>
 #include <alibabacloud/models/CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId.hpp>
@@ -49,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiKey_ != nullptr
-        && this->collection_ != nullptr && this->dashVectorSchemaParameters_ != nullptr && this->instanceId_ != nullptr && this->network_ != nullptr && this->operation_ != nullptr
-        && this->partition_ != nullptr && this->primaryKeyId_ != nullptr && this->vector_ != nullptr; };
+    virtual bool empty() const override { return this->apiKey_ == nullptr
+        && return this->collection_ == nullptr && return this->dashVectorSchemaParameters_ == nullptr && return this->instanceId_ == nullptr && return this->network_ == nullptr && return this->operation_ == nullptr
+        && return this->partition_ == nullptr && return this->primaryKeyId_ == nullptr && return this->vector_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -69,10 +70,10 @@ namespace Models
     // dashVectorSchemaParameters Field Functions 
     bool hasDashVectorSchemaParameters() const { return this->dashVectorSchemaParameters_ != nullptr;};
     void deleteDashVectorSchemaParameters() { this->dashVectorSchemaParameters_ = nullptr;};
-    inline const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters & dashVectorSchemaParameters() const { DARABONBA_PTR_GET_CONST(dashVectorSchemaParameters_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters) };
-    inline Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters dashVectorSchemaParameters() { DARABONBA_PTR_GET(dashVectorSchemaParameters_, Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters) };
-    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setDashVectorSchemaParameters(const Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters & dashVectorSchemaParameters) { DARABONBA_PTR_SET_VALUE(dashVectorSchemaParameters_, dashVectorSchemaParameters) };
-    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setDashVectorSchemaParameters(Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters && dashVectorSchemaParameters) { DARABONBA_PTR_SET_RVALUE(dashVectorSchemaParameters_, dashVectorSchemaParameters) };
+    inline const vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters> & dashVectorSchemaParameters() const { DARABONBA_PTR_GET_CONST(dashVectorSchemaParameters_, vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters>) };
+    inline vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters> dashVectorSchemaParameters() { DARABONBA_PTR_GET(dashVectorSchemaParameters_, vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters>) };
+    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setDashVectorSchemaParameters(const vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters> & dashVectorSchemaParameters) { DARABONBA_PTR_SET_VALUE(dashVectorSchemaParameters_, dashVectorSchemaParameters) };
+    inline CreateEventStreamingRequestSinkSinkDashVectorParameters& setDashVectorSchemaParameters(vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters> && dashVectorSchemaParameters) { DARABONBA_PTR_SET_RVALUE(dashVectorSchemaParameters_, dashVectorSchemaParameters) };
 
 
     // instanceId Field Functions 
@@ -126,7 +127,7 @@ namespace Models
   protected:
     std::shared_ptr<string> apiKey_ = nullptr;
     std::shared_ptr<string> collection_ = nullptr;
-    std::shared_ptr<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters> dashVectorSchemaParameters_ = nullptr;
+    std::shared_ptr<vector<Models::CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters>> dashVectorSchemaParameters_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> network_ = nullptr;
     std::shared_ptr<string> operation_ = nullptr;

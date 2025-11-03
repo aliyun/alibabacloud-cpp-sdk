@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrentConfig_ != nullptr
-        && this->deadLetterQueue_ != nullptr && this->detailMap_ != nullptr && this->endpoint_ != nullptr && this->errorsTolerance_ != nullptr && this->id_ != nullptr
-        && this->paramList_ != nullptr && this->pushRetryStrategy_ != nullptr && this->pushSelector_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->concurrentConfig_ == nullptr
+        && return this->deadLetterQueue_ == nullptr && return this->detailMap_ == nullptr && return this->endpoint_ == nullptr && return this->errorsTolerance_ == nullptr && return this->id_ == nullptr
+        && return this->paramList_ == nullptr && return this->pushRetryStrategy_ == nullptr && return this->pushSelector_ == nullptr && return this->type_ == nullptr; };
     // concurrentConfig Field Functions 
     bool hasConcurrentConfig() const { return this->concurrentConfig_ != nullptr;};
     void deleteConcurrentConfig() { this->concurrentConfig_ = nullptr;};

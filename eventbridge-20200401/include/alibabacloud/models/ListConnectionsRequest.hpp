@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectionNamePrefix_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+    virtual bool empty() const override { return this->connectionNamePrefix_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
     // connectionNamePrefix Field Functions 
     bool hasConnectionNamePrefix() const { return this->connectionNamePrefix_ != nullptr;};
     void deleteConnectionNamePrefix() { this->connectionNamePrefix_ = nullptr;};

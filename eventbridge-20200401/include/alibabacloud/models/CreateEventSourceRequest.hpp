@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->eventBusName_ != nullptr && this->eventSourceName_ != nullptr && this->externalSourceConfig_ != nullptr && this->externalSourceType_ != nullptr && this->linkedExternalSource_ != nullptr
-        && this->sourceHttpEventParameters_ != nullptr && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceOSSEventParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr
-        && this->sourceRocketMQParameters_ != nullptr && this->sourceSLSParameters_ != nullptr && this->sourceScheduledEventParameters_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->eventBusName_ == nullptr && return this->eventSourceName_ == nullptr && return this->externalSourceConfig_ == nullptr && return this->externalSourceType_ == nullptr && return this->linkedExternalSource_ == nullptr
+        && return this->sourceHttpEventParameters_ == nullptr && return this->sourceKafkaParameters_ == nullptr && return this->sourceMNSParameters_ == nullptr && return this->sourceOSSEventParameters_ == nullptr && return this->sourceRabbitMQParameters_ == nullptr
+        && return this->sourceRocketMQParameters_ == nullptr && return this->sourceSLSParameters_ == nullptr && return this->sourceScheduledEventParameters_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

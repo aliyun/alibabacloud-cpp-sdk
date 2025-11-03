@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delayTime_ != nullptr
-        && this->diffOffset_ != nullptr && this->extensions_ != nullptr && this->TPS_ != nullptr; };
+    virtual bool empty() const override { return this->delayTime_ == nullptr
+        && return this->diffOffset_ == nullptr && return this->extensions_ == nullptr && return this->TPS_ == nullptr; };
     // delayTime Field Functions 
     bool hasDelayTime() const { return this->delayTime_ != nullptr;};
     void deleteDelayTime() { this->delayTime_ = nullptr;};

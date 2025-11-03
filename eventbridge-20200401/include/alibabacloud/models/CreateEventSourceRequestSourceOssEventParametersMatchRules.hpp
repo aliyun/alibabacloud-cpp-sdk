@@ -1,0 +1,78 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEEVENTSOURCEREQUESTSOURCEOSSEVENTPARAMETERSMATCHRULES_HPP_
+#define ALIBABACLOUD_MODELS_CREATEEVENTSOURCEREQUESTSOURCEOSSEVENTPARAMETERSMATCHRULES_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eventbridge20200401
+{
+namespace Models
+{
+  class CreateEventSourceRequestSourceOSSEventParametersMatchRules : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateEventSourceRequestSourceOSSEventParametersMatchRules& obj) { 
+      DARABONBA_PTR_TO_JSON(Prefix, prefix_);
+      DARABONBA_PTR_TO_JSON(Suffix, suffix_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(MatchState, matchState_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateEventSourceRequestSourceOSSEventParametersMatchRules& obj) { 
+      DARABONBA_PTR_FROM_JSON(Prefix, prefix_);
+      DARABONBA_PTR_FROM_JSON(Suffix, suffix_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(MatchState, matchState_);
+    };
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules() = default ;
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules(const CreateEventSourceRequestSourceOSSEventParametersMatchRules &) = default ;
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules(CreateEventSourceRequestSourceOSSEventParametersMatchRules &&) = default ;
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateEventSourceRequestSourceOSSEventParametersMatchRules() = default ;
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules& operator=(const CreateEventSourceRequestSourceOSSEventParametersMatchRules &) = default ;
+    CreateEventSourceRequestSourceOSSEventParametersMatchRules& operator=(CreateEventSourceRequestSourceOSSEventParametersMatchRules &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->prefix_ == nullptr
+        && return this->suffix_ == nullptr && return this->name_ == nullptr && return this->matchState_ == nullptr; };
+    // prefix Field Functions 
+    bool hasPrefix() const { return this->prefix_ != nullptr;};
+    void deletePrefix() { this->prefix_ = nullptr;};
+    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline CreateEventSourceRequestSourceOSSEventParametersMatchRules& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
+
+
+    // suffix Field Functions 
+    bool hasSuffix() const { return this->suffix_ != nullptr;};
+    void deleteSuffix() { this->suffix_ = nullptr;};
+    inline string suffix() const { DARABONBA_PTR_GET_DEFAULT(suffix_, "") };
+    inline CreateEventSourceRequestSourceOSSEventParametersMatchRules& setSuffix(string suffix) { DARABONBA_PTR_SET_VALUE(suffix_, suffix) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline CreateEventSourceRequestSourceOSSEventParametersMatchRules& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // matchState Field Functions 
+    bool hasMatchState() const { return this->matchState_ != nullptr;};
+    void deleteMatchState() { this->matchState_ = nullptr;};
+    inline bool matchState() const { DARABONBA_PTR_GET_DEFAULT(matchState_, false) };
+    inline CreateEventSourceRequestSourceOSSEventParametersMatchRules& setMatchState(bool matchState) { DARABONBA_PTR_SET_VALUE(matchState_, matchState) };
+
+
+  protected:
+    std::shared_ptr<string> prefix_ = nullptr;
+    std::shared_ptr<string> suffix_ = nullptr;
+    std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<bool> matchState_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eventbridge20200401
+#endif

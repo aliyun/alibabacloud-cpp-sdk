@@ -78,11 +78,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->sourceApacheKafkaParameters_ != nullptr
-        && this->sourceApacheRocketMQCheckpointParameters_ != nullptr && this->sourceCustomizedKafkaConnectorParameters_ != nullptr && this->sourceCustomizedKafkaParameters_ != nullptr && this->sourceDTSParameters_ != nullptr && this->sourceEventBusParameters_ != nullptr
-        && this->sourceKafkaParameters_ != nullptr && this->sourceMNSParameters_ != nullptr && this->sourceMQTTParameters_ != nullptr && this->sourceMySQLParameters_ != nullptr && this->sourceOSSParameters_ != nullptr
-        && this->sourceOpenSourceRabbitMQParameters_ != nullptr && this->sourcePrometheusParameters_ != nullptr && this->sourceRabbitMQParameters_ != nullptr && this->sourceRocketMQCheckpointParameters_ != nullptr && this->sourceRocketMQParameters_ != nullptr
-        && this->sourceSLSParameters_ != nullptr; };
+    virtual bool empty() const override { return this->sourceApacheKafkaParameters_ == nullptr
+        && return this->sourceApacheRocketMQCheckpointParameters_ == nullptr && return this->sourceCustomizedKafkaConnectorParameters_ == nullptr && return this->sourceCustomizedKafkaParameters_ == nullptr && return this->sourceDTSParameters_ == nullptr && return this->sourceEventBusParameters_ == nullptr
+        && return this->sourceKafkaParameters_ == nullptr && return this->sourceMNSParameters_ == nullptr && return this->sourceMQTTParameters_ == nullptr && return this->sourceMySQLParameters_ == nullptr && return this->sourceOSSParameters_ == nullptr
+        && return this->sourceOpenSourceRabbitMQParameters_ == nullptr && return this->sourcePrometheusParameters_ == nullptr && return this->sourceRabbitMQParameters_ == nullptr && return this->sourceRocketMQCheckpointParameters_ == nullptr && return this->sourceRocketMQParameters_ == nullptr
+        && return this->sourceSLSParameters_ == nullptr; };
     // sourceApacheKafkaParameters Field Functions 
     bool hasSourceApacheKafkaParameters() const { return this->sourceApacheKafkaParameters_ != nullptr;};
     void deleteSourceApacheKafkaParameters() { this->sourceApacheKafkaParameters_ = nullptr;};
