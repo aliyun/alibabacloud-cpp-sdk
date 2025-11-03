@@ -91,13 +91,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->adLocation_ != nullptr && this->aliUid_ != nullptr && this->bandwidth_ != nullptr && this->businessStatus_ != nullptr && this->chargeType_ != nullptr
-        && this->circuitCode_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->enabledTime_ != nullptr && this->endTime_ != nullptr
-        && this->expectSpec_ != nullptr && this->lineOperator_ != nullptr && this->loaStatus_ != nullptr && this->name_ != nullptr && this->orderMode_ != nullptr
-        && this->parentPhysicalConnectionAliUid_ != nullptr && this->parentPhysicalConnectionId_ != nullptr && this->peerLocation_ != nullptr && this->physicalConnectionId_ != nullptr && this->portNumber_ != nullptr
-        && this->portType_ != nullptr && this->productType_ != nullptr && this->redundantPhysicalConnectionId_ != nullptr && this->resourceGroupId_ != nullptr && this->spec_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr && this->virtualPhysicalConnectionStatus_ != nullptr && this->vlanId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->adLocation_ == nullptr && return this->aliUid_ == nullptr && return this->bandwidth_ == nullptr && return this->businessStatus_ == nullptr && return this->chargeType_ == nullptr
+        && return this->circuitCode_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->enabledTime_ == nullptr && return this->endTime_ == nullptr
+        && return this->expectSpec_ == nullptr && return this->lineOperator_ == nullptr && return this->loaStatus_ == nullptr && return this->name_ == nullptr && return this->orderMode_ == nullptr
+        && return this->parentPhysicalConnectionAliUid_ == nullptr && return this->parentPhysicalConnectionId_ == nullptr && return this->peerLocation_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->portNumber_ == nullptr
+        && return this->portType_ == nullptr && return this->productType_ == nullptr && return this->redundantPhysicalConnectionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->spec_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->virtualPhysicalConnectionStatus_ == nullptr && return this->vlanId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

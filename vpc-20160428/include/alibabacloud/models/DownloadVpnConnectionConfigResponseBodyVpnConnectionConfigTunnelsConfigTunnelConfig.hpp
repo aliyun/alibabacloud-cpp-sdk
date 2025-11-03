@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ikeConfig_ != nullptr
-        && this->ipsecConfig_ != nullptr && this->local_ != nullptr && this->remote_ != nullptr && this->tunnelId_ != nullptr; };
+    virtual bool empty() const override { return this->ikeConfig_ == nullptr
+        && return this->ipsecConfig_ == nullptr && return this->local_ == nullptr && return this->remote_ == nullptr && return this->tunnelId_ == nullptr; };
     // ikeConfig Field Functions 
     bool hasIkeConfig() const { return this->ikeConfig_ != nullptr;};
     void deleteIkeConfig() { this->ikeConfig_ = nullptr;};

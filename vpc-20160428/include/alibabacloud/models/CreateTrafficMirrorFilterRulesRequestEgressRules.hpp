@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->destinationCidrBlock_ != nullptr && this->destinationPortRange_ != nullptr && this->ipVersion_ != nullptr && this->priority_ != nullptr && this->protocol_ != nullptr
-        && this->sourceCidrBlock_ != nullptr && this->sourcePortRange_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->destinationCidrBlock_ == nullptr && return this->destinationPortRange_ == nullptr && return this->ipVersion_ == nullptr && return this->priority_ == nullptr && return this->protocol_ == nullptr
+        && return this->sourceCidrBlock_ == nullptr && return this->sourcePortRange_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

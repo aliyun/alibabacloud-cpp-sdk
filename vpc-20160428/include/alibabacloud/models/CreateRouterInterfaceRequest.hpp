@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->autoPay_ != nullptr && this->autoRenew_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->fastLinkMode_ != nullptr
-        && this->healthCheckSourceIp_ != nullptr && this->healthCheckTargetIp_ != nullptr && this->instanceChargeType_ != nullptr && this->name_ != nullptr && this->oppositeAccessPointId_ != nullptr
-        && this->oppositeInterfaceId_ != nullptr && this->oppositeInterfaceOwnerId_ != nullptr && this->oppositeRegionId_ != nullptr && this->oppositeRouterId_ != nullptr && this->oppositeRouterType_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr && this->pricingCycle_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->role_ != nullptr && this->routerId_ != nullptr
-        && this->routerType_ != nullptr && this->spec_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->fastLinkMode_ == nullptr
+        && return this->healthCheckSourceIp_ == nullptr && return this->healthCheckTargetIp_ == nullptr && return this->instanceChargeType_ == nullptr && return this->name_ == nullptr && return this->oppositeAccessPointId_ == nullptr
+        && return this->oppositeInterfaceId_ == nullptr && return this->oppositeInterfaceOwnerId_ == nullptr && return this->oppositeRegionId_ == nullptr && return this->oppositeRouterId_ == nullptr && return this->oppositeRouterType_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->pricingCycle_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->role_ == nullptr && return this->routerId_ == nullptr
+        && return this->routerType_ == nullptr && return this->spec_ == nullptr && return this->tags_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

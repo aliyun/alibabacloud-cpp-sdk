@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthType_ != nullptr
-        && this->globalAccelerationInstanceId_ != nullptr && this->includeReservationData_ != nullptr && this->ipAddress_ != nullptr && this->name_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->serverId_ != nullptr && this->serviceLocation_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthType_ == nullptr
+        && return this->globalAccelerationInstanceId_ == nullptr && return this->includeReservationData_ == nullptr && return this->ipAddress_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->serverId_ == nullptr && return this->serviceLocation_ == nullptr && return this->status_ == nullptr; };
     // bandwidthType Field Functions 
     bool hasBandwidthType() const { return this->bandwidthType_ != nullptr;};
     void deleteBandwidthType() { this->bandwidthType_ = nullptr;};

@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregationInterval_ != nullptr
-        && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->flowLogDeliverErrorMessage_ != nullptr && this->flowLogDeliverStatus_ != nullptr
-        && this->flowLogId_ != nullptr && this->flowLogName_ != nullptr && this->ipVersion_ != nullptr && this->logStoreName_ != nullptr && this->projectName_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->serviceType_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr && this->trafficPath_ != nullptr && this->trafficType_ != nullptr; };
+    virtual bool empty() const override { return this->aggregationInterval_ == nullptr
+        && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->flowLogDeliverErrorMessage_ == nullptr && return this->flowLogDeliverStatus_ == nullptr
+        && return this->flowLogId_ == nullptr && return this->flowLogName_ == nullptr && return this->ipVersion_ == nullptr && return this->logStoreName_ == nullptr && return this->projectName_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->serviceType_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->trafficPath_ == nullptr && return this->trafficType_ == nullptr; };
     // aggregationInterval Field Functions 
     bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
     void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};

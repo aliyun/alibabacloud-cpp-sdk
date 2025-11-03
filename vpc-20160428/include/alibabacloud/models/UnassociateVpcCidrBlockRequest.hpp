@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->IPv6CidrBlock_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->secondaryCidrBlock_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->IPv6CidrBlock_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->secondaryCidrBlock_ == nullptr && return this->vpcId_ == nullptr; };
     // IPv6CidrBlock Field Functions 
     bool hasIPv6CidrBlock() const { return this->IPv6CidrBlock_ != nullptr;};
     void deleteIPv6CidrBlock() { this->IPv6CidrBlock_ = nullptr;};

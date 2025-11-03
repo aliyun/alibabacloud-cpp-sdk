@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fullNatTableId_ != nullptr; };
+    virtual bool empty() const override { return this->fullNatTableId_ == nullptr; };
     // fullNatTableId Field Functions 
     bool hasFullNatTableId() const { return this->fullNatTableId_ != nullptr;};
     void deleteFullNatTableId() { this->fullNatTableId_ = nullptr;};

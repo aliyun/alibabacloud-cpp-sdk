@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPay_ != nullptr
-        && this->bandwidth_ != nullptr && this->clientToken_ != nullptr && this->disasterRecoveryVSwitchId_ != nullptr && this->enableIpsec_ != nullptr && this->enableSsl_ != nullptr
-        && this->instanceChargeType_ != nullptr && this->name_ != nullptr && this->networkType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->period_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->sslConnections_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->vpnType_ != nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->clientToken_ == nullptr && return this->disasterRecoveryVSwitchId_ == nullptr && return this->enableIpsec_ == nullptr && return this->enableSsl_ == nullptr
+        && return this->instanceChargeType_ == nullptr && return this->name_ == nullptr && return this->networkType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->period_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->sslConnections_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->vpnType_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};

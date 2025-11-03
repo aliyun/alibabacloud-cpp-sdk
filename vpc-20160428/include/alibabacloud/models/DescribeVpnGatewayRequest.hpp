@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includeReservationData_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->includeReservationData_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->vpnGatewayId_ == nullptr; };
     // includeReservationData Field Functions 
     bool hasIncludeReservationData() const { return this->includeReservationData_ != nullptr;};
     void deleteIncludeReservationData() { this->includeReservationData_ = nullptr;};

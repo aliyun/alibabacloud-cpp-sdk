@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedInstanceList_ != nullptr
-        && this->progressing_ != nullptr && this->qosDescription_ != nullptr && this->qosId_ != nullptr && this->qosName_ != nullptr && this->queueList_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->associatedInstanceList_ == nullptr
+        && return this->progressing_ == nullptr && return this->qosDescription_ == nullptr && return this->qosId_ == nullptr && return this->qosName_ == nullptr && return this->queueList_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // associatedInstanceList Field Functions 
     bool hasAssociatedInstanceList() const { return this->associatedInstanceList_ != nullptr;};
     void deleteAssociatedInstanceList() { this->associatedInstanceList_ = nullptr;};

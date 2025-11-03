@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->grantType_ != nullptr
-        && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->vbrInstanceIdsShrink_ != nullptr && this->vbrOwnerUid_ != nullptr && this->vbrRegionNo_ != nullptr; };
+    virtual bool empty() const override { return this->grantType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->vbrInstanceIdsShrink_ == nullptr && return this->vbrOwnerUid_ == nullptr && return this->vbrRegionNo_ == nullptr; };
     // grantType Field Functions 
     bool hasGrantType() const { return this->grantType_ != nullptr;};
     void deleteGrantType() { this->grantType_ = nullptr;};

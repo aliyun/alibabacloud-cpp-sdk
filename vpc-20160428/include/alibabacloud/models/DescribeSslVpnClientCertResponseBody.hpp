@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caCert_ != nullptr
-        && this->clientCert_ != nullptr && this->clientConfig_ != nullptr && this->clientKey_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr
-        && this->name_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->sslVpnClientCertId_ != nullptr
-        && this->sslVpnServerId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->caCert_ == nullptr
+        && return this->clientCert_ == nullptr && return this->clientConfig_ == nullptr && return this->clientKey_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr
+        && return this->name_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sslVpnClientCertId_ == nullptr
+        && return this->sslVpnServerId_ == nullptr && return this->status_ == nullptr; };
     // caCert Field Functions 
     bool hasCaCert() const { return this->caCert_ != nullptr;};
     void deleteCaCert() { this->caCert_ = nullptr;};

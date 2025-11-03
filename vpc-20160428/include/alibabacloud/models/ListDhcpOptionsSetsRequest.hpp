@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dhcpOptionsSetId_ != nullptr
-        && this->dhcpOptionsSetName_ != nullptr && this->domainName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->dhcpOptionsSetId_ == nullptr
+        && return this->dhcpOptionsSetName_ == nullptr && return this->domainName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->tags_ == nullptr; };
     // dhcpOptionsSetId Field Functions 
     bool hasDhcpOptionsSetId() const { return this->dhcpOptionsSetId_ != nullptr;};
     void deleteDhcpOptionsSetId() { this->dhcpOptionsSetId_ = nullptr;};
@@ -154,18 +154,19 @@ namespace Models
     // 
     // Valid values:
     // 
+    //  
     // *   tf-testAccVpcDhcpOptionsSets-1585169790614573448
-    // 
+    //  
     //     <!-- -->
-    // 
+    //  
     //     :
-    // 
+    //  
     //     <!-- -->
-    // 
+    //  
     //     tf-testAccVpcDhcpOptionsSets-1585169790614573448
-    // 
+    //  
     //     <!-- -->
-    // 
+    //  
     //     .
     std::shared_ptr<string> dhcpOptionsSetName_ = nullptr;
     // The root domain. For example, you can set the value to example.com.
@@ -177,6 +178,7 @@ namespace Models
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
     // *   You do not need to specify this parameter for the first request.
+    // 
     // *   You must specify the token that is obtained from the previous query as the value of the **NextToken** parameter.
     std::shared_ptr<string> nextToken_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;

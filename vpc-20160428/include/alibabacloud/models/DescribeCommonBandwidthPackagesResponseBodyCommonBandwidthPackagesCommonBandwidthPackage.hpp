@@ -82,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->bandwidthPackageId_ != nullptr && this->bizType_ != nullptr && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->deletionProtection_ != nullptr
-        && this->description_ != nullptr && this->expiredTime_ != nullptr && this->hasReservationData_ != nullptr && this->ISP_ != nullptr && this->instanceChargeType_ != nullptr
-        && this->internetChargeType_ != nullptr && this->name_ != nullptr && this->publicIpAddresses_ != nullptr && this->ratio_ != nullptr && this->regionId_ != nullptr
-        && this->reservationActiveTime_ != nullptr && this->reservationBandwidth_ != nullptr && this->reservationInternetChargeType_ != nullptr && this->reservationOrderType_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityProtectionTypes_ != nullptr && this->serviceManaged_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->zone_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->bandwidthPackageId_ == nullptr && return this->bizType_ == nullptr && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->deletionProtection_ == nullptr
+        && return this->description_ == nullptr && return this->expiredTime_ == nullptr && return this->hasReservationData_ == nullptr && return this->ISP_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->name_ == nullptr && return this->publicIpAddresses_ == nullptr && return this->ratio_ == nullptr && return this->regionId_ == nullptr
+        && return this->reservationActiveTime_ == nullptr && return this->reservationBandwidth_ == nullptr && return this->reservationInternetChargeType_ == nullptr && return this->reservationOrderType_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->securityProtectionTypes_ == nullptr && return this->serviceManaged_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->zone_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkAclAttribute_ != nullptr
-        && this->networkAclId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->networkAclAttribute_ == nullptr
+        && return this->networkAclId_ == nullptr && return this->requestId_ == nullptr; };
     // networkAclAttribute Field Functions 
     bool hasNetworkAclAttribute() const { return this->networkAclAttribute_ != nullptr;};
     void deleteNetworkAclAttribute() { this->networkAclAttribute_ = nullptr;};

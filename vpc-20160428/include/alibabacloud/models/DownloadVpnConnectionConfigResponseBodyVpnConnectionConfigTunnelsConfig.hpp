@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tunnelConfig_ != nullptr; };
+    virtual bool empty() const override { return this->tunnelConfig_ == nullptr; };
     // tunnelConfig Field Functions 
     bool hasTunnelConfig() const { return this->tunnelConfig_ != nullptr;};
     void deleteTunnelConfig() { this->tunnelConfig_ = nullptr;};

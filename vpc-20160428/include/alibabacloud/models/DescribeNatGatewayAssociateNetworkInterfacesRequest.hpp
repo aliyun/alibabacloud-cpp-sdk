@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->filter_ != nullptr && this->maxResults_ != nullptr && this->natGatewayId_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->filter_ == nullptr && return this->maxResults_ == nullptr && return this->natGatewayId_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->tag_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -147,19 +147,38 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
+    // 
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // 
+    // >  If you do not set this parameter, the value of **RequestId** is used.**** The **RequestId** may be different for each request.
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The filter information. You can specify a filter key and a filter value.
     std::shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestFilter>> filter_ = nullptr;
+    // The number of entries to return per page. Valid values: **1 to 100**. Default value: **20**.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The ID of the NAT gateway.
+    // 
     // This parameter is required.
     std::shared_ptr<string> natGatewayId_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid value:
+    // 
+    // *   If no value is returned for NetToken, you do not need to specify this parameter.
+    // *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
     std::shared_ptr<string> nextToken_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID of the Internet NAT gateway.
+    // 
+    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region list.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The information about resource tags.
     std::shared_ptr<vector<DescribeNatGatewayAssociateNetworkInterfacesRequestTag>> tag_ = nullptr;
   };
 

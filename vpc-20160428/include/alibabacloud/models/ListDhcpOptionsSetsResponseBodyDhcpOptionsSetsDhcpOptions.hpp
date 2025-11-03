@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->domainName_ != nullptr
-        && this->domainNameServers_ != nullptr && this->ipv6LeaseTime_ != nullptr && this->leaseTime_ != nullptr; };
+    virtual bool empty() const override { return this->domainName_ == nullptr
+        && return this->domainNameServers_ == nullptr && return this->ipv6LeaseTime_ == nullptr && return this->leaseTime_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
@@ -70,10 +70,11 @@ namespace Models
     std::shared_ptr<string> domainName_ = nullptr;
     // The IP address of the DNS server.
     std::shared_ptr<string> domainNameServers_ = nullptr;
-    // The lease time of the IPv6 addresses for the DHCP options set.
+    // The lease time of the IPv6 DHCP options set.
     // 
-    // *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-    // *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+    // *   If you use hours as the unit, Unit: h. Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **24h**.
+    // 
+    // *   If you use days as the unit, Unit: d. Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **1d**.
     std::shared_ptr<string> ipv6LeaseTime_ = nullptr;
     // The lease time of the IPv4 addresses for the DHCP options set.
     // 

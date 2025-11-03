@@ -89,12 +89,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessMode_ != nullptr
-        && this->billingConfig_ != nullptr && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->deletionProtectionInfo_ != nullptr && this->description_ != nullptr
-        && this->ecsMetricEnabled_ != nullptr && this->enableSessionLog_ != nullptr && this->expiredTime_ != nullptr && this->forwardTable_ != nullptr && this->fullNatTable_ != nullptr
-        && this->ipList_ != nullptr && this->logDelivery_ != nullptr && this->name_ != nullptr && this->natGatewayId_ != nullptr && this->natType_ != nullptr
-        && this->networkType_ != nullptr && this->privateInfo_ != nullptr && this->privateLinkEnabled_ != nullptr && this->privateLinkMode_ != nullptr && this->regionId_ != nullptr
-        && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->snatTable_ != nullptr && this->status_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accessMode_ == nullptr
+        && return this->billingConfig_ == nullptr && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->deletionProtectionInfo_ == nullptr && return this->description_ == nullptr
+        && return this->ecsMetricEnabled_ == nullptr && return this->enableSessionLog_ == nullptr && return this->expiredTime_ == nullptr && return this->forwardTable_ == nullptr && return this->fullNatTable_ == nullptr
+        && return this->ipList_ == nullptr && return this->logDelivery_ == nullptr && return this->name_ == nullptr && return this->natGatewayId_ == nullptr && return this->natType_ == nullptr
+        && return this->networkType_ == nullptr && return this->privateInfo_ == nullptr && return this->privateLinkEnabled_ == nullptr && return this->privateLinkMode_ == nullptr && return this->regionId_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->snatTable_ == nullptr && return this->status_ == nullptr && return this->vpcId_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};

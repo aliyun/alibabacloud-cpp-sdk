@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->trafficPathList_ != nullptr; };
+    virtual bool empty() const override { return this->trafficPathList_ == nullptr; };
     // trafficPathList Field Functions 
     bool hasTrafficPathList() const { return this->trafficPathList_ != nullptr;};
     void deleteTrafficPathList() { this->trafficPathList_ = nullptr;};

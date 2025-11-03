@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asPath_ != nullptr
-        && this->community_ != nullptr && this->createTime_ != nullptr && this->nextHop_ != nullptr && this->nextHopTunnelId_ != nullptr && this->routeDest_ != nullptr
-        && this->routeEntryType_ != nullptr && this->source_ != nullptr && this->state_ != nullptr && this->vpnInstanceId_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->asPath_ == nullptr
+        && return this->community_ == nullptr && return this->createTime_ == nullptr && return this->nextHop_ == nullptr && return this->nextHopTunnelId_ == nullptr && return this->routeDest_ == nullptr
+        && return this->routeEntryType_ == nullptr && return this->source_ == nullptr && return this->state_ == nullptr && return this->vpnInstanceId_ == nullptr && return this->weight_ == nullptr; };
     // asPath Field Functions 
     bool hasAsPath() const { return this->asPath_ != nullptr;};
     void deleteAsPath() { this->asPath_ = nullptr;};

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->enabled_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->packetLength_ != nullptr
-        && this->priority_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->tag_ != nullptr && this->trafficMirrorFilterId_ != nullptr && this->trafficMirrorSessionDescription_ != nullptr && this->trafficMirrorSessionName_ != nullptr && this->trafficMirrorSourceIds_ != nullptr
-        && this->trafficMirrorTargetId_ != nullptr && this->trafficMirrorTargetType_ != nullptr && this->virtualNetworkId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dryRun_ == nullptr && return this->enabled_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->packetLength_ == nullptr
+        && return this->priority_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->tag_ == nullptr && return this->trafficMirrorFilterId_ == nullptr && return this->trafficMirrorSessionDescription_ == nullptr && return this->trafficMirrorSessionName_ == nullptr && return this->trafficMirrorSourceIds_ == nullptr
+        && return this->trafficMirrorTargetId_ == nullptr && return this->trafficMirrorTargetType_ == nullptr && return this->virtualNetworkId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

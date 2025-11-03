@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonName_ != nullptr
-        && this->connectedTime_ != nullptr && this->ip_ != nullptr && this->port_ != nullptr && this->privateIp_ != nullptr && this->receiveBytes_ != nullptr
-        && this->sendBytes_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->commonName_ == nullptr
+        && return this->connectedTime_ == nullptr && return this->ip_ == nullptr && return this->port_ == nullptr && return this->privateIp_ == nullptr && return this->receiveBytes_ == nullptr
+        && return this->sendBytes_ == nullptr && return this->status_ == nullptr; };
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};

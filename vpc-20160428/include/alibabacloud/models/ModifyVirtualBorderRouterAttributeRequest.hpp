@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedPhysicalConnections_ != nullptr
-        && this->bandwidth_ != nullptr && this->circuitCode_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->detectMultiplier_ != nullptr
-        && this->enableIpv6_ != nullptr && this->localGatewayIp_ != nullptr && this->localIpv6GatewayIp_ != nullptr && this->minRxInterval_ != nullptr && this->minTxInterval_ != nullptr
-        && this->mtu_ != nullptr && this->name_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->peerGatewayIp_ != nullptr
-        && this->peerIpv6GatewayIp_ != nullptr && this->peeringIpv6SubnetMask_ != nullptr && this->peeringSubnetMask_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->sitelinkEnable_ != nullptr && this->vbrId_ != nullptr && this->vlanId_ != nullptr; };
+    virtual bool empty() const override { return this->associatedPhysicalConnections_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->circuitCode_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->detectMultiplier_ == nullptr
+        && return this->enableIpv6_ == nullptr && return this->localGatewayIp_ == nullptr && return this->localIpv6GatewayIp_ == nullptr && return this->minRxInterval_ == nullptr && return this->minTxInterval_ == nullptr
+        && return this->mtu_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerGatewayIp_ == nullptr
+        && return this->peerIpv6GatewayIp_ == nullptr && return this->peeringIpv6SubnetMask_ == nullptr && return this->peeringSubnetMask_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->sitelinkEnable_ == nullptr && return this->vbrId_ == nullptr && return this->vlanId_ == nullptr; };
     // associatedPhysicalConnections Field Functions 
     bool hasAssociatedPhysicalConnections() const { return this->associatedPhysicalConnections_ != nullptr;};
     void deleteAssociatedPhysicalConnections() { this->associatedPhysicalConnections_ = nullptr;};

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->ipAddressRemaining_ != nullptr && this->isp_ != nullptr
-        && this->name_ != nullptr && this->ownerId_ != nullptr && this->publicIpAddressPoolId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityProtectionTypes_ != nullptr && this->shareType_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->totalIpNum_ != nullptr
-        && this->usedIpNum_ != nullptr && this->userType_ != nullptr && this->zones_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->ipAddressRemaining_ == nullptr && return this->isp_ == nullptr
+        && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->publicIpAddressPoolId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->securityProtectionTypes_ == nullptr && return this->shareType_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->totalIpNum_ == nullptr
+        && return this->usedIpNum_ == nullptr && return this->userType_ == nullptr && return this->zones_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};

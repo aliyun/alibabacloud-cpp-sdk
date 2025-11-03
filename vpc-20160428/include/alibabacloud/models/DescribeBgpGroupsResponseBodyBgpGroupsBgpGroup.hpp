@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authKey_ != nullptr
-        && this->bgpGroupId_ != nullptr && this->description_ != nullptr && this->hold_ != nullptr && this->ipVersion_ != nullptr && this->isFake_ != nullptr
-        && this->keepalive_ != nullptr && this->localAsn_ != nullptr && this->name_ != nullptr && this->peerAsn_ != nullptr && this->regionId_ != nullptr
-        && this->routeLimit_ != nullptr && this->routerId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && return this->bgpGroupId_ == nullptr && return this->description_ == nullptr && return this->hold_ == nullptr && return this->ipVersion_ == nullptr && return this->isFake_ == nullptr
+        && return this->keepalive_ == nullptr && return this->localAsn_ == nullptr && return this->name_ == nullptr && return this->peerAsn_ == nullptr && return this->regionId_ == nullptr
+        && return this->routeLimit_ == nullptr && return this->routerId_ == nullptr && return this->status_ == nullptr; };
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};

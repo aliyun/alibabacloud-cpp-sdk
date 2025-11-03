@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->ecrId_ != nullptr && this->ecrOwnerId_ != nullptr && this->instanceId_ != nullptr && this->instanceUid_ != nullptr && this->regionNo_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->ecrId_ == nullptr && return this->ecrOwnerId_ == nullptr && return this->instanceId_ == nullptr && return this->instanceUid_ == nullptr && return this->regionNo_ == nullptr
+        && return this->type_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -94,12 +94,22 @@ namespace Models
 
 
   protected:
+    // The creation time in milliseconds.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // The ECR ID.
     std::shared_ptr<string> ecrId_ = nullptr;
+    // The ID of the Alibaba Cloud account to which the ECR belongs.
     std::shared_ptr<int64_t> ecrOwnerId_ = nullptr;
+    // The ID of the network instance.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The ID of the Alibaba Cloud account to which the instance belongs.
     std::shared_ptr<int64_t> instanceUid_ = nullptr;
+    // The ID of the region where the instance is deployed.
     std::shared_ptr<string> regionNo_ = nullptr;
+    // The type of instance. Valid values:
+    // 
+    // *   **VBR**: queries the permissions that are granted to a VBR.
+    // *   **VPC**: queries the permissions that are granted from a VPC.
     std::shared_ptr<string> type_ = nullptr;
   };
 

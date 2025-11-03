@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ecrInstanceId_ != nullptr
-        && this->ecrOwnerId_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->ecrInstanceId_ == nullptr
+        && return this->ecrOwnerId_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->tags_ == nullptr; };
     // ecrInstanceId Field Functions 
     bool hasEcrInstanceId() const { return this->ecrInstanceId_ != nullptr;};
     void deleteEcrInstanceId() { this->ecrInstanceId_ = nullptr;};
@@ -153,19 +153,37 @@ namespace Models
 
 
   protected:
+    // The ID of the ECR that you want to query.
     std::shared_ptr<string> ecrInstanceId_ = nullptr;
+    // The ID of the Alibaba Cloud account to which the ECR belongs.
+    // 
+    // > If you want to connect to a network instance that belongs to a different account, this parameter is required.
     std::shared_ptr<int64_t> ecrOwnerId_ = nullptr;
+    // The ID of the network instance.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The type of instance. Valid values:
+    // 
+    // *   **VBR**: queries the permissions that are granted to a VBR.
+    // *   **VPC**: queries the permissions that are granted from a VPC.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **10**.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // 
+    // *   You do not need to specify this parameter for the first request.
+    // *   If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
     std::shared_ptr<string> nextToken_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID of the network instance that you want to query.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the resource group to which the network instance belongs.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The tag.
     std::shared_ptr<vector<DescribeVpcGrantRulesToEcrRequestTags>> tags_ = nullptr;
   };
 

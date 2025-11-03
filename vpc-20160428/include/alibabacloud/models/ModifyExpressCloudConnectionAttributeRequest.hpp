@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bgpAs_ != nullptr
-        && this->ceIp_ != nullptr && this->description_ != nullptr && this->eccId_ != nullptr && this->name_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->peIp_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->bgpAs_ == nullptr
+        && return this->ceIp_ == nullptr && return this->description_ == nullptr && return this->eccId_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->peIp_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // bgpAs Field Functions 
     bool hasBgpAs() const { return this->bgpAs_ != nullptr;};
     void deleteBgpAs() { this->bgpAs_ = nullptr;};

@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associateVpcs_ != nullptr
-        && this->creationTime_ != nullptr && this->dhcpOptions_ != nullptr && this->dhcpOptionsSetDescription_ != nullptr && this->dhcpOptionsSetId_ != nullptr && this->dhcpOptionsSetName_ != nullptr
-        && this->ownerId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->associateVpcs_ == nullptr
+        && return this->creationTime_ == nullptr && return this->dhcpOptions_ == nullptr && return this->dhcpOptionsSetDescription_ == nullptr && return this->dhcpOptionsSetId_ == nullptr && return this->dhcpOptionsSetName_ == nullptr
+        && return this->ownerId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // associateVpcs Field Functions 
     bool hasAssociateVpcs() const { return this->associateVpcs_ != nullptr;};
     void deleteAssociateVpcs() { this->associateVpcs_ = nullptr;};
@@ -142,6 +142,7 @@ namespace Models
   protected:
     // The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
     std::shared_ptr<vector<GetDhcpOptionsSetResponseBodyAssociateVpcs>> associateVpcs_ = nullptr;
+    // create time
     std::shared_ptr<string> creationTime_ = nullptr;
     // The configuration information about the DHCP options set.
     std::shared_ptr<GetDhcpOptionsSetResponseBodyDhcpOptions> dhcpOptions_ = nullptr;

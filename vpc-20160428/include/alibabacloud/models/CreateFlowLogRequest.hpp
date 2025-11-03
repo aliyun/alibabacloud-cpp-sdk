@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregationInterval_ != nullptr
-        && this->description_ != nullptr && this->flowLogName_ != nullptr && this->ipVersion_ != nullptr && this->logStoreName_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->projectName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->tag_ != nullptr && this->trafficPath_ != nullptr
-        && this->trafficType_ != nullptr; };
+    virtual bool empty() const override { return this->aggregationInterval_ == nullptr
+        && return this->description_ == nullptr && return this->flowLogName_ == nullptr && return this->ipVersion_ == nullptr && return this->logStoreName_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->projectName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->tag_ == nullptr && return this->trafficPath_ == nullptr
+        && return this->trafficType_ == nullptr; };
     // aggregationInterval Field Functions 
     bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
     void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};

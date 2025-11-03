@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipsecAuthAlg_ != nullptr
-        && this->ipsecEncAlg_ != nullptr && this->ipsecLifetime_ != nullptr && this->ipsecPfs_ != nullptr; };
+    virtual bool empty() const override { return this->ipsecAuthAlg_ == nullptr
+        && return this->ipsecEncAlg_ == nullptr && return this->ipsecLifetime_ == nullptr && return this->ipsecPfs_ == nullptr; };
     // ipsecAuthAlg Field Functions 
     bool hasIpsecAuthAlg() const { return this->ipsecAuthAlg_ != nullptr;};
     void deleteIpsecAuthAlg() { this->ipsecAuthAlg_ = nullptr;};

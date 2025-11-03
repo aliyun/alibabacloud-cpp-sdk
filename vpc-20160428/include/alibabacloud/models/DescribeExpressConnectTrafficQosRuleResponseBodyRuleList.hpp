@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstCidr_ != nullptr
-        && this->dstIPv6Cidr_ != nullptr && this->dstPortRange_ != nullptr && this->matchDscp_ != nullptr && this->priority_ != nullptr && this->protocol_ != nullptr
-        && this->qosId_ != nullptr && this->queueId_ != nullptr && this->remarkingDscp_ != nullptr && this->ruleDescription_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr && this->srcCidr_ != nullptr && this->srcIPv6Cidr_ != nullptr && this->srcPortRange_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->dstCidr_ == nullptr
+        && return this->dstIPv6Cidr_ == nullptr && return this->dstPortRange_ == nullptr && return this->matchDscp_ == nullptr && return this->priority_ == nullptr && return this->protocol_ == nullptr
+        && return this->qosId_ == nullptr && return this->queueId_ == nullptr && return this->remarkingDscp_ == nullptr && return this->ruleDescription_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr && return this->srcCidr_ == nullptr && return this->srcIPv6Cidr_ == nullptr && return this->srcPortRange_ == nullptr && return this->status_ == nullptr; };
     // dstCidr Field Functions 
     bool hasDstCidr() const { return this->dstCidr_ != nullptr;};
     void deleteDstCidr() { this->dstCidr_ = nullptr;};

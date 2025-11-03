@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->key_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->key_ == nullptr
+        && return this->value_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
@@ -48,7 +48,21 @@ namespace Models
 
 
   protected:
+    // The filter key.
+    // 
+    // *   ResourceId
+    // 
+    // >  Specify the service resource ID in the Value field.
+    // 
+    // *   NetworkInterfaceId
+    // 
+    // >  Specify the ENI ID in the Value field.
+    // 
+    // *   ResourceOwnerId
+    // 
+    // >  Specify the UID of the account to which the service resource belongs.
     std::shared_ptr<string> key_ = nullptr;
+    // Separate multiple values with commas (,).
     std::shared_ptr<string> value_ = nullptr;
   };
 

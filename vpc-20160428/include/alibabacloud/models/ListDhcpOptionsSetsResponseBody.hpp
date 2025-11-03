@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dhcpOptionsSets_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->dhcpOptionsSets_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // dhcpOptionsSets Field Functions 
     bool hasDhcpOptionsSets() const { return this->dhcpOptionsSets_ != nullptr;};
     void deleteDhcpOptionsSets() { this->dhcpOptionsSets_ = nullptr;};

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerationLocation_ != nullptr
-        && this->backendServers_ != nullptr && this->bandwidth_ != nullptr && this->bandwidthType_ != nullptr && this->chargeType_ != nullptr && this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->expiredTime_ != nullptr && this->globalAccelerationInstanceId_ != nullptr && this->internetChargeType_ != nullptr && this->ipAddress_ != nullptr
-        && this->name_ != nullptr && this->publicIpAddresses_ != nullptr && this->regionId_ != nullptr && this->serviceLocation_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->accelerationLocation_ == nullptr
+        && return this->backendServers_ == nullptr && return this->bandwidth_ == nullptr && return this->bandwidthType_ == nullptr && return this->chargeType_ == nullptr && return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->expiredTime_ == nullptr && return this->globalAccelerationInstanceId_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipAddress_ == nullptr
+        && return this->name_ == nullptr && return this->publicIpAddresses_ == nullptr && return this->regionId_ == nullptr && return this->serviceLocation_ == nullptr && return this->status_ == nullptr; };
     // accelerationLocation Field Functions 
     bool hasAccelerationLocation() const { return this->accelerationLocation_ != nullptr;};
     void deleteAccelerationLocation() { this->accelerationLocation_ = nullptr;};

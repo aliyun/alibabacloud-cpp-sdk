@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoPropagate_ != nullptr
-        && this->businessStatus_ != nullptr && this->chargeType_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->disasterRecoveryInternetIp_ != nullptr
-        && this->disasterRecoveryVSwitchId_ != nullptr && this->enableBgp_ != nullptr && this->endTime_ != nullptr && this->eniInstanceIds_ != nullptr && this->internetIp_ != nullptr
-        && this->ipsecVpn_ != nullptr && this->name_ != nullptr && this->networkType_ != nullptr && this->reservationData_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->spec_ != nullptr && this->sslMaxConnections_ != nullptr && this->sslVpn_ != nullptr && this->sslVpnInternetIp_ != nullptr && this->status_ != nullptr
-        && this->tag_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->vpnGatewayId_ != nullptr
-        && this->vpnType_ != nullptr; };
+    virtual bool empty() const override { return this->autoPropagate_ == nullptr
+        && return this->businessStatus_ == nullptr && return this->chargeType_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->disasterRecoveryInternetIp_ == nullptr
+        && return this->disasterRecoveryVSwitchId_ == nullptr && return this->enableBgp_ == nullptr && return this->endTime_ == nullptr && return this->eniInstanceIds_ == nullptr && return this->internetIp_ == nullptr
+        && return this->ipsecVpn_ == nullptr && return this->name_ == nullptr && return this->networkType_ == nullptr && return this->reservationData_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->spec_ == nullptr && return this->sslMaxConnections_ == nullptr && return this->sslVpn_ == nullptr && return this->sslVpnInternetIp_ == nullptr && return this->status_ == nullptr
+        && return this->tag_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->vpnGatewayId_ == nullptr
+        && return this->vpnType_ == nullptr; };
     // autoPropagate Field Functions 
     bool hasAutoPropagate() const { return this->autoPropagate_ != nullptr;};
     void deleteAutoPropagate() { this->autoPropagate_ = nullptr;};

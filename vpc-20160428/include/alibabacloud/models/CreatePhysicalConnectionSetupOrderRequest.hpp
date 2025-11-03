@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->autoPay_ != nullptr && this->clientToken_ != nullptr && this->lineOperator_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->portType_ != nullptr && this->redundantPhysicalConnectionId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->autoPay_ == nullptr && return this->clientToken_ == nullptr && return this->lineOperator_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->portType_ == nullptr && return this->redundantPhysicalConnectionId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

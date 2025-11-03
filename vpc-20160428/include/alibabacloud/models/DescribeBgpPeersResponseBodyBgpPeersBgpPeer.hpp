@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advertisedRouteCount_ != nullptr
-        && this->authKey_ != nullptr && this->bfdMultiHop_ != nullptr && this->bgpGroupId_ != nullptr && this->bgpPeerId_ != nullptr && this->bgpStatus_ != nullptr
-        && this->description_ != nullptr && this->enableBfd_ != nullptr && this->gmtModified_ != nullptr && this->hold_ != nullptr && this->ipVersion_ != nullptr
-        && this->isFake_ != nullptr && this->keepalive_ != nullptr && this->localAsn_ != nullptr && this->name_ != nullptr && this->peerAsn_ != nullptr
-        && this->peerIpAddress_ != nullptr && this->receivedRouteCount_ != nullptr && this->regionId_ != nullptr && this->routeLimit_ != nullptr && this->routerId_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->advertisedRouteCount_ == nullptr
+        && return this->authKey_ == nullptr && return this->bfdMultiHop_ == nullptr && return this->bgpGroupId_ == nullptr && return this->bgpPeerId_ == nullptr && return this->bgpStatus_ == nullptr
+        && return this->description_ == nullptr && return this->enableBfd_ == nullptr && return this->gmtModified_ == nullptr && return this->hold_ == nullptr && return this->ipVersion_ == nullptr
+        && return this->isFake_ == nullptr && return this->keepalive_ == nullptr && return this->localAsn_ == nullptr && return this->name_ == nullptr && return this->peerAsn_ == nullptr
+        && return this->peerIpAddress_ == nullptr && return this->receivedRouteCount_ == nullptr && return this->regionId_ == nullptr && return this->routeLimit_ == nullptr && return this->routerId_ == nullptr
+        && return this->status_ == nullptr; };
     // advertisedRouteCount Field Functions 
     bool hasAdvertisedRouteCount() const { return this->advertisedRouteCount_ != nullptr;};
     void deleteAdvertisedRouteCount() { this->advertisedRouteCount_ = nullptr;};

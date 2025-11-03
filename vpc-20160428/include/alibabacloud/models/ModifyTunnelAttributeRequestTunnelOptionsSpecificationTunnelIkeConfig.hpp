@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ikeAuthAlg_ != nullptr
-        && this->ikeEncAlg_ != nullptr && this->ikeLifetime_ != nullptr && this->ikeMode_ != nullptr && this->ikePfs_ != nullptr && this->ikeVersion_ != nullptr
-        && this->localId_ != nullptr && this->psk_ != nullptr && this->remoteId_ != nullptr; };
+    virtual bool empty() const override { return this->ikeAuthAlg_ == nullptr
+        && return this->ikeEncAlg_ == nullptr && return this->ikeLifetime_ == nullptr && return this->ikeMode_ == nullptr && return this->ikePfs_ == nullptr && return this->ikeVersion_ == nullptr
+        && return this->localId_ == nullptr && return this->psk_ == nullptr && return this->remoteId_ == nullptr; };
     // ikeAuthAlg Field Functions 
     bool hasIkeAuthAlg() const { return this->ikeAuthAlg_ != nullptr;};
     void deleteIkeAuthAlg() { this->ikeAuthAlg_ = nullptr;};

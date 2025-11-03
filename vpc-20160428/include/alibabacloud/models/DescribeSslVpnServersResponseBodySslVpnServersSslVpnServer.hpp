@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cipher_ != nullptr
-        && this->clientIpPool_ != nullptr && this->compress_ != nullptr && this->connections_ != nullptr && this->createTime_ != nullptr && this->enableMultiFactorAuth_ != nullptr
-        && this->IDaaSApplicationId_ != nullptr && this->IDaaSInstanceId_ != nullptr && this->IDaaSInstanceVersion_ != nullptr && this->IDaaSRegionId_ != nullptr && this->internetIp_ != nullptr
-        && this->localSubnet_ != nullptr && this->maxConnections_ != nullptr && this->name_ != nullptr && this->port_ != nullptr && this->proto_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->sslVpnServerId_ != nullptr && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->cipher_ == nullptr
+        && return this->clientIpPool_ == nullptr && return this->compress_ == nullptr && return this->connections_ == nullptr && return this->createTime_ == nullptr && return this->enableMultiFactorAuth_ == nullptr
+        && return this->IDaaSApplicationId_ == nullptr && return this->IDaaSInstanceId_ == nullptr && return this->IDaaSInstanceVersion_ == nullptr && return this->IDaaSRegionId_ == nullptr && return this->internetIp_ == nullptr
+        && return this->localSubnet_ == nullptr && return this->maxConnections_ == nullptr && return this->name_ == nullptr && return this->port_ == nullptr && return this->proto_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sslVpnServerId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
     // cipher Field Functions 
     bool hasCipher() const { return this->cipher_ != nullptr;};
     void deleteCipher() { this->cipher_ = nullptr;};

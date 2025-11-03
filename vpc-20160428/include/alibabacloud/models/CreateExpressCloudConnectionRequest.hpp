@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidth_ != nullptr
-        && this->contactMail_ != nullptr && this->contactTel_ != nullptr && this->description_ != nullptr && this->IDCardNo_ != nullptr && this->idcSP_ != nullptr
-        && this->name_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->peerCity_ != nullptr && this->peerLocation_ != nullptr
-        && this->portType_ != nullptr && this->redundantEccId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->contactMail_ == nullptr && return this->contactTel_ == nullptr && return this->description_ == nullptr && return this->IDCardNo_ == nullptr && return this->idcSP_ == nullptr
+        && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerCity_ == nullptr && return this->peerLocation_ == nullptr
+        && return this->portType_ == nullptr && return this->redundantEccId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};

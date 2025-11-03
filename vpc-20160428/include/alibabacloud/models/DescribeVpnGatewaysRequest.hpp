@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessStatus_ != nullptr
-        && this->includeReservationData_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->status_ != nullptr
-        && this->tag_ != nullptr && this->vpcId_ != nullptr && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->businessStatus_ == nullptr
+        && return this->includeReservationData_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->status_ == nullptr
+        && return this->tag_ == nullptr && return this->vpcId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
     // businessStatus Field Functions 
     bool hasBusinessStatus() const { return this->businessStatus_ != nullptr;};
     void deleteBusinessStatus() { this->businessStatus_ = nullptr;};

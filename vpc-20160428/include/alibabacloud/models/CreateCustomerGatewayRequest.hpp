@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asn_ != nullptr
-        && this->authKey_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->ipAddress_ != nullptr && this->name_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->asn_ == nullptr
+        && return this->authKey_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->ipAddress_ == nullptr && return this->name_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->tags_ == nullptr; };
     // asn Field Functions 
     bool hasAsn() const { return this->asn_ != nullptr;};
     void deleteAsn() { this->asn_ = nullptr;};

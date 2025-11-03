@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipv4Prefix_ != nullptr
-        && this->isDefault_ != nullptr && this->natGatewayId_ != nullptr && this->natIp_ != nullptr && this->natIpCidr_ != nullptr && this->natIpDescription_ != nullptr
-        && this->natIpId_ != nullptr && this->natIpName_ != nullptr && this->natIpStatus_ != nullptr; };
+    virtual bool empty() const override { return this->ipv4Prefix_ == nullptr
+        && return this->isDefault_ == nullptr && return this->natGatewayId_ == nullptr && return this->natIp_ == nullptr && return this->natIpCidr_ == nullptr && return this->natIpDescription_ == nullptr
+        && return this->natIpId_ == nullptr && return this->natIpName_ == nullptr && return this->natIpStatus_ == nullptr; };
     // ipv4Prefix Field Functions 
     bool hasIpv4Prefix() const { return this->ipv4Prefix_ != nullptr;};
     void deleteIpv4Prefix() { this->ipv4Prefix_ = nullptr;};

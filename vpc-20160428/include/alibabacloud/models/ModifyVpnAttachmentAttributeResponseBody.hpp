@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachInstanceId_ != nullptr
-        && this->attachType_ != nullptr && this->createTime_ != nullptr && this->customerGatewayId_ != nullptr && this->description_ != nullptr && this->effectImmediately_ != nullptr
-        && this->enableDpd_ != nullptr && this->enableNatTraversal_ != nullptr && this->enableTunnelsBgp_ != nullptr && this->ikeConfig_ != nullptr && this->ipsecConfig_ != nullptr
-        && this->localSubnet_ != nullptr && this->name_ != nullptr && this->networkType_ != nullptr && this->remoteSubnet_ != nullptr && this->requestId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->tunnelOptionsSpecification_ != nullptr && this->vcoHealthCheck_ != nullptr
-        && this->vpnBgpConfig_ != nullptr && this->vpnConnectionId_ != nullptr && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->attachInstanceId_ == nullptr
+        && return this->attachType_ == nullptr && return this->createTime_ == nullptr && return this->customerGatewayId_ == nullptr && return this->description_ == nullptr && return this->effectImmediately_ == nullptr
+        && return this->enableDpd_ == nullptr && return this->enableNatTraversal_ == nullptr && return this->enableTunnelsBgp_ == nullptr && return this->ikeConfig_ == nullptr && return this->ipsecConfig_ == nullptr
+        && return this->localSubnet_ == nullptr && return this->name_ == nullptr && return this->networkType_ == nullptr && return this->remoteSubnet_ == nullptr && return this->requestId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr && return this->tunnelOptionsSpecification_ == nullptr && return this->vcoHealthCheck_ == nullptr
+        && return this->vpnBgpConfig_ == nullptr && return this->vpnConnectionId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
     // attachInstanceId Field Functions 
     bool hasAttachInstanceId() const { return this->attachInstanceId_ != nullptr;};
     void deleteAttachInstanceId() { this->attachInstanceId_ = nullptr;};

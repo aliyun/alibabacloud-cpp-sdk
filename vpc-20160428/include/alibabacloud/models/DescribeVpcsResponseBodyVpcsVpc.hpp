@@ -82,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cenStatus_ != nullptr
-        && this->cidrBlock_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->dhcpOptionsSetId_ != nullptr && this->dhcpOptionsSetStatus_ != nullptr
-        && this->dnsHostnameStatus_ != nullptr && this->enabledIpv6_ != nullptr && this->ipv6CidrBlock_ != nullptr && this->ipv6CidrBlocks_ != nullptr && this->isDefault_ != nullptr
-        && this->natGatewayIds_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->routerTableIds_ != nullptr
-        && this->secondaryCidrBlocks_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->userCidrs_ != nullptr && this->VRouterId_ != nullptr
-        && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr && this->vpcName_ != nullptr; };
+    virtual bool empty() const override { return this->cenStatus_ == nullptr
+        && return this->cidrBlock_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->dhcpOptionsSetId_ == nullptr && return this->dhcpOptionsSetStatus_ == nullptr
+        && return this->dnsHostnameStatus_ == nullptr && return this->enabledIpv6_ == nullptr && return this->ipv6CidrBlock_ == nullptr && return this->ipv6CidrBlocks_ == nullptr && return this->isDefault_ == nullptr
+        && return this->natGatewayIds_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->routerTableIds_ == nullptr
+        && return this->secondaryCidrBlocks_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->userCidrs_ == nullptr && return this->VRouterId_ == nullptr
+        && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
     // cenStatus Field Functions 
     bool hasCenStatus() const { return this->cenStatus_ != nullptr;};
     void deleteCenStatus() { this->cenStatus_ = nullptr;};

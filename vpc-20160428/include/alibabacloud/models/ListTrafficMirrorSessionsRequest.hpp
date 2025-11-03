@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enabled_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->priority_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tags_ != nullptr
-        && this->trafficMirrorFilterId_ != nullptr && this->trafficMirrorSessionIds_ != nullptr && this->trafficMirrorSessionName_ != nullptr && this->trafficMirrorSourceId_ != nullptr && this->trafficMirrorTargetId_ != nullptr
-        && this->virtualNetworkId_ != nullptr; };
+    virtual bool empty() const override { return this->enabled_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->priority_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tags_ == nullptr
+        && return this->trafficMirrorFilterId_ == nullptr && return this->trafficMirrorSessionIds_ == nullptr && return this->trafficMirrorSessionName_ == nullptr && return this->trafficMirrorSourceId_ == nullptr && return this->trafficMirrorTargetId_ == nullptr
+        && return this->virtualNetworkId_ == nullptr; };
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associateStatus_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->associateStatus_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // associateStatus Field Functions 
     bool hasAssociateStatus() const { return this->associateStatus_ != nullptr;};
     void deleteAssociateStatus() { this->associateStatus_ = nullptr;};
@@ -49,7 +49,7 @@ namespace Models
 
   protected:
     // The status of the VPC that is associated with the DHCP options set. Valid values:
-    // 
+    //  
     // *   **InUse**: in use
     // *   **Pending**: being configured
     std::shared_ptr<string> associateStatus_ = nullptr;

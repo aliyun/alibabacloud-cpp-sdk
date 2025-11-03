@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addPrefixListEntry_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->maxEntries_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->prefixListDescription_ != nullptr && this->prefixListId_ != nullptr && this->prefixListName_ != nullptr && this->regionId_ != nullptr && this->removePrefixListEntry_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->addPrefixListEntry_ == nullptr
+        && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->maxEntries_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->prefixListDescription_ == nullptr && return this->prefixListId_ == nullptr && return this->prefixListName_ == nullptr && return this->regionId_ == nullptr && return this->removePrefixListEntry_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // addPrefixListEntry Field Functions 
     bool hasAddPrefixListEntry() const { return this->addPrefixListEntry_ != nullptr;};
     void deleteAddPrefixListEntry() { this->addPrefixListEntry_ = nullptr;};

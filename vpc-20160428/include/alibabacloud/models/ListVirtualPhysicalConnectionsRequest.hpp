@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isConfirmed_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->physicalConnectionId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tags_ != nullptr && this->virtualPhysicalConnectionAliUids_ != nullptr && this->virtualPhysicalConnectionBusinessStatus_ != nullptr && this->virtualPhysicalConnectionIds_ != nullptr && this->virtualPhysicalConnectionStatuses_ != nullptr
-        && this->vlanIds_ != nullptr; };
+    virtual bool empty() const override { return this->isConfirmed_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tags_ == nullptr && return this->virtualPhysicalConnectionAliUids_ == nullptr && return this->virtualPhysicalConnectionBusinessStatus_ == nullptr && return this->virtualPhysicalConnectionIds_ == nullptr && return this->virtualPhysicalConnectionStatuses_ == nullptr
+        && return this->vlanIds_ == nullptr; };
     // isConfirmed Field Functions 
     bool hasIsConfirmed() const { return this->isConfirmed_ != nullptr;};
     void deleteIsConfirmed() { this->isConfirmed_ = nullptr;};

@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->IPv4Sets_ != nullptr
-        && this->networkInterfaceId_ != nullptr && this->resourceId_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->resourceVpcId_ != nullptr
-        && this->tunnelIndex_ != nullptr; };
+    virtual bool empty() const override { return this->IPv4Sets_ == nullptr
+        && return this->networkInterfaceId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceVpcId_ == nullptr
+        && return this->tunnelIndex_ == nullptr; };
     // IPv4Sets Field Functions 
     bool hasIPv4Sets() const { return this->IPv4Sets_ != nullptr;};
     void deleteIPv4Sets() { this->IPv4Sets_ = nullptr;};
@@ -97,12 +97,18 @@ namespace Models
 
 
   protected:
+    // The IPv4 addresses of the ENIs.
     std::shared_ptr<Models::DescribeNatGatewayAssociateNetworkInterfacesResponseBodyAssociateNetworkInterfacesAssociateNetworkInterfaceIPv4Sets> IPv4Sets_ = nullptr;
+    // The ID of the ENI.
     std::shared_ptr<string> networkInterfaceId_ = nullptr;
+    // The ID of the service resource.
     std::shared_ptr<string> resourceId_ = nullptr;
+    // The UID of the account to which the service resource belongs.
     std::shared_ptr<string> resourceOwnerId_ = nullptr;
+    // The type of the service resource.
     std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<string> resourceVpcId_ = nullptr;
+    // The ID of the tunnel index.
     std::shared_ptr<string> tunnelIndex_ = nullptr;
   };
 

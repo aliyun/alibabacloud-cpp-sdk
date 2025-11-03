@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->circuitCode_ != nullptr
-        && this->enableIpv6_ != nullptr && this->localGatewayIp_ != nullptr && this->localIpv6GatewayIp_ != nullptr && this->peerGatewayIp_ != nullptr && this->peerIpv6GatewayIp_ != nullptr
-        && this->peeringIpv6SubnetMask_ != nullptr && this->peeringSubnetMask_ != nullptr && this->physicalConnectionBusinessStatus_ != nullptr && this->physicalConnectionId_ != nullptr && this->physicalConnectionOwnerUid_ != nullptr
-        && this->physicalConnectionStatus_ != nullptr && this->status_ != nullptr && this->vlanId_ != nullptr && this->vlanInterfaceId_ != nullptr; };
+    virtual bool empty() const override { return this->circuitCode_ == nullptr
+        && return this->enableIpv6_ == nullptr && return this->localGatewayIp_ == nullptr && return this->localIpv6GatewayIp_ == nullptr && return this->peerGatewayIp_ == nullptr && return this->peerIpv6GatewayIp_ == nullptr
+        && return this->peeringIpv6SubnetMask_ == nullptr && return this->peeringSubnetMask_ == nullptr && return this->physicalConnectionBusinessStatus_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->physicalConnectionOwnerUid_ == nullptr
+        && return this->physicalConnectionStatus_ == nullptr && return this->status_ == nullptr && return this->vlanId_ == nullptr && return this->vlanInterfaceId_ == nullptr; };
     // circuitCode Field Functions 
     bool hasCircuitCode() const { return this->circuitCode_ != nullptr;};
     void deleteCircuitCode() { this->circuitCode_ = nullptr;};

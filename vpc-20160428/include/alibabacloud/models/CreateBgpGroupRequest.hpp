@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authKey_ != nullptr
-        && this->clientToken_ != nullptr && this->description_ != nullptr && this->ipVersion_ != nullptr && this->isFakeAsn_ != nullptr && this->localAsn_ != nullptr
-        && this->name_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->peerAsn_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->routeQuota_ != nullptr && this->routerId_ != nullptr; };
+    virtual bool empty() const override { return this->authKey_ == nullptr
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->ipVersion_ == nullptr && return this->isFakeAsn_ == nullptr && return this->localAsn_ == nullptr
+        && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerAsn_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->routeQuota_ == nullptr && return this->routerId_ == nullptr; };
     // authKey Field Functions 
     bool hasAuthKey() const { return this->authKey_ != nullptr;};
     void deleteAuthKey() { this->authKey_ = nullptr;};

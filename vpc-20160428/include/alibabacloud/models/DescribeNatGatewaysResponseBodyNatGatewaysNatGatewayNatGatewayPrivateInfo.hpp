@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eniInstanceId_ != nullptr
-        && this->eniType_ != nullptr && this->izNo_ != nullptr && this->maxBandwidth_ != nullptr && this->maxSessionEstablishRate_ != nullptr && this->maxSessionQuota_ != nullptr
-        && this->privateIpAddress_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->eniInstanceId_ == nullptr
+        && return this->eniType_ == nullptr && return this->izNo_ == nullptr && return this->maxBandwidth_ == nullptr && return this->maxSessionEstablishRate_ == nullptr && return this->maxSessionQuota_ == nullptr
+        && return this->privateIpAddress_ == nullptr && return this->vswitchId_ == nullptr; };
     // eniInstanceId Field Functions 
     bool hasEniInstanceId() const { return this->eniInstanceId_ != nullptr;};
     void deleteEniInstanceId() { this->eniInstanceId_ = nullptr;};

@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListNatIpsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(IpOrigin, ipOrigin_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(NatIpCidr, natIpCidr_);
@@ -32,6 +33,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListNatIpsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(IpOrigin, ipOrigin_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(NatIpCidr, natIpCidr_);
@@ -56,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->maxResults_ != nullptr && this->natGatewayId_ != nullptr && this->natIpCidr_ != nullptr && this->natIpIds_ != nullptr
-        && this->natIpName_ != nullptr && this->natIpStatus_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dryRun_ == nullptr && return this->ipOrigin_ == nullptr && return this->maxResults_ == nullptr && return this->natGatewayId_ == nullptr && return this->natIpCidr_ == nullptr
+        && return this->natIpIds_ == nullptr && return this->natIpName_ == nullptr && return this->natIpStatus_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ListNatIpsRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // ipOrigin Field Functions 
+    bool hasIpOrigin() const { return this->ipOrigin_ != nullptr;};
+    void deleteIpOrigin() { this->ipOrigin_ = nullptr;};
+    inline string ipOrigin() const { DARABONBA_PTR_GET_DEFAULT(ipOrigin_, "") };
+    inline ListNatIpsRequest& setIpOrigin(string ipOrigin) { DARABONBA_PTR_SET_VALUE(ipOrigin_, ipOrigin) };
 
 
     // maxResults Field Functions 
@@ -174,6 +183,7 @@ namespace Models
     // *   **true**: checks the API request. IP addresses are not queried. The system checks the required parameters, request syntax, and limits. If the request fails to pass the precheck, the corresponding error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
     // *   **false** (default): sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
     std::shared_ptr<bool> dryRun_ = nullptr;
+    std::shared_ptr<string> ipOrigin_ = nullptr;
     // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
     std::shared_ptr<string> maxResults_ = nullptr;
     // The ID of the NAT gateway.

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->bandwidth_ != nullptr && this->circuitCode_ != nullptr && this->description_ != nullptr && this->lineOperator_ != nullptr && this->name_ != nullptr
-        && this->peerLocation_ != nullptr && this->portNum_ != nullptr && this->regionId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->circuitCode_ == nullptr && return this->description_ == nullptr && return this->lineOperator_ == nullptr && return this->name_ == nullptr
+        && return this->peerLocation_ == nullptr && return this->portNum_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedRouteTables_ != nullptr
-        && this->creationTime_ != nullptr && this->endpointDescription_ != nullptr && this->endpointId_ != nullptr && this->endpointName_ != nullptr && this->endpointStatus_ != nullptr
-        && this->policyDocument_ != nullptr && this->resourceGroupId_ != nullptr && this->serviceName_ != nullptr && this->tags_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->associatedRouteTables_ == nullptr
+        && return this->creationTime_ == nullptr && return this->endpointDescription_ == nullptr && return this->endpointId_ == nullptr && return this->endpointName_ == nullptr && return this->endpointStatus_ == nullptr
+        && return this->policyDocument_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceName_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr; };
     // associatedRouteTables Field Functions 
     bool hasAssociatedRouteTables() const { return this->associatedRouteTables_ != nullptr;};
     void deleteAssociatedRouteTables() { this->associatedRouteTables_ = nullptr;};

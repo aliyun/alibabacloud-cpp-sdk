@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->allocationId_ != nullptr && this->associatedInstanceId_ != nullptr && this->associatedInstanceType_ != nullptr && this->chargeType_ != nullptr && this->dryRun_ != nullptr
-        && this->eipAddress_ != nullptr && this->eipName_ != nullptr && this->ISP_ != nullptr && this->includeReservationData_ != nullptr && this->lockReason_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->publicIpAddressPoolId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->securityProtectionEnabled_ != nullptr
-        && this->segmentInstanceId_ != nullptr && this->serviceManaged_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && return this->allocationId_ == nullptr && return this->associatedInstanceId_ == nullptr && return this->associatedInstanceType_ == nullptr && return this->chargeType_ == nullptr && return this->dryRun_ == nullptr
+        && return this->eipAddress_ == nullptr && return this->eipName_ == nullptr && return this->ISP_ == nullptr && return this->includeReservationData_ == nullptr && return this->lockReason_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->publicIpAddressPoolId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->securityProtectionEnabled_ == nullptr
+        && return this->segmentInstanceId_ == nullptr && return this->serviceManaged_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};

@@ -99,14 +99,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessMode_ != nullptr
-        && this->autoPay_ != nullptr && this->businessStatus_ != nullptr && this->creationTime_ != nullptr && this->deletionProtection_ != nullptr && this->description_ != nullptr
-        && this->ecsMetricEnabled_ != nullptr && this->eipBindMode_ != nullptr && this->enableSessionLog_ != nullptr && this->expiredTime_ != nullptr && this->forwardTableIds_ != nullptr
-        && this->fullNatTableIds_ != nullptr && this->icmpReplyEnabled_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->ipLists_ != nullptr
-        && this->ipPrefixList_ != nullptr && this->name_ != nullptr && this->natGatewayId_ != nullptr && this->natGatewayPrivateInfo_ != nullptr && this->natType_ != nullptr
-        && this->networkType_ != nullptr && this->privateLinkEnabled_ != nullptr && this->privateLinkMode_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityProtectionEnabled_ != nullptr && this->snatTableIds_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accessMode_ == nullptr
+        && return this->autoPay_ == nullptr && return this->businessStatus_ == nullptr && return this->creationTime_ == nullptr && return this->deletionProtection_ == nullptr && return this->description_ == nullptr
+        && return this->ecsMetricEnabled_ == nullptr && return this->eipBindMode_ == nullptr && return this->enableSessionLog_ == nullptr && return this->expiredTime_ == nullptr && return this->forwardTableIds_ == nullptr
+        && return this->fullNatTableIds_ == nullptr && return this->icmpReplyEnabled_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipLists_ == nullptr
+        && return this->ipPrefixList_ == nullptr && return this->name_ == nullptr && return this->natGatewayId_ == nullptr && return this->natGatewayPrivateInfo_ == nullptr && return this->natType_ == nullptr
+        && return this->networkType_ == nullptr && return this->privateLinkEnabled_ == nullptr && return this->privateLinkMode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->securityProtectionEnabled_ == nullptr && return this->snatTableIds_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // accessMode Field Functions 
     bool hasAccessMode() const { return this->accessMode_ != nullptr;};
     void deleteAccessMode() { this->accessMode_ = nullptr;};

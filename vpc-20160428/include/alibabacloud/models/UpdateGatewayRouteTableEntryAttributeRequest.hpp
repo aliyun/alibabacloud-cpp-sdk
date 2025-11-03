@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->destinationCidrBlock_ != nullptr && this->dryRun_ != nullptr && this->gatewayRouteTableId_ != nullptr && this->IPv4GatewayRouteTableId_ != nullptr
-        && this->name_ != nullptr && this->nextHopId_ != nullptr && this->nextHopType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->destinationCidrBlock_ == nullptr && return this->dryRun_ == nullptr && return this->gatewayRouteTableId_ == nullptr && return this->IPv4GatewayRouteTableId_ == nullptr
+        && return this->name_ == nullptr && return this->nextHopId_ == nullptr && return this->nextHopType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activationTime_ != nullptr
-        && this->bandwidth_ != nullptr && this->bandwidthStatus_ != nullptr && this->circuitCode_ != nullptr && this->creationTime_ != nullptr && this->eccId_ != nullptr
-        && this->enableIpv6_ != nullptr && this->localGatewayIp_ != nullptr && this->localIpv6GatewayIp_ != nullptr && this->PConnVbrBussinessStatus_ != nullptr && this->PConnVbrChargeType_ != nullptr
-        && this->PConnVbrExpireTime_ != nullptr && this->peerGatewayIp_ != nullptr && this->peerIpv6GatewayIp_ != nullptr && this->peeringIpv6SubnetMask_ != nullptr && this->peeringSubnetMask_ != nullptr
-        && this->recoveryTime_ != nullptr && this->status_ != nullptr && this->terminationTime_ != nullptr && this->type_ != nullptr && this->vbrId_ != nullptr
-        && this->vbrOwnerUid_ != nullptr && this->vlanId_ != nullptr; };
+    virtual bool empty() const override { return this->activationTime_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->bandwidthStatus_ == nullptr && return this->circuitCode_ == nullptr && return this->creationTime_ == nullptr && return this->eccId_ == nullptr
+        && return this->enableIpv6_ == nullptr && return this->localGatewayIp_ == nullptr && return this->localIpv6GatewayIp_ == nullptr && return this->PConnVbrBussinessStatus_ == nullptr && return this->PConnVbrChargeType_ == nullptr
+        && return this->PConnVbrExpireTime_ == nullptr && return this->peerGatewayIp_ == nullptr && return this->peerIpv6GatewayIp_ == nullptr && return this->peeringIpv6SubnetMask_ == nullptr && return this->peeringSubnetMask_ == nullptr
+        && return this->recoveryTime_ == nullptr && return this->status_ == nullptr && return this->terminationTime_ == nullptr && return this->type_ == nullptr && return this->vbrId_ == nullptr
+        && return this->vbrOwnerUid_ == nullptr && return this->vlanId_ == nullptr; };
     // activationTime Field Functions 
     bool hasActivationTime() const { return this->activationTime_ != nullptr;};
     void deleteActivationTime() { this->activationTime_ = nullptr;};

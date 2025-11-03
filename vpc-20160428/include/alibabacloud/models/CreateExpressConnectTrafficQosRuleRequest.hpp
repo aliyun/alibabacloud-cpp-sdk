@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dstCidr_ != nullptr && this->dstIPv6Cidr_ != nullptr && this->dstPortRange_ != nullptr && this->matchDscp_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->priority_ != nullptr && this->protocol_ != nullptr && this->qosId_ != nullptr && this->queueId_ != nullptr
-        && this->regionId_ != nullptr && this->remarkingDscp_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->ruleDescription_ != nullptr && this->ruleName_ != nullptr
-        && this->srcCidr_ != nullptr && this->srcIPv6Cidr_ != nullptr && this->srcPortRange_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dstCidr_ == nullptr && return this->dstIPv6Cidr_ == nullptr && return this->dstPortRange_ == nullptr && return this->matchDscp_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->priority_ == nullptr && return this->protocol_ == nullptr && return this->qosId_ == nullptr && return this->queueId_ == nullptr
+        && return this->regionId_ == nullptr && return this->remarkingDscp_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->ruleDescription_ == nullptr && return this->ruleName_ == nullptr
+        && return this->srcCidr_ == nullptr && return this->srcIPv6Cidr_ == nullptr && return this->srcPortRange_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

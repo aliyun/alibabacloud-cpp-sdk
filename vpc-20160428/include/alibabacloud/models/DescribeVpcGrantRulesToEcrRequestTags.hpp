@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->key_ != nullptr
-        && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->key_ == nullptr
+        && return this->value_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The key of the tag. You must specify at least one tag key and at most 20 tag keys. The tag key cannot be an empty string.
+    // 
+    // A tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`.
     std::shared_ptr<string> key_ = nullptr;
+    // The value of the tag. You can enter a maximum of 20 tag values. The tag value can be an empty string.
+    // 
+    // The tag key can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
     std::shared_ptr<string> value_ = nullptr;
   };
 

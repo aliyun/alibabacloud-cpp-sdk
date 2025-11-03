@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrBlocks_ != nullptr
-        && this->creationTime_ != nullptr && this->ipVersion_ != nullptr && this->maxEntries_ != nullptr && this->ownerId_ != nullptr && this->prefixListDescription_ != nullptr
-        && this->prefixListId_ != nullptr && this->prefixListName_ != nullptr && this->prefixListStatus_ != nullptr && this->prefixListType_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->shareType_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->cidrBlocks_ == nullptr
+        && return this->creationTime_ == nullptr && return this->ipVersion_ == nullptr && return this->maxEntries_ == nullptr && return this->ownerId_ == nullptr && return this->prefixListDescription_ == nullptr
+        && return this->prefixListId_ == nullptr && return this->prefixListName_ == nullptr && return this->prefixListStatus_ == nullptr && return this->prefixListType_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->shareType_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // cidrBlocks Field Functions 
     bool hasCidrBlocks() const { return this->cidrBlocks_ != nullptr;};
     void deleteCidrBlocks() { this->cidrBlocks_ = nullptr;};

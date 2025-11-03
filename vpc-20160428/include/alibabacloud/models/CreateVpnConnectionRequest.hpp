@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoConfigRoute_ != nullptr
-        && this->bgpConfig_ != nullptr && this->clientToken_ != nullptr && this->customerGatewayId_ != nullptr && this->dryRun_ != nullptr && this->effectImmediately_ != nullptr
-        && this->enableDpd_ != nullptr && this->enableNatTraversal_ != nullptr && this->enableTunnelsBgp_ != nullptr && this->healthCheckConfig_ != nullptr && this->ikeConfig_ != nullptr
-        && this->ipsecConfig_ != nullptr && this->localSubnet_ != nullptr && this->name_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->remoteCaCertificate_ != nullptr && this->remoteSubnet_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->tags_ != nullptr && this->tunnelOptionsSpecification_ != nullptr && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->autoConfigRoute_ == nullptr
+        && return this->bgpConfig_ == nullptr && return this->clientToken_ == nullptr && return this->customerGatewayId_ == nullptr && return this->dryRun_ == nullptr && return this->effectImmediately_ == nullptr
+        && return this->enableDpd_ == nullptr && return this->enableNatTraversal_ == nullptr && return this->enableTunnelsBgp_ == nullptr && return this->healthCheckConfig_ == nullptr && return this->ikeConfig_ == nullptr
+        && return this->ipsecConfig_ == nullptr && return this->localSubnet_ == nullptr && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->remoteCaCertificate_ == nullptr && return this->remoteSubnet_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->tags_ == nullptr && return this->tunnelOptionsSpecification_ == nullptr && return this->vpnGatewayId_ == nullptr; };
     // autoConfigRoute Field Functions 
     bool hasAutoConfigRoute() const { return this->autoConfigRoute_ != nullptr;};
     void deleteAutoConfigRoute() { this->autoConfigRoute_ = nullptr;};

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->flowLogId_ != nullptr && this->flowLogName_ != nullptr && this->logStoreName_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->projectName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->trafficType_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->flowLogId_ == nullptr && return this->flowLogName_ == nullptr && return this->logStoreName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->projectName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->trafficType_ == nullptr && return this->vpcId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

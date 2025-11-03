@@ -114,16 +114,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->activationTime_ != nullptr && this->associatedCens_ != nullptr && this->associatedPhysicalConnections_ != nullptr && this->bandwidth_ != nullptr && this->circuitCode_ != nullptr
-        && this->cloudBoxInstanceId_ != nullptr && this->creationTime_ != nullptr && this->description_ != nullptr && this->detectMultiplier_ != nullptr && this->eccId_ != nullptr
-        && this->ecrAttatchStatus_ != nullptr && this->ecrId_ != nullptr && this->ecrOwnerId_ != nullptr && this->enableIpv6_ != nullptr && this->localGatewayIp_ != nullptr
-        && this->localIpv6GatewayIp_ != nullptr && this->minRxInterval_ != nullptr && this->minTxInterval_ != nullptr && this->mtu_ != nullptr && this->name_ != nullptr
-        && this->PConnVbrChargeType_ != nullptr && this->PConnVbrExpireTime_ != nullptr && this->peerGatewayIp_ != nullptr && this->peerIpv6GatewayIp_ != nullptr && this->peeringIpv6SubnetMask_ != nullptr
-        && this->peeringSubnetMask_ != nullptr && this->physicalConnectionBusinessStatus_ != nullptr && this->physicalConnectionId_ != nullptr && this->physicalConnectionOwnerUid_ != nullptr && this->physicalConnectionStatus_ != nullptr
-        && this->recoveryTime_ != nullptr && this->resourceGroupId_ != nullptr && this->routeTableId_ != nullptr && this->sitelinkEnable_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->terminationTime_ != nullptr && this->type_ != nullptr && this->vbrId_ != nullptr && this->vlanId_ != nullptr
-        && this->vlanInterfaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->activationTime_ == nullptr && return this->associatedCens_ == nullptr && return this->associatedPhysicalConnections_ == nullptr && return this->bandwidth_ == nullptr && return this->circuitCode_ == nullptr
+        && return this->cloudBoxInstanceId_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->detectMultiplier_ == nullptr && return this->eccId_ == nullptr
+        && return this->ecrAttatchStatus_ == nullptr && return this->ecrId_ == nullptr && return this->ecrOwnerId_ == nullptr && return this->enableIpv6_ == nullptr && return this->localGatewayIp_ == nullptr
+        && return this->localIpv6GatewayIp_ == nullptr && return this->minRxInterval_ == nullptr && return this->minTxInterval_ == nullptr && return this->mtu_ == nullptr && return this->name_ == nullptr
+        && return this->PConnVbrChargeType_ == nullptr && return this->PConnVbrExpireTime_ == nullptr && return this->peerGatewayIp_ == nullptr && return this->peerIpv6GatewayIp_ == nullptr && return this->peeringIpv6SubnetMask_ == nullptr
+        && return this->peeringSubnetMask_ == nullptr && return this->physicalConnectionBusinessStatus_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->physicalConnectionOwnerUid_ == nullptr && return this->physicalConnectionStatus_ == nullptr
+        && return this->recoveryTime_ == nullptr && return this->resourceGroupId_ == nullptr && return this->routeTableId_ == nullptr && return this->sitelinkEnable_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->terminationTime_ == nullptr && return this->type_ == nullptr && return this->vbrId_ == nullptr && return this->vlanId_ == nullptr
+        && return this->vlanInterfaceId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

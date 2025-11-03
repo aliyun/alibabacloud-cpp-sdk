@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deleteHealthCheckIp_ != nullptr
-        && this->description_ != nullptr && this->hcRate_ != nullptr && this->hcThreshold_ != nullptr && this->healthCheckSourceIp_ != nullptr && this->healthCheckTargetIp_ != nullptr
-        && this->name_ != nullptr && this->oppositeInterfaceId_ != nullptr && this->oppositeInterfaceOwnerId_ != nullptr && this->oppositeRouterId_ != nullptr && this->oppositeRouterType_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->routerInterfaceId_ != nullptr; };
+    virtual bool empty() const override { return this->deleteHealthCheckIp_ == nullptr
+        && return this->description_ == nullptr && return this->hcRate_ == nullptr && return this->hcThreshold_ == nullptr && return this->healthCheckSourceIp_ == nullptr && return this->healthCheckTargetIp_ == nullptr
+        && return this->name_ == nullptr && return this->oppositeInterfaceId_ == nullptr && return this->oppositeInterfaceOwnerId_ == nullptr && return this->oppositeRouterId_ == nullptr && return this->oppositeRouterType_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->routerInterfaceId_ == nullptr; };
     // deleteHealthCheckIp Field Functions 
     bool hasDeleteHealthCheckIp() const { return this->deleteHealthCheckIp_ != nullptr;};
     void deleteDeleteHealthCheckIp() { this->deleteHealthCheckIp_ = nullptr;};

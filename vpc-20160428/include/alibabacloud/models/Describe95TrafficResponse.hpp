@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBE95TRAFFICRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBE95TRAFFICRESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/Describe95TrafficResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Vpc20160428
+{
+namespace Models
+{
+  class Describe95TrafficResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const Describe95TrafficResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, Describe95TrafficResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    Describe95TrafficResponse() = default ;
+    Describe95TrafficResponse(const Describe95TrafficResponse &) = default ;
+    Describe95TrafficResponse(Describe95TrafficResponse &&) = default ;
+    Describe95TrafficResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~Describe95TrafficResponse() = default ;
+    Describe95TrafficResponse& operator=(const Describe95TrafficResponse &) = default ;
+    Describe95TrafficResponse& operator=(Describe95TrafficResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline Describe95TrafficResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline Describe95TrafficResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline Describe95TrafficResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const Describe95TrafficResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, Describe95TrafficResponseBody) };
+    inline Describe95TrafficResponseBody body() { DARABONBA_PTR_GET(body_, Describe95TrafficResponseBody) };
+    inline Describe95TrafficResponse& setBody(const Describe95TrafficResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline Describe95TrafficResponse& setBody(Describe95TrafficResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<Describe95TrafficResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Vpc20160428
+#endif

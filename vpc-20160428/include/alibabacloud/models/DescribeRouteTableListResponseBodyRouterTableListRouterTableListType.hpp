@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associateType_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->gatewayIds_ != nullptr && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->routePropagationEnable_ != nullptr && this->routeTableId_ != nullptr && this->routeTableName_ != nullptr && this->routeTableType_ != nullptr && this->routerId_ != nullptr
-        && this->routerType_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->associateType_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->gatewayIds_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->routePropagationEnable_ == nullptr && return this->routeTableId_ == nullptr && return this->routeTableName_ == nullptr && return this->routeTableType_ == nullptr && return this->routerId_ == nullptr
+        && return this->routerType_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // associateType Field Functions 
     bool hasAssociateType() const { return this->associateType_ != nullptr;};
     void deleteAssociateType() { this->associateType_ = nullptr;};

@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customerGatewayId_ != nullptr
-        && this->enableDpd_ != nullptr && this->enableNatTraversal_ != nullptr && this->internetIp_ != nullptr && this->remoteCaCertificate_ != nullptr && this->role_ != nullptr
-        && this->state_ != nullptr && this->status_ != nullptr && this->tunnelBgpConfig_ != nullptr && this->tunnelId_ != nullptr && this->tunnelIkeConfig_ != nullptr
-        && this->tunnelIndex_ != nullptr && this->tunnelIpsecConfig_ != nullptr && this->zoneNo_ != nullptr; };
+    virtual bool empty() const override { return this->customerGatewayId_ == nullptr
+        && return this->enableDpd_ == nullptr && return this->enableNatTraversal_ == nullptr && return this->internetIp_ == nullptr && return this->remoteCaCertificate_ == nullptr && return this->role_ == nullptr
+        && return this->state_ == nullptr && return this->status_ == nullptr && return this->tunnelBgpConfig_ == nullptr && return this->tunnelId_ == nullptr && return this->tunnelIkeConfig_ == nullptr
+        && return this->tunnelIndex_ == nullptr && return this->tunnelIpsecConfig_ == nullptr && return this->zoneNo_ == nullptr; };
     // customerGatewayId Field Functions 
     bool hasCustomerGatewayId() const { return this->customerGatewayId_ != nullptr;};
     void deleteCustomerGatewayId() { this->customerGatewayId_ = nullptr;};

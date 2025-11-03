@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->globalAccelerationInstance_ != nullptr; };
+    virtual bool empty() const override { return this->globalAccelerationInstance_ == nullptr; };
     // globalAccelerationInstance Field Functions 
     bool hasGlobalAccelerationInstance() const { return this->globalAccelerationInstance_ != nullptr;};
     void deleteGlobalAccelerationInstance() { this->globalAccelerationInstance_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cbnGrantRule_ != nullptr; };
+    virtual bool empty() const override { return this->cbnGrantRule_ == nullptr; };
     // cbnGrantRule Field Functions 
     bool hasCbnGrantRule() const { return this->cbnGrantRule_ != nullptr;};
     void deleteCbnGrantRule() { this->cbnGrantRule_ = nullptr;};

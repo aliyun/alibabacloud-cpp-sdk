@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATENATIPRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATENATIPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateNatIpResponseBodyNatIps.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Ipv4Prefix, ipv4Prefix_);
       DARABONBA_PTR_TO_JSON(NatIp, natIp_);
       DARABONBA_PTR_TO_JSON(NatIpId, natIpId_);
+      DARABONBA_PTR_TO_JSON(NatIps, natIps_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNatIpResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Ipv4Prefix, ipv4Prefix_);
       DARABONBA_PTR_FROM_JSON(NatIp, natIp_);
       DARABONBA_PTR_FROM_JSON(NatIpId, natIpId_);
+      DARABONBA_PTR_FROM_JSON(NatIps, natIps_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     CreateNatIpResponseBody() = default ;
@@ -35,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipv4Prefix_ != nullptr
-        && this->natIp_ != nullptr && this->natIpId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->ipv4Prefix_ == nullptr
+        && return this->natIp_ == nullptr && return this->natIpId_ == nullptr && return this->natIps_ == nullptr && return this->requestId_ == nullptr; };
     // ipv4Prefix Field Functions 
     bool hasIpv4Prefix() const { return this->ipv4Prefix_ != nullptr;};
     void deleteIpv4Prefix() { this->ipv4Prefix_ = nullptr;};
@@ -58,6 +62,15 @@ namespace Models
     inline CreateNatIpResponseBody& setNatIpId(string natIpId) { DARABONBA_PTR_SET_VALUE(natIpId_, natIpId) };
 
 
+    // natIps Field Functions 
+    bool hasNatIps() const { return this->natIps_ != nullptr;};
+    void deleteNatIps() { this->natIps_ = nullptr;};
+    inline const vector<CreateNatIpResponseBodyNatIps> & natIps() const { DARABONBA_PTR_GET_CONST(natIps_, vector<CreateNatIpResponseBodyNatIps>) };
+    inline vector<CreateNatIpResponseBodyNatIps> natIps() { DARABONBA_PTR_GET(natIps_, vector<CreateNatIpResponseBodyNatIps>) };
+    inline CreateNatIpResponseBody& setNatIps(const vector<CreateNatIpResponseBodyNatIps> & natIps) { DARABONBA_PTR_SET_VALUE(natIps_, natIps) };
+    inline CreateNatIpResponseBody& setNatIps(vector<CreateNatIpResponseBodyNatIps> && natIps) { DARABONBA_PTR_SET_RVALUE(natIps_, natIps) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -71,6 +84,7 @@ namespace Models
     std::shared_ptr<string> natIp_ = nullptr;
     // The ID of the NAT IP address.
     std::shared_ptr<string> natIpId_ = nullptr;
+    std::shared_ptr<vector<CreateNatIpResponseBodyNatIps>> natIps_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };

@@ -701,6 +701,8 @@ namespace Vpc20160428
       Models::AssociateVpnGatewayWithCertificateResponse associateVpnGatewayWithCertificate(const Models::AssociateVpnGatewayWithCertificateRequest &request);
 
       /**
+       * @summary 将DHCP选项集与VPC关联
+       *
        * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
        *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
@@ -713,6 +715,8 @@ namespace Vpc20160428
       Models::AttachDhcpOptionsSetToVpcResponse attachDhcpOptionsSetToVpcWithOptions(const Models::AttachDhcpOptionsSetToVpcRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 将DHCP选项集与VPC关联
+       *
        * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
        *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
        *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
@@ -2030,8 +2034,8 @@ namespace Vpc20160428
        *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
        *     *   If the VPN gateway is in the **active** state, the SSL server is created.
        * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-       * ### [](#)Prerequisite
-       * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+       * ### [](#prerequisite)[](#)Prerequisite
+       * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
        * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
        *
        * @param request CreateSslVpnServerRequest
@@ -2047,8 +2051,8 @@ namespace Vpc20160428
        *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
        *     *   If the VPN gateway is in the **active** state, the SSL server is created.
        * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
-       * ### [](#)Prerequisite
-       * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+       * ### [](#prerequisite)[](#)Prerequisite
+       * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
        * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
        *
        * @param request CreateSslVpnServerRequest
@@ -2745,6 +2749,23 @@ namespace Vpc20160428
        * @return DeleteDhcpOptionsSetResponse
        */
       Models::DeleteDhcpOptionsSetResponse deleteDhcpOptionsSet(const Models::DeleteDhcpOptionsSetRequest &request);
+
+      /**
+       * @summary Deletes a Express Connect instance, including the initiator and acceptor.
+       *
+       * @param request DeleteExpressConnectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteExpressConnectResponse
+       */
+      Models::DeleteExpressConnectResponse deleteExpressConnectWithOptions(const Models::DeleteExpressConnectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a Express Connect instance, including the initiator and acceptor.
+       *
+       * @param request DeleteExpressConnectRequest
+       * @return DeleteExpressConnectResponse
+       */
+      Models::DeleteExpressConnectResponse deleteExpressConnect(const Models::DeleteExpressConnectRequest &request);
 
       /**
        * @summary Deletes a quality of service (QoS) policy.
@@ -4383,6 +4404,23 @@ namespace Vpc20160428
       Models::DescribeGrantRulesToCenResponse describeGrantRulesToCen(const Models::DescribeGrantRulesToCenRequest &request);
 
       /**
+       * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+       *
+       * @param request DescribeGrantRulesToEcrRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGrantRulesToEcrResponse
+       */
+      Models::DescribeGrantRulesToEcrResponse describeGrantRulesToEcrWithOptions(const Models::DescribeGrantRulesToEcrRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+       *
+       * @param request DescribeGrantRulesToEcrRequest
+       * @return DescribeGrantRulesToEcrResponse
+       */
+      Models::DescribeGrantRulesToEcrResponse describeGrantRulesToEcr(const Models::DescribeGrantRulesToEcrRequest &request);
+
+      /**
        * @summary Queries HaVips in a region.
        *
        * @param request DescribeHaVipsRequest
@@ -4565,7 +4603,7 @@ namespace Vpc20160428
       Models::DescribeIpv6GatewaysResponse describeIpv6Gateways(const Models::DescribeIpv6GatewaysRequest &request);
 
       /**
-       * @summary 查询NAT已绑定ENI信息
+       * @summary Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
        *
        * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4574,7 +4612,7 @@ namespace Vpc20160428
       Models::DescribeNatGatewayAssociateNetworkInterfacesResponse describeNatGatewayAssociateNetworkInterfacesWithOptions(const Models::DescribeNatGatewayAssociateNetworkInterfacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询NAT已绑定ENI信息
+       * @summary Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
        *
        * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
        * @return DescribeNatGatewayAssociateNetworkInterfacesResponse
@@ -5115,7 +5153,7 @@ namespace Vpc20160428
       Models::DescribeVpcAttributeResponse describeVpcAttribute(const Models::DescribeVpcAttributeRequest &request);
 
       /**
-       * @summary 查询VPC跨账号授权给ECR
+       * @summary Queries the cross-account authorization information of an ECR for a specified network instance.
        *
        * @param request DescribeVpcGrantRulesToEcrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5124,7 +5162,7 @@ namespace Vpc20160428
       Models::DescribeVpcGrantRulesToEcrResponse describeVpcGrantRulesToEcrWithOptions(const Models::DescribeVpcGrantRulesToEcrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询VPC跨账号授权给ECR
+       * @summary Queries the cross-account authorization information of an ECR for a specified network instance.
        *
        * @param request DescribeVpcGrantRulesToEcrRequest
        * @return DescribeVpcGrantRulesToEcrResponse
@@ -5934,6 +5972,23 @@ namespace Vpc20160428
       Models::ListBusinessAccessPointsResponse listBusinessAccessPoints(const Models::ListBusinessAccessPointsRequest &request);
 
       /**
+       * @summary Query the list of regions available for an Express Connect circuit.
+       *
+       * @param request ListBusinessRegionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBusinessRegionsResponse
+       */
+      Models::ListBusinessRegionsResponse listBusinessRegionsWithOptions(const Models::ListBusinessRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the list of regions available for an Express Connect circuit.
+       *
+       * @param request ListBusinessRegionsRequest
+       * @return ListBusinessRegionsResponse
+       */
+      Models::ListBusinessRegionsResponse listBusinessRegions(const Models::ListBusinessRegionsRequest &request);
+
+      /**
        * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
        *
        * @param request ListDhcpOptionsSetsRequest
@@ -6105,6 +6160,23 @@ namespace Vpc20160428
        * @return ListNatIpsResponse
        */
       Models::ListNatIpsResponse listNatIps(const Models::ListNatIpsRequest &request);
+
+      /**
+       * @summary Querying the connection features supported by a Express Connect circuit.
+       *
+       * @param request ListPhysicalConnectionFeaturesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPhysicalConnectionFeaturesResponse
+       */
+      Models::ListPhysicalConnectionFeaturesResponse listPhysicalConnectionFeaturesWithOptions(const Models::ListPhysicalConnectionFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Querying the connection features supported by a Express Connect circuit.
+       *
+       * @param request ListPhysicalConnectionFeaturesRequest
+       * @return ListPhysicalConnectionFeaturesResponse
+       */
+      Models::ListPhysicalConnectionFeaturesResponse listPhysicalConnectionFeatures(const Models::ListPhysicalConnectionFeaturesRequest &request);
 
       /**
        * @summary Queries prefix lists.
@@ -7711,7 +7783,7 @@ namespace Vpc20160428
       Models::OpenPhysicalConnectionServiceResponse openPhysicalConnectionService(const Models::OpenPhysicalConnectionServiceRequest &request);
 
       /**
-       * @summary 开通IP地址池功能。
+       * @summary Enables the IP address pool feature.
        *
        * @param request OpenPublicIpAddressPoolServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7720,7 +7792,7 @@ namespace Vpc20160428
       Models::OpenPublicIpAddressPoolServiceResponse openPublicIpAddressPoolServiceWithOptions(const Models::OpenPublicIpAddressPoolServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通IP地址池功能。
+       * @summary Enables the IP address pool feature.
        *
        * @param request OpenPublicIpAddressPoolServiceRequest
        * @return OpenPublicIpAddressPoolServiceResponse
@@ -8282,7 +8354,7 @@ namespace Vpc20160428
       Models::TerminateVirtualBorderRouterResponse terminateVirtualBorderRouter(const Models::TerminateVirtualBorderRouterRequest &request);
 
       /**
-       * @summary Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+       * @summary Migrate a contiguous EIP group to an IP address pool.
        *
        * @param request TransformEipSegmentToPublicIpAddressPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8291,7 +8363,7 @@ namespace Vpc20160428
       Models::TransformEipSegmentToPublicIpAddressPoolResponse transformEipSegmentToPublicIpAddressPoolWithOptions(const Models::TransformEipSegmentToPublicIpAddressPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+       * @summary Migrate a contiguous EIP group to an IP address pool.
        *
        * @param request TransformEipSegmentToPublicIpAddressPoolRequest
        * @return TransformEipSegmentToPublicIpAddressPoolResponse

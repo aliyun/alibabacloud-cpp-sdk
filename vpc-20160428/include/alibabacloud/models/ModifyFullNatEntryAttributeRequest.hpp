@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessIp_ != nullptr
-        && this->accessPort_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->fullNatEntryDescription_ != nullptr && this->fullNatEntryId_ != nullptr
-        && this->fullNatEntryName_ != nullptr && this->fullNatTableId_ != nullptr && this->ipProtocol_ != nullptr && this->natIp_ != nullptr && this->natIpPort_ != nullptr
-        && this->networkInterfaceId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->accessIp_ == nullptr
+        && return this->accessPort_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->fullNatEntryDescription_ == nullptr && return this->fullNatEntryId_ == nullptr
+        && return this->fullNatEntryName_ == nullptr && return this->fullNatTableId_ == nullptr && return this->ipProtocol_ == nullptr && return this->natIp_ == nullptr && return this->natIpPort_ == nullptr
+        && return this->networkInterfaceId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // accessIp Field Functions 
     bool hasAccessIp() const { return this->accessIp_ != nullptr;};
     void deleteAccessIp() { this->accessIp_ = nullptr;};

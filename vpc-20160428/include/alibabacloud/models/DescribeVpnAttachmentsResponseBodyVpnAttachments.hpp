@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachType_ != nullptr
-        && this->crossAccountAuthorized_ != nullptr && this->description_ != nullptr && this->instanceId_ != nullptr && this->name_ != nullptr && this->tag_ != nullptr
-        && this->tags_ != nullptr && this->transitRouterId_ != nullptr && this->transitRouterName_ != nullptr; };
+    virtual bool empty() const override { return this->attachType_ == nullptr
+        && return this->crossAccountAuthorized_ == nullptr && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->tag_ == nullptr
+        && return this->tags_ == nullptr && return this->transitRouterId_ == nullptr && return this->transitRouterName_ == nullptr; };
     // attachType Field Functions 
     bool hasAttachType() const { return this->attachType_ != nullptr;};
     void deleteAttachType() { this->attachType_ = nullptr;};

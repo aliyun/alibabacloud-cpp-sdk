@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->natGatewayId_ != nullptr
-        && this->networkInterfaceIds_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->snatEntryId_ != nullptr && this->snatEntryName_ != nullptr
-        && this->snatIp_ != nullptr && this->snatTableId_ != nullptr && this->sourceCIDR_ != nullptr && this->sourceVSwitchId_ != nullptr; };
+    virtual bool empty() const override { return this->natGatewayId_ == nullptr
+        && return this->networkInterfaceIds_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->snatEntryId_ == nullptr && return this->snatEntryName_ == nullptr
+        && return this->snatIp_ == nullptr && return this->snatTableId_ == nullptr && return this->sourceCIDR_ == nullptr && return this->sourceVSwitchId_ == nullptr; };
     // natGatewayId Field Functions 
     bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
     void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};

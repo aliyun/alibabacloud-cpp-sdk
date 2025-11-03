@@ -2460,6 +2460,8 @@ AssociateVpnGatewayWithCertificateResponse Client::associateVpnGatewayWithCertif
 }
 
 /**
+ * @summary 将DHCP选项集与VPC关联
+ *
  * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
  *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
@@ -2526,6 +2528,8 @@ AttachDhcpOptionsSetToVpcResponse Client::attachDhcpOptionsSetToVpcWithOptions(c
 }
 
 /**
+ * @summary 将DHCP选项集与VPC关联
+ *
  * @description *   The **AttachDhcpOptionsSetToVpc** operation is asynchronous. After you send the request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [DescribeVpcAttribute](https://help.aliyun.com/document_detail/94565.html) operation to query the status of a DHCP options set:
  *     *   If the DHCP options set is in the **Pending** state, the DHCP options set is being associated.
  *     *   If the DHCP options set is in the **InUse** state, the DHCP options set is associated.
@@ -7366,8 +7370,8 @@ CreateSslVpnClientCertResponse Client::createSslVpnClientCert(const CreateSslVpn
  *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
  *     *   If the VPN gateway is in the **active** state, the SSL server is created.
  * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
- * ### [](#)Prerequisite
- * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+ * ### [](#prerequisite)[](#)Prerequisite
+ * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
  * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
  *
  * @param request CreateSslVpnServerRequest
@@ -7477,8 +7481,8 @@ CreateSslVpnServerResponse Client::createSslVpnServerWithOptions(const CreateSsl
  *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
  *     *   If the VPN gateway is in the **active** state, the SSL server is created.
  * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
- * ### [](#)Prerequisite
- * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+ * ### [](#prerequisite)[](#)Prerequisite
+ * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html) .
  * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
  *
  * @param request CreateSslVpnServerRequest
@@ -10075,6 +10079,76 @@ DeleteDhcpOptionsSetResponse Client::deleteDhcpOptionsSetWithOptions(const Delet
 DeleteDhcpOptionsSetResponse Client::deleteDhcpOptionsSet(const DeleteDhcpOptionsSetRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDhcpOptionsSetWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a Express Connect instance, including the initiator and acceptor.
+ *
+ * @param request DeleteExpressConnectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteExpressConnectResponse
+ */
+DeleteExpressConnectResponse Client::deleteExpressConnectWithOptions(const DeleteExpressConnectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasForce()) {
+    query["Force"] = request.force();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasRouterInterfaceId()) {
+    query["RouterInterfaceId"] = request.routerInterfaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteExpressConnect"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteExpressConnectResponse>();
+}
+
+/**
+ * @summary Deletes a Express Connect instance, including the initiator and acceptor.
+ *
+ * @param request DeleteExpressConnectRequest
+ * @return DeleteExpressConnectResponse
+ */
+DeleteExpressConnectResponse Client::deleteExpressConnect(const DeleteExpressConnectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteExpressConnectWithOptions(request, runtime);
 }
 
 /**
@@ -15684,6 +15758,68 @@ DescribeGrantRulesToCenResponse Client::describeGrantRulesToCen(const DescribeGr
 }
 
 /**
+ * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+ *
+ * @param request DescribeGrantRulesToEcrRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGrantRulesToEcrResponse
+ */
+DescribeGrantRulesToEcrResponse Client::describeGrantRulesToEcrWithOptions(const DescribeGrantRulesToEcrRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGrantRulesToEcr"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGrantRulesToEcrResponse>();
+}
+
+/**
+ * @summary Queries the cross-account authorization list of an Express Connect Router (ECR).
+ *
+ * @param request DescribeGrantRulesToEcrRequest
+ * @return DescribeGrantRulesToEcrResponse
+ */
+DescribeGrantRulesToEcrResponse Client::describeGrantRulesToEcr(const DescribeGrantRulesToEcrRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGrantRulesToEcrWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries HaVips in a region.
  *
  * @param request DescribeHaVipsRequest
@@ -16568,7 +16704,7 @@ DescribeIpv6GatewaysResponse Client::describeIpv6Gateways(const DescribeIpv6Gate
 }
 
 /**
- * @summary 查询NAT已绑定ENI信息
+ * @summary Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
  *
  * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16647,7 +16783,7 @@ DescribeNatGatewayAssociateNetworkInterfacesResponse Client::describeNatGatewayA
 }
 
 /**
- * @summary 查询NAT已绑定ENI信息
+ * @summary Queries elastic network interfaces (ENIs) associated with a virtual private cloud (VPC) NAT gateway when the VPC NAT gateway serves as a PrivateLink service resource. This feature is not publicly available.
  *
  * @param request DescribeNatGatewayAssociateNetworkInterfacesRequest
  * @return DescribeNatGatewayAssociateNetworkInterfacesResponse
@@ -19012,7 +19148,7 @@ DescribeVpcAttributeResponse Client::describeVpcAttribute(const DescribeVpcAttri
 }
 
 /**
- * @summary 查询VPC跨账号授权给ECR
+ * @summary Queries the cross-account authorization information of an ECR for a specified network instance.
  *
  * @param request DescribeVpcGrantRulesToEcrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19091,7 +19227,7 @@ DescribeVpcGrantRulesToEcrResponse Client::describeVpcGrantRulesToEcrWithOptions
 }
 
 /**
- * @summary 查询VPC跨账号授权给ECR
+ * @summary Queries the cross-account authorization information of an ECR for a specified network instance.
  *
  * @param request DescribeVpcGrantRulesToEcrRequest
  * @return DescribeVpcGrantRulesToEcrResponse
@@ -22072,6 +22208,48 @@ ListBusinessAccessPointsResponse Client::listBusinessAccessPoints(const ListBusi
 }
 
 /**
+ * @summary Query the list of regions available for an Express Connect circuit.
+ *
+ * @param request ListBusinessRegionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBusinessRegionsResponse
+ */
+ListBusinessRegionsResponse Client::listBusinessRegionsWithOptions(const ListBusinessRegionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBusinessRegions"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBusinessRegionsResponse>();
+}
+
+/**
+ * @summary Query the list of regions available for an Express Connect circuit.
+ *
+ * @param request ListBusinessRegionsRequest
+ * @return ListBusinessRegionsResponse
+ */
+ListBusinessRegionsResponse Client::listBusinessRegions(const ListBusinessRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBusinessRegionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries Dynamic Host Configuration Protocol (DHCP) options sets.
  *
  * @param request ListDhcpOptionsSetsRequest
@@ -22782,6 +22960,10 @@ ListNatIpsResponse Client::listNatIpsWithOptions(const ListNatIpsRequest &reques
     query["DryRun"] = request.dryRun();
   }
 
+  if (!!request.hasIpOrigin()) {
+    query["IpOrigin"] = request.ipOrigin();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.maxResults();
   }
@@ -22860,6 +23042,72 @@ ListNatIpsResponse Client::listNatIpsWithOptions(const ListNatIpsRequest &reques
 ListNatIpsResponse Client::listNatIps(const ListNatIpsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNatIpsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Querying the connection features supported by a Express Connect circuit.
+ *
+ * @param request ListPhysicalConnectionFeaturesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPhysicalConnectionFeaturesResponse
+ */
+ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeaturesWithOptions(const ListPhysicalConnectionFeaturesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPhysicalConnectionId()) {
+    query["PhysicalConnectionId"] = request.physicalConnectionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPhysicalConnectionFeatures"},
+    {"version" , "2016-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPhysicalConnectionFeaturesResponse>();
+}
+
+/**
+ * @summary Querying the connection features supported by a Express Connect circuit.
+ *
+ * @param request ListPhysicalConnectionFeaturesRequest
+ * @return ListPhysicalConnectionFeaturesResponse
+ */
+ListPhysicalConnectionFeaturesResponse Client::listPhysicalConnectionFeatures(const ListPhysicalConnectionFeaturesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPhysicalConnectionFeaturesWithOptions(request, runtime);
 }
 
 /**
@@ -29301,7 +29549,7 @@ OpenPhysicalConnectionServiceResponse Client::openPhysicalConnectionService(cons
 }
 
 /**
- * @summary 开通IP地址池功能。
+ * @summary Enables the IP address pool feature.
  *
  * @param request OpenPublicIpAddressPoolServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29356,7 +29604,7 @@ OpenPublicIpAddressPoolServiceResponse Client::openPublicIpAddressPoolServiceWit
 }
 
 /**
- * @summary 开通IP地址池功能。
+ * @summary Enables the IP address pool feature.
  *
  * @param request OpenPublicIpAddressPoolServiceRequest
  * @return OpenPublicIpAddressPoolServiceResponse
@@ -31215,7 +31463,7 @@ TerminateVirtualBorderRouterResponse Client::terminateVirtualBorderRouter(const 
 }
 
 /**
- * @summary Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+ * @summary Migrate a contiguous EIP group to an IP address pool.
  *
  * @param request TransformEipSegmentToPublicIpAddressPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31266,7 +31514,7 @@ TransformEipSegmentToPublicIpAddressPoolResponse Client::transformEipSegmentToPu
 }
 
 /**
- * @summary Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
+ * @summary Migrate a contiguous EIP group to an IP address pool.
  *
  * @param request TransformEipSegmentToPublicIpAddressPoolRequest
  * @return TransformEipSegmentToPublicIpAddressPoolResponse

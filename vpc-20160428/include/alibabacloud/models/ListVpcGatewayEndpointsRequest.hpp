@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endpointId_ != nullptr
-        && this->endpointName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->serviceName_ != nullptr
-        && this->tags_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->endpointId_ == nullptr
+        && return this->endpointName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->serviceName_ == nullptr
+        && return this->tags_ == nullptr && return this->vpcId_ == nullptr; };
     // endpointId Field Functions 
     bool hasEndpointId() const { return this->endpointId_ != nullptr;};
     void deleteEndpointId() { this->endpointId_ = nullptr;};
@@ -159,7 +159,7 @@ namespace Models
     // 
     // The name must be 1 to 128 characters in length.
     std::shared_ptr<string> endpointName_ = nullptr;
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
     std::shared_ptr<int64_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
@@ -182,6 +182,7 @@ namespace Models
     std::shared_ptr<string> serviceName_ = nullptr;
     // The tag list.
     std::shared_ptr<vector<ListVpcGatewayEndpointsRequestTags>> tags_ = nullptr;
+    // The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

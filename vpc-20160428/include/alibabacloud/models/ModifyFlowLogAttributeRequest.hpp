@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregationInterval_ != nullptr
-        && this->description_ != nullptr && this->flowLogId_ != nullptr && this->flowLogName_ != nullptr && this->ipVersion_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->aggregationInterval_ == nullptr
+        && return this->description_ == nullptr && return this->flowLogId_ == nullptr && return this->flowLogName_ == nullptr && return this->ipVersion_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // aggregationInterval Field Functions 
     bool hasAggregationInterval() const { return this->aggregationInterval_ != nullptr;};
     void deleteAggregationInterval() { this->aggregationInterval_ = nullptr;};
@@ -135,6 +135,10 @@ namespace Models
     // 
     // The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
     std::shared_ptr<string> flowLogName_ = nullptr;
+    // The version of the IP address. Valid values:
+    // 
+    // *   **IPV4**: the IPv4 address.
+    // *   **DualStack**: includes IPv4 and IPv6 address
     std::shared_ptr<string> ipVersion_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;

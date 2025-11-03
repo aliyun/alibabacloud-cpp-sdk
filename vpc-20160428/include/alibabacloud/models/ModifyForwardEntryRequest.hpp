@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->dryRun_ != nullptr && this->externalIp_ != nullptr && this->externalPort_ != nullptr && this->forwardEntryId_ != nullptr && this->forwardEntryName_ != nullptr
-        && this->forwardTableId_ != nullptr && this->internalIp_ != nullptr && this->internalPort_ != nullptr && this->ipProtocol_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->portBreak_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->dryRun_ == nullptr && return this->externalIp_ == nullptr && return this->externalPort_ == nullptr && return this->forwardEntryId_ == nullptr && return this->forwardEntryName_ == nullptr
+        && return this->forwardTableId_ == nullptr && return this->internalIp_ == nullptr && return this->internalPort_ == nullptr && return this->ipProtocol_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->portBreak_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

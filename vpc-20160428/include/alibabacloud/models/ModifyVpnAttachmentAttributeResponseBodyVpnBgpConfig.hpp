@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableBgp_ != nullptr
-        && this->localAsn_ != nullptr && this->localBgpIp_ != nullptr && this->peerAsn_ != nullptr && this->peerBgpIp_ != nullptr && this->status_ != nullptr
-        && this->tunnelCidr_ != nullptr; };
+    virtual bool empty() const override { return this->enableBgp_ == nullptr
+        && return this->localAsn_ == nullptr && return this->localBgpIp_ == nullptr && return this->peerAsn_ == nullptr && return this->peerBgpIp_ == nullptr && return this->status_ == nullptr
+        && return this->tunnelCidr_ == nullptr; };
     // enableBgp Field Functions 
     bool hasEnableBgp() const { return this->enableBgp_ != nullptr;};
     void deleteEnableBgp() { this->enableBgp_ = nullptr;};

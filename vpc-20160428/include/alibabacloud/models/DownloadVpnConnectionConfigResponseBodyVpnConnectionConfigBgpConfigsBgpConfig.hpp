@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->localAsn_ != nullptr
-        && this->localBgpIp_ != nullptr && this->peerAsn_ != nullptr && this->peerBgpIp_ != nullptr && this->tunnelCidr_ != nullptr && this->tunnelId_ != nullptr; };
+    virtual bool empty() const override { return this->localAsn_ == nullptr
+        && return this->localBgpIp_ == nullptr && return this->peerAsn_ == nullptr && return this->peerBgpIp_ == nullptr && return this->tunnelCidr_ == nullptr && return this->tunnelId_ == nullptr; };
     // localAsn Field Functions 
     bool hasLocalAsn() const { return this->localAsn_ != nullptr;};
     void deleteLocalAsn() { this->localAsn_ = nullptr;};

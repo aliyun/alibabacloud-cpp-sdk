@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipsecServerId_ != nullptr
-        && this->ipsecServerName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->ipsecServerId_ == nullptr
+        && return this->ipsecServerName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->vpnGatewayId_ == nullptr; };
     // ipsecServerId Field Functions 
     bool hasIpsecServerId() const { return this->ipsecServerId_ != nullptr;};
     void deleteIpsecServerId() { this->ipsecServerId_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->destinationCidrBlock_ != nullptr
-        && this->dryRun_ != nullptr && this->nextHopId_ != nullptr && this->nextHopList_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->routeEntryId_ != nullptr && this->routeTableId_ != nullptr; };
+    virtual bool empty() const override { return this->destinationCidrBlock_ == nullptr
+        && return this->dryRun_ == nullptr && return this->nextHopId_ == nullptr && return this->nextHopList_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->routeEntryId_ == nullptr && return this->routeTableId_ == nullptr; };
     // destinationCidrBlock Field Functions 
     bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
     void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};

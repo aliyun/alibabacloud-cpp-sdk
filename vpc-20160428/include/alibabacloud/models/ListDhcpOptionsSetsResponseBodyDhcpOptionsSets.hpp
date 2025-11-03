@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associateVpcCount_ != nullptr
-        && this->creationTime_ != nullptr && this->dhcpOptions_ != nullptr && this->dhcpOptionsSetDescription_ != nullptr && this->dhcpOptionsSetId_ != nullptr && this->dhcpOptionsSetName_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->associateVpcCount_ == nullptr
+        && return this->creationTime_ == nullptr && return this->dhcpOptions_ == nullptr && return this->dhcpOptionsSetDescription_ == nullptr && return this->dhcpOptionsSetId_ == nullptr && return this->dhcpOptionsSetName_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // associateVpcCount Field Functions 
     bool hasAssociateVpcCount() const { return this->associateVpcCount_ != nullptr;};
     void deleteAssociateVpcCount() { this->associateVpcCount_ = nullptr;};
@@ -130,8 +130,9 @@ namespace Models
   protected:
     // The number of VPCs with which the DHCP options set is associated.
     std::shared_ptr<int32_t> associateVpcCount_ = nullptr;
+    // The creation time of the DHCP options sets.
     std::shared_ptr<string> creationTime_ = nullptr;
-    // The configuration information about the DHCP options set.
+    // The details of DHCP options.
     std::shared_ptr<Models::ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions> dhcpOptions_ = nullptr;
     // The description of the DHCP options set.
     std::shared_ptr<string> dhcpOptionsSetDescription_ = nullptr;

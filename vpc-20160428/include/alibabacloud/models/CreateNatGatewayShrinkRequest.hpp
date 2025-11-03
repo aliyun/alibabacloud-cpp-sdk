@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessModeShrink_ != nullptr
-        && this->autoPay_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->duration_ != nullptr && this->eipBindMode_ != nullptr
-        && this->icmpReplyEnabled_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr && this->ipv4Prefix_ != nullptr && this->name_ != nullptr
-        && this->natIp_ != nullptr && this->natType_ != nullptr && this->networkType_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pricingCycle_ != nullptr && this->privateLinkEnabled_ != nullptr && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->securityProtectionEnabled_ != nullptr && this->spec_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->accessModeShrink_ == nullptr
+        && return this->autoPay_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->duration_ == nullptr && return this->eipBindMode_ == nullptr
+        && return this->icmpReplyEnabled_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr && return this->ipv4Prefix_ == nullptr && return this->name_ == nullptr
+        && return this->natIp_ == nullptr && return this->natType_ == nullptr && return this->networkType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pricingCycle_ == nullptr && return this->privateLinkEnabled_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->securityProtectionEnabled_ == nullptr && return this->spec_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // accessModeShrink Field Functions 
     bool hasAccessModeShrink() const { return this->accessModeShrink_ != nullptr;};
     void deleteAccessModeShrink() { this->accessModeShrink_ = nullptr;};

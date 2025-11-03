@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addInstanceList_ != nullptr
-        && this->clientToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->qosDescription_ != nullptr && this->qosId_ != nullptr
-        && this->qosName_ != nullptr && this->regionId_ != nullptr && this->removeInstanceList_ != nullptr && this->resourceOwnerAccount_ != nullptr; };
+    virtual bool empty() const override { return this->addInstanceList_ == nullptr
+        && return this->clientToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->qosDescription_ == nullptr && return this->qosId_ == nullptr
+        && return this->qosName_ == nullptr && return this->regionId_ == nullptr && return this->removeInstanceList_ == nullptr && return this->resourceOwnerAccount_ == nullptr; };
     // addInstanceList Field Functions 
     bool hasAddInstanceList() const { return this->addInstanceList_ != nullptr;};
     void deleteAddInstanceList() { this->addInstanceList_ = nullptr;};

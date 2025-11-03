@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->enabled_ != nullptr && this->packetLength_ != nullptr && this->priority_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr
-        && this->trafficMirrorFilterId_ != nullptr && this->trafficMirrorSessionBusinessStatus_ != nullptr && this->trafficMirrorSessionDescription_ != nullptr && this->trafficMirrorSessionId_ != nullptr && this->trafficMirrorSessionName_ != nullptr
-        && this->trafficMirrorSessionStatus_ != nullptr && this->trafficMirrorSourceIds_ != nullptr && this->trafficMirrorTargetId_ != nullptr && this->trafficMirrorTargetType_ != nullptr && this->virtualNetworkId_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->enabled_ == nullptr && return this->packetLength_ == nullptr && return this->priority_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr
+        && return this->trafficMirrorFilterId_ == nullptr && return this->trafficMirrorSessionBusinessStatus_ == nullptr && return this->trafficMirrorSessionDescription_ == nullptr && return this->trafficMirrorSessionId_ == nullptr && return this->trafficMirrorSessionName_ == nullptr
+        && return this->trafficMirrorSessionStatus_ == nullptr && return this->trafficMirrorSourceIds_ == nullptr && return this->trafficMirrorTargetId_ == nullptr && return this->trafficMirrorTargetType_ == nullptr && return this->virtualNetworkId_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

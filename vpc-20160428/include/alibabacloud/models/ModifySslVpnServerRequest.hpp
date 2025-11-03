@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cipher_ != nullptr
-        && this->clientIpPool_ != nullptr && this->clientToken_ != nullptr && this->compress_ != nullptr && this->dryRun_ != nullptr && this->enableMultiFactorAuth_ != nullptr
-        && this->IDaaSApplicationId_ != nullptr && this->IDaaSInstanceId_ != nullptr && this->IDaaSRegionId_ != nullptr && this->localSubnet_ != nullptr && this->name_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->port_ != nullptr && this->proto_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->sslVpnServerId_ != nullptr; };
+    virtual bool empty() const override { return this->cipher_ == nullptr
+        && return this->clientIpPool_ == nullptr && return this->clientToken_ == nullptr && return this->compress_ == nullptr && return this->dryRun_ == nullptr && return this->enableMultiFactorAuth_ == nullptr
+        && return this->IDaaSApplicationId_ == nullptr && return this->IDaaSInstanceId_ == nullptr && return this->IDaaSRegionId_ == nullptr && return this->localSubnet_ == nullptr && return this->name_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->port_ == nullptr && return this->proto_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sslVpnServerId_ == nullptr; };
     // cipher Field Functions 
     bool hasCipher() const { return this->cipher_ != nullptr;};
     void deleteCipher() { this->cipher_ = nullptr;};

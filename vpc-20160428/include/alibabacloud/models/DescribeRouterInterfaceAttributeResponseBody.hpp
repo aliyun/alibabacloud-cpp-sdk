@@ -120,16 +120,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessPointId_ != nullptr
-        && this->bandwidth_ != nullptr && this->businessStatus_ != nullptr && this->chargeType_ != nullptr && this->code_ != nullptr && this->connectedTime_ != nullptr
-        && this->creationTime_ != nullptr && this->crossBorder_ != nullptr && this->description_ != nullptr && this->endTime_ != nullptr && this->fastLinkMode_ != nullptr
-        && this->gmtModified_ != nullptr && this->hasReservationData_ != nullptr && this->hcRate_ != nullptr && this->hcThreshold_ != nullptr && this->healthCheckSourceIp_ != nullptr
-        && this->healthCheckStatus_ != nullptr && this->healthCheckTargetIp_ != nullptr && this->message_ != nullptr && this->name_ != nullptr && this->oppositeAccessPointId_ != nullptr
-        && this->oppositeBandwidth_ != nullptr && this->oppositeInterfaceBusinessStatus_ != nullptr && this->oppositeInterfaceId_ != nullptr && this->oppositeInterfaceOwnerId_ != nullptr && this->oppositeInterfaceSpec_ != nullptr
-        && this->oppositeInterfaceStatus_ != nullptr && this->oppositeRegionId_ != nullptr && this->oppositeRouterId_ != nullptr && this->oppositeRouterType_ != nullptr && this->oppositeVpcInstanceId_ != nullptr
-        && this->requestId_ != nullptr && this->reservationActiveTime_ != nullptr && this->reservationBandwidth_ != nullptr && this->reservationInternetChargeType_ != nullptr && this->reservationOrderType_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->role_ != nullptr && this->routerId_ != nullptr && this->routerInterfaceId_ != nullptr && this->routerType_ != nullptr
-        && this->spec_ != nullptr && this->status_ != nullptr && this->success_ != nullptr && this->tags_ != nullptr && this->vpcInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessPointId_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->businessStatus_ == nullptr && return this->chargeType_ == nullptr && return this->code_ == nullptr && return this->connectedTime_ == nullptr
+        && return this->creationTime_ == nullptr && return this->crossBorder_ == nullptr && return this->description_ == nullptr && return this->endTime_ == nullptr && return this->fastLinkMode_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->hasReservationData_ == nullptr && return this->hcRate_ == nullptr && return this->hcThreshold_ == nullptr && return this->healthCheckSourceIp_ == nullptr
+        && return this->healthCheckStatus_ == nullptr && return this->healthCheckTargetIp_ == nullptr && return this->message_ == nullptr && return this->name_ == nullptr && return this->oppositeAccessPointId_ == nullptr
+        && return this->oppositeBandwidth_ == nullptr && return this->oppositeInterfaceBusinessStatus_ == nullptr && return this->oppositeInterfaceId_ == nullptr && return this->oppositeInterfaceOwnerId_ == nullptr && return this->oppositeInterfaceSpec_ == nullptr
+        && return this->oppositeInterfaceStatus_ == nullptr && return this->oppositeRegionId_ == nullptr && return this->oppositeRouterId_ == nullptr && return this->oppositeRouterType_ == nullptr && return this->oppositeVpcInstanceId_ == nullptr
+        && return this->requestId_ == nullptr && return this->reservationActiveTime_ == nullptr && return this->reservationBandwidth_ == nullptr && return this->reservationInternetChargeType_ == nullptr && return this->reservationOrderType_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->role_ == nullptr && return this->routerId_ == nullptr && return this->routerInterfaceId_ == nullptr && return this->routerType_ == nullptr
+        && return this->spec_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr && return this->tags_ == nullptr && return this->vpcInstanceId_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};

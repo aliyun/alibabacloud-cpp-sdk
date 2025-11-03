@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIpPool_ != nullptr
-        && this->creationTime_ != nullptr && this->effectImmediately_ != nullptr && this->IDaaSInstanceId_ != nullptr && this->ikeConfig_ != nullptr && this->internetIp_ != nullptr
-        && this->ipsecConfig_ != nullptr && this->ipsecServerId_ != nullptr && this->ipsecServerName_ != nullptr && this->localSubnet_ != nullptr && this->maxConnections_ != nullptr
-        && this->multiFactorAuthEnabled_ != nullptr && this->onlineClientCount_ != nullptr && this->psk_ != nullptr && this->pskEnabled_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->vpnGatewayId_ != nullptr; };
+    virtual bool empty() const override { return this->clientIpPool_ == nullptr
+        && return this->creationTime_ == nullptr && return this->effectImmediately_ == nullptr && return this->IDaaSInstanceId_ == nullptr && return this->ikeConfig_ == nullptr && return this->internetIp_ == nullptr
+        && return this->ipsecConfig_ == nullptr && return this->ipsecServerId_ == nullptr && return this->ipsecServerName_ == nullptr && return this->localSubnet_ == nullptr && return this->maxConnections_ == nullptr
+        && return this->multiFactorAuthEnabled_ == nullptr && return this->onlineClientCount_ == nullptr && return this->psk_ == nullptr && return this->pskEnabled_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->vpnGatewayId_ == nullptr; };
     // clientIpPool Field Functions 
     bool hasClientIpPool() const { return this->clientIpPool_ != nullptr;};
     void deleteClientIpPool() { this->clientIpPool_ = nullptr;};

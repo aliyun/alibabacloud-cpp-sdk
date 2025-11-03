@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrBlock_ != nullptr
-        && this->clientToken_ != nullptr && this->description_ != nullptr && this->dryRun_ != nullptr && this->enableDnsHostname_ != nullptr && this->enableIpv6_ != nullptr
-        && this->ipv4CidrMask_ != nullptr && this->ipv4IpamPoolId_ != nullptr && this->ipv6CidrBlock_ != nullptr && this->ipv6CidrMask_ != nullptr && this->ipv6IpamPoolId_ != nullptr
-        && this->ipv6Isp_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->tag_ != nullptr && this->userCidr_ != nullptr && this->vpcName_ != nullptr; };
+    virtual bool empty() const override { return this->cidrBlock_ == nullptr
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->enableDnsHostname_ == nullptr && return this->enableIpv6_ == nullptr
+        && return this->ipv4CidrMask_ == nullptr && return this->ipv4IpamPoolId_ == nullptr && return this->ipv6CidrBlock_ == nullptr && return this->ipv6CidrMask_ == nullptr && return this->ipv6IpamPoolId_ == nullptr
+        && return this->ipv6Isp_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr && return this->userCidr_ == nullptr && return this->vpcName_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->grantRuleModels_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->grantRuleModels_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // grantRuleModels Field Functions 
     bool hasGrantRuleModels() const { return this->grantRuleModels_ != nullptr;};
     void deleteGrantRuleModels() { this->grantRuleModels_ = nullptr;};
@@ -70,9 +70,16 @@ namespace Models
 
 
   protected:
+    // The authorization information.
     std::shared_ptr<vector<DescribeVpcGrantRulesToEcrResponseBodyGrantRuleModels>> grantRuleModels_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+    // 
+    // *   If **NextToken** is empty, there is no next page.
+    // *   ****
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The unique ID that Alibaba Cloud generates for the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of instances queried. If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
     std::shared_ptr<string> totalCount_ = nullptr;
   };
 
