@@ -5,6 +5,9 @@
 #include <alibabacloud/models/GetOriginProtectionResponseBodyCurrentIPWhitelist.hpp>
 #include <alibabacloud/models/GetOriginProtectionResponseBodyDiffIPWhitelist.hpp>
 #include <alibabacloud/models/GetOriginProtectionResponseBodyLatestIPWhitelist.hpp>
+#include <alibabacloud/models/GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist.hpp>
+#include <alibabacloud/models/GetOriginProtectionResponseBodyRegionalDiffIPWhitelist.hpp>
+#include <alibabacloud/models/GetOriginProtectionResponseBodyRegionalLatestIPWhitelist.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,22 +19,30 @@ namespace Models
   class GetOriginProtectionResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetOriginProtectionResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoConfirmIPList, autoConfirmIPList_);
       DARABONBA_PTR_TO_JSON(CurrentIPWhitelist, currentIPWhitelist_);
       DARABONBA_PTR_TO_JSON(DiffIPWhitelist, diffIPWhitelist_);
       DARABONBA_PTR_TO_JSON(LatestIPWhitelist, latestIPWhitelist_);
       DARABONBA_PTR_TO_JSON(NeedUpdate, needUpdate_);
       DARABONBA_PTR_TO_JSON(OriginConverge, originConverge_);
       DARABONBA_PTR_TO_JSON(OriginProtection, originProtection_);
+      DARABONBA_PTR_TO_JSON(RegionalCurrentIPWhitelist, regionalCurrentIPWhitelist_);
+      DARABONBA_PTR_TO_JSON(RegionalDiffIPWhitelist, regionalDiffIPWhitelist_);
+      DARABONBA_PTR_TO_JSON(RegionalLatestIPWhitelist, regionalLatestIPWhitelist_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
     };
     friend void from_json(const Darabonba::Json& j, GetOriginProtectionResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoConfirmIPList, autoConfirmIPList_);
       DARABONBA_PTR_FROM_JSON(CurrentIPWhitelist, currentIPWhitelist_);
       DARABONBA_PTR_FROM_JSON(DiffIPWhitelist, diffIPWhitelist_);
       DARABONBA_PTR_FROM_JSON(LatestIPWhitelist, latestIPWhitelist_);
       DARABONBA_PTR_FROM_JSON(NeedUpdate, needUpdate_);
       DARABONBA_PTR_FROM_JSON(OriginConverge, originConverge_);
       DARABONBA_PTR_FROM_JSON(OriginProtection, originProtection_);
+      DARABONBA_PTR_FROM_JSON(RegionalCurrentIPWhitelist, regionalCurrentIPWhitelist_);
+      DARABONBA_PTR_FROM_JSON(RegionalDiffIPWhitelist, regionalDiffIPWhitelist_);
+      DARABONBA_PTR_FROM_JSON(RegionalLatestIPWhitelist, regionalLatestIPWhitelist_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
     };
@@ -46,9 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->currentIPWhitelist_ == nullptr
-        && return this->diffIPWhitelist_ == nullptr && return this->latestIPWhitelist_ == nullptr && return this->needUpdate_ == nullptr && return this->originConverge_ == nullptr && return this->originProtection_ == nullptr
-        && return this->requestId_ == nullptr && return this->siteId_ == nullptr; };
+    virtual bool empty() const override { return this->autoConfirmIPList_ == nullptr
+        && return this->currentIPWhitelist_ == nullptr && return this->diffIPWhitelist_ == nullptr && return this->latestIPWhitelist_ == nullptr && return this->needUpdate_ == nullptr && return this->originConverge_ == nullptr
+        && return this->originProtection_ == nullptr && return this->regionalCurrentIPWhitelist_ == nullptr && return this->regionalDiffIPWhitelist_ == nullptr && return this->regionalLatestIPWhitelist_ == nullptr && return this->requestId_ == nullptr
+        && return this->siteId_ == nullptr; };
+    // autoConfirmIPList Field Functions 
+    bool hasAutoConfirmIPList() const { return this->autoConfirmIPList_ != nullptr;};
+    void deleteAutoConfirmIPList() { this->autoConfirmIPList_ = nullptr;};
+    inline string autoConfirmIPList() const { DARABONBA_PTR_GET_DEFAULT(autoConfirmIPList_, "") };
+    inline GetOriginProtectionResponseBody& setAutoConfirmIPList(string autoConfirmIPList) { DARABONBA_PTR_SET_VALUE(autoConfirmIPList_, autoConfirmIPList) };
+
+
     // currentIPWhitelist Field Functions 
     bool hasCurrentIPWhitelist() const { return this->currentIPWhitelist_ != nullptr;};
     void deleteCurrentIPWhitelist() { this->currentIPWhitelist_ = nullptr;};
@@ -97,6 +116,33 @@ namespace Models
     inline GetOriginProtectionResponseBody& setOriginProtection(string originProtection) { DARABONBA_PTR_SET_VALUE(originProtection_, originProtection) };
 
 
+    // regionalCurrentIPWhitelist Field Functions 
+    bool hasRegionalCurrentIPWhitelist() const { return this->regionalCurrentIPWhitelist_ != nullptr;};
+    void deleteRegionalCurrentIPWhitelist() { this->regionalCurrentIPWhitelist_ = nullptr;};
+    inline const GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist & regionalCurrentIPWhitelist() const { DARABONBA_PTR_GET_CONST(regionalCurrentIPWhitelist_, GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist) };
+    inline GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist regionalCurrentIPWhitelist() { DARABONBA_PTR_GET(regionalCurrentIPWhitelist_, GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalCurrentIPWhitelist(const GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist & regionalCurrentIPWhitelist) { DARABONBA_PTR_SET_VALUE(regionalCurrentIPWhitelist_, regionalCurrentIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalCurrentIPWhitelist(GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist && regionalCurrentIPWhitelist) { DARABONBA_PTR_SET_RVALUE(regionalCurrentIPWhitelist_, regionalCurrentIPWhitelist) };
+
+
+    // regionalDiffIPWhitelist Field Functions 
+    bool hasRegionalDiffIPWhitelist() const { return this->regionalDiffIPWhitelist_ != nullptr;};
+    void deleteRegionalDiffIPWhitelist() { this->regionalDiffIPWhitelist_ = nullptr;};
+    inline const GetOriginProtectionResponseBodyRegionalDiffIPWhitelist & regionalDiffIPWhitelist() const { DARABONBA_PTR_GET_CONST(regionalDiffIPWhitelist_, GetOriginProtectionResponseBodyRegionalDiffIPWhitelist) };
+    inline GetOriginProtectionResponseBodyRegionalDiffIPWhitelist regionalDiffIPWhitelist() { DARABONBA_PTR_GET(regionalDiffIPWhitelist_, GetOriginProtectionResponseBodyRegionalDiffIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalDiffIPWhitelist(const GetOriginProtectionResponseBodyRegionalDiffIPWhitelist & regionalDiffIPWhitelist) { DARABONBA_PTR_SET_VALUE(regionalDiffIPWhitelist_, regionalDiffIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalDiffIPWhitelist(GetOriginProtectionResponseBodyRegionalDiffIPWhitelist && regionalDiffIPWhitelist) { DARABONBA_PTR_SET_RVALUE(regionalDiffIPWhitelist_, regionalDiffIPWhitelist) };
+
+
+    // regionalLatestIPWhitelist Field Functions 
+    bool hasRegionalLatestIPWhitelist() const { return this->regionalLatestIPWhitelist_ != nullptr;};
+    void deleteRegionalLatestIPWhitelist() { this->regionalLatestIPWhitelist_ = nullptr;};
+    inline const GetOriginProtectionResponseBodyRegionalLatestIPWhitelist & regionalLatestIPWhitelist() const { DARABONBA_PTR_GET_CONST(regionalLatestIPWhitelist_, GetOriginProtectionResponseBodyRegionalLatestIPWhitelist) };
+    inline GetOriginProtectionResponseBodyRegionalLatestIPWhitelist regionalLatestIPWhitelist() { DARABONBA_PTR_GET(regionalLatestIPWhitelist_, GetOriginProtectionResponseBodyRegionalLatestIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalLatestIPWhitelist(const GetOriginProtectionResponseBodyRegionalLatestIPWhitelist & regionalLatestIPWhitelist) { DARABONBA_PTR_SET_VALUE(regionalLatestIPWhitelist_, regionalLatestIPWhitelist) };
+    inline GetOriginProtectionResponseBody& setRegionalLatestIPWhitelist(GetOriginProtectionResponseBodyRegionalLatestIPWhitelist && regionalLatestIPWhitelist) { DARABONBA_PTR_SET_RVALUE(regionalLatestIPWhitelist_, regionalLatestIPWhitelist) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -112,6 +158,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> autoConfirmIPList_ = nullptr;
     // The IP whitelist for origin protection used by the website.
     std::shared_ptr<GetOriginProtectionResponseBodyCurrentIPWhitelist> currentIPWhitelist_ = nullptr;
     // The IP whitelist for origin protection that has been updated.
@@ -133,6 +180,9 @@ namespace Models
     // *   on
     // *   off
     std::shared_ptr<string> originProtection_ = nullptr;
+    std::shared_ptr<GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist> regionalCurrentIPWhitelist_ = nullptr;
+    std::shared_ptr<GetOriginProtectionResponseBodyRegionalDiffIPWhitelist> regionalDiffIPWhitelist_ = nullptr;
+    std::shared_ptr<GetOriginProtectionResponseBodyRegionalLatestIPWhitelist> regionalLatestIPWhitelist_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // The website ID.

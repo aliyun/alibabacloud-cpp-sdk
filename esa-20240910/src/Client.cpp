@@ -2760,6 +2760,10 @@ CreateOriginPoolResponse Client::createOriginPool(const CreateOriginPoolRequest 
 CreateOriginProtectionResponse Client::createOriginProtectionWithOptions(const CreateOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoConfirmIPList()) {
+    query["AutoConfirmIPList"] = request.autoConfirmIPList();
+  }
+
   if (!!request.hasSiteId()) {
     query["SiteId"] = request.siteId();
   }
@@ -16897,6 +16901,10 @@ UpdateOriginPoolResponse Client::updateOriginPool(const UpdateOriginPoolRequest 
 UpdateOriginProtectionResponse Client::updateOriginProtectionWithOptions(const UpdateOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoConfirmIPList()) {
+    query["AutoConfirmIPList"] = request.autoConfirmIPList();
+  }
+
   if (!!request.hasOriginConverge()) {
     query["OriginConverge"] = request.originConverge();
   }

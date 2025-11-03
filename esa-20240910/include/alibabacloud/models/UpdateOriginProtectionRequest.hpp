@@ -13,10 +13,12 @@ namespace Models
   class UpdateOriginProtectionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateOriginProtectionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoConfirmIPList, autoConfirmIPList_);
       DARABONBA_PTR_TO_JSON(OriginConverge, originConverge_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateOriginProtectionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoConfirmIPList, autoConfirmIPList_);
       DARABONBA_PTR_FROM_JSON(OriginConverge, originConverge_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->originConverge_ == nullptr
-        && return this->siteId_ == nullptr; };
+    virtual bool empty() const override { return this->autoConfirmIPList_ == nullptr
+        && return this->originConverge_ == nullptr && return this->siteId_ == nullptr; };
+    // autoConfirmIPList Field Functions 
+    bool hasAutoConfirmIPList() const { return this->autoConfirmIPList_ != nullptr;};
+    void deleteAutoConfirmIPList() { this->autoConfirmIPList_ = nullptr;};
+    inline string autoConfirmIPList() const { DARABONBA_PTR_GET_DEFAULT(autoConfirmIPList_, "") };
+    inline UpdateOriginProtectionRequest& setAutoConfirmIPList(string autoConfirmIPList) { DARABONBA_PTR_SET_VALUE(autoConfirmIPList_, autoConfirmIPList) };
+
+
     // originConverge Field Functions 
     bool hasOriginConverge() const { return this->originConverge_ != nullptr;};
     void deleteOriginConverge() { this->originConverge_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> autoConfirmIPList_ = nullptr;
     // The IP convergence status.
     // 
     // *   on
