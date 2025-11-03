@@ -373,6 +373,7 @@ namespace Models
 
 
   protected:
+    // 接入类型。
     std::shared_ptr<string> accessType_ = nullptr;
     std::shared_ptr<int32_t> amount_ = nullptr;
     std::shared_ptr<string> appCenterImageId_ = nullptr;
@@ -383,6 +384,7 @@ namespace Models
     std::shared_ptr<string> appInstanceTypeName_ = nullptr;
     std::shared_ptr<string> appPolicyId_ = nullptr;
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps>> apps_ = nullptr;
+    // 授权模式。
     std::shared_ptr<string> authMode_ = nullptr;
     std::shared_ptr<string> chargeResourceMode_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
@@ -390,6 +392,7 @@ namespace Models
     std::shared_ptr<string> gmtCreate_ = nullptr;
     std::shared_ptr<int32_t> maxAmount_ = nullptr;
     std::shared_ptr<int32_t> minAmount_ = nullptr;
+    // The resource groups.
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
     std::shared_ptr<string> osType_ = nullptr;
@@ -407,7 +410,20 @@ namespace Models
     std::shared_ptr<string> sessionType_ = nullptr;
     std::shared_ptr<bool> skipUserAuthCheck_ = nullptr;
     std::shared_ptr<string> specId_ = nullptr;
+    // The status of the delivery group.
+    // 
+    // Valid values:
+    // 
+    // *   PUBLISHED: The delivery group is published.
+    // *   FAILED: The delivery group failed to be published.
+    // *   MAINTAIN_FAILED: The delivery group failed to be updated.
+    // *   EXPIRED: The delivery group is expired.
+    // *   MAINTAINING: The delivery group is being updated.
+    // *   CEASED: The delivery group has overdue payments.
+    // *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
+    // *   DEPLOYING: The delivery group is being published.
     std::shared_ptr<string> status_ = nullptr;
+    // 资源标签列表。
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>> tags_ = nullptr;
   };
 

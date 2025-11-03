@@ -84,12 +84,42 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the debugging mode. If you want to call the `GetDebugAppInstance` and `CreateImageFromAppInstanceGroup` operations, you must set this parameter to `ON`.
+    // 
+    // Valid values:
+    // 
+    // *   OFF
+    // *   ON
     std::shared_ptr<string> debugMode_ = nullptr;
+    // Specifies whether only one app can be opened in a session.
+    // 
+    // *   After you enable this feature, the system assigns a session to each app if you open multiple apps in a delivery group. This consumes a larger number of sessions.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<bool> perSessionPerApp_ = nullptr;
     std::shared_ptr<string> persistentAppInstanceScheduleMode_ = nullptr;
+    // Specifies whether to enable pre-open for sessions.
+    // 
+    // *   Default value: true
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<string> sessionPreOpen_ = nullptr;
-    // 会话类型。
+    // The session type.
+    // 
+    // Valid values:
+    // 
+    // *   CONSOLE: console session
+    // *   NORMAL: Remote Desktop Protocol (RDP)-based O\\&M session
     std::shared_ptr<string> sessionType_ = nullptr;
+    // The generation mode of the session users. Valid value:
+    // 
+    // *   wyid. In this case, you must set sessionPreOpen to false.
     std::shared_ptr<string> sessionUserGenerationMode_ = nullptr;
   };
 

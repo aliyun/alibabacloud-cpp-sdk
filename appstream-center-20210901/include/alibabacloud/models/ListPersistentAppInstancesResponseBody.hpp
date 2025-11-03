@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The app instances of the persistent session type.
     std::shared_ptr<vector<ListPersistentAppInstancesResponseBodyPersistentAppInstanceModels>> persistentAppInstanceModels_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

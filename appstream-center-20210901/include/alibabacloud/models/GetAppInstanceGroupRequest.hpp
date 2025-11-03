@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
     // This parameter is required.

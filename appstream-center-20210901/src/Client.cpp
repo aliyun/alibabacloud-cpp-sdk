@@ -178,7 +178,7 @@ AuthorizeInstanceGroupResponse Client::authorizeInstanceGroup(const AuthorizeIns
 }
 
 /**
- * @summary 创建云应用交付组
+ * @summary Creates a delivery group.
  *
  * @param tmpReq CreateAppInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -349,7 +349,7 @@ CreateAppInstanceGroupResponse Client::createAppInstanceGroupWithOptions(const C
 }
 
 /**
- * @summary 创建云应用交付组
+ * @summary Creates a delivery group.
  *
  * @param request CreateAppInstanceGroupRequest
  * @return CreateAppInstanceGroupResponse
@@ -886,7 +886,7 @@ DescribeWuyingServerEipInfoResponse Client::describeWuyingServerEipInfo(const De
 }
 
 /**
- * @summary 获取交付组详情
+ * @summary Queries the details of a delivery group.
  *
  * @param request GetAppInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -921,7 +921,7 @@ GetAppInstanceGroupResponse Client::getAppInstanceGroupWithOptions(const GetAppI
 }
 
 /**
- * @summary 获取交付组详情
+ * @summary Queries the details of a delivery group.
  *
  * @param request GetAppInstanceGroupRequest
  * @return GetAppInstanceGroupResponse
@@ -983,6 +983,10 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
 
   if (!!request.hasEndUserId()) {
     body["EndUserId"] = request.endUserId();
+  }
+
+  if (!!request.hasEnvironmentConfig()) {
+    body["EnvironmentConfig"] = request.environmentConfig();
   }
 
   if (!!request.hasProductType()) {
@@ -1460,7 +1464,7 @@ ListAuthorizedUserGroupsResponse Client::listAuthorizedUserGroups(const ListAuth
 }
 
 /**
- * @summary 查询绑定信息，支持分页
+ * @summary Queries the bindings between users and resources.
  *
  * @param request ListBindInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1515,7 +1519,7 @@ ListBindInfoResponse Client::listBindInfoWithOptions(const ListBindInfoRequest &
 }
 
 /**
- * @summary 查询绑定信息，支持分页
+ * @summary Queries the bindings between users and resources.
  *
  * @param request ListBindInfoRequest
  * @return ListBindInfoResponse
@@ -1852,7 +1856,7 @@ ListOtaTaskResponse Client::listOtaTask(const ListOtaTaskRequest &request) {
 }
 
 /**
- * @summary 查询交付组内持久会话列表
+ * @summary Queries app instances of the persistent session type in a delivery group.
  *
  * @param request ListPersistentAppInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1899,7 +1903,7 @@ ListPersistentAppInstancesResponse Client::listPersistentAppInstancesWithOptions
 }
 
 /**
- * @summary 查询交付组内持久会话列表
+ * @summary Queries app instances of the persistent session type in a delivery group.
  *
  * @param request ListPersistentAppInstancesRequest
  * @return ListPersistentAppInstancesResponse

@@ -55,7 +55,7 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroup(const Models::AuthorizeInstanceGroupRequest &request);
 
       /**
-       * @summary 创建云应用交付组
+       * @summary Creates a delivery group.
        *
        * @param tmpReq CreateAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace AppstreamCenter20210901
       Models::CreateAppInstanceGroupResponse createAppInstanceGroupWithOptions(const Models::CreateAppInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建云应用交付组
+       * @summary Creates a delivery group.
        *
        * @param request CreateAppInstanceGroupRequest
        * @return CreateAppInstanceGroupResponse
@@ -244,7 +244,7 @@ namespace AppstreamCenter20210901
       Models::DescribeWuyingServerEipInfoResponse describeWuyingServerEipInfo(const Models::DescribeWuyingServerEipInfoRequest &request);
 
       /**
-       * @summary 获取交付组详情
+       * @summary Queries the details of a delivery group.
        *
        * @param request GetAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -253,7 +253,7 @@ namespace AppstreamCenter20210901
       Models::GetAppInstanceGroupResponse getAppInstanceGroupWithOptions(const Models::GetAppInstanceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取交付组详情
+       * @summary Queries the details of a delivery group.
        *
        * @param request GetAppInstanceGroupRequest
        * @return GetAppInstanceGroupResponse
@@ -405,7 +405,7 @@ namespace AppstreamCenter20210901
       Models::ListAuthorizedUserGroupsResponse listAuthorizedUserGroups(const Models::ListAuthorizedUserGroupsRequest &request);
 
       /**
-       * @summary 查询绑定信息，支持分页
+       * @summary Queries the bindings between users and resources.
        *
        * @param request ListBindInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,7 +414,7 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfoWithOptions(const Models::ListBindInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询绑定信息，支持分页
+       * @summary Queries the bindings between users and resources.
        *
        * @param request ListBindInfoRequest
        * @return ListBindInfoResponse
@@ -490,7 +490,7 @@ namespace AppstreamCenter20210901
       Models::ListOtaTaskResponse listOtaTask(const Models::ListOtaTaskRequest &request);
 
       /**
-       * @summary 查询交付组内持久会话列表
+       * @summary Queries app instances of the persistent session type in a delivery group.
        *
        * @param request ListPersistentAppInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -499,7 +499,7 @@ namespace AppstreamCenter20210901
       Models::ListPersistentAppInstancesResponse listPersistentAppInstancesWithOptions(const Models::ListPersistentAppInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询交付组内持久会话列表
+       * @summary Queries app instances of the persistent session type in a delivery group.
        *
        * @param request ListPersistentAppInstancesRequest
        * @return ListPersistentAppInstancesResponse

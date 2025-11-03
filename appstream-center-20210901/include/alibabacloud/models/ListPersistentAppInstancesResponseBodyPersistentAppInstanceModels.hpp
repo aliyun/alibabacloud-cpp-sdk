@@ -106,13 +106,45 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The ID of the app instance.
     std::shared_ptr<string> appInstanceId_ = nullptr;
+    // The ID of the app instance of the persistent session type.
     std::shared_ptr<string> appInstancePersistentId_ = nullptr;
+    // The name of the app instance of the persistent session type.
     std::shared_ptr<string> appInstancePersistentName_ = nullptr;
+    // The status of the app instance of the persistent session type.
+    // 
+    // Valid values:
+    // 
+    // *   STARTING
+    // *   RUNNING
+    // *   STOPPED
+    // *   UNAVAILABLE
+    // *   DELETING
+    // *   PENDING
+    // *   STOPPING
+    // *   DELETED
+    // *   REBUILDING
     std::shared_ptr<string> appInstancePersistentStatus_ = nullptr;
+    // The status of the app instance.
+    // 
+    // Valid values:
+    // 
+    // *   INIT: The app instance is being initialized.
+    // *   STARTING: The app instance is being started.
+    // *   CLOSING: The app instance is being stopped.
+    // *   CLOSED: The app instance is closed.
+    // *   RUNNING: The app instance is running.
+    // *   idle: The app instance is idle.
+    // *   BOUND: The app instance is bound to an app instance group.
+    // *   UNAVAILABLE: The app instance is unavailable.
+    // *   DELETED: The app instance is deleted.
     std::shared_ptr<string> appInstanceStatus_ = nullptr;
+    // The authorized users.
     std::shared_ptr<vector<string>> authorizedUsers_ = nullptr;
+    // The time when the app instance was created.
     std::shared_ptr<string> gmtCreate_ = nullptr;
   };
 

@@ -112,14 +112,34 @@ namespace Models
 
 
   protected:
+    // The account type.
+    // 
+    // Valid values:
+    // 
+    // *   ad: Active Directory (AD) account
+    // *   simple: convenience account
     std::shared_ptr<string> accountType_ = nullptr;
+    // The app ID.
     std::shared_ptr<string> appId_ = nullptr;
+    // The ID of the delivery group.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The ID of the app instance.
     std::shared_ptr<string> appInstanceId_ = nullptr;
+    // The app version.
     std::shared_ptr<string> appVersion_ = nullptr;
+    // The product type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudApp: App Streaming
+    // *   CloudBrowser: Cloud-based Browser
+    // *   AndroidCloud: Cloud Phone
     std::shared_ptr<string> productType_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The user ID.
     std::shared_ptr<string> userId_ = nullptr;
+    // The ID of the Alibaba Cloud Workspace user.
     std::shared_ptr<string> wyId_ = nullptr;
   };
 

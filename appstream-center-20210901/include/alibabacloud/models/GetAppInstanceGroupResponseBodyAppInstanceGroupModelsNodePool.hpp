@@ -209,6 +209,7 @@ namespace Models
 
   protected:
     std::shared_ptr<int32_t> amount_ = nullptr;
+    // The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
     std::shared_ptr<int32_t> maxIdleAppInstanceAmount_ = nullptr;
     std::shared_ptr<int32_t> maxScalingAmount_ = nullptr;
     std::shared_ptr<int32_t> nodeAmount_ = nullptr;

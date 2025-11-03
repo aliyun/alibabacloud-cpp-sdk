@@ -310,6 +310,7 @@ namespace Models
     std::shared_ptr<string> appInstanceGroupName_ = nullptr;
     std::shared_ptr<string> appPackageType_ = nullptr;
     std::shared_ptr<string> appPolicyId_ = nullptr;
+    // The authentication mode of the delivery group.
     std::shared_ptr<string> authMode_ = nullptr;
     std::shared_ptr<bool> autoPay_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
@@ -330,6 +331,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
     std::shared_ptr<string> promotionId_ = nullptr;
+    // The runtime policy.
     std::shared_ptr<CreateAppInstanceGroupRequestRuntimePolicy> runtimePolicy_ = nullptr;
     std::shared_ptr<CreateAppInstanceGroupRequestSecurityPolicy> securityPolicy_ = nullptr;
     // This parameter is required.

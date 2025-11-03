@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(EnvironmentConfig, environmentConfig_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(EnvironmentConfig, environmentConfig_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
@@ -54,8 +56,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessType_ == nullptr
         && return this->appId_ == nullptr && return this->appInstanceGroupIdList_ == nullptr && return this->appInstanceId_ == nullptr && return this->appInstancePersistentId_ == nullptr && return this->appPolicyId_ == nullptr
-        && return this->appStartParam_ == nullptr && return this->appVersion_ == nullptr && return this->bizRegionId_ == nullptr && return this->endUserId_ == nullptr && return this->productType_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && return this->appStartParam_ == nullptr && return this->appVersion_ == nullptr && return this->bizRegionId_ == nullptr && return this->endUserId_ == nullptr && return this->environmentConfig_ == nullptr
+        && return this->productType_ == nullptr && return this->taskId_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -128,6 +130,13 @@ namespace Models
     inline GetConnectionTicketRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
+    // environmentConfig Field Functions 
+    bool hasEnvironmentConfig() const { return this->environmentConfig_ != nullptr;};
+    void deleteEnvironmentConfig() { this->environmentConfig_ = nullptr;};
+    inline string environmentConfig() const { DARABONBA_PTR_GET_DEFAULT(environmentConfig_, "") };
+    inline GetConnectionTicketRequest& setEnvironmentConfig(string environmentConfig) { DARABONBA_PTR_SET_VALUE(environmentConfig_, environmentConfig) };
+
+
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
@@ -173,6 +182,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> endUserId_ = nullptr;
+    std::shared_ptr<string> environmentConfig_ = nullptr;
     // The product type.
     // 
     // Valid values:

@@ -78,11 +78,24 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The IDs of the persistent sessions.
     std::shared_ptr<vector<string>> appInstancePersistentIds_ = nullptr;
+    // The page number. Pages start from page **1**. Default value: **1**.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. The value cannot be greater than **100**. Default value: **20**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The product type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudApp: App Streaming
+    // *   CloudBrowser: Cloud-based Browser
+    // *   AndroidCloud: Cloud Phone
+    // 
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
   };
