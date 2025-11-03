@@ -1063,6 +1063,10 @@ CreateScreenshotResponse Client::createScreenshotWithOptions(const CreateScreens
     query["OssBucketName"] = request.ossBucketName();
   }
 
+  if (!!request.hasScreenshotId()) {
+    query["ScreenshotId"] = request.screenshotId();
+  }
+
   if (!!request.hasSkipCheckPolicyConfig()) {
     query["SkipCheckPolicyConfig"] = request.skipCheckPolicyConfig();
   }

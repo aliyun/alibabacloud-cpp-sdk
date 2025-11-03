@@ -286,6 +286,8 @@
 #include <alibabacloud/models/CreateSystemPropertyTemplateRequestSystemPropertyInfo.hpp>
 #include <alibabacloud/models/DeleteImagesResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsRequestTags.hpp>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRulesInstanceQosRule.hpp>
+#include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelBindQosRules.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelTags.hpp>
 #include <alibabacloud/models/DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel.hpp>
