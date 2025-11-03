@@ -751,6 +751,20 @@ namespace Edas20170801
       Models::DescribeApplicationScalingRulesResponse describeApplicationScalingRules(const Models::DescribeApplicationScalingRulesRequest &request);
 
       /**
+       * @param request DescribeLocalitySettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLocalitySettingResponse
+       */
+      Models::DescribeLocalitySettingResponse describeLocalitySettingWithOptions(const Models::DescribeLocalitySettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeLocalitySettingRequest
+       * @return DescribeLocalitySettingResponse
+       */
+      Models::DescribeLocalitySettingResponse describeLocalitySetting(const Models::DescribeLocalitySettingRequest &request);
+
+      /**
        * @summary Disables an auto scaling policy for an application.
        *
        * @param request DisableApplicationScalingRuleRequest

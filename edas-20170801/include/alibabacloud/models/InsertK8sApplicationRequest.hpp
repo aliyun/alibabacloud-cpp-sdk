@@ -85,6 +85,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(RuntimeClassName, runtimeClassName_);
       DARABONBA_PTR_TO_JSON(SecretName, secretName_);
+      DARABONBA_PTR_TO_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_TO_JSON(ServiceConfigs, serviceConfigs_);
       DARABONBA_PTR_TO_JSON(Sidecars, sidecars_);
       DARABONBA_PTR_TO_JSON(SlsConfigs, slsConfigs_);
@@ -172,6 +173,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(RuntimeClassName, runtimeClassName_);
       DARABONBA_PTR_FROM_JSON(SecretName, secretName_);
+      DARABONBA_PTR_FROM_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_FROM_JSON(ServiceConfigs, serviceConfigs_);
       DARABONBA_PTR_FROM_JSON(Sidecars, sidecars_);
       DARABONBA_PTR_FROM_JSON(SlsConfigs, slsConfigs_);
@@ -212,9 +214,9 @@ namespace Models
         && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->postStart_ == nullptr && return this->preStop_ == nullptr
         && return this->pvcMountDescs_ == nullptr && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->repoId_ == nullptr && return this->requestsCpu_ == nullptr
         && return this->requestsEphemeralStorage_ == nullptr && return this->requestsMem_ == nullptr && return this->requestsmCpu_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runtimeClassName_ == nullptr
-        && return this->secretName_ == nullptr && return this->serviceConfigs_ == nullptr && return this->sidecars_ == nullptr && return this->slsConfigs_ == nullptr && return this->startup_ == nullptr
-        && return this->storageType_ == nullptr && return this->terminateGracePeriod_ == nullptr && return this->timeout_ == nullptr && return this->uriEncoding_ == nullptr && return this->useBodyEncoding_ == nullptr
-        && return this->userBaseImageUrl_ == nullptr && return this->webContainer_ == nullptr && return this->webContainerConfig_ == nullptr && return this->workloadType_ == nullptr; };
+        && return this->secretName_ == nullptr && return this->securityContext_ == nullptr && return this->serviceConfigs_ == nullptr && return this->sidecars_ == nullptr && return this->slsConfigs_ == nullptr
+        && return this->startup_ == nullptr && return this->storageType_ == nullptr && return this->terminateGracePeriod_ == nullptr && return this->timeout_ == nullptr && return this->uriEncoding_ == nullptr
+        && return this->useBodyEncoding_ == nullptr && return this->userBaseImageUrl_ == nullptr && return this->webContainer_ == nullptr && return this->webContainerConfig_ == nullptr && return this->workloadType_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};
@@ -719,6 +721,13 @@ namespace Models
     inline InsertK8sApplicationRequest& setSecretName(string secretName) { DARABONBA_PTR_SET_VALUE(secretName_, secretName) };
 
 
+    // securityContext Field Functions 
+    bool hasSecurityContext() const { return this->securityContext_ != nullptr;};
+    void deleteSecurityContext() { this->securityContext_ = nullptr;};
+    inline string securityContext() const { DARABONBA_PTR_GET_DEFAULT(securityContext_, "") };
+    inline InsertK8sApplicationRequest& setSecurityContext(string securityContext) { DARABONBA_PTR_SET_VALUE(securityContext_, securityContext) };
+
+
     // serviceConfigs Field Functions 
     bool hasServiceConfigs() const { return this->serviceConfigs_ != nullptr;};
     void deleteServiceConfigs() { this->serviceConfigs_ = nullptr;};
@@ -1042,6 +1051,7 @@ namespace Models
     std::shared_ptr<string> runtimeClassName_ = nullptr;
     // The name of the credential that is used to pull the images specified by the user. You must configure the Secret.
     std::shared_ptr<string> secretName_ = nullptr;
+    std::shared_ptr<string> securityContext_ = nullptr;
     // The configurations of services in a Kubernetes cluster.
     std::shared_ptr<string> serviceConfigs_ = nullptr;
     // Set up a Sidecar container for the application Pod. Support setting the format YAML for container configuration, which is the value of Sidecar container YAML configured with base64 encoding.

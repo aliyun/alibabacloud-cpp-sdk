@@ -47,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestCpuM, requestCpuM_);
       DARABONBA_PTR_TO_JSON(RequestEphemeralStorage, requestEphemeralStorage_);
       DARABONBA_PTR_TO_JSON(RequestMem, requestMem_);
+      DARABONBA_PTR_TO_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_TO_JSON(SlbInfo, slbInfo_);
       DARABONBA_PTR_TO_JSON(TomcatVersion, tomcatVersion_);
       DARABONBA_PTR_TO_JSON(WorkloadType, workloadType_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestCpuM, requestCpuM_);
       DARABONBA_PTR_FROM_JSON(RequestEphemeralStorage, requestEphemeralStorage_);
       DARABONBA_PTR_FROM_JSON(RequestMem, requestMem_);
+      DARABONBA_PTR_FROM_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_FROM_JSON(SlbInfo, slbInfo_);
       DARABONBA_PTR_FROM_JSON(TomcatVersion, tomcatVersion_);
       DARABONBA_PTR_FROM_JSON(WorkloadType, workloadType_);
@@ -106,7 +108,7 @@ namespace Models
         && return this->instances_ == nullptr && return this->instancesBeforeScaling_ == nullptr && return this->k8sNamespace_ == nullptr && return this->labels_ == nullptr && return this->limitCpuM_ == nullptr
         && return this->limitEphemeralStorage_ == nullptr && return this->limitMem_ == nullptr && return this->losslessRuleAligned_ == nullptr && return this->losslessRuleDelayTime_ == nullptr && return this->losslessRuleFuncType_ == nullptr
         && return this->losslessRuleRelated_ == nullptr && return this->losslessRuleWarmupTime_ == nullptr && return this->regionId_ == nullptr && return this->requestCpuM_ == nullptr && return this->requestEphemeralStorage_ == nullptr
-        && return this->requestMem_ == nullptr && return this->slbInfo_ == nullptr && return this->tomcatVersion_ == nullptr && return this->workloadType_ == nullptr; };
+        && return this->requestMem_ == nullptr && return this->securityContext_ == nullptr && return this->slbInfo_ == nullptr && return this->tomcatVersion_ == nullptr && return this->workloadType_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};
@@ -335,6 +337,13 @@ namespace Models
     inline GetK8sApplicationResponseBodyApplcationApp& setRequestMem(int32_t requestMem) { DARABONBA_PTR_SET_VALUE(requestMem_, requestMem) };
 
 
+    // securityContext Field Functions 
+    bool hasSecurityContext() const { return this->securityContext_ != nullptr;};
+    void deleteSecurityContext() { this->securityContext_ = nullptr;};
+    inline string securityContext() const { DARABONBA_PTR_GET_DEFAULT(securityContext_, "") };
+    inline GetK8sApplicationResponseBodyApplcationApp& setSecurityContext(string securityContext) { DARABONBA_PTR_SET_VALUE(securityContext_, securityContext) };
+
+
     // slbInfo Field Functions 
     bool hasSlbInfo() const { return this->slbInfo_ != nullptr;};
     void deleteSlbInfo() { this->slbInfo_ = nullptr;};
@@ -430,6 +439,7 @@ namespace Models
     std::shared_ptr<string> requestEphemeralStorage_ = nullptr;
     // The size of the reserved memory. Unit: MiB.
     std::shared_ptr<int32_t> requestMem_ = nullptr;
+    std::shared_ptr<string> securityContext_ = nullptr;
     // The configuration information about the Server Load Balancer (SLB).
     std::shared_ptr<string> slbInfo_ = nullptr;
     // The version of Apache Tomcat.

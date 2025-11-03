@@ -2344,6 +2344,10 @@ DeployK8sApplicationResponse Client::deployK8sApplicationWithOptions(const Deplo
     query["RuntimeClassName"] = request.runtimeClassName();
   }
 
+  if (!!request.hasSecurityContext()) {
+    query["SecurityContext"] = request.securityContext();
+  }
+
   if (!!request.hasSidecars()) {
     query["Sidecars"] = request.sidecars();
   }
@@ -2518,6 +2522,55 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRules(
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return describeApplicationScalingRulesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @param request DescribeLocalitySettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLocalitySettingResponse
+ */
+DescribeLocalitySettingResponse Client::describeLocalitySettingWithOptions(const DescribeLocalitySettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.region();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLocalitySetting"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/sp/applications/locality/setting")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLocalitySettingResponse>();
+}
+
+/**
+ * @param request DescribeLocalitySettingRequest
+ * @return DescribeLocalitySettingResponse
+ */
+DescribeLocalitySettingResponse Client::describeLocalitySetting(const DescribeLocalitySettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeLocalitySettingWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4471,6 +4524,10 @@ InsertK8sApplicationResponse Client::insertK8sApplicationWithOptions(const Inser
 
   if (!!request.hasSecretName()) {
     query["SecretName"] = request.secretName();
+  }
+
+  if (!!request.hasSecurityContext()) {
+    query["SecurityContext"] = request.securityContext();
   }
 
   if (!!request.hasServiceConfigs()) {

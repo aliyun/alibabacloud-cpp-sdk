@@ -68,6 +68,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
       DARABONBA_PTR_TO_JSON(RequestsEphemeralStorage, requestsEphemeralStorage_);
       DARABONBA_PTR_TO_JSON(RuntimeClassName, runtimeClassName_);
+      DARABONBA_PTR_TO_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_TO_JSON(Sidecars, sidecars_);
       DARABONBA_PTR_TO_JSON(SlsConfigs, slsConfigs_);
       DARABONBA_PTR_TO_JSON(Startup, startup_);
@@ -138,6 +139,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(RequestsEphemeralStorage, requestsEphemeralStorage_);
       DARABONBA_PTR_FROM_JSON(RuntimeClassName, runtimeClassName_);
+      DARABONBA_PTR_FROM_JSON(SecurityContext, securityContext_);
       DARABONBA_PTR_FROM_JSON(Sidecars, sidecars_);
       DARABONBA_PTR_FROM_JSON(SlsConfigs, slsConfigs_);
       DARABONBA_PTR_FROM_JSON(Startup, startup_);
@@ -174,10 +176,10 @@ namespace Models
         && return this->losslessRuleFuncType_ == nullptr && return this->losslessRuleRelated_ == nullptr && return this->losslessRuleWarmupTime_ == nullptr && return this->mcpuLimit_ == nullptr && return this->mcpuRequest_ == nullptr
         && return this->memoryLimit_ == nullptr && return this->memoryRequest_ == nullptr && return this->mountDescs_ == nullptr && return this->nasId_ == nullptr && return this->packageUrl_ == nullptr
         && return this->packageVersion_ == nullptr && return this->packageVersionId_ == nullptr && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->pvcMountDescs_ == nullptr
-        && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->requestsEphemeralStorage_ == nullptr && return this->runtimeClassName_ == nullptr && return this->sidecars_ == nullptr
-        && return this->slsConfigs_ == nullptr && return this->startup_ == nullptr && return this->storageType_ == nullptr && return this->terminateGracePeriod_ == nullptr && return this->trafficControlStrategy_ == nullptr
-        && return this->updateStrategy_ == nullptr && return this->uriEncoding_ == nullptr && return this->useBodyEncoding_ == nullptr && return this->userBaseImageUrl_ == nullptr && return this->volumesStr_ == nullptr
-        && return this->webContainer_ == nullptr && return this->webContainerConfig_ == nullptr; };
+        && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->requestsEphemeralStorage_ == nullptr && return this->runtimeClassName_ == nullptr && return this->securityContext_ == nullptr
+        && return this->sidecars_ == nullptr && return this->slsConfigs_ == nullptr && return this->startup_ == nullptr && return this->storageType_ == nullptr && return this->terminateGracePeriod_ == nullptr
+        && return this->trafficControlStrategy_ == nullptr && return this->updateStrategy_ == nullptr && return this->uriEncoding_ == nullptr && return this->useBodyEncoding_ == nullptr && return this->userBaseImageUrl_ == nullptr
+        && return this->volumesStr_ == nullptr && return this->webContainer_ == nullptr && return this->webContainerConfig_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};
@@ -563,6 +565,13 @@ namespace Models
     inline DeployK8sApplicationRequest& setRuntimeClassName(string runtimeClassName) { DARABONBA_PTR_SET_VALUE(runtimeClassName_, runtimeClassName) };
 
 
+    // securityContext Field Functions 
+    bool hasSecurityContext() const { return this->securityContext_ != nullptr;};
+    void deleteSecurityContext() { this->securityContext_ = nullptr;};
+    inline string securityContext() const { DARABONBA_PTR_GET_DEFAULT(securityContext_, "") };
+    inline DeployK8sApplicationRequest& setSecurityContext(string securityContext) { DARABONBA_PTR_SET_VALUE(securityContext_, securityContext) };
+
+
     // sidecars Field Functions 
     bool hasSidecars() const { return this->sidecars_ != nullptr;};
     void deleteSidecars() { this->sidecars_ = nullptr;};
@@ -846,6 +855,7 @@ namespace Models
     // 
     // This parameter is applicable only to clusters that use sandboxed containers.
     std::shared_ptr<string> runtimeClassName_ = nullptr;
+    std::shared_ptr<string> securityContext_ = nullptr;
     std::shared_ptr<string> sidecars_ = nullptr;
     // The Logstore configuration. If you want to cancel this configuration, leave the parameter value empty by entering `""` or `"{}"`.
     // 

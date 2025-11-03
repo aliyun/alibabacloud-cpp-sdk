@@ -123,6 +123,9 @@
 #include <alibabacloud/models/DescribeApplicationScalingRulesRequest.hpp>
 #include <alibabacloud/models/DescribeApplicationScalingRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeApplicationScalingRulesResponse.hpp>
+#include <alibabacloud/models/DescribeLocalitySettingRequest.hpp>
+#include <alibabacloud/models/DescribeLocalitySettingResponseBody.hpp>
+#include <alibabacloud/models/DescribeLocalitySettingResponse.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleRequest.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponseBody.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponse.hpp>
@@ -509,6 +512,7 @@
 #include <alibabacloud/models/DescribeApplicationScalingRulesResponseBodyAppScalingRulesResultTrigger.hpp>
 #include <alibabacloud/models/DescribeApplicationScalingRulesResponseBodyAppScalingRulesResult.hpp>
 #include <alibabacloud/models/DescribeApplicationScalingRulesResponseBodyAppScalingRules.hpp>
+#include <alibabacloud/models/DescribeLocalitySettingResponseBodyData.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponseBodyAppScalingRuleMetricMetrics.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponseBodyAppScalingRuleMetric.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponseBodyAppScalingRuleTriggerTriggers.hpp>
