@@ -838,6 +838,8 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationToken(const Models::GetAuthorizationTokenRequest &request);
 
       /**
+       * @summary 获取交付链
+       *
        * @param request GetChainRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetChainResponse
@@ -845,6 +847,8 @@ namespace Cr20181201
       Models::GetChainResponse getChainWithOptions(const Models::GetChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取交付链
+       *
        * @param request GetChainRequest
        * @return GetChainResponse
        */

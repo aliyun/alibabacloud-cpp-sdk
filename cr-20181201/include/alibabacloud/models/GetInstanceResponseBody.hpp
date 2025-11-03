@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->instanceIssue_ != nullptr && this->instanceName_ != nullptr && this->instanceSpecification_ != nullptr
-        && this->instanceStatus_ != nullptr && this->isSuccess_ != nullptr && this->modifiedTime_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIssue_ == nullptr && return this->instanceName_ == nullptr && return this->instanceSpecification_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->isSuccess_ == nullptr && return this->modifiedTime_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->tags_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

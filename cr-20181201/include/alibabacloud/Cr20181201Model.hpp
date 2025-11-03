@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ArtifactLifecyclePolicy.hpp>
 #include <alibabacloud/models/RepoConfiguration.hpp>
+#include <alibabacloud/models/RouteItem.hpp>
 #include <alibabacloud/models/CancelArtifactBuildTaskRequest.hpp>
 #include <alibabacloud/models/CancelArtifactBuildTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelArtifactBuildTaskResponse.hpp>

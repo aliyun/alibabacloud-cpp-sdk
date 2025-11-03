@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chartReleases_ != nullptr
-        && this->code_ != nullptr && this->isSuccess_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->chartReleases_ == nullptr
+        && return this->code_ == nullptr && return this->isSuccess_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // chartReleases Field Functions 
     bool hasChartReleases() const { return this->chartReleases_ != nullptr;};
     void deleteChartReleases() { this->chartReleases_ = nullptr;};

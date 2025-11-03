@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->crossUser_ != nullptr && this->localInstanceId_ != nullptr && this->localNamespaceName_ != nullptr && this->localRegionId_ != nullptr && this->localRepoName_ != nullptr
-        && this->modifiedTime_ != nullptr && this->repoNameFilter_ != nullptr && this->syncDirection_ != nullptr && this->syncRuleId_ != nullptr && this->syncRuleName_ != nullptr
-        && this->syncScope_ != nullptr && this->syncTrigger_ != nullptr && this->tagFilter_ != nullptr && this->targetInstanceId_ != nullptr && this->targetNamespaceName_ != nullptr
-        && this->targetRegionId_ != nullptr && this->targetRepoName_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->crossUser_ == nullptr && return this->localInstanceId_ == nullptr && return this->localNamespaceName_ == nullptr && return this->localRegionId_ == nullptr && return this->localRepoName_ == nullptr
+        && return this->modifiedTime_ == nullptr && return this->repoNameFilter_ == nullptr && return this->syncDirection_ == nullptr && return this->syncRuleId_ == nullptr && return this->syncRuleName_ == nullptr
+        && return this->syncScope_ == nullptr && return this->syncTrigger_ == nullptr && return this->tagFilter_ == nullptr && return this->targetInstanceId_ == nullptr && return this->targetNamespaceName_ == nullptr
+        && return this->targetRegionId_ == nullptr && return this->targetRepoName_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

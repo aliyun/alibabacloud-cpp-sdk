@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoBuild_ != nullptr
-        && this->codeRepoId_ != nullptr && this->codeRepoName_ != nullptr && this->codeRepoNamespaceName_ != nullptr && this->codeRepoType_ != nullptr && this->disableCacheBuild_ != nullptr
-        && this->instanceId_ != nullptr && this->overseaBuild_ != nullptr && this->repoId_ != nullptr; };
+    virtual bool empty() const override { return this->autoBuild_ == nullptr
+        && return this->codeRepoId_ == nullptr && return this->codeRepoName_ == nullptr && return this->codeRepoNamespaceName_ == nullptr && return this->codeRepoType_ == nullptr && return this->disableCacheBuild_ == nullptr
+        && return this->instanceId_ == nullptr && return this->overseaBuild_ == nullptr && return this->repoId_ == nullptr; };
     // autoBuild Field Functions 
     bool hasAutoBuild() const { return this->autoBuild_ != nullptr;};
     void deleteAutoBuild() { this->autoBuild_ = nullptr;};

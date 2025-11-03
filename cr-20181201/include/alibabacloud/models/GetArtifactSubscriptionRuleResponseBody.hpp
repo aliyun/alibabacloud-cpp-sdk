@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_TO_JSON(SourceDomain, sourceDomain_);
       DARABONBA_PTR_TO_JSON(SourceNamespaceName, sourceNamespaceName_);
       DARABONBA_PTR_TO_JSON(SourceProvider, sourceProvider_);
       DARABONBA_PTR_TO_JSON(SourceRepoName, sourceRepoName_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_FROM_JSON(SourceDomain, sourceDomain_);
       DARABONBA_PTR_FROM_JSON(SourceNamespaceName, sourceNamespaceName_);
       DARABONBA_PTR_FROM_JSON(SourceProvider, sourceProvider_);
       DARABONBA_PTR_FROM_JSON(SourceRepoName, sourceRepoName_);
@@ -62,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerate_ != nullptr
-        && this->code_ != nullptr && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->isSuccess_ != nullptr && this->modifiedTime_ != nullptr
-        && this->namespaceName_ != nullptr && this->override_ != nullptr && this->platform_ != nullptr && this->repoName_ != nullptr && this->requestId_ != nullptr
-        && this->ruleId_ != nullptr && this->sourceNamespaceName_ != nullptr && this->sourceProvider_ != nullptr && this->sourceRepoName_ != nullptr && this->tagCount_ != nullptr
-        && this->tagRegexp_ != nullptr; };
+    virtual bool empty() const override { return this->accelerate_ == nullptr
+        && return this->code_ == nullptr && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->isSuccess_ == nullptr && return this->modifiedTime_ == nullptr
+        && return this->namespaceName_ == nullptr && return this->override_ == nullptr && return this->platform_ == nullptr && return this->repoName_ == nullptr && return this->requestId_ == nullptr
+        && return this->ruleId_ == nullptr && return this->sourceDomain_ == nullptr && return this->sourceNamespaceName_ == nullptr && return this->sourceProvider_ == nullptr && return this->sourceRepoName_ == nullptr
+        && return this->tagCount_ == nullptr && return this->tagRegexp_ == nullptr; };
     // accelerate Field Functions 
     bool hasAccelerate() const { return this->accelerate_ != nullptr;};
     void deleteAccelerate() { this->accelerate_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
     inline GetArtifactSubscriptionRuleResponseBody& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
+    // sourceDomain Field Functions 
+    bool hasSourceDomain() const { return this->sourceDomain_ != nullptr;};
+    void deleteSourceDomain() { this->sourceDomain_ = nullptr;};
+    inline string sourceDomain() const { DARABONBA_PTR_GET_DEFAULT(sourceDomain_, "") };
+    inline GetArtifactSubscriptionRuleResponseBody& setSourceDomain(string sourceDomain) { DARABONBA_PTR_SET_VALUE(sourceDomain_, sourceDomain) };
+
+
     // sourceNamespaceName Field Functions 
     bool hasSourceNamespaceName() const { return this->sourceNamespaceName_ != nullptr;};
     void deleteSourceNamespaceName() { this->sourceNamespaceName_ = nullptr;};
@@ -216,6 +225,7 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // The rule ID.
     std::shared_ptr<string> ruleId_ = nullptr;
+    std::shared_ptr<string> sourceDomain_ = nullptr;
     // The name of the source namespace.
     std::shared_ptr<string> sourceNamespaceName_ = nullptr;
     // The source of the artifact.

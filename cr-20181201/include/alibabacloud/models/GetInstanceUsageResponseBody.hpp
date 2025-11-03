@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chartNamespaceQuota_ != nullptr
-        && this->chartNamespaceUsage_ != nullptr && this->chartRepoQuota_ != nullptr && this->chartRepoUsage_ != nullptr && this->code_ != nullptr && this->isSuccess_ != nullptr
-        && this->namespaceQuota_ != nullptr && this->namespaceUsage_ != nullptr && this->repoQuota_ != nullptr && this->repoUsage_ != nullptr && this->requestId_ != nullptr
-        && this->vpcQuota_ != nullptr && this->vpcUsage_ != nullptr; };
+    virtual bool empty() const override { return this->chartNamespaceQuota_ == nullptr
+        && return this->chartNamespaceUsage_ == nullptr && return this->chartRepoQuota_ == nullptr && return this->chartRepoUsage_ == nullptr && return this->code_ == nullptr && return this->isSuccess_ == nullptr
+        && return this->namespaceQuota_ == nullptr && return this->namespaceUsage_ == nullptr && return this->repoQuota_ == nullptr && return this->repoUsage_ == nullptr && return this->requestId_ == nullptr
+        && return this->vpcQuota_ == nullptr && return this->vpcUsage_ == nullptr; };
     // chartNamespaceQuota Field Functions 
     bool hasChartNamespaceQuota() const { return this->chartNamespaceQuota_ != nullptr;};
     void deleteChartNamespaceQuota() { this->chartNamespaceQuota_ = nullptr;};

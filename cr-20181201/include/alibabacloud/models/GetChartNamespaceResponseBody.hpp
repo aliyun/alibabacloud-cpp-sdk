@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCreateRepo_ != nullptr
-        && this->code_ != nullptr && this->defaultRepoType_ != nullptr && this->instanceId_ != nullptr && this->isSuccess_ != nullptr && this->namespaceId_ != nullptr
-        && this->namespaceName_ != nullptr && this->namespaceStatus_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->autoCreateRepo_ == nullptr
+        && return this->code_ == nullptr && return this->defaultRepoType_ == nullptr && return this->instanceId_ == nullptr && return this->isSuccess_ == nullptr && return this->namespaceId_ == nullptr
+        && return this->namespaceName_ == nullptr && return this->namespaceStatus_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // autoCreateRepo Field Functions 
     bool hasAutoCreateRepo() const { return this->autoCreateRepo_ != nullptr;};
     void deleteAutoCreateRepo() { this->autoCreateRepo_ = nullptr;};

@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildArgs_ != nullptr
-        && this->buildRuleId_ != nullptr && this->dockerfileLocation_ != nullptr && this->dockerfileName_ != nullptr && this->imageTag_ != nullptr && this->platforms_ != nullptr
-        && this->pushName_ != nullptr && this->pushType_ != nullptr; };
+    virtual bool empty() const override { return this->buildArgs_ == nullptr
+        && return this->buildRuleId_ == nullptr && return this->dockerfileLocation_ == nullptr && return this->dockerfileName_ == nullptr && return this->imageTag_ == nullptr && return this->platforms_ == nullptr
+        && return this->pushName_ == nullptr && return this->pushType_ == nullptr; };
     // buildArgs Field Functions 
     bool hasBuildArgs() const { return this->buildArgs_ != nullptr;};
     void deleteBuildArgs() { this->buildArgs_ = nullptr;};

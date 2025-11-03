@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactBuildRuleParameters_ != nullptr
-        && this->repoType_ != nullptr && this->tagImmutability_ != nullptr; };
+    virtual bool empty() const override { return this->artifactBuildRuleParameters_ == nullptr
+        && return this->repoType_ == nullptr && return this->tagImmutability_ == nullptr; };
     // artifactBuildRuleParameters Field Functions 
     bool hasArtifactBuildRuleParameters() const { return this->artifactBuildRuleParameters_ != nullptr;};
     void deleteArtifactBuildRuleParameters() { this->artifactBuildRuleParameters_ = nullptr;};

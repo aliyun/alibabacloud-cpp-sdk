@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->buildRuleId_ != nullptr && this->code_ != nullptr && this->isSuccess_ != nullptr && this->parameters_ != nullptr && this->requestId_ != nullptr
-        && this->scopeId_ != nullptr && this->scopeType_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && return this->buildRuleId_ == nullptr && return this->code_ == nullptr && return this->isSuccess_ == nullptr && return this->parameters_ == nullptr && return this->requestId_ == nullptr
+        && return this->scopeId_ == nullptr && return this->scopeType_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
@@ -106,13 +106,29 @@ namespace Models
 
 
   protected:
+    // The type of the artifact. Valid values:
+    // 
+    // *   `ACCELERATED_IMAGE`: accelerated images.
     std::shared_ptr<string> artifactType_ = nullptr;
+    // The ID of the artifact building rule.
     std::shared_ptr<string> buildRuleId_ = nullptr;
     std::shared_ptr<string> code_ = nullptr;
+    // Indicates whether the API request is successful. Valid values:
+    // 
+    // *   `true`: The request is successful.
+    // *   `false`: The request fails.
     std::shared_ptr<bool> isSuccess_ = nullptr;
+    // Additional parameters.
     std::shared_ptr<GetArtifactBuildRuleResponseBodyParameters> parameters_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the effective range of the artifact building rule.
+    // 
+    // *   The parameter value is the ID of the image repository.
     std::shared_ptr<string> scopeId_ = nullptr;
+    // The effective range of the artifact building rule. Valid values:
+    // 
+    // *   `REPOSITORY`: The artifact building rule is effective in the repository level.
     std::shared_ptr<string> scopeType_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageIndexOnly_ != nullptr
-        && this->priorityFile_ != nullptr; };
+    virtual bool empty() const override { return this->imageIndexOnly_ == nullptr
+        && return this->priorityFile_ == nullptr; };
     // imageIndexOnly Field Functions 
     bool hasImageIndexOnly() const { return this->imageIndexOnly_ != nullptr;};
     void deleteImageIndexOnly() { this->imageIndexOnly_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the index-only mode is enabled.
     std::shared_ptr<bool> imageIndexOnly_ = nullptr;
+    // The list of files that you want to prefetch when you use the image acceleration feature. Each entry contains the Base64-encoded absolute path of a file.
     std::shared_ptr<string> priorityFile_ = nullptr;
   };
 

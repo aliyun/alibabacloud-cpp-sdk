@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addedBy_ != nullptr
-        && this->aliasName_ != nullptr && this->cveLink_ != nullptr && this->cveLocation_ != nullptr && this->cveName_ != nullptr && this->description_ != nullptr
-        && this->feature_ != nullptr && this->fixCmd_ != nullptr && this->scanType_ != nullptr && this->severity_ != nullptr && this->version_ != nullptr
-        && this->versionFixed_ != nullptr && this->versionFormat_ != nullptr; };
+    virtual bool empty() const override { return this->addedBy_ == nullptr
+        && return this->aliasName_ == nullptr && return this->cveLink_ == nullptr && return this->cveLocation_ == nullptr && return this->cveName_ == nullptr && return this->description_ == nullptr
+        && return this->feature_ == nullptr && return this->fixCmd_ == nullptr && return this->scanType_ == nullptr && return this->severity_ == nullptr && return this->version_ == nullptr
+        && return this->versionFixed_ == nullptr && return this->versionFormat_ == nullptr; };
     // addedBy Field Functions 
     bool hasAddedBy() const { return this->addedBy_ != nullptr;};
     void deleteAddedBy() { this->addedBy_ = nullptr;};

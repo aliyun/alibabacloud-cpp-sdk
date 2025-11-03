@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auto_ != nullptr
-        && this->createTime_ != nullptr && this->enableDeleteTag_ != nullptr && this->instanceId_ != nullptr && this->modifiedTime_ != nullptr && this->namespaceName_ != nullptr
-        && this->nextTime_ != nullptr && this->policies_ != nullptr && this->repoName_ != nullptr && this->retentionTagCount_ != nullptr && this->ruleId_ != nullptr
-        && this->scheduleTime_ != nullptr && this->scope_ != nullptr && this->tagRegexp_ != nullptr; };
+    virtual bool empty() const override { return this->auto_ == nullptr
+        && return this->createTime_ == nullptr && return this->enableDeleteTag_ == nullptr && return this->instanceId_ == nullptr && return this->modifiedTime_ == nullptr && return this->namespaceName_ == nullptr
+        && return this->nextTime_ == nullptr && return this->policies_ == nullptr && return this->repoName_ == nullptr && return this->retentionTagCount_ == nullptr && return this->ruleId_ == nullptr
+        && return this->scheduleTime_ == nullptr && return this->scope_ == nullptr && return this->tagRegexp_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};

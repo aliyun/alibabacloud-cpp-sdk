@@ -2596,6 +2596,8 @@ GetAuthorizationTokenResponse Client::getAuthorizationToken(const GetAuthorizati
 }
 
 /**
+ * @summary 获取交付链
+ *
  * @param request GetChainRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetChainResponse
@@ -2629,6 +2631,8 @@ GetChainResponse Client::getChainWithOptions(const GetChainRequest &request, con
 }
 
 /**
+ * @summary 获取交付链
+ *
  * @param request GetChainRequest
  * @return GetChainResponse
  */

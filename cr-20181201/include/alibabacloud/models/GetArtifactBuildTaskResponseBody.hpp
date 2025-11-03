@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactBuildType_ != nullptr
-        && this->buildTaskId_ != nullptr && this->code_ != nullptr && this->endTime_ != nullptr && this->instructions_ != nullptr && this->isSuccess_ != nullptr
-        && this->requestId_ != nullptr && this->sourceArtifact_ != nullptr && this->startTime_ != nullptr && this->targetArtifact_ != nullptr && this->taskStatus_ != nullptr; };
+    virtual bool empty() const override { return this->artifactBuildType_ == nullptr
+        && return this->buildTaskId_ == nullptr && return this->code_ == nullptr && return this->endTime_ == nullptr && return this->instructions_ == nullptr && return this->isSuccess_ == nullptr
+        && return this->requestId_ == nullptr && return this->sourceArtifact_ == nullptr && return this->startTime_ == nullptr && return this->targetArtifact_ == nullptr && return this->taskStatus_ == nullptr; };
     // artifactBuildType Field Functions 
     bool hasArtifactBuildType() const { return this->artifactBuildType_ != nullptr;};
     void deleteArtifactBuildType() { this->artifactBuildType_ = nullptr;};

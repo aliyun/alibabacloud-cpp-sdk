@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accelerate_ != nullptr
-        && this->instanceId_ != nullptr && this->namespaceName_ != nullptr && this->override_ != nullptr && this->platform_ != nullptr && this->repoName_ != nullptr
-        && this->sourceNamespaceName_ != nullptr && this->sourceProvider_ != nullptr && this->sourceRepoName_ != nullptr && this->tagCount_ != nullptr && this->tagRegexp_ != nullptr; };
+    virtual bool empty() const override { return this->accelerate_ == nullptr
+        && return this->instanceId_ == nullptr && return this->namespaceName_ == nullptr && return this->override_ == nullptr && return this->platform_ == nullptr && return this->repoName_ == nullptr
+        && return this->sourceNamespaceName_ == nullptr && return this->sourceProvider_ == nullptr && return this->sourceRepoName_ == nullptr && return this->tagCount_ == nullptr && return this->tagRegexp_ == nullptr; };
     // accelerate Field Functions 
     bool hasAccelerate() const { return this->accelerate_ != nullptr;};
     void deleteAccelerate() { this->accelerate_ = nullptr;};

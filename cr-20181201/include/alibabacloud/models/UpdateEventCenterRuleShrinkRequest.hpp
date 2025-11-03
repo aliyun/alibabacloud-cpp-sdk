@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventChannel_ != nullptr
-        && this->eventConfig_ != nullptr && this->eventScope_ != nullptr && this->eventType_ != nullptr && this->instanceId_ != nullptr && this->namespacesShrink_ != nullptr
-        && this->repoNamesShrink_ != nullptr && this->repoTagFilterPattern_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr; };
+    virtual bool empty() const override { return this->eventChannel_ == nullptr
+        && return this->eventConfig_ == nullptr && return this->eventScope_ == nullptr && return this->eventType_ == nullptr && return this->instanceId_ == nullptr && return this->namespacesShrink_ == nullptr
+        && return this->repoNamesShrink_ == nullptr && return this->repoTagFilterPattern_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr; };
     // eventChannel Field Functions 
     bool hasEventChannel() const { return this->eventChannel_ != nullptr;};
     void deleteEventChannel() { this->eventChannel_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->buildRuleId_ != nullptr && this->instanceId_ != nullptr && this->scopeId_ != nullptr && this->scopeType_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && return this->buildRuleId_ == nullptr && return this->instanceId_ == nullptr && return this->scopeId_ == nullptr && return this->scopeType_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
@@ -75,11 +75,23 @@ namespace Models
 
 
   protected:
+    // The type of the artifact.
+    // 
+    // *   `ACCELERATED_IMAGE`: accelerated images.
     std::shared_ptr<string> artifactType_ = nullptr;
+    // The ID of the artifact building rule.
     std::shared_ptr<string> buildRuleId_ = nullptr;
+    // The ID of the Container Registry instance.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The ID of the effective range of the artifact building rule.
+    // 
+    // *   Set the value to the ID of the image repository.
     std::shared_ptr<string> scopeId_ = nullptr;
+    // The effective range of the artifact building rule. Valid values:
+    // 
+    // *   `REPOSITORY`: The artifact building rule is effective in the repository level.
     std::shared_ptr<string> scopeType_ = nullptr;
   };
 

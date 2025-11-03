@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->domains_ != nullptr && this->enable_ != nullptr && this->isSuccess_ != nullptr && this->linkedVpcs_ != nullptr && this->moduleName_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->domains_ == nullptr && return this->enable_ == nullptr && return this->isSuccess_ == nullptr && return this->linkedVpcs_ == nullptr && return this->moduleName_ == nullptr
+        && return this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -114,7 +114,7 @@ namespace Models
     // *   `true`: The request is successful.
     // *   `false`: The request fails.
     std::shared_ptr<bool> isSuccess_ = nullptr;
-    // The VPCs that are added to the access control list.
+    // List of linked VPCs
     std::shared_ptr<vector<GetInstanceVpcEndpointResponseBodyLinkedVpcs>> linkedVpcs_ = nullptr;
     // The name of the modules that can be accessed. Valid values:
     // 

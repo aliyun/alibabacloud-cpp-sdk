@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultAccess_ != nullptr
-        && this->ip_ != nullptr && this->issue_ != nullptr && this->status_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->defaultAccess_ == nullptr
+        && return this->ip_ == nullptr && return this->issue_ == nullptr && return this->status_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
     // defaultAccess Field Functions 
     bool hasDefaultAccess() const { return this->defaultAccess_ != nullptr;};
     void deleteDefaultAccess() { this->defaultAccess_ = nullptr;};
@@ -88,6 +88,7 @@ namespace Models
     std::shared_ptr<bool> defaultAccess_ = nullptr;
     // IP address.
     std::shared_ptr<string> ip_ = nullptr;
+    // The error message detected in the linked VPC access control.
     std::shared_ptr<string> issue_ = nullptr;
     // The status of the VPC. Valid values:
     // 

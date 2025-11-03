@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chainId_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->instanceId_ != nullptr && this->modifiedTime_ != nullptr && this->name_ != nullptr
-        && this->scopeExclude_ != nullptr && this->scopeId_ != nullptr && this->scopeType_ != nullptr; };
+    virtual bool empty() const override { return this->chainId_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->modifiedTime_ == nullptr && return this->name_ == nullptr
+        && return this->scopeExclude_ == nullptr && return this->scopeId_ == nullptr && return this->scopeType_ == nullptr; };
     // chainId Field Functions 
     bool hasChainId() const { return this->chainId_ != nullptr;};
     void deleteChainId() { this->chainId_ = nullptr;};

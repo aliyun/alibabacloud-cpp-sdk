@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->crossUser_ != nullptr && this->imageFrom_ != nullptr && this->imageTo_ != nullptr && this->isSuccess_ != nullptr && this->layerTasks_ != nullptr
-        && this->progress_ != nullptr && this->requestId_ != nullptr && this->syncBatchTaskId_ != nullptr && this->syncRuleId_ != nullptr && this->syncTaskId_ != nullptr
-        && this->syncTransAccelerate_ != nullptr && this->syncedSize_ != nullptr && this->taskIssue_ != nullptr && this->taskStatus_ != nullptr && this->taskTrigger_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->crossUser_ == nullptr && return this->imageFrom_ == nullptr && return this->imageTo_ == nullptr && return this->isSuccess_ == nullptr && return this->layerTasks_ == nullptr
+        && return this->progress_ == nullptr && return this->requestId_ == nullptr && return this->syncBatchTaskId_ == nullptr && return this->syncRuleId_ == nullptr && return this->syncTaskId_ == nullptr
+        && return this->syncTransAccelerate_ == nullptr && return this->syncedSize_ == nullptr && return this->taskIssue_ == nullptr && return this->taskStatus_ == nullptr && return this->taskTrigger_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

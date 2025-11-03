@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->message_ != nullptr && this->namespaceName_ != nullptr && this->repoName_ != nullptr
-        && this->sourceNamespaceName_ != nullptr && this->sourceProvider_ != nullptr && this->sourceRepoName_ != nullptr && this->sourceRepoType_ != nullptr && this->startTime_ != nullptr
-        && this->tagSubscriptionCount_ != nullptr && this->tagTotalCount_ != nullptr && this->taskId_ != nullptr && this->taskResult_ != nullptr && this->taskStatus_ != nullptr
-        && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->message_ == nullptr && return this->namespaceName_ == nullptr && return this->repoName_ == nullptr
+        && return this->sourceNamespaceName_ == nullptr && return this->sourceProvider_ == nullptr && return this->sourceRepoName_ == nullptr && return this->sourceRepoType_ == nullptr && return this->startTime_ == nullptr
+        && return this->tagSubscriptionCount_ == nullptr && return this->tagTotalCount_ == nullptr && return this->taskId_ == nullptr && return this->taskResult_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->taskType_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};

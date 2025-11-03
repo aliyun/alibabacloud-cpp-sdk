@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableCreateDNSRecordInPvzt_ != nullptr
-        && this->instanceId_ != nullptr && this->moduleName_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->enableCreateDNSRecordInPvzt_ == nullptr
+        && return this->instanceId_ == nullptr && return this->moduleName_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
     // enableCreateDNSRecordInPvzt Field Functions 
     bool hasEnableCreateDNSRecordInPvzt() const { return this->enableCreateDNSRecordInPvzt_ != nullptr;};
     void deleteEnableCreateDNSRecordInPvzt() { this->enableCreateDNSRecordInPvzt_ = nullptr;};

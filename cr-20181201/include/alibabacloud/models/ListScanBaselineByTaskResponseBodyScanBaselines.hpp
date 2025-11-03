@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baselineClassAlias_ != nullptr
-        && this->baselineDetailAdvice_ != nullptr && this->baselineDetailDescription_ != nullptr && this->baselineDetailPrompt_ != nullptr && this->baselineItemCount_ != nullptr && this->baselineNameAlias_ != nullptr
-        && this->baselineNameKey_ != nullptr && this->baselineNameLevel_ != nullptr && this->createTime_ != nullptr && this->firstScanTime_ != nullptr && this->highRiskItemCount_ != nullptr
-        && this->lowRiskItemCount_ != nullptr && this->middleRiskItemCount_ != nullptr && this->scanTaskId_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->baselineClassAlias_ == nullptr
+        && return this->baselineDetailAdvice_ == nullptr && return this->baselineDetailDescription_ == nullptr && return this->baselineDetailPrompt_ == nullptr && return this->baselineItemCount_ == nullptr && return this->baselineNameAlias_ == nullptr
+        && return this->baselineNameKey_ == nullptr && return this->baselineNameLevel_ == nullptr && return this->createTime_ == nullptr && return this->firstScanTime_ == nullptr && return this->highRiskItemCount_ == nullptr
+        && return this->lowRiskItemCount_ == nullptr && return this->middleRiskItemCount_ == nullptr && return this->scanTaskId_ == nullptr && return this->updateTime_ == nullptr; };
     // baselineClassAlias Field Functions 
     bool hasBaselineClassAlias() const { return this->baselineClassAlias_ != nullptr;};
     void deleteBaselineClassAlias() { this->baselineClassAlias_ = nullptr;};
