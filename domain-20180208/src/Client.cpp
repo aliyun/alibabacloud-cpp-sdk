@@ -1700,5 +1700,137 @@ UpdatePartnerReservePriceResponse Client::updatePartnerReservePrice(const Update
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updatePartnerReservePriceWithOptions(request, runtime);
 }
+
+/**
+ * @summary 域名建站添加DNS记录
+ *
+ * @param request WebsiteAddDnsRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WebsiteAddDnsRecordResponse
+ */
+WebsiteAddDnsRecordResponse Client::websiteAddDnsRecordWithOptions(const WebsiteAddDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasRr()) {
+    query["Rr"] = request.rr();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.source();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  if (!!request.hasValue()) {
+    query["Value"] = request.value();
+  }
+
+  if (!!request.hasWebsiteNo()) {
+    query["WebsiteNo"] = request.websiteNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "WebsiteAddDnsRecord"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WebsiteAddDnsRecordResponse>();
+}
+
+/**
+ * @summary 域名建站添加DNS记录
+ *
+ * @param request WebsiteAddDnsRecordRequest
+ * @return WebsiteAddDnsRecordResponse
+ */
+WebsiteAddDnsRecordResponse Client::websiteAddDnsRecord(const WebsiteAddDnsRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return websiteAddDnsRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 域名建站删除DNS记录
+ *
+ * @param request WebsiteDeleteDnsRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WebsiteDeleteDnsRecordResponse
+ */
+WebsiteDeleteDnsRecordResponse Client::websiteDeleteDnsRecordWithOptions(const WebsiteDeleteDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasRr()) {
+    query["Rr"] = request.rr();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.source();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  if (!!request.hasValue()) {
+    query["Value"] = request.value();
+  }
+
+  if (!!request.hasWebsiteNo()) {
+    query["WebsiteNo"] = request.websiteNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "WebsiteDeleteDnsRecord"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WebsiteDeleteDnsRecordResponse>();
+}
+
+/**
+ * @summary 域名建站删除DNS记录
+ *
+ * @param request WebsiteDeleteDnsRecordRequest
+ * @return WebsiteDeleteDnsRecordResponse
+ */
+WebsiteDeleteDnsRecordResponse Client::websiteDeleteDnsRecord(const WebsiteDeleteDnsRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return websiteDeleteDnsRecordWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace Domain20180208

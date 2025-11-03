@@ -553,6 +553,40 @@ namespace Domain20180208
        * @return UpdatePartnerReservePriceResponse
        */
       Models::UpdatePartnerReservePriceResponse updatePartnerReservePrice(const Models::UpdatePartnerReservePriceRequest &request);
+
+      /**
+       * @summary 域名建站添加DNS记录
+       *
+       * @param request WebsiteAddDnsRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WebsiteAddDnsRecordResponse
+       */
+      Models::WebsiteAddDnsRecordResponse websiteAddDnsRecordWithOptions(const Models::WebsiteAddDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 域名建站添加DNS记录
+       *
+       * @param request WebsiteAddDnsRecordRequest
+       * @return WebsiteAddDnsRecordResponse
+       */
+      Models::WebsiteAddDnsRecordResponse websiteAddDnsRecord(const Models::WebsiteAddDnsRecordRequest &request);
+
+      /**
+       * @summary 域名建站删除DNS记录
+       *
+       * @param request WebsiteDeleteDnsRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WebsiteDeleteDnsRecordResponse
+       */
+      Models::WebsiteDeleteDnsRecordResponse websiteDeleteDnsRecordWithOptions(const Models::WebsiteDeleteDnsRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 域名建站删除DNS记录
+       *
+       * @param request WebsiteDeleteDnsRecordRequest
+       * @return WebsiteDeleteDnsRecordResponse
+       */
+      Models::WebsiteDeleteDnsRecordResponse websiteDeleteDnsRecord(const Models::WebsiteDeleteDnsRecordRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Domain20180208

@@ -112,6 +112,12 @@
 #include <alibabacloud/models/UpdatePartnerReservePriceRequest.hpp>
 #include <alibabacloud/models/UpdatePartnerReservePriceResponseBody.hpp>
 #include <alibabacloud/models/UpdatePartnerReservePriceResponse.hpp>
+#include <alibabacloud/models/WebsiteAddDnsRecordRequest.hpp>
+#include <alibabacloud/models/WebsiteAddDnsRecordResponseBody.hpp>
+#include <alibabacloud/models/WebsiteAddDnsRecordResponse.hpp>
+#include <alibabacloud/models/WebsiteDeleteDnsRecordRequest.hpp>
+#include <alibabacloud/models/WebsiteDeleteDnsRecordResponseBody.hpp>
+#include <alibabacloud/models/WebsiteDeleteDnsRecordResponse.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsResponseBodyDataFailureList.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsResponseBodyDataSuccessList.hpp>
 #include <alibabacloud/models/BatchIntrudeDomainsResponseBodyData.hpp>
