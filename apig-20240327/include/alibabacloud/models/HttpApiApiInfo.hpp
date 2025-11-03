@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(httpApiId, httpApiId_);
       DARABONBA_PTR_TO_JSON(ingressInfo, ingressInfo_);
+      DARABONBA_PTR_TO_JSON(modelCategory, modelCategory_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(httpApiId, httpApiId_);
       DARABONBA_PTR_FROM_JSON(ingressInfo, ingressInfo_);
+      DARABONBA_PTR_FROM_JSON(modelCategory, modelCategory_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
@@ -70,7 +72,8 @@ namespace Models
     virtual bool empty() const override { return this->aiProtocols_ == nullptr
         && return this->authConfig_ == nullptr && return this->basePath_ == nullptr && return this->deployCntMap_ == nullptr && return this->deployConfigs_ == nullptr && return this->description_ == nullptr
         && return this->enabelAuth_ == nullptr && return this->environments_ == nullptr && return this->gatewayId_ == nullptr && return this->httpApiId_ == nullptr && return this->ingressInfo_ == nullptr
-        && return this->name_ == nullptr && return this->protocols_ == nullptr && return this->resourceGroupId_ == nullptr && return this->type_ == nullptr && return this->versionInfo_ == nullptr; };
+        && return this->modelCategory_ == nullptr && return this->name_ == nullptr && return this->protocols_ == nullptr && return this->resourceGroupId_ == nullptr && return this->type_ == nullptr
+        && return this->versionInfo_ == nullptr; };
     // aiProtocols Field Functions 
     bool hasAiProtocols() const { return this->aiProtocols_ != nullptr;};
     void deleteAiProtocols() { this->aiProtocols_ = nullptr;};
@@ -160,6 +163,13 @@ namespace Models
     inline HttpApiApiInfo& setIngressInfo(HttpApiApiInfoIngressInfo && ingressInfo) { DARABONBA_PTR_SET_RVALUE(ingressInfo_, ingressInfo) };
 
 
+    // modelCategory Field Functions 
+    bool hasModelCategory() const { return this->modelCategory_ != nullptr;};
+    void deleteModelCategory() { this->modelCategory_ = nullptr;};
+    inline string modelCategory() const { DARABONBA_PTR_GET_DEFAULT(modelCategory_, "") };
+    inline HttpApiApiInfo& setModelCategory(string modelCategory) { DARABONBA_PTR_SET_VALUE(modelCategory_, modelCategory) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -211,6 +221,7 @@ namespace Models
     std::shared_ptr<string> gatewayId_ = nullptr;
     std::shared_ptr<string> httpApiId_ = nullptr;
     std::shared_ptr<HttpApiApiInfoIngressInfo> ingressInfo_ = nullptr;
+    std::shared_ptr<string> modelCategory_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<vector<string>> protocols_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;

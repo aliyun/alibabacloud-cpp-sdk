@@ -16,6 +16,7 @@ namespace Models
   class AiServiceConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AiServiceConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(ApiKeyGenerateMode, apiKeyGenerateMode_);
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(apiKeys, apiKeys_);
       DARABONBA_PTR_TO_JSON(bedrockServiceConfig, bedrockServiceConfig_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(provider, provider_);
     };
     friend void from_json(const Darabonba::Json& j, AiServiceConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApiKeyGenerateMode, apiKeyGenerateMode_);
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(apiKeys, apiKeys_);
       DARABONBA_PTR_FROM_JSON(bedrockServiceConfig, bedrockServiceConfig_);
@@ -44,9 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->address_ == nullptr
-        && return this->apiKeys_ == nullptr && return this->bedrockServiceConfig_ == nullptr && return this->enableHealthCheck_ == nullptr && return this->paiEASServiceConfig_ == nullptr && return this->protocols_ == nullptr
-        && return this->provider_ == nullptr; };
+    virtual bool empty() const override { return this->apiKeyGenerateMode_ == nullptr
+        && return this->address_ == nullptr && return this->apiKeys_ == nullptr && return this->bedrockServiceConfig_ == nullptr && return this->enableHealthCheck_ == nullptr && return this->paiEASServiceConfig_ == nullptr
+        && return this->protocols_ == nullptr && return this->provider_ == nullptr; };
+    // apiKeyGenerateMode Field Functions 
+    bool hasApiKeyGenerateMode() const { return this->apiKeyGenerateMode_ != nullptr;};
+    void deleteApiKeyGenerateMode() { this->apiKeyGenerateMode_ = nullptr;};
+    inline string apiKeyGenerateMode() const { DARABONBA_PTR_GET_DEFAULT(apiKeyGenerateMode_, "") };
+    inline AiServiceConfig& setApiKeyGenerateMode(string apiKeyGenerateMode) { DARABONBA_PTR_SET_VALUE(apiKeyGenerateMode_, apiKeyGenerateMode) };
+
+
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -105,6 +114,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> apiKeyGenerateMode_ = nullptr;
     std::shared_ptr<string> address_ = nullptr;
     std::shared_ptr<vector<string>> apiKeys_ = nullptr;
     std::shared_ptr<AiServiceConfigBedrockServiceConfig> bedrockServiceConfig_ = nullptr;

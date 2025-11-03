@@ -21,6 +21,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const HttpRoute& obj) { 
       DARABONBA_PTR_TO_JSON(backend, backend_);
+      DARABONBA_PTR_TO_JSON(builtin, builtin_);
       DARABONBA_PTR_TO_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_TO_JSON(deployStatus, deployStatus_);
       DARABONBA_PTR_TO_JSON(description, description_);
@@ -35,6 +36,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, HttpRoute& obj) { 
       DARABONBA_PTR_FROM_JSON(backend, backend_);
+      DARABONBA_PTR_FROM_JSON(builtin, builtin_);
       DARABONBA_PTR_FROM_JSON(createTimestamp, createTimestamp_);
       DARABONBA_PTR_FROM_JSON(deployStatus, deployStatus_);
       DARABONBA_PTR_FROM_JSON(description, description_);
@@ -59,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backend_ == nullptr
-        && return this->createTimestamp_ == nullptr && return this->deployStatus_ == nullptr && return this->description_ == nullptr && return this->domainInfos_ == nullptr && return this->environmentInfo_ == nullptr
-        && return this->gatewayStatus_ == nullptr && return this->match_ == nullptr && return this->mcpServerInfo_ == nullptr && return this->name_ == nullptr && return this->routeId_ == nullptr
-        && return this->updateTimestamp_ == nullptr; };
+        && return this->builtin_ == nullptr && return this->createTimestamp_ == nullptr && return this->deployStatus_ == nullptr && return this->description_ == nullptr && return this->domainInfos_ == nullptr
+        && return this->environmentInfo_ == nullptr && return this->gatewayStatus_ == nullptr && return this->match_ == nullptr && return this->mcpServerInfo_ == nullptr && return this->name_ == nullptr
+        && return this->routeId_ == nullptr && return this->updateTimestamp_ == nullptr; };
     // backend Field Functions 
     bool hasBackend() const { return this->backend_ != nullptr;};
     void deleteBackend() { this->backend_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     inline Backend backend() { DARABONBA_PTR_GET(backend_, Backend) };
     inline HttpRoute& setBackend(const Backend & backend) { DARABONBA_PTR_SET_VALUE(backend_, backend) };
     inline HttpRoute& setBackend(Backend && backend) { DARABONBA_PTR_SET_RVALUE(backend_, backend) };
+
+
+    // builtin Field Functions 
+    bool hasBuiltin() const { return this->builtin_ != nullptr;};
+    void deleteBuiltin() { this->builtin_ = nullptr;};
+    inline string builtin() const { DARABONBA_PTR_GET_DEFAULT(builtin_, "") };
+    inline HttpRoute& setBuiltin(string builtin) { DARABONBA_PTR_SET_VALUE(builtin_, builtin) };
 
 
     // createTimestamp Field Functions 
@@ -160,6 +169,7 @@ namespace Models
 
   protected:
     std::shared_ptr<Backend> backend_ = nullptr;
+    std::shared_ptr<string> builtin_ = nullptr;
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
     std::shared_ptr<string> deployStatus_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
