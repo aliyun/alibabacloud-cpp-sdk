@@ -13,6 +13,8 @@ namespace Models
   class UnbindSubs700Request : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UnbindSubs700Request& obj) { 
+      DARABONBA_PTR_TO_JSON(IndustrialId, industrialId_);
+      DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PoolKey, poolKey_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -21,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TelX, telX_);
     };
     friend void from_json(const Darabonba::Json& j, UnbindSubs700Request& obj) { 
+      DARABONBA_PTR_FROM_JSON(IndustrialId, industrialId_);
+      DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PoolKey, poolKey_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -39,8 +43,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ownerId_ == nullptr
-        && return this->poolKey_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->subsId_ == nullptr && return this->telX_ == nullptr; };
+    virtual bool empty() const override { return this->industrialId_ == nullptr
+        && return this->orderId_ == nullptr && return this->ownerId_ == nullptr && return this->poolKey_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->subsId_ == nullptr && return this->telX_ == nullptr; };
+    // industrialId Field Functions 
+    bool hasIndustrialId() const { return this->industrialId_ != nullptr;};
+    void deleteIndustrialId() { this->industrialId_ = nullptr;};
+    inline string industrialId() const { DARABONBA_PTR_GET_DEFAULT(industrialId_, "") };
+    inline UnbindSubs700Request& setIndustrialId(string industrialId) { DARABONBA_PTR_SET_VALUE(industrialId_, industrialId) };
+
+
+    // orderId Field Functions 
+    bool hasOrderId() const { return this->orderId_ != nullptr;};
+    void deleteOrderId() { this->orderId_ = nullptr;};
+    inline string orderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
+    inline UnbindSubs700Request& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
+
+
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -84,6 +103,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> industrialId_ = nullptr;
+    std::shared_ptr<string> orderId_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> poolKey_ = nullptr;

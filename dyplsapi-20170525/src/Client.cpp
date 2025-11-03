@@ -4181,6 +4181,14 @@ UnBindXBResponse Client::unBindXB(const UnBindXBRequest &request) {
 UnbindSubs700Response Client::unbindSubs700WithOptions(const UnbindSubs700Request &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasIndustrialId()) {
+    query["IndustrialId"] = request.industrialId();
+  }
+
+  if (!!request.hasOrderId()) {
+    query["OrderId"] = request.orderId();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
   }
