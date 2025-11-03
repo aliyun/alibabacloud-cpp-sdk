@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->edition_ != nullptr && this->encryptedInstance_ != nullptr && this->instanceId_ != nullptr && this->instanceType_ != nullptr && this->kmsKeyId_ != nullptr
-        && this->maxConnections_ != nullptr && this->maxEipTps_ != nullptr && this->maxPrivateTps_ != nullptr && this->modifyType_ != nullptr && this->provisionedCapacity_ != nullptr
-        && this->queueCapacity_ != nullptr && this->serverlessChargeType_ != nullptr && this->storageSize_ != nullptr && this->supportEip_ != nullptr && this->supportTracing_ != nullptr
-        && this->tracingStorageTime_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->edition_ == nullptr && return this->encryptedInstance_ == nullptr && return this->instanceId_ == nullptr && return this->instanceType_ == nullptr && return this->kmsKeyId_ == nullptr
+        && return this->maxConnections_ == nullptr && return this->maxEipTps_ == nullptr && return this->maxPrivateTps_ == nullptr && return this->modifyType_ == nullptr && return this->provisionedCapacity_ == nullptr
+        && return this->queueCapacity_ == nullptr && return this->serverlessChargeType_ == nullptr && return this->storageSize_ == nullptr && return this->supportEip_ == nullptr && return this->supportTracing_ == nullptr
+        && return this->tracingStorageTime_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

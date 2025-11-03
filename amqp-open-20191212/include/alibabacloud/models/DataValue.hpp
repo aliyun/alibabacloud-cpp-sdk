@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->masterUid_ != nullptr
-        && this->cInstanceId_ != nullptr && this->accessKey_ != nullptr && this->userName_ != nullptr && this->password_ != nullptr && this->deleted_ != nullptr
-        && this->createTimestamp_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->masterUid_ == nullptr
+        && return this->cInstanceId_ == nullptr && return this->accessKey_ == nullptr && return this->userName_ == nullptr && return this->password_ == nullptr && return this->deleted_ == nullptr
+        && return this->createTimestamp_ == nullptr && return this->remark_ == nullptr; };
     // masterUid Field Functions 
     bool hasMasterUid() const { return this->masterUid_ != nullptr;};
     void deleteMasterUid() { this->masterUid_ = nullptr;};

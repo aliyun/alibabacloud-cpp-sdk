@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoDeleteState_ != nullptr
-        && this->autoExpireState_ != nullptr && this->deadLetterExchange_ != nullptr && this->deadLetterRoutingKey_ != nullptr && this->exclusiveState_ != nullptr && this->instanceId_ != nullptr
-        && this->maxLength_ != nullptr && this->maximumPriority_ != nullptr && this->messageTTL_ != nullptr && this->queueName_ != nullptr && this->virtualHost_ != nullptr; };
+    virtual bool empty() const override { return this->autoDeleteState_ == nullptr
+        && return this->autoExpireState_ == nullptr && return this->deadLetterExchange_ == nullptr && return this->deadLetterRoutingKey_ == nullptr && return this->exclusiveState_ == nullptr && return this->instanceId_ == nullptr
+        && return this->maxLength_ == nullptr && return this->maximumPriority_ == nullptr && return this->messageTTL_ == nullptr && return this->queueName_ == nullptr && return this->virtualHost_ == nullptr; };
     // autoDeleteState Field Functions 
     bool hasAutoDeleteState() const { return this->autoDeleteState_ != nullptr;};
     void deleteAutoDeleteState() { this->autoDeleteState_ = nullptr;};

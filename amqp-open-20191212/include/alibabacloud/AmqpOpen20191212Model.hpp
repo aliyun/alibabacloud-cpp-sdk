@@ -13,6 +13,7 @@
 #include <alibabacloud/models/CreateExchangeResponseBody.hpp>
 #include <alibabacloud/models/CreateExchangeResponse.hpp>
 #include <alibabacloud/models/CreateInstanceRequest.hpp>
+#include <alibabacloud/models/CreateInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/CreateInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceResponse.hpp>
 #include <alibabacloud/models/CreateQueueRequest.hpp>
@@ -79,6 +80,7 @@
 #include <alibabacloud/models/UpdateInstanceNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceNameResponse.hpp>
 #include <alibabacloud/models/CreateAccountResponseBodyData.hpp>
+#include <alibabacloud/models/CreateInstanceRequestTags.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataTags.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyData.hpp>
 #include <alibabacloud/models/GetMetadataAmountResponseBodyData.hpp>

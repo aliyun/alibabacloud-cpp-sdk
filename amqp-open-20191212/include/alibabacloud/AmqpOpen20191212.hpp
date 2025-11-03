@@ -76,11 +76,11 @@ namespace AmqpOpen20191212
        *
        * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
        *
-       * @param request CreateInstanceRequest
+       * @param tmpReq CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateInstanceResponse
        */
-      Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates an ApsaraMQ for RabbitMQ instance.

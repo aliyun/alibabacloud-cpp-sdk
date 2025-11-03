@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenewInstance_ != nullptr
-        && this->classicEndpoint_ != nullptr && this->edition_ != nullptr && this->encryptedInstance_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceName_ != nullptr && this->instanceType_ != nullptr && this->kmsKeyId_ != nullptr && this->maxConnections_ != nullptr && this->maxEipTps_ != nullptr
-        && this->maxQueue_ != nullptr && this->maxTps_ != nullptr && this->maxVhost_ != nullptr && this->orderCreateTime_ != nullptr && this->orderType_ != nullptr
-        && this->privateEndpoint_ != nullptr && this->provisionedCapacity_ != nullptr && this->publicEndpoint_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr
-        && this->storageSize_ != nullptr && this->supportEIP_ != nullptr && this->supportTracing_ != nullptr && this->tags_ != nullptr && this->tracingStorageTime_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenewInstance_ == nullptr
+        && return this->classicEndpoint_ == nullptr && return this->edition_ == nullptr && return this->encryptedInstance_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr && return this->kmsKeyId_ == nullptr && return this->maxConnections_ == nullptr && return this->maxEipTps_ == nullptr
+        && return this->maxQueue_ == nullptr && return this->maxTps_ == nullptr && return this->maxVhost_ == nullptr && return this->orderCreateTime_ == nullptr && return this->orderType_ == nullptr
+        && return this->privateEndpoint_ == nullptr && return this->provisionedCapacity_ == nullptr && return this->publicEndpoint_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr
+        && return this->storageSize_ == nullptr && return this->supportEIP_ == nullptr && return this->supportTracing_ == nullptr && return this->tags_ == nullptr && return this->tracingStorageTime_ == nullptr; };
     // autoRenewInstance Field Functions 
     bool hasAutoRenewInstance() const { return this->autoRenewInstance_ != nullptr;};
     void deleteAutoRenewInstance() { this->autoRenewInstance_ = nullptr;};

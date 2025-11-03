@@ -242,12 +242,18 @@ CreateExchangeResponse Client::createExchange(const CreateExchangeRequest &reque
  *
  * @description **Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/606747.html) of ApsaraMQ for RabbitMQ.
  *
- * @param request CreateInstanceRequest
+ * @param tmpReq CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateInstanceResponse
  */
-CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateInstanceShrinkRequest request = CreateInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+  }
+
   json query = {};
   if (!!request.hasAutoRenew()) {
     query["AutoRenew"] = request.autoRenew();
@@ -339,6 +345,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasSupportTracing()) {
     query["SupportTracing"] = request.supportTracing();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    query["Tags"] = request.tagsShrink();
   }
 
   if (!!request.hasTracingStorageTime()) {

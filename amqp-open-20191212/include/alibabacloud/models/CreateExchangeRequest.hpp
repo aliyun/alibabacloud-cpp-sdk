@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alternateExchange_ != nullptr
-        && this->autoDeleteState_ != nullptr && this->exchangeName_ != nullptr && this->exchangeType_ != nullptr && this->instanceId_ != nullptr && this->internal_ != nullptr
-        && this->virtualHost_ != nullptr && this->XDelayedType_ != nullptr; };
+    virtual bool empty() const override { return this->alternateExchange_ == nullptr
+        && return this->autoDeleteState_ == nullptr && return this->exchangeName_ == nullptr && return this->exchangeType_ == nullptr && return this->instanceId_ == nullptr && return this->internal_ == nullptr
+        && return this->virtualHost_ == nullptr && return this->XDelayedType_ == nullptr; };
     // alternateExchange Field Functions 
     bool hasAlternateExchange() const { return this->alternateExchange_ != nullptr;};
     void deleteAlternateExchange() { this->alternateExchange_ = nullptr;};
