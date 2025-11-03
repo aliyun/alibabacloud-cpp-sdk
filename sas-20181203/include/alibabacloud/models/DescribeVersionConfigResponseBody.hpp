@@ -452,6 +452,7 @@ namespace Models
     // *   **0**: no
     // *   **1**: yes
     std::shared_ptr<int32_t> allowPartialBuy_ = nullptr;
+    // 防勒索备份容量，单位GB。
     std::shared_ptr<int32_t> antiRansomwareCapacity_ = nullptr;
     // Switch of anti-ransomware hosting service. Valid values:
     // 
@@ -486,6 +487,7 @@ namespace Models
     std::shared_ptr<int64_t> honeypotCapacity_ = nullptr;
     // The purchased quota for the container image scan feature.
     std::shared_ptr<int64_t> imageScanCapacity_ = nullptr;
+    // Instance purchase type. Values: - **0**: Self-purchased - **1**: Multi-account allocation
     std::shared_ptr<int32_t> instanceBuyType_ = nullptr;
     // The ID of purchased Security Center.
     std::shared_ptr<string> instanceId_ = nullptr;
@@ -523,6 +525,7 @@ namespace Models
     std::shared_ptr<int32_t> MVUnusedAuthCount_ = nullptr;
     // When both the annual/monthly and pay-as-you-go services of Cloud Security Center\\"s host and container security are activated, the higher protection version among the two is selected. Values: - **1**: Free Edition - **6**: Anti-Virus Edition - **5**: Advanced Edition - **3**: Enterprise Edition - **7**: Ultimate Edition
     std::shared_ptr<int32_t> mergedVersion_ = nullptr;
+    // Usage of multiple version numbers and license counts
     std::shared_ptr<string> multiVersion_ = nullptr;
     // Indicates whether the new version of the threat analysis and response feature is enabled. With the new version, you can purchase the amount of log data that you want to add to the feature and log storage capacity. Valid values:
     // 

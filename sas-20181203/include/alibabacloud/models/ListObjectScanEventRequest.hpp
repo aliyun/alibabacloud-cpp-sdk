@@ -13,8 +13,10 @@ namespace Models
   class ListObjectScanEventRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListObjectScanEventRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BatchType, batchType_);
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(EventName, eventName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Md5, md5_);
@@ -23,12 +25,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ParentEventId, parentEventId_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(Source, source_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TimeEnd, timeEnd_);
       DARABONBA_PTR_TO_JSON(TimeStart, timeStart_);
     };
     friend void from_json(const Darabonba::Json& j, ListObjectScanEventRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BatchType, batchType_);
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(EventName, eventName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Md5, md5_);
@@ -37,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ParentEventId, parentEventId_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TimeEnd, timeEnd_);
       DARABONBA_PTR_FROM_JSON(TimeStart, timeStart_);
     };
@@ -51,10 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->currentPage_ == nullptr && return this->eventName_ == nullptr && return this->lang_ == nullptr && return this->md5_ == nullptr && return this->ossKey_ == nullptr
-        && return this->pageSize_ == nullptr && return this->parentEventId_ == nullptr && return this->riskLevel_ == nullptr && return this->source_ == nullptr && return this->timeEnd_ == nullptr
-        && return this->timeStart_ == nullptr; };
+    virtual bool empty() const override { return this->batchType_ == nullptr
+        && return this->bucketName_ == nullptr && return this->currentPage_ == nullptr && return this->eventId_ == nullptr && return this->eventName_ == nullptr && return this->lang_ == nullptr
+        && return this->md5_ == nullptr && return this->ossKey_ == nullptr && return this->pageSize_ == nullptr && return this->parentEventId_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->timeEnd_ == nullptr && return this->timeStart_ == nullptr; };
+    // batchType Field Functions 
+    bool hasBatchType() const { return this->batchType_ != nullptr;};
+    void deleteBatchType() { this->batchType_ = nullptr;};
+    inline string batchType() const { DARABONBA_PTR_GET_DEFAULT(batchType_, "") };
+    inline ListObjectScanEventRequest& setBatchType(string batchType) { DARABONBA_PTR_SET_VALUE(batchType_, batchType) };
+
+
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -67,6 +80,13 @@ namespace Models
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline ListObjectScanEventRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // eventId Field Functions 
+    bool hasEventId() const { return this->eventId_ != nullptr;};
+    void deleteEventId() { this->eventId_ = nullptr;};
+    inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
+    inline ListObjectScanEventRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // eventName Field Functions 
@@ -125,6 +145,13 @@ namespace Models
     inline ListObjectScanEventRequest& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline ListObjectScanEventRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // timeEnd Field Functions 
     bool hasTimeEnd() const { return this->timeEnd_ != nullptr;};
     void deleteTimeEnd() { this->timeEnd_ = nullptr;};
@@ -140,12 +167,14 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> batchType_ = nullptr;
     // The name of the OSS bucket.
     std::shared_ptr<string> bucketName_ = nullptr;
     // The page number.
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    std::shared_ptr<int64_t> eventId_ = nullptr;
     // The name of the alert.
     std::shared_ptr<string> eventName_ = nullptr;
     // The language of the content within the request and response. Default value: **zh**. Valid values:
@@ -174,6 +203,7 @@ namespace Models
     // *   **API**: uses API operations.
     // *   **OSS**: uses Object Storage Service (OSS) file check.
     std::shared_ptr<string> source_ = nullptr;
+    std::shared_ptr<int32_t> status_ = nullptr;
     // The end of the time range during which the exception is detected.
     std::shared_ptr<int64_t> timeEnd_ = nullptr;
     // The beginning of the time range during which the exception is detected.

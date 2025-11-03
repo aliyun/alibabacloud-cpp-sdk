@@ -695,6 +695,10 @@ namespace Models
     std::shared_ptr<int64_t> sourceAliUid_ = nullptr;
     // The stage at which the attack is detected.
     std::shared_ptr<string> stages_ = nullptr;
+    // Supported alarm operation types: 
+    // - **AI.false_positive**: Suspected false positive 
+    // - **AI.real_attack**: Real attack 
+    // - **AI.Insufficient_information_to_evaluate**: Insufficient information to evaluate
     std::shared_ptr<string> supportOperateCode_ = nullptr;
     // The display name of the attack stage.
     std::shared_ptr<vector<Models::DescribeSuspEventsResponseBodySuspEventsTacticItems>> tacticItems_ = nullptr;

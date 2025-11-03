@@ -165,12 +165,15 @@ namespace Models
     std::shared_ptr<string> akType_ = nullptr;
     // The modules that are associated with the AccessKey pair.
     std::shared_ptr<vector<string>> authModules_ = nullptr;
+    // Account ID. > The account ID of the cloud provider, required when permissions include threat analysis and response.
     std::shared_ptr<string> ctdrCloudUserId_ = nullptr;
     // The Active Directory (AD) domain. This parameter takes effect only when Vendor is set to Azure. Valid values:
     // 
     // *   **china**
     // *   **global**
     std::shared_ptr<string> domain_ = nullptr;
+    // Extended information.
+    // > Used to record extended information from different vendors. > For Google Cloud, which is accessed via a service account, ExtendInfo stores the service key file in JSON format, excluding the private_key_id and zprivate_key fields. The file includes the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, universe_domain.
     std::shared_ptr<string> extendInfo_ = nullptr;
     // The language of the content in the request and response messages. Default value: **zh**. Valid values:
     // 

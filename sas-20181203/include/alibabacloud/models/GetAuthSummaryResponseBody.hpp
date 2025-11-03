@@ -216,6 +216,11 @@ namespace Models
     // *   **0**: disabled
     // *   **1**: enabled
     std::shared_ptr<int32_t> autoBind_ = nullptr;
+    // Cluster node need to check the machine version,  Value:
+    // 
+    // - **0** : Not required
+    // 
+    // - **1** : Required
     std::shared_ptr<int32_t> clusterNodeCheck_ = nullptr;
     // Indicates whether the protection quota is supported for all assets. Valid values:
     // 
@@ -238,6 +243,11 @@ namespace Models
     // 
     // >  If you purchase Security Center Multi-edition, the value indicates the most advanced edition that is used. Otherwise, the value indicates the specific edition that is purchased.
     std::shared_ptr<int32_t> highestVersion_ = nullptr;
+    // Binding effective status, value:
+    // 
+    // - **NORMAL** : Effective
+    // 
+    // - **INVALID_NODE_VERSION**: Invalid
     std::shared_ptr<string> invalidBindStatus_ = nullptr;
     // Indicates whether Security Center Multi-edition is purchased. Valid values:
     // 

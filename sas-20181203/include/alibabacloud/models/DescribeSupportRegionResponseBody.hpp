@@ -53,6 +53,7 @@ namespace Models
   protected:
     // The ID of the request, which is used to locate and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // List of supported regions
     std::shared_ptr<vector<string>> supportRegion_ = nullptr;
   };
 

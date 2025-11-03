@@ -235,6 +235,7 @@ namespace Models
     std::shared_ptr<string> instanceName_ = nullptr;
     // The public IP address of the instance.
     std::shared_ptr<string> internetIp_ = nullptr;
+    // Detailed asset information.
     std::shared_ptr<string> originalAssetInfo_ = nullptr;
     // The region in which the cloud asset resides.
     // 
@@ -255,7 +256,9 @@ namespace Models
     // *   **3**, **4**, **5**, and **7**: third-party service provider.
     // *   **8**: simple application server.
     std::shared_ptr<int32_t> vendor_ = nullptr;
+    // Account id for multi-cloud instances.
     std::shared_ptr<string> vendorUid_ = nullptr;
+    // The account name of the multi-cloud instance.
     std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 

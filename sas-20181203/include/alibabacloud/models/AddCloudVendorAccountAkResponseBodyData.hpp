@@ -134,6 +134,9 @@ namespace Models
     std::shared_ptr<int64_t> authId_ = nullptr;
     // The modules that are associated with the AccessKey pair.
     std::shared_ptr<vector<Models::AddCloudVendorAccountAKResponseBodyDataAuthModules>> authModules_ = nullptr;
+    // Account ID. 
+    // 
+    // > The account ID of the cloud provider being integrated.
     std::shared_ptr<string> ctdrCloudUserId_ = nullptr;
     // The error message of the AccessKey pair.
     std::shared_ptr<string> message_ = nullptr;

@@ -84,22 +84,22 @@ namespace Models
 
 
   protected:
-    // Alibaba Cloud account ID.
+    // The ID of the Alibaba Cloud account.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
-    // Authorization token.
+    // The authorization token.
     std::shared_ptr<string> authToken_ = nullptr;
-    // Configuration ID.
+    // The configuration ID.
     std::shared_ptr<int64_t> id_ = nullptr;
-    // Namespace of the image.
+    // The namespace of the image.
     std::shared_ptr<string> namespace_ = nullptr;
-    // Image registry ID.
+    // The ID of the image repository.
     std::shared_ptr<int64_t> registryId_ = nullptr;
-    // Image registry type. Values:
+    // The type of the image repository. Valid values:
     // 
-    // - **acr**: ACR
-    // - **harbor**: Harbor
-    // - **quay**: Quay
-    // - **CI/CD**: Jenkins
+    // *   **acr**: Container Registry.
+    // *   **harbor**: Harbor.
+    // *   **quay**: Quay.
+    // *   **CI/CD**: Jenkins.
     std::shared_ptr<string> registryType_ = nullptr;
   };
 

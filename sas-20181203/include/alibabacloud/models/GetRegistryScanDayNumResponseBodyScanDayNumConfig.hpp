@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // List of alternative days.
+    // The selectable day options.
     std::shared_ptr<string> dayNumList_ = nullptr;
-    // Scan time range, in days.
+    // The scan period. Unit: days.
     std::shared_ptr<int32_t> scanDayNum_ = nullptr;
   };
 

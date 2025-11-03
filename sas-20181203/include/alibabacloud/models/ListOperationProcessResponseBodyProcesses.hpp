@@ -132,7 +132,9 @@ namespace Models
   protected:
     // The time when the task was created. Unit: milliseconds.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    // Number of completed subtasks
     std::shared_ptr<int32_t> detailTaskReadyCount_ = nullptr;
+    // Total number of subtasks.
     std::shared_ptr<int32_t> detailTaskTotalCount_ = nullptr;
     // The end time of the task. Unit: milliseconds.
     std::shared_ptr<int64_t> endTime_ = nullptr;
@@ -149,6 +151,8 @@ namespace Models
     std::shared_ptr<int32_t> statusCode_ = nullptr;
     // The ID of the operation task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // Task source. Values: 
+    // - **YAO_CHI**: YaoChi.
     std::shared_ptr<string> taskSource_ = nullptr;
     // The task type. Valid values:
     // 

@@ -220,6 +220,11 @@ namespace Models
     // *   **1**: not executed
     // *   **2**: executing
     std::shared_ptr<int32_t> execStatus_ = nullptr;
+    // The triggering method of baseline scanning. Value:
+    // 
+    // - **Schedule** : Periodic configuration of task triggers
+    // 
+    // - **Manual** : Manually triggered
     std::shared_ptr<string> executionType_ = nullptr;
     // The ID of the baseline check policy.
     std::shared_ptr<int32_t> id_ = nullptr;

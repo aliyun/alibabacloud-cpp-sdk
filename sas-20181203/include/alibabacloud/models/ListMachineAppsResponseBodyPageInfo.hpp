@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The current page number in a paginated query.
+    // The page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // The maximum number of items to display per page in a paginated query.
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The total number of data items.
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

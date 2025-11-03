@@ -106,7 +106,9 @@ namespace Models
     std::shared_ptr<string> isAgree_ = nullptr;
     // Indicates whether the notification is sent.
     std::shared_ptr<string> isNoticed_ = nullptr;
+    // Specifies whether to notify the account.
     std::shared_ptr<bool> needNotice_ = nullptr;
+    // Specifies whether to switch.
     std::shared_ptr<bool> needSwitch_ = nullptr;
     // The status of the switching to the region.
     std::shared_ptr<vector<Models::GetSwitchRegionDetailResponseBodyDataRegionStatus>> regionStatus_ = nullptr;

@@ -228,6 +228,11 @@ namespace Models
     std::shared_ptr<string> necessity_ = nullptr;
     // The path of the process that is affected by the vulnerability.
     std::shared_ptr<string> path_ = nullptr;
+    // Indicates whether the application protection feature is supported. Valid values:
+    // 
+    // - **0**: no.
+    // 
+    // - **1**: yes.
     std::shared_ptr<int32_t> raspDefend_ = nullptr;
     // The tag that is used to search for the vulnerabilities. Valid values:
     // 

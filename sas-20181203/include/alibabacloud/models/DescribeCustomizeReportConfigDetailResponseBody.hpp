@@ -253,6 +253,10 @@ namespace Models
     // *   **0**: no.
     // *   **1**: yes.
     std::shared_ptr<int32_t> isDefault_ = nullptr;
+    // Whether the new account is connected by default. Values:
+    // - **true**: Yes.
+    // - **false**: No.
+    // > Only supported in version 2.0.0.
     std::shared_ptr<bool> memberAccountSyncFlag_ = nullptr;
     // The time when the report is pinned.
     std::shared_ptr<int64_t> pinnedTime_ = nullptr;

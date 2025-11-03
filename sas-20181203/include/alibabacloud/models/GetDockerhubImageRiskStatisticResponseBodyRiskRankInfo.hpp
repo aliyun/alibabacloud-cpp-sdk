@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Number of baseline issue risks.
+    // The number of baseline risks.
     std::shared_ptr<int32_t> baseline_ = nullptr;
-    // Scan timestamp.
+    // The timestamp when the scan was performed.
     std::shared_ptr<int64_t> scanTime_ = nullptr;
-    // Scan timestamp.
+    // The timestamp when the scan was performed.
     std::shared_ptr<int64_t> scanTimeTimestamp_ = nullptr;
-    // Count of scanned Dockerhub images.
+    // The number of scanned Docker Hub images.
     std::shared_ptr<int32_t> totalScanned_ = nullptr;
-    // Number of high-risk vulnerabilities.
+    // The number of high-risk vulnerabilities.
     std::shared_ptr<int32_t> vulAsap_ = nullptr;
   };
 

@@ -94,7 +94,7 @@ namespace Models
     std::shared_ptr<int32_t> currentPage_ = nullptr;
     // The total number of pages returned.
     std::shared_ptr<int32_t> pageCount_ = nullptr;
-    // The number of entries returned per page.
+    // The number of entries returned on each page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The total number of entries returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;

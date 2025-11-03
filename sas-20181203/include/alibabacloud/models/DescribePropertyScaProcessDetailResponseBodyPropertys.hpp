@@ -139,6 +139,7 @@ namespace Models
     std::shared_ptr<string> pid_ = nullptr;
     // The UUID of the server.
     std::shared_ptr<string> uuid_ = nullptr;
+    // The version of web application service.
     std::shared_ptr<string> version_ = nullptr;
   };
 

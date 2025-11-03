@@ -53,6 +53,7 @@ namespace Models
   protected:
     // The IDs of the check items.
     std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    // The source of task.
     std::shared_ptr<string> taskSource_ = nullptr;
   };
 

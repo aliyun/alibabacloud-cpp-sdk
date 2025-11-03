@@ -106,6 +106,7 @@ namespace Models
     // *   **zh**: Chinese
     // *   **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
     // The cloud service providers. Valid values:
     // 

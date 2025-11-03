@@ -54,7 +54,7 @@ namespace Models
   protected:
     // The information about the Kubernetes clusters.
     std::shared_ptr<vector<ListK8sAccessInfoResponseBodyK8sAccessInfos>> k8sAccessInfos_ = nullptr;
-    // The request ID.
+    // The ID of the request, which is used to locate and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

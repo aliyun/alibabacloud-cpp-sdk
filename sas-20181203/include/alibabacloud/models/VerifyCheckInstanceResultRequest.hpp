@@ -66,6 +66,7 @@ namespace Models
     std::shared_ptr<int64_t> checkId_ = nullptr;
     // The instance IDs of the assets on which risks are detected based on the check item.
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    // The source of task.
     std::shared_ptr<string> taskSource_ = nullptr;
   };
 

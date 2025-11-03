@@ -347,7 +347,9 @@ namespace Models
     // *   **3**, **4**, **5**, and **7**: other cloud asset
     // *   **8**: a lightweight cloud asset
     std::shared_ptr<int32_t> vendor_ = nullptr;
+    // The account ID of the multi-cloud instance.
     std::shared_ptr<string> vendorUid_ = nullptr;
+    // The user name of the multi-cloud instance.
     std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 

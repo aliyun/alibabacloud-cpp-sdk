@@ -133,6 +133,7 @@ namespace Models
     std::shared_ptr<string> clusterId_ = nullptr;
     // The cluster name.
     std::shared_ptr<string> clusterName_ = nullptr;
+    // CPU architectures are divided into ARM architecture and x86 architecture.
     std::shared_ptr<string> cpuArch_ = nullptr;
     // The expiration time. Unit: milliseconds.
     std::shared_ptr<int64_t> expireDate_ = nullptr;

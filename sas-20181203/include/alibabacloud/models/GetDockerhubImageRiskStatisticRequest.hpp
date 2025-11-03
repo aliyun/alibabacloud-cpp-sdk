@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The types of image risks to be queried.
+    // The risk types that you want to query.
     std::shared_ptr<vector<string>> types_ = nullptr;
   };
 

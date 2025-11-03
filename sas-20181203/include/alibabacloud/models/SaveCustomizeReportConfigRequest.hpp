@@ -220,6 +220,10 @@ namespace Models
     // 
     // >  This parameter is supported only in version 2.0.0.
     std::shared_ptr<string> groupType_ = nullptr;
+    // Whether the new account is connected by default. Values: 
+    // - **true**: Yes. 
+    // - **false**: No. 
+    // > Only supported in version 2.0.0.
     std::shared_ptr<bool> memberAccountSyncFlag_ = nullptr;
     // The time when the report is pinned. Unit: milliseconds.
     // 

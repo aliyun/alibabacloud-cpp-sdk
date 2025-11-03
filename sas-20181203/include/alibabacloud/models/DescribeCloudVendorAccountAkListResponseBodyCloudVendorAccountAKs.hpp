@@ -162,7 +162,9 @@ namespace Models
     std::shared_ptr<int64_t> authId_ = nullptr;
     // The modules that are associated with the AccessKey pair.
     std::shared_ptr<vector<Models::DescribeCloudVendorAccountAKListResponseBodyCloudVendorAccountAKsAuthModules>> authModules_ = nullptr;
+    // The Account ID.
     std::shared_ptr<string> ctdrCloudUserId_ = nullptr;
+    // The extended information of the module.
     std::shared_ptr<string> extendInfo_ = nullptr;
     // The error message of the AccessKey pair.
     std::shared_ptr<string> message_ = nullptr;
@@ -189,7 +191,9 @@ namespace Models
     std::shared_ptr<string> vendor_ = nullptr;
     // The name of the AccessKey pair.
     std::shared_ptr<string> vendorAuthAlias_ = nullptr;
+    // Account ID of the multi-cloud instance.
     std::shared_ptr<string> vendorUid_ = nullptr;
+    // Account name of the multi-cloud instance.
     std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 

@@ -88,7 +88,7 @@ namespace Models
     std::shared_ptr<int32_t> currentPage_ = nullptr;
     // The ID of the check item.
     // 
-    // > For more information about the IDs and details of the check items that can be used in configuration assessment, see [DescribeRiskCheckResult](~~DescribeRiskCheckResult~~).
+    // >  For more information about the IDs and details of the check items that can be used in configuration assessment, see [DescribeRiskCheckResult](https://help.aliyun.com/document_detail/113520.html).
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> itemId_ = nullptr;
@@ -99,7 +99,7 @@ namespace Models
     std::shared_ptr<string> lang_ = nullptr;
     // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
-    // > We recommend that you do not leave this parameter empty.
+    // >  We recommend that you do not leave this parameter empty.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // The source IP address of the request.

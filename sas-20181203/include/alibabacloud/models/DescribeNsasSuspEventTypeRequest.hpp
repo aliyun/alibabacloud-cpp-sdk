@@ -148,6 +148,7 @@ namespace Models
     std::shared_ptr<string> remark_ = nullptr;
     // The source IP address of the request.
     std::shared_ptr<string> sourceIp_ = nullptr;
+    // List of supported alarm operation types.
     std::shared_ptr<vector<string>> supportOperateCodeList_ = nullptr;
     // The UUIDs of servers. Separate multiple UUIDs with commas (,).
     // 

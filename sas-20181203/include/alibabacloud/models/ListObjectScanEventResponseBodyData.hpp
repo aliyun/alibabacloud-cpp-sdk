@@ -18,35 +18,45 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BucketName, bucketName_);
       DARABONBA_PTR_TO_JSON(Details, details_);
       DARABONBA_PTR_TO_JSON(DisplaySandboxResult, displaySandboxResult_);
+      DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(EventName, eventName_);
       DARABONBA_PTR_TO_JSON(FilePath, filePath_);
       DARABONBA_PTR_TO_JSON(FirstTime, firstTime_);
       DARABONBA_PTR_TO_JSON(HasSubEvent, hasSubEvent_);
       DARABONBA_PTR_TO_JSON(LastTime, lastTime_);
+      DARABONBA_PTR_TO_JSON(MatchedWhiteListRuleI18nStr, matchedWhiteListRuleI18nStr_);
       DARABONBA_PTR_TO_JSON(Md5, md5_);
+      DARABONBA_PTR_TO_JSON(OperateResult, operateResult_);
       DARABONBA_PTR_TO_JSON(OssKey, ossKey_);
+      DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(Sha1, sha1_);
       DARABONBA_PTR_TO_JSON(Sha256, sha256_);
       DARABONBA_PTR_TO_JSON(Source, source_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListObjectScanEventResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(BucketName, bucketName_);
       DARABONBA_PTR_FROM_JSON(Details, details_);
       DARABONBA_PTR_FROM_JSON(DisplaySandboxResult, displaySandboxResult_);
+      DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(EventName, eventName_);
       DARABONBA_PTR_FROM_JSON(FilePath, filePath_);
       DARABONBA_PTR_FROM_JSON(FirstTime, firstTime_);
       DARABONBA_PTR_FROM_JSON(HasSubEvent, hasSubEvent_);
       DARABONBA_PTR_FROM_JSON(LastTime, lastTime_);
+      DARABONBA_PTR_FROM_JSON(MatchedWhiteListRuleI18nStr, matchedWhiteListRuleI18nStr_);
       DARABONBA_PTR_FROM_JSON(Md5, md5_);
+      DARABONBA_PTR_FROM_JSON(OperateResult, operateResult_);
       DARABONBA_PTR_FROM_JSON(OssKey, ossKey_);
+      DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(Sha1, sha1_);
       DARABONBA_PTR_FROM_JSON(Sha256, sha256_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListObjectScanEventResponseBodyData() = default ;
     ListObjectScanEventResponseBodyData(const ListObjectScanEventResponseBodyData &) = default ;
@@ -60,9 +70,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bucketName_ == nullptr
-        && return this->details_ == nullptr && return this->displaySandboxResult_ == nullptr && return this->eventId_ == nullptr && return this->eventName_ == nullptr && return this->filePath_ == nullptr
-        && return this->firstTime_ == nullptr && return this->hasSubEvent_ == nullptr && return this->lastTime_ == nullptr && return this->md5_ == nullptr && return this->ossKey_ == nullptr
-        && return this->riskLevel_ == nullptr && return this->sha1_ == nullptr && return this->sha256_ == nullptr && return this->source_ == nullptr; };
+        && return this->details_ == nullptr && return this->displaySandboxResult_ == nullptr && return this->errorMsg_ == nullptr && return this->eventId_ == nullptr && return this->eventName_ == nullptr
+        && return this->filePath_ == nullptr && return this->firstTime_ == nullptr && return this->hasSubEvent_ == nullptr && return this->lastTime_ == nullptr && return this->matchedWhiteListRuleI18nStr_ == nullptr
+        && return this->md5_ == nullptr && return this->operateResult_ == nullptr && return this->ossKey_ == nullptr && return this->remark_ == nullptr && return this->riskLevel_ == nullptr
+        && return this->sha1_ == nullptr && return this->sha256_ == nullptr && return this->source_ == nullptr && return this->status_ == nullptr; };
     // bucketName Field Functions 
     bool hasBucketName() const { return this->bucketName_ != nullptr;};
     void deleteBucketName() { this->bucketName_ = nullptr;};
@@ -84,6 +95,13 @@ namespace Models
     void deleteDisplaySandboxResult() { this->displaySandboxResult_ = nullptr;};
     inline string displaySandboxResult() const { DARABONBA_PTR_GET_DEFAULT(displaySandboxResult_, "") };
     inline ListObjectScanEventResponseBodyData& setDisplaySandboxResult(string displaySandboxResult) { DARABONBA_PTR_SET_VALUE(displaySandboxResult_, displaySandboxResult) };
+
+
+    // errorMsg Field Functions 
+    bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
+    void deleteErrorMsg() { this->errorMsg_ = nullptr;};
+    inline string errorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+    inline ListObjectScanEventResponseBodyData& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // eventId Field Functions 
@@ -128,6 +146,13 @@ namespace Models
     inline ListObjectScanEventResponseBodyData& setLastTime(int64_t lastTime) { DARABONBA_PTR_SET_VALUE(lastTime_, lastTime) };
 
 
+    // matchedWhiteListRuleI18nStr Field Functions 
+    bool hasMatchedWhiteListRuleI18nStr() const { return this->matchedWhiteListRuleI18nStr_ != nullptr;};
+    void deleteMatchedWhiteListRuleI18nStr() { this->matchedWhiteListRuleI18nStr_ = nullptr;};
+    inline string matchedWhiteListRuleI18nStr() const { DARABONBA_PTR_GET_DEFAULT(matchedWhiteListRuleI18nStr_, "") };
+    inline ListObjectScanEventResponseBodyData& setMatchedWhiteListRuleI18nStr(string matchedWhiteListRuleI18nStr) { DARABONBA_PTR_SET_VALUE(matchedWhiteListRuleI18nStr_, matchedWhiteListRuleI18nStr) };
+
+
     // md5 Field Functions 
     bool hasMd5() const { return this->md5_ != nullptr;};
     void deleteMd5() { this->md5_ = nullptr;};
@@ -135,11 +160,25 @@ namespace Models
     inline ListObjectScanEventResponseBodyData& setMd5(string md5) { DARABONBA_PTR_SET_VALUE(md5_, md5) };
 
 
+    // operateResult Field Functions 
+    bool hasOperateResult() const { return this->operateResult_ != nullptr;};
+    void deleteOperateResult() { this->operateResult_ = nullptr;};
+    inline string operateResult() const { DARABONBA_PTR_GET_DEFAULT(operateResult_, "") };
+    inline ListObjectScanEventResponseBodyData& setOperateResult(string operateResult) { DARABONBA_PTR_SET_VALUE(operateResult_, operateResult) };
+
+
     // ossKey Field Functions 
     bool hasOssKey() const { return this->ossKey_ != nullptr;};
     void deleteOssKey() { this->ossKey_ = nullptr;};
     inline string ossKey() const { DARABONBA_PTR_GET_DEFAULT(ossKey_, "") };
     inline ListObjectScanEventResponseBodyData& setOssKey(string ossKey) { DARABONBA_PTR_SET_VALUE(ossKey_, ossKey) };
+
+
+    // remark Field Functions 
+    bool hasRemark() const { return this->remark_ != nullptr;};
+    void deleteRemark() { this->remark_ = nullptr;};
+    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline ListObjectScanEventResponseBodyData& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // riskLevel Field Functions 
@@ -170,6 +209,13 @@ namespace Models
     inline ListObjectScanEventResponseBodyData& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline ListObjectScanEventResponseBodyData& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     // The name of the OSS bucket.
     std::shared_ptr<string> bucketName_ = nullptr;
@@ -180,6 +226,7 @@ namespace Models
     // *   **true**
     // *   **false**
     std::shared_ptr<string> displaySandboxResult_ = nullptr;
+    std::shared_ptr<string> errorMsg_ = nullptr;
     // The ID of the alert.
     std::shared_ptr<int64_t> eventId_ = nullptr;
     // The name of the alert.
@@ -195,10 +242,13 @@ namespace Models
     std::shared_ptr<bool> hasSubEvent_ = nullptr;
     // The timestamp at which the alert was last detected.
     std::shared_ptr<int64_t> lastTime_ = nullptr;
+    std::shared_ptr<string> matchedWhiteListRuleI18nStr_ = nullptr;
     // The MD5 hash value of the file.
     std::shared_ptr<string> md5_ = nullptr;
+    std::shared_ptr<string> operateResult_ = nullptr;
     // The key of the file that is stored in the OSS bucket.
     std::shared_ptr<string> ossKey_ = nullptr;
+    std::shared_ptr<string> remark_ = nullptr;
     // The risk level of the alert. Valid values:
     // 
     // *   **high**
@@ -214,6 +264,7 @@ namespace Models
     // *   **API**: uses API operations.
     // *   **OSS**: uses OSS file check.
     std::shared_ptr<string> source_ = nullptr;
+    std::shared_ptr<int32_t> status_ = nullptr;
   };
 
   } // namespace Models

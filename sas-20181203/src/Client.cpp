@@ -4223,6 +4223,10 @@ CreateMaliciousFileWhitelistConfigResponse Client::createMaliciousFileWhitelistC
     query["Operator"] = request._operator();
   }
 
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
   if (!!request.hasSource()) {
     query["Source"] = request.source();
   }
@@ -19559,7 +19563,7 @@ DescribeRestorePlansResponse Client::describeRestorePlans(const DescribeRestoreP
  *
  * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
  *
- * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+ * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
  *
  * @param request DescribeRiskCheckItemResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19614,7 +19618,7 @@ DescribeRiskCheckItemResultResponse Client::describeRiskCheckItemResultWithOptio
  *
  * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
  *
- * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+ * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
  *
  * @param request DescribeRiskCheckItemResultRequest
  * @return DescribeRiskCheckItemResultResponse
@@ -28329,7 +28333,7 @@ GetDockerhubImageRiskRankInfoResponse Client::getDockerhubImageRiskRankInfo(cons
 }
 
 /**
- * @summary Query the statistical counts of images across various dimensions.
+ * @summary Queries the risk statistics of Docker Hub images.
  *
  * @param request GetDockerhubImageRiskStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28360,7 +28364,7 @@ GetDockerhubImageRiskStatisticResponse Client::getDockerhubImageRiskStatisticWit
 }
 
 /**
- * @summary Query the statistical counts of images across various dimensions.
+ * @summary Queries the risk statistics of Docker Hub images.
  *
  * @param request GetDockerhubImageRiskStatisticRequest
  * @return GetDockerhubImageRiskStatisticResponse
@@ -29925,7 +29929,7 @@ GetOpaClusterBaseLineListResponse Client::getOpaClusterBaseLineList() {
 }
 
 /**
- * @summary 查询集群镜像
+ * @summary Get cluster image information.
  *
  * @param request GetOpaClusterImageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29968,7 +29972,7 @@ GetOpaClusterImageListResponse Client::getOpaClusterImageListWithOptions(const G
 }
 
 /**
- * @summary 查询集群镜像
+ * @summary Get cluster image information.
  *
  * @param request GetOpaClusterImageListRequest
  * @return GetOpaClusterImageListResponse
@@ -30412,7 +30416,7 @@ GetRdTreeResponse Client::getRdTree() {
 }
 
 /**
- * @summary Query Image Scan Period.
+ * @summary Queries the time range of image scans.
  *
  * @param request GetRegistryScanDayNumRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30435,7 +30439,7 @@ GetRegistryScanDayNumResponse Client::getRegistryScanDayNumWithOptions(const Dar
 }
 
 /**
- * @summary Query Image Scan Period.
+ * @summary Queries the time range of image scans.
  *
  * @return GetRegistryScanDayNumResponse
  */
@@ -35284,7 +35288,7 @@ ListHoneypotProbeResponse Client::listHoneypotProbe(const ListHoneypotProbeReque
 }
 
 /**
- * @summary 查询已安装的探针
+ * @summary Query installed probes
  *
  * @param request ListHoneypotProbeUuidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35323,7 +35327,7 @@ ListHoneypotProbeUuidResponse Client::listHoneypotProbeUuidWithOptions(const Lis
 }
 
 /**
- * @summary 查询已安装的探针
+ * @summary Query installed probes
  *
  * @param request ListHoneypotProbeUuidRequest
  * @return ListHoneypotProbeUuidResponse
@@ -35376,7 +35380,7 @@ ListImageBuildRiskItemResponse Client::listImageBuildRiskItem(const ListImageBui
 }
 
 /**
- * @summary Query Image Registry Extended Information.
+ * @summary Queries the additional configuration information about an image repository.
  *
  * @param request ListImageRegistryExtraRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35407,7 +35411,7 @@ ListImageRegistryExtraResponse Client::listImageRegistryExtraWithOptions(const L
 }
 
 /**
- * @summary Query Image Registry Extended Information.
+ * @summary Queries the additional configuration information about an image repository.
  *
  * @param request ListImageRegistryExtraRequest
  * @return ListImageRegistryExtraResponse
@@ -35961,7 +35965,7 @@ ListLogShipperRegionsResponse Client::listLogShipperRegions() {
 }
 
 /**
- * @summary Paginate to query the application list.
+ * @summary Queries Serverless App Engine (SAE) applications.
  *
  * @param request ListMachineAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36020,7 +36024,7 @@ ListMachineAppsResponse Client::listMachineAppsWithOptions(const ListMachineApps
 }
 
 /**
- * @summary Paginate to query the application list.
+ * @summary Queries Serverless App Engine (SAE) applications.
  *
  * @param request ListMachineAppsRequest
  * @return ListMachineAppsResponse
@@ -36046,6 +36050,10 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 
   if (!!request.hasEventName()) {
     query["EventName"] = request.eventName();
+  }
+
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.idList();
   }
 
   if (!!request.hasLang()) {
@@ -36098,12 +36106,20 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 ListObjectScanEventResponse Client::listObjectScanEventWithOptions(const ListObjectScanEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBatchType()) {
+    query["BatchType"] = request.batchType();
+  }
+
   if (!!request.hasBucketName()) {
     query["BucketName"] = request.bucketName();
   }
 
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
   }
 
   if (!!request.hasEventName()) {
@@ -36136,6 +36152,10 @@ ListObjectScanEventResponse Client::listObjectScanEventWithOptions(const ListObj
 
   if (!!request.hasSource()) {
     query["Source"] = request.source();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
   }
 
   if (!!request.hasTimeEnd()) {
@@ -37503,7 +37523,7 @@ ListUserVpcResponse Client::listUserVpc(const ListUserVpcRequest &request) {
 }
 
 /**
- * @summary Query the list of instance UUIDs based on the application ID.
+ * @summary Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37554,7 +37574,7 @@ ListUuidsByAppIdResponse Client::listUuidsByAppIdWithOptions(const ListUuidsByAp
 }
 
 /**
- * @summary Query the list of instance UUIDs based on the application ID.
+ * @summary Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
  *
  * @param request ListUuidsByAppIdRequest
  * @return ListUuidsByAppIdResponse
@@ -39721,7 +39741,7 @@ ModifyGroupPropertyResponse Client::modifyGroupProperty(const ModifyGroupPropert
 }
 
 /**
- * @summary 修改代理集群
+ * @summary Modify proxy cluster.
  *
  * @param request ModifyHybridProxyClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39756,7 +39776,7 @@ ModifyHybridProxyClusterResponse Client::modifyHybridProxyClusterWithOptions(con
 }
 
 /**
- * @summary 修改代理集群
+ * @summary Modify proxy cluster.
  *
  * @param request ModifyHybridProxyClusterRequest
  * @return ModifyHybridProxyClusterResponse
@@ -39767,7 +39787,7 @@ ModifyHybridProxyClusterResponse Client::modifyHybridProxyCluster(const ModifyHy
 }
 
 /**
- * @summary 修改代理策略
+ * @summary Modify proxy policy.
  *
  * @param request ModifyHybridProxyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39802,7 +39822,7 @@ ModifyHybridProxyPolicyResponse Client::modifyHybridProxyPolicyWithOptions(const
 }
 
 /**
- * @summary 修改代理策略
+ * @summary Modify proxy policy.
  *
  * @param request ModifyHybridProxyPolicyRequest
  * @return ModifyHybridProxyPolicyResponse
@@ -47312,6 +47332,10 @@ UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistC
     query["Operator"] = request._operator();
   }
 
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
   if (!!request.hasSource()) {
     query["Source"] = request.source();
   }
@@ -47943,7 +47967,7 @@ UpdateTargetListByBatchResponse Client::updateTargetListByBatch(const UpdateTarg
 }
 
 /**
- * @summary Modify Image Service Whitelist.
+ * @summary Updates the IP address whitelist of an image repository.
  *
  * @param request UpdateWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47978,7 +48002,7 @@ UpdateWhiteListResponse Client::updateWhiteListWithOptions(const UpdateWhiteList
 }
 
 /**
- * @summary Modify Image Service Whitelist.
+ * @summary Updates the IP address whitelist of an image repository.
  *
  * @param request UpdateWhiteListRequest
  * @return UpdateWhiteListResponse

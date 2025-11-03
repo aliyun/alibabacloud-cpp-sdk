@@ -261,6 +261,11 @@ namespace Models
     std::shared_ptr<string> necessity_ = nullptr;
     // The number of entries per page. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Indicates whether the application protection feature is supported. Valid values:
+    // 
+    // - **0**: no.
+    // 
+    // - **1**: yes.
     std::shared_ptr<int32_t> raspDefend_ = nullptr;
     // The Alibaba Cloud account ID of the member in the resource directory.
     // 

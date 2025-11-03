@@ -62,6 +62,7 @@ namespace Models
     // *   **zh**: Chinese
     // *   **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Whether to overwrite. Value range: - true: Overwrite. - false: Do not overwrite.
     std::shared_ptr<bool> override_ = nullptr;
     // The source IP address.
     std::shared_ptr<string> sourceIp_ = nullptr;

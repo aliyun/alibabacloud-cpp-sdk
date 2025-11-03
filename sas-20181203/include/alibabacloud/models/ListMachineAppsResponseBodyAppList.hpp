@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // SAE application ID.
+    // The ID of the SAE application.
     std::shared_ptr<string> appId_ = nullptr;
-    // SAE application name.
+    // The name of the SAE application.
     std::shared_ptr<string> appName_ = nullptr;
-    // Region ID.
+    // The region ID.
     std::shared_ptr<string> appRegionId_ = nullptr;
   };
 

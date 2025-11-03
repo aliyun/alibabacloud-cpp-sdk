@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // Image repository ID.
-    // > You can obtain this parameter by calling the [PageImageRegistry](~~PageImageRegistry~~) interface.
+    // The ID of the image repository.
+    // 
+    // >  You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to obtain the ID.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> registryId_ = nullptr;
-    // Whitelist list. If there are multiple whitelisted addresses, separate them with a comma (,).
+    // The IP address whitelist. Separate multiple IP addresses with commas (,).
     // 
     // This parameter is required.
     std::shared_ptr<string> whiteList_ = nullptr;

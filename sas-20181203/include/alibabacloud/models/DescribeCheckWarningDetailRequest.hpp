@@ -96,12 +96,17 @@ namespace Models
   protected:
     // The ID of the check item.
     // 
-    // >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of the check items.
+    // >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
+    // 
+    // >  If you specify this parameter, you must also specify the Uuid parameter.
     std::shared_ptr<string> checkId_ = nullptr;
-    // The ID of the alert that is triggered by the check item.
+    // The ID of the alert triggered by the check item.
     // 
     // >  To query the details of a check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
+    // 
+    // >  If the Uuid and CheckId parameters are not specified, this parameter is required.
     std::shared_ptr<int64_t> checkWarningId_ = nullptr;
+    // Container name.
     std::shared_ptr<string> containerName_ = nullptr;
     // The language of the content within the request and response. Valid values:
     // 
@@ -117,6 +122,8 @@ namespace Models
     // The UUID of the server.
     // 
     // >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+    // 
+    // >  If you specify this parameter, you must also specify the CheckId parameter.
     std::shared_ptr<string> uuid_ = nullptr;
   };
 

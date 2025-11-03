@@ -508,6 +508,7 @@ namespace Models
     // *   N: no
     // *   Y: Yes
     std::shared_ptr<string> strictMode_ = nullptr;
+    // 告警支持的操作类型列表。
     std::shared_ptr<vector<string>> supportOperateCodeList_ = nullptr;
     // The tactic ID of ATT\\&CK.
     std::shared_ptr<string> tacticId_ = nullptr;

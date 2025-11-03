@@ -122,6 +122,7 @@ namespace Models
     std::shared_ptr<vector<int64_t>> requirementIds_ = nullptr;
     // The IDs of standards.
     std::shared_ptr<vector<int64_t>> standardIds_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
     // The types of check standards.
     std::shared_ptr<vector<string>> types_ = nullptr;

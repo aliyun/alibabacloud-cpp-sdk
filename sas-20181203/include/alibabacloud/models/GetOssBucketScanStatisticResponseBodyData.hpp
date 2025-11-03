@@ -18,6 +18,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LowRisk, lowRisk_);
       DARABONBA_PTR_TO_JSON(MediumRisk, mediumRisk_);
       DARABONBA_PTR_TO_JSON(NoScanBucket, noScanBucket_);
+      DARABONBA_PTR_TO_JSON(PostPayInvokeCount, postPayInvokeCount_);
+      DARABONBA_PTR_TO_JSON(PrePayAuthCount, prePayAuthCount_);
+      DARABONBA_PTR_TO_JSON(PrePayInvokeCount, prePayInvokeCount_);
       DARABONBA_PTR_TO_JSON(RemainAuth, remainAuth_);
       DARABONBA_PTR_TO_JSON(RiskBucket, riskBucket_);
       DARABONBA_PTR_TO_JSON(ScanObject, scanObject_);
@@ -30,6 +33,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LowRisk, lowRisk_);
       DARABONBA_PTR_FROM_JSON(MediumRisk, mediumRisk_);
       DARABONBA_PTR_FROM_JSON(NoScanBucket, noScanBucket_);
+      DARABONBA_PTR_FROM_JSON(PostPayInvokeCount, postPayInvokeCount_);
+      DARABONBA_PTR_FROM_JSON(PrePayAuthCount, prePayAuthCount_);
+      DARABONBA_PTR_FROM_JSON(PrePayInvokeCount, prePayInvokeCount_);
       DARABONBA_PTR_FROM_JSON(RemainAuth, remainAuth_);
       DARABONBA_PTR_FROM_JSON(RiskBucket, riskBucket_);
       DARABONBA_PTR_FROM_JSON(ScanObject, scanObject_);
@@ -48,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->expireTime_ == nullptr
-        && return this->highRisk_ == nullptr && return this->lowRisk_ == nullptr && return this->mediumRisk_ == nullptr && return this->noScanBucket_ == nullptr && return this->remainAuth_ == nullptr
-        && return this->riskBucket_ == nullptr && return this->scanObject_ == nullptr && return this->totalBucket_ == nullptr && return this->totalObject_ == nullptr; };
+        && return this->highRisk_ == nullptr && return this->lowRisk_ == nullptr && return this->mediumRisk_ == nullptr && return this->noScanBucket_ == nullptr && return this->postPayInvokeCount_ == nullptr
+        && return this->prePayAuthCount_ == nullptr && return this->prePayInvokeCount_ == nullptr && return this->remainAuth_ == nullptr && return this->riskBucket_ == nullptr && return this->scanObject_ == nullptr
+        && return this->totalBucket_ == nullptr && return this->totalObject_ == nullptr; };
     // expireTime Field Functions 
     bool hasExpireTime() const { return this->expireTime_ != nullptr;};
     void deleteExpireTime() { this->expireTime_ = nullptr;};
@@ -83,6 +90,27 @@ namespace Models
     void deleteNoScanBucket() { this->noScanBucket_ = nullptr;};
     inline int32_t noScanBucket() const { DARABONBA_PTR_GET_DEFAULT(noScanBucket_, 0) };
     inline GetOssBucketScanStatisticResponseBodyData& setNoScanBucket(int32_t noScanBucket) { DARABONBA_PTR_SET_VALUE(noScanBucket_, noScanBucket) };
+
+
+    // postPayInvokeCount Field Functions 
+    bool hasPostPayInvokeCount() const { return this->postPayInvokeCount_ != nullptr;};
+    void deletePostPayInvokeCount() { this->postPayInvokeCount_ = nullptr;};
+    inline int64_t postPayInvokeCount() const { DARABONBA_PTR_GET_DEFAULT(postPayInvokeCount_, 0L) };
+    inline GetOssBucketScanStatisticResponseBodyData& setPostPayInvokeCount(int64_t postPayInvokeCount) { DARABONBA_PTR_SET_VALUE(postPayInvokeCount_, postPayInvokeCount) };
+
+
+    // prePayAuthCount Field Functions 
+    bool hasPrePayAuthCount() const { return this->prePayAuthCount_ != nullptr;};
+    void deletePrePayAuthCount() { this->prePayAuthCount_ = nullptr;};
+    inline int64_t prePayAuthCount() const { DARABONBA_PTR_GET_DEFAULT(prePayAuthCount_, 0L) };
+    inline GetOssBucketScanStatisticResponseBodyData& setPrePayAuthCount(int64_t prePayAuthCount) { DARABONBA_PTR_SET_VALUE(prePayAuthCount_, prePayAuthCount) };
+
+
+    // prePayInvokeCount Field Functions 
+    bool hasPrePayInvokeCount() const { return this->prePayInvokeCount_ != nullptr;};
+    void deletePrePayInvokeCount() { this->prePayInvokeCount_ = nullptr;};
+    inline int64_t prePayInvokeCount() const { DARABONBA_PTR_GET_DEFAULT(prePayInvokeCount_, 0L) };
+    inline GetOssBucketScanStatisticResponseBodyData& setPrePayInvokeCount(int64_t prePayInvokeCount) { DARABONBA_PTR_SET_VALUE(prePayInvokeCount_, prePayInvokeCount) };
 
 
     // remainAuth Field Functions 
@@ -131,6 +159,9 @@ namespace Models
     std::shared_ptr<int64_t> mediumRisk_ = nullptr;
     // The number of buckets that are not checked.
     std::shared_ptr<int32_t> noScanBucket_ = nullptr;
+    std::shared_ptr<int64_t> postPayInvokeCount_ = nullptr;
+    std::shared_ptr<int64_t> prePayAuthCount_ = nullptr;
+    std::shared_ptr<int64_t> prePayInvokeCount_ = nullptr;
     // The remaining quota.
     std::shared_ptr<int32_t> remainAuth_ = nullptr;
     // The number of buckets in which at-risk objects exist.

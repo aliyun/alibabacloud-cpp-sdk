@@ -84,6 +84,7 @@ namespace Models
     std::shared_ptr<int32_t> autoBindVersion_ = nullptr;
     // Parameters for the binding action.
     std::shared_ptr<vector<UpdatePostPaidBindRelRequestBindAction>> bindAction_ = nullptr;
+    // Whether to force upgrade the version.
     std::shared_ptr<bool> updateIfNecessary_ = nullptr;
   };
 

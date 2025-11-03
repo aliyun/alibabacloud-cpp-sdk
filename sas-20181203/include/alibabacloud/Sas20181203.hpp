@@ -6191,7 +6191,7 @@ namespace Sas20181203
        *
        * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
        *
-       * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+       * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
        *
        * @param request DescribeRiskCheckItemResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6204,7 +6204,7 @@ namespace Sas20181203
        *
        * @summary Queries the assets that are affected by the risk item detected in configuration assessment based on a specified check item.
        *
-       * @description This operation is phased out. You can use the ListCheckInstanceResult operation.
+       * @description 该接口已下线，使用升级接口ListCheckInstanceResult替换。
        *
        * @param request DescribeRiskCheckItemResultRequest
        * @return DescribeRiskCheckItemResultResponse
@@ -9156,7 +9156,7 @@ namespace Sas20181203
       Models::GetDockerhubImageRiskRankInfoResponse getDockerhubImageRiskRankInfo(const Models::GetDockerhubImageRiskRankInfoRequest &request);
 
       /**
-       * @summary Query the statistical counts of images across various dimensions.
+       * @summary Queries the risk statistics of Docker Hub images.
        *
        * @param request GetDockerhubImageRiskStatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9165,7 +9165,7 @@ namespace Sas20181203
       Models::GetDockerhubImageRiskStatisticResponse getDockerhubImageRiskStatisticWithOptions(const Models::GetDockerhubImageRiskStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the statistical counts of images across various dimensions.
+       * @summary Queries the risk statistics of Docker Hub images.
        *
        * @param request GetDockerhubImageRiskStatisticRequest
        * @return GetDockerhubImageRiskStatisticResponse
@@ -9751,7 +9751,7 @@ namespace Sas20181203
       Models::GetOpaClusterBaseLineListResponse getOpaClusterBaseLineList();
 
       /**
-       * @summary 查询集群镜像
+       * @summary Get cluster image information.
        *
        * @param request GetOpaClusterImageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9760,7 +9760,7 @@ namespace Sas20181203
       Models::GetOpaClusterImageListResponse getOpaClusterImageListWithOptions(const Models::GetOpaClusterImageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询集群镜像
+       * @summary Get cluster image information.
        *
        * @param request GetOpaClusterImageListRequest
        * @return GetOpaClusterImageListResponse
@@ -9939,7 +9939,7 @@ namespace Sas20181203
       Models::GetRdTreeResponse getRdTree();
 
       /**
-       * @summary Query Image Scan Period.
+       * @summary Queries the time range of image scans.
        *
        * @param request GetRegistryScanDayNumRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9948,7 +9948,7 @@ namespace Sas20181203
       Models::GetRegistryScanDayNumResponse getRegistryScanDayNumWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Image Scan Period.
+       * @summary Queries the time range of image scans.
        *
        * @return GetRegistryScanDayNumResponse
        */
@@ -11483,7 +11483,7 @@ namespace Sas20181203
       Models::ListHoneypotProbeResponse listHoneypotProbe(const Models::ListHoneypotProbeRequest &request);
 
       /**
-       * @summary 查询已安装的探针
+       * @summary Query installed probes
        *
        * @param request ListHoneypotProbeUuidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11492,7 +11492,7 @@ namespace Sas20181203
       Models::ListHoneypotProbeUuidResponse listHoneypotProbeUuidWithOptions(const Models::ListHoneypotProbeUuidRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询已安装的探针
+       * @summary Query installed probes
        *
        * @param request ListHoneypotProbeUuidRequest
        * @return ListHoneypotProbeUuidResponse
@@ -11517,7 +11517,7 @@ namespace Sas20181203
       Models::ListImageBuildRiskItemResponse listImageBuildRiskItem(const Models::ListImageBuildRiskItemRequest &request);
 
       /**
-       * @summary Query Image Registry Extended Information.
+       * @summary Queries the additional configuration information about an image repository.
        *
        * @param request ListImageRegistryExtraRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11526,7 +11526,7 @@ namespace Sas20181203
       Models::ListImageRegistryExtraResponse listImageRegistryExtraWithOptions(const Models::ListImageRegistryExtraRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Image Registry Extended Information.
+       * @summary Queries the additional configuration information about an image repository.
        *
        * @param request ListImageRegistryExtraRequest
        * @return ListImageRegistryExtraResponse
@@ -11707,7 +11707,7 @@ namespace Sas20181203
       Models::ListLogShipperRegionsResponse listLogShipperRegions();
 
       /**
-       * @summary Paginate to query the application list.
+       * @summary Queries Serverless App Engine (SAE) applications.
        *
        * @param request ListMachineAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11716,7 +11716,7 @@ namespace Sas20181203
       Models::ListMachineAppsResponse listMachineAppsWithOptions(const Models::ListMachineAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paginate to query the application list.
+       * @summary Queries Serverless App Engine (SAE) applications.
        *
        * @param request ListMachineAppsRequest
        * @return ListMachineAppsResponse
@@ -12229,7 +12229,7 @@ namespace Sas20181203
       Models::ListUserVpcResponse listUserVpc(const Models::ListUserVpcRequest &request);
 
       /**
-       * @summary Query the list of instance UUIDs based on the application ID.
+       * @summary Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
        *
        * @param request ListUuidsByAppIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12238,7 +12238,7 @@ namespace Sas20181203
       Models::ListUuidsByAppIdResponse listUuidsByAppIdWithOptions(const Models::ListUuidsByAppIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of instance UUIDs based on the application ID.
+       * @summary Queries the UUIDs of Serverless App Engine (SAE) instances based on an application ID.
        *
        * @param request ListUuidsByAppIdRequest
        * @return ListUuidsByAppIdResponse
@@ -12891,7 +12891,7 @@ namespace Sas20181203
       Models::ModifyGroupPropertyResponse modifyGroupProperty(const Models::ModifyGroupPropertyRequest &request);
 
       /**
-       * @summary 修改代理集群
+       * @summary Modify proxy cluster.
        *
        * @param request ModifyHybridProxyClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12900,7 +12900,7 @@ namespace Sas20181203
       Models::ModifyHybridProxyClusterResponse modifyHybridProxyClusterWithOptions(const Models::ModifyHybridProxyClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改代理集群
+       * @summary Modify proxy cluster.
        *
        * @param request ModifyHybridProxyClusterRequest
        * @return ModifyHybridProxyClusterResponse
@@ -12908,7 +12908,7 @@ namespace Sas20181203
       Models::ModifyHybridProxyClusterResponse modifyHybridProxyCluster(const Models::ModifyHybridProxyClusterRequest &request);
 
       /**
-       * @summary 修改代理策略
+       * @summary Modify proxy policy.
        *
        * @param request ModifyHybridProxyPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12917,7 +12917,7 @@ namespace Sas20181203
       Models::ModifyHybridProxyPolicyResponse modifyHybridProxyPolicyWithOptions(const Models::ModifyHybridProxyPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改代理策略
+       * @summary Modify proxy policy.
        *
        * @param request ModifyHybridProxyPolicyRequest
        * @return ModifyHybridProxyPolicyResponse
@@ -15560,7 +15560,7 @@ namespace Sas20181203
       Models::UpdateTargetListByBatchResponse updateTargetListByBatch(const Models::UpdateTargetListByBatchRequest &request);
 
       /**
-       * @summary Modify Image Service Whitelist.
+       * @summary Updates the IP address whitelist of an image repository.
        *
        * @param request UpdateWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15569,7 +15569,7 @@ namespace Sas20181203
       Models::UpdateWhiteListResponse updateWhiteListWithOptions(const Models::UpdateWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Image Service Whitelist.
+       * @summary Updates the IP address whitelist of an image repository.
        *
        * @param request UpdateWhiteListRequest
        * @return UpdateWhiteListResponse

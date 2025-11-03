@@ -210,6 +210,7 @@ namespace Models
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
     // The permission that is required to run the process.
     std::shared_ptr<string> euidName_ = nullptr;
+    // Process file hash information.
     std::shared_ptr<string> fileHash_ = nullptr;
     // The ID of the server that is associated with the process.
     std::shared_ptr<string> instanceId_ = nullptr;

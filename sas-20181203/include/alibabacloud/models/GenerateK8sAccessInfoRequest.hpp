@@ -146,6 +146,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> clusterName_ = nullptr;
+    // CPU architectures are divided into ARM architecture and x86 architecture.
     std::shared_ptr<string> cpuArch_ = nullptr;
     // The time at which the container ends to be added.
     // 

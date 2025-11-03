@@ -124,6 +124,7 @@ namespace Models
     std::shared_ptr<vector<int32_t>> statusCodes_ = nullptr;
     // The task IDs.
     std::shared_ptr<vector<string>> taskIds_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
     // The task types. Valid values:
     // 

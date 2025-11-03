@@ -158,7 +158,9 @@ namespace Models
 
 
   protected:
+    // The number of AI services.
     std::shared_ptr<int32_t> agentlessLlmService_ = nullptr;
+    // The number of AI tools.
     std::shared_ptr<int32_t> agentlessScaAiComponent_ = nullptr;
     // The number of startup items.
     std::shared_ptr<int32_t> autorun_ = nullptr;

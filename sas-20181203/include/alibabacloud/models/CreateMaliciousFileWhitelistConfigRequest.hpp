@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Field, field_);
       DARABONBA_PTR_TO_JSON(FieldValue, fieldValue_);
       DARABONBA_PTR_TO_JSON(Operator, operator_);
+      DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
       DARABONBA_PTR_TO_JSON(TargetValue, targetValue_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Field, field_);
       DARABONBA_PTR_FROM_JSON(FieldValue, fieldValue_);
       DARABONBA_PTR_FROM_JSON(Operator, operator_);
+      DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
       DARABONBA_PTR_FROM_JSON(TargetValue, targetValue_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventName_ == nullptr
-        && return this->field_ == nullptr && return this->fieldValue_ == nullptr && return this->operator_ == nullptr && return this->source_ == nullptr && return this->targetType_ == nullptr
-        && return this->targetValue_ == nullptr; };
+        && return this->field_ == nullptr && return this->fieldValue_ == nullptr && return this->operator_ == nullptr && return this->remark_ == nullptr && return this->source_ == nullptr
+        && return this->targetType_ == nullptr && return this->targetValue_ == nullptr; };
     // eventName Field Functions 
     bool hasEventName() const { return this->eventName_ != nullptr;};
     void deleteEventName() { this->eventName_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteOperator() { this->operator_ = nullptr;};
     inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline CreateMaliciousFileWhitelistConfigRequest& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
+
+
+    // remark Field Functions 
+    bool hasRemark() const { return this->remark_ != nullptr;};
+    void deleteRemark() { this->remark_ = nullptr;};
+    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline CreateMaliciousFileWhitelistConfigRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
     // source Field Functions 
@@ -106,6 +115,7 @@ namespace Models
     // 
     // *   Set the value to strEqual, which indicates the equality operator (=).
     std::shared_ptr<string> operator_ = nullptr;
+    std::shared_ptr<string> remark_ = nullptr;
     // The feature to which this operation belongs.
     // 
     // *   Set the value to agentless, which indicates the agentless detection feature.

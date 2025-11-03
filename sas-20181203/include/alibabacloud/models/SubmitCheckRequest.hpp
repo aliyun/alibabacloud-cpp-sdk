@@ -53,6 +53,7 @@ namespace Models
     // *   **FULL**: All check items are scanned.
     // *   **FULL**: Only the check items that are configured are scanned.
     std::shared_ptr<string> scanRange_ = nullptr;
+    // The source of task.
     std::shared_ptr<string> taskSource_ = nullptr;
   };
 

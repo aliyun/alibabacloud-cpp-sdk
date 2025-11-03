@@ -807,7 +807,9 @@ namespace Models
     // - **VOLCENGINE**: VOLCENGINE Cloud
     // - **google**: GOOGLE Cloud
     std::shared_ptr<string> vendorName_ = nullptr;
+    // Account ID of the multi-cloud instance.
     std::shared_ptr<string> vendorUid_ = nullptr;
+    // Account name of the multi-cloud instance.
     std::shared_ptr<string> vendorUserName_ = nullptr;
     // The ID of the VPC to which the asset belongs.
     std::shared_ptr<string> vpcInstanceId_ = nullptr;

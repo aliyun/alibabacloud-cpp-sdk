@@ -103,26 +103,28 @@ namespace Models
 
 
   protected:
-    // SAE application ID.
+    // The ID of the SAE application.
     std::shared_ptr<string> appId_ = nullptr;
-    // SAE application name.
+    // The name of the SAE application.
     std::shared_ptr<string> appName_ = nullptr;
-    // Region ID.
+    // The region ID.
     std::shared_ptr<string> appRegionId_ = nullptr;
-    // The authorization version of the asset. Values:
-    // - **6**: Anti-virus edition
-    // - **5**: Advanced edition
-    // - **3**: Enterprise edition
-    // - **7**: Ultimate edition
-    // - **10**: Value-added Service Edition
+    // The edition of Security Center. Valid values:
+    // 
+    // *   **6**: Anti-virus.
+    // *   **5**: Advanced.
+    // *   **3**: Enterprise.
+    // *   **7**: Ultimate.
+    // *   **10**: Value-added Plan.
     std::shared_ptr<string> authVersion_ = nullptr;
-    // The page number to display in a paginated query.
+    // The page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // The language type for request and response, default value is **zh**. Values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // 
+    // *   **zh**: Chinese.
+    // *   **en**: English.
     std::shared_ptr<string> lang_ = nullptr;
-    // The maximum number of items to display per page in a paginated query.
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The UID of the resource directory.
     std::shared_ptr<int64_t> resourceDirectoryUid_ = nullptr;

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListMaliciousFileWhitelistConfigsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(EventName, eventName_);
+      DARABONBA_PTR_TO_JSON(IdList, idList_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Source, source_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListMaliciousFileWhitelistConfigsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(EventName, eventName_);
+      DARABONBA_PTR_FROM_JSON(IdList, idList_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->eventName_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->source_ == nullptr; };
+        && return this->eventName_ == nullptr && return this->idList_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->source_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteEventName() { this->eventName_ = nullptr;};
     inline string eventName() const { DARABONBA_PTR_GET_DEFAULT(eventName_, "") };
     inline ListMaliciousFileWhitelistConfigsRequest& setEventName(string eventName) { DARABONBA_PTR_SET_VALUE(eventName_, eventName) };
+
+
+    // idList Field Functions 
+    bool hasIdList() const { return this->idList_ != nullptr;};
+    void deleteIdList() { this->idList_ = nullptr;};
+    inline int64_t idList() const { DARABONBA_PTR_GET_DEFAULT(idList_, 0L) };
+    inline ListMaliciousFileWhitelistConfigsRequest& setIdList(int64_t idList) { DARABONBA_PTR_SET_VALUE(idList_, idList) };
 
 
     // lang Field Functions 
@@ -81,6 +90,7 @@ namespace Models
     // 
     // *   Set the value to ALL, which indicates all alert types.
     std::shared_ptr<string> eventName_ = nullptr;
+    std::shared_ptr<int64_t> idList_ = nullptr;
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // *   **zh**: Chinese
