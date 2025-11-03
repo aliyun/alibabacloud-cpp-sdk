@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beg1End_ != nullptr
-        && this->beg1Start_ != nullptr && this->beg2End_ != nullptr && this->beg2Start_ != nullptr && this->hotType_ != nullptr && this->instance1_ != nullptr
-        && this->instance2_ != nullptr && this->pid1_ != nullptr && this->pid2_ != nullptr && this->table_ != nullptr; };
+    virtual bool empty() const override { return this->beg1End_ == nullptr
+        && return this->beg1Start_ == nullptr && return this->beg2End_ == nullptr && return this->beg2Start_ == nullptr && return this->hotType_ == nullptr && return this->instance1_ == nullptr
+        && return this->instance2_ == nullptr && return this->pid1_ == nullptr && return this->pid2_ == nullptr && return this->table_ == nullptr; };
     // beg1End Field Functions 
     bool hasBeg1End() const { return this->beg1End_ != nullptr;};
     void deleteBeg1End() { this->beg1End_ = nullptr;};

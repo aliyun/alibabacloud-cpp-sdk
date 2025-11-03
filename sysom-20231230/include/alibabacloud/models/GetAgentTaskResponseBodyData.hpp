@@ -16,10 +16,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAgentTaskResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(jobs, jobs_);
+      DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(task_id, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, GetAgentTaskResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(jobs, jobs_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(task_id, taskId_);
     };
     GetAgentTaskResponseBodyData() = default ;
@@ -33,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobs_ != nullptr
-        && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->jobs_ == nullptr
+        && return this->status_ == nullptr && return this->taskId_ == nullptr; };
     // jobs Field Functions 
     bool hasJobs() const { return this->jobs_ != nullptr;};
     void deleteJobs() { this->jobs_ = nullptr;};
@@ -42,6 +44,13 @@ namespace Models
     inline vector<Models::GetAgentTaskResponseBodyDataJobs> jobs() { DARABONBA_PTR_GET(jobs_, vector<Models::GetAgentTaskResponseBodyDataJobs>) };
     inline GetAgentTaskResponseBodyData& setJobs(const vector<Models::GetAgentTaskResponseBodyDataJobs> & jobs) { DARABONBA_PTR_SET_VALUE(jobs_, jobs) };
     inline GetAgentTaskResponseBodyData& setJobs(vector<Models::GetAgentTaskResponseBodyDataJobs> && jobs) { DARABONBA_PTR_SET_RVALUE(jobs_, jobs) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline GetAgentTaskResponseBodyData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // taskId Field Functions 
@@ -53,6 +62,7 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<Models::GetAgentTaskResponseBodyDataJobs>> jobs_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

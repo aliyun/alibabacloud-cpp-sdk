@@ -153,6 +153,10 @@ CreateAlertStrategyResponse Client::createAlertStrategyWithOptions(const CreateA
     body["enabled"] = request.enabled();
   }
 
+  if (!!request.hasK8sLabel()) {
+    body["k8sLabel"] = request.k8sLabel();
+  }
+
   if (!!request.hasName()) {
     body["name"] = request.name();
   }
@@ -3226,6 +3230,10 @@ UpdateAlertStrategyResponse Client::updateAlertStrategyWithOptions(const UpdateA
 
   if (!!request.hasId()) {
     body["id"] = request.id();
+  }
+
+  if (!!request.hasK8sLabel()) {
+    body["k8sLabel"] = request.k8sLabel();
   }
 
   if (!!request.hasName()) {

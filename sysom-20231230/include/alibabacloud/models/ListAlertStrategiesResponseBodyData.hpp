@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(enabled, enabled_);
       DARABONBA_PTR_TO_JSON(id, id_);
+      DARABONBA_PTR_TO_JSON(k8sLabel, k8sLabel_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(strategy, strategy_);
       DARABONBA_PTR_TO_JSON(uid, uid_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(enabled, enabled_);
       DARABONBA_PTR_FROM_JSON(id, id_);
+      DARABONBA_PTR_FROM_JSON(k8sLabel, k8sLabel_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(strategy, strategy_);
       DARABONBA_PTR_FROM_JSON(uid, uid_);
@@ -42,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdAt_ != nullptr
-        && this->enabled_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->strategy_ != nullptr && this->uid_ != nullptr
-        && this->updatedAt_ != nullptr; };
+    virtual bool empty() const override { return this->createdAt_ == nullptr
+        && return this->enabled_ == nullptr && return this->id_ == nullptr && return this->k8sLabel_ == nullptr && return this->name_ == nullptr && return this->strategy_ == nullptr
+        && return this->uid_ == nullptr && return this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -64,6 +66,13 @@ namespace Models
     void deleteId() { this->id_ = nullptr;};
     inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline ListAlertStrategiesResponseBodyData& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // k8sLabel Field Functions 
+    bool hasK8sLabel() const { return this->k8sLabel_ != nullptr;};
+    void deleteK8sLabel() { this->k8sLabel_ = nullptr;};
+    inline bool k8sLabel() const { DARABONBA_PTR_GET_DEFAULT(k8sLabel_, false) };
+    inline ListAlertStrategiesResponseBodyData& setK8sLabel(bool k8sLabel) { DARABONBA_PTR_SET_VALUE(k8sLabel_, k8sLabel) };
 
 
     // name Field Functions 
@@ -100,6 +109,7 @@ namespace Models
     std::shared_ptr<string> createdAt_ = nullptr;
     std::shared_ptr<bool> enabled_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<bool> k8sLabel_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<Models::ListAlertStrategiesResponseBodyDataStrategy> strategy_ = nullptr;
     std::shared_ptr<string> uid_ = nullptr;

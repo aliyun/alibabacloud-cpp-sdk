@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysisTool_ != nullptr
-        && this->analysisParams_ != nullptr && this->channel_ != nullptr && this->comms_ != nullptr && this->createdBy_ != nullptr && this->instance_ != nullptr
-        && this->instanceType_ != nullptr && this->iterationFunc_ != nullptr && this->iterationMod_ != nullptr && this->iterationRange_ != nullptr && this->pids_ != nullptr
-        && this->region_ != nullptr && this->timeout_ != nullptr && this->uid_ != nullptr; };
+    virtual bool empty() const override { return this->analysisTool_ == nullptr
+        && return this->analysisParams_ == nullptr && return this->channel_ == nullptr && return this->comms_ == nullptr && return this->createdBy_ == nullptr && return this->instance_ == nullptr
+        && return this->instanceType_ == nullptr && return this->iterationFunc_ == nullptr && return this->iterationMod_ == nullptr && return this->iterationRange_ == nullptr && return this->pids_ == nullptr
+        && return this->region_ == nullptr && return this->timeout_ == nullptr && return this->uid_ == nullptr; };
     // analysisTool Field Functions 
     bool hasAnalysisTool() const { return this->analysisTool_ != nullptr;};
     void deleteAnalysisTool() { this->analysisTool_ = nullptr;};

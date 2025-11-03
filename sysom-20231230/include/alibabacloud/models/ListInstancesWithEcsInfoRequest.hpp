@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->current_ != nullptr
-        && this->healthStatus_ != nullptr && this->instanceId_ != nullptr && this->instanceIdName_ != nullptr && this->instanceName_ != nullptr && this->instanceTag_ != nullptr
-        && this->isManaged_ != nullptr && this->osName_ != nullptr && this->pageSize_ != nullptr && this->privateIp_ != nullptr && this->publicIp_ != nullptr
-        && this->region_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceGroupIdName_ != nullptr && this->resourceGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->current_ == nullptr
+        && return this->healthStatus_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIdName_ == nullptr && return this->instanceName_ == nullptr && return this->instanceTag_ == nullptr
+        && return this->isManaged_ == nullptr && return this->osName_ == nullptr && return this->pageSize_ == nullptr && return this->privateIp_ == nullptr && return this->publicIp_ == nullptr
+        && return this->region_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupIdName_ == nullptr && return this->resourceGroupName_ == nullptr; };
     // current Field Functions 
     bool hasCurrent() const { return this->current_ != nullptr;};
     void deleteCurrent() { this->current_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceTag_ != nullptr && this->kernelVersion_ != nullptr && this->osArch_ != nullptr
-        && this->osHealthScore_ != nullptr && this->osName_ != nullptr && this->privateIp_ != nullptr && this->publicIp_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceTag_ == nullptr && return this->kernelVersion_ == nullptr && return this->osArch_ == nullptr
+        && return this->osHealthScore_ == nullptr && return this->osName_ == nullptr && return this->privateIp_ == nullptr && return this->publicIp_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->status_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
