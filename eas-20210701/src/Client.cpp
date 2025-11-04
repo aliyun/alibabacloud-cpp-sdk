@@ -4821,6 +4821,10 @@ UpdateServiceCronScalerResponse Client::updateServiceCronScaler(const string &Cl
 UpdateServiceInstanceResponse Client::updateServiceInstanceWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const UpdateServiceInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasHibernate()) {
+    body["Hibernate"] = request.hibernate();
+  }
+
   if (!!request.hasIsolate()) {
     body["Isolate"] = request.isolate();
   }

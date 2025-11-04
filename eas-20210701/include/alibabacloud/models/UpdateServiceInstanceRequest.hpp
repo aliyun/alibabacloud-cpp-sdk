@@ -13,9 +13,11 @@ namespace Models
   class UpdateServiceInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateServiceInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Hibernate, hibernate_);
       DARABONBA_PTR_TO_JSON(Isolate, isolate_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateServiceInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Hibernate, hibernate_);
       DARABONBA_PTR_FROM_JSON(Isolate, isolate_);
     };
     UpdateServiceInstanceRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->isolate_ == nullptr; };
+    virtual bool empty() const override { return this->hibernate_ == nullptr
+        && return this->isolate_ == nullptr; };
+    // hibernate Field Functions 
+    bool hasHibernate() const { return this->hibernate_ != nullptr;};
+    void deleteHibernate() { this->hibernate_ = nullptr;};
+    inline bool hibernate() const { DARABONBA_PTR_GET_DEFAULT(hibernate_, false) };
+    inline UpdateServiceInstanceRequest& setHibernate(bool hibernate) { DARABONBA_PTR_SET_VALUE(hibernate_, hibernate) };
+
+
     // isolate Field Functions 
     bool hasIsolate() const { return this->isolate_ != nullptr;};
     void deleteIsolate() { this->isolate_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> hibernate_ = nullptr;
     // Specifies whether to isolate the service instance. Valid values:
     // 
     // *   true
