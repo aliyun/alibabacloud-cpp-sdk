@@ -15,6 +15,7 @@ namespace Models
   class DescribeInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EipAddresses, eipAddresses_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_TO_JSON(EnsServiceId, ensServiceId_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EipAddresses, eipAddresses_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(EnsRegionIds, ensRegionIds_);
       DARABONBA_PTR_FROM_JSON(EnsServiceId, ensServiceId_);
@@ -69,11 +71,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ensRegionId_ == nullptr
-        && return this->ensRegionIds_ == nullptr && return this->ensServiceId_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIds_ == nullptr
-        && return this->instanceName_ == nullptr && return this->instanceResourceType_ == nullptr && return this->instanceType_ == nullptr && return this->intranetIp_ == nullptr && return this->networkId_ == nullptr
-        && return this->orderByParams_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr && return this->securityGroupId_ == nullptr
-        && return this->serviceStatus_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr; };
+    virtual bool empty() const override { return this->eipAddresses_ == nullptr
+        && return this->ensRegionId_ == nullptr && return this->ensRegionIds_ == nullptr && return this->ensServiceId_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceIds_ == nullptr && return this->instanceName_ == nullptr && return this->instanceResourceType_ == nullptr && return this->instanceType_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->networkId_ == nullptr && return this->orderByParams_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->serviceStatus_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr; };
+    // eipAddresses Field Functions 
+    bool hasEipAddresses() const { return this->eipAddresses_ != nullptr;};
+    void deleteEipAddresses() { this->eipAddresses_ = nullptr;};
+    inline const vector<string> & eipAddresses() const { DARABONBA_PTR_GET_CONST(eipAddresses_, vector<string>) };
+    inline vector<string> eipAddresses() { DARABONBA_PTR_GET(eipAddresses_, vector<string>) };
+    inline DescribeInstancesRequest& setEipAddresses(const vector<string> & eipAddresses) { DARABONBA_PTR_SET_VALUE(eipAddresses_, eipAddresses) };
+    inline DescribeInstancesRequest& setEipAddresses(vector<string> && eipAddresses) { DARABONBA_PTR_SET_RVALUE(eipAddresses_, eipAddresses) };
+
+
     // ensRegionId Field Functions 
     bool hasEnsRegionId() const { return this->ensRegionId_ != nullptr;};
     void deleteEnsRegionId() { this->ensRegionId_ = nullptr;};
@@ -219,6 +230,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> eipAddresses_ = nullptr;
     // The region ID.
     std::shared_ptr<string> ensRegionId_ = nullptr;
     // The IDs of the regions. The value is a JSON array that consists of up to 100 IDs. Separate multiple IDs with commas (,).

@@ -8022,6 +8022,10 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   tmpReq.validate();
   DescribeInstancesShrinkRequest request = DescribeInstancesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEipAddresses()) {
+    request.setEipAddressesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.eipAddresses(), "EipAddresses", "json"));
+  }
+
   if (!!tmpReq.hasServiceStatus()) {
     request.setServiceStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.serviceStatus(), "ServiceStatus", "json"));
   }
@@ -8031,6 +8035,10 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   }
 
   json query = {};
+  if (!!request.hasEipAddressesShrink()) {
+    query["EipAddresses"] = request.eipAddressesShrink();
+  }
+
   if (!!request.hasEnsRegionId()) {
     query["EnsRegionId"] = request.ensRegionId();
   }
