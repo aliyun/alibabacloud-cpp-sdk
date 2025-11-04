@@ -156,8 +156,6 @@ namespace Models
     // The start date to query. Specify the time in the *yyyy-MM-dd* format. The time must be in UTC.
     // 
     // > Only data within the last 30 days can be queried.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> startTime_ = nullptr;
     // The dimension by which to aggregate the SQL patterns. Valid values:
     // 
