@@ -135,18 +135,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->args_ != nullptr
-        && this->commands_ != nullptr && this->cpu_ != nullptr && this->environmentVars_ != nullptr && this->gpu_ != nullptr && this->image_ != nullptr
-        && this->imagePullPolicy_ != nullptr && this->lifecyclePostStartHandlerExecs_ != nullptr && this->lifecyclePostStartHandlerHttpGetHost_ != nullptr && this->lifecyclePostStartHandlerHttpGetPath_ != nullptr && this->lifecyclePostStartHandlerHttpGetPort_ != nullptr
-        && this->lifecyclePostStartHandlerHttpGetScheme_ != nullptr && this->lifecyclePostStartHandlerTcpSocketHost_ != nullptr && this->lifecyclePostStartHandlerTcpSocketPort_ != nullptr && this->lifecyclePreStopHandlerExecs_ != nullptr && this->lifecyclePreStopHandlerHttpGetHost_ != nullptr
-        && this->lifecyclePreStopHandlerHttpGetPath_ != nullptr && this->lifecyclePreStopHandlerHttpGetPort_ != nullptr && this->lifecyclePreStopHandlerHttpGetScheme_ != nullptr && this->lifecyclePreStopHandlerTcpSocketHost_ != nullptr && this->lifecyclePreStopHandlerTcpSocketPort_ != nullptr
-        && this->livenessProbeExecCommands_ != nullptr && this->livenessProbeFailureThreshold_ != nullptr && this->livenessProbeHttpGetPath_ != nullptr && this->livenessProbeHttpGetPort_ != nullptr && this->livenessProbeHttpGetScheme_ != nullptr
-        && this->livenessProbeInitialDelaySeconds_ != nullptr && this->livenessProbePeriodSeconds_ != nullptr && this->livenessProbeSuccessThreshold_ != nullptr && this->livenessProbeTcpSocketPort_ != nullptr && this->livenessProbeTimeoutSeconds_ != nullptr
-        && this->memory_ != nullptr && this->name_ != nullptr && this->ports_ != nullptr && this->readinessProbeExecCommands_ != nullptr && this->readinessProbeFailureThreshold_ != nullptr
-        && this->readinessProbeHttpGetPath_ != nullptr && this->readinessProbeHttpGetPort_ != nullptr && this->readinessProbeHttpGetScheme_ != nullptr && this->readinessProbeInitialDelaySeconds_ != nullptr && this->readinessProbePeriodSeconds_ != nullptr
-        && this->readinessProbeSuccessThreshold_ != nullptr && this->readinessProbeTcpSocketPort_ != nullptr && this->readinessProbeTimeoutSeconds_ != nullptr && this->securityContextCapabilityAdds_ != nullptr && this->securityContextReadOnlyRootFilesystem_ != nullptr
-        && this->securityContextRunAsUser_ != nullptr && this->stdin_ != nullptr && this->stdinOnce_ != nullptr && this->tty_ != nullptr && this->volumeMounts_ != nullptr
-        && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->args_ == nullptr
+        && return this->commands_ == nullptr && return this->cpu_ == nullptr && return this->environmentVars_ == nullptr && return this->gpu_ == nullptr && return this->image_ == nullptr
+        && return this->imagePullPolicy_ == nullptr && return this->lifecyclePostStartHandlerExecs_ == nullptr && return this->lifecyclePostStartHandlerHttpGetHost_ == nullptr && return this->lifecyclePostStartHandlerHttpGetPath_ == nullptr && return this->lifecyclePostStartHandlerHttpGetPort_ == nullptr
+        && return this->lifecyclePostStartHandlerHttpGetScheme_ == nullptr && return this->lifecyclePostStartHandlerTcpSocketHost_ == nullptr && return this->lifecyclePostStartHandlerTcpSocketPort_ == nullptr && return this->lifecyclePreStopHandlerExecs_ == nullptr && return this->lifecyclePreStopHandlerHttpGetHost_ == nullptr
+        && return this->lifecyclePreStopHandlerHttpGetPath_ == nullptr && return this->lifecyclePreStopHandlerHttpGetPort_ == nullptr && return this->lifecyclePreStopHandlerHttpGetScheme_ == nullptr && return this->lifecyclePreStopHandlerTcpSocketHost_ == nullptr && return this->lifecyclePreStopHandlerTcpSocketPort_ == nullptr
+        && return this->livenessProbeExecCommands_ == nullptr && return this->livenessProbeFailureThreshold_ == nullptr && return this->livenessProbeHttpGetPath_ == nullptr && return this->livenessProbeHttpGetPort_ == nullptr && return this->livenessProbeHttpGetScheme_ == nullptr
+        && return this->livenessProbeInitialDelaySeconds_ == nullptr && return this->livenessProbePeriodSeconds_ == nullptr && return this->livenessProbeSuccessThreshold_ == nullptr && return this->livenessProbeTcpSocketPort_ == nullptr && return this->livenessProbeTimeoutSeconds_ == nullptr
+        && return this->memory_ == nullptr && return this->name_ == nullptr && return this->ports_ == nullptr && return this->readinessProbeExecCommands_ == nullptr && return this->readinessProbeFailureThreshold_ == nullptr
+        && return this->readinessProbeHttpGetPath_ == nullptr && return this->readinessProbeHttpGetPort_ == nullptr && return this->readinessProbeHttpGetScheme_ == nullptr && return this->readinessProbeInitialDelaySeconds_ == nullptr && return this->readinessProbePeriodSeconds_ == nullptr
+        && return this->readinessProbeSuccessThreshold_ == nullptr && return this->readinessProbeTcpSocketPort_ == nullptr && return this->readinessProbeTimeoutSeconds_ == nullptr && return this->securityContextCapabilityAdds_ == nullptr && return this->securityContextReadOnlyRootFilesystem_ == nullptr
+        && return this->securityContextRunAsUser_ == nullptr && return this->stdin_ == nullptr && return this->stdinOnce_ == nullptr && return this->tty_ == nullptr && return this->volumeMounts_ == nullptr
+        && return this->workingDir_ == nullptr; };
     // args Field Functions 
     bool hasArgs() const { return this->args_ != nullptr;};
     void deleteArgs() { this->args_ = nullptr;};

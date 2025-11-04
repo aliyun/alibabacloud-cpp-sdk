@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architectures_ != nullptr
-        && this->burstablePerformance_ != nullptr && this->cores_ != nullptr && this->cpuArchitectures_ != nullptr && this->excludedInstanceTypes_ != nullptr && this->gpuSpecs_ != nullptr
-        && this->instanceCategories_ != nullptr && this->instanceFamilyLevel_ != nullptr && this->instanceTypeFamilies_ != nullptr && this->maxPrice_ != nullptr && this->maximumCpuCoreCount_ != nullptr
-        && this->maximumGpuAmount_ != nullptr && this->maximumMemorySize_ != nullptr && this->memory_ != nullptr && this->minimumBaselineCredit_ != nullptr && this->minimumCpuCoreCount_ != nullptr
-        && this->minimumEniIpv6AddressQuantity_ != nullptr && this->minimumEniPrivateIpAddressQuantity_ != nullptr && this->minimumEniQuantity_ != nullptr && this->minimumGpuAmount_ != nullptr && this->minimumInitialCredit_ != nullptr
-        && this->minimumMemorySize_ != nullptr && this->physicalProcessorModels_ != nullptr; };
+    virtual bool empty() const override { return this->architectures_ == nullptr
+        && return this->burstablePerformance_ == nullptr && return this->cores_ == nullptr && return this->cpuArchitectures_ == nullptr && return this->excludedInstanceTypes_ == nullptr && return this->gpuSpecs_ == nullptr
+        && return this->instanceCategories_ == nullptr && return this->instanceFamilyLevel_ == nullptr && return this->instanceTypeFamilies_ == nullptr && return this->maxPrice_ == nullptr && return this->maximumCpuCoreCount_ == nullptr
+        && return this->maximumGpuAmount_ == nullptr && return this->maximumMemorySize_ == nullptr && return this->memory_ == nullptr && return this->minimumBaselineCredit_ == nullptr && return this->minimumCpuCoreCount_ == nullptr
+        && return this->minimumEniIpv6AddressQuantity_ == nullptr && return this->minimumEniPrivateIpAddressQuantity_ == nullptr && return this->minimumEniQuantity_ == nullptr && return this->minimumGpuAmount_ == nullptr && return this->minimumInitialCredit_ == nullptr
+        && return this->minimumMemorySize_ == nullptr && return this->physicalProcessorModels_ == nullptr; };
     // architectures Field Functions 
     bool hasArchitectures() const { return this->architectures_ != nullptr;};
     void deleteArchitectures() { this->architectures_ = nullptr;};

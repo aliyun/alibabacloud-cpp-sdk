@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->metricIntervalLowerBound_ != nullptr
-        && this->metricIntervalUpperBound_ != nullptr && this->scalingAdjustment_ != nullptr; };
+    virtual bool empty() const override { return this->metricIntervalLowerBound_ == nullptr
+        && return this->metricIntervalUpperBound_ == nullptr && return this->scalingAdjustment_ == nullptr; };
     // metricIntervalLowerBound Field Functions 
     bool hasMetricIntervalLowerBound() const { return this->metricIntervalLowerBound_ != nullptr;};
     void deleteMetricIntervalLowerBound() { this->metricIntervalLowerBound_ = nullptr;};

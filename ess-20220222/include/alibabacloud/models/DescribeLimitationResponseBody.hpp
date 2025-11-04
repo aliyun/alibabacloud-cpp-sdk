@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxNumberOfAlbServerGroup_ != nullptr
-        && this->maxNumberOfDBInstances_ != nullptr && this->maxNumberOfLifecycleHooks_ != nullptr && this->maxNumberOfLoadBalancers_ != nullptr && this->maxNumberOfMaxSize_ != nullptr && this->maxNumberOfMinSize_ != nullptr
-        && this->maxNumberOfNlbServerGroup_ != nullptr && this->maxNumberOfNotificationConfigurations_ != nullptr && this->maxNumberOfScalingConfigurations_ != nullptr && this->maxNumberOfScalingGroups_ != nullptr && this->maxNumberOfScalingInstances_ != nullptr
-        && this->maxNumberOfScalingRules_ != nullptr && this->maxNumberOfScheduledTasks_ != nullptr && this->maxNumberOfVServerGroups_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->maxNumberOfAlbServerGroup_ == nullptr
+        && return this->maxNumberOfDBInstances_ == nullptr && return this->maxNumberOfLifecycleHooks_ == nullptr && return this->maxNumberOfLoadBalancers_ == nullptr && return this->maxNumberOfMaxSize_ == nullptr && return this->maxNumberOfMinSize_ == nullptr
+        && return this->maxNumberOfNlbServerGroup_ == nullptr && return this->maxNumberOfNotificationConfigurations_ == nullptr && return this->maxNumberOfScalingConfigurations_ == nullptr && return this->maxNumberOfScalingGroups_ == nullptr && return this->maxNumberOfScalingInstances_ == nullptr
+        && return this->maxNumberOfScalingRules_ == nullptr && return this->maxNumberOfScheduledTasks_ == nullptr && return this->maxNumberOfVServerGroups_ == nullptr && return this->requestId_ == nullptr; };
     // maxNumberOfAlbServerGroup Field Functions 
     bool hasMaxNumberOfAlbServerGroup() const { return this->maxNumberOfAlbServerGroup_ != nullptr;};
     void deleteMaxNumberOfAlbServerGroup() { this->maxNumberOfAlbServerGroup_ = nullptr;};

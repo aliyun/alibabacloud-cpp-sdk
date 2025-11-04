@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exec_ != nullptr
-        && this->failureThreshold_ != nullptr && this->httpGet_ != nullptr && this->initialDelaySeconds_ != nullptr && this->periodSeconds_ != nullptr && this->successThreshold_ != nullptr
-        && this->tcpSocket_ != nullptr && this->timeoutSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->exec_ == nullptr
+        && return this->failureThreshold_ == nullptr && return this->httpGet_ == nullptr && return this->initialDelaySeconds_ == nullptr && return this->periodSeconds_ == nullptr && return this->successThreshold_ == nullptr
+        && return this->tcpSocket_ == nullptr && return this->timeoutSeconds_ == nullptr; };
     // exec Field Functions 
     bool hasExec() const { return this->exec_ != nullptr;};
     void deleteExec() { this->exec_ = nullptr;};

@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configFileVolumeConfigFileToPaths_ != nullptr
-        && this->configFileVolumeDefaultMode_ != nullptr && this->diskVolumeDiskId_ != nullptr && this->diskVolumeDiskSize_ != nullptr && this->diskVolumeFsType_ != nullptr && this->emptyDirVolumeMedium_ != nullptr
-        && this->emptyDirVolumeSizeLimit_ != nullptr && this->flexVolumeDriver_ != nullptr && this->flexVolumeFsType_ != nullptr && this->flexVolumeOptions_ != nullptr && this->hostPathVolumePath_ != nullptr
-        && this->hostPathVolumeType_ != nullptr && this->NFSVolumePath_ != nullptr && this->NFSVolumeReadOnly_ != nullptr && this->NFSVolumeServer_ != nullptr && this->name_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->configFileVolumeConfigFileToPaths_ == nullptr
+        && return this->configFileVolumeDefaultMode_ == nullptr && return this->diskVolumeDiskId_ == nullptr && return this->diskVolumeDiskSize_ == nullptr && return this->diskVolumeFsType_ == nullptr && return this->emptyDirVolumeMedium_ == nullptr
+        && return this->emptyDirVolumeSizeLimit_ == nullptr && return this->flexVolumeDriver_ == nullptr && return this->flexVolumeFsType_ == nullptr && return this->flexVolumeOptions_ == nullptr && return this->hostPathVolumePath_ == nullptr
+        && return this->hostPathVolumeType_ == nullptr && return this->NFSVolumePath_ == nullptr && return this->NFSVolumeReadOnly_ == nullptr && return this->NFSVolumeServer_ == nullptr && return this->name_ == nullptr
+        && return this->type_ == nullptr; };
     // configFileVolumeConfigFileToPaths Field Functions 
     bool hasConfigFileVolumeConfigFileToPaths() const { return this->configFileVolumeConfigFileToPaths_ != nullptr;};
     void deleteConfigFileVolumeConfigFileToPaths() { this->configFileVolumeConfigFileToPaths_ = nullptr;};

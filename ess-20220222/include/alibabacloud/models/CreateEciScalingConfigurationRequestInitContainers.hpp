@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->securityContext_ != nullptr
-        && this->args_ != nullptr && this->commands_ != nullptr && this->cpu_ != nullptr && this->gpu_ != nullptr && this->image_ != nullptr
-        && this->imagePullPolicy_ != nullptr && this->initContainerEnvironmentVars_ != nullptr && this->initContainerPorts_ != nullptr && this->initContainerVolumeMounts_ != nullptr && this->memory_ != nullptr
-        && this->name_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->securityContext_ == nullptr
+        && return this->args_ == nullptr && return this->commands_ == nullptr && return this->cpu_ == nullptr && return this->gpu_ == nullptr && return this->image_ == nullptr
+        && return this->imagePullPolicy_ == nullptr && return this->initContainerEnvironmentVars_ == nullptr && return this->initContainerPorts_ == nullptr && return this->initContainerVolumeMounts_ == nullptr && return this->memory_ == nullptr
+        && return this->name_ == nullptr && return this->workingDir_ == nullptr; };
     // securityContext Field Functions 
     bool hasSecurityContext() const { return this->securityContext_ != nullptr;};
     void deleteSecurityContext() { this->securityContext_ = nullptr;};

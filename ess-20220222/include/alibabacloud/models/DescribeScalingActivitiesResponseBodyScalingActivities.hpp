@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityMetadata_ != nullptr
-        && this->attachedCapacity_ != nullptr && this->autoCreatedCapacity_ != nullptr && this->cause_ != nullptr && this->createdCapacity_ != nullptr && this->createdInstances_ != nullptr
-        && this->description_ != nullptr && this->destroyedCapacity_ != nullptr && this->destroyedInstances_ != nullptr && this->detail_ != nullptr && this->endTime_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->errorMessages_ != nullptr && this->instanceRefreshTaskId_ != nullptr && this->lifecycleHookContext_ != nullptr
-        && this->progress_ != nullptr && this->scalingActivityId_ != nullptr && this->scalingGroupId_ != nullptr && this->scalingInstanceNumber_ != nullptr && this->startTime_ != nullptr
-        && this->startedCapacity_ != nullptr && this->startedInstances_ != nullptr && this->statusCode_ != nullptr && this->statusMessage_ != nullptr && this->stoppedCapacity_ != nullptr
-        && this->stoppedInstances_ != nullptr && this->totalCapacity_ != nullptr && this->triggerSourceId_ != nullptr && this->triggerSourceType_ != nullptr; };
+    virtual bool empty() const override { return this->activityMetadata_ == nullptr
+        && return this->attachedCapacity_ == nullptr && return this->autoCreatedCapacity_ == nullptr && return this->cause_ == nullptr && return this->createdCapacity_ == nullptr && return this->createdInstances_ == nullptr
+        && return this->description_ == nullptr && return this->destroyedCapacity_ == nullptr && return this->destroyedInstances_ == nullptr && return this->detail_ == nullptr && return this->endTime_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->errorMessages_ == nullptr && return this->instanceRefreshTaskId_ == nullptr && return this->lifecycleHookContext_ == nullptr
+        && return this->progress_ == nullptr && return this->scalingActivityId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingInstanceNumber_ == nullptr && return this->startTime_ == nullptr
+        && return this->startedCapacity_ == nullptr && return this->startedInstances_ == nullptr && return this->statusCode_ == nullptr && return this->statusMessage_ == nullptr && return this->stoppedCapacity_ == nullptr
+        && return this->stoppedInstances_ == nullptr && return this->totalCapacity_ == nullptr && return this->triggerSourceId_ == nullptr && return this->triggerSourceType_ == nullptr; };
     // activityMetadata Field Functions 
     bool hasActivityMetadata() const { return this->activityMetadata_ != nullptr;};
     void deleteActivityMetadata() { this->activityMetadata_ = nullptr;};

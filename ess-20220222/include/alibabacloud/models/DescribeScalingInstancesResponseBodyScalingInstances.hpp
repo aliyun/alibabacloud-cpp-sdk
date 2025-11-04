@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createdTime_ != nullptr
-        && this->creationTime_ != nullptr && this->creationType_ != nullptr && this->entrusted_ != nullptr && this->healthStatus_ != nullptr && this->instanceId_ != nullptr
-        && this->launchTemplateId_ != nullptr && this->launchTemplateVersion_ != nullptr && this->lifecycleState_ != nullptr && this->loadBalancerWeight_ != nullptr && this->privateIpAddress_ != nullptr
-        && this->scalingActivityId_ != nullptr && this->scalingConfigurationId_ != nullptr && this->scalingGroupId_ != nullptr && this->scalingInstanceId_ != nullptr && this->spotStrategy_ != nullptr
-        && this->warmupState_ != nullptr && this->weightedCapacity_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->createdTime_ == nullptr
+        && return this->creationTime_ == nullptr && return this->creationType_ == nullptr && return this->entrusted_ == nullptr && return this->healthStatus_ == nullptr && return this->instanceId_ == nullptr
+        && return this->launchTemplateId_ == nullptr && return this->launchTemplateVersion_ == nullptr && return this->lifecycleState_ == nullptr && return this->loadBalancerWeight_ == nullptr && return this->privateIpAddress_ == nullptr
+        && return this->scalingActivityId_ == nullptr && return this->scalingConfigurationId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingInstanceId_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->warmupState_ == nullptr && return this->weightedCapacity_ == nullptr && return this->zoneId_ == nullptr; };
     // createdTime Field Functions 
     bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
     void deleteCreatedTime() { this->createdTime_ = nullptr;};

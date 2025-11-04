@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachMode_ != nullptr
-        && this->clientToken_ != nullptr && this->DBInstances_ != nullptr && this->forceAttach_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->scalingGroupId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->attachMode_ == nullptr
+        && return this->clientToken_ == nullptr && return this->DBInstances_ == nullptr && return this->forceAttach_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->scalingGroupId_ == nullptr && return this->type_ == nullptr; };
     // attachMode Field Functions 
     bool hasAttachMode() const { return this->attachMode_ != nullptr;};
     void deleteAttachMode() { this->attachMode_ = nullptr;};

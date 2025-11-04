@@ -98,14 +98,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->livenessProbe_ != nullptr
-        && this->readinessProbe_ != nullptr && this->securityContext_ != nullptr && this->args_ != nullptr && this->commands_ != nullptr && this->cpu_ != nullptr
-        && this->environmentVars_ != nullptr && this->gpu_ != nullptr && this->image_ != nullptr && this->imagePullPolicy_ != nullptr && this->lifecyclePostStartHandlerExecs_ != nullptr
-        && this->lifecyclePostStartHandlerHttpGetHost_ != nullptr && this->lifecyclePostStartHandlerHttpGetPath_ != nullptr && this->lifecyclePostStartHandlerHttpGetPort_ != nullptr && this->lifecyclePostStartHandlerHttpGetScheme_ != nullptr && this->lifecyclePostStartHandlerTcpSocketHost_ != nullptr
-        && this->lifecyclePostStartHandlerTcpSocketPort_ != nullptr && this->lifecyclePreStopHandlerExecs_ != nullptr && this->lifecyclePreStopHandlerHttpGetHost_ != nullptr && this->lifecyclePreStopHandlerHttpGetPath_ != nullptr && this->lifecyclePreStopHandlerHttpGetPort_ != nullptr
-        && this->lifecyclePreStopHandlerHttpGetScheme_ != nullptr && this->lifecyclePreStopHandlerTcpSocketHost_ != nullptr && this->lifecyclePreStopHandlerTcpSocketPort_ != nullptr && this->memory_ != nullptr && this->name_ != nullptr
-        && this->ports_ != nullptr && this->stdin_ != nullptr && this->stdinOnce_ != nullptr && this->tty_ != nullptr && this->volumeMounts_ != nullptr
-        && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->livenessProbe_ == nullptr
+        && return this->readinessProbe_ == nullptr && return this->securityContext_ == nullptr && return this->args_ == nullptr && return this->commands_ == nullptr && return this->cpu_ == nullptr
+        && return this->environmentVars_ == nullptr && return this->gpu_ == nullptr && return this->image_ == nullptr && return this->imagePullPolicy_ == nullptr && return this->lifecyclePostStartHandlerExecs_ == nullptr
+        && return this->lifecyclePostStartHandlerHttpGetHost_ == nullptr && return this->lifecyclePostStartHandlerHttpGetPath_ == nullptr && return this->lifecyclePostStartHandlerHttpGetPort_ == nullptr && return this->lifecyclePostStartHandlerHttpGetScheme_ == nullptr && return this->lifecyclePostStartHandlerTcpSocketHost_ == nullptr
+        && return this->lifecyclePostStartHandlerTcpSocketPort_ == nullptr && return this->lifecyclePreStopHandlerExecs_ == nullptr && return this->lifecyclePreStopHandlerHttpGetHost_ == nullptr && return this->lifecyclePreStopHandlerHttpGetPath_ == nullptr && return this->lifecyclePreStopHandlerHttpGetPort_ == nullptr
+        && return this->lifecyclePreStopHandlerHttpGetScheme_ == nullptr && return this->lifecyclePreStopHandlerTcpSocketHost_ == nullptr && return this->lifecyclePreStopHandlerTcpSocketPort_ == nullptr && return this->memory_ == nullptr && return this->name_ == nullptr
+        && return this->ports_ == nullptr && return this->stdin_ == nullptr && return this->stdinOnce_ == nullptr && return this->tty_ == nullptr && return this->volumeMounts_ == nullptr
+        && return this->workingDir_ == nullptr; };
     // livenessProbe Field Functions 
     bool hasLivenessProbe() const { return this->livenessProbe_ != nullptr;};
     void deleteLivenessProbe() { this->livenessProbe_ = nullptr;};

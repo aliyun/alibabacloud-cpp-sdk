@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->diskVolume_ != nullptr
-        && this->emptyDirVolume_ != nullptr && this->flexVolume_ != nullptr && this->hostPathVolume_ != nullptr && this->NFSVolume_ != nullptr && this->configFileVolumeConfigFileToPath_ != nullptr
-        && this->configFileVolumeDefaultMode_ != nullptr && this->name_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->diskVolume_ == nullptr
+        && return this->emptyDirVolume_ == nullptr && return this->flexVolume_ == nullptr && return this->hostPathVolume_ == nullptr && return this->NFSVolume_ == nullptr && return this->configFileVolumeConfigFileToPath_ == nullptr
+        && return this->configFileVolumeDefaultMode_ == nullptr && return this->name_ == nullptr && return this->type_ == nullptr; };
     // diskVolume Field Functions 
     bool hasDiskVolume() const { return this->diskVolume_ != nullptr;};
     void deleteDiskVolume() { this->diskVolume_ = nullptr;};

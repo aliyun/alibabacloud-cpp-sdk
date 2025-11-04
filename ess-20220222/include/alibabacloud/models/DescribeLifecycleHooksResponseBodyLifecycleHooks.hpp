@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultResult_ != nullptr
-        && this->heartbeatTimeout_ != nullptr && this->lifecycleHookId_ != nullptr && this->lifecycleHookName_ != nullptr && this->lifecycleHookStatus_ != nullptr && this->lifecycleTransition_ != nullptr
-        && this->notificationArn_ != nullptr && this->notificationMetadata_ != nullptr && this->scalingGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->defaultResult_ == nullptr
+        && return this->heartbeatTimeout_ == nullptr && return this->lifecycleHookId_ == nullptr && return this->lifecycleHookName_ == nullptr && return this->lifecycleHookStatus_ == nullptr && return this->lifecycleTransition_ == nullptr
+        && return this->notificationArn_ == nullptr && return this->notificationMetadata_ == nullptr && return this->scalingGroupId_ == nullptr; };
     // defaultResult Field Functions 
     bool hasDefaultResult() const { return this->defaultResult_ != nullptr;};
     void deleteDefaultResult() { this->defaultResult_ = nullptr;};

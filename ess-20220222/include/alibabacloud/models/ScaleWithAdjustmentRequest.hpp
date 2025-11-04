@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityMetadata_ != nullptr
-        && this->adjustmentType_ != nullptr && this->adjustmentValue_ != nullptr && this->clientToken_ != nullptr && this->executionMode_ != nullptr && this->lifecycleHookContext_ != nullptr
-        && this->minAdjustmentMagnitude_ != nullptr && this->overrides_ != nullptr && this->ownerId_ != nullptr && this->parallelTask_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->scalingGroupId_ != nullptr && this->syncActivity_ != nullptr; };
+    virtual bool empty() const override { return this->activityMetadata_ == nullptr
+        && return this->adjustmentType_ == nullptr && return this->adjustmentValue_ == nullptr && return this->clientToken_ == nullptr && return this->executionMode_ == nullptr && return this->lifecycleHookContext_ == nullptr
+        && return this->minAdjustmentMagnitude_ == nullptr && return this->overrides_ == nullptr && return this->ownerId_ == nullptr && return this->parallelTask_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->scalingGroupId_ == nullptr && return this->syncActivity_ == nullptr; };
     // activityMetadata Field Functions 
     bool hasActivityMetadata() const { return this->activityMetadata_ != nullptr;};
     void deleteActivityMetadata() { this->activityMetadata_ = nullptr;};

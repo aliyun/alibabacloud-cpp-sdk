@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->desiredCapacity_ != nullptr && this->launchExpirationTime_ != nullptr && this->launchTime_ != nullptr && this->maxValue_ != nullptr && this->minValue_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->recurrenceEndTime_ != nullptr && this->recurrenceType_ != nullptr && this->recurrenceValue_ != nullptr
-        && this->regionId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->scalingGroupId_ != nullptr && this->scheduledAction_ != nullptr
-        && this->scheduledTaskId_ != nullptr && this->scheduledTaskName_ != nullptr && this->taskEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->desiredCapacity_ == nullptr && return this->launchExpirationTime_ == nullptr && return this->launchTime_ == nullptr && return this->maxValue_ == nullptr && return this->minValue_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->recurrenceEndTime_ == nullptr && return this->recurrenceType_ == nullptr && return this->recurrenceValue_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scheduledAction_ == nullptr
+        && return this->scheduledTaskId_ == nullptr && return this->scheduledTaskName_ == nullptr && return this->taskEnabled_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

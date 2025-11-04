@@ -18,7 +18,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyScalingGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ActiveScalingConfigurationId, activeScalingConfigurationId_);
       DARABONBA_PTR_TO_JSON(AllocationStrategy, allocationStrategy_);
+      DARABONBA_PTR_TO_JSON(AutoRebalance, autoRebalance_);
       DARABONBA_PTR_TO_JSON(AzBalance, azBalance_);
+      DARABONBA_PTR_TO_JSON(BalanceMode, balanceMode_);
       DARABONBA_PTR_TO_JSON(CapacityOptions, capacityOptions_);
       DARABONBA_PTR_TO_JSON(CompensateWithOnDemand, compensateWithOnDemand_);
       DARABONBA_PTR_TO_JSON(CustomPolicyARN, customPolicyARN_);
@@ -54,7 +56,9 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyScalingGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ActiveScalingConfigurationId, activeScalingConfigurationId_);
       DARABONBA_PTR_FROM_JSON(AllocationStrategy, allocationStrategy_);
+      DARABONBA_PTR_FROM_JSON(AutoRebalance, autoRebalance_);
       DARABONBA_PTR_FROM_JSON(AzBalance, azBalance_);
+      DARABONBA_PTR_FROM_JSON(BalanceMode, balanceMode_);
       DARABONBA_PTR_FROM_JSON(CapacityOptions, capacityOptions_);
       DARABONBA_PTR_FROM_JSON(CompensateWithOnDemand, compensateWithOnDemand_);
       DARABONBA_PTR_FROM_JSON(CustomPolicyARN, customPolicyARN_);
@@ -98,14 +102,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeScalingConfigurationId_ != nullptr
-        && this->allocationStrategy_ != nullptr && this->azBalance_ != nullptr && this->capacityOptions_ != nullptr && this->compensateWithOnDemand_ != nullptr && this->customPolicyARN_ != nullptr
-        && this->defaultCooldown_ != nullptr && this->desiredCapacity_ != nullptr && this->disableDesiredCapacity_ != nullptr && this->groupDeletionProtection_ != nullptr && this->healthCheckType_ != nullptr
-        && this->healthCheckTypes_ != nullptr && this->launchTemplateId_ != nullptr && this->launchTemplateOverrides_ != nullptr && this->launchTemplateVersion_ != nullptr && this->maxInstanceLifetime_ != nullptr
-        && this->maxSize_ != nullptr && this->minSize_ != nullptr && this->multiAZPolicy_ != nullptr && this->onDemandBaseCapacity_ != nullptr && this->onDemandPercentageAboveBaseCapacity_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->removalPolicies_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->scalingGroupId_ != nullptr && this->scalingGroupName_ != nullptr && this->scalingPolicy_ != nullptr && this->spotAllocationStrategy_ != nullptr && this->spotInstancePools_ != nullptr
-        && this->spotInstanceRemedy_ != nullptr && this->stopInstanceTimeout_ != nullptr && this->vSwitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->activeScalingConfigurationId_ == nullptr
+        && return this->allocationStrategy_ == nullptr && return this->autoRebalance_ == nullptr && return this->azBalance_ == nullptr && return this->balanceMode_ == nullptr && return this->capacityOptions_ == nullptr
+        && return this->compensateWithOnDemand_ == nullptr && return this->customPolicyARN_ == nullptr && return this->defaultCooldown_ == nullptr && return this->desiredCapacity_ == nullptr && return this->disableDesiredCapacity_ == nullptr
+        && return this->groupDeletionProtection_ == nullptr && return this->healthCheckType_ == nullptr && return this->healthCheckTypes_ == nullptr && return this->launchTemplateId_ == nullptr && return this->launchTemplateOverrides_ == nullptr
+        && return this->launchTemplateVersion_ == nullptr && return this->maxInstanceLifetime_ == nullptr && return this->maxSize_ == nullptr && return this->minSize_ == nullptr && return this->multiAZPolicy_ == nullptr
+        && return this->onDemandBaseCapacity_ == nullptr && return this->onDemandPercentageAboveBaseCapacity_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->removalPolicies_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingGroupName_ == nullptr && return this->scalingPolicy_ == nullptr
+        && return this->spotAllocationStrategy_ == nullptr && return this->spotInstancePools_ == nullptr && return this->spotInstanceRemedy_ == nullptr && return this->stopInstanceTimeout_ == nullptr && return this->vSwitchIds_ == nullptr; };
     // activeScalingConfigurationId Field Functions 
     bool hasActiveScalingConfigurationId() const { return this->activeScalingConfigurationId_ != nullptr;};
     void deleteActiveScalingConfigurationId() { this->activeScalingConfigurationId_ = nullptr;};
@@ -120,11 +124,25 @@ namespace Models
     inline ModifyScalingGroupRequest& setAllocationStrategy(string allocationStrategy) { DARABONBA_PTR_SET_VALUE(allocationStrategy_, allocationStrategy) };
 
 
+    // autoRebalance Field Functions 
+    bool hasAutoRebalance() const { return this->autoRebalance_ != nullptr;};
+    void deleteAutoRebalance() { this->autoRebalance_ = nullptr;};
+    inline bool autoRebalance() const { DARABONBA_PTR_GET_DEFAULT(autoRebalance_, false) };
+    inline ModifyScalingGroupRequest& setAutoRebalance(bool autoRebalance) { DARABONBA_PTR_SET_VALUE(autoRebalance_, autoRebalance) };
+
+
     // azBalance Field Functions 
     bool hasAzBalance() const { return this->azBalance_ != nullptr;};
     void deleteAzBalance() { this->azBalance_ = nullptr;};
     inline bool azBalance() const { DARABONBA_PTR_GET_DEFAULT(azBalance_, false) };
     inline ModifyScalingGroupRequest& setAzBalance(bool azBalance) { DARABONBA_PTR_SET_VALUE(azBalance_, azBalance) };
+
+
+    // balanceMode Field Functions 
+    bool hasBalanceMode() const { return this->balanceMode_ != nullptr;};
+    void deleteBalanceMode() { this->balanceMode_ = nullptr;};
+    inline string balanceMode() const { DARABONBA_PTR_GET_DEFAULT(balanceMode_, "") };
+    inline ModifyScalingGroupRequest& setBalanceMode(string balanceMode) { DARABONBA_PTR_SET_VALUE(balanceMode_, balanceMode) };
 
 
     // capacityOptions Field Functions 
@@ -364,6 +382,7 @@ namespace Models
     // 
     // Default value: priority.
     std::shared_ptr<string> allocationStrategy_ = nullptr;
+    std::shared_ptr<bool> autoRebalance_ = nullptr;
     // Specifies whether to evenly distribute instances in the scaling group across zones. This parameter takes effect only when you set the `MultiAZPolicy` parameter to `COMPOSABLE`. Valid values:
     // 
     // *   true
@@ -371,6 +390,7 @@ namespace Models
     // 
     // Default value: false.
     std::shared_ptr<bool> azBalance_ = nullptr;
+    std::shared_ptr<string> balanceMode_ = nullptr;
     // The capacity options.
     std::shared_ptr<ModifyScalingGroupRequestCapacityOptions> capacityOptions_ = nullptr;
     // Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as cost-related issues and insufficient resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:

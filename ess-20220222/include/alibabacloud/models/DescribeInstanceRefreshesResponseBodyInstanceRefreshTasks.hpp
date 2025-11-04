@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkpointPauseTime_ != nullptr
-        && this->checkpoints_ != nullptr && this->desiredConfiguration_ != nullptr && this->detail_ != nullptr && this->endTime_ != nullptr && this->finishedUpdateCapacity_ != nullptr
-        && this->instanceRefreshTaskId_ != nullptr && this->maxHealthyPercentage_ != nullptr && this->minHealthyPercentage_ != nullptr && this->regionId_ != nullptr && this->scalingGroupId_ != nullptr
-        && this->skipMatching_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->totalNeedUpdateCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->checkpointPauseTime_ == nullptr
+        && return this->checkpoints_ == nullptr && return this->desiredConfiguration_ == nullptr && return this->detail_ == nullptr && return this->endTime_ == nullptr && return this->finishedUpdateCapacity_ == nullptr
+        && return this->instanceRefreshTaskId_ == nullptr && return this->maxHealthyPercentage_ == nullptr && return this->minHealthyPercentage_ == nullptr && return this->regionId_ == nullptr && return this->scalingGroupId_ == nullptr
+        && return this->skipMatching_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->totalNeedUpdateCapacity_ == nullptr; };
     // checkpointPauseTime Field Functions 
     bool hasCheckpointPauseTime() const { return this->checkpointPauseTime_ != nullptr;};
     void deleteCheckpointPauseTime() { this->checkpointPauseTime_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticStrength_ != nullptr
-        && this->resourcePools_ != nullptr && this->scalingGroupId_ != nullptr && this->totalStrength_ != nullptr; };
+    virtual bool empty() const override { return this->elasticStrength_ == nullptr
+        && return this->resourcePools_ == nullptr && return this->scalingGroupId_ == nullptr && return this->totalStrength_ == nullptr; };
     // elasticStrength Field Functions 
     bool hasElasticStrength() const { return this->elasticStrength_ != nullptr;};
     void deleteElasticStrength() { this->elasticStrength_ = nullptr;};

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpu_ != nullptr
-        && this->gpu_ != nullptr && this->image_ != nullptr && this->imagePullPolicy_ != nullptr && this->initContainerArgs_ != nullptr && this->initContainerCommands_ != nullptr
-        && this->initContainerEnvironmentVars_ != nullptr && this->initContainerPorts_ != nullptr && this->initContainerVolumeMounts_ != nullptr && this->memory_ != nullptr && this->name_ != nullptr
-        && this->securityContextCapabilityAdds_ != nullptr && this->securityContextReadOnlyRootFilesystem_ != nullptr && this->securityContextRunAsUser_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->cpu_ == nullptr
+        && return this->gpu_ == nullptr && return this->image_ == nullptr && return this->imagePullPolicy_ == nullptr && return this->initContainerArgs_ == nullptr && return this->initContainerCommands_ == nullptr
+        && return this->initContainerEnvironmentVars_ == nullptr && return this->initContainerPorts_ == nullptr && return this->initContainerVolumeMounts_ == nullptr && return this->memory_ == nullptr && return this->name_ == nullptr
+        && return this->securityContextCapabilityAdds_ == nullptr && return this->securityContextReadOnlyRootFilesystem_ == nullptr && return this->securityContextRunAsUser_ == nullptr && return this->workingDir_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};

@@ -86,13 +86,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adjustmentType_ != nullptr
-        && this->adjustmentValue_ != nullptr && this->alarmDimensions_ != nullptr && this->alarmOptions_ != nullptr && this->cooldown_ != nullptr && this->disableScaleIn_ != nullptr
-        && this->estimatedInstanceWarmup_ != nullptr && this->hybridMetrics_ != nullptr && this->hybridMonitorNamespace_ != nullptr && this->initialMaxSize_ != nullptr && this->metricName_ != nullptr
-        && this->metricType_ != nullptr && this->minAdjustmentMagnitude_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->predictiveScalingMode_ != nullptr
-        && this->predictiveTaskBufferTime_ != nullptr && this->predictiveValueBehavior_ != nullptr && this->predictiveValueBuffer_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->scaleInEvaluationCount_ != nullptr && this->scaleOutEvaluationCount_ != nullptr && this->scalingRuleId_ != nullptr && this->scalingRuleName_ != nullptr && this->stepAdjustments_ != nullptr
-        && this->targetValue_ != nullptr; };
+    virtual bool empty() const override { return this->adjustmentType_ == nullptr
+        && return this->adjustmentValue_ == nullptr && return this->alarmDimensions_ == nullptr && return this->alarmOptions_ == nullptr && return this->cooldown_ == nullptr && return this->disableScaleIn_ == nullptr
+        && return this->estimatedInstanceWarmup_ == nullptr && return this->hybridMetrics_ == nullptr && return this->hybridMonitorNamespace_ == nullptr && return this->initialMaxSize_ == nullptr && return this->metricName_ == nullptr
+        && return this->metricType_ == nullptr && return this->minAdjustmentMagnitude_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->predictiveScalingMode_ == nullptr
+        && return this->predictiveTaskBufferTime_ == nullptr && return this->predictiveValueBehavior_ == nullptr && return this->predictiveValueBuffer_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->scaleInEvaluationCount_ == nullptr && return this->scaleOutEvaluationCount_ == nullptr && return this->scalingRuleId_ == nullptr && return this->scalingRuleName_ == nullptr && return this->stepAdjustments_ == nullptr
+        && return this->targetValue_ == nullptr; };
     // adjustmentType Field Functions 
     bool hasAdjustmentType() const { return this->adjustmentType_ != nullptr;};
     void deleteAdjustmentType() { this->adjustmentType_ = nullptr;};

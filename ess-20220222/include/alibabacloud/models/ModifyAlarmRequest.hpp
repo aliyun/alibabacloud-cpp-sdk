@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmActions_ != nullptr
-        && this->alarmTaskId_ != nullptr && this->comparisonOperator_ != nullptr && this->description_ != nullptr && this->dimensions_ != nullptr && this->effective_ != nullptr
-        && this->evaluationCount_ != nullptr && this->expressions_ != nullptr && this->expressionsLogicOperator_ != nullptr && this->groupId_ != nullptr && this->metricName_ != nullptr
-        && this->metricType_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->period_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->statistics_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->alarmActions_ == nullptr
+        && return this->alarmTaskId_ == nullptr && return this->comparisonOperator_ == nullptr && return this->description_ == nullptr && return this->dimensions_ == nullptr && return this->effective_ == nullptr
+        && return this->evaluationCount_ == nullptr && return this->expressions_ == nullptr && return this->expressionsLogicOperator_ == nullptr && return this->groupId_ == nullptr && return this->metricName_ == nullptr
+        && return this->metricType_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->period_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->statistics_ == nullptr && return this->threshold_ == nullptr; };
     // alarmActions Field Functions 
     bool hasAlarmActions() const { return this->alarmActions_ != nullptr;};
     void deleteAlarmActions() { this->alarmActions_ = nullptr;};

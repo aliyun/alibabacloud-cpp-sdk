@@ -141,18 +141,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acrRegistryInfos_ != nullptr
-        && this->activeDeadlineSeconds_ != nullptr && this->autoCreateEip_ != nullptr && this->autoMatchImageCache_ != nullptr && this->containerGroupName_ != nullptr && this->containers_ != nullptr
-        && this->costOptimization_ != nullptr && this->cpu_ != nullptr && this->cpuOptionsCore_ != nullptr && this->cpuOptionsThreadsPerCore_ != nullptr && this->creationTime_ != nullptr
-        && this->dataCacheBucket_ != nullptr && this->dataCacheBurstingEnabled_ != nullptr && this->dataCachePL_ != nullptr && this->dataCacheProvisionedIops_ != nullptr && this->description_ != nullptr
-        && this->dnsConfigNameServers_ != nullptr && this->dnsConfigOptions_ != nullptr && this->dnsConfigSearches_ != nullptr && this->dnsPolicy_ != nullptr && this->egressBandwidth_ != nullptr
-        && this->eipBandwidth_ != nullptr && this->ephemeralStorage_ != nullptr && this->gpuDriverVersion_ != nullptr && this->hostAliases_ != nullptr && this->hostName_ != nullptr
-        && this->imageRegistryCredentials_ != nullptr && this->imageSnapshotId_ != nullptr && this->ingressBandwidth_ != nullptr && this->initContainers_ != nullptr && this->instanceFamilyLevel_ != nullptr
-        && this->instanceTypes_ != nullptr && this->ipv6AddressCount_ != nullptr && this->lifecycleState_ != nullptr && this->loadBalancerWeight_ != nullptr && this->memory_ != nullptr
-        && this->ntpServers_ != nullptr && this->ramRoleName_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->restartPolicy_ != nullptr
-        && this->scalingConfigurationId_ != nullptr && this->scalingConfigurationName_ != nullptr && this->scalingGroupId_ != nullptr && this->securityContextSysCtls_ != nullptr && this->securityGroupId_ != nullptr
-        && this->slsEnable_ != nullptr && this->spotPriceLimit_ != nullptr && this->spotStrategy_ != nullptr && this->tags_ != nullptr && this->terminationGracePeriodSeconds_ != nullptr
-        && this->volumes_ != nullptr; };
+    virtual bool empty() const override { return this->acrRegistryInfos_ == nullptr
+        && return this->activeDeadlineSeconds_ == nullptr && return this->autoCreateEip_ == nullptr && return this->autoMatchImageCache_ == nullptr && return this->containerGroupName_ == nullptr && return this->containers_ == nullptr
+        && return this->costOptimization_ == nullptr && return this->cpu_ == nullptr && return this->cpuOptionsCore_ == nullptr && return this->cpuOptionsThreadsPerCore_ == nullptr && return this->creationTime_ == nullptr
+        && return this->dataCacheBucket_ == nullptr && return this->dataCacheBurstingEnabled_ == nullptr && return this->dataCachePL_ == nullptr && return this->dataCacheProvisionedIops_ == nullptr && return this->description_ == nullptr
+        && return this->dnsConfigNameServers_ == nullptr && return this->dnsConfigOptions_ == nullptr && return this->dnsConfigSearches_ == nullptr && return this->dnsPolicy_ == nullptr && return this->egressBandwidth_ == nullptr
+        && return this->eipBandwidth_ == nullptr && return this->ephemeralStorage_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->hostAliases_ == nullptr && return this->hostName_ == nullptr
+        && return this->imageRegistryCredentials_ == nullptr && return this->imageSnapshotId_ == nullptr && return this->ingressBandwidth_ == nullptr && return this->initContainers_ == nullptr && return this->instanceFamilyLevel_ == nullptr
+        && return this->instanceTypes_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->lifecycleState_ == nullptr && return this->loadBalancerWeight_ == nullptr && return this->memory_ == nullptr
+        && return this->ntpServers_ == nullptr && return this->ramRoleName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->restartPolicy_ == nullptr
+        && return this->scalingConfigurationId_ == nullptr && return this->scalingConfigurationName_ == nullptr && return this->scalingGroupId_ == nullptr && return this->securityContextSysCtls_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->slsEnable_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->tags_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr
+        && return this->volumes_ == nullptr; };
     // acrRegistryInfos Field Functions 
     bool hasAcrRegistryInfos() const { return this->acrRegistryInfos_ != nullptr;};
     void deleteAcrRegistryInfos() { this->acrRegistryInfos_ = nullptr;};

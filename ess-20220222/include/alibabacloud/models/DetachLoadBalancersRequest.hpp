@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->async_ != nullptr
-        && this->clientToken_ != nullptr && this->forceDetach_ != nullptr && this->loadBalancers_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->scalingGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->async_ == nullptr
+        && return this->clientToken_ == nullptr && return this->forceDetach_ == nullptr && return this->loadBalancers_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->scalingGroupId_ == nullptr; };
     // async Field Functions 
     bool hasAsync() const { return this->async_ != nullptr;};
     void deleteAsync() { this->async_ = nullptr;};

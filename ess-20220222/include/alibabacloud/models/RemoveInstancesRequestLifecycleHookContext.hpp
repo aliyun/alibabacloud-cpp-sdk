@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disableLifecycleHook_ != nullptr
-        && this->ignoredLifecycleHookIds_ != nullptr; };
+    virtual bool empty() const override { return this->disableLifecycleHook_ == nullptr
+        && return this->ignoredLifecycleHookIds_ == nullptr; };
     // disableLifecycleHook Field Functions 
     bool hasDisableLifecycleHook() const { return this->disableLifecycleHook_ != nullptr;};
     void deleteDisableLifecycleHook() { this->disableLifecycleHook_ = nullptr;};

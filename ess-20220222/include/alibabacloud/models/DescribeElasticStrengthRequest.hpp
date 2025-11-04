@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskCategories_ != nullptr
-        && this->imageFamily_ != nullptr && this->imageId_ != nullptr && this->imageName_ != nullptr && this->instanceTypes_ != nullptr && this->ipv6AddressCount_ != nullptr
-        && this->priorityStrategy_ != nullptr && this->regionId_ != nullptr && this->scalingGroupId_ != nullptr && this->scalingGroupIds_ != nullptr && this->spotStrategy_ != nullptr
-        && this->systemDiskCategories_ != nullptr && this->vSwitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskCategories_ == nullptr
+        && return this->imageFamily_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->instanceTypes_ == nullptr && return this->ipv6AddressCount_ == nullptr
+        && return this->priorityStrategy_ == nullptr && return this->regionId_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingGroupIds_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->systemDiskCategories_ == nullptr && return this->vSwitchIds_ == nullptr; };
     // dataDiskCategories Field Functions 
     bool hasDataDiskCategories() const { return this->dataDiskCategories_ != nullptr;};
     void deleteDataDiskCategories() { this->dataDiskCategories_ = nullptr;};
