@@ -1218,76 +1218,6 @@ CreateMajorProtectionBlackIpResponse Client::createMajorProtectionBlackIp(const 
 }
 
 /**
- * @summary 添加重保场景黑IP
- *
- * @param request CreateMajorProtectionBlackIpV2Request
- * @param runtime runtime options for this request RuntimeOptions
- * @return CreateMajorProtectionBlackIpV2Response
- */
-CreateMajorProtectionBlackIpV2Response Client::createMajorProtectionBlackIpV2WithOptions(const CreateMajorProtectionBlackIpV2Request &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDescription()) {
-    query["Description"] = request.description();
-  }
-
-  if (!!request.hasExpiredTime()) {
-    query["ExpiredTime"] = request.expiredTime();
-  }
-
-  if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
-  }
-
-  if (!!request.hasIpList()) {
-    query["IpList"] = request.ipList();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
-  }
-
-  if (!!request.hasResourceManagerResourceGroupId()) {
-    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
-  }
-
-  if (!!request.hasRuleId()) {
-    query["RuleId"] = request.ruleId();
-  }
-
-  if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "CreateMajorProtectionBlackIpV2"},
-    {"version" , "2021-10-01"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CreateMajorProtectionBlackIpV2Response>();
-}
-
-/**
- * @summary 添加重保场景黑IP
- *
- * @param request CreateMajorProtectionBlackIpV2Request
- * @return CreateMajorProtectionBlackIpV2Response
- */
-CreateMajorProtectionBlackIpV2Response Client::createMajorProtectionBlackIpV2(const CreateMajorProtectionBlackIpV2Request &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return createMajorProtectionBlackIpV2WithOptions(request, runtime);
-}
-
-/**
  * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
  *
  * @param request CreateMemberAccountsRequest
@@ -1589,6 +1519,10 @@ DeleteApisecEventsResponse Client::deleteApisecEventsWithOptions(const DeleteApi
 
   if (!!request.hasEventIds()) {
     query["EventIds"] = request.eventIds();
+  }
+
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
   }
 
   if (!!request.hasInstanceId()) {
@@ -2866,6 +2800,72 @@ DescribeApisecAssetTrendResponse Client::describeApisecAssetTrend(const Describe
 }
 
 /**
+ * @summary 查询安全事件详情
+ *
+ * @param request DescribeApisecEventDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApisecEventDetailResponse
+ */
+DescribeApisecEventDetailResponse Client::describeApisecEventDetailWithOptions(const DescribeApisecEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDetailType()) {
+    query["DetailType"] = request.detailType();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApisecEventDetail"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApisecEventDetailResponse>();
+}
+
+/**
+ * @summary 查询安全事件详情
+ *
+ * @param request DescribeApisecEventDetailRequest
+ * @return DescribeApisecEventDetailResponse
+ */
+DescribeApisecEventDetailResponse Client::describeApisecEventDetail(const DescribeApisecEventDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApisecEventDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the statistics on domain names on which security events are detected by the API security module.
  *
  * @param request DescribeApisecEventDomainStatisticRequest
@@ -2949,6 +2949,10 @@ DescribeApisecEventDomainStatisticResponse Client::describeApisecEventDomainStat
 DescribeApisecEventsResponse Client::describeApisecEventsWithOptions(const DescribeApisecEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccount()) {
+    query["Account"] = request.account();
+  }
+
   if (!!request.hasApiFormat()) {
     query["ApiFormat"] = request.apiFormat();
   }
@@ -2979,6 +2983,10 @@ DescribeApisecEventsResponse Client::describeApisecEventsWithOptions(const Descr
 
   if (!!request.hasEventLevel()) {
     query["EventLevel"] = request.eventLevel();
+  }
+
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
   }
 
   if (!!request.hasEventTag()) {
@@ -9595,6 +9603,10 @@ DescribeSensitiveOutboundTrendResponse Client::describeSensitiveOutboundTrend(co
 DescribeSensitiveRequestLogResponse Client::describeSensitiveRequestLogWithOptions(const DescribeSensitiveRequestLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccount()) {
+    query["Account"] = request.account();
+  }
+
   if (!!request.hasApiFormat()) {
     query["ApiFormat"] = request.apiFormat();
   }
@@ -10371,6 +10383,10 @@ DescribeUserEventTrendResponse Client::describeUserEventTrendWithOptions(const D
     query["ClusterId"] = request.clusterId();
   }
 
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -10427,6 +10443,10 @@ DescribeUserEventTypeResponse Client::describeUserEventTypeWithOptions(const Des
 
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
   }
 
   if (!!request.hasInstanceId()) {
@@ -11227,6 +11247,10 @@ ModifyApisecEventsResponse Client::modifyApisecEventsWithOptions(const ModifyApi
 
   if (!!request.hasEventIds()) {
     query["EventIds"] = request.eventIds();
+  }
+
+  if (!!request.hasEventScope()) {
+    query["EventScope"] = request.eventScope();
   }
 
   if (!!request.hasInstanceId()) {

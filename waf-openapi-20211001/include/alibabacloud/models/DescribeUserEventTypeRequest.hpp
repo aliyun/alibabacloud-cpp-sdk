@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeUserEventTypeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(EventScope, eventScope_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeUserEventTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(EventScope, eventScope_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->startTime_ == nullptr
-        && return this->userStatusList_ == nullptr; };
+        && return this->endTime_ == nullptr && return this->eventScope_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->startTime_ == nullptr && return this->userStatusList_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -57,6 +59,13 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline DescribeUserEventTypeRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // eventScope Field Functions 
+    bool hasEventScope() const { return this->eventScope_ != nullptr;};
+    void deleteEventScope() { this->eventScope_ = nullptr;};
+    inline string eventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
+    inline DescribeUserEventTypeRequest& setEventScope(string eventScope) { DARABONBA_PTR_SET_VALUE(eventScope_, eventScope) };
 
 
     // instanceId Field Functions 
@@ -102,6 +111,7 @@ namespace Models
     std::shared_ptr<string> clusterId_ = nullptr;
     // The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
     std::shared_ptr<int64_t> endTime_ = nullptr;
+    std::shared_ptr<string> eventScope_ = nullptr;
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.

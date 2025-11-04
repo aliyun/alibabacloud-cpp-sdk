@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AttackIp, attackIp_);
       DARABONBA_PTR_TO_JSON(AttackIpInfo, attackIpInfo_);
       DARABONBA_PTR_TO_JSON(AttackIps, attackIps_);
+      DARABONBA_PTR_TO_JSON(AttackerList, attackerList_);
       DARABONBA_PTR_TO_JSON(EndTs, endTs_);
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(EventInfo, eventInfo_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AttackIp, attackIp_);
       DARABONBA_PTR_FROM_JSON(AttackIpInfo, attackIpInfo_);
       DARABONBA_PTR_FROM_JSON(AttackIps, attackIps_);
+      DARABONBA_PTR_FROM_JSON(AttackerList, attackerList_);
       DARABONBA_PTR_FROM_JSON(EndTs, endTs_);
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(EventInfo, eventInfo_);
@@ -78,10 +80,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allCnt_ == nullptr
         && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->attackClient_ == nullptr && return this->attackCntInfo_ == nullptr
-        && return this->attackIp_ == nullptr && return this->attackIpInfo_ == nullptr && return this->attackIps_ == nullptr && return this->endTs_ == nullptr && return this->eventId_ == nullptr
-        && return this->eventInfo_ == nullptr && return this->eventLevel_ == nullptr && return this->eventTag_ == nullptr && return this->follow_ == nullptr && return this->matchedHost_ == nullptr
-        && return this->note_ == nullptr && return this->origin_ == nullptr && return this->remoteCountry_ == nullptr && return this->remoteRegion_ == nullptr && return this->requestData_ == nullptr
-        && return this->responseData_ == nullptr && return this->startTs_ == nullptr && return this->userStatus_ == nullptr; };
+        && return this->attackIp_ == nullptr && return this->attackIpInfo_ == nullptr && return this->attackIps_ == nullptr && return this->attackerList_ == nullptr && return this->endTs_ == nullptr
+        && return this->eventId_ == nullptr && return this->eventInfo_ == nullptr && return this->eventLevel_ == nullptr && return this->eventTag_ == nullptr && return this->follow_ == nullptr
+        && return this->matchedHost_ == nullptr && return this->note_ == nullptr && return this->origin_ == nullptr && return this->remoteCountry_ == nullptr && return this->remoteRegion_ == nullptr
+        && return this->requestData_ == nullptr && return this->responseData_ == nullptr && return this->startTs_ == nullptr && return this->userStatus_ == nullptr; };
     // allCnt Field Functions 
     bool hasAllCnt() const { return this->allCnt_ != nullptr;};
     void deleteAllCnt() { this->allCnt_ = nullptr;};
@@ -145,6 +147,15 @@ namespace Models
     inline vector<string> attackIps() { DARABONBA_PTR_GET(attackIps_, vector<string>) };
     inline DescribeApisecEventsResponseBodyData& setAttackIps(const vector<string> & attackIps) { DARABONBA_PTR_SET_VALUE(attackIps_, attackIps) };
     inline DescribeApisecEventsResponseBodyData& setAttackIps(vector<string> && attackIps) { DARABONBA_PTR_SET_RVALUE(attackIps_, attackIps) };
+
+
+    // attackerList Field Functions 
+    bool hasAttackerList() const { return this->attackerList_ != nullptr;};
+    void deleteAttackerList() { this->attackerList_ = nullptr;};
+    inline const vector<string> & attackerList() const { DARABONBA_PTR_GET_CONST(attackerList_, vector<string>) };
+    inline vector<string> attackerList() { DARABONBA_PTR_GET(attackerList_, vector<string>) };
+    inline DescribeApisecEventsResponseBodyData& setAttackerList(const vector<string> & attackerList) { DARABONBA_PTR_SET_VALUE(attackerList_, attackerList) };
+    inline DescribeApisecEventsResponseBodyData& setAttackerList(vector<string> && attackerList) { DARABONBA_PTR_SET_RVALUE(attackerList_, attackerList) };
 
 
     // endTs Field Functions 
@@ -279,6 +290,7 @@ namespace Models
     std::shared_ptr<string> attackIpInfo_ = nullptr;
     // The source IP addresses of the attacks.
     std::shared_ptr<vector<string>> attackIps_ = nullptr;
+    std::shared_ptr<vector<string>> attackerList_ = nullptr;
     // The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
     std::shared_ptr<int64_t> endTs_ = nullptr;
     // The ID of the event.

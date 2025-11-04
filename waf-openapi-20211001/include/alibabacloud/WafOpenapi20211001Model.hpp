@@ -53,9 +53,6 @@
 #include <alibabacloud/models/CreateMajorProtectionBlackIpRequest.hpp>
 #include <alibabacloud/models/CreateMajorProtectionBlackIpResponseBody.hpp>
 #include <alibabacloud/models/CreateMajorProtectionBlackIpResponse.hpp>
-#include <alibabacloud/models/CreateMajorProtectionBlackIpV2Request.hpp>
-#include <alibabacloud/models/CreateMajorProtectionBlackIpV2ResponseBody.hpp>
-#include <alibabacloud/models/CreateMajorProtectionBlackIpV2Response.hpp>
 #include <alibabacloud/models/CreateMemberAccountsRequest.hpp>
 #include <alibabacloud/models/CreateMemberAccountsResponseBody.hpp>
 #include <alibabacloud/models/CreateMemberAccountsResponse.hpp>
@@ -131,6 +128,9 @@
 #include <alibabacloud/models/DescribeApisecAssetTrendRequest.hpp>
 #include <alibabacloud/models/DescribeApisecAssetTrendResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecAssetTrendResponse.hpp>
+#include <alibabacloud/models/DescribeApisecEventDetailRequest.hpp>
+#include <alibabacloud/models/DescribeApisecEventDetailResponseBody.hpp>
+#include <alibabacloud/models/DescribeApisecEventDetailResponse.hpp>
 #include <alibabacloud/models/DescribeApisecEventDomainStatisticRequest.hpp>
 #include <alibabacloud/models/DescribeApisecEventDomainStatisticResponseBody.hpp>
 #include <alibabacloud/models/DescribeApisecEventDomainStatisticResponse.hpp>

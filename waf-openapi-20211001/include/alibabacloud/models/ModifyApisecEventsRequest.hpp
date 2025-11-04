@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyApisecEventsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(EventIds, eventIds_);
+      DARABONBA_PTR_TO_JSON(EventScope, eventScope_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Note, note_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyApisecEventsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(EventIds, eventIds_);
+      DARABONBA_PTR_FROM_JSON(EventScope, eventScope_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Note, note_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->eventIds_ == nullptr && return this->instanceId_ == nullptr && return this->note_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
-        && return this->userStatus_ == nullptr; };
+        && return this->eventIds_ == nullptr && return this->eventScope_ == nullptr && return this->instanceId_ == nullptr && return this->note_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceManagerResourceGroupId_ == nullptr && return this->userStatus_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -59,6 +61,13 @@ namespace Models
     inline vector<string> eventIds() { DARABONBA_PTR_GET(eventIds_, vector<string>) };
     inline ModifyApisecEventsRequest& setEventIds(const vector<string> & eventIds) { DARABONBA_PTR_SET_VALUE(eventIds_, eventIds) };
     inline ModifyApisecEventsRequest& setEventIds(vector<string> && eventIds) { DARABONBA_PTR_SET_RVALUE(eventIds_, eventIds) };
+
+
+    // eventScope Field Functions 
+    bool hasEventScope() const { return this->eventScope_ != nullptr;};
+    void deleteEventScope() { this->eventScope_ = nullptr;};
+    inline string eventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
+    inline ModifyApisecEventsRequest& setEventScope(string eventScope) { DARABONBA_PTR_SET_VALUE(eventScope_, eventScope) };
 
 
     // instanceId Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<vector<string>> eventIds_ = nullptr;
+    std::shared_ptr<string> eventScope_ = nullptr;
     // The ID of the Web Application Firewall (WAF) instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.

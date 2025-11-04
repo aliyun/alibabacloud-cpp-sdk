@@ -13,6 +13,7 @@ namespace Models
   class DescribeApisecEventsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeApisecEventsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Account, account_);
       DARABONBA_PTR_TO_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(ApiTag, apiTag_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTs, endTs_);
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
       DARABONBA_PTR_TO_JSON(EventLevel, eventLevel_);
+      DARABONBA_PTR_TO_JSON(EventScope, eventScope_);
       DARABONBA_PTR_TO_JSON(EventTag, eventTag_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MatchedHost, matchedHost_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserStatus, userStatus_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApisecEventsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Account, account_);
       DARABONBA_PTR_FROM_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(ApiTag, apiTag_);
@@ -43,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTs, endTs_);
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
       DARABONBA_PTR_FROM_JSON(EventLevel, eventLevel_);
+      DARABONBA_PTR_FROM_JSON(EventScope, eventScope_);
       DARABONBA_PTR_FROM_JSON(EventTag, eventTag_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MatchedHost, matchedHost_);
@@ -67,11 +71,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiFormat_ == nullptr
-        && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->attackIp_ == nullptr && return this->clusterId_ == nullptr && return this->endTs_ == nullptr
-        && return this->eventId_ == nullptr && return this->eventLevel_ == nullptr && return this->eventTag_ == nullptr && return this->instanceId_ == nullptr && return this->matchedHost_ == nullptr
-        && return this->orderKey_ == nullptr && return this->orderWay_ == nullptr && return this->origin_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->startTs_ == nullptr && return this->userStatus_ == nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiTag_ == nullptr && return this->attackIp_ == nullptr && return this->clusterId_ == nullptr
+        && return this->endTs_ == nullptr && return this->eventId_ == nullptr && return this->eventLevel_ == nullptr && return this->eventScope_ == nullptr && return this->eventTag_ == nullptr
+        && return this->instanceId_ == nullptr && return this->matchedHost_ == nullptr && return this->orderKey_ == nullptr && return this->orderWay_ == nullptr && return this->origin_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->startTs_ == nullptr
+        && return this->userStatus_ == nullptr; };
+    // account Field Functions 
+    bool hasAccount() const { return this->account_ != nullptr;};
+    void deleteAccount() { this->account_ = nullptr;};
+    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline DescribeApisecEventsRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
+
+
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};
@@ -126,6 +138,13 @@ namespace Models
     void deleteEventLevel() { this->eventLevel_ = nullptr;};
     inline string eventLevel() const { DARABONBA_PTR_GET_DEFAULT(eventLevel_, "") };
     inline DescribeApisecEventsRequest& setEventLevel(string eventLevel) { DARABONBA_PTR_SET_VALUE(eventLevel_, eventLevel) };
+
+
+    // eventScope Field Functions 
+    bool hasEventScope() const { return this->eventScope_ != nullptr;};
+    void deleteEventScope() { this->eventScope_ = nullptr;};
+    inline string eventScope() const { DARABONBA_PTR_GET_DEFAULT(eventScope_, "") };
+    inline DescribeApisecEventsRequest& setEventScope(string eventScope) { DARABONBA_PTR_SET_VALUE(eventScope_, eventScope) };
 
 
     // eventTag Field Functions 
@@ -213,6 +232,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> account_ = nullptr;
     // The API.
     std::shared_ptr<string> apiFormat_ = nullptr;
     // The ID of the event-related API.
@@ -237,6 +257,7 @@ namespace Models
     // *   **medium**
     // *   **low**
     std::shared_ptr<string> eventLevel_ = nullptr;
+    std::shared_ptr<string> eventScope_ = nullptr;
     // The type of the event.
     // 
     // >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.

@@ -13,6 +13,7 @@ namespace Models
   class DescribeApisecStatisticsResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeApisecStatisticsResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(Account, account_);
       DARABONBA_PTR_TO_JSON(Actioned, actioned_);
       DARABONBA_PTR_TO_JSON(Api, api_);
       DARABONBA_PTR_TO_JSON(Confirmed, confirmed_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Total, total_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApisecStatisticsResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(Account, account_);
       DARABONBA_PTR_FROM_JSON(Actioned, actioned_);
       DARABONBA_PTR_FROM_JSON(Api, api_);
       DARABONBA_PTR_FROM_JSON(Confirmed, confirmed_);
@@ -65,11 +67,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->actioned_ == nullptr
-        && return this->api_ == nullptr && return this->confirmed_ == nullptr && return this->domain_ == nullptr && return this->fixed_ == nullptr && return this->high_ == nullptr
-        && return this->ignore_ == nullptr && return this->low_ == nullptr && return this->medium_ == nullptr && return this->notFixed_ == nullptr && return this->systemFixed_ == nullptr
-        && return this->toBeConfirmed_ == nullptr && return this->toBeFixed_ == nullptr && return this->toBeVerified_ == nullptr && return this->todayHigh_ == nullptr && return this->todayLow_ == nullptr
-        && return this->todayMedium_ == nullptr && return this->todayTotal_ == nullptr && return this->total_ == nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->actioned_ == nullptr && return this->api_ == nullptr && return this->confirmed_ == nullptr && return this->domain_ == nullptr && return this->fixed_ == nullptr
+        && return this->high_ == nullptr && return this->ignore_ == nullptr && return this->low_ == nullptr && return this->medium_ == nullptr && return this->notFixed_ == nullptr
+        && return this->systemFixed_ == nullptr && return this->toBeConfirmed_ == nullptr && return this->toBeFixed_ == nullptr && return this->toBeVerified_ == nullptr && return this->todayHigh_ == nullptr
+        && return this->todayLow_ == nullptr && return this->todayMedium_ == nullptr && return this->todayTotal_ == nullptr && return this->total_ == nullptr; };
+    // account Field Functions 
+    bool hasAccount() const { return this->account_ != nullptr;};
+    void deleteAccount() { this->account_ = nullptr;};
+    inline int64_t account() const { DARABONBA_PTR_GET_DEFAULT(account_, 0L) };
+    inline DescribeApisecStatisticsResponseBodyData& setAccount(int64_t account) { DARABONBA_PTR_SET_VALUE(account_, account) };
+
+
     // actioned Field Functions 
     bool hasActioned() const { return this->actioned_ != nullptr;};
     void deleteActioned() { this->actioned_ = nullptr;};
@@ -204,6 +213,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> account_ = nullptr;
     // The number of handled events.
     std::shared_ptr<int64_t> actioned_ = nullptr;
     // The number of APIs.

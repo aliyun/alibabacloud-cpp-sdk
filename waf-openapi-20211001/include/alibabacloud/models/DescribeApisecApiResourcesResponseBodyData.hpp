@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeApisecApiResourcesResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(AbnormalNum, abnormalNum_);
+      DARABONBA_PTR_TO_JSON(AccountEventNum, accountEventNum_);
       DARABONBA_PTR_TO_JSON(AllCnt, allCnt_);
       DARABONBA_PTR_TO_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
@@ -40,6 +41,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeApisecApiResourcesResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(AbnormalNum, abnormalNum_);
+      DARABONBA_PTR_FROM_JSON(AccountEventNum, accountEventNum_);
       DARABONBA_PTR_FROM_JSON(AllCnt, allCnt_);
       DARABONBA_PTR_FROM_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
@@ -75,16 +77,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->abnormalNum_ == nullptr
-        && return this->allCnt_ == nullptr && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiInfo_ == nullptr && return this->apiMethod_ == nullptr
-        && return this->apiSensitive_ == nullptr && return this->apiSensitiveRequest_ == nullptr && return this->apiSensitiveResponse_ == nullptr && return this->apiStatus_ == nullptr && return this->apiTag_ == nullptr
-        && return this->apiType_ == nullptr && return this->authFlag_ == nullptr && return this->botCnt_ == nullptr && return this->crossBorderCnt_ == nullptr && return this->eventNum_ == nullptr
-        && return this->examples_ == nullptr && return this->farthestTs_ == nullptr && return this->follow_ == nullptr && return this->lastestTs_ == nullptr && return this->matchedHost_ == nullptr
-        && return this->note_ == nullptr && return this->resources_ == nullptr; };
+        && return this->accountEventNum_ == nullptr && return this->allCnt_ == nullptr && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->apiInfo_ == nullptr
+        && return this->apiMethod_ == nullptr && return this->apiSensitive_ == nullptr && return this->apiSensitiveRequest_ == nullptr && return this->apiSensitiveResponse_ == nullptr && return this->apiStatus_ == nullptr
+        && return this->apiTag_ == nullptr && return this->apiType_ == nullptr && return this->authFlag_ == nullptr && return this->botCnt_ == nullptr && return this->crossBorderCnt_ == nullptr
+        && return this->eventNum_ == nullptr && return this->examples_ == nullptr && return this->farthestTs_ == nullptr && return this->follow_ == nullptr && return this->lastestTs_ == nullptr
+        && return this->matchedHost_ == nullptr && return this->note_ == nullptr && return this->resources_ == nullptr; };
     // abnormalNum Field Functions 
     bool hasAbnormalNum() const { return this->abnormalNum_ != nullptr;};
     void deleteAbnormalNum() { this->abnormalNum_ = nullptr;};
     inline int64_t abnormalNum() const { DARABONBA_PTR_GET_DEFAULT(abnormalNum_, 0L) };
     inline DescribeApisecApiResourcesResponseBodyData& setAbnormalNum(int64_t abnormalNum) { DARABONBA_PTR_SET_VALUE(abnormalNum_, abnormalNum) };
+
+
+    // accountEventNum Field Functions 
+    bool hasAccountEventNum() const { return this->accountEventNum_ != nullptr;};
+    void deleteAccountEventNum() { this->accountEventNum_ = nullptr;};
+    inline int64_t accountEventNum() const { DARABONBA_PTR_GET_DEFAULT(accountEventNum_, 0L) };
+    inline DescribeApisecApiResourcesResponseBodyData& setAccountEventNum(int64_t accountEventNum) { DARABONBA_PTR_SET_VALUE(accountEventNum_, accountEventNum) };
 
 
     // allCnt Field Functions 
@@ -248,6 +257,7 @@ namespace Models
   protected:
     // The number of API-related risks.
     std::shared_ptr<int64_t> abnormalNum_ = nullptr;
+    std::shared_ptr<int64_t> accountEventNum_ = nullptr;
     // The total number of calls to this API in the previous 30 days.
     std::shared_ptr<int64_t> allCnt_ = nullptr;
     // The API.

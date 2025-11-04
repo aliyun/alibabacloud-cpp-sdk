@@ -13,6 +13,7 @@ namespace Models
   class DescribeSensitiveRequestLogResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSensitiveRequestLogResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(Account, account_);
       DARABONBA_PTR_TO_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(ClientIP, clientIP_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TraceId, traceId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSensitiveRequestLogResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(Account, account_);
       DARABONBA_PTR_FROM_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(ClientIP, clientIP_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiFormat_ == nullptr
-        && return this->apiId_ == nullptr && return this->clientIP_ == nullptr && return this->count_ == nullptr && return this->matchedHost_ == nullptr && return this->remoteCountryId_ == nullptr
-        && return this->requestTime_ == nullptr && return this->sensitiveList_ == nullptr && return this->traceId_ == nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->apiId_ == nullptr && return this->clientIP_ == nullptr && return this->count_ == nullptr && return this->matchedHost_ == nullptr
+        && return this->remoteCountryId_ == nullptr && return this->requestTime_ == nullptr && return this->sensitiveList_ == nullptr && return this->traceId_ == nullptr; };
+    // account Field Functions 
+    bool hasAccount() const { return this->account_ != nullptr;};
+    void deleteAccount() { this->account_ = nullptr;};
+    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline DescribeSensitiveRequestLogResponseBodyData& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
+
+
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> account_ = nullptr;
     // The API.
     std::shared_ptr<string> apiFormat_ = nullptr;
     // The ID of the API.

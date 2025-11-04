@@ -297,23 +297,6 @@ namespace WafOpenapi20211001
       Models::CreateMajorProtectionBlackIpResponse createMajorProtectionBlackIp(const Models::CreateMajorProtectionBlackIpRequest &request);
 
       /**
-       * @summary 添加重保场景黑IP
-       *
-       * @param request CreateMajorProtectionBlackIpV2Request
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateMajorProtectionBlackIpV2Response
-       */
-      Models::CreateMajorProtectionBlackIpV2Response createMajorProtectionBlackIpV2WithOptions(const Models::CreateMajorProtectionBlackIpV2Request &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 添加重保场景黑IP
-       *
-       * @param request CreateMajorProtectionBlackIpV2Request
-       * @return CreateMajorProtectionBlackIpV2Response
-       */
-      Models::CreateMajorProtectionBlackIpV2Response createMajorProtectionBlackIpV2(const Models::CreateMajorProtectionBlackIpV2Request &request);
-
-      /**
        * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
        *
        * @param request CreateMemberAccountsRequest
@@ -737,6 +720,23 @@ namespace WafOpenapi20211001
        * @return DescribeApisecAssetTrendResponse
        */
       Models::DescribeApisecAssetTrendResponse describeApisecAssetTrend(const Models::DescribeApisecAssetTrendRequest &request);
+
+      /**
+       * @summary 查询安全事件详情
+       *
+       * @param request DescribeApisecEventDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApisecEventDetailResponse
+       */
+      Models::DescribeApisecEventDetailResponse describeApisecEventDetailWithOptions(const Models::DescribeApisecEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询安全事件详情
+       *
+       * @param request DescribeApisecEventDetailRequest
+       * @return DescribeApisecEventDetailResponse
+       */
+      Models::DescribeApisecEventDetailResponse describeApisecEventDetail(const Models::DescribeApisecEventDetailRequest &request);
 
       /**
        * @summary Queries the statistics on domain names on which security events are detected by the API security module.

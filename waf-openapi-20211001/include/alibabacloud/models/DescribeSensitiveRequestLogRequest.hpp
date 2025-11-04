@@ -13,6 +13,7 @@ namespace Models
   class DescribeSensitiveRequestLogRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSensitiveRequestLogRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Account, account_);
       DARABONBA_PTR_TO_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_TO_JSON(ClientIP, clientIP_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSensitiveRequestLogRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Account, account_);
       DARABONBA_PTR_FROM_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_FROM_JSON(ClientIP, clientIP_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiFormat_ == nullptr
-        && return this->clientIP_ == nullptr && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->matchedHost_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->sensitiveCode_ == nullptr
-        && return this->sensitiveData_ == nullptr && return this->startTime_ == nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->apiFormat_ == nullptr && return this->clientIP_ == nullptr && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->matchedHost_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->sensitiveCode_ == nullptr && return this->sensitiveData_ == nullptr && return this->startTime_ == nullptr; };
+    // account Field Functions 
+    bool hasAccount() const { return this->account_ != nullptr;};
+    void deleteAccount() { this->account_ = nullptr;};
+    inline string account() const { DARABONBA_PTR_GET_DEFAULT(account_, "") };
+    inline DescribeSensitiveRequestLogRequest& setAccount(string account) { DARABONBA_PTR_SET_VALUE(account_, account) };
+
+
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};
@@ -149,6 +158,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> account_ = nullptr;
     // The API.
     std::shared_ptr<string> apiFormat_ = nullptr;
     // The IP address.
