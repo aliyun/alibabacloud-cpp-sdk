@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the interactive messaging application.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
-    // The name of the container.
+    // The name of the init container.
     // 
     // Note:
     // 
-    // *   If this parameter is specified, Cloud Assistant runs the command in the specified container of the instance.
+    // *   If you specify this parameter, Cloud Assistant runs the command in the specified container of the instances.
     // 
     // *   If this parameter is specified, the command can run only on Linux instances on which Cloud Assistant Agent 2.2.3.344 or later is installed.
     // 
@@ -74,6 +76,8 @@ namespace Models
     // 
     // *   If this parameter is specified, only shell scripts can be run in Linux containers. You cannot add a command in the format similar to `#!/usr/bin/python` at the beginning of a script to specify a script interpreter. For more information, see [Use Cloud Assistant to run commands in containers](https://help.aliyun.com/document_detail/456641.html).
     std::shared_ptr<string> containerName_ = nullptr;
+    // The name of the pod.
+    // 
     // This parameter is required.
     std::shared_ptr<string> podName_ = nullptr;
   };

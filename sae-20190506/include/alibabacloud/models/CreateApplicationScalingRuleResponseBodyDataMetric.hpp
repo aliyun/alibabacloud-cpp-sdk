@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of Elastic Compute Service (ECS) instances supported by the node pool.
     std::shared_ptr<int32_t> maxReplicas_ = nullptr;
+    // The metrics that are used to trigger the auto scaling policy.
     std::shared_ptr<vector<Models::CreateApplicationScalingRuleResponseBodyDataMetricMetrics>> metrics_ = nullptr;
+    // The minimum number of instances.
     std::shared_ptr<int32_t> minReplicas_ = nullptr;
   };
 

@@ -97,33 +97,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code or the error code. Valid values:
     // 
-    // *   **2xx**: The call was successful.
-    // *   **3xx**: The call was redirected.
-    // *   **4xx**: The call failed.
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
     // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
-    // The response.
+    // Responses.
     std::shared_ptr<CreateIngressResponseBodyData> data_ = nullptr;
-    // The error code returned. Take note of the following rules:
+    // Error code. Valid values:
     // 
-    // *   The **ErrorCode** parameter is not returned if the request succeeds.
-    // *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
+    // *   If the request is successful, no **ErrorCode** fields are returned.
+    // *   Request failed: **ErrorCode** fields are returned. For more information, see **Error codes**.
     std::shared_ptr<string> errorCode_ = nullptr;
-    // The additional information that is returned. Valid values:
+    // Additional information. Valid values:
     // 
-    // *   success: If the call is successful, **success** is returned.
-    // *   An error code: If the call fails, an error code is returned.
+    // *   The error message returned because the request is normal and **success** is returned.
+    // *   If the request is abnormal, the specific exception error code is returned.
     std::shared_ptr<string> message_ = nullptr;
     // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
-    // Indicates whether the Secret is successfully deleted. Valid values:
+    // Indicates whether the routing rule was created. Valid values:
     // 
-    // *   **true**: The instance was deleted.
-    // *   **false**: The instance failed to be deleted.
+    // *   **true**: The ConfigMap was created.
+    // *   **false**: The ConfigMap failed to be created.
     std::shared_ptr<bool> success_ = nullptr;
-    // The ID of the trace. It is used to query the details of a request.
+    // The ID of the trace. This parameter is used to query the exact call information.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

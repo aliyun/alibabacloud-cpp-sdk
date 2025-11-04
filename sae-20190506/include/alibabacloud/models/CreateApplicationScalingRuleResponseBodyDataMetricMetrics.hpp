@@ -84,11 +84,37 @@ namespace Models
 
 
   protected:
+    // The limit on the metric.
+    // 
+    // *   The limit on the CPU utilization. Unit: percentage.
+    // *   The limit on the memory usage. Unit: percentage.
+    // *   The limit on the queries per second (QPS). Unit: seconds.
+    // *   The limit on the response time. Unit: milliseconds.
+    // *   The limit on the average number of active TCP connections per second.
+    // *   The limit on the QPS of the Internet-facing SLB instance.
+    // *   The limit on the response time of the Internet-facing SLB instance. Unit: milliseconds.
+    // *   The limit on the QPS of the internal-facing SLB instance.
+    // *   The limit on the response time of the internal-facing SLB instance. Unit: milliseconds.
     std::shared_ptr<int32_t> metricTargetAverageUtilization_ = nullptr;
+    // The metric that is used to trigger the auto scaling policy. Valid values:
+    // 
+    // *   **CPU**: the CPU utilization.
+    // *   **MEMORY**: the memory usage.
+    // *   **QPS**: the average QPS within 1 minute per Java application instance.
+    // *   **RT**: the average response time of all API operations within 1 minute in the Java application.
+    // *   **tcpActiveConn**: the average number of active TCP connections within 30 seconds per instance.
+    // *   **SLB_QPS**: the average QPS of the Internet-facing SLB instance within 15 seconds per instance.
+    // *   **SLB_RT**: the average response time of the Internet-facing SLB instance within 15 seconds.
+    // *   **INTRANET_SLB_QPS**: the average QPS of the internal-facing SLB instance within 15 seconds per instance.
+    // *   **INTRANET_SLB_RT**: the average response time of the internal-facing SLB instance within 15 seconds.
     std::shared_ptr<string> metricType_ = nullptr;
+    // The ID of the SLB instance.
     std::shared_ptr<string> slbId_ = nullptr;
+    // The Logstore that stores the SLB access logs.
     std::shared_ptr<string> slbLogstore_ = nullptr;
+    // The project that stores the SLB access logs.
     std::shared_ptr<string> slbProject_ = nullptr;
+    // The port number of the SLB instance.
     std::shared_ptr<string> vport_ = nullptr;
   };
 

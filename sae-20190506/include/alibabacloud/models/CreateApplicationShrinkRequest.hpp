@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateApplicationShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AcrAssumeRoleArn, acrAssumeRoleArn_);
       DARABONBA_PTR_TO_JSON(AcrInstanceId, acrInstanceId_);
+      DARABONBA_PTR_TO_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_TO_JSON(AppDescription, appDescription_);
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppSource, appSource_);
@@ -34,6 +35,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_TO_JSON(EnableCpuBurst, enableCpuBurst_);
       DARABONBA_PTR_TO_JSON(EnableEbpf, enableEbpf_);
+      DARABONBA_PTR_TO_JSON(EnableNamespaceAgentVersion, enableNamespaceAgentVersion_);
+      DARABONBA_PTR_TO_JSON(EnableNamespaceSlsConfig, enableNamespaceSlsConfig_);
       DARABONBA_PTR_TO_JSON(EnableNewArms, enableNewArms_);
       DARABONBA_PTR_TO_JSON(EnablePrometheus, enablePrometheus_);
       DARABONBA_PTR_TO_JSON(EnableSidecarResourceIsolated, enableSidecarResourceIsolated_);
@@ -98,6 +101,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateApplicationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcrAssumeRoleArn, acrAssumeRoleArn_);
       DARABONBA_PTR_FROM_JSON(AcrInstanceId, acrInstanceId_);
+      DARABONBA_PTR_FROM_JSON(AgentVersion, agentVersion_);
       DARABONBA_PTR_FROM_JSON(AppDescription, appDescription_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppSource, appSource_);
@@ -117,6 +121,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EmptyDirDesc, emptyDirDesc_);
       DARABONBA_PTR_FROM_JSON(EnableCpuBurst, enableCpuBurst_);
       DARABONBA_PTR_FROM_JSON(EnableEbpf, enableEbpf_);
+      DARABONBA_PTR_FROM_JSON(EnableNamespaceAgentVersion, enableNamespaceAgentVersion_);
+      DARABONBA_PTR_FROM_JSON(EnableNamespaceSlsConfig, enableNamespaceSlsConfig_);
       DARABONBA_PTR_FROM_JSON(EnableNewArms, enableNewArms_);
       DARABONBA_PTR_FROM_JSON(EnablePrometheus, enablePrometheus_);
       DARABONBA_PTR_FROM_JSON(EnableSidecarResourceIsolated, enableSidecarResourceIsolated_);
@@ -190,22 +196,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrAssumeRoleArn_ == nullptr
-        && return this->acrInstanceId_ == nullptr && return this->appDescription_ == nullptr && return this->appName_ == nullptr && return this->appSource_ == nullptr && return this->associateEip_ == nullptr
-        && return this->autoConfig_ == nullptr && return this->baseAppId_ == nullptr && return this->command_ == nullptr && return this->commandArgs_ == nullptr && return this->configMapMountDesc_ == nullptr
-        && return this->cpu_ == nullptr && return this->customHostAlias_ == nullptr && return this->customImageNetworkType_ == nullptr && return this->deploy_ == nullptr && return this->diskSize_ == nullptr
-        && return this->dotnet_ == nullptr && return this->edasContainerVersion_ == nullptr && return this->emptyDirDesc_ == nullptr && return this->enableCpuBurst_ == nullptr && return this->enableEbpf_ == nullptr
-        && return this->enableNewArms_ == nullptr && return this->enablePrometheus_ == nullptr && return this->enableSidecarResourceIsolated_ == nullptr && return this->envs_ == nullptr && return this->gpuConfig_ == nullptr
-        && return this->headlessPvtzDiscoverySvc_ == nullptr && return this->html_ == nullptr && return this->imagePullSecrets_ == nullptr && return this->imageUrl_ == nullptr && return this->initContainersConfigShrink_ == nullptr
-        && return this->isStateful_ == nullptr && return this->jarStartArgs_ == nullptr && return this->jarStartOptions_ == nullptr && return this->jdk_ == nullptr && return this->kafkaConfigs_ == nullptr
-        && return this->liveness_ == nullptr && return this->memory_ == nullptr && return this->microRegistration_ == nullptr && return this->microRegistrationConfig_ == nullptr && return this->microserviceEngineConfig_ == nullptr
-        && return this->mountDesc_ == nullptr && return this->mountHost_ == nullptr && return this->namespaceId_ == nullptr && return this->nasConfigs_ == nullptr && return this->nasId_ == nullptr
-        && return this->newSaeVersion_ == nullptr && return this->oidcRoleName_ == nullptr && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr
-        && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->php_ == nullptr && return this->phpArmsConfigLocation_ == nullptr
-        && return this->phpConfig_ == nullptr && return this->phpConfigLocation_ == nullptr && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->programmingLanguage_ == nullptr
-        && return this->pvtzDiscoverySvc_ == nullptr && return this->python_ == nullptr && return this->pythonModules_ == nullptr && return this->readiness_ == nullptr && return this->replicas_ == nullptr
-        && return this->resourceType_ == nullptr && return this->saeVersion_ == nullptr && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceTags_ == nullptr
-        && return this->sidecarContainersConfigShrink_ == nullptr && return this->slsConfigs_ == nullptr && return this->startupProbe_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr
-        && return this->tomcatConfig_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
+        && return this->acrInstanceId_ == nullptr && return this->agentVersion_ == nullptr && return this->appDescription_ == nullptr && return this->appName_ == nullptr && return this->appSource_ == nullptr
+        && return this->associateEip_ == nullptr && return this->autoConfig_ == nullptr && return this->baseAppId_ == nullptr && return this->command_ == nullptr && return this->commandArgs_ == nullptr
+        && return this->configMapMountDesc_ == nullptr && return this->cpu_ == nullptr && return this->customHostAlias_ == nullptr && return this->customImageNetworkType_ == nullptr && return this->deploy_ == nullptr
+        && return this->diskSize_ == nullptr && return this->dotnet_ == nullptr && return this->edasContainerVersion_ == nullptr && return this->emptyDirDesc_ == nullptr && return this->enableCpuBurst_ == nullptr
+        && return this->enableEbpf_ == nullptr && return this->enableNamespaceAgentVersion_ == nullptr && return this->enableNamespaceSlsConfig_ == nullptr && return this->enableNewArms_ == nullptr && return this->enablePrometheus_ == nullptr
+        && return this->enableSidecarResourceIsolated_ == nullptr && return this->envs_ == nullptr && return this->gpuConfig_ == nullptr && return this->headlessPvtzDiscoverySvc_ == nullptr && return this->html_ == nullptr
+        && return this->imagePullSecrets_ == nullptr && return this->imageUrl_ == nullptr && return this->initContainersConfigShrink_ == nullptr && return this->isStateful_ == nullptr && return this->jarStartArgs_ == nullptr
+        && return this->jarStartOptions_ == nullptr && return this->jdk_ == nullptr && return this->kafkaConfigs_ == nullptr && return this->liveness_ == nullptr && return this->memory_ == nullptr
+        && return this->microRegistration_ == nullptr && return this->microRegistrationConfig_ == nullptr && return this->microserviceEngineConfig_ == nullptr && return this->mountDesc_ == nullptr && return this->mountHost_ == nullptr
+        && return this->namespaceId_ == nullptr && return this->nasConfigs_ == nullptr && return this->nasId_ == nullptr && return this->newSaeVersion_ == nullptr && return this->oidcRoleName_ == nullptr
+        && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr
+        && return this->packageVersion_ == nullptr && return this->php_ == nullptr && return this->phpArmsConfigLocation_ == nullptr && return this->phpConfig_ == nullptr && return this->phpConfigLocation_ == nullptr
+        && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->programmingLanguage_ == nullptr && return this->pvtzDiscoverySvc_ == nullptr && return this->python_ == nullptr
+        && return this->pythonModules_ == nullptr && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->resourceType_ == nullptr && return this->saeVersion_ == nullptr
+        && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceTags_ == nullptr && return this->sidecarContainersConfigShrink_ == nullptr && return this->slsConfigs_ == nullptr
+        && return this->startupProbe_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -218,6 +225,13 @@ namespace Models
     void deleteAcrInstanceId() { this->acrInstanceId_ = nullptr;};
     inline string acrInstanceId() const { DARABONBA_PTR_GET_DEFAULT(acrInstanceId_, "") };
     inline CreateApplicationShrinkRequest& setAcrInstanceId(string acrInstanceId) { DARABONBA_PTR_SET_VALUE(acrInstanceId_, acrInstanceId) };
+
+
+    // agentVersion Field Functions 
+    bool hasAgentVersion() const { return this->agentVersion_ != nullptr;};
+    void deleteAgentVersion() { this->agentVersion_ = nullptr;};
+    inline string agentVersion() const { DARABONBA_PTR_GET_DEFAULT(agentVersion_, "") };
+    inline CreateApplicationShrinkRequest& setAgentVersion(string agentVersion) { DARABONBA_PTR_SET_VALUE(agentVersion_, agentVersion) };
 
 
     // appDescription Field Functions 
@@ -351,6 +365,20 @@ namespace Models
     void deleteEnableEbpf() { this->enableEbpf_ = nullptr;};
     inline string enableEbpf() const { DARABONBA_PTR_GET_DEFAULT(enableEbpf_, "") };
     inline CreateApplicationShrinkRequest& setEnableEbpf(string enableEbpf) { DARABONBA_PTR_SET_VALUE(enableEbpf_, enableEbpf) };
+
+
+    // enableNamespaceAgentVersion Field Functions 
+    bool hasEnableNamespaceAgentVersion() const { return this->enableNamespaceAgentVersion_ != nullptr;};
+    void deleteEnableNamespaceAgentVersion() { this->enableNamespaceAgentVersion_ = nullptr;};
+    inline bool enableNamespaceAgentVersion() const { DARABONBA_PTR_GET_DEFAULT(enableNamespaceAgentVersion_, false) };
+    inline CreateApplicationShrinkRequest& setEnableNamespaceAgentVersion(bool enableNamespaceAgentVersion) { DARABONBA_PTR_SET_VALUE(enableNamespaceAgentVersion_, enableNamespaceAgentVersion) };
+
+
+    // enableNamespaceSlsConfig Field Functions 
+    bool hasEnableNamespaceSlsConfig() const { return this->enableNamespaceSlsConfig_ != nullptr;};
+    void deleteEnableNamespaceSlsConfig() { this->enableNamespaceSlsConfig_ = nullptr;};
+    inline bool enableNamespaceSlsConfig() const { DARABONBA_PTR_GET_DEFAULT(enableNamespaceSlsConfig_, false) };
+    inline CreateApplicationShrinkRequest& setEnableNamespaceSlsConfig(bool enableNamespaceSlsConfig) { DARABONBA_PTR_SET_VALUE(enableNamespaceSlsConfig_, enableNamespaceSlsConfig) };
 
 
     // enableNewArms Field Functions 
@@ -778,6 +806,7 @@ namespace Models
     std::shared_ptr<string> acrAssumeRoleArn_ = nullptr;
     // The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
     std::shared_ptr<string> acrInstanceId_ = nullptr;
+    std::shared_ptr<string> agentVersion_ = nullptr;
     // The description of the template. The description cannot exceed 1,024 characters in length.
     std::shared_ptr<string> appDescription_ = nullptr;
     // The name of the application. The name can contain digits, letters, and hyphens (-). The name must start with a letter and cannot end with a hyphen (-). It cannot exceed 36 characters in length.
@@ -874,6 +903,8 @@ namespace Models
     // - true: Enable.
     // - false: Disable (default).
     std::shared_ptr<string> enableEbpf_ = nullptr;
+    std::shared_ptr<bool> enableNamespaceAgentVersion_ = nullptr;
+    std::shared_ptr<bool> enableNamespaceSlsConfig_ = nullptr;
     // Indicates whether to enable the new ARMS feature:
     // 
     // *   true: enables this parameter.

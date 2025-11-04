@@ -97,12 +97,27 @@ namespace Models
 
 
   protected:
+    // The HTTP status code or the error code. Valid values:
+    // 
+    // *   **2xx**: The request was successful.
+    // *   **3xx**: The request was redirected.
+    // *   **4xx**: The request failed.
+    // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The returned result.
     std::shared_ptr<DowngradeApplicationApmServiceResponseBodyData> data_ = nullptr;
+    // The status code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The message that is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether ARMS advanced monitoring is disabled. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the trace. The ID is used to query the details of a request.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

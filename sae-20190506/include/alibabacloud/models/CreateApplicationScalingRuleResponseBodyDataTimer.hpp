@@ -70,9 +70,33 @@ namespace Models
 
 
   protected:
+    // The start date of the validity period of the scheduled auto scaling policy.
+    // 
+    // *   **null** (default): If you set **BeginDate** and **EndDate** to null, the scheduled auto scaling policy can always be triggered.
+    // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
     std::shared_ptr<string> beginDate_ = nullptr;
+    // The end date of the validity period of the scheduled auto scaling policy.
+    // 
+    // *   **null** (default): If you set **BeginDate** and **EndDate** to null, the scheduled auto scaling policy can always be triggered.
+    // *   If the two parameters are set to specific dates, the scheduled auto scaling policy can be triggered during the period between the two dates. For example, if **BeginDate** is set to 2021-03-25 and **EndDate** is set to 2021-04-25, the auto scaling policy is valid for one month.
     std::shared_ptr<string> endDate_ = nullptr;
+    // The days on which the scheduled auto scaling policy takes effect. Valid values:
+    // 
+    // *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
+    // 
+    // *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more days every week. The time must be in GMT+8. Valid values:
+    // 
+    //     *   **Sun**: Sunday
+    //     *   **Mon**: Monday
+    //     *   **Tue**: Tuesday
+    //     *   **Wed**: Wednesday
+    //     *   **Thu**: Thursday
+    //     *   **Fri**: Friday
+    //     *   **Sat**: Saturday
+    // 
+    // *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more dates of each month. Valid values: 1 to 31. If a month does not have the 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
     std::shared_ptr<string> period_ = nullptr;
+    // The points in time at which the auto scaling policy is triggered within one day.
     std::shared_ptr<vector<Models::CreateApplicationScalingRuleResponseBodyDataTimerSchedules>> schedules_ = nullptr;
   };
 

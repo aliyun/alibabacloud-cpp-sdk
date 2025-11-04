@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The point in time. Format: **Hour:Minute**.
     std::shared_ptr<string> atTime_ = nullptr;
+    // The maximum number of instances.
     std::shared_ptr<int32_t> maxReplicas_ = nullptr;
+    // The minimum number of instances.
     std::shared_ptr<int32_t> minReplicas_ = nullptr;
+    // The expected number of instances.
     std::shared_ptr<int32_t> targetReplicas_ = nullptr;
   };
 

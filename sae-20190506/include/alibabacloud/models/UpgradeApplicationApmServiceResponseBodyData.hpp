@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // Indicates whether ARMS advanced monitoring is enabled. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> status_ = nullptr;
   };
 

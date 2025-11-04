@@ -97,33 +97,33 @@ namespace Models
 
 
   protected:
-    // The HTTP status code. Valid values:
+    // The HTTP status code or the error code. Valid values:
     // 
     // *   **2xx**: The request was successful.
     // *   **3xx**: The request was redirected.
     // *   **4xx**: The request failed.
     // *   **5xx**: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
-    // The returned result.
+    // Responses.
     std::shared_ptr<UpdateIngressResponseBodyData> data_ = nullptr;
-    // The error code.
+    // The status code. Value values:
     // 
     // *   If the request was successful, **ErrorCode** is not returned.
     // *   If the request failed, **ErrorCode** is returned. For more information, see the **Error codes** section of this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
-    // The returned information.
+    // Additional information. Valid values:
     // 
-    // *   If the request was successful, **success** is returned.
-    // *   If the request failed, an error code is returned.
+    // *   The error message returned because the request is normal and **success** is returned.
+    // *   If the request is abnormal, the specific exception error code is returned.
     std::shared_ptr<string> message_ = nullptr;
-    // The request ID.
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
-    // Indicates whether the configurations of the routing rule were updated. Valid values:
+    // Whether the configuration of the Ingress instance is updated. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // *   **true**: The update was successful.
+    // *   **false**: Update failed.
     std::shared_ptr<bool> success_ = nullptr;
-    // The trace ID.
+    // The ID of the trace.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

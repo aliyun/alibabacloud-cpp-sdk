@@ -485,6 +485,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn();
   }
 
+  if (!!request.hasAgentVersion()) {
+    query["AgentVersion"] = request.agentVersion();
+  }
+
   if (!!request.hasAppDescription()) {
     query["AppDescription"] = request.appDescription();
   }
@@ -543,6 +547,14 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasEnableEbpf()) {
     query["EnableEbpf"] = request.enableEbpf();
+  }
+
+  if (!!request.hasEnableNamespaceAgentVersion()) {
+    query["EnableNamespaceAgentVersion"] = request.enableNamespaceAgentVersion();
+  }
+
+  if (!!request.hasEnableNamespaceSlsConfig()) {
+    query["EnableNamespaceSlsConfig"] = request.enableNamespaceSlsConfig();
   }
 
   if (!!request.hasEnableNewArms()) {
@@ -838,13 +850,14 @@ CreateApplicationResponse Client::createApplication(const CreateApplicationReque
 }
 
 /**
- * @summary Null
+ * @summary Creates an auto scaling policy for an application.
  *
- * @description The HTTP status code. Take note of the following rules:
- * *   **2xx**: The call was successful.
- * *   **3xx**: The call was redirected.
- * *   **4xx**: The call failed.
- * *   **5xx**: A server error occurred.
+ * @description ## [](#)Precautions
+ * *   You can create up to five auto scaling policies for one application.
+ * *   You can create up to 20 trigger points within one day in a scheduled auto scaling policy.
+ * *   If an auto scaling policy is enabled for an application, you cannot manually manage the lifecycle of the application. For example, you cannot scale, deploy (including single-batch release, phased release, and canary release), stop, or restart the application, or change the instance type. If you want to perform the preceding operations on the application, disable the auto scaling policy and then manually perform the operations.
+ * *   If an application is in the process of scale-out, scale-in, deployment (including single-batch release, phased release, and canary release), instance type change, restart, or stop, you cannot add or enable an auto scaling policy for the application.
+ * *   If you want to configure more than 50 instances for an application, you must contact SAE technical support to add your account to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
  *
  * @param request CreateApplicationScalingRuleRequest
  * @param headers map
@@ -909,13 +922,14 @@ CreateApplicationScalingRuleResponse Client::createApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Null
+ * @summary Creates an auto scaling policy for an application.
  *
- * @description The HTTP status code. Take note of the following rules:
- * *   **2xx**: The call was successful.
- * *   **3xx**: The call was redirected.
- * *   **4xx**: The call failed.
- * *   **5xx**: A server error occurred.
+ * @description ## [](#)Precautions
+ * *   You can create up to five auto scaling policies for one application.
+ * *   You can create up to 20 trigger points within one day in a scheduled auto scaling policy.
+ * *   If an auto scaling policy is enabled for an application, you cannot manually manage the lifecycle of the application. For example, you cannot scale, deploy (including single-batch release, phased release, and canary release), stop, or restart the application, or change the instance type. If you want to perform the preceding operations on the application, disable the auto scaling policy and then manually perform the operations.
+ * *   If an application is in the process of scale-out, scale-in, deployment (including single-batch release, phased release, and canary release), instance type change, restart, or stop, you cannot add or enable an auto scaling policy for the application.
+ * *   If you want to configure more than 50 instances for an application, you must contact SAE technical support to add your account to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
  *
  * @param request CreateApplicationScalingRuleRequest
  * @return CreateApplicationScalingRuleResponse
@@ -2533,6 +2547,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
     query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn();
   }
 
+  if (!!request.hasAgentVersion()) {
+    query["AgentVersion"] = request.agentVersion();
+  }
+
   if (!!request.hasAlbIngressReadinessGate()) {
     query["AlbIngressReadinessGate"] = request.albIngressReadinessGate();
   }
@@ -2595,6 +2613,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasEnableGreyTagRoute()) {
     query["EnableGreyTagRoute"] = request.enableGreyTagRoute();
+  }
+
+  if (!!request.hasEnableNamespaceAgentVersion()) {
+    query["EnableNamespaceAgentVersion"] = request.enableNamespaceAgentVersion();
   }
 
   if (!!request.hasEnableNewArms()) {
@@ -9108,7 +9130,7 @@ UpdateWebCustomDomainResponse Client::updateWebCustomDomain(const string &Domain
 /**
  * @summary Enables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
  *
- * @description You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://icms.alibaba-inc.com/content/arms/arms?l=1\\&m=16992\\&n=3183148).
+ * @description You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/arms/application-monitoring/product-overview/billing-overview-1).
  *
  * @param request UpgradeApplicationApmServiceRequest
  * @param headers map
@@ -9143,7 +9165,7 @@ UpgradeApplicationApmServiceResponse Client::upgradeApplicationApmServiceWithOpt
 /**
  * @summary Enables the advanced monitoring feature of Application Real-Time Monitoring Service (ARMS).
  *
- * @description You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://icms.alibaba-inc.com/content/arms/arms?l=1\\&m=16992\\&n=3183148).
+ * @description You are charged when you use the ARMS advanced monitoring feature. Enable this feature based on your business requirements. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/arms/application-monitoring/product-overview/billing-overview-1).
  *
  * @param request UpgradeApplicationApmServiceRequest
  * @return UpgradeApplicationApmServiceResponse

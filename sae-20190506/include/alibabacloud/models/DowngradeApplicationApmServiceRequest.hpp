@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the interactive messaging application.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
   };

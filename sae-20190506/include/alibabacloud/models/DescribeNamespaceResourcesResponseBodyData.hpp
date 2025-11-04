@@ -13,6 +13,7 @@ namespace Models
   class DescribeNamespaceResourcesResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeNamespaceResourcesResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(ApmJavaAgentVersion, apmJavaAgentVersion_);
       DARABONBA_PTR_TO_JSON(AppCount, appCount_);
       DARABONBA_PTR_TO_JSON(BelongRegion, belongRegion_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VpcName, vpcName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeNamespaceResourcesResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApmJavaAgentVersion, apmJavaAgentVersion_);
       DARABONBA_PTR_FROM_JSON(AppCount, appCount_);
       DARABONBA_PTR_FROM_JSON(BelongRegion, belongRegion_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -67,11 +69,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appCount_ == nullptr
-        && return this->belongRegion_ == nullptr && return this->description_ == nullptr && return this->jumpServerAppId_ == nullptr && return this->jumpServerIp_ == nullptr && return this->lastChangeOrderId_ == nullptr
-        && return this->lastChangeOrderRunning_ == nullptr && return this->lastChangeOrderStatus_ == nullptr && return this->nameSpaceShortId_ == nullptr && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr
-        && return this->notificationExpired_ == nullptr && return this->securityGroupId_ == nullptr && return this->slsConfigs_ == nullptr && return this->tenantId_ == nullptr && return this->userId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->vSwitchName_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
+    virtual bool empty() const override { return this->apmJavaAgentVersion_ == nullptr
+        && return this->appCount_ == nullptr && return this->belongRegion_ == nullptr && return this->description_ == nullptr && return this->jumpServerAppId_ == nullptr && return this->jumpServerIp_ == nullptr
+        && return this->lastChangeOrderId_ == nullptr && return this->lastChangeOrderRunning_ == nullptr && return this->lastChangeOrderStatus_ == nullptr && return this->nameSpaceShortId_ == nullptr && return this->namespaceId_ == nullptr
+        && return this->namespaceName_ == nullptr && return this->notificationExpired_ == nullptr && return this->securityGroupId_ == nullptr && return this->slsConfigs_ == nullptr && return this->tenantId_ == nullptr
+        && return this->userId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchName_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
+    // apmJavaAgentVersion Field Functions 
+    bool hasApmJavaAgentVersion() const { return this->apmJavaAgentVersion_ != nullptr;};
+    void deleteApmJavaAgentVersion() { this->apmJavaAgentVersion_ = nullptr;};
+    inline string apmJavaAgentVersion() const { DARABONBA_PTR_GET_DEFAULT(apmJavaAgentVersion_, "") };
+    inline DescribeNamespaceResourcesResponseBodyData& setApmJavaAgentVersion(string apmJavaAgentVersion) { DARABONBA_PTR_SET_VALUE(apmJavaAgentVersion_, apmJavaAgentVersion) };
+
+
     // appCount Field Functions 
     bool hasAppCount() const { return this->appCount_ != nullptr;};
     void deleteAppCount() { this->appCount_ = nullptr;};
@@ -213,6 +222,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> apmJavaAgentVersion_ = nullptr;
     // The number of applications.
     std::shared_ptr<int64_t> appCount_ = nullptr;
     // The region to which the namespace belongs.

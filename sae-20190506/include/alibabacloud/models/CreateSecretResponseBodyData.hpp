@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the created Secret.
     std::shared_ptr<int64_t> secretId_ = nullptr;
   };
 

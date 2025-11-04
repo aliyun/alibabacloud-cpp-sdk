@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Webshell page address
     std::shared_ptr<string> httpUrl_ = nullptr;
+    // The information about the token.
     std::shared_ptr<string> token_ = nullptr;
+    // The WebSocket address.
     std::shared_ptr<string> webSocketUrl_ = nullptr;
   };
 

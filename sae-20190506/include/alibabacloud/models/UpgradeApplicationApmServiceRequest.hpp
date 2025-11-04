@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
   };

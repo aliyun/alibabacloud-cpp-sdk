@@ -127,15 +127,31 @@ namespace Models
 
 
   protected:
+    // null
     std::shared_ptr<string> appId_ = nullptr;
+    // null null
     std::shared_ptr<int64_t> createTime_ = nullptr;
     std::shared_ptr<bool> enableIdle_ = nullptr;
+    // null
     std::shared_ptr<int64_t> lastDisableTime_ = nullptr;
+    // The details of the metric-based auto scaling policy.
     std::shared_ptr<Models::CreateApplicationScalingRuleResponseBodyDataMetric> metric_ = nullptr;
+    // null null
+    // 
+    // *   **null**
+    // *   **null**
     std::shared_ptr<bool> scaleRuleEnabled_ = nullptr;
+    // The name of the auto scaling policy.
     std::shared_ptr<string> scaleRuleName_ = nullptr;
+    // null null
+    // 
+    // *   **null**
+    // *   **metric**: a metric-based auto scaling policy.
+    // *   **mix**: a hybrid auto scaling policy.
     std::shared_ptr<string> scaleRuleType_ = nullptr;
+    // The details of the scheduled auto scaling policy.
     std::shared_ptr<Models::CreateApplicationScalingRuleResponseBodyDataTimer> timer_ = nullptr;
+    // null null
     std::shared_ptr<int64_t> updateTime_ = nullptr;
   };
 
