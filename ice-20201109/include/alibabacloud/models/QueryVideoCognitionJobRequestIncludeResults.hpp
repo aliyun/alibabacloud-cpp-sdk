@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->needAsr_ != nullptr
-        && this->needOcr_ != nullptr && this->needProcess_ != nullptr; };
+    virtual bool empty() const override { return this->needAsr_ == nullptr
+        && return this->needOcr_ == nullptr && return this->needProcess_ == nullptr; };
     // needAsr Field Functions 
     bool hasNeedAsr() const { return this->needAsr_ != nullptr;};
     void deleteNeedAsr() { this->needAsr_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to include Automatic Speech Recognition (ASR) results.
     std::shared_ptr<bool> needAsr_ = nullptr;
+    // Specifies whether to include Optical Character Recognition (OCR) results.
     std::shared_ptr<bool> needOcr_ = nullptr;
+    // Specifies whether to include the URL to the raw output of the algorithm.
     std::shared_ptr<bool> needProcess_ = nullptr;
   };
 

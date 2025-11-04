@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->height_ != nullptr
-        && this->name_ != nullptr && this->videoCodec_ != nullptr && this->videoCodecSetting_ != nullptr && this->videoCodecType_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->height_ == nullptr
+        && return this->name_ == nullptr && return this->videoCodec_ == nullptr && return this->videoCodecSetting_ == nullptr && return this->videoCodecType_ == nullptr && return this->width_ == nullptr; };
     // height Field Functions 
     bool hasHeight() const { return this->height_ != nullptr;};
     void deleteHeight() { this->height_ = nullptr;};

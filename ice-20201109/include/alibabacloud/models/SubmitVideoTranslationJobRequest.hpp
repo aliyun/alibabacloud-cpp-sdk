@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->editingConfig_ != nullptr && this->inputConfig_ != nullptr && this->outputConfig_ != nullptr && this->signature_ != nullptr
-        && this->signatureMehtod_ != nullptr && this->signatureNonce_ != nullptr && this->signatureType_ != nullptr && this->signatureVersion_ != nullptr && this->title_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->editingConfig_ == nullptr && return this->inputConfig_ == nullptr && return this->outputConfig_ == nullptr && return this->signature_ == nullptr
+        && return this->signatureMehtod_ == nullptr && return this->signatureNonce_ == nullptr && return this->signatureType_ == nullptr && return this->signatureVersion_ == nullptr && return this->title_ == nullptr
+        && return this->userData_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

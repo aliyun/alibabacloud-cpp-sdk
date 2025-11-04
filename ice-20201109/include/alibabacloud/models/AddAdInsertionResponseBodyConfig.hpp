@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adMarkerPassthrough_ != nullptr
-        && this->adsUrl_ != nullptr && this->cdnConfig_ != nullptr && this->configAliases_ != nullptr && this->contentUrlPrefix_ != nullptr && this->createTime_ != nullptr
-        && this->lastModified_ != nullptr && this->manifestEndpointConfig_ != nullptr && this->name_ != nullptr && this->personalizationThreshold_ != nullptr && this->slateAdUrl_ != nullptr; };
+    virtual bool empty() const override { return this->adMarkerPassthrough_ == nullptr
+        && return this->adsUrl_ == nullptr && return this->cdnConfig_ == nullptr && return this->configAliases_ == nullptr && return this->contentUrlPrefix_ == nullptr && return this->createTime_ == nullptr
+        && return this->lastModified_ == nullptr && return this->manifestEndpointConfig_ == nullptr && return this->name_ == nullptr && return this->personalizationThreshold_ == nullptr && return this->slateAdUrl_ == nullptr; };
     // adMarkerPassthrough Field Functions 
     bool hasAdMarkerPassthrough() const { return this->adMarkerPassthrough_ != nullptr;};
     void deleteAdMarkerPassthrough() { this->adMarkerPassthrough_ = nullptr;};

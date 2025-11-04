@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->cateId_ != nullptr && this->clientToken_ != nullptr && this->coverURL_ != nullptr && this->description_ != nullptr && this->inputURL_ != nullptr
-        && this->mediaTags_ != nullptr && this->mediaType_ != nullptr && this->overwrite_ != nullptr && this->referenceId_ != nullptr && this->registerConfig_ != nullptr
-        && this->smartTagTemplateId_ != nullptr && this->title_ != nullptr && this->userData_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && return this->cateId_ == nullptr && return this->clientToken_ == nullptr && return this->coverURL_ == nullptr && return this->description_ == nullptr && return this->inputURL_ == nullptr
+        && return this->mediaTags_ == nullptr && return this->mediaType_ == nullptr && return this->overwrite_ == nullptr && return this->referenceId_ == nullptr && return this->registerConfig_ == nullptr
+        && return this->smartTagTemplateId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr && return this->workflowId_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};

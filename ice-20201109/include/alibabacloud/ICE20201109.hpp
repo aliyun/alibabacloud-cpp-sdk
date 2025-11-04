@@ -184,7 +184,7 @@ namespace ICE20201109
       Models::AddMediaMarksResponse addMediaMarks(const Models::AddMediaMarksRequest &request);
 
       /**
-       * @summary 打标流媒资
+       * @summary Adds tags for a specific live stream media asset.
        *
        * @param request AddStreamTagToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -193,7 +193,7 @@ namespace ICE20201109
       Models::AddStreamTagToSearchLibResponse addStreamTagToSearchLibWithOptions(const Models::AddStreamTagToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 打标流媒资
+       * @summary Adds tags for a specific live stream media asset.
        *
        * @param request AddStreamTagToSearchLibRequest
        * @return AddStreamTagToSearchLibResponse
@@ -317,7 +317,7 @@ namespace ICE20201109
       Models::CancelFavoritePublicMediaResponse cancelFavoritePublicMedia(const Models::CancelFavoritePublicMediaRequest &request);
 
       /**
-       * @summary 取消智能生产任务
+       * @summary Cancels an intelligent production job.
        *
        * @param request CancelIProductionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -326,7 +326,7 @@ namespace ICE20201109
       Models::CancelIProductionJobResponse cancelIProductionJobWithOptions(const Models::CancelIProductionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消智能生产任务
+       * @summary Cancels an intelligent production job.
        *
        * @param request CancelIProductionJobRequest
        * @return CancelIProductionJobResponse
@@ -334,7 +334,10 @@ namespace ICE20201109
       Models::CancelIProductionJobResponse cancelIProductionJob(const Models::CancelIProductionJobRequest &request);
 
       /**
-       * @summary 清除声纹ID对应的声纹
+       * @summary Deletes a voiceprint based on its ID.
+       *
+       * @description ## [](#)
+       * ``````````
        *
        * @param request ClearAIAgentVoiceprintRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -343,7 +346,10 @@ namespace ICE20201109
       Models::ClearAIAgentVoiceprintResponse clearAIAgentVoiceprintWithOptions(const Models::ClearAIAgentVoiceprintRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 清除声纹ID对应的声纹
+       * @summary Deletes a voiceprint based on its ID.
+       *
+       * @description ## [](#)
+       * ``````````
        *
        * @param request ClearAIAgentVoiceprintRequest
        * @return ClearAIAgentVoiceprintResponse
@@ -351,7 +357,9 @@ namespace ICE20201109
       Models::ClearAIAgentVoiceprintResponse clearAIAgentVoiceprint(const Models::ClearAIAgentVoiceprintRequest &request);
 
       /**
-       * @summary 关闭MediaConnect实例的双流灾备功能
+       * @summary Disables Source Failover for a MediaConnect flow.
+       *
+       * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
        *
        * @param request CloseMediaConnectFlowFailoverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -360,7 +368,9 @@ namespace ICE20201109
       Models::CloseMediaConnectFlowFailoverResponse closeMediaConnectFlowFailoverWithOptions(const Models::CloseMediaConnectFlowFailoverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭MediaConnect实例的双流灾备功能
+       * @summary Disables Source Failover for a MediaConnect flow.
+       *
+       * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
        *
        * @param request CloseMediaConnectFlowFailoverRequest
        * @return CloseMediaConnectFlowFailoverResponse
@@ -368,7 +378,7 @@ namespace ICE20201109
       Models::CloseMediaConnectFlowFailoverResponse closeMediaConnectFlowFailover(const Models::CloseMediaConnectFlowFailoverRequest &request);
 
       /**
-       * @summary 关闭流媒资
+       * @summary Stops the tagging and analysis process for a live stream media asset.
        *
        * @param request CloseStreamToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +387,7 @@ namespace ICE20201109
       Models::CloseStreamToSearchLibResponse closeStreamToSearchLibWithOptions(const Models::CloseStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭流媒资
+       * @summary Stops the tagging and analysis process for a live stream media asset.
        *
        * @param request CloseStreamToSearchLibRequest
        * @return CloseStreamToSearchLibResponse
@@ -508,7 +518,7 @@ namespace ICE20201109
       Models::CreateEditingProjectResponse createEditingProject(const Models::CreateEditingProjectRequest &request);
 
       /**
-       * @summary 创建热词库
+       * @summary Creates a hotword library.
        *
        * @param tmpReq CreateHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +527,7 @@ namespace ICE20201109
       Models::CreateHotwordLibraryResponse createHotwordLibraryWithOptions(const Models::CreateHotwordLibraryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建热词库
+       * @summary Creates a hotword library.
        *
        * @param request CreateHotwordLibraryRequest
        * @return CreateHotwordLibraryResponse
@@ -785,7 +795,10 @@ namespace ICE20201109
       Models::CreateProgramResponse createProgram(const Models::CreateProgramRequest &request);
 
       /**
-       * @summary 创建自定义实体
+       * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -794,7 +807,10 @@ namespace ICE20201109
       Models::CreateRecognitionEntityResponse createRecognitionEntityWithOptions(const Models::CreateRecognitionEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义实体
+       * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionEntityRequest
        * @return CreateRecognitionEntityResponse
@@ -802,7 +818,11 @@ namespace ICE20201109
       Models::CreateRecognitionEntityResponse createRecognitionEntity(const Models::CreateRecognitionEntityRequest &request);
 
       /**
-       * @summary 创建自定义库。
+       * @summary Creates a custom library to store the entity information for recognition.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +831,11 @@ namespace ICE20201109
       Models::CreateRecognitionLibResponse createRecognitionLibWithOptions(const Models::CreateRecognitionLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义库。
+       * @summary Creates a custom library to store the entity information for recognition.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionLibRequest
        * @return CreateRecognitionLibResponse
@@ -819,7 +843,10 @@ namespace ICE20201109
       Models::CreateRecognitionLibResponse createRecognitionLib(const Models::CreateRecognitionLibRequest &request);
 
       /**
-       * @summary 注册自定义实体照片
+       * @summary Adds a sample image or a text label to a specific entity within a recognition library.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -828,7 +855,10 @@ namespace ICE20201109
       Models::CreateRecognitionSampleResponse createRecognitionSampleWithOptions(const Models::CreateRecognitionSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 注册自定义实体照片
+       * @summary Adds a sample image or a text label to a specific entity within a recognition library.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request CreateRecognitionSampleRequest
        * @return CreateRecognitionSampleResponse
@@ -908,7 +938,7 @@ namespace ICE20201109
       Models::CreateSourceLocationResponse createSourceLocation(const Models::CreateSourceLocationRequest &request);
 
       /**
-       * @summary 创建流媒资
+       * @summary Registers a live stream as a media asset.
        *
        * @param request CreateStreamToSearchLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -917,7 +947,7 @@ namespace ICE20201109
       Models::CreateStreamToSearchLibResponse createStreamToSearchLibWithOptions(const Models::CreateStreamToSearchLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建流媒资
+       * @summary Registers a live stream as a media asset.
        *
        * @param request CreateStreamToSearchLibRequest
        * @return CreateStreamToSearchLibResponse
@@ -1051,7 +1081,7 @@ namespace ICE20201109
       Models::DecryptKMSDataKeyResponse decryptKMSDataKey(const Models::DecryptKMSDataKeyRequest &request);
 
       /**
-       * @summary 删除智能体的对话历史记录。
+       * @summary Deletes dialog records of an AI agent.
        *
        * @param request DeleteAIAgentDialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1060,7 +1090,7 @@ namespace ICE20201109
       Models::DeleteAIAgentDialogueResponse deleteAIAgentDialogueWithOptions(const Models::DeleteAIAgentDialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除智能体的对话历史记录。
+       * @summary Deletes dialog records of an AI agent.
        *
        * @param request DeleteAIAgentDialogueRequest
        * @return DeleteAIAgentDialogueResponse
@@ -1242,7 +1272,12 @@ namespace ICE20201109
       Models::DeleteEditingProjectsResponse deleteEditingProjects(const Models::DeleteEditingProjectsRequest &request);
 
       /**
-       * @summary 删除热词词库
+       * @summary Deletes a specified hotword library based on the ID.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to delete a specified hotword library.
+       * *   The delete operation is irreversible.
+       * *   You can create up to 100 hotword libraries in an account.
        *
        * @param request DeleteHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1251,7 +1286,12 @@ namespace ICE20201109
       Models::DeleteHotwordLibraryResponse deleteHotwordLibraryWithOptions(const Models::DeleteHotwordLibraryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除热词词库
+       * @summary Deletes a specified hotword library based on the ID.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to delete a specified hotword library.
+       * *   The delete operation is irreversible.
+       * *   You can create up to 100 hotword libraries in an account.
        *
        * @param request DeleteHotwordLibraryRequest
        * @return DeleteHotwordLibraryResponse
@@ -1684,7 +1724,10 @@ namespace ICE20201109
       Models::DeleteProgramResponse deleteProgram(const Models::DeleteProgramRequest &request);
 
       /**
-       * @summary 删除自定义库实体
+       * @summary Deletes an entity from the specified custom recognition library.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +1736,10 @@ namespace ICE20201109
       Models::DeleteRecognitionEntityResponse deleteRecognitionEntityWithOptions(const Models::DeleteRecognitionEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义库实体
+       * @summary Deletes an entity from the specified custom recognition library.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionEntityRequest
        * @return DeleteRecognitionEntityResponse
@@ -1701,7 +1747,10 @@ namespace ICE20201109
       Models::DeleteRecognitionEntityResponse deleteRecognitionEntity(const Models::DeleteRecognitionEntityRequest &request);
 
       /**
-       * @summary 删除自定义库
+       * @summary Deletes a custom recognition library, including all entities and samples within it.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionLibRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1710,7 +1759,10 @@ namespace ICE20201109
       Models::DeleteRecognitionLibResponse deleteRecognitionLibWithOptions(const Models::DeleteRecognitionLibRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义库
+       * @summary Deletes a custom recognition library, including all entities and samples within it.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionLibRequest
        * @return DeleteRecognitionLibResponse
@@ -1718,7 +1770,10 @@ namespace ICE20201109
       Models::DeleteRecognitionLibResponse deleteRecognitionLib(const Models::DeleteRecognitionLibRequest &request);
 
       /**
-       * @summary 删除自定义实体照片
+       * @summary Deletes a sample for a custom entity.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionSampleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1727,7 +1782,10 @@ namespace ICE20201109
       Models::DeleteRecognitionSampleResponse deleteRecognitionSampleWithOptions(const Models::DeleteRecognitionSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义实体照片
+       * @summary Deletes a sample for a custom entity.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request DeleteRecognitionSampleRequest
        * @return DeleteRecognitionSampleResponse
@@ -1993,6 +2051,8 @@ namespace ICE20201109
       Models::DescribeNotifyConfigResponse describeNotifyConfig(const Models::DescribeNotifyConfigRequest &request);
 
       /**
+       * @summary Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+       *
        * @param request DescribePlayListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribePlayListResponse
@@ -2000,6 +2060,8 @@ namespace ICE20201109
       Models::DescribePlayListResponse describePlayListWithOptions(const Models::DescribePlayListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+       *
        * @param request DescribePlayListRequest
        * @return DescribePlayListResponse
        */
@@ -2074,7 +2136,7 @@ namespace ICE20201109
       Models::DropSearchLibResponse dropSearchLib(const Models::DropSearchLibRequest &request);
 
       /**
-       * @summary 禁用某个MediaConnect实例的某个输出
+       * @summary Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
        *
        * @param request ForbidMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2083,7 +2145,7 @@ namespace ICE20201109
       Models::ForbidMediaConnectFlowOutputResponse forbidMediaConnectFlowOutputWithOptions(const Models::ForbidMediaConnectFlowOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用某个MediaConnect实例的某个输出
+       * @summary Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
        *
        * @param request ForbidMediaConnectFlowOutputRequest
        * @return ForbidMediaConnectFlowOutputResponse
@@ -2149,7 +2211,7 @@ namespace ICE20201109
       Models::GenerateKMSDataKeyResponse generateKMSDataKey();
 
       /**
-       * @summary 生成直播互动消息所需的token
+       * @summary Generates the token required for interactive messaging.
        *
        * @param request GenerateMessageChatTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2158,12 +2220,29 @@ namespace ICE20201109
       Models::GenerateMessageChatTokenResponse generateMessageChatTokenWithOptions(const Models::GenerateMessageChatTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成直播互动消息所需的token
+       * @summary Generates the token required for interactive messaging.
        *
        * @param request GenerateMessageChatTokenRequest
        * @return GenerateMessageChatTokenResponse
        */
       Models::GenerateMessageChatTokenResponse generateMessageChatToken(const Models::GenerateMessageChatTokenRequest &request);
+
+      /**
+       * @summary Retrieves the details of a workflow task.
+       *
+       * @param request GetAIWorkflowTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIWorkflowTaskResponse
+       */
+      Models::GetAIWorkflowTaskResponse getAIWorkflowTaskWithOptions(const Models::GetAIWorkflowTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the details of a workflow task.
+       *
+       * @param request GetAIWorkflowTaskRequest
+       * @return GetAIWorkflowTaskResponse
+       */
+      Models::GetAIWorkflowTaskResponse getAIWorkflowTask(const Models::GetAIWorkflowTaskRequest &request);
 
       /**
        * @summary Obtains details of an ad insertion configuration.
@@ -2497,7 +2576,10 @@ namespace ICE20201109
       Models::GetEventCallbackResponse getEventCallback();
 
       /**
-       * @summary 查询热词词库
+       * @summary Queries the information about a specified hotword library based on the ID.
+       *
+       * @description ## [](#)
+       * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
        *
        * @param request GetHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2506,7 +2588,10 @@ namespace ICE20201109
       Models::GetHotwordLibraryResponse getHotwordLibraryWithOptions(const Models::GetHotwordLibraryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询热词词库
+       * @summary Queries the information about a specified hotword library based on the ID.
+       *
+       * @description ## [](#)
+       * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
        *
        * @param request GetHotwordLibraryRequest
        * @return GetHotwordLibraryResponse
@@ -2717,7 +2802,7 @@ namespace ICE20201109
       Models::GetLiveTranscodeTemplateResponse getLiveTranscodeTemplate(const Models::GetLiveTranscodeTemplateRequest &request);
 
       /**
-       * @summary 获取MediaConnect可用的区域
+       * @summary Retrieves all regions where MediaConnect is available.
        *
        * @param request GetMediaConnectAvailableRegionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2726,7 +2811,7 @@ namespace ICE20201109
       Models::GetMediaConnectAvailableRegionResponse getMediaConnectAvailableRegionWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MediaConnect可用的区域
+       * @summary Retrieves all regions where MediaConnect is available.
        *
        * @return GetMediaConnectAvailableRegionResponse
        */
@@ -2756,7 +2841,7 @@ namespace ICE20201109
       Models::GetMediaConnectFlowResponse getMediaConnectFlow(const Models::GetMediaConnectFlowRequest &request);
 
       /**
-       * @summary 获取某个MediaConnect实例下的所有output的名字
+       * @summary Retrieves the names of all outputs for a MediaConnect flow.
        *
        * @param request GetMediaConnectFlowAllOutputNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2765,7 +2850,7 @@ namespace ICE20201109
       Models::GetMediaConnectFlowAllOutputNameResponse getMediaConnectFlowAllOutputNameWithOptions(const Models::GetMediaConnectFlowAllOutputNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取某个MediaConnect实例下的所有output的名字
+       * @summary Retrieves the names of all outputs for a MediaConnect flow.
        *
        * @param request GetMediaConnectFlowAllOutputNameRequest
        * @return GetMediaConnectFlowAllOutputNameResponse
@@ -3045,7 +3130,7 @@ namespace ICE20201109
       Models::GetProgramResponse getProgram(const Models::GetProgramRequest &request);
 
       /**
-       * @summary 查询工程导出任务
+       * @summary Queries the information of a project export task.
        *
        * @param request GetProjectExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3054,7 +3139,7 @@ namespace ICE20201109
       Models::GetProjectExportJobResponse getProjectExportJobWithOptions(const Models::GetProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询工程导出任务
+       * @summary Queries the information of a project export task.
        *
        * @param request GetProjectExportJobRequest
        * @return GetProjectExportJobResponse
@@ -3164,7 +3249,7 @@ namespace ICE20201109
       Models::GetSourceLocationResponse getSourceLocation(const Models::GetSourceLocationRequest &request);
 
       /**
-       * @summary 获取存储地址列表
+       * @summary Obtains storage configurations.
        *
        * @param request GetStorageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3173,7 +3258,7 @@ namespace ICE20201109
       Models::GetStorageListResponse getStorageListWithOptions(const Models::GetStorageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取存储地址列表
+       * @summary Obtains storage configurations.
        *
        * @param request GetStorageListRequest
        * @return GetStorageListResponse
@@ -3181,7 +3266,7 @@ namespace ICE20201109
       Models::GetStorageListResponse getStorageList(const Models::GetStorageListRequest &request);
 
       /**
-       * @summary 查询流媒资打标
+       * @summary Retrieves tags of a live stream media asset.
        *
        * @param request GetStreamTagListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3190,7 +3275,7 @@ namespace ICE20201109
       Models::GetStreamTagListResponse getStreamTagListWithOptions(const Models::GetStreamTagListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询流媒资打标
+       * @summary Retrieves tags of a live stream media asset.
        *
        * @param request GetStreamTagListRequest
        * @return GetStreamTagListResponse
@@ -3420,7 +3505,7 @@ namespace ICE20201109
       Models::InsertMediaToSearchLibResponse insertMediaToSearchLib(const Models::InsertMediaToSearchLibRequest &request);
 
       /**
-       * @summary 列出智能体的对话历史记录。
+       * @summary Lists the dialog records of an AI agent.
        *
        * @param request ListAIAgentDialoguesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3429,7 +3514,7 @@ namespace ICE20201109
       Models::ListAIAgentDialoguesResponse listAIAgentDialoguesWithOptions(const Models::ListAIAgentDialoguesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出智能体的对话历史记录。
+       * @summary Lists the dialog records of an AI agent.
        *
        * @param request ListAIAgentDialoguesRequest
        * @return ListAIAgentDialoguesResponse
@@ -3481,7 +3566,7 @@ namespace ICE20201109
       Models::ListAIAgentPhoneNumberResponse listAIAgentPhoneNumber(const Models::ListAIAgentPhoneNumberRequest &request);
 
       /**
-       * @summary 更新回调配置
+       * @summary Lists the registered voiceprints.
        *
        * @param request ListAIAgentVoiceprintsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3490,7 +3575,7 @@ namespace ICE20201109
       Models::ListAIAgentVoiceprintsResponse listAIAgentVoiceprintsWithOptions(const Models::ListAIAgentVoiceprintsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新回调配置
+       * @summary Lists the registered voiceprints.
        *
        * @param request ListAIAgentVoiceprintsRequest
        * @return ListAIAgentVoiceprintsResponse
@@ -3757,7 +3842,14 @@ namespace ICE20201109
       Models::ListEditingProjectsResponse listEditingProjects(const Models::ListEditingProjectsRequest &request);
 
       /**
-       * @summary 查询所有热词库的列表
+       * @summary Queries hotword libraries that meet specific search conditions.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to get information about all hotword libraries that you created.
+       * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+       * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+       * *   The maximum number of entries returned for each request is 100. Default value: 10.
+       * *   Use `NextToken` for pagination.
        *
        * @param request ListHotwordLibrariesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3766,7 +3858,14 @@ namespace ICE20201109
       Models::ListHotwordLibrariesResponse listHotwordLibrariesWithOptions(const Models::ListHotwordLibrariesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有热词库的列表
+       * @summary Queries hotword libraries that meet specific search conditions.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to get information about all hotword libraries that you created.
+       * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+       * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+       * *   The maximum number of entries returned for each request is 100. Default value: 10.
+       * *   Use `NextToken` for pagination.
        *
        * @param request ListHotwordLibrariesRequest
        * @return ListHotwordLibrariesResponse
@@ -4008,7 +4107,7 @@ namespace ICE20201109
       Models::ListMediaBasicInfosResponse listMediaBasicInfos(const Models::ListMediaBasicInfosRequest &request);
 
       /**
-       * @summary 查询 MediaConvertJob 列表
+       * @summary Retrieves MediaConvert tasks.
        *
        * @param request ListMediaConvertJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4017,7 +4116,7 @@ namespace ICE20201109
       Models::ListMediaConvertJobsResponse listMediaConvertJobsWithOptions(const Models::ListMediaConvertJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 MediaConvertJob 列表
+       * @summary Retrieves MediaConvert tasks.
        *
        * @param request ListMediaConvertJobsRequest
        * @return ListMediaConvertJobsResponse
@@ -4213,7 +4312,10 @@ namespace ICE20201109
       Models::ListPublicMediaBasicInfosResponse listPublicMediaBasicInfos(const Models::ListPublicMediaBasicInfosRequest &request);
 
       /**
-       * @summary 获取自定义库下实体列表
+       * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4222,7 +4324,10 @@ namespace ICE20201109
       Models::ListRecognitionEntitiesResponse listRecognitionEntitiesWithOptions(const Models::ListRecognitionEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义库下实体列表
+       * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionEntitiesRequest
        * @return ListRecognitionEntitiesResponse
@@ -4230,7 +4335,10 @@ namespace ICE20201109
       Models::ListRecognitionEntitiesResponse listRecognitionEntities(const Models::ListRecognitionEntitiesRequest &request);
 
       /**
-       * @summary 获取自定义库列表
+       * @summary Retrieves all custom recognition libraries. Pagination is supported.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionLibsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4239,7 +4347,10 @@ namespace ICE20201109
       Models::ListRecognitionLibsResponse listRecognitionLibsWithOptions(const Models::ListRecognitionLibsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义库列表
+       * @summary Retrieves all custom recognition libraries. Pagination is supported.
+       *
+       * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+       * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
        *
        * @param request ListRecognitionLibsRequest
        * @return ListRecognitionLibsResponse
@@ -4247,7 +4358,7 @@ namespace ICE20201109
       Models::ListRecognitionLibsResponse listRecognitionLibs(const Models::ListRecognitionLibsRequest &request);
 
       /**
-       * @summary 获取自定义库实体的图片列表
+       * @summary Retrieves all samples of a custom entity. Pagination is supported.
        *
        * @param request ListRecognitionSamplesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4256,7 +4367,7 @@ namespace ICE20201109
       Models::ListRecognitionSamplesResponse listRecognitionSamplesWithOptions(const Models::ListRecognitionSamplesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义库实体的图片列表
+       * @summary Retrieves all samples of a custom entity. Pagination is supported.
        *
        * @param request ListRecognitionSamplesRequest
        * @return ListRecognitionSamplesResponse
@@ -4566,7 +4677,9 @@ namespace ICE20201109
       Models::ListVodPackagingGroupsResponse listVodPackagingGroups(const Models::ListVodPackagingGroupsRequest &request);
 
       /**
-       * @summary 工作流任务实例列表
+       * @summary Retrieves workflow tasks.
+       *
+       * @description This API only returns data from the last 90 days.
        *
        * @param request ListWorkflowTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4575,7 +4688,9 @@ namespace ICE20201109
       Models::ListWorkflowTasksResponse listWorkflowTasksWithOptions(const Models::ListWorkflowTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工作流任务实例列表
+       * @summary Retrieves workflow tasks.
+       *
+       * @description This API only returns data from the last 90 days.
        *
        * @param request ListWorkflowTasksRequest
        * @return ListWorkflowTasksResponse
@@ -4583,7 +4698,10 @@ namespace ICE20201109
       Models::ListWorkflowTasksResponse listWorkflowTasks(const Models::ListWorkflowTasksRequest &request);
 
       /**
-       * @summary 开启MediaConnect双流灾备
+       * @summary Enables Source Failover for a MediaConnect flow.
+       *
+       * @description *   Before this operation, you must add a source to the flow.
+       * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
        *
        * @param request OpenMediaConnectFlowFailoverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4592,7 +4710,10 @@ namespace ICE20201109
       Models::OpenMediaConnectFlowFailoverResponse openMediaConnectFlowFailoverWithOptions(const Models::OpenMediaConnectFlowFailoverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启MediaConnect双流灾备
+       * @summary Enables Source Failover for a MediaConnect flow.
+       *
+       * @description *   Before this operation, you must add a source to the flow.
+       * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
        *
        * @param request OpenMediaConnectFlowFailoverRequest
        * @return OpenMediaConnectFlowFailoverResponse
@@ -4600,7 +4721,7 @@ namespace ICE20201109
       Models::OpenMediaConnectFlowFailoverResponse openMediaConnectFlowFailover(const Models::OpenMediaConnectFlowFailoverRequest &request);
 
       /**
-       * @summary 查询版权水印提取任务
+       * @summary Queries a job for extracting a copyright watermark.
        *
        * @param request QueryCopyrightExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4609,7 +4730,7 @@ namespace ICE20201109
       Models::QueryCopyrightExtractJobResponse queryCopyrightExtractJobWithOptions(const Models::QueryCopyrightExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询版权水印提取任务
+       * @summary Queries a job for extracting a copyright watermark.
        *
        * @param request QueryCopyrightExtractJobRequest
        * @return QueryCopyrightExtractJobResponse
@@ -4617,7 +4738,9 @@ namespace ICE20201109
       Models::QueryCopyrightExtractJobResponse queryCopyrightExtractJob(const Models::QueryCopyrightExtractJobRequest &request);
 
       /**
-       * @summary 查询视频版权水印任务列表
+       * @summary Queries copyright watermarking jobs.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryCopyrightJobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4626,7 +4749,9 @@ namespace ICE20201109
       Models::QueryCopyrightJobListResponse queryCopyrightJobListWithOptions(const Models::QueryCopyrightJobListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频版权水印任务列表
+       * @summary Queries copyright watermarking jobs.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryCopyrightJobListRequest
        * @return QueryCopyrightJobListResponse
@@ -4778,7 +4903,9 @@ namespace ICE20201109
       Models::QuerySmarttagJobResponse querySmarttagJob(const Models::QuerySmarttagJobRequest &request);
 
       /**
-       * @summary 查询视频溯源水印ab流任务
+       * @summary Queries A/B watermarking jobs.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceAbJobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4787,7 +4914,9 @@ namespace ICE20201109
       Models::QueryTraceAbJobListResponse queryTraceAbJobListWithOptions(const Models::QueryTraceAbJobListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频溯源水印ab流任务
+       * @summary Queries A/B watermarking jobs.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceAbJobListRequest
        * @return QueryTraceAbJobListResponse
@@ -4795,7 +4924,9 @@ namespace ICE20201109
       Models::QueryTraceAbJobListResponse queryTraceAbJobList(const Models::QueryTraceAbJobListRequest &request);
 
       /**
-       * @summary 查询溯源水印提取任务
+       * @summary Queries a job for extracting a trace watermark.
+       *
+       * @description This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4804,7 +4935,9 @@ namespace ICE20201109
       Models::QueryTraceExtractJobResponse queryTraceExtractJobWithOptions(const Models::QueryTraceExtractJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询溯源水印提取任务
+       * @summary Queries a job for extracting a trace watermark.
+       *
+       * @description This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request QueryTraceExtractJobRequest
        * @return QueryTraceExtractJobResponse
@@ -4812,7 +4945,10 @@ namespace ICE20201109
       Models::QueryTraceExtractJobResponse queryTraceExtractJob(const Models::QueryTraceExtractJobRequest &request);
 
       /**
-       * @summary 查询视频溯源水印m3u8任务
+       * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
        *
        * @param request QueryTraceM3u8JobListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4821,7 +4957,10 @@ namespace ICE20201109
       Models::QueryTraceM3u8JobListResponse queryTraceM3u8JobListWithOptions(const Models::QueryTraceM3u8JobListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频溯源水印m3u8任务
+       * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
        *
        * @param request QueryTraceM3u8JobListRequest
        * @return QueryTraceM3u8JobListResponse
@@ -4829,7 +4968,7 @@ namespace ICE20201109
       Models::QueryTraceM3u8JobListResponse queryTraceM3u8JobList(const Models::QueryTraceM3u8JobListRequest &request);
 
       /**
-       * @summary 查询视频理解任务结果
+       * @summary Retrieves the results of an AI analysis and processing task.
        *
        * @param tmpReq QueryVideoCognitionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4838,7 +4977,7 @@ namespace ICE20201109
       Models::QueryVideoCognitionJobResponse queryVideoCognitionJobWithOptions(const Models::QueryVideoCognitionJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询视频理解任务结果
+       * @summary Retrieves the results of an AI analysis and processing task.
        *
        * @param request QueryVideoCognitionJobRequest
        * @return QueryVideoCognitionJobResponse
@@ -4909,7 +5048,7 @@ namespace ICE20201109
       Models::RegisterMediaStreamResponse registerMediaStream(const Models::RegisterMediaStreamRequest &request);
 
       /**
-       * @summary 恢复某个MediaConnect实例的某个输出
+       * @summary Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
        *
        * @param request ResumeMediaConnectFlowOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4918,7 +5057,7 @@ namespace ICE20201109
       Models::ResumeMediaConnectFlowOutputResponse resumeMediaConnectFlowOutputWithOptions(const Models::ResumeMediaConnectFlowOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复某个MediaConnect实例的某个输出
+       * @summary Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
        *
        * @param request ResumeMediaConnectFlowOutputRequest
        * @return ResumeMediaConnectFlowOutputResponse
@@ -5023,7 +5162,7 @@ namespace ICE20201109
       Models::SearchMediaByFaceResponse searchMediaByFace(const Models::SearchMediaByFaceRequest &request);
 
       /**
-       * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+       * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
        *
        * @param request SearchMediaByHybridRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5032,7 +5171,7 @@ namespace ICE20201109
       Models::SearchMediaByHybridResponse searchMediaByHybridWithOptions(const Models::SearchMediaByHybridRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+       * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
        *
        * @param request SearchMediaByHybridRequest
        * @return SearchMediaByHybridResponse
@@ -5145,7 +5284,7 @@ namespace ICE20201109
       Models::SendAIAgentSpeechResponse sendAIAgentSpeech(const Models::SendAIAgentSpeechRequest &request);
 
       /**
-       * @summary 传入消息作为LLM输入。
+       * @summary Sends a message as input to the large language model (LLM).
        *
        * @param request SendAIAgentTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5154,7 +5293,7 @@ namespace ICE20201109
       Models::SendAIAgentTextResponse sendAIAgentTextWithOptions(const Models::SendAIAgentTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 传入消息作为LLM输入。
+       * @summary Sends a message as input to the large language model (LLM).
        *
        * @param request SendAIAgentTextRequest
        * @return SendAIAgentTextResponse
@@ -5196,7 +5335,7 @@ namespace ICE20201109
       Models::SendLiveTranscodeJobCommandResponse sendLiveTranscodeJobCommand(const Models::SendLiveTranscodeJobCommandRequest &request);
 
       /**
-       * @summary 向IM客户端发送消息。
+       * @summary Sends a message to the client.
        *
        * @param request SendMessageChatTextRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5205,7 +5344,7 @@ namespace ICE20201109
       Models::SendMessageChatTextResponse sendMessageChatTextWithOptions(const Models::SendMessageChatTextRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 向IM客户端发送消息。
+       * @summary Sends a message to the client.
        *
        * @param request SendMessageChatTextRequest
        * @return SendMessageChatTextResponse
@@ -5213,7 +5352,7 @@ namespace ICE20201109
       Models::SendMessageChatTextResponse sendMessageChatText(const Models::SendMessageChatTextRequest &request);
 
       /**
-       * @summary 设置声纹
+       * @summary Registers a voiceprint.
        *
        * @param tmpReq SetAIAgentVoiceprintRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5222,7 +5361,7 @@ namespace ICE20201109
       Models::SetAIAgentVoiceprintResponse setAIAgentVoiceprintWithOptions(const Models::SetAIAgentVoiceprintRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置声纹
+       * @summary Registers a voiceprint.
        *
        * @param request SetAIAgentVoiceprintRequest
        * @return SetAIAgentVoiceprintResponse
@@ -5359,6 +5498,27 @@ namespace ICE20201109
       Models::StartAIAgentOutboundCallResponse startAIAgentOutboundCall(const Models::StartAIAgentOutboundCallRequest &request);
 
       /**
+       * @summary Initiates a workflow task for automated media processing based on a workflow template.
+       *
+       * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+       *
+       * @param request StartAIWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartAIWorkflowResponse
+       */
+      Models::StartAIWorkflowResponse startAIWorkflowWithOptions(const Models::StartAIWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Initiates a workflow task for automated media processing based on a workflow template.
+       *
+       * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+       *
+       * @param request StartAIWorkflowRequest
+       * @return StartAIWorkflowResponse
+       */
+      Models::StartAIWorkflowResponse startAIWorkflow(const Models::StartAIWorkflowRequest &request);
+
+      /**
        * @summary Starts a channel.
        *
        * @param request StartChannelRequest
@@ -5466,6 +5626,27 @@ namespace ICE20201109
       Models::StopAIAgentInstanceResponse stopAIAgentInstance(const Models::StopAIAgentInstanceRequest &request);
 
       /**
+       * @summary Manually stops a workflow task.
+       *
+       * @description This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+       *
+       * @param request StopAIWorkflowTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopAIWorkflowTaskResponse
+       */
+      Models::StopAIWorkflowTaskResponse stopAIWorkflowTaskWithOptions(const Models::StopAIWorkflowTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Manually stops a workflow task.
+       *
+       * @description This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+       *
+       * @param request StopAIWorkflowTaskRequest
+       * @return StopAIWorkflowTaskResponse
+       */
+      Models::StopAIWorkflowTaskResponse stopAIWorkflowTask(const Models::StopAIWorkflowTaskRequest &request);
+
+      /**
        * @summary Stops a MediaWeaver channel.
        *
        * @param request StopChannelRequest
@@ -5523,7 +5704,9 @@ namespace ICE20201109
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstance(const Models::StopRtcRobotInstanceRequest &request);
 
       /**
-       * @summary 提交视频送审任务
+       * @summary Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+       *
+       * @description Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
        *
        * @param tmpReq SubmitAIAgentVideoAuditTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5532,7 +5715,9 @@ namespace ICE20201109
       Models::SubmitAIAgentVideoAuditTaskResponse submitAIAgentVideoAuditTaskWithOptions(const Models::SubmitAIAgentVideoAuditTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频送审任务
+       * @summary Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+       *
+       * @description Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
        *
        * @param request SubmitAIAgentVideoAuditTaskRequest
        * @return SubmitAIAgentVideoAuditTaskResponse
@@ -5591,7 +5776,11 @@ namespace ICE20201109
       Models::SubmitAvatarTrainingJobResponse submitAvatarTrainingJob(const Models::SubmitAvatarTrainingJobRequest &request);
 
       /**
-       * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+       * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+       *
+       * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
+       * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+       * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
        *
        * @param request SubmitAvatarVideoJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5600,7 +5789,11 @@ namespace ICE20201109
       Models::SubmitAvatarVideoJobResponse submitAvatarVideoJobWithOptions(const Models::SubmitAvatarVideoJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+       * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+       *
+       * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
+       * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+       * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
        *
        * @param request SubmitAvatarVideoJobRequest
        * @return SubmitAvatarVideoJobResponse
@@ -5625,7 +5818,9 @@ namespace ICE20201109
       Models::SubmitBatchMediaProducingJobResponse submitBatchMediaProducingJob(const Models::SubmitBatchMediaProducingJobRequest &request);
 
       /**
-       * @summary 提交版权水印提取作业
+       * @summary Submits a job that extracts a copyright watermark.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param tmpReq SubmitCopyrightExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5634,7 +5829,9 @@ namespace ICE20201109
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJobWithOptions(const Models::SubmitCopyrightExtractJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交版权水印提取作业
+       * @summary Submits a job that extracts a copyright watermark.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request SubmitCopyrightExtractJobRequest
        * @return SubmitCopyrightExtractJobResponse
@@ -5642,7 +5839,11 @@ namespace ICE20201109
       Models::SubmitCopyrightExtractJobResponse submitCopyrightExtractJob(const Models::SubmitCopyrightExtractJobRequest &request);
 
       /**
-       * @summary 提交版权水印任务
+       * @summary Submits a job for adding a copyright watermark to a video.
+       *
+       * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+       * *   Each API call supports processing only one video.
+       * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param tmpReq SubmitCopyrightJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5651,7 +5852,11 @@ namespace ICE20201109
       Models::SubmitCopyrightJobResponse submitCopyrightJobWithOptions(const Models::SubmitCopyrightJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交版权水印任务
+       * @summary Submits a job for adding a copyright watermark to a video.
+       *
+       * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+       * *   Each API call supports processing only one video.
+       * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
        *
        * @param request SubmitCopyrightJobRequest
        * @return SubmitCopyrightJobResponse
@@ -6025,7 +6230,7 @@ namespace ICE20201109
       Models::SubmitPackageJobResponse submitPackageJob(const Models::SubmitPackageJobRequest &request);
 
       /**
-       * @summary 提交工程导出任务
+       * @summary Submits a project export task.
        *
        * @param request SubmitProjectExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6034,12 +6239,35 @@ namespace ICE20201109
       Models::SubmitProjectExportJobResponse submitProjectExportJobWithOptions(const Models::SubmitProjectExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交工程导出任务
+       * @summary Submits a project export task.
        *
        * @param request SubmitProjectExportJobRequest
        * @return SubmitProjectExportJobResponse
        */
       Models::SubmitProjectExportJobResponse submitProjectExportJob(const Models::SubmitProjectExportJobRequest &request);
+
+      /**
+       * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+       *
+       * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+       * - The feature is in public preview and charges no fees.
+       *
+       * @param request SubmitSceneMediaSelectionJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitSceneMediaSelectionJobResponse
+       */
+      Models::SubmitSceneMediaSelectionJobResponse submitSceneMediaSelectionJobWithOptions(const Models::SubmitSceneMediaSelectionJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+       *
+       * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+       * - The feature is in public preview and charges no fees.
+       *
+       * @param request SubmitSceneMediaSelectionJobRequest
+       * @return SubmitSceneMediaSelectionJobResponse
+       */
+      Models::SubmitSceneMediaSelectionJobResponse submitSceneMediaSelectionJob(const Models::SubmitSceneMediaSelectionJobRequest &request);
 
       /**
        * @summary Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.
@@ -6059,7 +6287,7 @@ namespace ICE20201109
       Models::SubmitScreenMediaHighlightsJobResponse submitScreenMediaHighlightsJob(const Models::SubmitScreenMediaHighlightsJobRequest &request);
 
       /**
-       * @summary 提交拆条任务
+       * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
        *
        * @param request SubmitSegmentationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6068,7 +6296,7 @@ namespace ICE20201109
       Models::SubmitSegmentationJobResponse submitSegmentationJobWithOptions(const Models::SubmitSegmentationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交拆条任务
+       * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
        *
        * @param request SubmitSegmentationJobRequest
        * @return SubmitSegmentationJobResponse
@@ -6186,7 +6414,9 @@ namespace ICE20201109
       Models::SubmitTextGenerateJobResponse submitTextGenerateJob(const Models::SubmitTextGenerateJobRequest &request);
 
       /**
-       * @summary 提交视频溯源水印ab流任务
+       * @summary Submits an A/B watermarking job.
+       *
+       * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
        *
        * @param tmpReq SubmitTraceAbJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6195,7 +6425,9 @@ namespace ICE20201109
       Models::SubmitTraceAbJobResponse submitTraceAbJobWithOptions(const Models::SubmitTraceAbJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频溯源水印ab流任务
+       * @summary Submits an A/B watermarking job.
+       *
+       * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
        *
        * @param request SubmitTraceAbJobRequest
        * @return SubmitTraceAbJobResponse
@@ -6203,7 +6435,10 @@ namespace ICE20201109
       Models::SubmitTraceAbJobResponse submitTraceAbJob(const Models::SubmitTraceAbJobRequest &request);
 
       /**
-       * @summary 提交溯源水印提取任务
+       * @summary Submits a job to extract the trace watermark.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
        *
        * @param tmpReq SubmitTraceExtractJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6212,7 +6447,10 @@ namespace ICE20201109
       Models::SubmitTraceExtractJobResponse submitTraceExtractJobWithOptions(const Models::SubmitTraceExtractJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交溯源水印提取任务
+       * @summary Submits a job to extract the trace watermark.
+       *
+       * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
        *
        * @param request SubmitTraceExtractJobRequest
        * @return SubmitTraceExtractJobResponse
@@ -6220,7 +6458,11 @@ namespace ICE20201109
       Models::SubmitTraceExtractJobResponse submitTraceExtractJob(const Models::SubmitTraceExtractJobRequest &request);
 
       /**
-       * @summary 提交视频溯源水印m3u8文件任务
+       * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+       *
+       * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+       * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
        *
        * @param tmpReq SubmitTraceM3u8JobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6229,7 +6471,11 @@ namespace ICE20201109
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8JobWithOptions(const Models::SubmitTraceM3u8JobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频溯源水印m3u8文件任务
+       * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+       *
+       * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+       * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+       * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
        *
        * @param request SubmitTraceM3u8JobRequest
        * @return SubmitTraceM3u8JobResponse
@@ -6254,7 +6500,7 @@ namespace ICE20201109
       Models::SubmitTranscodeJobResponse submitTranscodeJob(const Models::SubmitTranscodeJobRequest &request);
 
       /**
-       * @summary 提交视频理解任务
+       * @summary Submits a video for AI analysis and processing.
        *
        * @param tmpReq SubmitVideoCognitionJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6263,7 +6509,7 @@ namespace ICE20201109
       Models::SubmitVideoCognitionJobResponse submitVideoCognitionJobWithOptions(const Models::SubmitVideoCognitionJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交视频理解任务
+       * @summary Submits a video for AI analysis and processing.
        *
        * @param request SubmitVideoCognitionJobRequest
        * @return SubmitVideoCognitionJobResponse
@@ -6455,7 +6701,14 @@ namespace ICE20201109
       Models::UpdateEditingProjectResponse updateEditingProject(const Models::UpdateEditingProjectRequest &request);
 
       /**
-       * @summary 更新热词库
+       * @summary Modifies a specified hotword library, including its name, description, and hotword list.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to modify a specified hotword library.
+       * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+       * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+       * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+       * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
        *
        * @param tmpReq UpdateHotwordLibraryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6464,7 +6717,14 @@ namespace ICE20201109
       Models::UpdateHotwordLibraryResponse updateHotwordLibraryWithOptions(const Models::UpdateHotwordLibraryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新热词库
+       * @summary Modifies a specified hotword library, including its name, description, and hotword list.
+       *
+       * @description ## [](#)
+       * *   You can call this operation to modify a specified hotword library.
+       * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+       * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+       * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+       * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
        *
        * @param request UpdateHotwordLibraryRequest
        * @return UpdateHotwordLibraryResponse

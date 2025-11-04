@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->hotwordLibraryId_ != nullptr && this->modifiedTime_ != nullptr && this->name_ != nullptr && this->usageScenario_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->hotwordLibraryId_ == nullptr && return this->modifiedTime_ == nullptr && return this->name_ == nullptr && return this->usageScenario_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The time when the hotword library was created.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // The description of the hotword library. It can be up to 200 characters in length.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the hotword library.
     std::shared_ptr<string> hotwordLibraryId_ = nullptr;
+    // The time when the hotword library was last modified.
     std::shared_ptr<string> modifiedTime_ = nullptr;
+    // The name of the hotword library.
     std::shared_ptr<string> name_ = nullptr;
+    // The usage scenario of the hotword library. Valid values:
+    // 
+    // *   ASR: Automatic Speech Recognition
+    // *   StructuredMediaAssets: structured media analysis
+    // *   VideoTranslation: Video translation This field cannot be modified after the hotword library is created.
     std::shared_ptr<string> usageScenario_ = nullptr;
   };
 

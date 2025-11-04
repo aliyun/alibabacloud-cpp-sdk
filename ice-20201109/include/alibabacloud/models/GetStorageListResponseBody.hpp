@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->storageInfoList_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->storageInfoList_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -52,8 +52,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The storage configurations.
     std::shared_ptr<vector<GetStorageListResponseBodyStorageInfoList>> storageInfoList_ = nullptr;
   };
 

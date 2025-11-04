@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cipherBase64ed_ != nullptr
-        && this->inputShrink_ != nullptr && this->level_ != nullptr && this->outputShrink_ != nullptr && this->startTime_ != nullptr && this->totalTime_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->cipherBase64ed_ == nullptr
+        && return this->inputShrink_ == nullptr && return this->level_ == nullptr && return this->outputShrink_ == nullptr && return this->startTime_ == nullptr && return this->totalTime_ == nullptr
+        && return this->userData_ == nullptr; };
     // cipherBase64ed Field Functions 
     bool hasCipherBase64ed() const { return this->cipherBase64ed_ != nullptr;};
     void deleteCipherBase64ed() { this->cipherBase64ed_ = nullptr;};
@@ -94,14 +94,25 @@ namespace Models
 
 
   protected:
+    // The key that is encoded by using the Base64 algorithm.
     std::shared_ptr<string> cipherBase64ed_ = nullptr;
+    // The source video file for A/B watermarking.
+    // 
+    // > OSS object or media asset must reside in the same region as the IMS service region. This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
+    // 
     // This parameter is required.
     std::shared_ptr<string> inputShrink_ = nullptr;
+    // The watermark level, which specifies the channel to embed watermarks. Valid values: 0 specifies the 0u channel, 1 specifies the 1uv channel, and 2 specifies the 2yuv channel.
     std::shared_ptr<int64_t> level_ = nullptr;
+    // The output directory path.
+    // 
     // This parameter is required.
     std::shared_ptr<string> outputShrink_ = nullptr;
+    // The start point of watermark embedding. Unit: seconds.
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    // The duration of the watermark embedding. Unit: seconds.
     std::shared_ptr<int64_t> totalTime_ = nullptr;
+    // The custom data, which can be up to 1,024 bytes in size.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->taskList_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->taskList_ == nullptr && return this->totalCount_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -79,11 +79,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned in this response.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token.
+    // 
     // This parameter is required.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The media workflow tasks.
     std::shared_ptr<vector<ListWorkflowTasksResponseBodyTaskList>> taskList_ = nullptr;
+    // The total number of entries returned. By default, this parameter is not returned.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

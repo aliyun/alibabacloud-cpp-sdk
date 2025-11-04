@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorizationCode_ != nullptr
-        && this->channelName_ != nullptr && this->clientToken_ != nullptr && this->description_ != nullptr && this->endpointName_ != nullptr && this->groupName_ != nullptr
-        && this->ipBlacklist_ != nullptr && this->ipWhitelist_ != nullptr && this->livePackagingConfigShrink_ != nullptr && this->manifestName_ != nullptr && this->protocol_ != nullptr
-        && this->timeshiftVision_ != nullptr; };
+    virtual bool empty() const override { return this->authorizationCode_ == nullptr
+        && return this->channelName_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->endpointName_ == nullptr && return this->groupName_ == nullptr
+        && return this->ipBlacklist_ == nullptr && return this->ipWhitelist_ == nullptr && return this->livePackagingConfigShrink_ == nullptr && return this->manifestName_ == nullptr && return this->protocol_ == nullptr
+        && return this->timeshiftVision_ == nullptr; };
     // authorizationCode Field Functions 
     bool hasAuthorizationCode() const { return this->authorizationCode_ != nullptr;};
     void deleteAuthorizationCode() { this->authorizationCode_ = nullptr;};

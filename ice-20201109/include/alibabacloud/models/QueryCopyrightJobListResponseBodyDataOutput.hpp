@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->media_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->media_ == nullptr
+        && return this->type_ == nullptr; };
     // media Field Functions 
     bool hasMedia() const { return this->media_ != nullptr;};
     void deleteMedia() { this->media_ = nullptr;};
@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The specific output information.
     std::shared_ptr<string> media_ = nullptr;
+    // The type of the output file. Valid values:
+    // 
+    // *   OSS: an OSS object.
+    // *   Media: a media asset.
     std::shared_ptr<string> type_ = nullptr;
   };
 

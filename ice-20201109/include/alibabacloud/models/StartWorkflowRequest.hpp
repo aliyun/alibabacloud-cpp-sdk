@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->skipInputVerification_ != nullptr
-        && this->taskInput_ != nullptr && this->userData_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->skipInputVerification_ == nullptr
+        && return this->taskInput_ == nullptr && return this->userData_ == nullptr && return this->workflowId_ == nullptr; };
     // skipInputVerification Field Functions 
     bool hasSkipInputVerification() const { return this->skipInputVerification_ != nullptr;};
     void deleteSkipInputVerification() { this->skipInputVerification_ = nullptr;};

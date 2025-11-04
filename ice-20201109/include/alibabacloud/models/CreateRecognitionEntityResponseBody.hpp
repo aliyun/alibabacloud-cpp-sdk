@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->entityId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the created entity.
     std::shared_ptr<string> entityId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

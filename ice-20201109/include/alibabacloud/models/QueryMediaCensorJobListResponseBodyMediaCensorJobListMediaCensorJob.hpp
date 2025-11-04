@@ -66,10 +66,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->barrageCensorResult_ != nullptr
-        && this->code_ != nullptr && this->coverImageCensorResults_ != nullptr && this->creationTime_ != nullptr && this->descCensorResult_ != nullptr && this->finishTime_ != nullptr
-        && this->input_ != nullptr && this->jobId_ != nullptr && this->message_ != nullptr && this->pipelineId_ != nullptr && this->state_ != nullptr
-        && this->suggestion_ != nullptr && this->titleCensorResult_ != nullptr && this->userData_ != nullptr && this->vensorCensorResult_ != nullptr && this->videoCensorConfig_ != nullptr; };
+    virtual bool empty() const override { return this->barrageCensorResult_ == nullptr
+        && return this->code_ == nullptr && return this->coverImageCensorResults_ == nullptr && return this->creationTime_ == nullptr && return this->descCensorResult_ == nullptr && return this->finishTime_ == nullptr
+        && return this->input_ == nullptr && return this->jobId_ == nullptr && return this->message_ == nullptr && return this->pipelineId_ == nullptr && return this->state_ == nullptr
+        && return this->suggestion_ == nullptr && return this->titleCensorResult_ == nullptr && return this->userData_ == nullptr && return this->vensorCensorResult_ == nullptr && return this->videoCensorConfig_ == nullptr; };
     // barrageCensorResult Field Functions 
     bool hasBarrageCensorResult() const { return this->barrageCensorResult_ != nullptr;};
     void deleteBarrageCensorResult() { this->barrageCensorResult_ = nullptr;};

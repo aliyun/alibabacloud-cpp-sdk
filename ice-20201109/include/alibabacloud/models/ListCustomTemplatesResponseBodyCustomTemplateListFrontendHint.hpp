@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->transcodeTemplateHint_ != nullptr; };
+    virtual bool empty() const override { return this->transcodeTemplateHint_ == nullptr; };
     // transcodeTemplateHint Field Functions 
     bool hasTranscodeTemplateHint() const { return this->transcodeTemplateHint_ != nullptr;};
     void deleteTranscodeTemplateHint() { this->transcodeTemplateHint_ = nullptr;};

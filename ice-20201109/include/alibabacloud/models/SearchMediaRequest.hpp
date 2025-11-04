@@ -13,6 +13,7 @@ namespace Models
   class SearchMediaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_TO_JSON(EntityId, entityId_);
       DARABONBA_PTR_TO_JSON(Match, match_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
       DARABONBA_PTR_FROM_JSON(Match, match_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityId_ != nullptr
-        && this->match_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->scrollToken_ != nullptr && this->searchLibName_ != nullptr
-        && this->sortBy_ != nullptr; };
+    virtual bool empty() const override { return this->customFilters_ == nullptr
+        && return this->entityId_ == nullptr && return this->match_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->scrollToken_ == nullptr
+        && return this->searchLibName_ == nullptr && return this->sortBy_ == nullptr; };
+    // customFilters Field Functions 
+    bool hasCustomFilters() const { return this->customFilters_ != nullptr;};
+    void deleteCustomFilters() { this->customFilters_ = nullptr;};
+    inline string customFilters() const { DARABONBA_PTR_GET_DEFAULT(customFilters_, "") };
+    inline SearchMediaRequest& setCustomFilters(string customFilters) { DARABONBA_PTR_SET_VALUE(customFilters_, customFilters) };
+
+
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> customFilters_ = nullptr;
     // The ID of the entity.
     std::shared_ptr<string> entityId_ = nullptr;
     // The filter conditions. For more information about the parameter syntax

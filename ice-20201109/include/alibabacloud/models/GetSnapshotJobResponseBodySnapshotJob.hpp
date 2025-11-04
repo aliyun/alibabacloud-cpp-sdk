@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->async_ != nullptr
-        && this->code_ != nullptr && this->count_ != nullptr && this->createTime_ != nullptr && this->finishTime_ != nullptr && this->input_ != nullptr
-        && this->jobId_ != nullptr && this->message_ != nullptr && this->modifiedTime_ != nullptr && this->name_ != nullptr && this->output_ != nullptr
-        && this->pipelineId_ != nullptr && this->status_ != nullptr && this->submitTime_ != nullptr && this->templateConfig_ != nullptr && this->templateId_ != nullptr
-        && this->triggerSource_ != nullptr && this->type_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->async_ == nullptr
+        && return this->code_ == nullptr && return this->count_ == nullptr && return this->createTime_ == nullptr && return this->finishTime_ == nullptr && return this->input_ == nullptr
+        && return this->jobId_ == nullptr && return this->message_ == nullptr && return this->modifiedTime_ == nullptr && return this->name_ == nullptr && return this->output_ == nullptr
+        && return this->pipelineId_ == nullptr && return this->status_ == nullptr && return this->submitTime_ == nullptr && return this->templateConfig_ == nullptr && return this->templateId_ == nullptr
+        && return this->triggerSource_ == nullptr && return this->type_ == nullptr && return this->userData_ == nullptr; };
     // async Field Functions 
     bool hasAsync() const { return this->async_ != nullptr;};
     void deleteAsync() { this->async_ = nullptr;};

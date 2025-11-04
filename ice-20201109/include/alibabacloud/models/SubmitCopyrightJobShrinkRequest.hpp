@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->inputShrink_ != nullptr && this->level_ != nullptr && this->message_ != nullptr && this->outputShrink_ != nullptr && this->params_ != nullptr
-        && this->startTime_ != nullptr && this->totalTime_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->inputShrink_ == nullptr && return this->level_ == nullptr && return this->message_ == nullptr && return this->outputShrink_ == nullptr && return this->params_ == nullptr
+        && return this->startTime_ == nullptr && return this->totalTime_ == nullptr && return this->userData_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -112,17 +112,38 @@ namespace Models
 
 
   protected:
+    // The description of the watermark.
     std::shared_ptr<string> description_ = nullptr;
+    // The source video file that you want to add a watermark to.
+    // 
+    // > The OSS object or media asset must reside in the same region as the IMS service region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> inputShrink_ = nullptr;
+    // The watermark level, which specifies the channel to embed watermarks. Valid values: 0 specifies the 0u channel, 1 specifies the 1uv channel, and 2 specifies the 2yuv channel.
     std::shared_ptr<int64_t> level_ = nullptr;
+    // The information about the watermark to be added.
+    // 
     // This parameter is required.
     std::shared_ptr<string> message_ = nullptr;
+    // The URL of the output file.
+    // 
+    // > The OSS bucket must reside in the same region as the IMS service region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> outputShrink_ = nullptr;
+    // The parameters related to watermark jobs. The value is a JSON string. Supported parameter:
+    // 
+    // *   algoType: the algorithm type. Default value: v1.
+    // 
+    //     *   v1: watermarking for long videos that last at least 3 minutes.
+    //     *   v2: watermarking for videos shorter than 3 minutes.
     std::shared_ptr<string> params_ = nullptr;
+    // The start time of the watermark. Unit: seconds. If you do not specify this parameter, the default value 0 is used.
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    // The end time of the watermark. Unit: seconds. If you do not specify this parameter, the default value is the video duration.
     std::shared_ptr<int64_t> totalTime_ = nullptr;
+    // The custom data, which can be up to 1,024 bytes in size.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

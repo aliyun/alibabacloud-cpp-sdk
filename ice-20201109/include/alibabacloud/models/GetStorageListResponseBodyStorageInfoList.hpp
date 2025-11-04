@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->creationTime_ != nullptr && this->defaultStorage_ != nullptr && this->editingTempFileStorage_ != nullptr && this->modifiedTime_ != nullptr && this->path_ != nullptr
-        && this->status_ != nullptr && this->storageLocation_ != nullptr && this->storageType_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->creationTime_ == nullptr && return this->defaultStorage_ == nullptr && return this->editingTempFileStorage_ == nullptr && return this->modifiedTime_ == nullptr && return this->path_ == nullptr
+        && return this->status_ == nullptr && return this->storageLocation_ == nullptr && return this->storageType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The application ID.
     std::shared_ptr<string> appId_ = nullptr;
+    // The time when the configuration was created.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // Indicates whether it is the default storage location.
     std::shared_ptr<bool> defaultStorage_ = nullptr;
+    // Indicates whether temporary files created during editing processes are stored in this location.
     std::shared_ptr<bool> editingTempFileStorage_ = nullptr;
+    // The time when the configuration was last modified.
     std::shared_ptr<string> modifiedTime_ = nullptr;
+    // The file path.
     std::shared_ptr<string> path_ = nullptr;
+    // The OSS storage status.
     std::shared_ptr<string> status_ = nullptr;
+    // The bucket.
     std::shared_ptr<string> storageLocation_ = nullptr;
+    // The storage type.
     std::shared_ptr<string> storageType_ = nullptr;
   };
 

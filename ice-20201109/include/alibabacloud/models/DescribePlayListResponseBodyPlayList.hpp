@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->firstFrameDuration_ != nullptr
-        && this->playDuration_ != nullptr && this->playTs_ != nullptr && this->playType_ != nullptr && this->sessionId_ != nullptr && this->status_ != nullptr
-        && this->stuckDuration_ != nullptr && this->traceId_ != nullptr && this->videoDuration_ != nullptr && this->videoId_ != nullptr; };
+    virtual bool empty() const override { return this->firstFrameDuration_ == nullptr
+        && return this->playDuration_ == nullptr && return this->playTs_ == nullptr && return this->playType_ == nullptr && return this->sessionId_ == nullptr && return this->status_ == nullptr
+        && return this->stuckDuration_ == nullptr && return this->traceId_ == nullptr && return this->videoDuration_ == nullptr && return this->videoId_ == nullptr; };
     // firstFrameDuration Field Functions 
     bool hasFirstFrameDuration() const { return this->firstFrameDuration_ != nullptr;};
     void deleteFirstFrameDuration() { this->firstFrameDuration_ = nullptr;};
@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Time to first frame.
     std::shared_ptr<string> firstFrameDuration_ = nullptr;
+    // The playback duration.
     std::shared_ptr<string> playDuration_ = nullptr;
+    // The timestamp when the playback started.
     std::shared_ptr<string> playTs_ = nullptr;
+    // The playback type.
     std::shared_ptr<string> playType_ = nullptr;
+    // The ID of the player session.
     std::shared_ptr<string> sessionId_ = nullptr;
+    // The playback status.
     std::shared_ptr<string> status_ = nullptr;
+    // The stuttering duration.
     std::shared_ptr<string> stuckDuration_ = nullptr;
+    // The TraceId of the player.
     std::shared_ptr<string> traceId_ = nullptr;
+    // The duration of the video.
     std::shared_ptr<string> videoDuration_ = nullptr;
+    // The ID of the video.
     std::shared_ptr<string> videoId_ = nullptr;
   };
 

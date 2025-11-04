@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioCodec_ != nullptr
-        && this->audioCodecSetting_ != nullptr && this->audioSelectorName_ != nullptr && this->languageCode_ != nullptr && this->languageName_ != nullptr && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->audioCodec_ == nullptr
+        && return this->audioCodecSetting_ == nullptr && return this->audioSelectorName_ == nullptr && return this->languageCode_ == nullptr && return this->languageName_ == nullptr && return this->name_ == nullptr; };
     // audioCodec Field Functions 
     bool hasAudioCodec() const { return this->audioCodec_ != nullptr;};
     void deleteAudioCodec() { this->audioCodec_ = nullptr;};

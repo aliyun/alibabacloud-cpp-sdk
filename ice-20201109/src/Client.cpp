@@ -564,7 +564,7 @@ AddMediaMarksResponse Client::addMediaMarks(const AddMediaMarksRequest &request)
 }
 
 /**
- * @summary 打标流媒资
+ * @summary Adds tags for a specific live stream media asset.
  *
  * @param request AddStreamTagToSearchLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -607,7 +607,7 @@ AddStreamTagToSearchLibResponse Client::addStreamTagToSearchLibWithOptions(const
 }
 
 /**
- * @summary 打标流媒资
+ * @summary Adds tags for a specific live stream media asset.
  *
  * @param request AddStreamTagToSearchLibRequest
  * @return AddStreamTagToSearchLibResponse
@@ -960,7 +960,7 @@ CancelFavoritePublicMediaResponse Client::cancelFavoritePublicMedia(const Cancel
 }
 
 /**
- * @summary 取消智能生产任务
+ * @summary Cancels an intelligent production job.
  *
  * @param request CancelIProductionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -995,7 +995,7 @@ CancelIProductionJobResponse Client::cancelIProductionJobWithOptions(const Cance
 }
 
 /**
- * @summary 取消智能生产任务
+ * @summary Cancels an intelligent production job.
  *
  * @param request CancelIProductionJobRequest
  * @return CancelIProductionJobResponse
@@ -1006,7 +1006,10 @@ CancelIProductionJobResponse Client::cancelIProductionJob(const CancelIProductio
 }
 
 /**
- * @summary 清除声纹ID对应的声纹
+ * @summary Deletes a voiceprint based on its ID.
+ *
+ * @description ## [](#)
+ * ``````````
  *
  * @param request ClearAIAgentVoiceprintRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1037,7 +1040,10 @@ ClearAIAgentVoiceprintResponse Client::clearAIAgentVoiceprintWithOptions(const C
 }
 
 /**
- * @summary 清除声纹ID对应的声纹
+ * @summary Deletes a voiceprint based on its ID.
+ *
+ * @description ## [](#)
+ * ``````````
  *
  * @param request ClearAIAgentVoiceprintRequest
  * @return ClearAIAgentVoiceprintResponse
@@ -1048,7 +1054,9 @@ ClearAIAgentVoiceprintResponse Client::clearAIAgentVoiceprint(const ClearAIAgent
 }
 
 /**
- * @summary 关闭MediaConnect实例的双流灾备功能
+ * @summary Disables Source Failover for a MediaConnect flow.
+ *
+ * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
  *
  * @param request CloseMediaConnectFlowFailoverRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1087,9 @@ CloseMediaConnectFlowFailoverResponse Client::closeMediaConnectFlowFailoverWithO
 }
 
 /**
- * @summary 关闭MediaConnect实例的双流灾备功能
+ * @summary Disables Source Failover for a MediaConnect flow.
+ *
+ * @description *   If a flow has two sources, you cannot disable Source Failover. Delete one of them before this operation.
  *
  * @param request CloseMediaConnectFlowFailoverRequest
  * @return CloseMediaConnectFlowFailoverResponse
@@ -1090,7 +1100,7 @@ CloseMediaConnectFlowFailoverResponse Client::closeMediaConnectFlowFailover(cons
 }
 
 /**
- * @summary 关闭流媒资
+ * @summary Stops the tagging and analysis process for a live stream media asset.
  *
  * @param request CloseStreamToSearchLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1139,7 @@ CloseStreamToSearchLibResponse Client::closeStreamToSearchLibWithOptions(const C
 }
 
 /**
- * @summary 关闭流媒资
+ * @summary Stops the tagging and analysis process for a live stream media asset.
  *
  * @param request CloseStreamToSearchLibRequest
  * @return CloseStreamToSearchLibResponse
@@ -1580,7 +1590,7 @@ CreateEditingProjectResponse Client::createEditingProject(const CreateEditingPro
 }
 
 /**
- * @summary 创建热词库
+ * @summary Creates a hotword library.
  *
  * @param tmpReq CreateHotwordLibraryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1629,7 +1639,7 @@ CreateHotwordLibraryResponse Client::createHotwordLibraryWithOptions(const Creat
 }
 
 /**
- * @summary 创建热词库
+ * @summary Creates a hotword library.
  *
  * @param request CreateHotwordLibraryRequest
  * @return CreateHotwordLibraryResponse
@@ -2430,7 +2440,10 @@ CreateProgramResponse Client::createProgram(const CreateProgramRequest &request)
 }
 
 /**
- * @summary 创建自定义实体
+ * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2489,7 +2502,10 @@ CreateRecognitionEntityResponse Client::createRecognitionEntityWithOptions(const
 }
 
 /**
- * @summary 创建自定义实体
+ * @summary Creates an entity to be recognized in a custom recognition library. The entity can be a landmark, object, logo, or person.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionEntityRequest
  * @return CreateRecognitionEntityResponse
@@ -2500,7 +2516,11 @@ CreateRecognitionEntityResponse Client::createRecognitionEntity(const CreateReco
 }
 
 /**
- * @summary 创建自定义库。
+ * @summary Creates a custom library to store the entity information for recognition.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2555,7 +2575,11 @@ CreateRecognitionLibResponse Client::createRecognitionLibWithOptions(const Creat
 }
 
 /**
- * @summary 创建自定义库。
+ * @summary Creates a custom library to store the entity information for recognition.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   Workflow for using a custom recognition library: Create a library, create a custom object entity within the library, register sample images for the entity, create an analysis template that uses your custom library, and then submit an analysis task using the template.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionLibRequest
  * @return CreateRecognitionLibResponse
@@ -2566,7 +2590,10 @@ CreateRecognitionLibResponse Client::createRecognitionLib(const CreateRecognitio
 }
 
 /**
- * @summary 注册自定义实体照片
+ * @summary Adds a sample image or a text label to a specific entity within a recognition library.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2629,7 +2656,10 @@ CreateRecognitionSampleResponse Client::createRecognitionSampleWithOptions(const
 }
 
 /**
- * @summary 注册自定义实体照片
+ * @summary Adds a sample image or a text label to a specific entity within a recognition library.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request CreateRecognitionSampleRequest
  * @return CreateRecognitionSampleResponse
@@ -2848,7 +2878,7 @@ CreateSourceLocationResponse Client::createSourceLocation(const CreateSourceLoca
 }
 
 /**
- * @summary 创建流媒资
+ * @summary Registers a live stream as a media asset.
  *
  * @param request CreateStreamToSearchLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2887,7 +2917,7 @@ CreateStreamToSearchLibResponse Client::createStreamToSearchLibWithOptions(const
 }
 
 /**
- * @summary 创建流媒资
+ * @summary Registers a live stream as a media asset.
  *
  * @param request CreateStreamToSearchLibRequest
  * @return CreateStreamToSearchLibResponse
@@ -3262,7 +3292,7 @@ DecryptKMSDataKeyResponse Client::decryptKMSDataKey(const DecryptKMSDataKeyReque
 }
 
 /**
- * @summary 删除智能体的对话历史记录。
+ * @summary Deletes dialog records of an AI agent.
  *
  * @param request DeleteAIAgentDialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3301,7 +3331,7 @@ DeleteAIAgentDialogueResponse Client::deleteAIAgentDialogueWithOptions(const Del
 }
 
 /**
- * @summary 删除智能体的对话历史记录。
+ * @summary Deletes dialog records of an AI agent.
  *
  * @param request DeleteAIAgentDialogueRequest
  * @return DeleteAIAgentDialogueResponse
@@ -3780,7 +3810,12 @@ DeleteEditingProjectsResponse Client::deleteEditingProjects(const DeleteEditingP
 }
 
 /**
- * @summary 删除热词词库
+ * @summary Deletes a specified hotword library based on the ID.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to delete a specified hotword library.
+ * *   The delete operation is irreversible.
+ * *   You can create up to 100 hotword libraries in an account.
  *
  * @param request DeleteHotwordLibraryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3846,12 @@ DeleteHotwordLibraryResponse Client::deleteHotwordLibraryWithOptions(const Delet
 }
 
 /**
- * @summary 删除热词词库
+ * @summary Deletes a specified hotword library based on the ID.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to delete a specified hotword library.
+ * *   The delete operation is irreversible.
+ * *   You can create up to 100 hotword libraries in an account.
  *
  * @param request DeleteHotwordLibraryRequest
  * @return DeleteHotwordLibraryResponse
@@ -4846,7 +4886,10 @@ DeleteProgramResponse Client::deleteProgram(const DeleteProgramRequest &request)
 }
 
 /**
- * @summary 删除自定义库实体
+ * @summary Deletes an entity from the specified custom recognition library.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4901,7 +4944,10 @@ DeleteRecognitionEntityResponse Client::deleteRecognitionEntityWithOptions(const
 }
 
 /**
- * @summary 删除自定义库实体
+ * @summary Deletes an entity from the specified custom recognition library.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionEntityRequest
  * @return DeleteRecognitionEntityResponse
@@ -4912,7 +4958,10 @@ DeleteRecognitionEntityResponse Client::deleteRecognitionEntity(const DeleteReco
 }
 
 /**
- * @summary 删除自定义库
+ * @summary Deletes a custom recognition library, including all entities and samples within it.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionLibRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4963,7 +5012,10 @@ DeleteRecognitionLibResponse Client::deleteRecognitionLibWithOptions(const Delet
 }
 
 /**
- * @summary 删除自定义库
+ * @summary Deletes a custom recognition library, including all entities and samples within it.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionLibRequest
  * @return DeleteRecognitionLibResponse
@@ -4974,7 +5026,10 @@ DeleteRecognitionLibResponse Client::deleteRecognitionLib(const DeleteRecognitio
 }
 
 /**
- * @summary 删除自定义实体照片
+ * @summary Deletes a sample for a custom entity.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionSampleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5033,7 +5088,10 @@ DeleteRecognitionSampleResponse Client::deleteRecognitionSampleWithOptions(const
 }
 
 /**
- * @summary 删除自定义实体照片
+ * @summary Deletes a sample for a custom entity.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request DeleteRecognitionSampleRequest
  * @return DeleteRecognitionSampleResponse
@@ -5720,6 +5778,8 @@ DescribeNotifyConfigResponse Client::describeNotifyConfig(const DescribeNotifyCo
 }
 
 /**
+ * @summary Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+ *
  * @param request DescribePlayListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePlayListResponse
@@ -5781,6 +5841,8 @@ DescribePlayListResponse Client::describePlayListWithOptions(const DescribePlayL
 }
 
 /**
+ * @summary Retrieves playback records based on the player\\"s TraceId. This API supports pagination.
+ *
  * @param request DescribePlayListRequest
  * @return DescribePlayListResponse
  */
@@ -5970,7 +6032,7 @@ DropSearchLibResponse Client::dropSearchLib(const DropSearchLibRequest &request)
 }
 
 /**
- * @summary 禁用某个MediaConnect实例的某个输出
+ * @summary Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
  *
  * @param request ForbidMediaConnectFlowOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6005,7 +6067,7 @@ ForbidMediaConnectFlowOutputResponse Client::forbidMediaConnectFlowOutputWithOpt
 }
 
 /**
- * @summary 禁用某个MediaConnect实例的某个输出
+ * @summary Disables an output of a MediaConnect flow. When disabled, the output retains its configuration, but no live stream is delivered to the destination.
  *
  * @param request ForbidMediaConnectFlowOutputRequest
  * @return ForbidMediaConnectFlowOutputResponse
@@ -6187,7 +6249,7 @@ GenerateKMSDataKeyResponse Client::generateKMSDataKey() {
 }
 
 /**
- * @summary 生成直播互动消息所需的token
+ * @summary Generates the token required for interactive messaging.
  *
  * @param request GenerateMessageChatTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6230,7 +6292,7 @@ GenerateMessageChatTokenResponse Client::generateMessageChatTokenWithOptions(con
 }
 
 /**
- * @summary 生成直播互动消息所需的token
+ * @summary Generates the token required for interactive messaging.
  *
  * @param request GenerateMessageChatTokenRequest
  * @return GenerateMessageChatTokenResponse
@@ -6238,6 +6300,48 @@ GenerateMessageChatTokenResponse Client::generateMessageChatTokenWithOptions(con
 GenerateMessageChatTokenResponse Client::generateMessageChatToken(const GenerateMessageChatTokenRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return generateMessageChatTokenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the details of a workflow task.
+ *
+ * @param request GetAIWorkflowTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIWorkflowTaskResponse
+ */
+GetAIWorkflowTaskResponse Client::getAIWorkflowTaskWithOptions(const GetAIWorkflowTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAIWorkflowTask"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAIWorkflowTaskResponse>();
+}
+
+/**
+ * @summary Retrieves the details of a workflow task.
+ *
+ * @param request GetAIWorkflowTaskRequest
+ * @return GetAIWorkflowTaskResponse
+ */
+GetAIWorkflowTaskResponse Client::getAIWorkflowTask(const GetAIWorkflowTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAIWorkflowTaskWithOptions(request, runtime);
 }
 
 /**
@@ -6976,7 +7080,10 @@ GetEventCallbackResponse Client::getEventCallback() {
 }
 
 /**
- * @summary 查询热词词库
+ * @summary Queries the information about a specified hotword library based on the ID.
+ *
+ * @description ## [](#)
+ * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
  *
  * @param request GetHotwordLibraryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7007,7 +7114,10 @@ GetHotwordLibraryResponse Client::getHotwordLibraryWithOptions(const GetHotwordL
 }
 
 /**
- * @summary 查询热词词库
+ * @summary Queries the information about a specified hotword library based on the ID.
+ *
+ * @description ## [](#)
+ * You can call this operation to retrieve details of a specified hotword library based on the ID, including the library name, description, and content and attributes of all hotwords in it.
  *
  * @param request GetHotwordLibraryRequest
  * @return GetHotwordLibraryResponse
@@ -7504,7 +7614,7 @@ GetLiveTranscodeTemplateResponse Client::getLiveTranscodeTemplate(const GetLiveT
 }
 
 /**
- * @summary 获取MediaConnect可用的区域
+ * @summary Retrieves all regions where MediaConnect is available.
  *
  * @param request GetMediaConnectAvailableRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7527,7 +7637,7 @@ GetMediaConnectAvailableRegionResponse Client::getMediaConnectAvailableRegionWit
 }
 
 /**
- * @summary 获取MediaConnect可用的区域
+ * @summary Retrieves all regions where MediaConnect is available.
  *
  * @return GetMediaConnectAvailableRegionResponse
  */
@@ -7585,7 +7695,7 @@ GetMediaConnectFlowResponse Client::getMediaConnectFlow(const GetMediaConnectFlo
 }
 
 /**
- * @summary 获取某个MediaConnect实例下的所有output的名字
+ * @summary Retrieves the names of all outputs for a MediaConnect flow.
  *
  * @param request GetMediaConnectFlowAllOutputNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7616,7 +7726,7 @@ GetMediaConnectFlowAllOutputNameResponse Client::getMediaConnectFlowAllOutputNam
 }
 
 /**
- * @summary 获取某个MediaConnect实例下的所有output的名字
+ * @summary Retrieves the names of all outputs for a MediaConnect flow.
  *
  * @param request GetMediaConnectFlowAllOutputNameRequest
  * @return GetMediaConnectFlowAllOutputNameResponse
@@ -8281,7 +8391,7 @@ GetProgramResponse Client::getProgram(const GetProgramRequest &request) {
 }
 
 /**
- * @summary 查询工程导出任务
+ * @summary Queries the information of a project export task.
  *
  * @param request GetProjectExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8312,7 +8422,7 @@ GetProjectExportJobResponse Client::getProjectExportJobWithOptions(const GetProj
 }
 
 /**
- * @summary 查询工程导出任务
+ * @summary Queries the information of a project export task.
  *
  * @param request GetProjectExportJobRequest
  * @return GetProjectExportJobResponse
@@ -8599,7 +8709,7 @@ GetSourceLocationResponse Client::getSourceLocation(const GetSourceLocationReque
 }
 
 /**
- * @summary 获取存储地址列表
+ * @summary Obtains storage configurations.
  *
  * @param request GetStorageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8638,7 +8748,7 @@ GetStorageListResponse Client::getStorageListWithOptions(const GetStorageListReq
 }
 
 /**
- * @summary 获取存储地址列表
+ * @summary Obtains storage configurations.
  *
  * @param request GetStorageListRequest
  * @return GetStorageListResponse
@@ -8649,7 +8759,7 @@ GetStorageListResponse Client::getStorageList(const GetStorageListRequest &reque
 }
 
 /**
- * @summary 查询流媒资打标
+ * @summary Retrieves tags of a live stream media asset.
  *
  * @param request GetStreamTagListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8712,7 +8822,7 @@ GetStreamTagListResponse Client::getStreamTagListWithOptions(const GetStreamTagL
 }
 
 /**
- * @summary 查询流媒资打标
+ * @summary Retrieves tags of a live stream media asset.
  *
  * @param request GetStreamTagListRequest
  * @return GetStreamTagListResponse
@@ -9301,7 +9411,7 @@ InsertMediaToSearchLibResponse Client::insertMediaToSearchLib(const InsertMediaT
 }
 
 /**
- * @summary 列出智能体的对话历史记录。
+ * @summary Lists the dialog records of an AI agent.
  *
  * @param request ListAIAgentDialoguesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9356,7 +9466,7 @@ ListAIAgentDialoguesResponse Client::listAIAgentDialoguesWithOptions(const ListA
 }
 
 /**
- * @summary 列出智能体的对话历史记录。
+ * @summary Lists the dialog records of an AI agent.
  *
  * @param request ListAIAgentDialoguesRequest
  * @return ListAIAgentDialoguesResponse
@@ -9489,7 +9599,7 @@ ListAIAgentPhoneNumberResponse Client::listAIAgentPhoneNumber(const ListAIAgentP
 }
 
 /**
- * @summary 更新回调配置
+ * @summary Lists the registered voiceprints.
  *
  * @param request ListAIAgentVoiceprintsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9528,7 +9638,7 @@ ListAIAgentVoiceprintsResponse Client::listAIAgentVoiceprintsWithOptions(const L
 }
 
 /**
- * @summary 更新回调配置
+ * @summary Lists the registered voiceprints.
  *
  * @param request ListAIAgentVoiceprintsRequest
  * @return ListAIAgentVoiceprintsResponse
@@ -10461,7 +10571,14 @@ ListEditingProjectsResponse Client::listEditingProjects(const ListEditingProject
 }
 
 /**
- * @summary 查询所有热词库的列表
+ * @summary Queries hotword libraries that meet specific search conditions.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to get information about all hotword libraries that you created.
+ * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+ * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+ * *   The maximum number of entries returned for each request is 100. Default value: 10.
+ * *   Use `NextToken` for pagination.
  *
  * @param request ListHotwordLibrariesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10524,7 +10641,14 @@ ListHotwordLibrariesResponse Client::listHotwordLibrariesWithOptions(const ListH
 }
 
 /**
- * @summary 查询所有热词库的列表
+ * @summary Queries hotword libraries that meet specific search conditions.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to get information about all hotword libraries that you created.
+ * *   The API supports fuzzy search by `Name`, filtering by creation time range, and pagination.
+ * *   By default, the results are sorted by creation time in descending order. You can set `SortBy` to change the sorting order.
+ * *   The maximum number of entries returned for each request is 100. Default value: 10.
+ * *   Use `NextToken` for pagination.
  *
  * @param request ListHotwordLibrariesRequest
  * @return ListHotwordLibrariesResponse
@@ -11185,7 +11309,7 @@ ListMediaBasicInfosResponse Client::listMediaBasicInfos(const ListMediaBasicInfo
 }
 
 /**
- * @summary 查询 MediaConvertJob 列表
+ * @summary Retrieves MediaConvert tasks.
  *
  * @param request ListMediaConvertJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11240,7 +11364,7 @@ ListMediaConvertJobsResponse Client::listMediaConvertJobsWithOptions(const ListM
 }
 
 /**
- * @summary 查询 MediaConvertJob 列表
+ * @summary Retrieves MediaConvert tasks.
  *
  * @param request ListMediaConvertJobsRequest
  * @return ListMediaConvertJobsResponse
@@ -11873,7 +11997,10 @@ ListPublicMediaBasicInfosResponse Client::listPublicMediaBasicInfos(const ListPu
 }
 
 /**
- * @summary 获取自定义库下实体列表
+ * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request ListRecognitionEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11932,7 +12059,10 @@ ListRecognitionEntitiesResponse Client::listRecognitionEntitiesWithOptions(const
 }
 
 /**
- * @summary 获取自定义库下实体列表
+ * @summary Retrieves all entities in a specified recognition library. Pagination is supported.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request ListRecognitionEntitiesRequest
  * @return ListRecognitionEntitiesResponse
@@ -11943,7 +12073,10 @@ ListRecognitionEntitiesResponse Client::listRecognitionEntities(const ListRecogn
 }
 
 /**
- * @summary 获取自定义库列表
+ * @summary Retrieves all custom recognition libraries. Pagination is supported.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request ListRecognitionLibsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11998,7 +12131,10 @@ ListRecognitionLibsResponse Client::listRecognitionLibsWithOptions(const ListRec
 }
 
 /**
- * @summary 获取自定义库列表
+ * @summary Retrieves all custom recognition libraries. Pagination is supported.
+ *
+ * @description *   This operation is supported only in the China (Beijing), China (Shanghai), China (Hangzhou), and China (Shenzhen) regions.
+ * *   You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you may experience service interruptions. For more information, see [QPS limits](https://help.aliyun.com/zh/mps/developer-reference/qps-limits?spm=a2c4g.11186623.0.0.647e1081YGcerb).
  *
  * @param request ListRecognitionLibsRequest
  * @return ListRecognitionLibsResponse
@@ -12009,7 +12145,7 @@ ListRecognitionLibsResponse Client::listRecognitionLibs(const ListRecognitionLib
 }
 
 /**
- * @summary 获取自定义库实体的图片列表
+ * @summary Retrieves all samples of a custom entity. Pagination is supported.
  *
  * @param request ListRecognitionSamplesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12072,7 +12208,7 @@ ListRecognitionSamplesResponse Client::listRecognitionSamplesWithOptions(const L
 }
 
 /**
- * @summary 获取自定义库实体的图片列表
+ * @summary Retrieves all samples of a custom entity. Pagination is supported.
  *
  * @param request ListRecognitionSamplesRequest
  * @return ListRecognitionSamplesResponse
@@ -12939,7 +13075,9 @@ ListVodPackagingGroupsResponse Client::listVodPackagingGroups(const ListVodPacka
 }
 
 /**
- * @summary 工作流任务实例列表
+ * @summary Retrieves workflow tasks.
+ *
+ * @description This API only returns data from the last 90 days.
  *
  * @param request ListWorkflowTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12994,7 +13132,9 @@ ListWorkflowTasksResponse Client::listWorkflowTasksWithOptions(const ListWorkflo
 }
 
 /**
- * @summary 工作流任务实例列表
+ * @summary Retrieves workflow tasks.
+ *
+ * @description This API only returns data from the last 90 days.
  *
  * @param request ListWorkflowTasksRequest
  * @return ListWorkflowTasksResponse
@@ -13005,7 +13145,10 @@ ListWorkflowTasksResponse Client::listWorkflowTasks(const ListWorkflowTasksReque
 }
 
 /**
- * @summary 开启MediaConnect双流灾备
+ * @summary Enables Source Failover for a MediaConnect flow.
+ *
+ * @description *   Before this operation, you must add a source to the flow.
+ * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
  *
  * @param request OpenMediaConnectFlowFailoverRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13036,7 +13179,10 @@ OpenMediaConnectFlowFailoverResponse Client::openMediaConnectFlowFailoverWithOpt
 }
 
 /**
- * @summary 开启MediaConnect双流灾备
+ * @summary Enables Source Failover for a MediaConnect flow.
+ *
+ * @description *   Before this operation, you must add a source to the flow.
+ * *   After Source Failover is enabled, you can add an additional source. The input type of the two sources must be identical.
  *
  * @param request OpenMediaConnectFlowFailoverRequest
  * @return OpenMediaConnectFlowFailoverResponse
@@ -13047,7 +13193,7 @@ OpenMediaConnectFlowFailoverResponse Client::openMediaConnectFlowFailover(const 
 }
 
 /**
- * @summary 查询版权水印提取任务
+ * @summary Queries a job for extracting a copyright watermark.
  *
  * @param request QueryCopyrightExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13078,7 +13224,7 @@ QueryCopyrightExtractJobResponse Client::queryCopyrightExtractJobWithOptions(con
 }
 
 /**
- * @summary 查询版权水印提取任务
+ * @summary Queries a job for extracting a copyright watermark.
  *
  * @param request QueryCopyrightExtractJobRequest
  * @return QueryCopyrightExtractJobResponse
@@ -13089,7 +13235,9 @@ QueryCopyrightExtractJobResponse Client::queryCopyrightExtractJob(const QueryCop
 }
 
 /**
- * @summary 查询视频版权水印任务列表
+ * @summary Queries copyright watermarking jobs.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryCopyrightJobListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13140,7 +13288,9 @@ QueryCopyrightJobListResponse Client::queryCopyrightJobListWithOptions(const Que
 }
 
 /**
- * @summary 查询视频版权水印任务列表
+ * @summary Queries copyright watermarking jobs.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryCopyrightJobListRequest
  * @return QueryCopyrightJobListResponse
@@ -13591,7 +13741,9 @@ QuerySmarttagJobResponse Client::querySmarttagJob(const QuerySmarttagJobRequest 
 }
 
 /**
- * @summary 查询视频溯源水印ab流任务
+ * @summary Queries A/B watermarking jobs.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryTraceAbJobListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13642,7 +13794,9 @@ QueryTraceAbJobListResponse Client::queryTraceAbJobListWithOptions(const QueryTr
 }
 
 /**
- * @summary 查询视频溯源水印ab流任务
+ * @summary Queries A/B watermarking jobs.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryTraceAbJobListRequest
  * @return QueryTraceAbJobListResponse
@@ -13653,7 +13807,9 @@ QueryTraceAbJobListResponse Client::queryTraceAbJobList(const QueryTraceAbJobLis
 }
 
 /**
- * @summary 查询溯源水印提取任务
+ * @summary Queries a job for extracting a trace watermark.
+ *
+ * @description This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryTraceExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13684,7 +13840,9 @@ QueryTraceExtractJobResponse Client::queryTraceExtractJobWithOptions(const Query
 }
 
 /**
- * @summary 查询溯源水印提取任务
+ * @summary Queries a job for extracting a trace watermark.
+ *
+ * @description This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request QueryTraceExtractJobRequest
  * @return QueryTraceExtractJobResponse
@@ -13695,7 +13853,10 @@ QueryTraceExtractJobResponse Client::queryTraceExtractJob(const QueryTraceExtrac
 }
 
 /**
- * @summary 查询视频溯源水印m3u8任务
+ * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
  *
  * @param request QueryTraceM3u8JobListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13742,7 +13903,10 @@ QueryTraceM3u8JobListResponse Client::queryTraceM3u8JobListWithOptions(const Que
 }
 
 /**
- * @summary 查询视频溯源水印m3u8任务
+ * @summary Queries jobs for generating M3U8 files containing specific trace watermark information.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The M3U8 file with absolute paths generated by the SubmitTraceM3u8Job API has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. After the signature expires, the M3U8 file will become inaccessible. You must submit a new M3U8 generation job.
  *
  * @param request QueryTraceM3u8JobListRequest
  * @return QueryTraceM3u8JobListResponse
@@ -13753,7 +13917,7 @@ QueryTraceM3u8JobListResponse Client::queryTraceM3u8JobList(const QueryTraceM3u8
 }
 
 /**
- * @summary 查询视频理解任务结果
+ * @summary Retrieves the results of an AI analysis and processing task.
  *
  * @param tmpReq QueryVideoCognitionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13798,7 +13962,7 @@ QueryVideoCognitionJobResponse Client::queryVideoCognitionJobWithOptions(const Q
 }
 
 /**
- * @summary 查询视频理解任务结果
+ * @summary Retrieves the results of an AI analysis and processing task.
  *
  * @param request QueryVideoCognitionJobRequest
  * @return QueryVideoCognitionJobResponse
@@ -14015,7 +14179,7 @@ RegisterMediaStreamResponse Client::registerMediaStream(const RegisterMediaStrea
 }
 
 /**
- * @summary 恢复某个MediaConnect实例的某个输出
+ * @summary Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
  *
  * @param request ResumeMediaConnectFlowOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14050,7 +14214,7 @@ ResumeMediaConnectFlowOutputResponse Client::resumeMediaConnectFlowOutputWithOpt
 }
 
 /**
- * @summary 恢复某个MediaConnect实例的某个输出
+ * @summary Resumes an output of a MediaConnect flow. When resumed, the output can deliver the live stream to the destination.
  *
  * @param request ResumeMediaConnectFlowOutputRequest
  * @return ResumeMediaConnectFlowOutputResponse
@@ -14200,6 +14364,10 @@ SearchIndexJobRerunResponse Client::searchIndexJobRerun(const SearchIndexJobReru
 SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomFilters()) {
+    query["CustomFilters"] = request.customFilters();
+  }
+
   if (!!request.hasEntityId()) {
     query["EntityId"] = request.entityId();
   }
@@ -14270,6 +14438,10 @@ SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
 SearchMediaByAILabelResponse Client::searchMediaByAILabelWithOptions(const SearchMediaByAILabelRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomFilters()) {
+    query["CustomFilters"] = request.customFilters();
+  }
+
   if (!!request.hasMatchingMode()) {
     query["MatchingMode"] = request.matchingMode();
   }
@@ -14314,6 +14486,10 @@ SearchMediaByAILabelResponse Client::searchMediaByAILabelWithOptions(const Searc
     query["Text"] = request.text();
   }
 
+  if (!!request.hasUtcCreate()) {
+    query["UtcCreate"] = request.utcCreate();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -14356,6 +14532,10 @@ SearchMediaByAILabelResponse Client::searchMediaByAILabel(const SearchMediaByAIL
 SearchMediaByFaceResponse Client::searchMediaByFaceWithOptions(const SearchMediaByFaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomFilters()) {
+    query["CustomFilters"] = request.customFilters();
+  }
+
   if (!!request.hasEntityId()) {
     query["EntityId"] = request.entityId();
   }
@@ -14386,6 +14566,10 @@ SearchMediaByFaceResponse Client::searchMediaByFaceWithOptions(const SearchMedia
 
   if (!!request.hasSearchLibName()) {
     query["SearchLibName"] = request.searchLibName();
+  }
+
+  if (!!request.hasUtcCreate()) {
+    query["UtcCreate"] = request.utcCreate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14419,7 +14603,7 @@ SearchMediaByFaceResponse Client::searchMediaByFace(const SearchMediaByFaceReque
 }
 
 /**
- * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+ * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
  *
  * @param request SearchMediaByHybridRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14428,6 +14612,10 @@ SearchMediaByFaceResponse Client::searchMediaByFace(const SearchMediaByFaceReque
 SearchMediaByHybridResponse Client::searchMediaByHybridWithOptions(const SearchMediaByHybridRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomFilters()) {
+    query["CustomFilters"] = request.customFilters();
+  }
+
   if (!!request.hasMediaId()) {
     query["MediaId"] = request.mediaId();
   }
@@ -14456,6 +14644,10 @@ SearchMediaByHybridResponse Client::searchMediaByHybridWithOptions(const SearchM
     query["Text"] = request.text();
   }
 
+  if (!!request.hasUtcCreate()) {
+    query["UtcCreate"] = request.utcCreate();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -14474,7 +14666,7 @@ SearchMediaByHybridResponse Client::searchMediaByHybridWithOptions(const SearchM
 }
 
 /**
- * @summary Queries media assets by using the hybrid search feature. This operation allows you to search for media assets by using natural language based on intelligent tag text search and the search capabilities of large language models (LLMs). This implements multimodal retrieval.
+ * @summary Performs a hybrid search for media assets. This API combines multiple recall strategies, including tag-based text search and large language model (LLM) search. You can locate media assets using natural language descriptions.
  *
  * @param request SearchMediaByHybridRequest
  * @return SearchMediaByHybridResponse
@@ -14496,6 +14688,10 @@ SearchMediaByHybridResponse Client::searchMediaByHybrid(const SearchMediaByHybri
 SearchMediaByMultimodalResponse Client::searchMediaByMultimodalWithOptions(const SearchMediaByMultimodalRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomFilters()) {
+    query["CustomFilters"] = request.customFilters();
+  }
+
   if (!!request.hasMediaType()) {
     query["MediaType"] = request.mediaType();
   }
@@ -14518,6 +14714,10 @@ SearchMediaByMultimodalResponse Client::searchMediaByMultimodalWithOptions(const
 
   if (!!request.hasText()) {
     query["Text"] = request.text();
+  }
+
+  if (!!request.hasUtcCreate()) {
+    query["UtcCreate"] = request.utcCreate();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -14799,7 +14999,7 @@ SendAIAgentSpeechResponse Client::sendAIAgentSpeech(const SendAIAgentSpeechReque
 }
 
 /**
- * @summary 传入消息作为LLM输入。
+ * @summary Sends a message as input to the large language model (LLM).
  *
  * @param request SendAIAgentTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14834,7 +15034,7 @@ SendAIAgentTextResponse Client::sendAIAgentTextWithOptions(const SendAIAgentText
 }
 
 /**
- * @summary 传入消息作为LLM输入。
+ * @summary Sends a message as input to the large language model (LLM).
  *
  * @param request SendAIAgentTextRequest
  * @return SendAIAgentTextResponse
@@ -14937,7 +15137,7 @@ SendLiveTranscodeJobCommandResponse Client::sendLiveTranscodeJobCommand(const Se
 }
 
 /**
- * @summary 向IM客户端发送消息。
+ * @summary Sends a message to the client.
  *
  * @param request SendMessageChatTextRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14992,7 +15192,7 @@ SendMessageChatTextResponse Client::sendMessageChatTextWithOptions(const SendMes
 }
 
 /**
- * @summary 向IM客户端发送消息。
+ * @summary Sends a message to the client.
  *
  * @param request SendMessageChatTextRequest
  * @return SendMessageChatTextResponse
@@ -15003,7 +15203,7 @@ SendMessageChatTextResponse Client::sendMessageChatText(const SendMessageChatTex
 }
 
 /**
- * @summary 设置声纹
+ * @summary Registers a voiceprint.
  *
  * @param tmpReq SetAIAgentVoiceprintRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15044,7 +15244,7 @@ SetAIAgentVoiceprintResponse Client::setAIAgentVoiceprintWithOptions(const SetAI
 }
 
 /**
- * @summary 设置声纹
+ * @summary Registers a voiceprint.
  *
  * @param request SetAIAgentVoiceprintRequest
  * @return SetAIAgentVoiceprintResponse
@@ -15491,6 +15691,64 @@ StartAIAgentOutboundCallResponse Client::startAIAgentOutboundCall(const StartAIA
 }
 
 /**
+ * @summary Initiates a workflow task for automated media processing based on a workflow template.
+ *
+ * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+ *
+ * @param request StartAIWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartAIWorkflowResponse
+ */
+StartAIWorkflowResponse Client::startAIWorkflowWithOptions(const StartAIWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDispatchTag()) {
+    query["DispatchTag"] = request.dispatchTag();
+  }
+
+  if (!!request.hasInputs()) {
+    query["Inputs"] = request.inputs();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.userData();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartAIWorkflow"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartAIWorkflowResponse>();
+}
+
+/**
+ * @summary Initiates a workflow task for automated media processing based on a workflow template.
+ *
+ * @description *   You must specify a workflow template. To create one, go to the [Intelligent Media Services (IMS)](https://ims.console.aliyun.com/ai-workflow/template) console.
+ *
+ * @param request StartAIWorkflowRequest
+ * @return StartAIWorkflowResponse
+ */
+StartAIWorkflowResponse Client::startAIWorkflow(const StartAIWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startAIWorkflowWithOptions(request, runtime);
+}
+
+/**
  * @summary Starts a channel.
  *
  * @param request StartChannelRequest
@@ -15761,6 +16019,52 @@ StopAIAgentInstanceResponse Client::stopAIAgentInstance(const StopAIAgentInstanc
 }
 
 /**
+ * @summary Manually stops a workflow task.
+ *
+ * @description This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+ *
+ * @param request StopAIWorkflowTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopAIWorkflowTaskResponse
+ */
+StopAIWorkflowTaskResponse Client::stopAIWorkflowTaskWithOptions(const StopAIWorkflowTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopAIWorkflowTask"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopAIWorkflowTaskResponse>();
+}
+
+/**
+ * @summary Manually stops a workflow task.
+ *
+ * @description This operation is only used to stop workflow tasks in real-time scenarios such as live streaming and RTC. It cannot be used to stop tasks in offline scenarios.
+ *
+ * @param request StopAIWorkflowTaskRequest
+ * @return StopAIWorkflowTaskResponse
+ */
+StopAIWorkflowTaskResponse Client::stopAIWorkflowTask(const StopAIWorkflowTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopAIWorkflowTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Stops a MediaWeaver channel.
  *
  * @param request StopChannelRequest
@@ -15893,7 +16197,9 @@ StopRtcRobotInstanceResponse Client::stopRtcRobotInstance(const StopRtcRobotInst
 }
 
 /**
- * @summary 提交视频送审任务
+ * @summary Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+ *
+ * @description Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
  *
  * @param tmpReq SubmitAIAgentVideoAuditTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15958,7 +16264,9 @@ SubmitAIAgentVideoAuditTaskResponse Client::submitAIAgentVideoAuditTaskWithOptio
 }
 
 /**
- * @summary 提交视频送审任务
+ * @summary Submits a video to a specified AI agent for content moderation. This operation supports video input from OSS and delivers the results asynchronously via callbacks. You can define custom frame-capturing policies and moderation prompts.
+ *
+ * @description Call SubmitAIAgentVideoAuditTask to submit a video moderation task with configurations such as a video URL, frame-capturing policies, and review interval. The system returns a unique JobId for tracking. When the task is complete, the service will push the results, including the moderation status and AI-generated analysis, to the configured callback URL. Only OSS URLs are supported as input. The underlying multi-modal large language model (MLLM) only supports interaction via the non-streaming OpenAI protocol.
  *
  * @param request SubmitAIAgentVideoAuditTaskRequest
  * @return SubmitAIAgentVideoAuditTaskResponse
@@ -16143,7 +16451,11 @@ SubmitAvatarTrainingJobResponse Client::submitAvatarTrainingJob(const SubmitAvat
 }
 
 /**
- * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+ * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+ *
+ * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
+ * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+ * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
  *
  * @param request SubmitAvatarVideoJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16194,7 +16506,11 @@ SubmitAvatarVideoJobResponse Client::submitAvatarVideoJobWithOptions(const Submi
 }
 
 /**
- * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
+ * @summary Submits a task to render a video of an avatar speaking the content of the specified text or a human voice audio file.
+ *
+ * @description - The input supports only text or a human voice audio file in MP3 or WAV format.
+ * - The output supports MP4 and WebM formats. For the MP4 format, the task produces two videos: one with the avatar on a green screen background and a separate alpha mask video. This is ideal for post-production. For the WebM format, the task produces a single video with a transparent alpha channel, suitable for direct web front-end display. Rendering WebM is slower due to encoding complexity.
+ * - The final output includes sentence-level timestamps, which are useful for subsequent video editing.
  *
  * @param request SubmitAvatarVideoJobRequest
  * @return SubmitAvatarVideoJobResponse
@@ -16269,7 +16585,9 @@ SubmitBatchMediaProducingJobResponse Client::submitBatchMediaProducingJob(const 
 }
 
 /**
- * @summary 提交版权水印提取作业
+ * @summary Submits a job that extracts a copyright watermark.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param tmpReq SubmitCopyrightExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16314,7 +16632,9 @@ SubmitCopyrightExtractJobResponse Client::submitCopyrightExtractJobWithOptions(c
 }
 
 /**
- * @summary 提交版权水印提取作业
+ * @summary Submits a job that extracts a copyright watermark.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request SubmitCopyrightExtractJobRequest
  * @return SubmitCopyrightExtractJobResponse
@@ -16325,7 +16645,11 @@ SubmitCopyrightExtractJobResponse Client::submitCopyrightExtractJob(const Submit
 }
 
 /**
- * @summary 提交版权水印任务
+ * @summary Submits a job for adding a copyright watermark to a video.
+ *
+ * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+ * *   Each API call supports processing only one video.
+ * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param tmpReq SubmitCopyrightJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16398,7 +16722,11 @@ SubmitCopyrightJobResponse Client::submitCopyrightJobWithOptions(const SubmitCop
 }
 
 /**
- * @summary 提交版权水印任务
+ * @summary Submits a job for adding a copyright watermark to a video.
+ *
+ * @description *   You can call this operation to add a copyright watermark to a video that lasts at least 3 minutes. If the video is too short, the call may fail, or no output may be returned. To add a copyright watermark to a video shorter than 3 minutes, specify the Params parameter to change the algorithm.
+ * *   Each API call supports processing only one video.
+ * *   This API is supported only in the China (Shanghai) and China (Beijing) regions.
  *
  * @param request SubmitCopyrightJobRequest
  * @return SubmitCopyrightJobResponse
@@ -17645,7 +17973,7 @@ SubmitPackageJobResponse Client::submitPackageJob(const SubmitPackageJobRequest 
 }
 
 /**
- * @summary 提交工程导出任务
+ * @summary Submits a project export task.
  *
  * @param request SubmitProjectExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17694,7 +18022,7 @@ SubmitProjectExportJobResponse Client::submitProjectExportJobWithOptions(const S
 }
 
 /**
- * @summary 提交工程导出任务
+ * @summary Submits a project export task.
  *
  * @param request SubmitProjectExportJobRequest
  * @return SubmitProjectExportJobResponse
@@ -17702,6 +18030,72 @@ SubmitProjectExportJobResponse Client::submitProjectExportJobWithOptions(const S
 SubmitProjectExportJobResponse Client::submitProjectExportJob(const SubmitProjectExportJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitProjectExportJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+ *
+ * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+ * - The feature is in public preview and charges no fees.
+ *
+ * @param request SubmitSceneMediaSelectionJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitSceneMediaSelectionJobResponse
+ */
+SubmitSceneMediaSelectionJobResponse Client::submitSceneMediaSelectionJobWithOptions(const SubmitSceneMediaSelectionJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobType()) {
+    query["JobType"] = request.jobType();
+  }
+
+  if (!!request.hasOutputConfig()) {
+    query["OutputConfig"] = request.outputConfig();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.userData();
+  }
+
+  json body = {};
+  if (!!request.hasEditingConfig()) {
+    body["EditingConfig"] = request.editingConfig();
+  }
+
+  if (!!request.hasInputConfig()) {
+    body["InputConfig"] = request.inputConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitSceneMediaSelectionJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitSceneMediaSelectionJobResponse>();
+}
+
+/**
+ * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
+ *
+ * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
+ * - The feature is in public preview and charges no fees.
+ *
+ * @param request SubmitSceneMediaSelectionJobRequest
+ * @return SubmitSceneMediaSelectionJobResponse
+ */
+SubmitSceneMediaSelectionJobResponse Client::submitSceneMediaSelectionJob(const SubmitSceneMediaSelectionJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitSceneMediaSelectionJobWithOptions(request, runtime);
 }
 
 /**
@@ -17761,7 +18155,7 @@ SubmitScreenMediaHighlightsJobResponse Client::submitScreenMediaHighlightsJob(co
 }
 
 /**
- * @summary 提交拆条任务
+ * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
  *
  * @param request SubmitSegmentationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17810,7 +18204,7 @@ SubmitSegmentationJobResponse Client::submitSegmentationJobWithOptions(const Sub
 }
 
 /**
- * @summary 提交拆条任务
+ * @summary Splits a long video into multiple video clips and outputs as video files or media assets.
  *
  * @param request SubmitSegmentationJobRequest
  * @return SubmitSegmentationJobResponse
@@ -18233,7 +18627,9 @@ SubmitTextGenerateJobResponse Client::submitTextGenerateJob(const SubmitTextGene
 }
 
 /**
- * @summary 提交视频溯源水印ab流任务
+ * @summary Submits an A/B watermarking job.
+ *
+ * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
  *
  * @param tmpReq SubmitTraceAbJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18298,7 +18694,9 @@ SubmitTraceAbJobResponse Client::submitTraceAbJobWithOptions(const SubmitTraceAb
 }
 
 /**
- * @summary 提交视频溯源水印ab流任务
+ * @summary Submits an A/B watermarking job.
+ *
+ * @description *   This API supports only videos that last at least 3 minutes. If the video is too short, the call may fail, or no output may be returned.
  *
  * @param request SubmitTraceAbJobRequest
  * @return SubmitTraceAbJobResponse
@@ -18309,7 +18707,10 @@ SubmitTraceAbJobResponse Client::submitTraceAbJob(const SubmitTraceAbJobRequest 
 }
 
 /**
- * @summary 提交溯源水印提取任务
+ * @summary Submits a job to extract the trace watermark.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
  *
  * @param tmpReq SubmitTraceExtractJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18354,7 +18755,10 @@ SubmitTraceExtractJobResponse Client::submitTraceExtractJobWithOptions(const Sub
 }
 
 /**
- * @summary 提交溯源水印提取任务
+ * @summary Submits a job to extract the trace watermark.
+ *
+ * @description *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The input video must be 3 minutes or longer. Jobs submitted with shorter videos will fail.
  *
  * @param request SubmitTraceExtractJobRequest
  * @return SubmitTraceExtractJobResponse
@@ -18365,7 +18769,11 @@ SubmitTraceExtractJobResponse Client::submitTraceExtractJob(const SubmitTraceExt
 }
 
 /**
- * @summary 提交视频溯源水印m3u8文件任务
+ * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+ *
+ * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+ * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
  *
  * @param tmpReq SubmitTraceM3u8JobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18418,7 +18826,11 @@ SubmitTraceM3u8JobResponse Client::submitTraceM3u8JobWithOptions(const SubmitTra
 }
 
 /**
- * @summary 提交视频溯源水印m3u8文件任务
+ * @summary Submits a job that generates an M3U8 file containing specific trace watermark information.
+ *
+ * @description *   Before you call this operation, you must call SubmitTraceAbJob to get the TraceMediaId from its response.
+ * *   This operation is supported only in the China (Shanghai) and China (Beijing) regions.
+ * *   The M3U8 file generated by this job has a signed URL with an authentication validity period of 24 hours, starting from the moment the job is completed. Once the signature expires, you will no longer be able to trace the watermark information using that specific M3U8 file. If you need to use it after expiration, you must call this API again to generate a new M3U8 file.
  *
  * @param request SubmitTraceM3u8JobRequest
  * @return SubmitTraceM3u8JobResponse
@@ -18505,7 +18917,7 @@ SubmitTranscodeJobResponse Client::submitTranscodeJob(const SubmitTranscodeJobRe
 }
 
 /**
- * @summary 提交视频理解任务
+ * @summary Submits a video for AI analysis and processing.
  *
  * @param tmpReq SubmitVideoCognitionJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18558,7 +18970,7 @@ SubmitVideoCognitionJobResponse Client::submitVideoCognitionJobWithOptions(const
 }
 
 /**
- * @summary 提交视频理解任务
+ * @summary Submits a video for AI analysis and processing.
  *
  * @param request SubmitVideoCognitionJobRequest
  * @return SubmitVideoCognitionJobResponse
@@ -19199,7 +19611,14 @@ UpdateEditingProjectResponse Client::updateEditingProject(const UpdateEditingPro
 }
 
 /**
- * @summary 更新热词库
+ * @summary Modifies a specified hotword library, including its name, description, and hotword list.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to modify a specified hotword library.
+ * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+ * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+ * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+ * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
  *
  * @param tmpReq UpdateHotwordLibraryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19248,7 +19667,14 @@ UpdateHotwordLibraryResponse Client::updateHotwordLibraryWithOptions(const Updat
 }
 
 /**
- * @summary 更新热词库
+ * @summary Modifies a specified hotword library, including its name, description, and hotword list.
+ *
+ * @description ## [](#)
+ * *   You can call this operation to modify a specified hotword library.
+ * *   The hotword library ID (`HotwordLibraryId`) is required to identify the library that requires modification.
+ * *   You can modify its name (`Name` ), description (`Description` ), and hotword list (`HotWords`).
+ * *   Each hotword in the list can also be modified, including its content (`Text`), weight (`Weight`), language (`Language`), and translation results (`TranspositionResultList`).
+ * *   A single account supports up to 100 hotword libraries, each containing a maximum of 300 hotword entries. In a library, the combination of `language` and `text` of an entry must be unique. The combination of `TranslatedText` and `TargetLanguage` in `TranspositionResultList` must also be unique.
  *
  * @param request UpdateHotwordLibraryRequest
  * @return UpdateHotwordLibraryResponse

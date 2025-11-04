@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authTimeout_ != nullptr
-        && this->businessType_ != nullptr && this->endTime_ != nullptr && this->includeFileBasicInfo_ != nullptr && this->maxResults_ != nullptr && this->mediaId_ != nullptr
-        && this->mediaType_ != nullptr && this->nextToken_ != nullptr && this->sortBy_ != nullptr && this->source_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->authTimeout_ == nullptr
+        && return this->businessType_ == nullptr && return this->endTime_ == nullptr && return this->includeFileBasicInfo_ == nullptr && return this->maxResults_ == nullptr && return this->mediaId_ == nullptr
+        && return this->mediaType_ == nullptr && return this->nextToken_ == nullptr && return this->sortBy_ == nullptr && return this->source_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr; };
     // authTimeout Field Functions 
     bool hasAuthTimeout() const { return this->authTimeout_ != nullptr;};
     void deleteAuthTimeout() { this->authTimeout_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->entityId_ != nullptr && this->imageUrl_ != nullptr && this->labelPrompt_ != nullptr && this->libId_ != nullptr && this->ownerAccount_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->entityId_ == nullptr && return this->imageUrl_ == nullptr && return this->labelPrompt_ == nullptr && return this->libId_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -112,12 +112,26 @@ namespace Models
 
 
   protected:
+    // The type of recognition this sample is for.
+    // 
+    // *   landmark
+    // *   object
+    // *   logo
+    // *   face
+    // *   label
+    // 
     // This parameter is required.
     std::shared_ptr<string> algorithm_ = nullptr;
+    // The ID of the specific entity within the library.
+    // 
     // This parameter is required.
     std::shared_ptr<string> entityId_ = nullptr;
+    // The URL of the sample image.
     std::shared_ptr<string> imageUrl_ = nullptr;
+    // The custom text label.
     std::shared_ptr<string> labelPrompt_ = nullptr;
+    // The ID of the recognition library.
+    // 
     // This parameter is required.
     std::shared_ptr<string> libId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;

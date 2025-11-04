@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobs_ != nullptr
-        && this->nextPageToken_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->jobs_ == nullptr
+        && return this->nextPageToken_ == nullptr && return this->requestId_ == nullptr; };
     // jobs Field Functions 
     bool hasJobs() const { return this->jobs_ != nullptr;};
     void deleteJobs() { this->jobs_ = nullptr;};
@@ -61,10 +61,13 @@ namespace Models
 
 
   protected:
+    // The tasks.
     std::shared_ptr<vector<MediaConvertJobWithoutDetail>> jobs_ = nullptr;
+    // Indicates the read position returned by the current call. An empty value means all data has been read.
+    // 
     // This parameter is required.
     std::shared_ptr<string> nextPageToken_ = nullptr;
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

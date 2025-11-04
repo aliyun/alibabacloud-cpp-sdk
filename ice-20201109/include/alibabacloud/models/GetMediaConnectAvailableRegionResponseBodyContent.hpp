@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultRegion_ != nullptr
-        && this->regionList_ != nullptr; };
+    virtual bool empty() const override { return this->defaultRegion_ == nullptr
+        && return this->regionList_ == nullptr; };
     // defaultRegion Field Functions 
     bool hasDefaultRegion() const { return this->defaultRegion_ != nullptr;};
     void deleteDefaultRegion() { this->defaultRegion_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The default region. You can ignore the parameter.
     std::shared_ptr<string> defaultRegion_ = nullptr;
+    // The supported regions.
     std::shared_ptr<vector<string>> regionList_ = nullptr;
   };
 

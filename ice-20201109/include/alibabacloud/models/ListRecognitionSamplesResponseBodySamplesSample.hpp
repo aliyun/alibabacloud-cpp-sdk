@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageUrl_ != nullptr
-        && this->sampleId_ != nullptr; };
+    virtual bool empty() const override { return this->imageUrl_ == nullptr
+        && return this->sampleId_ == nullptr; };
     // imageUrl Field Functions 
     bool hasImageUrl() const { return this->imageUrl_ != nullptr;};
     void deleteImageUrl() { this->imageUrl_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The URL of the image sample.
     std::shared_ptr<string> imageUrl_ = nullptr;
+    // The sample ID.
     std::shared_ptr<string> sampleId_ = nullptr;
   };
 

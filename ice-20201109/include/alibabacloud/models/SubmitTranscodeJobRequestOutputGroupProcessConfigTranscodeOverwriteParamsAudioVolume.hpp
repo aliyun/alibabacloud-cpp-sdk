@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->integratedLoudnessTarget_ != nullptr
-        && this->loudnessRangeTarget_ != nullptr && this->method_ != nullptr && this->truePeak_ != nullptr; };
+    virtual bool empty() const override { return this->integratedLoudnessTarget_ == nullptr
+        && return this->loudnessRangeTarget_ == nullptr && return this->method_ == nullptr && return this->truePeak_ == nullptr; };
     // integratedLoudnessTarget Field Functions 
     bool hasIntegratedLoudnessTarget() const { return this->integratedLoudnessTarget_ != nullptr;};
     void deleteIntegratedLoudnessTarget() { this->integratedLoudnessTarget_ = nullptr;};

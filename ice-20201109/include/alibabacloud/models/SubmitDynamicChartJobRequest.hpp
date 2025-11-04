@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->axisParams_ != nullptr
-        && this->background_ != nullptr && this->chartConfig_ != nullptr && this->chartTitle_ != nullptr && this->chartType_ != nullptr && this->dataSource_ != nullptr
-        && this->description_ != nullptr && this->input_ != nullptr && this->outputConfig_ != nullptr && this->subtitle_ != nullptr && this->title_ != nullptr
-        && this->unit_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->axisParams_ == nullptr
+        && return this->background_ == nullptr && return this->chartConfig_ == nullptr && return this->chartTitle_ == nullptr && return this->chartType_ == nullptr && return this->dataSource_ == nullptr
+        && return this->description_ == nullptr && return this->input_ == nullptr && return this->outputConfig_ == nullptr && return this->subtitle_ == nullptr && return this->title_ == nullptr
+        && return this->unit_ == nullptr && return this->userData_ == nullptr; };
     // axisParams Field Functions 
     bool hasAxisParams() const { return this->axisParams_ != nullptr;};
     void deleteAxisParams() { this->axisParams_ = nullptr;};

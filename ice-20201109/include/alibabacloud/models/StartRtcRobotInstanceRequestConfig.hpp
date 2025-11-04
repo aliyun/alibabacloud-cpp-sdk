@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrMaxSilence_ != nullptr
-        && this->enableVoiceInterrupt_ != nullptr && this->greeting_ != nullptr && this->useVoiceprint_ != nullptr && this->userOfflineTimeout_ != nullptr && this->userOnlineTimeout_ != nullptr
-        && this->voiceId_ != nullptr && this->voiceprintId_ != nullptr && this->volume_ != nullptr; };
+    virtual bool empty() const override { return this->asrMaxSilence_ == nullptr
+        && return this->enableVoiceInterrupt_ == nullptr && return this->greeting_ == nullptr && return this->useVoiceprint_ == nullptr && return this->userOfflineTimeout_ == nullptr && return this->userOnlineTimeout_ == nullptr
+        && return this->voiceId_ == nullptr && return this->voiceprintId_ == nullptr && return this->volume_ == nullptr; };
     // asrMaxSilence Field Functions 
     bool hasAsrMaxSilence() const { return this->asrMaxSilence_ != nullptr;};
     void deleteAsrMaxSilence() { this->asrMaxSilence_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr
-        && this->mediaId_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr
+        && return this->mediaId_ == nullptr && return this->requestId_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The task ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The media asset ID of the output file.
     std::shared_ptr<string> mediaId_ = nullptr;
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

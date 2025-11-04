@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupCidrs_ != nullptr
-        && this->backupCreateTime_ != nullptr && this->backupInputName_ != nullptr && this->backupInputStatus_ != nullptr && this->backupInputUrl_ != nullptr && this->backupMaxBitrate_ != nullptr
-        && this->backupSrtLatency_ != nullptr && this->backupSrtPassphrase_ != nullptr && this->backupSrtPbkeyLen_ != nullptr && this->cidrs_ != nullptr && this->createTime_ != nullptr
-        && this->inputName_ != nullptr && this->inputProtocol_ != nullptr && this->inputStatus_ != nullptr && this->inputUrl_ != nullptr && this->maxBitrate_ != nullptr
-        && this->pairFlowId_ != nullptr && this->pairOutputName_ != nullptr && this->srtLatency_ != nullptr && this->srtPassphrase_ != nullptr && this->srtPbkeyLen_ != nullptr; };
+    virtual bool empty() const override { return this->backupCidrs_ == nullptr
+        && return this->backupCreateTime_ == nullptr && return this->backupInputName_ == nullptr && return this->backupInputStatus_ == nullptr && return this->backupInputUrl_ == nullptr && return this->backupMaxBitrate_ == nullptr
+        && return this->backupSrtLatency_ == nullptr && return this->backupSrtPassphrase_ == nullptr && return this->backupSrtPbkeyLen_ == nullptr && return this->cidrs_ == nullptr && return this->createTime_ == nullptr
+        && return this->inputName_ == nullptr && return this->inputProtocol_ == nullptr && return this->inputStatus_ == nullptr && return this->inputUrl_ == nullptr && return this->maxBitrate_ == nullptr
+        && return this->pairFlowId_ == nullptr && return this->pairOutputName_ == nullptr && return this->srtLatency_ == nullptr && return this->srtPassphrase_ == nullptr && return this->srtPbkeyLen_ == nullptr; };
     // backupCidrs Field Functions 
     bool hasBackupCidrs() const { return this->backupCidrs_ != nullptr;};
     void deleteBackupCidrs() { this->backupCidrs_ = nullptr;};

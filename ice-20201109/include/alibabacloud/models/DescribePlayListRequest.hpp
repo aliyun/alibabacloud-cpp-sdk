@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->beginTs_ != nullptr
-        && this->endTs_ != nullptr && this->orderName_ != nullptr && this->orderType_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->playType_ != nullptr && this->status_ != nullptr && this->traceId_ != nullptr; };
+    virtual bool empty() const override { return this->beginTs_ == nullptr
+        && return this->endTs_ == nullptr && return this->orderName_ == nullptr && return this->orderType_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->playType_ == nullptr && return this->status_ == nullptr && return this->traceId_ == nullptr; };
     // beginTs Field Functions 
     bool hasBeginTs() const { return this->beginTs_ != nullptr;};
     void deleteBeginTs() { this->beginTs_ = nullptr;};
@@ -112,18 +112,45 @@ namespace Models
 
 
   protected:
+    // The beginning of the time range to query. By default, the system queries data of the current day.
+    // 
     // This parameter is required.
     std::shared_ptr<string> beginTs_ = nullptr;
+    // The end of the time range to query. The time range cannot exceed 24 hours.
+    // 
     // This parameter is required.
     std::shared_ptr<string> endTs_ = nullptr;
+    // The criteria by which the sorting is performed. Valid values:
+    // 
+    // - FirstFrameDuration
+    // - PlayDuration
+    // - VideoDuration
+    // - StuckDuration
     std::shared_ptr<string> orderName_ = nullptr;
+    // The sort order. Valid values:
+    // 
+    // - DESC: descending order.
+    // - ASC: ascending order.
     std::shared_ptr<string> orderType_ = nullptr;
+    // The page number. Default value: 1.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageNo_ = nullptr;
+    // The number of entries per page.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The playback type. Valid value: 
+    // 
+    // - vod
     std::shared_ptr<string> playType_ = nullptr;
+    // The playback status. Valid values:
+    // 
+    // - complete
+    // - playing
+    // - unusual: A playback error occurs.
     std::shared_ptr<string> status_ = nullptr;
+    // The TraceId of the player.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

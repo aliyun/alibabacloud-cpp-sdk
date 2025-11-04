@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endOfCreateTime_ != nullptr
-        && this->keyText_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->startOfCreateTime_ != nullptr && this->workflowId_ != nullptr
-        && this->workflowName_ != nullptr; };
+    virtual bool empty() const override { return this->endOfCreateTime_ == nullptr
+        && return this->keyText_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->startOfCreateTime_ == nullptr && return this->workflowId_ == nullptr
+        && return this->workflowName_ == nullptr; };
     // endOfCreateTime Field Functions 
     bool hasEndOfCreateTime() const { return this->endOfCreateTime_ != nullptr;};
     void deleteEndOfCreateTime() { this->endOfCreateTime_ = nullptr;};
@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The end of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
     std::shared_ptr<string> endOfCreateTime_ = nullptr;
+    // A keyword for fuzzy matching against the TaskInput, such as a file name or Media ID. Max length: 32 characters.
     std::shared_ptr<string> keyText_ = nullptr;
+    // The maximum number of media workflow instances to return. Valid values: 1 to 100. Default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The start of the time range for filtering tasks by their creation time. Supports querying data from the last 90 days only.
     std::shared_ptr<string> startOfCreateTime_ = nullptr;
+    // The ID of the workflow template.[](https://ims.console.aliyun.com/settings/workflow/list)
     std::shared_ptr<string> workflowId_ = nullptr;
+    // The name of the workflow template.
     std::shared_ptr<string> workflowName_ = nullptr;
   };
 

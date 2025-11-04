@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->description_ != nullptr && this->hotwordLibraryId_ != nullptr && this->hotwords_ != nullptr && this->name_ != nullptr && this->requestId_ != nullptr
-        && this->usageScenario_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->description_ == nullptr && return this->hotwordLibraryId_ == nullptr && return this->hotwords_ == nullptr && return this->name_ == nullptr && return this->requestId_ == nullptr
+        && return this->usageScenario_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};
@@ -98,13 +98,19 @@ namespace Models
 
 
   protected:
+    // The time when the hotword library was created.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // The description of the hotword library.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the hotword library.
     std::shared_ptr<string> hotwordLibraryId_ = nullptr;
+    // The hotword list.
     std::shared_ptr<vector<Hotword>> hotwords_ = nullptr;
+    // The name of the hotword library.
     std::shared_ptr<string> name_ = nullptr;
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The usage scenario of the hotword library.
     std::shared_ptr<string> usageScenario_ = nullptr;
   };
 

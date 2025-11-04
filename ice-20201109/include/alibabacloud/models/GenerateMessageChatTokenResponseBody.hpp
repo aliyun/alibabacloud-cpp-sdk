@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appSign_ != nullptr && this->nonce_ != nullptr && this->requestId_ != nullptr && this->role_ != nullptr && this->timeStamp_ != nullptr
-        && this->token_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appSign_ == nullptr && return this->nonce_ == nullptr && return this->requestId_ == nullptr && return this->role_ == nullptr && return this->timeStamp_ == nullptr
+        && return this->token_ == nullptr && return this->userId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The AppID of the user.
     std::shared_ptr<string> appId_ = nullptr;
+    // The application signature.
     std::shared_ptr<string> appSign_ = nullptr;
+    // The nonce used to generate the token.
     std::shared_ptr<string> nonce_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The role used to generate the token.
     std::shared_ptr<string> role_ = nullptr;
+    // The expiration time. Unit: seconds. Expiration time = Current time + Validity period.
     std::shared_ptr<int64_t> timeStamp_ = nullptr;
+    // The generated token.
     std::shared_ptr<string> token_ = nullptr;
+    // The ID of the user for joining the channel.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

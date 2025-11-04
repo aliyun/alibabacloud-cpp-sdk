@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->input_ != nullptr
-        && this->params_ != nullptr && this->templateId_ != nullptr && this->title_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->input_ == nullptr
+        && return this->params_ == nullptr && return this->templateId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The media input object.
     std::shared_ptr<SubmitVideoCognitionJobRequestInput> input_ = nullptr;
+    // Additional request parameters, provided as a JSON string. This is used to pass specific settings for various AI analysis modules, such as Natural Language Processing (NLP), shot segmentation, tagging, and action recognition.
     std::shared_ptr<string> params_ = nullptr;
+    // The ID of the template that specifies the analysis algorithms to be used. For details, see [CreateCustomTemplate](https://help.aliyun.com/zh/ims/developer-reference/api-ice-2020-11-09-createcustomtemplate?spm=a2c4g.11186623.help-menu-193643.d_5_0_3_3_0_0.17b66afamjKySv) and [smart tagging template](https://help.aliyun.com/zh/ims/user-guide/smart-tagging-template?spm=a2c4g.11186623.0.i15).
     std::shared_ptr<string> templateId_ = nullptr;
+    // The video title. It supports letters, digits, and hyphens (-), and cannot start with a special character. Max length: 256 bytes.
     std::shared_ptr<string> title_ = nullptr;
+    // The user-defined data that is passed through and returned as-is in the response. Max length: 1,024 bytes.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

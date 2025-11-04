@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codecLongName_ != nullptr
-        && this->codecName_ != nullptr && this->codecTag_ != nullptr && this->codecTagString_ != nullptr && this->codecTimeBase_ != nullptr && this->duration_ != nullptr
-        && this->index_ != nullptr && this->lang_ != nullptr && this->startTime_ != nullptr && this->timebase_ != nullptr; };
+    virtual bool empty() const override { return this->codecLongName_ == nullptr
+        && return this->codecName_ == nullptr && return this->codecTag_ == nullptr && return this->codecTagString_ == nullptr && return this->codecTimeBase_ == nullptr && return this->duration_ == nullptr
+        && return this->index_ == nullptr && return this->lang_ == nullptr && return this->startTime_ == nullptr && return this->timebase_ == nullptr; };
     // codecLongName Field Functions 
     bool hasCodecLongName() const { return this->codecLongName_ != nullptr;};
     void deleteCodecLongName() { this->codecLongName_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectUrl_ != nullptr
-        && this->timeline_ != nullptr; };
+    virtual bool empty() const override { return this->projectUrl_ == nullptr
+        && return this->timeline_ == nullptr; };
     // projectUrl Field Functions 
     bool hasProjectUrl() const { return this->projectUrl_ != nullptr;};
     void deleteProjectUrl() { this->projectUrl_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The URL of the exported project, which is typically a signed OSS URL. This field is returned when ExportType is AdobePremierePro.
     std::shared_ptr<string> projectUrl_ = nullptr;
+    // The timeline of the online editing job. This field is returned when ExportType is BaseTimeline. For data structure, see [Timeline](https://help.aliyun.com/document_detail/198823.html).
     std::shared_ptr<string> timeline_ = nullptr;
   };
 

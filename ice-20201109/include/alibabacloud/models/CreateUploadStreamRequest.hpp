@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->definition_ != nullptr
-        && this->fileExtension_ != nullptr && this->HDRType_ != nullptr && this->mediaId_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->definition_ == nullptr
+        && return this->fileExtension_ == nullptr && return this->HDRType_ == nullptr && return this->mediaId_ == nullptr && return this->userData_ == nullptr; };
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};

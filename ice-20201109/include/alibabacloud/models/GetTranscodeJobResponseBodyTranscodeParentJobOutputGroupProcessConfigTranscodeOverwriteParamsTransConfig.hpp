@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adjDarMethod_ != nullptr
-        && this->isCheckAudioBitrate_ != nullptr && this->isCheckAudioBitrateFail_ != nullptr && this->isCheckReso_ != nullptr && this->isCheckResoFail_ != nullptr && this->isCheckVideoBitrate_ != nullptr
-        && this->isCheckVideoBitrateFail_ != nullptr && this->transMode_ != nullptr; };
+    virtual bool empty() const override { return this->adjDarMethod_ == nullptr
+        && return this->isCheckAudioBitrate_ == nullptr && return this->isCheckAudioBitrateFail_ == nullptr && return this->isCheckReso_ == nullptr && return this->isCheckResoFail_ == nullptr && return this->isCheckVideoBitrate_ == nullptr
+        && return this->isCheckVideoBitrateFail_ == nullptr && return this->transMode_ == nullptr; };
     // adjDarMethod Field Functions 
     bool hasAdjDarMethod() const { return this->adjDarMethod_ != nullptr;};
     void deleteAdjDarMethod() { this->adjDarMethod_ = nullptr;};

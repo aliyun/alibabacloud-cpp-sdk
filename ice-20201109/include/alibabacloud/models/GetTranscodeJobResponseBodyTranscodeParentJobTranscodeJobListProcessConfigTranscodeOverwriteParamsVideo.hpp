@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abrMax_ != nullptr
-        && this->bitrate_ != nullptr && this->bufsize_ != nullptr && this->codec_ != nullptr && this->crf_ != nullptr && this->crop_ != nullptr
-        && this->fps_ != nullptr && this->gop_ != nullptr && this->height_ != nullptr && this->longShortMode_ != nullptr && this->maxrate_ != nullptr
-        && this->pad_ != nullptr && this->pixFmt_ != nullptr && this->preset_ != nullptr && this->profile_ != nullptr && this->remove_ != nullptr
-        && this->scanMode_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->abrMax_ == nullptr
+        && return this->bitrate_ == nullptr && return this->bufsize_ == nullptr && return this->codec_ == nullptr && return this->crf_ == nullptr && return this->crop_ == nullptr
+        && return this->fps_ == nullptr && return this->gop_ == nullptr && return this->height_ == nullptr && return this->longShortMode_ == nullptr && return this->maxrate_ == nullptr
+        && return this->pad_ == nullptr && return this->pixFmt_ == nullptr && return this->preset_ == nullptr && return this->profile_ == nullptr && return this->remove_ == nullptr
+        && return this->scanMode_ == nullptr && return this->width_ == nullptr; };
     // abrMax Field Functions 
     bool hasAbrMax() const { return this->abrMax_ != nullptr;};
     void deleteAbrMax() { this->abrMax_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bitrate_ != nullptr
-        && this->channels_ != nullptr && this->codec_ != nullptr && this->profile_ != nullptr && this->samplerate_ != nullptr; };
+    virtual bool empty() const override { return this->bitrate_ == nullptr
+        && return this->channels_ == nullptr && return this->codec_ == nullptr && return this->profile_ == nullptr && return this->samplerate_ == nullptr; };
     // bitrate Field Functions 
     bool hasBitrate() const { return this->bitrate_ != nullptr;};
     void deleteBitrate() { this->bitrate_ = nullptr;};

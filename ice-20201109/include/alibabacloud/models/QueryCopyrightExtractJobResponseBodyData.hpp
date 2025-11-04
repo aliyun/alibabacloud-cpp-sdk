@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->message_ != nullptr; };
+    virtual bool empty() const override { return this->message_ == nullptr; };
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The copyright watermark information.
     std::shared_ptr<string> message_ = nullptr;
   };
 

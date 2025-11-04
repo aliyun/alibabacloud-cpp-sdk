@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adMarkers_ != nullptr
-        && this->dateTimeInterval_ != nullptr && this->manifestDuration_ != nullptr && this->maxVideoBitrate_ != nullptr && this->minBufferTime_ != nullptr && this->minUpdatePeriod_ != nullptr
-        && this->minVideoBitrate_ != nullptr && this->presentationDelay_ != nullptr && this->segmentCount_ != nullptr && this->segmentTemplateFormat_ != nullptr && this->streamOrder_ != nullptr; };
+    virtual bool empty() const override { return this->adMarkers_ == nullptr
+        && return this->dateTimeInterval_ == nullptr && return this->manifestDuration_ == nullptr && return this->maxVideoBitrate_ == nullptr && return this->minBufferTime_ == nullptr && return this->minUpdatePeriod_ == nullptr
+        && return this->minVideoBitrate_ == nullptr && return this->presentationDelay_ == nullptr && return this->segmentCount_ == nullptr && return this->segmentTemplateFormat_ == nullptr && return this->streamOrder_ == nullptr; };
     // adMarkers Field Functions 
     bool hasAdMarkers() const { return this->adMarkers_ != nullptr;};
     void deleteAdMarkers() { this->adMarkers_ = nullptr;};

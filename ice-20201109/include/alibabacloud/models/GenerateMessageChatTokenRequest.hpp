@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->AIAgentId_ != nullptr
-        && this->expire_ != nullptr && this->role_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->AIAgentId_ == nullptr
+        && return this->expire_ == nullptr && return this->role_ == nullptr && return this->userId_ == nullptr; };
     // AIAgentId Field Functions 
     bool hasAIAgentId() const { return this->AIAgentId_ != nullptr;};
     void deleteAIAgentId() { this->AIAgentId_ = nullptr;};
@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The ID of the AI agent.
+    // 
     // This parameter is required.
     std::shared_ptr<string> AIAgentId_ = nullptr;
+    // The validity period. Unit: seconds. Default value: 3600.
     std::shared_ptr<int32_t> expire_ = nullptr;
+    // The role. A value of admin indicates that the user can perform management operations. This parameter is empty by default.
     std::shared_ptr<string> role_ = nullptr;
+    // The ID of the user to sign in. It can be up to 64 characters in length and can contain only letters, digits, and underscores (_).
+    // 
     // This parameter is required.
     std::shared_ptr<string> userId_ = nullptr;
   };

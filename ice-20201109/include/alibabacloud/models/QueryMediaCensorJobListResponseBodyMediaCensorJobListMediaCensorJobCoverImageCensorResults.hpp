@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coverImageCensorResult_ != nullptr; };
+    virtual bool empty() const override { return this->coverImageCensorResult_ == nullptr; };
     // coverImageCensorResult Field Functions 
     bool hasCoverImageCensorResult() const { return this->coverImageCensorResult_ != nullptr;};
     void deleteCoverImageCensorResult() { this->coverImageCensorResult_ = nullptr;};

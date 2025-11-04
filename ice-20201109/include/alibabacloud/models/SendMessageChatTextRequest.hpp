@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->AIAgentId_ != nullptr
-        && this->mode_ != nullptr && this->needArchiving_ != nullptr && this->receiverId_ != nullptr && this->sessionId_ != nullptr && this->text_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->AIAgentId_ == nullptr
+        && return this->mode_ == nullptr && return this->needArchiving_ == nullptr && return this->receiverId_ == nullptr && return this->sessionId_ == nullptr && return this->text_ == nullptr
+        && return this->type_ == nullptr; };
     // AIAgentId Field Functions 
     bool hasAIAgentId() const { return this->AIAgentId_ != nullptr;};
     void deleteAIAgentId() { this->AIAgentId_ = nullptr;};
@@ -94,16 +94,35 @@ namespace Models
 
 
   protected:
+    // The ID of the AI agent.
+    // 
     // This parameter is required.
     std::shared_ptr<string> AIAgentId_ = nullptr;
+    // The mode of message sending. Valid values:
+    // - online
+    // - offline
+    // 
+    // Default value: offline.
     std::shared_ptr<string> mode_ = nullptr;
+    // Specifies whether to archive chat records. Default value: true.
     std::shared_ptr<bool> needArchiving_ = nullptr;
+    // The ID of the user who receives the message. The ID can be up to 64 bytes in length and can contain letters and digits.
+    // 
     // This parameter is required.
     std::shared_ptr<string> receiverId_ = nullptr;
+    // The ID of the session.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sessionId_ = nullptr;
+    // The content of the message.
+    // 
     // This parameter is required.
     std::shared_ptr<string> text_ = nullptr;
+    // The type of the message. Valid values:
+    // 
+    // - announcement: notification.
+    // - custom: custom message.
+    // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
   };

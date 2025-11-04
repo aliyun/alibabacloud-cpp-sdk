@@ -13,6 +13,7 @@ namespace Models
   class SearchMediaByHybridRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMediaByHybridRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
       DARABONBA_PTR_TO_JSON(MediaType, mediaType_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
@@ -20,8 +21,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SearchLibName, searchLibName_);
       DARABONBA_PTR_TO_JSON(Text, text_);
+      DARABONBA_PTR_TO_JSON(UtcCreate, utcCreate_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMediaByHybridRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
       DARABONBA_PTR_FROM_JSON(MediaType, mediaType_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
@@ -29,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SearchLibName, searchLibName_);
       DARABONBA_PTR_FROM_JSON(Text, text_);
+      DARABONBA_PTR_FROM_JSON(UtcCreate, utcCreate_);
     };
     SearchMediaByHybridRequest() = default ;
     SearchMediaByHybridRequest(const SearchMediaByHybridRequest &) = default ;
@@ -41,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mediaId_ != nullptr
-        && this->mediaType_ != nullptr && this->namespace_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->searchLibName_ != nullptr
-        && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->customFilters_ == nullptr
+        && return this->mediaId_ == nullptr && return this->mediaType_ == nullptr && return this->namespace_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->searchLibName_ == nullptr && return this->text_ == nullptr && return this->utcCreate_ == nullptr; };
+    // customFilters Field Functions 
+    bool hasCustomFilters() const { return this->customFilters_ != nullptr;};
+    void deleteCustomFilters() { this->customFilters_ = nullptr;};
+    inline string customFilters() const { DARABONBA_PTR_GET_DEFAULT(customFilters_, "") };
+    inline SearchMediaByHybridRequest& setCustomFilters(string customFilters) { DARABONBA_PTR_SET_VALUE(customFilters_, customFilters) };
+
+
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
@@ -93,15 +104,32 @@ namespace Models
     inline SearchMediaByHybridRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
+    // utcCreate Field Functions 
+    bool hasUtcCreate() const { return this->utcCreate_ != nullptr;};
+    void deleteUtcCreate() { this->utcCreate_ = nullptr;};
+    inline string utcCreate() const { DARABONBA_PTR_GET_DEFAULT(utcCreate_, "") };
+    inline SearchMediaByHybridRequest& setUtcCreate(string utcCreate) { DARABONBA_PTR_SET_VALUE(utcCreate_, utcCreate) };
+
+
   protected:
-    // The ID of the media asset. The details of the media asset are returned.
+    std::shared_ptr<string> customFilters_ = nullptr;
+    // The ID of the media asset. If provided, the details of the media asset are returned.
     std::shared_ptr<string> mediaId_ = nullptr;
+    // The type of media assets. Valid values:
+    // - image
+    // - video
     std::shared_ptr<string> mediaType_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNo_ = nullptr;
+    // The number of entries per page. Valid values: 1 to 50. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The name of the search library
     std::shared_ptr<string> searchLibName_ = nullptr;
+    // The natural language search query.
     std::shared_ptr<string> text_ = nullptr;
+    std::shared_ptr<string> utcCreate_ = nullptr;
   };
 
   } // namespace Models

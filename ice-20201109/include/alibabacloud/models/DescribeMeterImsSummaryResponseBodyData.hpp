@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->editingDuration_ != nullptr
-        && this->liveEditDuration_ != nullptr && this->liveRecordDuration_ != nullptr && this->liveSnapshotCount_ != nullptr && this->liveTranscodeDuration_ != nullptr && this->mpsAiDuration_ != nullptr
-        && this->mpsTranscodeDuration_ != nullptr && this->mpsTranscodeUHDDuration_ != nullptr; };
+    virtual bool empty() const override { return this->editingDuration_ == nullptr
+        && return this->liveEditDuration_ == nullptr && return this->liveRecordDuration_ == nullptr && return this->liveSnapshotCount_ == nullptr && return this->liveTranscodeDuration_ == nullptr && return this->mpsAiDuration_ == nullptr
+        && return this->mpsTranscodeDuration_ == nullptr && return this->mpsTranscodeUHDDuration_ == nullptr; };
     // editingDuration Field Functions 
     bool hasEditingDuration() const { return this->editingDuration_ != nullptr;};
     void deleteEditingDuration() { this->editingDuration_ = nullptr;};

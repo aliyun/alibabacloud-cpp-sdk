@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimestampListShrink_ != nullptr
-        && this->deleteOriginalFile_ != nullptr && this->jobId_ != nullptr; };
+    virtual bool empty() const override { return this->createTimestampListShrink_ == nullptr
+        && return this->deleteOriginalFile_ == nullptr && return this->jobId_ == nullptr; };
     // createTimestampListShrink Field Functions 
     bool hasCreateTimestampListShrink() const { return this->createTimestampListShrink_ != nullptr;};
     void deleteCreateTimestampListShrink() { this->createTimestampListShrink_ = nullptr;};

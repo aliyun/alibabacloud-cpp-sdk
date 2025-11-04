@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->editingConfig_ != nullptr && this->inputConfig_ != nullptr && this->outputConfig_ != nullptr && this->title_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->editingConfig_ == nullptr && return this->inputConfig_ == nullptr && return this->outputConfig_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -84,14 +84,19 @@ namespace Models
 
 
   protected:
+    // The task description. Max length: 128 bytes.
     std::shared_ptr<string> description_ = nullptr;
+    // The avatar configurations, including the avatar ID, voice, and speech rate.
     std::shared_ptr<string> editingConfig_ = nullptr;
-    // The input configurations of the video rendering job for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
+    // The input configurations of the video rendering task for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
     // 
-    // >  The text must be at least five words in length.
+    // >Notice: The text must be at least five characters in length.
     std::shared_ptr<string> inputConfig_ = nullptr;
+    // The output configurations, including the destination URL for the rendered video.
     std::shared_ptr<string> outputConfig_ = nullptr;
+    // The task name. Max length: 128 bytes.
     std::shared_ptr<string> title_ = nullptr;
+    // A user-defined JSON string for passing custom business information, such as environment details or task metadata.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

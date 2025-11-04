@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->mediaId_ != nullptr && this->namespace_ != nullptr && this->nextToken_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->searchLibName_ != nullptr && this->sortBy_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->mediaId_ == nullptr && return this->namespace_ == nullptr && return this->nextToken_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->searchLibName_ == nullptr && return this->sortBy_ == nullptr && return this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -112,14 +112,26 @@ namespace Models
 
 
   protected:
+    // The end of the query time range, based on the tagging timestamp. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The ID of the media asset.
     std::shared_ptr<string> mediaId_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int32_t> pageNo_ = nullptr;
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The name of the search library.
     std::shared_ptr<string> searchLibName_ = nullptr;
+    // The sorting order for the results. Valid values:
+    // 
+    // *   StartTime:Desc (default): Sort by creation time in descending order.
+    // *   StartTime:Asc: Sort by creation time in ascending order.
     std::shared_ptr<string> sortBy_ = nullptr;
+    // The start of the query time range, based on the tagging timestamp. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

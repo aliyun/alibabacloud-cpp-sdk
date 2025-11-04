@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->mediaType_ != nullptr && this->modifiedTime_ != nullptr && this->name_ != nullptr && this->status_ != nullptr && this->type_ != nullptr
-        && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->mediaType_ == nullptr && return this->modifiedTime_ == nullptr && return this->name_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr
+        && return this->workflowId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -94,12 +94,22 @@ namespace Models
 
 
   protected:
+    // The creation time of the workflow template.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The source of the media file. Valid values:
+    // 
+    // *   OSS: an OSS object.
+    // *   Media: a media asset.
     std::shared_ptr<string> mediaType_ = nullptr;
+    // The last modification time of the workflow template.
     std::shared_ptr<string> modifiedTime_ = nullptr;
+    // The name of the workflow template.
     std::shared_ptr<string> name_ = nullptr;
+    // The status of the workflow template.
     std::shared_ptr<string> status_ = nullptr;
+    // The type of the workflow template.
     std::shared_ptr<string> type_ = nullptr;
+    // The workflow ID.
     std::shared_ptr<string> workflowId_ = nullptr;
   };
 

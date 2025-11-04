@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->softDelete_ != nullptr
-        && this->sourceLocationName_ != nullptr && this->sourceName_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->softDelete_ == nullptr
+        && return this->sourceLocationName_ == nullptr && return this->sourceName_ == nullptr && return this->sourceType_ == nullptr; };
     // softDelete Field Functions 
     bool hasSoftDelete() const { return this->softDelete_ != nullptr;};
     void deleteSoftDelete() { this->softDelete_ = nullptr;};

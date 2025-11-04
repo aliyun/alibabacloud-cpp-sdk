@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->exportResult_ != nullptr && this->exportType_ != nullptr && this->jobId_ != nullptr && this->message_ != nullptr && this->projectId_ != nullptr
-        && this->status_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->exportResult_ == nullptr && return this->exportType_ == nullptr && return this->jobId_ == nullptr && return this->message_ == nullptr && return this->projectId_ == nullptr
+        && return this->status_ == nullptr && return this->userData_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -106,13 +106,31 @@ namespace Models
 
 
   protected:
+    // The error code for the failed export task.
+    // >Notice: Use the error code for troubleshooting.
     std::shared_ptr<string> code_ = nullptr;
+    // The exported data.
     std::shared_ptr<Models::GetProjectExportJobResponseBodyProjectExportJobExportResult> exportResult_ = nullptr;
+    // The export type. Valid values:
+    // 
+    // *   **BaseTimeline**: exports the timeline.
+    // *   **AdobePremierePro**: exports an Adobe Premiere Pro project.
     std::shared_ptr<string> exportType_ = nullptr;
+    // The ID of the project export task.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The error message for the failed export task.
+    // >Notice: Use the error message for troubleshooting.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the online editing project.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The status of the project export task. Valid values:
+    // 
+    // - Init: Initializing
+    // - Processing
+    // - Success
+    // - Failed
     std::shared_ptr<string> status_ = nullptr;
+    // The user-defined data in the JSON format.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->maxResults_ != nullptr && this->name_ != nullptr && this->nextToken_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->sortBy_ != nullptr && this->startTime_ != nullptr && this->usageScenario_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->maxResults_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->sortBy_ == nullptr && return this->startTime_ == nullptr && return this->usageScenario_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -112,14 +112,29 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The maximum number of entries to return.
+    // 
+    // Default value: 10. Valid values: 1 to 100.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The name of the hotword library.
     std::shared_ptr<string> name_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int64_t> pageNo_ = nullptr;
+    // The number of entries per page. Default value: 10. Valid values: 1 to 100.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The sorting order. By default, the query results are sorted by creation time in descending order.
     std::shared_ptr<string> sortBy_ = nullptr;
+    // The beginning of the time range to query.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The usage scenario of the hotword library. Valid values:
+    // 
+    // *   ASR: Automatic Speech Recognition
+    // *   StructuredMediaAssets: structured media analysis
+    // *   VideoTranslation: Video translation. This field cannot be modified after the hotword library is created.
     std::shared_ptr<string> usageScenario_ = nullptr;
   };
 

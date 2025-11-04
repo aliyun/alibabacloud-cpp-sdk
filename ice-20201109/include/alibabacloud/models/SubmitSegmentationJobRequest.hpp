@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->inputConfig_ != nullptr && this->jobParams_ != nullptr && this->outputConfig_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->inputConfig_ == nullptr && return this->jobParams_ == nullptr && return this->outputConfig_ == nullptr && return this->userData_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The input configuration. For detailed parameters, see [InputConfig](~~2874121#cc59ad3082jbx~~).
     std::shared_ptr<string> inputConfig_ = nullptr;
+    // The task parameters. For details, see [JobParams](~~2874121#a60357f2d5iix~~).
     std::shared_ptr<string> jobParams_ = nullptr;
+    // The output configuration. For detailed parameters, see [OutputConfig](~~2874121#cef23186a8d6w~~).
     std::shared_ptr<string> outputConfig_ = nullptr;
+    // The user-defined data in the JSON format, which can be up to 512 bytes in length.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

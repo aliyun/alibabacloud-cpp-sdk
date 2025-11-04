@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imagesInput_ != nullptr
-        && this->input_ != nullptr && this->mediaId_ != nullptr && this->mediaType_ != nullptr && this->msgBody_ != nullptr && this->namespace_ != nullptr
-        && this->searchLibName_ != nullptr; };
+    virtual bool empty() const override { return this->imagesInput_ == nullptr
+        && return this->input_ == nullptr && return this->mediaId_ == nullptr && return this->mediaType_ == nullptr && return this->msgBody_ == nullptr && return this->namespace_ == nullptr
+        && return this->searchLibName_ == nullptr; };
     // imagesInput Field Functions 
     bool hasImagesInput() const { return this->imagesInput_ != nullptr;};
     void deleteImagesInput() { this->imagesInput_ = nullptr;};

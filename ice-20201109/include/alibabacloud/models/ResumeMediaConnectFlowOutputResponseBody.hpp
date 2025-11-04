@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->description_ != nullptr && this->requestId_ != nullptr && this->retCode_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->description_ == nullptr && return this->requestId_ == nullptr && return this->retCode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The response body.
     std::shared_ptr<string> content_ = nullptr;
+    // The call description.
     std::shared_ptr<string> description_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The returned error code. A value of 0 indicates the call is successful.
     std::shared_ptr<int32_t> retCode_ = nullptr;
   };
 

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->entityId_ != nullptr && this->libId_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->entityId_ == nullptr && return this->libId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -94,10 +94,22 @@ namespace Models
 
 
   protected:
+    // The type of recognition algorithm associated with the entity. Valid values:
+    // 
+    // *   landmark
+    // *   object
+    // *   logo
+    // *   face
+    // *   label
+    // 
     // This parameter is required.
     std::shared_ptr<string> algorithm_ = nullptr;
+    // The ID of the entity to be deleted.
+    // 
     // This parameter is required.
     std::shared_ptr<string> entityId_ = nullptr;
+    // The ID of the recognition library.
+    // 
     // This parameter is required.
     std::shared_ptr<string> libId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;

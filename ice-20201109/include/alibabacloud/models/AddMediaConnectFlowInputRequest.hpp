@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrs_ != nullptr
-        && this->flowId_ != nullptr && this->inputFromUrl_ != nullptr && this->inputName_ != nullptr && this->inputProtocol_ != nullptr && this->maxBitrate_ != nullptr
-        && this->pairFlowId_ != nullptr && this->pairOutputName_ != nullptr && this->srtLatency_ != nullptr && this->srtPassphrase_ != nullptr && this->srtPbkeyLen_ != nullptr; };
+    virtual bool empty() const override { return this->cidrs_ == nullptr
+        && return this->flowId_ == nullptr && return this->inputFromUrl_ == nullptr && return this->inputName_ == nullptr && return this->inputProtocol_ == nullptr && return this->maxBitrate_ == nullptr
+        && return this->pairFlowId_ == nullptr && return this->pairOutputName_ == nullptr && return this->srtLatency_ == nullptr && return this->srtPassphrase_ == nullptr && return this->srtPbkeyLen_ == nullptr; };
     // cidrs Field Functions 
     bool hasCidrs() const { return this->cidrs_ != nullptr;};
     void deleteCidrs() { this->cidrs_ = nullptr;};

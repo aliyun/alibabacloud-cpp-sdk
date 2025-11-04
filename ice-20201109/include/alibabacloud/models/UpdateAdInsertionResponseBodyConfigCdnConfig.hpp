@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adSegmentUrlPrefix_ != nullptr
-        && this->contentSegmentUrlPrefix_ != nullptr; };
+    virtual bool empty() const override { return this->adSegmentUrlPrefix_ == nullptr
+        && return this->contentSegmentUrlPrefix_ == nullptr; };
     // adSegmentUrlPrefix Field Functions 
     bool hasAdSegmentUrlPrefix() const { return this->adSegmentUrlPrefix_ != nullptr;};
     void deleteAdSegmentUrlPrefix() { this->adSegmentUrlPrefix_ = nullptr;};

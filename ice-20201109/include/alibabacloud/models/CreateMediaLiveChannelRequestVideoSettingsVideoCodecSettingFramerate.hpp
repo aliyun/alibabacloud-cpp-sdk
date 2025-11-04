@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->framerateControl_ != nullptr
-        && this->framerateDenominator_ != nullptr && this->framerateNumerator_ != nullptr; };
+    virtual bool empty() const override { return this->framerateControl_ == nullptr
+        && return this->framerateDenominator_ == nullptr && return this->framerateNumerator_ == nullptr; };
     // framerateControl Field Functions 
     bool hasFramerateControl() const { return this->framerateControl_ != nullptr;};
     void deleteFramerateControl() { this->framerateControl_ = nullptr;};

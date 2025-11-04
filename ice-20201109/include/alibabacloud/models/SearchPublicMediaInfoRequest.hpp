@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorized_ != nullptr
-        && this->dynamicMetaDataMatchFields_ != nullptr && this->entityId_ != nullptr && this->favorite_ != nullptr && this->mediaIds_ != nullptr && this->pageNo_ != nullptr
-        && this->pageSize_ != nullptr && this->sortBy_ != nullptr; };
+    virtual bool empty() const override { return this->authorized_ == nullptr
+        && return this->dynamicMetaDataMatchFields_ == nullptr && return this->entityId_ == nullptr && return this->favorite_ == nullptr && return this->mediaIds_ == nullptr && return this->pageNo_ == nullptr
+        && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr; };
     // authorized Field Functions 
     bool hasAuthorized() const { return this->authorized_ != nullptr;};
     void deleteAuthorized() { this->authorized_ = nullptr;};

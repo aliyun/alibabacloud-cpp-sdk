@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->async_ != nullptr
-        && this->finishTime_ != nullptr && this->input_ != nullptr && this->jobId_ != nullptr && this->mediaInfoProperty_ != nullptr && this->name_ != nullptr
-        && this->requestId_ != nullptr && this->scheduleConfig_ != nullptr && this->status_ != nullptr && this->submitResultJson_ != nullptr && this->submitTime_ != nullptr
-        && this->triggerSource_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->async_ == nullptr
+        && return this->finishTime_ == nullptr && return this->input_ == nullptr && return this->jobId_ == nullptr && return this->mediaInfoProperty_ == nullptr && return this->name_ == nullptr
+        && return this->requestId_ == nullptr && return this->scheduleConfig_ == nullptr && return this->status_ == nullptr && return this->submitResultJson_ == nullptr && return this->submitTime_ == nullptr
+        && return this->triggerSource_ == nullptr && return this->userData_ == nullptr; };
     // async Field Functions 
     bool hasAsync() const { return this->async_ != nullptr;};
     void deleteAsync() { this->async_ = nullptr;};

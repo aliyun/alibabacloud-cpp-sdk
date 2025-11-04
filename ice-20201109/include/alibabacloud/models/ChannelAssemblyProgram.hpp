@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adBreaks_ != nullptr
-        && this->arn_ != nullptr && this->channelName_ != nullptr && this->clipRange_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->programName_ != nullptr && this->sourceLocationName_ != nullptr && this->sourceName_ != nullptr && this->sourceType_ != nullptr && this->transition_ != nullptr; };
+    virtual bool empty() const override { return this->adBreaks_ == nullptr
+        && return this->arn_ == nullptr && return this->channelName_ == nullptr && return this->clipRange_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->programName_ == nullptr && return this->sourceLocationName_ == nullptr && return this->sourceName_ == nullptr && return this->sourceType_ == nullptr && return this->transition_ == nullptr; };
     // adBreaks Field Functions 
     bool hasAdBreaks() const { return this->adBreaks_ != nullptr;};
     void deleteAdBreaks() { this->adBreaks_ = nullptr;};

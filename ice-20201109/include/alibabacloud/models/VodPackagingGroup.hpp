@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approximateAssetCount_ != nullptr
-        && this->configurationCount_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->domainName_ != nullptr && this->groupName_ != nullptr; };
+    virtual bool empty() const override { return this->approximateAssetCount_ == nullptr
+        && return this->configurationCount_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->groupName_ == nullptr; };
     // approximateAssetCount Field Functions 
     bool hasApproximateAssetCount() const { return this->approximateAssetCount_ != nullptr;};
     void deleteApproximateAssetCount() { this->approximateAssetCount_ = nullptr;};

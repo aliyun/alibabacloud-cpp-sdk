@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dynamicMetaData_ != nullptr
-        && this->mediaBasicInfo_ != nullptr && this->mediaId_ != nullptr; };
+    virtual bool empty() const override { return this->dynamicMetaData_ == nullptr
+        && return this->mediaBasicInfo_ == nullptr && return this->mediaId_ == nullptr; };
     // dynamicMetaData Field Functions 
     bool hasDynamicMetaData() const { return this->dynamicMetaData_ != nullptr;};
     void deleteDynamicMetaData() { this->dynamicMetaData_ = nullptr;};

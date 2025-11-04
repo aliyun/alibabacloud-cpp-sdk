@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includeResults_ != nullptr
-        && this->jobId_ != nullptr && this->params_ != nullptr; };
+    virtual bool empty() const override { return this->includeResults_ == nullptr
+        && return this->jobId_ == nullptr && return this->params_ == nullptr; };
     // includeResults Field Functions 
     bool hasIncludeResults() const { return this->includeResults_ != nullptr;};
     void deleteIncludeResults() { this->includeResults_ = nullptr;};
@@ -60,9 +60,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to include the full algorithm results in the response.
     std::shared_ptr<QueryVideoCognitionJobRequestIncludeResults> includeResults_ = nullptr;
+    // The ID of the task to query. It is returned when you call the [SubmitSmarttagJob](https://help.aliyun.com/document_detail/478786.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobId_ = nullptr;
+    // Additional request parameters, provided as a JSON string.
     std::shared_ptr<string> params_ = nullptr;
   };
 

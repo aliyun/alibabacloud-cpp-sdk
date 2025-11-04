@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completeTime_ != nullptr
-        && this->createTime_ != nullptr && this->editingConfig_ != nullptr && this->extend_ != nullptr && this->inputConfig_ != nullptr && this->jobId_ != nullptr
-        && this->jobType_ != nullptr && this->modifiedTime_ != nullptr && this->outputConfig_ != nullptr && this->status_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->completeTime_ == nullptr
+        && return this->createTime_ == nullptr && return this->editingConfig_ == nullptr && return this->extend_ == nullptr && return this->inputConfig_ == nullptr && return this->jobId_ == nullptr
+        && return this->jobType_ == nullptr && return this->modifiedTime_ == nullptr && return this->outputConfig_ == nullptr && return this->status_ == nullptr && return this->userData_ == nullptr; };
     // completeTime Field Functions 
     bool hasCompleteTime() const { return this->completeTime_ != nullptr;};
     void deleteCompleteTime() { this->completeTime_ = nullptr;};

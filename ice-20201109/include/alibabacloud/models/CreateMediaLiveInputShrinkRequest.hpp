@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inputSettingsShrink_ != nullptr
-        && this->name_ != nullptr && this->securityGroupIdsShrink_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->inputSettingsShrink_ == nullptr
+        && return this->name_ == nullptr && return this->securityGroupIdsShrink_ == nullptr && return this->type_ == nullptr; };
     // inputSettingsShrink Field Functions 
     bool hasInputSettingsShrink() const { return this->inputSettingsShrink_ != nullptr;};
     void deleteInputSettingsShrink() { this->inputSettingsShrink_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeEnd_ != nullptr
-        && this->createTimeStart_ != nullptr && this->jobId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->traceMediaId_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeEnd_ == nullptr
+        && return this->createTimeStart_ == nullptr && return this->jobId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->traceMediaId_ == nullptr; };
     // createTimeEnd Field Functions 
     bool hasCreateTimeEnd() const { return this->createTimeEnd_ != nullptr;};
     void deleteCreateTimeEnd() { this->createTimeEnd_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The end of the creation time range for the query, in UNIX timestamp format.
     std::shared_ptr<int64_t> createTimeEnd_ = nullptr;
+    // The start of the creation time range for the query, in UNIX timestamp format.
     std::shared_ptr<int64_t> createTimeStart_ = nullptr;
+    // The job ID. You can obtain the value of this parameter from the response of the SubmitTraceAbJob operation.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The page number.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The media ID for the trace watermark. You can obtain this from the response of the SubmitTraceAbJob operation.
     std::shared_ptr<string> traceMediaId_ = nullptr;
   };
 

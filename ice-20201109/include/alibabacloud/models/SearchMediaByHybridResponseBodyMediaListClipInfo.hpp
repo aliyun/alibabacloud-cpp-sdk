@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->from_ != nullptr
-        && this->score_ != nullptr && this->to_ != nullptr; };
+    virtual bool empty() const override { return this->from_ == nullptr
+        && return this->score_ == nullptr && return this->to_ == nullptr; };
     // from Field Functions 
     bool hasFrom() const { return this->from_ != nullptr;};
     void deleteFrom() { this->from_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The start time of the relevant clip.
     std::shared_ptr<double> from_ = nullptr;
+    // The relevance score of the clip for the query.
     std::shared_ptr<double> score_ = nullptr;
+    // The end time of the relevant clip.
     std::shared_ptr<double> to_ = nullptr;
   };
 

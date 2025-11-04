@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appendTags_ != nullptr
-        && this->businessType_ != nullptr && this->cateId_ != nullptr && this->category_ != nullptr && this->coverURL_ != nullptr && this->description_ != nullptr
-        && this->inputURL_ != nullptr && this->mediaId_ != nullptr && this->mediaTags_ != nullptr && this->referenceId_ != nullptr && this->title_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->appendTags_ == nullptr
+        && return this->businessType_ == nullptr && return this->cateId_ == nullptr && return this->category_ == nullptr && return this->coverURL_ == nullptr && return this->description_ == nullptr
+        && return this->inputURL_ == nullptr && return this->mediaId_ == nullptr && return this->mediaTags_ == nullptr && return this->referenceId_ == nullptr && return this->title_ == nullptr
+        && return this->userData_ == nullptr; };
     // appendTags Field Functions 
     bool hasAppendTags() const { return this->appendTags_ != nullptr;};
     void deleteAppendTags() { this->appendTags_ = nullptr;};

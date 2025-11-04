@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->biz_ != nullptr
-        && this->businessType_ != nullptr && this->cateId_ != nullptr && this->cateName_ != nullptr && this->category_ != nullptr && this->coverURL_ != nullptr
-        && this->createTime_ != nullptr && this->deletedTime_ != nullptr && this->description_ != nullptr && this->inputURL_ != nullptr && this->mediaId_ != nullptr
-        && this->mediaTags_ != nullptr && this->mediaType_ != nullptr && this->modifiedTime_ != nullptr && this->namespace_ != nullptr && this->referenceId_ != nullptr
-        && this->snapshots_ != nullptr && this->source_ != nullptr && this->spriteImages_ != nullptr && this->status_ != nullptr && this->streamStatus_ != nullptr
-        && this->title_ != nullptr && this->transcodeStatus_ != nullptr && this->uploadSource_ != nullptr && this->userData_ != nullptr && this->visionDescription_ != nullptr; };
+    virtual bool empty() const override { return this->biz_ == nullptr
+        && return this->businessType_ == nullptr && return this->cateId_ == nullptr && return this->cateName_ == nullptr && return this->category_ == nullptr && return this->coverURL_ == nullptr
+        && return this->createTime_ == nullptr && return this->deletedTime_ == nullptr && return this->description_ == nullptr && return this->inputURL_ == nullptr && return this->mediaId_ == nullptr
+        && return this->mediaTags_ == nullptr && return this->mediaType_ == nullptr && return this->modifiedTime_ == nullptr && return this->namespace_ == nullptr && return this->referenceId_ == nullptr
+        && return this->snapshots_ == nullptr && return this->source_ == nullptr && return this->spriteImages_ == nullptr && return this->status_ == nullptr && return this->streamStatus_ == nullptr
+        && return this->title_ == nullptr && return this->transcodeStatus_ == nullptr && return this->uploadSource_ == nullptr && return this->userData_ == nullptr && return this->visionDescription_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};

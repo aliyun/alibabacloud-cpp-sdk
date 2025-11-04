@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->segment_ != nullptr; };
+    virtual bool empty() const override { return this->segment_ == nullptr; };
     // segment Field Functions 
     bool hasSegment() const { return this->segment_ != nullptr;};
     void deleteSegment() { this->segment_ = nullptr;};

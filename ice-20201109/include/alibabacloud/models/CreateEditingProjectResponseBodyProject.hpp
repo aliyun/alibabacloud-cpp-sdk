@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessConfig_ != nullptr
-        && this->businessStatus_ != nullptr && this->clipsParam_ != nullptr && this->coverURL_ != nullptr && this->createSource_ != nullptr && this->createTime_ != nullptr
-        && this->description_ != nullptr && this->duration_ != nullptr && this->modifiedSource_ != nullptr && this->modifiedTime_ != nullptr && this->projectId_ != nullptr
-        && this->projectType_ != nullptr && this->status_ != nullptr && this->statusName_ != nullptr && this->templateId_ != nullptr && this->templateType_ != nullptr
-        && this->timeline_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->businessConfig_ == nullptr
+        && return this->businessStatus_ == nullptr && return this->clipsParam_ == nullptr && return this->coverURL_ == nullptr && return this->createSource_ == nullptr && return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->duration_ == nullptr && return this->modifiedSource_ == nullptr && return this->modifiedTime_ == nullptr && return this->projectId_ == nullptr
+        && return this->projectType_ == nullptr && return this->status_ == nullptr && return this->statusName_ == nullptr && return this->templateId_ == nullptr && return this->templateType_ == nullptr
+        && return this->timeline_ == nullptr && return this->title_ == nullptr; };
     // businessConfig Field Functions 
     bool hasBusinessConfig() const { return this->businessConfig_ != nullptr;};
     void deleteBusinessConfig() { this->businessConfig_ = nullptr;};

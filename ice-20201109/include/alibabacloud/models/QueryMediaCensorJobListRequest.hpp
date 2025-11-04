@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endOfJobCreatedTimeRange_ != nullptr
-        && this->jobIds_ != nullptr && this->maximumPageSize_ != nullptr && this->nextPageToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr
-        && this->pipelineId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startOfJobCreatedTimeRange_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->endOfJobCreatedTimeRange_ == nullptr
+        && return this->jobIds_ == nullptr && return this->maximumPageSize_ == nullptr && return this->nextPageToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pipelineId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startOfJobCreatedTimeRange_ == nullptr && return this->state_ == nullptr; };
     // endOfJobCreatedTimeRange Field Functions 
     bool hasEndOfJobCreatedTimeRange() const { return this->endOfJobCreatedTimeRange_ != nullptr;};
     void deleteEndOfJobCreatedTimeRange() { this->endOfJobCreatedTimeRange_ = nullptr;};

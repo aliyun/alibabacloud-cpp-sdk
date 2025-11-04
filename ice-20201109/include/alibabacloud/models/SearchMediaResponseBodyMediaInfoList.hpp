@@ -21,6 +21,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SearchMediaResponseBodyMediaInfoList& obj) { 
       DARABONBA_PTR_TO_JSON(AiData, aiData_);
       DARABONBA_PTR_TO_JSON(AiRoughData, aiRoughData_);
+      DARABONBA_PTR_TO_JSON(CustomFields, customFields_);
       DARABONBA_PTR_TO_JSON(FileInfoList, fileInfoList_);
       DARABONBA_PTR_TO_JSON(IndexStatusList, indexStatusList_);
       DARABONBA_PTR_TO_JSON(MediaBasicInfo, mediaBasicInfo_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SearchMediaResponseBodyMediaInfoList& obj) { 
       DARABONBA_PTR_FROM_JSON(AiData, aiData_);
       DARABONBA_PTR_FROM_JSON(AiRoughData, aiRoughData_);
+      DARABONBA_PTR_FROM_JSON(CustomFields, customFields_);
       DARABONBA_PTR_FROM_JSON(FileInfoList, fileInfoList_);
       DARABONBA_PTR_FROM_JSON(IndexStatusList, indexStatusList_);
       DARABONBA_PTR_FROM_JSON(MediaBasicInfo, mediaBasicInfo_);
@@ -45,8 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aiData_ != nullptr
-        && this->aiRoughData_ != nullptr && this->fileInfoList_ != nullptr && this->indexStatusList_ != nullptr && this->mediaBasicInfo_ != nullptr && this->mediaId_ != nullptr; };
+    virtual bool empty() const override { return this->aiData_ == nullptr
+        && return this->aiRoughData_ == nullptr && return this->customFields_ == nullptr && return this->fileInfoList_ == nullptr && return this->indexStatusList_ == nullptr && return this->mediaBasicInfo_ == nullptr
+        && return this->mediaId_ == nullptr; };
     // aiData Field Functions 
     bool hasAiData() const { return this->aiData_ != nullptr;};
     void deleteAiData() { this->aiData_ = nullptr;};
@@ -63,6 +66,13 @@ namespace Models
     inline Models::SearchMediaResponseBodyMediaInfoListAiRoughData aiRoughData() { DARABONBA_PTR_GET(aiRoughData_, Models::SearchMediaResponseBodyMediaInfoListAiRoughData) };
     inline SearchMediaResponseBodyMediaInfoList& setAiRoughData(const Models::SearchMediaResponseBodyMediaInfoListAiRoughData & aiRoughData) { DARABONBA_PTR_SET_VALUE(aiRoughData_, aiRoughData) };
     inline SearchMediaResponseBodyMediaInfoList& setAiRoughData(Models::SearchMediaResponseBodyMediaInfoListAiRoughData && aiRoughData) { DARABONBA_PTR_SET_RVALUE(aiRoughData_, aiRoughData) };
+
+
+    // customFields Field Functions 
+    bool hasCustomFields() const { return this->customFields_ != nullptr;};
+    void deleteCustomFields() { this->customFields_ = nullptr;};
+    inline string customFields() const { DARABONBA_PTR_GET_DEFAULT(customFields_, "") };
+    inline SearchMediaResponseBodyMediaInfoList& setCustomFields(string customFields) { DARABONBA_PTR_SET_VALUE(customFields_, customFields) };
 
 
     // fileInfoList Field Functions 
@@ -104,6 +114,7 @@ namespace Models
     std::shared_ptr<Models::SearchMediaResponseBodyMediaInfoListAiData> aiData_ = nullptr;
     // The description of the AI job.
     std::shared_ptr<Models::SearchMediaResponseBodyMediaInfoListAiRoughData> aiRoughData_ = nullptr;
+    std::shared_ptr<string> customFields_ = nullptr;
     // The information about the files.
     std::shared_ptr<vector<Models::SearchMediaResponseBodyMediaInfoListFileInfoList>> fileInfoList_ = nullptr;
     std::shared_ptr<vector<Models::SearchMediaResponseBodyMediaInfoListIndexStatusList>> indexStatusList_ = nullptr;

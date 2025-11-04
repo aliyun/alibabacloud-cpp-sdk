@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clipInfo_ != nullptr
-        && this->mediaId_ != nullptr; };
+    virtual bool empty() const override { return this->clipInfo_ == nullptr
+        && return this->mediaId_ == nullptr; };
     // clipInfo Field Functions 
     bool hasClipInfo() const { return this->clipInfo_ != nullptr;};
     void deleteClipInfo() { this->clipInfo_ = nullptr;};
@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The information about the relevant clips.
     std::shared_ptr<vector<Models::SearchMediaByHybridResponseBodyMediaListClipInfo>> clipInfo_ = nullptr;
+    // The ID of the media asset.
     std::shared_ptr<string> mediaId_ = nullptr;
   };
 

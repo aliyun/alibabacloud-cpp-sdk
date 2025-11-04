@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptionMethod_ != nullptr
-        && this->IV_ != nullptr && this->systemIds_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->encryptionMethod_ == nullptr
+        && return this->IV_ == nullptr && return this->systemIds_ == nullptr && return this->url_ == nullptr; };
     // encryptionMethod Field Functions 
     bool hasEncryptionMethod() const { return this->encryptionMethod_ != nullptr;};
     void deleteEncryptionMethod() { this->encryptionMethod_ = nullptr;};

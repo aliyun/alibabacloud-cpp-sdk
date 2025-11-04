@@ -13,6 +13,7 @@ namespace Models
   class SearchMediaByFaceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMediaByFaceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_TO_JSON(EntityId, entityId_);
       DARABONBA_PTR_TO_JSON(FaceSearchToken, faceSearchToken_);
       DARABONBA_PTR_TO_JSON(MediaType, mediaType_);
@@ -21,8 +22,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PersonImageUrl, personImageUrl_);
       DARABONBA_PTR_TO_JSON(SearchLibName, searchLibName_);
+      DARABONBA_PTR_TO_JSON(UtcCreate, utcCreate_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMediaByFaceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
       DARABONBA_PTR_FROM_JSON(FaceSearchToken, faceSearchToken_);
       DARABONBA_PTR_FROM_JSON(MediaType, mediaType_);
@@ -31,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PersonImageUrl, personImageUrl_);
       DARABONBA_PTR_FROM_JSON(SearchLibName, searchLibName_);
+      DARABONBA_PTR_FROM_JSON(UtcCreate, utcCreate_);
     };
     SearchMediaByFaceRequest() = default ;
     SearchMediaByFaceRequest(const SearchMediaByFaceRequest &) = default ;
@@ -43,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityId_ != nullptr
-        && this->faceSearchToken_ != nullptr && this->mediaType_ != nullptr && this->namespace_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->personImageUrl_ != nullptr && this->searchLibName_ != nullptr; };
+    virtual bool empty() const override { return this->customFilters_ == nullptr
+        && return this->entityId_ == nullptr && return this->faceSearchToken_ == nullptr && return this->mediaType_ == nullptr && return this->namespace_ == nullptr && return this->pageNo_ == nullptr
+        && return this->pageSize_ == nullptr && return this->personImageUrl_ == nullptr && return this->searchLibName_ == nullptr && return this->utcCreate_ == nullptr; };
+    // customFilters Field Functions 
+    bool hasCustomFilters() const { return this->customFilters_ != nullptr;};
+    void deleteCustomFilters() { this->customFilters_ = nullptr;};
+    inline string customFilters() const { DARABONBA_PTR_GET_DEFAULT(customFilters_, "") };
+    inline SearchMediaByFaceRequest& setCustomFilters(string customFilters) { DARABONBA_PTR_SET_VALUE(customFilters_, customFilters) };
+
+
     // entityId Field Functions 
     bool hasEntityId() const { return this->entityId_ != nullptr;};
     void deleteEntityId() { this->entityId_ = nullptr;};
@@ -102,7 +113,15 @@ namespace Models
     inline SearchMediaByFaceRequest& setSearchLibName(string searchLibName) { DARABONBA_PTR_SET_VALUE(searchLibName_, searchLibName) };
 
 
+    // utcCreate Field Functions 
+    bool hasUtcCreate() const { return this->utcCreate_ != nullptr;};
+    void deleteUtcCreate() { this->utcCreate_ = nullptr;};
+    inline string utcCreate() const { DARABONBA_PTR_GET_DEFAULT(utcCreate_, "") };
+    inline SearchMediaByFaceRequest& setUtcCreate(string utcCreate) { DARABONBA_PTR_SET_VALUE(utcCreate_, utcCreate) };
+
+
   protected:
+    std::shared_ptr<string> customFilters_ = nullptr;
     // The ID of the entity.
     std::shared_ptr<string> entityId_ = nullptr;
     // The token that is used to identify the query. You can use this parameter in the SearchMediaClipByFace operation to specify the same query conditions.
@@ -125,6 +144,7 @@ namespace Models
     std::shared_ptr<string> personImageUrl_ = nullptr;
     // The name of the search library.
     std::shared_ptr<string> searchLibName_ = nullptr;
+    std::shared_ptr<string> utcCreate_ = nullptr;
   };
 
   } // namespace Models

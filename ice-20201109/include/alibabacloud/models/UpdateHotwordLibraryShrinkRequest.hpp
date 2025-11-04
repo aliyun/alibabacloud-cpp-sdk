@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->hotwordLibraryId_ != nullptr && this->hotwordsShrink_ != nullptr && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->hotwordLibraryId_ == nullptr && return this->hotwordsShrink_ == nullptr && return this->name_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The description of the hotword library. It can be up to 200 characters in length.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the hotword library.
+    // 
     // This parameter is required.
     std::shared_ptr<string> hotwordLibraryId_ = nullptr;
+    // The hotword list. You can add up to 300 hotword entries to a single library.
     std::shared_ptr<string> hotwordsShrink_ = nullptr;
+    // The name of the hotword library. It can be up to 100 characters in length.
     std::shared_ptr<string> name_ = nullptr;
   };
 

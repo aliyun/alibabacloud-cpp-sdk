@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->libId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->libId_ == nullptr
+        && return this->requestId_ == nullptr; };
     // libId Field Functions 
     bool hasLibId() const { return this->libId_ != nullptr;};
     void deleteLibId() { this->libId_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the recognition library created.
     std::shared_ptr<string> libId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

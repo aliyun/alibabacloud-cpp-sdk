@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidrs_ != nullptr
-        && this->createTime_ != nullptr && this->forbid_ != nullptr && this->outputName_ != nullptr && this->outputProtocol_ != nullptr && this->outputUrl_ != nullptr
-        && this->pairFlowId_ != nullptr && this->pairInputName_ != nullptr && this->playerLimit_ != nullptr && this->srtLatency_ != nullptr && this->srtPassphrase_ != nullptr
-        && this->srtPbkeyLen_ != nullptr; };
+    virtual bool empty() const override { return this->cidrs_ == nullptr
+        && return this->createTime_ == nullptr && return this->forbid_ == nullptr && return this->outputName_ == nullptr && return this->outputProtocol_ == nullptr && return this->outputUrl_ == nullptr
+        && return this->pairFlowId_ == nullptr && return this->pairInputName_ == nullptr && return this->playerLimit_ == nullptr && return this->srtLatency_ == nullptr && return this->srtPassphrase_ == nullptr
+        && return this->srtPbkeyLen_ == nullptr; };
     // cidrs Field Functions 
     bool hasCidrs() const { return this->cidrs_ != nullptr;};
     void deleteCidrs() { this->cidrs_ = nullptr;};

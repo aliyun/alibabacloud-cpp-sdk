@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->finishTime_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->taskInput_ != nullptr && this->userData_ != nullptr
-        && this->workflow_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->finishTime_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskInput_ == nullptr && return this->userData_ == nullptr
+        && return this->workflow_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -97,12 +97,27 @@ namespace Models
 
 
   protected:
+    // The time the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The time the task was completed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> finishTime_ = nullptr;
+    // The task state.
+    // 
+    // **Valid values**:
+    // 
+    // *   Init: Initializing
+    // *   Failed
+    // *   Canceled
+    // *   Processing
+    // *   Succeed
     std::shared_ptr<string> status_ = nullptr;
+    // The ID of the workflow task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // The input data for the workflow task.
     std::shared_ptr<string> taskInput_ = nullptr;
+    // The custom data that was passed when the task was submitted.
     std::shared_ptr<string> userData_ = nullptr;
+    // The information about the workflow template.
     std::shared_ptr<Models::ListWorkflowTasksResponseBodyTaskListWorkflow> workflow_ = nullptr;
   };
 

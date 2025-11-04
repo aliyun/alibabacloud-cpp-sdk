@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->type_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -48,7 +48,16 @@ namespace Models
 
 
   protected:
+    // A JSON string containing the detailed analysis data. The structure of this data depends on the Type field. For details, see the Result parameters section below.
     std::shared_ptr<string> data_ = nullptr;
+    // The type of analysis result. Valid values:
+    // 
+    // 1.  TextLabel: Tags from text content.
+    // 2.  VideoLabel: Tags from video content.
+    // 3.  ASR: Raw speech recognition results. Not returned by default.
+    // 4.  OCR: Raw text recognition results. Not returned by default.
+    // 5.  NLP: Natural Language Processing results. Not returned by default.
+    // 6.  Process: URL to the raw algorithm output. Not returned by default.
     std::shared_ptr<string> type_ = nullptr;
   };
 

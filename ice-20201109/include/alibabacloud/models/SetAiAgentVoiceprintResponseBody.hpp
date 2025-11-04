@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SETAIAGENTVOICEPRINTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_SETAIAGENTVOICEPRINTRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ICE20201109
+{
+namespace Models
+{
+  class SetAIAgentVoiceprintResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SetAIAgentVoiceprintResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(VoiceprintId, voiceprintId_);
+    };
+    friend void from_json(const Darabonba::Json& j, SetAIAgentVoiceprintResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(VoiceprintId, voiceprintId_);
+    };
+    SetAIAgentVoiceprintResponseBody() = default ;
+    SetAIAgentVoiceprintResponseBody(const SetAIAgentVoiceprintResponseBody &) = default ;
+    SetAIAgentVoiceprintResponseBody(SetAIAgentVoiceprintResponseBody &&) = default ;
+    SetAIAgentVoiceprintResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SetAIAgentVoiceprintResponseBody() = default ;
+    SetAIAgentVoiceprintResponseBody& operator=(const SetAIAgentVoiceprintResponseBody &) = default ;
+    SetAIAgentVoiceprintResponseBody& operator=(SetAIAgentVoiceprintResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->voiceprintId_ == nullptr; };
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline SetAIAgentVoiceprintResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // voiceprintId Field Functions 
+    bool hasVoiceprintId() const { return this->voiceprintId_ != nullptr;};
+    void deleteVoiceprintId() { this->voiceprintId_ = nullptr;};
+    inline string voiceprintId() const { DARABONBA_PTR_GET_DEFAULT(voiceprintId_, "") };
+    inline SetAIAgentVoiceprintResponseBody& setVoiceprintId(string voiceprintId) { DARABONBA_PTR_SET_VALUE(voiceprintId_, voiceprintId) };
+
+
+  protected:
+    // The request ID.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the registered voiceprint.
+    std::shared_ptr<string> voiceprintId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ICE20201109
+#endif

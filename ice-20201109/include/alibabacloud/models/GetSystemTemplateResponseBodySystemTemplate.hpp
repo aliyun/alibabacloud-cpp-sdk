@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->status_ != nullptr
-        && this->subtype_ != nullptr && this->subtypeName_ != nullptr && this->templateConfig_ != nullptr && this->templateId_ != nullptr && this->templateName_ != nullptr
-        && this->type_ != nullptr && this->typeName_ != nullptr; };
+    virtual bool empty() const override { return this->status_ == nullptr
+        && return this->subtype_ == nullptr && return this->subtypeName_ == nullptr && return this->templateConfig_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr
+        && return this->type_ == nullptr && return this->typeName_ == nullptr; };
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -98,8 +98,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline GetSystemTemplateResponseBodySystemTemplate& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline GetSystemTemplateResponseBodySystemTemplate& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
   protected:

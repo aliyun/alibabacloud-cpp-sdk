@@ -62,10 +62,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->finishTime_ != nullptr && this->inputGroup_ != nullptr && this->jobCount_ != nullptr && this->name_ != nullptr && this->outputGroup_ != nullptr
-        && this->parentJobId_ != nullptr && this->percent_ != nullptr && this->requestId_ != nullptr && this->scheduleConfig_ != nullptr && this->status_ != nullptr
-        && this->submitTime_ != nullptr && this->transcodeJobList_ != nullptr && this->triggerSource_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->finishTime_ == nullptr && return this->inputGroup_ == nullptr && return this->jobCount_ == nullptr && return this->name_ == nullptr && return this->outputGroup_ == nullptr
+        && return this->parentJobId_ == nullptr && return this->percent_ == nullptr && return this->requestId_ == nullptr && return this->scheduleConfig_ == nullptr && return this->status_ == nullptr
+        && return this->submitTime_ == nullptr && return this->transcodeJobList_ == nullptr && return this->triggerSource_ == nullptr && return this->userData_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

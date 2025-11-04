@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectExportJob_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->projectExportJob_ == nullptr
+        && return this->requestId_ == nullptr; };
     // projectExportJob Field Functions 
     bool hasProjectExportJob() const { return this->projectExportJob_ != nullptr;};
     void deleteProjectExportJob() { this->projectExportJob_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The project export task.
     std::shared_ptr<GetProjectExportJobResponseBodyProjectExportJob> projectExportJob_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

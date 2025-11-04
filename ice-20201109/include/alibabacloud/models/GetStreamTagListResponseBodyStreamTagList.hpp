@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->startTime_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->startTime_ == nullptr && return this->userData_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The end time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The user-defined data.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adaptive_ != nullptr
-        && this->borderColor_ != nullptr && this->borderWidth_ != nullptr && this->content_ != nullptr && this->fontAlpha_ != nullptr && this->fontColor_ != nullptr
-        && this->fontName_ != nullptr && this->fontSize_ != nullptr && this->left_ != nullptr && this->top_ != nullptr; };
+    virtual bool empty() const override { return this->adaptive_ == nullptr
+        && return this->borderColor_ == nullptr && return this->borderWidth_ == nullptr && return this->content_ == nullptr && return this->fontAlpha_ == nullptr && return this->fontColor_ == nullptr
+        && return this->fontName_ == nullptr && return this->fontSize_ == nullptr && return this->left_ == nullptr && return this->top_ == nullptr; };
     // adaptive Field Functions 
     bool hasAdaptive() const { return this->adaptive_ != nullptr;};
     void deleteAdaptive() { this->adaptive_ = nullptr;};

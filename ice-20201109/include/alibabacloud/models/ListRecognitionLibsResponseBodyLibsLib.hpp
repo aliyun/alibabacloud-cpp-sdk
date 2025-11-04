@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->libDescription_ != nullptr
-        && this->libId_ != nullptr && this->libName_ != nullptr; };
+    virtual bool empty() const override { return this->libDescription_ == nullptr
+        && return this->libId_ == nullptr && return this->libName_ == nullptr; };
     // libDescription Field Functions 
     bool hasLibDescription() const { return this->libDescription_ != nullptr;};
     void deleteLibDescription() { this->libDescription_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The description of the recognition library.
     std::shared_ptr<string> libDescription_ = nullptr;
+    // The ID of the recognition library.
     std::shared_ptr<string> libId_ = nullptr;
+    // The name of the recognition library.
     std::shared_ptr<string> libName_ = nullptr;
   };
 

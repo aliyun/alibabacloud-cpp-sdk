@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blackLevel_ != nullptr
-        && this->count_ != nullptr && this->frameType_ != nullptr && this->height_ != nullptr && this->interval_ != nullptr && this->isSptFrag_ != nullptr
-        && this->pixelBlackThreshold_ != nullptr && this->spriteSnapshotConfig_ != nullptr && this->time_ != nullptr && this->type_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->blackLevel_ == nullptr
+        && return this->count_ == nullptr && return this->frameType_ == nullptr && return this->height_ == nullptr && return this->interval_ == nullptr && return this->isSptFrag_ == nullptr
+        && return this->pixelBlackThreshold_ == nullptr && return this->spriteSnapshotConfig_ == nullptr && return this->time_ == nullptr && return this->type_ == nullptr && return this->width_ == nullptr; };
     // blackLevel Field Functions 
     bool hasBlackLevel() const { return this->blackLevel_ != nullptr;};
     void deleteBlackLevel() { this->blackLevel_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->input_ != nullptr && this->jobId_ != nullptr && this->level_ != nullptr && this->message_ != nullptr
-        && this->output_ != nullptr && this->result_ != nullptr && this->status_ != nullptr && this->userData_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->input_ == nullptr && return this->jobId_ == nullptr && return this->level_ == nullptr && return this->message_ == nullptr
+        && return this->output_ == nullptr && return this->result_ == nullptr && return this->status_ == nullptr && return this->userData_ == nullptr && return this->userId_ == nullptr; };
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -136,16 +136,27 @@ namespace Models
 
 
   protected:
+    // The creation time of the job.
     std::shared_ptr<int64_t> gmtCreate_ = nullptr;
+    // The last modification time of the job.
     std::shared_ptr<int64_t> gmtModified_ = nullptr;
+    // Information about the input video for watermarking.
     std::shared_ptr<Models::QueryCopyrightJobListResponseBodyDataInput> input_ = nullptr;
+    // The job ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The watermark level.
     std::shared_ptr<int64_t> level_ = nullptr;
+    // The content of the embedded watermark.
     std::shared_ptr<string> message_ = nullptr;
+    // Information about the watermarked output video.
     std::shared_ptr<Models::QueryCopyrightJobListResponseBodyDataOutput> output_ = nullptr;
+    // The job result.
     std::shared_ptr<string> result_ = nullptr;
+    // The status of the job.
     std::shared_ptr<string> status_ = nullptr;
+    // The user-defined data.
     std::shared_ptr<string> userData_ = nullptr;
+    // The ID of the user who initiated the job.
     std::shared_ptr<int64_t> userId_ = nullptr;
   };
 

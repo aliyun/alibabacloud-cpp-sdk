@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->barrages_ != nullptr
-        && this->coverImages_ != nullptr && this->description_ != nullptr && this->inputShrink_ != nullptr && this->notifyUrl_ != nullptr && this->output_ != nullptr
-        && this->scheduleConfigShrink_ != nullptr && this->templateId_ != nullptr && this->title_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->barrages_ == nullptr
+        && return this->coverImages_ == nullptr && return this->description_ == nullptr && return this->inputShrink_ == nullptr && return this->notifyUrl_ == nullptr && return this->output_ == nullptr
+        && return this->scheduleConfigShrink_ == nullptr && return this->templateId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
     // barrages Field Functions 
     bool hasBarrages() const { return this->barrages_ != nullptr;};
     void deleteBarrages() { this->barrages_ = nullptr;};

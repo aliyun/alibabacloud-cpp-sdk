@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inputShrink_ != nullptr
-        && this->params_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->inputShrink_ == nullptr
+        && return this->params_ == nullptr && return this->userData_ == nullptr; };
     // inputShrink Field Functions 
     bool hasInputShrink() const { return this->inputShrink_ != nullptr;};
     void deleteInputShrink() { this->inputShrink_ = nullptr;};
@@ -57,9 +57,20 @@ namespace Models
 
 
   protected:
+    // The source video file from which to extract the watermark.
+    // 
+    // > The OSS object or media asset must reside in the same region as the IMS service region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> inputShrink_ = nullptr;
+    // Additional parameters for the watermark job, provided as a JSON string. Supported parameter:
+    // 
+    // *   algoType: The algorithm type. Defaults to v1. The extraction algorithm must match the one used for embedding.
+    // 
+    //     *   v1: Copyright watermark extraction algorithm for long videos.
+    //     *   v2: Copyright watermark extraction algorithm for short videos.
     std::shared_ptr<string> params_ = nullptr;
+    // The custom data, which can be up to 1,024 bytes in size.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

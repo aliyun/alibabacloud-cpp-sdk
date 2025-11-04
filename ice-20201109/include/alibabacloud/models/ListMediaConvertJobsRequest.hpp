@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endOfCreateTime_ != nullptr
-        && this->jobId_ != nullptr && this->nextPageToken_ != nullptr && this->orderBy_ != nullptr && this->pageSize_ != nullptr && this->startOfCreateTime_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->endOfCreateTime_ == nullptr
+        && return this->jobId_ == nullptr && return this->nextPageToken_ == nullptr && return this->orderBy_ == nullptr && return this->pageSize_ == nullptr && return this->startOfCreateTime_ == nullptr
+        && return this->status_ == nullptr; };
     // endOfCreateTime Field Functions 
     bool hasEndOfCreateTime() const { return this->endOfCreateTime_ != nullptr;};
     void deleteEndOfCreateTime() { this->endOfCreateTime_ = nullptr;};
@@ -94,12 +94,24 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     std::shared_ptr<string> endOfCreateTime_ = nullptr;
+    // The task ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
     std::shared_ptr<string> nextPageToken_ = nullptr;
+    // The sorting order. Valid values: CreateTimeDesc: sorts by create time in descending order. CreateTimeAsc: sorts by create time in ascending order.
     std::shared_ptr<string> orderBy_ = nullptr;
+    // The number of entries per page. Valid values: 0 to 100. Default value: 20.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     std::shared_ptr<string> startOfCreateTime_ = nullptr;
+    // The task status.
+    // 
+    // *   Inited: submitted
+    // *   Running
+    // *   Complete
+    // *   Error
     std::shared_ptr<string> status_ = nullptr;
   };
 

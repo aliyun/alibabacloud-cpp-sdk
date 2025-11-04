@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clipsParam_ != nullptr
-        && this->code_ != nullptr && this->completeTime_ != nullptr && this->createTime_ != nullptr && this->duration_ != nullptr && this->jobId_ != nullptr
-        && this->mediaId_ != nullptr && this->mediaURL_ != nullptr && this->message_ != nullptr && this->modifiedTime_ != nullptr && this->projectId_ != nullptr
-        && this->status_ != nullptr && this->templateId_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->clipsParam_ == nullptr
+        && return this->code_ == nullptr && return this->completeTime_ == nullptr && return this->createTime_ == nullptr && return this->duration_ == nullptr && return this->jobId_ == nullptr
+        && return this->mediaId_ == nullptr && return this->mediaURL_ == nullptr && return this->message_ == nullptr && return this->modifiedTime_ == nullptr && return this->projectId_ == nullptr
+        && return this->status_ == nullptr && return this->templateId_ == nullptr && return this->userData_ == nullptr; };
     // clipsParam Field Functions 
     bool hasClipsParam() const { return this->clipsParam_ != nullptr;};
     void deleteClipsParam() { this->clipsParam_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->input_ != nullptr
-        && this->namespace_ != nullptr && this->searchLibName_ != nullptr; };
+    virtual bool empty() const override { return this->input_ == nullptr
+        && return this->namespace_ == nullptr && return this->searchLibName_ == nullptr; };
     // input Field Functions 
     bool hasInput() const { return this->input_ != nullptr;};
     void deleteInput() { this->input_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The URL of the live stream to be ingested and analyzed.
     std::shared_ptr<string> input_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The search library.
     std::shared_ptr<string> searchLibName_ = nullptr;
   };
 

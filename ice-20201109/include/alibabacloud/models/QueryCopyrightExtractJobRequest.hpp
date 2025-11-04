@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The job ID. You can obtain the value of this parameter from the response of the SubmitCopyrightExtractJob operation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobId_ = nullptr;
   };

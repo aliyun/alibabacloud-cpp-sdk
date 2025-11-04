@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->indexReadiness_ != nullptr
-        && this->indexStatus_ != nullptr && this->indexType_ != nullptr; };
+    virtual bool empty() const override { return this->indexReadiness_ == nullptr
+        && return this->indexStatus_ == nullptr && return this->indexType_ == nullptr; };
     // indexReadiness Field Functions 
     bool hasIndexReadiness() const { return this->indexReadiness_ != nullptr;};
     void deleteIndexReadiness() { this->indexReadiness_ = nullptr;};

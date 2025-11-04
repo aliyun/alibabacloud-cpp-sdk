@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->media_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->media_ == nullptr
+        && return this->type_ == nullptr; };
     // media Field Functions 
     bool hasMedia() const { return this->media_ != nullptr;};
     void deleteMedia() { this->media_ = nullptr;};
@@ -48,7 +48,17 @@ namespace Models
 
 
   protected:
+    // If Type is set to OSS, specify an OSS path. Example: OSS://test-bucket/video/202208/test.mp4.
+    // 
+    // If Type is set to Media, specify a media asset ID. Example: c5c62d8f0361337cab312dce8e77dc6d.
+    // 
+    // If Type is set to URL, specify an HTTP URL. Example: https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4.
     std::shared_ptr<string> media_ = nullptr;
+    // The type of media input. Valid values:
+    // 
+    // *   OSS
+    // *   Media
+    // *   URL
     std::shared_ptr<string> type_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->flowId_ != nullptr
-        && this->outputName_ != nullptr; };
+    virtual bool empty() const override { return this->flowId_ == nullptr
+        && return this->outputName_ == nullptr; };
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the MediaConnect flow.
     std::shared_ptr<string> flowId_ = nullptr;
+    // The name of the output.
     std::shared_ptr<string> outputName_ = nullptr;
   };
 

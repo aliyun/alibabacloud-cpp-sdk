@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->message_ != nullptr && this->requestId_ != nullptr && this->statusCode_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->statusCode_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
+    // The data returned.
     std::shared_ptr<vector<QueryCopyrightJobListResponseBodyData>> data_ = nullptr;
+    // The message returned.
     std::shared_ptr<string> message_ = nullptr;
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status code.
     std::shared_ptr<int64_t> statusCode_ = nullptr;
   };
 

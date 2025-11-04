@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hotwordLibraryList_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->hotwordLibraryList_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // hotwordLibraryList Field Functions 
     bool hasHotwordLibraryList() const { return this->hotwordLibraryList_ != nullptr;};
     void deleteHotwordLibraryList() { this->hotwordLibraryList_ = nullptr;};
@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The hotword libraries.
     std::shared_ptr<vector<ListHotwordLibrariesResponseBodyHotwordLibraryList>> hotwordLibraryList_ = nullptr;
+    // The maximum number of hotword libraries that can be returned.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token that can be used in the next request to retrieve a new page of results. If it is empty, all results are returned.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of hotword libraries.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

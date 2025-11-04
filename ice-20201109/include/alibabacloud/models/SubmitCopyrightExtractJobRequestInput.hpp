@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->media_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->media_ == nullptr
+        && return this->type_ == nullptr; };
     // media Field Functions 
     bool hasMedia() const { return this->media_ != nullptr;};
     void deleteMedia() { this->media_ = nullptr;};
@@ -48,8 +48,21 @@ namespace Models
 
 
   protected:
+    // The specific information for the input file, which can be an OSS URL or a media asset ID. OSS URL formats:
+    // 
+    // 1\\. oss://bucket/object
+    // 
+    // 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+    // 
+    // where bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object path in OSS.
+    // 
     // This parameter is required.
     std::shared_ptr<string> media_ = nullptr;
+    // The type of the source file. Valid values:
+    // 
+    // 1.  OSS: an OSS object.
+    // 2.  Media: a media asset.
+    // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
   };

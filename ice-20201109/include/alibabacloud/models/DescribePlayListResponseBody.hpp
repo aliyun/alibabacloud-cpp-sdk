@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNum_ != nullptr
-        && this->pageSize_ != nullptr && this->playList_ != nullptr && this->requestId_ != nullptr && this->totalNum_ != nullptr; };
+    virtual bool empty() const override { return this->pageNum_ == nullptr
+        && return this->pageSize_ == nullptr && return this->playList_ == nullptr && return this->requestId_ == nullptr && return this->totalNum_ == nullptr; };
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
@@ -79,11 +79,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int64_t> pageNum_ = nullptr;
+    // The number of entries per page. Default value: 20. Valid values: 1 to 100.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The playback records.
     std::shared_ptr<vector<DescribePlayListResponseBodyPlayList>> playList_ = nullptr;
-    // Id
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total playback count.
     std::shared_ptr<int64_t> totalNum_ = nullptr;
   };
 

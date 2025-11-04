@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxVideoBitsPerSecond_ != nullptr
-        && this->minVideoBitsPerSecond_ != nullptr && this->streamOrder_ != nullptr; };
+    virtual bool empty() const override { return this->maxVideoBitsPerSecond_ == nullptr
+        && return this->minVideoBitsPerSecond_ == nullptr && return this->streamOrder_ == nullptr; };
     // maxVideoBitsPerSecond Field Functions 
     bool hasMaxVideoBitsPerSecond() const { return this->maxVideoBitsPerSecond_ != nullptr;};
     void deleteMaxVideoBitsPerSecond() { this->maxVideoBitsPerSecond_ = nullptr;};

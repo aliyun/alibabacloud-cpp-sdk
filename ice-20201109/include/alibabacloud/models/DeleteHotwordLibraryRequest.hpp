@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hotwordLibraryId_ != nullptr; };
+    virtual bool empty() const override { return this->hotwordLibraryId_ == nullptr; };
     // hotwordLibraryId Field Functions 
     bool hasHotwordLibraryId() const { return this->hotwordLibraryId_ != nullptr;};
     void deleteHotwordLibraryId() { this->hotwordLibraryId_ = nullptr;};
@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the hotword library that you want to delete.
     std::shared_ptr<string> hotwordLibraryId_ = nullptr;
   };
 

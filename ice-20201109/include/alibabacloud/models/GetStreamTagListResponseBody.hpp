@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->streamTagList_ != nullptr && this->success_ != nullptr && this->total_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->streamTagList_ == nullptr && return this->success_ == nullptr && return this->total_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -88,12 +88,20 @@ namespace Models
 
 
   protected:
+    // The return code.
     std::shared_ptr<string> code_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
-    // Id of the request
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The tag information.
     std::shared_ptr<vector<GetStreamTagListResponseBodyStreamTagList>> streamTagList_ = nullptr;
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<string> success_ = nullptr;
+    // The total number of entries that are returned.
     std::shared_ptr<int64_t> total_ = nullptr;
   };
 

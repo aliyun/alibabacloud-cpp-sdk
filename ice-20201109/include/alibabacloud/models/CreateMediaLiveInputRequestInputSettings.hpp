@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->flowId_ != nullptr
-        && this->flowOutputName_ != nullptr && this->sourceUrl_ != nullptr && this->srtLatency_ != nullptr && this->srtMaxBitrate_ != nullptr && this->srtPassphrase_ != nullptr
-        && this->srtPbKeyLen_ != nullptr && this->streamName_ != nullptr; };
+    virtual bool empty() const override { return this->flowId_ == nullptr
+        && return this->flowOutputName_ == nullptr && return this->sourceUrl_ == nullptr && return this->srtLatency_ == nullptr && return this->srtMaxBitrate_ == nullptr && return this->srtPassphrase_ == nullptr
+        && return this->srtPbKeyLen_ == nullptr && return this->streamName_ == nullptr; };
     // flowId Field Functions 
     bool hasFlowId() const { return this->flowId_ != nullptr;};
     void deleteFlowId() { this->flowId_ = nullptr;};

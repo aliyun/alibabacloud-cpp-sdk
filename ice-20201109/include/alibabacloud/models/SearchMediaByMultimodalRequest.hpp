@@ -13,20 +13,24 @@ namespace Models
   class SearchMediaByMultimodalRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SearchMediaByMultimodalRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_TO_JSON(MediaType, mediaType_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SearchLibName, searchLibName_);
       DARABONBA_PTR_TO_JSON(Text, text_);
+      DARABONBA_PTR_TO_JSON(UtcCreate, utcCreate_);
     };
     friend void from_json(const Darabonba::Json& j, SearchMediaByMultimodalRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomFilters, customFilters_);
       DARABONBA_PTR_FROM_JSON(MediaType, mediaType_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SearchLibName, searchLibName_);
       DARABONBA_PTR_FROM_JSON(Text, text_);
+      DARABONBA_PTR_FROM_JSON(UtcCreate, utcCreate_);
     };
     SearchMediaByMultimodalRequest() = default ;
     SearchMediaByMultimodalRequest(const SearchMediaByMultimodalRequest &) = default ;
@@ -39,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mediaType_ != nullptr
-        && this->namespace_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->searchLibName_ != nullptr && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->customFilters_ == nullptr
+        && return this->mediaType_ == nullptr && return this->namespace_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->searchLibName_ == nullptr
+        && return this->text_ == nullptr && return this->utcCreate_ == nullptr; };
+    // customFilters Field Functions 
+    bool hasCustomFilters() const { return this->customFilters_ != nullptr;};
+    void deleteCustomFilters() { this->customFilters_ = nullptr;};
+    inline string customFilters() const { DARABONBA_PTR_GET_DEFAULT(customFilters_, "") };
+    inline SearchMediaByMultimodalRequest& setCustomFilters(string customFilters) { DARABONBA_PTR_SET_VALUE(customFilters_, customFilters) };
+
+
     // mediaType Field Functions 
     bool hasMediaType() const { return this->mediaType_ != nullptr;};
     void deleteMediaType() { this->mediaType_ = nullptr;};
@@ -83,7 +95,15 @@ namespace Models
     inline SearchMediaByMultimodalRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
+    // utcCreate Field Functions 
+    bool hasUtcCreate() const { return this->utcCreate_ != nullptr;};
+    void deleteUtcCreate() { this->utcCreate_ = nullptr;};
+    inline string utcCreate() const { DARABONBA_PTR_GET_DEFAULT(utcCreate_, "") };
+    inline SearchMediaByMultimodalRequest& setUtcCreate(string utcCreate) { DARABONBA_PTR_SET_VALUE(utcCreate_, utcCreate) };
+
+
   protected:
+    std::shared_ptr<string> customFilters_ = nullptr;
     // The type of the media assets.
     // 
     // Valid values:
@@ -100,6 +120,7 @@ namespace Models
     std::shared_ptr<string> searchLibName_ = nullptr;
     // The content that you want to query. You can describe the content in natural language.
     std::shared_ptr<string> text_ = nullptr;
+    std::shared_ptr<string> utcCreate_ = nullptr;
   };
 
   } // namespace Models
