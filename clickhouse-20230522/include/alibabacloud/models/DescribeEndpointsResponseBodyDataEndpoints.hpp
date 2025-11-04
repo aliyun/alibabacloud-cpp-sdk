@@ -15,6 +15,7 @@ namespace Models
   class DescribeEndpointsResponseBodyDataEndpoints : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeEndpointsResponseBodyDataEndpoints& obj) { 
+      DARABONBA_PTR_TO_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_TO_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_TO_JSON(IPAddress, IPAddress_);
       DARABONBA_PTR_TO_JSON(NetType, netType_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VpcInstanceId, vpcInstanceId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEndpointsResponseBodyDataEndpoints& obj) { 
+      DARABONBA_PTR_FROM_JSON(ComputingGroupId, computingGroupId_);
       DARABONBA_PTR_FROM_JSON(ConnectionString, connectionString_);
       DARABONBA_PTR_FROM_JSON(IPAddress, IPAddress_);
       DARABONBA_PTR_FROM_JSON(NetType, netType_);
@@ -45,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->connectionString_ == nullptr
-        && return this->IPAddress_ == nullptr && return this->netType_ == nullptr && return this->ports_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vpcId_ == nullptr && return this->vpcInstanceId_ == nullptr; };
+    virtual bool empty() const override { return this->computingGroupId_ == nullptr
+        && return this->connectionString_ == nullptr && return this->IPAddress_ == nullptr && return this->netType_ == nullptr && return this->ports_ == nullptr && return this->status_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->vpcInstanceId_ == nullptr; };
+    // computingGroupId Field Functions 
+    bool hasComputingGroupId() const { return this->computingGroupId_ != nullptr;};
+    void deleteComputingGroupId() { this->computingGroupId_ = nullptr;};
+    inline string computingGroupId() const { DARABONBA_PTR_GET_DEFAULT(computingGroupId_, "") };
+    inline DescribeEndpointsResponseBodyDataEndpoints& setComputingGroupId(string computingGroupId) { DARABONBA_PTR_SET_VALUE(computingGroupId_, computingGroupId) };
+
+
     // connectionString Field Functions 
     bool hasConnectionString() const { return this->connectionString_ != nullptr;};
     void deleteConnectionString() { this->connectionString_ = nullptr;};
@@ -107,6 +116,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> computingGroupId_ = nullptr;
     // The endpoint of the cluster.
     std::shared_ptr<string> connectionString_ = nullptr;
     // The IP address.
