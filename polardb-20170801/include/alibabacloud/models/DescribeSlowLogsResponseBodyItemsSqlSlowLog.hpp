@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
       DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
       DARABONBA_PTR_TO_JSON(MaxExecutionTime, maxExecutionTime_);
+      DARABONBA_PTR_TO_JSON(MaxExecutionTimeMs, maxExecutionTimeMs_);
       DARABONBA_PTR_TO_JSON(MaxLockTime, maxLockTime_);
       DARABONBA_PTR_TO_JSON(ParseMaxRowCount, parseMaxRowCount_);
       DARABONBA_PTR_TO_JSON(ParseTotalRowCounts, parseTotalRowCounts_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
       DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
       DARABONBA_PTR_FROM_JSON(MaxExecutionTime, maxExecutionTime_);
+      DARABONBA_PTR_FROM_JSON(MaxExecutionTimeMs, maxExecutionTimeMs_);
       DARABONBA_PTR_FROM_JSON(MaxLockTime, maxLockTime_);
       DARABONBA_PTR_FROM_JSON(ParseMaxRowCount, parseMaxRowCount_);
       DARABONBA_PTR_FROM_JSON(ParseTotalRowCounts, parseTotalRowCounts_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->DBName_ == nullptr && return this->DBNodeId_ == nullptr && return this->maxExecutionTime_ == nullptr && return this->maxLockTime_ == nullptr && return this->parseMaxRowCount_ == nullptr
-        && return this->parseTotalRowCounts_ == nullptr && return this->returnMaxRowCount_ == nullptr && return this->returnTotalRowCounts_ == nullptr && return this->SQLHASH_ == nullptr && return this->SQLText_ == nullptr
-        && return this->totalExecutionCounts_ == nullptr && return this->totalExecutionTimes_ == nullptr && return this->totalLockTimes_ == nullptr; };
+        && return this->DBName_ == nullptr && return this->DBNodeId_ == nullptr && return this->maxExecutionTime_ == nullptr && return this->maxExecutionTimeMs_ == nullptr && return this->maxLockTime_ == nullptr
+        && return this->parseMaxRowCount_ == nullptr && return this->parseTotalRowCounts_ == nullptr && return this->returnMaxRowCount_ == nullptr && return this->returnTotalRowCounts_ == nullptr && return this->SQLHASH_ == nullptr
+        && return this->SQLText_ == nullptr && return this->totalExecutionCounts_ == nullptr && return this->totalExecutionTimes_ == nullptr && return this->totalLockTimes_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -85,6 +87,13 @@ namespace Models
     void deleteMaxExecutionTime() { this->maxExecutionTime_ = nullptr;};
     inline int64_t maxExecutionTime() const { DARABONBA_PTR_GET_DEFAULT(maxExecutionTime_, 0L) };
     inline DescribeSlowLogsResponseBodyItemsSQLSlowLog& setMaxExecutionTime(int64_t maxExecutionTime) { DARABONBA_PTR_SET_VALUE(maxExecutionTime_, maxExecutionTime) };
+
+
+    // maxExecutionTimeMs Field Functions 
+    bool hasMaxExecutionTimeMs() const { return this->maxExecutionTimeMs_ != nullptr;};
+    void deleteMaxExecutionTimeMs() { this->maxExecutionTimeMs_ = nullptr;};
+    inline string maxExecutionTimeMs() const { DARABONBA_PTR_GET_DEFAULT(maxExecutionTimeMs_, "") };
+    inline DescribeSlowLogsResponseBodyItemsSQLSlowLog& setMaxExecutionTimeMs(string maxExecutionTimeMs) { DARABONBA_PTR_SET_VALUE(maxExecutionTimeMs_, maxExecutionTimeMs) };
 
 
     // maxLockTime Field Functions 
@@ -166,6 +175,7 @@ namespace Models
     std::shared_ptr<string> DBNodeId_ = nullptr;
     // The longest execution duration of a specific SQL statement in the query. Unit: seconds.
     std::shared_ptr<int64_t> maxExecutionTime_ = nullptr;
+    std::shared_ptr<string> maxExecutionTimeMs_ = nullptr;
     // The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
     std::shared_ptr<int64_t> maxLockTime_ = nullptr;
     // The largest number of rows that were parsed by a specific SQL statement in the query.
