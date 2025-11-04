@@ -1777,6 +1777,10 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
     query["Verbose"] = request.verbose();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

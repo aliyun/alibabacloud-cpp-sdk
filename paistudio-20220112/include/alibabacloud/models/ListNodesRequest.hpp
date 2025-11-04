@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupIds, resourceGroupIds_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(Verbose, verbose_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListNodesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AcceleratorType, acceleratorType_);
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupIds, resourceGroupIds_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(Verbose, verbose_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListNodesRequest() = default ;
     ListNodesRequest(const ListNodesRequest &) = default ;
@@ -78,7 +80,7 @@ namespace Models
         && return this->hyperNode_ == nullptr && return this->hyperZone_ == nullptr && return this->machineGroupIds_ == nullptr && return this->nodeNames_ == nullptr && return this->nodeStatuses_ == nullptr
         && return this->nodeTypes_ == nullptr && return this->order_ == nullptr && return this->orderInstanceIds_ == nullptr && return this->orderStatuses_ == nullptr && return this->pageNumber_ == nullptr
         && return this->pageSize_ == nullptr && return this->paymentType_ == nullptr && return this->quotaId_ == nullptr && return this->reasonCodes_ == nullptr && return this->resourceGroupIds_ == nullptr
-        && return this->sortBy_ == nullptr && return this->verbose_ == nullptr; };
+        && return this->sortBy_ == nullptr && return this->verbose_ == nullptr && return this->workspaceId_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -240,6 +242,13 @@ namespace Models
     inline ListNodesRequest& setVerbose(bool verbose) { DARABONBA_PTR_SET_VALUE(verbose_, verbose) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListNodesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     std::shared_ptr<string> acceleratorType_ = nullptr;
     std::shared_ptr<string> availabilityZone_ = nullptr;
@@ -264,6 +273,7 @@ namespace Models
     std::shared_ptr<string> resourceGroupIds_ = nullptr;
     std::shared_ptr<string> sortBy_ = nullptr;
     std::shared_ptr<bool> verbose_ = nullptr;
+    std::shared_ptr<string> workspaceId_ = nullptr;
   };
 
   } // namespace Models

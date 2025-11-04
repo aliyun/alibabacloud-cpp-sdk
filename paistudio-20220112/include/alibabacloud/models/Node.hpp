@@ -25,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CPU, CPU_);
       DARABONBA_PTR_TO_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_TO_JSON(DescendantQuotaWorkloadNum, descendantQuotaWorkloadNum_);
+      DARABONBA_PTR_TO_JSON(DiskCapacity, diskCapacity_);
+      DARABONBA_PTR_TO_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_TO_JSON(GPU, GPU_);
       DARABONBA_PTR_TO_JSON(GPUMemory, GPUMemory_);
       DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
@@ -66,6 +68,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CPU, CPU_);
       DARABONBA_PTR_FROM_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_FROM_JSON(DescendantQuotaWorkloadNum, descendantQuotaWorkloadNum_);
+      DARABONBA_PTR_FROM_JSON(DiskCapacity, diskCapacity_);
+      DARABONBA_PTR_FROM_JSON(DiskPL, diskPL_);
       DARABONBA_PTR_FROM_JSON(GPU, GPU_);
       DARABONBA_PTR_FROM_JSON(GPUMemory, GPUMemory_);
       DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
@@ -110,13 +114,13 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratorType_ == nullptr
         && return this->allocatableCPU_ == nullptr && return this->allocatableMemory_ == nullptr && return this->ancestorQuotaWorkloadNum_ == nullptr && return this->availabilityZone_ == nullptr && return this->boundQuotas_ == nullptr
-        && return this->CPU_ == nullptr && return this->creatorId_ == nullptr && return this->descendantQuotaWorkloadNum_ == nullptr && return this->GPU_ == nullptr && return this->GPUMemory_ == nullptr
-        && return this->GPUType_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtExpiredTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperZone_ == nullptr
-        && return this->isBound_ == nullptr && return this->limitCPU_ == nullptr && return this->limitGPU_ == nullptr && return this->limitMemory_ == nullptr && return this->machineGroupId_ == nullptr
-        && return this->memory_ == nullptr && return this->nodeName_ == nullptr && return this->nodeStatus_ == nullptr && return this->nodeType_ == nullptr && return this->orderStatus_ == nullptr
-        && return this->podNum_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr
-        && return this->requestMemory_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupName_ == nullptr && return this->selfQuotaWorkloadNum_ == nullptr && return this->systemReservedCPU_ == nullptr
-        && return this->systemReservedMemory_ == nullptr && return this->users_ == nullptr && return this->workloadNum_ == nullptr; };
+        && return this->CPU_ == nullptr && return this->creatorId_ == nullptr && return this->descendantQuotaWorkloadNum_ == nullptr && return this->diskCapacity_ == nullptr && return this->diskPL_ == nullptr
+        && return this->GPU_ == nullptr && return this->GPUMemory_ == nullptr && return this->GPUType_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtExpiredTime_ == nullptr
+        && return this->gmtModifiedTime_ == nullptr && return this->hyperZone_ == nullptr && return this->isBound_ == nullptr && return this->limitCPU_ == nullptr && return this->limitGPU_ == nullptr
+        && return this->limitMemory_ == nullptr && return this->machineGroupId_ == nullptr && return this->memory_ == nullptr && return this->nodeName_ == nullptr && return this->nodeStatus_ == nullptr
+        && return this->nodeType_ == nullptr && return this->orderStatus_ == nullptr && return this->podNum_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
+        && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupName_ == nullptr
+        && return this->selfQuotaWorkloadNum_ == nullptr && return this->systemReservedCPU_ == nullptr && return this->systemReservedMemory_ == nullptr && return this->users_ == nullptr && return this->workloadNum_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -180,6 +184,20 @@ namespace Models
     void deleteDescendantQuotaWorkloadNum() { this->descendantQuotaWorkloadNum_ = nullptr;};
     inline int64_t descendantQuotaWorkloadNum() const { DARABONBA_PTR_GET_DEFAULT(descendantQuotaWorkloadNum_, 0L) };
     inline Node& setDescendantQuotaWorkloadNum(int64_t descendantQuotaWorkloadNum) { DARABONBA_PTR_SET_VALUE(descendantQuotaWorkloadNum_, descendantQuotaWorkloadNum) };
+
+
+    // diskCapacity Field Functions 
+    bool hasDiskCapacity() const { return this->diskCapacity_ != nullptr;};
+    void deleteDiskCapacity() { this->diskCapacity_ = nullptr;};
+    inline int64_t diskCapacity() const { DARABONBA_PTR_GET_DEFAULT(diskCapacity_, 0L) };
+    inline Node& setDiskCapacity(int64_t diskCapacity) { DARABONBA_PTR_SET_VALUE(diskCapacity_, diskCapacity) };
+
+
+    // diskPL Field Functions 
+    bool hasDiskPL() const { return this->diskPL_ != nullptr;};
+    void deleteDiskPL() { this->diskPL_ = nullptr;};
+    inline string diskPL() const { DARABONBA_PTR_GET_DEFAULT(diskPL_, "") };
+    inline Node& setDiskPL(string diskPL) { DARABONBA_PTR_SET_VALUE(diskPL_, diskPL) };
 
 
     // GPU Field Functions 
@@ -404,6 +422,8 @@ namespace Models
     std::shared_ptr<string> CPU_ = nullptr;
     std::shared_ptr<string> creatorId_ = nullptr;
     std::shared_ptr<int64_t> descendantQuotaWorkloadNum_ = nullptr;
+    std::shared_ptr<int64_t> diskCapacity_ = nullptr;
+    std::shared_ptr<string> diskPL_ = nullptr;
     std::shared_ptr<string> GPU_ = nullptr;
     std::shared_ptr<string> GPUMemory_ = nullptr;
     std::shared_ptr<string> GPUType_ = nullptr;

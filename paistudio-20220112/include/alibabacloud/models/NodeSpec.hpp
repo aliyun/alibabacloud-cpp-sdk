@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const NodeSpec& obj) { 
       DARABONBA_PTR_TO_JSON(BindingPolicy, bindingPolicy_);
       DARABONBA_PTR_TO_JSON(Count, count_);
+      DARABONBA_PTR_TO_JSON(HyperType, hyperType_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, NodeSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(BindingPolicy, bindingPolicy_);
       DARABONBA_PTR_FROM_JSON(Count, count_);
+      DARABONBA_PTR_FROM_JSON(HyperType, hyperType_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     NodeSpec() = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindingPolicy_ == nullptr
-        && return this->count_ == nullptr && return this->type_ == nullptr; };
+        && return this->count_ == nullptr && return this->hyperType_ == nullptr && return this->type_ == nullptr; };
     // bindingPolicy Field Functions 
     bool hasBindingPolicy() const { return this->bindingPolicy_ != nullptr;};
     void deleteBindingPolicy() { this->bindingPolicy_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     inline NodeSpec& setCount(int64_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
+    // hyperType Field Functions 
+    bool hasHyperType() const { return this->hyperType_ != nullptr;};
+    void deleteHyperType() { this->hyperType_ = nullptr;};
+    inline string hyperType() const { DARABONBA_PTR_GET_DEFAULT(hyperType_, "") };
+    inline NodeSpec& setHyperType(string hyperType) { DARABONBA_PTR_SET_VALUE(hyperType_, hyperType) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -62,6 +71,7 @@ namespace Models
   protected:
     std::shared_ptr<BindingPolicy> bindingPolicy_ = nullptr;
     std::shared_ptr<int64_t> count_ = nullptr;
+    std::shared_ptr<string> hyperType_ = nullptr;
     std::shared_ptr<string> type_ = nullptr;
   };
 
