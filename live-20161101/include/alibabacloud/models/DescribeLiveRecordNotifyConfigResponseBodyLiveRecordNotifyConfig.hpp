@@ -15,12 +15,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig& obj) { 
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(NeedStatusNotify, needStatusNotify_);
+      DARABONBA_PTR_TO_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_TO_JSON(NotifyReqAuth, notifyReqAuth_);
       DARABONBA_PTR_TO_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_TO_JSON(OnDemandUrl, onDemandUrl_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(NeedStatusNotify, needStatusNotify_);
+      DARABONBA_PTR_FROM_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_FROM_JSON(NotifyReqAuth, notifyReqAuth_);
       DARABONBA_PTR_FROM_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_FROM_JSON(OnDemandUrl, onDemandUrl_);
     };
@@ -36,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && return this->needStatusNotify_ == nullptr && return this->notifyUrl_ == nullptr && return this->onDemandUrl_ == nullptr; };
+        && return this->needStatusNotify_ == nullptr && return this->notifyAuthKey_ == nullptr && return this->notifyReqAuth_ == nullptr && return this->notifyUrl_ == nullptr && return this->onDemandUrl_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
@@ -49,6 +53,20 @@ namespace Models
     void deleteNeedStatusNotify() { this->needStatusNotify_ = nullptr;};
     inline bool needStatusNotify() const { DARABONBA_PTR_GET_DEFAULT(needStatusNotify_, false) };
     inline DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig& setNeedStatusNotify(bool needStatusNotify) { DARABONBA_PTR_SET_VALUE(needStatusNotify_, needStatusNotify) };
+
+
+    // notifyAuthKey Field Functions 
+    bool hasNotifyAuthKey() const { return this->notifyAuthKey_ != nullptr;};
+    void deleteNotifyAuthKey() { this->notifyAuthKey_ = nullptr;};
+    inline string notifyAuthKey() const { DARABONBA_PTR_GET_DEFAULT(notifyAuthKey_, "") };
+    inline DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig& setNotifyAuthKey(string notifyAuthKey) { DARABONBA_PTR_SET_VALUE(notifyAuthKey_, notifyAuthKey) };
+
+
+    // notifyReqAuth Field Functions 
+    bool hasNotifyReqAuth() const { return this->notifyReqAuth_ != nullptr;};
+    void deleteNotifyReqAuth() { this->notifyReqAuth_ = nullptr;};
+    inline bool notifyReqAuth() const { DARABONBA_PTR_GET_DEFAULT(notifyReqAuth_, false) };
+    inline DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig& setNotifyReqAuth(bool notifyReqAuth) { DARABONBA_PTR_SET_VALUE(notifyReqAuth_, notifyReqAuth) };
 
 
     // notifyUrl Field Functions 
@@ -73,6 +91,8 @@ namespace Models
     // *   **true**
     // *   **false** (default)
     std::shared_ptr<bool> needStatusNotify_ = nullptr;
+    std::shared_ptr<string> notifyAuthKey_ = nullptr;
+    std::shared_ptr<bool> notifyReqAuth_ = nullptr;
     // The recording callback URL.
     std::shared_ptr<string> notifyUrl_ = nullptr;
     // The callback URL for on-demand recording.

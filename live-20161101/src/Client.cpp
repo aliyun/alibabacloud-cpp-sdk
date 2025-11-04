@@ -2050,6 +2050,14 @@ AddLiveRecordNotifyConfigResponse Client::addLiveRecordNotifyConfigWithOptions(c
     query["NeedStatusNotify"] = request.needStatusNotify();
   }
 
+  if (!!request.hasNotifyAuthKey()) {
+    query["NotifyAuthKey"] = request.notifyAuthKey();
+  }
+
+  if (!!request.hasNotifyReqAuth()) {
+    query["NotifyReqAuth"] = request.notifyReqAuth();
+  }
+
   if (!!request.hasNotifyUrl()) {
     query["NotifyUrl"] = request.notifyUrl();
   }
@@ -29075,6 +29083,14 @@ UpdateLiveRecordNotifyConfigResponse Client::updateLiveRecordNotifyConfigWithOpt
 
   if (!!request.hasNeedStatusNotify()) {
     query["NeedStatusNotify"] = request.needStatusNotify();
+  }
+
+  if (!!request.hasNotifyAuthKey()) {
+    query["NotifyAuthKey"] = request.notifyAuthKey();
+  }
+
+  if (!!request.hasNotifyReqAuth()) {
+    query["NotifyReqAuth"] = request.notifyReqAuth();
   }
 
   if (!!request.hasNotifyUrl()) {
