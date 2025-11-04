@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -67,7 +67,7 @@ AddCategoryResponse Client::addCategoryWithOptions(const string &WorkspaceId, co
     {"action" , "AddCategory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/category/")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/category/")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -144,7 +144,7 @@ AddFileResponse Client::addFileWithOptions(const string &WorkspaceId, const AddF
     {"action" , "AddFile"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/file")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -229,7 +229,7 @@ AddFilesFromAuthorizedOssResponse Client::addFilesFromAuthorizedOssWithOptions(c
     {"action" , "AddFilesFromAuthorizedOss"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/file/fromoss")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file/fromoss")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -295,7 +295,7 @@ ApplyFileUploadLeaseResponse Client::applyFileUploadLeaseWithOptions(const strin
     {"action" , "ApplyFileUploadLease"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/category/" , Darabonba::Http::URL::percentEncode(CategoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/category/" , Darabonba::Encode::Encoder::percentEncode(CategoryId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -323,7 +323,56 @@ ApplyFileUploadLeaseResponse Client::applyFileUploadLease(const string &Category
 }
 
 /**
- * @summary 修改类目解析配置
+ * @summary 申请临时文件存储上传许可
+ *
+ * @param request ApplyTempStorageLeaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyTempStorageLeaseResponse
+ */
+ApplyTempStorageLeaseResponse Client::applyTempStorageLeaseWithOptions(const string &WorkspaceId, const ApplyTempStorageLeaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.fileName();
+  }
+
+  if (!!request.hasSizeInBytes()) {
+    body["SizeInBytes"] = request.sizeInBytes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ApplyTempStorageLease"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyTempStorageLeaseResponse>();
+}
+
+/**
+ * @summary 申请临时文件存储上传许可
+ *
+ * @param request ApplyTempStorageLeaseRequest
+ * @return ApplyTempStorageLeaseResponse
+ */
+ApplyTempStorageLeaseResponse Client::applyTempStorageLease(const string &WorkspaceId, const ApplyTempStorageLeaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return applyTempStorageLeaseWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Configure the parsing method for a specific file type. For example, use LLM parsing for .pdf files, or use Qwen VL parsing for .jpg files.
  *
  * @param tmpReq ChangeParseSettingRequest
  * @param headers map
@@ -363,7 +412,7 @@ ChangeParseSettingResponse Client::changeParseSettingWithOptions(const string &W
     {"action" , "ChangeParseSetting"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -374,7 +423,7 @@ ChangeParseSettingResponse Client::changeParseSettingWithOptions(const string &W
 }
 
 /**
- * @summary 修改类目解析配置
+ * @summary Configure the parsing method for a specific file type. For example, use LLM parsing for .pdf files, or use Qwen VL parsing for .jpg files.
  *
  * @param request ChangeParseSettingRequest
  * @return ChangeParseSettingResponse
@@ -434,7 +483,7 @@ CreateAndPulishAgentResponse Client::createAndPulishAgentWithOptions(const strin
     {"action" , "CreateAndPulishAgent"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -457,11 +506,16 @@ CreateAndPulishAgentResponse Client::createAndPulishAgent(const string &workspac
 }
 
 /**
- * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+ * @summary Create a knowledge base of the document search type.
  *
- * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
- * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
- * 3.  This interface is not idempotent.
+ * @description *   **Limits**: This operation can create only knowledge base of the document search type. Data query and image Q\\&A types are not supported. Use the console instead.
+ * *   **Required permissions**
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:CreateIndex permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **What to do next**: This operation only initializes knowledge base creation job. After that, call **SubmitIndexJob** to complete the creation. Otherwise, you will get an empty knowledge base. For more information about the sample code, see [Knowledge base API guide](https://help.aliyun.com/document_detail/2852772.html).
+ * *   **Idempotence**: This operation is not idempotent. If you call the operation for multiple times, you may create several knowledge bases with the same name. We recommend following a "query first, then create" logic.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param tmpReq CreateIndexRequest
  * @param headers map
@@ -597,7 +651,7 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     {"action" , "CreateIndex"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/create")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/create")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -608,11 +662,16 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary Creates an unstructured knowledge base and imports one or more parsed documents into the knowledge base. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+ * @summary Create a knowledge base of the document search type.
  *
- * @description 1.  You must first upload documents to [Data Management](https://bailian.console.aliyun.com/#/data-center) and obtain the `FileId`. The documents are the knowledge source of the knowledge base. For more information, see [Import Data](https://www.alibabacloud.com/help/en/model-studio/user-guide/data-import-instructions).
- * 2.  This operation only initializes a knowledge base creation job. You must also call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to complete the job.
- * 3.  This interface is not idempotent.
+ * @description *   **Limits**: This operation can create only knowledge base of the document search type. Data query and image Q\\&A types are not supported. Use the console instead.
+ * *   **Required permissions**
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:CreateIndex permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **What to do next**: This operation only initializes knowledge base creation job. After that, call **SubmitIndexJob** to complete the creation. Otherwise, you will get an empty knowledge base. For more information about the sample code, see [Knowledge base API guide](https://help.aliyun.com/document_detail/2852772.html).
+ * *   **Idempotence**: This operation is not idempotent. If you call the operation for multiple times, you may create several knowledge bases with the same name. We recommend following a "query first, then create" logic.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param request CreateIndexRequest
  * @return CreateIndexResponse
@@ -646,7 +705,7 @@ CreateMemoryResponse Client::createMemoryWithOptions(const string &workspaceId, 
     {"action" , "CreateMemory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -691,7 +750,7 @@ CreateMemoryNodeResponse Client::createMemoryNodeWithOptions(const string &works
     {"action" , "CreateMemoryNode"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId) , "/memoryNodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/memoryNodes")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -740,7 +799,7 @@ CreatePromptTemplateResponse Client::createPromptTemplateWithOptions(const strin
     {"action" , "CreatePromptTemplate"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/promptTemplates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/promptTemplates")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -777,7 +836,7 @@ DeleteAgentResponse Client::deleteAgentWithOptions(const string &workspaceId, co
     {"action" , "DeleteAgent"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Http::URL::percentEncode(appCode))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Encode::Encoder::percentEncode(appCode))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -813,7 +872,7 @@ DeleteCategoryResponse Client::deleteCategoryWithOptions(const string &CategoryI
     {"action" , "DeleteCategory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/category/" , Darabonba::Http::URL::percentEncode(CategoryId) , "/")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/category/" , Darabonba::Encode::Encoder::percentEncode(CategoryId) , "/")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -835,7 +894,17 @@ DeleteCategoryResponse Client::deleteCategory(const string &CategoryId, const st
 }
 
 /**
- * @summary 删除切片信息
+ * @summary Deletes a specified text chunk from a knowledge base. The deleted chunk cannot be retrieved or recalled.
+ *
+ * @description **
+ * **Warning** After a text chunk is deleted, it cannot be restored. Proceed with caution.
+ * *   **Required permissions**:
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:DeleteChunk permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **Delay**: The update takes effect immediately. During peak hours, the update may take place in seconds.
+ * *   **Idempotence**: This operation is idempotent. If you perform a repeated operation on a chunk that has already been deleted, the interface returns a success.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param tmpReq DeleteChunkRequest
  * @param headers map
@@ -867,7 +936,7 @@ DeleteChunkResponse Client::deleteChunkWithOptions(const string &WorkspaceId, co
     {"action" , "DeleteChunk"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/chunk/delete")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/chunk/delete")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -878,7 +947,17 @@ DeleteChunkResponse Client::deleteChunkWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary 删除切片信息
+ * @summary Deletes a specified text chunk from a knowledge base. The deleted chunk cannot be retrieved or recalled.
+ *
+ * @description **
+ * **Warning** After a text chunk is deleted, it cannot be restored. Proceed with caution.
+ * *   **Required permissions**:
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:DeleteChunk permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **Delay**: The update takes effect immediately. During peak hours, the update may take place in seconds.
+ * *   **Idempotence**: This operation is idempotent. If you perform a repeated operation on a chunk that has already been deleted, the interface returns a success.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param request DeleteChunkRequest
  * @return DeleteChunkResponse
@@ -904,7 +983,7 @@ DeleteFileResponse Client::deleteFileWithOptions(const string &FileId, const str
     {"action" , "DeleteFile"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Http::URL::percentEncode(FileId) , "/")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Encode::Encoder::percentEncode(FileId) , "/")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -954,7 +1033,7 @@ DeleteIndexResponse Client::deleteIndexWithOptions(const string &WorkspaceId, co
     {"action" , "DeleteIndex"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/delete")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/delete")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1021,7 +1100,7 @@ DeleteIndexDocumentResponse Client::deleteIndexDocumentWithOptions(const string 
     {"action" , "DeleteIndexDocument"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/delete_index_document")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/delete_index_document")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1064,7 +1143,7 @@ DeleteMemoryResponse Client::deleteMemoryWithOptions(const string &workspaceId, 
     {"action" , "DeleteMemory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1100,7 +1179,7 @@ DeleteMemoryNodeResponse Client::deleteMemoryNodeWithOptions(const string &works
     {"action" , "DeleteMemoryNode"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Http::URL::percentEncode(memoryNodeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Encode::Encoder::percentEncode(memoryNodeId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1136,7 +1215,7 @@ DeletePromptTemplateResponse Client::deletePromptTemplateWithOptions(const strin
     {"action" , "DeletePromptTemplate"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Http::URL::percentEncode(promptTemplateId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Encode::Encoder::percentEncode(promptTemplateId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1177,7 +1256,7 @@ DescribeFileResponse Client::describeFileWithOptions(const string &WorkspaceId, 
     {"action" , "DescribeFile"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Http::URL::percentEncode(FileId) , "/")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Encode::Encoder::percentEncode(FileId) , "/")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1302,7 +1381,7 @@ GetAlipayUrlResponse Client::getAlipayUrl(const GetAlipayUrlRequest &request) {
 }
 
 /**
- * @summary 获取文件支持的解析器类型
+ * @summary Lists all supported parser types based on the input file type (file extension).
  *
  * @param request GetAvailableParserTypesRequest
  * @param headers map
@@ -1324,7 +1403,7 @@ GetAvailableParserTypesResponse Client::getAvailableParserTypesWithOptions(const
     {"action" , "GetAvailableParserTypes"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/parsertype")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/parser/parsertype")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1335,7 +1414,7 @@ GetAvailableParserTypesResponse Client::getAvailableParserTypesWithOptions(const
 }
 
 /**
- * @summary 获取文件支持的解析器类型
+ * @summary Lists all supported parser types based on the input file type (file extension).
  *
  * @param request GetAvailableParserTypesRequest
  * @return GetAvailableParserTypesResponse
@@ -1385,7 +1464,7 @@ GetIndexJobStatusResponse Client::getIndexJobStatusWithOptions(const string &Wor
     {"action" , "GetIndexJobStatus"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/job/status")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/job/status")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1426,7 +1505,7 @@ GetMemoryResponse Client::getMemoryWithOptions(const string &workspaceId, const 
     {"action" , "GetMemory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1462,7 +1541,7 @@ GetMemoryNodeResponse Client::getMemoryNodeWithOptions(const string &workspaceId
     {"action" , "GetMemoryNode"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Http::URL::percentEncode(memoryNodeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Encode::Encoder::percentEncode(memoryNodeId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1484,7 +1563,7 @@ GetMemoryNodeResponse Client::getMemoryNode(const string &workspaceId, const str
 }
 
 /**
- * @summary 获取类目解析配置
+ * @summary Queries the data parsing settings in a specified category.
  *
  * @param request GetParseSettingsRequest
  * @param headers map
@@ -1506,7 +1585,7 @@ GetParseSettingsResponse Client::getParseSettingsWithOptions(const string &Works
     {"action" , "GetParseSettings"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/parser/settings")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1517,7 +1596,7 @@ GetParseSettingsResponse Client::getParseSettingsWithOptions(const string &Works
 }
 
 /**
- * @summary 获取类目解析配置
+ * @summary Queries the data parsing settings in a specified category.
  *
  * @param request GetParseSettingsRequest
  * @return GetParseSettingsResponse
@@ -1543,7 +1622,7 @@ GetPromptTemplateResponse Client::getPromptTemplateWithOptions(const string &wor
     {"action" , "GetPromptTemplate"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Http::URL::percentEncode(promptTemplateId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Encode::Encoder::percentEncode(promptTemplateId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1579,7 +1658,7 @@ GetPublishedAgentResponse Client::getPublishedAgentWithOptions(const string &wor
     {"action" , "GetPublishedAgent"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Http::URL::percentEncode(appCode))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Encode::Encoder::percentEncode(appCode))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1643,7 +1722,7 @@ HighCodeDeployResponse Client::highCodeDeployWithOptions(const string &workspace
     {"action" , "HighCodeDeploy"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/openapi/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/highCode/publish")},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/highCode/publish")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1704,7 +1783,7 @@ ListCategoryResponse Client::listCategoryWithOptions(const string &WorkspaceId, 
     {"action" , "ListCategory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/categories")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/categories")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1772,7 +1851,7 @@ ListChunksResponse Client::listChunksWithOptions(const string &WorkspaceId, cons
     {"action" , "ListChunks"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/list_chunks")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/list_chunks")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1798,7 +1877,12 @@ ListChunksResponse Client::listChunks(const string &WorkspaceId, const ListChunk
 }
 
 /**
- * @summary 获取文档列表
+ * @summary Queries the details of one or more documents in a specified category.
+ *
+ * @description *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:ListFile) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+ * *   During a paged query, set `MaxResults` to specify the maximum number of entries to return. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you query subsequent pages, set the `NextToken` parameter to the `NextToken` obtained in the last returned result. You can also set the `MaxResults` parameter to limit the number of entries to be returned. If no `NextToken` is returned, the result is completely returned and no more requests are required.
+ * *   This operation is idempotent.
+ * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
  *
  * @param request ListFileRequest
  * @param headers map
@@ -1832,7 +1916,7 @@ ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const Li
     {"action" , "ListFile"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/files")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/files")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1843,7 +1927,12 @@ ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const Li
 }
 
 /**
- * @summary 获取文档列表
+ * @summary Queries the details of one or more documents in a specified category.
+ *
+ * @description *   If you are using a RAM user, you must first obtain the OpenAPI management permissions (namely sfm:ListFile) of Model Studio. For more information, see [Grant OpenAPI permissions to a RAM user](https://help.aliyun.com/document_detail/2848578.html). If you are using the Alibaba Cloud account, you do not need permissions. We recommend that you use [the latest version of the SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29) to call this operation.
+ * *   During a paged query, set `MaxResults` to specify the maximum number of entries to return. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you query subsequent pages, set the `NextToken` parameter to the `NextToken` obtained in the last returned result. You can also set the `MaxResults` parameter to limit the number of entries to be returned. If no `NextToken` is returned, the result is completely returned and no more requests are required.
+ * *   This operation is idempotent.
+ * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
  *
  * @param request ListFileRequest
  * @return ListFileResponse
@@ -1900,7 +1989,7 @@ ListIndexDocumentsResponse Client::listIndexDocumentsWithOptions(const string &W
     {"action" , "ListIndexDocuments"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/list_index_documents")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/list_index_documents")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1968,7 +2057,7 @@ ListIndexFileDetailsResponse Client::listIndexFileDetailsWithOptions(const strin
     {"action" , "ListIndexFileDetails"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/list_index_file_detail")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/list_index_file_detail")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2023,7 +2112,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const string &WorkspaceId, co
     {"action" , "ListIndices"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/list_indices")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/list_indices")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2074,7 +2163,7 @@ ListMemoriesResponse Client::listMemoriesWithOptions(const string &workspaceId, 
     {"action" , "ListMemories"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2123,7 +2212,7 @@ ListMemoryNodesResponse Client::listMemoryNodesWithOptions(const string &workspa
     {"action" , "ListMemoryNodes"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId) , "/memoryNodes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/memoryNodes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2180,7 +2269,7 @@ ListPromptTemplatesResponse Client::listPromptTemplatesWithOptions(const string 
     {"action" , "ListPromptTemplates"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/promptTemplates")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/promptTemplates")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2229,7 +2318,7 @@ ListPublishedAgentResponse Client::listPublishedAgentWithOptions(const string &w
     {"action" , "ListPublishedAgent"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2352,7 +2441,7 @@ RetrieveResponse Client::retrieveWithOptions(const string &WorkspaceId, const Re
     {"action" , "Retrieve"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/retrieve")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/retrieve")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2448,7 +2537,7 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
     {"action" , "SubmitIndexAddDocumentsJob"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/add_documents_to_index")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/add_documents_to_index")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2503,7 +2592,7 @@ SubmitIndexJobResponse Client::submitIndexJobWithOptions(const string &Workspace
     {"action" , "SubmitIndexJob"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/index/submit_index_job")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/index/submit_index_job")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2579,7 +2668,7 @@ UpdateAndPublishAgentResponse Client::updateAndPublishAgentWithOptions(const str
     {"action" , "UpdateAndPublishAgent"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Http::URL::percentEncode(appCode))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Encode::Encoder::percentEncode(appCode))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2650,7 +2739,7 @@ UpdateAndPublishAgentSelectiveResponse Client::updateAndPublishAgentSelectiveWit
     {"action" , "UpdateAndPublishAgentSelective"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Http::URL::percentEncode(appCode) , "/updateAndPublishAgentSelective")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/application/agents/" , Darabonba::Encode::Encoder::percentEncode(appCode) , "/updateAndPublishAgentSelective")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2673,7 +2762,16 @@ UpdateAndPublishAgentSelectiveResponse Client::updateAndPublishAgentSelective(co
 }
 
 /**
- * @summary 更新切片信息
+ * @summary Modifies the content and title of a specified text chunk in the knowledge base, and sets whether the chunk participates in knowledge base retrieval.
+ *
+ * @description *   **Limits**: This operation supports only knowledge base of the document search type. Data query and image Q\\&A types are not supported.
+ * *   **Required permissions**:
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:UpdateChunk permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **Delay**: The update takes effect immediately. During peak hours, the update may take place in seconds.
+ * *   **Idempotence**: This operation is idempotent. If you perform a repeated operation on a chunk that has already been updated, the interface returns a success.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param request UpdateChunkRequest
  * @param headers map
@@ -2715,7 +2813,7 @@ UpdateChunkResponse Client::updateChunkWithOptions(const string &WorkspaceId, co
     {"action" , "UpdateChunk"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/chunk/update")},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/chunk/update")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2726,7 +2824,16 @@ UpdateChunkResponse Client::updateChunkWithOptions(const string &WorkspaceId, co
 }
 
 /**
- * @summary 更新切片信息
+ * @summary Modifies the content and title of a specified text chunk in the knowledge base, and sets whether the chunk participates in knowledge base retrieval.
+ *
+ * @description *   **Limits**: This operation supports only knowledge base of the document search type. Data query and image Q\\&A types are not supported.
+ * *   **Required permissions**:
+ *     *   **RAM users**: Must first obtain the [API permissions](https://help.aliyun.com/document_detail/2848578.html) of Model Studio (such as the `AliyunBailianDataFullAccess` policy, which includes the sfm:UpdateChunk permission required), and [become member of a workspace](https://help.aliyun.com/document_detail/2851098.html).
+ *     *   **Alibaba Cloud account**: Has the permission by default, and can call the operation directly.
+ * *   **Call method**: We recommend using the latest version of the [GenAI Service Platform SDK](https://api.alibabacloud.com/api-tools/sdk/bailian?version=2023-12-29). The SDK encapsulates complex signature computational logic to simplify the call process.
+ * *   **Delay**: The update takes effect immediately. During peak hours, the update may take place in seconds.
+ * *   **Idempotence**: This operation is idempotent. If you perform a repeated operation on a chunk that has already been updated, the interface returns a success.
+ * **Rate limit:** Rate limiting will be triggered if you call this operation frequently. Do not exceed 10 times per second. If limiting is triggered, try again later.
  *
  * @param request UpdateChunkRequest
  * @return UpdateChunkResponse
@@ -2766,7 +2873,7 @@ UpdateFileTagResponse Client::updateFileTagWithOptions(const string &WorkspaceId
     {"action" , "UpdateFileTag"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Http::URL::percentEncode(FileId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file/" , Darabonba::Encode::Encoder::percentEncode(FileId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2811,7 +2918,7 @@ UpdateMemoryResponse Client::updateMemoryWithOptions(const string &workspaceId, 
     {"action" , "UpdateMemory"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2856,7 +2963,7 @@ UpdateMemoryNodeResponse Client::updateMemoryNodeWithOptions(const string &works
     {"action" , "UpdateMemoryNode"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/memories/" , Darabonba::Http::URL::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Http::URL::percentEncode(memoryNodeId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/memories/" , Darabonba::Encode::Encoder::percentEncode(memoryId) , "/memoryNodes/" , Darabonba::Encode::Encoder::percentEncode(memoryNodeId))},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2905,7 +3012,7 @@ UpdatePromptTemplateResponse Client::updatePromptTemplateWithOptions(const strin
     {"action" , "UpdatePromptTemplate"},
     {"version" , "2023-12-29"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Http::URL::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Http::URL::percentEncode(promptTemplateId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/promptTemplates/" , Darabonba::Encode::Encoder::percentEncode(promptTemplateId))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},

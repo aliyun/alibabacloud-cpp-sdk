@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileType_ != nullptr
-        && this->parserList_ != nullptr; };
+    virtual bool empty() const override { return this->fileType_ == nullptr
+        && return this->parserList_ == nullptr; };
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The file type, which is the same as the FileType in the input parameter.
     std::shared_ptr<string> fileType_ = nullptr;
+    // The list of supported parsers
     std::shared_ptr<vector<Models::GetAvailableParserTypesResponseBodyDataParserList>> parserList_ = nullptr;
   };
 

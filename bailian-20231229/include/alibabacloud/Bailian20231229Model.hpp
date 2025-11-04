@@ -16,6 +16,9 @@
 #include <alibabacloud/models/ApplyFileUploadLeaseRequest.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponseBody.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponse.hpp>
+#include <alibabacloud/models/ApplyTempStorageLeaseRequest.hpp>
+#include <alibabacloud/models/ApplyTempStorageLeaseResponseBody.hpp>
+#include <alibabacloud/models/ApplyTempStorageLeaseResponse.hpp>
 #include <alibabacloud/models/ChangeParseSettingRequest.hpp>
 #include <alibabacloud/models/ChangeParseSettingShrinkRequest.hpp>
 #include <alibabacloud/models/ChangeParseSettingResponseBody.hpp>
@@ -160,6 +163,8 @@
 #include <alibabacloud/models/AddFilesFromAuthorizedOssResponseBodyData.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponseBodyDataParam.hpp>
 #include <alibabacloud/models/ApplyFileUploadLeaseResponseBodyData.hpp>
+#include <alibabacloud/models/ApplyTempStorageLeaseResponseBodyDataParam.hpp>
+#include <alibabacloud/models/ApplyTempStorageLeaseResponseBodyData.hpp>
 #include <alibabacloud/models/ChangeParseSettingRequestParserConfig.hpp>
 #include <alibabacloud/models/ChangeParseSettingResponseBodyData.hpp>
 #include <alibabacloud/models/CreateAndPulishAgentRequestApplicationConfigHistoryConfig.hpp>

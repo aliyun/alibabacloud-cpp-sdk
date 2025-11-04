@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answerScope_ != nullptr
-        && this->enableCitation_ != nullptr && this->enableSearch_ != nullptr && this->enableWebSearch_ != nullptr && this->fixedReplyDetail_ != nullptr && this->knowledgeBaseCodeList_ != nullptr
-        && this->promptStrategy_ != nullptr && this->ragRejectType_ != nullptr && this->rejectFilterPrompt_ != nullptr && this->rejectFilterType_ != nullptr && this->retrieveMaxLength_ != nullptr
-        && this->topK_ != nullptr; };
+    virtual bool empty() const override { return this->answerScope_ == nullptr
+        && return this->enableCitation_ == nullptr && return this->enableSearch_ == nullptr && return this->enableWebSearch_ == nullptr && return this->fixedReplyDetail_ == nullptr && return this->knowledgeBaseCodeList_ == nullptr
+        && return this->promptStrategy_ == nullptr && return this->ragRejectType_ == nullptr && return this->rejectFilterPrompt_ == nullptr && return this->rejectFilterType_ == nullptr && return this->retrieveMaxLength_ == nullptr
+        && return this->topK_ == nullptr; };
     // answerScope Field Functions 
     bool hasAnswerScope() const { return this->answerScope_ != nullptr;};
     void deleteAnswerScope() { this->answerScope_ = nullptr;};

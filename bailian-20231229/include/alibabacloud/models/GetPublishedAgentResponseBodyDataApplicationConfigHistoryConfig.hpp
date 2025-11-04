@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableAdbRecord_ != nullptr
-        && this->enableRecord_ != nullptr && this->instanceId_ != nullptr && this->region_ != nullptr && this->storeCode_ != nullptr; };
+    virtual bool empty() const override { return this->enableAdbRecord_ == nullptr
+        && return this->enableRecord_ == nullptr && return this->instanceId_ == nullptr && return this->region_ == nullptr && return this->storeCode_ == nullptr; };
     // enableAdbRecord Field Functions 
     bool hasEnableAdbRecord() const { return this->enableAdbRecord_ != nullptr;};
     void deleteEnableAdbRecord() { this->enableAdbRecord_ = nullptr;};

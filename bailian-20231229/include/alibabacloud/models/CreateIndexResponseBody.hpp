@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->status_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -87,9 +87,9 @@ namespace Models
 
 
   protected:
-    // HTTP status code
+    // The error code.
     std::shared_ptr<string> code_ = nullptr;
-    // The returned data.
+    // The data returned if the request is successful.
     std::shared_ptr<CreateIndexResponseBodyData> data_ = nullptr;
     // The error message.
     std::shared_ptr<string> message_ = nullptr;
@@ -97,7 +97,7 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // The status code.
     std::shared_ptr<string> status_ = nullptr;
-    // Indications whether the API call is successful. Valid values:
+    // Indications whether the request is successful. Valid values:
     // 
     // *   true
     // *   false

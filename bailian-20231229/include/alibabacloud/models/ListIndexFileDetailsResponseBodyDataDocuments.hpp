@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkMode_ != nullptr
-        && this->chunkSize_ != nullptr && this->code_ != nullptr && this->documentType_ != nullptr && this->enableHeaders_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->message_ != nullptr && this->name_ != nullptr && this->overlapSize_ != nullptr && this->size_ != nullptr
-        && this->sourceId_ != nullptr && this->status_ != nullptr && this->separator_ != nullptr; };
+    virtual bool empty() const override { return this->chunkMode_ == nullptr
+        && return this->chunkSize_ == nullptr && return this->code_ == nullptr && return this->documentType_ == nullptr && return this->enableHeaders_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->message_ == nullptr && return this->name_ == nullptr && return this->overlapSize_ == nullptr && return this->size_ == nullptr
+        && return this->sourceId_ == nullptr && return this->status_ == nullptr && return this->separator_ == nullptr; };
     // chunkMode Field Functions 
     bool hasChunkMode() const { return this->chunkMode_ != nullptr;};
     void deleteChunkMode() { this->chunkMode_ = nullptr;};

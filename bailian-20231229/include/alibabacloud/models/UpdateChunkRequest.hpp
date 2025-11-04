@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkId_ != nullptr
-        && this->dataId_ != nullptr && this->isDisplayedChunkContent_ != nullptr && this->pipelineId_ != nullptr && this->content_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->chunkId_ == nullptr
+        && return this->dataId_ == nullptr && return this->isDisplayedChunkContent_ == nullptr && return this->pipelineId_ == nullptr && return this->content_ == nullptr && return this->title_ == nullptr; };
     // chunkId Field Functions 
     bool hasChunkId() const { return this->chunkId_ != nullptr;};
     void deleteChunkId() { this->chunkId_ = nullptr;};
@@ -84,16 +84,32 @@ namespace Models
 
 
   protected:
+    // The ID of the text chunk to be modified. You can find it in the Node.Metadata._id field returned by **ListChunks**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> chunkId_ = nullptr;
+    // The file ID, which is the `FileId` returned by **AddFile**. You can also go to the [Application Data](https://modelstudio.console.alibabacloud.com/?tab=app#/data-center) page. Click the ID icon next to your file to get its ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dataId_ = nullptr;
+    // Specifies whether this text chunk participates in knowledge base retrieval. Valid values:
+    // 
+    // *   true
+    // *   false
+    // 
+    // Default value: true.
+    // 
     // This parameter is required.
     std::shared_ptr<bool> isDisplayedChunkContent_ = nullptr;
+    // The knowledge base ID, which is the `Data.Id` returned by **CreateIndex**. You can also get it on the [Knowledge Base](https://modelstudio.console.alibabacloud.com/?tab=app#/knowledge-base) page.
+    // 
     // This parameter is required.
     std::shared_ptr<string> pipelineId_ = nullptr;
+    // The new content of the chunk. The content must be between 10 and 6,000 characters in length and cannot exceed the maximum chunk length set when the knowledge base was created.
+    // 
     // This parameter is required.
     std::shared_ptr<string> content_ = nullptr;
+    // The new title of the chunk. The title must be 0 to 50 characters in length and can be an empty string. If you specify an empty string, the existing title is cleared. If you do not pass this parameter, the original title remains unchanged.
     std::shared_ptr<string> title_ = nullptr;
   };
 

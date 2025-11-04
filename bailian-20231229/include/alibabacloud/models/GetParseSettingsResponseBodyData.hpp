@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileType_ != nullptr
-        && this->parser_ != nullptr && this->parserConfig_ != nullptr && this->parserDisplayName_ != nullptr; };
+    virtual bool empty() const override { return this->fileType_ == nullptr
+        && return this->parser_ == nullptr && return this->parserConfig_ == nullptr && return this->parserDisplayName_ == nullptr; };
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
@@ -69,9 +69,18 @@ namespace Models
 
 
   protected:
+    // The file type. Valid values are: pdf, docx, doc, etc. All supported file types in the category are listed here.
     std::shared_ptr<string> fileType_ = nullptr;
+    // The parser used for files of the current type. Valid values:
+    // 
+    // *   DOCMIND (Intelligent parsing)
+    // *   DOCMIND_DIGITAL (Digital parsing)
+    // *   DOCMIND_LLM_VERSION (LLM parsing)
+    // *   DASH_QWEN_VL_PARSER (Qwen VL parsing)
     std::shared_ptr<string> parser_ = nullptr;
+    // The parser configuration. Currently, this is available only for Qwen VL parsing.
     std::shared_ptr<Models::GetParseSettingsResponseBodyDataParserConfig> parserConfig_ = nullptr;
+    // The display name of the parsing method.
     std::shared_ptr<string> parserDisplayName_ = nullptr;
   };
 

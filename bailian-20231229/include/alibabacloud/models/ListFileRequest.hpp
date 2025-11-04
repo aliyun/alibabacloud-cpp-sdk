@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->fileName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && return this->fileName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -66,6 +66,8 @@ namespace Models
 
 
   protected:
+    // The category ID, which is the `CategoryId` returned by the [AddCategory](~~AddCategory~~) operation. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+    // 
     // This parameter is required.
     std::shared_ptr<string> categoryId_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;

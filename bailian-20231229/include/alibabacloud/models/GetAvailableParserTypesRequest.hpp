@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileType_ != nullptr; };
+    virtual bool empty() const override { return this->fileType_ == nullptr; };
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The file type. Valid values: pdf, docx, and doc.
+    // 
     // This parameter is required.
     std::shared_ptr<string> fileType_ = nullptr;
   };

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->modelName_ != nullptr
-        && this->modelPrompt_ != nullptr; };
+    virtual bool empty() const override { return this->modelName_ == nullptr
+        && return this->modelPrompt_ == nullptr; };
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The model name.
     std::shared_ptr<string> modelName_ = nullptr;
+    // The prompt used for parsing.
     std::shared_ptr<string> modelPrompt_ = nullptr;
   };
 

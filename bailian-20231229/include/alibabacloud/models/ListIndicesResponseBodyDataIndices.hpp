@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkSize_ != nullptr
-        && this->confgModel_ != nullptr && this->description_ != nullptr && this->documentIds_ != nullptr && this->embeddingModelName_ != nullptr && this->enableRewrite_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->overlapSize_ != nullptr && this->rerankMinScore_ != nullptr && this->rerankModelName_ != nullptr
-        && this->separator_ != nullptr && this->sinkInstanceId_ != nullptr && this->sinkRegion_ != nullptr && this->sinkType_ != nullptr && this->sourceType_ != nullptr
-        && this->structureType_ != nullptr; };
+    virtual bool empty() const override { return this->chunkSize_ == nullptr
+        && return this->confgModel_ == nullptr && return this->description_ == nullptr && return this->documentIds_ == nullptr && return this->embeddingModelName_ == nullptr && return this->enableRewrite_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->overlapSize_ == nullptr && return this->rerankMinScore_ == nullptr && return this->rerankModelName_ == nullptr
+        && return this->separator_ == nullptr && return this->sinkInstanceId_ == nullptr && return this->sinkRegion_ == nullptr && return this->sinkType_ == nullptr && return this->sourceType_ == nullptr
+        && return this->structureType_ == nullptr; };
     // chunkSize Field Functions 
     bool hasChunkSize() const { return this->chunkSize_ != nullptr;};
     void deleteChunkSize() { this->chunkSize_ = nullptr;};

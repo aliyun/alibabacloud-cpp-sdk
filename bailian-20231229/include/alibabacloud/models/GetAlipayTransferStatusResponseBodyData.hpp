@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->alipayOrderDetail_ != nullptr && this->alipayOrderId_ != nullptr && this->code_ != nullptr && this->creator_ != nullptr && this->mainAccountId_ != nullptr
-        && this->modifier_ != nullptr && this->qrURL_ != nullptr && this->scope_ != nullptr && this->status_ != nullptr && this->title_ != nullptr
-        && this->transAmount_ != nullptr && this->walletItemCode_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->alipayOrderDetail_ == nullptr && return this->alipayOrderId_ == nullptr && return this->code_ == nullptr && return this->creator_ == nullptr && return this->mainAccountId_ == nullptr
+        && return this->modifier_ == nullptr && return this->qrURL_ == nullptr && return this->scope_ == nullptr && return this->status_ == nullptr && return this->title_ == nullptr
+        && return this->transAmount_ == nullptr && return this->walletItemCode_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

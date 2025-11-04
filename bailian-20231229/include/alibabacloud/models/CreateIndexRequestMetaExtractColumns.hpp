@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desc_ != nullptr
-        && this->enableLlm_ != nullptr && this->enableSearch_ != nullptr && this->key_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->desc_ == nullptr
+        && return this->enableLlm_ == nullptr && return this->enableSearch_ == nullptr && return this->key_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // desc Field Functions 
     bool hasDesc() const { return this->desc_ != nullptr;};
     void deleteDesc() { this->desc_ = nullptr;};
@@ -84,11 +84,41 @@ namespace Models
 
 
   protected:
+    // The description of the metadata field. The description must be 0 to 1,000 characters in length, and can contain Chinese characters, letters, digits, underscores (_), hyphens (-), periods (.), and colons (:). This parameter is left empty by default.
     std::shared_ptr<string> desc_ = nullptr;
+    // When set to true, the key and value of this metadata filed will participate in the generation process of the model, together with the chunk. Valid values:
+    // 
+    // *   true
+    // *   false
+    // 
+    // Default value: false.
     std::shared_ptr<bool> enableLlm_ = nullptr;
+    // When set to true, the key and value of this metadata filed will participate in the knowledge base retrieval, together with the chunk. Valid values:
+    // 
+    // *   true
+    // *   false
+    // 
+    // Default value: false.
     std::shared_ptr<bool> enableSearch_ = nullptr;
+    // The metadata key. It must be 1 to 50 characters in length and must be English letters or underscores. If you specify this parameter, the `Value` and `Type` parameters are required.
     std::shared_ptr<string> key_ = nullptr;
+    // The type of the metadata field. Valid values:
+    // 
+    // *   constant
+    // *   variable
+    // *   custom_prompt
+    // *   regular
+    // *   keywords
+    // 
+    // Enumerated value:
+    // 
+    // *   constant: constant extraction.
+    // *   keywords: keyword extraction.
+    // *   custom_prompt: LLM.
+    // *   variable: variable extraction.
+    // *   regular: regular expression.
     std::shared_ptr<string> type_ = nullptr;
+    // The metadata value.
     std::shared_ptr<string> value_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunkIdsShrink_ != nullptr
-        && this->pipelineId_ != nullptr; };
+    virtual bool empty() const override { return this->chunkIdsShrink_ == nullptr
+        && return this->pipelineId_ == nullptr; };
     // chunkIdsShrink Field Functions 
     bool hasChunkIdsShrink() const { return this->chunkIdsShrink_ != nullptr;};
     void deleteChunkIdsShrink() { this->chunkIdsShrink_ = nullptr;};
@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The list of text chunks to be deleted. You can specify up to 10 chunk IDs at a time.
+    // 
     // This parameter is required.
     std::shared_ptr<string> chunkIdsShrink_ = nullptr;
+    // The knowledge base ID, which is the `Data.Id` parameter returned by **CreateIndex**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> pipelineId_ = nullptr;
   };

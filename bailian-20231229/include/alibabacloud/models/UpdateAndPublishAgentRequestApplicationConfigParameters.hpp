@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dialogRound_ != nullptr
-        && this->enableThinking_ != nullptr && this->maxTokens_ != nullptr && this->temperature_ != nullptr; };
+    virtual bool empty() const override { return this->dialogRound_ == nullptr
+        && return this->enableThinking_ == nullptr && return this->maxTokens_ == nullptr && return this->temperature_ == nullptr; };
     // dialogRound Field Functions 
     bool hasDialogRound() const { return this->dialogRound_ != nullptr;};
     void deleteDialogRound() { this->dialogRound_ = nullptr;};

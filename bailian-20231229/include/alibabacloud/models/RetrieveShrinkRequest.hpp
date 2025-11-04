@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->denseSimilarityTopK_ != nullptr
-        && this->enableReranking_ != nullptr && this->enableRewrite_ != nullptr && this->imagesShrink_ != nullptr && this->indexId_ != nullptr && this->query_ != nullptr
-        && this->queryHistoryShrink_ != nullptr && this->rerankShrink_ != nullptr && this->rerankMinScore_ != nullptr && this->rerankTopN_ != nullptr && this->rewriteShrink_ != nullptr
-        && this->saveRetrieverHistory_ != nullptr && this->searchFiltersShrink_ != nullptr && this->sparseSimilarityTopK_ != nullptr; };
+    virtual bool empty() const override { return this->denseSimilarityTopK_ == nullptr
+        && return this->enableReranking_ == nullptr && return this->enableRewrite_ == nullptr && return this->imagesShrink_ == nullptr && return this->indexId_ == nullptr && return this->query_ == nullptr
+        && return this->queryHistoryShrink_ == nullptr && return this->rerankShrink_ == nullptr && return this->rerankMinScore_ == nullptr && return this->rerankTopN_ == nullptr && return this->rewriteShrink_ == nullptr
+        && return this->saveRetrieverHistory_ == nullptr && return this->searchFiltersShrink_ == nullptr && return this->sparseSimilarityTopK_ == nullptr; };
     // denseSimilarityTopK Field Functions 
     bool hasDenseSimilarityTopK() const { return this->denseSimilarityTopK_ != nullptr;};
     void deleteDenseSimilarityTopK() { this->denseSimilarityTopK_ = nullptr;};
