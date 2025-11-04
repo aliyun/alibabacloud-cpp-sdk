@@ -168,6 +168,9 @@
 #include <alibabacloud/models/GetDbInstanceConnectivityDiagnosisRequest.hpp>
 #include <alibabacloud/models/GetDbInstanceConnectivityDiagnosisResponseBody.hpp>
 #include <alibabacloud/models/GetDbInstanceConnectivityDiagnosisResponse.hpp>
+#include <alibabacloud/models/GetDasAgentSseRequest.hpp>
+#include <alibabacloud/models/GetDasAgentSseResponseBody.hpp>
+#include <alibabacloud/models/GetDasAgentSseResponse.hpp>
 #include <alibabacloud/models/GetDasProServiceUsageRequest.hpp>
 #include <alibabacloud/models/GetDasProServiceUsageResponseBody.hpp>
 #include <alibabacloud/models/GetDasProServiceUsageResponse.hpp>
@@ -426,6 +429,7 @@
 #include <alibabacloud/models/GetBlockingDetailListResponseBodyDataList.hpp>
 #include <alibabacloud/models/GetBlockingDetailListResponseBodyData.hpp>
 #include <alibabacloud/models/GetDbInstanceConnectivityDiagnosisResponseBodyData.hpp>
+#include <alibabacloud/models/GetDasAgentSseResponseBodyMetadata.hpp>
 #include <alibabacloud/models/GetDasProServiceUsageResponseBodyData.hpp>
 #include <alibabacloud/models/GetDasSqlLogHotDataResponseBodyDataList.hpp>
 #include <alibabacloud/models/GetDasSqlLogHotDataResponseBodyData.hpp>

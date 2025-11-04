@@ -1405,6 +1405,32 @@ namespace DAS20200116
       Models::GetDBInstanceConnectivityDiagnosisResponse getDBInstanceConnectivityDiagnosis(const Models::GetDBInstanceConnectivityDiagnosisRequest &request);
 
       /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request GetDasAgentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDasAgentSSEResponse
+       */
+      FutrueGenerator<Models::GetDasAgentSSEResponse> getDasAgentSSEWithSSE(const Models::GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request GetDasAgentSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDasAgentSSEResponse
+       */
+      Models::GetDasAgentSSEResponse getDasAgentSSEWithOptions(const Models::GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request GetDasAgentSSERequest
+       * @return GetDasAgentSSEResponse
+       */
+      Models::GetDasAgentSSEResponse getDasAgentSSE(const Models::GetDasAgentSSERequest &request);
+
+      /**
        * @summary Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
        *
        * @description *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).

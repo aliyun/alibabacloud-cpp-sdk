@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::DAS20200116::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -3560,6 +3561,115 @@ GetDBInstanceConnectivityDiagnosisResponse Client::getDBInstanceConnectivityDiag
 GetDBInstanceConnectivityDiagnosisResponse Client::getDBInstanceConnectivityDiagnosis(const GetDBInstanceConnectivityDiagnosisRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDBInstanceConnectivityDiagnosisWithOptions(request, runtime);
+}
+
+/**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request GetDasAgentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDasAgentSSEResponse
+ */
+FutrueGenerator<GetDasAgentSSEResponse> Client::getDasAgentSSEWithSSE(const GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.query();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDasAgentSSE"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<GetDasAgentSSEResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request GetDasAgentSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDasAgentSSEResponse
+ */
+GetDasAgentSSEResponse Client::getDasAgentSSEWithOptions(const GetDasAgentSSERequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.query();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDasAgentSSE"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDasAgentSSEResponse>();
+}
+
+/**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request GetDasAgentSSERequest
+ * @return GetDasAgentSSEResponse
+ */
+GetDasAgentSSEResponse Client::getDasAgentSSE(const GetDasAgentSSERequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDasAgentSSEWithOptions(request, runtime);
 }
 
 /**
