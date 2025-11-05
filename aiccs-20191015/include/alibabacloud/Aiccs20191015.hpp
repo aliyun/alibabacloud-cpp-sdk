@@ -1512,6 +1512,23 @@ namespace Aiccs20191015
       Models::HotlineSessionQueryResponse hotlineSessionQuery(const Models::HotlineSessionQueryRequest &request);
 
       /**
+       * @summary 语音智能体外呼任务导入单条数据
+       *
+       * @param tmpReq ImportOneTaskPhoneNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportOneTaskPhoneNumberResponse
+       */
+      Models::ImportOneTaskPhoneNumberResponse importOneTaskPhoneNumberWithOptions(const Models::ImportOneTaskPhoneNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 语音智能体外呼任务导入单条数据
+       *
+       * @param request ImportOneTaskPhoneNumberRequest
+       * @return ImportOneTaskPhoneNumberResponse
+       */
+      Models::ImportOneTaskPhoneNumberResponse importOneTaskPhoneNumber(const Models::ImportOneTaskPhoneNumberRequest &request);
+
+      /**
        * @summary 导入任务号码数据
        *
        * @param tmpReq ImportTaskNumberDatasRequest
@@ -1894,11 +1911,11 @@ namespace Aiccs20191015
       /**
        * @summary 查询明细记录
        *
-       * @param request QueryAiCallDetailPageRequest
+       * @param tmpReq QueryAiCallDetailPageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryAiCallDetailPageResponse
        */
-      Models::QueryAiCallDetailPageResponse queryAiCallDetailPageWithOptions(const Models::QueryAiCallDetailPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::QueryAiCallDetailPageResponse queryAiCallDetailPageWithOptions(const Models::QueryAiCallDetailPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询明细记录

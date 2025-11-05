@@ -5304,6 +5304,78 @@ HotlineSessionQueryResponse Client::hotlineSessionQuery(const HotlineSessionQuer
 }
 
 /**
+ * @summary 语音智能体外呼任务导入单条数据
+ *
+ * @param tmpReq ImportOneTaskPhoneNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportOneTaskPhoneNumberResponse
+ */
+ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumberWithOptions(const ImportOneTaskPhoneNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ImportOneTaskPhoneNumberShrinkRequest request = ImportOneTaskPhoneNumberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVariables()) {
+    request.setVariablesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.variables(), "Variables", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOutId()) {
+    query["OutId"] = request.outId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPhoneNumber()) {
+    query["PhoneNumber"] = request.phoneNumber();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasVariablesShrink()) {
+    query["Variables"] = request.variablesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ImportOneTaskPhoneNumber"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportOneTaskPhoneNumberResponse>();
+}
+
+/**
+ * @summary 语音智能体外呼任务导入单条数据
+ *
+ * @param request ImportOneTaskPhoneNumberRequest
+ * @return ImportOneTaskPhoneNumberResponse
+ */
+ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumber(const ImportOneTaskPhoneNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importOneTaskPhoneNumberWithOptions(request, runtime);
+}
+
+/**
  * @summary 导入任务号码数据
  *
  * @param tmpReq ImportTaskNumberDatasRequest
@@ -6660,12 +6732,18 @@ PageQueryAgentListResponse Client::pageQueryAgentList(const PageQueryAgentListRe
 /**
  * @summary 查询明细记录
  *
- * @param request QueryAiCallDetailPageRequest
+ * @param tmpReq QueryAiCallDetailPageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryAiCallDetailPageResponse
  */
-QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const QueryAiCallDetailPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const QueryAiCallDetailPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryAiCallDetailPageShrinkRequest request = QueryAiCallDetailPageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDetailIds()) {
+    request.setDetailIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.detailIds(), "DetailIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasBatchId()) {
     query["BatchId"] = request.batchId();
@@ -6677,6 +6755,10 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const Que
 
   if (!!request.hasCalledNumber()) {
     query["CalledNumber"] = request.calledNumber();
+  }
+
+  if (!!request.hasDetailIdsShrink()) {
+    query["DetailIds"] = request.detailIdsShrink();
   }
 
   if (!!request.hasEndCallingTime()) {
@@ -9043,6 +9125,10 @@ UpdateAiCallTaskResponse Client::updateAiCallTaskWithOptions(const UpdateAiCallT
 
   if (!!request.hasStartType()) {
     query["StartType"] = request.startType();
+  }
+
+  if (!!request.hasTaskCps()) {
+    query["TaskCps"] = request.taskCps();
   }
 
   if (!!request.hasTaskId()) {

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(StartType, startType_);
+      DARABONBA_PTR_TO_JSON(TaskCps, taskCps_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
       DARABONBA_PTR_TO_JSON(TaskStartTime, taskStartTime_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(StartType, startType_);
+      DARABONBA_PTR_FROM_JSON(TaskCps, taskCps_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
       DARABONBA_PTR_FROM_JSON(TaskStartTime, taskStartTime_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callDayShrink_ == nullptr
         && return this->callRetryInterval_ == nullptr && return this->callRetryReasonShrink_ == nullptr && return this->callRetryTimes_ == nullptr && return this->callTimeShrink_ == nullptr && return this->missCallRetry_ == nullptr
-        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startType_ == nullptr && return this->taskId_ == nullptr
-        && return this->taskName_ == nullptr && return this->taskStartTime_ == nullptr && return this->virtualNumber_ == nullptr; };
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startType_ == nullptr && return this->taskCps_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskStartTime_ == nullptr && return this->virtualNumber_ == nullptr; };
     // callDayShrink Field Functions 
     bool hasCallDayShrink() const { return this->callDayShrink_ != nullptr;};
     void deleteCallDayShrink() { this->callDayShrink_ = nullptr;};
@@ -129,6 +131,13 @@ namespace Models
     inline UpdateAiCallTaskShrinkRequest& setStartType(string startType) { DARABONBA_PTR_SET_VALUE(startType_, startType) };
 
 
+    // taskCps Field Functions 
+    bool hasTaskCps() const { return this->taskCps_ != nullptr;};
+    void deleteTaskCps() { this->taskCps_ = nullptr;};
+    inline int64_t taskCps() const { DARABONBA_PTR_GET_DEFAULT(taskCps_, 0L) };
+    inline UpdateAiCallTaskShrinkRequest& setTaskCps(int64_t taskCps) { DARABONBA_PTR_SET_VALUE(taskCps_, taskCps) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -171,6 +180,8 @@ namespace Models
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> startType_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<int64_t> taskCps_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> taskId_ = nullptr;
     // This parameter is required.

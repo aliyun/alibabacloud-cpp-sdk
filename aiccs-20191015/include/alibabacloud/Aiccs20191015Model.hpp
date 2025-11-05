@@ -319,6 +319,10 @@
 #include <alibabacloud/models/HotlineSessionQueryRequest.hpp>
 #include <alibabacloud/models/HotlineSessionQueryResponseBody.hpp>
 #include <alibabacloud/models/HotlineSessionQueryResponse.hpp>
+#include <alibabacloud/models/ImportOneTaskPhoneNumberRequest.hpp>
+#include <alibabacloud/models/ImportOneTaskPhoneNumberShrinkRequest.hpp>
+#include <alibabacloud/models/ImportOneTaskPhoneNumberResponseBody.hpp>
+#include <alibabacloud/models/ImportOneTaskPhoneNumberResponse.hpp>
 #include <alibabacloud/models/ImportTaskNumberDatasRequest.hpp>
 #include <alibabacloud/models/ImportTaskNumberDatasShrinkRequest.hpp>
 #include <alibabacloud/models/ImportTaskNumberDatasResponseBody.hpp>
@@ -396,6 +400,7 @@
 #include <alibabacloud/models/PageQueryAgentListResponseBody.hpp>
 #include <alibabacloud/models/PageQueryAgentListResponse.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageRequest.hpp>
+#include <alibabacloud/models/QueryAiCallDetailPageShrinkRequest.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageResponseBody.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageResponse.hpp>
 #include <alibabacloud/models/QueryAiCallTaskDetailRequest.hpp>
@@ -593,6 +598,7 @@
 #include <alibabacloud/models/GetSkillGroupStatusTotalResponseBodyData.hpp>
 #include <alibabacloud/models/HotlineSessionQueryResponseBodyDataCallDetailRecord.hpp>
 #include <alibabacloud/models/HotlineSessionQueryResponseBodyData.hpp>
+#include <alibabacloud/models/ImportOneTaskPhoneNumberResponseBodyData.hpp>
 #include <alibabacloud/models/InsertAiOutboundPhoneNumsRequestDetails.hpp>
 #include <alibabacloud/models/InsertAiOutboundPhoneNumsResponseBodyDataFailInfo.hpp>
 #include <alibabacloud/models/InsertAiOutboundPhoneNumsResponseBodyData.hpp>
