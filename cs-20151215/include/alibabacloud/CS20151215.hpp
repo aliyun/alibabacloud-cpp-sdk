@@ -1709,6 +1709,24 @@ namespace CS20151215
       Models::ListOperationPlansResponse listOperationPlans(const Models::ListOperationPlansRequest &request);
 
       /**
+       * @summary 获取单个地域的自动运维执行计划列表
+       *
+       * @param request ListOperationPlansForRegionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOperationPlansForRegionResponse
+       */
+      Models::ListOperationPlansForRegionResponse listOperationPlansForRegionWithOptions(const string &regionId, const Models::ListOperationPlansForRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取单个地域的自动运维执行计划列表
+       *
+       * @param request ListOperationPlansForRegionRequest
+       * @return ListOperationPlansForRegionResponse
+       */
+      Models::ListOperationPlansForRegionResponse listOperationPlansForRegion(const string &regionId, const Models::ListOperationPlansForRegionRequest &request);
+
+      /**
        * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
        *
        * @param tmpReq ListTagResourcesRequest

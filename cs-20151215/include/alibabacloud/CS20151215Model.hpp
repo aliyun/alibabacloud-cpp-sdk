@@ -229,6 +229,9 @@
 #include <alibabacloud/models/ListOperationPlansRequest.hpp>
 #include <alibabacloud/models/ListOperationPlansResponseBody.hpp>
 #include <alibabacloud/models/ListOperationPlansResponse.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionRequest.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionResponseBody.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
@@ -347,6 +350,8 @@
 #include <alibabacloud/models/NodepoolManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/NodepoolManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/NodepoolManagement.hpp>
+#include <alibabacloud/models/NodepoolNodeComponentsConfig.hpp>
+#include <alibabacloud/models/NodepoolNodeComponents.hpp>
 #include <alibabacloud/models/NodepoolNodeConfig.hpp>
 #include <alibabacloud/models/NodepoolNodepoolInfo.hpp>
 #include <alibabacloud/models/NodepoolScalingGroupPrivatePoolOptions.hpp>
@@ -375,6 +380,8 @@
 #include <alibabacloud/models/CreateClusterNodePoolRequestManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestManagement.hpp>
+#include <alibabacloud/models/CreateClusterNodePoolRequestNodeComponentsConfig.hpp>
+#include <alibabacloud/models/CreateClusterNodePoolRequestNodeComponents.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodeConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodepoolInfo.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions.hpp>
@@ -408,6 +415,8 @@
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyManagement.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeComponentsConfig.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeComponents.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeConfigNodeOsConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyNodepoolInfo.hpp>
@@ -426,6 +435,8 @@
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagement.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponentsConfig.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfigNodeOsConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo.hpp>
@@ -506,6 +517,7 @@
 #include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyPage.hpp>
 #include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyStates.hpp>
 #include <alibabacloud/models/ListOperationPlansResponseBodyPlans.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionResponseBodyPlans.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ListUserKubeConfigStatesResponseBodyPage.hpp>

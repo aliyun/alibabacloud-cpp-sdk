@@ -7,6 +7,8 @@
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsManagement.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup.hpp>
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_TO_JSON(management, management_);
       DARABONBA_PTR_TO_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_TO_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_TO_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_TO_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_TO_JSON(scaling_group, scalingGroup_);
@@ -44,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(management, management_);
       DARABONBA_PTR_FROM_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_FROM_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_FROM_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_FROM_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_FROM_JSON(scaling_group, scalingGroup_);
@@ -63,8 +67,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoMode_ == nullptr
         && return this->autoScaling_ == nullptr && return this->interconnectConfig_ == nullptr && return this->interconnectMode_ == nullptr && return this->kubernetesConfig_ == nullptr && return this->management_ == nullptr
-        && return this->maxNodes_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr && return this->status_ == nullptr
-        && return this->teeConfig_ == nullptr; };
+        && return this->maxNodes_ == nullptr && return this->nodeComponents_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr
+        && return this->status_ == nullptr && return this->teeConfig_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};
@@ -122,6 +126,15 @@ namespace Models
     void deleteMaxNodes() { this->maxNodes_ = nullptr;};
     inline int64_t maxNodes() const { DARABONBA_PTR_GET_DEFAULT(maxNodes_, 0L) };
     inline DescribeClusterNodePoolsResponseBodyNodepools& setMaxNodes(int64_t maxNodes) { DARABONBA_PTR_SET_VALUE(maxNodes_, maxNodes) };
+
+
+    // nodeComponents Field Functions 
+    bool hasNodeComponents() const { return this->nodeComponents_ != nullptr;};
+    void deleteNodeComponents() { this->nodeComponents_ = nullptr;};
+    inline const vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents> & nodeComponents() const { DARABONBA_PTR_GET_CONST(nodeComponents_, vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents>) };
+    inline vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents> nodeComponents() { DARABONBA_PTR_GET(nodeComponents_, vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents>) };
+    inline DescribeClusterNodePoolsResponseBodyNodepools& setNodeComponents(const vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents> & nodeComponents) { DARABONBA_PTR_SET_VALUE(nodeComponents_, nodeComponents) };
+    inline DescribeClusterNodePoolsResponseBodyNodepools& setNodeComponents(vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents> && nodeComponents) { DARABONBA_PTR_SET_RVALUE(nodeComponents_, nodeComponents) };
 
 
     // nodeConfig Field Functions 
@@ -188,6 +201,7 @@ namespace Models
     std::shared_ptr<Models::DescribeClusterNodePoolsResponseBodyNodepoolsManagement> management_ = nullptr;
     // The maximum number of nodes that can be created in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
     std::shared_ptr<int64_t> maxNodes_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeComponents>> nodeComponents_ = nullptr;
     // The configurations of nodes.
     std::shared_ptr<Models::DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig> nodeConfig_ = nullptr;
     // The information about the node pool.

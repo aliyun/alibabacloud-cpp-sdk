@@ -14,11 +14,21 @@ namespace Models
   class ContainerdConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ContainerdConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(ignoreImageDefinedVolume, ignoreImageDefinedVolume_);
       DARABONBA_PTR_TO_JSON(insecureRegistries, insecureRegistries_);
+      DARABONBA_PTR_TO_JSON(limitCore, limitCore_);
+      DARABONBA_PTR_TO_JSON(limitMemLock, limitMemLock_);
+      DARABONBA_PTR_TO_JSON(limitNoFile, limitNoFile_);
+      DARABONBA_PTR_TO_JSON(maxConcurrentDownloads, maxConcurrentDownloads_);
       DARABONBA_PTR_TO_JSON(registryMirrors, registryMirrors_);
     };
     friend void from_json(const Darabonba::Json& j, ContainerdConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(ignoreImageDefinedVolume, ignoreImageDefinedVolume_);
       DARABONBA_PTR_FROM_JSON(insecureRegistries, insecureRegistries_);
+      DARABONBA_PTR_FROM_JSON(limitCore, limitCore_);
+      DARABONBA_PTR_FROM_JSON(limitMemLock, limitMemLock_);
+      DARABONBA_PTR_FROM_JSON(limitNoFile, limitNoFile_);
+      DARABONBA_PTR_FROM_JSON(maxConcurrentDownloads, maxConcurrentDownloads_);
       DARABONBA_PTR_FROM_JSON(registryMirrors, registryMirrors_);
     };
     ContainerdConfig() = default ;
@@ -32,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->insecureRegistries_ == nullptr
+    virtual bool empty() const override { return this->ignoreImageDefinedVolume_ == nullptr
+        && return this->insecureRegistries_ == nullptr && return this->limitCore_ == nullptr && return this->limitMemLock_ == nullptr && return this->limitNoFile_ == nullptr && return this->maxConcurrentDownloads_ == nullptr
         && return this->registryMirrors_ == nullptr; };
+    // ignoreImageDefinedVolume Field Functions 
+    bool hasIgnoreImageDefinedVolume() const { return this->ignoreImageDefinedVolume_ != nullptr;};
+    void deleteIgnoreImageDefinedVolume() { this->ignoreImageDefinedVolume_ = nullptr;};
+    inline bool ignoreImageDefinedVolume() const { DARABONBA_PTR_GET_DEFAULT(ignoreImageDefinedVolume_, false) };
+    inline ContainerdConfig& setIgnoreImageDefinedVolume(bool ignoreImageDefinedVolume) { DARABONBA_PTR_SET_VALUE(ignoreImageDefinedVolume_, ignoreImageDefinedVolume) };
+
+
     // insecureRegistries Field Functions 
     bool hasInsecureRegistries() const { return this->insecureRegistries_ != nullptr;};
     void deleteInsecureRegistries() { this->insecureRegistries_ = nullptr;};
@@ -41,6 +59,34 @@ namespace Models
     inline vector<string> insecureRegistries() { DARABONBA_PTR_GET(insecureRegistries_, vector<string>) };
     inline ContainerdConfig& setInsecureRegistries(const vector<string> & insecureRegistries) { DARABONBA_PTR_SET_VALUE(insecureRegistries_, insecureRegistries) };
     inline ContainerdConfig& setInsecureRegistries(vector<string> && insecureRegistries) { DARABONBA_PTR_SET_RVALUE(insecureRegistries_, insecureRegistries) };
+
+
+    // limitCore Field Functions 
+    bool hasLimitCore() const { return this->limitCore_ != nullptr;};
+    void deleteLimitCore() { this->limitCore_ = nullptr;};
+    inline int64_t limitCore() const { DARABONBA_PTR_GET_DEFAULT(limitCore_, 0L) };
+    inline ContainerdConfig& setLimitCore(int64_t limitCore) { DARABONBA_PTR_SET_VALUE(limitCore_, limitCore) };
+
+
+    // limitMemLock Field Functions 
+    bool hasLimitMemLock() const { return this->limitMemLock_ != nullptr;};
+    void deleteLimitMemLock() { this->limitMemLock_ = nullptr;};
+    inline int64_t limitMemLock() const { DARABONBA_PTR_GET_DEFAULT(limitMemLock_, 0L) };
+    inline ContainerdConfig& setLimitMemLock(int64_t limitMemLock) { DARABONBA_PTR_SET_VALUE(limitMemLock_, limitMemLock) };
+
+
+    // limitNoFile Field Functions 
+    bool hasLimitNoFile() const { return this->limitNoFile_ != nullptr;};
+    void deleteLimitNoFile() { this->limitNoFile_ = nullptr;};
+    inline int64_t limitNoFile() const { DARABONBA_PTR_GET_DEFAULT(limitNoFile_, 0L) };
+    inline ContainerdConfig& setLimitNoFile(int64_t limitNoFile) { DARABONBA_PTR_SET_VALUE(limitNoFile_, limitNoFile) };
+
+
+    // maxConcurrentDownloads Field Functions 
+    bool hasMaxConcurrentDownloads() const { return this->maxConcurrentDownloads_ != nullptr;};
+    void deleteMaxConcurrentDownloads() { this->maxConcurrentDownloads_ = nullptr;};
+    inline int64_t maxConcurrentDownloads() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrentDownloads_, 0L) };
+    inline ContainerdConfig& setMaxConcurrentDownloads(int64_t maxConcurrentDownloads) { DARABONBA_PTR_SET_VALUE(maxConcurrentDownloads_, maxConcurrentDownloads) };
 
 
     // registryMirrors Field Functions 
@@ -53,7 +99,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> ignoreImageDefinedVolume_ = nullptr;
     std::shared_ptr<vector<string>> insecureRegistries_ = nullptr;
+    std::shared_ptr<int64_t> limitCore_ = nullptr;
+    std::shared_ptr<int64_t> limitMemLock_ = nullptr;
+    std::shared_ptr<int64_t> limitNoFile_ = nullptr;
+    std::shared_ptr<int64_t> maxConcurrentDownloads_ = nullptr;
     std::shared_ptr<vector<string>> registryMirrors_ = nullptr;
   };
 

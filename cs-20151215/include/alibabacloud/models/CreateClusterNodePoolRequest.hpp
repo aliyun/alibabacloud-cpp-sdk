@@ -8,6 +8,8 @@
 #include <alibabacloud/models/CreateClusterNodePoolRequestInterconnectConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestKubernetesConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestManagement.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateClusterNodePoolRequestNodeComponents.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodeConfig.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestNodepoolInfo.hpp>
 #include <alibabacloud/models/CreateClusterNodePoolRequestScalingGroup.hpp>
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_TO_JSON(management, management_);
       DARABONBA_PTR_TO_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_TO_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_TO_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_TO_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_TO_JSON(scaling_group, scalingGroup_);
@@ -51,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(management, management_);
       DARABONBA_PTR_FROM_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_FROM_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_FROM_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_FROM_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_FROM_JSON(scaling_group, scalingGroup_);
@@ -70,7 +74,7 @@ namespace Models
     virtual bool empty() const override { return this->autoMode_ == nullptr
         && return this->autoScaling_ == nullptr && return this->count_ == nullptr && return this->efloNodeGroup_ == nullptr && return this->hostNetwork_ == nullptr && return this->interconnectConfig_ == nullptr
         && return this->interconnectMode_ == nullptr && return this->intranet_ == nullptr && return this->kubernetesConfig_ == nullptr && return this->management_ == nullptr && return this->maxNodes_ == nullptr
-        && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr && return this->teeConfig_ == nullptr; };
+        && return this->nodeComponents_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr && return this->teeConfig_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};
@@ -160,6 +164,15 @@ namespace Models
     inline CreateClusterNodePoolRequest& setMaxNodes(int64_t maxNodes) { DARABONBA_PTR_SET_VALUE(maxNodes_, maxNodes) };
 
 
+    // nodeComponents Field Functions 
+    bool hasNodeComponents() const { return this->nodeComponents_ != nullptr;};
+    void deleteNodeComponents() { this->nodeComponents_ = nullptr;};
+    inline const vector<CreateClusterNodePoolRequestNodeComponents> & nodeComponents() const { DARABONBA_PTR_GET_CONST(nodeComponents_, vector<CreateClusterNodePoolRequestNodeComponents>) };
+    inline vector<CreateClusterNodePoolRequestNodeComponents> nodeComponents() { DARABONBA_PTR_GET(nodeComponents_, vector<CreateClusterNodePoolRequestNodeComponents>) };
+    inline CreateClusterNodePoolRequest& setNodeComponents(const vector<CreateClusterNodePoolRequestNodeComponents> & nodeComponents) { DARABONBA_PTR_SET_VALUE(nodeComponents_, nodeComponents) };
+    inline CreateClusterNodePoolRequest& setNodeComponents(vector<CreateClusterNodePoolRequestNodeComponents> && nodeComponents) { DARABONBA_PTR_SET_RVALUE(nodeComponents_, nodeComponents) };
+
+
     // nodeConfig Field Functions 
     bool hasNodeConfig() const { return this->nodeConfig_ != nullptr;};
     void deleteNodeConfig() { this->nodeConfig_ = nullptr;};
@@ -232,6 +245,7 @@ namespace Models
     // 
     // The maximum number of nodes that can be contained in the edge node pool.
     std::shared_ptr<int64_t> maxNodes_ = nullptr;
+    std::shared_ptr<vector<CreateClusterNodePoolRequestNodeComponents>> nodeComponents_ = nullptr;
     // The node configurations.
     std::shared_ptr<CreateClusterNodePoolRequestNodeConfig> nodeConfig_ = nullptr;
     // The configurations of the node pool.

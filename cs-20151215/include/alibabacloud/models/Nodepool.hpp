@@ -6,6 +6,8 @@
 #include <alibabacloud/models/NodepoolInterconnectConfig.hpp>
 #include <alibabacloud/models/NodepoolKubernetesConfig.hpp>
 #include <alibabacloud/models/NodepoolManagement.hpp>
+#include <vector>
+#include <alibabacloud/models/NodepoolNodeComponents.hpp>
 #include <alibabacloud/models/NodepoolNodeConfig.hpp>
 #include <alibabacloud/models/NodepoolNodepoolInfo.hpp>
 #include <alibabacloud/models/NodepoolScalingGroup.hpp>
@@ -28,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_TO_JSON(management, management_);
       DARABONBA_PTR_TO_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_TO_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_TO_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_TO_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_TO_JSON(scaling_group, scalingGroup_);
@@ -41,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kubernetes_config, kubernetesConfig_);
       DARABONBA_PTR_FROM_JSON(management, management_);
       DARABONBA_PTR_FROM_JSON(max_nodes, maxNodes_);
+      DARABONBA_PTR_FROM_JSON(node_components, nodeComponents_);
       DARABONBA_PTR_FROM_JSON(node_config, nodeConfig_);
       DARABONBA_PTR_FROM_JSON(nodepool_info, nodepoolInfo_);
       DARABONBA_PTR_FROM_JSON(scaling_group, scalingGroup_);
@@ -59,7 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoScaling_ == nullptr
         && return this->count_ == nullptr && return this->interconnectConfig_ == nullptr && return this->interconnectMode_ == nullptr && return this->kubernetesConfig_ == nullptr && return this->management_ == nullptr
-        && return this->maxNodes_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr && return this->teeConfig_ == nullptr; };
+        && return this->maxNodes_ == nullptr && return this->nodeComponents_ == nullptr && return this->nodeConfig_ == nullptr && return this->nodepoolInfo_ == nullptr && return this->scalingGroup_ == nullptr
+        && return this->teeConfig_ == nullptr; };
     // autoScaling Field Functions 
     bool hasAutoScaling() const { return this->autoScaling_ != nullptr;};
     void deleteAutoScaling() { this->autoScaling_ = nullptr;};
@@ -117,6 +122,15 @@ namespace Models
     inline Nodepool& setMaxNodes(int64_t maxNodes) { DARABONBA_PTR_SET_VALUE(maxNodes_, maxNodes) };
 
 
+    // nodeComponents Field Functions 
+    bool hasNodeComponents() const { return this->nodeComponents_ != nullptr;};
+    void deleteNodeComponents() { this->nodeComponents_ = nullptr;};
+    inline const vector<NodepoolNodeComponents> & nodeComponents() const { DARABONBA_PTR_GET_CONST(nodeComponents_, vector<NodepoolNodeComponents>) };
+    inline vector<NodepoolNodeComponents> nodeComponents() { DARABONBA_PTR_GET(nodeComponents_, vector<NodepoolNodeComponents>) };
+    inline Nodepool& setNodeComponents(const vector<NodepoolNodeComponents> & nodeComponents) { DARABONBA_PTR_SET_VALUE(nodeComponents_, nodeComponents) };
+    inline Nodepool& setNodeComponents(vector<NodepoolNodeComponents> && nodeComponents) { DARABONBA_PTR_SET_RVALUE(nodeComponents_, nodeComponents) };
+
+
     // nodeConfig Field Functions 
     bool hasNodeConfig() const { return this->nodeConfig_ != nullptr;};
     void deleteNodeConfig() { this->nodeConfig_ = nullptr;};
@@ -161,6 +175,7 @@ namespace Models
     std::shared_ptr<NodepoolKubernetesConfig> kubernetesConfig_ = nullptr;
     std::shared_ptr<NodepoolManagement> management_ = nullptr;
     std::shared_ptr<int64_t> maxNodes_ = nullptr;
+    std::shared_ptr<vector<NodepoolNodeComponents>> nodeComponents_ = nullptr;
     std::shared_ptr<NodepoolNodeConfig> nodeConfig_ = nullptr;
     std::shared_ptr<NodepoolNodepoolInfo> nodepoolInfo_ = nullptr;
     std::shared_ptr<NodepoolScalingGroup> scalingGroup_ = nullptr;

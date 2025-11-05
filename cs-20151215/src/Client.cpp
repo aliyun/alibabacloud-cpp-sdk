@@ -1296,6 +1296,10 @@ CreateClusterNodePoolResponse Client::createClusterNodePoolWithOptions(const str
     body["max_nodes"] = request.maxNodes();
   }
 
+  if (!!request.hasNodeComponents()) {
+    body["node_components"] = request.nodeComponents();
+  }
+
   if (!!request.hasNodeConfig()) {
     body["node_config"] = request.nodeConfig();
   }
@@ -4932,6 +4936,59 @@ ListOperationPlansResponse Client::listOperationPlans(const ListOperationPlansRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listOperationPlansWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取单个地域的自动运维执行计划列表
+ *
+ * @param request ListOperationPlansForRegionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOperationPlansForRegionResponse
+ */
+ListOperationPlansForRegionResponse Client::listOperationPlansForRegionWithOptions(const string &regionId, const ListOperationPlansForRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["cluster_id"] = request.clusterId();
+  }
+
+  if (!!request.hasState()) {
+    query["state"] = request.state();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOperationPlansForRegion"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/regions/" , Darabonba::Encode::Encoder::percentEncode(regionId) , "/operation/plans")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOperationPlansForRegionResponse>();
+}
+
+/**
+ * @summary 获取单个地域的自动运维执行计划列表
+ *
+ * @param request ListOperationPlansForRegionRequest
+ * @return ListOperationPlansForRegionResponse
+ */
+ListOperationPlansForRegionResponse Client::listOperationPlansForRegion(const string &regionId, const ListOperationPlansForRegionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOperationPlansForRegionWithOptions(regionId, request, headers, runtime);
 }
 
 /**
