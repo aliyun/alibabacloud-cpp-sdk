@@ -3,11 +3,13 @@
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <map>
-#include <darabonba/http/Form.hpp>
+#include <darabonba/Runtime.hpp>
+#include <darabonba/policy/Retry.hpp>
+#include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
+#include <darabonba/http/Form.hpp>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
@@ -58,43 +60,88 @@ AlibabaCloud::DataworksPublic20240518::Client::Client(AlibabaCloud::OpenApi::Uti
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
+Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
+  Darabonba::RuntimeOptions runtime_(json({
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"retryOptions", _retryOptions},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"tlsMinVersion", _tlsMinVersion}
     }));
+
+  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
+  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
+  Darabonba::Exception _lastException;
+  int _retriesAttempted = 0;
+  Darabonba::Policy::RetryPolicyContext _context = json({
+    {"retriesAttempted" , _retriesAttempted}
+  });
+  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+    if (_retriesAttempted > 0) {
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      if (_backoffTime > 0) {
+        Darabonba::sleep(_backoffTime);
+      }
+    }
+    _retriesAttempted++;
+    try {
+      Darabonba::Http::Request request_ = Darabonba::Http::Request();
+      string boundary = Darabonba::Http::Form::getBoundary();
+      request_.setProtocol("HTTPS");
+      request_.setMethod("POST");
+      request_.setPathname(DARA_STRING_TEMPLATE("/"));
+      request_.setHeaders(json({
+        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"date" , Utils::Utils::getDateUTCString()},
+        {"user-agent" , Utils::Utils::getUserAgent("")}
+      }).get<map<string, string>>());
+      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
+      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
+      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
+      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
+      _lastResponse  = response_;
+
+      json respMap = nullptr;
+      string bodyStr = Darabonba::Stream::readAsString(response_->body());
+      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+        json err = json(respMap["Error"]);
+        throw ClientException(json({
+          {"code" , Darabonba::Convert::stringVal(err["Code"])},
+          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"data" , json({
+            {"httpCode" , response_->statusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
+            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+          })}
+        }));
+      }
+
+      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+      return Darabonba::Core::merge(respMap
+      );
+    } catch (const Darabonba::Exception& ex) {
+      _context = Darabonba::Policy::RetryPolicyContext(json({
+        {"retriesAttempted" , _retriesAttempted},
+        {"lastRequest" , _lastRequest},
+        {"lastResponse" , _lastResponse},
+        {"exception" , ex},
+      }));
+      continue;
+    }
   }
 
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
+  throw *_context.exception();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -2443,7 +2490,7 @@ CreateResourceResponse Client::createResourceAdvance(const CreateResourceAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     createResourceReq.setResourceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2615,7 +2662,7 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     createResourceFileReq.setResourceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -7035,7 +7082,7 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     importCertificateReq.setCertificateFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -9468,6 +9515,120 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the list of workspaces with which a resource group is associated
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
+ *
+ * @param request ListResourceGroupAssociateProjectsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourceGroupAssociateProjectsResponse
+ */
+ListResourceGroupAssociateProjectsResponse Client::listResourceGroupAssociateProjectsWithOptions(const ListResourceGroupAssociateProjectsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListResourceGroupAssociateProjects"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourceGroupAssociateProjectsResponse>();
+}
+
+/**
+ * @summary Query the list of workspaces with which a resource group is associated
+ *
+ * @description 1.  This API operation is available for all DataWorks editions.
+ * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
+ *
+ * @param request ListResourceGroupAssociateProjectsRequest
+ * @return ListResourceGroupAssociateProjectsResponse
+ */
+ListResourceGroupAssociateProjectsResponse Client::listResourceGroupAssociateProjects(const ListResourceGroupAssociateProjectsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResourceGroupAssociateProjectsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取指定资源组的监控指标数据
+ *
+ * @param request ListResourceGroupMetricDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourceGroupMetricDataResponse
+ */
+ListResourceGroupMetricDataResponse Client::listResourceGroupMetricDataWithOptions(const ListResourceGroupMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBeginTime()) {
+    body["BeginTime"] = request.beginTime();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLength()) {
+    body["Length"] = request.length();
+  }
+
+  if (!!request.hasMetricName()) {
+    body["MetricName"] = request.metricName();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    body["Period"] = request.period();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListResourceGroupMetricData"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourceGroupMetricDataResponse>();
+}
+
+/**
+ * @summary 获取指定资源组的监控指标数据
+ *
+ * @param request ListResourceGroupMetricDataRequest
+ * @return ListResourceGroupMetricDataResponse
+ */
+ListResourceGroupMetricDataResponse Client::listResourceGroupMetricData(const ListResourceGroupMetricDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResourceGroupMetricDataWithOptions(request, runtime);
 }
 
 /**
@@ -13408,7 +13569,7 @@ UpdateResourceResponse Client::updateResourceAdvance(const UpdateResourceAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     updateResourceReq.setResourceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

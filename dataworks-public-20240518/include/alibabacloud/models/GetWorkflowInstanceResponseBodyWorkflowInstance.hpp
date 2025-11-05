@@ -240,11 +240,12 @@ namespace Models
     std::shared_ptr<vector<Models::GetWorkflowInstanceResponseBodyWorkflowInstanceTags>> tags_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
-    // *   Normal
-    // *   Manual
-    // *   SmokeTest
-    // *   SupplementData
-    // *   ManualWorkflow
+    // *   Normal: Scheduled execution
+    // *   Manual: Manually triggered node
+    // *   SmokeTest: Testing
+    // *   SupplementData: Data backfill
+    // *   ManualWorkflow: Manually triggered workflow
+    // *   TriggerWorkflow: Triggered Workflow
     std::shared_ptr<string> type_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;

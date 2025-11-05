@@ -571,6 +571,12 @@
 #include <alibabacloud/models/ListProjectsShrinkRequest.hpp>
 #include <alibabacloud/models/ListProjectsResponseBody.hpp>
 #include <alibabacloud/models/ListProjectsResponse.hpp>
+#include <alibabacloud/models/ListResourceGroupAssociateProjectsRequest.hpp>
+#include <alibabacloud/models/ListResourceGroupAssociateProjectsResponseBody.hpp>
+#include <alibabacloud/models/ListResourceGroupAssociateProjectsResponse.hpp>
+#include <alibabacloud/models/ListResourceGroupMetricDataRequest.hpp>
+#include <alibabacloud/models/ListResourceGroupMetricDataResponseBody.hpp>
+#include <alibabacloud/models/ListResourceGroupMetricDataResponse.hpp>
 #include <alibabacloud/models/ListResourceGroupsRequest.hpp>
 #include <alibabacloud/models/ListResourceGroupsShrinkRequest.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBody.hpp>
@@ -1347,6 +1353,8 @@
 #include <alibabacloud/models/ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags.hpp>
 #include <alibabacloud/models/ListProjectsResponseBodyPagingInfoProjects.hpp>
 #include <alibabacloud/models/ListProjectsResponseBodyPagingInfo.hpp>
+#include <alibabacloud/models/ListResourceGroupMetricDataResponseBodyMetricDataMetrics.hpp>
+#include <alibabacloud/models/ListResourceGroupMetricDataResponseBodyMetricData.hpp>
 #include <alibabacloud/models/ListResourceGroupsRequestAliyunResourceTags.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBodyPagingInfoResourceGroupListAliyunResourceTags.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec.hpp>

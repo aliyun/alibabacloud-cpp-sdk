@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The result of asynchronously creating a workflow instance.
+    // The creation result of the workflow instance.
     std::shared_ptr<GetCreateWorkflowInstancesResultResponseBodyResult> result_ = nullptr;
   };
 

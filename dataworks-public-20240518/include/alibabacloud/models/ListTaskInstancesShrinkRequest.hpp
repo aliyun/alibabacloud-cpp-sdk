@@ -252,6 +252,14 @@ namespace Models
     // 
     //     Default value: `Id Desc`.
     std::shared_ptr<string> sortBy_ = nullptr;
+    // The status of the task instance.
+    // 
+    // *   `NotRun`: Not started
+    // *   `Running`
+    // *   `Failure`
+    // *   `Success`
+    // *   `WaitTime`: Awaiting scheduled time
+    // *   `WaitResource`: Awaiting resources
     std::shared_ptr<string> status_ = nullptr;
     // The ID of the task for which the instance is generated.
     std::shared_ptr<int64_t> taskId_ = nullptr;
@@ -278,11 +286,11 @@ namespace Models
     std::shared_ptr<int64_t> workflowInstanceId_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
-    // *   SmokeTest
-    // *   Manual
-    // *   SupplementData
-    // *   ManualWorkflow
-    // *   Normal
+    // *   SmokeTest: Testing
+    // *   Manual: Manually triggered node
+    // *   SupplementData: Data backfill
+    // *   ManualWorkflow: Manually triggered workflow
+    // *   Normal: Scheduled execution
     std::shared_ptr<string> workflowInstanceType_ = nullptr;
   };
 

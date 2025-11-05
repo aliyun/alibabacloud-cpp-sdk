@@ -5,9 +5,9 @@
 #include <alibabacloud/DataworksPublic20240518Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/DataworksPublic20240518.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace DataworksPublic20240518
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -3339,6 +3339,46 @@ namespace DataworksPublic20240518
        * @return ListProjectsResponse
        */
       Models::ListProjectsResponse listProjects(const Models::ListProjectsRequest &request);
+
+      /**
+       * @summary Query the list of workspaces with which a resource group is associated
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
+       *
+       * @param request ListResourceGroupAssociateProjectsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResourceGroupAssociateProjectsResponse
+       */
+      Models::ListResourceGroupAssociateProjectsResponse listResourceGroupAssociateProjectsWithOptions(const Models::ListResourceGroupAssociateProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the list of workspaces with which a resource group is associated
+       *
+       * @description 1.  This API operation is available for all DataWorks editions.
+       * 2.  **Make sure that the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.
+       *
+       * @param request ListResourceGroupAssociateProjectsRequest
+       * @return ListResourceGroupAssociateProjectsResponse
+       */
+      Models::ListResourceGroupAssociateProjectsResponse listResourceGroupAssociateProjects(const Models::ListResourceGroupAssociateProjectsRequest &request);
+
+      /**
+       * @summary 获取指定资源组的监控指标数据
+       *
+       * @param request ListResourceGroupMetricDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResourceGroupMetricDataResponse
+       */
+      Models::ListResourceGroupMetricDataResponse listResourceGroupMetricDataWithOptions(const Models::ListResourceGroupMetricDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定资源组的监控指标数据
+       *
+       * @param request ListResourceGroupMetricDataRequest
+       * @return ListResourceGroupMetricDataResponse
+       */
+      Models::ListResourceGroupMetricDataResponse listResourceGroupMetricData(const Models::ListResourceGroupMetricDataRequest &request);
 
       /**
        * @summary Queries a list of resource groups.

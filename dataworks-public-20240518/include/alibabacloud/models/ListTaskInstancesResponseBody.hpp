@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The pagination details.
+    // The pagination information.
     std::shared_ptr<ListTaskInstancesResponseBodyPagingInfo> pagingInfo_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;

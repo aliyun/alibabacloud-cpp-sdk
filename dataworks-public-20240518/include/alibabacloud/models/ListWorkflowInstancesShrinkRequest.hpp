@@ -156,6 +156,7 @@ namespace Models
     // *   SmokeTest: Smoke test
     // *   SupplementData: Data backfill
     // *   ManualWorkflow: Manually triggered workflow
+    // *   TriggerWorkflow: Triggered Workflow
     std::shared_ptr<string> type_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;

@@ -409,6 +409,7 @@ namespace Models
     std::shared_ptr<Models::ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime> runtime_ = nullptr;
     // The information about the resource group with which the instance is associated.
     std::shared_ptr<Models::ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource> runtimeResource_ = nullptr;
+    // The script parameter list.
     std::shared_ptr<string> scriptParameters_ = nullptr;
     // The time when the instance started to run.
     std::shared_ptr<int64_t> startedTime_ = nullptr;
@@ -452,7 +453,9 @@ namespace Models
     // *   Scheduler: scheduling cycle-based trigger
     // *   Manual: manual trigger
     std::shared_ptr<string> triggerType_ = nullptr;
+    // The timestamp for when it started waiting for resources.
     std::shared_ptr<int64_t> waitingResourceTime_ = nullptr;
+    // The timestamp for when it started waiting for the scheduled time.
     std::shared_ptr<int64_t> waitingTriggerTime_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
