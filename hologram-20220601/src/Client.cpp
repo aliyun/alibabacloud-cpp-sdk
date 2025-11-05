@@ -704,6 +704,181 @@ GetWarehouseDetailResponse Client::getWarehouseDetail(const string &instanceId) 
 }
 
 /**
+ * @summary DB授权
+ *
+ * @param request GrantDatabasePermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrantDatabasePermissionResponse
+ */
+GrantDatabasePermissionResponse Client::grantDatabasePermissionWithOptions(const string &instanceId, const GrantDatabasePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GrantDatabasePermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/grantDatabasePermission")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrantDatabasePermissionResponse>();
+}
+
+/**
+ * @summary DB授权
+ *
+ * @param request GrantDatabasePermissionRequest
+ * @return GrantDatabasePermissionResponse
+ */
+GrantDatabasePermissionResponse Client::grantDatabasePermission(const string &instanceId, const GrantDatabasePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return grantDatabasePermissionWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary DB授权
+ *
+ * @param request GrantSchemaPermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrantSchemaPermissionResponse
+ */
+GrantSchemaPermissionResponse Client::grantSchemaPermissionWithOptions(const string &instanceId, const GrantSchemaPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasSchemaName()) {
+    body["schemaName"] = request.schemaName();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GrantSchemaPermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/grantSchemaPermission")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrantSchemaPermissionResponse>();
+}
+
+/**
+ * @summary DB授权
+ *
+ * @param request GrantSchemaPermissionRequest
+ * @return GrantSchemaPermissionResponse
+ */
+GrantSchemaPermissionResponse Client::grantSchemaPermission(const string &instanceId, const GrantSchemaPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return grantSchemaPermissionWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary DB授权
+ *
+ * @param request GrantTablePermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GrantTablePermissionResponse
+ */
+GrantTablePermissionResponse Client::grantTablePermissionWithOptions(const string &instanceId, const GrantTablePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllTable()) {
+    body["allTable"] = request.allTable();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasSchemaName()) {
+    body["schemaName"] = request.schemaName();
+  }
+
+  if (!!request.hasTableName()) {
+    body["tableName"] = request.tableName();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GrantTablePermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/grantTablePermission")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GrantTablePermissionResponse>();
+}
+
+/**
+ * @summary DB授权
+ *
+ * @param request GrantTablePermissionRequest
+ * @return GrantTablePermissionResponse
+ */
+GrantTablePermissionResponse Client::grantTablePermission(const string &instanceId, const GrantTablePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return grantTablePermissionWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
  *
  * @param request ListBackupDataRequest
@@ -750,6 +925,51 @@ ListBackupDataResponse Client::listBackupData(const ListBackupDataRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBackupDataWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取DB列表
+ *
+ * @param request ListDatabasesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatabasesResponse
+ */
+ListDatabasesResponse Client::listDatabasesWithOptions(const string &instanceId, const ListDatabasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExternal()) {
+    query["external"] = request.external();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDatabases"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listDatabases")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatabasesResponse>();
+}
+
+/**
+ * @summary 获取DB列表
+ *
+ * @param request ListDatabasesRequest
+ * @return ListDatabasesResponse
+ */
+ListDatabasesResponse Client::listDatabases(const string &instanceId, const ListDatabasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDatabasesWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1190,6 +1410,181 @@ ResumeInstanceResponse Client::resumeInstance(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return resumeInstanceWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 取消DB授权
+ *
+ * @param request RevokeDatabasePermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeDatabasePermissionResponse
+ */
+RevokeDatabasePermissionResponse Client::revokeDatabasePermissionWithOptions(const string &instanceId, const RevokeDatabasePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeDatabasePermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/revokeDatabasePermission")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeDatabasePermissionResponse>();
+}
+
+/**
+ * @summary 取消DB授权
+ *
+ * @param request RevokeDatabasePermissionRequest
+ * @return RevokeDatabasePermissionResponse
+ */
+RevokeDatabasePermissionResponse Client::revokeDatabasePermission(const string &instanceId, const RevokeDatabasePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revokeDatabasePermissionWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 取消Schema授权
+ *
+ * @param request RevokeSchemaPermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeSchemaPermissionResponse
+ */
+RevokeSchemaPermissionResponse Client::revokeSchemaPermissionWithOptions(const string &instanceId, const RevokeSchemaPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasSchemaName()) {
+    body["schemaName"] = request.schemaName();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeSchemaPermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/revokeSchemaPermission")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeSchemaPermissionResponse>();
+}
+
+/**
+ * @summary 取消Schema授权
+ *
+ * @param request RevokeSchemaPermissionRequest
+ * @return RevokeSchemaPermissionResponse
+ */
+RevokeSchemaPermissionResponse Client::revokeSchemaPermission(const string &instanceId, const RevokeSchemaPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revokeSchemaPermissionWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 取消表授权
+ *
+ * @param request RevokeTablePermissionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RevokeTablePermissionResponse
+ */
+RevokeTablePermissionResponse Client::revokeTablePermissionWithOptions(const string &instanceId, const RevokeTablePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAllTable()) {
+    body["allTable"] = request.allTable();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasPrivileges()) {
+    body["privileges"] = request.privileges();
+  }
+
+  if (!!request.hasSchemaName()) {
+    body["schemaName"] = request.schemaName();
+  }
+
+  if (!!request.hasTableName()) {
+    body["tableName"] = request.tableName();
+  }
+
+  if (!!request.hasUserName()) {
+    body["userName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RevokeTablePermission"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/revokeTablePermission")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RevokeTablePermissionResponse>();
+}
+
+/**
+ * @summary 取消表授权
+ *
+ * @param request RevokeTablePermissionRequest
+ * @return RevokeTablePermissionResponse
+ */
+RevokeTablePermissionResponse Client::revokeTablePermission(const string &instanceId, const RevokeTablePermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return revokeTablePermissionWithOptions(instanceId, request, headers, runtime);
 }
 
 /**

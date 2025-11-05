@@ -291,6 +291,60 @@ namespace Hologram20220601
       Models::GetWarehouseDetailResponse getWarehouseDetail(const string &instanceId);
 
       /**
+       * @summary DB授权
+       *
+       * @param request GrantDatabasePermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantDatabasePermissionResponse
+       */
+      Models::GrantDatabasePermissionResponse grantDatabasePermissionWithOptions(const string &instanceId, const Models::GrantDatabasePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DB授权
+       *
+       * @param request GrantDatabasePermissionRequest
+       * @return GrantDatabasePermissionResponse
+       */
+      Models::GrantDatabasePermissionResponse grantDatabasePermission(const string &instanceId, const Models::GrantDatabasePermissionRequest &request);
+
+      /**
+       * @summary DB授权
+       *
+       * @param request GrantSchemaPermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantSchemaPermissionResponse
+       */
+      Models::GrantSchemaPermissionResponse grantSchemaPermissionWithOptions(const string &instanceId, const Models::GrantSchemaPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DB授权
+       *
+       * @param request GrantSchemaPermissionRequest
+       * @return GrantSchemaPermissionResponse
+       */
+      Models::GrantSchemaPermissionResponse grantSchemaPermission(const string &instanceId, const Models::GrantSchemaPermissionRequest &request);
+
+      /**
+       * @summary DB授权
+       *
+       * @param request GrantTablePermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GrantTablePermissionResponse
+       */
+      Models::GrantTablePermissionResponse grantTablePermissionWithOptions(const string &instanceId, const Models::GrantTablePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DB授权
+       *
+       * @param request GrantTablePermissionRequest
+       * @return GrantTablePermissionResponse
+       */
+      Models::GrantTablePermissionResponse grantTablePermission(const string &instanceId, const Models::GrantTablePermissionRequest &request);
+
+      /**
        * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
        *
        * @param request ListBackupDataRequest
@@ -307,6 +361,24 @@ namespace Hologram20220601
        * @return ListBackupDataResponse
        */
       Models::ListBackupDataResponse listBackupData(const Models::ListBackupDataRequest &request);
+
+      /**
+       * @summary 获取DB列表
+       *
+       * @param request ListDatabasesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatabasesResponse
+       */
+      Models::ListDatabasesResponse listDatabasesWithOptions(const string &instanceId, const Models::ListDatabasesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取DB列表
+       *
+       * @param request ListDatabasesRequest
+       * @return ListDatabasesResponse
+       */
+      Models::ListDatabasesResponse listDatabases(const string &instanceId, const Models::ListDatabasesRequest &request);
 
       /**
        * @summary Queries a list of instances.
@@ -489,6 +561,60 @@ namespace Hologram20220601
        * @return ResumeInstanceResponse
        */
       Models::ResumeInstanceResponse resumeInstance(const string &instanceId);
+
+      /**
+       * @summary 取消DB授权
+       *
+       * @param request RevokeDatabasePermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeDatabasePermissionResponse
+       */
+      Models::RevokeDatabasePermissionResponse revokeDatabasePermissionWithOptions(const string &instanceId, const Models::RevokeDatabasePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消DB授权
+       *
+       * @param request RevokeDatabasePermissionRequest
+       * @return RevokeDatabasePermissionResponse
+       */
+      Models::RevokeDatabasePermissionResponse revokeDatabasePermission(const string &instanceId, const Models::RevokeDatabasePermissionRequest &request);
+
+      /**
+       * @summary 取消Schema授权
+       *
+       * @param request RevokeSchemaPermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeSchemaPermissionResponse
+       */
+      Models::RevokeSchemaPermissionResponse revokeSchemaPermissionWithOptions(const string &instanceId, const Models::RevokeSchemaPermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消Schema授权
+       *
+       * @param request RevokeSchemaPermissionRequest
+       * @return RevokeSchemaPermissionResponse
+       */
+      Models::RevokeSchemaPermissionResponse revokeSchemaPermission(const string &instanceId, const Models::RevokeSchemaPermissionRequest &request);
+
+      /**
+       * @summary 取消表授权
+       *
+       * @param request RevokeTablePermissionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevokeTablePermissionResponse
+       */
+      Models::RevokeTablePermissionResponse revokeTablePermissionWithOptions(const string &instanceId, const Models::RevokeTablePermissionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消表授权
+       *
+       * @param request RevokeTablePermissionRequest
+       * @return RevokeTablePermissionResponse
+       */
+      Models::RevokeTablePermissionResponse revokeTablePermission(const string &instanceId, const Models::RevokeTablePermissionRequest &request);
 
       /**
        * @summary Scales in or out a virtual warehouse.
