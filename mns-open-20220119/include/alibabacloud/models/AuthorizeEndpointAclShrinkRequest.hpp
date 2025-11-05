@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclStrategy_ != nullptr
-        && this->cidrListShrink_ != nullptr && this->endpointType_ != nullptr; };
+    virtual bool empty() const override { return this->aclStrategy_ == nullptr
+        && return this->cidrListShrink_ == nullptr && return this->endpointType_ == nullptr; };
     // aclStrategy Field Functions 
     bool hasAclStrategy() const { return this->aclStrategy_ != nullptr;};
     void deleteAclStrategy() { this->aclStrategy_ = nullptr;};

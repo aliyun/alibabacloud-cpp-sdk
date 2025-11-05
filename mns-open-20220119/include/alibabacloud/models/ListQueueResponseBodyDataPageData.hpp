@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeMessages_ != nullptr
-        && this->createTime_ != nullptr && this->delayMessages_ != nullptr && this->delaySeconds_ != nullptr && this->dlqPolicy_ != nullptr && this->inactiveMessages_ != nullptr
-        && this->lastModifyTime_ != nullptr && this->loggingEnabled_ != nullptr && this->maximumMessageSize_ != nullptr && this->messageRetentionPeriod_ != nullptr && this->pollingWaitSeconds_ != nullptr
-        && this->queueName_ != nullptr && this->queueType_ != nullptr && this->tags_ != nullptr && this->visibilityTimeout_ != nullptr; };
+    virtual bool empty() const override { return this->activeMessages_ == nullptr
+        && return this->createTime_ == nullptr && return this->delayMessages_ == nullptr && return this->delaySeconds_ == nullptr && return this->dlqPolicy_ == nullptr && return this->inactiveMessages_ == nullptr
+        && return this->lastModifyTime_ == nullptr && return this->loggingEnabled_ == nullptr && return this->maximumMessageSize_ == nullptr && return this->messageRetentionPeriod_ == nullptr && return this->pollingWaitSeconds_ == nullptr
+        && return this->queueName_ == nullptr && return this->queueType_ == nullptr && return this->tags_ == nullptr && return this->visibilityTimeout_ == nullptr; };
     // activeMessages Field Functions 
     bool hasActiveMessages() const { return this->activeMessages_ != nullptr;};
     void deleteActiveMessages() { this->activeMessages_ = nullptr;};

@@ -22,8 +22,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MessageCount, messageCount_);
       DARABONBA_PTR_TO_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(TopicInnerUrl, topicInnerUrl_);
       DARABONBA_PTR_TO_JSON(TopicName, topicName_);
       DARABONBA_PTR_TO_JSON(TopicType, topicType_);
+      DARABONBA_PTR_TO_JSON(TopicUrl, topicUrl_);
     };
     friend void from_json(const Darabonba::Json& j, GetTopicAttributesResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -33,8 +35,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MessageCount, messageCount_);
       DARABONBA_PTR_FROM_JSON(MessageRetentionPeriod, messageRetentionPeriod_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(TopicInnerUrl, topicInnerUrl_);
       DARABONBA_PTR_FROM_JSON(TopicName, topicName_);
       DARABONBA_PTR_FROM_JSON(TopicType, topicType_);
+      DARABONBA_PTR_FROM_JSON(TopicUrl, topicUrl_);
     };
     GetTopicAttributesResponseBodyData() = default ;
     GetTopicAttributesResponseBodyData(const GetTopicAttributesResponseBodyData &) = default ;
@@ -47,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->lastModifyTime_ != nullptr && this->loggingEnabled_ != nullptr && this->maxMessageSize_ != nullptr && this->messageCount_ != nullptr && this->messageRetentionPeriod_ != nullptr
-        && this->tags_ != nullptr && this->topicName_ != nullptr && this->topicType_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->lastModifyTime_ == nullptr && return this->loggingEnabled_ == nullptr && return this->maxMessageSize_ == nullptr && return this->messageCount_ == nullptr && return this->messageRetentionPeriod_ == nullptr
+        && return this->tags_ == nullptr && return this->topicInnerUrl_ == nullptr && return this->topicName_ == nullptr && return this->topicType_ == nullptr && return this->topicUrl_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -101,6 +105,13 @@ namespace Models
     inline GetTopicAttributesResponseBodyData& setTags(vector<Models::GetTopicAttributesResponseBodyDataTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // topicInnerUrl Field Functions 
+    bool hasTopicInnerUrl() const { return this->topicInnerUrl_ != nullptr;};
+    void deleteTopicInnerUrl() { this->topicInnerUrl_ = nullptr;};
+    inline string topicInnerUrl() const { DARABONBA_PTR_GET_DEFAULT(topicInnerUrl_, "") };
+    inline GetTopicAttributesResponseBodyData& setTopicInnerUrl(string topicInnerUrl) { DARABONBA_PTR_SET_VALUE(topicInnerUrl_, topicInnerUrl) };
+
+
     // topicName Field Functions 
     bool hasTopicName() const { return this->topicName_ != nullptr;};
     void deleteTopicName() { this->topicName_ = nullptr;};
@@ -113,6 +124,13 @@ namespace Models
     void deleteTopicType() { this->topicType_ = nullptr;};
     inline string topicType() const { DARABONBA_PTR_GET_DEFAULT(topicType_, "") };
     inline GetTopicAttributesResponseBodyData& setTopicType(string topicType) { DARABONBA_PTR_SET_VALUE(topicType_, topicType) };
+
+
+    // topicUrl Field Functions 
+    bool hasTopicUrl() const { return this->topicUrl_ != nullptr;};
+    void deleteTopicUrl() { this->topicUrl_ = nullptr;};
+    inline string topicUrl() const { DARABONBA_PTR_GET_DEFAULT(topicUrl_, "") };
+    inline GetTopicAttributesResponseBodyData& setTopicUrl(string topicUrl) { DARABONBA_PTR_SET_VALUE(topicUrl_, topicUrl) };
 
 
   protected:
@@ -133,9 +151,11 @@ namespace Models
     std::shared_ptr<int64_t> messageRetentionPeriod_ = nullptr;
     // The tags added to the resources.
     std::shared_ptr<vector<Models::GetTopicAttributesResponseBodyDataTags>> tags_ = nullptr;
+    std::shared_ptr<string> topicInnerUrl_ = nullptr;
     // The name of the topic.
     std::shared_ptr<string> topicName_ = nullptr;
     std::shared_ptr<string> topicType_ = nullptr;
+    std::shared_ptr<string> topicUrl_ = nullptr;
   };
 
   } // namespace Models

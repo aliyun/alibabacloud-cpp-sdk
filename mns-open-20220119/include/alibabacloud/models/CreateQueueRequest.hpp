@@ -53,9 +53,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->delaySeconds_ != nullptr
-        && this->dlqPolicy_ != nullptr && this->enableLogging_ != nullptr && this->maximumMessageSize_ != nullptr && this->messageRetentionPeriod_ != nullptr && this->pollingWaitSeconds_ != nullptr
-        && this->queueName_ != nullptr && this->queueType_ != nullptr && this->tag_ != nullptr && this->tenantRateLimitPolicy_ != nullptr && this->visibilityTimeout_ != nullptr; };
+    virtual bool empty() const override { return this->delaySeconds_ == nullptr
+        && return this->dlqPolicy_ == nullptr && return this->enableLogging_ == nullptr && return this->maximumMessageSize_ == nullptr && return this->messageRetentionPeriod_ == nullptr && return this->pollingWaitSeconds_ == nullptr
+        && return this->queueName_ == nullptr && return this->queueType_ == nullptr && return this->tag_ == nullptr && return this->tenantRateLimitPolicy_ == nullptr && return this->visibilityTimeout_ == nullptr; };
     // delaySeconds Field Functions 
     bool hasDelaySeconds() const { return this->delaySeconds_ != nullptr;};
     void deleteDelaySeconds() { this->delaySeconds_ = nullptr;};

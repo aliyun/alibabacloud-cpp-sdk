@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dlqPolicyShrink_ != nullptr
-        && this->dmAttributesShrink_ != nullptr && this->dysmsAttributesShrink_ != nullptr && this->endpoint_ != nullptr && this->kafkaAttributesShrink_ != nullptr && this->messageTag_ != nullptr
-        && this->notifyContentFormat_ != nullptr && this->notifyStrategy_ != nullptr && this->pushType_ != nullptr && this->stsRoleArn_ != nullptr && this->subscriptionName_ != nullptr
-        && this->tenantRateLimitPolicyShrink_ != nullptr && this->topicName_ != nullptr; };
+    virtual bool empty() const override { return this->dlqPolicyShrink_ == nullptr
+        && return this->dmAttributesShrink_ == nullptr && return this->dysmsAttributesShrink_ == nullptr && return this->endpoint_ == nullptr && return this->kafkaAttributesShrink_ == nullptr && return this->messageTag_ == nullptr
+        && return this->notifyContentFormat_ == nullptr && return this->notifyStrategy_ == nullptr && return this->pushType_ == nullptr && return this->stsRoleArn_ == nullptr && return this->subscriptionName_ == nullptr
+        && return this->tenantRateLimitPolicyShrink_ == nullptr && return this->topicName_ == nullptr; };
     // dlqPolicyShrink Field Functions 
     bool hasDlqPolicyShrink() const { return this->dlqPolicyShrink_ != nullptr;};
     void deleteDlqPolicyShrink() { this->dlqPolicyShrink_ = nullptr;};
