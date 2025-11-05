@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exact_ != nullptr
-        && this->SSLPub_ != nullptr && this->SSLStatus_ != nullptr; };
+    virtual bool empty() const override { return this->exact_ == nullptr
+        && return this->SSLPub_ == nullptr && return this->SSLStatus_ == nullptr; };
     // exact Field Functions 
     bool hasExact() const { return this->exact_ != nullptr;};
     void deleteExact() { this->exact_ = nullptr;};

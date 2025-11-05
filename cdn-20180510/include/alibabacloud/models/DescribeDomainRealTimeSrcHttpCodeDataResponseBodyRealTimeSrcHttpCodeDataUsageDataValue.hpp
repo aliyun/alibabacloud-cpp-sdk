@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->realTimeSrcCodeProportionData_ != nullptr; };
+    virtual bool empty() const override { return this->realTimeSrcCodeProportionData_ == nullptr; };
     // realTimeSrcCodeProportionData Field Functions 
     bool hasRealTimeSrcCodeProportionData() const { return this->realTimeSrcCodeProportionData_ != nullptr;};
     void deleteRealTimeSrcCodeProportionData() { this->realTimeSrcCodeProportionData_ = nullptr;};

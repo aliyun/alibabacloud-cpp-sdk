@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customCountryId_ != nullptr
-        && this->customPercent_ != nullptr && this->customProvinceId_ != nullptr && this->domainName_ != nullptr && this->publishMode_ != nullptr; };
+    virtual bool empty() const override { return this->customCountryId_ == nullptr
+        && return this->customPercent_ == nullptr && return this->customProvinceId_ == nullptr && return this->domainName_ == nullptr && return this->publishMode_ == nullptr; };
     // customCountryId Field Functions 
     bool hasCustomCountryId() const { return this->customCountryId_ != nullptr;};
     void deleteCustomCountryId() { this->customCountryId_ = nullptr;};

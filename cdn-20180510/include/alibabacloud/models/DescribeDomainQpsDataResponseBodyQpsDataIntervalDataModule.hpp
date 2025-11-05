@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accDomesticValue_ != nullptr
-        && this->accOverseasValue_ != nullptr && this->accValue_ != nullptr && this->domesticValue_ != nullptr && this->httpsAccDomesticValue_ != nullptr && this->httpsAccOverseasValue_ != nullptr
-        && this->httpsAccValue_ != nullptr && this->httpsDomesticValue_ != nullptr && this->httpsOverseasValue_ != nullptr && this->httpsValue_ != nullptr && this->overseasValue_ != nullptr
-        && this->timeStamp_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->accDomesticValue_ == nullptr
+        && return this->accOverseasValue_ == nullptr && return this->accValue_ == nullptr && return this->domesticValue_ == nullptr && return this->httpsAccDomesticValue_ == nullptr && return this->httpsAccOverseasValue_ == nullptr
+        && return this->httpsAccValue_ == nullptr && return this->httpsDomesticValue_ == nullptr && return this->httpsOverseasValue_ == nullptr && return this->httpsValue_ == nullptr && return this->overseasValue_ == nullptr
+        && return this->timeStamp_ == nullptr && return this->value_ == nullptr; };
     // accDomesticValue Field Functions 
     bool hasAccDomesticValue() const { return this->accDomesticValue_ != nullptr;};
     void deleteAccDomesticValue() { this->accDomesticValue_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acc_ != nullptr
-        && this->bps_ != nullptr && this->domainName_ != nullptr && this->httpCode_ != nullptr && this->ipv6Acc_ != nullptr && this->ipv6Bps_ != nullptr
-        && this->ipv6Qps_ != nullptr && this->ipv6Traf_ != nullptr && this->qps_ != nullptr && this->timeStamp_ != nullptr && this->traf_ != nullptr; };
+    virtual bool empty() const override { return this->acc_ == nullptr
+        && return this->bps_ == nullptr && return this->domainName_ == nullptr && return this->httpCode_ == nullptr && return this->ipv6Acc_ == nullptr && return this->ipv6Bps_ == nullptr
+        && return this->ipv6Qps_ == nullptr && return this->ipv6Traf_ == nullptr && return this->qps_ == nullptr && return this->timeStamp_ == nullptr && return this->traf_ == nullptr; };
     // acc Field Functions 
     bool hasAcc() const { return this->acc_ != nullptr;};
     void deleteAcc() { this->acc_ = nullptr;};

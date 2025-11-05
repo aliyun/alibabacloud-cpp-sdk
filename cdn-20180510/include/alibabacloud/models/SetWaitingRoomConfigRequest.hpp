@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowPct_ != nullptr
-        && this->domainName_ != nullptr && this->gapTime_ != nullptr && this->maxTimeWait_ != nullptr && this->waitUri_ != nullptr && this->waitUrl_ != nullptr; };
+    virtual bool empty() const override { return this->allowPct_ == nullptr
+        && return this->domainName_ == nullptr && return this->gapTime_ == nullptr && return this->maxTimeWait_ == nullptr && return this->waitUri_ == nullptr && return this->waitUrl_ == nullptr; };
     // allowPct Field Functions 
     bool hasAllowPct() const { return this->allowPct_ != nullptr;};
     void deleteAllowPct() { this->allowPct_ = nullptr;};

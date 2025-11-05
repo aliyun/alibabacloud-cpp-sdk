@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certDomainName_ != nullptr
-        && this->certExpireTime_ != nullptr && this->certId_ != nullptr && this->certLife_ != nullptr && this->certName_ != nullptr && this->certOrg_ != nullptr
-        && this->certRegion_ != nullptr && this->certStartTime_ != nullptr && this->certType_ != nullptr && this->certUpdateTime_ != nullptr && this->domainCnameStatus_ != nullptr
-        && this->domainName_ != nullptr && this->serverCertificate_ != nullptr && this->serverCertificateStatus_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->certDomainName_ == nullptr
+        && return this->certExpireTime_ == nullptr && return this->certId_ == nullptr && return this->certLife_ == nullptr && return this->certName_ == nullptr && return this->certOrg_ == nullptr
+        && return this->certRegion_ == nullptr && return this->certStartTime_ == nullptr && return this->certType_ == nullptr && return this->certUpdateTime_ == nullptr && return this->domainCnameStatus_ == nullptr
+        && return this->domainName_ == nullptr && return this->serverCertificate_ == nullptr && return this->serverCertificateStatus_ == nullptr && return this->status_ == nullptr; };
     // certDomainName Field Functions 
     bool hasCertDomainName() const { return this->certDomainName_ != nullptr;};
     void deleteCertDomainName() { this->certDomainName_ = nullptr;};

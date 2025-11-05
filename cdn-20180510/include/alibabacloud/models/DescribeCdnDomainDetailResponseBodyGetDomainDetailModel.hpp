@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdnType_ != nullptr
-        && this->cname_ != nullptr && this->description_ != nullptr && this->domainName_ != nullptr && this->domainStatus_ != nullptr && this->gmtCreated_ != nullptr
-        && this->gmtModified_ != nullptr && this->httpsCname_ != nullptr && this->resourceGroupId_ != nullptr && this->scope_ != nullptr && this->serverCertificateStatus_ != nullptr
-        && this->sourceModels_ != nullptr; };
+    virtual bool empty() const override { return this->cdnType_ == nullptr
+        && return this->cname_ == nullptr && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->domainStatus_ == nullptr && return this->gmtCreated_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->httpsCname_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scope_ == nullptr && return this->serverCertificateStatus_ == nullptr
+        && return this->sourceModels_ == nullptr; };
     // cdnType Field Functions 
     bool hasCdnType() const { return this->cdnType_ != nullptr;};
     void deleteCdnType() { this->cdnType_ = nullptr;};

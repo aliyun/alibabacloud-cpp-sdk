@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodityCode_ != nullptr
-        && this->currCapacity_ != nullptr && this->currCapacityBaseUnit_ != nullptr && this->currCapacityShowUnit_ != nullptr && this->currCapacityShowValue_ != nullptr && this->displayName_ != nullptr
-        && this->endTime_ != nullptr && this->initCapacity_ != nullptr && this->initCapacityBaseUnit_ != nullptr && this->initCapacityShowUnit_ != nullptr && this->initCapacityShowValue_ != nullptr
-        && this->instanceId_ != nullptr && this->region_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->templateName_ != nullptr; };
+    virtual bool empty() const override { return this->commodityCode_ == nullptr
+        && return this->currCapacity_ == nullptr && return this->currCapacityBaseUnit_ == nullptr && return this->currCapacityShowUnit_ == nullptr && return this->currCapacityShowValue_ == nullptr && return this->displayName_ == nullptr
+        && return this->endTime_ == nullptr && return this->initCapacity_ == nullptr && return this->initCapacityBaseUnit_ == nullptr && return this->initCapacityShowUnit_ == nullptr && return this->initCapacityShowValue_ == nullptr
+        && return this->instanceId_ == nullptr && return this->region_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->templateName_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};

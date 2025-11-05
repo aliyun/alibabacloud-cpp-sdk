@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdnType_ != nullptr
-        && this->changeEndTime_ != nullptr && this->changeStartTime_ != nullptr && this->checkDomainShow_ != nullptr && this->coverage_ != nullptr && this->domainName_ != nullptr
-        && this->domainSearchType_ != nullptr && this->domainStatus_ != nullptr && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->securityToken_ != nullptr && this->source_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->cdnType_ == nullptr
+        && return this->changeEndTime_ == nullptr && return this->changeStartTime_ == nullptr && return this->checkDomainShow_ == nullptr && return this->coverage_ == nullptr && return this->domainName_ == nullptr
+        && return this->domainSearchType_ == nullptr && return this->domainStatus_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->securityToken_ == nullptr && return this->source_ == nullptr && return this->tag_ == nullptr; };
     // cdnType Field Functions 
     bool hasCdnType() const { return this->cdnType_ != nullptr;};
     void deleteCdnType() { this->cdnType_ = nullptr;};

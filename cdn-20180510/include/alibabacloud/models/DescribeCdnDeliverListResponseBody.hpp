@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECDNDELIVERLISTRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECDNDELIVERLISTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeCdnDeliverListResponseBodyContent.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -31,13 +32,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->requestId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
-    inline DescribeCdnDeliverListResponseBody& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+    inline const DescribeCdnDeliverListResponseBodyContent & content() const { DARABONBA_PTR_GET_CONST(content_, DescribeCdnDeliverListResponseBodyContent) };
+    inline DescribeCdnDeliverListResponseBodyContent content() { DARABONBA_PTR_GET(content_, DescribeCdnDeliverListResponseBodyContent) };
+    inline DescribeCdnDeliverListResponseBody& setContent(const DescribeCdnDeliverListResponseBodyContent & content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+    inline DescribeCdnDeliverListResponseBody& setContent(DescribeCdnDeliverListResponseBodyContent && content) { DARABONBA_PTR_SET_RVALUE(content_, content) };
 
 
     // requestId Field Functions 
@@ -49,7 +52,7 @@ namespace Models
 
   protected:
     // The information about the tracking task.
-    std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<DescribeCdnDeliverListResponseBodyContent> content_ = nullptr;
     // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };

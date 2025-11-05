@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expireWithin30DaysCount_ != nullptr
-        && this->expiredCount_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->expireWithin30DaysCount_ == nullptr
+        && return this->expiredCount_ == nullptr && return this->requestId_ == nullptr; };
     // expireWithin30DaysCount Field Functions 
     bool hasExpireWithin30DaysCount() const { return this->expireWithin30DaysCount_ != nullptr;};
     void deleteExpireWithin30DaysCount() { this->expireWithin30DaysCount_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheTag_ != nullptr
-        && this->domainName_ != nullptr && this->force_ != nullptr; };
+    virtual bool empty() const override { return this->cacheTag_ == nullptr
+        && return this->domainName_ == nullptr && return this->force_ == nullptr; };
     // cacheTag Field Functions 
     bool hasCacheTag() const { return this->cacheTag_ != nullptr;};
     void deleteCacheTag() { this->cacheTag_ = nullptr;};

@@ -257,40 +257,6 @@ namespace Cdn20180510
       Models::BatchUpdateCdnDomainResponse batchUpdateCdnDomain(const Models::BatchUpdateCdnDomainRequest &request);
 
       /**
-       * @summary Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-       *
-       * @param request CdnMigrateRegisterRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CdnMigrateRegisterResponse
-       */
-      Models::CdnMigrateRegisterResponse cdnMigrateRegisterWithOptions(const Models::CdnMigrateRegisterRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Registers the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for an Alibaba Cloud CDN-accelerated domain name. After the registration is successful, the routing center generates the dynamic routing information and send it to DCDN points of presence (POPs). This is a prerequisite for you to transfer a domain name from Alibaba Cloud CDN to DCDN.
-       *
-       * @param request CdnMigrateRegisterRequest
-       * @return CdnMigrateRegisterResponse
-       */
-      Models::CdnMigrateRegisterResponse cdnMigrateRegister(const Models::CdnMigrateRegisterRequest &request);
-
-      /**
-       * @summary Transfer a domain name from Alibaba Cloud CDN to DCDN.
-       *
-       * @param request ChangeCdnDomainToDcdnRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ChangeCdnDomainToDcdnResponse
-       */
-      Models::ChangeCdnDomainToDcdnResponse changeCdnDomainToDcdnWithOptions(const Models::ChangeCdnDomainToDcdnRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Transfer a domain name from Alibaba Cloud CDN to DCDN.
-       *
-       * @param request ChangeCdnDomainToDcdnRequest
-       * @return ChangeCdnDomainToDcdnResponse
-       */
-      Models::ChangeCdnDomainToDcdnResponse changeCdnDomainToDcdn(const Models::ChangeCdnDomainToDcdnRequest &request);
-
-      /**
        * @summary Checks whether a domain name exists.
        *
        * @param request CheckCdnDomainExistRequest
@@ -1050,27 +1016,6 @@ namespace Cdn20180510
        * @return DescribeCdnHttpsDomainListResponse
        */
       Models::DescribeCdnHttpsDomainListResponse describeCdnHttpsDomainList(const Models::DescribeCdnHttpsDomainListRequest &request);
-
-      /**
-       * @summary Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-       *
-       * @description >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-       *
-       * @param request DescribeCdnMigrateRegisterStatusRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeCdnMigrateRegisterStatusResponse
-       */
-      Models::DescribeCdnMigrateRegisterStatusResponse describeCdnMigrateRegisterStatusWithOptions(const Models::DescribeCdnMigrateRegisterStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries the registration status of the dynamic routing feature of Dynamic Content Delivery Network (DCDN) for a domain name that is added to Alibaba Cloud CDN.
-       *
-       * @description >  If a domain name is not transferred from Alibaba Cloud CDN to DCDN after it is registered in the routing center of DCDN, the registration information is retained for only one day.
-       *
-       * @param request DescribeCdnMigrateRegisterStatusRequest
-       * @return DescribeCdnMigrateRegisterStatusResponse
-       */
-      Models::DescribeCdnMigrateRegisterStatusResponse describeCdnMigrateRegisterStatus(const Models::DescribeCdnMigrateRegisterStatusRequest &request);
 
       /**
        * @summary Queries the code of a commodity by account UID.

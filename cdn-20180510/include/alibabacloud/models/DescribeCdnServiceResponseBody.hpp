@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changingAffectTime_ != nullptr
-        && this->changingChargeType_ != nullptr && this->changingDynamicBillingType_ != nullptr && this->dynamicBillingType_ != nullptr && this->instanceId_ != nullptr && this->internetChargeType_ != nullptr
-        && this->openingTime_ != nullptr && this->operationLocks_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->changingAffectTime_ == nullptr
+        && return this->changingChargeType_ == nullptr && return this->changingDynamicBillingType_ == nullptr && return this->dynamicBillingType_ == nullptr && return this->instanceId_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->openingTime_ == nullptr && return this->operationLocks_ == nullptr && return this->requestId_ == nullptr; };
     // changingAffectTime Field Functions 
     bool hasChangingAffectTime() const { return this->changingAffectTime_ != nullptr;};
     void deleteChangingAffectTime() { this->changingAffectTime_ = nullptr;};

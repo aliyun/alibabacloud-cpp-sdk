@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cdnType_ != nullptr; };
+    virtual bool empty() const override { return this->cdnType_ == nullptr; };
     // cdnType Field Functions 
     bool hasCdnType() const { return this->cdnType_ != nullptr;};
     void deleteCdnType() { this->cdnType_ = nullptr;};

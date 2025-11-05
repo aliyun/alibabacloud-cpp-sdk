@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blockQuota_ != nullptr
-        && this->blockRemain_ != nullptr && this->domainQuota_ != nullptr && this->ignoreParamsQuota_ != nullptr && this->ignoreParamsRemain_ != nullptr && this->preloadQuota_ != nullptr
-        && this->preloadRemain_ != nullptr && this->refreshDirQuota_ != nullptr && this->refreshDirRemain_ != nullptr && this->refreshUrlQuota_ != nullptr && this->refreshUrlRemain_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->blockQuota_ == nullptr
+        && return this->blockRemain_ == nullptr && return this->domainQuota_ == nullptr && return this->ignoreParamsQuota_ == nullptr && return this->ignoreParamsRemain_ == nullptr && return this->preloadQuota_ == nullptr
+        && return this->preloadRemain_ == nullptr && return this->refreshDirQuota_ == nullptr && return this->refreshDirRemain_ == nullptr && return this->refreshUrlQuota_ == nullptr && return this->refreshUrlRemain_ == nullptr
+        && return this->requestId_ == nullptr; };
     // blockQuota Field Functions 
     bool hasBlockQuota() const { return this->blockQuota_ != nullptr;};
     void deleteBlockQuota() { this->blockQuota_ = nullptr;};

@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bytesHitRate_ != nullptr
-        && this->maxBps_ != nullptr && this->maxBpsTime_ != nullptr && this->maxSrcBps_ != nullptr && this->maxSrcBpsTime_ != nullptr && this->qps_ != nullptr
-        && this->requestHitRate_ != nullptr && this->timeStamp_ != nullptr && this->totalAccess_ != nullptr && this->totalTraffic_ != nullptr; };
+    virtual bool empty() const override { return this->bytesHitRate_ == nullptr
+        && return this->maxBps_ == nullptr && return this->maxBpsTime_ == nullptr && return this->maxSrcBps_ == nullptr && return this->maxSrcBpsTime_ == nullptr && return this->qps_ == nullptr
+        && return this->requestHitRate_ == nullptr && return this->timeStamp_ == nullptr && return this->totalAccess_ == nullptr && return this->totalTraffic_ == nullptr; };
     // bytesHitRate Field Functions 
     bool hasBytesHitRate() const { return this->bytesHitRate_ != nullptr;};
     void deleteBytesHitRate() { this->bytesHitRate_ = nullptr;};
