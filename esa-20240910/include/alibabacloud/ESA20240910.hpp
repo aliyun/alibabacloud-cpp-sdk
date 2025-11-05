@@ -5,9 +5,9 @@
 #include <alibabacloud/ESA20240910Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/ESA20240910.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace ESA20240910
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -2506,6 +2506,23 @@ namespace ESA20240910
        * @return ExportRecordsResponse
        */
       Models::ExportRecordsResponse exportRecords(const Models::ExportRecordsRequest &request);
+
+      /**
+       * @summary 获取架构文件套餐使用情况
+       *
+       * @param request GetApiSchemaUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApiSchemaUsageResponse
+       */
+      Models::GetApiSchemaUsageResponse getApiSchemaUsageWithOptions(const Models::GetApiSchemaUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取架构文件套餐使用情况
+       *
+       * @param request GetApiSchemaUsageRequest
+       * @return GetApiSchemaUsageResponse
+       */
+      Models::GetApiSchemaUsageResponse getApiSchemaUsage(const Models::GetApiSchemaUsageRequest &request);
 
       /**
        * @summary Queries the available specifications of cache reserve instances.

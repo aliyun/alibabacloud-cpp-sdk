@@ -2,12 +2,14 @@
 #include <alibabacloud/ESA20240910.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <darabonba/http/Form.hpp>
+#include <darabonba/Runtime.hpp>
+#include <darabonba/policy/Retry.hpp>
+#include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
+#include <darabonba/http/Form.hpp>
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
@@ -32,43 +34,88 @@ AlibabaCloud::ESA20240910::Client::Client(AlibabaCloud::OpenApi::Utils::Models::
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
+Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
+  Darabonba::RuntimeOptions runtime_(json({
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"retryOptions", _retryOptions},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"tlsMinVersion", _tlsMinVersion}
     }));
+
+  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
+  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
+  Darabonba::Exception _lastException;
+  int _retriesAttempted = 0;
+  Darabonba::Policy::RetryPolicyContext _context = json({
+    {"retriesAttempted" , _retriesAttempted}
+  });
+  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+    if (_retriesAttempted > 0) {
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      if (_backoffTime > 0) {
+        Darabonba::sleep(_backoffTime);
+      }
+    }
+    _retriesAttempted++;
+    try {
+      Darabonba::Http::Request request_ = Darabonba::Http::Request();
+      string boundary = Darabonba::Http::Form::getBoundary();
+      request_.setProtocol("HTTPS");
+      request_.setMethod("POST");
+      request_.setPathname(DARA_STRING_TEMPLATE("/"));
+      request_.setHeaders(json({
+        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"date" , Utils::Utils::getDateUTCString()},
+        {"user-agent" , Utils::Utils::getUserAgent("")}
+      }).get<map<string, string>>());
+      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
+      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
+      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
+      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
+      _lastResponse  = response_;
+
+      json respMap = nullptr;
+      string bodyStr = Darabonba::Stream::readAsString(response_->body());
+      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+        json err = json(respMap["Error"]);
+        throw ClientException(json({
+          {"code" , Darabonba::Convert::stringVal(err["Code"])},
+          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"data" , json({
+            {"httpCode" , response_->statusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
+            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+          })}
+        }));
+      }
+
+      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+      return Darabonba::Core::merge(respMap
+      );
+    } catch (const Darabonba::Exception& ex) {
+      _context = Darabonba::Policy::RetryPolicyContext(json({
+        {"retriesAttempted" , _retriesAttempted},
+        {"lastRequest" , _lastRequest},
+        {"lastResponse" , _lastResponse},
+        {"exception" , ex},
+      }));
+      continue;
+    }
   }
 
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
+  throw *_context.exception();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -583,7 +630,7 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityAdvan
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     batchDeleteKvWithHighCapacityReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -927,7 +974,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityAdvance(con
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     batchPutKvWithHighCapacityReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -7829,6 +7876,52 @@ ExportRecordsResponse Client::exportRecords(const ExportRecordsRequest &request)
 }
 
 /**
+ * @summary 获取架构文件套餐使用情况
+ *
+ * @param request GetApiSchemaUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiSchemaUsageResponse
+ */
+GetApiSchemaUsageResponse Client::getApiSchemaUsageWithOptions(const GetApiSchemaUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.siteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApiSchemaUsage"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiSchemaUsageResponse>();
+}
+
+/**
+ * @summary 获取架构文件套餐使用情况
+ *
+ * @param request GetApiSchemaUsageRequest
+ * @return GetApiSchemaUsageResponse
+ */
+GetApiSchemaUsageResponse Client::getApiSchemaUsage(const GetApiSchemaUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApiSchemaUsageWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the available specifications of cache reserve instances.
  *
  * @param request GetCacheReserveSpecificationRequest
@@ -14553,7 +14646,7 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityAdvance(const PutKvWi
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     putKvWithHighCapacityReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -19093,7 +19186,7 @@ UploadFileResponse Client::uploadFileAdvance(const UploadFileAdvanceRequest &req
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     uploadFileReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

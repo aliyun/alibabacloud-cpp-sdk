@@ -433,6 +433,9 @@
 #include <alibabacloud/models/ExportRecordsRequest.hpp>
 #include <alibabacloud/models/ExportRecordsResponseBody.hpp>
 #include <alibabacloud/models/ExportRecordsResponse.hpp>
+#include <alibabacloud/models/GetApiSchemaUsageRequest.hpp>
+#include <alibabacloud/models/GetApiSchemaUsageResponseBody.hpp>
+#include <alibabacloud/models/GetApiSchemaUsageResponse.hpp>
 #include <alibabacloud/models/GetCacheReserveSpecificationResponseBody.hpp>
 #include <alibabacloud/models/GetCacheReserveSpecificationResponse.hpp>
 #include <alibabacloud/models/GetCacheRuleRequest.hpp>
@@ -1232,6 +1235,7 @@
 #include <alibabacloud/models/DescribeSiteTopDataResponseBodyDataDetailData.hpp>
 #include <alibabacloud/models/DescribeSiteTopDataResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataResponseBodyUrlDetailData.hpp>
+#include <alibabacloud/models/GetApiSchemaUsageResponseBodyUsages.hpp>
 #include <alibabacloud/models/GetCertificateResponseBodyResultDcv.hpp>
 #include <alibabacloud/models/GetCertificateResponseBodyResult.hpp>
 #include <alibabacloud/models/GetCertificateQuotaResponseBodySiteUsage.hpp>
