@@ -23,7 +23,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NatRouteEntryList, natRouteEntryList_);
       DARABONBA_PTR_TO_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_TO_JSON(ProxyName, proxyName_);
+      DARABONBA_PTR_TO_JSON(ProxyNetworkInterfaceId, proxyNetworkInterfaceId_);
+      DARABONBA_PTR_TO_JSON(ProxyRouteTableId, proxyRouteTableId_);
       DARABONBA_PTR_TO_JSON(ProxyStatus, proxyStatus_);
+      DARABONBA_PTR_TO_JSON(ProxyVSwitchId, proxyVSwitchId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(StrictMode, strictMode_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -38,7 +41,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NatRouteEntryList, natRouteEntryList_);
       DARABONBA_PTR_FROM_JSON(ProxyId, proxyId_);
       DARABONBA_PTR_FROM_JSON(ProxyName, proxyName_);
+      DARABONBA_PTR_FROM_JSON(ProxyNetworkInterfaceId, proxyNetworkInterfaceId_);
+      DARABONBA_PTR_FROM_JSON(ProxyRouteTableId, proxyRouteTableId_);
       DARABONBA_PTR_FROM_JSON(ProxyStatus, proxyStatus_);
+      DARABONBA_PTR_FROM_JSON(ProxyVSwitchId, proxyVSwitchId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(StrictMode, strictMode_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -57,8 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUid_ == nullptr
         && return this->errorDetail_ == nullptr && return this->memberUid_ == nullptr && return this->natGatewayId_ == nullptr && return this->natGatewayName_ == nullptr && return this->natRouteEntryList_ == nullptr
-        && return this->proxyId_ == nullptr && return this->proxyName_ == nullptr && return this->proxyStatus_ == nullptr && return this->regionId_ == nullptr && return this->strictMode_ == nullptr
-        && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
+        && return this->proxyId_ == nullptr && return this->proxyName_ == nullptr && return this->proxyNetworkInterfaceId_ == nullptr && return this->proxyRouteTableId_ == nullptr && return this->proxyStatus_ == nullptr
+        && return this->proxyVSwitchId_ == nullptr && return this->regionId_ == nullptr && return this->strictMode_ == nullptr && return this->vpcId_ == nullptr && return this->vpcName_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -117,11 +123,32 @@ namespace Models
     inline DescribeNatFirewallListResponseBodyNatFirewallList& setProxyName(string proxyName) { DARABONBA_PTR_SET_VALUE(proxyName_, proxyName) };
 
 
+    // proxyNetworkInterfaceId Field Functions 
+    bool hasProxyNetworkInterfaceId() const { return this->proxyNetworkInterfaceId_ != nullptr;};
+    void deleteProxyNetworkInterfaceId() { this->proxyNetworkInterfaceId_ = nullptr;};
+    inline string proxyNetworkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(proxyNetworkInterfaceId_, "") };
+    inline DescribeNatFirewallListResponseBodyNatFirewallList& setProxyNetworkInterfaceId(string proxyNetworkInterfaceId) { DARABONBA_PTR_SET_VALUE(proxyNetworkInterfaceId_, proxyNetworkInterfaceId) };
+
+
+    // proxyRouteTableId Field Functions 
+    bool hasProxyRouteTableId() const { return this->proxyRouteTableId_ != nullptr;};
+    void deleteProxyRouteTableId() { this->proxyRouteTableId_ = nullptr;};
+    inline string proxyRouteTableId() const { DARABONBA_PTR_GET_DEFAULT(proxyRouteTableId_, "") };
+    inline DescribeNatFirewallListResponseBodyNatFirewallList& setProxyRouteTableId(string proxyRouteTableId) { DARABONBA_PTR_SET_VALUE(proxyRouteTableId_, proxyRouteTableId) };
+
+
     // proxyStatus Field Functions 
     bool hasProxyStatus() const { return this->proxyStatus_ != nullptr;};
     void deleteProxyStatus() { this->proxyStatus_ = nullptr;};
     inline string proxyStatus() const { DARABONBA_PTR_GET_DEFAULT(proxyStatus_, "") };
     inline DescribeNatFirewallListResponseBodyNatFirewallList& setProxyStatus(string proxyStatus) { DARABONBA_PTR_SET_VALUE(proxyStatus_, proxyStatus) };
+
+
+    // proxyVSwitchId Field Functions 
+    bool hasProxyVSwitchId() const { return this->proxyVSwitchId_ != nullptr;};
+    void deleteProxyVSwitchId() { this->proxyVSwitchId_ = nullptr;};
+    inline string proxyVSwitchId() const { DARABONBA_PTR_GET_DEFAULT(proxyVSwitchId_, "") };
+    inline DescribeNatFirewallListResponseBodyNatFirewallList& setProxyVSwitchId(string proxyVSwitchId) { DARABONBA_PTR_SET_VALUE(proxyVSwitchId_, proxyVSwitchId) };
 
 
     // regionId Field Functions 
@@ -171,6 +198,8 @@ namespace Models
     std::shared_ptr<string> proxyId_ = nullptr;
     // The name of the NAT firewall.
     std::shared_ptr<string> proxyName_ = nullptr;
+    std::shared_ptr<string> proxyNetworkInterfaceId_ = nullptr;
+    std::shared_ptr<string> proxyRouteTableId_ = nullptr;
     // The status of the NAT firewall. Valid values:
     // 
     // *   configuring
@@ -181,6 +210,7 @@ namespace Models
     // *   closing
     // *   closed
     std::shared_ptr<string> proxyStatus_ = nullptr;
+    std::shared_ptr<string> proxyVSwitchId_ = nullptr;
     // The region ID of your Cloud Firewall.
     // 
     // >  For more information about the supported regions of Cloud Firewall, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
