@@ -2925,6 +2925,8 @@ namespace Polardb20170801
       Models::DescribeRdsVSwitchsResponse describeRdsVSwitchs(const Models::DescribeRdsVSwitchsRequest &request);
 
       /**
+       * @summary 查询vpc
+       *
        * @param request DescribeRdsVpcsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRdsVpcsResponse
@@ -2932,6 +2934,8 @@ namespace Polardb20170801
       Models::DescribeRdsVpcsResponse describeRdsVpcsWithOptions(const Models::DescribeRdsVpcsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询vpc
+       *
        * @param request DescribeRdsVpcsRequest
        * @return DescribeRdsVpcsResponse
        */

@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeAIDBClusterAttributeResponseBodyDBNodes& obj) { 
       DARABONBA_PTR_TO_JSON(ChildVolumes, childVolumes_);
       DARABONBA_PTR_TO_JSON(CpuCores, cpuCores_);
+      DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_TO_JSON(DBNodeDescription, DBNodeDescription_);
       DARABONBA_PTR_TO_JSON(DBNodeId, DBNodeId_);
@@ -33,6 +34,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeAIDBClusterAttributeResponseBodyDBNodes& obj) { 
       DARABONBA_PTR_FROM_JSON(ChildVolumes, childVolumes_);
       DARABONBA_PTR_FROM_JSON(CpuCores, cpuCores_);
+      DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_FROM_JSON(DBNodeDescription, DBNodeDescription_);
       DARABONBA_PTR_FROM_JSON(DBNodeId, DBNodeId_);
@@ -58,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->childVolumes_ == nullptr
-        && return this->cpuCores_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeDescription_ == nullptr && return this->DBNodeId_ == nullptr && return this->DBNodeStatus_ == nullptr
-        && return this->GPU_ == nullptr && return this->linkIP_ == nullptr && return this->memorySize_ == nullptr && return this->publicIp_ == nullptr && return this->VNodeId_ == nullptr
-        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->cpuCores_ == nullptr && return this->creationTime_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeDescription_ == nullptr && return this->DBNodeId_ == nullptr
+        && return this->DBNodeStatus_ == nullptr && return this->GPU_ == nullptr && return this->linkIP_ == nullptr && return this->memorySize_ == nullptr && return this->publicIp_ == nullptr
+        && return this->VNodeId_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // childVolumes Field Functions 
     bool hasChildVolumes() const { return this->childVolumes_ != nullptr;};
     void deleteChildVolumes() { this->childVolumes_ = nullptr;};
@@ -75,6 +77,13 @@ namespace Models
     void deleteCpuCores() { this->cpuCores_ = nullptr;};
     inline string cpuCores() const { DARABONBA_PTR_GET_DEFAULT(cpuCores_, "") };
     inline DescribeAIDBClusterAttributeResponseBodyDBNodes& setCpuCores(string cpuCores) { DARABONBA_PTR_SET_VALUE(cpuCores_, cpuCores) };
+
+
+    // creationTime Field Functions 
+    bool hasCreationTime() const { return this->creationTime_ != nullptr;};
+    void deleteCreationTime() { this->creationTime_ = nullptr;};
+    inline string creationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
+    inline DescribeAIDBClusterAttributeResponseBodyDBNodes& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
 
 
     // DBNodeClass Field Functions 
@@ -164,6 +173,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<Models::DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes>> childVolumes_ = nullptr;
     std::shared_ptr<string> cpuCores_ = nullptr;
+    std::shared_ptr<string> creationTime_ = nullptr;
     std::shared_ptr<string> DBNodeClass_ = nullptr;
     std::shared_ptr<string> DBNodeDescription_ = nullptr;
     std::shared_ptr<string> DBNodeId_ = nullptr;

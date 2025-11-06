@@ -11528,6 +11528,8 @@ DescribeRdsVSwitchsResponse Client::describeRdsVSwitchs(const DescribeRdsVSwitch
 }
 
 /**
+ * @summary 查询vpc
+ *
  * @param request DescribeRdsVpcsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRdsVpcsResponse
@@ -11585,6 +11587,8 @@ DescribeRdsVpcsResponse Client::describeRdsVpcsWithOptions(const DescribeRdsVpcs
 }
 
 /**
+ * @summary 查询vpc
+ *
  * @param request DescribeRdsVpcsRequest
  * @return DescribeRdsVpcsResponse
  */
