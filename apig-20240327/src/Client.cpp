@@ -932,6 +932,10 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
     body["backendConfig"] = request.backendConfig();
   }
 
+  if (!!request.hasCreateFromType()) {
+    body["createFromType"] = request.createFromType();
+  }
+
   if (!!request.hasDescription()) {
     body["description"] = request.description();
   }
@@ -4718,6 +4722,10 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 
   if (!!request.hasBackendConfig()) {
     body["backendConfig"] = request.backendConfig();
+  }
+
+  if (!!request.hasCreateFromType()) {
+    body["createFromType"] = request.createFromType();
   }
 
   if (!!request.hasDescription()) {

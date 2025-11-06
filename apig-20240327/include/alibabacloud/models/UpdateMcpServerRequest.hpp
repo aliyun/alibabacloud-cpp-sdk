@@ -19,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateMcpServerRequest& obj) { 
       DARABONBA_PTR_TO_JSON(assembledSources, assembledSources_);
       DARABONBA_PTR_TO_JSON(backendConfig, backendConfig_);
+      DARABONBA_PTR_TO_JSON(createFromType, createFromType_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateMcpServerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(assembledSources, assembledSources_);
       DARABONBA_PTR_FROM_JSON(backendConfig, backendConfig_);
+      DARABONBA_PTR_FROM_JSON(createFromType, createFromType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
@@ -50,8 +52,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assembledSources_ == nullptr
-        && return this->backendConfig_ == nullptr && return this->description_ == nullptr && return this->domainIds_ == nullptr && return this->exposedUriPath_ == nullptr && return this->match_ == nullptr
-        && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr && return this->type_ == nullptr; };
+        && return this->backendConfig_ == nullptr && return this->createFromType_ == nullptr && return this->description_ == nullptr && return this->domainIds_ == nullptr && return this->exposedUriPath_ == nullptr
+        && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr && return this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     inline UpdateMcpServerRequestBackendConfig backendConfig() { DARABONBA_PTR_GET(backendConfig_, UpdateMcpServerRequestBackendConfig) };
     inline UpdateMcpServerRequest& setBackendConfig(const UpdateMcpServerRequestBackendConfig & backendConfig) { DARABONBA_PTR_SET_VALUE(backendConfig_, backendConfig) };
     inline UpdateMcpServerRequest& setBackendConfig(UpdateMcpServerRequestBackendConfig && backendConfig) { DARABONBA_PTR_SET_RVALUE(backendConfig_, backendConfig) };
+
+
+    // createFromType Field Functions 
+    bool hasCreateFromType() const { return this->createFromType_ != nullptr;};
+    void deleteCreateFromType() { this->createFromType_ = nullptr;};
+    inline string createFromType() const { DARABONBA_PTR_GET_DEFAULT(createFromType_, "") };
+    inline UpdateMcpServerRequest& setCreateFromType(string createFromType) { DARABONBA_PTR_SET_VALUE(createFromType_, createFromType) };
 
 
     // description Field Functions 
@@ -126,6 +135,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<UpdateMcpServerRequestAssembledSources>> assembledSources_ = nullptr;
     std::shared_ptr<UpdateMcpServerRequestBackendConfig> backendConfig_ = nullptr;
+    std::shared_ptr<string> createFromType_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<vector<string>> domainIds_ = nullptr;
     std::shared_ptr<string> exposedUriPath_ = nullptr;

@@ -21,6 +21,7 @@ namespace Models
   class HttpApiApiInfo : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const HttpApiApiInfo& obj) { 
+      DARABONBA_PTR_TO_JSON(agentProtocols, agentProtocols_);
       DARABONBA_PTR_TO_JSON(aiProtocols, aiProtocols_);
       DARABONBA_PTR_TO_JSON(authConfig, authConfig_);
       DARABONBA_PTR_TO_JSON(basePath, basePath_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(versionInfo, versionInfo_);
     };
     friend void from_json(const Darabonba::Json& j, HttpApiApiInfo& obj) { 
+      DARABONBA_PTR_FROM_JSON(agentProtocols, agentProtocols_);
       DARABONBA_PTR_FROM_JSON(aiProtocols, aiProtocols_);
       DARABONBA_PTR_FROM_JSON(authConfig, authConfig_);
       DARABONBA_PTR_FROM_JSON(basePath, basePath_);
@@ -69,11 +71,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->aiProtocols_ == nullptr
-        && return this->authConfig_ == nullptr && return this->basePath_ == nullptr && return this->deployCntMap_ == nullptr && return this->deployConfigs_ == nullptr && return this->description_ == nullptr
-        && return this->enabelAuth_ == nullptr && return this->environments_ == nullptr && return this->gatewayId_ == nullptr && return this->httpApiId_ == nullptr && return this->ingressInfo_ == nullptr
-        && return this->modelCategory_ == nullptr && return this->name_ == nullptr && return this->protocols_ == nullptr && return this->resourceGroupId_ == nullptr && return this->type_ == nullptr
-        && return this->versionInfo_ == nullptr; };
+    virtual bool empty() const override { return this->agentProtocols_ == nullptr
+        && return this->aiProtocols_ == nullptr && return this->authConfig_ == nullptr && return this->basePath_ == nullptr && return this->deployCntMap_ == nullptr && return this->deployConfigs_ == nullptr
+        && return this->description_ == nullptr && return this->enabelAuth_ == nullptr && return this->environments_ == nullptr && return this->gatewayId_ == nullptr && return this->httpApiId_ == nullptr
+        && return this->ingressInfo_ == nullptr && return this->modelCategory_ == nullptr && return this->name_ == nullptr && return this->protocols_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->type_ == nullptr && return this->versionInfo_ == nullptr; };
+    // agentProtocols Field Functions 
+    bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
+    void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};
+    inline const vector<string> & agentProtocols() const { DARABONBA_PTR_GET_CONST(agentProtocols_, vector<string>) };
+    inline vector<string> agentProtocols() { DARABONBA_PTR_GET(agentProtocols_, vector<string>) };
+    inline HttpApiApiInfo& setAgentProtocols(const vector<string> & agentProtocols) { DARABONBA_PTR_SET_VALUE(agentProtocols_, agentProtocols) };
+    inline HttpApiApiInfo& setAgentProtocols(vector<string> && agentProtocols) { DARABONBA_PTR_SET_RVALUE(agentProtocols_, agentProtocols) };
+
+
     // aiProtocols Field Functions 
     bool hasAiProtocols() const { return this->aiProtocols_ != nullptr;};
     void deleteAiProtocols() { this->aiProtocols_ = nullptr;};
@@ -210,6 +221,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> agentProtocols_ = nullptr;
     std::shared_ptr<vector<string>> aiProtocols_ = nullptr;
     std::shared_ptr<AuthConfig> authConfig_ = nullptr;
     std::shared_ptr<string> basePath_ = nullptr;
