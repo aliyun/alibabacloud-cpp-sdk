@@ -16,6 +16,7 @@
 #include <alibabacloud/models/GetInstanceResponseBodyLatestSnapshot.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyNodeErrorRecovery.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyRequestedResource.hpp>
+#include <alibabacloud/models/ServiceConfig.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyTags.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyUserVpc.hpp>
 using namespace std;
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceName, resourceName_);
+      DARABONBA_PTR_TO_JSON(ServiceConfig, serviceConfig_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Success, success_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -121,6 +123,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceName, resourceName_);
+      DARABONBA_PTR_FROM_JSON(ServiceConfig, serviceConfig_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -153,9 +156,10 @@ namespace Models
         && return this->instanceName_ == nullptr && return this->instanceShutdownTimer_ == nullptr && return this->instanceSnapshotList_ == nullptr && return this->instanceUrl_ == nullptr && return this->jupyterlabUrl_ == nullptr
         && return this->labels_ == nullptr && return this->latestSnapshot_ == nullptr && return this->message_ == nullptr && return this->nodeErrorRecovery_ == nullptr && return this->paymentType_ == nullptr
         && return this->priority_ == nullptr && return this->proxyPath_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr
-        && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr
-        && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userCommandId_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr
-        && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr && return this->workspaceSource_ == nullptr; };
+        && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->serviceConfig_ == nullptr && return this->status_ == nullptr
+        && return this->success_ == nullptr && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userCommandId_ == nullptr && return this->userId_ == nullptr
+        && return this->userName_ == nullptr && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr
+        && return this->workspaceSource_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -455,6 +459,15 @@ namespace Models
     inline GetInstanceResponseBody& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
+    // serviceConfig Field Functions 
+    bool hasServiceConfig() const { return this->serviceConfig_ != nullptr;};
+    void deleteServiceConfig() { this->serviceConfig_ = nullptr;};
+    inline const ServiceConfig & serviceConfig() const { DARABONBA_PTR_GET_CONST(serviceConfig_, ServiceConfig) };
+    inline ServiceConfig serviceConfig() { DARABONBA_PTR_GET(serviceConfig_, ServiceConfig) };
+    inline GetInstanceResponseBody& setServiceConfig(const ServiceConfig & serviceConfig) { DARABONBA_PTR_SET_VALUE(serviceConfig_, serviceConfig) };
+    inline GetInstanceResponseBody& setServiceConfig(ServiceConfig && serviceConfig) { DARABONBA_PTR_SET_RVALUE(serviceConfig_, serviceConfig) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -645,6 +658,7 @@ namespace Models
     // *   For subscription, this is the requested CPU and memory size.
     // *   For pay-as-you-go, this is the selected ECS instance type.
     std::shared_ptr<string> resourceName_ = nullptr;
+    std::shared_ptr<ServiceConfig> serviceConfig_ = nullptr;
     // The instance status.
     // 
     // Valid values:

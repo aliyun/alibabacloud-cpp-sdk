@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultRoute, defaultRoute_);
       DARABONBA_PTR_TO_JSON(ExtendedCIDRs, extendedCIDRs_);
       DARABONBA_PTR_TO_JSON(ForwardInfos, forwardInfos_);
+      DARABONBA_PTR_TO_JSON(Ip, ip_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultRoute, defaultRoute_);
       DARABONBA_PTR_FROM_JSON(ExtendedCIDRs, extendedCIDRs_);
       DARABONBA_PTR_FROM_JSON(ForwardInfos, forwardInfos_);
+      DARABONBA_PTR_FROM_JSON(Ip, ip_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidthLimit_ == nullptr
-        && return this->defaultRoute_ == nullptr && return this->extendedCIDRs_ == nullptr && return this->forwardInfos_ == nullptr && return this->securityGroupId_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && return this->defaultRoute_ == nullptr && return this->extendedCIDRs_ == nullptr && return this->forwardInfos_ == nullptr && return this->ip_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // bandwidthLimit Field Functions 
     bool hasBandwidthLimit() const { return this->bandwidthLimit_ != nullptr;};
     void deleteBandwidthLimit() { this->bandwidthLimit_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline ListInstancesResponseBodyInstancesUserVpc& setForwardInfos(vector<Models::ForwardInfoResponse> && forwardInfos) { DARABONBA_PTR_SET_RVALUE(forwardInfos_, forwardInfos) };
 
 
+    // ip Field Functions 
+    bool hasIp() const { return this->ip_ != nullptr;};
+    void deleteIp() { this->ip_ = nullptr;};
+    inline string ip() const { DARABONBA_PTR_GET_DEFAULT(ip_, "") };
+    inline ListInstancesResponseBodyInstancesUserVpc& setIp(string ip) { DARABONBA_PTR_SET_VALUE(ip_, ip) };
+
+
     // securityGroupId Field Functions 
     bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
     void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
@@ -110,6 +119,7 @@ namespace Models
     std::shared_ptr<vector<string>> extendedCIDRs_ = nullptr;
     // The forward information.
     std::shared_ptr<vector<Models::ForwardInfoResponse>> forwardInfos_ = nullptr;
+    std::shared_ptr<string> ip_ = nullptr;
     // The security group ID.
     std::shared_ptr<string> securityGroupId_ = nullptr;
     // The vSwitch ID.
