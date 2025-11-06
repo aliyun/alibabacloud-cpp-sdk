@@ -33,6 +33,9 @@
 #include <alibabacloud/models/DeleteMmsDataSourceResponse.hpp>
 #include <alibabacloud/models/DeleteMmsJobResponseBody.hpp>
 #include <alibabacloud/models/DeleteMmsJobResponse.hpp>
+#include <alibabacloud/models/DeleteProjectRequest.hpp>
+#include <alibabacloud/models/DeleteProjectResponseBody.hpp>
+#include <alibabacloud/models/DeleteProjectResponse.hpp>
 #include <alibabacloud/models/DeleteQuotaPlanRequest.hpp>
 #include <alibabacloud/models/DeleteQuotaPlanResponseBody.hpp>
 #include <alibabacloud/models/DeleteQuotaPlanResponse.hpp>

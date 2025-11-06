@@ -696,6 +696,51 @@ DeleteMmsJobResponse Client::deleteMmsJob(const string &sourceId, const string &
 }
 
 /**
+ * @summary Deletes a MaxCompute project.
+ *
+ * @param request DeleteProjectRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProjectWithOptions(const string &projectName, const DeleteProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIsLogical()) {
+    query["isLogical"] = request.isLogical();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProject"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProjectResponse>();
+}
+
+/**
+ * @summary Deletes a MaxCompute project.
+ *
+ * @param request DeleteProjectRequest
+ * @return DeleteProjectResponse
+ */
+DeleteProjectResponse Client::deleteProject(const string &projectName, const DeleteProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteProjectWithOptions(projectName, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a quota plan.
  *
  * @param request DeleteQuotaPlanRequest

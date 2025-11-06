@@ -239,6 +239,24 @@ namespace MaxCompute20220104
       Models::DeleteMmsJobResponse deleteMmsJob(const string &sourceId, const string &jobId);
 
       /**
+       * @summary Deletes a MaxCompute project.
+       *
+       * @param request DeleteProjectRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProjectWithOptions(const string &projectName, const Models::DeleteProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a MaxCompute project.
+       *
+       * @param request DeleteProjectRequest
+       * @return DeleteProjectResponse
+       */
+      Models::DeleteProjectResponse deleteProject(const string &projectName, const Models::DeleteProjectRequest &request);
+
+      /**
        * @summary Deletes a quota plan.
        *
        * @param request DeleteQuotaPlanRequest
