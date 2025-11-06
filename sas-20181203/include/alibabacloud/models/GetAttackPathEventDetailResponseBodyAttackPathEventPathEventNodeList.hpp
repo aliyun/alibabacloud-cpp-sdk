@@ -13,6 +13,7 @@ namespace Models
   class GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList& obj) { 
+      DARABONBA_PTR_TO_JSON(AiAssetFlag, aiAssetFlag_);
       DARABONBA_PTR_TO_JSON(ElementType, elementType_);
       DARABONBA_PTR_TO_JSON(NodeDetail, nodeDetail_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SensitiveAssetFlag, sensitiveAssetFlag_);
     };
     friend void from_json(const Darabonba::Json& j, GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AiAssetFlag, aiAssetFlag_);
       DARABONBA_PTR_FROM_JSON(ElementType, elementType_);
       DARABONBA_PTR_FROM_JSON(NodeDetail, nodeDetail_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->elementType_ == nullptr
-        && return this->nodeDetail_ == nullptr && return this->nodeName_ == nullptr && return this->nodeType_ == nullptr && return this->nodeUuid_ == nullptr && return this->sensitiveAssetFlag_ == nullptr; };
+    virtual bool empty() const override { return this->aiAssetFlag_ == nullptr
+        && return this->elementType_ == nullptr && return this->nodeDetail_ == nullptr && return this->nodeName_ == nullptr && return this->nodeType_ == nullptr && return this->nodeUuid_ == nullptr
+        && return this->sensitiveAssetFlag_ == nullptr; };
+    // aiAssetFlag Field Functions 
+    bool hasAiAssetFlag() const { return this->aiAssetFlag_ != nullptr;};
+    void deleteAiAssetFlag() { this->aiAssetFlag_ = nullptr;};
+    inline int32_t aiAssetFlag() const { DARABONBA_PTR_GET_DEFAULT(aiAssetFlag_, 0) };
+    inline GetAttackPathEventDetailResponseBodyAttackPathEventPathEventNodeList& setAiAssetFlag(int32_t aiAssetFlag) { DARABONBA_PTR_SET_VALUE(aiAssetFlag_, aiAssetFlag) };
+
+
     // elementType Field Functions 
     bool hasElementType() const { return this->elementType_ != nullptr;};
     void deleteElementType() { this->elementType_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> aiAssetFlag_ = nullptr;
     // Node element type.
     std::shared_ptr<string> elementType_ = nullptr;
     // Details of the node.

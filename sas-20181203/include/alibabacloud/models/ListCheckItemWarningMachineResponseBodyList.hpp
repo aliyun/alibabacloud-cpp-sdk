@@ -16,6 +16,7 @@ namespace Models
   class ListCheckItemWarningMachineResponseBodyList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCheckItemWarningMachineResponseBodyList& obj) { 
+      DARABONBA_PTR_TO_JSON(AssetType, assetType_);
       DARABONBA_PTR_TO_JSON(AuthVersion, authVersion_);
       DARABONBA_PTR_TO_JSON(Bind, bind_);
       DARABONBA_PTR_TO_JSON(ContainerId, containerId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WarningRiskList, warningRiskList_);
     };
     friend void from_json(const Darabonba::Json& j, ListCheckItemWarningMachineResponseBodyList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AssetType, assetType_);
       DARABONBA_PTR_FROM_JSON(AuthVersion, authVersion_);
       DARABONBA_PTR_FROM_JSON(Bind, bind_);
       DARABONBA_PTR_FROM_JSON(ContainerId, containerId_);
@@ -72,11 +74,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->authVersion_ == nullptr
-        && return this->bind_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->fixList_ == nullptr && return this->fixStatus_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->lastHandleTime_ == nullptr
-        && return this->lastScanTime_ == nullptr && return this->portOpen_ == nullptr && return this->prompt_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
-        && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->uuid_ == nullptr && return this->warningRiskList_ == nullptr; };
+    virtual bool empty() const override { return this->assetType_ == nullptr
+        && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->containerId_ == nullptr && return this->containerName_ == nullptr && return this->fixList_ == nullptr
+        && return this->fixStatus_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
+        && return this->lastHandleTime_ == nullptr && return this->lastScanTime_ == nullptr && return this->portOpen_ == nullptr && return this->prompt_ == nullptr && return this->regionId_ == nullptr
+        && return this->status_ == nullptr && return this->targetId_ == nullptr && return this->targetName_ == nullptr && return this->targetType_ == nullptr && return this->uuid_ == nullptr
+        && return this->warningRiskList_ == nullptr; };
+    // assetType Field Functions 
+    bool hasAssetType() const { return this->assetType_ != nullptr;};
+    void deleteAssetType() { this->assetType_ = nullptr;};
+    inline string assetType() const { DARABONBA_PTR_GET_DEFAULT(assetType_, "") };
+    inline ListCheckItemWarningMachineResponseBodyList& setAssetType(string assetType) { DARABONBA_PTR_SET_VALUE(assetType_, assetType) };
+
+
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};
@@ -229,6 +239,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> assetType_ = nullptr;
     // The edition of Security Center that is authorized to protect the asset. Valid values:
     // 
     // *   **1**: Basic edition

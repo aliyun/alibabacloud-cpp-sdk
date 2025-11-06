@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExposureType, exposureType_);
       DARABONBA_PTR_TO_JSON(ExposureTypeId, exposureTypeId_);
       DARABONBA_PTR_TO_JSON(ExposureTypeInstanceName, exposureTypeInstanceName_);
+      DARABONBA_PTR_TO_JSON(ForwardPort, forwardPort_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeExposedStatisticsDetailResponseBodyStatisticsDetails& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExposureType, exposureType_);
       DARABONBA_PTR_FROM_JSON(ExposureTypeId, exposureTypeId_);
       DARABONBA_PTR_FROM_JSON(ExposureTypeInstanceName, exposureTypeInstanceName_);
+      DARABONBA_PTR_FROM_JSON(ForwardPort, forwardPort_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DescribeExposedStatisticsDetailResponseBodyStatisticsDetails() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exposedCount_ == nullptr
         && return this->exposureComponent_ == nullptr && return this->exposureIp_ == nullptr && return this->exposurePort_ == nullptr && return this->exposureType_ == nullptr && return this->exposureTypeId_ == nullptr
-        && return this->exposureTypeInstanceName_ == nullptr && return this->regionId_ == nullptr; };
+        && return this->exposureTypeInstanceName_ == nullptr && return this->forwardPort_ == nullptr && return this->regionId_ == nullptr; };
     // exposedCount Field Functions 
     bool hasExposedCount() const { return this->exposedCount_ != nullptr;};
     void deleteExposedCount() { this->exposedCount_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline DescribeExposedStatisticsDetailResponseBodyStatisticsDetails& setExposureTypeInstanceName(string exposureTypeInstanceName) { DARABONBA_PTR_SET_VALUE(exposureTypeInstanceName_, exposureTypeInstanceName) };
 
 
+    // forwardPort Field Functions 
+    bool hasForwardPort() const { return this->forwardPort_ != nullptr;};
+    void deleteForwardPort() { this->forwardPort_ = nullptr;};
+    inline string forwardPort() const { DARABONBA_PTR_GET_DEFAULT(forwardPort_, "") };
+    inline DescribeExposedStatisticsDetailResponseBodyStatisticsDetails& setForwardPort(string forwardPort) { DARABONBA_PTR_SET_VALUE(forwardPort_, forwardPort) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -127,6 +136,7 @@ namespace Models
     std::shared_ptr<string> exposureTypeId_ = nullptr;
     // The name of the gateway asset that is exposed on the Internet.
     std::shared_ptr<string> exposureTypeInstanceName_ = nullptr;
+    std::shared_ptr<string> forwardPort_ = nullptr;
     // The region ID of the asset.
     std::shared_ptr<string> regionId_ = nullptr;
   };

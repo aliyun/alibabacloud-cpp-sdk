@@ -13881,6 +13881,10 @@ DescribeExposedStatisticsResponse Client::describeExposedStatistics() {
 DescribeExposedStatisticsDetailResponse Client::describeExposedStatisticsDetailWithOptions(const DescribeExposedStatisticsDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCriteria()) {
+    query["Criteria"] = request.criteria();
+  }
+
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.currentPage();
   }
@@ -13903,6 +13907,10 @@ DescribeExposedStatisticsDetailResponse Client::describeExposedStatisticsDetailW
 
   if (!!request.hasStatisticsTypeInstanceValue()) {
     query["StatisticsTypeInstanceValue"] = request.statisticsTypeInstanceValue();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -26778,6 +26786,10 @@ GetAttackPathEventDetailResponse Client::getAttackPathEventDetailWithOptions(con
   json query = {};
   if (!!request.hasEventId()) {
     query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasEventSource()) {
+    query["EventSource"] = request.eventSource();
   }
 
   if (!!request.hasLang()) {

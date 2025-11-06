@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAttackPathEventDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EventId, eventId_);
+      DARABONBA_PTR_TO_JSON(EventSource, eventSource_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
     };
     friend void from_json(const Darabonba::Json& j, GetAttackPathEventDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventId, eventId_);
+      DARABONBA_PTR_FROM_JSON(EventSource, eventSource_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
     };
     GetAttackPathEventDetailRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventId_ == nullptr
-        && return this->lang_ == nullptr; };
+        && return this->eventSource_ == nullptr && return this->lang_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
     inline int64_t eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, 0L) };
     inline GetAttackPathEventDetailRequest& setEventId(int64_t eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
+
+
+    // eventSource Field Functions 
+    bool hasEventSource() const { return this->eventSource_ != nullptr;};
+    void deleteEventSource() { this->eventSource_ = nullptr;};
+    inline string eventSource() const { DARABONBA_PTR_GET_DEFAULT(eventSource_, "") };
+    inline GetAttackPathEventDetailRequest& setEventSource(string eventSource) { DARABONBA_PTR_SET_VALUE(eventSource_, eventSource) };
 
 
     // lang Field Functions 
@@ -51,6 +60,7 @@ namespace Models
     // Event ID.
     // > You can call [ListAttackPathEvent](~~ListAttackPathEvent~~) to query the event ID.
     std::shared_ptr<int64_t> eventId_ = nullptr;
+    std::shared_ptr<string> eventSource_ = nullptr;
     // The language type for request and response, default is **zh**. Values:
     // - **zh**: Chinese
     // - **en**: English
