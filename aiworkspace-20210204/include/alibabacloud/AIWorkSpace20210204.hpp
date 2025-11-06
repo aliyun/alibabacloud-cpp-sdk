@@ -301,6 +301,24 @@ namespace AIWorkSpace20210204
       Models::CreateExperimentResponse createExperiment(const Models::CreateExperimentRequest &request);
 
       /**
+       * @summary 创建镜像构建任务
+       *
+       * @param request CreateImageBuildRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImageBuildResponse
+       */
+      Models::CreateImageBuildResponse createImageBuildWithOptions(const Models::CreateImageBuildRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建镜像构建任务
+       *
+       * @param request CreateImageBuildRequest
+       * @return CreateImageBuildResponse
+       */
+      Models::CreateImageBuildResponse createImageBuild(const Models::CreateImageBuildRequest &request);
+
+      /**
        * @summary Adds a user to a workspace as a member. You can add multiple users as members.
        *
        * @param request CreateMemberRequest

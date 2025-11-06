@@ -1061,6 +1061,93 @@ CreateExperimentResponse Client::createExperiment(const CreateExperimentRequest 
 }
 
 /**
+ * @summary 创建镜像构建任务
+ *
+ * @param request CreateImageBuildRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImageBuildResponse
+ */
+CreateImageBuildResponse Client::createImageBuildWithOptions(const CreateImageBuildRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.accessibility();
+  }
+
+  if (!!request.hasBuildConfig()) {
+    body["BuildConfig"] = request.buildConfig();
+  }
+
+  if (!!request.hasImage()) {
+    body["Image"] = request.image();
+  }
+
+  if (!!request.hasImageBuildJobName()) {
+    body["ImageBuildJobName"] = request.imageBuildJobName();
+  }
+
+  if (!!request.hasOverwriteImageTag()) {
+    body["OverwriteImageTag"] = request.overwriteImageTag();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResource()) {
+    body["Resource"] = request.resource();
+  }
+
+  if (!!request.hasTargetRegistry()) {
+    body["TargetRegistry"] = request.targetRegistry();
+  }
+
+  if (!!request.hasUserVpc()) {
+    body["UserVpc"] = request.userVpc();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateImageBuild"},
+    {"version" , "2021-02-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/imagebuilds")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImageBuildResponse>();
+}
+
+/**
+ * @summary 创建镜像构建任务
+ *
+ * @param request CreateImageBuildRequest
+ * @return CreateImageBuildResponse
+ */
+CreateImageBuildResponse Client::createImageBuild(const CreateImageBuildRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createImageBuildWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Adds a user to a workspace as a member. You can add multiple users as members.
  *
  * @param request CreateMemberRequest

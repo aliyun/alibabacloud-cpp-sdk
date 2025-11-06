@@ -78,6 +78,9 @@
 #include <alibabacloud/models/CreateExperimentRequest.hpp>
 #include <alibabacloud/models/CreateExperimentResponseBody.hpp>
 #include <alibabacloud/models/CreateExperimentResponse.hpp>
+#include <alibabacloud/models/CreateImageBuildRequest.hpp>
+#include <alibabacloud/models/CreateImageBuildResponseBody.hpp>
+#include <alibabacloud/models/CreateImageBuildResponse.hpp>
 #include <alibabacloud/models/CreateMemberRequest.hpp>
 #include <alibabacloud/models/CreateMemberResponseBody.hpp>
 #include <alibabacloud/models/CreateMemberResponse.hpp>
@@ -362,6 +365,13 @@
 #include <alibabacloud/models/AddImageLabelsRequestLabels.hpp>
 #include <alibabacloud/models/CreateConnectionRequestModels.hpp>
 #include <alibabacloud/models/CreateConnectionRequestResourceMeta.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestBuildConfig.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestImageLabels.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestImage.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestResourceResourceConfig.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestResource.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestTargetRegistry.hpp>
+#include <alibabacloud/models/CreateImageBuildRequestUserVpc.hpp>
 #include <alibabacloud/models/CreateMemberRequestMembers.hpp>
 #include <alibabacloud/models/CreateMemberResponseBodyMembers.hpp>
 #include <alibabacloud/models/CreateProductOrdersRequestProductsInstanceProperties.hpp>
