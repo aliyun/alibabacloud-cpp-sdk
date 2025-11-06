@@ -13,10 +13,14 @@ namespace Models
   class UpdateServiceInstanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateServiceInstanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(IsReplica, isReplica_);
+      DARABONBA_PTR_TO_JSON(Detach, detach_);
       DARABONBA_PTR_TO_JSON(Hibernate, hibernate_);
       DARABONBA_PTR_TO_JSON(Isolate, isolate_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateServiceInstanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(IsReplica, isReplica_);
+      DARABONBA_PTR_FROM_JSON(Detach, detach_);
       DARABONBA_PTR_FROM_JSON(Hibernate, hibernate_);
       DARABONBA_PTR_FROM_JSON(Isolate, isolate_);
     };
@@ -31,8 +35,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->hibernate_ == nullptr
-        && return this->isolate_ == nullptr; };
+    virtual bool empty() const override { return this->isReplica_ == nullptr
+        && return this->detach_ == nullptr && return this->hibernate_ == nullptr && return this->isolate_ == nullptr; };
+    // isReplica Field Functions 
+    bool hasIsReplica() const { return this->isReplica_ != nullptr;};
+    void deleteIsReplica() { this->isReplica_ = nullptr;};
+    inline bool isReplica() const { DARABONBA_PTR_GET_DEFAULT(isReplica_, false) };
+    inline UpdateServiceInstanceRequest& setIsReplica(bool isReplica) { DARABONBA_PTR_SET_VALUE(isReplica_, isReplica) };
+
+
+    // detach Field Functions 
+    bool hasDetach() const { return this->detach_ != nullptr;};
+    void deleteDetach() { this->detach_ = nullptr;};
+    inline bool detach() const { DARABONBA_PTR_GET_DEFAULT(detach_, false) };
+    inline UpdateServiceInstanceRequest& setDetach(bool detach) { DARABONBA_PTR_SET_VALUE(detach_, detach) };
+
+
     // hibernate Field Functions 
     bool hasHibernate() const { return this->hibernate_ != nullptr;};
     void deleteHibernate() { this->hibernate_ = nullptr;};
@@ -48,6 +66,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> isReplica_ = nullptr;
+    std::shared_ptr<bool> detach_ = nullptr;
     std::shared_ptr<bool> hibernate_ = nullptr;
     // Specifies whether to isolate the service instance. Valid values:
     // 

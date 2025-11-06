@@ -20,10 +20,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(IsSpot, isSpot_);
+      DARABONBA_PTR_TO_JSON(ListReplica, listReplica_);
       DARABONBA_PTR_TO_JSON(MemberType, memberType_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ReplicaName, replicaName_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Role, role_);
       DARABONBA_PTR_TO_JSON(Sort, sort_);
@@ -36,10 +38,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceStatus, instanceStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(IsSpot, isSpot_);
+      DARABONBA_PTR_FROM_JSON(ListReplica, listReplica_);
       DARABONBA_PTR_FROM_JSON(MemberType, memberType_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ReplicaName, replicaName_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Role, role_);
       DARABONBA_PTR_FROM_JSON(Sort, sort_);
@@ -57,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filter_ == nullptr
         && return this->hostIP_ == nullptr && return this->instanceIP_ == nullptr && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr
-        && return this->isSpot_ == nullptr && return this->memberType_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->resourceType_ == nullptr && return this->role_ == nullptr && return this->sort_ == nullptr; };
+        && return this->isSpot_ == nullptr && return this->listReplica_ == nullptr && return this->memberType_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->replicaName_ == nullptr && return this->resourceType_ == nullptr && return this->role_ == nullptr && return this->sort_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -108,6 +112,13 @@ namespace Models
     inline ListServiceInstancesRequest& setIsSpot(bool isSpot) { DARABONBA_PTR_SET_VALUE(isSpot_, isSpot) };
 
 
+    // listReplica Field Functions 
+    bool hasListReplica() const { return this->listReplica_ != nullptr;};
+    void deleteListReplica() { this->listReplica_ = nullptr;};
+    inline bool listReplica() const { DARABONBA_PTR_GET_DEFAULT(listReplica_, false) };
+    inline ListServiceInstancesRequest& setListReplica(bool listReplica) { DARABONBA_PTR_SET_VALUE(listReplica_, listReplica) };
+
+
     // memberType Field Functions 
     bool hasMemberType() const { return this->memberType_ != nullptr;};
     void deleteMemberType() { this->memberType_ = nullptr;};
@@ -134,6 +145,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListServiceInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // replicaName Field Functions 
+    bool hasReplicaName() const { return this->replicaName_ != nullptr;};
+    void deleteReplicaName() { this->replicaName_ = nullptr;};
+    inline string replicaName() const { DARABONBA_PTR_GET_DEFAULT(replicaName_, "") };
+    inline ListServiceInstancesRequest& setReplicaName(string replicaName) { DARABONBA_PTR_SET_VALUE(replicaName_, replicaName) };
 
 
     // resourceType Field Functions 
@@ -172,6 +190,7 @@ namespace Models
     std::shared_ptr<string> instanceType_ = nullptr;
     // Specifies whether the instance is a preemptible instance.
     std::shared_ptr<bool> isSpot_ = nullptr;
+    std::shared_ptr<bool> listReplica_ = nullptr;
     std::shared_ptr<string> memberType_ = nullptr;
     // The sorting order.
     // 
@@ -205,6 +224,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Default value: 100.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> replicaName_ = nullptr;
     // The type of the resource group to which the instance belongs.
     // 
     // Valid values:

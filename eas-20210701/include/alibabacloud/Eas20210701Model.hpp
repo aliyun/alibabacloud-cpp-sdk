@@ -29,6 +29,9 @@
 #include <alibabacloud/models/CreateBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/CreateBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/CreateFaultInjectionRequest.hpp>
+#include <alibabacloud/models/CreateFaultInjectionResponseBody.hpp>
+#include <alibabacloud/models/CreateFaultInjectionResponse.hpp>
 #include <alibabacloud/models/CreateGatewayRequest.hpp>
 #include <alibabacloud/models/CreateGatewayResponseBody.hpp>
 #include <alibabacloud/models/CreateGatewayResponse.hpp>
@@ -70,6 +73,8 @@
 #include <alibabacloud/models/DeleteAclPolicyResponse.hpp>
 #include <alibabacloud/models/DeleteBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/DeleteFaultInjectionResponseBody.hpp>
+#include <alibabacloud/models/DeleteFaultInjectionResponse.hpp>
 #include <alibabacloud/models/DeleteGatewayResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewayResponse.hpp>
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcRequest.hpp>
@@ -201,6 +206,8 @@
 #include <alibabacloud/models/ListResourcesResponse.hpp>
 #include <alibabacloud/models/ListServiceContainersResponseBody.hpp>
 #include <alibabacloud/models/ListServiceContainersResponse.hpp>
+#include <alibabacloud/models/ListServiceInstanceFaultInjectionInfoResponseBody.hpp>
+#include <alibabacloud/models/ListServiceInstanceFaultInjectionInfoResponse.hpp>
 #include <alibabacloud/models/ListServiceInstancesRequest.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponse.hpp>
@@ -324,6 +331,8 @@
 #include <alibabacloud/models/ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList.hpp>
 #include <alibabacloud/models/ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs.hpp>
 #include <alibabacloud/models/ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList.hpp>
+#include <alibabacloud/models/ListServiceInstanceFaultInjectionInfoResponseBodyFaultInfoListFaultStatus.hpp>
+#include <alibabacloud/models/ListServiceInstanceFaultInjectionInfoResponseBodyFaultInfoList.hpp>
 #include <alibabacloud/models/ListServiceVersionsResponseBodyVersions.hpp>
 #include <alibabacloud/models/ListTenantAddonsResponseBodyAddons.hpp>
 #include <alibabacloud/models/ListVirtualResourceResponseBodyVirtualResources.hpp>

@@ -127,6 +127,24 @@ namespace Eas20210701
       Models::CreateBenchmarkTaskResponse createBenchmarkTask(const Models::CreateBenchmarkTaskRequest &request);
 
       /**
+       * @summary 创建故障注入任务
+       *
+       * @param request CreateFaultInjectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateFaultInjectionResponse
+       */
+      Models::CreateFaultInjectionResponse createFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::CreateFaultInjectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建故障注入任务
+       *
+       * @param request CreateFaultInjectionRequest
+       * @return CreateFaultInjectionResponse
+       */
+      Models::CreateFaultInjectionResponse createFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const Models::CreateFaultInjectionRequest &request);
+
+      /**
        * @summary Creates a gateway.
        *
        * @param request CreateGatewayRequest
@@ -365,6 +383,22 @@ namespace Eas20210701
        * @return DeleteBenchmarkTaskResponse
        */
       Models::DeleteBenchmarkTaskResponse deleteBenchmarkTask(const string &ClusterId, const string &TaskName);
+
+      /**
+       * @summary 删除故障注入任务
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFaultInjectionResponse
+       */
+      Models::DeleteFaultInjectionResponse deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除故障注入任务
+       *
+       * @return DeleteFaultInjectionResponse
+       */
+      Models::DeleteFaultInjectionResponse deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType);
 
       /**
        * @summary Deletes a private gateway.
@@ -1247,6 +1281,22 @@ namespace Eas20210701
        * @return ListServiceContainersResponse
        */
       Models::ListServiceContainersResponse listServiceContainers(const string &ClusterId, const string &ServiceName, const string &InstanceName);
+
+      /**
+       * @summary 获取故障注入信息
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServiceInstanceFaultInjectionInfoResponse
+       */
+      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取故障注入信息
+       *
+       * @return ListServiceInstanceFaultInjectionInfoResponse
+       */
+      Models::ListServiceInstanceFaultInjectionInfoResponse listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName);
 
       /**
        * @summary Queries instances of a service.

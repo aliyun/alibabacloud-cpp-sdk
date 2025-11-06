@@ -363,6 +363,55 @@ CreateBenchmarkTaskResponse Client::createBenchmarkTask(const CreateBenchmarkTas
 }
 
 /**
+ * @summary 创建故障注入任务
+ *
+ * @param request CreateFaultInjectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFaultInjectionResponse
+ */
+CreateFaultInjectionResponse Client::createFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const CreateFaultInjectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFaultArgs()) {
+    body["FaultArgs"] = request.faultArgs();
+  }
+
+  if (!!request.hasFaultType()) {
+    body["FaultType"] = request.faultType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateFaultInjection"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/services/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ServiceName) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceName) , "/faults")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFaultInjectionResponse>();
+}
+
+/**
+ * @summary 创建故障注入任务
+ *
+ * @param request CreateFaultInjectionRequest
+ * @return CreateFaultInjectionResponse
+ */
+CreateFaultInjectionResponse Client::createFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const CreateFaultInjectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
+}
+
+/**
  * @summary Creates a gateway.
  *
  * @param request CreateGatewayRequest
@@ -1124,6 +1173,42 @@ DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId,
 }
 
 /**
+ * @summary 删除故障注入任务
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFaultInjectionResponse
+ */
+DeleteFaultInjectionResponse Client::deleteFaultInjectionWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFaultInjection"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/services/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ServiceName) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceName) , "/faults/" , Darabonba::Encode::Encoder::percentEncode(FaultType))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFaultInjectionResponse>();
+}
+
+/**
+ * @summary 删除故障注入任务
+ *
+ * @return DeleteFaultInjectionResponse
+ */
+DeleteFaultInjectionResponse Client::deleteFaultInjection(const string &ClusterId, const string &ServiceName, const string &InstanceName, const string &FaultType) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, headers, runtime);
+}
+
+/**
  * @summary Deletes a private gateway.
  *
  * @param headers map
@@ -1616,6 +1701,10 @@ DeleteServiceInstancesResponse Client::deleteServiceInstancesWithOptions(const s
 
   if (!!request.hasInstanceList()) {
     query["InstanceList"] = request.instanceList();
+  }
+
+  if (!!request.hasIsReplica()) {
+    query["IsReplica"] = request.isReplica();
   }
 
   if (!!request.hasSoftRestart()) {
@@ -3551,6 +3640,42 @@ ListServiceContainersResponse Client::listServiceContainers(const string &Cluste
 }
 
 /**
+ * @summary 获取故障注入信息
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServiceInstanceFaultInjectionInfoResponse
+ */
+ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfoWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListServiceInstanceFaultInjectionInfo"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/services/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ServiceName) , "/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceName) , "/faults")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServiceInstanceFaultInjectionInfoResponse>();
+}
+
+/**
+ * @summary 获取故障注入信息
+ *
+ * @return ListServiceInstanceFaultInjectionInfoResponse
+ */
+ListServiceInstanceFaultInjectionInfoResponse Client::listServiceInstanceFaultInjectionInfo(const string &ClusterId, const string &ServiceName, const string &InstanceName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+}
+
+/**
  * @summary Queries instances of a service.
  *
  * @param request ListServiceInstancesRequest
@@ -3589,6 +3714,10 @@ ListServiceInstancesResponse Client::listServiceInstancesWithOptions(const strin
     query["IsSpot"] = request.isSpot();
   }
 
+  if (!!request.hasListReplica()) {
+    query["ListReplica"] = request.listReplica();
+  }
+
   if (!!request.hasMemberType()) {
     query["MemberType"] = request.memberType();
   }
@@ -3603,6 +3732,10 @@ ListServiceInstancesResponse Client::listServiceInstancesWithOptions(const strin
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasReplicaName()) {
+    query["ReplicaName"] = request.replicaName();
   }
 
   if (!!request.hasResourceType()) {
@@ -4820,7 +4953,16 @@ UpdateServiceCronScalerResponse Client::updateServiceCronScaler(const string &Cl
  */
 UpdateServiceInstanceResponse Client::updateServiceInstanceWithOptions(const string &ClusterId, const string &ServiceName, const string &InstanceName, const UpdateServiceInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasIsReplica()) {
+    query["IsReplica"] = request.isReplica();
+  }
+
   json body = {};
+  if (!!request.hasDetach()) {
+    body["Detach"] = request.detach();
+  }
+
   if (!!request.hasHibernate()) {
     body["Hibernate"] = request.hibernate();
   }
@@ -4831,6 +4973,7 @@ UpdateServiceInstanceResponse Client::updateServiceInstanceWithOptions(const str
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
