@@ -13,6 +13,7 @@ namespace Models
   class ListQuotasRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListQuotasRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_TO_JSON(HasResource, hasResource_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(LayoutMode, layoutMode_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
     };
     friend void from_json(const Darabonba::Json& j, ListQuotasRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_FROM_JSON(HasResource, hasResource_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(LayoutMode, layoutMode_);
@@ -59,10 +61,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->hasResource_ == nullptr
-        && return this->labels_ == nullptr && return this->layoutMode_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->parentQuotaId_ == nullptr && return this->quotaIds_ == nullptr && return this->quotaName_ == nullptr && return this->resourceType_ == nullptr && return this->sortBy_ == nullptr
-        && return this->statuses_ == nullptr && return this->verbose_ == nullptr && return this->versions_ == nullptr && return this->workspaceIds_ == nullptr && return this->workspaceName_ == nullptr; };
+    virtual bool empty() const override { return this->clusterType_ == nullptr
+        && return this->hasResource_ == nullptr && return this->labels_ == nullptr && return this->layoutMode_ == nullptr && return this->order_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->parentQuotaId_ == nullptr && return this->quotaIds_ == nullptr && return this->quotaName_ == nullptr && return this->resourceType_ == nullptr
+        && return this->sortBy_ == nullptr && return this->statuses_ == nullptr && return this->verbose_ == nullptr && return this->versions_ == nullptr && return this->workspaceIds_ == nullptr
+        && return this->workspaceName_ == nullptr; };
+    // clusterType Field Functions 
+    bool hasClusterType() const { return this->clusterType_ != nullptr;};
+    void deleteClusterType() { this->clusterType_ = nullptr;};
+    inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline ListQuotasRequest& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
     // hasResource Field Functions 
     bool hasHasResource() const { return this->hasResource_ != nullptr;};
     void deleteHasResource() { this->hasResource_ = nullptr;};
@@ -176,6 +186,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> clusterType_ = nullptr;
     std::shared_ptr<string> hasResource_ = nullptr;
     std::shared_ptr<string> labels_ = nullptr;
     std::shared_ptr<string> layoutMode_ = nullptr;

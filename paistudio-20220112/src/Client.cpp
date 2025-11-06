@@ -261,6 +261,10 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
     body["AllocateStrategy"] = request.allocateStrategy();
   }
 
+  if (!!request.hasClusterSpec()) {
+    body["ClusterSpec"] = request.clusterSpec();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.description();
   }
@@ -1939,6 +1943,10 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloads(const string &QuotaId, con
 ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClusterType()) {
+    query["ClusterType"] = request.clusterType();
+  }
+
   if (!!request.hasHasResource()) {
     query["HasResource"] = request.hasResource();
   }

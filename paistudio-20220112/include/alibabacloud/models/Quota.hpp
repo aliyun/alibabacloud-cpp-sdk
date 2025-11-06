@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
 #include <alibabacloud/models/ResourceSpec.hpp>
+#include <alibabacloud/models/QuotaCluster.hpp>
 #include <alibabacloud/models/QuotaConfig.hpp>
 #include <alibabacloud/models/QuotaDetails.hpp>
 #include <alibabacloud/models/QuotaIdName.hpp>
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Min, min_);
       DARABONBA_PTR_TO_JSON(ParentQuotaId, parentQuotaId_);
       DARABONBA_PTR_TO_JSON(QueueStrategy, queueStrategy_);
+      DARABONBA_PTR_TO_JSON(QuotaCluster, quotaCluster_);
       DARABONBA_PTR_TO_JSON(QuotaConfig, quotaConfig_);
       DARABONBA_PTR_TO_JSON(QuotaDetails, quotaDetails_);
       DARABONBA_PTR_TO_JSON(QuotaId, quotaId_);
@@ -56,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Min, min_);
       DARABONBA_PTR_FROM_JSON(ParentQuotaId, parentQuotaId_);
       DARABONBA_PTR_FROM_JSON(QueueStrategy, queueStrategy_);
+      DARABONBA_PTR_FROM_JSON(QuotaCluster, quotaCluster_);
       DARABONBA_PTR_FROM_JSON(QuotaConfig, quotaConfig_);
       DARABONBA_PTR_FROM_JSON(QuotaDetails, quotaDetails_);
       DARABONBA_PTR_FROM_JSON(QuotaId, quotaId_);
@@ -83,9 +86,9 @@ namespace Models
     virtual bool empty() const override { return this->allocateStrategy_ == nullptr
         && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->gmtCreatedTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperZones_ == nullptr
         && return this->labels_ == nullptr && return this->latestOperationId_ == nullptr && return this->min_ == nullptr && return this->parentQuotaId_ == nullptr && return this->queueStrategy_ == nullptr
-        && return this->quotaConfig_ == nullptr && return this->quotaDetails_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr && return this->reasonCode_ == nullptr
-        && return this->reasonMessage_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr && return this->subQuotas_ == nullptr
-        && return this->version_ == nullptr && return this->workspaces_ == nullptr; };
+        && return this->quotaCluster_ == nullptr && return this->quotaConfig_ == nullptr && return this->quotaDetails_ == nullptr && return this->quotaId_ == nullptr && return this->quotaName_ == nullptr
+        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->subQuotas_ == nullptr && return this->version_ == nullptr && return this->workspaces_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
@@ -167,6 +170,15 @@ namespace Models
     void deleteQueueStrategy() { this->queueStrategy_ = nullptr;};
     inline string queueStrategy() const { DARABONBA_PTR_GET_DEFAULT(queueStrategy_, "") };
     inline Quota& setQueueStrategy(string queueStrategy) { DARABONBA_PTR_SET_VALUE(queueStrategy_, queueStrategy) };
+
+
+    // quotaCluster Field Functions 
+    bool hasQuotaCluster() const { return this->quotaCluster_ != nullptr;};
+    void deleteQuotaCluster() { this->quotaCluster_ = nullptr;};
+    inline const QuotaCluster & quotaCluster() const { DARABONBA_PTR_GET_CONST(quotaCluster_, QuotaCluster) };
+    inline QuotaCluster quotaCluster() { DARABONBA_PTR_GET(quotaCluster_, QuotaCluster) };
+    inline Quota& setQuotaCluster(const QuotaCluster & quotaCluster) { DARABONBA_PTR_SET_VALUE(quotaCluster_, quotaCluster) };
+    inline Quota& setQuotaCluster(QuotaCluster && quotaCluster) { DARABONBA_PTR_SET_RVALUE(quotaCluster_, quotaCluster) };
 
 
     // quotaConfig Field Functions 
@@ -275,6 +287,7 @@ namespace Models
     std::shared_ptr<ResourceSpec> min_ = nullptr;
     std::shared_ptr<string> parentQuotaId_ = nullptr;
     std::shared_ptr<string> queueStrategy_ = nullptr;
+    std::shared_ptr<QuotaCluster> quotaCluster_ = nullptr;
     std::shared_ptr<QuotaConfig> quotaConfig_ = nullptr;
     std::shared_ptr<QuotaDetails> quotaDetails_ = nullptr;
     std::shared_ptr<string> quotaId_ = nullptr;

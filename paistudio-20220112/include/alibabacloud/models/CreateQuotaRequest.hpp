@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEQUOTAREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEQUOTAREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ClusterSpec.hpp>
 #include <vector>
 #include <alibabacloud/models/Label.hpp>
 #include <alibabacloud/models/ResourceSpec.hpp>
@@ -18,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateQuotaRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AllocateStrategy, allocateStrategy_);
+      DARABONBA_PTR_TO_JSON(ClusterSpec, clusterSpec_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(Min, min_);
@@ -30,6 +32,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateQuotaRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllocateStrategy, allocateStrategy_);
+      DARABONBA_PTR_FROM_JSON(ClusterSpec, clusterSpec_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(Min, min_);
@@ -52,13 +55,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocateStrategy_ == nullptr
-        && return this->description_ == nullptr && return this->labels_ == nullptr && return this->min_ == nullptr && return this->parentQuotaId_ == nullptr && return this->queueStrategy_ == nullptr
-        && return this->quotaConfig_ == nullptr && return this->quotaName_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr; };
+        && return this->clusterSpec_ == nullptr && return this->description_ == nullptr && return this->labels_ == nullptr && return this->min_ == nullptr && return this->parentQuotaId_ == nullptr
+        && return this->queueStrategy_ == nullptr && return this->quotaConfig_ == nullptr && return this->quotaName_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceType_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
     inline string allocateStrategy() const { DARABONBA_PTR_GET_DEFAULT(allocateStrategy_, "") };
     inline CreateQuotaRequest& setAllocateStrategy(string allocateStrategy) { DARABONBA_PTR_SET_VALUE(allocateStrategy_, allocateStrategy) };
+
+
+    // clusterSpec Field Functions 
+    bool hasClusterSpec() const { return this->clusterSpec_ != nullptr;};
+    void deleteClusterSpec() { this->clusterSpec_ = nullptr;};
+    inline const ClusterSpec & clusterSpec() const { DARABONBA_PTR_GET_CONST(clusterSpec_, ClusterSpec) };
+    inline ClusterSpec clusterSpec() { DARABONBA_PTR_GET(clusterSpec_, ClusterSpec) };
+    inline CreateQuotaRequest& setClusterSpec(const ClusterSpec & clusterSpec) { DARABONBA_PTR_SET_VALUE(clusterSpec_, clusterSpec) };
+    inline CreateQuotaRequest& setClusterSpec(ClusterSpec && clusterSpec) { DARABONBA_PTR_SET_RVALUE(clusterSpec_, clusterSpec) };
 
 
     // description Field Functions 
@@ -134,6 +146,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> allocateStrategy_ = nullptr;
+    std::shared_ptr<ClusterSpec> clusterSpec_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<vector<Label>> labels_ = nullptr;
     std::shared_ptr<ResourceSpec> min_ = nullptr;

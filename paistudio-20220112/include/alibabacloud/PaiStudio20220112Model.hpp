@@ -20,6 +20,8 @@
 #include <alibabacloud/models/CacheService.hpp>
 #include <alibabacloud/models/CapacityLock.hpp>
 #include <alibabacloud/models/ChannelProperty.hpp>
+#include <alibabacloud/models/DataSource.hpp>
+#include <alibabacloud/models/ClusterSpec.hpp>
 #include <alibabacloud/models/ComponentSpec.hpp>
 #include <alibabacloud/models/EniCacheConfig.hpp>
 #include <alibabacloud/models/Features.hpp>
@@ -46,6 +48,7 @@
 #include <alibabacloud/models/Permission.hpp>
 #include <alibabacloud/models/QueueInfo.hpp>
 #include <alibabacloud/models/ResourceSpec.hpp>
+#include <alibabacloud/models/QuotaCluster.hpp>
 #include <alibabacloud/models/WorkspaceSpec.hpp>
 #include <alibabacloud/models/WorkspaceSpecs.hpp>
 #include <alibabacloud/models/SandboxCacheConfig.hpp>
