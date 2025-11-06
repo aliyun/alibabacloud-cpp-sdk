@@ -78,12 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->chargeType_ != nullptr && this->clbNetworkType_ != nullptr && this->enableHardwareAcceleration_ != nullptr && this->enableSls_ != nullptr && this->enableXtrace_ != nullptr
-        && this->enterpriseSecurityGroup_ != nullptr && this->internetSlbSpec_ != nullptr && this->managedEntryNetworkType_ != nullptr && this->mserVersion_ != nullptr && this->name_ != nullptr
-        && this->nlbNetworkType_ != nullptr && this->region_ != nullptr && this->replica_ != nullptr && this->requestPars_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->slbSpec_ != nullptr && this->spec_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr && this->vSwitchId2_ != nullptr
-        && this->vpc_ != nullptr && this->xtraceRatio_ != nullptr && this->zoneInfo_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clbNetworkType_ == nullptr && return this->enableHardwareAcceleration_ == nullptr && return this->enableSls_ == nullptr && return this->enableXtrace_ == nullptr
+        && return this->enterpriseSecurityGroup_ == nullptr && return this->internetSlbSpec_ == nullptr && return this->managedEntryNetworkType_ == nullptr && return this->mserVersion_ == nullptr && return this->name_ == nullptr
+        && return this->nlbNetworkType_ == nullptr && return this->region_ == nullptr && return this->replica_ == nullptr && return this->requestPars_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->slbSpec_ == nullptr && return this->spec_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchId2_ == nullptr
+        && return this->vpc_ == nullptr && return this->xtraceRatio_ == nullptr && return this->zoneInfo_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

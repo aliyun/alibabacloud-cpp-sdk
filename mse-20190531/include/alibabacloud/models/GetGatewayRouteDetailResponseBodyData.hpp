@@ -105,14 +105,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ahasStatus_ != nullptr
-        && this->cors_ != nullptr && this->defaultServiceId_ != nullptr && this->defaultServiceName_ != nullptr && this->description_ != nullptr && this->destinationType_ != nullptr
-        && this->directResponse_ != nullptr && this->domainId_ != nullptr && this->domainIdList_ != nullptr && this->domainName_ != nullptr && this->domainNameList_ != nullptr
-        && this->enableWaf_ != nullptr && this->fallback_ != nullptr && this->fallbackServices_ != nullptr && this->flowMirror_ != nullptr && this->gatewayId_ != nullptr
-        && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->HTTPRewrite_ != nullptr && this->headerOp_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->policies_ != nullptr && this->predicates_ != nullptr && this->redirect_ != nullptr
-        && this->retry_ != nullptr && this->routeOrder_ != nullptr && this->routePredicates_ != nullptr && this->routeServices_ != nullptr && this->services_ != nullptr
-        && this->status_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->ahasStatus_ == nullptr
+        && return this->cors_ == nullptr && return this->defaultServiceId_ == nullptr && return this->defaultServiceName_ == nullptr && return this->description_ == nullptr && return this->destinationType_ == nullptr
+        && return this->directResponse_ == nullptr && return this->domainId_ == nullptr && return this->domainIdList_ == nullptr && return this->domainName_ == nullptr && return this->domainNameList_ == nullptr
+        && return this->enableWaf_ == nullptr && return this->fallback_ == nullptr && return this->fallbackServices_ == nullptr && return this->flowMirror_ == nullptr && return this->gatewayId_ == nullptr
+        && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->HTTPRewrite_ == nullptr && return this->headerOp_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->policies_ == nullptr && return this->predicates_ == nullptr && return this->redirect_ == nullptr
+        && return this->retry_ == nullptr && return this->routeOrder_ == nullptr && return this->routePredicates_ == nullptr && return this->routeServices_ == nullptr && return this->services_ == nullptr
+        && return this->status_ == nullptr && return this->timeout_ == nullptr; };
     // ahasStatus Field Functions 
     bool hasAhasStatus() const { return this->ahasStatus_ != nullptr;};
     void deleteAhasStatus() { this->ahasStatus_ = nullptr;};

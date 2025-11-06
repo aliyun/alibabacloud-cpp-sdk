@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableWaf_ != nullptr
-        && this->supportWaf_ != nullptr; };
+    virtual bool empty() const override { return this->enableWaf_ == nullptr
+        && return this->supportWaf_ == nullptr; };
     // enableWaf Field Functions 
     bool hasEnableWaf() const { return this->enableWaf_ != nullptr;};
     void deleteEnableWaf() { this->enableWaf_ = nullptr;};

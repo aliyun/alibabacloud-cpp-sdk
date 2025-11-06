@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsServerList_ != nullptr
-        && this->gatewayId_ != nullptr && this->gatewayTrafficPolicy_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->groupName_ != nullptr && this->healehStatus_ != nullptr && this->healthCheck_ != nullptr && this->healthCheckInfo_ != nullptr && this->healthStatus_ != nullptr
-        && this->id_ != nullptr && this->ips_ != nullptr && this->metaInfo_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr
-        && this->ports_ != nullptr && this->serviceFQDN_ != nullptr && this->serviceNameInRegistry_ != nullptr && this->servicePort_ != nullptr && this->serviceProtocol_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceType_ != nullptr && this->unhealthyEndpoints_ != nullptr && this->versions_ != nullptr; };
+    virtual bool empty() const override { return this->dnsServerList_ == nullptr
+        && return this->gatewayId_ == nullptr && return this->gatewayTrafficPolicy_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->groupName_ == nullptr && return this->healehStatus_ == nullptr && return this->healthCheck_ == nullptr && return this->healthCheckInfo_ == nullptr && return this->healthStatus_ == nullptr
+        && return this->id_ == nullptr && return this->ips_ == nullptr && return this->metaInfo_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr
+        && return this->ports_ == nullptr && return this->serviceFQDN_ == nullptr && return this->serviceNameInRegistry_ == nullptr && return this->servicePort_ == nullptr && return this->serviceProtocol_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr && return this->unhealthyEndpoints_ == nullptr && return this->versions_ == nullptr; };
     // dnsServerList Field Functions 
     bool hasDnsServerList() const { return this->dnsServerList_ != nullptr;};
     void deleteDnsServerList() { this->dnsServerList_ = nullptr;};

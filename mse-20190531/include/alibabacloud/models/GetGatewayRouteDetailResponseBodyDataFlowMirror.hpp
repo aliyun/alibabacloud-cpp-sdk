@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->percentage_ != nullptr
-        && this->port_ != nullptr && this->status_ != nullptr && this->targetServiceId_ != nullptr && this->targetServiceName_ != nullptr; };
+    virtual bool empty() const override { return this->percentage_ == nullptr
+        && return this->port_ == nullptr && return this->status_ == nullptr && return this->targetServiceId_ == nullptr && return this->targetServiceName_ == nullptr; };
     // percentage Field Functions 
     bool hasPercentage() const { return this->percentage_ != nullptr;};
     void deletePercentage() { this->percentage_ = nullptr;};

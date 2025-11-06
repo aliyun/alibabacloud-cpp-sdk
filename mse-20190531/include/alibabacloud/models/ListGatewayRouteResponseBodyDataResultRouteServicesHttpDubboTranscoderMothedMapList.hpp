@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dubboMothedName_ != nullptr
-        && this->httpMothed_ != nullptr && this->mothedpath_ != nullptr && this->paramMapsList_ != nullptr && this->passThroughAllHeaders_ != nullptr && this->passThroughList_ != nullptr; };
+    virtual bool empty() const override { return this->dubboMothedName_ == nullptr
+        && return this->httpMothed_ == nullptr && return this->mothedpath_ == nullptr && return this->paramMapsList_ == nullptr && return this->passThroughAllHeaders_ == nullptr && return this->passThroughList_ == nullptr; };
     // dubboMothedName Field Functions 
     bool hasDubboMothedName() const { return this->dubboMothedName_ != nullptr;};
     void deleteDubboMothedName() { this->dubboMothedName_ = nullptr;};

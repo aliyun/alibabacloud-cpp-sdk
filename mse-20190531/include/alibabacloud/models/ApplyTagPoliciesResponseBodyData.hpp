@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->carryData_ != nullptr
-        && this->enable_ != nullptr && this->id_ != nullptr && this->instanceNum_ != nullptr && this->name_ != nullptr && this->rate_ != nullptr
-        && this->remove_ != nullptr && this->rules_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->carryData_ == nullptr
+        && return this->enable_ == nullptr && return this->id_ == nullptr && return this->instanceNum_ == nullptr && return this->name_ == nullptr && return this->rate_ == nullptr
+        && return this->remove_ == nullptr && return this->rules_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr; };
     // carryData Field Functions 
     bool hasCarryData() const { return this->carryData_ != nullptr;};
     void deleteCarryData() { this->carryData_ = nullptr;};

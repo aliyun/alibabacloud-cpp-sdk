@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->canaryModel_ != nullptr
-        && this->condition_ != nullptr && this->conditions_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->percentage_ != nullptr
-        && this->routeIdList_ != nullptr && this->routeIndependentPercentageEnable_ != nullptr && this->routeIndependentPercentageList_ != nullptr; };
+    virtual bool empty() const override { return this->canaryModel_ == nullptr
+        && return this->condition_ == nullptr && return this->conditions_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->percentage_ == nullptr
+        && return this->routeIdList_ == nullptr && return this->routeIndependentPercentageEnable_ == nullptr && return this->routeIndependentPercentageList_ == nullptr; };
     // canaryModel Field Functions 
     bool hasCanaryModel() const { return this->canaryModel_ != nullptr;};
     void deleteCanaryModel() { this->canaryModel_ = nullptr;};

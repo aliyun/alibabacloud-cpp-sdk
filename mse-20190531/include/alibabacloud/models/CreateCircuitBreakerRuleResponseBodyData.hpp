@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appName_ != nullptr && this->enable_ != nullptr && this->halfOpenBaseAmountPerStep_ != nullptr && this->halfOpenRecoveryStepNum_ != nullptr && this->id_ != nullptr
-        && this->maxAllowedRtMs_ != nullptr && this->minRequestAmount_ != nullptr && this->namespace_ != nullptr && this->regionId_ != nullptr && this->resource_ != nullptr
-        && this->retryTimeoutMs_ != nullptr && this->statIntervalMs_ != nullptr && this->strategy_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appName_ == nullptr && return this->enable_ == nullptr && return this->halfOpenBaseAmountPerStep_ == nullptr && return this->halfOpenRecoveryStepNum_ == nullptr && return this->id_ == nullptr
+        && return this->maxAllowedRtMs_ == nullptr && return this->minRequestAmount_ == nullptr && return this->namespace_ == nullptr && return this->regionId_ == nullptr && return this->resource_ == nullptr
+        && return this->retryTimeoutMs_ == nullptr && return this->statIntervalMs_ == nullptr && return this->strategy_ == nullptr && return this->threshold_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

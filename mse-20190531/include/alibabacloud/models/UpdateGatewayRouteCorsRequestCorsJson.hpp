@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowCredentials_ != nullptr
-        && this->allowHeaders_ != nullptr && this->allowMethods_ != nullptr && this->allowOrigins_ != nullptr && this->exposeHeaders_ != nullptr && this->status_ != nullptr
-        && this->timeUnit_ != nullptr && this->unitNum_ != nullptr; };
+    virtual bool empty() const override { return this->allowCredentials_ == nullptr
+        && return this->allowHeaders_ == nullptr && return this->allowMethods_ == nullptr && return this->allowOrigins_ == nullptr && return this->exposeHeaders_ == nullptr && return this->status_ == nullptr
+        && return this->timeUnit_ == nullptr && return this->unitNum_ == nullptr; };
     // allowCredentials Field Functions 
     bool hasAllowCredentials() const { return this->allowCredentials_ != nullptr;};
     void deleteAllowCredentials() { this->allowCredentials_ = nullptr;};

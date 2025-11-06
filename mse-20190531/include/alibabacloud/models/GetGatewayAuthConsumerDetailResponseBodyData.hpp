@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumerStatus_ != nullptr
-        && this->description_ != nullptr && this->encodeType_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->jwks_ != nullptr && this->keyName_ != nullptr && this->keyValue_ != nullptr && this->name_ != nullptr
-        && this->primaryUser_ != nullptr && this->resourceList_ != nullptr && this->tokenName_ != nullptr && this->tokenPass_ != nullptr && this->tokenPosition_ != nullptr
-        && this->tokenPrefix_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->consumerStatus_ == nullptr
+        && return this->description_ == nullptr && return this->encodeType_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->jwks_ == nullptr && return this->keyName_ == nullptr && return this->keyValue_ == nullptr && return this->name_ == nullptr
+        && return this->primaryUser_ == nullptr && return this->resourceList_ == nullptr && return this->tokenName_ == nullptr && return this->tokenPass_ == nullptr && return this->tokenPosition_ == nullptr
+        && return this->tokenPrefix_ == nullptr && return this->type_ == nullptr; };
     // consumerStatus Field Functions 
     bool hasConsumerStatus() const { return this->consumerStatus_ != nullptr;};
     void deleteConsumerStatus() { this->consumerStatus_ = nullptr;};

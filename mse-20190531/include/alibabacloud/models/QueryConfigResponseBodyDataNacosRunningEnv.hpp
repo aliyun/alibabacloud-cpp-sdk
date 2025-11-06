@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->emptyProtect_ != nullptr
-        && this->grayAuth_ != nullptr; };
+    virtual bool empty() const override { return this->emptyProtect_ == nullptr
+        && return this->grayAuth_ == nullptr; };
     // emptyProtect Field Functions 
     bool hasEmptyProtect() const { return this->emptyProtect_ != nullptr;};
     void deleteEmptyProtect() { this->emptyProtect_ = nullptr;};

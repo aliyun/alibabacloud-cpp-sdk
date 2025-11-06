@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->descriptionEn_ != nullptr && this->id_ != nullptr && this->module_ != nullptr && this->mute_ != nullptr && this->noticeFeature_ != nullptr
-        && this->primaryUser_ != nullptr && this->riskCode_ != nullptr && this->riskLevel_ != nullptr && this->riskName_ != nullptr && this->riskNameEn_ != nullptr
-        && this->riskType_ != nullptr && this->situation_ != nullptr && this->situationEn_ != nullptr && this->suggestion_ != nullptr && this->suggestionEn_ != nullptr
-        && this->taskId_ != nullptr && this->type_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->descriptionEn_ == nullptr && return this->id_ == nullptr && return this->module_ == nullptr && return this->mute_ == nullptr && return this->noticeFeature_ == nullptr
+        && return this->primaryUser_ == nullptr && return this->riskCode_ == nullptr && return this->riskLevel_ == nullptr && return this->riskName_ == nullptr && return this->riskNameEn_ == nullptr
+        && return this->riskType_ == nullptr && return this->situation_ == nullptr && return this->situationEn_ == nullptr && return this->suggestion_ == nullptr && return this->suggestionEn_ == nullptr
+        && return this->taskId_ == nullptr && return this->type_ == nullptr && return this->values_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

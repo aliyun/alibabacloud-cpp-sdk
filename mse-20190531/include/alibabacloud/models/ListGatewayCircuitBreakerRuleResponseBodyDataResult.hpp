@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->behaviorType_ != nullptr
-        && this->bodyEncoding_ != nullptr && this->enable_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->id_ != nullptr
-        && this->idList_ != nullptr && this->limitMode_ != nullptr && this->maxAllowedMs_ != nullptr && this->minRequestAmount_ != nullptr && this->recoveryTimeoutSec_ != nullptr
-        && this->responseAdditionalHeaders_ != nullptr && this->responseContentBody_ != nullptr && this->responseRedirectUrl_ != nullptr && this->responseStatusCode_ != nullptr && this->routeId_ != nullptr
-        && this->routeName_ != nullptr && this->statDurationSec_ != nullptr && this->strategy_ != nullptr && this->triggerRatio_ != nullptr; };
+    virtual bool empty() const override { return this->behaviorType_ == nullptr
+        && return this->bodyEncoding_ == nullptr && return this->enable_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->id_ == nullptr
+        && return this->idList_ == nullptr && return this->limitMode_ == nullptr && return this->maxAllowedMs_ == nullptr && return this->minRequestAmount_ == nullptr && return this->recoveryTimeoutSec_ == nullptr
+        && return this->responseAdditionalHeaders_ == nullptr && return this->responseContentBody_ == nullptr && return this->responseRedirectUrl_ == nullptr && return this->responseStatusCode_ == nullptr && return this->routeId_ == nullptr
+        && return this->routeName_ == nullptr && return this->statDurationSec_ == nullptr && return this->strategy_ == nullptr && return this->triggerRatio_ == nullptr; };
     // behaviorType Field Functions 
     bool hasBehaviorType() const { return this->behaviorType_ != nullptr;};
     void deleteBehaviorType() { this->behaviorType_ = nullptr;};

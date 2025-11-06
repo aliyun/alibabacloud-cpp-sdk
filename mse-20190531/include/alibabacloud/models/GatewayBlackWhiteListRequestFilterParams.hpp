@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayId_ != nullptr
-        && this->gatewayUniqueId_ != nullptr && this->isWhite_ != nullptr && this->resourceType_ != nullptr && this->searchContent_ != nullptr && this->searchType_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayId_ == nullptr
+        && return this->gatewayUniqueId_ == nullptr && return this->isWhite_ == nullptr && return this->resourceType_ == nullptr && return this->searchContent_ == nullptr && return this->searchType_ == nullptr
+        && return this->type_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};

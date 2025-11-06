@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayId_ != nullptr
-        && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr
-        && this->ips_ != nullptr && this->metaInfo_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->serviceNameInRegistry_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayId_ == nullptr
+        && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr
+        && return this->ips_ == nullptr && return this->metaInfo_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->serviceNameInRegistry_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceType_ == nullptr; };
     // gatewayId Field Functions 
     bool hasGatewayId() const { return this->gatewayId_ != nullptr;};
     void deleteGatewayId() { this->gatewayId_ = nullptr;};

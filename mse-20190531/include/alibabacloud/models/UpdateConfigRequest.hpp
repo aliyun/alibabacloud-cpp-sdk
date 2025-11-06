@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->authEnabled_ != nullptr && this->autopurgePurgeInterval_ != nullptr && this->autopurgeSnapRetainCount_ != nullptr && this->clusterId_ != nullptr && this->configAuthEnabled_ != nullptr
-        && this->configSecretEnabled_ != nullptr && this->configType_ != nullptr && this->consoleUIEnabled_ != nullptr && this->enable4lw_ != nullptr && this->eurekaSupported_ != nullptr
-        && this->extendedTypesEnable_ != nullptr && this->initLimit_ != nullptr && this->instanceId_ != nullptr && this->juteMaxbuffer_ != nullptr && this->MCPEnabled_ != nullptr
-        && this->maxClientCnxns_ != nullptr && this->maxSessionTimeout_ != nullptr && this->minSessionTimeout_ != nullptr && this->namingAuthEnabled_ != nullptr && this->openSuperAcl_ != nullptr
-        && this->passWord_ != nullptr && this->requestPars_ != nullptr && this->snapshotCount_ != nullptr && this->syncLimit_ != nullptr && this->TLSEnabled_ != nullptr
-        && this->tickTime_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->authEnabled_ == nullptr && return this->autopurgePurgeInterval_ == nullptr && return this->autopurgeSnapRetainCount_ == nullptr && return this->clusterId_ == nullptr && return this->configAuthEnabled_ == nullptr
+        && return this->configSecretEnabled_ == nullptr && return this->configType_ == nullptr && return this->consoleUIEnabled_ == nullptr && return this->enable4lw_ == nullptr && return this->eurekaSupported_ == nullptr
+        && return this->extendedTypesEnable_ == nullptr && return this->initLimit_ == nullptr && return this->instanceId_ == nullptr && return this->juteMaxbuffer_ == nullptr && return this->MCPEnabled_ == nullptr
+        && return this->maxClientCnxns_ == nullptr && return this->maxSessionTimeout_ == nullptr && return this->minSessionTimeout_ == nullptr && return this->namingAuthEnabled_ == nullptr && return this->openSuperAcl_ == nullptr
+        && return this->passWord_ == nullptr && return this->requestPars_ == nullptr && return this->snapshotCount_ == nullptr && return this->syncLimit_ == nullptr && return this->TLSEnabled_ == nullptr
+        && return this->tickTime_ == nullptr && return this->userName_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

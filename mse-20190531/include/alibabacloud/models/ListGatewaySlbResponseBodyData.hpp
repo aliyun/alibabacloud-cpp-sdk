@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->editEnable_ != nullptr
-        && this->gatewayId_ != nullptr && this->gatewaySlbMode_ != nullptr && this->gatewaySlbStatus_ != nullptr && this->gmtCreate_ != nullptr && this->httpPort_ != nullptr
-        && this->httpsPort_ != nullptr && this->httpsVServerGroupId_ != nullptr && this->id_ != nullptr && this->serviceWeight_ != nullptr && this->slbId_ != nullptr
-        && this->slbIp_ != nullptr && this->slbPort_ != nullptr && this->slbType_ != nullptr && this->statusDesc_ != nullptr && this->type_ != nullptr
-        && this->VServerGroupId_ != nullptr && this->VServiceList_ != nullptr && this->vsMetaInfo_ != nullptr; };
+    virtual bool empty() const override { return this->editEnable_ == nullptr
+        && return this->gatewayId_ == nullptr && return this->gatewaySlbMode_ == nullptr && return this->gatewaySlbStatus_ == nullptr && return this->gmtCreate_ == nullptr && return this->httpPort_ == nullptr
+        && return this->httpsPort_ == nullptr && return this->httpsVServerGroupId_ == nullptr && return this->id_ == nullptr && return this->serviceWeight_ == nullptr && return this->slbId_ == nullptr
+        && return this->slbIp_ == nullptr && return this->slbPort_ == nullptr && return this->slbType_ == nullptr && return this->statusDesc_ == nullptr && return this->type_ == nullptr
+        && return this->VServerGroupId_ == nullptr && return this->VServiceList_ == nullptr && return this->vsMetaInfo_ == nullptr; };
     // editEnable Field Functions 
     bool hasEditEnable() const { return this->editEnable_ != nullptr;};
     void deleteEditEnable() { this->editEnable_ = nullptr;};

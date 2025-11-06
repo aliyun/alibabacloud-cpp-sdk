@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->operator_ != nullptr
-        && this->nameList_ != nullptr && this->datum_ != nullptr && this->cond_ != nullptr && this->divisor_ != nullptr && this->remainder_ != nullptr
-        && this->rate_ != nullptr && this->index_ != nullptr && this->expr_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->operator_ == nullptr
+        && return this->nameList_ == nullptr && return this->datum_ == nullptr && return this->cond_ == nullptr && return this->divisor_ == nullptr && return this->remainder_ == nullptr
+        && return this->rate_ == nullptr && return this->index_ == nullptr && return this->expr_ == nullptr && return this->value_ == nullptr; };
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};

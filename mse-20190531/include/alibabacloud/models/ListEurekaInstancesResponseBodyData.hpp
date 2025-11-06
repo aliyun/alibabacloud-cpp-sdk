@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->durationInSecs_ != nullptr && this->homePageUrl_ != nullptr && this->hostName_ != nullptr && this->instanceId_ != nullptr && this->ipAddr_ != nullptr
-        && this->lastDirtyTimestamp_ != nullptr && this->lastUpdatedTimestamp_ != nullptr && this->metadata_ != nullptr && this->port_ != nullptr && this->renewalIntervalInSecs_ != nullptr
-        && this->securePort_ != nullptr && this->status_ != nullptr && this->vipAddress_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->durationInSecs_ == nullptr && return this->homePageUrl_ == nullptr && return this->hostName_ == nullptr && return this->instanceId_ == nullptr && return this->ipAddr_ == nullptr
+        && return this->lastDirtyTimestamp_ == nullptr && return this->lastUpdatedTimestamp_ == nullptr && return this->metadata_ == nullptr && return this->port_ == nullptr && return this->renewalIntervalInSecs_ == nullptr
+        && return this->securePort_ == nullptr && return this->status_ == nullptr && return this->vipAddress_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};

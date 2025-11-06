@@ -74,12 +74,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->algorithm_ != nullptr && this->beforeDate_ != nullptr && this->certIdentifier_ != nullptr && this->certName_ != nullptr && this->commonName_ != nullptr
-        && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtAfter_ != nullptr && this->gmtBefore_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->http2_ != nullptr && this->id_ != nullptr && this->isManaged_ != nullptr && this->issuer_ != nullptr
-        && this->mustHttps_ != nullptr && this->name_ != nullptr && this->protocol_ != nullptr && this->sans_ != nullptr && this->tlsCipherSuitesConfig_ != nullptr
-        && this->tlsMax_ != nullptr && this->tlsMin_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->algorithm_ == nullptr && return this->beforeDate_ == nullptr && return this->certIdentifier_ == nullptr && return this->certName_ == nullptr && return this->commonName_ == nullptr
+        && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtAfter_ == nullptr && return this->gmtBefore_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->http2_ == nullptr && return this->id_ == nullptr && return this->isManaged_ == nullptr && return this->issuer_ == nullptr
+        && return this->mustHttps_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->sans_ == nullptr && return this->tlsCipherSuitesConfig_ == nullptr
+        && return this->tlsMax_ == nullptr && return this->tlsMin_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

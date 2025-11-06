@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->desiredReplica_ != nullptr
-        && this->endTime_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->desiredReplica_ == nullptr
+        && return this->endTime_ == nullptr && return this->startTime_ == nullptr; };
     // desiredReplica Field Functions 
     bool hasDesiredReplica() const { return this->desiredReplica_ != nullptr;};
     void deleteDesiredReplica() { this->desiredReplica_ = nullptr;};

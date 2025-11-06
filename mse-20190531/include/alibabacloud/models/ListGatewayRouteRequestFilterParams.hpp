@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultServiceId_ != nullptr
-        && this->domainId_ != nullptr && this->domainName_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->name_ != nullptr
-        && this->path_ != nullptr && this->routeOrder_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->defaultServiceId_ == nullptr
+        && return this->domainId_ == nullptr && return this->domainName_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->name_ == nullptr
+        && return this->path_ == nullptr && return this->routeOrder_ == nullptr && return this->status_ == nullptr; };
     // defaultServiceId Field Functions 
     bool hasDefaultServiceId() const { return this->defaultServiceId_ != nullptr;};
     void deleteDefaultServiceId() { this->defaultServiceId_ = nullptr;};

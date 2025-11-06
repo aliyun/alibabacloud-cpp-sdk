@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consistentHashLBType_ != nullptr
-        && this->httpCookie_ != nullptr && this->minimumRingSize_ != nullptr && this->parameterName_ != nullptr; };
+    virtual bool empty() const override { return this->consistentHashLBType_ == nullptr
+        && return this->httpCookie_ == nullptr && return this->minimumRingSize_ == nullptr && return this->parameterName_ == nullptr; };
     // consistentHashLBType Field Functions 
     bool hasConsistentHashLBType() const { return this->consistentHashLBType_ != nullptr;};
     void deleteConsistentHashLBType() { this->consistentHashLBType_ = nullptr;};

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowRequestHeaders_ != nullptr
-        && this->allowUpstreamHeaders_ != nullptr && this->bodyMaxBytes_ != nullptr && this->isRestrict_ != nullptr && this->prefixPath_ != nullptr && this->serviceId_ != nullptr
-        && this->timeout_ != nullptr && this->tokenKey_ != nullptr && this->withRematchRoute_ != nullptr && this->withRequestBody_ != nullptr; };
+    virtual bool empty() const override { return this->allowRequestHeaders_ == nullptr
+        && return this->allowUpstreamHeaders_ == nullptr && return this->bodyMaxBytes_ == nullptr && return this->isRestrict_ == nullptr && return this->prefixPath_ == nullptr && return this->serviceId_ == nullptr
+        && return this->timeout_ == nullptr && return this->tokenKey_ == nullptr && return this->withRematchRoute_ == nullptr && return this->withRequestBody_ == nullptr; };
     // allowRequestHeaders Field Functions 
     bool hasAllowRequestHeaders() const { return this->allowRequestHeaders_ != nullptr;};
     void deleteAllowRequestHeaders() { this->allowRequestHeaders_ = nullptr;};

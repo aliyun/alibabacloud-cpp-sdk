@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableIngress_ != nullptr
-        && this->enableStatus_ != nullptr && this->ingressClass_ != nullptr && this->watchNamespace_ != nullptr; };
+    virtual bool empty() const override { return this->enableIngress_ == nullptr
+        && return this->enableStatus_ == nullptr && return this->ingressClass_ == nullptr && return this->watchNamespace_ == nullptr; };
     // enableIngress Field Functions 
     bool hasEnableIngress() const { return this->enableIngress_ != nullptr;};
     void deleteEnableIngress() { this->enableIngress_ = nullptr;};

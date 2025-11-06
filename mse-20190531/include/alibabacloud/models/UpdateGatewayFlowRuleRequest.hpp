@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->behaviorType_ != nullptr && this->bodyEncoding_ != nullptr && this->enable_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr
-        && this->id_ != nullptr && this->responseContentBody_ != nullptr && this->responseRedirectUrl_ != nullptr && this->responseStatusCode_ != nullptr && this->routeId_ != nullptr
-        && this->routeName_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->behaviorType_ == nullptr && return this->bodyEncoding_ == nullptr && return this->enable_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr
+        && return this->id_ == nullptr && return this->responseContentBody_ == nullptr && return this->responseRedirectUrl_ == nullptr && return this->responseStatusCode_ == nullptr && return this->routeId_ == nullptr
+        && return this->routeName_ == nullptr && return this->threshold_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

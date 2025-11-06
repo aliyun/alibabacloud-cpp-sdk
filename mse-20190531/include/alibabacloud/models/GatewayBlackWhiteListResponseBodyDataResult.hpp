@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
-        && this->isWhite_ != nullptr && this->name_ != nullptr && this->note_ != nullptr && this->resourceId_ != nullptr && this->resourceIdJsonList_ != nullptr
-        && this->resourceIdNameJson_ != nullptr && this->resourceType_ != nullptr && this->status_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr
+        && return this->isWhite_ == nullptr && return this->name_ == nullptr && return this->note_ == nullptr && return this->resourceId_ == nullptr && return this->resourceIdJsonList_ == nullptr
+        && return this->resourceIdNameJson_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};

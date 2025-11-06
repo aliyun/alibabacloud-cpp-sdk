@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->configCheck_ != nullptr && this->id_ != nullptr && this->maxVersion_ != nullptr && this->mode_ != nullptr && this->name_ != nullptr
-        && this->newVersionPublishingFlag_ != nullptr && this->phase_ != nullptr && this->primaryUser_ != nullptr && this->priority_ != nullptr && this->publishState_ != nullptr
-        && this->status_ != nullptr && this->summary_ != nullptr && this->summaryEn_ != nullptr && this->version_ != nullptr && this->wasmFile_ != nullptr
-        && this->wasmLang_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->configCheck_ == nullptr && return this->id_ == nullptr && return this->maxVersion_ == nullptr && return this->mode_ == nullptr && return this->name_ == nullptr
+        && return this->newVersionPublishingFlag_ == nullptr && return this->phase_ == nullptr && return this->primaryUser_ == nullptr && return this->priority_ == nullptr && return this->publishState_ == nullptr
+        && return this->status_ == nullptr && return this->summary_ == nullptr && return this->summaryEn_ == nullptr && return this->version_ == nullptr && return this->wasmFile_ == nullptr
+        && return this->wasmLang_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

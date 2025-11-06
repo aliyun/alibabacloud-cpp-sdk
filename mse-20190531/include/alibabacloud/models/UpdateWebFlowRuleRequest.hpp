@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->burst_ != nullptr && this->controlBehavior_ != nullptr && this->enable_ != nullptr
-        && this->maxQueueingTimeMs_ != nullptr && this->metricType_ != nullptr && this->namespace_ != nullptr && this->paramItem_ != nullptr && this->regionId_ != nullptr
-        && this->resourceMode_ != nullptr && this->ruleId_ != nullptr && this->statIntervalMs_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->burst_ == nullptr && return this->controlBehavior_ == nullptr && return this->enable_ == nullptr
+        && return this->maxQueueingTimeMs_ == nullptr && return this->metricType_ == nullptr && return this->namespace_ == nullptr && return this->paramItem_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceMode_ == nullptr && return this->ruleId_ == nullptr && return this->statIntervalMs_ == nullptr && return this->threshold_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

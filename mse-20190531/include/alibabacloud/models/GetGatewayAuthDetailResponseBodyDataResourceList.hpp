@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authId_ != nullptr
-        && this->authResourceHeaderList_ != nullptr && this->domainId_ != nullptr && this->domainName_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->ignoreCase_ != nullptr && this->isWhite_ != nullptr
-        && this->matchType_ != nullptr && this->path_ != nullptr; };
+    virtual bool empty() const override { return this->authId_ == nullptr
+        && return this->authResourceHeaderList_ == nullptr && return this->domainId_ == nullptr && return this->domainName_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->ignoreCase_ == nullptr && return this->isWhite_ == nullptr
+        && return this->matchType_ == nullptr && return this->path_ == nullptr; };
     // authId Field Functions 
     bool hasAuthId() const { return this->authId_ != nullptr;};
     void deleteAuthId() { this->authId_ = nullptr;};

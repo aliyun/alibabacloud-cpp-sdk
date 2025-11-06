@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticType_ != nullptr
-        && this->maxReplica_ != nullptr && this->timePolicyList_ != nullptr; };
+    virtual bool empty() const override { return this->elasticType_ == nullptr
+        && return this->maxReplica_ == nullptr && return this->timePolicyList_ == nullptr; };
     // elasticType Field Functions 
     bool hasElasticType() const { return this->elasticType_ != nullptr;};
     void deleteElasticType() { this->elasticType_ = nullptr;};

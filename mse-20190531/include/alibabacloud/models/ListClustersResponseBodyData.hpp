@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appVersion_ != nullptr
-        && this->canUpdate_ != nullptr && this->chargeType_ != nullptr && this->clusterAliasName_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr
-        && this->createTime_ != nullptr && this->endDate_ != nullptr && this->initStatus_ != nullptr && this->instanceCount_ != nullptr && this->instanceId_ != nullptr
-        && this->internetAddress_ != nullptr && this->internetDomain_ != nullptr && this->intranetAddress_ != nullptr && this->intranetDomain_ != nullptr && this->maintenancePeriod_ != nullptr
-        && this->mseVersion_ != nullptr && this->resourceGroupId_ != nullptr && this->tags_ != nullptr && this->versionCode_ != nullptr && this->versionLifecycle_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->appVersion_ == nullptr
+        && return this->canUpdate_ == nullptr && return this->chargeType_ == nullptr && return this->clusterAliasName_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr
+        && return this->createTime_ == nullptr && return this->endDate_ == nullptr && return this->initStatus_ == nullptr && return this->instanceCount_ == nullptr && return this->instanceId_ == nullptr
+        && return this->internetAddress_ == nullptr && return this->internetDomain_ == nullptr && return this->intranetAddress_ == nullptr && return this->intranetDomain_ == nullptr && return this->maintenancePeriod_ == nullptr
+        && return this->mseVersion_ == nullptr && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr && return this->versionCode_ == nullptr && return this->versionLifecycle_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};

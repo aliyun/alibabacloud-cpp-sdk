@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->springcloud_ != nullptr
-        && this->dubbo_ != nullptr; };
+    virtual bool empty() const override { return this->springcloud_ == nullptr
+        && return this->dubbo_ == nullptr; };
     // springcloud Field Functions 
     bool hasSpringcloud() const { return this->springcloud_ != nullptr;};
     void deleteSpringcloud() { this->springcloud_ = nullptr;};

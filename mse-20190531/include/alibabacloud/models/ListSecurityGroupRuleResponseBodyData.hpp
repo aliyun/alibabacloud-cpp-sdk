@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authCidrs_ != nullptr
-        && this->description_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->id_ != nullptr && this->ipProtocol_ != nullptr && this->portRange_ != nullptr && this->securityGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->authCidrs_ == nullptr
+        && return this->description_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->id_ == nullptr && return this->ipProtocol_ == nullptr && return this->portRange_ == nullptr && return this->securityGroupId_ == nullptr; };
     // authCidrs Field Functions 
     bool hasAuthCidrs() const { return this->authCidrs_ != nullptr;};
     void deleteAuthCidrs() { this->authCidrs_ = nullptr;};

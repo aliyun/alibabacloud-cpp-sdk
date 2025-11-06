@@ -118,16 +118,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclEntryList_ != nullptr
-        && this->aclId_ != nullptr && this->appVersion_ != nullptr && this->canUpdate_ != nullptr && this->chargeType_ != nullptr && this->clusterAliasName_ != nullptr
-        && this->clusterName_ != nullptr && this->clusterSpecification_ != nullptr && this->clusterType_ != nullptr && this->clusterVersion_ != nullptr && this->connectionType_ != nullptr
-        && this->cpu_ != nullptr && this->createTime_ != nullptr && this->diskCapacity_ != nullptr && this->diskType_ != nullptr && this->eipInstanceId_ != nullptr
-        && this->endDate_ != nullptr && this->expectZones_ != nullptr && this->healthStatus_ != nullptr && this->initCostTime_ != nullptr && this->initStatus_ != nullptr
-        && this->instanceCount_ != nullptr && this->instanceId_ != nullptr && this->instanceModels_ != nullptr && this->internetAddress_ != nullptr && this->internetDomain_ != nullptr
-        && this->internetPort_ != nullptr && this->intranetAddress_ != nullptr && this->intranetDomain_ != nullptr && this->intranetPort_ != nullptr && this->maintenancePeriod_ != nullptr
-        && this->memoryCapacity_ != nullptr && this->mseVersion_ != nullptr && this->netType_ != nullptr && this->payInfo_ != nullptr && this->pubNetworkFlow_ != nullptr
-        && this->regionId_ != nullptr && this->securityGroupId_ != nullptr && this->securityGroupType_ != nullptr && this->tags_ != nullptr && this->vSwitchId_ != nullptr
-        && this->versionCode_ != nullptr && this->versionLifecycle_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->aclEntryList_ == nullptr
+        && return this->aclId_ == nullptr && return this->appVersion_ == nullptr && return this->canUpdate_ == nullptr && return this->chargeType_ == nullptr && return this->clusterAliasName_ == nullptr
+        && return this->clusterName_ == nullptr && return this->clusterSpecification_ == nullptr && return this->clusterType_ == nullptr && return this->clusterVersion_ == nullptr && return this->connectionType_ == nullptr
+        && return this->cpu_ == nullptr && return this->createTime_ == nullptr && return this->diskCapacity_ == nullptr && return this->diskType_ == nullptr && return this->eipInstanceId_ == nullptr
+        && return this->endDate_ == nullptr && return this->expectZones_ == nullptr && return this->healthStatus_ == nullptr && return this->initCostTime_ == nullptr && return this->initStatus_ == nullptr
+        && return this->instanceCount_ == nullptr && return this->instanceId_ == nullptr && return this->instanceModels_ == nullptr && return this->internetAddress_ == nullptr && return this->internetDomain_ == nullptr
+        && return this->internetPort_ == nullptr && return this->intranetAddress_ == nullptr && return this->intranetDomain_ == nullptr && return this->intranetPort_ == nullptr && return this->maintenancePeriod_ == nullptr
+        && return this->memoryCapacity_ == nullptr && return this->mseVersion_ == nullptr && return this->netType_ == nullptr && return this->payInfo_ == nullptr && return this->pubNetworkFlow_ == nullptr
+        && return this->regionId_ == nullptr && return this->securityGroupId_ == nullptr && return this->securityGroupType_ == nullptr && return this->tags_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->versionCode_ == nullptr && return this->versionLifecycle_ == nullptr && return this->vpcId_ == nullptr; };
     // aclEntryList Field Functions 
     bool hasAclEntryList() const { return this->aclEntryList_ != nullptr;};
     void deleteAclEntryList() { this->aclEntryList_ = nullptr;};

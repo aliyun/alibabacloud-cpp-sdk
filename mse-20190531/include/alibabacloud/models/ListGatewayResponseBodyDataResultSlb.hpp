@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewaySlbMode_ != nullptr
-        && this->gatewaySlbStatus_ != nullptr && this->slbId_ != nullptr && this->slbIp_ != nullptr && this->slbPort_ != nullptr && this->slbSpec_ != nullptr
-        && this->statusDesc_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->gatewaySlbMode_ == nullptr
+        && return this->gatewaySlbStatus_ == nullptr && return this->slbId_ == nullptr && return this->slbIp_ == nullptr && return this->slbPort_ == nullptr && return this->slbSpec_ == nullptr
+        && return this->statusDesc_ == nullptr && return this->type_ == nullptr; };
     // gatewaySlbMode Field Functions 
     bool hasGatewaySlbMode() const { return this->gatewaySlbMode_ != nullptr;};
     void deleteGatewaySlbMode() { this->gatewaySlbMode_ = nullptr;};

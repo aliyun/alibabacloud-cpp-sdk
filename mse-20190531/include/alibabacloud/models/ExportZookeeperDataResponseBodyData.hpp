@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contentMap_ != nullptr
-        && this->createTime_ != nullptr && this->exportType_ != nullptr && this->extend_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr
-        && this->kubeoneTaskIds_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->contentMap_ == nullptr
+        && return this->createTime_ == nullptr && return this->exportType_ == nullptr && return this->extend_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr
+        && return this->kubeoneTaskIds_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // contentMap Field Functions 
     bool hasContentMap() const { return this->contentMap_ != nullptr;};
     void deleteContentMap() { this->contentMap_ = nullptr;};

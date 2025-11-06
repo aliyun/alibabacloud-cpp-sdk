@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->disableHttp2Alpn_ != nullptr
-        && this->enableHardwareAcceleration_ != nullptr && this->enableWaf_ != nullptr && this->logConfigDetails_ != nullptr && this->traceDetails_ != nullptr; };
+    virtual bool empty() const override { return this->disableHttp2Alpn_ == nullptr
+        && return this->enableHardwareAcceleration_ == nullptr && return this->enableWaf_ == nullptr && return this->logConfigDetails_ == nullptr && return this->traceDetails_ == nullptr; };
     // disableHttp2Alpn Field Functions 
     bool hasDisableHttp2Alpn() const { return this->disableHttp2Alpn_ != nullptr;};
     void deleteDisableHttp2Alpn() { this->disableHttp2Alpn_ = nullptr;};

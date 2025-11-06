@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->clusterType_ != nullptr && this->originInstanceAddress_ != nullptr && this->originInstanceName_ != nullptr && this->originInstanceNamespace_ != nullptr && this->projectDesc_ != nullptr
-        && this->requestPars_ != nullptr && this->syncType_ != nullptr && this->targetClusterName_ != nullptr && this->targetClusterUrl_ != nullptr && this->targetInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->clusterType_ == nullptr && return this->originInstanceAddress_ == nullptr && return this->originInstanceName_ == nullptr && return this->originInstanceNamespace_ == nullptr && return this->projectDesc_ == nullptr
+        && return this->requestPars_ == nullptr && return this->syncType_ == nullptr && return this->targetClusterName_ == nullptr && return this->targetClusterUrl_ == nullptr && return this->targetInstanceId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

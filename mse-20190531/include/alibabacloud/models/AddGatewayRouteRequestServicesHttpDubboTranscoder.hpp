@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dubboServiceGroup_ != nullptr
-        && this->dubboServiceName_ != nullptr && this->dubboServiceVersion_ != nullptr && this->mothedMapList_ != nullptr; };
+    virtual bool empty() const override { return this->dubboServiceGroup_ == nullptr
+        && return this->dubboServiceName_ == nullptr && return this->dubboServiceVersion_ == nullptr && return this->mothedMapList_ == nullptr; };
     // dubboServiceGroup Field Functions 
     bool hasDubboServiceGroup() const { return this->dubboServiceGroup_ != nullptr;};
     void deleteDubboServiceGroup() { this->dubboServiceGroup_ = nullptr;};

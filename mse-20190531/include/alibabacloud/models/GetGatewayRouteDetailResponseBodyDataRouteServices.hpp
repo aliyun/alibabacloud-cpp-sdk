@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agreementType_ != nullptr
-        && this->groupName_ != nullptr && this->healthStatus_ != nullptr && this->httpDubboTranscoder_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr
-        && this->percent_ != nullptr && this->serviceId_ != nullptr && this->serviceName_ != nullptr && this->servicePort_ != nullptr && this->sourceType_ != nullptr
-        && this->unhealthyEndpoints_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->agreementType_ == nullptr
+        && return this->groupName_ == nullptr && return this->healthStatus_ == nullptr && return this->httpDubboTranscoder_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr
+        && return this->percent_ == nullptr && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr && return this->servicePort_ == nullptr && return this->sourceType_ == nullptr
+        && return this->unhealthyEndpoints_ == nullptr && return this->version_ == nullptr; };
     // agreementType Field Functions 
     bool hasAgreementType() const { return this->agreementType_ != nullptr;};
     void deleteAgreementType() { this->agreementType_ = nullptr;};

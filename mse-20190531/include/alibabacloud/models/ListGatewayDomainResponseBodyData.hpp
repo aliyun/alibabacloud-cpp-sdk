@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certBeforeDate_ != nullptr
-        && this->certIdentifier_ != nullptr && this->comment_ != nullptr && this->gatewayId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->http2_ != nullptr && this->id_ != nullptr && this->isManaged_ != nullptr && this->mustHttps_ != nullptr && this->name_ != nullptr
-        && this->protocol_ != nullptr && this->status_ != nullptr && this->tlsCipherSuitesConfig_ != nullptr && this->tlsMax_ != nullptr && this->tlsMin_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->certBeforeDate_ == nullptr
+        && return this->certIdentifier_ == nullptr && return this->comment_ == nullptr && return this->gatewayId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->http2_ == nullptr && return this->id_ == nullptr && return this->isManaged_ == nullptr && return this->mustHttps_ == nullptr && return this->name_ == nullptr
+        && return this->protocol_ == nullptr && return this->status_ == nullptr && return this->tlsCipherSuitesConfig_ == nullptr && return this->tlsMax_ == nullptr && return this->tlsMin_ == nullptr
+        && return this->type_ == nullptr; };
     // certBeforeDate Field Functions 
     bool hasCertBeforeDate() const { return this->certBeforeDate_ != nullptr;};
     void deleteCertBeforeDate() { this->certBeforeDate_ = nullptr;};

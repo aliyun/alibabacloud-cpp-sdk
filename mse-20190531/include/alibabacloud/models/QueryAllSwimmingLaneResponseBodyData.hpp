@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enable_ != nullptr
-        && this->entryRules_ != nullptr && this->gatewaySwimmingLaneRoute_ != nullptr && this->gatewaySwimmingLaneRouteJson_ != nullptr && this->groupId_ != nullptr && this->id_ != nullptr
-        && this->messageQueueFilterSide_ != nullptr && this->messageQueueGrayEnable_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->pathIndependentPercentageEnable_ != nullptr
-        && this->recordCanaryDetail_ != nullptr && this->regionId_ != nullptr && this->tag_ != nullptr && this->userId_ != nullptr && this->enableRules_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr; };
+    virtual bool empty() const override { return this->enable_ == nullptr
+        && return this->entryRules_ == nullptr && return this->gatewaySwimmingLaneRoute_ == nullptr && return this->gatewaySwimmingLaneRouteJson_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr
+        && return this->messageQueueFilterSide_ == nullptr && return this->messageQueueGrayEnable_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->pathIndependentPercentageEnable_ == nullptr
+        && return this->recordCanaryDetail_ == nullptr && return this->regionId_ == nullptr && return this->tag_ == nullptr && return this->userId_ == nullptr && return this->enableRules_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};

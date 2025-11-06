@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETGATEWAYROUTEDETAILRESPONSEBODYDATAHTTPREWRITE_HPP_
-#define ALIBABACLOUD_MODELS_GETGATEWAYROUTEDETAILRESPONSEBODYDATAHTTPREWRITE_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATEGATEWAYROUTEWAFSTATUSRESPONSEBODYDATAHTTPREWRITE_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEGATEWAYROUTEWAFSTATUSRESPONSEBODYDATAHTTPREWRITE_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,9 +10,9 @@ namespace Mse20190531
 {
 namespace Models
 {
-  class GetGatewayRouteDetailResponseBodyDataHTTPRewrite : public Darabonba::Model {
+  class UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetGatewayRouteDetailResponseBodyDataHTTPRewrite& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& obj) { 
       DARABONBA_PTR_TO_JSON(Host, host_);
       DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(PathType, pathType_);
@@ -20,7 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Substitution, substitution_);
     };
-    friend void from_json(const Darabonba::Json& j, GetGatewayRouteDetailResponseBodyDataHTTPRewrite& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& obj) { 
       DARABONBA_PTR_FROM_JSON(Host, host_);
       DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(PathType, pathType_);
@@ -28,71 +28,71 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Substitution, substitution_);
     };
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite() = default ;
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite(const GetGatewayRouteDetailResponseBodyDataHTTPRewrite &) = default ;
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite(GetGatewayRouteDetailResponseBodyDataHTTPRewrite &&) = default ;
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetGatewayRouteDetailResponseBodyDataHTTPRewrite() = default ;
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite& operator=(const GetGatewayRouteDetailResponseBodyDataHTTPRewrite &) = default ;
-    GetGatewayRouteDetailResponseBodyDataHTTPRewrite& operator=(GetGatewayRouteDetailResponseBodyDataHTTPRewrite &&) = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite() = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite(const UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite &) = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite(UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite &&) = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite() = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& operator=(const UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite &) = default ;
+    UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& operator=(UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->host_ != nullptr
-        && this->path_ != nullptr && this->pathType_ != nullptr && this->pattern_ != nullptr && this->status_ != nullptr && this->substitution_ != nullptr; };
+    virtual bool empty() const override { return this->host_ == nullptr
+        && return this->path_ == nullptr && return this->pathType_ == nullptr && return this->pattern_ == nullptr && return this->status_ == nullptr && return this->substitution_ == nullptr; };
     // host Field Functions 
     bool hasHost() const { return this->host_ != nullptr;};
     void deleteHost() { this->host_ = nullptr;};
     inline string host() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
     inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
     // pathType Field Functions 
     bool hasPathType() const { return this->pathType_ != nullptr;};
     void deletePathType() { this->pathType_ = nullptr;};
     inline string pathType() const { DARABONBA_PTR_GET_DEFAULT(pathType_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setPathType(string pathType) { DARABONBA_PTR_SET_VALUE(pathType_, pathType) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setPathType(string pathType) { DARABONBA_PTR_SET_VALUE(pathType_, pathType) };
 
 
     // pattern Field Functions 
     bool hasPattern() const { return this->pattern_ != nullptr;};
     void deletePattern() { this->pattern_ = nullptr;};
     inline string pattern() const { DARABONBA_PTR_GET_DEFAULT(pattern_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
     inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // substitution Field Functions 
     bool hasSubstitution() const { return this->substitution_ != nullptr;};
     void deleteSubstitution() { this->substitution_ = nullptr;};
     inline string substitution() const { DARABONBA_PTR_GET_DEFAULT(substitution_, "") };
-    inline GetGatewayRouteDetailResponseBodyDataHTTPRewrite& setSubstitution(string substitution) { DARABONBA_PTR_SET_VALUE(substitution_, substitution) };
+    inline UpdateGatewayRouteWafStatusResponseBodyDataHTTPRewrite& setSubstitution(string substitution) { DARABONBA_PTR_SET_VALUE(substitution_, substitution) };
 
 
   protected:
-    // The hostname of the gateway.
+    // The domain name.
     std::shared_ptr<string> host_ = nullptr;
-    // The path of the node.
+    // The HTTP request path.
     std::shared_ptr<string> path_ = nullptr;
-    // The rewrite type.
+    // The path type of the HTTP request.
     std::shared_ptr<string> pathType_ = nullptr;
     // The matching pattern.
     std::shared_ptr<string> pattern_ = nullptr;
-    // The status of the policy.
+    // The HTTP status.
     std::shared_ptr<string> status_ = nullptr;
     // The replacement.
     std::shared_ptr<string> substitution_ = nullptr;

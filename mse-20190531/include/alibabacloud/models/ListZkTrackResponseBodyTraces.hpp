@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acl_ != nullptr
-        && this->dataType_ != nullptr && this->eventType_ != nullptr && this->finished_ != nullptr && this->logDate_ != nullptr && this->multiSize_ != nullptr
-        && this->opType_ != nullptr && this->path_ != nullptr && this->result_ != nullptr && this->sessionId_ != nullptr && this->timestamp_ != nullptr
-        && this->traceType_ != nullptr && this->ttl_ != nullptr && this->watch_ != nullptr; };
+    virtual bool empty() const override { return this->acl_ == nullptr
+        && return this->dataType_ == nullptr && return this->eventType_ == nullptr && return this->finished_ == nullptr && return this->logDate_ == nullptr && return this->multiSize_ == nullptr
+        && return this->opType_ == nullptr && return this->path_ == nullptr && return this->result_ == nullptr && return this->sessionId_ == nullptr && return this->timestamp_ == nullptr
+        && return this->traceType_ == nullptr && return this->ttl_ == nullptr && return this->watch_ == nullptr; };
     // acl Field Functions 
     bool hasAcl() const { return this->acl_ != nullptr;};
     void deleteAcl() { this->acl_ = nullptr;};

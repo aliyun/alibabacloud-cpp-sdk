@@ -76,12 +76,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->authResourceConfig_ != nullptr && this->authResourceList_ != nullptr && this->authResourceMode_ != nullptr && this->clientId_ != nullptr && this->clientSecret_ != nullptr
-        && this->cookieDomain_ != nullptr && this->externalAuthZJSON_ != nullptr && this->gatewayUniqueId_ != nullptr && this->isWhite_ != nullptr && this->issuer_ != nullptr
-        && this->jwks_ != nullptr && this->loginUrl_ != nullptr && this->name_ != nullptr && this->redirectUrl_ != nullptr && this->scopesList_ != nullptr
-        && this->status_ != nullptr && this->sub_ != nullptr && this->tokenName_ != nullptr && this->tokenNamePrefix_ != nullptr && this->tokenPass_ != nullptr
-        && this->tokenPosition_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->authResourceConfig_ == nullptr && return this->authResourceList_ == nullptr && return this->authResourceMode_ == nullptr && return this->clientId_ == nullptr && return this->clientSecret_ == nullptr
+        && return this->cookieDomain_ == nullptr && return this->externalAuthZJSON_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->isWhite_ == nullptr && return this->issuer_ == nullptr
+        && return this->jwks_ == nullptr && return this->loginUrl_ == nullptr && return this->name_ == nullptr && return this->redirectUrl_ == nullptr && return this->scopesList_ == nullptr
+        && return this->status_ == nullptr && return this->sub_ == nullptr && return this->tokenName_ == nullptr && return this->tokenNamePrefix_ == nullptr && return this->tokenPass_ == nullptr
+        && return this->tokenPosition_ == nullptr && return this->type_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

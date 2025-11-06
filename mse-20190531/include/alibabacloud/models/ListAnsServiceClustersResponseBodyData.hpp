@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appDetail_ != nullptr
-        && this->clusters_ != nullptr && this->ephemeral_ != nullptr && this->groupName_ != nullptr && this->metadata_ != nullptr && this->name_ != nullptr
-        && this->protectThreshold_ != nullptr && this->selectorType_ != nullptr && this->source_ != nullptr; };
+    virtual bool empty() const override { return this->appDetail_ == nullptr
+        && return this->clusters_ == nullptr && return this->ephemeral_ == nullptr && return this->groupName_ == nullptr && return this->metadata_ == nullptr && return this->name_ == nullptr
+        && return this->protectThreshold_ == nullptr && return this->selectorType_ == nullptr && return this->source_ == nullptr; };
     // appDetail Field Functions 
     bool hasAppDetail() const { return this->appDetail_ != nullptr;};
     void deleteAppDetail() { this->appDetail_ = nullptr;};

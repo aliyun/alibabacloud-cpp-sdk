@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayUniqueId_ != nullptr
-        && this->groupName_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->serviceProtocol_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayUniqueId_ == nullptr
+        && return this->groupName_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->serviceProtocol_ == nullptr && return this->sourceType_ == nullptr; };
     // gatewayUniqueId Field Functions 
     bool hasGatewayUniqueId() const { return this->gatewayUniqueId_ != nullptr;};
     void deleteGatewayUniqueId() { this->gatewayUniqueId_ = nullptr;};

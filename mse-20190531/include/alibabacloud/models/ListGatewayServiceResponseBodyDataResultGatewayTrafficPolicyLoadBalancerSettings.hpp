@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consistentHashLBConfig_ != nullptr
-        && this->loadbalancerType_ != nullptr && this->warmupDuration_ != nullptr; };
+    virtual bool empty() const override { return this->consistentHashLBConfig_ == nullptr
+        && return this->loadbalancerType_ == nullptr && return this->warmupDuration_ == nullptr; };
     // consistentHashLBConfig Field Functions 
     bool hasConsistentHashLBConfig() const { return this->consistentHashLBConfig_ != nullptr;};
     void deleteConsistentHashLBConfig() { this->consistentHashLBConfig_ = nullptr;};

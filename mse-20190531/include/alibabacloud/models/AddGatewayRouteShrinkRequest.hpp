@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->description_ != nullptr && this->destinationType_ != nullptr && this->directResponseJSONShrink_ != nullptr && this->domainId_ != nullptr && this->domainIdListJSON_ != nullptr
-        && this->enableWaf_ != nullptr && this->fallback_ != nullptr && this->fallbackServicesShrink_ != nullptr && this->gatewayId_ != nullptr && this->gatewayUniqueId_ != nullptr
-        && this->name_ != nullptr && this->policies_ != nullptr && this->predicatesShrink_ != nullptr && this->redirectJSONShrink_ != nullptr && this->routeOrder_ != nullptr
-        && this->routeType_ != nullptr && this->servicesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->description_ == nullptr && return this->destinationType_ == nullptr && return this->directResponseJSONShrink_ == nullptr && return this->domainId_ == nullptr && return this->domainIdListJSON_ == nullptr
+        && return this->enableWaf_ == nullptr && return this->fallback_ == nullptr && return this->fallbackServicesShrink_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayUniqueId_ == nullptr
+        && return this->name_ == nullptr && return this->policies_ == nullptr && return this->predicatesShrink_ == nullptr && return this->redirectJSONShrink_ == nullptr && return this->routeOrder_ == nullptr
+        && return this->routeType_ == nullptr && return this->servicesShrink_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allVersions_ != nullptr
-        && this->backendEndpoints_ != nullptr && this->capabilities_ != nullptr && this->description_ != nullptr && this->enabled_ != nullptr && this->frontProtocol_ != nullptr
-        && this->id_ != nullptr && this->localServerConfig_ != nullptr && this->name_ != nullptr && this->protocol_ != nullptr && this->remoteServerConfig_ != nullptr
-        && this->toolSpec_ != nullptr && this->versionDetail_ != nullptr && this->yamlConfig_ != nullptr; };
+    virtual bool empty() const override { return this->allVersions_ == nullptr
+        && return this->backendEndpoints_ == nullptr && return this->capabilities_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr && return this->frontProtocol_ == nullptr
+        && return this->id_ == nullptr && return this->localServerConfig_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->remoteServerConfig_ == nullptr
+        && return this->toolSpec_ == nullptr && return this->versionDetail_ == nullptr && return this->yamlConfig_ == nullptr; };
     // allVersions Field Functions 
     bool hasAllVersions() const { return this->allVersions_ != nullptr;};
     void deleteAllVersions() { this->allVersions_ = nullptr;};

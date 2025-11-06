@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caCertContent_ != nullptr
-        && this->caCertId_ != nullptr && this->certId_ != nullptr && this->mode_ != nullptr && this->sni_ != nullptr && this->subjectAltNames_ != nullptr; };
+    virtual bool empty() const override { return this->caCertContent_ == nullptr
+        && return this->caCertId_ == nullptr && return this->certId_ == nullptr && return this->mode_ == nullptr && return this->sni_ == nullptr && return this->subjectAltNames_ == nullptr; };
     // caCertContent Field Functions 
     bool hasCaCertContent() const { return this->caCertContent_ != nullptr;};
     void deleteCaCertContent() { this->caCertContent_ = nullptr;};

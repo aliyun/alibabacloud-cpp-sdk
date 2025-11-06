@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appVersion_ != nullptr
-        && this->chargeType_ != nullptr && this->clusterType_ != nullptr && this->createTime_ != nullptr && this->id_ != nullptr && this->imageVersion_ != nullptr
-        && this->instanceId_ != nullptr && this->primaryUser_ != nullptr && this->replica_ != nullptr && this->riskList_ != nullptr && this->score_ != nullptr
-        && this->spec_ != nullptr && this->status_ != nullptr && this->totalItem_ != nullptr && this->totalRisk_ != nullptr && this->type_ != nullptr
-        && this->updateTime_ != nullptr && this->versionCode_ != nullptr; };
+    virtual bool empty() const override { return this->appVersion_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clusterType_ == nullptr && return this->createTime_ == nullptr && return this->id_ == nullptr && return this->imageVersion_ == nullptr
+        && return this->instanceId_ == nullptr && return this->primaryUser_ == nullptr && return this->replica_ == nullptr && return this->riskList_ == nullptr && return this->score_ == nullptr
+        && return this->spec_ == nullptr && return this->status_ == nullptr && return this->totalItem_ == nullptr && return this->totalRisk_ == nullptr && return this->type_ == nullptr
+        && return this->updateTime_ == nullptr && return this->versionCode_ == nullptr; };
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};

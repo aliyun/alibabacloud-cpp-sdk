@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gatewayTrafficPolicy_ != nullptr
-        && this->gatewayUniqueId_ != nullptr && this->groupName_ != nullptr && this->id_ != nullptr && this->metaInfo_ != nullptr && this->name_ != nullptr
-        && this->namespace_ != nullptr && this->sourceType_ != nullptr; };
+    virtual bool empty() const override { return this->gatewayTrafficPolicy_ == nullptr
+        && return this->gatewayUniqueId_ == nullptr && return this->groupName_ == nullptr && return this->id_ == nullptr && return this->metaInfo_ == nullptr && return this->name_ == nullptr
+        && return this->namespace_ == nullptr && return this->sourceType_ == nullptr; };
     // gatewayTrafficPolicy Field Functions 
     bool hasGatewayTrafficPolicy() const { return this->gatewayTrafficPolicy_ != nullptr;};
     void deleteGatewayTrafficPolicy() { this->gatewayTrafficPolicy_ = nullptr;};

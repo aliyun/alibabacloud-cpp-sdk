@@ -93,13 +93,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessLogHeader_ != nullptr
-        && this->downstreamConnectionBufferLimits_ != nullptr && this->downstreamHttp2MaxConcurrentStream_ != nullptr && this->downstreamIdleTime_ != nullptr && this->enableCustomAuthConfigPush_ != nullptr && this->enableGenerateRequestId_ != nullptr
-        && this->enableGzip_ != nullptr && this->enableGzipHardwareAccelerate_ != nullptr && this->enableHardwareAccelerate_ != nullptr && this->enableHttp2_ != nullptr && this->enableHttp3_ != nullptr
-        && this->enableK8sSourceWorkloadFilter_ != nullptr && this->enableProxyProtocol_ != nullptr && this->enableSlashMerge_ != nullptr && this->enableWaf_ != nullptr && this->enableXffTrustedCidrs_ != nullptr
-        && this->gatewayUniqueId_ != nullptr && this->initialConnectionWindowSize_ != nullptr && this->initialStreamWindowSize_ != nullptr && this->keepaliveHeaderTimeout_ != nullptr && this->logFilterConfig_ != nullptr
-        && this->noSupportedConfigList_ != nullptr && this->pathWithEscapedSlashes_ != nullptr && this->preserveHeaderFormat_ != nullptr && this->slsConfigDetails_ != nullptr && this->supportWaf_ != nullptr
-        && this->upstreamIdleTimeout_ != nullptr && this->websocketTermGracePeriod_ != nullptr && this->xffTrustedNum_ != nullptr && this->xtraceDetails_ != nullptr && this->zipAlgorithm_ != nullptr; };
+    virtual bool empty() const override { return this->accessLogHeader_ == nullptr
+        && return this->downstreamConnectionBufferLimits_ == nullptr && return this->downstreamHttp2MaxConcurrentStream_ == nullptr && return this->downstreamIdleTime_ == nullptr && return this->enableCustomAuthConfigPush_ == nullptr && return this->enableGenerateRequestId_ == nullptr
+        && return this->enableGzip_ == nullptr && return this->enableGzipHardwareAccelerate_ == nullptr && return this->enableHardwareAccelerate_ == nullptr && return this->enableHttp2_ == nullptr && return this->enableHttp3_ == nullptr
+        && return this->enableK8sSourceWorkloadFilter_ == nullptr && return this->enableProxyProtocol_ == nullptr && return this->enableSlashMerge_ == nullptr && return this->enableWaf_ == nullptr && return this->enableXffTrustedCidrs_ == nullptr
+        && return this->gatewayUniqueId_ == nullptr && return this->initialConnectionWindowSize_ == nullptr && return this->initialStreamWindowSize_ == nullptr && return this->keepaliveHeaderTimeout_ == nullptr && return this->logFilterConfig_ == nullptr
+        && return this->noSupportedConfigList_ == nullptr && return this->pathWithEscapedSlashes_ == nullptr && return this->preserveHeaderFormat_ == nullptr && return this->slsConfigDetails_ == nullptr && return this->supportWaf_ == nullptr
+        && return this->upstreamIdleTimeout_ == nullptr && return this->websocketTermGracePeriod_ == nullptr && return this->xffTrustedNum_ == nullptr && return this->xtraceDetails_ == nullptr && return this->zipAlgorithm_ == nullptr; };
     // accessLogHeader Field Functions 
     bool hasAccessLogHeader() const { return this->accessLogHeader_ != nullptr;};
     void deleteAccessLogHeader() { this->accessLogHeader_ = nullptr;};

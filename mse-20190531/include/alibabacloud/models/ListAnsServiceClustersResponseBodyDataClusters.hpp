@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultCheckPort_ != nullptr
-        && this->defaultPort_ != nullptr && this->healthCheckerType_ != nullptr && this->metadata_ != nullptr && this->name_ != nullptr && this->serviceName_ != nullptr
-        && this->useIPPort4Check_ != nullptr; };
+    virtual bool empty() const override { return this->defaultCheckPort_ == nullptr
+        && return this->defaultPort_ == nullptr && return this->healthCheckerType_ == nullptr && return this->metadata_ == nullptr && return this->name_ == nullptr && return this->serviceName_ == nullptr
+        && return this->useIPPort4Check_ == nullptr; };
     // defaultCheckPort Field Functions 
     bool hasDefaultCheckPort() const { return this->defaultCheckPort_ != nullptr;};
     void deleteDefaultCheckPort() { this->defaultCheckPort_ = nullptr;};

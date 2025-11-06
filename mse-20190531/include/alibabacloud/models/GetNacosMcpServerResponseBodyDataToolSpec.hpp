@@ -19,12 +19,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetNacosMcpServerResponseBodyDataToolSpec& obj) { 
       DARABONBA_ANY_TO_JSON(SecuritySchemes, securitySchemes_);
       DARABONBA_PTR_TO_JSON(SpecificationType, specificationType_);
+      DARABONBA_PTR_TO_JSON(ToolDecryptStatus, toolDecryptStatus_);
       DARABONBA_PTR_TO_JSON(Tools, tools_);
       DARABONBA_PTR_TO_JSON(ToolsMeta, toolsMeta_);
     };
     friend void from_json(const Darabonba::Json& j, GetNacosMcpServerResponseBodyDataToolSpec& obj) { 
       DARABONBA_ANY_FROM_JSON(SecuritySchemes, securitySchemes_);
       DARABONBA_PTR_FROM_JSON(SpecificationType, specificationType_);
+      DARABONBA_PTR_FROM_JSON(ToolDecryptStatus, toolDecryptStatus_);
       DARABONBA_PTR_FROM_JSON(Tools, tools_);
       DARABONBA_PTR_FROM_JSON(ToolsMeta, toolsMeta_);
     };
@@ -39,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->securitySchemes_ != nullptr
-        && this->specificationType_ != nullptr && this->tools_ != nullptr && this->toolsMeta_ != nullptr; };
+    virtual bool empty() const override { return this->securitySchemes_ == nullptr
+        && return this->specificationType_ == nullptr && return this->toolDecryptStatus_ == nullptr && return this->tools_ == nullptr && return this->toolsMeta_ == nullptr; };
     // securitySchemes Field Functions 
     bool hasSecuritySchemes() const { return this->securitySchemes_ != nullptr;};
     void deleteSecuritySchemes() { this->securitySchemes_ = nullptr;};
@@ -55,6 +57,13 @@ namespace Models
     void deleteSpecificationType() { this->specificationType_ = nullptr;};
     inline string specificationType() const { DARABONBA_PTR_GET_DEFAULT(specificationType_, "") };
     inline GetNacosMcpServerResponseBodyDataToolSpec& setSpecificationType(string specificationType) { DARABONBA_PTR_SET_VALUE(specificationType_, specificationType) };
+
+
+    // toolDecryptStatus Field Functions 
+    bool hasToolDecryptStatus() const { return this->toolDecryptStatus_ != nullptr;};
+    void deleteToolDecryptStatus() { this->toolDecryptStatus_ = nullptr;};
+    inline string toolDecryptStatus() const { DARABONBA_PTR_GET_DEFAULT(toolDecryptStatus_, "") };
+    inline GetNacosMcpServerResponseBodyDataToolSpec& setToolDecryptStatus(string toolDecryptStatus) { DARABONBA_PTR_SET_VALUE(toolDecryptStatus_, toolDecryptStatus) };
 
 
     // tools Field Functions 
@@ -78,6 +87,7 @@ namespace Models
   protected:
     Darabonba::Json securitySchemes_ = nullptr;
     std::shared_ptr<string> specificationType_ = nullptr;
+    std::shared_ptr<string> toolDecryptStatus_ = nullptr;
     std::shared_ptr<vector<Models::GetNacosMcpServerResponseBodyDataToolSpecTools>> tools_ = nullptr;
     std::shared_ptr<map<string, Models::DataToolSpecToolsMetaValue>> toolsMeta_ = nullptr;
   };

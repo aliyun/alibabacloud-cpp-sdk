@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->consumerAppId_ != nullptr && this->consumerAppName_ != nullptr && this->enable_ != nullptr && this->extraJson_ != nullptr && this->id_ != nullptr
-        && this->mockType_ != nullptr && this->name_ != nullptr && this->namespaceId_ != nullptr && this->providerAppId_ != nullptr && this->providerAppName_ != nullptr
-        && this->region_ != nullptr && this->scMockItemJson_ != nullptr && this->source_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->consumerAppId_ == nullptr && return this->consumerAppName_ == nullptr && return this->enable_ == nullptr && return this->extraJson_ == nullptr && return this->id_ == nullptr
+        && return this->mockType_ == nullptr && return this->name_ == nullptr && return this->namespaceId_ == nullptr && return this->providerAppId_ == nullptr && return this->providerAppName_ == nullptr
+        && return this->region_ == nullptr && return this->scMockItemJson_ == nullptr && return this->source_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumerStatus_ != nullptr
-        && this->description_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
-        && this->name_ != nullptr && this->primaryUser_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->consumerStatus_ == nullptr
+        && return this->description_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr
+        && return this->name_ == nullptr && return this->primaryUser_ == nullptr && return this->type_ == nullptr; };
     // consumerStatus Field Functions 
     bool hasConsumerStatus() const { return this->consumerStatus_ != nullptr;};
     void deleteConsumerStatus() { this->consumerStatus_ = nullptr;};

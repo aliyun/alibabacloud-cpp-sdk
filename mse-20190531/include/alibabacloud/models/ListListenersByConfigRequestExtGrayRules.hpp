@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->grayRule_ != nullptr
-        && this->grayRuleName_ != nullptr && this->grayRulePriority_ != nullptr && this->grayRuleType_ != nullptr; };
+    virtual bool empty() const override { return this->grayRule_ == nullptr
+        && return this->grayRuleName_ == nullptr && return this->grayRulePriority_ == nullptr && return this->grayRuleType_ == nullptr; };
     // grayRule Field Functions 
     bool hasGrayRule() const { return this->grayRule_ != nullptr;};
     void deleteGrayRule() { this->grayRule_ = nullptr;};

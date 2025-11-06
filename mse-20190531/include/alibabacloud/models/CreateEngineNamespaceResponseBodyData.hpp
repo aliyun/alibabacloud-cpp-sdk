@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->configCount_ != nullptr
-        && this->namespace_ != nullptr && this->namespaceDesc_ != nullptr && this->namespaceShowName_ != nullptr && this->quota_ != nullptr && this->serviceCount_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->configCount_ == nullptr
+        && return this->namespace_ == nullptr && return this->namespaceDesc_ == nullptr && return this->namespaceShowName_ == nullptr && return this->quota_ == nullptr && return this->serviceCount_ == nullptr
+        && return this->type_ == nullptr; };
     // configCount Field Functions 
     bool hasConfigCount() const { return this->configCount_ != nullptr;};
     void deleteConfigCount() { this->configCount_ = nullptr;};

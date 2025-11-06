@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsServerList_ != nullptr
-        && this->groupName_ != nullptr && this->ips_ != nullptr && this->name_ != nullptr && this->namespace_ != nullptr && this->saeAppId_ != nullptr
-        && this->servicePort_ != nullptr && this->serviceProtocol_ != nullptr; };
+    virtual bool empty() const override { return this->dnsServerList_ == nullptr
+        && return this->groupName_ == nullptr && return this->ips_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->saeAppId_ == nullptr
+        && return this->servicePort_ == nullptr && return this->serviceProtocol_ == nullptr; };
     // dnsServerList Field Functions 
     bool hasDnsServerList() const { return this->dnsServerList_ != nullptr;};
     void deleteDnsServerList() { this->dnsServerList_ = nullptr;};

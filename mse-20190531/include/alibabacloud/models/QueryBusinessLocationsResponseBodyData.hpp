@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cnName_ != nullptr
-        && this->description_ != nullptr && this->districtCnName_ != nullptr && this->districtEnName_ != nullptr && this->districtId_ != nullptr && this->districtOrdering_ != nullptr
-        && this->districtShowName_ != nullptr && this->enDescription_ != nullptr && this->enName_ != nullptr && this->name_ != nullptr && this->ordering_ != nullptr
-        && this->showName_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->cnName_ == nullptr
+        && return this->description_ == nullptr && return this->districtCnName_ == nullptr && return this->districtEnName_ == nullptr && return this->districtId_ == nullptr && return this->districtOrdering_ == nullptr
+        && return this->districtShowName_ == nullptr && return this->enDescription_ == nullptr && return this->enName_ == nullptr && return this->name_ == nullptr && return this->ordering_ == nullptr
+        && return this->showName_ == nullptr && return this->type_ == nullptr; };
     // cnName Field Functions 
     bool hasCnName() const { return this->cnName_ != nullptr;};
     void deleteCnName() { this->cnName_ = nullptr;};

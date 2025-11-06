@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr
-        && this->chargeType_ != nullptr && this->clusterSpecification_ != nullptr && this->clusterType_ != nullptr && this->clusterVersion_ != nullptr && this->connectionType_ != nullptr
-        && this->diskType_ != nullptr && this->eipEnabled_ != nullptr && this->instanceCount_ != nullptr && this->instanceName_ != nullptr && this->mseVersion_ != nullptr
-        && this->netType_ != nullptr && this->privateSlbSpecification_ != nullptr && this->pubNetworkFlow_ != nullptr && this->pubSlbSpecification_ != nullptr && this->region_ != nullptr
-        && this->requestPars_ != nullptr && this->resourceGroupId_ != nullptr && this->securityGroupType_ != nullptr && this->tag_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->chargeType_ == nullptr && return this->clusterSpecification_ == nullptr && return this->clusterType_ == nullptr && return this->clusterVersion_ == nullptr && return this->connectionType_ == nullptr
+        && return this->diskType_ == nullptr && return this->eipEnabled_ == nullptr && return this->instanceCount_ == nullptr && return this->instanceName_ == nullptr && return this->mseVersion_ == nullptr
+        && return this->netType_ == nullptr && return this->privateSlbSpecification_ == nullptr && return this->pubNetworkFlow_ == nullptr && return this->pubSlbSpecification_ == nullptr && return this->region_ == nullptr
+        && return this->requestPars_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupType_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};

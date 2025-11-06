@@ -120,16 +120,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ahasOn_ != nullptr
-        && this->appVersion_ != nullptr && this->armsOn_ != nullptr && this->chargeType_ != nullptr && this->currentVersion_ != nullptr && this->elastic_ != nullptr
-        && this->elasticInstanceId_ != nullptr && this->elasticPolicy_ != nullptr && this->elasticReplica_ != nullptr && this->elasticType_ != nullptr && this->endDate_ != nullptr
-        && this->gatewayEntry_ != nullptr && this->gatewayType_ != nullptr && this->gatewayUniqueId_ != nullptr && this->gatewayVersion_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->initConfig_ != nullptr && this->instanceId_ != nullptr && this->internetSlb_ != nullptr
-        && this->latestVersion_ != nullptr && this->maintenancePeriod_ != nullptr && this->mseTag_ != nullptr && this->mseVersion_ != nullptr && this->mustUpgrade_ != nullptr
-        && this->name_ != nullptr && this->primaryUser_ != nullptr && this->region_ != nullptr && this->replica_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->rollBack_ != nullptr && this->slb_ != nullptr && this->spec_ != nullptr && this->status_ != nullptr && this->statusDesc_ != nullptr
-        && this->supportWasm_ != nullptr && this->tag_ != nullptr && this->totalReplica_ != nullptr && this->upgrade_ != nullptr && this->versionLifecycle_ != nullptr
-        && this->vpcId_ != nullptr && this->vswitch2_ != nullptr; };
+    virtual bool empty() const override { return this->ahasOn_ == nullptr
+        && return this->appVersion_ == nullptr && return this->armsOn_ == nullptr && return this->chargeType_ == nullptr && return this->currentVersion_ == nullptr && return this->elastic_ == nullptr
+        && return this->elasticInstanceId_ == nullptr && return this->elasticPolicy_ == nullptr && return this->elasticReplica_ == nullptr && return this->elasticType_ == nullptr && return this->endDate_ == nullptr
+        && return this->gatewayEntry_ == nullptr && return this->gatewayType_ == nullptr && return this->gatewayUniqueId_ == nullptr && return this->gatewayVersion_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->initConfig_ == nullptr && return this->instanceId_ == nullptr && return this->internetSlb_ == nullptr
+        && return this->latestVersion_ == nullptr && return this->maintenancePeriod_ == nullptr && return this->mseTag_ == nullptr && return this->mseVersion_ == nullptr && return this->mustUpgrade_ == nullptr
+        && return this->name_ == nullptr && return this->primaryUser_ == nullptr && return this->region_ == nullptr && return this->replica_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->rollBack_ == nullptr && return this->slb_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr && return this->statusDesc_ == nullptr
+        && return this->supportWasm_ == nullptr && return this->tag_ == nullptr && return this->totalReplica_ == nullptr && return this->upgrade_ == nullptr && return this->versionLifecycle_ == nullptr
+        && return this->vpcId_ == nullptr && return this->vswitch2_ == nullptr; };
     // ahasOn Field Functions 
     bool hasAhasOn() const { return this->ahasOn_ != nullptr;};
     void deleteAhasOn() { this->ahasOn_ = nullptr;};

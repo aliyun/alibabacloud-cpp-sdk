@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aligned_ != nullptr
-        && this->appId_ != nullptr && this->appName_ != nullptr && this->count_ != nullptr && this->delayTime_ != nullptr && this->enable_ != nullptr
-        && this->funcType_ != nullptr && this->lossLessDetail_ != nullptr && this->notice_ != nullptr && this->related_ != nullptr && this->warmupTime_ != nullptr; };
+    virtual bool empty() const override { return this->aligned_ == nullptr
+        && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->count_ == nullptr && return this->delayTime_ == nullptr && return this->enable_ == nullptr
+        && return this->funcType_ == nullptr && return this->lossLessDetail_ == nullptr && return this->notice_ == nullptr && return this->related_ == nullptr && return this->warmupTime_ == nullptr; };
     // aligned Field Functions 
     bool hasAligned() const { return this->aligned_ != nullptr;};
     void deleteAligned() { this->aligned_ = nullptr;};
