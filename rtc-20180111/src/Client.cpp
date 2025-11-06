@@ -430,6 +430,58 @@ CreateAppStreamingOutTemplateResponse Client::createAppStreamingOutTemplate(cons
 }
 
 /**
+ * @summary 创建应用合流模版
+ *
+ * @param tmpReq CreateAppViewTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppViewTemplateResponse
+ */
+CreateAppViewTemplateResponse Client::createAppViewTemplateWithOptions(const CreateAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAppViewTemplateShrinkRequest request = CreateAppViewTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTemplate()) {
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateShrink()) {
+    query["Template"] = request.templateShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppViewTemplate"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppViewTemplateResponse>();
+}
+
+/**
+ * @summary 创建应用合流模版
+ *
+ * @param request CreateAppViewTemplateRequest
+ * @return CreateAppViewTemplateResponse
+ */
+CreateAppViewTemplateResponse Client::createAppViewTemplate(const CreateAppViewTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppViewTemplateWithOptions(request, runtime);
+}
+
+/**
  * @param request CreateAutoLiveStreamRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAutoLiveStreamRuleResponse
@@ -879,6 +931,58 @@ DeleteAppStreamingOutTemplateResponse Client::deleteAppStreamingOutTemplateWithO
 DeleteAppStreamingOutTemplateResponse Client::deleteAppStreamingOutTemplate(const DeleteAppStreamingOutTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppStreamingOutTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除应用合流模版
+ *
+ * @param tmpReq DeleteAppViewTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppViewTemplateResponse
+ */
+DeleteAppViewTemplateResponse Client::deleteAppViewTemplateWithOptions(const DeleteAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAppViewTemplateShrinkRequest request = DeleteAppViewTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTemplate()) {
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateShrink()) {
+    query["Template"] = request.templateShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppViewTemplate"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppViewTemplateResponse>();
+}
+
+/**
+ * @summary 删除应用合流模版
+ *
+ * @param request DeleteAppViewTemplateRequest
+ * @return DeleteAppViewTemplateResponse
+ */
+DeleteAppViewTemplateResponse Client::deleteAppViewTemplate(const DeleteAppViewTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppViewTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1692,6 +1796,108 @@ DescribeAppStreamingOutTemplatesResponse Client::describeAppStreamingOutTemplate
 DescribeAppStreamingOutTemplatesResponse Client::describeAppStreamingOutTemplates(const DescribeAppStreamingOutTemplatesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAppStreamingOutTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看合流开关
+ *
+ * @param request DescribeAppViewStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAppViewStatusResponse
+ */
+DescribeAppViewStatusResponse Client::describeAppViewStatusWithOptions(const DescribeAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAppViewStatus"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAppViewStatusResponse>();
+}
+
+/**
+ * @summary 查看合流开关
+ *
+ * @param request DescribeAppViewStatusRequest
+ * @return DescribeAppViewStatusResponse
+ */
+DescribeAppViewStatusResponse Client::describeAppViewStatus(const DescribeAppViewStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAppViewStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 应用合流模版列表
+ *
+ * @param tmpReq DescribeAppViewTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAppViewTemplatesResponse
+ */
+DescribeAppViewTemplatesResponse Client::describeAppViewTemplatesWithOptions(const DescribeAppViewTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeAppViewTemplatesShrinkRequest request = DescribeAppViewTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCondition()) {
+    request.setConditionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.condition(), "Condition", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasConditionShrink()) {
+    query["Condition"] = request.conditionShrink();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAppViewTemplates"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAppViewTemplatesResponse>();
+}
+
+/**
+ * @summary 应用合流模版列表
+ *
+ * @param request DescribeAppViewTemplatesRequest
+ * @return DescribeAppViewTemplatesResponse
+ */
+DescribeAppViewTemplatesResponse Client::describeAppViewTemplates(const DescribeAppViewTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAppViewTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -4929,6 +5135,100 @@ ModifyAppStreamingOutTemplateResponse Client::modifyAppStreamingOutTemplate(cons
 }
 
 /**
+ * @summary 修改合流开关
+ *
+ * @param request ModifyAppViewStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppViewStatusResponse
+ */
+ModifyAppViewStatusResponse Client::modifyAppViewStatusWithOptions(const ModifyAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppViewStatus"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppViewStatusResponse>();
+}
+
+/**
+ * @summary 修改合流开关
+ *
+ * @param request ModifyAppViewStatusRequest
+ * @return ModifyAppViewStatusResponse
+ */
+ModifyAppViewStatusResponse Client::modifyAppViewStatus(const ModifyAppViewStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppViewStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新应用合流模版
+ *
+ * @param tmpReq ModifyAppViewTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppViewTemplateResponse
+ */
+ModifyAppViewTemplateResponse Client::modifyAppViewTemplateWithOptions(const ModifyAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyAppViewTemplateShrinkRequest request = ModifyAppViewTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTemplate()) {
+    request.setTemplateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq._template(), "Template", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateShrink()) {
+    query["Template"] = request.templateShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppViewTemplate"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppViewTemplateResponse>();
+}
+
+/**
+ * @summary 更新应用合流模版
+ *
+ * @param request ModifyAppViewTemplateRequest
+ * @return ModifyAppViewTemplateResponse
+ */
+ModifyAppViewTemplateResponse Client::modifyAppViewTemplate(const ModifyAppViewTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppViewTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新app回调
  *
  * @param tmpReq ModifyCallbackMetaRequest
@@ -5092,6 +5392,154 @@ ModifyMPULayoutResponse Client::modifyMPULayoutWithOptions(const ModifyMPULayout
 ModifyMPULayoutResponse Client::modifyMPULayout(const ModifyMPULayoutRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyMPULayoutWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置流属性
+ *
+ * @param tmpReq ModifyStreamingPropertyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyStreamingPropertyResponse
+ */
+ModifyStreamingPropertyResponse Client::modifyStreamingPropertyWithOptions(const ModifyStreamingPropertyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyStreamingPropertyShrinkRequest request = ModifyStreamingPropertyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasViewSubscribers()) {
+    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers(), "ViewSubscribers", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasViewContent()) {
+    query["ViewContent"] = request.viewContent();
+  }
+
+  if (!!request.hasViewSubscribersShrink()) {
+    query["ViewSubscribers"] = request.viewSubscribersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyStreamingProperty"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyStreamingPropertyResponse>();
+}
+
+/**
+ * @summary 设置流属性
+ *
+ * @param request ModifyStreamingPropertyRequest
+ * @return ModifyStreamingPropertyResponse
+ */
+ModifyStreamingPropertyResponse Client::modifyStreamingProperty(const ModifyStreamingPropertyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyStreamingPropertyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置合流布局
+ *
+ * @param tmpReq ModifyViewLayoutRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyViewLayoutResponse
+ */
+ModifyViewLayoutResponse Client::modifyViewLayoutWithOptions(const ModifyViewLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyViewLayoutShrinkRequest request = ModifyViewLayoutShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLayoutSpecifiedUsers()) {
+    request.setLayoutSpecifiedUsersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers(), "LayoutSpecifiedUsers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasBackgrounds()) {
+    query["Backgrounds"] = request.backgrounds();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasClockWidgets()) {
+    query["ClockWidgets"] = request.clockWidgets();
+  }
+
+  if (!!request.hasImages()) {
+    query["Images"] = request.images();
+  }
+
+  if (!!request.hasLayoutSpecifiedUsersShrink()) {
+    query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink();
+  }
+
+  if (!!request.hasPanes()) {
+    query["Panes"] = request.panes();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTexts()) {
+    query["Texts"] = request.texts();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyViewLayout"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyViewLayoutResponse>();
+}
+
+/**
+ * @summary 设置合流布局
+ *
+ * @param request ModifyViewLayoutRequest
+ * @return ModifyViewLayoutResponse
+ */
+ModifyViewLayoutResponse Client::modifyViewLayout(const ModifyViewLayoutRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyViewLayoutWithOptions(request, runtime);
 }
 
 /**
@@ -5268,6 +5716,204 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
 RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeUsersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消Sip邀请
+ *
+ * @param request RtcCancelSipInviteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RtcCancelSipInviteResponse
+ */
+RtcCancelSipInviteResponse Client::rtcCancelSipInviteWithOptions(const RtcCancelSipInviteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasDeviceType()) {
+    query["DeviceType"] = request.deviceType();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RtcCancelSipInvite"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RtcCancelSipInviteResponse>();
+}
+
+/**
+ * @summary 取消Sip邀请
+ *
+ * @param request RtcCancelSipInviteRequest
+ * @return RtcCancelSipInviteResponse
+ */
+RtcCancelSipInviteResponse Client::rtcCancelSipInvite(const RtcCancelSipInviteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rtcCancelSipInviteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 邀请SIP加入频道
+ *
+ * @param request RtcSipInviteMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RtcSipInviteMemberResponse
+ */
+RtcSipInviteMemberResponse Client::rtcSipInviteMemberWithOptions(const RtcSipInviteMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasAppToken()) {
+    query["AppToken"] = request.appToken();
+  }
+
+  if (!!request.hasCallNumber()) {
+    query["CallNumber"] = request.callNumber();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasDeviceType()) {
+    query["DeviceType"] = request.deviceType();
+  }
+
+  if (!!request.hasRegistered()) {
+    query["Registered"] = request.registered();
+  }
+
+  if (!!request.hasServerAddress()) {
+    query["ServerAddress"] = request.serverAddress();
+  }
+
+  if (!!request.hasSipDisplayName()) {
+    query["SipDisplayName"] = request.sipDisplayName();
+  }
+
+  if (!!request.hasSipRoomId()) {
+    query["SipRoomId"] = request.sipRoomId();
+  }
+
+  if (!!request.hasSipUri()) {
+    query["SipUri"] = request.sipUri();
+  }
+
+  if (!!request.hasSipUserAgent()) {
+    query["SipUserAgent"] = request.sipUserAgent();
+  }
+
+  if (!!request.hasSipUserId()) {
+    query["SipUserId"] = request.sipUserId();
+  }
+
+  if (!!request.hasSipUserPassword()) {
+    query["SipUserPassword"] = request.sipUserPassword();
+  }
+
+  if (!!request.hasUid()) {
+    query["Uid"] = request.uid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RtcSipInviteMember"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RtcSipInviteMemberResponse>();
+}
+
+/**
+ * @summary 邀请SIP加入频道
+ *
+ * @param request RtcSipInviteMemberRequest
+ * @return RtcSipInviteMemberResponse
+ */
+RtcSipInviteMemberResponse Client::rtcSipInviteMember(const RtcSipInviteMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rtcSipInviteMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary Mute操作
+ *
+ * @param request RtcSipMuteRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RtcSipMuteResponse
+ */
+RtcSipMuteResponse Client::rtcSipMuteWithOptions(const RtcSipMuteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasOperations()) {
+    query["Operations"] = request.operations();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RtcSipMute"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RtcSipMuteResponse>();
+}
+
+/**
+ * @summary Mute操作
+ *
+ * @param request RtcSipMuteRequest
+ * @return RtcSipMuteResponse
+ */
+RtcSipMuteResponse Client::rtcSipMute(const RtcSipMuteRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rtcSipMuteWithOptions(request, runtime);
 }
 
 /**
@@ -6061,6 +6707,94 @@ StartStreamingOutResponse Client::startStreamingOut(const StartStreamingOutReque
 }
 
 /**
+ * @summary 开始合流
+ *
+ * @param tmpReq StartViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartViewResponse
+ */
+StartViewResponse Client::startViewWithOptions(const StartViewRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StartViewShrinkRequest request = StartViewShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasViewSubscribers()) {
+    request.setViewSubscribersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.viewSubscribers(), "ViewSubscribers", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasBgColor()) {
+    query["BgColor"] = request.bgColor();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasCropMode()) {
+    query["CropMode"] = request.cropMode();
+  }
+
+  if (!!request.hasRegionColor()) {
+    query["RegionColor"] = request.regionColor();
+  }
+
+  if (!!request.hasStartWithoutChannel()) {
+    query["StartWithoutChannel"] = request.startWithoutChannel();
+  }
+
+  if (!!request.hasStartWithoutChannelWaitTime()) {
+    query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasViewContent()) {
+    query["ViewContent"] = request.viewContent();
+  }
+
+  if (!!request.hasViewSubscribersShrink()) {
+    query["ViewSubscribers"] = request.viewSubscribersShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartView"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartViewResponse>();
+}
+
+/**
+ * @summary 开始合流
+ *
+ * @param request StartViewRequest
+ * @return StartViewResponse
+ */
+StartViewResponse Client::startView(const StartViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startViewWithOptions(request, runtime);
+}
+
+/**
  * @summary 停止AI Agent
  *
  * @param request StopAgentRequest
@@ -6452,6 +7186,56 @@ StopStreamingOutResponse Client::stopStreamingOutWithOptions(const StopStreaming
 StopStreamingOutResponse Client::stopStreamingOut(const StopStreamingOutRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopStreamingOutWithOptions(request, runtime);
+}
+
+/**
+ * @summary 停止合流
+ *
+ * @param request StopViewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopViewResponse
+ */
+StopViewResponse Client::stopViewWithOptions(const StopViewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.channelId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopView"},
+    {"version" , "2018-01-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopViewResponse>();
+}
+
+/**
+ * @summary 停止合流
+ *
+ * @param request StopViewRequest
+ * @return StopViewResponse
+ */
+StopViewResponse Client::stopView(const StopViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopViewWithOptions(request, runtime);
 }
 
 /**

@@ -102,6 +102,23 @@ namespace Rtc20180111
       Models::CreateAppStreamingOutTemplateResponse createAppStreamingOutTemplate(const Models::CreateAppStreamingOutTemplateRequest &request);
 
       /**
+       * @summary 创建应用合流模版
+       *
+       * @param tmpReq CreateAppViewTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppViewTemplateResponse
+       */
+      Models::CreateAppViewTemplateResponse createAppViewTemplateWithOptions(const Models::CreateAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建应用合流模版
+       *
+       * @param request CreateAppViewTemplateRequest
+       * @return CreateAppViewTemplateResponse
+       */
+      Models::CreateAppViewTemplateResponse createAppViewTemplate(const Models::CreateAppViewTemplateRequest &request);
+
+      /**
        * @param request CreateAutoLiveStreamRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAutoLiveStreamRuleResponse
@@ -224,6 +241,23 @@ namespace Rtc20180111
        * @return DeleteAppStreamingOutTemplateResponse
        */
       Models::DeleteAppStreamingOutTemplateResponse deleteAppStreamingOutTemplate(const Models::DeleteAppStreamingOutTemplateRequest &request);
+
+      /**
+       * @summary 删除应用合流模版
+       *
+       * @param tmpReq DeleteAppViewTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppViewTemplateResponse
+       */
+      Models::DeleteAppViewTemplateResponse deleteAppViewTemplateWithOptions(const Models::DeleteAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除应用合流模版
+       *
+       * @param request DeleteAppViewTemplateRequest
+       * @return DeleteAppViewTemplateResponse
+       */
+      Models::DeleteAppViewTemplateResponse deleteAppViewTemplate(const Models::DeleteAppViewTemplateRequest &request);
 
       /**
        * @param request DeleteAutoLiveStreamRuleRequest
@@ -509,6 +543,40 @@ namespace Rtc20180111
        * @return DescribeAppStreamingOutTemplatesResponse
        */
       Models::DescribeAppStreamingOutTemplatesResponse describeAppStreamingOutTemplates(const Models::DescribeAppStreamingOutTemplatesRequest &request);
+
+      /**
+       * @summary 查看合流开关
+       *
+       * @param request DescribeAppViewStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAppViewStatusResponse
+       */
+      Models::DescribeAppViewStatusResponse describeAppViewStatusWithOptions(const Models::DescribeAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看合流开关
+       *
+       * @param request DescribeAppViewStatusRequest
+       * @return DescribeAppViewStatusResponse
+       */
+      Models::DescribeAppViewStatusResponse describeAppViewStatus(const Models::DescribeAppViewStatusRequest &request);
+
+      /**
+       * @summary 应用合流模版列表
+       *
+       * @param tmpReq DescribeAppViewTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAppViewTemplatesResponse
+       */
+      Models::DescribeAppViewTemplatesResponse describeAppViewTemplatesWithOptions(const Models::DescribeAppViewTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用合流模版列表
+       *
+       * @param request DescribeAppViewTemplatesRequest
+       * @return DescribeAppViewTemplatesResponse
+       */
+      Models::DescribeAppViewTemplatesResponse describeAppViewTemplates(const Models::DescribeAppViewTemplatesRequest &request);
 
       /**
        * @summary App列表
@@ -1454,6 +1522,40 @@ namespace Rtc20180111
       Models::ModifyAppStreamingOutTemplateResponse modifyAppStreamingOutTemplate(const Models::ModifyAppStreamingOutTemplateRequest &request);
 
       /**
+       * @summary 修改合流开关
+       *
+       * @param request ModifyAppViewStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppViewStatusResponse
+       */
+      Models::ModifyAppViewStatusResponse modifyAppViewStatusWithOptions(const Models::ModifyAppViewStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改合流开关
+       *
+       * @param request ModifyAppViewStatusRequest
+       * @return ModifyAppViewStatusResponse
+       */
+      Models::ModifyAppViewStatusResponse modifyAppViewStatus(const Models::ModifyAppViewStatusRequest &request);
+
+      /**
+       * @summary 更新应用合流模版
+       *
+       * @param tmpReq ModifyAppViewTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppViewTemplateResponse
+       */
+      Models::ModifyAppViewTemplateResponse modifyAppViewTemplateWithOptions(const Models::ModifyAppViewTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新应用合流模版
+       *
+       * @param request ModifyAppViewTemplateRequest
+       * @return ModifyAppViewTemplateResponse
+       */
+      Models::ModifyAppViewTemplateResponse modifyAppViewTemplate(const Models::ModifyAppViewTemplateRequest &request);
+
+      /**
        * @summary 更新app回调
        *
        * @param tmpReq ModifyCallbackMetaRequest
@@ -1501,6 +1603,40 @@ namespace Rtc20180111
       Models::ModifyMPULayoutResponse modifyMPULayout(const Models::ModifyMPULayoutRequest &request);
 
       /**
+       * @summary 设置流属性
+       *
+       * @param tmpReq ModifyStreamingPropertyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyStreamingPropertyResponse
+       */
+      Models::ModifyStreamingPropertyResponse modifyStreamingPropertyWithOptions(const Models::ModifyStreamingPropertyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置流属性
+       *
+       * @param request ModifyStreamingPropertyRequest
+       * @return ModifyStreamingPropertyResponse
+       */
+      Models::ModifyStreamingPropertyResponse modifyStreamingProperty(const Models::ModifyStreamingPropertyRequest &request);
+
+      /**
+       * @summary 设置合流布局
+       *
+       * @param tmpReq ModifyViewLayoutRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyViewLayoutResponse
+       */
+      Models::ModifyViewLayoutResponse modifyViewLayoutWithOptions(const Models::ModifyViewLayoutRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置合流布局
+       *
+       * @param request ModifyViewLayoutRequest
+       * @return ModifyViewLayoutResponse
+       */
+      Models::ModifyViewLayoutResponse modifyViewLayout(const Models::ModifyViewLayoutRequest &request);
+
+      /**
        * @summary NotifyAgent
        *
        * @param tmpReq NotifyAgentRequest
@@ -1546,6 +1682,57 @@ namespace Rtc20180111
        * @return RemoveUsersResponse
        */
       Models::RemoveUsersResponse removeUsers(const Models::RemoveUsersRequest &request);
+
+      /**
+       * @summary 取消Sip邀请
+       *
+       * @param request RtcCancelSipInviteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RtcCancelSipInviteResponse
+       */
+      Models::RtcCancelSipInviteResponse rtcCancelSipInviteWithOptions(const Models::RtcCancelSipInviteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消Sip邀请
+       *
+       * @param request RtcCancelSipInviteRequest
+       * @return RtcCancelSipInviteResponse
+       */
+      Models::RtcCancelSipInviteResponse rtcCancelSipInvite(const Models::RtcCancelSipInviteRequest &request);
+
+      /**
+       * @summary 邀请SIP加入频道
+       *
+       * @param request RtcSipInviteMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RtcSipInviteMemberResponse
+       */
+      Models::RtcSipInviteMemberResponse rtcSipInviteMemberWithOptions(const Models::RtcSipInviteMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 邀请SIP加入频道
+       *
+       * @param request RtcSipInviteMemberRequest
+       * @return RtcSipInviteMemberResponse
+       */
+      Models::RtcSipInviteMemberResponse rtcSipInviteMember(const Models::RtcSipInviteMemberRequest &request);
+
+      /**
+       * @summary Mute操作
+       *
+       * @param request RtcSipMuteRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RtcSipMuteResponse
+       */
+      Models::RtcSipMuteResponse rtcSipMuteWithOptions(const Models::RtcSipMuteRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Mute操作
+       *
+       * @param request RtcSipMuteRequest
+       * @return RtcSipMuteResponse
+       */
+      Models::RtcSipMuteResponse rtcSipMute(const Models::RtcSipMuteRequest &request);
 
       /**
        * @summary 启动AI Agent
@@ -1657,6 +1844,23 @@ namespace Rtc20180111
        * @return StartStreamingOutResponse
        */
       Models::StartStreamingOutResponse startStreamingOut(const Models::StartStreamingOutRequest &request);
+
+      /**
+       * @summary 开始合流
+       *
+       * @param tmpReq StartViewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartViewResponse
+       */
+      Models::StartViewResponse startViewWithOptions(const Models::StartViewRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开始合流
+       *
+       * @param request StartViewRequest
+       * @return StartViewResponse
+       */
+      Models::StartViewResponse startView(const Models::StartViewRequest &request);
 
       /**
        * @summary 停止AI Agent
@@ -1785,6 +1989,23 @@ namespace Rtc20180111
        * @return StopStreamingOutResponse
        */
       Models::StopStreamingOutResponse stopStreamingOut(const Models::StopStreamingOutRequest &request);
+
+      /**
+       * @summary 停止合流
+       *
+       * @param request StopViewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopViewResponse
+       */
+      Models::StopViewResponse stopViewWithOptions(const Models::StopViewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止合流
+       *
+       * @param request StopViewRequest
+       * @return StopViewResponse
+       */
+      Models::StopViewResponse stopView(const Models::StopViewRequest &request);
 
       /**
        * @summary 更新AI Agent
