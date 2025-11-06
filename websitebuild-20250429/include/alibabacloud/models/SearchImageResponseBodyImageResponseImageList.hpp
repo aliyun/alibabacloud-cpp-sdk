@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->descriptiveTones_ != nullptr
-        && this->height_ != nullptr && this->imageCategory_ != nullptr && this->imageRatio_ != nullptr && this->imageUuid_ != nullptr && this->ossKey_ != nullptr
-        && this->quantitativePalette_ != nullptr && this->tagsFromImage_ != nullptr && this->url_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->descriptiveTones_ == nullptr
+        && return this->height_ == nullptr && return this->imageCategory_ == nullptr && return this->imageRatio_ == nullptr && return this->imageUuid_ == nullptr && return this->ossKey_ == nullptr
+        && return this->quantitativePalette_ == nullptr && return this->tagsFromImage_ == nullptr && return this->url_ == nullptr && return this->width_ == nullptr; };
     // descriptiveTones Field Functions 
     bool hasDescriptiveTones() const { return this->descriptiveTones_ != nullptr;};
     void deleteDescriptiveTones() { this->descriptiveTones_ = nullptr;};

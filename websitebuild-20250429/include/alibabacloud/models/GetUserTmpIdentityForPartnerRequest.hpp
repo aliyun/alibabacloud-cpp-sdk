@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authPurpose_ != nullptr
-        && this->bizId_ != nullptr && this->extend_ != nullptr && this->serviceLinkedRole_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->authPurpose_ == nullptr
+        && return this->bizId_ == nullptr && return this->extend_ == nullptr && return this->serviceLinkedRole_ == nullptr && return this->userId_ == nullptr; };
     // authPurpose Field Functions 
     bool hasAuthPurpose() const { return this->authPurpose_ != nullptr;};
     void deleteAuthPurpose() { this->authPurpose_ = nullptr;};

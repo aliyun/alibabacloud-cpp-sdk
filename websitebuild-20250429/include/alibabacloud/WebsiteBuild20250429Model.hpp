@@ -17,6 +17,9 @@
 #include <alibabacloud/models/DescribeAppDomainDnsRecordRequest.hpp>
 #include <alibabacloud/models/DescribeAppDomainDnsRecordResponseBody.hpp>
 #include <alibabacloud/models/DescribeAppDomainDnsRecordResponse.hpp>
+#include <alibabacloud/models/DispatchConsoleApiForPartnerRequest.hpp>
+#include <alibabacloud/models/DispatchConsoleApiForPartnerResponseBody.hpp>
+#include <alibabacloud/models/DispatchConsoleApiForPartnerResponse.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskRequest.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponseBody.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponse.hpp>
@@ -26,6 +29,9 @@
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerRequest.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponse.hpp>
+#include <alibabacloud/models/GetUserAccessTokenForPartnerRequest.hpp>
+#include <alibabacloud/models/GetUserAccessTokenForPartnerResponseBody.hpp>
+#include <alibabacloud/models/GetUserAccessTokenForPartnerResponse.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponse.hpp>
@@ -59,10 +65,12 @@
 #include <alibabacloud/models/DeleteAppDomainCertificateResponseBodyModule.hpp>
 #include <alibabacloud/models/DeleteAppDomainRedirectResponseBodyModule.hpp>
 #include <alibabacloud/models/DescribeAppDomainDnsRecordResponseBodyModule.hpp>
+#include <alibabacloud/models/DispatchConsoleApiForPartnerResponseBodyModule.hpp>
 #include <alibabacloud/models/GetCreateLogoTaskResponseBodyTask.hpp>
 #include <alibabacloud/models/GetDomainInfoForPartnerResponseBodyDataOwnership.hpp>
 #include <alibabacloud/models/GetDomainInfoForPartnerResponseBodyData.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBodyData.hpp>
+#include <alibabacloud/models/GetUserAccessTokenForPartnerResponseBodyModule.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyDataCredentials.hpp>
 #include <alibabacloud/models/GetUserTmpIdentityForPartnerResponseBodyData.hpp>
 #include <alibabacloud/models/ListAppDomainRedirectRecordsResponseBodyModuleData.hpp>

@@ -106,6 +106,23 @@ namespace WebsiteBuild20250429
       Models::DescribeAppDomainDnsRecordResponse describeAppDomainDnsRecord(const Models::DescribeAppDomainDnsRecordRequest &request);
 
       /**
+       * @summary DispatchConsoleAPIForPartner
+       *
+       * @param request DispatchConsoleAPIForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DispatchConsoleAPIForPartnerResponse
+       */
+      Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartnerWithOptions(const Models::DispatchConsoleAPIForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DispatchConsoleAPIForPartner
+       *
+       * @param request DispatchConsoleAPIForPartnerRequest
+       * @return DispatchConsoleAPIForPartnerResponse
+       */
+      Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartner(const Models::DispatchConsoleAPIForPartnerRequest &request);
+
+      /**
        * @summary 查询Logo创建任务
        *
        * @param request GetCreateLogoTaskRequest
@@ -155,6 +172,23 @@ namespace WebsiteBuild20250429
        * @return GetIcpFilingInfoForPartnerResponse
        */
       Models::GetIcpFilingInfoForPartnerResponse getIcpFilingInfoForPartner(const Models::GetIcpFilingInfoForPartnerRequest &request);
+
+      /**
+       * @summary 通过授权码得到accessToken
+       *
+       * @param request GetUserAccessTokenForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserAccessTokenForPartnerResponse
+       */
+      Models::GetUserAccessTokenForPartnerResponse getUserAccessTokenForPartnerWithOptions(const Models::GetUserAccessTokenForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过授权码得到accessToken
+       *
+       * @param request GetUserAccessTokenForPartnerRequest
+       * @return GetUserAccessTokenForPartnerResponse
+       */
+      Models::GetUserAccessTokenForPartnerResponse getUserAccessTokenForPartner(const Models::GetUserAccessTokenForPartnerRequest &request);
 
       /**
        * @summary 合作伙伴获取用户SLR角色授权临时凭证

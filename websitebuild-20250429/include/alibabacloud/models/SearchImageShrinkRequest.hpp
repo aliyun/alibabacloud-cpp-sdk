@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->colorHex_ != nullptr
-        && this->hasPerson_ != nullptr && this->imageCategory_ != nullptr && this->imageRatio_ != nullptr && this->maxHeight_ != nullptr && this->maxResults_ != nullptr
-        && this->maxWidth_ != nullptr && this->minHeight_ != nullptr && this->minWidth_ != nullptr && this->nextToken_ != nullptr && this->ossKey_ != nullptr
-        && this->size_ != nullptr && this->start_ != nullptr && this->tagsShrink_ != nullptr && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->colorHex_ == nullptr
+        && return this->hasPerson_ == nullptr && return this->imageCategory_ == nullptr && return this->imageRatio_ == nullptr && return this->maxHeight_ == nullptr && return this->maxResults_ == nullptr
+        && return this->maxWidth_ == nullptr && return this->minHeight_ == nullptr && return this->minWidth_ == nullptr && return this->nextToken_ == nullptr && return this->ossKey_ == nullptr
+        && return this->size_ == nullptr && return this->start_ == nullptr && return this->tagsShrink_ == nullptr && return this->text_ == nullptr; };
     // colorHex Field Functions 
     bool hasColorHex() const { return this->colorHex_ != nullptr;};
     void deleteColorHex() { this->colorHex_ = nullptr;};

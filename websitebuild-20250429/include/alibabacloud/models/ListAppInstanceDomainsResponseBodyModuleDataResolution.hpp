@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dnsRecord_ != nullptr
-        && this->errorMsg_ != nullptr && this->resolutionStatus_ != nullptr; };
+    virtual bool empty() const override { return this->dnsRecord_ == nullptr
+        && return this->errorMsg_ == nullptr && return this->resolutionStatus_ == nullptr; };
     // dnsRecord Field Functions 
     bool hasDnsRecord() const { return this->dnsRecord_ != nullptr;};
     void deleteDnsRecord() { this->dnsRecord_ = nullptr;};

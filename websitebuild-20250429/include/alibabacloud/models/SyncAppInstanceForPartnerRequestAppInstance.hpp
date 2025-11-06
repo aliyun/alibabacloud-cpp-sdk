@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appType_ != nullptr
-        && this->bizId_ != nullptr && this->deleted_ != nullptr && this->domain_ != nullptr && this->endTime_ != nullptr && this->gmtDelete_ != nullptr
-        && this->gmtPublish_ != nullptr && this->iconUrl_ != nullptr && this->name_ != nullptr && this->profile_ != nullptr && this->siteHost_ != nullptr
-        && this->slug_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->thumbnailUrl_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->appType_ == nullptr
+        && return this->bizId_ == nullptr && return this->deleted_ == nullptr && return this->domain_ == nullptr && return this->endTime_ == nullptr && return this->gmtDelete_ == nullptr
+        && return this->gmtPublish_ == nullptr && return this->iconUrl_ == nullptr && return this->name_ == nullptr && return this->profile_ == nullptr && return this->siteHost_ == nullptr
+        && return this->slug_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->thumbnailUrl_ == nullptr && return this->userId_ == nullptr; };
     // appType Field Functions 
     bool hasAppType() const { return this->appType_ != nullptr;};
     void deleteAppType() { this->appType_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->allowRetry_ != nullptr && this->appName_ != nullptr && this->dynamicCode_ != nullptr && this->dynamicMessage_ != nullptr && this->errorArgs_ != nullptr
-        && this->maxResults_ != nullptr && this->module_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->rootErrorCode_ != nullptr
-        && this->rootErrorMsg_ != nullptr && this->synchro_ != nullptr; };
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && return this->allowRetry_ == nullptr && return this->appName_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->errorArgs_ == nullptr
+        && return this->maxResults_ == nullptr && return this->module_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->rootErrorCode_ == nullptr
+        && return this->rootErrorMsg_ == nullptr && return this->synchro_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};

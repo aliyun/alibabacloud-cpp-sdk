@@ -286,6 +286,64 @@ DescribeAppDomainDnsRecordResponse Client::describeAppDomainDnsRecord(const Desc
 }
 
 /**
+ * @summary DispatchConsoleAPIForPartner
+ *
+ * @param request DispatchConsoleAPIForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DispatchConsoleAPIForPartnerResponse
+ */
+DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartnerWithOptions(const DispatchConsoleAPIForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLiveToken()) {
+    query["LiveToken"] = request.liveToken();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.operation();
+  }
+
+  if (!!request.hasParams()) {
+    query["Params"] = request.params();
+  }
+
+  if (!!request.hasProduct()) {
+    query["Product"] = request.product();
+  }
+
+  if (!!request.hasSiteHost()) {
+    query["SiteHost"] = request.siteHost();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DispatchConsoleAPIForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DispatchConsoleAPIForPartnerResponse>();
+}
+
+/**
+ * @summary DispatchConsoleAPIForPartner
+ *
+ * @param request DispatchConsoleAPIForPartnerRequest
+ * @return DispatchConsoleAPIForPartnerResponse
+ */
+DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const DispatchConsoleAPIForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询Logo创建任务
  *
  * @param request GetCreateLogoTaskRequest
@@ -421,6 +479,52 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartnerWithOptions
 GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartner(const GetIcpFilingInfoForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getIcpFilingInfoForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过授权码得到accessToken
+ *
+ * @param request GetUserAccessTokenForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserAccessTokenForPartnerResponse
+ */
+GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartnerWithOptions(const GetUserAccessTokenForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteHost()) {
+    query["SiteHost"] = request.siteHost();
+  }
+
+  if (!!request.hasTicket()) {
+    query["Ticket"] = request.ticket();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserAccessTokenForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserAccessTokenForPartnerResponse>();
+}
+
+/**
+ * @summary 通过授权码得到accessToken
+ *
+ * @param request GetUserAccessTokenForPartnerRequest
+ * @return GetUserAccessTokenForPartnerResponse
+ */
+GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartner(const GetUserAccessTokenForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserAccessTokenForPartnerWithOptions(request, runtime);
 }
 
 /**
