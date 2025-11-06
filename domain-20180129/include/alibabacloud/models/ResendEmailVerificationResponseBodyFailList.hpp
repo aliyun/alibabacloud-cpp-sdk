@@ -1,0 +1,68 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_RESENDEMAILVERIFICATIONRESPONSEBODYFAILLIST_HPP_
+#define ALIBABACLOUD_MODELS_RESENDEMAILVERIFICATIONRESPONSEBODYFAILLIST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Domain20180129
+{
+namespace Models
+{
+  class ResendEmailVerificationResponseBodyFailList : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ResendEmailVerificationResponseBodyFailList& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Email, email_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+    };
+    friend void from_json(const Darabonba::Json& j, ResendEmailVerificationResponseBodyFailList& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Email, email_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+    };
+    ResendEmailVerificationResponseBodyFailList() = default ;
+    ResendEmailVerificationResponseBodyFailList(const ResendEmailVerificationResponseBodyFailList &) = default ;
+    ResendEmailVerificationResponseBodyFailList(ResendEmailVerificationResponseBodyFailList &&) = default ;
+    ResendEmailVerificationResponseBodyFailList(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ResendEmailVerificationResponseBodyFailList() = default ;
+    ResendEmailVerificationResponseBodyFailList& operator=(const ResendEmailVerificationResponseBodyFailList &) = default ;
+    ResendEmailVerificationResponseBodyFailList& operator=(ResendEmailVerificationResponseBodyFailList &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->email_ == nullptr && return this->message_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ResendEmailVerificationResponseBodyFailList& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // email Field Functions 
+    bool hasEmail() const { return this->email_ != nullptr;};
+    void deleteEmail() { this->email_ = nullptr;};
+    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline ResendEmailVerificationResponseBodyFailList& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ResendEmailVerificationResponseBodyFailList& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+  protected:
+    std::shared_ptr<string> code_ = nullptr;
+    std::shared_ptr<string> email_ = nullptr;
+    std::shared_ptr<string> message_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Domain20180129
+#endif

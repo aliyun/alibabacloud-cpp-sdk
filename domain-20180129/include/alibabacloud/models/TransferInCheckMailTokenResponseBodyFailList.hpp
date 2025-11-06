@@ -1,0 +1,50 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_TRANSFERINCHECKMAILTOKENRESPONSEBODYFAILLIST_HPP_
+#define ALIBABACLOUD_MODELS_TRANSFERINCHECKMAILTOKENRESPONSEBODYFAILLIST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Domain20180129
+{
+namespace Models
+{
+  class TransferInCheckMailTokenResponseBodyFailList : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const TransferInCheckMailTokenResponseBodyFailList& obj) { 
+      DARABONBA_PTR_TO_JSON(FailDomain, failDomain_);
+    };
+    friend void from_json(const Darabonba::Json& j, TransferInCheckMailTokenResponseBodyFailList& obj) { 
+      DARABONBA_PTR_FROM_JSON(FailDomain, failDomain_);
+    };
+    TransferInCheckMailTokenResponseBodyFailList() = default ;
+    TransferInCheckMailTokenResponseBodyFailList(const TransferInCheckMailTokenResponseBodyFailList &) = default ;
+    TransferInCheckMailTokenResponseBodyFailList(TransferInCheckMailTokenResponseBodyFailList &&) = default ;
+    TransferInCheckMailTokenResponseBodyFailList(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~TransferInCheckMailTokenResponseBodyFailList() = default ;
+    TransferInCheckMailTokenResponseBodyFailList& operator=(const TransferInCheckMailTokenResponseBodyFailList &) = default ;
+    TransferInCheckMailTokenResponseBodyFailList& operator=(TransferInCheckMailTokenResponseBodyFailList &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->failDomain_ == nullptr; };
+    // failDomain Field Functions 
+    bool hasFailDomain() const { return this->failDomain_ != nullptr;};
+    void deleteFailDomain() { this->failDomain_ = nullptr;};
+    inline const vector<string> & failDomain() const { DARABONBA_PTR_GET_CONST(failDomain_, vector<string>) };
+    inline vector<string> failDomain() { DARABONBA_PTR_GET(failDomain_, vector<string>) };
+    inline TransferInCheckMailTokenResponseBodyFailList& setFailDomain(const vector<string> & failDomain) { DARABONBA_PTR_SET_VALUE(failDomain_, failDomain) };
+    inline TransferInCheckMailTokenResponseBodyFailList& setFailDomain(vector<string> && failDomain) { DARABONBA_PTR_SET_RVALUE(failDomain_, failDomain) };
+
+
+  protected:
+    std::shared_ptr<vector<string>> failDomain_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Domain20180129
+#endif
