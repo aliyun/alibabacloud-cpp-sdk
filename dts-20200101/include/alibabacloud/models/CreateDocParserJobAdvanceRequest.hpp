@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateDocParserJobAdvanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_TO_JSON(FileUrl, fileUrlObject_);
+      DARABONBA_PTR_TO_JSON(RagInstanceId, ragInstanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResultType, resultType_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateDocParserJobAdvanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_FROM_JSON(FileUrl, fileUrlObject_);
+      DARABONBA_PTR_FROM_JSON(RagInstanceId, ragInstanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResultType, resultType_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileUrlObject_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resultType_ == nullptr; };
+        && return this->fileUrlObject_ == nullptr && return this->ragInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resultType_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteFileUrlObject() { this->fileUrlObject_ = nullptr;};
     inline shared_ptr<Darabonba::IStream> fileUrlObject() const { DARABONBA_GET(fileUrlObject_) };
     inline CreateDocParserJobAdvanceRequest& setFileUrlObject(shared_ptr<Darabonba::IStream> fileUrlObject) { DARABONBA_SET_VALUE(fileUrlObject_, fileUrlObject) };
+
+
+    // ragInstanceId Field Functions 
+    bool hasRagInstanceId() const { return this->ragInstanceId_ != nullptr;};
+    void deleteRagInstanceId() { this->ragInstanceId_ = nullptr;};
+    inline string ragInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ragInstanceId_, "") };
+    inline CreateDocParserJobAdvanceRequest& setRagInstanceId(string ragInstanceId) { DARABONBA_PTR_SET_VALUE(ragInstanceId_, ragInstanceId) };
 
 
     // regionId Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     std::shared_ptr<string> fileName_ = nullptr;
     shared_ptr<Darabonba::IStream> fileUrlObject_ = nullptr;
+    std::shared_ptr<string> ragInstanceId_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resultType_ = nullptr;
