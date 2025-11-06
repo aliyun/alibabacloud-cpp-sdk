@@ -86,6 +86,19 @@ namespace MPaaS20201028
       Models::ChangeMcubePublicTaskStatusResponse changeMcubePublicTaskStatus(const Models::ChangeMcubePublicTaskStatusRequest &request);
 
       /**
+       * @param request ChangeMdsCubeTaskStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeMdsCubeTaskStatusResponse
+       */
+      Models::ChangeMdsCubeTaskStatusResponse changeMdsCubeTaskStatusWithOptions(const Models::ChangeMdsCubeTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ChangeMdsCubeTaskStatusRequest
+       * @return ChangeMdsCubeTaskStatusResponse
+       */
+      Models::ChangeMdsCubeTaskStatusResponse changeMdsCubeTaskStatus(const Models::ChangeMdsCubeTaskStatusRequest &request);
+
+      /**
        * @param request CopyMcdpGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CopyMcdpGroupResponse
@@ -285,6 +298,45 @@ namespace MPaaS20201028
       Models::CreateMcubeWhitelistForIdeResponse createMcubeWhitelistForIde(const Models::CreateMcubeWhitelistForIdeRequest &request);
 
       /**
+       * @param request CreateMdsCubeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMdsCubeResourceResponse
+       */
+      Models::CreateMdsCubeResourceResponse createMdsCubeResourceWithOptions(const Models::CreateMdsCubeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request CreateMdsCubeResourceRequest
+       * @return CreateMdsCubeResourceResponse
+       */
+      Models::CreateMdsCubeResourceResponse createMdsCubeResource(const Models::CreateMdsCubeResourceRequest &request);
+
+      /**
+       * @param request CreateMdsCubeTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMdsCubeTaskResponse
+       */
+      Models::CreateMdsCubeTaskResponse createMdsCubeTaskWithOptions(const Models::CreateMdsCubeTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request CreateMdsCubeTaskRequest
+       * @return CreateMdsCubeTaskResponse
+       */
+      Models::CreateMdsCubeTaskResponse createMdsCubeTask(const Models::CreateMdsCubeTaskRequest &request);
+
+      /**
+       * @param request CreateMdsCubeTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMdsCubeTemplateResponse
+       */
+      Models::CreateMdsCubeTemplateResponse createMdsCubeTemplateWithOptions(const Models::CreateMdsCubeTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request CreateMdsCubeTemplateRequest
+       * @return CreateMdsCubeTemplateResponse
+       */
+      Models::CreateMdsCubeTemplateResponse createMdsCubeTemplate(const Models::CreateMdsCubeTemplateRequest &request);
+
+      /**
        * @param request CreateMdsMiniprogramTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateMdsMiniprogramTaskResponse
@@ -322,6 +374,23 @@ namespace MPaaS20201028
        * @return CreateOpenSingleDataResponse
        */
       Models::CreateOpenSingleDataResponse createOpenSingleData(const Models::CreateOpenSingleDataRequest &request);
+
+      /**
+       * @summary 创建模版
+       *
+       * @param request CreateTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模版
+       *
+       * @param request CreateTemplateRequest
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
        * @param request DeleteCubecardWhitelistContentRequest
@@ -439,6 +508,23 @@ namespace MPaaS20201028
        * @return DeleteMdsWhitelistContentResponse
        */
       Models::DeleteMdsWhitelistContentResponse deleteMdsWhitelistContent(const Models::DeleteMdsWhitelistContentRequest &request);
+
+      /**
+       * @summary 删除模版
+       *
+       * @param request DeleteTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplateWithOptions(const Models::DeleteTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模版
+       *
+       * @param request DeleteTemplateRequest
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplate(const Models::DeleteTemplateRequest &request);
 
       /**
        * @param request ExistMcubeRsaKeyRequest
@@ -571,6 +657,23 @@ namespace MPaaS20201028
       Models::GetMdsMiniConfigResponse getMdsMiniConfig(const Models::GetMdsMiniConfigRequest &request);
 
       /**
+       * @summary 获取模版
+       *
+       * @param request GetTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplateWithOptions(const Models::GetTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模版
+       *
+       * @param request GetTemplateRequest
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplate(const Models::GetTemplateRequest &request);
+
+      /**
        * @param request GetUserAppDonwloadUrlInMsaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserAppDonwloadUrlInMsaResponse
@@ -608,6 +711,35 @@ namespace MPaaS20201028
        * @return GetUserAppUploadProcessInMsaResponse
        */
       Models::GetUserAppUploadProcessInMsaResponse getUserAppUploadProcessInMsa(const Models::GetUserAppUploadProcessInMsaRequest &request);
+
+      /**
+       * @summary 查询报表
+       *
+       * @param request ListAnalysisCoreIndexRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAnalysisCoreIndexResponse
+       */
+      Models::ListAnalysisCoreIndexResponse listAnalysisCoreIndexWithOptions(const Models::ListAnalysisCoreIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询报表
+       *
+       * @param request ListAnalysisCoreIndexRequest
+       * @return ListAnalysisCoreIndexResponse
+       */
+      Models::ListAnalysisCoreIndexResponse listAnalysisCoreIndex(const Models::ListAnalysisCoreIndexRequest &request);
+
+      /**
+       * @param request ListCubecardAppsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCubecardAppsResponse
+       */
+      Models::ListCubecardAppsResponse listCubecardAppsWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @return ListCubecardAppsResponse
+       */
+      Models::ListCubecardAppsResponse listCubecardApps();
 
       /**
        * @param request ListMappCenterAppsRequest
@@ -764,6 +896,45 @@ namespace MPaaS20201028
       Models::ListMcubeWhitelistsResponse listMcubeWhitelists(const Models::ListMcubeWhitelistsRequest &request);
 
       /**
+       * @param request ListMdsCubeResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMdsCubeResourcesResponse
+       */
+      Models::ListMdsCubeResourcesResponse listMdsCubeResourcesWithOptions(const Models::ListMdsCubeResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ListMdsCubeResourcesRequest
+       * @return ListMdsCubeResourcesResponse
+       */
+      Models::ListMdsCubeResourcesResponse listMdsCubeResources(const Models::ListMdsCubeResourcesRequest &request);
+
+      /**
+       * @param request ListMdsCubeTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMdsCubeTasksResponse
+       */
+      Models::ListMdsCubeTasksResponse listMdsCubeTasksWithOptions(const Models::ListMdsCubeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ListMdsCubeTasksRequest
+       * @return ListMdsCubeTasksResponse
+       */
+      Models::ListMdsCubeTasksResponse listMdsCubeTasks(const Models::ListMdsCubeTasksRequest &request);
+
+      /**
+       * @param request ListMdsCubeTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMdsCubeTemplatesResponse
+       */
+      Models::ListMdsCubeTemplatesResponse listMdsCubeTemplatesWithOptions(const Models::ListMdsCubeTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ListMdsCubeTemplatesRequest
+       * @return ListMdsCubeTemplatesResponse
+       */
+      Models::ListMdsCubeTemplatesResponse listMdsCubeTemplates(const Models::ListMdsCubeTemplatesRequest &request);
+
+      /**
        * @param request ListMgsApiRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListMgsApiResponse
@@ -775,6 +946,23 @@ namespace MPaaS20201028
        * @return ListMgsApiResponse
        */
       Models::ListMgsApiResponse listMgsApi(const Models::ListMgsApiRequest &request);
+
+      /**
+       * @summary 分页查询模版列表
+       *
+       * @param request ListTemplatePageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplatePageResponse
+       */
+      Models::ListTemplatePageResponse listTemplatePageWithOptions(const Models::ListTemplatePageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询模版列表
+       *
+       * @param request ListTemplatePageRequest
+       * @return ListTemplatePageResponse
+       */
+      Models::ListTemplatePageResponse listTemplatePage(const Models::ListTemplatePageRequest &request);
 
       /**
        * @summary OCR通用接口
@@ -833,6 +1021,23 @@ namespace MPaaS20201028
       Models::PushMultipleResponse pushMultiple(const Models::PushMultipleRequest &request);
 
       /**
+       * @summary 查询设备状态信息
+       *
+       * @param request PushQueryDeviceStateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PushQueryDeviceStateResponse
+       */
+      Models::PushQueryDeviceStateResponse pushQueryDeviceStateWithOptions(const Models::PushQueryDeviceStateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询设备状态信息
+       *
+       * @param request PushQueryDeviceStateRequest
+       * @return PushQueryDeviceStateResponse
+       */
+      Models::PushQueryDeviceStateResponse pushQueryDeviceState(const Models::PushQueryDeviceStateRequest &request);
+
+      /**
        * @param request PushReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PushReportResponse
@@ -887,6 +1092,19 @@ namespace MPaaS20201028
        * @return PushUnBindResponse
        */
       Models::PushUnBindResponse pushUnBind(const Models::PushUnBindRequest &request);
+
+      /**
+       * @param request QueryCubecardFiletokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCubecardFiletokenResponse
+       */
+      Models::QueryCubecardFiletokenResponse queryCubecardFiletokenWithOptions(const Models::QueryCubecardFiletokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryCubecardFiletokenRequest
+       * @return QueryCubecardFiletokenResponse
+       */
+      Models::QueryCubecardFiletokenResponse queryCubecardFiletoken(const Models::QueryCubecardFiletokenRequest &request);
 
       /**
        * @summary 查询Device+服务的
@@ -1211,6 +1429,19 @@ namespace MPaaS20201028
        * @return UpdateMcubeWhitelistResponse
        */
       Models::UpdateMcubeWhitelistResponse updateMcubeWhitelist(const Models::UpdateMcubeWhitelistRequest &request);
+
+      /**
+       * @param request UpdateMdsCubeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMdsCubeResourceResponse
+       */
+      Models::UpdateMdsCubeResourceResponse updateMdsCubeResourceWithOptions(const Models::UpdateMdsCubeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request UpdateMdsCubeResourceRequest
+       * @return UpdateMdsCubeResourceResponse
+       */
+      Models::UpdateMdsCubeResourceResponse updateMdsCubeResource(const Models::UpdateMdsCubeResourceRequest &request);
 
       /**
        * @param request UpdateMpaasAppInfoRequest

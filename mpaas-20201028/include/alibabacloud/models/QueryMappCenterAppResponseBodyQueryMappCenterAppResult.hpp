@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mappCenterApp_ != nullptr
-        && this->resultMsg_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->mappCenterApp_ == nullptr
+        && return this->resultMsg_ == nullptr && return this->success_ == nullptr; };
     // mappCenterApp Field Functions 
     bool hasMappCenterApp() const { return this->mappCenterApp_ != nullptr;};
     void deleteMappCenterApp() { this->mappCenterApp_ = nullptr;};

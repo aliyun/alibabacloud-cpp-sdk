@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GreyConfigInfo, greyConfigInfo_);
       DARABONBA_PTR_TO_JSON(GreyEndtimeData, greyEndtimeData_);
       DARABONBA_PTR_TO_JSON(GreyNum, greyNum_);
+      DARABONBA_PTR_TO_JSON(H5Id, h5Id_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Memo, memo_);
       DARABONBA_PTR_TO_JSON(PackageId, packageId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GreyConfigInfo, greyConfigInfo_);
       DARABONBA_PTR_FROM_JSON(GreyEndtimeData, greyEndtimeData_);
       DARABONBA_PTR_FROM_JSON(GreyNum, greyNum_);
+      DARABONBA_PTR_FROM_JSON(H5Id, h5Id_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Memo, memo_);
       DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
@@ -53,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->greyConfigInfo_ != nullptr && this->greyEndtimeData_ != nullptr && this->greyNum_ != nullptr && this->id_ != nullptr && this->memo_ != nullptr
-        && this->packageId_ != nullptr && this->publishMode_ != nullptr && this->publishType_ != nullptr && this->syncMode_ != nullptr && this->tenantId_ != nullptr
-        && this->whitelistIds_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->greyConfigInfo_ == nullptr && return this->greyEndtimeData_ == nullptr && return this->greyNum_ == nullptr && return this->h5Id_ == nullptr && return this->id_ == nullptr
+        && return this->memo_ == nullptr && return this->packageId_ == nullptr && return this->publishMode_ == nullptr && return this->publishType_ == nullptr && return this->syncMode_ == nullptr
+        && return this->tenantId_ == nullptr && return this->whitelistIds_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
     void deleteGreyNum() { this->greyNum_ = nullptr;};
     inline string greyNum() const { DARABONBA_PTR_GET_DEFAULT(greyNum_, "") };
     inline CreateMdsMiniprogramTaskRequest& setGreyNum(string greyNum) { DARABONBA_PTR_SET_VALUE(greyNum_, greyNum) };
+
+
+    // h5Id Field Functions 
+    bool hasH5Id() const { return this->h5Id_ != nullptr;};
+    void deleteH5Id() { this->h5Id_ = nullptr;};
+    inline string h5Id() const { DARABONBA_PTR_GET_DEFAULT(h5Id_, "") };
+    inline CreateMdsMiniprogramTaskRequest& setH5Id(string h5Id) { DARABONBA_PTR_SET_VALUE(h5Id_, h5Id) };
 
 
     // id Field Functions 
@@ -153,7 +162,7 @@ namespace Models
     std::shared_ptr<string> greyConfigInfo_ = nullptr;
     std::shared_ptr<string> greyEndtimeData_ = nullptr;
     std::shared_ptr<string> greyNum_ = nullptr;
-    // This parameter is required.
+    std::shared_ptr<string> h5Id_ = nullptr;
     std::shared_ptr<int64_t> id_ = nullptr;
     std::shared_ptr<string> memo_ = nullptr;
     // This parameter is required.

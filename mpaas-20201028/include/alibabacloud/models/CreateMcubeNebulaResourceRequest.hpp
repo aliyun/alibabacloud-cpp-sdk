@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->autoInstall_ != nullptr && this->clientVersionMax_ != nullptr && this->clientVersionMin_ != nullptr && this->customDomainName_ != nullptr && this->extendInfo_ != nullptr
-        && this->fileUrl_ != nullptr && this->h5Id_ != nullptr && this->h5Name_ != nullptr && this->h5Version_ != nullptr && this->installType_ != nullptr
-        && this->mainUrl_ != nullptr && this->onexFlag_ != nullptr && this->platform_ != nullptr && this->repeatNebula_ != nullptr && this->resourceType_ != nullptr
-        && this->subUrl_ != nullptr && this->tenantId_ != nullptr && this->vhost_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->autoInstall_ == nullptr && return this->clientVersionMax_ == nullptr && return this->clientVersionMin_ == nullptr && return this->customDomainName_ == nullptr && return this->extendInfo_ == nullptr
+        && return this->fileUrl_ == nullptr && return this->h5Id_ == nullptr && return this->h5Name_ == nullptr && return this->h5Version_ == nullptr && return this->installType_ == nullptr
+        && return this->mainUrl_ == nullptr && return this->onexFlag_ == nullptr && return this->platform_ == nullptr && return this->repeatNebula_ == nullptr && return this->resourceType_ == nullptr
+        && return this->subUrl_ == nullptr && return this->tenantId_ == nullptr && return this->vhost_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

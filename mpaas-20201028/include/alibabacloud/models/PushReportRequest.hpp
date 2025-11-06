@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appVersion_ != nullptr && this->channel_ != nullptr && this->connectType_ != nullptr && this->deliveryToken_ != nullptr && this->imei_ != nullptr
-        && this->imsi_ != nullptr && this->model_ != nullptr && this->osType_ != nullptr && this->pushVersion_ != nullptr && this->tenantId_ != nullptr
-        && this->thirdChannel_ != nullptr && this->thirdChannelDeviceToken_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appVersion_ == nullptr && return this->channel_ == nullptr && return this->connectType_ == nullptr && return this->deliveryToken_ == nullptr && return this->imei_ == nullptr
+        && return this->imsi_ == nullptr && return this->model_ == nullptr && return this->osType_ == nullptr && return this->pushVersion_ == nullptr && return this->tenantId_ == nullptr
+        && return this->thirdChannel_ == nullptr && return this->thirdChannelDeviceToken_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

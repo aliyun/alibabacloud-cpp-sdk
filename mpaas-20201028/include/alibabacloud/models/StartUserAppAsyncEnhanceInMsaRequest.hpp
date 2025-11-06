@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apkProtector_ != nullptr
-        && this->appId_ != nullptr && this->assetsFileList_ != nullptr && this->classes_ != nullptr && this->dalvikDebugger_ != nullptr && this->emulatorEnvironment_ != nullptr
-        && this->id_ != nullptr && this->javaHook_ != nullptr && this->memoryDump_ != nullptr && this->nativeDebugger_ != nullptr && this->nativeHook_ != nullptr
-        && this->packageTampered_ != nullptr && this->root_ != nullptr && this->runMode_ != nullptr && this->soFileList_ != nullptr && this->taskType_ != nullptr
-        && this->tenantId_ != nullptr && this->totalSwitch_ != nullptr && this->useAShield_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->apkProtector_ == nullptr
+        && return this->appId_ == nullptr && return this->assetsFileList_ == nullptr && return this->classes_ == nullptr && return this->dalvikDebugger_ == nullptr && return this->emulatorEnvironment_ == nullptr
+        && return this->id_ == nullptr && return this->javaHook_ == nullptr && return this->memoryDump_ == nullptr && return this->nativeDebugger_ == nullptr && return this->nativeHook_ == nullptr
+        && return this->packageTampered_ == nullptr && return this->root_ == nullptr && return this->runMode_ == nullptr && return this->soFileList_ == nullptr && return this->taskType_ == nullptr
+        && return this->tenantId_ == nullptr && return this->totalSwitch_ == nullptr && return this->useAShield_ == nullptr && return this->workspaceId_ == nullptr; };
     // apkProtector Field Functions 
     bool hasApkProtector() const { return this->apkProtector_ != nullptr;};
     void deleteApkProtector() { this->apkProtector_ = nullptr;};

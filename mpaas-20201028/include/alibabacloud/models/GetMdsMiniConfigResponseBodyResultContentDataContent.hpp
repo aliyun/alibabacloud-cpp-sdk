@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiConfigList_ != nullptr
-        && this->appCode_ != nullptr && this->enableServerDomainCount_ != nullptr && this->h5Id_ != nullptr && this->h5Name_ != nullptr && this->privilegeSwitch_ != nullptr
-        && this->serverDomainConfigList_ != nullptr && this->webviewDomainConfigList_ != nullptr; };
+    virtual bool empty() const override { return this->apiConfigList_ == nullptr
+        && return this->appCode_ == nullptr && return this->enableServerDomainCount_ == nullptr && return this->h5Id_ == nullptr && return this->h5Name_ == nullptr && return this->privilegeSwitch_ == nullptr
+        && return this->serverDomainConfigList_ == nullptr && return this->webviewDomainConfigList_ == nullptr; };
     // apiConfigList Field Functions 
     bool hasApiConfigList() const { return this->apiConfigList_ != nullptr;};
     void deleteApiConfigList() { this->apiConfigList_ = nullptr;};

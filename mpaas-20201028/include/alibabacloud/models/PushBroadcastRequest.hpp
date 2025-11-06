@@ -15,7 +15,9 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PushBroadcastRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AndroidChannel, androidChannel_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(BindEndTime, bindEndTime_);
       DARABONBA_PTR_TO_JSON(BindPeriod, bindPeriod_);
+      DARABONBA_PTR_TO_JSON(BindStartTime, bindStartTime_);
       DARABONBA_PTR_TO_JSON(ChannelId, channelId_);
       DARABONBA_PTR_TO_JSON(Classification, classification_);
       DARABONBA_PTR_TO_JSON(DeliveryType, deliveryType_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExtendedParams, extendedParams_);
       DARABONBA_PTR_TO_JSON(MiChannelId, miChannelId_);
       DARABONBA_PTR_TO_JSON(Msgkey, msgkey_);
+      DARABONBA_ANY_TO_JSON(NotifyLevel, notifyLevel_);
       DARABONBA_PTR_TO_JSON(NotifyType, notifyType_);
       DARABONBA_PTR_TO_JSON(PushAction, pushAction_);
       DARABONBA_PTR_TO_JSON(PushStatus, pushStatus_);
@@ -34,15 +37,20 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_ANY_TO_JSON(ThirdChannelCategory, thirdChannelCategory_);
+      DARABONBA_PTR_TO_JSON(TimeMode, timeMode_);
       DARABONBA_ANY_TO_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_TO_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_TO_JSON(UnBindEndTime, unBindEndTime_);
       DARABONBA_PTR_TO_JSON(UnBindPeriod, unBindPeriod_);
+      DARABONBA_PTR_TO_JSON(UnBindStartTime, unBindStartTime_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, PushBroadcastRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AndroidChannel, androidChannel_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(BindEndTime, bindEndTime_);
       DARABONBA_PTR_FROM_JSON(BindPeriod, bindPeriod_);
+      DARABONBA_PTR_FROM_JSON(BindStartTime, bindStartTime_);
       DARABONBA_PTR_FROM_JSON(ChannelId, channelId_);
       DARABONBA_PTR_FROM_JSON(Classification, classification_);
       DARABONBA_PTR_FROM_JSON(DeliveryType, deliveryType_);
@@ -50,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExtendedParams, extendedParams_);
       DARABONBA_PTR_FROM_JSON(MiChannelId, miChannelId_);
       DARABONBA_PTR_FROM_JSON(Msgkey, msgkey_);
+      DARABONBA_ANY_FROM_JSON(NotifyLevel, notifyLevel_);
       DARABONBA_PTR_FROM_JSON(NotifyType, notifyType_);
       DARABONBA_PTR_FROM_JSON(PushAction, pushAction_);
       DARABONBA_PTR_FROM_JSON(PushStatus, pushStatus_);
@@ -61,9 +70,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_ANY_FROM_JSON(ThirdChannelCategory, thirdChannelCategory_);
+      DARABONBA_PTR_FROM_JSON(TimeMode, timeMode_);
       DARABONBA_ANY_FROM_JSON(TransparentMessagePayload, transparentMessagePayload_);
       DARABONBA_PTR_FROM_JSON(TransparentMessageUrgency, transparentMessageUrgency_);
+      DARABONBA_PTR_FROM_JSON(UnBindEndTime, unBindEndTime_);
       DARABONBA_PTR_FROM_JSON(UnBindPeriod, unBindPeriod_);
+      DARABONBA_PTR_FROM_JSON(UnBindStartTime, unBindStartTime_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     PushBroadcastRequest() = default ;
@@ -77,12 +89,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidChannel_ != nullptr
-        && this->appId_ != nullptr && this->bindPeriod_ != nullptr && this->channelId_ != nullptr && this->classification_ != nullptr && this->deliveryType_ != nullptr
-        && this->expiredSeconds_ != nullptr && this->extendedParams_ != nullptr && this->miChannelId_ != nullptr && this->msgkey_ != nullptr && this->notifyType_ != nullptr
-        && this->pushAction_ != nullptr && this->pushStatus_ != nullptr && this->silent_ != nullptr && this->strategyContent_ != nullptr && this->strategyType_ != nullptr
-        && this->taskName_ != nullptr && this->templateKeyValue_ != nullptr && this->templateName_ != nullptr && this->tenantId_ != nullptr && this->thirdChannelCategory_ != nullptr
-        && this->transparentMessagePayload_ != nullptr && this->transparentMessageUrgency_ != nullptr && this->unBindPeriod_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->androidChannel_ == nullptr
+        && return this->appId_ == nullptr && return this->bindEndTime_ == nullptr && return this->bindPeriod_ == nullptr && return this->bindStartTime_ == nullptr && return this->channelId_ == nullptr
+        && return this->classification_ == nullptr && return this->deliveryType_ == nullptr && return this->expiredSeconds_ == nullptr && return this->extendedParams_ == nullptr && return this->miChannelId_ == nullptr
+        && return this->msgkey_ == nullptr && return this->notifyLevel_ == nullptr && return this->notifyType_ == nullptr && return this->pushAction_ == nullptr && return this->pushStatus_ == nullptr
+        && return this->silent_ == nullptr && return this->strategyContent_ == nullptr && return this->strategyType_ == nullptr && return this->taskName_ == nullptr && return this->templateKeyValue_ == nullptr
+        && return this->templateName_ == nullptr && return this->tenantId_ == nullptr && return this->thirdChannelCategory_ == nullptr && return this->timeMode_ == nullptr && return this->transparentMessagePayload_ == nullptr
+        && return this->transparentMessageUrgency_ == nullptr && return this->unBindEndTime_ == nullptr && return this->unBindPeriod_ == nullptr && return this->unBindStartTime_ == nullptr && return this->workspaceId_ == nullptr; };
     // androidChannel Field Functions 
     bool hasAndroidChannel() const { return this->androidChannel_ != nullptr;};
     void deleteAndroidChannel() { this->androidChannel_ = nullptr;};
@@ -97,11 +110,25 @@ namespace Models
     inline PushBroadcastRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
+    // bindEndTime Field Functions 
+    bool hasBindEndTime() const { return this->bindEndTime_ != nullptr;};
+    void deleteBindEndTime() { this->bindEndTime_ = nullptr;};
+    inline int64_t bindEndTime() const { DARABONBA_PTR_GET_DEFAULT(bindEndTime_, 0L) };
+    inline PushBroadcastRequest& setBindEndTime(int64_t bindEndTime) { DARABONBA_PTR_SET_VALUE(bindEndTime_, bindEndTime) };
+
+
     // bindPeriod Field Functions 
     bool hasBindPeriod() const { return this->bindPeriod_ != nullptr;};
     void deleteBindPeriod() { this->bindPeriod_ = nullptr;};
     inline int32_t bindPeriod() const { DARABONBA_PTR_GET_DEFAULT(bindPeriod_, 0) };
     inline PushBroadcastRequest& setBindPeriod(int32_t bindPeriod) { DARABONBA_PTR_SET_VALUE(bindPeriod_, bindPeriod) };
+
+
+    // bindStartTime Field Functions 
+    bool hasBindStartTime() const { return this->bindStartTime_ != nullptr;};
+    void deleteBindStartTime() { this->bindStartTime_ = nullptr;};
+    inline int64_t bindStartTime() const { DARABONBA_PTR_GET_DEFAULT(bindStartTime_, 0L) };
+    inline PushBroadcastRequest& setBindStartTime(int64_t bindStartTime) { DARABONBA_PTR_SET_VALUE(bindStartTime_, bindStartTime) };
 
 
     // channelId Field Functions 
@@ -151,6 +178,15 @@ namespace Models
     void deleteMsgkey() { this->msgkey_ = nullptr;};
     inline string msgkey() const { DARABONBA_PTR_GET_DEFAULT(msgkey_, "") };
     inline PushBroadcastRequest& setMsgkey(string msgkey) { DARABONBA_PTR_SET_VALUE(msgkey_, msgkey) };
+
+
+    // notifyLevel Field Functions 
+    bool hasNotifyLevel() const { return this->notifyLevel_ != nullptr;};
+    void deleteNotifyLevel() { this->notifyLevel_ = nullptr;};
+    inline     const Darabonba::Json & notifyLevel() const { DARABONBA_GET(notifyLevel_) };
+    Darabonba::Json & notifyLevel() { DARABONBA_GET(notifyLevel_) };
+    inline PushBroadcastRequest& setNotifyLevel(const Darabonba::Json & notifyLevel) { DARABONBA_SET_VALUE(notifyLevel_, notifyLevel) };
+    inline PushBroadcastRequest& setNotifyLevel(Darabonba::Json & notifyLevel) { DARABONBA_SET_RVALUE(notifyLevel_, notifyLevel) };
 
 
     // notifyType Field Functions 
@@ -232,6 +268,13 @@ namespace Models
     inline PushBroadcastRequest& setThirdChannelCategory(Darabonba::Json & thirdChannelCategory) { DARABONBA_SET_RVALUE(thirdChannelCategory_, thirdChannelCategory) };
 
 
+    // timeMode Field Functions 
+    bool hasTimeMode() const { return this->timeMode_ != nullptr;};
+    void deleteTimeMode() { this->timeMode_ = nullptr;};
+    inline int32_t timeMode() const { DARABONBA_PTR_GET_DEFAULT(timeMode_, 0) };
+    inline PushBroadcastRequest& setTimeMode(int32_t timeMode) { DARABONBA_PTR_SET_VALUE(timeMode_, timeMode) };
+
+
     // transparentMessagePayload Field Functions 
     bool hasTransparentMessagePayload() const { return this->transparentMessagePayload_ != nullptr;};
     void deleteTransparentMessagePayload() { this->transparentMessagePayload_ = nullptr;};
@@ -248,11 +291,25 @@ namespace Models
     inline PushBroadcastRequest& setTransparentMessageUrgency(string transparentMessageUrgency) { DARABONBA_PTR_SET_VALUE(transparentMessageUrgency_, transparentMessageUrgency) };
 
 
+    // unBindEndTime Field Functions 
+    bool hasUnBindEndTime() const { return this->unBindEndTime_ != nullptr;};
+    void deleteUnBindEndTime() { this->unBindEndTime_ = nullptr;};
+    inline int64_t unBindEndTime() const { DARABONBA_PTR_GET_DEFAULT(unBindEndTime_, 0L) };
+    inline PushBroadcastRequest& setUnBindEndTime(int64_t unBindEndTime) { DARABONBA_PTR_SET_VALUE(unBindEndTime_, unBindEndTime) };
+
+
     // unBindPeriod Field Functions 
     bool hasUnBindPeriod() const { return this->unBindPeriod_ != nullptr;};
     void deleteUnBindPeriod() { this->unBindPeriod_ = nullptr;};
     inline int64_t unBindPeriod() const { DARABONBA_PTR_GET_DEFAULT(unBindPeriod_, 0L) };
     inline PushBroadcastRequest& setUnBindPeriod(int64_t unBindPeriod) { DARABONBA_PTR_SET_VALUE(unBindPeriod_, unBindPeriod) };
+
+
+    // unBindStartTime Field Functions 
+    bool hasUnBindStartTime() const { return this->unBindStartTime_ != nullptr;};
+    void deleteUnBindStartTime() { this->unBindStartTime_ = nullptr;};
+    inline int64_t unBindStartTime() const { DARABONBA_PTR_GET_DEFAULT(unBindStartTime_, 0L) };
+    inline PushBroadcastRequest& setUnBindStartTime(int64_t unBindStartTime) { DARABONBA_PTR_SET_VALUE(unBindStartTime_, unBindStartTime) };
 
 
     // workspaceId Field Functions 
@@ -266,7 +323,9 @@ namespace Models
     std::shared_ptr<int32_t> androidChannel_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
+    std::shared_ptr<int64_t> bindEndTime_ = nullptr;
     std::shared_ptr<int32_t> bindPeriod_ = nullptr;
+    std::shared_ptr<int64_t> bindStartTime_ = nullptr;
     std::shared_ptr<string> channelId_ = nullptr;
     std::shared_ptr<string> classification_ = nullptr;
     // This parameter is required.
@@ -277,6 +336,7 @@ namespace Models
     std::shared_ptr<string> miChannelId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> msgkey_ = nullptr;
+    Darabonba::Json notifyLevel_ = nullptr;
     std::shared_ptr<string> notifyType_ = nullptr;
     std::shared_ptr<int64_t> pushAction_ = nullptr;
     std::shared_ptr<int64_t> pushStatus_ = nullptr;
@@ -289,9 +349,12 @@ namespace Models
     std::shared_ptr<string> templateName_ = nullptr;
     std::shared_ptr<string> tenantId_ = nullptr;
     Darabonba::Json thirdChannelCategory_ = nullptr;
+    std::shared_ptr<int32_t> timeMode_ = nullptr;
     Darabonba::Json transparentMessagePayload_ = nullptr;
     std::shared_ptr<string> transparentMessageUrgency_ = nullptr;
+    std::shared_ptr<int64_t> unBindEndTime_ = nullptr;
     std::shared_ptr<int64_t> unBindPeriod_ = nullptr;
+    std::shared_ptr<int64_t> unBindStartTime_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

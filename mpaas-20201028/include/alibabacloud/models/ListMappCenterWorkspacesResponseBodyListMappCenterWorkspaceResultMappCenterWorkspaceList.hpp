@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compatibleId_ != nullptr
-        && this->createTime_ != nullptr && this->displayName_ != nullptr && this->id_ != nullptr && this->region_ != nullptr && this->status_ != nullptr
-        && this->tenantId_ != nullptr && this->type_ != nullptr && this->uid_ != nullptr && this->updateTime_ != nullptr && this->workspaceId_ != nullptr
-        && this->zones_ != nullptr; };
+    virtual bool empty() const override { return this->compatibleId_ == nullptr
+        && return this->createTime_ == nullptr && return this->displayName_ == nullptr && return this->id_ == nullptr && return this->region_ == nullptr && return this->status_ == nullptr
+        && return this->tenantId_ == nullptr && return this->type_ == nullptr && return this->uid_ == nullptr && return this->updateTime_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->zones_ == nullptr; };
     // compatibleId Field Functions 
     bool hasCompatibleId() const { return this->compatibleId_ != nullptr;};
     void deleteCompatibleId() { this->compatibleId_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiStatus_ != nullptr
-        && this->apiType_ != nullptr && this->appId_ != nullptr && this->format_ != nullptr && this->host_ != nullptr && this->needEncrypt_ != nullptr
-        && this->needEtag_ != nullptr && this->needSign_ != nullptr && this->operationType_ != nullptr && this->optFuzzy_ != nullptr && this->pageIndex_ != nullptr
-        && this->pageSize_ != nullptr && this->sysId_ != nullptr && this->sysName_ != nullptr && this->tenantId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->apiStatus_ == nullptr
+        && return this->apiType_ == nullptr && return this->appId_ == nullptr && return this->format_ == nullptr && return this->host_ == nullptr && return this->needEncrypt_ == nullptr
+        && return this->needEtag_ == nullptr && return this->needSign_ == nullptr && return this->operationType_ == nullptr && return this->optFuzzy_ == nullptr && return this->pageIndex_ == nullptr
+        && return this->pageSize_ == nullptr && return this->sysId_ == nullptr && return this->sysName_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
     // apiStatus Field Functions 
     bool hasApiStatus() const { return this->apiStatus_ != nullptr;};
     void deleteApiStatus() { this->apiStatus_ = nullptr;};

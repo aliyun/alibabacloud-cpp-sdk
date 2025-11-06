@@ -119,16 +119,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->creator_ != nullptr && this->devicePercent_ != nullptr && this->executionOrder_ != nullptr && this->gmtCreate_ != nullptr && this->gmtCreateStr_ != nullptr
-        && this->gmtModified_ != nullptr && this->gmtModifiedStr_ != nullptr && this->greyConfigInfo_ != nullptr && this->greyEndtime_ != nullptr && this->greyNotice_ != nullptr
-        && this->greyNum_ != nullptr && this->greyPausePoint_ != nullptr && this->greyPauseType_ != nullptr && this->greyUv_ != nullptr && this->historyForce_ != nullptr
-        && this->huobanNoticeId_ != nullptr && this->huobanUrl_ != nullptr && this->id_ != nullptr && this->innerVersion_ != nullptr && this->isEnterprise_ != nullptr
-        && this->isOfficial_ != nullptr && this->isPush_ != nullptr && this->isRelease_ != nullptr && this->maxVersion_ != nullptr && this->memo_ != nullptr
-        && this->modifier_ != nullptr && this->packageInfoId_ != nullptr && this->platform_ != nullptr && this->productId_ != nullptr && this->productVersion_ != nullptr
-        && this->publishMode_ != nullptr && this->publishType_ != nullptr && this->pushContent_ != nullptr && this->realGreyEndtime_ != nullptr && this->realGreyEndtimeStr_ != nullptr
-        && this->realGreyEndtype_ != nullptr && this->realGreyNum_ != nullptr && this->realGreyUv_ != nullptr && this->silentType_ != nullptr && this->syncResult_ != nullptr
-        && this->taskStatus_ != nullptr && this->upgradeContent_ != nullptr && this->upgradeType_ != nullptr && this->upgradeValidTime_ != nullptr && this->whitelistIds_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->creator_ == nullptr && return this->devicePercent_ == nullptr && return this->executionOrder_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtCreateStr_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->gmtModifiedStr_ == nullptr && return this->greyConfigInfo_ == nullptr && return this->greyEndtime_ == nullptr && return this->greyNotice_ == nullptr
+        && return this->greyNum_ == nullptr && return this->greyPausePoint_ == nullptr && return this->greyPauseType_ == nullptr && return this->greyUv_ == nullptr && return this->historyForce_ == nullptr
+        && return this->huobanNoticeId_ == nullptr && return this->huobanUrl_ == nullptr && return this->id_ == nullptr && return this->innerVersion_ == nullptr && return this->isEnterprise_ == nullptr
+        && return this->isOfficial_ == nullptr && return this->isPush_ == nullptr && return this->isRelease_ == nullptr && return this->maxVersion_ == nullptr && return this->memo_ == nullptr
+        && return this->modifier_ == nullptr && return this->packageInfoId_ == nullptr && return this->platform_ == nullptr && return this->productId_ == nullptr && return this->productVersion_ == nullptr
+        && return this->publishMode_ == nullptr && return this->publishType_ == nullptr && return this->pushContent_ == nullptr && return this->realGreyEndtime_ == nullptr && return this->realGreyEndtimeStr_ == nullptr
+        && return this->realGreyEndtype_ == nullptr && return this->realGreyNum_ == nullptr && return this->realGreyUv_ == nullptr && return this->silentType_ == nullptr && return this->syncResult_ == nullptr
+        && return this->taskStatus_ == nullptr && return this->upgradeContent_ == nullptr && return this->upgradeType_ == nullptr && return this->upgradeValidTime_ == nullptr && return this->whitelistIds_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

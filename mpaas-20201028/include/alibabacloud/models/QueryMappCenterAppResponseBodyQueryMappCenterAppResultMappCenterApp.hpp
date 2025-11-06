@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidConfig_ != nullptr
-        && this->appDesc_ != nullptr && this->appIcon_ != nullptr && this->appId_ != nullptr && this->appName_ != nullptr && this->appSecret_ != nullptr
-        && this->creator_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->iosConfig_ != nullptr
-        && this->modifier_ != nullptr && this->monitorJson_ != nullptr && this->status_ != nullptr && this->tenantId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->androidConfig_ == nullptr
+        && return this->appDesc_ == nullptr && return this->appIcon_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->appSecret_ == nullptr
+        && return this->creator_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->iosConfig_ == nullptr
+        && return this->modifier_ == nullptr && return this->monitorJson_ == nullptr && return this->status_ == nullptr && return this->tenantId_ == nullptr && return this->type_ == nullptr; };
     // androidConfig Field Functions 
     bool hasAndroidConfig() const { return this->androidConfig_ != nullptr;};
     void deleteAndroidConfig() { this->androidConfig_ = nullptr;};

@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->autoInstall_ != nullptr && this->clientVersionMax_ != nullptr && this->clientVersionMin_ != nullptr && this->enableKeepAlive_ != nullptr && this->enableOptionMenu_ != nullptr
-        && this->enableTabBar_ != nullptr && this->extendInfo_ != nullptr && this->h5Id_ != nullptr && this->h5Name_ != nullptr && this->h5Version_ != nullptr
-        && this->iconFileUrl_ != nullptr && this->iconUrl_ != nullptr && this->installType_ != nullptr && this->mainUrl_ != nullptr && this->onexFlag_ != nullptr
-        && this->packageType_ != nullptr && this->platform_ != nullptr && this->resourceFileUrl_ != nullptr && this->resourceType_ != nullptr && this->tenantId_ != nullptr
-        && this->userId_ != nullptr && this->uuid_ != nullptr && this->vhost_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->autoInstall_ == nullptr && return this->clientVersionMax_ == nullptr && return this->clientVersionMin_ == nullptr && return this->enableKeepAlive_ == nullptr && return this->enableOptionMenu_ == nullptr
+        && return this->enableTabBar_ == nullptr && return this->extendInfo_ == nullptr && return this->h5Id_ == nullptr && return this->h5Name_ == nullptr && return this->h5Version_ == nullptr
+        && return this->iconFileUrl_ == nullptr && return this->iconUrl_ == nullptr && return this->installType_ == nullptr && return this->mainUrl_ == nullptr && return this->onexFlag_ == nullptr
+        && return this->packageType_ == nullptr && return this->platform_ == nullptr && return this->resourceFileUrl_ == nullptr && return this->resourceType_ == nullptr && return this->tenantId_ == nullptr
+        && return this->userId_ == nullptr && return this->uuid_ == nullptr && return this->vhost_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

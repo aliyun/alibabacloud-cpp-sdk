@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mobileTestFlightConfigDO_ != nullptr
-        && this->upgradeBaseInfoDO_ != nullptr; };
+    virtual bool empty() const override { return this->mobileTestFlightConfigDO_ == nullptr
+        && return this->upgradeBaseInfoDO_ == nullptr; };
     // mobileTestFlightConfigDO Field Functions 
     bool hasMobileTestFlightConfigDO() const { return this->mobileTestFlightConfigDO_ != nullptr;};
     void deleteMobileTestFlightConfigDO() { this->mobileTestFlightConfigDO_ = nullptr;};

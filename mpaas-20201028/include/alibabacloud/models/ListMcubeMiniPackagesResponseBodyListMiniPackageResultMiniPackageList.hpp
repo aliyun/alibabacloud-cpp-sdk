@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->autoInstall_ != nullptr && this->clientVersionMax_ != nullptr && this->clientVersionMin_ != nullptr && this->downloadUrl_ != nullptr && this->extendInfo_ != nullptr
-        && this->extraData_ != nullptr && this->fallbackBaseUrl_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->h5Id_ != nullptr
-        && this->h5Name_ != nullptr && this->h5Version_ != nullptr && this->id_ != nullptr && this->installType_ != nullptr && this->mainUrl_ != nullptr
-        && this->memo_ != nullptr && this->packageType_ != nullptr && this->platform_ != nullptr && this->publishPeriod_ != nullptr && this->resourceType_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->autoInstall_ == nullptr && return this->clientVersionMax_ == nullptr && return this->clientVersionMin_ == nullptr && return this->downloadUrl_ == nullptr && return this->extendInfo_ == nullptr
+        && return this->extraData_ == nullptr && return this->fallbackBaseUrl_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->h5Id_ == nullptr
+        && return this->h5Name_ == nullptr && return this->h5Version_ == nullptr && return this->id_ == nullptr && return this->installType_ == nullptr && return this->mainUrl_ == nullptr
+        && return this->memo_ == nullptr && return this->packageType_ == nullptr && return this->platform_ == nullptr && return this->publishPeriod_ == nullptr && return this->resourceType_ == nullptr
+        && return this->status_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

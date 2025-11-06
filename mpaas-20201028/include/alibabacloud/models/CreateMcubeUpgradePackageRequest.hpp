@@ -21,10 +21,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Desc, desc_);
       DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_TO_JSON(HarmonyLabel, harmonyLabel_);
       DARABONBA_PTR_TO_JSON(IconFileUrl, iconFileUrl_);
       DARABONBA_PTR_TO_JSON(InstallAmount, installAmount_);
       DARABONBA_PTR_TO_JSON(IosSymbolfileUrl, iosSymbolfileUrl_);
       DARABONBA_PTR_TO_JSON(IsEnterprise, isEnterprise_);
+      DARABONBA_PTR_TO_JSON(LargeIconUrl, largeIconUrl_);
       DARABONBA_PTR_TO_JSON(NeedCheck, needCheck_);
       DARABONBA_PTR_TO_JSON(OnexFlag, onexFlag_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
@@ -41,10 +43,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Desc, desc_);
       DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_FROM_JSON(HarmonyLabel, harmonyLabel_);
       DARABONBA_PTR_FROM_JSON(IconFileUrl, iconFileUrl_);
       DARABONBA_PTR_FROM_JSON(InstallAmount, installAmount_);
       DARABONBA_PTR_FROM_JSON(IosSymbolfileUrl, iosSymbolfileUrl_);
       DARABONBA_PTR_FROM_JSON(IsEnterprise, isEnterprise_);
+      DARABONBA_PTR_FROM_JSON(LargeIconUrl, largeIconUrl_);
       DARABONBA_PTR_FROM_JSON(NeedCheck, needCheck_);
       DARABONBA_PTR_FROM_JSON(OnexFlag, onexFlag_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
@@ -63,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appVersion_ != nullptr && this->appstoreUrl_ != nullptr && this->bundleId_ != nullptr && this->customDomainName_ != nullptr && this->desc_ != nullptr
-        && this->downloadUrl_ != nullptr && this->fileUrl_ != nullptr && this->iconFileUrl_ != nullptr && this->installAmount_ != nullptr && this->iosSymbolfileUrl_ != nullptr
-        && this->isEnterprise_ != nullptr && this->needCheck_ != nullptr && this->onexFlag_ != nullptr && this->platform_ != nullptr && this->tenantId_ != nullptr
-        && this->validDays_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appVersion_ == nullptr && return this->appstoreUrl_ == nullptr && return this->bundleId_ == nullptr && return this->customDomainName_ == nullptr && return this->desc_ == nullptr
+        && return this->downloadUrl_ == nullptr && return this->fileUrl_ == nullptr && return this->harmonyLabel_ == nullptr && return this->iconFileUrl_ == nullptr && return this->installAmount_ == nullptr
+        && return this->iosSymbolfileUrl_ == nullptr && return this->isEnterprise_ == nullptr && return this->largeIconUrl_ == nullptr && return this->needCheck_ == nullptr && return this->onexFlag_ == nullptr
+        && return this->platform_ == nullptr && return this->tenantId_ == nullptr && return this->validDays_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -124,6 +128,13 @@ namespace Models
     inline CreateMcubeUpgradePackageRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
 
 
+    // harmonyLabel Field Functions 
+    bool hasHarmonyLabel() const { return this->harmonyLabel_ != nullptr;};
+    void deleteHarmonyLabel() { this->harmonyLabel_ = nullptr;};
+    inline string harmonyLabel() const { DARABONBA_PTR_GET_DEFAULT(harmonyLabel_, "") };
+    inline CreateMcubeUpgradePackageRequest& setHarmonyLabel(string harmonyLabel) { DARABONBA_PTR_SET_VALUE(harmonyLabel_, harmonyLabel) };
+
+
     // iconFileUrl Field Functions 
     bool hasIconFileUrl() const { return this->iconFileUrl_ != nullptr;};
     void deleteIconFileUrl() { this->iconFileUrl_ = nullptr;};
@@ -150,6 +161,13 @@ namespace Models
     void deleteIsEnterprise() { this->isEnterprise_ = nullptr;};
     inline int32_t isEnterprise() const { DARABONBA_PTR_GET_DEFAULT(isEnterprise_, 0) };
     inline CreateMcubeUpgradePackageRequest& setIsEnterprise(int32_t isEnterprise) { DARABONBA_PTR_SET_VALUE(isEnterprise_, isEnterprise) };
+
+
+    // largeIconUrl Field Functions 
+    bool hasLargeIconUrl() const { return this->largeIconUrl_ != nullptr;};
+    void deleteLargeIconUrl() { this->largeIconUrl_ = nullptr;};
+    inline string largeIconUrl() const { DARABONBA_PTR_GET_DEFAULT(largeIconUrl_, "") };
+    inline CreateMcubeUpgradePackageRequest& setLargeIconUrl(string largeIconUrl) { DARABONBA_PTR_SET_VALUE(largeIconUrl_, largeIconUrl) };
 
 
     // needCheck Field Functions 
@@ -203,10 +221,12 @@ namespace Models
     std::shared_ptr<string> desc_ = nullptr;
     std::shared_ptr<string> downloadUrl_ = nullptr;
     std::shared_ptr<string> fileUrl_ = nullptr;
+    std::shared_ptr<string> harmonyLabel_ = nullptr;
     std::shared_ptr<string> iconFileUrl_ = nullptr;
     std::shared_ptr<int32_t> installAmount_ = nullptr;
     std::shared_ptr<string> iosSymbolfileUrl_ = nullptr;
     std::shared_ptr<int32_t> isEnterprise_ = nullptr;
+    std::shared_ptr<string> largeIconUrl_ = nullptr;
     std::shared_ptr<int32_t> needCheck_ = nullptr;
     std::shared_ptr<bool> onexFlag_ = nullptr;
     std::shared_ptr<string> platform_ = nullptr;

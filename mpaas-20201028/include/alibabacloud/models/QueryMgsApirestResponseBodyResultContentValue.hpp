@@ -114,15 +114,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiInvoker_ != nullptr
-        && this->apiName_ != nullptr && this->apiStatus_ != nullptr && this->apiType_ != nullptr && this->appId_ != nullptr && this->authRuleName_ != nullptr
-        && this->cacheRule_ != nullptr && this->charset_ != nullptr && this->circuitBreakerRule_ != nullptr && this->contentType_ != nullptr && this->defaultLimitRule_ != nullptr
-        && this->description_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->headerRule_ != nullptr && this->headerRules_ != nullptr
-        && this->host_ != nullptr && this->id_ != nullptr && this->interfaceType_ != nullptr && this->limitRule_ != nullptr && this->method_ != nullptr
-        && this->methodName_ != nullptr && this->migrateRule_ != nullptr && this->mockRule_ != nullptr && this->needETag_ != nullptr && this->needEncrypt_ != nullptr
-        && this->needJsonp_ != nullptr && this->needSign_ != nullptr && this->operationType_ != nullptr && this->paramGetMethod_ != nullptr && this->path_ != nullptr
-        && this->requestBodyModel_ != nullptr && this->requestParams_ != nullptr && this->responseBodyModel_ != nullptr && this->sysId_ != nullptr && this->sysName_ != nullptr
-        && this->timeout_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->apiInvoker_ == nullptr
+        && return this->apiName_ == nullptr && return this->apiStatus_ == nullptr && return this->apiType_ == nullptr && return this->appId_ == nullptr && return this->authRuleName_ == nullptr
+        && return this->cacheRule_ == nullptr && return this->charset_ == nullptr && return this->circuitBreakerRule_ == nullptr && return this->contentType_ == nullptr && return this->defaultLimitRule_ == nullptr
+        && return this->description_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->headerRule_ == nullptr && return this->headerRules_ == nullptr
+        && return this->host_ == nullptr && return this->id_ == nullptr && return this->interfaceType_ == nullptr && return this->limitRule_ == nullptr && return this->method_ == nullptr
+        && return this->methodName_ == nullptr && return this->migrateRule_ == nullptr && return this->mockRule_ == nullptr && return this->needETag_ == nullptr && return this->needEncrypt_ == nullptr
+        && return this->needJsonp_ == nullptr && return this->needSign_ == nullptr && return this->operationType_ == nullptr && return this->paramGetMethod_ == nullptr && return this->path_ == nullptr
+        && return this->requestBodyModel_ == nullptr && return this->requestParams_ == nullptr && return this->responseBodyModel_ == nullptr && return this->sysId_ == nullptr && return this->sysName_ == nullptr
+        && return this->timeout_ == nullptr && return this->workspaceId_ == nullptr; };
     // apiInvoker Field Functions 
     bool hasApiInvoker() const { return this->apiInvoker_ != nullptr;};
     void deleteApiInvoker() { this->apiInvoker_ = nullptr;};

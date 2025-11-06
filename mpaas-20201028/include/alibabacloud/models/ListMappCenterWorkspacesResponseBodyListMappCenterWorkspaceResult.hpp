@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mappCenterWorkspaceList_ != nullptr
-        && this->resultMsg_ != nullptr && this->success_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->mappCenterWorkspaceList_ == nullptr
+        && return this->resultMsg_ == nullptr && return this->success_ == nullptr && return this->userId_ == nullptr; };
     // mappCenterWorkspaceList Field Functions 
     bool hasMappCenterWorkspaceList() const { return this->mappCenterWorkspaceList_ != nullptr;};
     void deleteMappCenterWorkspaceList() { this->mappCenterWorkspaceList_ = nullptr;};

@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterMd5_ != nullptr
-        && this->afterSize_ != nullptr && this->appCode_ != nullptr && this->appPackage_ != nullptr && this->assetsFileList_ != nullptr && this->beforeMd5_ != nullptr
-        && this->beforeSize_ != nullptr && this->classForest_ != nullptr && this->enhanceMapping_ != nullptr && this->enhanceRules_ != nullptr && this->enhancedAssetsFiles_ != nullptr
-        && this->enhancedClasses_ != nullptr && this->enhancedSoFiles_ != nullptr && this->id_ != nullptr && this->label_ != nullptr && this->progress_ != nullptr
-        && this->soFileList_ != nullptr && this->status_ != nullptr && this->taskType_ != nullptr && this->versionCode_ != nullptr && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->afterMd5_ == nullptr
+        && return this->afterSize_ == nullptr && return this->appCode_ == nullptr && return this->appPackage_ == nullptr && return this->assetsFileList_ == nullptr && return this->beforeMd5_ == nullptr
+        && return this->beforeSize_ == nullptr && return this->classForest_ == nullptr && return this->enhanceMapping_ == nullptr && return this->enhanceRules_ == nullptr && return this->enhancedAssetsFiles_ == nullptr
+        && return this->enhancedClasses_ == nullptr && return this->enhancedSoFiles_ == nullptr && return this->id_ == nullptr && return this->label_ == nullptr && return this->progress_ == nullptr
+        && return this->soFileList_ == nullptr && return this->status_ == nullptr && return this->taskType_ == nullptr && return this->versionCode_ == nullptr && return this->versionName_ == nullptr; };
     // afterMd5 Field Functions 
     bool hasAfterMd5() const { return this->afterMd5_ != nullptr;};
     void deleteAfterMd5() { this->afterMd5_ = nullptr;};

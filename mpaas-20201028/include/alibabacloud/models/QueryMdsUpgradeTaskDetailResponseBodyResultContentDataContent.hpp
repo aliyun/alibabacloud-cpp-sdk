@@ -132,17 +132,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->appId_ != nullptr && this->appstoreurl_ != nullptr && this->channelContains_ != nullptr && this->channelExcludes_ != nullptr && this->cityContains_ != nullptr
-        && this->cityExcludes_ != nullptr && this->creator_ != nullptr && this->deviceGreyNum_ != nullptr && this->devicePercent_ != nullptr && this->downloadUrl_ != nullptr
-        && this->executionOrder_ != nullptr && this->gmtCreateStr_ != nullptr && this->greyConfigInfo_ != nullptr && this->greyEndtimeData_ != nullptr && this->greyNotice_ != nullptr
-        && this->greyNum_ != nullptr && this->greyUv_ != nullptr && this->id_ != nullptr && this->innerVersion_ != nullptr && this->isEnterprise_ != nullptr
-        && this->isOfficial_ != nullptr && this->isPush_ != nullptr && this->isRc_ != nullptr && this->isRelease_ != nullptr && this->memo_ != nullptr
-        && this->mobileModelContains_ != nullptr && this->mobileModelExcludes_ != nullptr && this->modifier_ != nullptr && this->netType_ != nullptr && this->osVersion_ != nullptr
-        && this->packageInfoId_ != nullptr && this->packageType_ != nullptr && this->platform_ != nullptr && this->productId_ != nullptr && this->productVersion_ != nullptr
-        && this->publishMode_ != nullptr && this->publishType_ != nullptr && this->pushContent_ != nullptr && this->qrcodeUrl_ != nullptr && this->releaseType_ != nullptr
-        && this->ruleJsonList_ != nullptr && this->silentType_ != nullptr && this->syncMode_ != nullptr && this->syncResult_ != nullptr && this->taskStatus_ != nullptr
-        && this->upgradeContent_ != nullptr && this->upgradeType_ != nullptr && this->upgradeValidTime_ != nullptr && this->whitelist_ != nullptr && this->whitelistIds_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->appId_ == nullptr && return this->appstoreurl_ == nullptr && return this->channelContains_ == nullptr && return this->channelExcludes_ == nullptr && return this->cityContains_ == nullptr
+        && return this->cityExcludes_ == nullptr && return this->creator_ == nullptr && return this->deviceGreyNum_ == nullptr && return this->devicePercent_ == nullptr && return this->downloadUrl_ == nullptr
+        && return this->executionOrder_ == nullptr && return this->gmtCreateStr_ == nullptr && return this->greyConfigInfo_ == nullptr && return this->greyEndtimeData_ == nullptr && return this->greyNotice_ == nullptr
+        && return this->greyNum_ == nullptr && return this->greyUv_ == nullptr && return this->id_ == nullptr && return this->innerVersion_ == nullptr && return this->isEnterprise_ == nullptr
+        && return this->isOfficial_ == nullptr && return this->isPush_ == nullptr && return this->isRc_ == nullptr && return this->isRelease_ == nullptr && return this->memo_ == nullptr
+        && return this->mobileModelContains_ == nullptr && return this->mobileModelExcludes_ == nullptr && return this->modifier_ == nullptr && return this->netType_ == nullptr && return this->osVersion_ == nullptr
+        && return this->packageInfoId_ == nullptr && return this->packageType_ == nullptr && return this->platform_ == nullptr && return this->productId_ == nullptr && return this->productVersion_ == nullptr
+        && return this->publishMode_ == nullptr && return this->publishType_ == nullptr && return this->pushContent_ == nullptr && return this->qrcodeUrl_ == nullptr && return this->releaseType_ == nullptr
+        && return this->ruleJsonList_ == nullptr && return this->silentType_ == nullptr && return this->syncMode_ == nullptr && return this->syncResult_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->upgradeContent_ == nullptr && return this->upgradeType_ == nullptr && return this->upgradeValidTime_ == nullptr && return this->whitelist_ == nullptr && return this->whitelistIds_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mockData_ != nullptr
-        && this->needMock_ != nullptr && this->percentage_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->mockData_ == nullptr
+        && return this->needMock_ == nullptr && return this->percentage_ == nullptr && return this->type_ == nullptr; };
     // mockData Field Functions 
     bool hasMockData() const { return this->mockData_ != nullptr;};
     void deleteMockData() { this->mockData_ = nullptr;};

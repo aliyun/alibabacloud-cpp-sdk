@@ -73,7 +73,7 @@ AlibabaCloud::MPaaS20201028::Client::Client(Config &config): OpenApiClient(confi
     {"rus-west-1-pop" , "mpaas.aliyuncs.com"},
     {"us-east-1" , "mpaas.aliyuncs.com"},
     {"us-west-1" , "mpaas.aliyuncs.com"}
-  });
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("mpaas", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -117,7 +117,7 @@ AddMdsMiniConfigResponse Client::addMdsMiniConfigWithOptions(const AddMdsMiniCon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "AddMdsMiniConfig"},
     {"version" , "2020-10-28"},
@@ -128,7 +128,7 @@ AddMdsMiniConfigResponse Client::addMdsMiniConfigWithOptions(const AddMdsMiniCon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<AddMdsMiniConfigResponse>();
 }
 
@@ -171,7 +171,7 @@ CancelPushSchedulerResponse Client::cancelPushSchedulerWithOptions(const CancelP
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CancelPushScheduler"},
     {"version" , "2020-10-28"},
@@ -182,7 +182,7 @@ CancelPushSchedulerResponse Client::cancelPushSchedulerWithOptions(const CancelP
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CancelPushSchedulerResponse>();
 }
 
@@ -233,7 +233,7 @@ ChangeMcubeMiniTaskStatusResponse Client::changeMcubeMiniTaskStatusWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ChangeMcubeMiniTaskStatus"},
     {"version" , "2020-10-28"},
@@ -244,7 +244,7 @@ ChangeMcubeMiniTaskStatusResponse Client::changeMcubeMiniTaskStatusWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeMcubeMiniTaskStatusResponse>();
 }
 
@@ -295,7 +295,7 @@ ChangeMcubeNebulaTaskStatusResponse Client::changeMcubeNebulaTaskStatusWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ChangeMcubeNebulaTaskStatus"},
     {"version" , "2020-10-28"},
@@ -306,7 +306,7 @@ ChangeMcubeNebulaTaskStatusResponse Client::changeMcubeNebulaTaskStatusWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeMcubeNebulaTaskStatusResponse>();
 }
 
@@ -349,7 +349,7 @@ ChangeMcubePublicTaskStatusResponse Client::changeMcubePublicTaskStatusWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ChangeMcubePublicTaskStatus"},
     {"version" , "2020-10-28"},
@@ -360,7 +360,7 @@ ChangeMcubePublicTaskStatusResponse Client::changeMcubePublicTaskStatusWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ChangeMcubePublicTaskStatusResponse>();
 }
 
@@ -371,6 +371,64 @@ ChangeMcubePublicTaskStatusResponse Client::changeMcubePublicTaskStatusWithOptio
 ChangeMcubePublicTaskStatusResponse Client::changeMcubePublicTaskStatus(const ChangeMcubePublicTaskStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return changeMcubePublicTaskStatusWithOptions(request, runtime);
+}
+
+/**
+ * @param request ChangeMdsCubeTaskStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeMdsCubeTaskStatusResponse
+ */
+ChangeMdsCubeTaskStatusResponse Client::changeMdsCubeTaskStatusWithOptions(const ChangeMdsCubeTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTaskStatus()) {
+    body["TaskStatus"] = request.taskStatus();
+  }
+
+  if (!!request.hasTemplateResourceId()) {
+    body["TemplateResourceId"] = request.templateResourceId();
+  }
+
+  if (!!request.hasTemplateTaskId()) {
+    body["TemplateTaskId"] = request.templateTaskId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ChangeMdsCubeTaskStatus"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeMdsCubeTaskStatusResponse>();
+}
+
+/**
+ * @param request ChangeMdsCubeTaskStatusRequest
+ * @return ChangeMdsCubeTaskStatusResponse
+ */
+ChangeMdsCubeTaskStatusResponse Client::changeMdsCubeTaskStatus(const ChangeMdsCubeTaskStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return changeMdsCubeTaskStatusWithOptions(request, runtime);
 }
 
 /**
@@ -399,7 +457,7 @@ CopyMcdpGroupResponse Client::copyMcdpGroupWithOptions(const CopyMcdpGroupReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CopyMcdpGroup"},
     {"version" , "2020-10-28"},
@@ -410,7 +468,7 @@ CopyMcdpGroupResponse Client::copyMcdpGroupWithOptions(const CopyMcdpGroupReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CopyMcdpGroupResponse>();
 }
 
@@ -459,7 +517,7 @@ CreateLinkResponse Client::createLinkWithOptions(const CreateLinkRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateLink"},
     {"version" , "2020-10-28"},
@@ -470,7 +528,7 @@ CreateLinkResponse Client::createLinkWithOptions(const CreateLinkRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateLinkResponse>();
 }
 
@@ -511,7 +569,7 @@ CreateMcdpGroupResponse Client::createMcdpGroupWithOptions(const CreateMcdpGroup
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcdpGroup"},
     {"version" , "2020-10-28"},
@@ -522,7 +580,7 @@ CreateMcdpGroupResponse Client::createMcdpGroupWithOptions(const CreateMcdpGroup
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcdpGroupResponse>();
 }
 
@@ -561,7 +619,7 @@ CreateMcdpMaterialResponse Client::createMcdpMaterialWithOptions(const CreateMcd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcdpMaterial"},
     {"version" , "2020-10-28"},
@@ -572,7 +630,7 @@ CreateMcdpMaterialResponse Client::createMcdpMaterialWithOptions(const CreateMcd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcdpMaterialResponse>();
 }
 
@@ -611,7 +669,7 @@ CreateMcdpZoneResponse Client::createMcdpZoneWithOptions(const CreateMcdpZoneReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcdpZone"},
     {"version" , "2020-10-28"},
@@ -622,7 +680,7 @@ CreateMcdpZoneResponse Client::createMcdpZoneWithOptions(const CreateMcdpZoneReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcdpZoneResponse>();
 }
 
@@ -665,7 +723,7 @@ CreateMcubeMiniAppResponse Client::createMcubeMiniAppWithOptions(const CreateMcu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeMiniApp"},
     {"version" , "2020-10-28"},
@@ -676,7 +734,7 @@ CreateMcubeMiniAppResponse Client::createMcubeMiniAppWithOptions(const CreateMcu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeMiniAppResponse>();
 }
 
@@ -743,7 +801,7 @@ CreateMcubeMiniTaskResponse Client::createMcubeMiniTaskWithOptions(const CreateM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeMiniTask"},
     {"version" , "2020-10-28"},
@@ -754,7 +812,7 @@ CreateMcubeMiniTaskResponse Client::createMcubeMiniTaskWithOptions(const CreateM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeMiniTaskResponse>();
 }
 
@@ -797,7 +855,7 @@ CreateMcubeNebulaAppResponse Client::createMcubeNebulaAppWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeNebulaApp"},
     {"version" , "2020-10-28"},
@@ -808,7 +866,7 @@ CreateMcubeNebulaAppResponse Client::createMcubeNebulaAppWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeNebulaAppResponse>();
 }
 
@@ -911,7 +969,7 @@ CreateMcubeNebulaResourceResponse Client::createMcubeNebulaResourceWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeNebulaResource"},
     {"version" , "2020-10-28"},
@@ -922,7 +980,7 @@ CreateMcubeNebulaResourceResponse Client::createMcubeNebulaResourceWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeNebulaResourceResponse>();
 }
 
@@ -1097,7 +1155,7 @@ CreateMcubeNebulaTaskResponse Client::createMcubeNebulaTaskWithOptions(const Cre
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeNebulaTask"},
     {"version" , "2020-10-28"},
@@ -1108,7 +1166,7 @@ CreateMcubeNebulaTaskResponse Client::createMcubeNebulaTaskWithOptions(const Cre
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeNebulaTaskResponse>();
 }
 
@@ -1161,6 +1219,10 @@ CreateMcubeUpgradePackageResponse Client::createMcubeUpgradePackageWithOptions(c
     body["FileUrl"] = request.fileUrl();
   }
 
+  if (!!request.hasHarmonyLabel()) {
+    body["HarmonyLabel"] = request.harmonyLabel();
+  }
+
   if (!!request.hasIconFileUrl()) {
     body["IconFileUrl"] = request.iconFileUrl();
   }
@@ -1175,6 +1237,10 @@ CreateMcubeUpgradePackageResponse Client::createMcubeUpgradePackageWithOptions(c
 
   if (!!request.hasIsEnterprise()) {
     body["IsEnterprise"] = request.isEnterprise();
+  }
+
+  if (!!request.hasLargeIconUrl()) {
+    body["LargeIconUrl"] = request.largeIconUrl();
   }
 
   if (!!request.hasNeedCheck()) {
@@ -1203,7 +1269,7 @@ CreateMcubeUpgradePackageResponse Client::createMcubeUpgradePackageWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeUpgradePackage"},
     {"version" , "2020-10-28"},
@@ -1214,7 +1280,7 @@ CreateMcubeUpgradePackageResponse Client::createMcubeUpgradePackageWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeUpgradePackageResponse>();
 }
 
@@ -1293,7 +1359,7 @@ CreateMcubeUpgradeTaskResponse Client::createMcubeUpgradeTaskWithOptions(const C
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeUpgradeTask"},
     {"version" , "2020-10-28"},
@@ -1304,7 +1370,7 @@ CreateMcubeUpgradeTaskResponse Client::createMcubeUpgradeTaskWithOptions(const C
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeUpgradeTaskResponse>();
 }
 
@@ -1343,7 +1409,7 @@ CreateMcubeVhostResponse Client::createMcubeVhostWithOptions(const CreateMcubeVh
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeVhost"},
     {"version" , "2020-10-28"},
@@ -1354,7 +1420,7 @@ CreateMcubeVhostResponse Client::createMcubeVhostWithOptions(const CreateMcubeVh
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeVhostResponse>();
 }
 
@@ -1397,7 +1463,7 @@ CreateMcubeWhitelistResponse Client::createMcubeWhitelistWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeWhitelist"},
     {"version" , "2020-10-28"},
@@ -1408,7 +1474,7 @@ CreateMcubeWhitelistResponse Client::createMcubeWhitelistWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeWhitelistResponse>();
 }
 
@@ -1451,7 +1517,7 @@ CreateMcubeWhitelistForIdeResponse Client::createMcubeWhitelistForIdeWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMcubeWhitelistForIde"},
     {"version" , "2020-10-28"},
@@ -1462,7 +1528,7 @@ CreateMcubeWhitelistForIdeResponse Client::createMcubeWhitelistForIdeWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMcubeWhitelistForIdeResponse>();
 }
 
@@ -1473,6 +1539,240 @@ CreateMcubeWhitelistForIdeResponse Client::createMcubeWhitelistForIdeWithOptions
 CreateMcubeWhitelistForIdeResponse Client::createMcubeWhitelistForIde(const CreateMcubeWhitelistForIdeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createMcubeWhitelistForIdeWithOptions(request, runtime);
+}
+
+/**
+ * @param request CreateMdsCubeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMdsCubeResourceResponse
+ */
+CreateMdsCubeResourceResponse Client::createMdsCubeResourceWithOptions(const CreateMdsCubeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAndroidMaxVersion()) {
+    body["AndroidMaxVersion"] = request.androidMaxVersion();
+  }
+
+  if (!!request.hasAndroidMinVersion()) {
+    body["AndroidMinVersion"] = request.androidMinVersion();
+  }
+
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasExtendInfo()) {
+    body["ExtendInfo"] = request.extendInfo();
+  }
+
+  if (!!request.hasFileUrl()) {
+    body["FileUrl"] = request.fileUrl();
+  }
+
+  if (!!request.hasIosMaxVersion()) {
+    body["IosMaxVersion"] = request.iosMaxVersion();
+  }
+
+  if (!!request.hasIosMinVersion()) {
+    body["IosMinVersion"] = request.iosMinVersion();
+  }
+
+  if (!!request.hasMockDataUrl()) {
+    body["MockDataUrl"] = request.mockDataUrl();
+  }
+
+  if (!!request.hasOnexFlag()) {
+    body["OnexFlag"] = request.onexFlag();
+  }
+
+  if (!!request.hasPlatform()) {
+    body["Platform"] = request.platform();
+  }
+
+  if (!!request.hasPreviewPictureUrl()) {
+    body["PreviewPictureUrl"] = request.previewPictureUrl();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateResourceDesc()) {
+    body["TemplateResourceDesc"] = request.templateResourceDesc();
+  }
+
+  if (!!request.hasTemplateResourceVersion()) {
+    body["TemplateResourceVersion"] = request.templateResourceVersion();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateMdsCubeResource"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMdsCubeResourceResponse>();
+}
+
+/**
+ * @param request CreateMdsCubeResourceRequest
+ * @return CreateMdsCubeResourceResponse
+ */
+CreateMdsCubeResourceResponse Client::createMdsCubeResource(const CreateMdsCubeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMdsCubeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @param request CreateMdsCubeTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMdsCubeTaskResponse
+ */
+CreateMdsCubeTaskResponse Client::createMdsCubeTaskWithOptions(const CreateMdsCubeTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasGreyConfigInfo()) {
+    body["GreyConfigInfo"] = request.greyConfigInfo();
+  }
+
+  if (!!request.hasGreyEndtimeData()) {
+    body["GreyEndtimeData"] = request.greyEndtimeData();
+  }
+
+  if (!!request.hasGreyNum()) {
+    body["GreyNum"] = request.greyNum();
+  }
+
+  if (!!request.hasPublishMode()) {
+    body["PublishMode"] = request.publishMode();
+  }
+
+  if (!!request.hasPublishType()) {
+    body["PublishType"] = request.publishType();
+  }
+
+  if (!!request.hasTaskDesc()) {
+    body["TaskDesc"] = request.taskDesc();
+  }
+
+  if (!!request.hasTemplateResourceId()) {
+    body["TemplateResourceId"] = request.templateResourceId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWhitelistIds()) {
+    body["WhitelistIds"] = request.whitelistIds();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateMdsCubeTask"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMdsCubeTaskResponse>();
+}
+
+/**
+ * @param request CreateMdsCubeTaskRequest
+ * @return CreateMdsCubeTaskResponse
+ */
+CreateMdsCubeTaskResponse Client::createMdsCubeTask(const CreateMdsCubeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMdsCubeTaskWithOptions(request, runtime);
+}
+
+/**
+ * @param request CreateMdsCubeTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMdsCubeTemplateResponse
+ */
+CreateMdsCubeTemplateResponse Client::createMdsCubeTemplateWithOptions(const CreateMdsCubeTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateDesc()) {
+    body["TemplateDesc"] = request.templateDesc();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.templateName();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateMdsCubeTemplate"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMdsCubeTemplateResponse>();
+}
+
+/**
+ * @param request CreateMdsCubeTemplateRequest
+ * @return CreateMdsCubeTemplateResponse
+ */
+CreateMdsCubeTemplateResponse Client::createMdsCubeTemplate(const CreateMdsCubeTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMdsCubeTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1497,6 +1797,10 @@ CreateMdsMiniprogramTaskResponse Client::createMdsMiniprogramTaskWithOptions(con
 
   if (!!request.hasGreyNum()) {
     body["GreyNum"] = request.greyNum();
+  }
+
+  if (!!request.hasH5Id()) {
+    body["H5Id"] = request.h5Id();
   }
 
   if (!!request.hasId()) {
@@ -1537,7 +1841,7 @@ CreateMdsMiniprogramTaskResponse Client::createMdsMiniprogramTaskWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateMdsMiniprogramTask"},
     {"version" , "2020-10-28"},
@@ -1548,7 +1852,7 @@ CreateMdsMiniprogramTaskResponse Client::createMdsMiniprogramTaskWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMdsMiniprogramTaskResponse>();
 }
 
@@ -1631,7 +1935,7 @@ CreateOpenGlobalDataResponse Client::createOpenGlobalDataWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateOpenGlobalData"},
     {"version" , "2020-10-28"},
@@ -1642,7 +1946,7 @@ CreateOpenGlobalDataResponse Client::createOpenGlobalDataWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateOpenGlobalDataResponse>();
 }
 
@@ -1721,7 +2025,7 @@ CreateOpenSingleDataResponse Client::createOpenSingleDataWithOptions(const Creat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateOpenSingleData"},
     {"version" , "2020-10-28"},
@@ -1732,7 +2036,7 @@ CreateOpenSingleDataResponse Client::createOpenSingleDataWithOptions(const Creat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateOpenSingleDataResponse>();
 }
 
@@ -1743,6 +2047,100 @@ CreateOpenSingleDataResponse Client::createOpenSingleDataWithOptions(const Creat
 CreateOpenSingleDataResponse Client::createOpenSingleData(const CreateOpenSingleDataRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createOpenSingleDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建模版
+ *
+ * @param request CreateTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasDescInfo()) {
+    body["DescInfo"] = request.descInfo();
+  }
+
+  if (!!request.hasIconUrls()) {
+    body["IconUrls"] = request.iconUrls();
+  }
+
+  if (!!request.hasImageUrls()) {
+    body["ImageUrls"] = request.imageUrls();
+  }
+
+  if (!!request.hasJumpAction()) {
+    body["JumpAction"] = request.jumpAction();
+  }
+
+  if (!!request.hasPushStyle()) {
+    body["PushStyle"] = request.pushStyle();
+  }
+
+  if (!!request.hasShowStyle()) {
+    body["ShowStyle"] = request.showStyle();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.templateName();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasTitle()) {
+    body["Title"] = request.title();
+  }
+
+  if (!!request.hasUri()) {
+    body["Uri"] = request.uri();
+  }
+
+  if (!!request.hasVariables()) {
+    body["Variables"] = request.variables();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateTemplate"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTemplateResponse>();
+}
+
+/**
+ * @summary 创建模版
+ *
+ * @param request CreateTemplateRequest
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1775,7 +2173,7 @@ DeleteCubecardWhitelistContentResponse Client::deleteCubecardWhitelistContentWit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteCubecardWhitelistContent"},
     {"version" , "2020-10-28"},
@@ -1786,7 +2184,7 @@ DeleteCubecardWhitelistContentResponse Client::deleteCubecardWhitelistContentWit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteCubecardWhitelistContentResponse>();
 }
 
@@ -1825,7 +2223,7 @@ DeleteMcdpAimResponse Client::deleteMcdpAimWithOptions(const DeleteMcdpAimReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcdpAim"},
     {"version" , "2020-10-28"},
@@ -1836,7 +2234,7 @@ DeleteMcdpAimResponse Client::deleteMcdpAimWithOptions(const DeleteMcdpAimReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcdpAimResponse>();
 }
 
@@ -1875,7 +2273,7 @@ DeleteMcdpCrowdResponse Client::deleteMcdpCrowdWithOptions(const DeleteMcdpCrowd
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcdpCrowd"},
     {"version" , "2020-10-28"},
@@ -1886,7 +2284,7 @@ DeleteMcdpCrowdResponse Client::deleteMcdpCrowdWithOptions(const DeleteMcdpCrowd
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcdpCrowdResponse>();
 }
 
@@ -1925,7 +2323,7 @@ DeleteMcdpZoneResponse Client::deleteMcdpZoneWithOptions(const DeleteMcdpZoneReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcdpZone"},
     {"version" , "2020-10-28"},
@@ -1936,7 +2334,7 @@ DeleteMcdpZoneResponse Client::deleteMcdpZoneWithOptions(const DeleteMcdpZoneReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcdpZoneResponse>();
 }
 
@@ -1975,7 +2373,7 @@ DeleteMcubeMiniAppResponse Client::deleteMcubeMiniAppWithOptions(const DeleteMcu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcubeMiniApp"},
     {"version" , "2020-10-28"},
@@ -1986,7 +2384,7 @@ DeleteMcubeMiniAppResponse Client::deleteMcubeMiniAppWithOptions(const DeleteMcu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcubeMiniAppResponse>();
 }
 
@@ -2025,7 +2423,7 @@ DeleteMcubeNebulaAppResponse Client::deleteMcubeNebulaAppWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcubeNebulaApp"},
     {"version" , "2020-10-28"},
@@ -2036,7 +2434,7 @@ DeleteMcubeNebulaAppResponse Client::deleteMcubeNebulaAppWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcubeNebulaAppResponse>();
 }
 
@@ -2079,7 +2477,7 @@ DeleteMcubeUpgradeResourceResponse Client::deleteMcubeUpgradeResourceWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcubeUpgradeResource"},
     {"version" , "2020-10-28"},
@@ -2090,7 +2488,7 @@ DeleteMcubeUpgradeResourceResponse Client::deleteMcubeUpgradeResourceWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcubeUpgradeResourceResponse>();
 }
 
@@ -2129,7 +2527,7 @@ DeleteMcubeWhitelistResponse Client::deleteMcubeWhitelistWithOptions(const Delet
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMcubeWhitelist"},
     {"version" , "2020-10-28"},
@@ -2140,7 +2538,7 @@ DeleteMcubeWhitelistResponse Client::deleteMcubeWhitelistWithOptions(const Delet
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMcubeWhitelistResponse>();
 }
 
@@ -2183,7 +2581,7 @@ DeleteMdsWhitelistContentResponse Client::deleteMdsWhitelistContentWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "DeleteMdsWhitelistContent"},
     {"version" , "2020-10-28"},
@@ -2194,7 +2592,7 @@ DeleteMdsWhitelistContentResponse Client::deleteMdsWhitelistContentWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DeleteMdsWhitelistContentResponse>();
 }
 
@@ -2205,6 +2603,64 @@ DeleteMdsWhitelistContentResponse Client::deleteMdsWhitelistContentWithOptions(c
 DeleteMdsWhitelistContentResponse Client::deleteMdsWhitelistContent(const DeleteMdsWhitelistContentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMdsWhitelistContentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除模版
+ *
+ * @param request DeleteTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplateWithOptions(const DeleteTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.templateName();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteTemplate"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTemplateResponse>();
+}
+
+/**
+ * @summary 删除模版
+ *
+ * @param request DeleteTemplateRequest
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplate(const DeleteTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2229,7 +2685,7 @@ ExistMcubeRsaKeyResponse Client::existMcubeRsaKeyWithOptions(const ExistMcubeRsa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExistMcubeRsaKey"},
     {"version" , "2020-10-28"},
@@ -2240,7 +2696,7 @@ ExistMcubeRsaKeyResponse Client::existMcubeRsaKeyWithOptions(const ExistMcubeRsa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExistMcubeRsaKeyResponse>();
 }
 
@@ -2291,7 +2747,7 @@ ExportMappCenterAppConfigResponse Client::exportMappCenterAppConfigWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ExportMappCenterAppConfig"},
     {"version" , "2020-10-28"},
@@ -2302,7 +2758,7 @@ ExportMappCenterAppConfigResponse Client::exportMappCenterAppConfigWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ExportMappCenterAppConfigResponse>();
 }
 
@@ -2341,7 +2797,7 @@ GetFileTokenForUploadToMsaResponse Client::getFileTokenForUploadToMsaWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetFileTokenForUploadToMsa"},
     {"version" , "2020-10-28"},
@@ -2352,7 +2808,7 @@ GetFileTokenForUploadToMsaResponse Client::getFileTokenForUploadToMsaWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetFileTokenForUploadToMsaResponse>();
 }
 
@@ -2391,7 +2847,7 @@ GetLogUrlInMsaResponse Client::getLogUrlInMsaWithOptions(const GetLogUrlInMsaReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetLogUrlInMsa"},
     {"version" , "2020-10-28"},
@@ -2402,7 +2858,7 @@ GetLogUrlInMsaResponse Client::getLogUrlInMsaWithOptions(const GetLogUrlInMsaReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetLogUrlInMsaResponse>();
 }
 
@@ -2441,7 +2897,7 @@ GetMcubeFileTokenResponse Client::getMcubeFileTokenWithOptions(const GetMcubeFil
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMcubeFileToken"},
     {"version" , "2020-10-28"},
@@ -2452,7 +2908,7 @@ GetMcubeFileTokenResponse Client::getMcubeFileTokenWithOptions(const GetMcubeFil
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMcubeFileTokenResponse>();
 }
 
@@ -2491,7 +2947,7 @@ GetMcubeNebulaResourceResponse Client::getMcubeNebulaResourceWithOptions(const G
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMcubeNebulaResource"},
     {"version" , "2020-10-28"},
@@ -2502,7 +2958,7 @@ GetMcubeNebulaResourceResponse Client::getMcubeNebulaResourceWithOptions(const G
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMcubeNebulaResourceResponse>();
 }
 
@@ -2541,7 +2997,7 @@ GetMcubeNebulaTaskDetailResponse Client::getMcubeNebulaTaskDetailWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMcubeNebulaTaskDetail"},
     {"version" , "2020-10-28"},
@@ -2552,7 +3008,7 @@ GetMcubeNebulaTaskDetailResponse Client::getMcubeNebulaTaskDetailWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMcubeNebulaTaskDetailResponse>();
 }
 
@@ -2591,7 +3047,7 @@ GetMcubeUpgradePackageInfoResponse Client::getMcubeUpgradePackageInfoWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMcubeUpgradePackageInfo"},
     {"version" , "2020-10-28"},
@@ -2602,7 +3058,7 @@ GetMcubeUpgradePackageInfoResponse Client::getMcubeUpgradePackageInfoWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMcubeUpgradePackageInfoResponse>();
 }
 
@@ -2641,7 +3097,7 @@ GetMcubeUpgradeTaskInfoResponse Client::getMcubeUpgradeTaskInfoWithOptions(const
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMcubeUpgradeTaskInfo"},
     {"version" , "2020-10-28"},
@@ -2652,7 +3108,7 @@ GetMcubeUpgradeTaskInfoResponse Client::getMcubeUpgradeTaskInfoWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMcubeUpgradeTaskInfoResponse>();
 }
 
@@ -2691,7 +3147,7 @@ GetMdsMiniConfigResponse Client::getMdsMiniConfigWithOptions(const GetMdsMiniCon
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetMdsMiniConfig"},
     {"version" , "2020-10-28"},
@@ -2702,7 +3158,7 @@ GetMdsMiniConfigResponse Client::getMdsMiniConfigWithOptions(const GetMdsMiniCon
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetMdsMiniConfigResponse>();
 }
 
@@ -2713,6 +3169,64 @@ GetMdsMiniConfigResponse Client::getMdsMiniConfigWithOptions(const GetMdsMiniCon
 GetMdsMiniConfigResponse Client::getMdsMiniConfig(const GetMdsMiniConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getMdsMiniConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取模版
+ *
+ * @param request GetTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplateWithOptions(const GetTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.templateName();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTemplate"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTemplateResponse>();
+}
+
+/**
+ * @summary 获取模版
+ *
+ * @param request GetTemplateRequest
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplate(const GetTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2741,7 +3255,7 @@ GetUserAppDonwloadUrlInMsaResponse Client::getUserAppDonwloadUrlInMsaWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetUserAppDonwloadUrlInMsa"},
     {"version" , "2020-10-28"},
@@ -2752,7 +3266,7 @@ GetUserAppDonwloadUrlInMsaResponse Client::getUserAppDonwloadUrlInMsaWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserAppDonwloadUrlInMsaResponse>();
 }
 
@@ -2791,7 +3305,7 @@ GetUserAppEnhanceProcessInMsaResponse Client::getUserAppEnhanceProcessInMsaWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetUserAppEnhanceProcessInMsa"},
     {"version" , "2020-10-28"},
@@ -2802,7 +3316,7 @@ GetUserAppEnhanceProcessInMsaResponse Client::getUserAppEnhanceProcessInMsaWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserAppEnhanceProcessInMsaResponse>();
 }
 
@@ -2841,7 +3355,7 @@ GetUserAppUploadProcessInMsaResponse Client::getUserAppUploadProcessInMsaWithOpt
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "GetUserAppUploadProcessInMsa"},
     {"version" , "2020-10-28"},
@@ -2852,7 +3366,7 @@ GetUserAppUploadProcessInMsaResponse Client::getUserAppUploadProcessInMsaWithOpt
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<GetUserAppUploadProcessInMsaResponse>();
 }
 
@@ -2863,6 +3377,109 @@ GetUserAppUploadProcessInMsaResponse Client::getUserAppUploadProcessInMsaWithOpt
 GetUserAppUploadProcessInMsaResponse Client::getUserAppUploadProcessInMsa(const GetUserAppUploadProcessInMsaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserAppUploadProcessInMsaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询报表
+ *
+ * @param request ListAnalysisCoreIndexRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAnalysisCoreIndexResponse
+ */
+ListAnalysisCoreIndexResponse Client::listAnalysisCoreIndexWithOptions(const ListAnalysisCoreIndexRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasChannel()) {
+    body["Channel"] = request.channel();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasPlatform()) {
+    body["Platform"] = request.platform();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.type();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListAnalysisCoreIndex"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAnalysisCoreIndexResponse>();
+}
+
+/**
+ * @summary 查询报表
+ *
+ * @param request ListAnalysisCoreIndexRequest
+ * @return ListAnalysisCoreIndexResponse
+ */
+ListAnalysisCoreIndexResponse Client::listAnalysisCoreIndex(const ListAnalysisCoreIndexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAnalysisCoreIndexWithOptions(request, runtime);
+}
+
+/**
+ * @param request ListCubecardAppsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCubecardAppsResponse
+ */
+ListCubecardAppsResponse Client::listCubecardAppsWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListCubecardApps"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCubecardAppsResponse>();
+}
+
+/**
+ * @return ListCubecardAppsResponse
+ */
+ListCubecardAppsResponse Client::listCubecardApps() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCubecardAppsWithOptions(runtime);
 }
 
 /**
@@ -2882,7 +3499,7 @@ ListMappCenterAppsResponse Client::listMappCenterAppsWithOptions(const Darabonba
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMappCenterAppsResponse>();
 }
 
@@ -2911,7 +3528,7 @@ ListMappCenterWorkspacesResponse Client::listMappCenterWorkspacesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMappCenterWorkspacesResponse>();
 }
 
@@ -2977,7 +3594,7 @@ ListMcdpAimResponse Client::listMcdpAimWithOptions(const ListMcdpAimRequest &req
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcdpAim"},
     {"version" , "2020-10-28"},
@@ -2988,7 +3605,7 @@ ListMcdpAimResponse Client::listMcdpAimWithOptions(const ListMcdpAimRequest &req
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcdpAimResponse>();
 }
 
@@ -3035,7 +3652,7 @@ ListMcubeMiniAppsResponse Client::listMcubeMiniAppsWithOptions(const ListMcubeMi
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeMiniApps"},
     {"version" , "2020-10-28"},
@@ -3046,7 +3663,7 @@ ListMcubeMiniAppsResponse Client::listMcubeMiniAppsWithOptions(const ListMcubeMi
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeMiniAppsResponse>();
 }
 
@@ -3097,7 +3714,7 @@ ListMcubeMiniPackagesResponse Client::listMcubeMiniPackagesWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeMiniPackages"},
     {"version" , "2020-10-28"},
@@ -3108,7 +3725,7 @@ ListMcubeMiniPackagesResponse Client::listMcubeMiniPackagesWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeMiniPackagesResponse>();
 }
 
@@ -3147,7 +3764,7 @@ ListMcubeMiniTasksResponse Client::listMcubeMiniTasksWithOptions(const ListMcube
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeMiniTasks"},
     {"version" , "2020-10-28"},
@@ -3158,7 +3775,7 @@ ListMcubeMiniTasksResponse Client::listMcubeMiniTasksWithOptions(const ListMcube
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeMiniTasksResponse>();
 }
 
@@ -3205,7 +3822,7 @@ ListMcubeNebulaAppsResponse Client::listMcubeNebulaAppsWithOptions(const ListMcu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeNebulaApps"},
     {"version" , "2020-10-28"},
@@ -3216,7 +3833,7 @@ ListMcubeNebulaAppsResponse Client::listMcubeNebulaAppsWithOptions(const ListMcu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeNebulaAppsResponse>();
 }
 
@@ -3263,7 +3880,7 @@ ListMcubeNebulaResourcesResponse Client::listMcubeNebulaResourcesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeNebulaResources"},
     {"version" , "2020-10-28"},
@@ -3274,7 +3891,7 @@ ListMcubeNebulaResourcesResponse Client::listMcubeNebulaResourcesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeNebulaResourcesResponse>();
 }
 
@@ -3313,7 +3930,7 @@ ListMcubeNebulaTasksResponse Client::listMcubeNebulaTasksWithOptions(const ListM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeNebulaTasks"},
     {"version" , "2020-10-28"},
@@ -3324,7 +3941,7 @@ ListMcubeNebulaTasksResponse Client::listMcubeNebulaTasksWithOptions(const ListM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeNebulaTasksResponse>();
 }
 
@@ -3367,7 +3984,7 @@ ListMcubeUpgradePackagesResponse Client::listMcubeUpgradePackagesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeUpgradePackages"},
     {"version" , "2020-10-28"},
@@ -3378,7 +3995,7 @@ ListMcubeUpgradePackagesResponse Client::listMcubeUpgradePackagesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeUpgradePackagesResponse>();
 }
 
@@ -3417,7 +4034,7 @@ ListMcubeUpgradeTasksResponse Client::listMcubeUpgradeTasksWithOptions(const Lis
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeUpgradeTasks"},
     {"version" , "2020-10-28"},
@@ -3428,7 +4045,7 @@ ListMcubeUpgradeTasksResponse Client::listMcubeUpgradeTasksWithOptions(const Lis
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeUpgradeTasksResponse>();
 }
 
@@ -3475,7 +4092,7 @@ ListMcubeWhitelistsResponse Client::listMcubeWhitelistsWithOptions(const ListMcu
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMcubeWhitelists"},
     {"version" , "2020-10-28"},
@@ -3486,7 +4103,7 @@ ListMcubeWhitelistsResponse Client::listMcubeWhitelistsWithOptions(const ListMcu
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMcubeWhitelistsResponse>();
 }
 
@@ -3497,6 +4114,184 @@ ListMcubeWhitelistsResponse Client::listMcubeWhitelistsWithOptions(const ListMcu
 ListMcubeWhitelistsResponse Client::listMcubeWhitelists(const ListMcubeWhitelistsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listMcubeWhitelistsWithOptions(request, runtime);
+}
+
+/**
+ * @param request ListMdsCubeResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMdsCubeResourcesResponse
+ */
+ListMdsCubeResourcesResponse Client::listMdsCubeResourcesWithOptions(const ListMdsCubeResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasTest()) {
+    body["test"] = request.test();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMdsCubeResources"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMdsCubeResourcesResponse>();
+}
+
+/**
+ * @param request ListMdsCubeResourcesRequest
+ * @return ListMdsCubeResourcesResponse
+ */
+ListMdsCubeResourcesResponse Client::listMdsCubeResources(const ListMdsCubeResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMdsCubeResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @param request ListMdsCubeTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMdsCubeTasksResponse
+ */
+ListMdsCubeTasksResponse Client::listMdsCubeTasksWithOptions(const ListMdsCubeTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTemplateResourceId()) {
+    body["TemplateResourceId"] = request.templateResourceId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMdsCubeTasks"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMdsCubeTasksResponse>();
+}
+
+/**
+ * @param request ListMdsCubeTasksRequest
+ * @return ListMdsCubeTasksResponse
+ */
+ListMdsCubeTasksResponse Client::listMdsCubeTasks(const ListMdsCubeTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMdsCubeTasksWithOptions(request, runtime);
+}
+
+/**
+ * @param request ListMdsCubeTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMdsCubeTemplatesResponse
+ */
+ListMdsCubeTemplatesResponse Client::listMdsCubeTemplatesWithOptions(const ListMdsCubeTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.keyword();
+  }
+
+  if (!!request.hasPageNum()) {
+    body["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMdsCubeTemplates"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMdsCubeTemplatesResponse>();
+}
+
+/**
+ * @param request ListMdsCubeTemplatesRequest
+ * @return ListMdsCubeTemplatesResponse
+ */
+ListMdsCubeTemplatesResponse Client::listMdsCubeTemplates(const ListMdsCubeTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMdsCubeTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -3573,7 +4368,7 @@ ListMgsApiResponse Client::listMgsApiWithOptions(const ListMgsApiRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListMgsApi"},
     {"version" , "2020-10-28"},
@@ -3584,7 +4379,7 @@ ListMgsApiResponse Client::listMgsApiWithOptions(const ListMgsApiRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ListMgsApiResponse>();
 }
 
@@ -3595,6 +4390,64 @@ ListMgsApiResponse Client::listMgsApiWithOptions(const ListMgsApiRequest &reques
 ListMgsApiResponse Client::listMgsApi(const ListMgsApiRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listMgsApiWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询模版列表
+ *
+ * @param request ListTemplatePageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTemplatePageResponse
+ */
+ListTemplatePageResponse Client::listTemplatePageWithOptions(const ListTemplatePageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    body["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListTemplatePage"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTemplatePageResponse>();
+}
+
+/**
+ * @summary 分页查询模版列表
+ *
+ * @param request ListTemplatePageRequest
+ * @return ListTemplatePageResponse
+ */
+ListTemplatePageResponse Client::listTemplatePage(const ListTemplatePageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTemplatePageWithOptions(request, runtime);
 }
 
 /**
@@ -3633,7 +4486,7 @@ MTRSOCRServiceResponse Client::mTRSOCRServiceWithOptions(const MTRSOCRServiceReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "MTRSOCRService"},
     {"version" , "2020-10-28"},
@@ -3644,7 +4497,7 @@ MTRSOCRServiceResponse Client::mTRSOCRServiceWithOptions(const MTRSOCRServiceReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<MTRSOCRServiceResponse>();
 }
 
@@ -3697,7 +4550,7 @@ PushBindResponse Client::pushBindWithOptions(const PushBindRequest &request, con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushBind"},
     {"version" , "2020-10-28"},
@@ -3708,7 +4561,7 @@ PushBindResponse Client::pushBindWithOptions(const PushBindRequest &request, con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushBindResponse>();
 }
 
@@ -3730,6 +4583,10 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
   tmpReq.validate();
   PushBroadcastShrinkRequest request = PushBroadcastShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNotifyLevel()) {
+    request.setNotifyLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel(), "NotifyLevel", "json"));
+  }
+
   if (!!tmpReq.hasThirdChannelCategory()) {
     request.setThirdChannelCategoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory(), "ThirdChannelCategory", "json"));
   }
@@ -3743,8 +4600,16 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
     body["AppId"] = request.appId();
   }
 
+  if (!!request.hasBindEndTime()) {
+    body["BindEndTime"] = request.bindEndTime();
+  }
+
   if (!!request.hasBindPeriod()) {
     body["BindPeriod"] = request.bindPeriod();
+  }
+
+  if (!!request.hasBindStartTime()) {
+    body["BindStartTime"] = request.bindStartTime();
   }
 
   if (!!request.hasChannelId()) {
@@ -3773,6 +4638,10 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
 
   if (!!request.hasMsgkey()) {
     body["Msgkey"] = request.msgkey();
+  }
+
+  if (!!request.hasNotifyLevelShrink()) {
+    body["NotifyLevel"] = request.notifyLevelShrink();
   }
 
   if (!!request.hasNotifyType()) {
@@ -3819,6 +4688,10 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
     body["ThirdChannelCategory"] = request.thirdChannelCategoryShrink();
   }
 
+  if (!!request.hasTimeMode()) {
+    body["TimeMode"] = request.timeMode();
+  }
+
   if (!!request.hasTransparentMessagePayload()) {
     body["TransparentMessagePayload"] = request.transparentMessagePayload();
   }
@@ -3827,8 +4700,16 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
     body["TransparentMessageUrgency"] = request.transparentMessageUrgency();
   }
 
+  if (!!request.hasUnBindEndTime()) {
+    body["UnBindEndTime"] = request.unBindEndTime();
+  }
+
   if (!!request.hasUnBindPeriod()) {
     body["UnBindPeriod"] = request.unBindPeriod();
+  }
+
+  if (!!request.hasUnBindStartTime()) {
+    body["UnBindStartTime"] = request.unBindStartTime();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -3837,7 +4718,7 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushBroadcast"},
     {"version" , "2020-10-28"},
@@ -3848,7 +4729,7 @@ PushBroadcastResponse Client::pushBroadcastWithOptions(const PushBroadcastReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushBroadcastResponse>();
 }
 
@@ -3870,6 +4751,10 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
   tmpReq.validate();
   PushMultipleShrinkRequest request = PushMultipleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNotifyLevel()) {
+    request.setNotifyLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel(), "NotifyLevel", "json"));
+  }
+
   if (!!tmpReq.hasThirdChannelCategory()) {
     request.setThirdChannelCategoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory(), "ThirdChannelCategory", "json"));
   }
@@ -3913,6 +4798,10 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
 
   if (!!request.hasMiChannelId()) {
     body["MiChannelId"] = request.miChannelId();
+  }
+
+  if (!!request.hasNotifyLevelShrink()) {
+    body["NotifyLevel"] = request.notifyLevelShrink();
   }
 
   if (!!request.hasNotifyType()) {
@@ -3969,7 +4858,7 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushMultiple"},
     {"version" , "2020-10-28"},
@@ -3980,7 +4869,7 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushMultipleResponse>();
 }
 
@@ -3991,6 +4880,64 @@ PushMultipleResponse Client::pushMultipleWithOptions(const PushMultipleRequest &
 PushMultipleResponse Client::pushMultiple(const PushMultipleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return pushMultipleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询设备状态信息
+ *
+ * @param request PushQueryDeviceStateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PushQueryDeviceStateResponse
+ */
+PushQueryDeviceStateResponse Client::pushQueryDeviceStateWithOptions(const PushQueryDeviceStateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTarget()) {
+    body["Target"] = request.target();
+  }
+
+  if (!!request.hasTargetType()) {
+    body["TargetType"] = request.targetType();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PushQueryDeviceState"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PushQueryDeviceStateResponse>();
+}
+
+/**
+ * @summary 查询设备状态信息
+ *
+ * @param request PushQueryDeviceStateRequest
+ * @return PushQueryDeviceStateResponse
+ */
+PushQueryDeviceStateResponse Client::pushQueryDeviceState(const PushQueryDeviceStateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pushQueryDeviceStateWithOptions(request, runtime);
 }
 
 /**
@@ -4059,7 +5006,7 @@ PushReportResponse Client::pushReportWithOptions(const PushReportRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushReport"},
     {"version" , "2020-10-28"},
@@ -4070,7 +5017,7 @@ PushReportResponse Client::pushReportWithOptions(const PushReportRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushReportResponse>();
 }
 
@@ -4094,6 +5041,10 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
   tmpReq.validate();
   PushSimpleShrinkRequest request = PushSimpleShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNotifyLevel()) {
+    request.setNotifyLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel(), "NotifyLevel", "json"));
+  }
+
   if (!!tmpReq.hasThirdChannelCategory()) {
     request.setThirdChannelCategoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory(), "ThirdChannelCategory", "json"));
   }
@@ -4149,6 +5100,10 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
 
   if (!!request.hasMiChannelId()) {
     body["MiChannelId"] = request.miChannelId();
+  }
+
+  if (!!request.hasNotifyLevelShrink()) {
+    body["NotifyLevel"] = request.notifyLevelShrink();
   }
 
   if (!!request.hasNotifyType()) {
@@ -4229,7 +5184,7 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushSimple"},
     {"version" , "2020-10-28"},
@@ -4240,7 +5195,7 @@ PushSimpleResponse Client::pushSimpleWithOptions(const PushSimpleRequest &tmpReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushSimpleResponse>();
 }
 
@@ -4264,6 +5219,10 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
   tmpReq.validate();
   PushTemplateShrinkRequest request = PushTemplateShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNotifyLevel()) {
+    request.setNotifyLevelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.notifyLevel(), "NotifyLevel", "json"));
+  }
+
   if (!!tmpReq.hasThirdChannelCategory()) {
     request.setThirdChannelCategoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.thirdChannelCategory(), "ThirdChannelCategory", "json"));
   }
@@ -4307,6 +5266,10 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
 
   if (!!request.hasMiChannelId()) {
     body["MiChannelId"] = request.miChannelId();
+  }
+
+  if (!!request.hasNotifyLevelShrink()) {
+    body["NotifyLevel"] = request.notifyLevelShrink();
   }
 
   if (!!request.hasNotifyType()) {
@@ -4383,7 +5346,7 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushTemplate"},
     {"version" , "2020-10-28"},
@@ -4394,7 +5357,7 @@ PushTemplateResponse Client::pushTemplateWithOptions(const PushTemplateRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushTemplateResponse>();
 }
 
@@ -4437,7 +5400,7 @@ PushUnBindResponse Client::pushUnBindWithOptions(const PushUnBindRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushUnBind"},
     {"version" , "2020-10-28"},
@@ -4448,7 +5411,7 @@ PushUnBindResponse Client::pushUnBindWithOptions(const PushUnBindRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<PushUnBindResponse>();
 }
 
@@ -4459,6 +5422,56 @@ PushUnBindResponse Client::pushUnBindWithOptions(const PushUnBindRequest &reques
 PushUnBindResponse Client::pushUnBind(const PushUnBindRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return pushUnBindWithOptions(request, runtime);
+}
+
+/**
+ * @param request QueryCubecardFiletokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCubecardFiletokenResponse
+ */
+QueryCubecardFiletokenResponse Client::queryCubecardFiletokenWithOptions(const QueryCubecardFiletokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasOnexFlag()) {
+    body["OnexFlag"] = request.onexFlag();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryCubecardFiletoken"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCubecardFiletokenResponse>();
+}
+
+/**
+ * @param request QueryCubecardFiletokenRequest
+ * @return QueryCubecardFiletokenResponse
+ */
+QueryCubecardFiletokenResponse Client::queryCubecardFiletoken(const QueryCubecardFiletokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryCubecardFiletokenWithOptions(request, runtime);
 }
 
 /**
@@ -4501,7 +5514,7 @@ QueryInfoFromMdpResponse Client::queryInfoFromMdpWithOptions(const QueryInfoFrom
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryInfoFromMdp"},
     {"version" , "2020-10-28"},
@@ -4512,7 +5525,7 @@ QueryInfoFromMdpResponse Client::queryInfoFromMdpWithOptions(const QueryInfoFrom
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryInfoFromMdpResponse>();
 }
 
@@ -4551,7 +5564,7 @@ QueryLinkResponse Client::queryLinkWithOptions(const QueryLinkRequest &request, 
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryLink"},
     {"version" , "2020-10-28"},
@@ -4562,7 +5575,7 @@ QueryLinkResponse Client::queryLinkWithOptions(const QueryLinkRequest &request, 
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryLinkResponse>();
 }
 
@@ -4595,7 +5608,7 @@ QueryMappCenterAppResponse Client::queryMappCenterAppWithOptions(const QueryMapp
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMappCenterApp"},
     {"version" , "2020-10-28"},
@@ -4606,7 +5619,7 @@ QueryMappCenterAppResponse Client::queryMappCenterAppWithOptions(const QueryMapp
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMappCenterAppResponse>();
 }
 
@@ -4645,7 +5658,7 @@ QueryMcdpAimResponse Client::queryMcdpAimWithOptions(const QueryMcdpAimRequest &
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMcdpAim"},
     {"version" , "2020-10-28"},
@@ -4656,7 +5669,7 @@ QueryMcdpAimResponse Client::queryMcdpAimWithOptions(const QueryMcdpAimRequest &
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMcdpAimResponse>();
 }
 
@@ -4695,7 +5708,7 @@ QueryMcdpZoneResponse Client::queryMcdpZoneWithOptions(const QueryMcdpZoneReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMcdpZone"},
     {"version" , "2020-10-28"},
@@ -4706,7 +5719,7 @@ QueryMcdpZoneResponse Client::queryMcdpZoneWithOptions(const QueryMcdpZoneReques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMcdpZoneResponse>();
 }
 
@@ -4749,7 +5762,7 @@ QueryMcubeMiniPackageResponse Client::queryMcubeMiniPackageWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMcubeMiniPackage"},
     {"version" , "2020-10-28"},
@@ -4760,7 +5773,7 @@ QueryMcubeMiniPackageResponse Client::queryMcubeMiniPackageWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMcubeMiniPackageResponse>();
 }
 
@@ -4799,7 +5812,7 @@ QueryMcubeMiniTaskResponse Client::queryMcubeMiniTaskWithOptions(const QueryMcub
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMcubeMiniTask"},
     {"version" , "2020-10-28"},
@@ -4810,7 +5823,7 @@ QueryMcubeMiniTaskResponse Client::queryMcubeMiniTaskWithOptions(const QueryMcub
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMcubeMiniTaskResponse>();
 }
 
@@ -4845,7 +5858,7 @@ QueryMcubeVhostResponse Client::queryMcubeVhostWithOptions(const QueryMcubeVhost
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMcubeVhost"},
     {"version" , "2020-10-28"},
@@ -4856,7 +5869,7 @@ QueryMcubeVhostResponse Client::queryMcubeVhostWithOptions(const QueryMcubeVhost
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMcubeVhostResponse>();
 }
 
@@ -4895,7 +5908,7 @@ QueryMdsUpgradeTaskDetailResponse Client::queryMdsUpgradeTaskDetailWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMdsUpgradeTaskDetail"},
     {"version" , "2020-10-28"},
@@ -4906,7 +5919,7 @@ QueryMdsUpgradeTaskDetailResponse Client::queryMdsUpgradeTaskDetailWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMdsUpgradeTaskDetailResponse>();
 }
 
@@ -4993,7 +6006,7 @@ QueryMgsApipageResponse Client::queryMgsApipageWithOptions(const QueryMgsApipage
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMgsApipage"},
     {"version" , "2020-10-28"},
@@ -5004,7 +6017,7 @@ QueryMgsApipageResponse Client::queryMgsApipageWithOptions(const QueryMgsApipage
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMgsApipageResponse>();
 }
 
@@ -5051,7 +6064,7 @@ QueryMgsApirestResponse Client::queryMgsApirestWithOptions(const QueryMgsApirest
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMgsApirest"},
     {"version" , "2020-10-28"},
@@ -5062,7 +6075,7 @@ QueryMgsApirestResponse Client::queryMgsApirestWithOptions(const QueryMgsApirest
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMgsApirestResponse>();
 }
 
@@ -5105,7 +6118,7 @@ QueryMgsTestreqbodyautogenResponse Client::queryMgsTestreqbodyautogenWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMgsTestreqbodyautogen"},
     {"version" , "2020-10-28"},
@@ -5116,7 +6129,7 @@ QueryMgsTestreqbodyautogenResponse Client::queryMgsTestreqbodyautogenWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMgsTestreqbodyautogenResponse>();
 }
 
@@ -5171,7 +6184,7 @@ QueryMpsSchedulerListResponse Client::queryMpsSchedulerListWithOptions(const Que
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryMpsSchedulerList"},
     {"version" , "2020-10-28"},
@@ -5182,7 +6195,7 @@ QueryMpsSchedulerListResponse Client::queryMpsSchedulerListWithOptions(const Que
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryMpsSchedulerListResponse>();
 }
 
@@ -5241,7 +6254,7 @@ QueryPushAnalysisCoreIndexResponse Client::queryPushAnalysisCoreIndexWithOptions
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryPushAnalysisCoreIndex"},
     {"version" , "2020-10-28"},
@@ -5252,7 +6265,7 @@ QueryPushAnalysisCoreIndexResponse Client::queryPushAnalysisCoreIndexWithOptions
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryPushAnalysisCoreIndexResponse>();
 }
 
@@ -5291,7 +6304,7 @@ QueryPushAnalysisTaskDetailResponse Client::queryPushAnalysisTaskDetailWithOptio
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryPushAnalysisTaskDetail"},
     {"version" , "2020-10-28"},
@@ -5302,7 +6315,7 @@ QueryPushAnalysisTaskDetailResponse Client::queryPushAnalysisTaskDetailWithOptio
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryPushAnalysisTaskDetailResponse>();
 }
 
@@ -5357,7 +6370,7 @@ QueryPushAnalysisTaskListResponse Client::queryPushAnalysisTaskListWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryPushAnalysisTaskList"},
     {"version" , "2020-10-28"},
@@ -5368,7 +6381,7 @@ QueryPushAnalysisTaskListResponse Client::queryPushAnalysisTaskListWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryPushAnalysisTaskListResponse>();
 }
 
@@ -5427,7 +6440,7 @@ QueryPushSchedulerListResponse Client::queryPushSchedulerListWithOptions(const Q
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "QueryPushSchedulerList"},
     {"version" , "2020-10-28"},
@@ -5438,7 +6451,7 @@ QueryPushSchedulerListResponse Client::queryPushSchedulerListWithOptions(const Q
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<QueryPushSchedulerListResponse>();
 }
 
@@ -5481,7 +6494,7 @@ RevokePushMessageResponse Client::revokePushMessageWithOptions(const RevokePushM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RevokePushMessage"},
     {"version" , "2020-10-28"},
@@ -5492,7 +6505,7 @@ RevokePushMessageResponse Client::revokePushMessageWithOptions(const RevokePushM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RevokePushMessageResponse>();
 }
 
@@ -5531,7 +6544,7 @@ RevokePushTaskResponse Client::revokePushTaskWithOptions(const RevokePushTaskReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RevokePushTask"},
     {"version" , "2020-10-28"},
@@ -5542,7 +6555,7 @@ RevokePushTaskResponse Client::revokePushTaskWithOptions(const RevokePushTaskReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RevokePushTaskResponse>();
 }
 
@@ -5581,7 +6594,7 @@ RunMsaDiffResponse Client::runMsaDiffWithOptions(const RunMsaDiffRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "RunMsaDiff"},
     {"version" , "2020-10-28"},
@@ -5592,7 +6605,7 @@ RunMsaDiffResponse Client::runMsaDiffWithOptions(const RunMsaDiffRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<RunMsaDiffResponse>();
 }
 
@@ -5631,7 +6644,7 @@ SaveMgsApirestResponse Client::saveMgsApirestWithOptions(const SaveMgsApirestReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "SaveMgsApirest"},
     {"version" , "2020-10-28"},
@@ -5642,7 +6655,7 @@ SaveMgsApirestResponse Client::saveMgsApirestWithOptions(const SaveMgsApirestReq
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<SaveMgsApirestResponse>();
 }
 
@@ -5745,7 +6758,7 @@ StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithO
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "StartUserAppAsyncEnhanceInMsa"},
     {"version" , "2020-10-28"},
@@ -5756,7 +6769,7 @@ StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithO
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<StartUserAppAsyncEnhanceInMsaResponse>();
 }
 
@@ -5809,7 +6822,7 @@ UpdateLinkResponse Client::updateLinkWithOptions(const UpdateLinkRequest &reques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateLink"},
     {"version" , "2020-10-28"},
@@ -5820,7 +6833,7 @@ UpdateLinkResponse Client::updateLinkWithOptions(const UpdateLinkRequest &reques
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateLinkResponse>();
 }
 
@@ -5873,7 +6886,7 @@ UpdateMcubeWhitelistResponse Client::updateMcubeWhitelistWithOptions(const Updat
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateMcubeWhitelist"},
     {"version" , "2020-10-28"},
@@ -5884,7 +6897,7 @@ UpdateMcubeWhitelistResponse Client::updateMcubeWhitelistWithOptions(const Updat
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMcubeWhitelistResponse>();
 }
 
@@ -5895,6 +6908,64 @@ UpdateMcubeWhitelistResponse Client::updateMcubeWhitelistWithOptions(const Updat
 UpdateMcubeWhitelistResponse Client::updateMcubeWhitelist(const UpdateMcubeWhitelistRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMcubeWhitelistWithOptions(request, runtime);
+}
+
+/**
+ * @param request UpdateMdsCubeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMdsCubeResourceResponse
+ */
+UpdateMdsCubeResourceResponse Client::updateMdsCubeResourceWithOptions(const UpdateMdsCubeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasMockDataUrl()) {
+    body["MockDataUrl"] = request.mockDataUrl();
+  }
+
+  if (!!request.hasOnexFlag()) {
+    body["OnexFlag"] = request.onexFlag();
+  }
+
+  if (!!request.hasTemplateResourceId()) {
+    body["TemplateResourceId"] = request.templateResourceId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateMdsCubeResource"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMdsCubeResourceResponse>();
+}
+
+/**
+ * @param request UpdateMdsCubeResourceRequest
+ * @return UpdateMdsCubeResourceResponse
+ */
+UpdateMdsCubeResourceResponse Client::updateMdsCubeResource(const UpdateMdsCubeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMdsCubeResourceWithOptions(request, runtime);
 }
 
 /**
@@ -5935,7 +7006,7 @@ UpdateMpaasAppInfoResponse Client::updateMpaasAppInfoWithOptions(const UpdateMpa
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UpdateMpaasAppInfo"},
     {"version" , "2020-10-28"},
@@ -5946,7 +7017,7 @@ UpdateMpaasAppInfoResponse Client::updateMpaasAppInfoWithOptions(const UpdateMpa
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateMpaasAppInfoResponse>();
 }
 
@@ -5999,7 +7070,7 @@ UploadBitcodeToMsaResponse Client::uploadBitcodeToMsaWithOptions(const UploadBit
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadBitcodeToMsa"},
     {"version" , "2020-10-28"},
@@ -6010,7 +7081,7 @@ UploadBitcodeToMsaResponse Client::uploadBitcodeToMsaWithOptions(const UploadBit
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadBitcodeToMsaResponse>();
 }
 
@@ -6135,7 +7206,7 @@ UploadMcubeMiniPackageResponse Client::uploadMcubeMiniPackageWithOptions(const U
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadMcubeMiniPackage"},
     {"version" , "2020-10-28"},
@@ -6146,7 +7217,7 @@ UploadMcubeMiniPackageResponse Client::uploadMcubeMiniPackageWithOptions(const U
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadMcubeMiniPackageResponse>();
 }
 
@@ -6189,7 +7260,7 @@ UploadMcubeRsaKeyResponse Client::uploadMcubeRsaKeyWithOptions(const UploadMcube
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadMcubeRsaKey"},
     {"version" , "2020-10-28"},
@@ -6200,7 +7271,7 @@ UploadMcubeRsaKeyResponse Client::uploadMcubeRsaKeyWithOptions(const UploadMcube
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadMcubeRsaKeyResponse>();
 }
 
@@ -6225,6 +7296,10 @@ UploadUserAppToMsaResponse Client::uploadUserAppToMsaWithOptions(const UploadUse
     body["AppId"] = request.appId();
   }
 
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.fileName();
+  }
+
   if (!!request.hasFileUrl()) {
     body["FileUrl"] = request.fileUrl();
   }
@@ -6239,7 +7314,7 @@ UploadUserAppToMsaResponse Client::uploadUserAppToMsaWithOptions(const UploadUse
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "UploadUserAppToMsa"},
     {"version" , "2020-10-28"},
@@ -6250,7 +7325,7 @@ UploadUserAppToMsaResponse Client::uploadUserAppToMsaWithOptions(const UploadUse
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UploadUserAppToMsaResponse>();
 }
 
