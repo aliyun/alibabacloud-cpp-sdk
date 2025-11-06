@@ -640,6 +640,7 @@
 #include <alibabacloud/models/DescribeAssetListResponseBodyAssets.hpp>
 #include <alibabacloud/models/DescribeAssetRiskListResponseBodyAssetList.hpp>
 #include <alibabacloud/models/DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic.hpp>
+#include <alibabacloud/models/DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic.hpp>
 #include <alibabacloud/models/DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic.hpp>
 #include <alibabacloud/models/DescribeAssetStatisticResponseBodyResourceSpecStatistic.hpp>
 #include <alibabacloud/models/DescribeCfwRiskLevelSummaryResponseBodyRiskList.hpp>

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic.hpp>
+#include <alibabacloud/models/DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& obj) { 
       DARABONBA_PTR_TO_JSON(CfwGeneralInstanceRegionStatistic, cfwGeneralInstanceRegionStatistic_);
+      DARABONBA_PTR_TO_JSON(CfwTotalGeneralInstanceRegionStatistic, cfwTotalGeneralInstanceRegionStatistic_);
       DARABONBA_PTR_TO_JSON(TotalCfwGeneralInstanceCnt, totalCfwGeneralInstanceCnt_);
       DARABONBA_PTR_TO_JSON(TotalCfwGeneralInstanceUsedCnt, totalCfwGeneralInstanceUsedCnt_);
       DARABONBA_PTR_TO_JSON(TotalGeneralInstanceUsedCnt, totalGeneralInstanceUsedCnt_);
@@ -25,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& obj) { 
       DARABONBA_PTR_FROM_JSON(CfwGeneralInstanceRegionStatistic, cfwGeneralInstanceRegionStatistic_);
+      DARABONBA_PTR_FROM_JSON(CfwTotalGeneralInstanceRegionStatistic, cfwTotalGeneralInstanceRegionStatistic_);
       DARABONBA_PTR_FROM_JSON(TotalCfwGeneralInstanceCnt, totalCfwGeneralInstanceCnt_);
       DARABONBA_PTR_FROM_JSON(TotalCfwGeneralInstanceUsedCnt, totalCfwGeneralInstanceUsedCnt_);
       DARABONBA_PTR_FROM_JSON(TotalGeneralInstanceUsedCnt, totalGeneralInstanceUsedCnt_);
@@ -44,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cfwGeneralInstanceRegionStatistic_ == nullptr
-        && return this->totalCfwGeneralInstanceCnt_ == nullptr && return this->totalCfwGeneralInstanceUsedCnt_ == nullptr && return this->totalGeneralInstanceUsedCnt_ == nullptr && return this->totalNatGeneralInstanceCnt_ == nullptr && return this->totalNatGeneralInstanceUsedCnt_ == nullptr
-        && return this->totalVfwGeneralInstanceUsedCnt_ == nullptr; };
+        && return this->cfwTotalGeneralInstanceRegionStatistic_ == nullptr && return this->totalCfwGeneralInstanceCnt_ == nullptr && return this->totalCfwGeneralInstanceUsedCnt_ == nullptr && return this->totalGeneralInstanceUsedCnt_ == nullptr && return this->totalNatGeneralInstanceCnt_ == nullptr
+        && return this->totalNatGeneralInstanceUsedCnt_ == nullptr && return this->totalVfwGeneralInstanceUsedCnt_ == nullptr; };
     // cfwGeneralInstanceRegionStatistic Field Functions 
     bool hasCfwGeneralInstanceRegionStatistic() const { return this->cfwGeneralInstanceRegionStatistic_ != nullptr;};
     void deleteCfwGeneralInstanceRegionStatistic() { this->cfwGeneralInstanceRegionStatistic_ = nullptr;};
@@ -53,6 +56,15 @@ namespace Models
     inline vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic> cfwGeneralInstanceRegionStatistic() { DARABONBA_PTR_GET(cfwGeneralInstanceRegionStatistic_, vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic>) };
     inline DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& setCfwGeneralInstanceRegionStatistic(const vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic> & cfwGeneralInstanceRegionStatistic) { DARABONBA_PTR_SET_VALUE(cfwGeneralInstanceRegionStatistic_, cfwGeneralInstanceRegionStatistic) };
     inline DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& setCfwGeneralInstanceRegionStatistic(vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic> && cfwGeneralInstanceRegionStatistic) { DARABONBA_PTR_SET_RVALUE(cfwGeneralInstanceRegionStatistic_, cfwGeneralInstanceRegionStatistic) };
+
+
+    // cfwTotalGeneralInstanceRegionStatistic Field Functions 
+    bool hasCfwTotalGeneralInstanceRegionStatistic() const { return this->cfwTotalGeneralInstanceRegionStatistic_ != nullptr;};
+    void deleteCfwTotalGeneralInstanceRegionStatistic() { this->cfwTotalGeneralInstanceRegionStatistic_ = nullptr;};
+    inline const vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic> & cfwTotalGeneralInstanceRegionStatistic() const { DARABONBA_PTR_GET_CONST(cfwTotalGeneralInstanceRegionStatistic_, vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic>) };
+    inline vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic> cfwTotalGeneralInstanceRegionStatistic() { DARABONBA_PTR_GET(cfwTotalGeneralInstanceRegionStatistic_, vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic>) };
+    inline DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& setCfwTotalGeneralInstanceRegionStatistic(const vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic> & cfwTotalGeneralInstanceRegionStatistic) { DARABONBA_PTR_SET_VALUE(cfwTotalGeneralInstanceRegionStatistic_, cfwTotalGeneralInstanceRegionStatistic) };
+    inline DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatistic& setCfwTotalGeneralInstanceRegionStatistic(vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic> && cfwTotalGeneralInstanceRegionStatistic) { DARABONBA_PTR_SET_RVALUE(cfwTotalGeneralInstanceRegionStatistic_, cfwTotalGeneralInstanceRegionStatistic) };
 
 
     // totalCfwGeneralInstanceCnt Field Functions 
@@ -99,6 +111,7 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwGeneralInstanceRegionStatistic>> cfwGeneralInstanceRegionStatistic_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeAssetStatisticResponseBodyGeneralInstanceSpecStatisticCfwTotalGeneralInstanceRegionStatistic>> cfwTotalGeneralInstanceRegionStatistic_ = nullptr;
     std::shared_ptr<int32_t> totalCfwGeneralInstanceCnt_ = nullptr;
     std::shared_ptr<int32_t> totalCfwGeneralInstanceUsedCnt_ = nullptr;
     std::shared_ptr<int32_t> totalGeneralInstanceUsedCnt_ = nullptr;
