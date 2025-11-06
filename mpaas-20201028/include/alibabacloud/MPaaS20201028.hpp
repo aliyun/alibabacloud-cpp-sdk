@@ -497,6 +497,19 @@ namespace MPaaS20201028
       Models::DeleteMcubeWhitelistResponse deleteMcubeWhitelist(const Models::DeleteMcubeWhitelistRequest &request);
 
       /**
+       * @param request DeleteMdsCubeTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMdsCubeTemplateResponse
+       */
+      Models::DeleteMdsCubeTemplateResponse deleteMdsCubeTemplateWithOptions(const Models::DeleteMdsCubeTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DeleteMdsCubeTemplateRequest
+       * @return DeleteMdsCubeTemplateResponse
+       */
+      Models::DeleteMdsCubeTemplateResponse deleteMdsCubeTemplate(const Models::DeleteMdsCubeTemplateRequest &request);
+
+      /**
        * @param request DeleteMdsWhitelistContentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteMdsWhitelistContentResponse

@@ -2552,6 +2552,56 @@ DeleteMcubeWhitelistResponse Client::deleteMcubeWhitelist(const DeleteMcubeWhite
 }
 
 /**
+ * @param request DeleteMdsCubeTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMdsCubeTemplateResponse
+ */
+DeleteMdsCubeTemplateResponse Client::deleteMdsCubeTemplateWithOptions(const DeleteMdsCubeTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.appId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteMdsCubeTemplate"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMdsCubeTemplateResponse>();
+}
+
+/**
+ * @param request DeleteMdsCubeTemplateRequest
+ * @return DeleteMdsCubeTemplateResponse
+ */
+DeleteMdsCubeTemplateResponse Client::deleteMdsCubeTemplate(const DeleteMdsCubeTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMdsCubeTemplateWithOptions(request, runtime);
+}
+
+/**
  * @param request DeleteMdsWhitelistContentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteMdsWhitelistContentResponse

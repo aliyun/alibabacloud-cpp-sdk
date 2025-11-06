@@ -110,6 +110,9 @@
 #include <alibabacloud/models/DeleteMcubeWhitelistRequest.hpp>
 #include <alibabacloud/models/DeleteMcubeWhitelistResponseBody.hpp>
 #include <alibabacloud/models/DeleteMcubeWhitelistResponse.hpp>
+#include <alibabacloud/models/DeleteMdsCubeTemplateRequest.hpp>
+#include <alibabacloud/models/DeleteMdsCubeTemplateResponseBody.hpp>
+#include <alibabacloud/models/DeleteMdsCubeTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteMdsWhitelistContentRequest.hpp>
 #include <alibabacloud/models/DeleteMdsWhitelistContentResponseBody.hpp>
 #include <alibabacloud/models/DeleteMdsWhitelistContentResponse.hpp>
@@ -375,6 +378,8 @@
 #include <alibabacloud/models/DeleteMcubeNebulaAppResponseBodyDeleteMcubeNebulaAppResult.hpp>
 #include <alibabacloud/models/DeleteMcubeUpgradeResourceResponseBodyDeleteResult.hpp>
 #include <alibabacloud/models/DeleteMcubeWhitelistResponseBodyDeleteWhitelistResult.hpp>
+#include <alibabacloud/models/DeleteMdsCubeTemplateResponseBodyResultContentData.hpp>
+#include <alibabacloud/models/DeleteMdsCubeTemplateResponseBodyResultContent.hpp>
 #include <alibabacloud/models/DeleteMdsWhitelistContentResponseBodyResultContentData.hpp>
 #include <alibabacloud/models/DeleteMdsWhitelistContentResponseBodyResultContent.hpp>
 #include <alibabacloud/models/ExistMcubeRsaKeyResponseBodyCheckRsaKeyResult.hpp>
