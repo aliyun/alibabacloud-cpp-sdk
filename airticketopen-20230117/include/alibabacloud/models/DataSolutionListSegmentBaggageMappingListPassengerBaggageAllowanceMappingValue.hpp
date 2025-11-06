@@ -21,6 +21,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(carry_on_weight, carryOnWeight_);
       DARABONBA_PTR_TO_JSON(carry_on_weight_unit, carryOnWeightUnit_);
       DARABONBA_PTR_TO_JSON(is_all_carry_on_weight, isAllCarryOnWeight_);
+      DARABONBA_PTR_TO_JSON(carry_length, carryLength_);
+      DARABONBA_PTR_TO_JSON(carry_width, carryWidth_);
+      DARABONBA_PTR_TO_JSON(carry_height, carryHeight_);
+      DARABONBA_PTR_TO_JSON(carry_sum_of_length_width_height, carrySumOfLengthWidthHeight_);
+      DARABONBA_PTR_TO_JSON(length, length_);
+      DARABONBA_PTR_TO_JSON(width, width_);
+      DARABONBA_PTR_TO_JSON(height, height_);
+      DARABONBA_PTR_TO_JSON(sum_of_length_width_height, sumOfLengthWidthHeight_);
     };
     friend void from_json(const Darabonba::Json& j, DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& obj) { 
       DARABONBA_PTR_FROM_JSON(baggage_amount, baggageAmount_);
@@ -31,6 +39,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(carry_on_weight, carryOnWeight_);
       DARABONBA_PTR_FROM_JSON(carry_on_weight_unit, carryOnWeightUnit_);
       DARABONBA_PTR_FROM_JSON(is_all_carry_on_weight, isAllCarryOnWeight_);
+      DARABONBA_PTR_FROM_JSON(carry_length, carryLength_);
+      DARABONBA_PTR_FROM_JSON(carry_width, carryWidth_);
+      DARABONBA_PTR_FROM_JSON(carry_height, carryHeight_);
+      DARABONBA_PTR_FROM_JSON(carry_sum_of_length_width_height, carrySumOfLengthWidthHeight_);
+      DARABONBA_PTR_FROM_JSON(length, length_);
+      DARABONBA_PTR_FROM_JSON(width, width_);
+      DARABONBA_PTR_FROM_JSON(height, height_);
+      DARABONBA_PTR_FROM_JSON(sum_of_length_width_height, sumOfLengthWidthHeight_);
     };
     DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue() = default ;
     DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue(const DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue &) = default ;
@@ -45,7 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->baggageAmount_ == nullptr
         && return this->baggageWeight_ == nullptr && return this->baggageWeightUnit_ == nullptr && return this->isAllWeight_ == nullptr && return this->carryOnAmount_ == nullptr && return this->carryOnWeight_ == nullptr
-        && return this->carryOnWeightUnit_ == nullptr && return this->isAllCarryOnWeight_ == nullptr; };
+        && return this->carryOnWeightUnit_ == nullptr && return this->isAllCarryOnWeight_ == nullptr && return this->carryLength_ == nullptr && return this->carryWidth_ == nullptr && return this->carryHeight_ == nullptr
+        && return this->carrySumOfLengthWidthHeight_ == nullptr && return this->length_ == nullptr && return this->width_ == nullptr && return this->height_ == nullptr && return this->sumOfLengthWidthHeight_ == nullptr; };
     // baggageAmount Field Functions 
     bool hasBaggageAmount() const { return this->baggageAmount_ != nullptr;};
     void deleteBaggageAmount() { this->baggageAmount_ = nullptr;};
@@ -102,6 +119,62 @@ namespace Models
     inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setIsAllCarryOnWeight(bool isAllCarryOnWeight) { DARABONBA_PTR_SET_VALUE(isAllCarryOnWeight_, isAllCarryOnWeight) };
 
 
+    // carryLength Field Functions 
+    bool hasCarryLength() const { return this->carryLength_ != nullptr;};
+    void deleteCarryLength() { this->carryLength_ = nullptr;};
+    inline int32_t carryLength() const { DARABONBA_PTR_GET_DEFAULT(carryLength_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setCarryLength(int32_t carryLength) { DARABONBA_PTR_SET_VALUE(carryLength_, carryLength) };
+
+
+    // carryWidth Field Functions 
+    bool hasCarryWidth() const { return this->carryWidth_ != nullptr;};
+    void deleteCarryWidth() { this->carryWidth_ = nullptr;};
+    inline int32_t carryWidth() const { DARABONBA_PTR_GET_DEFAULT(carryWidth_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setCarryWidth(int32_t carryWidth) { DARABONBA_PTR_SET_VALUE(carryWidth_, carryWidth) };
+
+
+    // carryHeight Field Functions 
+    bool hasCarryHeight() const { return this->carryHeight_ != nullptr;};
+    void deleteCarryHeight() { this->carryHeight_ = nullptr;};
+    inline int32_t carryHeight() const { DARABONBA_PTR_GET_DEFAULT(carryHeight_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setCarryHeight(int32_t carryHeight) { DARABONBA_PTR_SET_VALUE(carryHeight_, carryHeight) };
+
+
+    // carrySumOfLengthWidthHeight Field Functions 
+    bool hasCarrySumOfLengthWidthHeight() const { return this->carrySumOfLengthWidthHeight_ != nullptr;};
+    void deleteCarrySumOfLengthWidthHeight() { this->carrySumOfLengthWidthHeight_ = nullptr;};
+    inline int32_t carrySumOfLengthWidthHeight() const { DARABONBA_PTR_GET_DEFAULT(carrySumOfLengthWidthHeight_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setCarrySumOfLengthWidthHeight(int32_t carrySumOfLengthWidthHeight) { DARABONBA_PTR_SET_VALUE(carrySumOfLengthWidthHeight_, carrySumOfLengthWidthHeight) };
+
+
+    // length Field Functions 
+    bool hasLength() const { return this->length_ != nullptr;};
+    void deleteLength() { this->length_ = nullptr;};
+    inline int32_t length() const { DARABONBA_PTR_GET_DEFAULT(length_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setLength(int32_t length) { DARABONBA_PTR_SET_VALUE(length_, length) };
+
+
+    // width Field Functions 
+    bool hasWidth() const { return this->width_ != nullptr;};
+    void deleteWidth() { this->width_ = nullptr;};
+    inline int32_t width() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setWidth(int32_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
+
+
+    // height Field Functions 
+    bool hasHeight() const { return this->height_ != nullptr;};
+    void deleteHeight() { this->height_ = nullptr;};
+    inline int32_t height() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
+
+
+    // sumOfLengthWidthHeight Field Functions 
+    bool hasSumOfLengthWidthHeight() const { return this->sumOfLengthWidthHeight_ != nullptr;};
+    void deleteSumOfLengthWidthHeight() { this->sumOfLengthWidthHeight_ = nullptr;};
+    inline int32_t sumOfLengthWidthHeight() const { DARABONBA_PTR_GET_DEFAULT(sumOfLengthWidthHeight_, 0) };
+    inline DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue& setSumOfLengthWidthHeight(int32_t sumOfLengthWidthHeight) { DARABONBA_PTR_SET_VALUE(sumOfLengthWidthHeight_, sumOfLengthWidthHeight) };
+
+
   protected:
     // checked baggage quantity
     std::shared_ptr<int32_t> baggageAmount_ = nullptr;
@@ -119,6 +192,14 @@ namespace Models
     std::shared_ptr<string> carryOnWeightUnit_ = nullptr;
     // Whether the weight is for all baggages
     std::shared_ptr<bool> isAllCarryOnWeight_ = nullptr;
+    std::shared_ptr<int32_t> carryLength_ = nullptr;
+    std::shared_ptr<int32_t> carryWidth_ = nullptr;
+    std::shared_ptr<int32_t> carryHeight_ = nullptr;
+    std::shared_ptr<int32_t> carrySumOfLengthWidthHeight_ = nullptr;
+    std::shared_ptr<int32_t> length_ = nullptr;
+    std::shared_ptr<int32_t> width_ = nullptr;
+    std::shared_ptr<int32_t> height_ = nullptr;
+    std::shared_ptr<int32_t> sumOfLengthWidthHeight_ = nullptr;
   };
 
   } // namespace Models

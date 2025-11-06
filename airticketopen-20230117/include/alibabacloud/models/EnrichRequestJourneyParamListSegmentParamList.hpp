@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(child_cabin, childCabin_);
       DARABONBA_PTR_TO_JSON(departure_airport, departureAirport_);
       DARABONBA_PTR_TO_JSON(departure_city, departureCity_);
+      DARABONBA_PTR_TO_JSON(departure_date, departureDate_);
       DARABONBA_PTR_TO_JSON(departure_time, departureTime_);
       DARABONBA_PTR_TO_JSON(marketing_flight_no, marketingFlightNo_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(child_cabin, childCabin_);
       DARABONBA_PTR_FROM_JSON(departure_airport, departureAirport_);
       DARABONBA_PTR_FROM_JSON(departure_city, departureCity_);
+      DARABONBA_PTR_FROM_JSON(departure_date, departureDate_);
       DARABONBA_PTR_FROM_JSON(departure_time, departureTime_);
       DARABONBA_PTR_FROM_JSON(marketing_flight_no, marketingFlightNo_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arrivalAirport_ == nullptr
         && return this->arrivalCity_ == nullptr && return this->cabin_ == nullptr && return this->childCabin_ == nullptr && return this->departureAirport_ == nullptr && return this->departureCity_ == nullptr
-        && return this->departureTime_ == nullptr && return this->marketingFlightNo_ == nullptr; };
+        && return this->departureDate_ == nullptr && return this->departureTime_ == nullptr && return this->marketingFlightNo_ == nullptr; };
     // arrivalAirport Field Functions 
     bool hasArrivalAirport() const { return this->arrivalAirport_ != nullptr;};
     void deleteArrivalAirport() { this->arrivalAirport_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline EnrichRequestJourneyParamListSegmentParamList& setDepartureCity(string departureCity) { DARABONBA_PTR_SET_VALUE(departureCity_, departureCity) };
 
 
+    // departureDate Field Functions 
+    bool hasDepartureDate() const { return this->departureDate_ != nullptr;};
+    void deleteDepartureDate() { this->departureDate_ = nullptr;};
+    inline string departureDate() const { DARABONBA_PTR_GET_DEFAULT(departureDate_, "") };
+    inline EnrichRequestJourneyParamListSegmentParamList& setDepartureDate(string departureDate) { DARABONBA_PTR_SET_VALUE(departureDate_, departureDate) };
+
+
     // departureTime Field Functions 
     bool hasDepartureTime() const { return this->departureTime_ != nullptr;};
     void deleteDepartureTime() { this->departureTime_ = nullptr;};
@@ -115,9 +124,8 @@ namespace Models
     std::shared_ptr<string> departureAirport_ = nullptr;
     // departure city code
     std::shared_ptr<string> departureCity_ = nullptr;
+    std::shared_ptr<string> departureDate_ = nullptr;
     // departure time in string format (yyyy-MM-dd HH:mm:ss)
-    // 
-    // This parameter is required.
     std::shared_ptr<string> departureTime_ = nullptr;
     // marketing flight no. (eg: KA5809)
     // 
