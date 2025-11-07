@@ -205,5 +205,60 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
   map<string, string> headers = {};
   return getTokenWithOptions(request, headers, runtime);
 }
+
+/**
+ * @summary 模型类型识别
+ *
+ * @param tmpReq ModelTypeDetermineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelTypeDetermineResponse
+ */
+ModelTypeDetermineResponse Client::modelTypeDetermineWithOptions(const ModelTypeDetermineRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModelTypeDetermineShrinkRequest request = ModelTypeDetermineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHistory()) {
+    request.setHistoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.history(), "history", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasHistoryShrink()) {
+    body["history"] = request.historyShrink();
+  }
+
+  if (!!request.hasInputText()) {
+    body["inputText"] = request.inputText();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelTypeDetermine"},
+    {"version" , "2024-08-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/api/v1/model/type/determine")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelTypeDetermineResponse>();
+}
+
+/**
+ * @summary 模型类型识别
+ *
+ * @param request ModelTypeDetermineRequest
+ * @return ModelTypeDetermineResponse
+ */
+ModelTypeDetermineResponse Client::modelTypeDetermine(const ModelTypeDetermineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelTypeDetermineWithOptions(request, headers, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace BailianModelOnChip20240816

@@ -73,6 +73,24 @@ namespace BailianModelOnChip20240816
        * @return GetTokenResponse
        */
       Models::GetTokenResponse getToken(const Models::GetTokenRequest &request);
+
+      /**
+       * @summary 模型类型识别
+       *
+       * @param tmpReq ModelTypeDetermineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelTypeDetermineResponse
+       */
+      Models::ModelTypeDetermineResponse modelTypeDetermineWithOptions(const Models::ModelTypeDetermineRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 模型类型识别
+       *
+       * @param request ModelTypeDetermineRequest
+       * @return ModelTypeDetermineResponse
+       */
+      Models::ModelTypeDetermineResponse modelTypeDetermine(const Models::ModelTypeDetermineRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace BailianModelOnChip20240816

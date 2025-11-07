@@ -11,8 +11,14 @@
 #include <alibabacloud/models/GetTokenRequest.hpp>
 #include <alibabacloud/models/GetTokenResponseBody.hpp>
 #include <alibabacloud/models/GetTokenResponse.hpp>
+#include <alibabacloud/models/ModelTypeDetermineRequest.hpp>
+#include <alibabacloud/models/ModelTypeDetermineShrinkRequest.hpp>
+#include <alibabacloud/models/ModelTypeDetermineResponseBody.hpp>
+#include <alibabacloud/models/ModelTypeDetermineResponse.hpp>
 #include <alibabacloud/models/ActiveInteractionCreateResponseBodyData.hpp>
 #include <alibabacloud/models/DeviceRegisterResponseBodyData.hpp>
 #include <alibabacloud/models/GetTokenResponseBodyData.hpp>
+#include <alibabacloud/models/ModelTypeDetermineRequestHistory.hpp>
+#include <alibabacloud/models/ModelTypeDetermineResponseBodyData.hpp>
 
 #endif
