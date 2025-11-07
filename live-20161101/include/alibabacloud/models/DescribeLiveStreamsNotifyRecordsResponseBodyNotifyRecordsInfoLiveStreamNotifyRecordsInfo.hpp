@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(NotifyContent, notifyContent_);
+      DARABONBA_PTR_TO_JSON(NotifyHeader, notifyHeader_);
       DARABONBA_PTR_TO_JSON(NotifyResponse, notifyResponse_);
       DARABONBA_PTR_TO_JSON(NotifyResult, notifyResult_);
       DARABONBA_PTR_TO_JSON(NotifyTime, notifyTime_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(NotifyContent, notifyContent_);
+      DARABONBA_PTR_FROM_JSON(NotifyHeader, notifyHeader_);
       DARABONBA_PTR_FROM_JSON(NotifyResponse, notifyResponse_);
       DARABONBA_PTR_FROM_JSON(NotifyResult, notifyResult_);
       DARABONBA_PTR_FROM_JSON(NotifyTime, notifyTime_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->notifyContent_ == nullptr && return this->notifyResponse_ == nullptr && return this->notifyResult_ == nullptr
-        && return this->notifyTime_ == nullptr && return this->notifyType_ == nullptr && return this->notifyUrl_ == nullptr && return this->streamName_ == nullptr; };
+        && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->notifyContent_ == nullptr && return this->notifyHeader_ == nullptr && return this->notifyResponse_ == nullptr
+        && return this->notifyResult_ == nullptr && return this->notifyTime_ == nullptr && return this->notifyType_ == nullptr && return this->notifyUrl_ == nullptr && return this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteNotifyContent() { this->notifyContent_ = nullptr;};
     inline string notifyContent() const { DARABONBA_PTR_GET_DEFAULT(notifyContent_, "") };
     inline DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveStreamNotifyRecordsInfo& setNotifyContent(string notifyContent) { DARABONBA_PTR_SET_VALUE(notifyContent_, notifyContent) };
+
+
+    // notifyHeader Field Functions 
+    bool hasNotifyHeader() const { return this->notifyHeader_ != nullptr;};
+    void deleteNotifyHeader() { this->notifyHeader_ = nullptr;};
+    inline string notifyHeader() const { DARABONBA_PTR_GET_DEFAULT(notifyHeader_, "") };
+    inline DescribeLiveStreamsNotifyRecordsResponseBodyNotifyRecordsInfoLiveStreamNotifyRecordsInfo& setNotifyHeader(string notifyHeader) { DARABONBA_PTR_SET_VALUE(notifyHeader_, notifyHeader) };
 
 
     // notifyResponse Field Functions 
@@ -129,6 +138,7 @@ namespace Models
     std::shared_ptr<string> domainName_ = nullptr;
     // The callback content.
     std::shared_ptr<string> notifyContent_ = nullptr;
+    std::shared_ptr<string> notifyHeader_ = nullptr;
     std::shared_ptr<string> notifyResponse_ = nullptr;
     // The callback result. Valid values:
     // 
