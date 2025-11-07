@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_oos_20190601Targets.cmake")
-check_required_components("alibabacloud_oos_20190601")
