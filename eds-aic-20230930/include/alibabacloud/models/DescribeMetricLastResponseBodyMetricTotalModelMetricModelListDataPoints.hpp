@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints& obj) { 
       DARABONBA_PTR_TO_JSON(Average, average_);
+      DARABONBA_PTR_TO_JSON(GpuId, gpuId_);
       DARABONBA_PTR_TO_JSON(Maximum, maximum_);
       DARABONBA_PTR_TO_JSON(Minimum, minimum_);
       DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints& obj) { 
       DARABONBA_PTR_FROM_JSON(Average, average_);
+      DARABONBA_PTR_FROM_JSON(GpuId, gpuId_);
       DARABONBA_PTR_FROM_JSON(Maximum, maximum_);
       DARABONBA_PTR_FROM_JSON(Minimum, minimum_);
       DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->average_ == nullptr
-        && return this->maximum_ == nullptr && return this->minimum_ == nullptr && return this->timestamp_ == nullptr; };
+        && return this->gpuId_ == nullptr && return this->maximum_ == nullptr && return this->minimum_ == nullptr && return this->timestamp_ == nullptr; };
     // average Field Functions 
     bool hasAverage() const { return this->average_ != nullptr;};
     void deleteAverage() { this->average_ = nullptr;};
     inline double average() const { DARABONBA_PTR_GET_DEFAULT(average_, 0.0) };
     inline DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints& setAverage(double average) { DARABONBA_PTR_SET_VALUE(average_, average) };
+
+
+    // gpuId Field Functions 
+    bool hasGpuId() const { return this->gpuId_ != nullptr;};
+    void deleteGpuId() { this->gpuId_ = nullptr;};
+    inline string gpuId() const { DARABONBA_PTR_GET_DEFAULT(gpuId_, "") };
+    inline DescribeMetricLastResponseBodyMetricTotalModelMetricModelListDataPoints& setGpuId(string gpuId) { DARABONBA_PTR_SET_VALUE(gpuId_, gpuId) };
 
 
     // maximum Field Functions 
@@ -67,6 +76,7 @@ namespace Models
 
   protected:
     std::shared_ptr<double> average_ = nullptr;
+    std::shared_ptr<string> gpuId_ = nullptr;
     std::shared_ptr<double> maximum_ = nullptr;
     std::shared_ptr<double> minimum_ = nullptr;
     std::shared_ptr<int64_t> timestamp_ = nullptr;
