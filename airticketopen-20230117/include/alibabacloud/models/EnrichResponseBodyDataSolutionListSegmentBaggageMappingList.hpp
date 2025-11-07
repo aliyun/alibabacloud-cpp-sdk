@@ -55,10 +55,9 @@ namespace Models
 
 
   protected:
-    // baggage rule mapping, key is passenger type, value is baggage allowance details
+    // Mapping of passenger type to free baggage allowance
     std::shared_ptr<map<string, Models::DataSolutionListSegmentBaggageMappingListPassengerBaggageAllowanceMappingValue>> passengerBaggageAllowanceMapping_ = nullptr;
-    // segment id list. 
-    // all the listed segment ids share the same baggage rule
+    // List of segment IDs that use the same free baggage allowance rule
     std::shared_ptr<vector<string>> segmentIdList_ = nullptr;
   };
 

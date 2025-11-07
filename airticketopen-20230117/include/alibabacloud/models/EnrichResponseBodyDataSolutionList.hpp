@@ -156,29 +156,29 @@ namespace Models
 
 
   protected:
-    // adult fare
+    // adult unit price
     std::shared_ptr<double> adultPrice_ = nullptr;
     // adult tax
     std::shared_ptr<double> adultTax_ = nullptr;
-    // child fare
+    // child unit price
     std::shared_ptr<double> childPrice_ = nullptr;
     // child tax
     std::shared_ptr<double> childTax_ = nullptr;
-    // infant fare
+    // infant unit price
     std::shared_ptr<double> infantPrice_ = nullptr;
     // infant tax
     std::shared_ptr<double> infantTax_ = nullptr;
-    // journey list
+    // journey
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionListJourneyList>> journeyList_ = nullptr;
-    // through check-in baggage  policy
+    // Baggage check-in rules
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionListSegmentBaggageCheckInInfoList>> segmentBaggageCheckInInfoList_ = nullptr;
-    // baggage rule
+    // Free baggage rules
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionListSegmentBaggageMappingList>> segmentBaggageMappingList_ = nullptr;
-    // change and refund policy
+    // Refund and change rules
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>> segmentRefundChangeRuleMappingList_ = nullptr;
-    // Quotation Attributes
+    // Quotation attributes
     std::shared_ptr<Models::EnrichResponseBodyDataSolutionListSolutionAttribute> solutionAttribute_ = nullptr;
-    // solution ID
+    // solution_id
     std::shared_ptr<string> solutionId_ = nullptr;
   };
 

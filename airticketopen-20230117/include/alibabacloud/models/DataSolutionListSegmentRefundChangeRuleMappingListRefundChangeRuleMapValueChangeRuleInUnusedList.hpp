@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // type: 2 - outbound segment unused; 3 - inbound segment unused
+    // Type of itinerary usage for the change rule 2: outbound unused; 3: return unused
     std::shared_ptr<int32_t> type_ = nullptr;
-    // time unit: day/hour
+    // Time unit: day/hour
     std::shared_ptr<string> timeUnit_ = nullptr;
-    // applicable change rule start time, time unit (day/hour)
+    // Start time of the refund time interval, in units of days/hours, to which this refund rule applies
     std::shared_ptr<int32_t> ruleStartTime_ = nullptr;
-    // applicable change rule end time, time unit (day/hour)
+    // End time of the refund time interval, in units of days/hours, to which this refund rule applies
     std::shared_ptr<int32_t> ruleEndTime_ = nullptr;
-    // whether changeable X-Y hour(day) before departure
+    // Whether it is possible to change the ticket X-Y hours (days) before departure
     std::shared_ptr<bool> canChange_ = nullptr;
-    // change fee X-Y hour(day) before departure
+    // Change fee X-Y hours (days) before departure
     std::shared_ptr<double> changeFee_ = nullptr;
   };
 

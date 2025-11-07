@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // solution list
+    // search quotation results
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionList>> solutionList_ = nullptr;
   };
 

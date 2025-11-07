@@ -70,19 +70,19 @@ namespace Models
 
 
   protected:
-    // arrival city code
+    // Arrival city three-letter code (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> arrivalCity_ = nullptr;
-    // departure city code
+    // Departure city three-letter code (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> departureCity_ = nullptr;
-    // departure date (eg: yyyyMMdd)
+    // Departure date (yyyyMMdd)
     // 
     // This parameter is required.
     std::shared_ptr<string> departureDate_ = nullptr;
-    // segement param list
+    // Specified segment information for this trip
     // 
     // This parameter is required.
     std::shared_ptr<vector<Models::EnrichRequestJourneyParamListSegmentParamList>> segmentParamList_ = nullptr;

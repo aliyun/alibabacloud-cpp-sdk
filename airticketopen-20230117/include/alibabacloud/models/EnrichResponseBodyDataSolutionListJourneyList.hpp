@@ -52,7 +52,7 @@ namespace Models
 
 
   protected:
-    // segment Info
+    // segment information
     std::shared_ptr<vector<Models::EnrichResponseBodyDataSolutionListJourneyListSegmentList>> segmentList_ = nullptr;
     // number of transfers
     std::shared_ptr<int32_t> transferCount_ = nullptr;

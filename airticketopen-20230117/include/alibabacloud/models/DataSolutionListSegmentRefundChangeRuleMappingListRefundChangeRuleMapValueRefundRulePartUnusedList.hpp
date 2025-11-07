@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // type: 0 - fully-unused ticket; 1 - partially used ticket
+    // The type of itinerary usage for this refund rule. 0: Entirely unused; 1: Partially unused
     std::shared_ptr<int32_t> type_ = nullptr;
-    // time unit: day/hour
+    // Time unit: day/hour
     std::shared_ptr<string> timeUnit_ = nullptr;
-    // applicable refund rule start time, time unit (day/hour)
+    // The start time of the refund time interval for this refund rule, in units of days/hours
     std::shared_ptr<int32_t> ruleStartTime_ = nullptr;
-    // applicable refund rule end time, time unit (day/hour)
+    // The end time of the refund time interval for this refund rule, in units of days/hours
     std::shared_ptr<int32_t> ruleEndTime_ = nullptr;
-    // whether refundable X-Y hour(day) before departure
+    // Whether a refund is allowed X-Y hours (days) before departure
     std::shared_ptr<bool> canRefund_ = nullptr;
-    // refund fee X-Y hour(day) before departure
+    // Refund fee X-Y hours (days) before departure
     std::shared_ptr<double> refundFee_ = nullptr;
-    // whether tax is fully refundable X-Y hour(day) before departure
+    // Whether full tax refund is allowed X-Y hours (days) before departure
     std::shared_ptr<bool> canReturnAllTax_ = nullptr;
-    // tax amount refundable X-Y hour(day) before departure
+    // Partial tax refund amount X-Y hours (days) before departure
     std::shared_ptr<double> returnPartTaxFee_ = nullptr;
   };
 

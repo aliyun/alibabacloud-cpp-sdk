@@ -88,23 +88,17 @@ namespace Models
 
 
   protected:
-    // adult passenger amount 1-9
+    // Number of adult passengers (1-9)
     std::shared_ptr<int32_t> adults_ = nullptr;
-    // cabin class
-    // 1. **ALL_CABIN** : all cabin class
-    // 2. **Y** : economy class
-    // 3. **FC** : first class and business class
-    // 4. **S** : premium economy class
-    // 5. **YS** : economy class and premium economy class
-    // 6. **YSC** : economy class, premium economy class and business class
+    // Cabin class: ALL_CABIN: All cabin classes; Y: Economy; FC: First Class and Business Class; S: Premium Economy; YS: Economy and Premium Economy; YSC: Economy, Premium Economy, and Business Class;
     std::shared_ptr<string> cabinClass_ = nullptr;
-    // child passenger amount 0-9
+    // Number of child passengers (0-9)
     std::shared_ptr<int32_t> children_ = nullptr;
-    // infant passenger amount 0-9
+    // Number of infant passengers (0-9)
     std::shared_ptr<int32_t> infants_ = nullptr;
-    // journey list
+    // Trip information
     std::shared_ptr<vector<EnrichRequestJourneyParamList>> journeyParamList_ = nullptr;
-    // solution_id returned by Search
+    // The `solution_id` returned by the Search interface
     std::shared_ptr<string> solutionId_ = nullptr;
   };
 

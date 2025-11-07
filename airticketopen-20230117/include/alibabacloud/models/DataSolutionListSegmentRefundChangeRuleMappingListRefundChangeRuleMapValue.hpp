@@ -79,13 +79,13 @@ namespace Models
 
 
   protected:
-    // refund rule for fully-unused tickets
+    // Full unused ticket refund rules
     std::shared_ptr<vector<DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRuleAllUnusedList>> refundRuleAllUnusedList_ = nullptr;
-    // refund rule for partially-used tickets
+    // Partial unused ticket refund rules
     std::shared_ptr<vector<DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueRefundRulePartUnusedList>> refundRulePartUnusedList_ = nullptr;
-    // change rule for inbound segment unused tickets
+    // Unused return flight change rules
     std::shared_ptr<vector<DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleInUnusedList>> changeRuleInUnusedList_ = nullptr;
-    // change rule for outbound segment unused tickets
+    // Unused outbound change rules
     std::shared_ptr<vector<DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValueChangeRuleOutUnusedList>> changeRuleOutUnusedList_ = nullptr;
   };
 

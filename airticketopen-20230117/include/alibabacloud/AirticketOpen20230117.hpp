@@ -239,10 +239,7 @@ namespace AirticketOpen20230117
       /**
        * @summary Search-Enrich
        *
-       * @description Enrich supports two modes:
-       * 1. mode1: enter solution_id returned by Search.
-       * 2. mode2: enter journeyParamList.
-       * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
+       * @description Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
        *
        * @param tmpReq EnrichRequest
        * @param headers EnrichHeaders
@@ -254,10 +251,7 @@ namespace AirticketOpen20230117
       /**
        * @summary Search-Enrich
        *
-       * @description Enrich supports two modes:
-       * 1. mode1: enter solution_id returned by Search.
-       * 2. mode2: enter journeyParamList.
-       * If you already confirm which flight to fly with, then you can use mode2, otherwise, use mode1(search first, then chose one solution_ID and Enrich).
+       * @description Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
        *
        * @param request EnrichRequest
        * @return EnrichResponse

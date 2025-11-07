@@ -51,8 +51,9 @@ namespace Models
 
 
   protected:
+    // Issue ticket time related
     std::shared_ptr<Models::EnrichResponseBodyDataSolutionListSolutionAttributeIssueTimeInfo> issueTimeInfo_ = nullptr;
-    // Supply source type 1:self-operated; 2:agent; 3:flagship store
+    // Supply source type 1: Self-operated; 2: Agent; 3: Flagship store
     std::shared_ptr<string> supplySourceType_ = nullptr;
   };
 

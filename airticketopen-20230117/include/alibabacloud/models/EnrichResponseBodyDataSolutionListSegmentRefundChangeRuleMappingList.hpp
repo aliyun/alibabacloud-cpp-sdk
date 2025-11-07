@@ -55,9 +55,9 @@ namespace Models
 
 
   protected:
-    // change and refund policy mapping, key is passenger type, value is change and refund policy detail
+    // Passenger type - refund and change rule mapping
     std::shared_ptr<map<string, Models::DataSolutionListSegmentRefundChangeRuleMappingListRefundChangeRuleMapValue>> refundChangeRuleMap_ = nullptr;
-    // segment id list. all the listed segment ids share the same change and refund policy
+    // Segment ID list. These segment IDs use the same refund and change rules.
     std::shared_ptr<vector<string>> segmentIdList_ = nullptr;
   };
 

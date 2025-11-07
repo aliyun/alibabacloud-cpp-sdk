@@ -176,29 +176,37 @@ namespace Models
 
 
   protected:
-    // checked baggage quantity
+    // Number of checked baggage pieces
     std::shared_ptr<int32_t> baggageAmount_ = nullptr;
-    // checked baggage weight
+    // Weight of checked baggage
     std::shared_ptr<int32_t> baggageWeight_ = nullptr;
-    // checked baggage weight unit
+    // Unit of checked baggage weight (KG)
     std::shared_ptr<string> baggageWeightUnit_ = nullptr;
-    // Whether the weight is for all baggages
+    // Whether the weight applies to all checked baggage
     std::shared_ptr<bool> isAllWeight_ = nullptr;
-    // carry-on baggage quantity
+    // Number of carry-on baggage pieces
     std::shared_ptr<int32_t> carryOnAmount_ = nullptr;
-    // carry-on baggage weight
+    // Weight of carry-on baggage
     std::shared_ptr<int32_t> carryOnWeight_ = nullptr;
-    // carry-on baggage weight unit
+    // Carry-on luggage weight unit KG
     std::shared_ptr<string> carryOnWeightUnit_ = nullptr;
-    // Whether the weight is for all baggages
+    // Whether it is the total carry-on luggage weight
     std::shared_ptr<bool> isAllCarryOnWeight_ = nullptr;
+    // Carry-on luggage length (unit: centimeters)
     std::shared_ptr<int32_t> carryLength_ = nullptr;
+    // Carry-on luggage width (unit: centimeters)
     std::shared_ptr<int32_t> carryWidth_ = nullptr;
+    // Carry-on luggage height (unit: centimeters)
     std::shared_ptr<int32_t> carryHeight_ = nullptr;
+    // Sum of three sides of the Carry-on luggage (unit: centimeters)
     std::shared_ptr<int32_t> carrySumOfLengthWidthHeight_ = nullptr;
+    // Check-in luggage length (unit: centimeters)
     std::shared_ptr<int32_t> length_ = nullptr;
+    // Check-in luggage width (unit: centimeters)
     std::shared_ptr<int32_t> width_ = nullptr;
+    // Check-in luggage height (unit: centimeters)
     std::shared_ptr<int32_t> height_ = nullptr;
+    // Sum of three sides of the Check-in luggage (unit: centimeters)
     std::shared_ptr<int32_t> sumOfLengthWidthHeight_ = nullptr;
   };
 

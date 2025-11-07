@@ -51,13 +51,9 @@ namespace Models
 
 
   protected:
-    // through check-in baggage policy type
-    // 1. baggage through check-in between segments
-    // 2. baggage re-check-in needed between segments
-    // 4. baggage through check-in at stop city ( applies for stop flight )
-    // 3. baggage re-checkin needed at stop city ( applies for stop flight )
+    // Baggage check-in rule type 1: Direct baggage between segments; 2: Re-check baggage between segments; 3: Direct baggage at stopover cities; 4: Re-check baggage at stopover cities
     std::shared_ptr<int32_t> luggageDirectInfoType_ = nullptr;
-    // segment id list. all the listed segment ids share the same baggage through check-in policy
+    // List of segment IDs that use the same baggage check-in rule
     std::shared_ptr<vector<string>> segmentIdList_ = nullptr;
   };
 

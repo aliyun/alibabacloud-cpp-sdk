@@ -112,22 +112,23 @@ namespace Models
 
 
   protected:
-    // arrival airport code
+    // Flight arrival airport three-letter code (uppercase)
     std::shared_ptr<string> arrivalAirport_ = nullptr;
-    // arrival city code
+    // Flight arrival city three-letter code (uppercase)
     std::shared_ptr<string> arrivalCity_ = nullptr;
-    // RBD
+    // Cabin
     std::shared_ptr<string> cabin_ = nullptr;
-    // child RBD
+    // Child cabin
     std::shared_ptr<string> childCabin_ = nullptr;
-    // departure airport code
+    // Flight departure airport three-letter code (uppercase)
     std::shared_ptr<string> departureAirport_ = nullptr;
-    // departure city code
+    // Flight departure city three-letter code (uppercase)
     std::shared_ptr<string> departureCity_ = nullptr;
+    // String, flight departure date (yyyy-MM-dd), either departure_date or departure_time, with departure_time preferred for greater accuracy
     std::shared_ptr<string> departureDate_ = nullptr;
-    // departure time in string format (yyyy-MM-dd HH:mm:ss)
+    // String, flight departure date and time (yyyy-MM-dd HH:mm:ss)
     std::shared_ptr<string> departureTime_ = nullptr;
-    // marketing flight no. (eg: KA5809)
+    // Marketing flight number (e.g., KA5809)
     // 
     // This parameter is required.
     std::shared_ptr<string> marketingFlightNo_ = nullptr;
