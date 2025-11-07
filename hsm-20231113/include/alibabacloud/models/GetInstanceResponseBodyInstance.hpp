@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TenantIsolationType, tenantIsolationType_);
+      DARABONBA_PTR_TO_JSON(TpsEnabled, tpsEnabled_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(Vendor, vendor_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TenantIsolationType, tenantIsolationType_);
+      DARABONBA_PTR_FROM_JSON(TpsEnabled, tpsEnabled_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(Vendor, vendor_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -75,8 +77,8 @@ namespace Models
         && return this->certificationUrl_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->createTime_ == nullptr && return this->deviceType_ == nullptr
         && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->ip_ == nullptr && return this->isTrial_ == nullptr && return this->master_ == nullptr
         && return this->orderId_ == nullptr && return this->pqcEnabled_ == nullptr && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr
-        && return this->tenantIsolationType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vendor_ == nullptr && return this->vpcId_ == nullptr && return this->whitelist_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->tenantIsolationType_ == nullptr && return this->tpsEnabled_ == nullptr && return this->vSwitchId_ == nullptr && return this->vendor_ == nullptr && return this->vpcId_ == nullptr
+        && return this->whitelist_ == nullptr && return this->zoneId_ == nullptr; };
     // certification Field Functions 
     bool hasCertification() const { return this->certification_ != nullptr;};
     void deleteCertification() { this->certification_ = nullptr;};
@@ -196,6 +198,13 @@ namespace Models
     inline GetInstanceResponseBodyInstance& setTenantIsolationType(string tenantIsolationType) { DARABONBA_PTR_SET_VALUE(tenantIsolationType_, tenantIsolationType) };
 
 
+    // tpsEnabled Field Functions 
+    bool hasTpsEnabled() const { return this->tpsEnabled_ != nullptr;};
+    void deleteTpsEnabled() { this->tpsEnabled_ = nullptr;};
+    inline int32_t tpsEnabled() const { DARABONBA_PTR_GET_DEFAULT(tpsEnabled_, 0) };
+    inline GetInstanceResponseBodyInstance& setTpsEnabled(int32_t tpsEnabled) { DARABONBA_PTR_SET_VALUE(tpsEnabled_, tpsEnabled) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -280,6 +289,7 @@ namespace Models
     // - vsm: Virtual security modules (VSMs)
     // - hostedHsm: Dedicated HSMs.
     std::shared_ptr<string> tenantIsolationType_ = nullptr;
+    std::shared_ptr<int32_t> tpsEnabled_ = nullptr;
     // The ID of the vSwitch that is configured for the HSM.
     std::shared_ptr<string> vSwitchId_ = nullptr;
     // The information about the vendor.
