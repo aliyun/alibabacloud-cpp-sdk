@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
+    // The plan ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The number of files uploaded for schema verification in the plan instance of the website.
     std::shared_ptr<int32_t> instanceUsage_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
+    // Usage details for websites.
     std::shared_ptr<vector<GetApiSchemaUsageResponseBodyUsages>> usages_ = nullptr;
   };
 

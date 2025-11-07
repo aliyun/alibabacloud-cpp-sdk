@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The website ID.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // The website name.
     std::shared_ptr<string> name_ = nullptr;
+    // The number of files uploaded for the website.
     std::shared_ptr<int32_t> usage_ = nullptr;
   };
 

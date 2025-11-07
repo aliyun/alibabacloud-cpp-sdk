@@ -7876,7 +7876,7 @@ ExportRecordsResponse Client::exportRecords(const ExportRecordsRequest &request)
 }
 
 /**
- * @summary 获取架构文件套餐使用情况
+ * @summary Queries the usage of the upload file quota for API security schema verification.
  *
  * @param request GetApiSchemaUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7911,7 +7911,7 @@ GetApiSchemaUsageResponse Client::getApiSchemaUsageWithOptions(const GetApiSchem
 }
 
 /**
- * @summary 获取架构文件套餐使用情况
+ * @summary Queries the usage of the upload file quota for API security schema verification.
  *
  * @param request GetApiSchemaUsageRequest
  * @return GetApiSchemaUsageResponse

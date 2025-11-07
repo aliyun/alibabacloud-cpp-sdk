@@ -2508,7 +2508,7 @@ namespace ESA20240910
       Models::ExportRecordsResponse exportRecords(const Models::ExportRecordsRequest &request);
 
       /**
-       * @summary 获取架构文件套餐使用情况
+       * @summary Queries the usage of the upload file quota for API security schema verification.
        *
        * @param request GetApiSchemaUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2517,7 +2517,7 @@ namespace ESA20240910
       Models::GetApiSchemaUsageResponse getApiSchemaUsageWithOptions(const Models::GetApiSchemaUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取架构文件套餐使用情况
+       * @summary Queries the usage of the upload file quota for API security schema verification.
        *
        * @param request GetApiSchemaUsageRequest
        * @return GetApiSchemaUsageResponse

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Enabled, enabled_);
       DARABONBA_ANY_TO_JSON(Header, header_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(IpVersionPolicy, ipVersionPolicy_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Weight, weight_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
       DARABONBA_ANY_FROM_JSON(Header, header_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(IpVersionPolicy, ipVersionPolicy_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Weight, weight_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && return this->authConf_ == nullptr && return this->enabled_ == nullptr && return this->header_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
-        && return this->type_ == nullptr && return this->weight_ == nullptr; };
+        && return this->authConf_ == nullptr && return this->enabled_ == nullptr && return this->header_ == nullptr && return this->id_ == nullptr && return this->ipVersionPolicy_ == nullptr
+        && return this->name_ == nullptr && return this->type_ == nullptr && return this->weight_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline GetOriginPoolResponseBodyOrigins& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // ipVersionPolicy Field Functions 
+    bool hasIpVersionPolicy() const { return this->ipVersionPolicy_ != nullptr;};
+    void deleteIpVersionPolicy() { this->ipVersionPolicy_ = nullptr;};
+    inline string ipVersionPolicy() const { DARABONBA_PTR_GET_DEFAULT(ipVersionPolicy_, "") };
+    inline GetOriginPoolResponseBodyOrigins& setIpVersionPolicy(string ipVersionPolicy) { DARABONBA_PTR_SET_VALUE(ipVersionPolicy_, ipVersionPolicy) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -121,6 +130,7 @@ namespace Models
     Darabonba::Json header_ = nullptr;
     // The ID of the origin.
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> ipVersionPolicy_ = nullptr;
     // The name of the origin.
     std::shared_ptr<string> name_ = nullptr;
     // The type of the origin:
