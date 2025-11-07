@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorityComparisionScore_ != nullptr
-        && this->faceComparisonScore_ != nullptr && this->idCardFaceComparisonScore_ != nullptr && this->material_ != nullptr && this->requestId_ != nullptr && this->verifyStatus_ != nullptr; };
+    virtual bool empty() const override { return this->authorityComparisionScore_ == nullptr
+        && return this->faceComparisonScore_ == nullptr && return this->idCardFaceComparisonScore_ == nullptr && return this->material_ == nullptr && return this->requestId_ == nullptr && return this->verifyStatus_ == nullptr; };
     // authorityComparisionScore Field Functions 
     bool hasAuthorityComparisionScore() const { return this->authorityComparisionScore_ != nullptr;};
     void deleteAuthorityComparisionScore() { this->authorityComparisionScore_ = nullptr;};

@@ -1,0 +1,82 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_ID3METAVERIFYWITHOCRADVANCEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_ID3METAVERIFYWITHOCRADVANCEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Cloudauth20190307
+{
+namespace Models
+{
+  class Id3MetaVerifyWithOCRAdvanceRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const Id3MetaVerifyWithOCRAdvanceRequest& obj) { 
+      DARABONBA_TO_JSON(CertFile, certFileObject_);
+      DARABONBA_TO_JSON(CertNationalFile, certNationalFileObject_);
+      DARABONBA_PTR_TO_JSON(CertNationalUrl, certNationalUrl_);
+      DARABONBA_PTR_TO_JSON(CertUrl, certUrl_);
+    };
+    friend void from_json(const Darabonba::Json& j, Id3MetaVerifyWithOCRAdvanceRequest& obj) { 
+      DARABONBA_FROM_JSON(CertFile, certFileObject_);
+      DARABONBA_FROM_JSON(CertNationalFile, certNationalFileObject_);
+      DARABONBA_PTR_FROM_JSON(CertNationalUrl, certNationalUrl_);
+      DARABONBA_PTR_FROM_JSON(CertUrl, certUrl_);
+    };
+    Id3MetaVerifyWithOCRAdvanceRequest() = default ;
+    Id3MetaVerifyWithOCRAdvanceRequest(const Id3MetaVerifyWithOCRAdvanceRequest &) = default ;
+    Id3MetaVerifyWithOCRAdvanceRequest(Id3MetaVerifyWithOCRAdvanceRequest &&) = default ;
+    Id3MetaVerifyWithOCRAdvanceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~Id3MetaVerifyWithOCRAdvanceRequest() = default ;
+    Id3MetaVerifyWithOCRAdvanceRequest& operator=(const Id3MetaVerifyWithOCRAdvanceRequest &) = default ;
+    Id3MetaVerifyWithOCRAdvanceRequest& operator=(Id3MetaVerifyWithOCRAdvanceRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->certFileObject_ == nullptr
+        && return this->certNationalFileObject_ == nullptr && return this->certNationalUrl_ == nullptr && return this->certUrl_ == nullptr; };
+    // certFileObject Field Functions 
+    bool hasCertFileObject() const { return this->certFileObject_ != nullptr;};
+    void deleteCertFileObject() { this->certFileObject_ = nullptr;};
+    inline shared_ptr<Darabonba::IStream> certFileObject() const { DARABONBA_GET(certFileObject_) };
+    inline Id3MetaVerifyWithOCRAdvanceRequest& setCertFileObject(shared_ptr<Darabonba::IStream> certFileObject) { DARABONBA_SET_VALUE(certFileObject_, certFileObject) };
+
+
+    // certNationalFileObject Field Functions 
+    bool hasCertNationalFileObject() const { return this->certNationalFileObject_ != nullptr;};
+    void deleteCertNationalFileObject() { this->certNationalFileObject_ = nullptr;};
+    inline shared_ptr<Darabonba::IStream> certNationalFileObject() const { DARABONBA_GET(certNationalFileObject_) };
+    inline Id3MetaVerifyWithOCRAdvanceRequest& setCertNationalFileObject(shared_ptr<Darabonba::IStream> certNationalFileObject) { DARABONBA_SET_VALUE(certNationalFileObject_, certNationalFileObject) };
+
+
+    // certNationalUrl Field Functions 
+    bool hasCertNationalUrl() const { return this->certNationalUrl_ != nullptr;};
+    void deleteCertNationalUrl() { this->certNationalUrl_ = nullptr;};
+    inline string certNationalUrl() const { DARABONBA_PTR_GET_DEFAULT(certNationalUrl_, "") };
+    inline Id3MetaVerifyWithOCRAdvanceRequest& setCertNationalUrl(string certNationalUrl) { DARABONBA_PTR_SET_VALUE(certNationalUrl_, certNationalUrl) };
+
+
+    // certUrl Field Functions 
+    bool hasCertUrl() const { return this->certUrl_ != nullptr;};
+    void deleteCertUrl() { this->certUrl_ = nullptr;};
+    inline string certUrl() const { DARABONBA_PTR_GET_DEFAULT(certUrl_, "") };
+    inline Id3MetaVerifyWithOCRAdvanceRequest& setCertUrl(string certUrl) { DARABONBA_PTR_SET_VALUE(certUrl_, certUrl) };
+
+
+  protected:
+    // Input stream for the portrait side of the ID card image. Choose either CertUrl or CertFile.
+    shared_ptr<Darabonba::IStream> certFileObject_ = nullptr;
+    // URL for the national emblem side of the ID card image. Choose either CertNationalUrl or CertNationalFile, or omit both.
+    shared_ptr<Darabonba::IStream> certNationalFileObject_ = nullptr;
+    // National emblem side of the ID card image URL. A publicly accessible HTTP or HTTPS link. You can choose either CertNationalUrl or CertNationalFile, or omit both.
+    std::shared_ptr<string> certNationalUrl_ = nullptr;
+    // Portrait side of the ID card image. A publicly accessible HTTP or HTTPS link. Choose either CertUrl or CertFile.
+    std::shared_ptr<string> certUrl_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Cloudauth20190307
+#endif

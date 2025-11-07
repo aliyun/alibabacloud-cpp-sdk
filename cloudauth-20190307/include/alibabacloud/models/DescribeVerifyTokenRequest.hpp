@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizId_ != nullptr
-        && this->bizType_ != nullptr && this->callbackSeed_ != nullptr && this->callbackUrl_ != nullptr && this->faceRetainedImageUrl_ != nullptr && this->failedRedirectUrl_ != nullptr
-        && this->idCardBackImageUrl_ != nullptr && this->idCardFrontImageUrl_ != nullptr && this->idCardNumber_ != nullptr && this->name_ != nullptr && this->passedRedirectUrl_ != nullptr
-        && this->userId_ != nullptr && this->userIp_ != nullptr && this->userPhoneNumber_ != nullptr && this->userRegistTime_ != nullptr; };
+    virtual bool empty() const override { return this->bizId_ == nullptr
+        && return this->bizType_ == nullptr && return this->callbackSeed_ == nullptr && return this->callbackUrl_ == nullptr && return this->faceRetainedImageUrl_ == nullptr && return this->failedRedirectUrl_ == nullptr
+        && return this->idCardBackImageUrl_ == nullptr && return this->idCardFrontImageUrl_ == nullptr && return this->idCardNumber_ == nullptr && return this->name_ == nullptr && return this->passedRedirectUrl_ == nullptr
+        && return this->userId_ == nullptr && return this->userIp_ == nullptr && return this->userPhoneNumber_ == nullptr && return this->userRegistTime_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};

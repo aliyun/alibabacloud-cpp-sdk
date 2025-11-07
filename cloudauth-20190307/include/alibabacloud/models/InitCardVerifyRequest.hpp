@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callbackToken_ != nullptr
-        && this->callbackUrl_ != nullptr && this->cardPageNumber_ != nullptr && this->cardType_ != nullptr && this->docScanMode_ != nullptr && this->merchantBizId_ != nullptr
-        && this->metaInfo_ != nullptr && this->model_ != nullptr && this->pictureSave_ != nullptr && this->verifyMeta_ != nullptr; };
+    virtual bool empty() const override { return this->callbackToken_ == nullptr
+        && return this->callbackUrl_ == nullptr && return this->cardPageNumber_ == nullptr && return this->cardType_ == nullptr && return this->docScanMode_ == nullptr && return this->merchantBizId_ == nullptr
+        && return this->metaInfo_ == nullptr && return this->model_ == nullptr && return this->pictureSave_ == nullptr && return this->verifyMeta_ == nullptr; };
     // callbackToken Field Functions 
     bool hasCallbackToken() const { return this->callbackToken_ != nullptr;};
     void deleteCallbackToken() { this->callbackToken_ = nullptr;};

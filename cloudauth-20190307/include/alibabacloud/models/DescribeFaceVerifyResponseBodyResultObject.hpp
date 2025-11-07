@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceRisk_ != nullptr
-        && this->deviceToken_ != nullptr && this->identityInfo_ != nullptr && this->materialInfo_ != nullptr && this->passed_ != nullptr && this->subCode_ != nullptr
-        && this->success_ != nullptr && this->userInfo_ != nullptr; };
+    virtual bool empty() const override { return this->deviceRisk_ == nullptr
+        && return this->deviceToken_ == nullptr && return this->identityInfo_ == nullptr && return this->materialInfo_ == nullptr && return this->passed_ == nullptr && return this->subCode_ == nullptr
+        && return this->success_ == nullptr && return this->userInfo_ == nullptr; };
     // deviceRisk Field Functions 
     bool hasDeviceRisk() const { return this->deviceRisk_ != nullptr;};
     void deleteDeviceRisk() { this->deviceRisk_ = nullptr;};

@@ -2,12 +2,14 @@
 #include <alibabacloud/Cloudauth20190307.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <darabonba/http/Form.hpp>
+#include <darabonba/Runtime.hpp>
+#include <darabonba/policy/Retry.hpp>
+#include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
+#include <darabonba/http/Form.hpp>
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
@@ -32,43 +34,88 @@ AlibabaCloud::Cloudauth20190307::Client::Client(AlibabaCloud::OpenApi::Utils::Mo
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
+Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
+  Darabonba::RuntimeOptions runtime_(json({
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"retryOptions", _retryOptions},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"tlsMinVersion", _tlsMinVersion}
     }));
+
+  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
+  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
+  Darabonba::Exception _lastException;
+  int _retriesAttempted = 0;
+  Darabonba::Policy::RetryPolicyContext _context = json({
+    {"retriesAttempted" , _retriesAttempted}
+  });
+  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+    if (_retriesAttempted > 0) {
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      if (_backoffTime > 0) {
+        Darabonba::sleep(_backoffTime);
+      }
+    }
+    _retriesAttempted++;
+    try {
+      Darabonba::Http::Request request_ = Darabonba::Http::Request();
+      string boundary = Darabonba::Http::Form::getBoundary();
+      request_.setProtocol("HTTPS");
+      request_.setMethod("POST");
+      request_.setPathname(DARA_STRING_TEMPLATE("/"));
+      request_.setHeaders(json({
+        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"date" , Utils::Utils::getDateUTCString()},
+        {"user-agent" , Utils::Utils::getUserAgent("")}
+      }).get<map<string, string>>());
+      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
+      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
+      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
+      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
+      _lastResponse  = response_;
+
+      json respMap = nullptr;
+      string bodyStr = Darabonba::Stream::readAsString(response_->body());
+      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+        json err = json(respMap["Error"]);
+        throw ClientException(json({
+          {"code" , Darabonba::Convert::stringVal(err["Code"])},
+          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"data" , json({
+            {"httpCode" , response_->statusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
+            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+          })}
+        }));
+      }
+
+      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+      return Darabonba::Core::merge(respMap
+      );
+    } catch (const Darabonba::Exception& ex) {
+      _context = Darabonba::Policy::RetryPolicyContext(json({
+        {"retriesAttempted" , _retriesAttempted},
+        {"lastRequest" , _lastRequest},
+        {"lastResponse" , _lastResponse},
+        {"exception" , ex},
+      }));
+      continue;
+    }
   }
 
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
+  throw *_context.exception();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -653,12 +700,84 @@ ContrastFaceVerifyResponse Client::contrastFaceVerifyAdvance(const ContrastFaceV
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     contrastFaceVerifyReq.setFaceContrastFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
   ContrastFaceVerifyResponse contrastFaceVerifyResp = contrastFaceVerifyWithOptions(contrastFaceVerifyReq, runtime);
   return contrastFaceVerifyResp;
+}
+
+/**
+ * @summary Create a financial-grade authentication scenario
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateAntCloudAuthSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAntCloudAuthSceneResponse
+ */
+CreateAntCloudAuthSceneResponse Client::createAntCloudAuthSceneWithOptions(const CreateAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBindMiniProgram()) {
+    query["BindMiniProgram"] = request.bindMiniProgram();
+  }
+
+  if (!!request.hasCheckFileBody()) {
+    query["CheckFileBody"] = request.checkFileBody();
+  }
+
+  if (!!request.hasCheckFileName()) {
+    query["CheckFileName"] = request.checkFileName();
+  }
+
+  if (!!request.hasMiniProgramName()) {
+    query["MiniProgramName"] = request.miniProgramName();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.platform();
+  }
+
+  if (!!request.hasSceneName()) {
+    query["SceneName"] = request.sceneName();
+  }
+
+  if (!!request.hasStoreImage()) {
+    query["StoreImage"] = request.storeImage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAntCloudAuthScene"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAntCloudAuthSceneResponse>();
+}
+
+/**
+ * @summary Create a financial-grade authentication scenario
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateAntCloudAuthSceneRequest
+ * @return CreateAntCloudAuthSceneResponse
+ */
+CreateAntCloudAuthSceneResponse Client::createAntCloudAuthScene(const CreateAntCloudAuthSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAntCloudAuthSceneWithOptions(request, runtime);
 }
 
 /**
@@ -719,6 +838,120 @@ CreateAuthKeyResponse Client::createAuthKeyWithOptions(const CreateAuthKeyReques
 CreateAuthKeyResponse Client::createAuthKey(const CreateAuthKeyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAuthKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Create Cloud Scene
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateCloudauthstSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudauthstSceneResponse
+ */
+CreateCloudauthstSceneResponse Client::createCloudauthstSceneWithOptions(const CreateCloudauthstSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneName()) {
+    query["SceneName"] = request.sceneName();
+  }
+
+  if (!!request.hasStoreImage()) {
+    query["StoreImage"] = request.storeImage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudauthstScene"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudauthstSceneResponse>();
+}
+
+/**
+ * @summary Create Cloud Scene
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateCloudauthstSceneRequest
+ * @return CreateCloudauthstSceneResponse
+ */
+CreateCloudauthstSceneResponse Client::createCloudauthstScene(const CreateCloudauthstSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCloudauthstSceneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Create Scene Configuration
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST.
+ * Request Address: cloudauth.aliyuncs.com.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateSceneConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSceneConfigResponse
+ */
+CreateSceneConfigResponse Client::createSceneConfigWithOptions(const CreateSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.config();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["sceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSceneConfig"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSceneConfigResponse>();
+}
+
+/**
+ * @summary Create Scene Configuration
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST.
+ * Request Address: cloudauth.aliyuncs.com.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request CreateSceneConfigRequest
+ * @return CreateSceneConfigResponse
+ */
+CreateSceneConfigResponse Client::createSceneConfig(const CreateSceneConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSceneConfigWithOptions(request, runtime);
 }
 
 /**
@@ -785,6 +1018,80 @@ CreateVerifySettingResponse Client::createVerifySettingWithOptions(const CreateV
 CreateVerifySettingResponse Client::createVerifySetting(const CreateVerifySettingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createVerifySettingWithOptions(request, runtime);
+}
+
+/**
+ * @summary Create Whitelist
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST.
+ *
+ * @param request CreateWhitelistSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWhitelistSettingResponse
+ */
+CreateWhitelistSettingResponse Client::createWhitelistSettingWithOptions(const CreateWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertNo()) {
+    query["CertNo"] = request.certNo();
+  }
+
+  if (!!request.hasCertifyId()) {
+    query["CertifyId"] = request.certifyId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasValidDay()) {
+    query["ValidDay"] = request.validDay();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWhitelistSetting"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWhitelistSettingResponse>();
+}
+
+/**
+ * @summary Create Whitelist
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST.
+ *
+ * @param request CreateWhitelistSettingRequest
+ * @return CreateWhitelistSettingResponse
+ */
+CreateWhitelistSettingResponse Client::createWhitelistSetting(const CreateWhitelistSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWhitelistSettingWithOptions(request, runtime);
 }
 
 /**
@@ -933,7 +1240,7 @@ CredentialProductVerifyV2Response Client::credentialProductVerifyV2Advance(const
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     credentialProductVerifyV2Req.setImageFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1231,7 +1538,7 @@ CredentialVerifyV2Response Client::credentialVerifyV2Advance(const CredentialVer
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     credentialVerifyV2Req.setImageFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1306,6 +1613,332 @@ DeepfakeDetectResponse Client::deepfakeDetect(const DeepfakeDetectRequest &reque
 }
 
 /**
+ * @summary Delete All Custom Flow Control Strategies
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DeleteAllCustomizeFlowStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAllCustomizeFlowStrategyResponse
+ */
+DeleteAllCustomizeFlowStrategyResponse Client::deleteAllCustomizeFlowStrategyWithOptions(const DeleteAllCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAllCustomizeFlowStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAllCustomizeFlowStrategyResponse>();
+}
+
+/**
+ * @summary Delete All Custom Flow Control Strategies
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DeleteAllCustomizeFlowStrategyRequest
+ * @return DeleteAllCustomizeFlowStrategyResponse
+ */
+DeleteAllCustomizeFlowStrategyResponse Client::deleteAllCustomizeFlowStrategy(const DeleteAllCustomizeFlowStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAllCustomizeFlowStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Watermark Scene
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DeleteAntCloudAuthSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAntCloudAuthSceneResponse
+ */
+DeleteAntCloudAuthSceneResponse Client::deleteAntCloudAuthSceneWithOptions(const DeleteAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAntCloudAuthScene"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAntCloudAuthSceneResponse>();
+}
+
+/**
+ * @summary Delete Watermark Scene
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DeleteAntCloudAuthSceneRequest
+ * @return DeleteAntCloudAuthSceneResponse
+ */
+DeleteAntCloudAuthSceneResponse Client::deleteAntCloudAuthScene(const DeleteAntCloudAuthSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAntCloudAuthSceneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Black and White List Policy
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DeleteBlackListStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBlackListStrategyResponse
+ */
+DeleteBlackListStrategyResponse Client::deleteBlackListStrategyWithOptions(const DeleteBlackListStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProductName()) {
+    query["ProductName"] = request.productName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBlackListStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBlackListStrategyResponse>();
+}
+
+/**
+ * @summary Delete Black and White List Policy
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DeleteBlackListStrategyRequest
+ * @return DeleteBlackListStrategyResponse
+ */
+DeleteBlackListStrategyResponse Client::deleteBlackListStrategy(const DeleteBlackListStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBlackListStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Cloud Scene
+ *
+ * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DeleteCloudauthstSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudauthstSceneResponse
+ */
+DeleteCloudauthstSceneResponse Client::deleteCloudauthstSceneWithOptions(const DeleteCloudauthstSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudauthstScene"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudauthstSceneResponse>();
+}
+
+/**
+ * @summary Delete Cloud Scene
+ *
+ * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DeleteCloudauthstSceneRequest
+ * @return DeleteCloudauthstSceneResponse
+ */
+DeleteCloudauthstSceneResponse Client::deleteCloudauthstScene(const DeleteCloudauthstSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCloudauthstSceneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Security Control Strategy
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST.
+ * Request URL: cloudauth.aliyuncs.com.
+ *
+ * @param request DeleteControlStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteControlStrategyResponse
+ */
+DeleteControlStrategyResponse Client::deleteControlStrategyWithOptions(const DeleteControlStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiName()) {
+    query["ApiName"] = request.apiName();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteControlStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteControlStrategyResponse>();
+}
+
+/**
+ * @summary Delete Security Control Strategy
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST.
+ * Request URL: cloudauth.aliyuncs.com.
+ *
+ * @param request DeleteControlStrategyRequest
+ * @return DeleteControlStrategyResponse
+ */
+DeleteControlStrategyResponse Client::deleteControlStrategy(const DeleteControlStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteControlStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Customized Flow Control Strategy
+ *
+ * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DeleteCustomizeFlowStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomizeFlowStrategyResponse
+ */
+DeleteCustomizeFlowStrategyResponse Client::deleteCustomizeFlowStrategyWithOptions(const DeleteCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApiName()) {
+    query["ApiName"] = request.apiName();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomizeFlowStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomizeFlowStrategyResponse>();
+}
+
+/**
+ * @summary Delete Customized Flow Control Strategy
+ *
+ * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DeleteCustomizeFlowStrategyRequest
+ * @return DeleteCustomizeFlowStrategyResponse
+ */
+DeleteCustomizeFlowStrategyResponse Client::deleteCustomizeFlowStrategy(const DeleteCustomizeFlowStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomizeFlowStrategyWithOptions(request, runtime);
+}
+
+/**
  * @summary Financial Level Sensitive Data Deletion Interface
  *
  * @description Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
@@ -1356,6 +1989,153 @@ DeleteFaceVerifyResultResponse Client::deleteFaceVerifyResult(const DeleteFaceVe
 }
 
 /**
+ * @summary Delete Scene Configuration
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Request URL: cloudauth.aliyuncs.com.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DeleteSceneConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSceneConfigResponse
+ */
+DeleteSceneConfigResponse Client::deleteSceneConfigWithOptions(const DeleteSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSceneConfigId()) {
+    body["sceneConfigId"] = request.sceneConfigId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSceneConfig"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSceneConfigResponse>();
+}
+
+/**
+ * @summary Delete Scene Configuration
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Request URL: cloudauth.aliyuncs.com.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DeleteSceneConfigRequest
+ * @return DeleteSceneConfigResponse
+ */
+DeleteSceneConfigResponse Client::deleteSceneConfig(const DeleteSceneConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSceneConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete Whitelist Configuration
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DeleteWhitelistSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWhitelistSettingResponse
+ */
+DeleteWhitelistSettingResponse Client::deleteWhitelistSettingWithOptions(const DeleteWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIds()) {
+    query["Ids"] = request.ids();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWhitelistSetting"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWhitelistSettingResponse>();
+}
+
+/**
+ * @summary Delete Whitelist Configuration
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DeleteWhitelistSettingRequest
+ * @return DeleteWhitelistSettingResponse
+ */
+DeleteWhitelistSettingResponse Client::deleteWhitelistSetting(const DeleteWhitelistSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWhitelistSettingWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the User Status of Ant Blockchain
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DescribeAntAndCloudAuthUserStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAntAndCloudAuthUserStatusResponse
+ */
+DescribeAntAndCloudAuthUserStatusResponse Client::describeAntAndCloudAuthUserStatusWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeAntAndCloudAuthUserStatus"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAntAndCloudAuthUserStatusResponse>();
+}
+
+/**
+ * @summary Query the User Status of Ant Blockchain
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @return DescribeAntAndCloudAuthUserStatusResponse
+ */
+DescribeAntAndCloudAuthUserStatusResponse Client::describeAntAndCloudAuthUserStatus() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAntAndCloudAuthUserStatusWithOptions(runtime);
+}
+
+/**
  * @summary Obtain Authentication Results from Image Element Verification
  *
  * @description After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
@@ -1399,6 +2179,54 @@ DescribeCardVerifyResponse Client::describeCardVerifyWithOptions(const DescribeC
 DescribeCardVerifyResponse Client::describeCardVerify(const DescribeCardVerifyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCardVerifyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Dashboard Data
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DescribeCloudauthstSceneListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCloudauthstSceneListResponse
+ */
+DescribeCloudauthstSceneListResponse Client::describeCloudauthstSceneListWithOptions(const DescribeCloudauthstSceneListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCloudauthstSceneList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCloudauthstSceneListResponse>();
+}
+
+/**
+ * @summary Query Dashboard Data
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+ *
+ * @param request DescribeCloudauthstSceneListRequest
+ * @return DescribeCloudauthstSceneListResponse
+ */
+DescribeCloudauthstSceneListResponse Client::describeCloudauthstSceneList(const DescribeCloudauthstSceneListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCloudauthstSceneListWithOptions(request, runtime);
 }
 
 /**
@@ -1582,6 +2410,546 @@ DescribeFaceVerifyResponse Client::describeFaceVerify(const DescribeFaceVerifyRe
 }
 
 /**
+ * @summary 查询任务导出记录
+ *
+ * @param request DescribeInfoCheckExportRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInfoCheckExportRecordResponse
+ */
+DescribeInfoCheckExportRecordResponse Client::describeInfoCheckExportRecordWithOptions(const DescribeInfoCheckExportRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInfoCheckExportRecord"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInfoCheckExportRecordResponse>();
+}
+
+/**
+ * @summary 查询任务导出记录
+ *
+ * @param request DescribeInfoCheckExportRecordRequest
+ * @return DescribeInfoCheckExportRecordResponse
+ */
+DescribeInfoCheckExportRecordResponse Client::describeInfoCheckExportRecord(const DescribeInfoCheckExportRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInfoCheckExportRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the cloud scenario authentication records of a specific region
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DescribeListAntCloudAuthScenesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeListAntCloudAuthScenesResponse
+ */
+DescribeListAntCloudAuthScenesResponse Client::describeListAntCloudAuthScenesWithOptions(const DescribeListAntCloudAuthScenesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeListAntCloudAuthScenes"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeListAntCloudAuthScenesResponse>();
+}
+
+/**
+ * @summary Query the cloud scenario authentication records of a specific region
+ *
+ * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+ *
+ * @param request DescribeListAntCloudAuthScenesRequest
+ * @return DescribeListAntCloudAuthScenesResponse
+ */
+DescribeListAntCloudAuthScenesResponse Client::describeListAntCloudAuthScenes(const DescribeListAntCloudAuthScenesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeListAntCloudAuthScenesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Face Verification Data
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeListFaceVerifyDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeListFaceVerifyDataResponse
+ */
+DescribeListFaceVerifyDataResponse Client::describeListFaceVerifyDataWithOptions(const DescribeListFaceVerifyDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGmtEnd()) {
+    query["GmtEnd"] = request.gmtEnd();
+  }
+
+  if (!!request.hasGmtStart()) {
+    query["GmtStart"] = request.gmtStart();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeListFaceVerifyData"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeListFaceVerifyDataResponse>();
+}
+
+/**
+ * @summary Query Face Verification Data
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeListFaceVerifyDataRequest
+ * @return DescribeListFaceVerifyDataResponse
+ */
+DescribeListFaceVerifyDataResponse Client::describeListFaceVerifyData(const DescribeListFaceVerifyDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeListFaceVerifyDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get Face Verification Information
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeListFaceVerifyInfosRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeListFaceVerifyInfosResponse
+ */
+DescribeListFaceVerifyInfosResponse Client::describeListFaceVerifyInfosWithOptions(const DescribeListFaceVerifyInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertifyId()) {
+    query["CertifyId"] = request.certifyId();
+  }
+
+  if (!!request.hasGmtEnd()) {
+    query["GmtEnd"] = request.gmtEnd();
+  }
+
+  if (!!request.hasGmtStart()) {
+    query["GmtStart"] = request.gmtStart();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeListFaceVerifyInfos"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeListFaceVerifyInfosResponse>();
+}
+
+/**
+ * @summary Get Face Verification Information
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeListFaceVerifyInfosRequest
+ * @return DescribeListFaceVerifyInfosResponse
+ */
+DescribeListFaceVerifyInfosResponse Client::describeListFaceVerifyInfos(const DescribeListFaceVerifyInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeListFaceVerifyInfosWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询页面元数据
+ *
+ * @param request DescribeMetaSearchPageListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetaSearchPageListResponse
+ */
+DescribeMetaSearchPageListResponse Client::describeMetaSearchPageListWithOptions(const DescribeMetaSearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApi()) {
+    query["Api"] = request.api();
+  }
+
+  if (!!request.hasBankCard()) {
+    query["BankCard"] = request.bankCard();
+  }
+
+  if (!!request.hasBizCode()) {
+    query["BizCode"] = request.bizCode();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasIdentifyNum()) {
+    query["IdentifyNum"] = request.identifyNum();
+  }
+
+  if (!!request.hasIspName()) {
+    query["IspName"] = request.ispName();
+  }
+
+  if (!!request.hasMobile()) {
+    query["Mobile"] = request.mobile();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasReqId()) {
+    query["ReqId"] = request.reqId();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasSubCode()) {
+    query["SubCode"] = request.subCode();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.userName();
+  }
+
+  if (!!request.hasVehicleNum()) {
+    query["VehicleNum"] = request.vehicleNum();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetaSearchPageList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetaSearchPageListResponse>();
+}
+
+/**
+ * @summary 查询页面元数据
+ *
+ * @param request DescribeMetaSearchPageListRequest
+ * @return DescribeMetaSearchPageListResponse
+ */
+DescribeMetaSearchPageListResponse Client::describeMetaSearchPageList(const DescribeMetaSearchPageListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMetaSearchPageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询认证统计信息
+ *
+ * @param request DescribeMetaStatisticsListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetaStatisticsListResponse
+ */
+DescribeMetaStatisticsListResponse Client::describeMetaStatisticsListWithOptions(const DescribeMetaStatisticsListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApi()) {
+    query["Api"] = request.api();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetaStatisticsList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetaStatisticsListResponse>();
+}
+
+/**
+ * @summary 查询认证统计信息
+ *
+ * @param request DescribeMetaStatisticsListRequest
+ * @return DescribeMetaStatisticsListResponse
+ */
+DescribeMetaStatisticsListResponse Client::describeMetaStatisticsList(const DescribeMetaStatisticsListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMetaStatisticsListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询认证统计页面
+ *
+ * @param request DescribeMetaStatisticsPageListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetaStatisticsPageListResponse
+ */
+DescribeMetaStatisticsPageListResponse Client::describeMetaStatisticsPageListWithOptions(const DescribeMetaStatisticsPageListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApi()) {
+    query["Api"] = request.api();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetaStatisticsPageList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetaStatisticsPageListResponse>();
+}
+
+/**
+ * @summary 查询认证统计页面
+ *
+ * @param request DescribeMetaStatisticsPageListRequest
+ * @return DescribeMetaStatisticsPageListResponse
+ */
+DescribeMetaStatisticsPageListResponse Client::describeMetaStatisticsPageList(const DescribeMetaStatisticsPageListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMetaStatisticsPageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query OSS status
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeOssStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOssStatusResponse
+ */
+DescribeOssStatusResponse Client::describeOssStatusWithOptions(const DescribeOssStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOssStatus"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOssStatusResponse>();
+}
+
+/**
+ * @summary Query OSS status
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeOssStatusRequest
+ * @return DescribeOssStatusResponse
+ */
+DescribeOssStatusResponse Client::describeOssStatus(const DescribeOssStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOssStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get OSS Activation Status
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeOssStatusV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOssStatusV2Response
+ */
+DescribeOssStatusV2Response Client::describeOssStatusV2WithOptions(const DescribeOssStatusV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOssStatusV2"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOssStatusV2Response>();
+}
+
+/**
+ * @summary Get OSS Activation Status
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeOssStatusV2Request
+ * @return DescribeOssStatusV2Response
+ */
+DescribeOssStatusV2Response Client::describeOssStatusV2(const DescribeOssStatusV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOssStatusV2WithOptions(request, runtime);
+}
+
+/**
  * @summary Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
  *
  * @param request DescribeOssUploadTokenRequest
@@ -1677,6 +3045,80 @@ DescribePageFaceVerifyDataResponse Client::describePageFaceVerifyData(const Desc
 }
 
 /**
+ * @summary Query Page Settings
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DescribePageSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePageSettingResponse
+ */
+DescribePageSettingResponse Client::describePageSettingWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribePageSetting"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePageSettingResponse>();
+}
+
+/**
+ * @summary Query Page Settings
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @return DescribePageSettingResponse
+ */
+DescribePageSettingResponse Client::describePageSetting() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePageSettingWithOptions(runtime);
+}
+
+/**
+ * @summary Get Product Code
+ *
+ * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
+ *
+ * @param request DescribeProductCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeProductCodeResponse
+ */
+DescribeProductCodeResponse Client::describeProductCodeWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "DescribeProductCode"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeProductCodeResponse>();
+}
+
+/**
+ * @summary Get Product Code
+ *
+ * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
+ *
+ * @return DescribeProductCodeResponse
+ */
+DescribeProductCodeResponse Client::describeProductCode() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeProductCodeWithOptions(runtime);
+}
+
+/**
  * @summary Enhanced Real Person Authentication Call Statistics Pagination Query Interface
  *
  * @param request DescribeSmartStatisticsPageListRequest
@@ -1736,6 +3178,382 @@ DescribeSmartStatisticsPageListResponse Client::describeSmartStatisticsPageListW
 DescribeSmartStatisticsPageListResponse Client::describeSmartStatisticsPageList(const DescribeSmartStatisticsPageListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSmartStatisticsPageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get Verification Device Statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyDeviceRiskStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyDeviceRiskStatisticsResponse
+ */
+DescribeVerifyDeviceRiskStatisticsResponse Client::describeVerifyDeviceRiskStatisticsWithOptions(const DescribeVerifyDeviceRiskStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyDeviceRiskStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyDeviceRiskStatisticsResponse>();
+}
+
+/**
+ * @summary Get Verification Device Statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyDeviceRiskStatisticsRequest
+ * @return DescribeVerifyDeviceRiskStatisticsResponse
+ */
+DescribeVerifyDeviceRiskStatisticsResponse Client::describeVerifyDeviceRiskStatistics(const DescribeVerifyDeviceRiskStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyDeviceRiskStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Overview of authentication request statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyFailStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyFailStatisticsResponse
+ */
+DescribeVerifyFailStatisticsResponse Client::describeVerifyFailStatisticsWithOptions(const DescribeVerifyFailStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgeGt()) {
+    query["AgeGt"] = request.ageGt();
+  }
+
+  if (!!request.hasApi()) {
+    query["Api"] = request.api();
+  }
+
+  if (!!request.hasDeviceType()) {
+    query["DeviceType"] = request.deviceType();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyFailStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyFailStatisticsResponse>();
+}
+
+/**
+ * @summary Overview of authentication request statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyFailStatisticsRequest
+ * @return DescribeVerifyFailStatisticsResponse
+ */
+DescribeVerifyFailStatisticsResponse Client::describeVerifyFailStatistics(const DescribeVerifyFailStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyFailStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Statistics on Device Face Comparison
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasDeviceModelStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+ */
+DescribeVerifyPersonasDeviceModelStatisticsResponse Client::describeVerifyPersonasDeviceModelStatisticsWithOptions(const DescribeVerifyPersonasDeviceModelStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.timeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyPersonasDeviceModelStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyPersonasDeviceModelStatisticsResponse>();
+}
+
+/**
+ * @summary Query Statistics on Device Face Comparison
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasDeviceModelStatisticsRequest
+ * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+ */
+DescribeVerifyPersonasDeviceModelStatisticsResponse Client::describeVerifyPersonasDeviceModelStatistics(const DescribeVerifyPersonasDeviceModelStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyPersonasDeviceModelStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Authentication Personnel Statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasOsStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyPersonasOsStatisticsResponse
+ */
+DescribeVerifyPersonasOsStatisticsResponse Client::describeVerifyPersonasOsStatisticsWithOptions(const DescribeVerifyPersonasOsStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.timeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyPersonasOsStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyPersonasOsStatisticsResponse>();
+}
+
+/**
+ * @summary Query Authentication Personnel Statistics
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasOsStatisticsRequest
+ * @return DescribeVerifyPersonasOsStatisticsResponse
+ */
+DescribeVerifyPersonasOsStatisticsResponse Client::describeVerifyPersonasOsStatistics(const DescribeVerifyPersonasOsStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyPersonasOsStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Obtain statistical information on the location of authenticated individuals
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasProvinceStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyPersonasProvinceStatisticsResponse
+ */
+DescribeVerifyPersonasProvinceStatisticsResponse Client::describeVerifyPersonasProvinceStatisticsWithOptions(const DescribeVerifyPersonasProvinceStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.timeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyPersonasProvinceStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyPersonasProvinceStatisticsResponse>();
+}
+
+/**
+ * @summary Obtain statistical information on the location of authenticated individuals
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasProvinceStatisticsRequest
+ * @return DescribeVerifyPersonasProvinceStatisticsResponse
+ */
+DescribeVerifyPersonasProvinceStatisticsResponse Client::describeVerifyPersonasProvinceStatistics(const DescribeVerifyPersonasProvinceStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyPersonasProvinceStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query gender statistics of authentication
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasSexStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyPersonasSexStatisticsResponse
+ */
+DescribeVerifyPersonasSexStatisticsResponse Client::describeVerifyPersonasSexStatisticsWithOptions(const DescribeVerifyPersonasSexStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasTimeRange()) {
+    query["TimeRange"] = request.timeRange();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyPersonasSexStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyPersonasSexStatisticsResponse>();
+}
+
+/**
+ * @summary Query gender statistics of authentication
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifyPersonasSexStatisticsRequest
+ * @return DescribeVerifyPersonasSexStatisticsResponse
+ */
+DescribeVerifyPersonasSexStatisticsResponse Client::describeVerifyPersonasSexStatistics(const DescribeVerifyPersonasSexStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyPersonasSexStatisticsWithOptions(request, runtime);
 }
 
 /**
@@ -1842,6 +3660,182 @@ DescribeVerifySDKResponse Client::describeVerifySDKWithOptions(const DescribeVer
 DescribeVerifySDKResponse Client::describeVerifySDK(const DescribeVerifySDKRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVerifySDKWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the list of authentication schemes
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifySearchPageListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifySearchPageListResponse
+ */
+DescribeVerifySearchPageListResponse Client::describeVerifySearchPageListWithOptions(const DescribeVerifySearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertNo()) {
+    query["CertNo"] = request.certNo();
+  }
+
+  if (!!request.hasCertifyId()) {
+    query["CertifyId"] = request.certifyId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasHasDeviceRisk()) {
+    query["HasDeviceRisk"] = request.hasDeviceRisk();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.model();
+  }
+
+  if (!!request.hasOuterOrderNo()) {
+    query["OuterOrderNo"] = request.outerOrderNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPassed()) {
+    query["Passed"] = request.passed();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasRoot()) {
+    query["Root"] = request.root();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasSimulator()) {
+    query["Simulator"] = request.simulator();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasSubCode()) {
+    query["SubCode"] = request.subCode();
+  }
+
+  if (!!request.hasSubCodes()) {
+    query["SubCodes"] = request.subCodes();
+  }
+
+  if (!!request.hasVirtualVideo()) {
+    query["VirtualVideo"] = request.virtualVideo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifySearchPageList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifySearchPageListResponse>();
+}
+
+/**
+ * @summary Query the list of authentication schemes
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ *
+ * @param request DescribeVerifySearchPageListRequest
+ * @return DescribeVerifySearchPageListResponse
+ */
+DescribeVerifySearchPageListResponse Client::describeVerifySearchPageList(const DescribeVerifySearchPageListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifySearchPageListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Authentication Statistics
+ *
+ * @description - Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeVerifyStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVerifyStatisticsResponse
+ */
+DescribeVerifyStatisticsResponse Client::describeVerifyStatisticsWithOptions(const DescribeVerifyStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgeGt()) {
+    query["AgeGt"] = request.ageGt();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVerifyStatistics"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVerifyStatisticsResponse>();
+}
+
+/**
+ * @summary Query Authentication Statistics
+ *
+ * @description - Request Method: Supports sending requests using HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request DescribeVerifyStatisticsRequest
+ * @return DescribeVerifyStatisticsResponse
+ */
+DescribeVerifyStatisticsResponse Client::describeVerifyStatistics(const DescribeVerifyStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVerifyStatisticsWithOptions(request, runtime);
 }
 
 /**
@@ -1965,6 +3959,92 @@ DescribeVerifyTokenResponse Client::describeVerifyToken(const DescribeVerifyToke
 }
 
 /**
+ * @summary Get Whitelist Collection Get Whitelist Collection
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DescribeWhitelistSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWhitelistSettingResponse
+ */
+DescribeWhitelistSettingResponse Client::describeWhitelistSettingWithOptions(const DescribeWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertNo()) {
+    query["CertNo"] = request.certNo();
+  }
+
+  if (!!request.hasCertifyId()) {
+    query["CertifyId"] = request.certifyId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasServiceCode()) {
+    query["ServiceCode"] = request.serviceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasValidEndDate()) {
+    query["ValidEndDate"] = request.validEndDate();
+  }
+
+  if (!!request.hasValidStartDate()) {
+    query["ValidStartDate"] = request.validStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeWhitelistSetting"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWhitelistSettingResponse>();
+}
+
+/**
+ * @summary Get Whitelist Collection Get Whitelist Collection
+ *
+ * @description Request Method: Only supports sending requests via HTTPS POST method.
+ *
+ * @param request DescribeWhitelistSettingRequest
+ * @return DescribeWhitelistSettingResponse
+ */
+DescribeWhitelistSettingResponse Client::describeWhitelistSetting(const DescribeWhitelistSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWhitelistSettingWithOptions(request, runtime);
+}
+
+/**
  * @summary Detect Validity Attributes in Face Photos
  *
  * @description Request Method: Only supports sending requests via HTTPS POST.
@@ -2030,6 +4110,62 @@ DetectFaceAttributesResponse Client::detectFaceAttributesWithOptions(const Detec
 DetectFaceAttributesResponse Client::detectFaceAttributes(const DetectFaceAttributesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return detectFaceAttributesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Real-person Authentication Record Download
+ *
+ * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+ * - Method: HTTPS POST
+ * - Service Address: cloudauth.aliyuncs.com
+ * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request DownloadVerifyRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadVerifyRecordsResponse
+ */
+DownloadVerifyRecordsResponse Client::downloadVerifyRecordsWithOptions(const DownloadVerifyRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizParam()) {
+    query["BizParam"] = request.bizParam();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadVerifyRecords"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadVerifyRecordsResponse>();
+}
+
+/**
+ * @summary Real-person Authentication Record Download
+ *
+ * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+ * - Method: HTTPS POST
+ * - Service Address: cloudauth.aliyuncs.com
+ * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request DownloadVerifyRecordsRequest
+ * @return DownloadVerifyRecordsResponse
+ */
+DownloadVerifyRecordsResponse Client::downloadVerifyRecords(const DownloadVerifyRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadVerifyRecordsWithOptions(request, runtime);
 }
 
 /**
@@ -2334,7 +4470,7 @@ Id2MetaVerifyWithOCRResponse Client::id2MetaVerifyWithOCRAdvance(const Id2MetaVe
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     id2MetaVerifyWithOCRReq.setCertFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2357,7 +4493,7 @@ Id2MetaVerifyWithOCRResponse Client::id2MetaVerifyWithOCRAdvance(const Id2MetaVe
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     id2MetaVerifyWithOCRReq.setCertNationalFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2509,12 +4645,179 @@ Id3MetaVerifyResponse Client::id3MetaVerifyAdvance(const Id3MetaVerifyAdvanceReq
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     id3MetaVerifyReq.setFaceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
   Id3MetaVerifyResponse id3MetaVerifyResp = id3MetaVerifyWithOptions(id3MetaVerifyReq, runtime);
   return id3MetaVerifyResp;
+}
+
+/**
+ * @summary Identity Three Elements Image Verification
+ *
+ * @description Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+ *
+ * @param request Id3MetaVerifyWithOCRRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return Id3MetaVerifyWithOCRResponse
+ */
+Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRWithOptions(const Id3MetaVerifyWithOCRRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCertFile()) {
+    body["CertFile"] = request.certFile();
+  }
+
+  if (!!request.hasCertNationalFile()) {
+    body["CertNationalFile"] = request.certNationalFile();
+  }
+
+  if (!!request.hasCertNationalUrl()) {
+    body["CertNationalUrl"] = request.certNationalUrl();
+  }
+
+  if (!!request.hasCertUrl()) {
+    body["CertUrl"] = request.certUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "Id3MetaVerifyWithOCR"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<Id3MetaVerifyWithOCRResponse>();
+}
+
+/**
+ * @summary Identity Three Elements Image Verification
+ *
+ * @description Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+ *
+ * @param request Id3MetaVerifyWithOCRRequest
+ * @return Id3MetaVerifyWithOCRResponse
+ */
+Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCR(const Id3MetaVerifyWithOCRRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return id3MetaVerifyWithOCRWithOptions(request, runtime);
+}
+
+Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRAdvance(const Id3MetaVerifyWithOCRAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.accessKeyId();
+  string accessKeySecret = credentialModel.accessKeySecret();
+  string securityToken = credentialModel.securityToken();
+  string credentialType = credentialModel.type();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  Id3MetaVerifyWithOCRRequest id3MetaVerifyWithOCRReq = Id3MetaVerifyWithOCRRequest();
+  Utils::Utils::convert(request, id3MetaVerifyWithOCRReq);
+  if (!!request.hasCertFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.certFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    id3MetaVerifyWithOCRReq.setCertFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  if (!!request.hasCertNationalFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.certNationalFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    id3MetaVerifyWithOCRReq.setCertNationalFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRResp = id3MetaVerifyWithOCRWithOptions(id3MetaVerifyWithOCRReq, runtime);
+  return id3MetaVerifyWithOCRResp;
 }
 
 /**
@@ -2674,6 +4977,10 @@ InitFaceVerifyResponse Client::initFaceVerifyWithOptions(const InitFaceVerifyReq
 
   if (!!request.hasFaceGuardOutput()) {
     query["FaceGuardOutput"] = request.faceGuardOutput();
+  }
+
+  if (!!request.hasH5DegradeConfirmBtn()) {
+    query["H5DegradeConfirmBtn"] = request.h5DegradeConfirmBtn();
   }
 
   if (!!request.hasIp()) {
@@ -3408,6 +5715,186 @@ MobileOnlineTimeResponse Client::mobileOnlineTime(const MobileOnlineTimeRequest 
 }
 
 /**
+ * @summary Modify Black and White List Policy
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ * - Interface Description: Add or modify blacklist rule.
+ *
+ * @param tmpReq ModifyBlackListStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyBlackListStrategyResponse
+ */
+ModifyBlackListStrategyResponse Client::modifyBlackListStrategyWithOptions(const ModifyBlackListStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyBlackListStrategyShrinkRequest request = ModifyBlackListStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBlackListStrategy()) {
+    request.setBlackListStrategyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.blackListStrategy(), "BlackListStrategy", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBlackListStrategyShrink()) {
+    query["BlackListStrategy"] = request.blackListStrategyShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyBlackListStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyBlackListStrategyResponse>();
+}
+
+/**
+ * @summary Modify Black and White List Policy
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com.
+ * - Request Method: HTTPS POST and GET.
+ * - Interface Description: Add or modify blacklist rule.
+ *
+ * @param request ModifyBlackListStrategyRequest
+ * @return ModifyBlackListStrategyResponse
+ */
+ModifyBlackListStrategyResponse Client::modifyBlackListStrategy(const ModifyBlackListStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyBlackListStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modify Security Control Strategy
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST method.
+ * - Request Address: cloudauth.aliyuncs.com.
+ *
+ * @param tmpReq ModifyControlStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyControlStrategyResponse
+ */
+ModifyControlStrategyResponse Client::modifyControlStrategyWithOptions(const ModifyControlStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyControlStrategyShrinkRequest request = ModifyControlStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasControlStrategyList()) {
+    request.setControlStrategyListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.controlStrategyList(), "ControlStrategyList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasControlStrategyListShrink()) {
+    query["ControlStrategyList"] = request.controlStrategyListShrink();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyControlStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyControlStrategyResponse>();
+}
+
+/**
+ * @summary Modify Security Control Strategy
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST method.
+ * - Request Address: cloudauth.aliyuncs.com.
+ *
+ * @param request ModifyControlStrategyRequest
+ * @return ModifyControlStrategyResponse
+ */
+ModifyControlStrategyResponse Client::modifyControlStrategy(const ModifyControlStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyControlStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Information Verification Security Management
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param tmpReq ModifyCustomizeFlowStrategyListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCustomizeFlowStrategyListResponse
+ */
+ModifyCustomizeFlowStrategyListResponse Client::modifyCustomizeFlowStrategyListWithOptions(const ModifyCustomizeFlowStrategyListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyCustomizeFlowStrategyListShrinkRequest request = ModifyCustomizeFlowStrategyListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStrategyObject()) {
+    request.setStrategyObjectShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.strategyObject(), "StrategyObject", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasStrategyObjectShrink()) {
+    query["StrategyObject"] = request.strategyObjectShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCustomizeFlowStrategyList"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCustomizeFlowStrategyListResponse>();
+}
+
+/**
+ * @summary Information Verification Security Management
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Service Address: cloudauth.aliyuncs.com.
+ *
+ * @param request ModifyCustomizeFlowStrategyListRequest
+ * @return ModifyCustomizeFlowStrategyListResponse
+ */
+ModifyCustomizeFlowStrategyListResponse Client::modifyCustomizeFlowStrategyList(const ModifyCustomizeFlowStrategyListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCustomizeFlowStrategyListWithOptions(request, runtime);
+}
+
+/**
  * @summary Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
  *
  * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
@@ -3544,6 +6031,392 @@ PageQueryWhiteListSettingResponse Client::pageQueryWhiteListSetting(const PageQu
 }
 
 /**
+ * @summary Query Blacklist and Whitelist Policies
+ *
+ * @description - Request URL: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+ * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+ *
+ * @param request QueryBlackListStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryBlackListStrategyResponse
+ */
+QueryBlackListStrategyResponse Client::queryBlackListStrategyWithOptions(const QueryBlackListStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryBlackListStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryBlackListStrategyResponse>();
+}
+
+/**
+ * @summary Query Blacklist and Whitelist Policies
+ *
+ * @description - Request URL: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+ * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+ *
+ * @param request QueryBlackListStrategyRequest
+ * @return QueryBlackListStrategyResponse
+ */
+QueryBlackListStrategyResponse Client::queryBlackListStrategy(const QueryBlackListStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryBlackListStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Security Control Strategy
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Request Address: cloudauth.aliyuncs.com.
+ *
+ * @param request QueryControlStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryControlStrategyResponse
+ */
+QueryControlStrategyResponse Client::queryControlStrategyWithOptions(const QueryControlStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryControlStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryControlStrategyResponse>();
+}
+
+/**
+ * @summary Query Security Control Strategy
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+ * - Request Address: cloudauth.aliyuncs.com.
+ *
+ * @param request QueryControlStrategyRequest
+ * @return QueryControlStrategyResponse
+ */
+QueryControlStrategyResponse Client::queryControlStrategy(const QueryControlStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryControlStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Custom Flow Control Strategy
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+ *
+ * @param request QueryCustomizeFlowStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCustomizeFlowStrategyResponse
+ */
+QueryCustomizeFlowStrategyResponse Client::queryCustomizeFlowStrategyWithOptions(const QueryCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryCustomizeFlowStrategy"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCustomizeFlowStrategyResponse>();
+}
+
+/**
+ * @summary Query Custom Flow Control Strategy
+ *
+ * @description - Service Address: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+ *
+ * @param request QueryCustomizeFlowStrategyRequest
+ * @return QueryCustomizeFlowStrategyResponse
+ */
+QueryCustomizeFlowStrategyResponse Client::queryCustomizeFlowStrategy(const QueryCustomizeFlowStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryCustomizeFlowStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Scene Configuration
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request QuerySceneConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QuerySceneConfigsResponse
+ */
+QuerySceneConfigsResponse Client::querySceneConfigsWithOptions(const QuerySceneConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QuerySceneConfigs"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QuerySceneConfigsResponse>();
+}
+
+/**
+ * @summary Query Scene Configuration
+ *
+ * @description - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST and GET.
+ *
+ * @param request QuerySceneConfigsRequest
+ * @return QuerySceneConfigsResponse
+ */
+QuerySceneConfigsResponse Client::querySceneConfigs(const QuerySceneConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return querySceneConfigsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Real-Person Download Task
+ *
+ * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+ * - Method: HTTPS POST
+ * - Service Address: cloudauth.aliyuncs.com
+ * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request QueryVerifyDownloadTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVerifyDownloadTaskResponse
+ */
+QueryVerifyDownloadTaskResponse Client::queryVerifyDownloadTaskWithOptions(const QueryVerifyDownloadTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryVerifyDownloadTask"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVerifyDownloadTaskResponse>();
+}
+
+/**
+ * @summary Query Real-Person Download Task
+ *
+ * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+ * - Method: HTTPS POST
+ * - Service Address: cloudauth.aliyuncs.com
+ * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request QueryVerifyDownloadTaskRequest
+ * @return QueryVerifyDownloadTaskResponse
+ */
+QueryVerifyDownloadTaskResponse Client::queryVerifyDownloadTask(const QueryVerifyDownloadTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVerifyDownloadTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query Flow Package
+ *
+ * @description - Service address: cloudauth.aliyuncs.com
+ * - Request method: HTTPS POST and GET.
+ * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+ *
+ * @param request QueryVerifyFlowPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVerifyFlowPackageResponse
+ */
+QueryVerifyFlowPackageResponse Client::queryVerifyFlowPackageWithOptions(const QueryVerifyFlowPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryVerifyFlowPackage"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVerifyFlowPackageResponse>();
+}
+
+/**
+ * @summary Query Flow Package
+ *
+ * @description - Service address: cloudauth.aliyuncs.com
+ * - Request method: HTTPS POST and GET.
+ * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+ *
+ * @param request QueryVerifyFlowPackageRequest
+ * @return QueryVerifyFlowPackageResponse
+ */
+QueryVerifyFlowPackageResponse Client::queryVerifyFlowPackage(const QueryVerifyFlowPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVerifyFlowPackageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Call Volume Statistics
+ *
+ * @description - Request URL: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request QueryVerifyInvokeSatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVerifyInvokeSatisticResponse
+ */
+QueryVerifyInvokeSatisticResponse Client::queryVerifyInvokeSatisticWithOptions(const QueryVerifyInvokeSatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProductProgramList()) {
+    query["ProductProgramList"] = request.productProgramList();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasSceneIdList()) {
+    query["SceneIdList"] = request.sceneIdList();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasStatisticsType()) {
+    query["StatisticsType"] = request.statisticsType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryVerifyInvokeSatistic"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVerifyInvokeSatisticResponse>();
+}
+
+/**
+ * @summary Call Volume Statistics
+ *
+ * @description - Request URL: cloudauth.aliyuncs.com
+ * - Request Method: HTTPS POST and GET.
+ * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+ *
+ * @param request QueryVerifyInvokeSatisticRequest
+ * @return QueryVerifyInvokeSatisticResponse
+ */
+QueryVerifyInvokeSatisticResponse Client::queryVerifyInvokeSatistic(const QueryVerifyInvokeSatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVerifyInvokeSatisticWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Real Person Whitelist
  *
  * @param tmpReq RemoveWhiteListSettingRequest
@@ -3593,6 +6466,144 @@ RemoveWhiteListSettingResponse Client::removeWhiteListSettingWithOptions(const R
 RemoveWhiteListSettingResponse Client::removeWhiteListSetting(const RemoveWhiteListSettingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeWhiteListSettingWithOptions(request, runtime);
+}
+
+/**
+ * @summary Update Ant Blockchain Transaction Scenario
+ *
+ * @description Update the information of a financial-level authentication scenario based on the scenario ID.
+ * - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST.
+ *
+ * @param request UpdateAntCloudAuthSceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAntCloudAuthSceneResponse
+ */
+UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const UpdateAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBindMiniProgram()) {
+    query["BindMiniProgram"] = request.bindMiniProgram();
+  }
+
+  if (!!request.hasCheckFileBody()) {
+    query["CheckFileBody"] = request.checkFileBody();
+  }
+
+  if (!!request.hasCheckFileName()) {
+    query["CheckFileName"] = request.checkFileName();
+  }
+
+  if (!!request.hasMiniProgramName()) {
+    query["MiniProgramName"] = request.miniProgramName();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.platform();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.sceneId();
+  }
+
+  if (!!request.hasSceneName()) {
+    query["SceneName"] = request.sceneName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasStoreImage()) {
+    query["StoreImage"] = request.storeImage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAntCloudAuthScene"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAntCloudAuthSceneResponse>();
+}
+
+/**
+ * @summary Update Ant Blockchain Transaction Scenario
+ *
+ * @description Update the information of a financial-level authentication scenario based on the scenario ID.
+ * - Service address: cloudauth.aliyuncs.com.
+ * - Request method: HTTPS POST.
+ *
+ * @param request UpdateAntCloudAuthSceneRequest
+ * @return UpdateAntCloudAuthSceneResponse
+ */
+UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthScene(const UpdateAntCloudAuthSceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAntCloudAuthSceneWithOptions(request, runtime);
+}
+
+/**
+ * @summary Update Scene Configuration
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST.
+ * - Request URL: cloudauth.aliyuncs.com.
+ *
+ * @param request UpdateSceneConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSceneConfigResponse
+ */
+UpdateSceneConfigResponse Client::updateSceneConfigWithOptions(const UpdateSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.config();
+  }
+
+  if (!!request.hasId()) {
+    body["id"] = request.id();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["sceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateSceneConfig"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSceneConfigResponse>();
+}
+
+/**
+ * @summary Update Scene Configuration
+ *
+ * @description - Request Method: Supports sending requests via HTTPS POST.
+ * - Request URL: cloudauth.aliyuncs.com.
+ *
+ * @param request UpdateSceneConfigRequest
+ * @return UpdateSceneConfigResponse
+ */
+UpdateSceneConfigResponse Client::updateSceneConfig(const UpdateSceneConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSceneConfigWithOptions(request, runtime);
 }
 
 /**

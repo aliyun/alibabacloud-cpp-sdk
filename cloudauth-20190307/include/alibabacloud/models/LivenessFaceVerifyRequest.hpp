@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certifyId_ != nullptr
-        && this->crop_ != nullptr && this->deviceToken_ != nullptr && this->faceContrastPicture_ != nullptr && this->faceContrastPictureUrl_ != nullptr && this->ip_ != nullptr
-        && this->mobile_ != nullptr && this->model_ != nullptr && this->ossBucketName_ != nullptr && this->ossObjectName_ != nullptr && this->outerOrderNo_ != nullptr
-        && this->productCode_ != nullptr && this->sceneId_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->certifyId_ == nullptr
+        && return this->crop_ == nullptr && return this->deviceToken_ == nullptr && return this->faceContrastPicture_ == nullptr && return this->faceContrastPictureUrl_ == nullptr && return this->ip_ == nullptr
+        && return this->mobile_ == nullptr && return this->model_ == nullptr && return this->ossBucketName_ == nullptr && return this->ossObjectName_ == nullptr && return this->outerOrderNo_ == nullptr
+        && return this->productCode_ == nullptr && return this->sceneId_ == nullptr && return this->userId_ == nullptr; };
     // certifyId Field Functions 
     bool hasCertifyId() const { return this->certifyId_ != nullptr;};
     void deleteCertifyId() { this->certifyId_ = nullptr;};

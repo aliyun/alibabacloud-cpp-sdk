@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pitchAngle_ != nullptr
-        && this->rollAngle_ != nullptr && this->yawAngle_ != nullptr; };
+    virtual bool empty() const override { return this->pitchAngle_ == nullptr
+        && return this->rollAngle_ == nullptr && return this->yawAngle_ == nullptr; };
     // pitchAngle Field Functions 
     bool hasPitchAngle() const { return this->pitchAngle_ != nullptr;};
     void deletePitchAngle() { this->pitchAngle_ = nullptr;};

@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->faceGlobalUrl_ != nullptr
-        && this->faceImageUrl_ != nullptr && this->faceMask_ != nullptr && this->faceQuality_ != nullptr && this->idCardInfo_ != nullptr && this->idCardName_ != nullptr
-        && this->idCardNumber_ != nullptr; };
+    virtual bool empty() const override { return this->faceGlobalUrl_ == nullptr
+        && return this->faceImageUrl_ == nullptr && return this->faceMask_ == nullptr && return this->faceQuality_ == nullptr && return this->idCardInfo_ == nullptr && return this->idCardName_ == nullptr
+        && return this->idCardNumber_ == nullptr; };
     // faceGlobalUrl Field Functions 
     bool hasFaceGlobalUrl() const { return this->faceGlobalUrl_ != nullptr;};
     void deleteFaceGlobalUrl() { this->faceGlobalUrl_ = nullptr;};

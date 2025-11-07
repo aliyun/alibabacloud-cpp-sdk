@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blur_ != nullptr
-        && this->facequal_ != nullptr && this->facetype_ != nullptr && this->glasses_ != nullptr && this->headpose_ != nullptr && this->integrity_ != nullptr
-        && this->respirator_ != nullptr && this->smiling_ != nullptr; };
+    virtual bool empty() const override { return this->blur_ == nullptr
+        && return this->facequal_ == nullptr && return this->facetype_ == nullptr && return this->glasses_ == nullptr && return this->headpose_ == nullptr && return this->integrity_ == nullptr
+        && return this->respirator_ == nullptr && return this->smiling_ == nullptr; };
     // blur Field Functions 
     bool hasBlur() const { return this->blur_ != nullptr;};
     void deleteBlur() { this->blur_ = nullptr;};

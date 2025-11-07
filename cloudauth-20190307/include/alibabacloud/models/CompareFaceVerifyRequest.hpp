@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->crop_ != nullptr
-        && this->outerOrderNo_ != nullptr && this->productCode_ != nullptr && this->sceneId_ != nullptr && this->sourceCertifyId_ != nullptr && this->sourceFaceContrastPicture_ != nullptr
-        && this->sourceFaceContrastPictureUrl_ != nullptr && this->sourceOssBucketName_ != nullptr && this->sourceOssObjectName_ != nullptr && this->targetCertifyId_ != nullptr && this->targetFaceContrastPicture_ != nullptr
-        && this->targetFaceContrastPictureUrl_ != nullptr && this->targetOssBucketName_ != nullptr && this->targetOssObjectName_ != nullptr; };
+    virtual bool empty() const override { return this->crop_ == nullptr
+        && return this->outerOrderNo_ == nullptr && return this->productCode_ == nullptr && return this->sceneId_ == nullptr && return this->sourceCertifyId_ == nullptr && return this->sourceFaceContrastPicture_ == nullptr
+        && return this->sourceFaceContrastPictureUrl_ == nullptr && return this->sourceOssBucketName_ == nullptr && return this->sourceOssObjectName_ == nullptr && return this->targetCertifyId_ == nullptr && return this->targetFaceContrastPicture_ == nullptr
+        && return this->targetFaceContrastPictureUrl_ == nullptr && return this->targetOssBucketName_ == nullptr && return this->targetOssObjectName_ == nullptr; };
     // crop Field Functions 
     bool hasCrop() const { return this->crop_ != nullptr;};
     void deleteCrop() { this->crop_ = nullptr;};

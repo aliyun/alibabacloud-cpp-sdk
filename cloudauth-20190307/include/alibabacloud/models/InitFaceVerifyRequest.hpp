@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FaceContrastPicture, faceContrastPicture_);
       DARABONBA_PTR_TO_JSON(FaceContrastPictureUrl, faceContrastPictureUrl_);
       DARABONBA_PTR_TO_JSON(FaceGuardOutput, faceGuardOutput_);
+      DARABONBA_PTR_TO_JSON(H5DegradeConfirmBtn, h5DegradeConfirmBtn_);
       DARABONBA_PTR_TO_JSON(Ip, ip_);
       DARABONBA_PTR_TO_JSON(MetaInfo, metaInfo_);
       DARABONBA_PTR_TO_JSON(Mobile, mobile_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FaceContrastPicture, faceContrastPicture_);
       DARABONBA_PTR_FROM_JSON(FaceContrastPictureUrl, faceContrastPictureUrl_);
       DARABONBA_PTR_FROM_JSON(FaceGuardOutput, faceGuardOutput_);
+      DARABONBA_PTR_FROM_JSON(H5DegradeConfirmBtn, h5DegradeConfirmBtn_);
       DARABONBA_PTR_FROM_JSON(Ip, ip_);
       DARABONBA_PTR_FROM_JSON(MetaInfo, metaInfo_);
       DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
@@ -103,15 +105,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appQualityCheck_ != nullptr
-        && this->authId_ != nullptr && this->birthday_ != nullptr && this->callbackToken_ != nullptr && this->callbackUrl_ != nullptr && this->cameraSelection_ != nullptr
-        && this->certName_ != nullptr && this->certNo_ != nullptr && this->certType_ != nullptr && this->certifyId_ != nullptr && this->certifyUrlStyle_ != nullptr
-        && this->certifyUrlType_ != nullptr && this->crop_ != nullptr && this->encryptType_ != nullptr && this->faceContrastPicture_ != nullptr && this->faceContrastPictureUrl_ != nullptr
-        && this->faceGuardOutput_ != nullptr && this->ip_ != nullptr && this->metaInfo_ != nullptr && this->mobile_ != nullptr && this->mode_ != nullptr
-        && this->model_ != nullptr && this->needMultiFaceCheck_ != nullptr && this->ossBucketName_ != nullptr && this->ossObjectName_ != nullptr && this->outerOrderNo_ != nullptr
-        && this->procedurePriority_ != nullptr && this->productCode_ != nullptr && this->rarelyCharacters_ != nullptr && this->readImg_ != nullptr && this->returnUrl_ != nullptr
-        && this->sceneId_ != nullptr && this->suitableType_ != nullptr && this->uiCustomUrl_ != nullptr && this->userId_ != nullptr && this->validityDate_ != nullptr
-        && this->videoEvidence_ != nullptr && this->voluntaryCustomizedContent_ != nullptr; };
+    virtual bool empty() const override { return this->appQualityCheck_ == nullptr
+        && return this->authId_ == nullptr && return this->birthday_ == nullptr && return this->callbackToken_ == nullptr && return this->callbackUrl_ == nullptr && return this->cameraSelection_ == nullptr
+        && return this->certName_ == nullptr && return this->certNo_ == nullptr && return this->certType_ == nullptr && return this->certifyId_ == nullptr && return this->certifyUrlStyle_ == nullptr
+        && return this->certifyUrlType_ == nullptr && return this->crop_ == nullptr && return this->encryptType_ == nullptr && return this->faceContrastPicture_ == nullptr && return this->faceContrastPictureUrl_ == nullptr
+        && return this->faceGuardOutput_ == nullptr && return this->h5DegradeConfirmBtn_ == nullptr && return this->ip_ == nullptr && return this->metaInfo_ == nullptr && return this->mobile_ == nullptr
+        && return this->mode_ == nullptr && return this->model_ == nullptr && return this->needMultiFaceCheck_ == nullptr && return this->ossBucketName_ == nullptr && return this->ossObjectName_ == nullptr
+        && return this->outerOrderNo_ == nullptr && return this->procedurePriority_ == nullptr && return this->productCode_ == nullptr && return this->rarelyCharacters_ == nullptr && return this->readImg_ == nullptr
+        && return this->returnUrl_ == nullptr && return this->sceneId_ == nullptr && return this->suitableType_ == nullptr && return this->uiCustomUrl_ == nullptr && return this->userId_ == nullptr
+        && return this->validityDate_ == nullptr && return this->videoEvidence_ == nullptr && return this->voluntaryCustomizedContent_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -229,6 +231,13 @@ namespace Models
     void deleteFaceGuardOutput() { this->faceGuardOutput_ = nullptr;};
     inline string faceGuardOutput() const { DARABONBA_PTR_GET_DEFAULT(faceGuardOutput_, "") };
     inline InitFaceVerifyRequest& setFaceGuardOutput(string faceGuardOutput) { DARABONBA_PTR_SET_VALUE(faceGuardOutput_, faceGuardOutput) };
+
+
+    // h5DegradeConfirmBtn Field Functions 
+    bool hasH5DegradeConfirmBtn() const { return this->h5DegradeConfirmBtn_ != nullptr;};
+    void deleteH5DegradeConfirmBtn() { this->h5DegradeConfirmBtn_ = nullptr;};
+    inline string h5DegradeConfirmBtn() const { DARABONBA_PTR_GET_DEFAULT(h5DegradeConfirmBtn_, "") };
+    inline InitFaceVerifyRequest& setH5DegradeConfirmBtn(string h5DegradeConfirmBtn) { DARABONBA_PTR_SET_VALUE(h5DegradeConfirmBtn_, h5DegradeConfirmBtn) };
 
 
     // ip Field Functions 
@@ -467,6 +476,7 @@ namespace Models
     // > - Choosing to output the device assistant will incur additional costs. For details, see [Paid Value-Added Services](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/face-guard?spm=a2c4g.11186623.0.0.443e5522rbHsR4).
     // > - If you do not need to output the device assistant label, you can either not pass the parameter or pass an empty value.
     std::shared_ptr<string> faceGuardOutput_ = nullptr;
+    std::shared_ptr<string> h5DegradeConfirmBtn_ = nullptr;
     // User\\"s IP address.
     std::shared_ptr<string> ip_ = nullptr;
     // Metainfo environment parameter, which needs to be obtained through the client SDK.

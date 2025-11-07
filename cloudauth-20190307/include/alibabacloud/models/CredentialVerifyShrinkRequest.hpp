@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certNum_ != nullptr
-        && this->credName_ != nullptr && this->credType_ != nullptr && this->identifyNum_ != nullptr && this->imageContext_ != nullptr && this->imageUrl_ != nullptr
-        && this->isCheck_ != nullptr && this->isOCR_ != nullptr && this->merchantDetailShrink_ != nullptr && this->merchantId_ != nullptr && this->productCode_ != nullptr
-        && this->prompt_ != nullptr && this->promptModel_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->certNum_ == nullptr
+        && return this->credName_ == nullptr && return this->credType_ == nullptr && return this->identifyNum_ == nullptr && return this->imageContext_ == nullptr && return this->imageUrl_ == nullptr
+        && return this->isCheck_ == nullptr && return this->isOCR_ == nullptr && return this->merchantDetailShrink_ == nullptr && return this->merchantId_ == nullptr && return this->productCode_ == nullptr
+        && return this->prompt_ == nullptr && return this->promptModel_ == nullptr && return this->userName_ == nullptr; };
     // certNum Field Functions 
     bool hasCertNum() const { return this->certNum_ != nullptr;};
     void deleteCertNum() { this->certNum_ = nullptr;};

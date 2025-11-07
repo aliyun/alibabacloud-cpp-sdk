@@ -5,9 +5,9 @@
 #include <alibabacloud/Cloudauth20190307Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Cloudauth20190307.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace Cloudauth20190307
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -200,6 +200,29 @@ namespace Cloudauth20190307
       Models::ContrastFaceVerifyResponse contrastFaceVerifyAdvance(const Models::ContrastFaceVerifyAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Create a financial-grade authentication scenario
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateAntCloudAuthSceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAntCloudAuthSceneResponse
+       */
+      Models::CreateAntCloudAuthSceneResponse createAntCloudAuthSceneWithOptions(const Models::CreateAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create a financial-grade authentication scenario
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateAntCloudAuthSceneRequest
+       * @return CreateAntCloudAuthSceneResponse
+       */
+      Models::CreateAntCloudAuthSceneResponse createAntCloudAuthScene(const Models::CreateAntCloudAuthSceneRequest &request);
+
+      /**
        * @summary Call CreateAuthKey to get the authorization key, which is used for offline face recognition SDK activation.
        *
        * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
@@ -223,6 +246,54 @@ namespace Cloudauth20190307
       Models::CreateAuthKeyResponse createAuthKey(const Models::CreateAuthKeyRequest &request);
 
       /**
+       * @summary Create Cloud Scene
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateCloudauthstSceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCloudauthstSceneResponse
+       */
+      Models::CreateCloudauthstSceneResponse createCloudauthstSceneWithOptions(const Models::CreateCloudauthstSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create Cloud Scene
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateCloudauthstSceneRequest
+       * @return CreateCloudauthstSceneResponse
+       */
+      Models::CreateCloudauthstSceneResponse createCloudauthstScene(const Models::CreateCloudauthstSceneRequest &request);
+
+      /**
+       * @summary Create Scene Configuration
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST.
+       * Request Address: cloudauth.aliyuncs.com.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateSceneConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSceneConfigResponse
+       */
+      Models::CreateSceneConfigResponse createSceneConfigWithOptions(const Models::CreateSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create Scene Configuration
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST.
+       * Request Address: cloudauth.aliyuncs.com.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request CreateSceneConfigRequest
+       * @return CreateSceneConfigResponse
+       */
+      Models::CreateSceneConfigResponse createSceneConfig(const Models::CreateSceneConfigRequest &request);
+
+      /**
        * @summary Call CreateVerifySetting to create a verification scenario configuration. This operation is equivalent to creating a new verification scenario on the console.
        *
        * @description Request Method: Only supports sending requests via HTTPS POST.
@@ -242,6 +313,27 @@ namespace Cloudauth20190307
        * @return CreateVerifySettingResponse
        */
       Models::CreateVerifySettingResponse createVerifySetting(const Models::CreateVerifySettingRequest &request);
+
+      /**
+       * @summary Create Whitelist
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST.
+       *
+       * @param request CreateWhitelistSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWhitelistSettingResponse
+       */
+      Models::CreateWhitelistSettingResponse createWhitelistSettingWithOptions(const Models::CreateWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create Whitelist
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST.
+       *
+       * @param request CreateWhitelistSettingRequest
+       * @return CreateWhitelistSettingResponse
+       */
+      Models::CreateWhitelistSettingResponse createWhitelistSetting(const Models::CreateWhitelistSettingRequest &request);
 
       /**
        * @summary Product Credential Verification
@@ -334,6 +426,142 @@ namespace Cloudauth20190307
       Models::DeepfakeDetectResponse deepfakeDetect(const Models::DeepfakeDetectRequest &request);
 
       /**
+       * @summary Delete All Custom Flow Control Strategies
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DeleteAllCustomizeFlowStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAllCustomizeFlowStrategyResponse
+       */
+      Models::DeleteAllCustomizeFlowStrategyResponse deleteAllCustomizeFlowStrategyWithOptions(const Models::DeleteAllCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete All Custom Flow Control Strategies
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DeleteAllCustomizeFlowStrategyRequest
+       * @return DeleteAllCustomizeFlowStrategyResponse
+       */
+      Models::DeleteAllCustomizeFlowStrategyResponse deleteAllCustomizeFlowStrategy(const Models::DeleteAllCustomizeFlowStrategyRequest &request);
+
+      /**
+       * @summary Delete Watermark Scene
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DeleteAntCloudAuthSceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAntCloudAuthSceneResponse
+       */
+      Models::DeleteAntCloudAuthSceneResponse deleteAntCloudAuthSceneWithOptions(const Models::DeleteAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Watermark Scene
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DeleteAntCloudAuthSceneRequest
+       * @return DeleteAntCloudAuthSceneResponse
+       */
+      Models::DeleteAntCloudAuthSceneResponse deleteAntCloudAuthScene(const Models::DeleteAntCloudAuthSceneRequest &request);
+
+      /**
+       * @summary Delete Black and White List Policy
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DeleteBlackListStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBlackListStrategyResponse
+       */
+      Models::DeleteBlackListStrategyResponse deleteBlackListStrategyWithOptions(const Models::DeleteBlackListStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Black and White List Policy
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DeleteBlackListStrategyRequest
+       * @return DeleteBlackListStrategyResponse
+       */
+      Models::DeleteBlackListStrategyResponse deleteBlackListStrategy(const Models::DeleteBlackListStrategyRequest &request);
+
+      /**
+       * @summary Delete Cloud Scene
+       *
+       * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DeleteCloudauthstSceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCloudauthstSceneResponse
+       */
+      Models::DeleteCloudauthstSceneResponse deleteCloudauthstSceneWithOptions(const Models::DeleteCloudauthstSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Cloud Scene
+       *
+       * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DeleteCloudauthstSceneRequest
+       * @return DeleteCloudauthstSceneResponse
+       */
+      Models::DeleteCloudauthstSceneResponse deleteCloudauthstScene(const Models::DeleteCloudauthstSceneRequest &request);
+
+      /**
+       * @summary Delete Security Control Strategy
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST.
+       * Request URL: cloudauth.aliyuncs.com.
+       *
+       * @param request DeleteControlStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteControlStrategyResponse
+       */
+      Models::DeleteControlStrategyResponse deleteControlStrategyWithOptions(const Models::DeleteControlStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Security Control Strategy
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST.
+       * Request URL: cloudauth.aliyuncs.com.
+       *
+       * @param request DeleteControlStrategyRequest
+       * @return DeleteControlStrategyResponse
+       */
+      Models::DeleteControlStrategyResponse deleteControlStrategy(const Models::DeleteControlStrategyRequest &request);
+
+      /**
+       * @summary Delete Customized Flow Control Strategy
+       *
+       * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DeleteCustomizeFlowStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomizeFlowStrategyResponse
+       */
+      Models::DeleteCustomizeFlowStrategyResponse deleteCustomizeFlowStrategyWithOptions(const Models::DeleteCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Customized Flow Control Strategy
+       *
+       * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DeleteCustomizeFlowStrategyRequest
+       * @return DeleteCustomizeFlowStrategyResponse
+       */
+      Models::DeleteCustomizeFlowStrategyResponse deleteCustomizeFlowStrategy(const Models::DeleteCustomizeFlowStrategyRequest &request);
+
+      /**
        * @summary Financial Level Sensitive Data Deletion Interface
        *
        * @description Deletes all personal information fields in the request, including name, ID number, phone number, IP, images, videos, and device information, etc.
@@ -355,6 +583,74 @@ namespace Cloudauth20190307
       Models::DeleteFaceVerifyResultResponse deleteFaceVerifyResult(const Models::DeleteFaceVerifyResultRequest &request);
 
       /**
+       * @summary Delete Scene Configuration
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Request URL: cloudauth.aliyuncs.com.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DeleteSceneConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSceneConfigResponse
+       */
+      Models::DeleteSceneConfigResponse deleteSceneConfigWithOptions(const Models::DeleteSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Scene Configuration
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Request URL: cloudauth.aliyuncs.com.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DeleteSceneConfigRequest
+       * @return DeleteSceneConfigResponse
+       */
+      Models::DeleteSceneConfigResponse deleteSceneConfig(const Models::DeleteSceneConfigRequest &request);
+
+      /**
+       * @summary Delete Whitelist Configuration
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DeleteWhitelistSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWhitelistSettingResponse
+       */
+      Models::DeleteWhitelistSettingResponse deleteWhitelistSettingWithOptions(const Models::DeleteWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete Whitelist Configuration
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DeleteWhitelistSettingRequest
+       * @return DeleteWhitelistSettingResponse
+       */
+      Models::DeleteWhitelistSettingResponse deleteWhitelistSetting(const Models::DeleteWhitelistSettingRequest &request);
+
+      /**
+       * @summary Query the User Status of Ant Blockchain
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DescribeAntAndCloudAuthUserStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAntAndCloudAuthUserStatusResponse
+       */
+      Models::DescribeAntAndCloudAuthUserStatusResponse describeAntAndCloudAuthUserStatusWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the User Status of Ant Blockchain
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @return DescribeAntAndCloudAuthUserStatusResponse
+       */
+      Models::DescribeAntAndCloudAuthUserStatusResponse describeAntAndCloudAuthUserStatus();
+
+      /**
        * @summary Obtain Authentication Results from Image Element Verification
        *
        * @description After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
@@ -374,6 +670,29 @@ namespace Cloudauth20190307
        * @return DescribeCardVerifyResponse
        */
       Models::DescribeCardVerifyResponse describeCardVerify(const Models::DescribeCardVerifyRequest &request);
+
+      /**
+       * @summary Query Dashboard Data
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DescribeCloudauthstSceneListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCloudauthstSceneListResponse
+       */
+      Models::DescribeCloudauthstSceneListResponse describeCloudauthstSceneListWithOptions(const Models::DescribeCloudauthstSceneListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Dashboard Data
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to reacquire it before each activation.
+       *
+       * @param request DescribeCloudauthstSceneListRequest
+       * @return DescribeCloudauthstSceneListResponse
+       */
+      Models::DescribeCloudauthstSceneListResponse describeCloudauthstSceneList(const Models::DescribeCloudauthstSceneListRequest &request);
 
       /**
        * @summary Call DescribeDeviceInfo to query device-related information, such as the validity period of authorization, business identifiers customized by the access party, and device ID, etc.
@@ -437,6 +756,189 @@ namespace Cloudauth20190307
       Models::DescribeFaceVerifyResponse describeFaceVerify(const Models::DescribeFaceVerifyRequest &request);
 
       /**
+       * @summary 查询任务导出记录
+       *
+       * @param request DescribeInfoCheckExportRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInfoCheckExportRecordResponse
+       */
+      Models::DescribeInfoCheckExportRecordResponse describeInfoCheckExportRecordWithOptions(const Models::DescribeInfoCheckExportRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询任务导出记录
+       *
+       * @param request DescribeInfoCheckExportRecordRequest
+       * @return DescribeInfoCheckExportRecordResponse
+       */
+      Models::DescribeInfoCheckExportRecordResponse describeInfoCheckExportRecord(const Models::DescribeInfoCheckExportRecordRequest &request);
+
+      /**
+       * @summary Query the cloud scenario authentication records of a specific region
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DescribeListAntCloudAuthScenesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeListAntCloudAuthScenesResponse
+       */
+      Models::DescribeListAntCloudAuthScenesResponse describeListAntCloudAuthScenesWithOptions(const Models::DescribeListAntCloudAuthScenesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the cloud scenario authentication records of a specific region
+       *
+       * @description Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
+       *
+       * @param request DescribeListAntCloudAuthScenesRequest
+       * @return DescribeListAntCloudAuthScenesResponse
+       */
+      Models::DescribeListAntCloudAuthScenesResponse describeListAntCloudAuthScenes(const Models::DescribeListAntCloudAuthScenesRequest &request);
+
+      /**
+       * @summary Query Face Verification Data
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeListFaceVerifyDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeListFaceVerifyDataResponse
+       */
+      Models::DescribeListFaceVerifyDataResponse describeListFaceVerifyDataWithOptions(const Models::DescribeListFaceVerifyDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Face Verification Data
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeListFaceVerifyDataRequest
+       * @return DescribeListFaceVerifyDataResponse
+       */
+      Models::DescribeListFaceVerifyDataResponse describeListFaceVerifyData(const Models::DescribeListFaceVerifyDataRequest &request);
+
+      /**
+       * @summary Get Face Verification Information
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeListFaceVerifyInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeListFaceVerifyInfosResponse
+       */
+      Models::DescribeListFaceVerifyInfosResponse describeListFaceVerifyInfosWithOptions(const Models::DescribeListFaceVerifyInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Face Verification Information
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeListFaceVerifyInfosRequest
+       * @return DescribeListFaceVerifyInfosResponse
+       */
+      Models::DescribeListFaceVerifyInfosResponse describeListFaceVerifyInfos(const Models::DescribeListFaceVerifyInfosRequest &request);
+
+      /**
+       * @summary 查询页面元数据
+       *
+       * @param request DescribeMetaSearchPageListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetaSearchPageListResponse
+       */
+      Models::DescribeMetaSearchPageListResponse describeMetaSearchPageListWithOptions(const Models::DescribeMetaSearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询页面元数据
+       *
+       * @param request DescribeMetaSearchPageListRequest
+       * @return DescribeMetaSearchPageListResponse
+       */
+      Models::DescribeMetaSearchPageListResponse describeMetaSearchPageList(const Models::DescribeMetaSearchPageListRequest &request);
+
+      /**
+       * @summary 查询认证统计信息
+       *
+       * @param request DescribeMetaStatisticsListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetaStatisticsListResponse
+       */
+      Models::DescribeMetaStatisticsListResponse describeMetaStatisticsListWithOptions(const Models::DescribeMetaStatisticsListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询认证统计信息
+       *
+       * @param request DescribeMetaStatisticsListRequest
+       * @return DescribeMetaStatisticsListResponse
+       */
+      Models::DescribeMetaStatisticsListResponse describeMetaStatisticsList(const Models::DescribeMetaStatisticsListRequest &request);
+
+      /**
+       * @summary 查询认证统计页面
+       *
+       * @param request DescribeMetaStatisticsPageListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetaStatisticsPageListResponse
+       */
+      Models::DescribeMetaStatisticsPageListResponse describeMetaStatisticsPageListWithOptions(const Models::DescribeMetaStatisticsPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询认证统计页面
+       *
+       * @param request DescribeMetaStatisticsPageListRequest
+       * @return DescribeMetaStatisticsPageListResponse
+       */
+      Models::DescribeMetaStatisticsPageListResponse describeMetaStatisticsPageList(const Models::DescribeMetaStatisticsPageListRequest &request);
+
+      /**
+       * @summary Query OSS status
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeOssStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOssStatusResponse
+       */
+      Models::DescribeOssStatusResponse describeOssStatusWithOptions(const Models::DescribeOssStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query OSS status
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeOssStatusRequest
+       * @return DescribeOssStatusResponse
+       */
+      Models::DescribeOssStatusResponse describeOssStatus(const Models::DescribeOssStatusRequest &request);
+
+      /**
+       * @summary Get OSS Activation Status
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeOssStatusV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOssStatusV2Response
+       */
+      Models::DescribeOssStatusV2Response describeOssStatusV2WithOptions(const Models::DescribeOssStatusV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get OSS Activation Status
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeOssStatusV2Request
+       * @return DescribeOssStatusV2Response
+       */
+      Models::DescribeOssStatusV2Response describeOssStatusV2(const Models::DescribeOssStatusV2Request &request);
+
+      /**
        * @summary Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
        *
        * @param request DescribeOssUploadTokenRequest
@@ -470,6 +972,46 @@ namespace Cloudauth20190307
       Models::DescribePageFaceVerifyDataResponse describePageFaceVerifyData(const Models::DescribePageFaceVerifyDataRequest &request);
 
       /**
+       * @summary Query Page Settings
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DescribePageSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePageSettingResponse
+       */
+      Models::DescribePageSettingResponse describePageSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Page Settings
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @return DescribePageSettingResponse
+       */
+      Models::DescribePageSettingResponse describePageSetting();
+
+      /**
+       * @summary Get Product Code
+       *
+       * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
+       *
+       * @param request DescribeProductCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeProductCodeResponse
+       */
+      Models::DescribeProductCodeResponse describeProductCodeWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Product Code
+       *
+       * @description Request Method: Supports sending requests via HTTPS GET/POST methods.
+       *
+       * @return DescribeProductCodeResponse
+       */
+      Models::DescribeProductCodeResponse describeProductCode();
+
+      /**
        * @summary Enhanced Real Person Authentication Call Statistics Pagination Query Interface
        *
        * @param request DescribeSmartStatisticsPageListRequest
@@ -485,6 +1027,144 @@ namespace Cloudauth20190307
        * @return DescribeSmartStatisticsPageListResponse
        */
       Models::DescribeSmartStatisticsPageListResponse describeSmartStatisticsPageList(const Models::DescribeSmartStatisticsPageListRequest &request);
+
+      /**
+       * @summary Get Verification Device Statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyDeviceRiskStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyDeviceRiskStatisticsResponse
+       */
+      Models::DescribeVerifyDeviceRiskStatisticsResponse describeVerifyDeviceRiskStatisticsWithOptions(const Models::DescribeVerifyDeviceRiskStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Verification Device Statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyDeviceRiskStatisticsRequest
+       * @return DescribeVerifyDeviceRiskStatisticsResponse
+       */
+      Models::DescribeVerifyDeviceRiskStatisticsResponse describeVerifyDeviceRiskStatistics(const Models::DescribeVerifyDeviceRiskStatisticsRequest &request);
+
+      /**
+       * @summary Overview of authentication request statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyFailStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyFailStatisticsResponse
+       */
+      Models::DescribeVerifyFailStatisticsResponse describeVerifyFailStatisticsWithOptions(const Models::DescribeVerifyFailStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Overview of authentication request statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyFailStatisticsRequest
+       * @return DescribeVerifyFailStatisticsResponse
+       */
+      Models::DescribeVerifyFailStatisticsResponse describeVerifyFailStatistics(const Models::DescribeVerifyFailStatisticsRequest &request);
+
+      /**
+       * @summary Query Statistics on Device Face Comparison
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasDeviceModelStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasDeviceModelStatisticsResponse describeVerifyPersonasDeviceModelStatisticsWithOptions(const Models::DescribeVerifyPersonasDeviceModelStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Statistics on Device Face Comparison
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasDeviceModelStatisticsRequest
+       * @return DescribeVerifyPersonasDeviceModelStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasDeviceModelStatisticsResponse describeVerifyPersonasDeviceModelStatistics(const Models::DescribeVerifyPersonasDeviceModelStatisticsRequest &request);
+
+      /**
+       * @summary Query Authentication Personnel Statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasOsStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyPersonasOsStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasOsStatisticsResponse describeVerifyPersonasOsStatisticsWithOptions(const Models::DescribeVerifyPersonasOsStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Authentication Personnel Statistics
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasOsStatisticsRequest
+       * @return DescribeVerifyPersonasOsStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasOsStatisticsResponse describeVerifyPersonasOsStatistics(const Models::DescribeVerifyPersonasOsStatisticsRequest &request);
+
+      /**
+       * @summary Obtain statistical information on the location of authenticated individuals
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasProvinceStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyPersonasProvinceStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasProvinceStatisticsResponse describeVerifyPersonasProvinceStatisticsWithOptions(const Models::DescribeVerifyPersonasProvinceStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtain statistical information on the location of authenticated individuals
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasProvinceStatisticsRequest
+       * @return DescribeVerifyPersonasProvinceStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasProvinceStatisticsResponse describeVerifyPersonasProvinceStatistics(const Models::DescribeVerifyPersonasProvinceStatisticsRequest &request);
+
+      /**
+       * @summary Query gender statistics of authentication
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasSexStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyPersonasSexStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasSexStatisticsResponse describeVerifyPersonasSexStatisticsWithOptions(const Models::DescribeVerifyPersonasSexStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query gender statistics of authentication
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifyPersonasSexStatisticsRequest
+       * @return DescribeVerifyPersonasSexStatisticsResponse
+       */
+      Models::DescribeVerifyPersonasSexStatisticsResponse describeVerifyPersonasSexStatistics(const Models::DescribeVerifyPersonasSexStatisticsRequest &request);
 
       /**
        * @summary Query the result of real-person authentication.
@@ -539,6 +1219,52 @@ namespace Cloudauth20190307
       Models::DescribeVerifySDKResponse describeVerifySDK(const Models::DescribeVerifySDKRequest &request);
 
       /**
+       * @summary Query the list of authentication schemes
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifySearchPageListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifySearchPageListResponse
+       */
+      Models::DescribeVerifySearchPageListResponse describeVerifySearchPageListWithOptions(const Models::DescribeVerifySearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the list of authentication schemes
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       *
+       * @param request DescribeVerifySearchPageListRequest
+       * @return DescribeVerifySearchPageListResponse
+       */
+      Models::DescribeVerifySearchPageListResponse describeVerifySearchPageList(const Models::DescribeVerifySearchPageListRequest &request);
+
+      /**
+       * @summary Query Authentication Statistics
+       *
+       * @description - Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeVerifyStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVerifyStatisticsResponse
+       */
+      Models::DescribeVerifyStatisticsResponse describeVerifyStatisticsWithOptions(const Models::DescribeVerifyStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Authentication Statistics
+       *
+       * @description - Request Method: Supports sending requests using HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request DescribeVerifyStatisticsRequest
+       * @return DescribeVerifyStatisticsResponse
+       */
+      Models::DescribeVerifyStatisticsResponse describeVerifyStatistics(const Models::DescribeVerifyStatisticsRequest &request);
+
+      /**
        * @summary Call DescribeVerifyToken to initiate an authentication request and obtain an authentication Token. This interface is suitable for authentication solutions using SDK + server-side integration.
        *
        * @description Preparation for Access: When integrating this API, please ensure that the corresponding preparations have been completed. For details, see [Overview of Real Person Authentication Solution Integration Process](https://help.aliyun.com/document_detail/127536.html) and [Overview of Live Face Verification Solution (Liveness Detection Solution) Integration Process](https://help.aliyun.com/document_detail/127687.html).
@@ -578,6 +1304,27 @@ namespace Cloudauth20190307
       Models::DescribeVerifyTokenResponse describeVerifyToken(const Models::DescribeVerifyTokenRequest &request);
 
       /**
+       * @summary Get Whitelist Collection Get Whitelist Collection
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DescribeWhitelistSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWhitelistSettingResponse
+       */
+      Models::DescribeWhitelistSettingResponse describeWhitelistSettingWithOptions(const Models::DescribeWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get Whitelist Collection Get Whitelist Collection
+       *
+       * @description Request Method: Only supports sending requests via HTTPS POST method.
+       *
+       * @param request DescribeWhitelistSettingRequest
+       * @return DescribeWhitelistSettingResponse
+       */
+      Models::DescribeWhitelistSettingResponse describeWhitelistSetting(const Models::DescribeWhitelistSettingRequest &request);
+
+      /**
        * @summary Detect Validity Attributes in Face Photos
        *
        * @description Request Method: Only supports sending requests via HTTPS POST.
@@ -615,6 +1362,33 @@ namespace Cloudauth20190307
        * @return DetectFaceAttributesResponse
        */
       Models::DetectFaceAttributesResponse detectFaceAttributes(const Models::DetectFaceAttributesRequest &request);
+
+      /**
+       * @summary Real-person Authentication Record Download
+       *
+       * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+       * - Method: HTTPS POST
+       * - Service Address: cloudauth.aliyuncs.com
+       * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request DownloadVerifyRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadVerifyRecordsResponse
+       */
+      Models::DownloadVerifyRecordsResponse downloadVerifyRecordsWithOptions(const Models::DownloadVerifyRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Real-person Authentication Record Download
+       *
+       * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+       * - Method: HTTPS POST
+       * - Service Address: cloudauth.aliyuncs.com
+       * > Real-person authentication products use CertifyId to count call volumes. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request DownloadVerifyRecordsRequest
+       * @return DownloadVerifyRecordsResponse
+       */
+      Models::DownloadVerifyRecordsResponse downloadVerifyRecords(const Models::DownloadVerifyRecordsRequest &request);
 
       /**
        * @summary Two-Factor Validity Verification API
@@ -720,6 +1494,29 @@ namespace Cloudauth20190307
       Models::Id3MetaVerifyResponse id3MetaVerify(const Models::Id3MetaVerifyRequest &request);
 
       Models::Id3MetaVerifyResponse id3MetaVerifyAdvance(const Models::Id3MetaVerifyAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Identity Three Elements Image Verification
+       *
+       * @description Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+       *
+       * @param request Id3MetaVerifyWithOCRRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return Id3MetaVerifyWithOCRResponse
+       */
+      Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRWithOptions(const Models::Id3MetaVerifyWithOCRRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Identity Three Elements Image Verification
+       *
+       * @description Upload both sides of the ID card to get the verification result of the three identity elements from an authoritative data source.
+       *
+       * @param request Id3MetaVerifyWithOCRRequest
+       * @return Id3MetaVerifyWithOCRResponse
+       */
+      Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCR(const Models::Id3MetaVerifyWithOCRRequest &request);
+
+      Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRAdvance(const Models::Id3MetaVerifyWithOCRAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Initiate an authentication request for image verification
@@ -984,6 +1781,77 @@ namespace Cloudauth20190307
       Models::MobileOnlineTimeResponse mobileOnlineTime(const Models::MobileOnlineTimeRequest &request);
 
       /**
+       * @summary Modify Black and White List Policy
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       * - Interface Description: Add or modify blacklist rule.
+       *
+       * @param tmpReq ModifyBlackListStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyBlackListStrategyResponse
+       */
+      Models::ModifyBlackListStrategyResponse modifyBlackListStrategyWithOptions(const Models::ModifyBlackListStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modify Black and White List Policy
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com.
+       * - Request Method: HTTPS POST and GET.
+       * - Interface Description: Add or modify blacklist rule.
+       *
+       * @param request ModifyBlackListStrategyRequest
+       * @return ModifyBlackListStrategyResponse
+       */
+      Models::ModifyBlackListStrategyResponse modifyBlackListStrategy(const Models::ModifyBlackListStrategyRequest &request);
+
+      /**
+       * @summary Modify Security Control Strategy
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST method.
+       * - Request Address: cloudauth.aliyuncs.com.
+       *
+       * @param tmpReq ModifyControlStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyControlStrategyResponse
+       */
+      Models::ModifyControlStrategyResponse modifyControlStrategyWithOptions(const Models::ModifyControlStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modify Security Control Strategy
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST method.
+       * - Request Address: cloudauth.aliyuncs.com.
+       *
+       * @param request ModifyControlStrategyRequest
+       * @return ModifyControlStrategyResponse
+       */
+      Models::ModifyControlStrategyResponse modifyControlStrategy(const Models::ModifyControlStrategyRequest &request);
+
+      /**
+       * @summary Information Verification Security Management
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param tmpReq ModifyCustomizeFlowStrategyListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCustomizeFlowStrategyListResponse
+       */
+      Models::ModifyCustomizeFlowStrategyListResponse modifyCustomizeFlowStrategyListWithOptions(const Models::ModifyCustomizeFlowStrategyListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Information Verification Security Management
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Service Address: cloudauth.aliyuncs.com.
+       *
+       * @param request ModifyCustomizeFlowStrategyListRequest
+       * @return ModifyCustomizeFlowStrategyListResponse
+       */
+      Models::ModifyCustomizeFlowStrategyListResponse modifyCustomizeFlowStrategyList(const Models::ModifyCustomizeFlowStrategyListRequest &request);
+
+      /**
        * @summary Call ModifyDeviceInfo to update device-related information, such as extending the device authorization validity period, updating the business party\\"s custom business identifier, and device ID. Suitable for scenarios like renewing the device validity period.
        *
        * @description Request Method: Supports sending requests using HTTPS POST and GET methods.
@@ -1022,6 +1890,181 @@ namespace Cloudauth20190307
       Models::PageQueryWhiteListSettingResponse pageQueryWhiteListSetting(const Models::PageQueryWhiteListSettingRequest &request);
 
       /**
+       * @summary Query Blacklist and Whitelist Policies
+       *
+       * @description - Request URL: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+       * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+       *
+       * @param request QueryBlackListStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryBlackListStrategyResponse
+       */
+      Models::QueryBlackListStrategyResponse queryBlackListStrategyWithOptions(const Models::QueryBlackListStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Blacklist and Whitelist Policies
+       *
+       * @description - Request URL: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * > Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+       * Supports setting blacklists for IP, ID number, phone number, bank card number, etc. When a blacklist is hit, the system rejects the request and returns a fixed error code.
+       *
+       * @param request QueryBlackListStrategyRequest
+       * @return QueryBlackListStrategyResponse
+       */
+      Models::QueryBlackListStrategyResponse queryBlackListStrategy(const Models::QueryBlackListStrategyRequest &request);
+
+      /**
+       * @summary Query Security Control Strategy
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Request Address: cloudauth.aliyuncs.com.
+       *
+       * @param request QueryControlStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryControlStrategyResponse
+       */
+      Models::QueryControlStrategyResponse queryControlStrategyWithOptions(const Models::QueryControlStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Security Control Strategy
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST and GET methods.
+       * - Request Address: cloudauth.aliyuncs.com.
+       *
+       * @param request QueryControlStrategyRequest
+       * @return QueryControlStrategyResponse
+       */
+      Models::QueryControlStrategyResponse queryControlStrategy(const Models::QueryControlStrategyRequest &request);
+
+      /**
+       * @summary Query Custom Flow Control Strategy
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+       *
+       * @param request QueryCustomizeFlowStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCustomizeFlowStrategyResponse
+       */
+      Models::QueryCustomizeFlowStrategyResponse queryCustomizeFlowStrategyWithOptions(const Models::QueryCustomizeFlowStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Custom Flow Control Strategy
+       *
+       * @description - Service Address: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * - Security Rules: These are rules to ensure system security, such as monitoring for API abuse, account theft, etc. When a threshold is triggered, the system supports alerting.
+       *
+       * @param request QueryCustomizeFlowStrategyRequest
+       * @return QueryCustomizeFlowStrategyResponse
+       */
+      Models::QueryCustomizeFlowStrategyResponse queryCustomizeFlowStrategy(const Models::QueryCustomizeFlowStrategyRequest &request);
+
+      /**
+       * @summary Query Scene Configuration
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request QuerySceneConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QuerySceneConfigsResponse
+       */
+      Models::QuerySceneConfigsResponse querySceneConfigsWithOptions(const Models::QuerySceneConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Scene Configuration
+       *
+       * @description - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST and GET.
+       *
+       * @param request QuerySceneConfigsRequest
+       * @return QuerySceneConfigsResponse
+       */
+      Models::QuerySceneConfigsResponse querySceneConfigs(const Models::QuerySceneConfigsRequest &request);
+
+      /**
+       * @summary Query Real-Person Download Task
+       *
+       * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+       * - Method: HTTPS POST
+       * - Service Address: cloudauth.aliyuncs.com
+       * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request QueryVerifyDownloadTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVerifyDownloadTaskResponse
+       */
+      Models::QueryVerifyDownloadTaskResponse queryVerifyDownloadTaskWithOptions(const Models::QueryVerifyDownloadTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Real-Person Download Task
+       *
+       * @description Obtain the download link for statistical call data files under the product plan based on query conditions.
+       * - Method: HTTPS POST
+       * - Service Address: cloudauth.aliyuncs.com
+       * > The real-person authentication product uses CertifyId to count the number of calls. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request QueryVerifyDownloadTaskRequest
+       * @return QueryVerifyDownloadTaskResponse
+       */
+      Models::QueryVerifyDownloadTaskResponse queryVerifyDownloadTask(const Models::QueryVerifyDownloadTaskRequest &request);
+
+      /**
+       * @summary Query Flow Package
+       *
+       * @description - Service address: cloudauth.aliyuncs.com
+       * - Request method: HTTPS POST and GET.
+       * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+       *
+       * @param request QueryVerifyFlowPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVerifyFlowPackageResponse
+       */
+      Models::QueryVerifyFlowPackageResponse queryVerifyFlowPackageWithOptions(const Models::QueryVerifyFlowPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Flow Package
+       *
+       * @description - Service address: cloudauth.aliyuncs.com
+       * - Request method: HTTPS POST and GET.
+       * - This interface uses different parameters for different product solutions. For details, please refer to the [official documentation](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/product-overview/introduction/?spm=a2c4g.11186623.help-menu-2401581.d_0_0.13f644ecRzFHfm&scm=20140722.H_99169._.OR_help-T_cn~zh-V_1).
+       *
+       * @param request QueryVerifyFlowPackageRequest
+       * @return QueryVerifyFlowPackageResponse
+       */
+      Models::QueryVerifyFlowPackageResponse queryVerifyFlowPackage(const Models::QueryVerifyFlowPackageRequest &request);
+
+      /**
+       * @summary Call Volume Statistics
+       *
+       * @description - Request URL: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request QueryVerifyInvokeSatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVerifyInvokeSatisticResponse
+       */
+      Models::QueryVerifyInvokeSatisticResponse queryVerifyInvokeSatisticWithOptions(const Models::QueryVerifyInvokeSatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Call Volume Statistics
+       *
+       * @description - Request URL: cloudauth.aliyuncs.com
+       * - Request Method: HTTPS POST and GET.
+       * > Real-person authentication products use CertifyId to count call volume. For ease of reconciliation, please retain the CertifyId field in your system.
+       *
+       * @param request QueryVerifyInvokeSatisticRequest
+       * @return QueryVerifyInvokeSatisticResponse
+       */
+      Models::QueryVerifyInvokeSatisticResponse queryVerifyInvokeSatistic(const Models::QueryVerifyInvokeSatisticRequest &request);
+
+      /**
        * @summary Delete Real Person Whitelist
        *
        * @param tmpReq RemoveWhiteListSettingRequest
@@ -1037,6 +2080,54 @@ namespace Cloudauth20190307
        * @return RemoveWhiteListSettingResponse
        */
       Models::RemoveWhiteListSettingResponse removeWhiteListSetting(const Models::RemoveWhiteListSettingRequest &request);
+
+      /**
+       * @summary Update Ant Blockchain Transaction Scenario
+       *
+       * @description Update the information of a financial-level authentication scenario based on the scenario ID.
+       * - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST.
+       *
+       * @param request UpdateAntCloudAuthSceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAntCloudAuthSceneResponse
+       */
+      Models::UpdateAntCloudAuthSceneResponse updateAntCloudAuthSceneWithOptions(const Models::UpdateAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update Ant Blockchain Transaction Scenario
+       *
+       * @description Update the information of a financial-level authentication scenario based on the scenario ID.
+       * - Service address: cloudauth.aliyuncs.com.
+       * - Request method: HTTPS POST.
+       *
+       * @param request UpdateAntCloudAuthSceneRequest
+       * @return UpdateAntCloudAuthSceneResponse
+       */
+      Models::UpdateAntCloudAuthSceneResponse updateAntCloudAuthScene(const Models::UpdateAntCloudAuthSceneRequest &request);
+
+      /**
+       * @summary Update Scene Configuration
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST.
+       * - Request URL: cloudauth.aliyuncs.com.
+       *
+       * @param request UpdateSceneConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSceneConfigResponse
+       */
+      Models::UpdateSceneConfigResponse updateSceneConfigWithOptions(const Models::UpdateSceneConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update Scene Configuration
+       *
+       * @description - Request Method: Supports sending requests via HTTPS POST.
+       * - Request URL: cloudauth.aliyuncs.com.
+       *
+       * @param request UpdateSceneConfigRequest
+       * @return UpdateSceneConfigResponse
+       */
+      Models::UpdateSceneConfigResponse updateSceneConfig(const Models::UpdateSceneConfigRequest &request);
 
       /**
        * @summary Five-Item Vehicle Information Recognition
