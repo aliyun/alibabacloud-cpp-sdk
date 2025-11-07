@@ -167,6 +167,9 @@ namespace Models
 
 
   protected:
+    // Batch operation type. Valid values:
+    // - **sha256**: Same file content
+    // - **eventName**: Same alert type
     std::shared_ptr<string> batchType_ = nullptr;
     // The name of the OSS bucket.
     std::shared_ptr<string> bucketName_ = nullptr;
@@ -174,6 +177,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // Event ID.
     std::shared_ptr<int64_t> eventId_ = nullptr;
     // The name of the alert.
     std::shared_ptr<string> eventName_ = nullptr;
@@ -203,6 +207,12 @@ namespace Models
     // *   **API**: uses API operations.
     // *   **OSS**: uses Object Storage Service (OSS) file check.
     std::shared_ptr<string> source_ = nullptr;
+    // Event status. The values are as follows:
+    // - **0**: Unprocessed 
+    // - **1**: I have processed manually 
+    // - **2**: Whitelisted 
+    // - **3**: Ignored 
+    // - **4**: Access denied
     std::shared_ptr<int32_t> status_ = nullptr;
     // The end of the time range during which the exception is detected.
     std::shared_ptr<int64_t> timeEnd_ = nullptr;

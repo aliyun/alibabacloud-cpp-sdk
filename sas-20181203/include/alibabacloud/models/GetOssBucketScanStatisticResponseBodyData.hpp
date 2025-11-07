@@ -159,8 +159,11 @@ namespace Models
     std::shared_ptr<int64_t> mediumRisk_ = nullptr;
     // The number of buckets that are not checked.
     std::shared_ptr<int32_t> noScanBucket_ = nullptr;
+    // Postpaid usage count.
     std::shared_ptr<int64_t> postPayInvokeCount_ = nullptr;
+    // Prepaid authorized count.
     std::shared_ptr<int64_t> prePayAuthCount_ = nullptr;
+    // Prepaid usage count.
     std::shared_ptr<int64_t> prePayInvokeCount_ = nullptr;
     // The remaining quota.
     std::shared_ptr<int32_t> remainAuth_ = nullptr;

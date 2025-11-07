@@ -48,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LastLoginTimestamp, lastLoginTimestamp_);
       DARABONBA_PTR_TO_JSON(MacListString, macListString_);
       DARABONBA_PTR_TO_JSON(Mem, mem_);
+      DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(Os, os_);
       DARABONBA_PTR_TO_JSON(OsName, osName_);
       DARABONBA_PTR_TO_JSON(PodCount, podCount_);
@@ -108,6 +109,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LastLoginTimestamp, lastLoginTimestamp_);
       DARABONBA_PTR_FROM_JSON(MacListString, macListString_);
       DARABONBA_PTR_FROM_JSON(Mem, mem_);
+      DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(Os, os_);
       DARABONBA_PTR_FROM_JSON(OsName, osName_);
       DARABONBA_PTR_FROM_JSON(PodCount, podCount_);
@@ -150,12 +152,12 @@ namespace Models
         && return this->exposedStatus_ == nullptr && return this->flag_ == nullptr && return this->flagName_ == nullptr && return this->groupId_ == nullptr && return this->groupTrace_ == nullptr
         && return this->hasContainer_ == nullptr && return this->hcStatus_ == nullptr && return this->healthCheckCount_ == nullptr && return this->importance_ == nullptr && return this->instanceId_ == nullptr
         && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->ip_ == nullptr && return this->ipListString_ == nullptr
-        && return this->kernel_ == nullptr && return this->lastLoginTimestamp_ == nullptr && return this->macListString_ == nullptr && return this->mem_ == nullptr && return this->os_ == nullptr
-        && return this->osName_ == nullptr && return this->podCount_ == nullptr && return this->postPaidFlag_ == nullptr && return this->region_ == nullptr && return this->regionId_ == nullptr
-        && return this->regionName_ == nullptr && return this->riskCount_ == nullptr && return this->riskStatus_ == nullptr && return this->safeEventCount_ == nullptr && return this->serviceId_ == nullptr
-        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->tagId_ == nullptr && return this->tagResources_ == nullptr && return this->uuid_ == nullptr
-        && return this->vendor_ == nullptr && return this->vendorName_ == nullptr && return this->vendorUid_ == nullptr && return this->vendorUserName_ == nullptr && return this->vpcInstanceId_ == nullptr
-        && return this->vulCount_ == nullptr && return this->vulStatus_ == nullptr; };
+        && return this->kernel_ == nullptr && return this->lastLoginTimestamp_ == nullptr && return this->macListString_ == nullptr && return this->mem_ == nullptr && return this->namespace_ == nullptr
+        && return this->os_ == nullptr && return this->osName_ == nullptr && return this->podCount_ == nullptr && return this->postPaidFlag_ == nullptr && return this->region_ == nullptr
+        && return this->regionId_ == nullptr && return this->regionName_ == nullptr && return this->riskCount_ == nullptr && return this->riskStatus_ == nullptr && return this->safeEventCount_ == nullptr
+        && return this->serviceId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->tagId_ == nullptr && return this->tagResources_ == nullptr
+        && return this->uuid_ == nullptr && return this->vendor_ == nullptr && return this->vendorName_ == nullptr && return this->vendorUid_ == nullptr && return this->vendorUserName_ == nullptr
+        && return this->vpcInstanceId_ == nullptr && return this->vulCount_ == nullptr && return this->vulStatus_ == nullptr; };
     // alarmStatus Field Functions 
     bool hasAlarmStatus() const { return this->alarmStatus_ != nullptr;};
     void deleteAlarmStatus() { this->alarmStatus_ = nullptr;};
@@ -399,6 +401,13 @@ namespace Models
     void deleteMem() { this->mem_ = nullptr;};
     inline int32_t mem() const { DARABONBA_PTR_GET_DEFAULT(mem_, 0) };
     inline DescribeCloudCenterInstancesResponseBodyInstances& setMem(int32_t mem) { DARABONBA_PTR_SET_VALUE(mem_, mem) };
+
+
+    // namespace Field Functions 
+    bool hasNamespace() const { return this->namespace_ != nullptr;};
+    void deleteNamespace() { this->namespace_ = nullptr;};
+    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline DescribeCloudCenterInstancesResponseBodyInstances& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // os Field Functions 
@@ -704,6 +713,7 @@ namespace Models
     std::shared_ptr<string> macListString_ = nullptr;
     // The size of the memory. Unit: MB.
     std::shared_ptr<int32_t> mem_ = nullptr;
+    std::shared_ptr<string> namespace_ = nullptr;
     // The operating system of the asset.
     std::shared_ptr<string> os_ = nullptr;
     // The kernel version of the asset.

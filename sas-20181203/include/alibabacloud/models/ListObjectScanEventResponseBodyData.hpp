@@ -226,6 +226,7 @@ namespace Models
     // *   **true**
     // *   **false**
     std::shared_ptr<string> displaySandboxResult_ = nullptr;
+    // Error message.
     std::shared_ptr<string> errorMsg_ = nullptr;
     // The ID of the alert.
     std::shared_ptr<int64_t> eventId_ = nullptr;
@@ -242,12 +243,15 @@ namespace Models
     std::shared_ptr<bool> hasSubEvent_ = nullptr;
     // The timestamp at which the alert was last detected.
     std::shared_ptr<int64_t> lastTime_ = nullptr;
+    // Information on whitelisting rule hits.
     std::shared_ptr<string> matchedWhiteListRuleI18nStr_ = nullptr;
     // The MD5 hash value of the file.
     std::shared_ptr<string> md5_ = nullptr;
+    // Alarm handling result
     std::shared_ptr<string> operateResult_ = nullptr;
     // The key of the file that is stored in the OSS bucket.
     std::shared_ptr<string> ossKey_ = nullptr;
+    // Remark.
     std::shared_ptr<string> remark_ = nullptr;
     // The risk level of the alert. Valid values:
     // 
@@ -264,6 +268,12 @@ namespace Models
     // *   **API**: uses API operations.
     // *   **OSS**: uses OSS file check.
     std::shared_ptr<string> source_ = nullptr;
+    // Event status. Valid values::
+    // - **0**: Unprocessed 
+    // - **1**: Processed manually 
+    // - **2**: Whitelisted 
+    // - **3**: Ignored 
+    // - **4**: Access denied
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

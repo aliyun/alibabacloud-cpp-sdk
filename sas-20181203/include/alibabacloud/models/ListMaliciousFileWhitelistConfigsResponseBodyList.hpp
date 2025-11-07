@@ -162,6 +162,7 @@ namespace Models
     // 
     // *   The value is fixed as strEqual, which indicates the equality operator (=).
     std::shared_ptr<string> operator_ = nullptr;
+    // Remark
     std::shared_ptr<string> remark_ = nullptr;
     // The feature to which this operation belongs.
     // 

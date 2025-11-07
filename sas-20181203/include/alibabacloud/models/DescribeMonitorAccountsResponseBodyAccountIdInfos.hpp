@@ -75,10 +75,22 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account ID of the member.
     std::shared_ptr<string> accountId_ = nullptr;
+    // The time when it was added to the control list, in timestamp format with second precision.
     std::shared_ptr<int64_t> addTime_ = nullptr;
+    // The account ID of the operator.
     std::shared_ptr<string> operatorUid_ = nullptr;
+    // Basic service switch. Values: 
+    // - **0**: Off 
+    // - **1**: On
     std::shared_ptr<int32_t> postBasicService_ = nullptr;
+    // The purchased version of Cloud Security Center. Values:
+    // - **0** or **1**: Free Edition 
+    // - **2** or **3**: Enterprise Edition
+    //  - **5**: Advanced Edition 
+    // - **6**: Anti-Virus Edition 
+    // - **7**: Flagship Edition
     std::shared_ptr<string> sasVersion_ = nullptr;
   };
 

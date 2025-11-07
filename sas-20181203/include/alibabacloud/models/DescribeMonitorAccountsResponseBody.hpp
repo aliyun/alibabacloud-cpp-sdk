@@ -63,6 +63,7 @@ namespace Models
 
 
   protected:
+    // List of member account information.
     std::shared_ptr<vector<DescribeMonitorAccountsResponseBodyAccountIdInfos>> accountIdInfos_ = nullptr;
     // The IDs of the members.
     std::shared_ptr<vector<string>> accountIds_ = nullptr;

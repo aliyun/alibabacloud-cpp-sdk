@@ -90,6 +90,7 @@ namespace Models
     // 
     // *   Set the value to ALL, which indicates all alert types.
     std::shared_ptr<string> eventName_ = nullptr;
+    // Event ID. <notice>Field is deprecated.</notice>
     std::shared_ptr<int64_t> idList_ = nullptr;
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 

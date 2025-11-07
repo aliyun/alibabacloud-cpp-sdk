@@ -103,6 +103,7 @@ namespace Models
 
 
   protected:
+    // The search condition for components.
     std::shared_ptr<string> criteria_ = nullptr;
     // The number of the page to return.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
@@ -130,6 +131,7 @@ namespace Models
     std::shared_ptr<string> statisticsTypeGatewayType_ = nullptr;
     // The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
     std::shared_ptr<string> statisticsTypeInstanceValue_ = nullptr;
+    // The UUID of the server.
     std::shared_ptr<string> uuid_ = nullptr;
   };
 

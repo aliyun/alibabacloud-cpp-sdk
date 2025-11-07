@@ -136,6 +136,7 @@ namespace Models
     std::shared_ptr<string> exposureTypeId_ = nullptr;
     // The name of the gateway asset that is exposed on the Internet.
     std::shared_ptr<string> exposureTypeInstanceName_ = nullptr;
+    // The listener port that is used to redirect HTTP requests.
     std::shared_ptr<string> forwardPort_ = nullptr;
     // The region ID of the asset.
     std::shared_ptr<string> regionId_ = nullptr;
