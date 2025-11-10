@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListTracesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
+      DARABONBA_PTR_TO_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_TO_JSON(messageId, messageId_);
       DARABONBA_PTR_TO_JSON(messageKey, messageKey_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListTracesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_FROM_JSON(messageId, messageId_);
       DARABONBA_PTR_FROM_JSON(messageKey, messageKey_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
@@ -41,14 +43,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->messageId_ != nullptr && this->messageKey_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->queryType_ != nullptr
-        && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->liteTopicName_ == nullptr && return this->messageId_ == nullptr && return this->messageKey_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->queryType_ == nullptr && return this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListTracesRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // liteTopicName Field Functions 
+    bool hasLiteTopicName() const { return this->liteTopicName_ != nullptr;};
+    void deleteLiteTopicName() { this->liteTopicName_ = nullptr;};
+    inline string liteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
+    inline ListTracesRequest& setLiteTopicName(string liteTopicName) { DARABONBA_PTR_SET_VALUE(liteTopicName_, liteTopicName) };
 
 
     // messageId Field Functions 
@@ -98,6 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<string> liteTopicName_ = nullptr;
     // The message ID.
     // 
     // This parameter is required if you set queryType to MESSAGE_ID.

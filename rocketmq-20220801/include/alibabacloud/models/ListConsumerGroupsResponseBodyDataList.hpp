@@ -17,9 +17,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_TO_JSON(messageModel, messageModel_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(topicName, topicName_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, ListConsumerGroupsResponseBodyDataList& obj) { 
@@ -27,9 +29,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_FROM_JSON(messageModel, messageModel_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(topicName, topicName_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
     };
     ListConsumerGroupsResponseBodyDataList() = default ;
@@ -43,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumerGroupId_ != nullptr
-        && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->maxReceiveTps_ != nullptr && this->regionId_ != nullptr && this->remark_ != nullptr
-        && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->consumerGroupId_ == nullptr
+        && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->maxReceiveTps_ == nullptr && return this->messageModel_ == nullptr && return this->regionId_ == nullptr
+        && return this->remark_ == nullptr && return this->status_ == nullptr && return this->topicName_ == nullptr && return this->updateTime_ == nullptr; };
     // consumerGroupId Field Functions 
     bool hasConsumerGroupId() const { return this->consumerGroupId_ != nullptr;};
     void deleteConsumerGroupId() { this->consumerGroupId_ = nullptr;};
@@ -74,6 +78,13 @@ namespace Models
     inline ListConsumerGroupsResponseBodyDataList& setMaxReceiveTps(int64_t maxReceiveTps) { DARABONBA_PTR_SET_VALUE(maxReceiveTps_, maxReceiveTps) };
 
 
+    // messageModel Field Functions 
+    bool hasMessageModel() const { return this->messageModel_ != nullptr;};
+    void deleteMessageModel() { this->messageModel_ = nullptr;};
+    inline string messageModel() const { DARABONBA_PTR_GET_DEFAULT(messageModel_, "") };
+    inline ListConsumerGroupsResponseBodyDataList& setMessageModel(string messageModel) { DARABONBA_PTR_SET_VALUE(messageModel_, messageModel) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -95,6 +106,13 @@ namespace Models
     inline ListConsumerGroupsResponseBodyDataList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // topicName Field Functions 
+    bool hasTopicName() const { return this->topicName_ != nullptr;};
+    void deleteTopicName() { this->topicName_ = nullptr;};
+    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline ListConsumerGroupsResponseBodyDataList& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
+
+
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -111,12 +129,14 @@ namespace Models
     std::shared_ptr<string> instanceId_ = nullptr;
     // The maximum TPS for message sending.
     std::shared_ptr<int64_t> maxReceiveTps_ = nullptr;
+    std::shared_ptr<string> messageModel_ = nullptr;
     // The region ID to which the instance belongs.
     std::shared_ptr<string> regionId_ = nullptr;
     // Remark information of the consumer group.
     std::shared_ptr<string> remark_ = nullptr;
     // Status of the consumer group.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> topicName_ = nullptr;
     // Last update time of the consumer group.
     std::shared_ptr<string> updateTime_ = nullptr;
   };

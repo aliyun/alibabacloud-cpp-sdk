@@ -63,10 +63,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewPeriod_ != nullptr && this->commodityCode_ != nullptr && this->instanceName_ != nullptr && this->networkInfo_ != nullptr && this->paymentType_ != nullptr
-        && this->period_ != nullptr && this->periodUnit_ != nullptr && this->productInfo_ != nullptr && this->remark_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->seriesCode_ != nullptr && this->serviceCode_ != nullptr && this->subSeriesCode_ != nullptr && this->tags_ != nullptr && this->clientToken_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewPeriod_ == nullptr && return this->commodityCode_ == nullptr && return this->instanceName_ == nullptr && return this->networkInfo_ == nullptr && return this->paymentType_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->productInfo_ == nullptr && return this->remark_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->seriesCode_ == nullptr && return this->serviceCode_ == nullptr && return this->subSeriesCode_ == nullptr && return this->tags_ == nullptr && return this->clientToken_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

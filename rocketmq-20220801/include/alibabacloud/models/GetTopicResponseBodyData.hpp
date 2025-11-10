@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetTopicResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(liteTopicExpiration, liteTopicExpiration_);
       DARABONBA_PTR_TO_JSON(maxSendTps, maxSendTps_);
       DARABONBA_PTR_TO_JSON(messageType, messageType_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, GetTopicResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(liteTopicExpiration, liteTopicExpiration_);
       DARABONBA_PTR_FROM_JSON(maxSendTps, maxSendTps_);
       DARABONBA_PTR_FROM_JSON(messageType, messageType_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
@@ -45,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->instanceId_ != nullptr && this->maxSendTps_ != nullptr && this->messageType_ != nullptr && this->regionId_ != nullptr && this->remark_ != nullptr
-        && this->status_ != nullptr && this->topicName_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->liteTopicExpiration_ == nullptr && return this->maxSendTps_ == nullptr && return this->messageType_ == nullptr && return this->regionId_ == nullptr
+        && return this->remark_ == nullptr && return this->status_ == nullptr && return this->topicName_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetTopicResponseBodyData& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // liteTopicExpiration Field Functions 
+    bool hasLiteTopicExpiration() const { return this->liteTopicExpiration_ != nullptr;};
+    void deleteLiteTopicExpiration() { this->liteTopicExpiration_ = nullptr;};
+    inline int64_t liteTopicExpiration() const { DARABONBA_PTR_GET_DEFAULT(liteTopicExpiration_, 0L) };
+    inline GetTopicResponseBodyData& setLiteTopicExpiration(int64_t liteTopicExpiration) { DARABONBA_PTR_SET_VALUE(liteTopicExpiration_, liteTopicExpiration) };
 
 
     // maxSendTps Field Functions 
@@ -116,6 +125,7 @@ namespace Models
     std::shared_ptr<string> createTime_ = nullptr;
     // The ID of the instance to which the topic belongs.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<int64_t> liteTopicExpiration_ = nullptr;
     // The maximum TPS for message sending.
     std::shared_ptr<int64_t> maxSendTps_ = nullptr;
     // The type of messages in the topic.

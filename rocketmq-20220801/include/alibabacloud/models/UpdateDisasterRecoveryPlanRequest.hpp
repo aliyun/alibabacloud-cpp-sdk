@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoSyncCheckpoint_ != nullptr
-        && this->instances_ != nullptr && this->planDesc_ != nullptr && this->planName_ != nullptr && this->planType_ != nullptr && this->syncCheckpointEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->autoSyncCheckpoint_ == nullptr
+        && return this->instances_ == nullptr && return this->planDesc_ == nullptr && return this->planName_ == nullptr && return this->planType_ == nullptr && return this->syncCheckpointEnabled_ == nullptr; };
     // autoSyncCheckpoint Field Functions 
     bool hasAutoSyncCheckpoint() const { return this->autoSyncCheckpoint_ != nullptr;};
     void deleteAutoSyncCheckpoint() { this->autoSyncCheckpoint_ = nullptr;};

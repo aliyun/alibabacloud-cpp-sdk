@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arriveTime_ != nullptr
-        && this->clientHost_ != nullptr && this->dlqOriginMessageId_ != nullptr && this->dlqOriginTopic_ != nullptr && this->messageSource_ != nullptr && this->produceDuration_ != nullptr
-        && this->produceStatus_ != nullptr && this->produceTime_ != nullptr && this->recallTime_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->arriveTime_ == nullptr
+        && return this->clientHost_ == nullptr && return this->dlqOriginMessageId_ == nullptr && return this->dlqOriginTopic_ == nullptr && return this->messageSource_ == nullptr && return this->produceDuration_ == nullptr
+        && return this->produceStatus_ == nullptr && return this->produceTime_ == nullptr && return this->recallTime_ == nullptr && return this->userName_ == nullptr; };
     // arriveTime Field Functions 
     bool hasArriveTime() const { return this->arriveTime_ != nullptr;};
     void deleteArriveTime() { this->arriveTime_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deadLetterTargetTopic_ != nullptr
-        && this->fixedIntervalRetryTime_ != nullptr && this->maxRetryTimes_ != nullptr && this->retryPolicy_ != nullptr; };
+    virtual bool empty() const override { return this->deadLetterTargetTopic_ == nullptr
+        && return this->fixedIntervalRetryTime_ == nullptr && return this->maxRetryTimes_ == nullptr && return this->retryPolicy_ == nullptr; };
     // deadLetterTargetTopic Field Functions 
     bool hasDeadLetterTargetTopic() const { return this->deadLetterTargetTopic_ != nullptr;};
     void deleteDeadLetterTargetTopic() { this->deadLetterTargetTopic_ = nullptr;};

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(bornHost, bornHost_);
       DARABONBA_PTR_TO_JSON(bornTime, bornTime_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_TO_JSON(messageGroup, messageGroup_);
       DARABONBA_PTR_TO_JSON(messageId, messageId_);
       DARABONBA_PTR_TO_JSON(messageKeys, messageKeys_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(bornHost, bornHost_);
       DARABONBA_PTR_FROM_JSON(bornTime, bornTime_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(liteTopicName, liteTopicName_);
       DARABONBA_PTR_FROM_JSON(messageGroup, messageGroup_);
       DARABONBA_PTR_FROM_JSON(messageId, messageId_);
       DARABONBA_PTR_FROM_JSON(messageKeys, messageKeys_);
@@ -59,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->body_ != nullptr
-        && this->bornHost_ != nullptr && this->bornTime_ != nullptr && this->instanceId_ != nullptr && this->messageGroup_ != nullptr && this->messageId_ != nullptr
-        && this->messageKeys_ != nullptr && this->messageTag_ != nullptr && this->messageType_ != nullptr && this->regionId_ != nullptr && this->storeHost_ != nullptr
-        && this->storeTime_ != nullptr && this->topicName_ != nullptr && this->transactionId_ != nullptr && this->userProperties_ != nullptr; };
+    virtual bool empty() const override { return this->body_ == nullptr
+        && return this->bornHost_ == nullptr && return this->bornTime_ == nullptr && return this->instanceId_ == nullptr && return this->liteTopicName_ == nullptr && return this->messageGroup_ == nullptr
+        && return this->messageId_ == nullptr && return this->messageKeys_ == nullptr && return this->messageTag_ == nullptr && return this->messageType_ == nullptr && return this->regionId_ == nullptr
+        && return this->storeHost_ == nullptr && return this->storeTime_ == nullptr && return this->topicName_ == nullptr && return this->transactionId_ == nullptr && return this->userProperties_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
@@ -89,6 +91,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline GetTraceResponseBodyDataMessageInfo& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // liteTopicName Field Functions 
+    bool hasLiteTopicName() const { return this->liteTopicName_ != nullptr;};
+    void deleteLiteTopicName() { this->liteTopicName_ = nullptr;};
+    inline string liteTopicName() const { DARABONBA_PTR_GET_DEFAULT(liteTopicName_, "") };
+    inline GetTraceResponseBodyDataMessageInfo& setLiteTopicName(string liteTopicName) { DARABONBA_PTR_SET_VALUE(liteTopicName_, liteTopicName) };
 
 
     // messageGroup Field Functions 
@@ -181,6 +190,7 @@ namespace Models
     std::shared_ptr<string> bornTime_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> liteTopicName_ = nullptr;
     // Message grpup.
     std::shared_ptr<string> messageGroup_ = nullptr;
     // The message ID.

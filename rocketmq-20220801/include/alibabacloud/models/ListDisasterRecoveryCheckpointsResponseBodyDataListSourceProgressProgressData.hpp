@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumeTimestamp_ != nullptr; };
+    virtual bool empty() const override { return this->consumeTimestamp_ == nullptr; };
     // consumeTimestamp Field Functions 
     bool hasConsumeTimestamp() const { return this->consumeTimestamp_ != nullptr;};
     void deleteConsumeTimestamp() { this->consumeTimestamp_ = nullptr;};

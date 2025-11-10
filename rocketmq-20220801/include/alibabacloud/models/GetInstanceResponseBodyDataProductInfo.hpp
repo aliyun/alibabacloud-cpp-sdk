@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoScaling_ != nullptr
-        && this->capacityType_ != nullptr && this->messageRetentionTime_ != nullptr && this->msgProcessSpec_ != nullptr && this->provisionedCapacity_ != nullptr && this->sendReceiveRatio_ != nullptr
-        && this->storageEncryption_ != nullptr && this->storageSecretKey_ != nullptr && this->supportAutoScaling_ != nullptr && this->traceOn_ != nullptr; };
+    virtual bool empty() const override { return this->autoScaling_ == nullptr
+        && return this->capacityType_ == nullptr && return this->messageRetentionTime_ == nullptr && return this->msgProcessSpec_ == nullptr && return this->provisionedCapacity_ == nullptr && return this->sendReceiveRatio_ == nullptr
+        && return this->storageEncryption_ == nullptr && return this->storageSecretKey_ == nullptr && return this->supportAutoScaling_ == nullptr && return this->traceOn_ == nullptr; };
     // autoScaling Field Functions 
     bool hasAutoScaling() const { return this->autoScaling_ != nullptr;};
     void deleteAutoScaling() { this->autoScaling_ = nullptr;};

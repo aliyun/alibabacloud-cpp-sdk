@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authType_ != nullptr
-        && this->consumerGroupId_ != nullptr && this->endpointUrl_ != nullptr && this->instanceId_ != nullptr && this->instanceRole_ != nullptr && this->instanceType_ != nullptr
-        && this->messageProperty_ != nullptr && this->networkType_ != nullptr && this->password_ != nullptr && this->regionId_ != nullptr && this->securityGroupId_ != nullptr
-        && this->username_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->authType_ == nullptr
+        && return this->consumerGroupId_ == nullptr && return this->endpointUrl_ == nullptr && return this->instanceId_ == nullptr && return this->instanceRole_ == nullptr && return this->instanceType_ == nullptr
+        && return this->messageProperty_ == nullptr && return this->networkType_ == nullptr && return this->password_ == nullptr && return this->regionId_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->username_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};

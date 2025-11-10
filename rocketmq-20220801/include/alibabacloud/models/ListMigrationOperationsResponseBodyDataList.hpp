@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessStatus_ != nullptr
-        && this->createTime_ != nullptr && this->migrationId_ != nullptr && this->operationId_ != nullptr && this->operationKey_ != nullptr && this->operationParam_ != nullptr
-        && this->operationResult_ != nullptr && this->operationStatus_ != nullptr && this->operationType_ != nullptr && this->stageType_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->businessStatus_ == nullptr
+        && return this->createTime_ == nullptr && return this->migrationId_ == nullptr && return this->operationId_ == nullptr && return this->operationKey_ == nullptr && return this->operationParam_ == nullptr
+        && return this->operationResult_ == nullptr && return this->operationStatus_ == nullptr && return this->operationType_ == nullptr && return this->stageType_ == nullptr && return this->updateTime_ == nullptr; };
     // businessStatus Field Functions 
     bool hasBusinessStatus() const { return this->businessStatus_ != nullptr;};
     void deleteBusinessStatus() { this->businessStatus_ = nullptr;};

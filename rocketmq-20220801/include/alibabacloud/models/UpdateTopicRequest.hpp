@@ -13,10 +13,12 @@ namespace Models
   class UpdateTopicRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateTopicRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(liteTopicExpiration, liteTopicExpiration_);
       DARABONBA_PTR_TO_JSON(maxSendTps, maxSendTps_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTopicRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(liteTopicExpiration, liteTopicExpiration_);
       DARABONBA_PTR_FROM_JSON(maxSendTps, maxSendTps_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxSendTps_ != nullptr
-        && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->liteTopicExpiration_ == nullptr
+        && return this->maxSendTps_ == nullptr && return this->remark_ == nullptr; };
+    // liteTopicExpiration Field Functions 
+    bool hasLiteTopicExpiration() const { return this->liteTopicExpiration_ != nullptr;};
+    void deleteLiteTopicExpiration() { this->liteTopicExpiration_ = nullptr;};
+    inline int64_t liteTopicExpiration() const { DARABONBA_PTR_GET_DEFAULT(liteTopicExpiration_, 0L) };
+    inline UpdateTopicRequest& setLiteTopicExpiration(int64_t liteTopicExpiration) { DARABONBA_PTR_SET_VALUE(liteTopicExpiration_, liteTopicExpiration) };
+
+
     // maxSendTps Field Functions 
     bool hasMaxSendTps() const { return this->maxSendTps_ != nullptr;};
     void deleteMaxSendTps() { this->maxSendTps_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> liteTopicExpiration_ = nullptr;
     // Maximum send message tps
     std::shared_ptr<int64_t> maxSendTps_ = nullptr;
     // Updated remarks for the topic.

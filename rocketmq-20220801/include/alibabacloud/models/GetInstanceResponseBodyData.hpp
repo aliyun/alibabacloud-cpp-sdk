@@ -92,13 +92,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountInfo_ != nullptr
-        && this->aclInfo_ != nullptr && this->bid_ != nullptr && this->commodityCode_ != nullptr && this->createTime_ != nullptr && this->expireTime_ != nullptr
-        && this->extConfig_ != nullptr && this->groupCount_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->instanceQuotas_ != nullptr
-        && this->networkInfo_ != nullptr && this->paymentType_ != nullptr && this->productInfo_ != nullptr && this->regionId_ != nullptr && this->releaseTime_ != nullptr
-        && this->remark_ != nullptr && this->resourceGroupId_ != nullptr && this->seriesCode_ != nullptr && this->serviceCode_ != nullptr && this->software_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->subSeriesCode_ != nullptr && this->tags_ != nullptr && this->topicCount_ != nullptr
-        && this->updateTime_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->accountInfo_ == nullptr
+        && return this->aclInfo_ == nullptr && return this->bid_ == nullptr && return this->commodityCode_ == nullptr && return this->createTime_ == nullptr && return this->expireTime_ == nullptr
+        && return this->extConfig_ == nullptr && return this->groupCount_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceQuotas_ == nullptr
+        && return this->networkInfo_ == nullptr && return this->paymentType_ == nullptr && return this->productInfo_ == nullptr && return this->regionId_ == nullptr && return this->releaseTime_ == nullptr
+        && return this->remark_ == nullptr && return this->resourceGroupId_ == nullptr && return this->seriesCode_ == nullptr && return this->serviceCode_ == nullptr && return this->software_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->subSeriesCode_ == nullptr && return this->tags_ == nullptr && return this->topicCount_ == nullptr
+        && return this->updateTime_ == nullptr && return this->userId_ == nullptr; };
     // accountInfo Field Functions 
     bool hasAccountInfo() const { return this->accountInfo_ != nullptr;};
     void deleteAccountInfo() { this->accountInfo_ = nullptr;};

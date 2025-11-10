@@ -403,6 +403,22 @@ namespace RocketMQ20220801
       Models::FinishMigrationStageResponse finishMigrationStage(const string &migrationId, const string &stageType, const Models::FinishMigrationStageRequest &request);
 
       /**
+       * @summary 查询topic可重置时间范围
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConsumeTimespanResponse
+       */
+      Models::GetConsumeTimespanResponse getConsumeTimespanWithOptions(const string &instanceId, const string &consumerGroupId, const string &topicName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询topic可重置时间范围
+       *
+       * @return GetConsumeTimespanResponse
+       */
+      Models::GetConsumeTimespanResponse getConsumeTimespan(const string &instanceId, const string &consumerGroupId, const string &topicName);
+
+      /**
        * @summary Queries the details of a specified consumer group.
        *
        * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -649,18 +665,20 @@ namespace RocketMQ20220801
       /**
        * @summary 查询消费者客户端连接信息
        *
+       * @param request ListConsumerConnectionsRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListConsumerConnectionsResponse
        */
-      Models::ListConsumerConnectionsResponse listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListConsumerConnectionsResponse listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerConnectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询消费者客户端连接信息
        *
+       * @param request ListConsumerConnectionsRequest
        * @return ListConsumerConnectionsResponse
        */
-      Models::ListConsumerConnectionsResponse listConsumerConnections(const string &instanceId, const string &consumerGroupId);
+      Models::ListConsumerConnectionsResponse listConsumerConnections(const string &instanceId, const string &consumerGroupId, const Models::ListConsumerConnectionsRequest &request);
 
       /**
        * @summary Queries the subscriptions of a specific consumer group.
@@ -885,6 +903,24 @@ namespace RocketMQ20220801
        * @return ListMigrationOperationsResponse
        */
       Models::ListMigrationOperationsResponse listMigrationOperations(const string &migrationId, const string &stageType, const Models::ListMigrationOperationsRequest &request);
+
+      /**
+       * @summary 查询迁移列表
+       *
+       * @param request ListMigrationsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMigrationsResponse
+       */
+      Models::ListMigrationsResponse listMigrationsWithOptions(const Models::ListMigrationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询迁移列表
+       *
+       * @param request ListMigrationsRequest
+       * @return ListMigrationsResponse
+       */
+      Models::ListMigrationsResponse listMigrations(const Models::ListMigrationsRequest &request);
 
       /**
        * @summary Queries regions in which ApsaraMQ for RocketMQ is available.

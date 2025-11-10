@@ -17,13 +17,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(consumeRetryPolicy, consumeRetryPolicy_);
       DARABONBA_PTR_TO_JSON(deliveryOrderType, deliveryOrderType_);
       DARABONBA_PTR_TO_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_TO_JSON(messageModel, messageModel_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
+      DARABONBA_PTR_TO_JSON(topicName, topicName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateConsumerGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(consumeRetryPolicy, consumeRetryPolicy_);
       DARABONBA_PTR_FROM_JSON(deliveryOrderType, deliveryOrderType_);
       DARABONBA_PTR_FROM_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_FROM_JSON(messageModel, messageModel_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
+      DARABONBA_PTR_FROM_JSON(topicName, topicName_);
     };
     CreateConsumerGroupRequest() = default ;
     CreateConsumerGroupRequest(const CreateConsumerGroupRequest &) = default ;
@@ -36,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumeRetryPolicy_ != nullptr
-        && this->deliveryOrderType_ != nullptr && this->maxReceiveTps_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->consumeRetryPolicy_ == nullptr
+        && return this->deliveryOrderType_ == nullptr && return this->maxReceiveTps_ == nullptr && return this->messageModel_ == nullptr && return this->remark_ == nullptr && return this->topicName_ == nullptr; };
     // consumeRetryPolicy Field Functions 
     bool hasConsumeRetryPolicy() const { return this->consumeRetryPolicy_ != nullptr;};
     void deleteConsumeRetryPolicy() { this->consumeRetryPolicy_ = nullptr;};
@@ -61,11 +65,25 @@ namespace Models
     inline CreateConsumerGroupRequest& setMaxReceiveTps(int64_t maxReceiveTps) { DARABONBA_PTR_SET_VALUE(maxReceiveTps_, maxReceiveTps) };
 
 
+    // messageModel Field Functions 
+    bool hasMessageModel() const { return this->messageModel_ != nullptr;};
+    void deleteMessageModel() { this->messageModel_ = nullptr;};
+    inline string messageModel() const { DARABONBA_PTR_GET_DEFAULT(messageModel_, "") };
+    inline CreateConsumerGroupRequest& setMessageModel(string messageModel) { DARABONBA_PTR_SET_VALUE(messageModel_, messageModel) };
+
+
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
     inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline CreateConsumerGroupRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // topicName Field Functions 
+    bool hasTopicName() const { return this->topicName_ != nullptr;};
+    void deleteTopicName() { this->topicName_ = nullptr;};
+    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline CreateConsumerGroupRequest& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
   protected:
@@ -84,8 +102,10 @@ namespace Models
     std::shared_ptr<string> deliveryOrderType_ = nullptr;
     // The maximum number of messages that can be processed by consumers per second.
     std::shared_ptr<int64_t> maxReceiveTps_ = nullptr;
+    std::shared_ptr<string> messageModel_ = nullptr;
     // The description of the consumer group.
     std::shared_ptr<string> remark_ = nullptr;
+    std::shared_ptr<string> topicName_ = nullptr;
   };
 
   } // namespace Models

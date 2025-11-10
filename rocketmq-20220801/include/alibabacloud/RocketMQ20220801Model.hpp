@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_ROCKETMQ20220801MODEL_HPP_
 #define ALIBABACLOUD_ROCKETMQ20220801MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DataLiteTopicLagMapValue.hpp>
 #include <alibabacloud/models/DataTopicLagMapValue.hpp>
 #include <alibabacloud/models/AddDisasterRecoveryItemRequest.hpp>
 #include <alibabacloud/models/AddDisasterRecoveryItemResponseBody.hpp>
@@ -58,6 +59,8 @@
 #include <alibabacloud/models/FinishMigrationStageRequest.hpp>
 #include <alibabacloud/models/FinishMigrationStageResponseBody.hpp>
 #include <alibabacloud/models/FinishMigrationStageResponse.hpp>
+#include <alibabacloud/models/GetConsumeTimespanResponseBody.hpp>
+#include <alibabacloud/models/GetConsumeTimespanResponse.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBody.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponse.hpp>
 #include <alibabacloud/models/GetConsumerGroupLagRequest.hpp>
@@ -93,6 +96,7 @@
 #include <alibabacloud/models/GetTraceResponse.hpp>
 #include <alibabacloud/models/ListAvailableZonesResponseBody.hpp>
 #include <alibabacloud/models/ListAvailableZonesResponse.hpp>
+#include <alibabacloud/models/ListConsumerConnectionsRequest.hpp>
 #include <alibabacloud/models/ListConsumerConnectionsResponseBody.hpp>
 #include <alibabacloud/models/ListConsumerConnectionsResponse.hpp>
 #include <alibabacloud/models/ListConsumerGroupSubscriptionsRequest.hpp>
@@ -132,6 +136,9 @@
 #include <alibabacloud/models/ListMigrationOperationsRequest.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponseBody.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponse.hpp>
+#include <alibabacloud/models/ListMigrationsRequest.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBody.hpp>
+#include <alibabacloud/models/ListMigrationsResponse.hpp>
 #include <alibabacloud/models/ListRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListRegionsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
@@ -193,7 +200,7 @@
 #include <alibabacloud/models/CreateDisasterRecoveryPlanRequestInstancesMessageProperty.hpp>
 #include <alibabacloud/models/CreateDisasterRecoveryPlanRequestInstances.hpp>
 #include <alibabacloud/models/CreateInstanceRequestNetworkInfoInternetInfo.hpp>
-#include <alibabacloud/models/CreateInstanceRequestNetworkInfoVpcInfoVswitches.hpp>
+#include <alibabacloud/models/CreateInstanceRequestNetworkInfoVpcInfoVSwitches.hpp>
 #include <alibabacloud/models/CreateInstanceRequestNetworkInfoVpcInfo.hpp>
 #include <alibabacloud/models/CreateInstanceRequestNetworkInfo.hpp>
 #include <alibabacloud/models/CreateInstanceRequestProductInfo.hpp>
@@ -202,6 +209,7 @@
 #include <alibabacloud/models/ExecuteMigrationOperationResponseBodyDataOperationParam.hpp>
 #include <alibabacloud/models/ExecuteMigrationOperationResponseBodyDataOperationResult.hpp>
 #include <alibabacloud/models/ExecuteMigrationOperationResponseBodyData.hpp>
+#include <alibabacloud/models/GetConsumeTimespanResponseBodyData.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBodyDataConsumeRetryPolicy.hpp>
 #include <alibabacloud/models/GetConsumerGroupResponseBodyData.hpp>
 #include <alibabacloud/models/GetConsumerGroupLagResponseBodyDataTotalLag.hpp>
@@ -222,7 +230,7 @@
 #include <alibabacloud/models/GetInstanceResponseBodyDataInstanceQuotas.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfoEndpoints.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfoInternetInfo.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfoVpcInfoVswitches.hpp>
+#include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfoVpcInfo.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataNetworkInfo.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyDataProductInfo.hpp>
@@ -280,6 +288,11 @@
 #include <alibabacloud/models/ListMigrationOperationsResponseBodyDataListOperationResult.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponseBodyDataList.hpp>
 #include <alibabacloud/models/ListMigrationOperationsResponseBodyData.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBodyDataListCurrentStage.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBodyDataListMigrationSource.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBodyDataListMigrationTarget.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBodyDataList.hpp>
+#include <alibabacloud/models/ListMigrationsResponseBodyData.hpp>
 #include <alibabacloud/models/ListRegionsResponseBodyDataTags.hpp>
 #include <alibabacloud/models/ListRegionsResponseBodyData.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyDataTagResources.hpp>

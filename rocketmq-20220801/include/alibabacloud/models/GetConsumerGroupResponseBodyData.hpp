@@ -20,9 +20,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(deliveryOrderType, deliveryOrderType_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_TO_JSON(messageModel, messageModel_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
       DARABONBA_PTR_TO_JSON(remark, remark_);
       DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(topicName, topicName_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetConsumerGroupResponseBodyData& obj) { 
@@ -32,9 +34,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(deliveryOrderType, deliveryOrderType_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(maxReceiveTps, maxReceiveTps_);
+      DARABONBA_PTR_FROM_JSON(messageModel, messageModel_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
       DARABONBA_PTR_FROM_JSON(remark, remark_);
       DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(topicName, topicName_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
     };
     GetConsumerGroupResponseBodyData() = default ;
@@ -48,9 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consumeRetryPolicy_ != nullptr
-        && this->consumerGroupId_ != nullptr && this->createTime_ != nullptr && this->deliveryOrderType_ != nullptr && this->instanceId_ != nullptr && this->maxReceiveTps_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->consumeRetryPolicy_ == nullptr
+        && return this->consumerGroupId_ == nullptr && return this->createTime_ == nullptr && return this->deliveryOrderType_ == nullptr && return this->instanceId_ == nullptr && return this->maxReceiveTps_ == nullptr
+        && return this->messageModel_ == nullptr && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr && return this->topicName_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // consumeRetryPolicy Field Functions 
     bool hasConsumeRetryPolicy() const { return this->consumeRetryPolicy_ != nullptr;};
     void deleteConsumeRetryPolicy() { this->consumeRetryPolicy_ = nullptr;};
@@ -95,6 +100,13 @@ namespace Models
     inline GetConsumerGroupResponseBodyData& setMaxReceiveTps(int64_t maxReceiveTps) { DARABONBA_PTR_SET_VALUE(maxReceiveTps_, maxReceiveTps) };
 
 
+    // messageModel Field Functions 
+    bool hasMessageModel() const { return this->messageModel_ != nullptr;};
+    void deleteMessageModel() { this->messageModel_ = nullptr;};
+    inline string messageModel() const { DARABONBA_PTR_GET_DEFAULT(messageModel_, "") };
+    inline GetConsumerGroupResponseBodyData& setMessageModel(string messageModel) { DARABONBA_PTR_SET_VALUE(messageModel_, messageModel) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -114,6 +126,13 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetConsumerGroupResponseBodyData& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // topicName Field Functions 
+    bool hasTopicName() const { return this->topicName_ != nullptr;};
+    void deleteTopicName() { this->topicName_ = nullptr;};
+    inline string topicName() const { DARABONBA_PTR_GET_DEFAULT(topicName_, "") };
+    inline GetConsumerGroupResponseBodyData& setTopicName(string topicName) { DARABONBA_PTR_SET_VALUE(topicName_, topicName) };
 
 
     // updateTime Field Functions 
@@ -141,6 +160,7 @@ namespace Models
     std::shared_ptr<string> instanceId_ = nullptr;
     // Maximum received message tps
     std::shared_ptr<int64_t> maxReceiveTps_ = nullptr;
+    std::shared_ptr<string> messageModel_ = nullptr;
     // The ID of the region in which the instance resides.
     std::shared_ptr<string> regionId_ = nullptr;
     // The remarks on the consumer group.
@@ -152,6 +172,7 @@ namespace Models
     // *   RUNNING
     // *   CREATING
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> topicName_ = nullptr;
     // The time when the consumer group was last updated.
     std::shared_ptr<string> updateTime_ = nullptr;
   };

@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipWhitelists_ != nullptr; };
+    virtual bool empty() const override { return this->ipWhitelists_ == nullptr; };
     // ipWhitelists Field Functions 
     bool hasIpWhitelists() const { return this->ipWhitelists_ != nullptr;};
     void deleteIpWhitelists() { this->ipWhitelists_ = nullptr;};

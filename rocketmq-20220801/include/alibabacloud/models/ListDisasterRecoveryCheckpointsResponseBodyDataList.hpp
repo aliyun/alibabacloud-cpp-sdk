@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkpointId_ != nullptr
-        && this->itemId_ != nullptr && this->lastSyncTime_ != nullptr && this->planId_ != nullptr && this->sourceProgress_ != nullptr && this->targetProgress_ != nullptr; };
+    virtual bool empty() const override { return this->checkpointId_ == nullptr
+        && return this->itemId_ == nullptr && return this->lastSyncTime_ == nullptr && return this->planId_ == nullptr && return this->sourceProgress_ == nullptr && return this->targetProgress_ == nullptr; };
     // checkpointId Field Functions 
     bool hasCheckpointId() const { return this->checkpointId_ != nullptr;};
     void deleteCheckpointId() { this->checkpointId_ = nullptr;};

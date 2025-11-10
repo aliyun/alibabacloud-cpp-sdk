@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -59,7 +59,7 @@ AddDisasterRecoveryItemResponse Client::addDisasterRecoveryItemWithOptions(const
     {"action" , "AddDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items")},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -167,8 +167,16 @@ CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const string 
     body["maxReceiveTps"] = request.maxReceiveTps();
   }
 
+  if (!!request.hasMessageModel()) {
+    body["messageModel"] = request.messageModel();
+  }
+
   if (!!request.hasRemark()) {
     body["remark"] = request.remark();
+  }
+
+  if (!!request.hasTopicName()) {
+    body["topicName"] = request.topicName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -179,7 +187,7 @@ CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const string 
     {"action" , "CreateConsumerGroup"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -410,7 +418,7 @@ CreateInstanceAccountResponse Client::createInstanceAccountWithOptions(const str
     {"action" , "CreateInstanceAccount"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/accounts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/accounts")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -471,7 +479,7 @@ CreateInstanceAclResponse Client::createInstanceAclWithOptions(const string &ins
     {"action" , "CreateInstanceAcl"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/acl/account/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/acl/account/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -516,7 +524,7 @@ CreateInstanceIpWhitelistResponse Client::createInstanceIpWhitelistWithOptions(c
     {"action" , "CreateInstanceIpWhitelist"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/ip/whitelist")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/ip/whitelist")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -549,6 +557,10 @@ CreateInstanceIpWhitelistResponse Client::createInstanceIpWhitelist(const string
 CreateTopicResponse Client::createTopicWithOptions(const string &instanceId, const string &topicName, const CreateTopicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasLiteTopicExpiration()) {
+    body["liteTopicExpiration"] = request.liteTopicExpiration();
+  }
+
   if (!!request.hasMaxSendTps()) {
     body["maxSendTps"] = request.maxSendTps();
   }
@@ -569,7 +581,7 @@ CreateTopicResponse Client::createTopicWithOptions(const string &instanceId, con
     {"action" , "CreateTopic"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -609,7 +621,7 @@ DeleteConsumerGroupResponse Client::deleteConsumerGroupWithOptions(const string 
     {"action" , "DeleteConsumerGroup"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -664,7 +676,7 @@ DeleteConsumerGroupSubscriptionResponse Client::deleteConsumerGroupSubscriptionW
     {"action" , "DeleteConsumerGroupSubscription"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/subscriptions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/subscriptions")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -701,7 +713,7 @@ DeleteDisasterRecoveryItemResponse Client::deleteDisasterRecoveryItemWithOptions
     {"action" , "DeleteDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -737,7 +749,7 @@ DeleteDisasterRecoveryPlanResponse Client::deleteDisasterRecoveryPlanWithOptions
     {"action" , "DeleteDisasterRecoveryPlan"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -777,7 +789,7 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const string &instanceI
     {"action" , "DeleteInstance"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -817,7 +829,7 @@ DeleteInstanceAccountResponse Client::deleteInstanceAccountWithOptions(const str
     {"action" , "DeleteInstanceAccount"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/accounts/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/accounts/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -865,7 +877,7 @@ DeleteInstanceAclResponse Client::deleteInstanceAclWithOptions(const string &ins
     {"action" , "DeleteInstanceAcl"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/acl/account/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/acl/account/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -920,7 +932,7 @@ DeleteInstanceIpWhitelistResponse Client::deleteInstanceIpWhitelistWithOptions(c
     {"action" , "DeleteInstanceIpWhitelist"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/ip/whitelist")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/ip/whitelist")},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -959,7 +971,7 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const string &instanceId, con
     {"action" , "DeleteTopic"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "DELETE"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1011,7 +1023,7 @@ ExecuteMigrationOperationResponse Client::executeMigrationOperationWithOptions(c
     {"action" , "ExecuteMigrationOperation"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/operations/" , Darabonba::Http::URL::percentEncode(operationId) , "/execute")},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Encode::Encoder::percentEncode(migrationId) , "/stages/" , Darabonba::Encode::Encoder::percentEncode(stageType) , "/operations/" , Darabonba::Encode::Encoder::percentEncode(operationId) , "/execute")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1056,7 +1068,7 @@ FinishMigrationStageResponse Client::finishMigrationStageWithOptions(const strin
     {"action" , "FinishMigrationStage"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/finish")},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Encode::Encoder::percentEncode(migrationId) , "/stages/" , Darabonba::Encode::Encoder::percentEncode(stageType) , "/finish")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1079,6 +1091,42 @@ FinishMigrationStageResponse Client::finishMigrationStage(const string &migratio
 }
 
 /**
+ * @summary 查询topic可重置时间范围
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConsumeTimespanResponse
+ */
+GetConsumeTimespanResponse Client::getConsumeTimespanWithOptions(const string &instanceId, const string &consumerGroupId, const string &topicName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConsumeTimespan"},
+    {"version" , "2022-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/consumeTimespan/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConsumeTimespanResponse>();
+}
+
+/**
+ * @summary 查询topic可重置时间范围
+ *
+ * @return GetConsumeTimespanResponse
+ */
+GetConsumeTimespanResponse Client::getConsumeTimespan(const string &instanceId, const string &consumerGroupId, const string &topicName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getConsumeTimespanWithOptions(instanceId, consumerGroupId, topicName, headers, runtime);
+}
+
+/**
  * @summary Queries the details of a specified consumer group.
  *
  * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -1095,7 +1143,7 @@ GetConsumerGroupResponse Client::getConsumerGroupWithOptions(const string &insta
     {"action" , "GetConsumerGroup"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1129,6 +1177,10 @@ GetConsumerGroupResponse Client::getConsumerGroup(const string &instanceId, cons
 GetConsumerGroupLagResponse Client::getConsumerGroupLagWithOptions(const string &instanceId, const string &consumerGroupId, const GetConsumerGroupLagRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasLiteTopicName()) {
+    query["liteTopicName"] = request.liteTopicName();
+  }
+
   if (!!request.hasTopicName()) {
     query["topicName"] = request.topicName();
   }
@@ -1141,7 +1193,7 @@ GetConsumerGroupLagResponse Client::getConsumerGroupLagWithOptions(const string 
     {"action" , "GetConsumerGroupLag"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/lag")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/lag")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1178,7 +1230,7 @@ GetConsumerGroupSubscriptionResponse Client::getConsumerGroupSubscriptionWithOpt
     {"action" , "GetConsumerGroupSubscription"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/subscriptions/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1222,7 +1274,7 @@ GetConsumerStackResponse Client::getConsumerStackWithOptions(const string &insta
     {"action" , "GetConsumerStack"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/stack")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/stack")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1259,7 +1311,7 @@ GetDisasterRecoveryItemResponse Client::getDisasterRecoveryItemWithOptions(const
     {"action" , "GetDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1295,7 +1347,7 @@ GetDisasterRecoveryPlanResponse Client::getDisasterRecoveryPlanWithOptions(const
     {"action" , "GetDisasterRecoveryPlan"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1333,7 +1385,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &instanceId, con
     {"action" , "GetInstance"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1379,7 +1431,7 @@ GetInstanceAccountResponse Client::getInstanceAccountWithOptions(const string &i
     {"action" , "GetInstanceAccount"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/account")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/account")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1428,7 +1480,7 @@ GetInstanceAclResponse Client::getInstanceAclWithOptions(const string &instanceI
     {"action" , "GetInstanceAcl"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/acl/account/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/acl/account/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1479,7 +1531,7 @@ GetInstanceIpWhitelistResponse Client::getInstanceIpWhitelistWithOptions(const s
     {"action" , "GetInstanceIpWhitelist"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/ip/whitelists")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/ip/whitelists")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1516,7 +1568,7 @@ GetMessageDetailResponse Client::getMessageDetailWithOptions(const string &insta
     {"action" , "GetMessageDetail"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/messages/" , Darabonba::Http::URL::percentEncode(messageId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/messages/" , Darabonba::Encode::Encoder::percentEncode(messageId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1552,7 +1604,7 @@ GetTopicResponse Client::getTopicWithOptions(const string &instanceId, const str
     {"action" , "GetTopic"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1600,7 +1652,7 @@ GetTraceResponse Client::getTraceWithOptions(const string &instanceId, const str
     {"action" , "GetTrace"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/traces/" , Darabonba::Http::URL::percentEncode(messageId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/traces/" , Darabonba::Encode::Encoder::percentEncode(messageId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1661,19 +1713,31 @@ ListAvailableZonesResponse Client::listAvailableZones() {
 /**
  * @summary 查询消费者客户端连接信息
  *
+ * @param request ListConsumerConnectionsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListConsumerConnectionsResponse
  */
-ListConsumerConnectionsResponse Client::listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListConsumerConnectionsResponse Client::listConsumerConnectionsWithOptions(const string &instanceId, const string &consumerGroupId, const ListConsumerConnectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLiteTopicName()) {
+    query["liteTopicName"] = request.liteTopicName();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["topicName"] = request.topicName();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListConsumerConnections"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/connections")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/connections")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1686,12 +1750,13 @@ ListConsumerConnectionsResponse Client::listConsumerConnectionsWithOptions(const
 /**
  * @summary 查询消费者客户端连接信息
  *
+ * @param request ListConsumerConnectionsRequest
  * @return ListConsumerConnectionsResponse
  */
-ListConsumerConnectionsResponse Client::listConsumerConnections(const string &instanceId, const string &consumerGroupId) {
+ListConsumerConnectionsResponse Client::listConsumerConnections(const string &instanceId, const string &consumerGroupId, const ListConsumerConnectionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listConsumerConnectionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+  return listConsumerConnectionsWithOptions(instanceId, consumerGroupId, request, headers, runtime);
 }
 
 /**
@@ -1717,7 +1782,7 @@ ListConsumerGroupSubscriptionsResponse Client::listConsumerGroupSubscriptionsWit
     {"action" , "ListConsumerGroupSubscriptions"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/subscriptions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/subscriptions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1772,7 +1837,7 @@ ListConsumerGroupsResponse Client::listConsumerGroupsWithOptions(const string &i
     {"action" , "ListConsumerGroups"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1831,7 +1896,7 @@ ListDisasterRecoveryCheckpointsResponse Client::listDisasterRecoveryCheckpointsW
     {"action" , "ListDisasterRecoveryCheckpoints"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId) , "/checkpoints")},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId) , "/checkpoints")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -1888,7 +1953,7 @@ ListDisasterRecoveryItemsResponse Client::listDisasterRecoveryItemsWithOptions(c
     {"action" , "ListDisasterRecoveryItems"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items")},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2006,7 +2071,7 @@ ListInstanceAccountResponse Client::listInstanceAccountWithOptions(const string 
     {"action" , "ListInstanceAccount"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/accounts")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/accounts")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2059,7 +2124,7 @@ ListInstanceAclResponse Client::listInstanceAclWithOptions(const string &instanc
     {"action" , "ListInstanceAcl"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/acl")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/acl")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2112,7 +2177,7 @@ ListInstanceIpWhitelistResponse Client::listInstanceIpWhitelistWithOptions(const
     {"action" , "ListInstanceIpWhitelist"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/ip/whitelist")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/ip/whitelist")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2228,6 +2293,10 @@ ListMessagesResponse Client::listMessagesWithOptions(const string &instanceId, c
     query["endTime"] = request.endTime();
   }
 
+  if (!!request.hasLiteTopicName()) {
+    query["liteTopicName"] = request.liteTopicName();
+  }
+
   if (!!request.hasMessageId()) {
     query["messageId"] = request.messageId();
   }
@@ -2260,7 +2329,7 @@ ListMessagesResponse Client::listMessagesWithOptions(const string &instanceId, c
     {"action" , "ListMessages"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/messages")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/messages")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2370,7 +2439,7 @@ ListMigrationOperationsResponse Client::listMigrationOperationsWithOptions(const
     {"action" , "ListMigrationOperations"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Http::URL::percentEncode(migrationId) , "/stages/" , Darabonba::Http::URL::percentEncode(stageType) , "/operations")},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations/" , Darabonba::Encode::Encoder::percentEncode(migrationId) , "/stages/" , Darabonba::Encode::Encoder::percentEncode(stageType) , "/operations")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2390,6 +2459,67 @@ ListMigrationOperationsResponse Client::listMigrationOperations(const string &mi
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listMigrationOperationsWithOptions(migrationId, stageType, request, headers, runtime);
+}
+
+/**
+ * @summary 查询迁移列表
+ *
+ * @param request ListMigrationsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMigrationsResponse
+ */
+ListMigrationsResponse Client::listMigrationsWithOptions(const ListMigrationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["filter"] = request.filter();
+  }
+
+  if (!!request.hasMigrationType()) {
+    query["migrationType"] = request.migrationType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMigrations"},
+    {"version" , "2022-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/migrations")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMigrationsResponse>();
+}
+
+/**
+ * @summary 查询迁移列表
+ *
+ * @param request ListMigrationsRequest
+ * @return ListMigrationsResponse
+ */
+ListMigrationsResponse Client::listMigrations(const ListMigrationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMigrationsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2508,7 +2638,7 @@ ListTopicSubscriptionsResponse Client::listTopicSubscriptionsWithOptions(const s
     {"action" , "ListTopicSubscriptions"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/subscriptions")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/subscriptions")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2570,7 +2700,7 @@ ListTopicsResponse Client::listTopicsWithOptions(const string &instanceId, const
     {"action" , "ListTopics"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2607,6 +2737,10 @@ ListTracesResponse Client::listTracesWithOptions(const string &instanceId, const
     query["endTime"] = request.endTime();
   }
 
+  if (!!request.hasLiteTopicName()) {
+    query["liteTopicName"] = request.liteTopicName();
+  }
+
   if (!!request.hasMessageId()) {
     query["messageId"] = request.messageId();
   }
@@ -2639,7 +2773,7 @@ ListTracesResponse Client::listTracesWithOptions(const string &instanceId, const
     {"action" , "ListTraces"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/traces")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/traces")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2688,7 +2822,7 @@ ResetConsumeOffsetResponse Client::resetConsumeOffsetWithOptions(const string &i
     {"action" , "ResetConsumeOffset"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId) , "/consumeOffsets/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId) , "/consumeOffsets/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2725,7 +2859,7 @@ StartDisasterRecoveryItemResponse Client::startDisasterRecoveryItemWithOptions(c
     {"action" , "StartDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId) , "/start")},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId) , "/start")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2761,7 +2895,7 @@ StopDisasterRecoveryItemResponse Client::stopDisasterRecoveryItemWithOptions(con
     {"action" , "StopDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId) , "/stop")},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId) , "/stop")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2797,7 +2931,7 @@ SyncDisasterRecoveryCheckpointResponse Client::syncDisasterRecoveryCheckpointWit
     {"action" , "SyncDisasterRecoveryCheckpoint"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId) , "/checkpoints/" , Darabonba::Http::URL::percentEncode(checkpointId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId) , "/checkpoints/" , Darabonba::Encode::Encoder::percentEncode(checkpointId))},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -2973,7 +3107,7 @@ UpdateConsumerGroupResponse Client::updateConsumerGroupWithOptions(const string 
     {"action" , "UpdateConsumerGroup"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Http::URL::percentEncode(consumerGroupId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/consumerGroups/" , Darabonba::Encode::Encoder::percentEncode(consumerGroupId))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3020,7 +3154,7 @@ UpdateDisasterRecoveryItemResponse Client::updateDisasterRecoveryItemWithOptions
     {"action" , "UpdateDisasterRecoveryItem"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId) , "/items/" , Darabonba::Http::URL::percentEncode(itemId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId) , "/items/" , Darabonba::Encode::Encoder::percentEncode(itemId))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3085,7 +3219,7 @@ UpdateDisasterRecoveryPlanResponse Client::updateDisasterRecoveryPlanWithOptions
     {"action" , "UpdateDisasterRecoveryPlan"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Http::URL::percentEncode(planId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/disaster_recovery/" , Darabonba::Encode::Encoder::percentEncode(planId))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3148,7 +3282,7 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &instanceI
     {"action" , "UpdateInstance"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3199,7 +3333,7 @@ UpdateInstanceAccountResponse Client::updateInstanceAccountWithOptions(const str
     {"action" , "UpdateInstanceAccount"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/accounts/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/accounts/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3260,7 +3394,7 @@ UpdateInstanceAclResponse Client::updateInstanceAclWithOptions(const string &ins
     {"action" , "UpdateInstanceAcl"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/acl/account/" , Darabonba::Http::URL::percentEncode(username))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/acl/account/" , Darabonba::Encode::Encoder::percentEncode(username))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3293,6 +3427,10 @@ UpdateInstanceAclResponse Client::updateInstanceAcl(const string &instanceId, co
 UpdateTopicResponse Client::updateTopicWithOptions(const string &instanceId, const string &topicName, const UpdateTopicRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasLiteTopicExpiration()) {
+    body["liteTopicExpiration"] = request.liteTopicExpiration();
+  }
+
   if (!!request.hasMaxSendTps()) {
     body["maxSendTps"] = request.maxSendTps();
   }
@@ -3309,7 +3447,7 @@ UpdateTopicResponse Client::updateTopicWithOptions(const string &instanceId, con
     {"action" , "UpdateTopic"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName))},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName))},
     {"method" , "PATCH"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3358,7 +3496,7 @@ VerifyConsumeMessageResponse Client::verifyConsumeMessageWithOptions(const strin
     {"action" , "VerifyConsumeMessage"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/messages/" , Darabonba::Http::URL::percentEncode(messageId) , "/action/verifyConsume")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/messages/" , Darabonba::Encode::Encoder::percentEncode(messageId) , "/action/verifyConsume")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -3391,6 +3529,10 @@ VerifyConsumeMessageResponse Client::verifyConsumeMessage(const string &instance
 VerifySendMessageResponse Client::verifySendMessageWithOptions(const string &instanceId, const string &topicName, const VerifySendMessageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasLiteTopicName()) {
+    body["liteTopicName"] = request.liteTopicName();
+  }
+
   if (!!request.hasMessage()) {
     body["message"] = request.message();
   }
@@ -3411,7 +3553,7 @@ VerifySendMessageResponse Client::verifySendMessageWithOptions(const string &ins
     {"action" , "VerifySendMessage"},
     {"version" , "2022-08-01"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Http::URL::percentEncode(instanceId) , "/topics/" , Darabonba::Http::URL::percentEncode(topicName) , "/messages")},
+    {"pathname" , DARA_STRING_TEMPLATE("/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/topics/" , Darabonba::Encode::Encoder::percentEncode(topicName) , "/messages")},
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
