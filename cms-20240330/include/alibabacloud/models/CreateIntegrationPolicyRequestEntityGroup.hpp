@@ -88,12 +88,13 @@ namespace Models
     std::shared_ptr<string> clusterEntityType_ = nullptr;
     // Cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
-    // Whether to disable unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
+    // Whether to disable the unique binding of the Policy. If enabled, multiple Policies can be created for a single container cluster.
     std::shared_ptr<bool> disablePolicyShare_ = nullptr;
     // Entity group ID.
     std::shared_ptr<string> entityGroupId_ = nullptr;
+    // User ID to which the cluster belongs.
     std::shared_ptr<string> entityUserId_ = nullptr;
-    // VPC (Virtual Private Cloud) ID.
+    // VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // Whether it was created.
+    // Whether it is created.
     std::shared_ptr<bool> created_ = nullptr;
     // Uploaded policy.
     std::shared_ptr<CreateIntegrationPolicyResponseBodyPolicy> policy_ = nullptr;

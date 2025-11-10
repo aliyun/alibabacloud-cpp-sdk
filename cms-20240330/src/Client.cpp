@@ -1055,6 +1055,51 @@ DeleteUmodelResponse Client::deleteUmodel(const string &workspace) {
 }
 
 /**
+ * @summary 删除Umodel配置信息
+ *
+ * @param request DeleteUmodelCommonSchemaRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUmodelCommonSchemaRefResponse
+ */
+DeleteUmodelCommonSchemaRefResponse Client::deleteUmodelCommonSchemaRefWithOptions(const string &workspace, const DeleteUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroup()) {
+    query["group"] = request.group();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteUmodelCommonSchemaRef"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/umodel/common-schema-ref")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUmodelCommonSchemaRefResponse>();
+}
+
+/**
+ * @summary 删除Umodel配置信息
+ *
+ * @param request DeleteUmodelCommonSchemaRefRequest
+ * @return DeleteUmodelCommonSchemaRefResponse
+ */
+DeleteUmodelCommonSchemaRefResponse Client::deleteUmodelCommonSchemaRef(const string &workspace, const DeleteUmodelCommonSchemaRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary Delete Umodel Elements
  *
  * @description Delete the Umodel Data under a specified workspace
@@ -1572,6 +1617,42 @@ GetUmodelResponse Client::getUmodel(const string &workspace) {
 }
 
 /**
+ * @summary 获取Umodel配置信息
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUmodelCommonSchemaRefResponse
+ */
+GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRefWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUmodelCommonSchemaRef"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/umodel/common-schema-ref")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUmodelCommonSchemaRefResponse>();
+}
+
+/**
+ * @summary 获取Umodel配置信息
+ *
+ * @return GetUmodelCommonSchemaRefResponse
+ */
+GetUmodelCommonSchemaRefResponse Client::getUmodelCommonSchemaRef(const string &workspace) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getUmodelCommonSchemaRefWithOptions(workspace, headers, runtime);
+}
+
+/**
  * @summary Retrieve associated Umodel graph data
  *
  * @description Find Umodel
@@ -1864,7 +1945,7 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 /**
  * @summary Query Access Center Policy List Information
  *
- * @description Query Integration List
+ * @description Query integration list
  *
  * @param tmpReq ListIntegrationPoliciesRequest
  * @param headers map
@@ -1957,7 +2038,7 @@ ListIntegrationPoliciesResponse Client::listIntegrationPoliciesWithOptions(const
 /**
  * @summary Query Access Center Policy List Information
  *
- * @description Query Integration List
+ * @description Query integration list
  *
  * @param request ListIntegrationPoliciesRequest
  * @return ListIntegrationPoliciesResponse
@@ -2914,6 +2995,52 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
 }
 
 /**
+ * @summary 更新订阅
+ *
+ * @param request UpdateNotifyStrategyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateNotifyStrategyResponse
+ */
+UpdateNotifyStrategyResponse Client::updateNotifyStrategyWithOptions(const string &notifyStrategyId, const UpdateNotifyStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateNotifyStrategy"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/notifyStrategies/" , Darabonba::Encode::Encoder::percentEncode(notifyStrategyId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateNotifyStrategyResponse>();
+}
+
+/**
+ * @summary 更新订阅
+ *
+ * @param request UpdateNotifyStrategyRequest
+ * @return UpdateNotifyStrategyResponse
+ */
+UpdateNotifyStrategyResponse Client::updateNotifyStrategy(const string &notifyStrategyId, const UpdateNotifyStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateNotifyStrategyWithOptions(notifyStrategyId, request, headers, runtime);
+}
+
+/**
  * @summary Update Prometheus instance information
  *
  * @description Update Prometheus instance information.
@@ -3133,6 +3260,52 @@ UpdateServiceResponse Client::updateService(const string &workspace, const strin
 }
 
 /**
+ * @summary 更新订阅
+ *
+ * @param request UpdateSubscriptionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const string &subscriptionId, const UpdateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSubscription"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/subscriptions/" , Darabonba::Encode::Encoder::percentEncode(subscriptionId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSubscriptionResponse>();
+}
+
+/**
+ * @summary 更新订阅
+ *
+ * @param request UpdateSubscriptionRequest
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscription(const string &subscriptionId, const UpdateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+}
+
+/**
  * @summary Update Umodel configuration information
  *
  * @description Update Umodel configuration information
@@ -3179,6 +3352,55 @@ UpdateUmodelResponse Client::updateUmodel(const string &workspace, const UpdateU
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateUmodelWithOptions(workspace, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Umodel配置信息
+ *
+ * @param request UpsertUmodelCommonSchemaRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertUmodelCommonSchemaRefResponse
+ */
+UpsertUmodelCommonSchemaRefResponse Client::upsertUmodelCommonSchemaRefWithOptions(const string &workspace, const UpsertUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroup()) {
+    query["group"] = request.group();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpsertUmodelCommonSchemaRef"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/umodel/common-schema-ref")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertUmodelCommonSchemaRefResponse>();
+}
+
+/**
+ * @summary 更新Umodel配置信息
+ *
+ * @param request UpsertUmodelCommonSchemaRefRequest
+ * @return UpsertUmodelCommonSchemaRefResponse
+ */
+UpsertUmodelCommonSchemaRefResponse Client::upsertUmodelCommonSchemaRef(const string &workspace, const UpsertUmodelCommonSchemaRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return upsertUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
 }
 
 /**

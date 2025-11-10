@@ -146,7 +146,7 @@ namespace Models
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule> ipMatchRule_ = nullptr;
     // Labels
     std::shared_ptr<vector<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels>> labels_ = nullptr;
-    // List of region IDs
+    // List of region IDs.
     std::shared_ptr<vector<string>> regionIds_ = nullptr;
     // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;

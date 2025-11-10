@@ -176,10 +176,11 @@ namespace Models
   protected:
     // Bound resource information
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesBindResource> bindResource_ = nullptr;
-    // Cs Umodel Status
+    // Container environment umodel installation status.
     std::shared_ptr<bool> csUmodelStatus_ = nullptr;
     // Entity group
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroup> entityGroup_ = nullptr;
+    // Billing type.
     std::shared_ptr<string> feePackage_ = nullptr;
     // Policy network management information.
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesManagedInfo> managedInfo_ = nullptr;

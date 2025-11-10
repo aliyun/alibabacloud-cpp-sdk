@@ -114,7 +114,7 @@ namespace Models
     std::shared_ptr<string> entityGroupName_ = nullptr;
     // Entity group
     std::shared_ptr<Models::ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules> entityRules_ = nullptr;
-    // Search keyword, supports document library name and description
+    // Search keywords, supporting document library name and description
     std::shared_ptr<string> query_ = nullptr;
     // Region ID.
     std::shared_ptr<string> regionId_ = nullptr;

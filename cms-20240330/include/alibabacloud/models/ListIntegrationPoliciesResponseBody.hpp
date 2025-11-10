@@ -85,7 +85,7 @@ namespace Models
     // Maximum value:
     // 	50
     std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // Pagination Token
+    // Pagination token
     std::shared_ptr<string> nextToken_ = nullptr;
     // Access policy list
     std::shared_ptr<vector<ListIntegrationPoliciesResponseBodyPolicies>> policies_ = nullptr;

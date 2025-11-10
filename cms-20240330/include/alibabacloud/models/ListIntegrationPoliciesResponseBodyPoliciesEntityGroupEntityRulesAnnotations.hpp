@@ -62,7 +62,7 @@ namespace Models
   protected:
     // Operation to be performed.
     std::shared_ptr<string> op_ = nullptr;
-    // Tag key
+    // Tag key.
     std::shared_ptr<string> tagKey_ = nullptr;
     // Tag values
     std::shared_ptr<vector<string>> tagValues_ = nullptr;

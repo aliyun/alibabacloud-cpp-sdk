@@ -363,6 +363,24 @@ namespace Cms20240330
       Models::DeleteUmodelResponse deleteUmodel(const string &workspace);
 
       /**
+       * @summary 删除Umodel配置信息
+       *
+       * @param request DeleteUmodelCommonSchemaRefRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUmodelCommonSchemaRefResponse
+       */
+      Models::DeleteUmodelCommonSchemaRefResponse deleteUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::DeleteUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Umodel配置信息
+       *
+       * @param request DeleteUmodelCommonSchemaRefRequest
+       * @return DeleteUmodelCommonSchemaRefResponse
+       */
+      Models::DeleteUmodelCommonSchemaRefResponse deleteUmodelCommonSchemaRef(const string &workspace, const Models::DeleteUmodelCommonSchemaRefRequest &request);
+
+      /**
        * @summary Delete Umodel Elements
        *
        * @description Delete the Umodel Data under a specified workspace
@@ -579,6 +597,22 @@ namespace Cms20240330
       Models::GetUmodelResponse getUmodel(const string &workspace);
 
       /**
+       * @summary 获取Umodel配置信息
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUmodelCommonSchemaRefResponse
+       */
+      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRefWithOptions(const string &workspace, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Umodel配置信息
+       *
+       * @return GetUmodelCommonSchemaRefResponse
+       */
+      Models::GetUmodelCommonSchemaRefResponse getUmodelCommonSchemaRef(const string &workspace);
+
+      /**
        * @summary Retrieve associated Umodel graph data
        *
        * @description Find Umodel
@@ -677,7 +711,7 @@ namespace Cms20240330
       /**
        * @summary Query Access Center Policy List Information
        *
-       * @description Query Integration List
+       * @description Query integration list
        *
        * @param tmpReq ListIntegrationPoliciesRequest
        * @param headers map
@@ -689,7 +723,7 @@ namespace Cms20240330
       /**
        * @summary Query Access Center Policy List Information
        *
-       * @description Query Integration List
+       * @description Query integration list
        *
        * @param request ListIntegrationPoliciesRequest
        * @return ListIntegrationPoliciesResponse
@@ -999,6 +1033,24 @@ namespace Cms20240330
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
 
       /**
+       * @summary 更新订阅
+       *
+       * @param request UpdateNotifyStrategyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateNotifyStrategyResponse
+       */
+      Models::UpdateNotifyStrategyResponse updateNotifyStrategyWithOptions(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新订阅
+       *
+       * @param request UpdateNotifyStrategyRequest
+       * @return UpdateNotifyStrategyResponse
+       */
+      Models::UpdateNotifyStrategyResponse updateNotifyStrategy(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request);
+
+      /**
        * @summary Update Prometheus instance information
        *
        * @description Update Prometheus instance information.
@@ -1061,6 +1113,24 @@ namespace Cms20240330
       Models::UpdateServiceResponse updateService(const string &workspace, const string &serviceId, const Models::UpdateServiceRequest &request);
 
       /**
+       * @summary 更新订阅
+       *
+       * @param request UpdateSubscriptionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSubscriptionResponse
+       */
+      Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新订阅
+       *
+       * @param request UpdateSubscriptionRequest
+       * @return UpdateSubscriptionResponse
+       */
+      Models::UpdateSubscriptionResponse updateSubscription(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request);
+
+      /**
        * @summary Update Umodel configuration information
        *
        * @description Update Umodel configuration information
@@ -1081,6 +1151,24 @@ namespace Cms20240330
        * @return UpdateUmodelResponse
        */
       Models::UpdateUmodelResponse updateUmodel(const string &workspace, const Models::UpdateUmodelRequest &request);
+
+      /**
+       * @summary 更新Umodel配置信息
+       *
+       * @param request UpsertUmodelCommonSchemaRefRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertUmodelCommonSchemaRefResponse
+       */
+      Models::UpsertUmodelCommonSchemaRefResponse upsertUmodelCommonSchemaRefWithOptions(const string &workspace, const Models::UpsertUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Umodel配置信息
+       *
+       * @param request UpsertUmodelCommonSchemaRefRequest
+       * @return UpsertUmodelCommonSchemaRefResponse
+       */
+      Models::UpsertUmodelCommonSchemaRefResponse upsertUmodelCommonSchemaRef(const string &workspace, const Models::UpsertUmodelCommonSchemaRefRequest &request);
 
       /**
        * @summary Write Umodel Elements

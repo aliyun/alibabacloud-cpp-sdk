@@ -162,29 +162,29 @@ namespace Models
 
 
   protected:
-    // Addon Name.
+    // Addon name.
     std::shared_ptr<string> addonName_ = nullptr;
-    // Bound Resource ID.
+    // Bound resource ID
     std::shared_ptr<string> bindResourceId_ = nullptr;
-    // Filter for entity IDs, separated by commas.
+    // Filter for entity IDs, separated by commas
     std::shared_ptr<string> entityGroupIds_ = nullptr;
-    // Used for Region query, separated by commas.
+    // Used for Region query, separated by commas
     std::shared_ptr<string> filterRegionIds_ = nullptr;
-    // Maximum number of results to return, default is 30, with a maximum of 100.
+    // Maximum number of results to return. Default is 30, with a maximum of 100.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // Used to return more results. This parameter is not required for the first query; for subsequent queries, use the Token obtained from the previous response.
+    // Used to return more results. This parameter is not required for the first query. For subsequent queries, use the Token obtained from the response.
     std::shared_ptr<string> nextToken_ = nullptr;
     // Policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
-    // Rule Name.
+    // Rule name.
     std::shared_ptr<string> policyName_ = nullptr;
-    // Policy Type
+    // Policy type
     std::shared_ptr<string> policyType_ = nullptr;
     // Instance ID.
     std::shared_ptr<string> prometheusInstanceId_ = nullptr;
-    // Used for general queries.
+    // Used for general queries
     std::shared_ptr<string> query_ = nullptr;
-    // Resource Group ID.
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // Tag list.
     std::shared_ptr<vector<ListIntegrationPoliciesRequestTag>> tag_ = nullptr;

@@ -100,6 +100,9 @@
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelResponseBody.hpp>
 #include <alibabacloud/models/DeleteUmodelResponse.hpp>
+#include <alibabacloud/models/DeleteUmodelCommonSchemaRefRequest.hpp>
+#include <alibabacloud/models/DeleteUmodelCommonSchemaRefResponseBody.hpp>
+#include <alibabacloud/models/DeleteUmodelCommonSchemaRefResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelDataRequest.hpp>
 #include <alibabacloud/models/DeleteUmodelDataResponseBody.hpp>
 #include <alibabacloud/models/DeleteUmodelDataResponse.hpp>
@@ -129,6 +132,8 @@
 #include <alibabacloud/models/GetServiceObservabilityResponse.hpp>
 #include <alibabacloud/models/GetUmodelResponseBody.hpp>
 #include <alibabacloud/models/GetUmodelResponse.hpp>
+#include <alibabacloud/models/GetUmodelCommonSchemaRefResponseBody.hpp>
+#include <alibabacloud/models/GetUmodelCommonSchemaRefResponse.hpp>
 #include <alibabacloud/models/GetUmodelDataRequest.hpp>
 #include <alibabacloud/models/GetUmodelDataResponseBody.hpp>
 #include <alibabacloud/models/GetUmodelDataResponse.hpp>
@@ -197,6 +202,9 @@
 #include <alibabacloud/models/UpdateIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponse.hpp>
+#include <alibabacloud/models/UpdateNotifyStrategyRequest.hpp>
+#include <alibabacloud/models/UpdateNotifyStrategyResponseBody.hpp>
+#include <alibabacloud/models/UpdateNotifyStrategyResponse.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceResponse.hpp>
@@ -206,9 +214,15 @@
 #include <alibabacloud/models/UpdateServiceRequest.hpp>
 #include <alibabacloud/models/UpdateServiceResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceResponse.hpp>
+#include <alibabacloud/models/UpdateSubscriptionRequest.hpp>
+#include <alibabacloud/models/UpdateSubscriptionResponseBody.hpp>
+#include <alibabacloud/models/UpdateSubscriptionResponse.hpp>
 #include <alibabacloud/models/UpdateUmodelRequest.hpp>
 #include <alibabacloud/models/UpdateUmodelResponseBody.hpp>
 #include <alibabacloud/models/UpdateUmodelResponse.hpp>
+#include <alibabacloud/models/UpsertUmodelCommonSchemaRefRequest.hpp>
+#include <alibabacloud/models/UpsertUmodelCommonSchemaRefResponseBody.hpp>
+#include <alibabacloud/models/UpsertUmodelCommonSchemaRefResponse.hpp>
 #include <alibabacloud/models/UpsertUmodelDataRequest.hpp>
 #include <alibabacloud/models/UpsertUmodelDataResponseBody.hpp>
 #include <alibabacloud/models/UpsertUmodelDataResponse.hpp>
@@ -298,6 +312,7 @@
 #include <alibabacloud/models/GetServiceResponseBodyService.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponseBodyEntryPointInfo.hpp>
 #include <alibabacloud/models/GetUmodelResponseBodyCommonSchemaRef.hpp>
+#include <alibabacloud/models/GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef.hpp>
 #include <alibabacloud/models/GetUmodelDataResponseBodyErrors.hpp>
 #include <alibabacloud/models/ListAddonReleasesResponseBodyReleasesConditions.hpp>
 #include <alibabacloud/models/ListAddonReleasesResponseBodyReleasesSubAddonRelease.hpp>
