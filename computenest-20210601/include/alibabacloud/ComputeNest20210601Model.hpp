@@ -190,6 +190,7 @@
 #include <alibabacloud/models/GetServiceResponseBodySupportContacts.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyTags.hpp>
 #include <alibabacloud/models/GetServiceEstimateCostRequestCommodity.hpp>
+#include <alibabacloud/models/GetServiceInstanceResponseBodyGrantedPermission.hpp>
 #include <alibabacloud/models/GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs.hpp>
 #include <alibabacloud/models/GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections.hpp>
 #include <alibabacloud/models/GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections.hpp>
@@ -226,6 +227,7 @@
 #include <alibabacloud/models/ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory.hpp>
 #include <alibabacloud/models/ListServiceInstancesRequestFilter.hpp>
 #include <alibabacloud/models/ListServiceInstancesRequestTag.hpp>
+#include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesGrantedPermission.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesServiceCommodity.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesService.hpp>
@@ -247,6 +249,7 @@
 #include <alibabacloud/models/RenewServiceInstanceResourcesResponseBodyFailureDetails.hpp>
 #include <alibabacloud/models/RenewServiceInstanceResourcesResponseBodyRenewalResult.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
+#include <alibabacloud/models/UpdateServiceInstanceAttributesRequestGrantedPermission.hpp>
 #include <alibabacloud/models/UpdateServiceInstanceSpecRequestCommodity.hpp>
 #include <alibabacloud/models/UpdateServiceInstanceSpecShrinkRequestCommodity.hpp>
 #include <alibabacloud/models/UpdateUserInformationRequestDeliverySettings.hpp>

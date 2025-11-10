@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionIdList_ != nullptr
-        && this->zoneIdList_ != nullptr; };
+    virtual bool empty() const override { return this->regionIdList_ == nullptr
+        && return this->zoneIdList_ == nullptr; };
     // regionIdList Field Functions 
     bool hasRegionIdList() const { return this->regionIdList_ != nullptr;};
     void deleteRegionIdList() { this->regionIdList_ = nullptr;};

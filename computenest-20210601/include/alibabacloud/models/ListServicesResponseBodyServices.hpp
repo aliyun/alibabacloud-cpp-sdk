@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categories_ != nullptr
-        && this->commodity_ != nullptr && this->commodityCode_ != nullptr && this->deployFrom_ != nullptr && this->deployType_ != nullptr && this->publishTime_ != nullptr
-        && this->score_ != nullptr && this->serviceId_ != nullptr && this->serviceInfos_ != nullptr && this->serviceLocaleConfigs_ != nullptr && this->serviceProductUrl_ != nullptr
-        && this->serviceType_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr && this->supplierNameEng_ != nullptr && this->supplierUid_ != nullptr
-        && this->supplierUrl_ != nullptr && this->tags_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr && this->trialType_ != nullptr
-        && this->version_ != nullptr && this->versionName_ != nullptr && this->virtualInternetService_ != nullptr; };
+    virtual bool empty() const override { return this->categories_ == nullptr
+        && return this->commodity_ == nullptr && return this->commodityCode_ == nullptr && return this->deployFrom_ == nullptr && return this->deployType_ == nullptr && return this->publishTime_ == nullptr
+        && return this->score_ == nullptr && return this->serviceId_ == nullptr && return this->serviceInfos_ == nullptr && return this->serviceLocaleConfigs_ == nullptr && return this->serviceProductUrl_ == nullptr
+        && return this->serviceType_ == nullptr && return this->status_ == nullptr && return this->supplierName_ == nullptr && return this->supplierNameEng_ == nullptr && return this->supplierUid_ == nullptr
+        && return this->supplierUrl_ == nullptr && return this->tags_ == nullptr && return this->tenantType_ == nullptr && return this->trialDuration_ == nullptr && return this->trialType_ == nullptr
+        && return this->version_ == nullptr && return this->versionName_ == nullptr && return this->virtualInternetService_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};

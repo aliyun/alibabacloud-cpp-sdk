@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currency_ != nullptr
-        && this->tradeAmount_ != nullptr && this->discountAmount_ != nullptr && this->originalAmount_ != nullptr; };
+    virtual bool empty() const override { return this->currency_ == nullptr
+        && return this->tradeAmount_ == nullptr && return this->discountAmount_ == nullptr && return this->originalAmount_ == nullptr; };
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};

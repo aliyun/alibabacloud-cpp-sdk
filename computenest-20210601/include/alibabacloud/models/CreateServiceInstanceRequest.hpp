@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->commodity_ != nullptr && this->contactGroup_ != nullptr && this->dryRun_ != nullptr && this->enableInstanceOps_ != nullptr && this->enableUserPrometheus_ != nullptr
-        && this->name_ != nullptr && this->operationMetadata_ != nullptr && this->parameters_ != nullptr && this->regionId_ != nullptr && this->resourceAutoPay_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serviceId_ != nullptr && this->serviceInstanceId_ != nullptr && this->serviceVersion_ != nullptr && this->specificationCode_ != nullptr
-        && this->specificationName_ != nullptr && this->tag_ != nullptr && this->templateName_ != nullptr && this->trialType_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->commodity_ == nullptr && return this->contactGroup_ == nullptr && return this->dryRun_ == nullptr && return this->enableInstanceOps_ == nullptr && return this->enableUserPrometheus_ == nullptr
+        && return this->name_ == nullptr && return this->operationMetadata_ == nullptr && return this->parameters_ == nullptr && return this->regionId_ == nullptr && return this->resourceAutoPay_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->serviceId_ == nullptr && return this->serviceInstanceId_ == nullptr && return this->serviceVersion_ == nullptr && return this->specificationCode_ == nullptr
+        && return this->specificationName_ == nullptr && return this->tag_ == nullptr && return this->templateName_ == nullptr && return this->trialType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};

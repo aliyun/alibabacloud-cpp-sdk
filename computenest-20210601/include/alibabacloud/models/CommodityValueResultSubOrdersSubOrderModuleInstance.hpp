@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->moduleId_ != nullptr
-        && this->moduleName_ != nullptr && this->moduleCode_ != nullptr && this->totalProductFee_ != nullptr && this->discountFee_ != nullptr && this->payFee_ != nullptr
-        && this->priceUnit_ != nullptr && this->isPricingModule_ != nullptr && this->needOrderPay_ != nullptr && this->priceType_ != nullptr && this->moduleAttrs_ != nullptr
-        && this->moduleNameEn_ != nullptr && this->priceUnitEn_ != nullptr; };
+    virtual bool empty() const override { return this->moduleId_ == nullptr
+        && return this->moduleName_ == nullptr && return this->moduleCode_ == nullptr && return this->totalProductFee_ == nullptr && return this->discountFee_ == nullptr && return this->payFee_ == nullptr
+        && return this->priceUnit_ == nullptr && return this->isPricingModule_ == nullptr && return this->needOrderPay_ == nullptr && return this->priceType_ == nullptr && return this->moduleAttrs_ == nullptr
+        && return this->moduleNameEn_ == nullptr && return this->priceUnitEn_ == nullptr; };
     // moduleId Field Functions 
     bool hasModuleId() const { return this->moduleId_ != nullptr;};
     void deleteModuleId() { this->moduleId_ = nullptr;};

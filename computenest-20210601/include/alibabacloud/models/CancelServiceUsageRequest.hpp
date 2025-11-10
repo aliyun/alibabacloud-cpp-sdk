@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CancelServiceUsageRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(NeedDelete, needDelete_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
     };
     friend void from_json(const Darabonba::Json& j, CancelServiceUsageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(NeedDelete, needDelete_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
     };
     CancelServiceUsageRequest() = default ;
@@ -33,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->needDelete_ != nullptr && this->serviceId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->needDelete_ == nullptr && return this->regionId_ == nullptr && return this->serviceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteNeedDelete() { this->needDelete_ = nullptr;};
     inline bool needDelete() const { DARABONBA_PTR_GET_DEFAULT(needDelete_, false) };
     inline CancelServiceUsageRequest& setNeedDelete(bool needDelete) { DARABONBA_PTR_SET_VALUE(needDelete_, needDelete) };
+
+
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline CancelServiceUsageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
@@ -63,6 +72,7 @@ namespace Models
     // 
     // >  After you delete the application, you must re-enter the application information the next time you submit an application.
     std::shared_ptr<bool> needDelete_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
     // The service ID.
     // 
     // This parameter is required.

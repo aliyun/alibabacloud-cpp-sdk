@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compliancePackType_ != nullptr
-        && this->complianceRuleName_ != nullptr && this->content_ != nullptr && this->logType_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr
-        && this->source_ != nullptr && this->status_ != nullptr && this->timestamp_ != nullptr; };
+    virtual bool empty() const override { return this->compliancePackType_ == nullptr
+        && return this->complianceRuleName_ == nullptr && return this->content_ == nullptr && return this->logType_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->timestamp_ == nullptr; };
     // compliancePackType Field Functions 
     bool hasCompliancePackType() const { return this->compliancePackType_ != nullptr;};
     void deleteCompliancePackType() { this->compliancePackType_ = nullptr;};

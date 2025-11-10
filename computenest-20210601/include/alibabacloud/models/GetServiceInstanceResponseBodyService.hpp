@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deployMetadata_ != nullptr
-        && this->deployType_ != nullptr && this->operationMetadata_ != nullptr && this->publishTime_ != nullptr && this->serviceDocUrl_ != nullptr && this->serviceId_ != nullptr
-        && this->serviceInfos_ != nullptr && this->serviceProductUrl_ != nullptr && this->serviceType_ != nullptr && this->status_ != nullptr && this->supplierName_ != nullptr
-        && this->supplierUrl_ != nullptr && this->upgradableServiceInfos_ != nullptr && this->upgradableServiceVersions_ != nullptr && this->upgradeMetadata_ != nullptr && this->version_ != nullptr
-        && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->deployMetadata_ == nullptr
+        && return this->deployType_ == nullptr && return this->operationMetadata_ == nullptr && return this->publishTime_ == nullptr && return this->serviceDocUrl_ == nullptr && return this->serviceId_ == nullptr
+        && return this->serviceInfos_ == nullptr && return this->serviceProductUrl_ == nullptr && return this->serviceType_ == nullptr && return this->status_ == nullptr && return this->supplierName_ == nullptr
+        && return this->supplierUrl_ == nullptr && return this->upgradableServiceInfos_ == nullptr && return this->upgradableServiceVersions_ == nullptr && return this->upgradeMetadata_ == nullptr && return this->version_ == nullptr
+        && return this->versionName_ == nullptr; };
     // deployMetadata Field Functions 
     bool hasDeployMetadata() const { return this->deployMetadata_ != nullptr;};
     void deleteDeployMetadata() { this->deployMetadata_ = nullptr;};

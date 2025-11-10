@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endpointId_ != nullptr
-        && this->privateVpcConnections_ != nullptr && this->privateZoneId_ != nullptr && this->reversePrivateVpcConnections_ != nullptr; };
+    virtual bool empty() const override { return this->endpointId_ == nullptr
+        && return this->privateVpcConnections_ == nullptr && return this->privateZoneId_ == nullptr && return this->reversePrivateVpcConnections_ == nullptr; };
     // endpointId Field Functions 
     bool hasEndpointId() const { return this->endpointId_ != nullptr;};
     void deleteEndpointId() { this->endpointId_ = nullptr;};

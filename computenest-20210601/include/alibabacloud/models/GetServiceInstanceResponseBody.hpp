@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETSERVICEINSTANCERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETSERVICEINSTANCERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetServiceInstanceResponseBodyGrantedPermission.hpp>
 #include <alibabacloud/models/GetServiceInstanceResponseBodyNetworkConfig.hpp>
 #include <alibabacloud/models/GetServiceInstanceResponseBodyService.hpp>
 #include <vector>
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableUserPrometheus, enableUserPrometheus_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(GrafanaDashBoardUrl, grafanaDashBoardUrl_);
+      DARABONBA_PTR_TO_JSON(GrantedPermission, grantedPermission_);
       DARABONBA_PTR_TO_JSON(IsOperated, isOperated_);
       DARABONBA_PTR_TO_JSON(LicenseEndTime, licenseEndTime_);
       DARABONBA_PTR_TO_JSON(MarketInstanceId, marketInstanceId_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Outputs, outputs_);
       DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(PolicyNames, policyNames_);
       DARABONBA_PTR_TO_JSON(PredefinedParameterName, predefinedParameterName_);
       DARABONBA_PTR_TO_JSON(Progress, progress_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -61,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableUserPrometheus, enableUserPrometheus_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(GrafanaDashBoardUrl, grafanaDashBoardUrl_);
+      DARABONBA_PTR_FROM_JSON(GrantedPermission, grantedPermission_);
       DARABONBA_PTR_FROM_JSON(IsOperated, isOperated_);
       DARABONBA_PTR_FROM_JSON(LicenseEndTime, licenseEndTime_);
       DARABONBA_PTR_FROM_JSON(MarketInstanceId, marketInstanceId_);
@@ -72,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Outputs, outputs_);
       DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(PolicyNames, policyNames_);
       DARABONBA_PTR_FROM_JSON(PredefinedParameterName, predefinedParameterName_);
       DARABONBA_PTR_FROM_JSON(Progress, progress_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -101,14 +106,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizStatus_ != nullptr
-        && this->components_ != nullptr && this->createTime_ != nullptr && this->enableInstanceOps_ != nullptr && this->enableUserPrometheus_ != nullptr && this->endTime_ != nullptr
-        && this->grafanaDashBoardUrl_ != nullptr && this->isOperated_ != nullptr && this->licenseEndTime_ != nullptr && this->marketInstanceId_ != nullptr && this->name_ != nullptr
-        && this->networkConfig_ != nullptr && this->operatedServiceInstanceId_ != nullptr && this->operationEndTime_ != nullptr && this->operationStartTime_ != nullptr && this->outputs_ != nullptr
-        && this->parameters_ != nullptr && this->payType_ != nullptr && this->predefinedParameterName_ != nullptr && this->progress_ != nullptr && this->requestId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resources_ != nullptr && this->service_ != nullptr && this->serviceInstanceId_ != nullptr && this->serviceType_ != nullptr
-        && this->source_ != nullptr && this->status_ != nullptr && this->statusDetail_ != nullptr && this->supplierUid_ != nullptr && this->supportTrialToPrivate_ != nullptr
-        && this->tags_ != nullptr && this->templateName_ != nullptr && this->updateTime_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->bizStatus_ == nullptr
+        && return this->components_ == nullptr && return this->createTime_ == nullptr && return this->enableInstanceOps_ == nullptr && return this->enableUserPrometheus_ == nullptr && return this->endTime_ == nullptr
+        && return this->grafanaDashBoardUrl_ == nullptr && return this->grantedPermission_ == nullptr && return this->isOperated_ == nullptr && return this->licenseEndTime_ == nullptr && return this->marketInstanceId_ == nullptr
+        && return this->name_ == nullptr && return this->networkConfig_ == nullptr && return this->operatedServiceInstanceId_ == nullptr && return this->operationEndTime_ == nullptr && return this->operationStartTime_ == nullptr
+        && return this->outputs_ == nullptr && return this->parameters_ == nullptr && return this->payType_ == nullptr && return this->policyNames_ == nullptr && return this->predefinedParameterName_ == nullptr
+        && return this->progress_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resources_ == nullptr && return this->service_ == nullptr
+        && return this->serviceInstanceId_ == nullptr && return this->serviceType_ == nullptr && return this->source_ == nullptr && return this->status_ == nullptr && return this->statusDetail_ == nullptr
+        && return this->supplierUid_ == nullptr && return this->supportTrialToPrivate_ == nullptr && return this->tags_ == nullptr && return this->templateName_ == nullptr && return this->updateTime_ == nullptr
+        && return this->userId_ == nullptr; };
     // bizStatus Field Functions 
     bool hasBizStatus() const { return this->bizStatus_ != nullptr;};
     void deleteBizStatus() { this->bizStatus_ = nullptr;};
@@ -156,6 +162,15 @@ namespace Models
     void deleteGrafanaDashBoardUrl() { this->grafanaDashBoardUrl_ = nullptr;};
     inline string grafanaDashBoardUrl() const { DARABONBA_PTR_GET_DEFAULT(grafanaDashBoardUrl_, "") };
     inline GetServiceInstanceResponseBody& setGrafanaDashBoardUrl(string grafanaDashBoardUrl) { DARABONBA_PTR_SET_VALUE(grafanaDashBoardUrl_, grafanaDashBoardUrl) };
+
+
+    // grantedPermission Field Functions 
+    bool hasGrantedPermission() const { return this->grantedPermission_ != nullptr;};
+    void deleteGrantedPermission() { this->grantedPermission_ = nullptr;};
+    inline const GetServiceInstanceResponseBodyGrantedPermission & grantedPermission() const { DARABONBA_PTR_GET_CONST(grantedPermission_, GetServiceInstanceResponseBodyGrantedPermission) };
+    inline GetServiceInstanceResponseBodyGrantedPermission grantedPermission() { DARABONBA_PTR_GET(grantedPermission_, GetServiceInstanceResponseBodyGrantedPermission) };
+    inline GetServiceInstanceResponseBody& setGrantedPermission(const GetServiceInstanceResponseBodyGrantedPermission & grantedPermission) { DARABONBA_PTR_SET_VALUE(grantedPermission_, grantedPermission) };
+    inline GetServiceInstanceResponseBody& setGrantedPermission(GetServiceInstanceResponseBodyGrantedPermission && grantedPermission) { DARABONBA_PTR_SET_RVALUE(grantedPermission_, grantedPermission) };
 
 
     // isOperated Field Functions 
@@ -235,6 +250,13 @@ namespace Models
     void deletePayType() { this->payType_ = nullptr;};
     inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline GetServiceInstanceResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // policyNames Field Functions 
+    bool hasPolicyNames() const { return this->policyNames_ != nullptr;};
+    void deletePolicyNames() { this->policyNames_ = nullptr;};
+    inline string policyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
+    inline GetServiceInstanceResponseBody& setPolicyNames(string policyNames) { DARABONBA_PTR_SET_VALUE(policyNames_, policyNames) };
 
 
     // predefinedParameterName Field Functions 
@@ -383,6 +405,7 @@ namespace Models
     std::shared_ptr<string> endTime_ = nullptr;
     // The URL of the Grafana dashboard.
     std::shared_ptr<string> grafanaDashBoardUrl_ = nullptr;
+    std::shared_ptr<GetServiceInstanceResponseBodyGrantedPermission> grantedPermission_ = nullptr;
     // Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
     // 
     // *   true
@@ -418,6 +441,7 @@ namespace Models
     // *   PayAsYouGo: Pay-as-you-go.
     // *   CustomFixTime: Merchant custom fixed duration.
     std::shared_ptr<string> payType_ = nullptr;
+    std::shared_ptr<string> policyNames_ = nullptr;
     // The package name.
     std::shared_ptr<string> predefinedParameterName_ = nullptr;
     // The deployment progress of the service instance. Unit: percentage.

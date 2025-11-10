@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectBandwidth_ != nullptr
-        && this->domainName_ != nullptr && this->endpointIps_ != nullptr && this->ingressEndpointStatus_ != nullptr && this->networkServiceStatus_ != nullptr && this->regionId_ != nullptr
-        && this->securityGroups_ != nullptr && this->vSwitches_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->connectBandwidth_ == nullptr
+        && return this->domainName_ == nullptr && return this->endpointIps_ == nullptr && return this->ingressEndpointStatus_ == nullptr && return this->networkServiceStatus_ == nullptr && return this->regionId_ == nullptr
+        && return this->securityGroups_ == nullptr && return this->vSwitches_ == nullptr && return this->vpcId_ == nullptr; };
     // connectBandwidth Field Functions 
     bool hasConnectBandwidth() const { return this->connectBandwidth_ != nullptr;};
     void deleteConnectBandwidth() { this->connectBandwidth_ = nullptr;};

@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingCycle_ != nullptr
-        && this->billingDate_ != nullptr && this->billingItem_ != nullptr && this->billingItemCode_ != nullptr && this->currency_ != nullptr && this->deductedByResourcePackage_ != nullptr
-        && this->instanceID_ != nullptr && this->invoiceDiscount_ != nullptr && this->listPrice_ != nullptr && this->listPriceUnit_ != nullptr && this->pretaxAmount_ != nullptr
-        && this->pretaxGrossAmount_ != nullptr && this->productCode_ != nullptr && this->productDetail_ != nullptr && this->productName_ != nullptr && this->splitBillingCycle_ != nullptr
-        && this->subscriptionType_ != nullptr && this->usage_ != nullptr && this->usageUnit_ != nullptr; };
+    virtual bool empty() const override { return this->billingCycle_ == nullptr
+        && return this->billingDate_ == nullptr && return this->billingItem_ == nullptr && return this->billingItemCode_ == nullptr && return this->currency_ == nullptr && return this->deductedByResourcePackage_ == nullptr
+        && return this->instanceID_ == nullptr && return this->invoiceDiscount_ == nullptr && return this->listPrice_ == nullptr && return this->listPriceUnit_ == nullptr && return this->pretaxAmount_ == nullptr
+        && return this->pretaxGrossAmount_ == nullptr && return this->productCode_ == nullptr && return this->productDetail_ == nullptr && return this->productName_ == nullptr && return this->splitBillingCycle_ == nullptr
+        && return this->subscriptionType_ == nullptr && return this->usage_ == nullptr && return this->usageUnit_ == nullptr; };
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};

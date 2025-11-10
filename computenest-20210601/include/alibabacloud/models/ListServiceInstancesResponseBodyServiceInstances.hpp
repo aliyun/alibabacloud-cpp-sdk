@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTSERVICEINSTANCESRESPONSEBODYSERVICEINSTANCES_HPP_
 #define ALIBABACLOUD_MODELS_LISTSERVICEINSTANCESRESPONSEBODYSERVICEINSTANCES_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesGrantedPermission.hpp>
 #include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesService.hpp>
 #include <vector>
 #include <alibabacloud/models/ListServiceInstancesResponseBodyServiceInstancesTags.hpp>
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(EnableInstanceOps, enableInstanceOps_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(GrantedPermission, grantedPermission_);
       DARABONBA_PTR_TO_JSON(MarketInstanceId, marketInstanceId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OperatedServiceInstanceId, operatedServiceInstanceId_);
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Outputs, outputs_);
       DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(PolicyNames, policyNames_);
       DARABONBA_PTR_TO_JSON(Progress, progress_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Resources, resources_);
@@ -48,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(EnableInstanceOps, enableInstanceOps_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(GrantedPermission, grantedPermission_);
       DARABONBA_PTR_FROM_JSON(MarketInstanceId, marketInstanceId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OperatedServiceInstanceId, operatedServiceInstanceId_);
@@ -57,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Outputs, outputs_);
       DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(PolicyNames, policyNames_);
       DARABONBA_PTR_FROM_JSON(Progress, progress_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Resources, resources_);
@@ -82,12 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizStatus_ != nullptr
-        && this->createTime_ != nullptr && this->enableInstanceOps_ != nullptr && this->endTime_ != nullptr && this->marketInstanceId_ != nullptr && this->name_ != nullptr
-        && this->operatedServiceInstanceId_ != nullptr && this->operationEndTime_ != nullptr && this->operationStartTime_ != nullptr && this->orderId_ != nullptr && this->outputs_ != nullptr
-        && this->parameters_ != nullptr && this->payType_ != nullptr && this->progress_ != nullptr && this->resourceGroupId_ != nullptr && this->resources_ != nullptr
-        && this->service_ != nullptr && this->serviceInstanceId_ != nullptr && this->serviceType_ != nullptr && this->source_ != nullptr && this->status_ != nullptr
-        && this->statusDetail_ != nullptr && this->supportTrialToPrivate_ != nullptr && this->tags_ != nullptr && this->templateName_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->bizStatus_ == nullptr
+        && return this->createTime_ == nullptr && return this->enableInstanceOps_ == nullptr && return this->endTime_ == nullptr && return this->grantedPermission_ == nullptr && return this->marketInstanceId_ == nullptr
+        && return this->name_ == nullptr && return this->operatedServiceInstanceId_ == nullptr && return this->operationEndTime_ == nullptr && return this->operationStartTime_ == nullptr && return this->orderId_ == nullptr
+        && return this->outputs_ == nullptr && return this->parameters_ == nullptr && return this->payType_ == nullptr && return this->policyNames_ == nullptr && return this->progress_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resources_ == nullptr && return this->service_ == nullptr && return this->serviceInstanceId_ == nullptr && return this->serviceType_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->statusDetail_ == nullptr && return this->supportTrialToPrivate_ == nullptr && return this->tags_ == nullptr
+        && return this->templateName_ == nullptr && return this->updateTime_ == nullptr; };
     // bizStatus Field Functions 
     bool hasBizStatus() const { return this->bizStatus_ != nullptr;};
     void deleteBizStatus() { this->bizStatus_ = nullptr;};
@@ -114,6 +120,15 @@ namespace Models
     void deleteEndTime() { this->endTime_ = nullptr;};
     inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline ListServiceInstancesResponseBodyServiceInstances& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // grantedPermission Field Functions 
+    bool hasGrantedPermission() const { return this->grantedPermission_ != nullptr;};
+    void deleteGrantedPermission() { this->grantedPermission_ = nullptr;};
+    inline const Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission & grantedPermission() const { DARABONBA_PTR_GET_CONST(grantedPermission_, Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission) };
+    inline Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission grantedPermission() { DARABONBA_PTR_GET(grantedPermission_, Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission) };
+    inline ListServiceInstancesResponseBodyServiceInstances& setGrantedPermission(const Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission & grantedPermission) { DARABONBA_PTR_SET_VALUE(grantedPermission_, grantedPermission) };
+    inline ListServiceInstancesResponseBodyServiceInstances& setGrantedPermission(Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission && grantedPermission) { DARABONBA_PTR_SET_RVALUE(grantedPermission_, grantedPermission) };
 
 
     // marketInstanceId Field Functions 
@@ -177,6 +192,13 @@ namespace Models
     void deletePayType() { this->payType_ = nullptr;};
     inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline ListServiceInstancesResponseBodyServiceInstances& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // policyNames Field Functions 
+    bool hasPolicyNames() const { return this->policyNames_ != nullptr;};
+    void deletePolicyNames() { this->policyNames_ = nullptr;};
+    inline string policyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
+    inline ListServiceInstancesResponseBodyServiceInstances& setPolicyNames(string policyNames) { DARABONBA_PTR_SET_VALUE(policyNames_, policyNames) };
 
 
     // progress Field Functions 
@@ -291,6 +313,7 @@ namespace Models
     std::shared_ptr<bool> enableInstanceOps_ = nullptr;
     // The time when the service instance expires.
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<Models::ListServiceInstancesResponseBodyServiceInstancesGrantedPermission> grantedPermission_ = nullptr;
     // The ID of the Alibaba Cloud Marketplace instance.
     std::shared_ptr<string> marketInstanceId_ = nullptr;
     // The name of the service instance.
@@ -314,6 +337,7 @@ namespace Models
     // *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
     // *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
     std::shared_ptr<string> payType_ = nullptr;
+    std::shared_ptr<string> policyNames_ = nullptr;
     // The deployment progress of the service instance, in percentage.
     std::shared_ptr<int64_t> progress_ = nullptr;
     // The resource group ID.

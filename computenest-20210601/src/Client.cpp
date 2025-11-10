@@ -53,6 +53,10 @@ CancelServiceUsageResponse Client::cancelServiceUsageWithOptions(const CancelSer
     query["NeedDelete"] = request.needDelete();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
   if (!!request.hasServiceId()) {
     query["ServiceId"] = request.serviceId();
   }
@@ -517,6 +521,10 @@ CreateServiceUsageResponse Client::createServiceUsageWithOptions(const CreateSer
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
   }
 
   if (!!request.hasServiceId()) {
@@ -1918,6 +1926,10 @@ ListServiceUsagesResponse Client::listServiceUsagesWithOptions(const ListService
     query["NextToken"] = request.nextToken();
   }
 
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2570,6 +2582,10 @@ UpdateServiceInstanceAttributesResponse Client::updateServiceInstanceAttributesW
     query["EnableOperation"] = request.enableOperation();
   }
 
+  if (!!request.hasGrantedPermission()) {
+    query["GrantedPermission"] = request.grantedPermission();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.regionId();
   }
@@ -2706,6 +2722,10 @@ UpdateServiceUsageResponse Client::updateServiceUsageWithOptions(const UpdateSer
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
   }
 
   if (!!request.hasServiceId()) {
