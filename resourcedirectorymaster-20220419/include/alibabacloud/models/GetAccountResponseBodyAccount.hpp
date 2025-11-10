@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryId, resourceDirectoryId_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryPath, resourceDirectoryPath_);
+      DARABONBA_PTR_TO_JSON(SecureMobilePhone, secureMobilePhone_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryId, resourceDirectoryId_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryPath, resourceDirectoryPath_);
+      DARABONBA_PTR_FROM_JSON(SecureMobilePhone, secureMobilePhone_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -61,10 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->accountName_ != nullptr && this->displayName_ != nullptr && this->emailStatus_ != nullptr && this->folderId_ != nullptr && this->hasSecureMobilePhone_ != nullptr
-        && this->identityInformation_ != nullptr && this->joinMethod_ != nullptr && this->joinTime_ != nullptr && this->location_ != nullptr && this->modifyTime_ != nullptr
-        && this->resourceDirectoryId_ != nullptr && this->resourceDirectoryPath_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->accountName_ == nullptr && return this->displayName_ == nullptr && return this->emailStatus_ == nullptr && return this->folderId_ == nullptr && return this->hasSecureMobilePhone_ == nullptr
+        && return this->identityInformation_ == nullptr && return this->joinMethod_ == nullptr && return this->joinTime_ == nullptr && return this->location_ == nullptr && return this->modifyTime_ == nullptr
+        && return this->resourceDirectoryId_ == nullptr && return this->resourceDirectoryPath_ == nullptr && return this->secureMobilePhone_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->type_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -156,6 +159,13 @@ namespace Models
     inline GetAccountResponseBodyAccount& setResourceDirectoryPath(string resourceDirectoryPath) { DARABONBA_PTR_SET_VALUE(resourceDirectoryPath_, resourceDirectoryPath) };
 
 
+    // secureMobilePhone Field Functions 
+    bool hasSecureMobilePhone() const { return this->secureMobilePhone_ != nullptr;};
+    void deleteSecureMobilePhone() { this->secureMobilePhone_ = nullptr;};
+    inline string secureMobilePhone() const { DARABONBA_PTR_GET_DEFAULT(secureMobilePhone_, "") };
+    inline GetAccountResponseBodyAccount& setSecureMobilePhone(string secureMobilePhone) { DARABONBA_PTR_SET_VALUE(secureMobilePhone_, secureMobilePhone) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -217,6 +227,7 @@ namespace Models
     std::shared_ptr<string> resourceDirectoryId_ = nullptr;
     // The path of the member in the resource directory.
     std::shared_ptr<string> resourceDirectoryPath_ = nullptr;
+    std::shared_ptr<string> secureMobilePhone_ = nullptr;
     // The status of the member. Valid values:
     // 
     // *   CreateSuccess: The member is created.

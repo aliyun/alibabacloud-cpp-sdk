@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->associatedDate_ != nullptr
-        && this->contactId_ != nullptr && this->createDate_ != nullptr && this->emailAddress_ != nullptr && this->members_ != nullptr && this->messageTypes_ != nullptr
-        && this->name_ != nullptr && this->phoneNumber_ != nullptr && this->status_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->associatedDate_ == nullptr
+        && return this->contactId_ == nullptr && return this->createDate_ == nullptr && return this->emailAddress_ == nullptr && return this->members_ == nullptr && return this->messageTypes_ == nullptr
+        && return this->name_ == nullptr && return this->phoneNumber_ == nullptr && return this->status_ == nullptr && return this->title_ == nullptr; };
     // associatedDate Field Functions 
     bool hasAssociatedDate() const { return this->associatedDate_ != nullptr;};
     void deleteAssociatedDate() { this->associatedDate_ = nullptr;};

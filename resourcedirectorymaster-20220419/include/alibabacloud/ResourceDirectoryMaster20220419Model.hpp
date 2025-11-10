@@ -184,9 +184,9 @@
 #include <alibabacloud/models/SendVerificationCodeForBindSecureMobilePhoneRequest.hpp>
 #include <alibabacloud/models/SendVerificationCodeForBindSecureMobilePhoneResponseBody.hpp>
 #include <alibabacloud/models/SendVerificationCodeForBindSecureMobilePhoneResponse.hpp>
-#include <alibabacloud/models/SendVerificationCodeForEnableRdrequest.hpp>
-#include <alibabacloud/models/SendVerificationCodeForEnableRdresponseBody.hpp>
-#include <alibabacloud/models/SendVerificationCodeForEnableRdresponse.hpp>
+#include <alibabacloud/models/SendVerificationCodeForEnableRdRequest.hpp>
+#include <alibabacloud/models/SendVerificationCodeForEnableRdResponseBody.hpp>
+#include <alibabacloud/models/SendVerificationCodeForEnableRdResponse.hpp>
 #include <alibabacloud/models/SetMemberDeletionPermissionRequest.hpp>
 #include <alibabacloud/models/SetMemberDeletionPermissionResponseBody.hpp>
 #include <alibabacloud/models/SetMemberDeletionPermissionResponse.hpp>

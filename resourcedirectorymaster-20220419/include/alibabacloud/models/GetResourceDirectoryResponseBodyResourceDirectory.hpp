@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->controlPolicyStatus_ != nullptr
-        && this->createTime_ != nullptr && this->identityInformation_ != nullptr && this->masterAccountId_ != nullptr && this->masterAccountName_ != nullptr && this->memberAccountDisplayNameSyncStatus_ != nullptr
-        && this->memberDeletionStatus_ != nullptr && this->resourceDirectoryId_ != nullptr && this->rootFolderId_ != nullptr; };
+    virtual bool empty() const override { return this->controlPolicyStatus_ == nullptr
+        && return this->createTime_ == nullptr && return this->identityInformation_ == nullptr && return this->masterAccountId_ == nullptr && return this->masterAccountName_ == nullptr && return this->memberAccountDisplayNameSyncStatus_ == nullptr
+        && return this->memberDeletionStatus_ == nullptr && return this->resourceDirectoryId_ == nullptr && return this->rootFolderId_ == nullptr; };
     // controlPolicyStatus Field Functions 
     bool hasControlPolicyStatus() const { return this->controlPolicyStatus_ != nullptr;};
     void deleteControlPolicyStatus() { this->controlPolicyStatus_ = nullptr;};

@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enabledServicePrincipal_ != nullptr; };
+    virtual bool empty() const override { return this->enabledServicePrincipal_ == nullptr; };
     // enabledServicePrincipal Field Functions 
     bool hasEnabledServicePrincipal() const { return this->enabledServicePrincipal_ != nullptr;};
     void deleteEnabledServicePrincipal() { this->enabledServicePrincipal_ = nullptr;};

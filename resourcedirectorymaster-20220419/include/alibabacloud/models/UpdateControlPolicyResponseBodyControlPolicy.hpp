@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentCount_ != nullptr
-        && this->createDate_ != nullptr && this->description_ != nullptr && this->effectScope_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr
-        && this->policyType_ != nullptr && this->updateDate_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentCount_ == nullptr
+        && return this->createDate_ == nullptr && return this->description_ == nullptr && return this->effectScope_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr
+        && return this->policyType_ == nullptr && return this->updateDate_ == nullptr; };
     // attachmentCount Field Functions 
     bool hasAttachmentCount() const { return this->attachmentCount_ != nullptr;};
     void deleteAttachmentCount() { this->attachmentCount_ = nullptr;};
