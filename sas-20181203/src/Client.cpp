@@ -16487,6 +16487,10 @@ DescribeImageRepoListResponse Client::describeImageRepoListWithOptions(const Des
     query["RepoNamespace"] = request.repoNamespace();
   }
 
+  if (!!request.hasSelected()) {
+    query["Selected"] = request.selected();
+  }
+
   if (!!request.hasTargetType()) {
     query["TargetType"] = request.targetType();
   }

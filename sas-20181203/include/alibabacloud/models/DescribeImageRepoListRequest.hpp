@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RepoNamespace, repoNamespace_);
+      DARABONBA_PTR_TO_JSON(Selected, selected_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RepoNamespace, repoNamespace_);
+      DARABONBA_PTR_FROM_JSON(Selected, selected_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
         && return this->fieldName_ == nullptr && return this->fieldValue_ == nullptr && return this->operateType_ == nullptr && return this->pageSize_ == nullptr && return this->repoName_ == nullptr
-        && return this->repoNamespace_ == nullptr && return this->targetType_ == nullptr && return this->type_ == nullptr; };
+        && return this->repoNamespace_ == nullptr && return this->selected_ == nullptr && return this->targetType_ == nullptr && return this->type_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -97,6 +99,13 @@ namespace Models
     inline DescribeImageRepoListRequest& setRepoNamespace(string repoNamespace) { DARABONBA_PTR_SET_VALUE(repoNamespace_, repoNamespace) };
 
 
+    // selected Field Functions 
+    bool hasSelected() const { return this->selected_ != nullptr;};
+    void deleteSelected() { this->selected_ = nullptr;};
+    inline int32_t selected() const { DARABONBA_PTR_GET_DEFAULT(selected_, 0) };
+    inline DescribeImageRepoListRequest& setSelected(int32_t selected) { DARABONBA_PTR_SET_VALUE(selected_, selected) };
+
+
     // targetType Field Functions 
     bool hasTargetType() const { return this->targetType_ != nullptr;};
     void deleteTargetType() { this->targetType_ = nullptr;};
@@ -138,6 +147,7 @@ namespace Models
     std::shared_ptr<string> repoName_ = nullptr;
     // The namespace to which the image repository belongs.
     std::shared_ptr<string> repoNamespace_ = nullptr;
+    std::shared_ptr<int32_t> selected_ = nullptr;
     // The condition by which the feature is applied. Valid values:
     // 
     // *   **image_repo**: the ID of the image repository
