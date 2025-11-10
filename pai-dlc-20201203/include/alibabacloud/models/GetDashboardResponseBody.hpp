@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The Dashboard URL
     std::shared_ptr<string> url_ = nullptr;
   };
 

@@ -413,7 +413,9 @@ DeleteTensorboardResponse Client::deleteTensorboard(const string &TensorboardId,
 }
 
 /**
- * @summary 获取 Dashboard 链接
+ * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
  *
  * @param request GetDashboardRequest
  * @param headers map
@@ -450,7 +452,9 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &jobId, const 
 }
 
 /**
- * @summary 获取 Dashboard 链接
+ * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+ *
+ * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
  *
  * @param request GetDashboardRequest
  * @return GetDashboardResponse
@@ -1569,6 +1573,10 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
   json body = {};
   if (!!request.hasAccessibility()) {
     body["Accessibility"] = request.accessibility();
+  }
+
+  if (!!request.hasJobSpecs()) {
+    body["JobSpecs"] = request.jobSpecs();
   }
 
   if (!!request.hasPriority()) {

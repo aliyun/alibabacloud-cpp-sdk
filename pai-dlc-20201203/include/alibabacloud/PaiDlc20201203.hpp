@@ -95,7 +95,9 @@ namespace PaiDlc20201203
       Models::DeleteTensorboardResponse deleteTensorboard(const string &TensorboardId, const Models::DeleteTensorboardRequest &request);
 
       /**
-       * @summary 获取 Dashboard 链接
+       * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
        *
        * @param request GetDashboardRequest
        * @param headers map
@@ -105,7 +107,9 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboardWithOptions(const string &jobId, const Models::GetDashboardRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 Dashboard 链接
+       * @summary Gets the DLC task\\"s Dashboard URL, if one exists.
+       *
+       * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
        *
        * @param request GetDashboardRequest
        * @return GetDashboardResponse

@@ -6,6 +6,7 @@
 #include <alibabacloud/models/AliyunAccounts.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/AssumeUserInfo.hpp>
+#include <alibabacloud/models/AutoscalingMetricSpec.hpp>
 #include <alibabacloud/models/AutoScalingSpec.hpp>
 #include <alibabacloud/models/CodeSourceItem.hpp>
 #include <alibabacloud/models/EnvVar.hpp>

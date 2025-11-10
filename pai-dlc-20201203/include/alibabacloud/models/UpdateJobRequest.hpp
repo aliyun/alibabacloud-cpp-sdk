@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATEJOBREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATEJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/JobSpec.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,10 +16,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_TO_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
+      DARABONBA_PTR_FROM_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
     };
     UpdateJobRequest() = default ;
@@ -32,12 +36,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && return this->priority_ == nullptr; };
+        && return this->jobSpecs_ == nullptr && return this->priority_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
     inline string accessibility() const { DARABONBA_PTR_GET_DEFAULT(accessibility_, "") };
     inline UpdateJobRequest& setAccessibility(string accessibility) { DARABONBA_PTR_SET_VALUE(accessibility_, accessibility) };
+
+
+    // jobSpecs Field Functions 
+    bool hasJobSpecs() const { return this->jobSpecs_ != nullptr;};
+    void deleteJobSpecs() { this->jobSpecs_ = nullptr;};
+    inline const vector<JobSpec> & jobSpecs() const { DARABONBA_PTR_GET_CONST(jobSpecs_, vector<JobSpec>) };
+    inline vector<JobSpec> jobSpecs() { DARABONBA_PTR_GET(jobSpecs_, vector<JobSpec>) };
+    inline UpdateJobRequest& setJobSpecs(const vector<JobSpec> & jobSpecs) { DARABONBA_PTR_SET_VALUE(jobSpecs_, jobSpecs) };
+    inline UpdateJobRequest& setJobSpecs(vector<JobSpec> && jobSpecs) { DARABONBA_PTR_SET_RVALUE(jobSpecs_, jobSpecs) };
 
 
     // priority Field Functions 
@@ -53,6 +66,7 @@ namespace Models
     // *   PUBLIC: The job is visible to all members in the workspace.
     // *   PRIVATE: The job is visible only to you and the administrator of the workspace.
     std::shared_ptr<string> accessibility_ = nullptr;
+    std::shared_ptr<vector<JobSpec>> jobSpecs_ = nullptr;
     // The job priority. Valid values: 1 to 9.
     // 
     // *   1: the lowest priority.

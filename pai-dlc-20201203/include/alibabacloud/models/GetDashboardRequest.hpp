@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether the link is a sharing link. If yes, a token is required.
+    // 
+    // Enumerated values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<bool> isShared_ = nullptr;
+    // The token obtained from GetToken
     std::shared_ptr<string> token_ = nullptr;
   };
 
