@@ -390,6 +390,60 @@ AuthorizeApplicationToUsersResponse Client::authorizeApplicationToUsers(const Au
 }
 
 /**
+ * @summary 绑定三方登录账户
+ *
+ * @param request BindUserAuthnSourceMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindUserAuthnSourceMappingResponse
+ */
+BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMappingWithOptions(const BindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserExternalId()) {
+    query["UserExternalId"] = request.userExternalId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BindUserAuthnSourceMapping"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindUserAuthnSourceMappingResponse>();
+}
+
+/**
+ * @summary 绑定三方登录账户
+ *
+ * @param request BindUserAuthnSourceMappingRequest
+ * @return BindUserAuthnSourceMappingResponse
+ */
+BindUserAuthnSourceMappingResponse Client::bindUserAuthnSourceMapping(const BindUserAuthnSourceMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindUserAuthnSourceMappingWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
  *
  * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
@@ -7415,6 +7469,72 @@ ListSynchronizationJobsResponse Client::listSynchronizationJobs(const ListSynchr
 }
 
 /**
+ * @summary 查询三方登录账户绑定关系
+ *
+ * @param request ListUserAuthnSourceMappingsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserAuthnSourceMappingsResponse
+ */
+ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappingsWithOptions(const ListUserAuthnSourceMappingsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.previousToken();
+  }
+
+  if (!!request.hasUserExternalId()) {
+    query["UserExternalId"] = request.userExternalId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserAuthnSourceMappings"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserAuthnSourceMappingsResponse>();
+}
+
+/**
+ * @summary 查询三方登录账户绑定关系
+ *
+ * @param request ListUserAuthnSourceMappingsRequest
+ * @return ListUserAuthnSourceMappingsResponse
+ */
+ListUserAuthnSourceMappingsResponse Client::listUserAuthnSourceMappings(const ListUserAuthnSourceMappingsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUserAuthnSourceMappingsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
  *
  * @param request ListUsersRequest
@@ -8934,6 +9054,60 @@ SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUni
 SetUserPrimaryOrganizationalUnitResponse Client::setUserPrimaryOrganizationalUnit(const SetUserPrimaryOrganizationalUnitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setUserPrimaryOrganizationalUnitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 解绑三方登录账户
+ *
+ * @param request UnbindUserAuthnSourceMappingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnbindUserAuthnSourceMappingResponse
+ */
+UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMappingWithOptions(const UnbindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserExternalId()) {
+    query["UserExternalId"] = request.userExternalId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnbindUserAuthnSourceMapping"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnbindUserAuthnSourceMappingResponse>();
+}
+
+/**
+ * @summary 解绑三方登录账户
+ *
+ * @param request UnbindUserAuthnSourceMappingRequest
+ * @return UnbindUserAuthnSourceMappingResponse
+ */
+UnbindUserAuthnSourceMappingResponse Client::unbindUserAuthnSourceMapping(const UnbindUserAuthnSourceMappingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unbindUserAuthnSourceMappingWithOptions(request, runtime);
 }
 
 /**

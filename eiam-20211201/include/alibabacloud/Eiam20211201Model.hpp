@@ -23,6 +23,9 @@
 #include <alibabacloud/models/AuthorizeApplicationToUsersRequest.hpp>
 #include <alibabacloud/models/AuthorizeApplicationToUsersResponseBody.hpp>
 #include <alibabacloud/models/AuthorizeApplicationToUsersResponse.hpp>
+#include <alibabacloud/models/BindUserAuthnSourceMappingRequest.hpp>
+#include <alibabacloud/models/BindUserAuthnSourceMappingResponseBody.hpp>
+#include <alibabacloud/models/BindUserAuthnSourceMappingResponse.hpp>
 #include <alibabacloud/models/CreateApplicationRequest.hpp>
 #include <alibabacloud/models/CreateApplicationResponseBody.hpp>
 #include <alibabacloud/models/CreateApplicationResponse.hpp>
@@ -434,6 +437,9 @@
 #include <alibabacloud/models/ListSynchronizationJobsRequest.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponseBody.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponse.hpp>
+#include <alibabacloud/models/ListUserAuthnSourceMappingsRequest.hpp>
+#include <alibabacloud/models/ListUserAuthnSourceMappingsResponseBody.hpp>
+#include <alibabacloud/models/ListUserAuthnSourceMappingsResponse.hpp>
 #include <alibabacloud/models/ListUsersRequest.hpp>
 #include <alibabacloud/models/ListUsersResponseBody.hpp>
 #include <alibabacloud/models/ListUsersResponse.hpp>
@@ -515,6 +521,9 @@
 #include <alibabacloud/models/SetUserPrimaryOrganizationalUnitRequest.hpp>
 #include <alibabacloud/models/SetUserPrimaryOrganizationalUnitResponseBody.hpp>
 #include <alibabacloud/models/SetUserPrimaryOrganizationalUnitResponse.hpp>
+#include <alibabacloud/models/UnbindUserAuthnSourceMappingRequest.hpp>
+#include <alibabacloud/models/UnbindUserAuthnSourceMappingResponseBody.hpp>
+#include <alibabacloud/models/UnbindUserAuthnSourceMappingResponse.hpp>
 #include <alibabacloud/models/UnlockUserRequest.hpp>
 #include <alibabacloud/models/UnlockUserResponseBody.hpp>
 #include <alibabacloud/models/UnlockUserResponse.hpp>
@@ -848,6 +857,7 @@
 #include <alibabacloud/models/ListSynchronizationJobsResponseBodySynchronizationJobsResultUserStatistics.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponseBodySynchronizationJobsResult.hpp>
 #include <alibabacloud/models/ListSynchronizationJobsResponseBodySynchronizationJobs.hpp>
+#include <alibabacloud/models/ListUserAuthnSourceMappingsResponseBodyUserAuthnSourceMappings.hpp>
 #include <alibabacloud/models/ListUsersResponseBodyUsers.hpp>
 #include <alibabacloud/models/ListUsersForApplicationResponseBodyUsers.hpp>
 #include <alibabacloud/models/ListUsersForGroupResponseBodyUsers.hpp>

@@ -1,0 +1,47 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UNBINDUSERAUTHNSOURCEMAPPINGRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UNBINDUSERAUTHNSOURCEMAPPINGRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eiam20211201
+{
+namespace Models
+{
+  class UnbindUserAuthnSourceMappingResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UnbindUserAuthnSourceMappingResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, UnbindUserAuthnSourceMappingResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    UnbindUserAuthnSourceMappingResponseBody() = default ;
+    UnbindUserAuthnSourceMappingResponseBody(const UnbindUserAuthnSourceMappingResponseBody &) = default ;
+    UnbindUserAuthnSourceMappingResponseBody(UnbindUserAuthnSourceMappingResponseBody &&) = default ;
+    UnbindUserAuthnSourceMappingResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UnbindUserAuthnSourceMappingResponseBody() = default ;
+    UnbindUserAuthnSourceMappingResponseBody& operator=(const UnbindUserAuthnSourceMappingResponseBody &) = default ;
+    UnbindUserAuthnSourceMappingResponseBody& operator=(UnbindUserAuthnSourceMappingResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->requestId_ == nullptr; };
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline UnbindUserAuthnSourceMappingResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eiam20211201
+#endif

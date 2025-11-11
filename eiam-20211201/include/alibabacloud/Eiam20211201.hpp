@@ -140,6 +140,23 @@ namespace Eiam20211201
       Models::AuthorizeApplicationToUsersResponse authorizeApplicationToUsers(const Models::AuthorizeApplicationToUsersRequest &request);
 
       /**
+       * @summary 绑定三方登录账户
+       *
+       * @param request BindUserAuthnSourceMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindUserAuthnSourceMappingResponse
+       */
+      Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMappingWithOptions(const Models::BindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定三方登录账户
+       *
+       * @param request BindUserAuthnSourceMappingRequest
+       * @return BindUserAuthnSourceMappingResponse
+       */
+      Models::BindUserAuthnSourceMappingResponse bindUserAuthnSourceMapping(const Models::BindUserAuthnSourceMappingRequest &request);
+
+      /**
        * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
        *
        * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
@@ -2535,6 +2552,23 @@ namespace Eiam20211201
       Models::ListSynchronizationJobsResponse listSynchronizationJobs(const Models::ListSynchronizationJobsRequest &request);
 
       /**
+       * @summary 查询三方登录账户绑定关系
+       *
+       * @param request ListUserAuthnSourceMappingsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserAuthnSourceMappingsResponse
+       */
+      Models::ListUserAuthnSourceMappingsResponse listUserAuthnSourceMappingsWithOptions(const Models::ListUserAuthnSourceMappingsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询三方登录账户绑定关系
+       *
+       * @param request ListUserAuthnSourceMappingsRequest
+       * @return ListUserAuthnSourceMappingsResponse
+       */
+      Models::ListUserAuthnSourceMappingsResponse listUserAuthnSourceMappings(const Models::ListUserAuthnSourceMappingsRequest &request);
+
+      /**
        * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
        *
        * @param request ListUsersRequest
@@ -2996,6 +3030,23 @@ namespace Eiam20211201
        * @return SetUserPrimaryOrganizationalUnitResponse
        */
       Models::SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnit(const Models::SetUserPrimaryOrganizationalUnitRequest &request);
+
+      /**
+       * @summary 解绑三方登录账户
+       *
+       * @param request UnbindUserAuthnSourceMappingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnbindUserAuthnSourceMappingResponse
+       */
+      Models::UnbindUserAuthnSourceMappingResponse unbindUserAuthnSourceMappingWithOptions(const Models::UnbindUserAuthnSourceMappingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解绑三方登录账户
+       *
+       * @param request UnbindUserAuthnSourceMappingRequest
+       * @return UnbindUserAuthnSourceMappingResponse
+       */
+      Models::UnbindUserAuthnSourceMappingResponse unbindUserAuthnSourceMapping(const Models::UnbindUserAuthnSourceMappingRequest &request);
 
       /**
        * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
