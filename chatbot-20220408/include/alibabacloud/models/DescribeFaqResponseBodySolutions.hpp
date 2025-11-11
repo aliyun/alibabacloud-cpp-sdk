@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PerspectiveCodes, perspectiveCodes_);
       DARABONBA_PTR_TO_JSON(PlainText, plainText_);
       DARABONBA_PTR_TO_JSON(SolutionId, solutionId_);
+      DARABONBA_PTR_TO_JSON(TagIdList, tagIdList_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeFaqResponseBodySolutions& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PerspectiveCodes, perspectiveCodes_);
       DARABONBA_PTR_FROM_JSON(PlainText, plainText_);
       DARABONBA_PTR_FROM_JSON(SolutionId, solutionId_);
+      DARABONBA_PTR_FROM_JSON(TagIdList, tagIdList_);
     };
     DescribeFaqResponseBodySolutions() = default ;
     DescribeFaqResponseBodySolutions(const DescribeFaqResponseBodySolutions &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
         && return this->contentType_ == nullptr && return this->createTime_ == nullptr && return this->modifyTime_ == nullptr && return this->perspectiveCodes_ == nullptr && return this->plainText_ == nullptr
-        && return this->solutionId_ == nullptr; };
+        && return this->solutionId_ == nullptr && return this->tagIdList_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -96,6 +98,15 @@ namespace Models
     inline DescribeFaqResponseBodySolutions& setSolutionId(int64_t solutionId) { DARABONBA_PTR_SET_VALUE(solutionId_, solutionId) };
 
 
+    // tagIdList Field Functions 
+    bool hasTagIdList() const { return this->tagIdList_ != nullptr;};
+    void deleteTagIdList() { this->tagIdList_ = nullptr;};
+    inline const vector<int64_t> & tagIdList() const { DARABONBA_PTR_GET_CONST(tagIdList_, vector<int64_t>) };
+    inline vector<int64_t> tagIdList() { DARABONBA_PTR_GET(tagIdList_, vector<int64_t>) };
+    inline DescribeFaqResponseBodySolutions& setTagIdList(const vector<int64_t> & tagIdList) { DARABONBA_PTR_SET_VALUE(tagIdList_, tagIdList) };
+    inline DescribeFaqResponseBodySolutions& setTagIdList(vector<int64_t> && tagIdList) { DARABONBA_PTR_SET_RVALUE(tagIdList_, tagIdList) };
+
+
   protected:
     std::shared_ptr<string> content_ = nullptr;
     std::shared_ptr<int32_t> contentType_ = nullptr;
@@ -104,6 +115,7 @@ namespace Models
     std::shared_ptr<vector<string>> perspectiveCodes_ = nullptr;
     std::shared_ptr<string> plainText_ = nullptr;
     std::shared_ptr<int64_t> solutionId_ = nullptr;
+    std::shared_ptr<vector<int64_t>> tagIdList_ = nullptr;
   };
 
   } // namespace Models
