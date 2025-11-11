@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answerConfig_ != nullptr
-        && this->effectConfig_ != nullptr && this->interveneConfigList_ != nullptr && this->interveneType_ != nullptr && this->namespaceList_ != nullptr && this->ruleId_ != nullptr
-        && this->ruleName_ != nullptr; };
+    virtual bool empty() const override { return this->answerConfig_ == nullptr
+        && return this->effectConfig_ == nullptr && return this->interveneConfigList_ == nullptr && return this->interveneType_ == nullptr && return this->namespaceList_ == nullptr && return this->ruleId_ == nullptr
+        && return this->ruleName_ == nullptr; };
     // answerConfig Field Functions 
     bool hasAnswerConfig() const { return this->answerConfig_ != nullptr;};
     void deleteAnswerConfig() { this->answerConfig_ = nullptr;};

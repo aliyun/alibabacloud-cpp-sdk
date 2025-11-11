@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetConfigShrink_ != nullptr
-        && this->datasetDescription_ != nullptr && this->datasetId_ != nullptr && this->searchDatasetEnable_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetConfigShrink_ == nullptr
+        && return this->datasetDescription_ == nullptr && return this->datasetId_ == nullptr && return this->searchDatasetEnable_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetConfigShrink Field Functions 
     bool hasDatasetConfigShrink() const { return this->datasetConfigShrink_ != nullptr;};
     void deleteDatasetConfigShrink() { this->datasetConfigShrink_ = nullptr;};

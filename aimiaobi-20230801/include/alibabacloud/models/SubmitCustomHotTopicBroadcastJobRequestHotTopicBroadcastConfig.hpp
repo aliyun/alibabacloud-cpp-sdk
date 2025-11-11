@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->stepForCustomSummaryStyleConfig_ != nullptr
-        && this->stepForNewsBroadcastContentConfig_ != nullptr; };
+    virtual bool empty() const override { return this->stepForCustomSummaryStyleConfig_ == nullptr
+        && return this->stepForNewsBroadcastContentConfig_ == nullptr; };
     // stepForCustomSummaryStyleConfig Field Functions 
     bool hasStepForCustomSummaryStyleConfig() const { return this->stepForCustomSummaryStyleConfig_ != nullptr;};
     void deleteStepForCustomSummaryStyleConfig() { this->stepForCustomSummaryStyleConfig_ = nullptr;};

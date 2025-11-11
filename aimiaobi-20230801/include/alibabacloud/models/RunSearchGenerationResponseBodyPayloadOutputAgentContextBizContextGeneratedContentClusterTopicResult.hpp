@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterTopics_ != nullptr
-        && this->generateFinished_ != nullptr && this->textGenerate_ != nullptr; };
+    virtual bool empty() const override { return this->clusterTopics_ == nullptr
+        && return this->generateFinished_ == nullptr && return this->textGenerate_ == nullptr; };
     // clusterTopics Field Functions 
     bool hasClusterTopics() const { return this->clusterTopics_ != nullptr;};
     void deleteClusterTopics() { this->clusterTopics_ = nullptr;};

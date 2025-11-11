@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asyncTaskId_ != nullptr
-        && this->attitude_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->id_ != nullptr && this->status_ != nullptr
-        && this->taskErrorMessage_ != nullptr && this->taskStatus_ != nullptr && this->viewPoints_ != nullptr; };
+    virtual bool empty() const override { return this->asyncTaskId_ == nullptr
+        && return this->attitude_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->id_ == nullptr && return this->status_ == nullptr
+        && return this->taskErrorMessage_ == nullptr && return this->taskStatus_ == nullptr && return this->viewPoints_ == nullptr; };
     // asyncTaskId Field Functions 
     bool hasAsyncTaskId() const { return this->asyncTaskId_ != nullptr;};
     void deleteAsyncTaskId() { this->asyncTaskId_ = nullptr;};

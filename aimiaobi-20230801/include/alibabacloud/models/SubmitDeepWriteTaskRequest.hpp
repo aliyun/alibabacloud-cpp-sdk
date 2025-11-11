@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentOrchestration_ != nullptr
-        && this->files_ != nullptr && this->input_ != nullptr && this->instructions_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->agentOrchestration_ == nullptr
+        && return this->files_ == nullptr && return this->input_ == nullptr && return this->instructions_ == nullptr && return this->workspaceId_ == nullptr; };
     // agentOrchestration Field Functions 
     bool hasAgentOrchestration() const { return this->agentOrchestration_ != nullptr;};
     void deleteAgentOrchestration() { this->agentOrchestration_ = nullptr;};

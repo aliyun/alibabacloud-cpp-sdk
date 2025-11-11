@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitImportTermsTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(FileKey, fileKey_);
+      DARABONBA_PTR_TO_JSON(TermsName, termsName_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitImportTermsTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(FileKey, fileKey_);
+      DARABONBA_PTR_FROM_JSON(TermsName, termsName_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SubmitImportTermsTaskRequest() = default ;
@@ -31,13 +33,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileKey_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->fileKey_ == nullptr
+        && return this->termsName_ == nullptr && return this->workspaceId_ == nullptr; };
     // fileKey Field Functions 
     bool hasFileKey() const { return this->fileKey_ != nullptr;};
     void deleteFileKey() { this->fileKey_ = nullptr;};
     inline string fileKey() const { DARABONBA_PTR_GET_DEFAULT(fileKey_, "") };
     inline SubmitImportTermsTaskRequest& setFileKey(string fileKey) { DARABONBA_PTR_SET_VALUE(fileKey_, fileKey) };
+
+
+    // termsName Field Functions 
+    bool hasTermsName() const { return this->termsName_ != nullptr;};
+    void deleteTermsName() { this->termsName_ = nullptr;};
+    inline string termsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
+    inline SubmitImportTermsTaskRequest& setTermsName(string termsName) { DARABONBA_PTR_SET_VALUE(termsName_, termsName) };
 
 
     // workspaceId Field Functions 
@@ -50,6 +59,7 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> fileKey_ = nullptr;
+    std::shared_ptr<string> termsName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

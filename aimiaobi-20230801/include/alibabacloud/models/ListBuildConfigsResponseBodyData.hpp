@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildIn_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->id_ != nullptr && this->keywords_ != nullptr && this->tag_ != nullptr
-        && this->tagDescription_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr && this->updateUser_ != nullptr; };
+    virtual bool empty() const override { return this->buildIn_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->id_ == nullptr && return this->keywords_ == nullptr && return this->tag_ == nullptr
+        && return this->tagDescription_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->updateUser_ == nullptr; };
     // buildIn Field Functions 
     bool hasBuildIn() const { return this->buildIn_ != nullptr;};
     void deleteBuildIn() { this->buildIn_ = nullptr;};

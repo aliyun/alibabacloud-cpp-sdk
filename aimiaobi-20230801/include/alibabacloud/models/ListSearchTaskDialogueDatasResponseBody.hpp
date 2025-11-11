@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->articles_ != nullptr
-        && this->audios_ != nullptr && this->code_ != nullptr && this->httpStatusCode_ != nullptr && this->images_ != nullptr && this->message_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->realtimeSearch_ != nullptr && this->requestId_ != nullptr && this->searchType_ != nullptr
-        && this->success_ != nullptr && this->totalCount_ != nullptr && this->videos_ != nullptr; };
+    virtual bool empty() const override { return this->articles_ == nullptr
+        && return this->audios_ == nullptr && return this->code_ == nullptr && return this->httpStatusCode_ == nullptr && return this->images_ == nullptr && return this->message_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->realtimeSearch_ == nullptr && return this->requestId_ == nullptr && return this->searchType_ == nullptr
+        && return this->success_ == nullptr && return this->totalCount_ == nullptr && return this->videos_ == nullptr; };
     // articles Field Functions 
     bool hasArticles() const { return this->articles_ != nullptr;};
     void deleteArticles() { this->articles_ = nullptr;};

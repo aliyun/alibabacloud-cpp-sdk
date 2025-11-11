@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatConfig_ != nullptr
-        && this->createTime_ != nullptr && this->dialogueType_ != nullptr && this->goodText_ != nullptr && this->originSessionId_ != nullptr && this->prompt_ != nullptr
-        && this->rating_ != nullptr && this->responseBodyStr_ != nullptr && this->sessionId_ != nullptr && this->tags_ != nullptr && this->taskId_ != nullptr
-        && this->text_ != nullptr; };
+    virtual bool empty() const override { return this->chatConfig_ == nullptr
+        && return this->createTime_ == nullptr && return this->dialogueType_ == nullptr && return this->goodText_ == nullptr && return this->originSessionId_ == nullptr && return this->prompt_ == nullptr
+        && return this->rating_ == nullptr && return this->responseBodyStr_ == nullptr && return this->sessionId_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr
+        && return this->text_ == nullptr; };
     // chatConfig Field Functions 
     bool hasChatConfig() const { return this->chatConfig_ != nullptr;};
     void deleteChatConfig() { this->chatConfig_ = nullptr;};

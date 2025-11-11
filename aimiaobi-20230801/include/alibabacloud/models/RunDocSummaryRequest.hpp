@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cleanCache_ != nullptr
-        && this->docId_ != nullptr && this->modelName_ != nullptr && this->query_ != nullptr && this->recommendContent_ != nullptr && this->sessionId_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->cleanCache_ == nullptr
+        && return this->docId_ == nullptr && return this->modelName_ == nullptr && return this->query_ == nullptr && return this->recommendContent_ == nullptr && return this->sessionId_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // cleanCache Field Functions 
     bool hasCleanCache() const { return this->cleanCache_ != nullptr;};
     void deleteCleanCache() { this->cleanCache_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exceptionWord_ != nullptr
-        && this->id_ != nullptr && this->keyword_ != nullptr && this->suggestWord_ != nullptr && this->termsDesc_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->exceptionWord_ == nullptr
+        && return this->id_ == nullptr && return this->keyword_ == nullptr && return this->suggestWord_ == nullptr && return this->termsDesc_ == nullptr && return this->workspaceId_ == nullptr; };
     // exceptionWord Field Functions 
     bool hasExceptionWord() const { return this->exceptionWord_ != nullptr;};
     void deleteExceptionWord() { this->exceptionWord_ = nullptr;};

@@ -58,9 +58,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatConfig_ != nullptr
-        && this->consoleConfig_ != nullptr && this->generalConfigMap_ != nullptr && this->intelligentSearchConfig_ != nullptr && this->miaosouConfig_ != nullptr && this->searchSourceList_ != nullptr
-        && this->searchSources_ != nullptr && this->slrAuthorized_ != nullptr && this->userInfo_ != nullptr && this->wanxiangImageSizeConfig_ != nullptr && this->wanxiangImageStyleConfig_ != nullptr; };
+    virtual bool empty() const override { return this->chatConfig_ == nullptr
+        && return this->consoleConfig_ == nullptr && return this->generalConfigMap_ == nullptr && return this->intelligentSearchConfig_ == nullptr && return this->miaosouConfig_ == nullptr && return this->searchSourceList_ == nullptr
+        && return this->searchSources_ == nullptr && return this->slrAuthorized_ == nullptr && return this->userInfo_ == nullptr && return this->wanxiangImageSizeConfig_ == nullptr && return this->wanxiangImageStyleConfig_ == nullptr; };
     // chatConfig Field Functions 
     bool hasChatConfig() const { return this->chatConfig_ != nullptr;};
     void deleteChatConfig() { this->chatConfig_ = nullptr;};

@@ -13,9 +13,11 @@ namespace Models
   class SubmitExportTermsTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitExportTermsTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(TermsName, termsName_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitExportTermsTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(TermsName, termsName_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     SubmitExportTermsTaskRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->termsName_ == nullptr
+        && return this->workspaceId_ == nullptr; };
+    // termsName Field Functions 
+    bool hasTermsName() const { return this->termsName_ != nullptr;};
+    void deleteTermsName() { this->termsName_ = nullptr;};
+    inline string termsName() const { DARABONBA_PTR_GET_DEFAULT(termsName_, "") };
+    inline SubmitExportTermsTaskRequest& setTermsName(string termsName) { DARABONBA_PTR_SET_VALUE(termsName_, termsName) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> termsName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

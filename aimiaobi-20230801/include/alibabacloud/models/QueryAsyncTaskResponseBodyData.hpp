@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->createUser_ != nullptr && this->taskCode_ != nullptr && this->taskErrorMessage_ != nullptr && this->taskId_ != nullptr && this->taskIntermediateResult_ != nullptr
-        && this->taskName_ != nullptr && this->taskParam_ != nullptr && this->taskProgressMessage_ != nullptr && this->taskResult_ != nullptr && this->taskRetryCount_ != nullptr
-        && this->taskStatus_ != nullptr && this->updateTime_ != nullptr && this->updateUser_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->createUser_ == nullptr && return this->taskCode_ == nullptr && return this->taskErrorMessage_ == nullptr && return this->taskId_ == nullptr && return this->taskIntermediateResult_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskParam_ == nullptr && return this->taskProgressMessage_ == nullptr && return this->taskResult_ == nullptr && return this->taskRetryCount_ == nullptr
+        && return this->taskStatus_ == nullptr && return this->updateTime_ == nullptr && return this->updateUser_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->colorWords_ != nullptr
-        && this->content_ != nullptr && this->errorMessage_ != nullptr && this->mediaCloudTimeline_ != nullptr && this->musicStyle_ != nullptr && this->musicUrl_ != nullptr
-        && this->musicVolume_ != nullptr && this->outputVideoUrl_ != nullptr && this->status_ != nullptr && this->step_ != nullptr && this->subtitleFontSize_ != nullptr
-        && this->taskId_ != nullptr && this->timelines_ != nullptr && this->voiceStyle_ != nullptr && this->voiceVolume_ != nullptr; };
+    virtual bool empty() const override { return this->colorWords_ == nullptr
+        && return this->content_ == nullptr && return this->errorMessage_ == nullptr && return this->mediaCloudTimeline_ == nullptr && return this->musicStyle_ == nullptr && return this->musicUrl_ == nullptr
+        && return this->musicVolume_ == nullptr && return this->outputVideoUrl_ == nullptr && return this->status_ == nullptr && return this->step_ == nullptr && return this->subtitleFontSize_ == nullptr
+        && return this->taskId_ == nullptr && return this->timelines_ == nullptr && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr; };
     // colorWords Field Functions 
     bool hasColorWords() const { return this->colorWords_ != nullptr;};
     void deleteColorWords() { this->colorWords_ = nullptr;};

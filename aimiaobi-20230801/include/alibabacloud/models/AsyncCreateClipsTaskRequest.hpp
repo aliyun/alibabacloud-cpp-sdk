@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->colorWords_ != nullptr
-        && this->height_ != nullptr && this->musicUrl_ != nullptr && this->musicVolume_ != nullptr && this->subtitleFontSize_ != nullptr && this->taskId_ != nullptr
-        && this->voiceStyle_ != nullptr && this->voiceVolume_ != nullptr && this->width_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->colorWords_ == nullptr
+        && return this->height_ == nullptr && return this->musicUrl_ == nullptr && return this->musicVolume_ == nullptr && return this->subtitleFontSize_ == nullptr && return this->taskId_ == nullptr
+        && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr && return this->width_ == nullptr && return this->workspaceId_ == nullptr; };
     // colorWords Field Functions 
     bool hasColorWords() const { return this->colorWords_ != nullptr;};
     void deleteColorWords() { this->colorWords_ = nullptr;};

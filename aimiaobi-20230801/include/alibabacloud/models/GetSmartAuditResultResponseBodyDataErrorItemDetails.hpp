@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkId_ != nullptr
-        && this->context_ != nullptr && this->contextOffset_ != nullptr && this->errorLevel_ != nullptr && this->errorWord_ != nullptr && this->majorCode_ != nullptr
-        && this->majorCodeDesc_ != nullptr && this->offset_ != nullptr && this->reason_ != nullptr && this->rightWord_ != nullptr && this->subClassCode_ != nullptr
-        && this->subClassDesc_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->checkId_ == nullptr
+        && return this->context_ == nullptr && return this->contextOffset_ == nullptr && return this->errorLevel_ == nullptr && return this->errorWord_ == nullptr && return this->majorCode_ == nullptr
+        && return this->majorCodeDesc_ == nullptr && return this->offset_ == nullptr && return this->reason_ == nullptr && return this->rightWord_ == nullptr && return this->subClassCode_ == nullptr
+        && return this->subClassDesc_ == nullptr && return this->url_ == nullptr; };
     // checkId Field Functions 
     bool hasCheckId() const { return this->checkId_ != nullptr;};
     void deleteCheckId() { this->checkId_ = nullptr;};

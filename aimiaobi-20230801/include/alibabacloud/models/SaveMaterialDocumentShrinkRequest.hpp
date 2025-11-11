@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentKey_ != nullptr
-        && this->author_ != nullptr && this->bothSavePrivateAndShare_ != nullptr && this->docKeywordsShrink_ != nullptr && this->docType_ != nullptr && this->externalUrl_ != nullptr
-        && this->htmlContent_ != nullptr && this->pubTime_ != nullptr && this->shareAttr_ != nullptr && this->srcFrom_ != nullptr && this->summary_ != nullptr
-        && this->textContent_ != nullptr && this->title_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->agentKey_ == nullptr
+        && return this->author_ == nullptr && return this->bothSavePrivateAndShare_ == nullptr && return this->docKeywordsShrink_ == nullptr && return this->docType_ == nullptr && return this->externalUrl_ == nullptr
+        && return this->htmlContent_ == nullptr && return this->pubTime_ == nullptr && return this->shareAttr_ == nullptr && return this->srcFrom_ == nullptr && return this->summary_ == nullptr
+        && return this->textContent_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dialogueType_ != nullptr
-        && this->endToEnd_ != nullptr && this->generateLevel_ != nullptr && this->generateTechnology_ != nullptr && this->searchModels_ != nullptr && this->searchParam_ != nullptr; };
+    virtual bool empty() const override { return this->dialogueType_ == nullptr
+        && return this->endToEnd_ == nullptr && return this->generateLevel_ == nullptr && return this->generateTechnology_ == nullptr && return this->searchModels_ == nullptr && return this->searchParam_ == nullptr; };
     // dialogueType Field Functions 
     bool hasDialogueType() const { return this->dialogueType_ != nullptr;};
     void deleteDialogueType() { this->dialogueType_ = nullptr;};

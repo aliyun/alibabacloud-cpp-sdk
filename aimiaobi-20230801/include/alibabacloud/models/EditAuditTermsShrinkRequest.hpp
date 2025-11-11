@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exceptionWordShrink_ != nullptr
-        && this->id_ != nullptr && this->keyword_ != nullptr && this->suggestWord_ != nullptr && this->termsDesc_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->exceptionWordShrink_ == nullptr
+        && return this->id_ == nullptr && return this->keyword_ == nullptr && return this->suggestWord_ == nullptr && return this->termsDesc_ == nullptr && return this->workspaceId_ == nullptr; };
     // exceptionWordShrink Field Functions 
     bool hasExceptionWordShrink() const { return this->exceptionWordShrink_ != nullptr;};
     void deleteExceptionWordShrink() { this->exceptionWordShrink_ = nullptr;};

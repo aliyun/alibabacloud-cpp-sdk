@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->askUser_ != nullptr
-        && this->askUserKeywords_ != nullptr && this->currentStep_ != nullptr && this->generatedContent_ != nullptr && this->modelId_ != nullptr && this->nextStep_ != nullptr
-        && this->recommendSearchQueryList_ != nullptr && this->searchKeywords_ != nullptr && this->searchQueryList_ != nullptr && this->supplementDataType_ != nullptr && this->supplementEnable_ != nullptr
-        && this->tokenCalculate_ != nullptr; };
+    virtual bool empty() const override { return this->askUser_ == nullptr
+        && return this->askUserKeywords_ == nullptr && return this->currentStep_ == nullptr && return this->generatedContent_ == nullptr && return this->modelId_ == nullptr && return this->nextStep_ == nullptr
+        && return this->recommendSearchQueryList_ == nullptr && return this->searchKeywords_ == nullptr && return this->searchQueryList_ == nullptr && return this->supplementDataType_ == nullptr && return this->supplementEnable_ == nullptr
+        && return this->tokenCalculate_ == nullptr; };
     // askUser Field Functions 
     bool hasAskUser() const { return this->askUser_ != nullptr;};
     void deleteAskUser() { this->askUser_ = nullptr;};

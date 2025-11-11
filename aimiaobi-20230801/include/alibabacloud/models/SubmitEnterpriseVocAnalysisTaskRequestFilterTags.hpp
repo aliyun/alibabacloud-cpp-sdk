@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tagDefinePrompt_ != nullptr
-        && this->tagName_ != nullptr && this->tagType_ != nullptr && this->tagValueDefinePrompt_ != nullptr; };
+    virtual bool empty() const override { return this->tagDefinePrompt_ == nullptr
+        && return this->tagName_ == nullptr && return this->tagType_ == nullptr && return this->tagValueDefinePrompt_ == nullptr; };
     // tagDefinePrompt Field Functions 
     bool hasTagDefinePrompt() const { return this->tagDefinePrompt_ != nullptr;};
     void deleteTagDefinePrompt() { this->tagDefinePrompt_ = nullptr;};

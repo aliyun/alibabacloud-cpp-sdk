@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calcTotalToken_ != nullptr
-        && this->category_ != nullptr && this->current_ != nullptr && this->hotTopicVersion_ != nullptr && this->locationQuery_ != nullptr && this->locations_ != nullptr
-        && this->query_ != nullptr && this->size_ != nullptr && this->stepForCustomSummaryStyleConfig_ != nullptr && this->stepForNewsBroadcastContentConfig_ != nullptr && this->topics_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->calcTotalToken_ == nullptr
+        && return this->category_ == nullptr && return this->current_ == nullptr && return this->hotTopicVersion_ == nullptr && return this->locationQuery_ == nullptr && return this->locations_ == nullptr
+        && return this->query_ == nullptr && return this->size_ == nullptr && return this->stepForCustomSummaryStyleConfig_ == nullptr && return this->stepForNewsBroadcastContentConfig_ == nullptr && return this->topics_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // calcTotalToken Field Functions 
     bool hasCalcTotalToken() const { return this->calcTotalToken_ != nullptr;};
     void deleteCalcTotalToken() { this->calcTotalToken_ = nullptr;};

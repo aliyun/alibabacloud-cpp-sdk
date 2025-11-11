@@ -71,12 +71,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->articlesShrink_ != nullptr
-        && this->distributeWriting_ != nullptr && this->gcNumberSize_ != nullptr && this->gcNumberSizeTag_ != nullptr && this->keywordsShrink_ != nullptr && this->language_ != nullptr
-        && this->miniDocsShrink_ != nullptr && this->outlineListShrink_ != nullptr && this->outlinesShrink_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr
-        && this->searchSourcesShrink_ != nullptr && this->sessionId_ != nullptr && this->sourceTraceMethod_ != nullptr && this->step_ != nullptr && this->summarizationShrink_ != nullptr
-        && this->taskId_ != nullptr && this->useSearch_ != nullptr && this->workspaceId_ != nullptr && this->writingParamsShrink_ != nullptr && this->writingScene_ != nullptr
-        && this->writingStyle_ != nullptr; };
+    virtual bool empty() const override { return this->articlesShrink_ == nullptr
+        && return this->distributeWriting_ == nullptr && return this->gcNumberSize_ == nullptr && return this->gcNumberSizeTag_ == nullptr && return this->keywordsShrink_ == nullptr && return this->language_ == nullptr
+        && return this->miniDocsShrink_ == nullptr && return this->outlineListShrink_ == nullptr && return this->outlinesShrink_ == nullptr && return this->prompt_ == nullptr && return this->promptMode_ == nullptr
+        && return this->searchSourcesShrink_ == nullptr && return this->sessionId_ == nullptr && return this->sourceTraceMethod_ == nullptr && return this->step_ == nullptr && return this->summarizationShrink_ == nullptr
+        && return this->taskId_ == nullptr && return this->useSearch_ == nullptr && return this->workspaceId_ == nullptr && return this->writingParamsShrink_ == nullptr && return this->writingScene_ == nullptr
+        && return this->writingStyle_ == nullptr; };
     // articlesShrink Field Functions 
     bool hasArticlesShrink() const { return this->articlesShrink_ != nullptr;};
     void deleteArticlesShrink() { this->articlesShrink_ = nullptr;};

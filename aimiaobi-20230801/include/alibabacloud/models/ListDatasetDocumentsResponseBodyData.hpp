@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryUuid_ != nullptr
-        && this->content_ != nullptr && this->createTime_ != nullptr && this->disableHandleMultimodalMedia_ != nullptr && this->docId_ != nullptr && this->docType_ != nullptr
-        && this->docUuid_ != nullptr && this->extend1_ != nullptr && this->extend2_ != nullptr && this->extend3_ != nullptr && this->multimodalMedias_ != nullptr
-        && this->pubTime_ != nullptr && this->sourceFrom_ != nullptr && this->status_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr
-        && this->updateTime_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->categoryUuid_ == nullptr
+        && return this->content_ == nullptr && return this->createTime_ == nullptr && return this->disableHandleMultimodalMedia_ == nullptr && return this->docId_ == nullptr && return this->docType_ == nullptr
+        && return this->docUuid_ == nullptr && return this->extend1_ == nullptr && return this->extend2_ == nullptr && return this->extend3_ == nullptr && return this->multimodalMedias_ == nullptr
+        && return this->pubTime_ == nullptr && return this->sourceFrom_ == nullptr && return this->status_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr
+        && return this->updateTime_ == nullptr && return this->url_ == nullptr; };
     // categoryUuid Field Functions 
     bool hasCategoryUuid() const { return this->categoryUuid_ != nullptr;};
     void deleteCategoryUuid() { this->categoryUuid_ = nullptr;};

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoriesShrink_ != nullptr
-        && this->current_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->size_ != nullptr && this->taskId_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->categoriesShrink_ == nullptr
+        && return this->current_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->size_ == nullptr && return this->taskId_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // categoriesShrink Field Functions 
     bool hasCategoriesShrink() const { return this->categoriesShrink_ != nullptr;};
     void deleteCategoriesShrink() { this->categoriesShrink_ = nullptr;};

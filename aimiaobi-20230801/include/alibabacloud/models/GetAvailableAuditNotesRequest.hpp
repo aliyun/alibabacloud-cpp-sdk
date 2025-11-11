@@ -13,9 +13,11 @@ namespace Models
   class GetAvailableAuditNotesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAvailableAuditNotesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(NoteId, noteId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetAvailableAuditNotesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(NoteId, noteId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetAvailableAuditNotesRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->noteId_ == nullptr
+        && return this->workspaceId_ == nullptr; };
+    // noteId Field Functions 
+    bool hasNoteId() const { return this->noteId_ != nullptr;};
+    void deleteNoteId() { this->noteId_ = nullptr;};
+    inline string noteId() const { DARABONBA_PTR_GET_DEFAULT(noteId_, "") };
+    inline GetAvailableAuditNotesRequest& setNoteId(string noteId) { DARABONBA_PTR_SET_VALUE(noteId_, noteId) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> noteId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

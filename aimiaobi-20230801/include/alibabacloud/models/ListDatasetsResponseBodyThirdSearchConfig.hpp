@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetQuota_ != nullptr
-        && this->datasetUsedQuota_ != nullptr; };
+    virtual bool empty() const override { return this->datasetQuota_ == nullptr
+        && return this->datasetUsedQuota_ == nullptr; };
     // datasetQuota Field Functions 
     bool hasDatasetQuota() const { return this->datasetQuota_ != nullptr;};
     void deleteDatasetQuota() { this->datasetQuota_ = nullptr;};

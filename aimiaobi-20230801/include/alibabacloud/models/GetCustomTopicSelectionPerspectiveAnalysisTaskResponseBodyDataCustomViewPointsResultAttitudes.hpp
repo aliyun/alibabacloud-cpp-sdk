@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attitude_ != nullptr
-        && this->attitudeType_ != nullptr && this->ratio_ != nullptr && this->viewPoints_ != nullptr; };
+    virtual bool empty() const override { return this->attitude_ == nullptr
+        && return this->attitudeType_ == nullptr && return this->ratio_ == nullptr && return this->viewPoints_ == nullptr; };
     // attitude Field Functions 
     bool hasAttitude() const { return this->attitude_ != nullptr;};
     void deleteAttitude() { this->attitude_ = nullptr;};

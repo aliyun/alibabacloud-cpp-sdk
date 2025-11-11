@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterNews_ != nullptr
-        && this->topic_ != nullptr; };
+    virtual bool empty() const override { return this->clusterNews_ == nullptr
+        && return this->topic_ == nullptr; };
     // clusterNews Field Functions 
     bool hasClusterNews() const { return this->clusterNews_ != nullptr;};
     void deleteClusterNews() { this->clusterNews_ = nullptr;};

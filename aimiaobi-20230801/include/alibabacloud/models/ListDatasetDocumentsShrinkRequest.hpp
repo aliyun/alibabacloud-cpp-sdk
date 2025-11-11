@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetDescription_ != nullptr
-        && this->datasetId_ != nullptr && this->datasetName_ != nullptr && this->docType_ != nullptr && this->excludeFieldsShrink_ != nullptr && this->includeFieldsShrink_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->query_ != nullptr && this->status_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetDescription_ == nullptr
+        && return this->datasetId_ == nullptr && return this->datasetName_ == nullptr && return this->docType_ == nullptr && return this->excludeFieldsShrink_ == nullptr && return this->includeFieldsShrink_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->query_ == nullptr && return this->status_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetDescription Field Functions 
     bool hasDatasetDescription() const { return this->datasetDescription_ != nullptr;};
     void deleteDatasetDescription() { this->datasetDescription_ = nullptr;};

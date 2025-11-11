@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asyncTaskId_ != nullptr
-        && this->createUser_ != nullptr && this->hotValue_ != nullptr && this->id_ != nullptr && this->status_ != nullptr && this->structureSummary_ != nullptr
-        && this->summary_ != nullptr && this->taskErrorMessage_ != nullptr && this->taskStatus_ != nullptr && this->topic_ != nullptr && this->topicSource_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->asyncTaskId_ == nullptr
+        && return this->createUser_ == nullptr && return this->hotValue_ == nullptr && return this->id_ == nullptr && return this->status_ == nullptr && return this->structureSummary_ == nullptr
+        && return this->summary_ == nullptr && return this->taskErrorMessage_ == nullptr && return this->taskStatus_ == nullptr && return this->topic_ == nullptr && return this->topicSource_ == nullptr
+        && return this->version_ == nullptr; };
     // asyncTaskId Field Functions 
     bool hasAsyncTaskId() const { return this->asyncTaskId_ != nullptr;};
     void deleteAsyncTaskId() { this->asyncTaskId_ = nullptr;};

@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chunks_ != nullptr
-        && this->content_ != nullptr && this->docId_ != nullptr && this->docUuid_ != nullptr && this->pubTime_ != nullptr && this->score_ != nullptr
-        && this->searchSource_ != nullptr && this->searchSourceName_ != nullptr && this->searchSourceType_ != nullptr && this->select_ != nullptr && this->source_ != nullptr
-        && this->summary_ != nullptr && this->title_ != nullptr && this->traceabilityId_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->chunks_ == nullptr
+        && return this->content_ == nullptr && return this->docId_ == nullptr && return this->docUuid_ == nullptr && return this->pubTime_ == nullptr && return this->score_ == nullptr
+        && return this->searchSource_ == nullptr && return this->searchSourceName_ == nullptr && return this->searchSourceType_ == nullptr && return this->select_ == nullptr && return this->source_ == nullptr
+        && return this->summary_ == nullptr && return this->title_ == nullptr && return this->traceabilityId_ == nullptr && return this->url_ == nullptr; };
     // chunks Field Functions 
     bool hasChunks() const { return this->chunks_ != nullptr;};
     void deleteChunks() { this->chunks_ = nullptr;};

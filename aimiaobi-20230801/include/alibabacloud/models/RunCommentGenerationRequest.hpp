@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowEmoji_ != nullptr
-        && this->extraInfo_ != nullptr && this->length_ != nullptr && this->lengthRange_ != nullptr && this->modelId_ != nullptr && this->numComments_ != nullptr
-        && this->sentiment_ != nullptr && this->sessionId_ != nullptr && this->sourceMaterial_ != nullptr && this->style_ != nullptr && this->type_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->allowEmoji_ == nullptr
+        && return this->extraInfo_ == nullptr && return this->length_ == nullptr && return this->lengthRange_ == nullptr && return this->modelId_ == nullptr && return this->numComments_ == nullptr
+        && return this->sentiment_ == nullptr && return this->sessionId_ == nullptr && return this->sourceMaterial_ == nullptr && return this->style_ == nullptr && return this->type_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // allowEmoji Field Functions 
     bool hasAllowEmoji() const { return this->allowEmoji_ != nullptr;};
     void deleteAllowEmoji() { this->allowEmoji_ = nullptr;};

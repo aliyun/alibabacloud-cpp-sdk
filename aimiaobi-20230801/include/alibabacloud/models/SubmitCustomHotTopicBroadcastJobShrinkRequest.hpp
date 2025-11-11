@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hotTopicBroadcastConfigShrink_ != nullptr
-        && this->hotTopicVersion_ != nullptr && this->topicsShrink_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->hotTopicBroadcastConfigShrink_ == nullptr
+        && return this->hotTopicVersion_ == nullptr && return this->topicsShrink_ == nullptr && return this->workspaceId_ == nullptr; };
     // hotTopicBroadcastConfigShrink Field Functions 
     bool hasHotTopicBroadcastConfigShrink() const { return this->hotTopicBroadcastConfigShrink_ != nullptr;};
     void deleteHotTopicBroadcastConfigShrink() { this->hotTopicBroadcastConfigShrink_ = nullptr;};

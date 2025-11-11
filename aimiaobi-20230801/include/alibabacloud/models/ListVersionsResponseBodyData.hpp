@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->concurrentCount_ != nullptr
-        && this->endTime_ != nullptr && this->instanceCount_ != nullptr && this->instanceId_ != nullptr && this->orderId_ != nullptr && this->productType_ != nullptr
-        && this->quota_ != nullptr && this->startTime_ != nullptr && this->useQuota_ != nullptr && this->versionDetail_ != nullptr && this->versionName_ != nullptr
-        && this->versionStatus_ != nullptr; };
+    virtual bool empty() const override { return this->concurrentCount_ == nullptr
+        && return this->endTime_ == nullptr && return this->instanceCount_ == nullptr && return this->instanceId_ == nullptr && return this->orderId_ == nullptr && return this->productType_ == nullptr
+        && return this->quota_ == nullptr && return this->startTime_ == nullptr && return this->useQuota_ == nullptr && return this->versionDetail_ == nullptr && return this->versionName_ == nullptr
+        && return this->versionStatus_ == nullptr; };
     // concurrentCount Field Functions 
     bool hasConcurrentCount() const { return this->concurrentCount_ != nullptr;};
     void deleteConcurrentCount() { this->concurrentCount_ = nullptr;};

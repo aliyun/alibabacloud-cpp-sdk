@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->askUser_ != nullptr
-        && this->prompt_ != nullptr && this->searchQuery_ != nullptr && this->skipAskUser_ != nullptr && this->topic_ != nullptr && this->topicId_ != nullptr
-        && this->topicSource_ != nullptr && this->topicVersion_ != nullptr && this->userBack_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->askUser_ == nullptr
+        && return this->prompt_ == nullptr && return this->searchQuery_ == nullptr && return this->skipAskUser_ == nullptr && return this->topic_ == nullptr && return this->topicId_ == nullptr
+        && return this->topicSource_ == nullptr && return this->topicVersion_ == nullptr && return this->userBack_ == nullptr && return this->workspaceId_ == nullptr; };
     // askUser Field Functions 
     bool hasAskUser() const { return this->askUser_ != nullptr;};
     void deleteAskUser() { this->askUser_ = nullptr;};

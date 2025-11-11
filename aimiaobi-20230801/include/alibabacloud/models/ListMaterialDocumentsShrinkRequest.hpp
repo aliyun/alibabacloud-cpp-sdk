@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentKey_ != nullptr
-        && this->content_ != nullptr && this->createTimeEnd_ != nullptr && this->createTimeStart_ != nullptr && this->current_ != nullptr && this->docType_ != nullptr
-        && this->docTypeListShrink_ != nullptr && this->generatePublicUrl_ != nullptr && this->id_ != nullptr && this->keywordsShrink_ != nullptr && this->query_ != nullptr
-        && this->shareAttr_ != nullptr && this->size_ != nullptr && this->title_ != nullptr && this->updateTimeEnd_ != nullptr && this->updateTimeStart_ != nullptr; };
+    virtual bool empty() const override { return this->agentKey_ == nullptr
+        && return this->content_ == nullptr && return this->createTimeEnd_ == nullptr && return this->createTimeStart_ == nullptr && return this->current_ == nullptr && return this->docType_ == nullptr
+        && return this->docTypeListShrink_ == nullptr && return this->generatePublicUrl_ == nullptr && return this->id_ == nullptr && return this->keywordsShrink_ == nullptr && return this->query_ == nullptr
+        && return this->shareAttr_ == nullptr && return this->size_ == nullptr && return this->title_ == nullptr && return this->updateTimeEnd_ == nullptr && return this->updateTimeStart_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};

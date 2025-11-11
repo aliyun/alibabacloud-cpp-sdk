@@ -68,6 +68,10 @@ AddAuditTermsResponse Client::addAuditTermsWithOptions(const AddAuditTermsReques
     body["TermsDesc"] = request.termsDesc();
   }
 
+  if (!!request.hasTermsName()) {
+    body["TermsName"] = request.termsName();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -984,6 +988,10 @@ CreateTokenResponse Client::createToken(const CreateTokenRequest &request) {
 DeleteAuditNoteResponse Client::deleteAuditNoteWithOptions(const DeleteAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.noteId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -1678,6 +1686,10 @@ DocumentExtractionResponse Client::documentExtraction(const DocumentExtractionRe
 DownloadAuditNoteResponse Client::downloadAuditNoteWithOptions(const DownloadAuditNoteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.noteId();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.taskId();
   }
@@ -2898,6 +2910,10 @@ GetAutoClipsTaskInfoResponse Client::getAutoClipsTaskInfo(const GetAutoClipsTask
 GetAvailableAuditNotesResponse Client::getAvailableAuditNotesWithOptions(const GetAvailableAuditNotesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.noteId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -4858,6 +4874,10 @@ ListAuditTermsResponse Client::listAuditTermsWithOptions(const ListAuditTermsReq
 
   if (!!request.hasNextToken()) {
     body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasTermsName()) {
+    body["TermsName"] = request.termsName();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -11969,6 +11989,10 @@ SubmitAuditNoteResponse Client::submitAuditNoteWithOptions(const SubmitAuditNote
     body["FileKey"] = request.fileKey();
   }
 
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.noteId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -12499,6 +12523,10 @@ SubmitEnterpriseVocAnalysisTaskResponse Client::submitEnterpriseVocAnalysisTask(
 SubmitExportTermsTaskResponse Client::submitExportTermsTaskWithOptions(const SubmitExportTermsTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasTermsName()) {
+    body["TermsName"] = request.termsName();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -12591,6 +12619,10 @@ SubmitImportTermsTaskResponse Client::submitImportTermsTaskWithOptions(const Sub
     body["FileKey"] = request.fileKey();
   }
 
+  if (!!request.hasTermsName()) {
+    body["TermsName"] = request.termsName();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
@@ -12651,8 +12683,16 @@ SubmitSmartAuditResponse Client::submitSmartAuditWithOptions(const SubmitSmartAu
     body["ImageUrlList"] = request.imageUrlListShrink();
   }
 
+  if (!!request.hasNoteId()) {
+    body["NoteId"] = request.noteId();
+  }
+
   if (!!request.hasSubCodesShrink()) {
     body["SubCodes"] = request.subCodesShrink();
+  }
+
+  if (!!request.hasTermsName()) {
+    body["TermsName"] = request.termsName();
   }
 
   if (!!request.hasText()) {

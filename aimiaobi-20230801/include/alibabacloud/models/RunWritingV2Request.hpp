@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->articles_ != nullptr
-        && this->distributeWriting_ != nullptr && this->gcNumberSize_ != nullptr && this->gcNumberSizeTag_ != nullptr && this->keywords_ != nullptr && this->language_ != nullptr
-        && this->miniDocs_ != nullptr && this->outlineList_ != nullptr && this->outlines_ != nullptr && this->prompt_ != nullptr && this->promptMode_ != nullptr
-        && this->searchSources_ != nullptr && this->sessionId_ != nullptr && this->sourceTraceMethod_ != nullptr && this->step_ != nullptr && this->summarization_ != nullptr
-        && this->taskId_ != nullptr && this->useSearch_ != nullptr && this->workspaceId_ != nullptr && this->writingParams_ != nullptr && this->writingScene_ != nullptr
-        && this->writingStyle_ != nullptr; };
+    virtual bool empty() const override { return this->articles_ == nullptr
+        && return this->distributeWriting_ == nullptr && return this->gcNumberSize_ == nullptr && return this->gcNumberSizeTag_ == nullptr && return this->keywords_ == nullptr && return this->language_ == nullptr
+        && return this->miniDocs_ == nullptr && return this->outlineList_ == nullptr && return this->outlines_ == nullptr && return this->prompt_ == nullptr && return this->promptMode_ == nullptr
+        && return this->searchSources_ == nullptr && return this->sessionId_ == nullptr && return this->sourceTraceMethod_ == nullptr && return this->step_ == nullptr && return this->summarization_ == nullptr
+        && return this->taskId_ == nullptr && return this->useSearch_ == nullptr && return this->workspaceId_ == nullptr && return this->writingParams_ == nullptr && return this->writingScene_ == nullptr
+        && return this->writingStyle_ == nullptr; };
     // articles Field Functions 
     bool hasArticles() const { return this->articles_ != nullptr;};
     void deleteArticles() { this->articles_ = nullptr;};

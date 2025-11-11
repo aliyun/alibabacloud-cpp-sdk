@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->analysisCategory_ != nullptr
-        && this->analysisTopic_ != nullptr && this->author_ != nullptr && this->category_ != nullptr && this->comments_ != nullptr && this->content_ != nullptr
-        && this->createTime_ != nullptr && this->domain_ != nullptr && this->dt_ != nullptr && this->hotTopic_ != nullptr && this->imgList_ != nullptr
-        && this->logo_ != nullptr && this->pubTime_ != nullptr && this->summary_ != nullptr && this->title_ != nullptr && this->url_ != nullptr
-        && this->uuid_ != nullptr && this->website_ != nullptr; };
+    virtual bool empty() const override { return this->analysisCategory_ == nullptr
+        && return this->analysisTopic_ == nullptr && return this->author_ == nullptr && return this->category_ == nullptr && return this->comments_ == nullptr && return this->content_ == nullptr
+        && return this->createTime_ == nullptr && return this->domain_ == nullptr && return this->dt_ == nullptr && return this->hotTopic_ == nullptr && return this->imgList_ == nullptr
+        && return this->logo_ == nullptr && return this->pubTime_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr
+        && return this->uuid_ == nullptr && return this->website_ == nullptr; };
     // analysisCategory Field Functions 
     bool hasAnalysisCategory() const { return this->analysisCategory_ != nullptr;};
     void deleteAnalysisCategory() { this->analysisCategory_ = nullptr;};

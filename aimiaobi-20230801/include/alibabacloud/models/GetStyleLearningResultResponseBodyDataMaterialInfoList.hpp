@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->author_ != nullptr
-        && this->createTime_ != nullptr && this->createUser_ != nullptr && this->createUserName_ != nullptr && this->docKeywords_ != nullptr && this->docType_ != nullptr
-        && this->externalUrl_ != nullptr && this->fileLength_ != nullptr && this->htmlContent_ != nullptr && this->id_ != nullptr && this->pubTime_ != nullptr
-        && this->publicUrl_ != nullptr && this->shareAttr_ != nullptr && this->srcFrom_ != nullptr && this->summary_ != nullptr && this->textContent_ != nullptr
-        && this->thumbnailInBase64_ != nullptr && this->title_ != nullptr && this->updateTime_ != nullptr && this->updateUser_ != nullptr && this->updateUserName_ != nullptr
-        && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->author_ == nullptr
+        && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->createUserName_ == nullptr && return this->docKeywords_ == nullptr && return this->docType_ == nullptr
+        && return this->externalUrl_ == nullptr && return this->fileLength_ == nullptr && return this->htmlContent_ == nullptr && return this->id_ == nullptr && return this->pubTime_ == nullptr
+        && return this->publicUrl_ == nullptr && return this->shareAttr_ == nullptr && return this->srcFrom_ == nullptr && return this->summary_ == nullptr && return this->textContent_ == nullptr
+        && return this->thumbnailInBase64_ == nullptr && return this->title_ == nullptr && return this->updateTime_ == nullptr && return this->updateUser_ == nullptr && return this->updateUserName_ == nullptr
+        && return this->url_ == nullptr; };
     // author Field Functions 
     bool hasAuthor() const { return this->author_ != nullptr;};
     void deleteAuthor() { this->author_ = nullptr;};

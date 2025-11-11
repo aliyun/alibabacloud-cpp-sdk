@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->distributeStepTemplateDefine_ != nullptr
-        && this->distributeWriting_ != nullptr && this->emoji_ != nullptr && this->styleDescription_ != nullptr && this->styleImage_ != nullptr && this->styleKey_ != nullptr
-        && this->styleName_ != nullptr && this->templateDefine_ != nullptr; };
+    virtual bool empty() const override { return this->distributeStepTemplateDefine_ == nullptr
+        && return this->distributeWriting_ == nullptr && return this->emoji_ == nullptr && return this->styleDescription_ == nullptr && return this->styleImage_ == nullptr && return this->styleKey_ == nullptr
+        && return this->styleName_ == nullptr && return this->templateDefine_ == nullptr; };
     // distributeStepTemplateDefine Field Functions 
     bool hasDistributeStepTemplateDefine() const { return this->distributeStepTemplateDefine_ != nullptr;};
     void deleteDistributeStepTemplateDefine() { this->distributeStepTemplateDefine_ = nullptr;};

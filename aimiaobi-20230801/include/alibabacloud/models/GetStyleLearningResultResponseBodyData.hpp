@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aigcResult_ != nullptr
-        && this->contentList_ != nullptr && this->customTextIdList_ != nullptr && this->id_ != nullptr && this->materialIdList_ != nullptr && this->materialInfoList_ != nullptr
-        && this->rewriteResult_ != nullptr && this->styleName_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->aigcResult_ == nullptr
+        && return this->contentList_ == nullptr && return this->customTextIdList_ == nullptr && return this->id_ == nullptr && return this->materialIdList_ == nullptr && return this->materialInfoList_ == nullptr
+        && return this->rewriteResult_ == nullptr && return this->styleName_ == nullptr && return this->taskId_ == nullptr; };
     // aigcResult Field Functions 
     bool hasAigcResult() const { return this->aigcResult_ != nullptr;};
     void deleteAigcResult() { this->aigcResult_ = nullptr;};

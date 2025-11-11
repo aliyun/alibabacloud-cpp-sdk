@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->originSessionId_ != nullptr
-        && this->prompt_ != nullptr && this->referenceData_ != nullptr && this->sessionId_ != nullptr && this->taskId_ != nullptr && this->workspaceId_ != nullptr
-        && this->writingConfig_ != nullptr; };
+    virtual bool empty() const override { return this->originSessionId_ == nullptr
+        && return this->prompt_ == nullptr && return this->referenceData_ == nullptr && return this->sessionId_ == nullptr && return this->taskId_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->writingConfig_ == nullptr; };
     // originSessionId Field Functions 
     bool hasOriginSessionId() const { return this->originSessionId_ != nullptr;};
     void deleteOriginSessionId() { this->originSessionId_ = nullptr;};

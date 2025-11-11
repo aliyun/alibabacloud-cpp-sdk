@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildIn_ != nullptr
-        && this->cascadingFields_ != nullptr && this->enums_ != nullptr && this->initialValue_ != nullptr && this->key_ != nullptr && this->max_ != nullptr
-        && this->maxItem_ != nullptr && this->maxItemLength_ != nullptr && this->maxLength_ != nullptr && this->min_ != nullptr && this->minItemLength_ != nullptr
-        && this->minLength_ != nullptr && this->name_ != nullptr && this->required_ != nullptr && this->style_ != nullptr; };
+    virtual bool empty() const override { return this->buildIn_ == nullptr
+        && return this->cascadingFields_ == nullptr && return this->enums_ == nullptr && return this->initialValue_ == nullptr && return this->key_ == nullptr && return this->max_ == nullptr
+        && return this->maxItem_ == nullptr && return this->maxItemLength_ == nullptr && return this->maxLength_ == nullptr && return this->min_ == nullptr && return this->minItemLength_ == nullptr
+        && return this->minLength_ == nullptr && return this->name_ == nullptr && return this->required_ == nullptr && return this->style_ == nullptr; };
     // buildIn Field Functions 
     bool hasBuildIn() const { return this->buildIn_ != nullptr;};
     void deleteBuildIn() { this->buildIn_ = nullptr;};
