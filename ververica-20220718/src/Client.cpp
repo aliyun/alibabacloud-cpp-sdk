@@ -2368,6 +2368,60 @@ GetMemberResponse Client::getMember(const string &_namespace, const string &memb
 }
 
 /**
+ * @summary 获取上传文件URL
+ *
+ * @param request GetPreSignedUrlForPutObjectRequest
+ * @param headers GetPreSignedUrlForPutObjectHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPreSignedUrlForPutObjectResponse
+ */
+GetPreSignedUrlForPutObjectResponse Client::getPreSignedUrlForPutObjectWithOptions(const string &_namespace, const GetPreSignedUrlForPutObjectRequest &request, const GetPreSignedUrlForPutObjectHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["fileName"] = request.fileName();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPreSignedUrlForPutObject"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/artifacts/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/getPreSignedUrlForPutObject")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPreSignedUrlForPutObjectResponse>();
+}
+
+/**
+ * @summary 获取上传文件URL
+ *
+ * @param request GetPreSignedUrlForPutObjectRequest
+ * @return GetPreSignedUrlForPutObjectResponse
+ */
+GetPreSignedUrlForPutObjectResponse Client::getPreSignedUrlForPutObject(const string &_namespace, const GetPreSignedUrlForPutObjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetPreSignedUrlForPutObjectHeaders headers = GetPreSignedUrlForPutObjectHeaders();
+  return getPreSignedUrlForPutObjectWithOptions(namespace, request, headers, runtime);
+}
+
+/**
  * @summary Queries details of a savepoint and checkpoint.
  *
  * @param headers GetSavepointHeaders

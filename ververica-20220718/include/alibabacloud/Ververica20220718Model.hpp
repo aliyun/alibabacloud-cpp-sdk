@@ -62,6 +62,7 @@
 #include <alibabacloud/models/Folder.hpp>
 #include <alibabacloud/models/Function.hpp>
 #include <alibabacloud/models/GetLineageInfoParams.hpp>
+#include <alibabacloud/models/GetPreSignedUrlForObjectResult.hpp>
 #include <alibabacloud/models/HotUpdateJobFailureInfo.hpp>
 #include <alibabacloud/models/RescaleJobParam.hpp>
 #include <alibabacloud/models/UpdateJobConfigParam.hpp>
@@ -277,6 +278,10 @@
 #include <alibabacloud/models/GetMemberHeaders.hpp>
 #include <alibabacloud/models/GetMemberResponseBody.hpp>
 #include <alibabacloud/models/GetMemberResponse.hpp>
+#include <alibabacloud/models/GetPreSignedUrlForPutObjectHeaders.hpp>
+#include <alibabacloud/models/GetPreSignedUrlForPutObjectRequest.hpp>
+#include <alibabacloud/models/GetPreSignedUrlForPutObjectResponseBody.hpp>
+#include <alibabacloud/models/GetPreSignedUrlForPutObjectResponse.hpp>
 #include <alibabacloud/models/GetSavepointHeaders.hpp>
 #include <alibabacloud/models/GetSavepointResponseBody.hpp>
 #include <alibabacloud/models/GetSavepointResponse.hpp>

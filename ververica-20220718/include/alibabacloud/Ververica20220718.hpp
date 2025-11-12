@@ -823,6 +823,24 @@ namespace Ververica20220718
       Models::GetMemberResponse getMember(const string &_namespace, const string &member);
 
       /**
+       * @summary 获取上传文件URL
+       *
+       * @param request GetPreSignedUrlForPutObjectRequest
+       * @param headers GetPreSignedUrlForPutObjectHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPreSignedUrlForPutObjectResponse
+       */
+      Models::GetPreSignedUrlForPutObjectResponse getPreSignedUrlForPutObjectWithOptions(const string &_namespace, const Models::GetPreSignedUrlForPutObjectRequest &request, const Models::GetPreSignedUrlForPutObjectHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取上传文件URL
+       *
+       * @param request GetPreSignedUrlForPutObjectRequest
+       * @return GetPreSignedUrlForPutObjectResponse
+       */
+      Models::GetPreSignedUrlForPutObjectResponse getPreSignedUrlForPutObject(const string &_namespace, const Models::GetPreSignedUrlForPutObjectRequest &request);
+
+      /**
        * @summary Queries details of a savepoint and checkpoint.
        *
        * @param headers GetSavepointHeaders
