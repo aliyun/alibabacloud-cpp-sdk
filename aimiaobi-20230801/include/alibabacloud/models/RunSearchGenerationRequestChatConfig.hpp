@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExcludeGenerateOptions, excludeGenerateOptions_);
       DARABONBA_PTR_TO_JSON(GenerateLevel, generateLevel_);
       DARABONBA_PTR_TO_JSON(GenerateTechnology, generateTechnology_);
+      DARABONBA_PTR_TO_JSON(ModelCustomPromptTemplate, modelCustomPromptTemplate_);
+      DARABONBA_PTR_TO_JSON(ModelCustomVlPromptTemplate, modelCustomVlPromptTemplate_);
       DARABONBA_PTR_TO_JSON(SearchModels, searchModels_);
       DARABONBA_PTR_TO_JSON(SearchParam, searchParam_);
     };
@@ -27,6 +29,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExcludeGenerateOptions, excludeGenerateOptions_);
       DARABONBA_PTR_FROM_JSON(GenerateLevel, generateLevel_);
       DARABONBA_PTR_FROM_JSON(GenerateTechnology, generateTechnology_);
+      DARABONBA_PTR_FROM_JSON(ModelCustomPromptTemplate, modelCustomPromptTemplate_);
+      DARABONBA_PTR_FROM_JSON(ModelCustomVlPromptTemplate, modelCustomVlPromptTemplate_);
       DARABONBA_PTR_FROM_JSON(SearchModels, searchModels_);
       DARABONBA_PTR_FROM_JSON(SearchParam, searchParam_);
     };
@@ -42,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableThinking_ == nullptr
-        && return this->excludeGenerateOptions_ == nullptr && return this->generateLevel_ == nullptr && return this->generateTechnology_ == nullptr && return this->searchModels_ == nullptr && return this->searchParam_ == nullptr; };
+        && return this->excludeGenerateOptions_ == nullptr && return this->generateLevel_ == nullptr && return this->generateTechnology_ == nullptr && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomVlPromptTemplate_ == nullptr
+        && return this->searchModels_ == nullptr && return this->searchParam_ == nullptr; };
     // enableThinking Field Functions 
     bool hasEnableThinking() const { return this->enableThinking_ != nullptr;};
     void deleteEnableThinking() { this->enableThinking_ = nullptr;};
@@ -73,6 +78,20 @@ namespace Models
     inline RunSearchGenerationRequestChatConfig& setGenerateTechnology(string generateTechnology) { DARABONBA_PTR_SET_VALUE(generateTechnology_, generateTechnology) };
 
 
+    // modelCustomPromptTemplate Field Functions 
+    bool hasModelCustomPromptTemplate() const { return this->modelCustomPromptTemplate_ != nullptr;};
+    void deleteModelCustomPromptTemplate() { this->modelCustomPromptTemplate_ = nullptr;};
+    inline string modelCustomPromptTemplate() const { DARABONBA_PTR_GET_DEFAULT(modelCustomPromptTemplate_, "") };
+    inline RunSearchGenerationRequestChatConfig& setModelCustomPromptTemplate(string modelCustomPromptTemplate) { DARABONBA_PTR_SET_VALUE(modelCustomPromptTemplate_, modelCustomPromptTemplate) };
+
+
+    // modelCustomVlPromptTemplate Field Functions 
+    bool hasModelCustomVlPromptTemplate() const { return this->modelCustomVlPromptTemplate_ != nullptr;};
+    void deleteModelCustomVlPromptTemplate() { this->modelCustomVlPromptTemplate_ = nullptr;};
+    inline string modelCustomVlPromptTemplate() const { DARABONBA_PTR_GET_DEFAULT(modelCustomVlPromptTemplate_, "") };
+    inline RunSearchGenerationRequestChatConfig& setModelCustomVlPromptTemplate(string modelCustomVlPromptTemplate) { DARABONBA_PTR_SET_VALUE(modelCustomVlPromptTemplate_, modelCustomVlPromptTemplate) };
+
+
     // searchModels Field Functions 
     bool hasSearchModels() const { return this->searchModels_ != nullptr;};
     void deleteSearchModels() { this->searchModels_ = nullptr;};
@@ -96,6 +115,8 @@ namespace Models
     std::shared_ptr<vector<string>> excludeGenerateOptions_ = nullptr;
     std::shared_ptr<string> generateLevel_ = nullptr;
     std::shared_ptr<string> generateTechnology_ = nullptr;
+    std::shared_ptr<string> modelCustomPromptTemplate_ = nullptr;
+    std::shared_ptr<string> modelCustomVlPromptTemplate_ = nullptr;
     std::shared_ptr<vector<string>> searchModels_ = nullptr;
     std::shared_ptr<Models::RunSearchGenerationRequestChatConfigSearchParam> searchParam_ = nullptr;
   };
