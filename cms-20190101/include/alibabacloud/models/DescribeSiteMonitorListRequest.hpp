@@ -103,6 +103,13 @@ namespace Models
 
 
   protected:
+    // Task network type. Valid values:
+    // 
+    // - PC: Cable Network
+    // 
+    // - MOBILE: Mobile Cellular Network
+    // 
+    // - FC: Alibaba Cloud VPC Network
     std::shared_ptr<string> agentGroup_ = nullptr;
     // The keyword to be matched.
     // 

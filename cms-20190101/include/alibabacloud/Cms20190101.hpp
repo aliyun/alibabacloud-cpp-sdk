@@ -1097,7 +1097,7 @@ namespace Cms20190101
       Models::DescribeAlertingMetricRuleResourcesResponse describeAlertingMetricRuleResources(const Models::DescribeAlertingMetricRuleResourcesRequest &request);
 
       /**
-       * @summary Queries alert groups.
+       * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
        *
        * @param request DescribeContactGroupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1106,7 +1106,7 @@ namespace Cms20190101
       Models::DescribeContactGroupListResponse describeContactGroupListWithOptions(const Models::DescribeContactGroupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries alert groups.
+       * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
        *
        * @param request DescribeContactGroupListRequest
        * @return DescribeContactGroupListResponse

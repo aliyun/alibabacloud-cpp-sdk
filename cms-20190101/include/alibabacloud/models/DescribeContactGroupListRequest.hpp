@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // Page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    // The number of entries to return on each page.
+    // Number of records per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
   };

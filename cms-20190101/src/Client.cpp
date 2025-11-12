@@ -3174,7 +3174,7 @@ DescribeAlertingMetricRuleResourcesResponse Client::describeAlertingMetricRuleRe
 }
 
 /**
- * @summary Queries alert groups.
+ * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
  *
  * @param request DescribeContactGroupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3209,7 +3209,7 @@ DescribeContactGroupListResponse Client::describeContactGroupListWithOptions(con
 }
 
 /**
- * @summary Queries alert groups.
+ * @summary Call the DescribeContactGroupList interface to query the list of alarm contact groups.
  *
  * @param request DescribeContactGroupListRequest
  * @return DescribeContactGroupListResponse

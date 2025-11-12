@@ -97,27 +97,23 @@ namespace Models
 
 
   protected:
-    // The alert contacts in the alert group.
+    // List of contacts.
     std::shared_ptr<Models::DescribeContactGroupListResponseBodyContactGroupListContactGroupContacts> contacts_ = nullptr;
-    // The time when the alert group was created. This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // Creation time.
     std::shared_ptr<int64_t> createTime_ = nullptr;
-    // The description of the alert group.
+    // Description information of the alarm contact group.
     std::shared_ptr<string> describe_ = nullptr;
-    // Indicates whether the alert group subscribes to weekly reports. Valid values:
+    // Indicates whether the weekly report subscription function is enabled. Values:
     // 
-    // *   true: The alert group subscribes to weekly reports.
-    // *   false: The alert group does not subscribe to weekly reports.
+    // - true: Yes.
+    // 
+    // - false: No.
     std::shared_ptr<bool> enableSubscribed_ = nullptr;
-    // Indicates whether the alert group can subscribe to weekly reports. Valid values:
-    // 
-    // *   true: The alert group can subscribe to weekly reports.
-    // *   false: The alert group cannot subscribe to weekly reports.
-    // 
-    // >  The weekly report subscription feature is only available for Alibaba Cloud accounts with more than five Elastic Compute Service (ECS) instances.
+    // Indicates whether the weekly report function is enabled.
     std::shared_ptr<bool> enabledWeeklyReport_ = nullptr;
-    // The name of the alert group.
+    // Name.
     std::shared_ptr<string> name_ = nullptr;
-    // The time when the alert group was modified. This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // Update time.
     std::shared_ptr<int64_t> updateTime_ = nullptr;
   };
 

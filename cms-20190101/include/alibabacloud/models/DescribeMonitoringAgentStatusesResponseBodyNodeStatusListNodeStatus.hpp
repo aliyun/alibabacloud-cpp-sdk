@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentInstallErrorCode, agentInstallErrorCode_);
       DARABONBA_PTR_TO_JSON(AutoInstall, autoInstall_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(LoongCollectorStatus, loongCollectorStatus_);
       DARABONBA_PTR_TO_JSON(OsMonitorConfig, osMonitorConfig_);
       DARABONBA_PTR_TO_JSON(OsMonitorErrorCode, osMonitorErrorCode_);
       DARABONBA_PTR_TO_JSON(OsMonitorErrorDetail, osMonitorErrorDetail_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentInstallErrorCode, agentInstallErrorCode_);
       DARABONBA_PTR_FROM_JSON(AutoInstall, autoInstall_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(LoongCollectorStatus, loongCollectorStatus_);
       DARABONBA_PTR_FROM_JSON(OsMonitorConfig, osMonitorConfig_);
       DARABONBA_PTR_FROM_JSON(OsMonitorErrorCode, osMonitorErrorCode_);
       DARABONBA_PTR_FROM_JSON(OsMonitorErrorDetail, osMonitorErrorDetail_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentInstallErrorCode_ == nullptr
-        && return this->autoInstall_ == nullptr && return this->instanceId_ == nullptr && return this->osMonitorConfig_ == nullptr && return this->osMonitorErrorCode_ == nullptr && return this->osMonitorErrorDetail_ == nullptr
-        && return this->osMonitorStatus_ == nullptr && return this->osMonitorVersion_ == nullptr && return this->status_ == nullptr; };
+        && return this->autoInstall_ == nullptr && return this->instanceId_ == nullptr && return this->loongCollectorStatus_ == nullptr && return this->osMonitorConfig_ == nullptr && return this->osMonitorErrorCode_ == nullptr
+        && return this->osMonitorErrorDetail_ == nullptr && return this->osMonitorStatus_ == nullptr && return this->osMonitorVersion_ == nullptr && return this->status_ == nullptr; };
     // agentInstallErrorCode Field Functions 
     bool hasAgentInstallErrorCode() const { return this->agentInstallErrorCode_ != nullptr;};
     void deleteAgentInstallErrorCode() { this->agentInstallErrorCode_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // loongCollectorStatus Field Functions 
+    bool hasLoongCollectorStatus() const { return this->loongCollectorStatus_ != nullptr;};
+    void deleteLoongCollectorStatus() { this->loongCollectorStatus_ = nullptr;};
+    inline string loongCollectorStatus() const { DARABONBA_PTR_GET_DEFAULT(loongCollectorStatus_, "") };
+    inline DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus& setLoongCollectorStatus(string loongCollectorStatus) { DARABONBA_PTR_SET_VALUE(loongCollectorStatus_, loongCollectorStatus) };
 
 
     // osMonitorConfig Field Functions 
@@ -128,6 +137,7 @@ namespace Models
     std::shared_ptr<bool> autoInstall_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> loongCollectorStatus_ = nullptr;
     // Indicates whether the SysAK monitoring feature is enabled.`` Valid values:
     // 
     // *   `true`: The SysAK monitoring feature is enabled.
