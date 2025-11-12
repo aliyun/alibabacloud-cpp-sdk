@@ -1022,6 +1022,10 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
     query["Verbose"] = request.verbose();
   }
 
+  if (!!request.hasWithNodeMeta()) {
+    query["WithNodeMeta"] = request.withNodeMeta();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

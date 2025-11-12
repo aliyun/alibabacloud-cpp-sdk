@@ -14,6 +14,7 @@
 #include <alibabacloud/models/BindingPolicy.hpp>
 #include <alibabacloud/models/NodeSpec.hpp>
 #include <alibabacloud/models/AllocateStrategySpec.hpp>
+#include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/CacheInfo.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
 #include <alibabacloud/models/UserVpc.hpp>
