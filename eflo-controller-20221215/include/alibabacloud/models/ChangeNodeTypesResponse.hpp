@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_GETHYPERNODERESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_GETHYPERNODERESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_CHANGENODETYPESRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_CHANGENODETYPESRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/GetHyperNodeResponseBody.hpp>
+#include <alibabacloud/models/ChangeNodeTypesResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace EfloController20221215
 {
 namespace Models
 {
-  class GetHyperNodeResponse : public Darabonba::Model {
+  class ChangeNodeTypesResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const GetHyperNodeResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const ChangeNodeTypesResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, GetHyperNodeResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, ChangeNodeTypesResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    GetHyperNodeResponse() = default ;
-    GetHyperNodeResponse(const GetHyperNodeResponse &) = default ;
-    GetHyperNodeResponse(GetHyperNodeResponse &&) = default ;
-    GetHyperNodeResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~GetHyperNodeResponse() = default ;
-    GetHyperNodeResponse& operator=(const GetHyperNodeResponse &) = default ;
-    GetHyperNodeResponse& operator=(GetHyperNodeResponse &&) = default ;
+    ChangeNodeTypesResponse() = default ;
+    ChangeNodeTypesResponse(const ChangeNodeTypesResponse &) = default ;
+    ChangeNodeTypesResponse(ChangeNodeTypesResponse &&) = default ;
+    ChangeNodeTypesResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ChangeNodeTypesResponse() = default ;
+    ChangeNodeTypesResponse& operator=(const ChangeNodeTypesResponse &) = default ;
+    ChangeNodeTypesResponse& operator=(ChangeNodeTypesResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline GetHyperNodeResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline GetHyperNodeResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline ChangeNodeTypesResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline ChangeNodeTypesResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline GetHyperNodeResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline ChangeNodeTypesResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const GetHyperNodeResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, GetHyperNodeResponseBody) };
-    inline GetHyperNodeResponseBody body() { DARABONBA_PTR_GET(body_, GetHyperNodeResponseBody) };
-    inline GetHyperNodeResponse& setBody(const GetHyperNodeResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline GetHyperNodeResponse& setBody(GetHyperNodeResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const ChangeNodeTypesResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, ChangeNodeTypesResponseBody) };
+    inline ChangeNodeTypesResponseBody body() { DARABONBA_PTR_GET(body_, ChangeNodeTypesResponseBody) };
+    inline ChangeNodeTypesResponse& setBody(const ChangeNodeTypesResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline ChangeNodeTypesResponse& setBody(ChangeNodeTypesResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     std::shared_ptr<map<string, string>> headers_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<GetHyperNodeResponseBody> body_ = nullptr;
+    std::shared_ptr<ChangeNodeTypesResponseBody> body_ = nullptr;
   };
 
   } // namespace Models

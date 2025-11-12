@@ -9,6 +9,10 @@
 #include <alibabacloud/models/ChangeNodeGroupShrinkRequest.hpp>
 #include <alibabacloud/models/ChangeNodeGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeNodeGroupResponse.hpp>
+#include <alibabacloud/models/ChangeNodeTypesRequest.hpp>
+#include <alibabacloud/models/ChangeNodeTypesShrinkRequest.hpp>
+#include <alibabacloud/models/ChangeNodeTypesResponseBody.hpp>
+#include <alibabacloud/models/ChangeNodeTypesResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
@@ -40,6 +44,9 @@
 #include <alibabacloud/models/DeleteClusterRequest.hpp>
 #include <alibabacloud/models/DeleteClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteClusterResponse.hpp>
+#include <alibabacloud/models/DeleteHyperNodeRequest.hpp>
+#include <alibabacloud/models/DeleteHyperNodeResponseBody.hpp>
+#include <alibabacloud/models/DeleteHyperNodeResponse.hpp>
 #include <alibabacloud/models/DeleteNodeRequest.hpp>
 #include <alibabacloud/models/DeleteNodeResponseBody.hpp>
 #include <alibabacloud/models/DeleteNodeResponse.hpp>
@@ -55,6 +62,9 @@
 #include <alibabacloud/models/DescribeDiagnosticResultRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnosticResultResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnosticResultResponse.hpp>
+#include <alibabacloud/models/DescribeHyperNodeRequest.hpp>
+#include <alibabacloud/models/DescribeHyperNodeResponseBody.hpp>
+#include <alibabacloud/models/DescribeHyperNodeResponse.hpp>
 #include <alibabacloud/models/DescribeInvocationsRequest.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponse.hpp>
@@ -64,6 +74,9 @@
 #include <alibabacloud/models/DescribeNodeRequest.hpp>
 #include <alibabacloud/models/DescribeNodeResponseBody.hpp>
 #include <alibabacloud/models/DescribeNodeResponse.hpp>
+#include <alibabacloud/models/DescribeNodeGroupRequest.hpp>
+#include <alibabacloud/models/DescribeNodeGroupResponseBody.hpp>
+#include <alibabacloud/models/DescribeNodeGroupResponse.hpp>
 #include <alibabacloud/models/DescribeNodeTypeRequest.hpp>
 #include <alibabacloud/models/DescribeNodeTypeResponseBody.hpp>
 #include <alibabacloud/models/DescribeNodeTypeResponse.hpp>
@@ -86,9 +99,6 @@
 #include <alibabacloud/models/ExtendClusterShrinkRequest.hpp>
 #include <alibabacloud/models/ExtendClusterResponseBody.hpp>
 #include <alibabacloud/models/ExtendClusterResponse.hpp>
-#include <alibabacloud/models/GetHyperNodeRequest.hpp>
-#include <alibabacloud/models/GetHyperNodeResponseBody.hpp>
-#include <alibabacloud/models/GetHyperNodeResponse.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesRequest.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesResponseBody.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesResponse.hpp>
@@ -126,6 +136,9 @@
 #include <alibabacloud/models/ListNodeGroupsRequest.hpp>
 #include <alibabacloud/models/ListNodeGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListNodeGroupsResponse.hpp>
+#include <alibabacloud/models/ListSyslogsRequest.hpp>
+#include <alibabacloud/models/ListSyslogsResponseBody.hpp>
+#include <alibabacloud/models/ListSyslogsResponse.hpp>
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
@@ -176,6 +189,7 @@
 #include <alibabacloud/models/UpdateNodeGroupRequest.hpp>
 #include <alibabacloud/models/UpdateNodeGroupResponseBody.hpp>
 #include <alibabacloud/models/UpdateNodeGroupResponse.hpp>
+#include <alibabacloud/models/ChangeNodeTypesResponseBodyNodeResponse.hpp>
 #include <alibabacloud/models/CreateClusterRequestComponentsComponentConfig.hpp>
 #include <alibabacloud/models/CreateClusterRequestComponents.hpp>
 #include <alibabacloud/models/CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds.hpp>
@@ -212,6 +226,9 @@
 #include <alibabacloud/models/CreateVscRequestTag.hpp>
 #include <alibabacloud/models/DescribeClusterResponseBodyComponents.hpp>
 #include <alibabacloud/models/DescribeClusterResponseBodyNetworks.hpp>
+#include <alibabacloud/models/DescribeHyperNodeResponseBodyNodesDisks.hpp>
+#include <alibabacloud/models/DescribeHyperNodeResponseBodyNodesNetworks.hpp>
+#include <alibabacloud/models/DescribeHyperNodeResponseBodyNodes.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodesInvokeNode.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponseBodyInvocationsInvocationInvokeNodes.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponseBodyInvocationsInvocation.hpp>
@@ -225,6 +242,7 @@
 #include <alibabacloud/models/DescribeNetTestResultResponseBodyTrafficTest.hpp>
 #include <alibabacloud/models/DescribeNodeResponseBodyDisks.hpp>
 #include <alibabacloud/models/DescribeNodeResponseBodyNetworks.hpp>
+#include <alibabacloud/models/DescribeNodeGroupResponseBodySystemDisk.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodesInvokeNode.hpp>
 #include <alibabacloud/models/DescribeSendFileResultsResponseBodyInvocationsInvocationInvokeNodes.hpp>
@@ -246,9 +264,6 @@
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodesDataDisk.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroupsNodes.hpp>
 #include <alibabacloud/models/ExtendClusterRequestNodeGroups.hpp>
-#include <alibabacloud/models/GetHyperNodeResponseBodyNodesDisks.hpp>
-#include <alibabacloud/models/GetHyperNodeResponseBodyNodesNetworks.hpp>
-#include <alibabacloud/models/GetHyperNodeResponseBodyNodes.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesRequestTags.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesResponseBodyHyperNodesTags.hpp>
 #include <alibabacloud/models/ListClusterHyperNodesResponseBodyHyperNodes.hpp>
@@ -282,6 +297,7 @@
 #include <alibabacloud/models/ListNetTestResultsResponseBodyNetTestResultsTrafficTest.hpp>
 #include <alibabacloud/models/ListNetTestResultsResponseBodyNetTestResults.hpp>
 #include <alibabacloud/models/ListNodeGroupsResponseBodyGroups.hpp>
+#include <alibabacloud/models/ListSyslogsResponseBodyLogs.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>

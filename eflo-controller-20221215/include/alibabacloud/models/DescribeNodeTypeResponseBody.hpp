@@ -13,6 +13,7 @@ namespace Models
   class DescribeNodeTypeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeNodeTypeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(DiskQuantity, diskQuantity_);
       DARABONBA_PTR_TO_JSON(EniHighDenseQuantity, eniHighDenseQuantity_);
       DARABONBA_PTR_TO_JSON(EniIpv6AddressQuantity, eniIpv6AddressQuantity_);
       DARABONBA_PTR_TO_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeNodeTypeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(DiskQuantity, diskQuantity_);
       DARABONBA_PTR_FROM_JSON(EniHighDenseQuantity, eniHighDenseQuantity_);
       DARABONBA_PTR_FROM_JSON(EniIpv6AddressQuantity, eniIpv6AddressQuantity_);
       DARABONBA_PTR_FROM_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->eniHighDenseQuantity_ == nullptr
-        && return this->eniIpv6AddressQuantity_ == nullptr && return this->eniPrivateIpAddressQuantity_ == nullptr && return this->eniQuantity_ == nullptr && return this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->diskQuantity_ == nullptr
+        && return this->eniHighDenseQuantity_ == nullptr && return this->eniIpv6AddressQuantity_ == nullptr && return this->eniPrivateIpAddressQuantity_ == nullptr && return this->eniQuantity_ == nullptr && return this->requestId_ == nullptr; };
+    // diskQuantity Field Functions 
+    bool hasDiskQuantity() const { return this->diskQuantity_ != nullptr;};
+    void deleteDiskQuantity() { this->diskQuantity_ = nullptr;};
+    inline int32_t diskQuantity() const { DARABONBA_PTR_GET_DEFAULT(diskQuantity_, 0) };
+    inline DescribeNodeTypeResponseBody& setDiskQuantity(int32_t diskQuantity) { DARABONBA_PTR_SET_VALUE(diskQuantity_, diskQuantity) };
+
+
     // eniHighDenseQuantity Field Functions 
     bool hasEniHighDenseQuantity() const { return this->eniHighDenseQuantity_ != nullptr;};
     void deleteEniHighDenseQuantity() { this->eniHighDenseQuantity_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> diskQuantity_ = nullptr;
     std::shared_ptr<int32_t> eniHighDenseQuantity_ = nullptr;
     std::shared_ptr<int32_t> eniIpv6AddressQuantity_ = nullptr;
     std::shared_ptr<int32_t> eniPrivateIpAddressQuantity_ = nullptr;

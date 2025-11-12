@@ -55,6 +55,23 @@ namespace EfloController20221215
       Models::ChangeNodeGroupResponse changeNodeGroup(const Models::ChangeNodeGroupRequest &request);
 
       /**
+       * @summary 节点规格变配
+       *
+       * @param tmpReq ChangeNodeTypesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChangeNodeTypesResponse
+       */
+      Models::ChangeNodeTypesResponse changeNodeTypesWithOptions(const Models::ChangeNodeTypesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 节点规格变配
+       *
+       * @param request ChangeNodeTypesRequest
+       * @return ChangeNodeTypesResponse
+       */
+      Models::ChangeNodeTypesResponse changeNodeTypes(const Models::ChangeNodeTypesRequest &request);
+
+      /**
        * @summary Moves a resource from one resource group to another.
        *
        * @param request ChangeResourceGroupRequest
@@ -216,6 +233,23 @@ namespace EfloController20221215
       Models::DeleteClusterResponse deleteCluster(const Models::DeleteClusterRequest &request);
 
       /**
+       * @summary 删除一个未使用超节点
+       *
+       * @param request DeleteHyperNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHyperNodeResponse
+       */
+      Models::DeleteHyperNodeResponse deleteHyperNodeWithOptions(const Models::DeleteHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除一个未使用超节点
+       *
+       * @param request DeleteHyperNodeRequest
+       * @return DeleteHyperNodeResponse
+       */
+      Models::DeleteHyperNodeResponse deleteHyperNode(const Models::DeleteHyperNodeRequest &request);
+
+      /**
        * @summary 删除一个未使用节点
        *
        * @param request DeleteNodeRequest
@@ -305,6 +339,23 @@ namespace EfloController20221215
       Models::DescribeDiagnosticResultResponse describeDiagnosticResult(const Models::DescribeDiagnosticResultRequest &request);
 
       /**
+       * @summary 查询节点列表
+       *
+       * @param request DescribeHyperNodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeHyperNodeResponse
+       */
+      Models::DescribeHyperNodeResponse describeHyperNodeWithOptions(const Models::DescribeHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询节点列表
+       *
+       * @param request DescribeHyperNodeRequest
+       * @return DescribeHyperNodeResponse
+       */
+      Models::DescribeHyperNodeResponse describeHyperNode(const Models::DescribeHyperNodeRequest &request);
+
+      /**
        * @summary Queries the execution list and status of O\\&M Assistant commands.
        *
        * @param request DescribeInvocationsRequest
@@ -354,6 +405,23 @@ namespace EfloController20221215
        * @return DescribeNodeResponse
        */
       Models::DescribeNodeResponse describeNode(const Models::DescribeNodeRequest &request);
+
+      /**
+       * @summary 查询节点分组
+       *
+       * @param request DescribeNodeGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeNodeGroupResponse
+       */
+      Models::DescribeNodeGroupResponse describeNodeGroupWithOptions(const Models::DescribeNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询节点分组
+       *
+       * @param request DescribeNodeGroupRequest
+       * @return DescribeNodeGroupResponse
+       */
+      Models::DescribeNodeGroupResponse describeNodeGroup(const Models::DescribeNodeGroupRequest &request);
 
       /**
        * @summary 创建Web Terminal会话
@@ -473,23 +541,6 @@ namespace EfloController20221215
        * @return ExtendClusterResponse
        */
       Models::ExtendClusterResponse extendCluster(const Models::ExtendClusterRequest &request);
-
-      /**
-       * @summary 查询节点列表
-       *
-       * @param request GetHyperNodeRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetHyperNodeResponse
-       */
-      Models::GetHyperNodeResponse getHyperNodeWithOptions(const Models::GetHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 查询节点列表
-       *
-       * @param request GetHyperNodeRequest
-       * @return GetHyperNodeResponse
-       */
-      Models::GetHyperNodeResponse getHyperNode(const Models::GetHyperNodeRequest &request);
 
       /**
        * @summary 集群下的主机分组列表，分组下的主机列表
@@ -698,6 +749,23 @@ namespace EfloController20221215
        * @return ListNodeGroupsResponse
        */
       Models::ListNodeGroupsResponse listNodeGroups(const Models::ListNodeGroupsRequest &request);
+
+      /**
+       * @summary 查询系统日志
+       *
+       * @param request ListSyslogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSyslogsResponse
+       */
+      Models::ListSyslogsResponse listSyslogsWithOptions(const Models::ListSyslogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询系统日志
+       *
+       * @param request ListSyslogsRequest
+       * @return ListSyslogsResponse
+       */
+      Models::ListSyslogsResponse listSyslogs(const Models::ListSyslogsRequest &request);
 
       /**
        * @summary Queries the tags of resources.

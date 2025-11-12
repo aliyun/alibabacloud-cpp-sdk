@@ -140,6 +140,58 @@ ChangeNodeGroupResponse Client::changeNodeGroup(const ChangeNodeGroupRequest &re
 }
 
 /**
+ * @summary 节点规格变配
+ *
+ * @param tmpReq ChangeNodeTypesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChangeNodeTypesResponse
+ */
+ChangeNodeTypesResponse Client::changeNodeTypesWithOptions(const ChangeNodeTypesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChangeNodeTypesShrinkRequest request = ChangeNodeTypesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodeIds()) {
+    request.setNodeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeIds(), "NodeIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasNodeIdsShrink()) {
+    body["NodeIds"] = request.nodeIdsShrink();
+  }
+
+  if (!!request.hasNodeType()) {
+    body["NodeType"] = request.nodeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ChangeNodeTypes"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChangeNodeTypesResponse>();
+}
+
+/**
+ * @summary 节点规格变配
+ *
+ * @param request ChangeNodeTypesRequest
+ * @return ChangeNodeTypesResponse
+ */
+ChangeNodeTypesResponse Client::changeNodeTypes(const ChangeNodeTypesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return changeNodeTypesWithOptions(request, runtime);
+}
+
+/**
  * @summary Moves a resource from one resource group to another.
  *
  * @param request ChangeResourceGroupRequest
@@ -718,6 +770,48 @@ DeleteClusterResponse Client::deleteCluster(const DeleteClusterRequest &request)
 }
 
 /**
+ * @summary 删除一个未使用超节点
+ *
+ * @param request DeleteHyperNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHyperNodeResponse
+ */
+DeleteHyperNodeResponse Client::deleteHyperNodeWithOptions(const DeleteHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHyperNodeId()) {
+    body["HyperNodeId"] = request.hyperNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteHyperNode"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHyperNodeResponse>();
+}
+
+/**
+ * @summary 删除一个未使用超节点
+ *
+ * @param request DeleteHyperNodeRequest
+ * @return DeleteHyperNodeResponse
+ */
+DeleteHyperNodeResponse Client::deleteHyperNode(const DeleteHyperNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHyperNodeWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除一个未使用节点
  *
  * @param request DeleteNodeRequest
@@ -942,6 +1036,48 @@ DescribeDiagnosticResultResponse Client::describeDiagnosticResult(const Describe
 }
 
 /**
+ * @summary 查询节点列表
+ *
+ * @param request DescribeHyperNodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeHyperNodeResponse
+ */
+DescribeHyperNodeResponse Client::describeHyperNodeWithOptions(const DescribeHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasHyperNodeId()) {
+    body["HyperNodeId"] = request.hyperNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeHyperNode"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeHyperNodeResponse>();
+}
+
+/**
+ * @summary 查询节点列表
+ *
+ * @param request DescribeHyperNodeRequest
+ * @return DescribeHyperNodeResponse
+ */
+DescribeHyperNodeResponse Client::describeHyperNode(const DescribeHyperNodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeHyperNodeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the execution list and status of O\\&M Assistant commands.
  *
  * @param request DescribeInvocationsRequest
@@ -1077,6 +1213,48 @@ DescribeNodeResponse Client::describeNodeWithOptions(const DescribeNodeRequest &
 DescribeNodeResponse Client::describeNode(const DescribeNodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeNodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询节点分组
+ *
+ * @param request DescribeNodeGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNodeGroupResponse
+ */
+DescribeNodeGroupResponse Client::describeNodeGroupWithOptions(const DescribeNodeGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasNodeGroupId()) {
+    body["NodeGroupId"] = request.nodeGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeNodeGroup"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNodeGroupResponse>();
+}
+
+/**
+ * @summary 查询节点分组
+ *
+ * @param request DescribeNodeGroupRequest
+ * @return DescribeNodeGroupResponse
+ */
+DescribeNodeGroupResponse Client::describeNodeGroup(const DescribeNodeGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNodeGroupWithOptions(request, runtime);
 }
 
 /**
@@ -1409,48 +1587,6 @@ ExtendClusterResponse Client::extendClusterWithOptions(const ExtendClusterReques
 ExtendClusterResponse Client::extendCluster(const ExtendClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return extendClusterWithOptions(request, runtime);
-}
-
-/**
- * @summary 查询节点列表
- *
- * @param request GetHyperNodeRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetHyperNodeResponse
- */
-GetHyperNodeResponse Client::getHyperNodeWithOptions(const GetHyperNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasHyperNodeId()) {
-    body["HyperNodeId"] = request.hyperNodeId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "GetHyperNode"},
-    {"version" , "2022-12-15"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetHyperNodeResponse>();
-}
-
-/**
- * @summary 查询节点列表
- *
- * @param request GetHyperNodeRequest
- * @return GetHyperNodeResponse
- */
-GetHyperNodeResponse Client::getHyperNode(const GetHyperNodeRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getHyperNodeWithOptions(request, runtime);
 }
 
 /**
@@ -2157,6 +2293,68 @@ ListNodeGroupsResponse Client::listNodeGroupsWithOptions(const ListNodeGroupsReq
 ListNodeGroupsResponse Client::listNodeGroups(const ListNodeGroupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listNodeGroupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询系统日志
+ *
+ * @param request ListSyslogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSyslogsResponse
+ */
+ListSyslogsResponse Client::listSyslogsWithOptions(const ListSyslogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFromTime()) {
+    body["FromTime"] = request.fromTime();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasNodeId()) {
+    body["NodeId"] = request.nodeId();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.query();
+  }
+
+  if (!!request.hasReverse()) {
+    body["Reverse"] = request.reverse();
+  }
+
+  if (!!request.hasToTime()) {
+    body["ToTime"] = request.toTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListSyslogs"},
+    {"version" , "2022-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSyslogsResponse>();
+}
+
+/**
+ * @summary 查询系统日志
+ *
+ * @param request ListSyslogsRequest
+ * @return ListSyslogsResponse
+ */
+ListSyslogsResponse Client::listSyslogs(const ListSyslogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSyslogsWithOptions(request, runtime);
 }
 
 /**

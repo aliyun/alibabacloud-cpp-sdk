@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MachineType, machineType_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_TO_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MachineType, machineType_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
+      DARABONBA_PTR_FROM_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -63,8 +65,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCode_ == nullptr
         && return this->createTime_ == nullptr && return this->expireTime_ == nullptr && return this->fileSystemMountEnabled_ == nullptr && return this->hostname_ == nullptr && return this->hpnZone_ == nullptr
-        && return this->hyperNodeId_ == nullptr && return this->machineType_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->status_ == nullptr
-        && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->hyperNodeId_ == nullptr && return this->machineType_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->operatingState_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
@@ -135,6 +138,13 @@ namespace Models
     inline ListClusterHyperNodesResponseBodyHyperNodes& setNodeGroupName(string nodeGroupName) { DARABONBA_PTR_SET_VALUE(nodeGroupName_, nodeGroupName) };
 
 
+    // operatingState Field Functions 
+    bool hasOperatingState() const { return this->operatingState_ != nullptr;};
+    void deleteOperatingState() { this->operatingState_ = nullptr;};
+    inline string operatingState() const { DARABONBA_PTR_GET_DEFAULT(operatingState_, "") };
+    inline ListClusterHyperNodesResponseBodyHyperNodes& setOperatingState(string operatingState) { DARABONBA_PTR_SET_VALUE(operatingState_, operatingState) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -190,6 +200,7 @@ namespace Models
     std::shared_ptr<string> machineType_ = nullptr;
     std::shared_ptr<string> nodeGroupId_ = nullptr;
     std::shared_ptr<string> nodeGroupName_ = nullptr;
+    std::shared_ptr<string> operatingState_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<vector<Models::ListClusterHyperNodesResponseBodyHyperNodesTags>> tags_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;
