@@ -1,3 +1,7 @@
+2025-11-13 Version: 4.2.2
+- Update API DescribeDBInstanceAttribute: add response parameters Body.VirtualClusterList.
+
+
 2025-10-10 Version: 4.2.1
 - Update API DescribeDBInstanceAttribute: add response parameters Body.SecGroupConnValid.
 
