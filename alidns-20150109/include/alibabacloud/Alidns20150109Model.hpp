@@ -689,6 +689,12 @@
 #include <alibabacloud/models/UpdateRecursionZoneRemarkRequest.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneRemarkResponseBody.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneRemarkResponse.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteRequest.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBody.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponse.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteRequest.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBody.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteResponse.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseRequest.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponseBody.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponse.hpp>
@@ -999,5 +1005,12 @@
 #include <alibabacloud/models/UpdateGtmAddressPoolRequestAddr.hpp>
 #include <alibabacloud/models/UpdateGtmMonitorRequestIspCityNode.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneEffectiveScopeRequestEffectiveScopes.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteRequestAddStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteRequestDeleteStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyDataStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyData.hpp>
 
 #endif
