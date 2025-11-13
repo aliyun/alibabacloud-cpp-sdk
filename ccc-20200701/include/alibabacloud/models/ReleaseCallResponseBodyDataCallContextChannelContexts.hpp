@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callType_ != nullptr
-        && this->channelId_ != nullptr && this->channelState_ != nullptr && this->channelVariables_ != nullptr && this->destination_ != nullptr && this->jobId_ != nullptr
-        && this->originator_ != nullptr && this->releaseInitiator_ != nullptr && this->releaseReason_ != nullptr && this->timestamp_ != nullptr && this->userExtension_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->callType_ == nullptr
+        && return this->channelId_ == nullptr && return this->channelState_ == nullptr && return this->channelVariables_ == nullptr && return this->destination_ == nullptr && return this->jobId_ == nullptr
+        && return this->originator_ == nullptr && return this->releaseInitiator_ == nullptr && return this->releaseReason_ == nullptr && return this->timestamp_ == nullptr && return this->userExtension_ == nullptr
+        && return this->userId_ == nullptr; };
     // callType Field Functions 
     bool hasCallType() const { return this->callType_ != nullptr;};
     void deleteCallType() { this->callType_ = nullptr;};

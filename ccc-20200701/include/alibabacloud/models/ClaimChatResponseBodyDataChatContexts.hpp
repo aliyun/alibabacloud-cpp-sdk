@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessChannelId_ != nullptr
-        && this->accessChannelName_ != nullptr && this->accessChannelType_ != nullptr && this->beingAssigned_ != nullptr && this->callVariables_ != nullptr && this->chatType_ != nullptr
-        && this->instanceId_ != nullptr && this->jobId_ != nullptr; };
+    virtual bool empty() const override { return this->accessChannelId_ == nullptr
+        && return this->accessChannelName_ == nullptr && return this->accessChannelType_ == nullptr && return this->beingAssigned_ == nullptr && return this->callVariables_ == nullptr && return this->chatType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobId_ == nullptr; };
     // accessChannelId Field Functions 
     bool hasAccessChannelId() const { return this->accessChannelId_ != nullptr;};
     void deleteAccessChannelId() { this->accessChannelId_ = nullptr;};

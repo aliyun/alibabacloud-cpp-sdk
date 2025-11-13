@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceExt_ != nullptr
-        && this->deviceId_ != nullptr && this->deviceState_ != nullptr && this->displayId_ != nullptr && this->displayName_ != nullptr && this->email_ != nullptr
-        && this->extension_ != nullptr && this->loginName_ != nullptr && this->mobile_ != nullptr && this->personalOutboundNumberList_ != nullptr && this->primary_ != nullptr
-        && this->primaryAccount_ != nullptr && this->ramId_ != nullptr && this->roleId_ != nullptr && this->roleName_ != nullptr && this->skillLevelList_ != nullptr
-        && this->userId_ != nullptr && this->workMode_ != nullptr; };
+    virtual bool empty() const override { return this->deviceExt_ == nullptr
+        && return this->deviceId_ == nullptr && return this->deviceState_ == nullptr && return this->displayId_ == nullptr && return this->displayName_ == nullptr && return this->email_ == nullptr
+        && return this->extension_ == nullptr && return this->loginName_ == nullptr && return this->mobile_ == nullptr && return this->personalOutboundNumberList_ == nullptr && return this->primary_ == nullptr
+        && return this->primaryAccount_ == nullptr && return this->ramId_ == nullptr && return this->roleId_ == nullptr && return this->roleName_ == nullptr && return this->skillLevelList_ == nullptr
+        && return this->userId_ == nullptr && return this->workMode_ == nullptr; };
     // deviceExt Field Functions 
     bool hasDeviceExt() const { return this->deviceExt_ != nullptr;};
     void deleteDeviceExt() { this->deviceExt_ = nullptr;};

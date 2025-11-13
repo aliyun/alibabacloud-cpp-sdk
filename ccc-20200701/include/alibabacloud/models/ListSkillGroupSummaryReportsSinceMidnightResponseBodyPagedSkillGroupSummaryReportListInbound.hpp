@@ -101,15 +101,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abandonedInQueueOfQueueCount_ != nullptr
-        && this->answeredByAgentOfQueueCount_ != nullptr && this->answeredByAgentOfQueueMaxWaitTimeDuration_ != nullptr && this->answeredByAgentOfQueueWaitTimeDuration_ != nullptr && this->averageRingTime_ != nullptr && this->averageTalkTime_ != nullptr
-        && this->averageWorkTime_ != nullptr && this->callsAbandoned_ != nullptr && this->callsAttendedTransferOut_ != nullptr && this->callsBlindTransferOut_ != nullptr && this->callsHandled_ != nullptr
-        && this->callsOffered_ != nullptr && this->callsOverflow_ != nullptr && this->callsQueuingCanceled_ != nullptr && this->callsQueuingFailure_ != nullptr && this->callsQueuingRerouted_ != nullptr
-        && this->callsQueuingTimeout_ != nullptr && this->callsServiceLevel10_ != nullptr && this->callsServiceLevel20_ != nullptr && this->callsServiceLevel30_ != nullptr && this->callsTimeout_ != nullptr
-        && this->giveUpByAgentOfQueueCount_ != nullptr && this->handleRate_ != nullptr && this->inComingQueueOfQueueCount_ != nullptr && this->maxRingTime_ != nullptr && this->maxTalkTime_ != nullptr
-        && this->maxWorkTime_ != nullptr && this->overFlowInQueueOfQueueCount_ != nullptr && this->queueMaxWaitTimeDuration_ != nullptr && this->queueWaitTimeDuration_ != nullptr && this->satisfactionIndex_ != nullptr
-        && this->satisfactionSurveysOffered_ != nullptr && this->satisfactionSurveysResponded_ != nullptr && this->serviceLevel20_ != nullptr && this->totalRingTime_ != nullptr && this->totalTalkTime_ != nullptr
-        && this->totalWorkTime_ != nullptr; };
+    virtual bool empty() const override { return this->abandonedInQueueOfQueueCount_ == nullptr
+        && return this->answeredByAgentOfQueueCount_ == nullptr && return this->answeredByAgentOfQueueMaxWaitTimeDuration_ == nullptr && return this->answeredByAgentOfQueueWaitTimeDuration_ == nullptr && return this->averageRingTime_ == nullptr && return this->averageTalkTime_ == nullptr
+        && return this->averageWorkTime_ == nullptr && return this->callsAbandoned_ == nullptr && return this->callsAttendedTransferOut_ == nullptr && return this->callsBlindTransferOut_ == nullptr && return this->callsHandled_ == nullptr
+        && return this->callsOffered_ == nullptr && return this->callsOverflow_ == nullptr && return this->callsQueuingCanceled_ == nullptr && return this->callsQueuingFailure_ == nullptr && return this->callsQueuingRerouted_ == nullptr
+        && return this->callsQueuingTimeout_ == nullptr && return this->callsServiceLevel10_ == nullptr && return this->callsServiceLevel20_ == nullptr && return this->callsServiceLevel30_ == nullptr && return this->callsTimeout_ == nullptr
+        && return this->giveUpByAgentOfQueueCount_ == nullptr && return this->handleRate_ == nullptr && return this->inComingQueueOfQueueCount_ == nullptr && return this->maxRingTime_ == nullptr && return this->maxTalkTime_ == nullptr
+        && return this->maxWorkTime_ == nullptr && return this->overFlowInQueueOfQueueCount_ == nullptr && return this->queueMaxWaitTimeDuration_ == nullptr && return this->queueWaitTimeDuration_ == nullptr && return this->satisfactionIndex_ == nullptr
+        && return this->satisfactionSurveysOffered_ == nullptr && return this->satisfactionSurveysResponded_ == nullptr && return this->serviceLevel20_ == nullptr && return this->totalRingTime_ == nullptr && return this->totalTalkTime_ == nullptr
+        && return this->totalWorkTime_ == nullptr; };
     // abandonedInQueueOfQueueCount Field Functions 
     bool hasAbandonedInQueueOfQueueCount() const { return this->abandonedInQueueOfQueueCount_ != nullptr;};
     void deleteAbandonedInQueueOfQueueCount() { this->abandonedInQueueOfQueueCount_ = nullptr;};

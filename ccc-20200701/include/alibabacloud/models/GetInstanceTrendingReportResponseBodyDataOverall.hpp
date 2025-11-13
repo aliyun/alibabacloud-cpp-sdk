@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxLoggedInAgents_ != nullptr
-        && this->statsTime_ != nullptr; };
+    virtual bool empty() const override { return this->maxLoggedInAgents_ == nullptr
+        && return this->statsTime_ == nullptr; };
     // maxLoggedInAgents Field Functions 
     bool hasMaxLoggedInAgents() const { return this->maxLoggedInAgents_ != nullptr;};
     void deleteMaxLoggedInAgents() { this->maxLoggedInAgents_ = nullptr;};

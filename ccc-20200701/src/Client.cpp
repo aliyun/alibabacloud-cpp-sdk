@@ -1682,6 +1682,10 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
     request.setCaseListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.caseList(), "CaseList", "json"));
   }
 
+  if (!!tmpReq.hasNumberList()) {
+    request.setNumberListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.numberList(), "NumberList", "json"));
+  }
+
   json query = {};
   if (!!request.hasCallableTime()) {
     query["CallableTime"] = request.callableTime();
@@ -1707,6 +1711,14 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
     query["ExecutingUntilTimeout"] = request.executingUntilTimeout();
   }
 
+  if (!!request.hasFlashSmsParameters()) {
+    query["FlashSmsParameters"] = request.flashSmsParameters();
+  }
+
+  if (!!request.hasInstGroupId()) {
+    query["InstGroupId"] = request.instGroupId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -1721,6 +1733,10 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
 
   if (!!request.hasName()) {
     query["Name"] = request.name();
+  }
+
+  if (!!request.hasNumberListShrink()) {
+    query["NumberList"] = request.numberListShrink();
   }
 
   if (!!request.hasQueueId()) {
@@ -1926,6 +1942,8 @@ CreateCustomCallTaggingResponse Client::createCustomCallTagging(const CreateCust
 }
 
 /**
+ * @summary 创建实例
+ *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateInstanceResponse
@@ -1971,6 +1989,8 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
+ * @summary 创建实例
+ *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
  */
@@ -4056,6 +4076,8 @@ GetHistoricalInstanceReportResponse Client::getHistoricalInstanceReport(const Ge
 }
 
 /**
+ * @summary 获取实例信息
+ *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceResponse
@@ -4085,6 +4107,8 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
+ * @summary 获取实例信息
+ *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
  */
@@ -7422,6 +7446,8 @@ ListHistoricalAgentSkillGroupReportResponse Client::listHistoricalAgentSkillGrou
 }
 
 /**
+ * @summary 技能组汇总报表
+ *
  * @param request ListHistoricalSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListHistoricalSkillGroupReportResponse
@@ -7477,6 +7503,8 @@ ListHistoricalSkillGroupReportResponse Client::listHistoricalSkillGroupReportWit
 }
 
 /**
+ * @summary 技能组汇总报表
+ *
  * @param request ListHistoricalSkillGroupReportRequest
  * @return ListHistoricalSkillGroupReportResponse
  */

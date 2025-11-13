@@ -499,6 +499,8 @@ namespace CCC20200701
       Models::CreateCustomCallTaggingResponse createCustomCallTagging(const Models::CreateCustomCallTaggingRequest &request);
 
       /**
+       * @summary 创建实例
+       *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateInstanceResponse
@@ -506,6 +508,8 @@ namespace CCC20200701
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建实例
+       *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
        */
@@ -1140,6 +1144,8 @@ namespace CCC20200701
       Models::GetHistoricalInstanceReportResponse getHistoricalInstanceReport(const Models::GetHistoricalInstanceReportRequest &request);
 
       /**
+       * @summary 获取实例信息
+       *
        * @param request GetInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceResponse
@@ -1147,6 +1153,8 @@ namespace CCC20200701
       Models::GetInstanceResponse getInstanceWithOptions(const Models::GetInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取实例信息
+       *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
        */
@@ -2054,6 +2062,8 @@ namespace CCC20200701
       Models::ListHistoricalAgentSkillGroupReportResponse listHistoricalAgentSkillGroupReport(const Models::ListHistoricalAgentSkillGroupReportRequest &request);
 
       /**
+       * @summary 技能组汇总报表
+       *
        * @param request ListHistoricalSkillGroupReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListHistoricalSkillGroupReportResponse
@@ -2061,6 +2071,8 @@ namespace CCC20200701
       Models::ListHistoricalSkillGroupReportResponse listHistoricalSkillGroupReportWithOptions(const Models::ListHistoricalSkillGroupReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 技能组汇总报表
+       *
        * @param request ListHistoricalSkillGroupReportRequest
        * @return ListHistoricalSkillGroupReportResponse
        */

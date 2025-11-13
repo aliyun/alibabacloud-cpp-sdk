@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->contactFlowId_ != nullptr
-        && this->createdTime_ != nullptr && this->definition_ != nullptr && this->description_ != nullptr && this->draftId_ != nullptr && this->editor_ != nullptr
-        && this->instanceId_ != nullptr && this->name_ != nullptr && this->published_ != nullptr && this->type_ != nullptr && this->updatedTime_ != nullptr; };
+    virtual bool empty() const override { return this->contactFlowId_ == nullptr
+        && return this->createdTime_ == nullptr && return this->definition_ == nullptr && return this->description_ == nullptr && return this->draftId_ == nullptr && return this->editor_ == nullptr
+        && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->published_ == nullptr && return this->type_ == nullptr && return this->updatedTime_ == nullptr; };
     // contactFlowId Field Functions 
     bool hasContactFlowId() const { return this->contactFlowId_ != nullptr;};
     void deleteContactFlowId() { this->contactFlowId_ = nullptr;};

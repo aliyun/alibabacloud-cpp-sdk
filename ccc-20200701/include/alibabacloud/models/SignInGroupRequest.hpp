@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additivity_ != nullptr
-        && this->chatDeviceId_ != nullptr && this->deviceId_ != nullptr && this->instanceId_ != nullptr && this->signedSkillGroupIdList_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->additivity_ == nullptr
+        && return this->chatDeviceId_ == nullptr && return this->deviceId_ == nullptr && return this->instanceId_ == nullptr && return this->signedSkillGroupIdList_ == nullptr && return this->userId_ == nullptr; };
     // additivity Field Functions 
     bool hasAdditivity() const { return this->additivity_ != nullptr;};
     void deleteAdditivity() { this->additivity_ = nullptr;};

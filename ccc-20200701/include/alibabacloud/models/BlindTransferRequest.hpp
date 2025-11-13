@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callPriority_ != nullptr
-        && this->contactFlowVariables_ != nullptr && this->deviceId_ != nullptr && this->instanceId_ != nullptr && this->jobId_ != nullptr && this->queuingOverflowThreshold_ != nullptr
-        && this->queuingTimeoutSeconds_ != nullptr && this->routingType_ != nullptr && this->skillGroupId_ != nullptr && this->strategyName_ != nullptr && this->strategyParams_ != nullptr
-        && this->tags_ != nullptr && this->timeoutSeconds_ != nullptr && this->transferee_ != nullptr && this->transfereeType_ != nullptr && this->transferor_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->callPriority_ == nullptr
+        && return this->contactFlowVariables_ == nullptr && return this->deviceId_ == nullptr && return this->instanceId_ == nullptr && return this->jobId_ == nullptr && return this->queuingOverflowThreshold_ == nullptr
+        && return this->queuingTimeoutSeconds_ == nullptr && return this->routingType_ == nullptr && return this->skillGroupId_ == nullptr && return this->strategyName_ == nullptr && return this->strategyParams_ == nullptr
+        && return this->tags_ == nullptr && return this->timeoutSeconds_ == nullptr && return this->transferee_ == nullptr && return this->transfereeType_ == nullptr && return this->transferor_ == nullptr
+        && return this->userId_ == nullptr; };
     // callPriority Field Functions 
     bool hasCallPriority() const { return this->callPriority_ != nullptr;};
     void deleteCallPriority() { this->callPriority_ = nullptr;};

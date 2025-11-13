@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignee_ != nullptr
-        && this->assigneeType_ != nullptr && this->categoryId_ != nullptr && this->creator_ != nullptr && this->customerId_ != nullptr && this->endTime_ != nullptr
-        && this->instanceId_ != nullptr && this->jobIdList_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->participant_ != nullptr
-        && this->startTime_ != nullptr && this->state_ != nullptr && this->ticketId_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->assignee_ == nullptr
+        && return this->assigneeType_ == nullptr && return this->categoryId_ == nullptr && return this->creator_ == nullptr && return this->customerId_ == nullptr && return this->endTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobIdList_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->participant_ == nullptr
+        && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->ticketId_ == nullptr && return this->title_ == nullptr; };
     // assignee Field Functions 
     bool hasAssignee() const { return this->assignee_ != nullptr;};
     void deleteAssignee() { this->assignee_ = nullptr;};

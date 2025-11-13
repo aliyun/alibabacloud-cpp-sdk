@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageTalkTime_ != nullptr
-        && this->callsAnswered_ != nullptr && this->callsDialed_ != nullptr && this->callsHandled_ != nullptr && this->callsOffered_ != nullptr && this->callsTalk_ != nullptr
-        && this->callsTalked_ != nullptr && this->maxTalkTime_ != nullptr && this->totalTalkTime_ != nullptr; };
+    virtual bool empty() const override { return this->averageTalkTime_ == nullptr
+        && return this->callsAnswered_ == nullptr && return this->callsDialed_ == nullptr && return this->callsHandled_ == nullptr && return this->callsOffered_ == nullptr && return this->callsTalk_ == nullptr
+        && return this->callsTalked_ == nullptr && return this->maxTalkTime_ == nullptr && return this->totalTalkTime_ == nullptr; };
     // averageTalkTime Field Functions 
     bool hasAverageTalkTime() const { return this->averageTalkTime_ != nullptr;};
     void deleteAverageTalkTime() { this->averageTalkTime_ = nullptr;};

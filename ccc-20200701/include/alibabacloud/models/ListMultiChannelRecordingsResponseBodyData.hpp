@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentChannelId_ != nullptr
-        && this->agentId_ != nullptr && this->agentName_ != nullptr && this->contactId_ != nullptr && this->duration_ != nullptr && this->fileName_ != nullptr
-        && this->fileUrl_ != nullptr && this->holdTimeSegments_ != nullptr && this->ramId_ != nullptr && this->skillGroupId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->agentChannelId_ == nullptr
+        && return this->agentId_ == nullptr && return this->agentName_ == nullptr && return this->contactId_ == nullptr && return this->duration_ == nullptr && return this->fileName_ == nullptr
+        && return this->fileUrl_ == nullptr && return this->holdTimeSegments_ == nullptr && return this->ramId_ == nullptr && return this->skillGroupId_ == nullptr && return this->startTime_ == nullptr; };
     // agentChannelId Field Functions 
     bool hasAgentChannelId() const { return this->agentChannelId_ != nullptr;};
     void deleteAgentChannelId() { this->agentChannelId_ = nullptr;};

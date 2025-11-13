@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentServerUrl_ != nullptr
-        && this->avatarUrl_ != nullptr && this->chatAppId_ != nullptr && this->chatAppKey_ != nullptr && this->chatDeviceId_ != nullptr && this->chatLoginToken_ != nullptr
-        && this->chatServerUrl_ != nullptr && this->chatUserId_ != nullptr && this->deviceExt_ != nullptr && this->deviceId_ != nullptr && this->deviceState_ != nullptr
-        && this->displayName_ != nullptr && this->extension_ != nullptr && this->nickname_ != nullptr && this->signature_ != nullptr && this->signature2_ != nullptr
-        && this->sipServerUrl_ != nullptr && this->userId_ != nullptr && this->userKey_ != nullptr && this->userKey2_ != nullptr && this->workMode_ != nullptr; };
+    virtual bool empty() const override { return this->agentServerUrl_ == nullptr
+        && return this->avatarUrl_ == nullptr && return this->chatAppId_ == nullptr && return this->chatAppKey_ == nullptr && return this->chatDeviceId_ == nullptr && return this->chatLoginToken_ == nullptr
+        && return this->chatServerUrl_ == nullptr && return this->chatUserId_ == nullptr && return this->deviceExt_ == nullptr && return this->deviceId_ == nullptr && return this->deviceState_ == nullptr
+        && return this->displayName_ == nullptr && return this->extension_ == nullptr && return this->nickname_ == nullptr && return this->signature_ == nullptr && return this->signature2_ == nullptr
+        && return this->sipServerUrl_ == nullptr && return this->userId_ == nullptr && return this->userKey_ == nullptr && return this->userKey2_ == nullptr && return this->workMode_ == nullptr; };
     // agentServerUrl Field Functions 
     bool hasAgentServerUrl() const { return this->agentServerUrl_ != nullptr;};
     void deleteAgentServerUrl() { this->agentServerUrl_ = nullptr;};

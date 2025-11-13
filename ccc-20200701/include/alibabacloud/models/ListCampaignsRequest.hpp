@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualStartTimeFrom_ != nullptr
-        && this->actualStartTimeTo_ != nullptr && this->instanceId_ != nullptr && this->name_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->planedStartTimeFrom_ != nullptr && this->planedStartTimeTo_ != nullptr && this->queueId_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->actualStartTimeFrom_ == nullptr
+        && return this->actualStartTimeTo_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->planedStartTimeFrom_ == nullptr && return this->planedStartTimeTo_ == nullptr && return this->queueId_ == nullptr && return this->state_ == nullptr; };
     // actualStartTimeFrom Field Functions 
     bool hasActualStartTimeFrom() const { return this->actualStartTimeFrom_ != nullptr;};
     void deleteActualStartTimeFrom() { this->actualStartTimeFrom_ = nullptr;};

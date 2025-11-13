@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callsAbandonedInIVR_ != nullptr
-        && this->callsAbandonedInQueue_ != nullptr && this->callsAbandonedInRing_ != nullptr && this->callsHandled_ != nullptr && this->callsQueued_ != nullptr && this->statsTime_ != nullptr
-        && this->totalCalls_ != nullptr; };
+    virtual bool empty() const override { return this->callsAbandonedInIVR_ == nullptr
+        && return this->callsAbandonedInQueue_ == nullptr && return this->callsAbandonedInRing_ == nullptr && return this->callsHandled_ == nullptr && return this->callsQueued_ == nullptr && return this->statsTime_ == nullptr
+        && return this->totalCalls_ == nullptr; };
     // callsAbandonedInIVR Field Functions 
     bool hasCallsAbandonedInIVR() const { return this->callsAbandonedInIVR_ != nullptr;};
     void deleteCallsAbandonedInIVR() { this->callsAbandonedInIVR_ = nullptr;};

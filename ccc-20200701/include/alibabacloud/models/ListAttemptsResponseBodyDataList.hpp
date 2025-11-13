@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentEstablishedTime_ != nullptr
-        && this->agentId_ != nullptr && this->agentRingDuration_ != nullptr && this->assignAgentTime_ != nullptr && this->attemptId_ != nullptr && this->callee_ != nullptr
-        && this->caller_ != nullptr && this->campaignId_ != nullptr && this->caseId_ != nullptr && this->contactId_ != nullptr && this->customerEstablishedTime_ != nullptr
-        && this->customerReleasedTime_ != nullptr && this->dialDuration_ != nullptr && this->dialTime_ != nullptr && this->enqueueTime_ != nullptr && this->enterIvrTime_ != nullptr
-        && this->instanceId_ != nullptr && this->ivrDuration_ != nullptr && this->queueDuration_ != nullptr && this->queueId_ != nullptr; };
+    virtual bool empty() const override { return this->agentEstablishedTime_ == nullptr
+        && return this->agentId_ == nullptr && return this->agentRingDuration_ == nullptr && return this->assignAgentTime_ == nullptr && return this->attemptId_ == nullptr && return this->callee_ == nullptr
+        && return this->caller_ == nullptr && return this->campaignId_ == nullptr && return this->caseId_ == nullptr && return this->contactId_ == nullptr && return this->customerEstablishedTime_ == nullptr
+        && return this->customerReleasedTime_ == nullptr && return this->dialDuration_ == nullptr && return this->dialTime_ == nullptr && return this->enqueueTime_ == nullptr && return this->enterIvrTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->ivrDuration_ == nullptr && return this->queueDuration_ == nullptr && return this->queueId_ == nullptr; };
     // agentEstablishedTime Field Functions 
     bool hasAgentEstablishedTime() const { return this->agentEstablishedTime_ != nullptr;};
     void deleteAgentEstablishedTime() { this->agentEstablishedTime_ = nullptr;};

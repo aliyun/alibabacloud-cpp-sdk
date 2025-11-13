@@ -153,20 +153,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abandonRate_ != nullptr
-        && this->accessChannelTypeDetailList_ != nullptr && this->averageAbandonTime_ != nullptr && this->averageAbandonedInIVRTime_ != nullptr && this->averageAbandonedInQueueTime_ != nullptr && this->averageAbandonedInRingTime_ != nullptr
-        && this->averageFirstResponseTime_ != nullptr && this->averageHoldTime_ != nullptr && this->averageResponseTime_ != nullptr && this->averageRingTime_ != nullptr && this->averageTalkTime_ != nullptr
-        && this->averageWaitTime_ != nullptr && this->averageWorkTime_ != nullptr && this->callsAbandoned_ != nullptr && this->callsAbandonedInIVR_ != nullptr && this->callsAbandonedInQueue_ != nullptr
-        && this->callsAbandonedInRing_ != nullptr && this->callsAbandonedInVoiceNavigator_ != nullptr && this->callsAttendedTransferred_ != nullptr && this->callsBlindTransferred_ != nullptr && this->callsCausedIVRException_ != nullptr
-        && this->callsForwardToOutsideNumber_ != nullptr && this->callsHandled_ != nullptr && this->callsHold_ != nullptr && this->callsIVRException_ != nullptr && this->callsOffered_ != nullptr
-        && this->callsQueued_ != nullptr && this->callsQueuingFailed_ != nullptr && this->callsQueuingOverflow_ != nullptr && this->callsQueuingTimeout_ != nullptr && this->callsRinged_ != nullptr
-        && this->callsToVoicemail_ != nullptr && this->callsVoicemail_ != nullptr && this->handleRate_ != nullptr && this->maxAbandonTime_ != nullptr && this->maxAbandonedInIVRTime_ != nullptr
-        && this->maxAbandonedInQueueTime_ != nullptr && this->maxAbandonedInRingTime_ != nullptr && this->maxHoldTime_ != nullptr && this->maxRingTime_ != nullptr && this->maxTalkTime_ != nullptr
-        && this->maxWaitTime_ != nullptr && this->maxWorkTime_ != nullptr && this->satisfactionIndex_ != nullptr && this->satisfactionRate_ != nullptr && this->satisfactionSurveysOffered_ != nullptr
-        && this->satisfactionSurveysResponded_ != nullptr && this->serviceLevel15_ != nullptr && this->serviceLevel20_ != nullptr && this->serviceLevel30_ != nullptr && this->totalAbandonTime_ != nullptr
-        && this->totalAbandonedInIVRTime_ != nullptr && this->totalAbandonedInQueueTime_ != nullptr && this->totalAbandonedInRingTime_ != nullptr && this->totalHoldTime_ != nullptr && this->totalMessagesSent_ != nullptr
-        && this->totalMessagesSentByAgent_ != nullptr && this->totalMessagesSentByCustomer_ != nullptr && this->totalRingTime_ != nullptr && this->totalTalkTime_ != nullptr && this->totalWaitTime_ != nullptr
-        && this->totalWorkTime_ != nullptr; };
+    virtual bool empty() const override { return this->abandonRate_ == nullptr
+        && return this->accessChannelTypeDetailList_ == nullptr && return this->averageAbandonTime_ == nullptr && return this->averageAbandonedInIVRTime_ == nullptr && return this->averageAbandonedInQueueTime_ == nullptr && return this->averageAbandonedInRingTime_ == nullptr
+        && return this->averageFirstResponseTime_ == nullptr && return this->averageHoldTime_ == nullptr && return this->averageResponseTime_ == nullptr && return this->averageRingTime_ == nullptr && return this->averageTalkTime_ == nullptr
+        && return this->averageWaitTime_ == nullptr && return this->averageWorkTime_ == nullptr && return this->callsAbandoned_ == nullptr && return this->callsAbandonedInIVR_ == nullptr && return this->callsAbandonedInQueue_ == nullptr
+        && return this->callsAbandonedInRing_ == nullptr && return this->callsAbandonedInVoiceNavigator_ == nullptr && return this->callsAttendedTransferred_ == nullptr && return this->callsBlindTransferred_ == nullptr && return this->callsCausedIVRException_ == nullptr
+        && return this->callsForwardToOutsideNumber_ == nullptr && return this->callsHandled_ == nullptr && return this->callsHold_ == nullptr && return this->callsIVRException_ == nullptr && return this->callsOffered_ == nullptr
+        && return this->callsQueued_ == nullptr && return this->callsQueuingFailed_ == nullptr && return this->callsQueuingOverflow_ == nullptr && return this->callsQueuingTimeout_ == nullptr && return this->callsRinged_ == nullptr
+        && return this->callsToVoicemail_ == nullptr && return this->callsVoicemail_ == nullptr && return this->handleRate_ == nullptr && return this->maxAbandonTime_ == nullptr && return this->maxAbandonedInIVRTime_ == nullptr
+        && return this->maxAbandonedInQueueTime_ == nullptr && return this->maxAbandonedInRingTime_ == nullptr && return this->maxHoldTime_ == nullptr && return this->maxRingTime_ == nullptr && return this->maxTalkTime_ == nullptr
+        && return this->maxWaitTime_ == nullptr && return this->maxWorkTime_ == nullptr && return this->satisfactionIndex_ == nullptr && return this->satisfactionRate_ == nullptr && return this->satisfactionSurveysOffered_ == nullptr
+        && return this->satisfactionSurveysResponded_ == nullptr && return this->serviceLevel15_ == nullptr && return this->serviceLevel20_ == nullptr && return this->serviceLevel30_ == nullptr && return this->totalAbandonTime_ == nullptr
+        && return this->totalAbandonedInIVRTime_ == nullptr && return this->totalAbandonedInQueueTime_ == nullptr && return this->totalAbandonedInRingTime_ == nullptr && return this->totalHoldTime_ == nullptr && return this->totalMessagesSent_ == nullptr
+        && return this->totalMessagesSentByAgent_ == nullptr && return this->totalMessagesSentByCustomer_ == nullptr && return this->totalRingTime_ == nullptr && return this->totalTalkTime_ == nullptr && return this->totalWaitTime_ == nullptr
+        && return this->totalWorkTime_ == nullptr; };
     // abandonRate Field Functions 
     bool hasAbandonRate() const { return this->abandonRate_ != nullptr;};
     void deleteAbandonRate() { this->abandonRate_ = nullptr;};

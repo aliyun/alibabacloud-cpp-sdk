@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->active_ != nullptr
-        && this->city_ != nullptr && this->contactFlowId_ != nullptr && this->contactFlowName_ != nullptr && this->createTime_ != nullptr && this->instanceId_ != nullptr
-        && this->number_ != nullptr && this->provider_ != nullptr && this->province_ != nullptr && this->skillGroups_ != nullptr && this->tags_ != nullptr
-        && this->usage_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->active_ == nullptr
+        && return this->city_ == nullptr && return this->contactFlowId_ == nullptr && return this->contactFlowName_ == nullptr && return this->createTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->number_ == nullptr && return this->provider_ == nullptr && return this->province_ == nullptr && return this->skillGroups_ == nullptr && return this->tags_ == nullptr
+        && return this->usage_ == nullptr && return this->userId_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};

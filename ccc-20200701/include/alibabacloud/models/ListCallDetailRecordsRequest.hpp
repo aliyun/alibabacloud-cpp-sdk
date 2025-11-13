@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->calledNumber_ != nullptr && this->callingNumber_ != nullptr && this->contactDisposition_ != nullptr && this->contactDispositionList_ != nullptr && this->contactId_ != nullptr
-        && this->contactType_ != nullptr && this->contactTypeList_ != nullptr && this->criteria_ != nullptr && this->earlyMediaStateList_ != nullptr && this->endTime_ != nullptr
-        && this->instanceId_ != nullptr && this->orderByField_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->satisfactionDescriptionList_ != nullptr
-        && this->satisfactionList_ != nullptr && this->satisfactionSurveyChannel_ != nullptr && this->skillGroupId_ != nullptr && this->sortOrder_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->calledNumber_ == nullptr && return this->callingNumber_ == nullptr && return this->contactDisposition_ == nullptr && return this->contactDispositionList_ == nullptr && return this->contactId_ == nullptr
+        && return this->contactType_ == nullptr && return this->contactTypeList_ == nullptr && return this->criteria_ == nullptr && return this->earlyMediaStateList_ == nullptr && return this->endTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->orderByField_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->satisfactionDescriptionList_ == nullptr
+        && return this->satisfactionList_ == nullptr && return this->satisfactionSurveyChannel_ == nullptr && return this->skillGroupId_ == nullptr && return this->sortOrder_ == nullptr && return this->startTime_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

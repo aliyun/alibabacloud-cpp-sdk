@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callableTime_ != nullptr
-        && this->campaignId_ != nullptr && this->contactFlowId_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->name_ != nullptr
-        && this->startTime_ != nullptr && this->strategyParameters_ != nullptr; };
+    virtual bool empty() const override { return this->callableTime_ == nullptr
+        && return this->campaignId_ == nullptr && return this->contactFlowId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->name_ == nullptr
+        && return this->startTime_ == nullptr && return this->strategyParameters_ == nullptr; };
     // callableTime Field Functions 
     bool hasCallableTime() const { return this->callableTime_ != nullptr;};
     void deleteCallableTime() { this->callableTime_ = nullptr;};

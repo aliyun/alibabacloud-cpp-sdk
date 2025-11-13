@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->breakCode_ != nullptr
-        && this->chatDeviceId_ != nullptr && this->deviceId_ != nullptr && this->extension_ != nullptr && this->instanceId_ != nullptr && this->jobId_ != nullptr
-        && this->outboundScenario_ != nullptr && this->signedSkillGroupIdList_ != nullptr && this->userId_ != nullptr && this->userState_ != nullptr && this->workMode_ != nullptr; };
+    virtual bool empty() const override { return this->breakCode_ == nullptr
+        && return this->chatDeviceId_ == nullptr && return this->deviceId_ == nullptr && return this->extension_ == nullptr && return this->instanceId_ == nullptr && return this->jobId_ == nullptr
+        && return this->outboundScenario_ == nullptr && return this->signedSkillGroupIdList_ == nullptr && return this->userId_ == nullptr && return this->userState_ == nullptr && return this->workMode_ == nullptr; };
     // breakCode Field Functions 
     bool hasBreakCode() const { return this->breakCode_ != nullptr;};
     void deleteBreakCode() { this->breakCode_ = nullptr;};

@@ -93,13 +93,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentEvents_ != nullptr
-        && this->agentIds_ != nullptr && this->agentNames_ != nullptr && this->analyticsReport_ != nullptr && this->analyticsReportReady_ != nullptr && this->callDuration_ != nullptr
-        && this->calledNumber_ != nullptr && this->calleeLocation_ != nullptr && this->callerLocation_ != nullptr && this->callingNumber_ != nullptr && this->contactDisposition_ != nullptr
-        && this->contactId_ != nullptr && this->contactType_ != nullptr && this->customerEvents_ != nullptr && this->earlyMediaState_ != nullptr && this->establishedTime_ != nullptr
-        && this->instanceId_ != nullptr && this->ivrEvents_ != nullptr && this->outsideNumberReleaseReason_ != nullptr && this->queueEvents_ != nullptr && this->recordingReady_ != nullptr
-        && this->releaseInitiator_ != nullptr && this->releaseReason_ != nullptr && this->releaseTime_ != nullptr && this->satisfaction_ != nullptr && this->satisfactionSurveyChannel_ != nullptr
-        && this->satisfactionSurveyOffered_ != nullptr && this->skillGroupIds_ != nullptr && this->skillGroupNames_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->agentEvents_ == nullptr
+        && return this->agentIds_ == nullptr && return this->agentNames_ == nullptr && return this->analyticsReport_ == nullptr && return this->analyticsReportReady_ == nullptr && return this->callDuration_ == nullptr
+        && return this->calledNumber_ == nullptr && return this->calleeLocation_ == nullptr && return this->callerLocation_ == nullptr && return this->callingNumber_ == nullptr && return this->contactDisposition_ == nullptr
+        && return this->contactId_ == nullptr && return this->contactType_ == nullptr && return this->customerEvents_ == nullptr && return this->earlyMediaState_ == nullptr && return this->establishedTime_ == nullptr
+        && return this->instanceId_ == nullptr && return this->ivrEvents_ == nullptr && return this->outsideNumberReleaseReason_ == nullptr && return this->queueEvents_ == nullptr && return this->recordingReady_ == nullptr
+        && return this->releaseInitiator_ == nullptr && return this->releaseReason_ == nullptr && return this->releaseTime_ == nullptr && return this->satisfaction_ == nullptr && return this->satisfactionSurveyChannel_ == nullptr
+        && return this->satisfactionSurveyOffered_ == nullptr && return this->skillGroupIds_ == nullptr && return this->skillGroupNames_ == nullptr && return this->startTime_ == nullptr; };
     // agentEvents Field Functions 
     bool hasAgentEvents() const { return this->agentEvents_ != nullptr;};
     void deleteAgentEvents() { this->agentEvents_ = nullptr;};

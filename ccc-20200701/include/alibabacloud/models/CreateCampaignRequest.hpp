@@ -21,10 +21,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContactFlowId, contactFlowId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(ExecutingUntilTimeout, executingUntilTimeout_);
+      DARABONBA_PTR_TO_JSON(FlashSmsParameters, flashSmsParameters_);
+      DARABONBA_PTR_TO_JSON(InstGroupId, instGroupId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(MaxAttemptCount, maxAttemptCount_);
       DARABONBA_PTR_TO_JSON(MinAttemptInterval, minAttemptInterval_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NumberList, numberList_);
       DARABONBA_PTR_TO_JSON(QueueId, queueId_);
       DARABONBA_PTR_TO_JSON(Simulation, simulation_);
       DARABONBA_PTR_TO_JSON(SimulationParameters, simulationParameters_);
@@ -39,10 +42,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ContactFlowId, contactFlowId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(ExecutingUntilTimeout, executingUntilTimeout_);
+      DARABONBA_PTR_FROM_JSON(FlashSmsParameters, flashSmsParameters_);
+      DARABONBA_PTR_FROM_JSON(InstGroupId, instGroupId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(MaxAttemptCount, maxAttemptCount_);
       DARABONBA_PTR_FROM_JSON(MinAttemptInterval, minAttemptInterval_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NumberList, numberList_);
       DARABONBA_PTR_FROM_JSON(QueueId, queueId_);
       DARABONBA_PTR_FROM_JSON(Simulation, simulation_);
       DARABONBA_PTR_FROM_JSON(SimulationParameters, simulationParameters_);
@@ -61,10 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callableTime_ != nullptr
-        && this->caseFileKey_ != nullptr && this->caseList_ != nullptr && this->contactFlowId_ != nullptr && this->endTime_ != nullptr && this->executingUntilTimeout_ != nullptr
-        && this->instanceId_ != nullptr && this->maxAttemptCount_ != nullptr && this->minAttemptInterval_ != nullptr && this->name_ != nullptr && this->queueId_ != nullptr
-        && this->simulation_ != nullptr && this->simulationParameters_ != nullptr && this->startTime_ != nullptr && this->strategyParameters_ != nullptr && this->strategyType_ != nullptr; };
+    virtual bool empty() const override { return this->callableTime_ == nullptr
+        && return this->caseFileKey_ == nullptr && return this->caseList_ == nullptr && return this->contactFlowId_ == nullptr && return this->endTime_ == nullptr && return this->executingUntilTimeout_ == nullptr
+        && return this->flashSmsParameters_ == nullptr && return this->instGroupId_ == nullptr && return this->instanceId_ == nullptr && return this->maxAttemptCount_ == nullptr && return this->minAttemptInterval_ == nullptr
+        && return this->name_ == nullptr && return this->numberList_ == nullptr && return this->queueId_ == nullptr && return this->simulation_ == nullptr && return this->simulationParameters_ == nullptr
+        && return this->startTime_ == nullptr && return this->strategyParameters_ == nullptr && return this->strategyType_ == nullptr; };
     // callableTime Field Functions 
     bool hasCallableTime() const { return this->callableTime_ != nullptr;};
     void deleteCallableTime() { this->callableTime_ = nullptr;};
@@ -109,6 +116,20 @@ namespace Models
     inline CreateCampaignRequest& setExecutingUntilTimeout(bool executingUntilTimeout) { DARABONBA_PTR_SET_VALUE(executingUntilTimeout_, executingUntilTimeout) };
 
 
+    // flashSmsParameters Field Functions 
+    bool hasFlashSmsParameters() const { return this->flashSmsParameters_ != nullptr;};
+    void deleteFlashSmsParameters() { this->flashSmsParameters_ = nullptr;};
+    inline string flashSmsParameters() const { DARABONBA_PTR_GET_DEFAULT(flashSmsParameters_, "") };
+    inline CreateCampaignRequest& setFlashSmsParameters(string flashSmsParameters) { DARABONBA_PTR_SET_VALUE(flashSmsParameters_, flashSmsParameters) };
+
+
+    // instGroupId Field Functions 
+    bool hasInstGroupId() const { return this->instGroupId_ != nullptr;};
+    void deleteInstGroupId() { this->instGroupId_ = nullptr;};
+    inline string instGroupId() const { DARABONBA_PTR_GET_DEFAULT(instGroupId_, "") };
+    inline CreateCampaignRequest& setInstGroupId(string instGroupId) { DARABONBA_PTR_SET_VALUE(instGroupId_, instGroupId) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -135,6 +156,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateCampaignRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // numberList Field Functions 
+    bool hasNumberList() const { return this->numberList_ != nullptr;};
+    void deleteNumberList() { this->numberList_ = nullptr;};
+    inline const vector<string> & numberList() const { DARABONBA_PTR_GET_CONST(numberList_, vector<string>) };
+    inline vector<string> numberList() { DARABONBA_PTR_GET(numberList_, vector<string>) };
+    inline CreateCampaignRequest& setNumberList(const vector<string> & numberList) { DARABONBA_PTR_SET_VALUE(numberList_, numberList) };
+    inline CreateCampaignRequest& setNumberList(vector<string> && numberList) { DARABONBA_PTR_SET_RVALUE(numberList_, numberList) };
 
 
     // queueId Field Functions 
@@ -189,6 +219,8 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> endTime_ = nullptr;
     std::shared_ptr<bool> executingUntilTimeout_ = nullptr;
+    std::shared_ptr<string> flashSmsParameters_ = nullptr;
+    std::shared_ptr<string> instGroupId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
     // This parameter is required.
@@ -197,6 +229,7 @@ namespace Models
     std::shared_ptr<int64_t> minAttemptInterval_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<vector<string>> numberList_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> queueId_ = nullptr;
     std::shared_ptr<bool> simulation_ = nullptr;

@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageWaitingTime_ != nullptr
-        && this->breakingAgents_ != nullptr && this->inboundTalkingAgents_ != nullptr && this->instanceId_ != nullptr && this->loggedInAgents_ != nullptr && this->longestCall_ != nullptr
-        && this->outboundScenarioReadyAgents_ != nullptr && this->outboundTalkingAgents_ != nullptr && this->readyAgents_ != nullptr && this->skillGroupId_ != nullptr && this->skillGroupName_ != nullptr
-        && this->talkingAgents_ != nullptr && this->waitingCalls_ != nullptr && this->waitingCallsLevel10_ != nullptr && this->waitingCallsLevel20_ != nullptr && this->waitingCallsLevel30_ != nullptr
-        && this->workingAgents_ != nullptr; };
+    virtual bool empty() const override { return this->averageWaitingTime_ == nullptr
+        && return this->breakingAgents_ == nullptr && return this->inboundTalkingAgents_ == nullptr && return this->instanceId_ == nullptr && return this->loggedInAgents_ == nullptr && return this->longestCall_ == nullptr
+        && return this->outboundScenarioReadyAgents_ == nullptr && return this->outboundTalkingAgents_ == nullptr && return this->readyAgents_ == nullptr && return this->skillGroupId_ == nullptr && return this->skillGroupName_ == nullptr
+        && return this->talkingAgents_ == nullptr && return this->waitingCalls_ == nullptr && return this->waitingCallsLevel10_ == nullptr && return this->waitingCallsLevel20_ == nullptr && return this->waitingCallsLevel30_ == nullptr
+        && return this->workingAgents_ == nullptr; };
     // averageWaitingTime Field Functions 
     bool hasAverageWaitingTime() const { return this->averageWaitingTime_ != nullptr;};
     void deleteAverageWaitingTime() { this->averageWaitingTime_ = nullptr;};

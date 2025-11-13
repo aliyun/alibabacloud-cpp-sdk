@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callee_ != nullptr
-        && this->caller_ != nullptr && this->channelId_ != nullptr && this->channelVariables_ != nullptr && this->contactId_ != nullptr && this->enterTime_ != nullptr
-        && this->flowId_ != nullptr && this->flowName_ != nullptr && this->instance_ != nullptr && this->leaveTime_ != nullptr && this->nodeExitCode_ != nullptr
-        && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->nodeProperties_ != nullptr && this->nodeType_ != nullptr && this->nodeVariables_ != nullptr; };
+    virtual bool empty() const override { return this->callee_ == nullptr
+        && return this->caller_ == nullptr && return this->channelId_ == nullptr && return this->channelVariables_ == nullptr && return this->contactId_ == nullptr && return this->enterTime_ == nullptr
+        && return this->flowId_ == nullptr && return this->flowName_ == nullptr && return this->instance_ == nullptr && return this->leaveTime_ == nullptr && return this->nodeExitCode_ == nullptr
+        && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->nodeProperties_ == nullptr && return this->nodeType_ == nullptr && return this->nodeVariables_ == nullptr; };
     // callee Field Functions 
     bool hasCallee() const { return this->callee_ != nullptr;};
     void deleteCallee() { this->callee_ = nullptr;};

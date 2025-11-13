@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->breakAgents_ != nullptr
-        && this->breakingAgents_ != nullptr && this->concurrency_ != nullptr && this->datetime_ != nullptr && this->loggedInAgents_ != nullptr && this->outboundScenarioBreakingAgents_ != nullptr
-        && this->outboundScenarioReadyAgents_ != nullptr && this->outboundScenarioTalkingAgents_ != nullptr && this->outboundScenarioWorkingAgents_ != nullptr && this->readyAgents_ != nullptr && this->statsTime_ != nullptr
-        && this->talkAgents_ != nullptr && this->talkingAgents_ != nullptr && this->workAgents_ != nullptr && this->workingAgents_ != nullptr; };
+    virtual bool empty() const override { return this->breakAgents_ == nullptr
+        && return this->breakingAgents_ == nullptr && return this->concurrency_ == nullptr && return this->datetime_ == nullptr && return this->loggedInAgents_ == nullptr && return this->outboundScenarioBreakingAgents_ == nullptr
+        && return this->outboundScenarioReadyAgents_ == nullptr && return this->outboundScenarioTalkingAgents_ == nullptr && return this->outboundScenarioWorkingAgents_ == nullptr && return this->readyAgents_ == nullptr && return this->statsTime_ == nullptr
+        && return this->talkAgents_ == nullptr && return this->talkingAgents_ == nullptr && return this->workAgents_ == nullptr && return this->workingAgents_ == nullptr; };
     // breakAgents Field Functions 
     bool hasBreakAgents() const { return this->breakAgents_ != nullptr;};
     void deleteBreakAgents() { this->breakAgents_ = nullptr;};

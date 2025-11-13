@@ -99,14 +99,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageBreakTime_ != nullptr
-        && this->averageHoldTime_ != nullptr && this->averageReadyTime_ != nullptr && this->averageTalkTime_ != nullptr && this->averageWorkTime_ != nullptr && this->breakCodeDetailList_ != nullptr
-        && this->firstCheckInTime_ != nullptr && this->lastCheckOutTime_ != nullptr && this->lastCheckoutTime_ != nullptr && this->maxBreakTime_ != nullptr && this->maxHoldTime_ != nullptr
-        && this->maxReadyTime_ != nullptr && this->maxTalkTime_ != nullptr && this->maxWorkTime_ != nullptr && this->occupancyRate_ != nullptr && this->satisfactionIndex_ != nullptr
-        && this->satisfactionRate_ != nullptr && this->satisfactionSurveysOffered_ != nullptr && this->satisfactionSurveysResponded_ != nullptr && this->totalBreakTime_ != nullptr && this->totalCalls_ != nullptr
-        && this->totalHoldTime_ != nullptr && this->totalLoggedInTime_ != nullptr && this->totalOffSiteLoggedInTime_ != nullptr && this->totalOffSiteOnlineTime_ != nullptr && this->totalOfficePhoneLoggedInTime_ != nullptr
-        && this->totalOfficePhoneOnlineTime_ != nullptr && this->totalOnSiteLoggedInTime_ != nullptr && this->totalOnSiteOnlineTime_ != nullptr && this->totalOutboundScenarioLoggedInTime_ != nullptr && this->totalOutboundScenarioReadyTime_ != nullptr
-        && this->totalOutboundScenarioTime_ != nullptr && this->totalReadyTime_ != nullptr && this->totalTalkTime_ != nullptr && this->totalWorkTime_ != nullptr; };
+    virtual bool empty() const override { return this->averageBreakTime_ == nullptr
+        && return this->averageHoldTime_ == nullptr && return this->averageReadyTime_ == nullptr && return this->averageTalkTime_ == nullptr && return this->averageWorkTime_ == nullptr && return this->breakCodeDetailList_ == nullptr
+        && return this->firstCheckInTime_ == nullptr && return this->lastCheckOutTime_ == nullptr && return this->lastCheckoutTime_ == nullptr && return this->maxBreakTime_ == nullptr && return this->maxHoldTime_ == nullptr
+        && return this->maxReadyTime_ == nullptr && return this->maxTalkTime_ == nullptr && return this->maxWorkTime_ == nullptr && return this->occupancyRate_ == nullptr && return this->satisfactionIndex_ == nullptr
+        && return this->satisfactionRate_ == nullptr && return this->satisfactionSurveysOffered_ == nullptr && return this->satisfactionSurveysResponded_ == nullptr && return this->totalBreakTime_ == nullptr && return this->totalCalls_ == nullptr
+        && return this->totalHoldTime_ == nullptr && return this->totalLoggedInTime_ == nullptr && return this->totalOffSiteLoggedInTime_ == nullptr && return this->totalOffSiteOnlineTime_ == nullptr && return this->totalOfficePhoneLoggedInTime_ == nullptr
+        && return this->totalOfficePhoneOnlineTime_ == nullptr && return this->totalOnSiteLoggedInTime_ == nullptr && return this->totalOnSiteOnlineTime_ == nullptr && return this->totalOutboundScenarioLoggedInTime_ == nullptr && return this->totalOutboundScenarioReadyTime_ == nullptr
+        && return this->totalOutboundScenarioTime_ == nullptr && return this->totalReadyTime_ == nullptr && return this->totalTalkTime_ == nullptr && return this->totalWorkTime_ == nullptr; };
     // averageBreakTime Field Functions 
     bool hasAverageBreakTime() const { return this->averageBreakTime_ != nullptr;};
     void deleteAverageBreakTime() { this->averageBreakTime_ = nullptr;};

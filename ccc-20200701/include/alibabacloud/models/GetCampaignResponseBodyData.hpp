@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualEndTime_ != nullptr
-        && this->actualStartTime_ != nullptr && this->campaignId_ != nullptr && this->casesAborted_ != nullptr && this->casesConnected_ != nullptr && this->casesUncompleted_ != nullptr
-        && this->casesUncompletedAfterAttempt_ != nullptr && this->casesUncompletedAfterAttempted_ != nullptr && this->completionRate_ != nullptr && this->contactFlowId_ != nullptr && this->maxAttemptCount_ != nullptr
-        && this->minAttemptInterval_ != nullptr && this->name_ != nullptr && this->planedEndTime_ != nullptr && this->planedStartTime_ != nullptr && this->queueId_ != nullptr
-        && this->queueName_ != nullptr && this->simulation_ != nullptr && this->simulationParameters_ != nullptr && this->state_ != nullptr && this->strategyParameters_ != nullptr
-        && this->strategyType_ != nullptr && this->totalCases_ != nullptr; };
+    virtual bool empty() const override { return this->actualEndTime_ == nullptr
+        && return this->actualStartTime_ == nullptr && return this->campaignId_ == nullptr && return this->casesAborted_ == nullptr && return this->casesConnected_ == nullptr && return this->casesUncompleted_ == nullptr
+        && return this->casesUncompletedAfterAttempt_ == nullptr && return this->casesUncompletedAfterAttempted_ == nullptr && return this->completionRate_ == nullptr && return this->contactFlowId_ == nullptr && return this->maxAttemptCount_ == nullptr
+        && return this->minAttemptInterval_ == nullptr && return this->name_ == nullptr && return this->planedEndTime_ == nullptr && return this->planedStartTime_ == nullptr && return this->queueId_ == nullptr
+        && return this->queueName_ == nullptr && return this->simulation_ == nullptr && return this->simulationParameters_ == nullptr && return this->state_ == nullptr && return this->strategyParameters_ == nullptr
+        && return this->strategyType_ == nullptr && return this->totalCases_ == nullptr; };
     // actualEndTime Field Functions 
     bool hasActualEndTime() const { return this->actualEndTime_ != nullptr;};
     void deleteActualEndTime() { this->actualEndTime_ = nullptr;};

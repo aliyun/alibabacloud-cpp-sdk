@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentDropCall_ != nullptr
-        && this->agentNo_ != nullptr && this->callDir_ != nullptr && this->callId_ != nullptr && this->callMode_ != nullptr && this->callType_ != nullptr
-        && this->calleeId_ != nullptr && this->callerId_ != nullptr && this->connId_ != nullptr && this->event_ != nullptr && this->groupNo_ != nullptr
-        && this->outboundScenario_ != nullptr && this->phoneNo_ != nullptr && this->statisticDate_ != nullptr && this->targetRequest_ != nullptr && this->targetSelect_ != nullptr
-        && this->tenantId_ != nullptr && this->transferNumber_ != nullptr; };
+    virtual bool empty() const override { return this->agentDropCall_ == nullptr
+        && return this->agentNo_ == nullptr && return this->callDir_ == nullptr && return this->callId_ == nullptr && return this->callMode_ == nullptr && return this->callType_ == nullptr
+        && return this->calleeId_ == nullptr && return this->callerId_ == nullptr && return this->connId_ == nullptr && return this->event_ == nullptr && return this->groupNo_ == nullptr
+        && return this->outboundScenario_ == nullptr && return this->phoneNo_ == nullptr && return this->statisticDate_ == nullptr && return this->targetRequest_ == nullptr && return this->targetSelect_ == nullptr
+        && return this->tenantId_ == nullptr && return this->transferNumber_ == nullptr; };
     // agentDropCall Field Functions 
     bool hasAgentDropCall() const { return this->agentDropCall_ != nullptr;};
     void deleteAgentDropCall() { this->agentDropCall_ = nullptr;};

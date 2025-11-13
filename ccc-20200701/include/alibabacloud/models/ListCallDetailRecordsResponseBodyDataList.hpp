@@ -97,14 +97,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalBroker_ != nullptr
-        && this->agentIds_ != nullptr && this->agentNames_ != nullptr && this->broker_ != nullptr && this->callDuration_ != nullptr && this->callIds_ != nullptr
-        && this->calledNumber_ != nullptr && this->calleeLocation_ != nullptr && this->callerLocation_ != nullptr && this->callingNumber_ != nullptr && this->contactDisposition_ != nullptr
-        && this->contactId_ != nullptr && this->contactType_ != nullptr && this->dialingTime_ != nullptr && this->earlyMediaState_ != nullptr && this->establishedTime_ != nullptr
-        && this->heldTime_ != nullptr && this->instanceId_ != nullptr && this->ivrTime_ != nullptr && this->queueTime_ != nullptr && this->recordingDuration_ != nullptr
-        && this->recordingReady_ != nullptr && this->releaseInitiator_ != nullptr && this->releaseReason_ != nullptr && this->releaseTime_ != nullptr && this->ringTime_ != nullptr
-        && this->satisfactionDescription_ != nullptr && this->satisfactionIndex_ != nullptr && this->satisfactionSurveyChannel_ != nullptr && this->satisfactionSurveyOffered_ != nullptr && this->skillGroupIds_ != nullptr
-        && this->skillGroupNames_ != nullptr && this->startTime_ != nullptr && this->talkTime_ != nullptr && this->waitTime_ != nullptr; };
+    virtual bool empty() const override { return this->additionalBroker_ == nullptr
+        && return this->agentIds_ == nullptr && return this->agentNames_ == nullptr && return this->broker_ == nullptr && return this->callDuration_ == nullptr && return this->callIds_ == nullptr
+        && return this->calledNumber_ == nullptr && return this->calleeLocation_ == nullptr && return this->callerLocation_ == nullptr && return this->callingNumber_ == nullptr && return this->contactDisposition_ == nullptr
+        && return this->contactId_ == nullptr && return this->contactType_ == nullptr && return this->dialingTime_ == nullptr && return this->earlyMediaState_ == nullptr && return this->establishedTime_ == nullptr
+        && return this->heldTime_ == nullptr && return this->instanceId_ == nullptr && return this->ivrTime_ == nullptr && return this->queueTime_ == nullptr && return this->recordingDuration_ == nullptr
+        && return this->recordingReady_ == nullptr && return this->releaseInitiator_ == nullptr && return this->releaseReason_ == nullptr && return this->releaseTime_ == nullptr && return this->ringTime_ == nullptr
+        && return this->satisfactionDescription_ == nullptr && return this->satisfactionIndex_ == nullptr && return this->satisfactionSurveyChannel_ == nullptr && return this->satisfactionSurveyOffered_ == nullptr && return this->skillGroupIds_ == nullptr
+        && return this->skillGroupNames_ == nullptr && return this->startTime_ == nullptr && return this->talkTime_ == nullptr && return this->waitTime_ == nullptr; };
     // additionalBroker Field Functions 
     bool hasAdditionalBroker() const { return this->additionalBroker_ != nullptr;};
     void deleteAdditionalBroker() { this->additionalBroker_ = nullptr;};

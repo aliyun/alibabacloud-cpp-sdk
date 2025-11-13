@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatAppId_ != nullptr
-        && this->chatAppKey_ != nullptr && this->chatDeviceId_ != nullptr && this->chatLoginToken_ != nullptr && this->chatServerUrl_ != nullptr && this->chatUserId_ != nullptr; };
+    virtual bool empty() const override { return this->chatAppId_ == nullptr
+        && return this->chatAppKey_ == nullptr && return this->chatDeviceId_ == nullptr && return this->chatLoginToken_ == nullptr && return this->chatServerUrl_ == nullptr && return this->chatUserId_ == nullptr; };
     // chatAppId Field Functions 
     bool hasChatAppId() const { return this->chatAppId_ != nullptr;};
     void deleteChatAppId() { this->chatAppId_ = nullptr;};

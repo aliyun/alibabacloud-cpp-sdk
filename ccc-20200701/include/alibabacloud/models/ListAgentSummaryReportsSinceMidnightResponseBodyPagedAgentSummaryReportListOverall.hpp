@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageReadyTime_ != nullptr
-        && this->averageTalkTime_ != nullptr && this->averageWorkTime_ != nullptr && this->maxReadyTime_ != nullptr && this->maxTalkTime_ != nullptr && this->maxWorkTime_ != nullptr
-        && this->occupancyRate_ != nullptr && this->oneTransferCalls_ != nullptr && this->satisfactionIndex_ != nullptr && this->satisfactionSurveysOffered_ != nullptr && this->satisfactionSurveysResponded_ != nullptr
-        && this->totalBreakTime_ != nullptr && this->totalCalls_ != nullptr && this->totalLoggedInTime_ != nullptr && this->totalReadyTime_ != nullptr && this->totalTalkTime_ != nullptr
-        && this->totalWorkTime_ != nullptr; };
+    virtual bool empty() const override { return this->averageReadyTime_ == nullptr
+        && return this->averageTalkTime_ == nullptr && return this->averageWorkTime_ == nullptr && return this->maxReadyTime_ == nullptr && return this->maxTalkTime_ == nullptr && return this->maxWorkTime_ == nullptr
+        && return this->occupancyRate_ == nullptr && return this->oneTransferCalls_ == nullptr && return this->satisfactionIndex_ == nullptr && return this->satisfactionSurveysOffered_ == nullptr && return this->satisfactionSurveysResponded_ == nullptr
+        && return this->totalBreakTime_ == nullptr && return this->totalCalls_ == nullptr && return this->totalLoggedInTime_ == nullptr && return this->totalReadyTime_ == nullptr && return this->totalTalkTime_ == nullptr
+        && return this->totalWorkTime_ == nullptr; };
     // averageReadyTime Field Functions 
     bool hasAverageReadyTime() const { return this->averageReadyTime_ != nullptr;};
     void deleteAverageReadyTime() { this->averageReadyTime_ = nullptr;};

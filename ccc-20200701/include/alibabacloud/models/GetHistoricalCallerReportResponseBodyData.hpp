@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lastCallingTime_ != nullptr
-        && this->totalCalls_ != nullptr; };
+    virtual bool empty() const override { return this->lastCallingTime_ == nullptr
+        && return this->totalCalls_ == nullptr; };
     // lastCallingTime Field Functions 
     bool hasLastCallingTime() const { return this->lastCallingTime_ != nullptr;};
     void deleteLastCallingTime() { this->lastCallingTime_ = nullptr;};

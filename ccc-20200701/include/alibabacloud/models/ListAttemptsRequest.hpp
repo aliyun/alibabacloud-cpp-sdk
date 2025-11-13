@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->attemptId_ != nullptr && this->callee_ != nullptr && this->caller_ != nullptr && this->campaignId_ != nullptr && this->caseId_ != nullptr
-        && this->contactId_ != nullptr && this->criteria_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->queueId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->attemptId_ == nullptr && return this->callee_ == nullptr && return this->caller_ == nullptr && return this->campaignId_ == nullptr && return this->caseId_ == nullptr
+        && return this->contactId_ == nullptr && return this->criteria_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->queueId_ == nullptr && return this->startTime_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

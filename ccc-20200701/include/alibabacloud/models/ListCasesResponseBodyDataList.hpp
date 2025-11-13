@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abandonPhase_ != nullptr
-        && this->abandonType_ != nullptr && this->attemptCount_ != nullptr && this->caseId_ != nullptr && this->customVariables_ != nullptr && this->failureReason_ != nullptr
-        && this->phoneNumber_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->abandonPhase_ == nullptr
+        && return this->abandonType_ == nullptr && return this->attemptCount_ == nullptr && return this->caseId_ == nullptr && return this->customVariables_ == nullptr && return this->failureReason_ == nullptr
+        && return this->phoneNumber_ == nullptr && return this->state_ == nullptr; };
     // abandonPhase Field Functions 
     bool hasAbandonPhase() const { return this->abandonPhase_ != nullptr;};
     void deleteAbandonPhase() { this->abandonPhase_ = nullptr;};

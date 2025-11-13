@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminRamIdList_ != nullptr
-        && this->description_ != nullptr && this->domainName_ != nullptr && this->name_ != nullptr && this->numberList_ != nullptr; };
+    virtual bool empty() const override { return this->adminRamIdList_ == nullptr
+        && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->name_ == nullptr && return this->numberList_ == nullptr; };
     // adminRamIdList Field Functions 
     bool hasAdminRamIdList() const { return this->adminRamIdList_ != nullptr;};
     void deleteAdminRamIdList() { this->adminRamIdList_ = nullptr;};
@@ -82,7 +82,6 @@ namespace Models
     std::shared_ptr<string> domainName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> numberList_ = nullptr;
   };
 

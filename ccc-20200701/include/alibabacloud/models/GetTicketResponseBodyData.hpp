@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignee_ != nullptr
-        && this->assigneeName_ != nullptr && this->categoryId_ != nullptr && this->categoryName_ != nullptr && this->closeCode_ != nullptr && this->comment_ != nullptr
-        && this->context_ != nullptr && this->createdTime_ != nullptr && this->creator_ != nullptr && this->creatorName_ != nullptr && this->currentTaskId_ != nullptr
-        && this->currentTaskName_ != nullptr && this->currentTaskStartTime_ != nullptr && this->customerId_ != nullptr && this->endTime_ != nullptr && this->instanceId_ != nullptr
-        && this->jobId_ != nullptr && this->source_ != nullptr && this->startTime_ != nullptr && this->state_ != nullptr && this->templateId_ != nullptr
-        && this->templateVersion_ != nullptr && this->ticketId_ != nullptr && this->title_ != nullptr && this->updatedTime_ != nullptr; };
+    virtual bool empty() const override { return this->assignee_ == nullptr
+        && return this->assigneeName_ == nullptr && return this->categoryId_ == nullptr && return this->categoryName_ == nullptr && return this->closeCode_ == nullptr && return this->comment_ == nullptr
+        && return this->context_ == nullptr && return this->createdTime_ == nullptr && return this->creator_ == nullptr && return this->creatorName_ == nullptr && return this->currentTaskId_ == nullptr
+        && return this->currentTaskName_ == nullptr && return this->currentTaskStartTime_ == nullptr && return this->customerId_ == nullptr && return this->endTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->jobId_ == nullptr && return this->source_ == nullptr && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->templateId_ == nullptr
+        && return this->templateVersion_ == nullptr && return this->ticketId_ == nullptr && return this->title_ == nullptr && return this->updatedTime_ == nullptr; };
     // assignee Field Functions 
     bool hasAssignee() const { return this->assignee_ != nullptr;};
     void deleteAssignee() { this->assignee_ = nullptr;};

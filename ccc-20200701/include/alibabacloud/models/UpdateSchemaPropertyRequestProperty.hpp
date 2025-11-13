@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->array_ != nullptr
-        && this->attributes_ != nullptr && this->dataType_ != nullptr && this->description_ != nullptr && this->disabled_ != nullptr && this->displayName_ != nullptr
-        && this->displayOrder_ != nullptr && this->editorType_ != nullptr && this->maxLength_ != nullptr && this->maximum_ != nullptr && this->minLength_ != nullptr
-        && this->minimum_ != nullptr && this->name_ != nullptr && this->pattern_ != nullptr && this->patternErrorMessage_ != nullptr && this->readOnly_ != nullptr
-        && this->required_ != nullptr; };
+    virtual bool empty() const override { return this->array_ == nullptr
+        && return this->attributes_ == nullptr && return this->dataType_ == nullptr && return this->description_ == nullptr && return this->disabled_ == nullptr && return this->displayName_ == nullptr
+        && return this->displayOrder_ == nullptr && return this->editorType_ == nullptr && return this->maxLength_ == nullptr && return this->maximum_ == nullptr && return this->minLength_ == nullptr
+        && return this->minimum_ == nullptr && return this->name_ == nullptr && return this->pattern_ == nullptr && return this->patternErrorMessage_ == nullptr && return this->readOnly_ == nullptr
+        && return this->required_ == nullptr; };
     // array Field Functions 
     bool hasArray() const { return this->array_ != nullptr;};
     void deleteArray() { this->array_ = nullptr;};

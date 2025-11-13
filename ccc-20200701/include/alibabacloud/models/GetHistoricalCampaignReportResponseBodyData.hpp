@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abandonRate_ != nullptr
-        && this->abandonedRate_ != nullptr && this->answerRate_ != nullptr && this->callsAbandoned_ != nullptr && this->callsConnected_ != nullptr && this->callsDialed_ != nullptr
-        && this->connectedRate_ != nullptr && this->occupancyRate_ != nullptr; };
+    virtual bool empty() const override { return this->abandonRate_ == nullptr
+        && return this->abandonedRate_ == nullptr && return this->answerRate_ == nullptr && return this->callsAbandoned_ == nullptr && return this->callsConnected_ == nullptr && return this->callsDialed_ == nullptr
+        && return this->connectedRate_ == nullptr && return this->occupancyRate_ == nullptr; };
     // abandonRate Field Functions 
     bool hasAbandonRate() const { return this->abandonRate_ != nullptr;};
     void deleteAbandonRate() { this->abandonRate_ = nullptr;};

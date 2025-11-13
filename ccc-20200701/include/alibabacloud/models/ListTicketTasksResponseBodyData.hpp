@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->assignee_ != nullptr && this->assigneeName_ != nullptr && this->comment_ != nullptr && this->endTime_ != nullptr && this->fileKeys_ != nullptr
-        && this->fileUrls_ != nullptr && this->instanceId_ != nullptr && this->startTime_ != nullptr && this->taskDefinitionNodeId_ != nullptr && this->taskDefinitionNodeType_ != nullptr
-        && this->taskId_ != nullptr && this->taskName_ != nullptr && this->ticketId_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->assignee_ == nullptr && return this->assigneeName_ == nullptr && return this->comment_ == nullptr && return this->endTime_ == nullptr && return this->fileKeys_ == nullptr
+        && return this->fileUrls_ == nullptr && return this->instanceId_ == nullptr && return this->startTime_ == nullptr && return this->taskDefinitionNodeId_ == nullptr && return this->taskDefinitionNodeType_ == nullptr
+        && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->ticketId_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

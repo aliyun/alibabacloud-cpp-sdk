@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->breakCodeDetailList_ != nullptr
-        && this->breakingAgents_ != nullptr && this->instanceId_ != nullptr && this->loggedInAgents_ != nullptr && this->longestWaitingTime_ != nullptr && this->outboundScenarioReadyAgents_ != nullptr
-        && this->readyAgents_ != nullptr && this->skillGroupId_ != nullptr && this->skillGroupName_ != nullptr && this->talkingAgents_ != nullptr && this->totalAgents_ != nullptr
-        && this->waitingCalls_ != nullptr && this->workingAgents_ != nullptr; };
+    virtual bool empty() const override { return this->breakCodeDetailList_ == nullptr
+        && return this->breakingAgents_ == nullptr && return this->instanceId_ == nullptr && return this->loggedInAgents_ == nullptr && return this->longestWaitingTime_ == nullptr && return this->outboundScenarioReadyAgents_ == nullptr
+        && return this->readyAgents_ == nullptr && return this->skillGroupId_ == nullptr && return this->skillGroupName_ == nullptr && return this->talkingAgents_ == nullptr && return this->totalAgents_ == nullptr
+        && return this->waitingCalls_ == nullptr && return this->workingAgents_ == nullptr; };
     // breakCodeDetailList Field Functions 
     bool hasBreakCodeDetailList() const { return this->breakCodeDetailList_ != nullptr;};
     void deleteBreakCodeDetailList() { this->breakCodeDetailList_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acid_ != nullptr
-        && this->contactType_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->keyMarkRelation_ != nullptr && this->note_ != nullptr
-        && this->parentNote_ != nullptr && this->pressKey_ != nullptr && this->ramId_ != nullptr && this->skillGroupId_ != nullptr && this->statisticDate_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->acid_ == nullptr
+        && return this->contactType_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->keyMarkRelation_ == nullptr && return this->note_ == nullptr
+        && return this->parentNote_ == nullptr && return this->pressKey_ == nullptr && return this->ramId_ == nullptr && return this->skillGroupId_ == nullptr && return this->statisticDate_ == nullptr
+        && return this->type_ == nullptr; };
     // acid Field Functions 
     bool hasAcid() const { return this->acid_ != nullptr;};
     void deleteAcid() { this->acid_ = nullptr;};

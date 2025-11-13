@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentId_ != nullptr
-        && this->agentName_ != nullptr && this->breakCode_ != nullptr && this->callType_ != nullptr && this->counterParty_ != nullptr && this->duration_ != nullptr
-        && this->extension_ != nullptr && this->instanceId_ != nullptr && this->mobile_ != nullptr && this->outboundScenario_ != nullptr && this->skillGroupIdList_ != nullptr
-        && this->skillGroupNameList_ != nullptr && this->state_ != nullptr && this->stateCode_ != nullptr && this->stateTime_ != nullptr && this->workMode_ != nullptr; };
+    virtual bool empty() const override { return this->agentId_ == nullptr
+        && return this->agentName_ == nullptr && return this->breakCode_ == nullptr && return this->callType_ == nullptr && return this->counterParty_ == nullptr && return this->duration_ == nullptr
+        && return this->extension_ == nullptr && return this->instanceId_ == nullptr && return this->mobile_ == nullptr && return this->outboundScenario_ == nullptr && return this->skillGroupIdList_ == nullptr
+        && return this->skillGroupNameList_ == nullptr && return this->state_ == nullptr && return this->stateCode_ == nullptr && return this->stateTime_ == nullptr && return this->workMode_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};

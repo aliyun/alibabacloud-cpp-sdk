@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageFirstResponseTime_ != nullptr
-        && this->averageHoldTime_ != nullptr && this->averageResponseTime_ != nullptr && this->averageRingTime_ != nullptr && this->averageTalkTime_ != nullptr && this->averageWorkTime_ != nullptr
-        && this->callsAttendedTransferIn_ != nullptr && this->callsAttendedTransferOut_ != nullptr && this->callsBlindTransferIn_ != nullptr && this->callsBlindTransferOut_ != nullptr && this->callsHandled_ != nullptr
-        && this->callsHold_ != nullptr && this->callsOffered_ != nullptr && this->callsRinged_ != nullptr && this->handleRate_ != nullptr && this->maxHoldTime_ != nullptr
-        && this->maxRingTime_ != nullptr && this->maxTalkTime_ != nullptr && this->maxWorkTime_ != nullptr && this->satisfactionIndex_ != nullptr && this->satisfactionRate_ != nullptr
-        && this->satisfactionSurveysOffered_ != nullptr && this->satisfactionSurveysResponded_ != nullptr && this->totalHoldTime_ != nullptr && this->totalMessagesSent_ != nullptr && this->totalMessagesSentByAgent_ != nullptr
-        && this->totalMessagesSentByCustomer_ != nullptr && this->totalRingTime_ != nullptr && this->totalTalkTime_ != nullptr && this->totalWorkTime_ != nullptr; };
+    virtual bool empty() const override { return this->averageFirstResponseTime_ == nullptr
+        && return this->averageHoldTime_ == nullptr && return this->averageResponseTime_ == nullptr && return this->averageRingTime_ == nullptr && return this->averageTalkTime_ == nullptr && return this->averageWorkTime_ == nullptr
+        && return this->callsAttendedTransferIn_ == nullptr && return this->callsAttendedTransferOut_ == nullptr && return this->callsBlindTransferIn_ == nullptr && return this->callsBlindTransferOut_ == nullptr && return this->callsHandled_ == nullptr
+        && return this->callsHold_ == nullptr && return this->callsOffered_ == nullptr && return this->callsRinged_ == nullptr && return this->handleRate_ == nullptr && return this->maxHoldTime_ == nullptr
+        && return this->maxRingTime_ == nullptr && return this->maxTalkTime_ == nullptr && return this->maxWorkTime_ == nullptr && return this->satisfactionIndex_ == nullptr && return this->satisfactionRate_ == nullptr
+        && return this->satisfactionSurveysOffered_ == nullptr && return this->satisfactionSurveysResponded_ == nullptr && return this->totalHoldTime_ == nullptr && return this->totalMessagesSent_ == nullptr && return this->totalMessagesSentByAgent_ == nullptr
+        && return this->totalMessagesSentByCustomer_ == nullptr && return this->totalRingTime_ == nullptr && return this->totalTalkTime_ == nullptr && return this->totalWorkTime_ == nullptr; };
     // averageFirstResponseTime Field Functions 
     bool hasAverageFirstResponseTime() const { return this->averageFirstResponseTime_ != nullptr;};
     void deleteAverageFirstResponseTime() { this->averageFirstResponseTime_ = nullptr;};

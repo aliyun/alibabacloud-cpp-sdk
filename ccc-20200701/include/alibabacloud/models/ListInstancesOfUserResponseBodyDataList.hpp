@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminList_ != nullptr
-        && this->aliyunUid_ != nullptr && this->consoleUrl_ != nullptr && this->description_ != nullptr && this->domainName_ != nullptr && this->id_ != nullptr
-        && this->name_ != nullptr && this->numberList_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->adminList_ == nullptr
+        && return this->aliyunUid_ == nullptr && return this->consoleUrl_ == nullptr && return this->description_ == nullptr && return this->domainName_ == nullptr && return this->id_ == nullptr
+        && return this->name_ == nullptr && return this->numberList_ == nullptr && return this->status_ == nullptr; };
     // adminList Field Functions 
     bool hasAdminList() const { return this->adminList_ != nullptr;};
     void deleteAdminList() { this->adminList_ = nullptr;};

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessChannelType_ != nullptr
-        && this->callsOffered_ != nullptr; };
+    virtual bool empty() const override { return this->accessChannelType_ == nullptr
+        && return this->callsOffered_ == nullptr; };
     // accessChannelType Field Functions 
     bool hasAccessChannelType() const { return this->accessChannelType_ != nullptr;};
     void deleteAccessChannelType() { this->accessChannelType_ = nullptr;};

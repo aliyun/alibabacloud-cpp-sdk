@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callee_ != nullptr
-        && this->caller_ != nullptr && this->deviceId_ != nullptr && this->flashSmsVariables_ != nullptr && this->instanceId_ != nullptr && this->maskedCallee_ != nullptr
-        && this->mediaType_ != nullptr && this->tags_ != nullptr && this->timeoutSeconds_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->callee_ == nullptr
+        && return this->caller_ == nullptr && return this->deviceId_ == nullptr && return this->flashSmsVariables_ == nullptr && return this->instanceId_ == nullptr && return this->maskedCallee_ == nullptr
+        && return this->mediaType_ == nullptr && return this->tags_ == nullptr && return this->timeoutSeconds_ == nullptr && return this->userId_ == nullptr; };
     // callee Field Functions 
     bool hasCallee() const { return this->callee_ != nullptr;};
     void deleteCallee() { this->callee_ = nullptr;};

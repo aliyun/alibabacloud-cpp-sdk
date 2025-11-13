@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentConcurrencySettings_ != nullptr
-        && this->chatSettings_ != nullptr && this->distributionSettings_ != nullptr && this->routingType_ != nullptr; };
+    virtual bool empty() const override { return this->agentConcurrencySettings_ == nullptr
+        && return this->chatSettings_ == nullptr && return this->distributionSettings_ == nullptr && return this->routingType_ == nullptr; };
     // agentConcurrencySettings Field Functions 
     bool hasAgentConcurrencySettings() const { return this->agentConcurrencySettings_ != nullptr;};
     void deleteAgentConcurrencySettings() { this->agentConcurrencySettings_ = nullptr;};
