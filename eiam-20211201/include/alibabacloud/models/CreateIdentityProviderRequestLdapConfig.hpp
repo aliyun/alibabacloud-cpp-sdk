@@ -25,10 +25,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LdapServerHost, ldapServerHost_);
       DARABONBA_PTR_TO_JSON(LdapServerPort, ldapServerPort_);
       DARABONBA_PTR_TO_JSON(OrganizationUnitObjectClass, organizationUnitObjectClass_);
+      DARABONBA_PTR_TO_JSON(OrganizationalUnitRdn, organizationalUnitRdn_);
+      DARABONBA_PTR_TO_JSON(PasswordSyncStatus, passwordSyncStatus_);
       DARABONBA_PTR_TO_JSON(StartTlsStatus, startTlsStatus_);
       DARABONBA_PTR_TO_JSON(UserLoginIdentifier, userLoginIdentifier_);
       DARABONBA_PTR_TO_JSON(UserObjectClass, userObjectClass_);
       DARABONBA_PTR_TO_JSON(UserObjectClassCustomFilter, userObjectClassCustomFilter_);
+      DARABONBA_PTR_TO_JSON(UserRdn, userRdn_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIdentityProviderRequestLdapConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(AdministratorPassword, administratorPassword_);
@@ -42,10 +45,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LdapServerHost, ldapServerHost_);
       DARABONBA_PTR_FROM_JSON(LdapServerPort, ldapServerPort_);
       DARABONBA_PTR_FROM_JSON(OrganizationUnitObjectClass, organizationUnitObjectClass_);
+      DARABONBA_PTR_FROM_JSON(OrganizationalUnitRdn, organizationalUnitRdn_);
+      DARABONBA_PTR_FROM_JSON(PasswordSyncStatus, passwordSyncStatus_);
       DARABONBA_PTR_FROM_JSON(StartTlsStatus, startTlsStatus_);
       DARABONBA_PTR_FROM_JSON(UserLoginIdentifier, userLoginIdentifier_);
       DARABONBA_PTR_FROM_JSON(UserObjectClass, userObjectClass_);
       DARABONBA_PTR_FROM_JSON(UserObjectClassCustomFilter, userObjectClassCustomFilter_);
+      DARABONBA_PTR_FROM_JSON(UserRdn, userRdn_);
     };
     CreateIdentityProviderRequestLdapConfig() = default ;
     CreateIdentityProviderRequestLdapConfig(const CreateIdentityProviderRequestLdapConfig &) = default ;
@@ -61,7 +67,8 @@ namespace Models
     virtual bool empty() const override { return this->administratorPassword_ == nullptr
         && return this->administratorUsername_ == nullptr && return this->certificateFingerprintStatus_ == nullptr && return this->certificateFingerprints_ == nullptr && return this->groupMemberAttributeName_ == nullptr && return this->groupObjectClass_ == nullptr
         && return this->groupObjectClassCustomFilter_ == nullptr && return this->ldapProtocol_ == nullptr && return this->ldapServerHost_ == nullptr && return this->ldapServerPort_ == nullptr && return this->organizationUnitObjectClass_ == nullptr
-        && return this->startTlsStatus_ == nullptr && return this->userLoginIdentifier_ == nullptr && return this->userObjectClass_ == nullptr && return this->userObjectClassCustomFilter_ == nullptr; };
+        && return this->organizationalUnitRdn_ == nullptr && return this->passwordSyncStatus_ == nullptr && return this->startTlsStatus_ == nullptr && return this->userLoginIdentifier_ == nullptr && return this->userObjectClass_ == nullptr
+        && return this->userObjectClassCustomFilter_ == nullptr && return this->userRdn_ == nullptr; };
     // administratorPassword Field Functions 
     bool hasAdministratorPassword() const { return this->administratorPassword_ != nullptr;};
     void deleteAdministratorPassword() { this->administratorPassword_ = nullptr;};
@@ -141,6 +148,20 @@ namespace Models
     inline CreateIdentityProviderRequestLdapConfig& setOrganizationUnitObjectClass(string organizationUnitObjectClass) { DARABONBA_PTR_SET_VALUE(organizationUnitObjectClass_, organizationUnitObjectClass) };
 
 
+    // organizationalUnitRdn Field Functions 
+    bool hasOrganizationalUnitRdn() const { return this->organizationalUnitRdn_ != nullptr;};
+    void deleteOrganizationalUnitRdn() { this->organizationalUnitRdn_ = nullptr;};
+    inline string organizationalUnitRdn() const { DARABONBA_PTR_GET_DEFAULT(organizationalUnitRdn_, "") };
+    inline CreateIdentityProviderRequestLdapConfig& setOrganizationalUnitRdn(string organizationalUnitRdn) { DARABONBA_PTR_SET_VALUE(organizationalUnitRdn_, organizationalUnitRdn) };
+
+
+    // passwordSyncStatus Field Functions 
+    bool hasPasswordSyncStatus() const { return this->passwordSyncStatus_ != nullptr;};
+    void deletePasswordSyncStatus() { this->passwordSyncStatus_ = nullptr;};
+    inline string passwordSyncStatus() const { DARABONBA_PTR_GET_DEFAULT(passwordSyncStatus_, "") };
+    inline CreateIdentityProviderRequestLdapConfig& setPasswordSyncStatus(string passwordSyncStatus) { DARABONBA_PTR_SET_VALUE(passwordSyncStatus_, passwordSyncStatus) };
+
+
     // startTlsStatus Field Functions 
     bool hasStartTlsStatus() const { return this->startTlsStatus_ != nullptr;};
     void deleteStartTlsStatus() { this->startTlsStatus_ = nullptr;};
@@ -167,6 +188,13 @@ namespace Models
     void deleteUserObjectClassCustomFilter() { this->userObjectClassCustomFilter_ = nullptr;};
     inline string userObjectClassCustomFilter() const { DARABONBA_PTR_GET_DEFAULT(userObjectClassCustomFilter_, "") };
     inline CreateIdentityProviderRequestLdapConfig& setUserObjectClassCustomFilter(string userObjectClassCustomFilter) { DARABONBA_PTR_SET_VALUE(userObjectClassCustomFilter_, userObjectClassCustomFilter) };
+
+
+    // userRdn Field Functions 
+    bool hasUserRdn() const { return this->userRdn_ != nullptr;};
+    void deleteUserRdn() { this->userRdn_ = nullptr;};
+    inline string userRdn() const { DARABONBA_PTR_GET_DEFAULT(userRdn_, "") };
+    inline CreateIdentityProviderRequestLdapConfig& setUserRdn(string userRdn) { DARABONBA_PTR_SET_VALUE(userRdn_, userRdn) };
 
 
   protected:
@@ -196,6 +224,8 @@ namespace Models
     std::shared_ptr<int32_t> ldapServerPort_ = nullptr;
     // Organization Unit ObjectClass.
     std::shared_ptr<string> organizationUnitObjectClass_ = nullptr;
+    std::shared_ptr<string> organizationalUnitRdn_ = nullptr;
+    std::shared_ptr<string> passwordSyncStatus_ = nullptr;
     // Whether startTLS is enabled. Value range:
     // - Disabled: disabled
     // 
@@ -207,6 +237,7 @@ namespace Models
     std::shared_ptr<string> userObjectClass_ = nullptr;
     // Custom filter for User ObjectClass.
     std::shared_ptr<string> userObjectClassCustomFilter_ = nullptr;
+    std::shared_ptr<string> userRdn_ = nullptr;
   };
 
   } // namespace Models

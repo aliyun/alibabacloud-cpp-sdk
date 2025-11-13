@@ -13,11 +13,13 @@ namespace Models
   class ListIdentityProvidersRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListIdentityProvidersRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListIdentityProvidersRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->direction_ == nullptr
+        && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+    // direction Field Functions 
+    bool hasDirection() const { return this->direction_ != nullptr;};
+    void deleteDirection() { this->direction_ = nullptr;};
+    inline string direction() const { DARABONBA_PTR_GET_DEFAULT(direction_, "") };
+    inline ListIdentityProvidersRequest& setDirection(string direction) { DARABONBA_PTR_SET_VALUE(direction_, direction) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> direction_ = nullptr;
     // The instance ID.
     // 
     // This parameter is required.

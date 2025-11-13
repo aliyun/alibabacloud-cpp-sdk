@@ -6786,6 +6786,10 @@ ListGroupsForUserResponse Client::listGroupsForUser(const ListGroupsForUserReque
 ListIdentityProvidersResponse Client::listIdentityProvidersWithOptions(const ListIdentityProvidersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }

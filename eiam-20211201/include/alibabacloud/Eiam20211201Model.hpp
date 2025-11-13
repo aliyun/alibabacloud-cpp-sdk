@@ -641,6 +641,7 @@
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig.hpp>
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig.hpp>
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPullConfig.hpp>
+#include <alibabacloud/models/CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig.hpp>
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs.hpp>
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPushConfig.hpp>
 #include <alibabacloud/models/CreateIdentityProviderRequestWeComConfig.hpp>

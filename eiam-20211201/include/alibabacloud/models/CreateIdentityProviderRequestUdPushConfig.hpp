@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEIDENTITYPROVIDERREQUESTUDPUSHCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_CREATEIDENTITYPROVIDERREQUESTUDPUSHCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs.hpp>
 using namespace std;
@@ -16,11 +17,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateIdentityProviderRequestUdPushConfig& obj) { 
       DARABONBA_PTR_TO_JSON(IncrementalCallbackStatus, incrementalCallbackStatus_);
+      DARABONBA_PTR_TO_JSON(PeriodicSyncConfig, periodicSyncConfig_);
       DARABONBA_PTR_TO_JSON(PeriodicSyncStatus, periodicSyncStatus_);
       DARABONBA_PTR_TO_JSON(UdSyncScopeConfigs, udSyncScopeConfigs_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIdentityProviderRequestUdPushConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(IncrementalCallbackStatus, incrementalCallbackStatus_);
+      DARABONBA_PTR_FROM_JSON(PeriodicSyncConfig, periodicSyncConfig_);
       DARABONBA_PTR_FROM_JSON(PeriodicSyncStatus, periodicSyncStatus_);
       DARABONBA_PTR_FROM_JSON(UdSyncScopeConfigs, udSyncScopeConfigs_);
     };
@@ -36,12 +39,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->incrementalCallbackStatus_ == nullptr
-        && return this->periodicSyncStatus_ == nullptr && return this->udSyncScopeConfigs_ == nullptr; };
+        && return this->periodicSyncConfig_ == nullptr && return this->periodicSyncStatus_ == nullptr && return this->udSyncScopeConfigs_ == nullptr; };
     // incrementalCallbackStatus Field Functions 
     bool hasIncrementalCallbackStatus() const { return this->incrementalCallbackStatus_ != nullptr;};
     void deleteIncrementalCallbackStatus() { this->incrementalCallbackStatus_ = nullptr;};
     inline string incrementalCallbackStatus() const { DARABONBA_PTR_GET_DEFAULT(incrementalCallbackStatus_, "") };
     inline CreateIdentityProviderRequestUdPushConfig& setIncrementalCallbackStatus(string incrementalCallbackStatus) { DARABONBA_PTR_SET_VALUE(incrementalCallbackStatus_, incrementalCallbackStatus) };
+
+
+    // periodicSyncConfig Field Functions 
+    bool hasPeriodicSyncConfig() const { return this->periodicSyncConfig_ != nullptr;};
+    void deletePeriodicSyncConfig() { this->periodicSyncConfig_ = nullptr;};
+    inline const Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig & periodicSyncConfig() const { DARABONBA_PTR_GET_CONST(periodicSyncConfig_, Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig) };
+    inline Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig periodicSyncConfig() { DARABONBA_PTR_GET(periodicSyncConfig_, Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig) };
+    inline CreateIdentityProviderRequestUdPushConfig& setPeriodicSyncConfig(const Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig & periodicSyncConfig) { DARABONBA_PTR_SET_VALUE(periodicSyncConfig_, periodicSyncConfig) };
+    inline CreateIdentityProviderRequestUdPushConfig& setPeriodicSyncConfig(Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig && periodicSyncConfig) { DARABONBA_PTR_SET_RVALUE(periodicSyncConfig_, periodicSyncConfig) };
 
 
     // periodicSyncStatus Field Functions 
@@ -63,6 +75,7 @@ namespace Models
   protected:
     // Incremental callback status. This field is reserved and currently not in use; please ignore it.
     std::shared_ptr<string> incrementalCallbackStatus_ = nullptr;
+    std::shared_ptr<Models::CreateIdentityProviderRequestUdPushConfigPeriodicSyncConfig> periodicSyncConfig_ = nullptr;
     // Periodic check status. This field is currently not in use, please ignore it.
     std::shared_ptr<string> periodicSyncStatus_ = nullptr;
     // Outbound synchronization configuration information.
