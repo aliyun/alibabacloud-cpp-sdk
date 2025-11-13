@@ -94,6 +94,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 激活AI实时互动授权信息
+ *
+ * @param request ActiveAiRtcLicenseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActiveAiRtcLicenseResponse
+ */
+ActiveAiRtcLicenseResponse Client::activeAiRtcLicenseWithOptions(const ActiveAiRtcLicenseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthCode()) {
+    query["AuthCode"] = request.authCode();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.deviceId();
+  }
+
+  if (!!request.hasLicenseItemId()) {
+    query["LicenseItemId"] = request.licenseItemId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ActiveAiRtcLicense"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActiveAiRtcLicenseResponse>();
+}
+
+/**
+ * @summary 激活AI实时互动授权信息
+ *
+ * @param request ActiveAiRtcLicenseRequest
+ * @return ActiveAiRtcLicenseResponse
+ */
+ActiveAiRtcLicenseResponse Client::activeAiRtcLicense(const ActiveAiRtcLicenseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return activeAiRtcLicenseWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds an ad insertion configuration.
  *
  * @param request AddAdInsertionRequest
@@ -6091,8 +6141,16 @@ ForwardAIAgentCallResponse Client::forwardAIAgentCallWithOptions(const ForwardAI
     query["CalledNumber"] = request.calledNumber();
   }
 
+  if (!!request.hasErrorPrompt()) {
+    query["ErrorPrompt"] = request.errorPrompt();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasTransferPrompt()) {
+    query["TransferPrompt"] = request.transferPrompt();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6384,6 +6442,130 @@ GetAdInsertionResponse Client::getAdInsertionWithOptions(const GetAdInsertionReq
 GetAdInsertionResponse Client::getAdInsertion(const GetAdInsertionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAdInsertionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取AI实时互动授权码列表
+ *
+ * @param request GetAiRtcAuthCodeListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiRtcAuthCodeListResponse
+ */
+GetAiRtcAuthCodeListResponse Client::getAiRtcAuthCodeListWithOptions(const GetAiRtcAuthCodeListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLicenseItemId()) {
+    query["LicenseItemId"] = request.licenseItemId();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    query["NeedTotalCount"] = request.needTotalCount();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiRtcAuthCodeList"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiRtcAuthCodeListResponse>();
+}
+
+/**
+ * @summary 获取AI实时互动授权码列表
+ *
+ * @param request GetAiRtcAuthCodeListRequest
+ * @return GetAiRtcAuthCodeListResponse
+ */
+GetAiRtcAuthCodeListResponse Client::getAiRtcAuthCodeList(const GetAiRtcAuthCodeListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiRtcAuthCodeListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取AI实时互动授权批次列表
+ *
+ * @param request GetAiRtcLicenseInfoListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAiRtcLicenseInfoListResponse
+ */
+GetAiRtcLicenseInfoListResponse Client::getAiRtcLicenseInfoListWithOptions(const GetAiRtcLicenseInfoListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLicenseItemId()) {
+    query["LicenseItemId"] = request.licenseItemId();
+  }
+
+  if (!!request.hasNeedTotalCount()) {
+    query["NeedTotalCount"] = request.needTotalCount();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAiRtcLicenseInfoList"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAiRtcLicenseInfoListResponse>();
+}
+
+/**
+ * @summary 获取AI实时互动授权批次列表
+ *
+ * @param request GetAiRtcLicenseInfoListRequest
+ * @return GetAiRtcLicenseInfoListResponse
+ */
+GetAiRtcLicenseInfoListResponse Client::getAiRtcLicenseInfoList(const GetAiRtcLicenseInfoListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAiRtcLicenseInfoListWithOptions(request, runtime);
 }
 
 /**
@@ -18033,6 +18215,56 @@ SubmitProjectExportJobResponse Client::submitProjectExportJob(const SubmitProjec
 }
 
 /**
+ * @summary 提交场景化批量合成任务
+ *
+ * @param request SubmitSceneBatchEditingJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitSceneBatchEditingJobResponse
+ */
+SubmitSceneBatchEditingJobResponse Client::submitSceneBatchEditingJobWithOptions(const SubmitSceneBatchEditingJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOutputConfig()) {
+    query["OutputConfig"] = request.outputConfig();
+  }
+
+  if (!!request.hasProjectIds()) {
+    query["ProjectIds"] = request.projectIds();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.userData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitSceneBatchEditingJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitSceneBatchEditingJobResponse>();
+}
+
+/**
+ * @summary 提交场景化批量合成任务
+ *
+ * @param request SubmitSceneBatchEditingJobRequest
+ * @return SubmitSceneBatchEditingJobResponse
+ */
+SubmitSceneBatchEditingJobResponse Client::submitSceneBatchEditingJob(const SubmitSceneBatchEditingJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitSceneBatchEditingJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
  *
  * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
@@ -18096,6 +18328,70 @@ SubmitSceneMediaSelectionJobResponse Client::submitSceneMediaSelectionJobWithOpt
 SubmitSceneMediaSelectionJobResponse Client::submitSceneMediaSelectionJob(const SubmitSceneMediaSelectionJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitSceneMediaSelectionJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交场景化时间线编排任务
+ *
+ * @param request SubmitSceneTimelineOrganizationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitSceneTimelineOrganizationJobResponse
+ */
+SubmitSceneTimelineOrganizationJobResponse Client::submitSceneTimelineOrganizationJobWithOptions(const SubmitSceneTimelineOrganizationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobType()) {
+    query["JobType"] = request.jobType();
+  }
+
+  if (!!request.hasMediaSelectResult()) {
+    query["MediaSelectResult"] = request.mediaSelectResult();
+  }
+
+  if (!!request.hasOutputConfig()) {
+    query["OutputConfig"] = request.outputConfig();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.userData();
+  }
+
+  json body = {};
+  if (!!request.hasEditingConfig()) {
+    body["EditingConfig"] = request.editingConfig();
+  }
+
+  if (!!request.hasInputConfig()) {
+    body["InputConfig"] = request.inputConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitSceneTimelineOrganizationJob"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitSceneTimelineOrganizationJobResponse>();
+}
+
+/**
+ * @summary 提交场景化时间线编排任务
+ *
+ * @param request SubmitSceneTimelineOrganizationJobRequest
+ * @return SubmitSceneTimelineOrganizationJobResponse
+ */
+SubmitSceneTimelineOrganizationJobResponse Client::submitSceneTimelineOrganizationJob(const SubmitSceneTimelineOrganizationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitSceneTimelineOrganizationJobWithOptions(request, runtime);
 }
 
 /**

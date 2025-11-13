@@ -21,6 +21,23 @@ namespace ICE20201109
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 激活AI实时互动授权信息
+       *
+       * @param request ActiveAiRtcLicenseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActiveAiRtcLicenseResponse
+       */
+      Models::ActiveAiRtcLicenseResponse activeAiRtcLicenseWithOptions(const Models::ActiveAiRtcLicenseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 激活AI实时互动授权信息
+       *
+       * @param request ActiveAiRtcLicenseRequest
+       * @return ActiveAiRtcLicenseResponse
+       */
+      Models::ActiveAiRtcLicenseResponse activeAiRtcLicense(const Models::ActiveAiRtcLicenseRequest &request);
+
+      /**
        * @summary Adds an ad insertion configuration.
        *
        * @param request AddAdInsertionRequest
@@ -2260,6 +2277,40 @@ namespace ICE20201109
        * @return GetAdInsertionResponse
        */
       Models::GetAdInsertionResponse getAdInsertion(const Models::GetAdInsertionRequest &request);
+
+      /**
+       * @summary 获取AI实时互动授权码列表
+       *
+       * @param request GetAiRtcAuthCodeListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiRtcAuthCodeListResponse
+       */
+      Models::GetAiRtcAuthCodeListResponse getAiRtcAuthCodeListWithOptions(const Models::GetAiRtcAuthCodeListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI实时互动授权码列表
+       *
+       * @param request GetAiRtcAuthCodeListRequest
+       * @return GetAiRtcAuthCodeListResponse
+       */
+      Models::GetAiRtcAuthCodeListResponse getAiRtcAuthCodeList(const Models::GetAiRtcAuthCodeListRequest &request);
+
+      /**
+       * @summary 获取AI实时互动授权批次列表
+       *
+       * @param request GetAiRtcLicenseInfoListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAiRtcLicenseInfoListResponse
+       */
+      Models::GetAiRtcLicenseInfoListResponse getAiRtcLicenseInfoListWithOptions(const Models::GetAiRtcLicenseInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI实时互动授权批次列表
+       *
+       * @param request GetAiRtcLicenseInfoListRequest
+       * @return GetAiRtcLicenseInfoListResponse
+       */
+      Models::GetAiRtcLicenseInfoListResponse getAiRtcLicenseInfoList(const Models::GetAiRtcLicenseInfoListRequest &request);
 
       /**
        * @summary Queries the information about a trained digital human.
@@ -6247,6 +6298,23 @@ namespace ICE20201109
       Models::SubmitProjectExportJobResponse submitProjectExportJob(const Models::SubmitProjectExportJobRequest &request);
 
       /**
+       * @summary 提交场景化批量合成任务
+       *
+       * @param request SubmitSceneBatchEditingJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitSceneBatchEditingJobResponse
+       */
+      Models::SubmitSceneBatchEditingJobResponse submitSceneBatchEditingJobWithOptions(const Models::SubmitSceneBatchEditingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交场景化批量合成任务
+       *
+       * @param request SubmitSceneBatchEditingJobRequest
+       * @return SubmitSceneBatchEditingJobResponse
+       */
+      Models::SubmitSceneBatchEditingJobResponse submitSceneBatchEditingJob(const Models::SubmitSceneBatchEditingJobRequest &request);
+
+      /**
        * @summary Selects suitable clips based on the submitted videos, images, and voiceovers, and returns the selection results. Two scenarios are supported: image-text matching and highlight mashup.
        *
        * @description *   After a job is submitted, you can call [ListBatchMediaProducingJob](https://help.aliyun.com/document_detail/2803751.html) to query submitted jobs, or [GetBatchMediaProducingJob](https://help.aliyun.com/document_detail/2693269.html) to query the job status and results.
@@ -6268,6 +6336,23 @@ namespace ICE20201109
        * @return SubmitSceneMediaSelectionJobResponse
        */
       Models::SubmitSceneMediaSelectionJobResponse submitSceneMediaSelectionJob(const Models::SubmitSceneMediaSelectionJobRequest &request);
+
+      /**
+       * @summary 提交场景化时间线编排任务
+       *
+       * @param request SubmitSceneTimelineOrganizationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitSceneTimelineOrganizationJobResponse
+       */
+      Models::SubmitSceneTimelineOrganizationJobResponse submitSceneTimelineOrganizationJobWithOptions(const Models::SubmitSceneTimelineOrganizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交场景化时间线编排任务
+       *
+       * @param request SubmitSceneTimelineOrganizationJobRequest
+       * @return SubmitSceneTimelineOrganizationJobResponse
+       */
+      Models::SubmitSceneTimelineOrganizationJobResponse submitSceneTimelineOrganizationJob(const Models::SubmitSceneTimelineOrganizationJobRequest &request);
 
       /**
        * @summary Submits a task to automatically recognize the highlight segments in the video input and compile them into a dramatic and engaging clip.

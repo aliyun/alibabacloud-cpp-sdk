@@ -6,6 +6,8 @@
 #include <alibabacloud/models/AiAgentOutboundCallConfig.hpp>
 #include <alibabacloud/models/AiAgentRuntimeConfig.hpp>
 #include <alibabacloud/models/AiAgentTemplateConfig.hpp>
+#include <alibabacloud/models/AiRtcAuthCodeDto.hpp>
+#include <alibabacloud/models/AiRtcLicenseInfoDto.hpp>
 #include <alibabacloud/models/AppInfoDto.hpp>
 #include <alibabacloud/models/Channel.hpp>
 #include <alibabacloud/models/ChannelAssemblyChannel.hpp>
@@ -44,6 +46,9 @@
 #include <alibabacloud/models/VodPackagingConfig.hpp>
 #include <alibabacloud/models/VodPackagingConfiguration.hpp>
 #include <alibabacloud/models/VodPackagingGroup.hpp>
+#include <alibabacloud/models/ActiveAiRtcLicenseRequest.hpp>
+#include <alibabacloud/models/ActiveAiRtcLicenseResponseBody.hpp>
+#include <alibabacloud/models/ActiveAiRtcLicenseResponse.hpp>
 #include <alibabacloud/models/AddAdInsertionRequest.hpp>
 #include <alibabacloud/models/AddAdInsertionResponseBody.hpp>
 #include <alibabacloud/models/AddAdInsertionResponse.hpp>
@@ -397,6 +402,12 @@
 #include <alibabacloud/models/GetAdInsertionRequest.hpp>
 #include <alibabacloud/models/GetAdInsertionResponseBody.hpp>
 #include <alibabacloud/models/GetAdInsertionResponse.hpp>
+#include <alibabacloud/models/GetAiRtcAuthCodeListRequest.hpp>
+#include <alibabacloud/models/GetAiRtcAuthCodeListResponseBody.hpp>
+#include <alibabacloud/models/GetAiRtcAuthCodeListResponse.hpp>
+#include <alibabacloud/models/GetAiRtcLicenseInfoListRequest.hpp>
+#include <alibabacloud/models/GetAiRtcLicenseInfoListResponseBody.hpp>
+#include <alibabacloud/models/GetAiRtcLicenseInfoListResponse.hpp>
 #include <alibabacloud/models/GetAvatarRequest.hpp>
 #include <alibabacloud/models/GetAvatarResponseBody.hpp>
 #include <alibabacloud/models/GetAvatarResponse.hpp>
@@ -1019,9 +1030,15 @@
 #include <alibabacloud/models/SubmitProjectExportJobRequest.hpp>
 #include <alibabacloud/models/SubmitProjectExportJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitProjectExportJobResponse.hpp>
+#include <alibabacloud/models/SubmitSceneBatchEditingJobRequest.hpp>
+#include <alibabacloud/models/SubmitSceneBatchEditingJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitSceneBatchEditingJobResponse.hpp>
 #include <alibabacloud/models/SubmitSceneMediaSelectionJobRequest.hpp>
 #include <alibabacloud/models/SubmitSceneMediaSelectionJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitSceneMediaSelectionJobResponse.hpp>
+#include <alibabacloud/models/SubmitSceneTimelineOrganizationJobRequest.hpp>
+#include <alibabacloud/models/SubmitSceneTimelineOrganizationJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitSceneTimelineOrganizationJobResponse.hpp>
 #include <alibabacloud/models/SubmitScreenMediaHighlightsJobRequest.hpp>
 #include <alibabacloud/models/SubmitScreenMediaHighlightsJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitScreenMediaHighlightsJobResponse.hpp>
