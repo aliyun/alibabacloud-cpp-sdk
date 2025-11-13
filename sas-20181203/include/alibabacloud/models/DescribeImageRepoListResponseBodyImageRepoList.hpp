@@ -71,6 +71,7 @@ namespace Models
     // *   **add**: yes
     // *   **del**: no
     std::shared_ptr<string> flag_ = nullptr;
+    // Number of images.
     std::shared_ptr<int32_t> imageCount_ = nullptr;
     // The name of the image repository.
     std::shared_ptr<string> repoName_ = nullptr;

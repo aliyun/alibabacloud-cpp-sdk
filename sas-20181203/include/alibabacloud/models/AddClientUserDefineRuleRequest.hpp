@@ -238,6 +238,9 @@ namespace Models
     // *   **5**: Operation on Registry
     // *   **6**: Dynamic-link Library Loading
     // *   **7**: File Renaming
+    // *   **8**: Network domain name
+    // *   **9**: Network ip
+    // *   **10**: File Path
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> type_ = nullptr;

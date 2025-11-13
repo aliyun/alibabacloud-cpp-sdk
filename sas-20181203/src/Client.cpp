@@ -2906,6 +2906,106 @@ CreateBinarySecurityPolicyResponse Client::createBinarySecurityPolicy(const Crea
 }
 
 /**
+ * @summary User creates a custom check item
+ *
+ * @param tmpReq CreateCheckItemRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCheckItemResponse
+ */
+CreateCheckItemResponse Client::createCheckItemWithOptions(const CreateCheckItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCheckItemShrinkRequest request = CreateCheckItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssistInfo()) {
+    request.setAssistInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.assistInfo(), "AssistInfo", "json"));
+  }
+
+  if (!!tmpReq.hasDescription()) {
+    request.setDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.description(), "Description", "json"));
+  }
+
+  if (!!tmpReq.hasSolution()) {
+    request.setSolutionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.solution(), "Solution", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAssistInfoShrink()) {
+    query["AssistInfo"] = request.assistInfoShrink();
+  }
+
+  if (!!request.hasCheckRule()) {
+    query["CheckRule"] = request.checkRule();
+  }
+
+  if (!!request.hasCheckShowName()) {
+    query["CheckShowName"] = request.checkShowName();
+  }
+
+  if (!!request.hasDescriptionShrink()) {
+    query["Description"] = request.descriptionShrink();
+  }
+
+  if (!!request.hasInstanceSubType()) {
+    query["InstanceSubType"] = request.instanceSubType();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.instanceType();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.riskLevel();
+  }
+
+  if (!!request.hasSectionIds()) {
+    query["SectionIds"] = request.sectionIds();
+  }
+
+  if (!!request.hasSolutionShrink()) {
+    query["Solution"] = request.solutionShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasVendor()) {
+    query["Vendor"] = request.vendor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCheckItem"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCheckItemResponse>();
+}
+
+/**
+ * @summary User creates a custom check item
+ *
+ * @param request CreateCheckItemRequest
+ * @return CreateCheckItemResponse
+ */
+CreateCheckItemResponse Client::createCheckItem(const CreateCheckItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCheckItemWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a container scan task.
  *
  * @param request CreateContainerScanTaskRequest
@@ -6075,6 +6175,48 @@ DeleteBinarySecurityPolicyResponse Client::deleteBinarySecurityPolicyWithOptions
 DeleteBinarySecurityPolicyResponse Client::deleteBinarySecurityPolicy(const DeleteBinarySecurityPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteBinarySecurityPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete custom check item for Situation Awareness
+ *
+ * @param request DeleteCheckItemRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCheckItemResponse
+ */
+DeleteCheckItemResponse Client::deleteCheckItemWithOptions(const DeleteCheckItemRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCheckIds()) {
+    query["CheckIds"] = request.checkIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCheckItem"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCheckItemResponse>();
+}
+
+/**
+ * @summary Delete custom check item for Situation Awareness
+ *
+ * @param request DeleteCheckItemRequest
+ * @return DeleteCheckItemResponse
+ */
+DeleteCheckItemResponse Client::deleteCheckItem(const DeleteCheckItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCheckItemWithOptions(request, runtime);
 }
 
 /**
@@ -11304,6 +11446,56 @@ DescribeClusterNetworkResponse Client::describeClusterNetwork(const DescribeClus
 }
 
 /**
+ * @summary 查询集群扫描组件状态
+ *
+ * @param request DescribeClusterScannerListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClusterScannerListResponse
+ */
+DescribeClusterScannerListResponse Client::describeClusterScannerListWithOptions(const DescribeClusterScannerListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterIdList()) {
+    query["ClusterIdList"] = request.clusterIdList();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasStatusList()) {
+    query["StatusList"] = request.statusList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClusterScannerList"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClusterScannerListResponse>();
+}
+
+/**
+ * @summary 查询集群扫描组件状态
+ *
+ * @param request DescribeClusterScannerListRequest
+ * @return DescribeClusterScannerListResponse
+ */
+DescribeClusterScannerListResponse Client::describeClusterScannerList(const DescribeClusterScannerListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClusterScannerListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
  *
  * @param request DescribeClusterVulStatisticsRequest
@@ -12450,6 +12642,48 @@ DescribeCustomizeReportListResponse Client::describeCustomizeReportListWithOptio
 DescribeCustomizeReportListResponse Client::describeCustomizeReportList(const DescribeCustomizeReportListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCustomizeReportListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看自定义弱口令上传结果
+ *
+ * @param request DescribeCustomizedDictRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCustomizedDictResponse
+ */
+DescribeCustomizedDictResponse Client::describeCustomizedDictWithOptions(const DescribeCustomizedDictRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCustomizedDict"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCustomizedDictResponse>();
+}
+
+/**
+ * @summary 查看自定义弱口令上传结果
+ *
+ * @param request DescribeCustomizedDictRequest
+ * @return DescribeCustomizedDictResponse
+ */
+DescribeCustomizedDictResponse Client::describeCustomizedDict(const DescribeCustomizedDictRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCustomizedDictWithOptions(request, runtime);
 }
 
 /**
@@ -26089,6 +26323,52 @@ FixCheckWarningsResponse Client::fixCheckWarnings(const FixCheckWarningsRequest 
 }
 
 /**
+ * @summary 生成K8s集群扫描接入配置
+ *
+ * @param request GenerateClusterScannerWebhookYamlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateClusterScannerWebhookYamlResponse
+ */
+GenerateClusterScannerWebhookYamlResponse Client::generateClusterScannerWebhookYamlWithOptions(const GenerateClusterScannerWebhookYamlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWebhookOpen()) {
+    query["WebhookOpen"] = request.webhookOpen();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateClusterScannerWebhookYaml"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateClusterScannerWebhookYamlResponse>();
+}
+
+/**
+ * @summary 生成K8s集群扫描接入配置
+ *
+ * @param request GenerateClusterScannerWebhookYamlRequest
+ * @return GenerateClusterScannerWebhookYamlResponse
+ */
+GenerateClusterScannerWebhookYamlResponse Client::generateClusterScannerWebhookYaml(const GenerateClusterScannerWebhookYamlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateClusterScannerWebhookYamlWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates a custom dictionary of weak passwords for the baseline check feature.
  *
  * @param request GenerateDynamicDictRequest
@@ -26468,6 +26748,48 @@ GetAgentlessTaskCountResponse Client::getAgentlessTaskCountWithOptions(const Get
 GetAgentlessTaskCountResponse Client::getAgentlessTaskCount(const GetAgentlessTaskCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAgentlessTaskCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the estimated volume for agentless detection.
+ *
+ * @param request GetAgentlessTaskUsedSizeEstimateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentlessTaskUsedSizeEstimateResponse
+ */
+GetAgentlessTaskUsedSizeEstimateResponse Client::getAgentlessTaskUsedSizeEstimateWithOptions(const GetAgentlessTaskUsedSizeEstimateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetSelectionType()) {
+    query["AssetSelectionType"] = request.assetSelectionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgentlessTaskUsedSizeEstimate"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentlessTaskUsedSizeEstimateResponse>();
+}
+
+/**
+ * @summary Query the estimated volume for agentless detection.
+ *
+ * @param request GetAgentlessTaskUsedSizeEstimateRequest
+ * @return GetAgentlessTaskUsedSizeEstimateResponse
+ */
+GetAgentlessTaskUsedSizeEstimateResponse Client::getAgentlessTaskUsedSizeEstimate(const GetAgentlessTaskUsedSizeEstimateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentlessTaskUsedSizeEstimateWithOptions(request, runtime);
 }
 
 /**
@@ -27971,6 +28293,48 @@ GetClusterRuleSummaryResponse Client::getClusterRuleSummaryWithOptions(const Get
 GetClusterRuleSummaryResponse Client::getClusterRuleSummary(const GetClusterRuleSummaryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getClusterRuleSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询K8s集群扫描接入配置
+ *
+ * @param request GetClusterScannerYamlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetClusterScannerYamlResponse
+ */
+GetClusterScannerYamlResponse Client::getClusterScannerYamlWithOptions(const GetClusterScannerYamlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetClusterScannerYaml"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetClusterScannerYamlResponse>();
+}
+
+/**
+ * @summary 查询K8s集群扫描接入配置
+ *
+ * @param request GetClusterScannerYamlRequest
+ * @return GetClusterScannerYamlResponse
+ */
+GetClusterScannerYamlResponse Client::getClusterScannerYaml(const GetClusterScannerYamlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getClusterScannerYamlWithOptions(request, runtime);
 }
 
 /**
@@ -31449,6 +31813,68 @@ HandleSecurityEventsResponse Client::handleSecurityEvents(const HandleSecurityEv
 }
 
 /**
+ * @summary 批量处理恶意样本告警。
+ *
+ * @description ****
+ *
+ * @param request HandleSimilarMaliciousFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HandleSimilarMaliciousFilesResponse
+ */
+HandleSimilarMaliciousFilesResponse Client::handleSimilarMaliciousFilesWithOptions(const HandleSimilarMaliciousFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.operation();
+  }
+
+  if (!!request.hasScanRange()) {
+    query["ScanRange"] = request.scanRange();
+  }
+
+  if (!!request.hasScenario()) {
+    query["Scenario"] = request.scenario();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "HandleSimilarMaliciousFiles"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HandleSimilarMaliciousFilesResponse>();
+}
+
+/**
+ * @summary 批量处理恶意样本告警。
+ *
+ * @description ****
+ *
+ * @param request HandleSimilarMaliciousFilesRequest
+ * @return HandleSimilarMaliciousFilesResponse
+ */
+HandleSimilarMaliciousFilesResponse Client::handleSimilarMaliciousFiles(const HandleSimilarMaliciousFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return handleSimilarMaliciousFilesWithOptions(request, runtime);
+}
+
+/**
  * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
  *
  * @param request HandleSimilarSecurityEventsRequest
@@ -33565,6 +33991,82 @@ ListCheckItemWarningSummaryResponse Client::listCheckItemWarningSummaryWithOptio
 ListCheckItemWarningSummaryResponse Client::listCheckItemWarningSummary(const ListCheckItemWarningSummaryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCheckItemWarningSummaryWithOptions(request, runtime);
+}
+
+/**
+ * @summary List custom check items for situational awareness
+ *
+ * @param request ListCheckItemsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCheckItemsResponse
+ */
+ListCheckItemsResponse Client::listCheckItemsWithOptions(const ListCheckItemsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCheckItems"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCheckItemsResponse>();
+}
+
+/**
+ * @summary List custom check items for situational awareness
+ *
+ * @param request ListCheckItemsRequest
+ * @return ListCheckItemsResponse
+ */
+ListCheckItemsResponse Client::listCheckItems(const ListCheckItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCheckItemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary List User Policies
+ *
+ * @param request ListCheckPoliciesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCheckPoliciesResponse
+ */
+ListCheckPoliciesResponse Client::listCheckPoliciesWithOptions(const ListCheckPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCheckPolicies"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCheckPoliciesResponse>();
+}
+
+/**
+ * @summary List User Policies
+ *
+ * @param request ListCheckPoliciesRequest
+ * @return ListCheckPoliciesResponse
+ */
+ListCheckPoliciesResponse Client::listCheckPolicies(const ListCheckPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCheckPoliciesWithOptions(request, runtime);
 }
 
 /**
@@ -37424,6 +37926,64 @@ ListUnfinishedOnceTaskResponse Client::listUnfinishedOnceTaskWithOptions(const L
 ListUnfinishedOnceTaskResponse Client::listUnfinishedOnceTask(const ListUnfinishedOnceTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listUnfinishedOnceTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary List Database Backup Records
+ *
+ * @param request ListUniBackupRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUniBackupRecordResponse
+ */
+ListUniBackupRecordResponse Client::listUniBackupRecordWithOptions(const ListUniBackupRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupRegionId()) {
+    query["BackupRegionId"] = request.backupRegionId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasMachineRemark()) {
+    query["MachineRemark"] = request.machineRemark();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.state();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUniBackupRecord"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUniBackupRecordResponse>();
+}
+
+/**
+ * @summary List Database Backup Records
+ *
+ * @param request ListUniBackupRecordRequest
+ * @return ListUniBackupRecordResponse
+ */
+ListUniBackupRecordResponse Client::listUniBackupRecord(const ListUniBackupRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUniBackupRecordWithOptions(request, runtime);
 }
 
 /**
@@ -46394,6 +46954,110 @@ UpdateBaselineCheckWhiteRecordResponse Client::updateBaselineCheckWhiteRecordWit
 UpdateBaselineCheckWhiteRecordResponse Client::updateBaselineCheckWhiteRecord(const UpdateBaselineCheckWhiteRecordRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateBaselineCheckWhiteRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary User creates a custom check item
+ *
+ * @param tmpReq UpdateCheckItemRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCheckItemResponse
+ */
+UpdateCheckItemResponse Client::updateCheckItemWithOptions(const UpdateCheckItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateCheckItemShrinkRequest request = UpdateCheckItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAssistInfo()) {
+    request.setAssistInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.assistInfo(), "AssistInfo", "json"));
+  }
+
+  if (!!tmpReq.hasDescription()) {
+    request.setDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.description(), "Description", "json"));
+  }
+
+  if (!!tmpReq.hasSolution()) {
+    request.setSolutionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.solution(), "Solution", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAssistInfoShrink()) {
+    query["AssistInfo"] = request.assistInfoShrink();
+  }
+
+  if (!!request.hasCheckId()) {
+    query["CheckId"] = request.checkId();
+  }
+
+  if (!!request.hasCheckRule()) {
+    query["CheckRule"] = request.checkRule();
+  }
+
+  if (!!request.hasCheckShowName()) {
+    query["CheckShowName"] = request.checkShowName();
+  }
+
+  if (!!request.hasDescriptionShrink()) {
+    query["Description"] = request.descriptionShrink();
+  }
+
+  if (!!request.hasInstanceSubType()) {
+    query["InstanceSubType"] = request.instanceSubType();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.instanceType();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.riskLevel();
+  }
+
+  if (!!request.hasSectionIds()) {
+    query["SectionIds"] = request.sectionIds();
+  }
+
+  if (!!request.hasSolutionShrink()) {
+    query["Solution"] = request.solutionShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasVendor()) {
+    query["Vendor"] = request.vendor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCheckItem"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCheckItemResponse>();
+}
+
+/**
+ * @summary User creates a custom check item
+ *
+ * @param request UpdateCheckItemRequest
+ * @return UpdateCheckItemResponse
+ */
+UpdateCheckItemResponse Client::updateCheckItem(const UpdateCheckItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCheckItemWithOptions(request, runtime);
 }
 
 /**

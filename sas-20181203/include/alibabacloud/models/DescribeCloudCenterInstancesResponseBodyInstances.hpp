@@ -713,6 +713,7 @@ namespace Models
     std::shared_ptr<string> macListString_ = nullptr;
     // The size of the memory. Unit: MB.
     std::shared_ptr<int32_t> mem_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
     // The operating system of the asset.
     std::shared_ptr<string> os_ = nullptr;

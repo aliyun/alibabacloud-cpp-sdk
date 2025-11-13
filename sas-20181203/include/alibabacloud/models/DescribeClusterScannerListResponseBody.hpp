@@ -1,0 +1,72 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBECLUSTERSCANNERLISTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBECLUSTERSCANNERLISTRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeClusterScannerListResponseBodyList.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class DescribeClusterScannerListResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeClusterScannerListResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(InstalledCount, installedCount_);
+      DARABONBA_PTR_TO_JSON(List, list_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeClusterScannerListResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstalledCount, installedCount_);
+      DARABONBA_PTR_FROM_JSON(List, list_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    DescribeClusterScannerListResponseBody() = default ;
+    DescribeClusterScannerListResponseBody(const DescribeClusterScannerListResponseBody &) = default ;
+    DescribeClusterScannerListResponseBody(DescribeClusterScannerListResponseBody &&) = default ;
+    DescribeClusterScannerListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeClusterScannerListResponseBody() = default ;
+    DescribeClusterScannerListResponseBody& operator=(const DescribeClusterScannerListResponseBody &) = default ;
+    DescribeClusterScannerListResponseBody& operator=(DescribeClusterScannerListResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->installedCount_ == nullptr
+        && return this->list_ == nullptr && return this->requestId_ == nullptr; };
+    // installedCount Field Functions 
+    bool hasInstalledCount() const { return this->installedCount_ != nullptr;};
+    void deleteInstalledCount() { this->installedCount_ = nullptr;};
+    inline int32_t installedCount() const { DARABONBA_PTR_GET_DEFAULT(installedCount_, 0) };
+    inline DescribeClusterScannerListResponseBody& setInstalledCount(int32_t installedCount) { DARABONBA_PTR_SET_VALUE(installedCount_, installedCount) };
+
+
+    // list Field Functions 
+    bool hasList() const { return this->list_ != nullptr;};
+    void deleteList() { this->list_ = nullptr;};
+    inline const vector<DescribeClusterScannerListResponseBodyList> & list() const { DARABONBA_PTR_GET_CONST(list_, vector<DescribeClusterScannerListResponseBodyList>) };
+    inline vector<DescribeClusterScannerListResponseBodyList> list() { DARABONBA_PTR_GET(list_, vector<DescribeClusterScannerListResponseBodyList>) };
+    inline DescribeClusterScannerListResponseBody& setList(const vector<DescribeClusterScannerListResponseBodyList> & list) { DARABONBA_PTR_SET_VALUE(list_, list) };
+    inline DescribeClusterScannerListResponseBody& setList(vector<DescribeClusterScannerListResponseBodyList> && list) { DARABONBA_PTR_SET_RVALUE(list_, list) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline DescribeClusterScannerListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<int32_t> installedCount_ = nullptr;
+    std::shared_ptr<vector<DescribeClusterScannerListResponseBodyList>> list_ = nullptr;
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif

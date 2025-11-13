@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppWhiteList, appWhiteList_);
       DARABONBA_PTR_TO_JSON(AppWhiteListAuthCount, appWhiteListAuthCount_);
       DARABONBA_PTR_TO_JSON(AssetLevel, assetLevel_);
+      DARABONBA_PTR_TO_JSON(CanTryPostPaidPackage, canTryPostPaidPackage_);
       DARABONBA_PTR_TO_JSON(CspmCapacity, cspmCapacity_);
       DARABONBA_PTR_TO_JSON(HighestVersion, highestVersion_);
       DARABONBA_PTR_TO_JSON(HoneypotCapacity, honeypotCapacity_);
@@ -67,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppWhiteList, appWhiteList_);
       DARABONBA_PTR_FROM_JSON(AppWhiteListAuthCount, appWhiteListAuthCount_);
       DARABONBA_PTR_FROM_JSON(AssetLevel, assetLevel_);
+      DARABONBA_PTR_FROM_JSON(CanTryPostPaidPackage, canTryPostPaidPackage_);
       DARABONBA_PTR_FROM_JSON(CspmCapacity, cspmCapacity_);
       DARABONBA_PTR_FROM_JSON(HighestVersion, highestVersion_);
       DARABONBA_PTR_FROM_JSON(HoneypotCapacity, honeypotCapacity_);
@@ -119,14 +121,14 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentlessCapacity_ == nullptr
         && return this->allowPartialBuy_ == nullptr && return this->antiRansomwareCapacity_ == nullptr && return this->antiRansomwareService_ == nullptr && return this->appWhiteList_ == nullptr && return this->appWhiteListAuthCount_ == nullptr
-        && return this->assetLevel_ == nullptr && return this->cspmCapacity_ == nullptr && return this->highestVersion_ == nullptr && return this->honeypotCapacity_ == nullptr && return this->imageScanCapacity_ == nullptr
-        && return this->instanceBuyType_ == nullptr && return this->instanceId_ == nullptr && return this->isNewContainerVersion_ == nullptr && return this->isNewMultiVersion_ == nullptr && return this->isOverBalance_ == nullptr
-        && return this->isPostpay_ == nullptr && return this->isTrialVersion_ == nullptr && return this->lastTrailEndTime_ == nullptr && return this->MVAuthCount_ == nullptr && return this->MVUnusedAuthCount_ == nullptr
-        && return this->mergedVersion_ == nullptr && return this->multiVersion_ == nullptr && return this->newThreatAnalysis_ == nullptr && return this->openTime_ == nullptr && return this->postPayHostVersion_ == nullptr
-        && return this->postPayInstanceId_ == nullptr && return this->postPayModuleSwitch_ == nullptr && return this->postPayOpenTime_ == nullptr && return this->postPayStatus_ == nullptr && return this->raspCapacity_ == nullptr
-        && return this->releaseTime_ == nullptr && return this->requestId_ == nullptr && return this->sasLog_ == nullptr && return this->sasScreen_ == nullptr && return this->sdkCapacity_ == nullptr
-        && return this->slsCapacity_ == nullptr && return this->threatAnalysisCapacity_ == nullptr && return this->threatAnalysisFlow_ == nullptr && return this->userDefinedAlarms_ == nullptr && return this->version_ == nullptr
-        && return this->vmCores_ == nullptr && return this->vulFixCapacity_ == nullptr && return this->webLock_ == nullptr && return this->webLockAuthCount_ == nullptr; };
+        && return this->assetLevel_ == nullptr && return this->canTryPostPaidPackage_ == nullptr && return this->cspmCapacity_ == nullptr && return this->highestVersion_ == nullptr && return this->honeypotCapacity_ == nullptr
+        && return this->imageScanCapacity_ == nullptr && return this->instanceBuyType_ == nullptr && return this->instanceId_ == nullptr && return this->isNewContainerVersion_ == nullptr && return this->isNewMultiVersion_ == nullptr
+        && return this->isOverBalance_ == nullptr && return this->isPostpay_ == nullptr && return this->isTrialVersion_ == nullptr && return this->lastTrailEndTime_ == nullptr && return this->MVAuthCount_ == nullptr
+        && return this->MVUnusedAuthCount_ == nullptr && return this->mergedVersion_ == nullptr && return this->multiVersion_ == nullptr && return this->newThreatAnalysis_ == nullptr && return this->openTime_ == nullptr
+        && return this->postPayHostVersion_ == nullptr && return this->postPayInstanceId_ == nullptr && return this->postPayModuleSwitch_ == nullptr && return this->postPayOpenTime_ == nullptr && return this->postPayStatus_ == nullptr
+        && return this->raspCapacity_ == nullptr && return this->releaseTime_ == nullptr && return this->requestId_ == nullptr && return this->sasLog_ == nullptr && return this->sasScreen_ == nullptr
+        && return this->sdkCapacity_ == nullptr && return this->slsCapacity_ == nullptr && return this->threatAnalysisCapacity_ == nullptr && return this->threatAnalysisFlow_ == nullptr && return this->userDefinedAlarms_ == nullptr
+        && return this->version_ == nullptr && return this->vmCores_ == nullptr && return this->vulFixCapacity_ == nullptr && return this->webLock_ == nullptr && return this->webLockAuthCount_ == nullptr; };
     // agentlessCapacity Field Functions 
     bool hasAgentlessCapacity() const { return this->agentlessCapacity_ != nullptr;};
     void deleteAgentlessCapacity() { this->agentlessCapacity_ = nullptr;};
@@ -174,6 +176,13 @@ namespace Models
     void deleteAssetLevel() { this->assetLevel_ = nullptr;};
     inline int32_t assetLevel() const { DARABONBA_PTR_GET_DEFAULT(assetLevel_, 0) };
     inline DescribeVersionConfigResponseBody& setAssetLevel(int32_t assetLevel) { DARABONBA_PTR_SET_VALUE(assetLevel_, assetLevel) };
+
+
+    // canTryPostPaidPackage Field Functions 
+    bool hasCanTryPostPaidPackage() const { return this->canTryPostPaidPackage_ != nullptr;};
+    void deleteCanTryPostPaidPackage() { this->canTryPostPaidPackage_ = nullptr;};
+    inline int32_t canTryPostPaidPackage() const { DARABONBA_PTR_GET_DEFAULT(canTryPostPaidPackage_, 0) };
+    inline DescribeVersionConfigResponseBody& setCanTryPostPaidPackage(int32_t canTryPostPaidPackage) { DARABONBA_PTR_SET_VALUE(canTryPostPaidPackage_, canTryPostPaidPackage) };
 
 
     // cspmCapacity Field Functions 
@@ -470,6 +479,7 @@ namespace Models
     std::shared_ptr<int64_t> appWhiteListAuthCount_ = nullptr;
     // The quota for servers that can be protected.
     std::shared_ptr<int32_t> assetLevel_ = nullptr;
+    std::shared_ptr<int32_t> canTryPostPaidPackage_ = nullptr;
     // The purchased quota for configuration assessment. Unit: times/month.
     std::shared_ptr<int64_t> cspmCapacity_ = nullptr;
     // The most advanced edition that is used. Valid values:

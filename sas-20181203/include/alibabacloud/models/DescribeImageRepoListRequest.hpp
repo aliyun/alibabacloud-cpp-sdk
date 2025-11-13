@@ -147,6 +147,10 @@ namespace Models
     std::shared_ptr<string> repoName_ = nullptr;
     // The namespace to which the image repository belongs.
     std::shared_ptr<string> repoNamespace_ = nullptr;
+    // Whether it is selected. Values:
+    // 
+    // *   **0**: NO
+    // *   **1**: YES
     std::shared_ptr<int32_t> selected_ = nullptr;
     // The condition by which the feature is applied. Valid values:
     // 

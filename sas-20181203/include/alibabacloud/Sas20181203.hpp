@@ -865,6 +865,23 @@ namespace Sas20181203
       Models::CreateBinarySecurityPolicyResponse createBinarySecurityPolicy(const Models::CreateBinarySecurityPolicyRequest &request);
 
       /**
+       * @summary User creates a custom check item
+       *
+       * @param tmpReq CreateCheckItemRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCheckItemResponse
+       */
+      Models::CreateCheckItemResponse createCheckItemWithOptions(const Models::CreateCheckItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary User creates a custom check item
+       *
+       * @param request CreateCheckItemRequest
+       * @return CreateCheckItemResponse
+       */
+      Models::CreateCheckItemResponse createCheckItem(const Models::CreateCheckItemRequest &request);
+
+      /**
        * @summary Creates a container scan task.
        *
        * @param request CreateContainerScanTaskRequest
@@ -1802,6 +1819,23 @@ namespace Sas20181203
        * @return DeleteBinarySecurityPolicyResponse
        */
       Models::DeleteBinarySecurityPolicyResponse deleteBinarySecurityPolicy(const Models::DeleteBinarySecurityPolicyRequest &request);
+
+      /**
+       * @summary Delete custom check item for Situation Awareness
+       *
+       * @param request DeleteCheckItemRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCheckItemResponse
+       */
+      Models::DeleteCheckItemResponse deleteCheckItemWithOptions(const Models::DeleteCheckItemRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete custom check item for Situation Awareness
+       *
+       * @param request DeleteCheckItemRequest
+       * @return DeleteCheckItemResponse
+       */
+      Models::DeleteCheckItemResponse deleteCheckItem(const Models::DeleteCheckItemRequest &request);
 
       /**
        * @summary Delete custom scope directories in Cloud Security Posture Management (CSPM) custom checks. You can remove assigned standards, requirements, or sections.
@@ -3597,6 +3631,23 @@ namespace Sas20181203
       Models::DescribeClusterNetworkResponse describeClusterNetwork(const Models::DescribeClusterNetworkRequest &request);
 
       /**
+       * @summary 查询集群扫描组件状态
+       *
+       * @param request DescribeClusterScannerListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClusterScannerListResponse
+       */
+      Models::DescribeClusterScannerListResponse describeClusterScannerListWithOptions(const Models::DescribeClusterScannerListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询集群扫描组件状态
+       *
+       * @param request DescribeClusterScannerListRequest
+       * @return DescribeClusterScannerListResponse
+       */
+      Models::DescribeClusterScannerListResponse describeClusterScannerList(const Models::DescribeClusterScannerListRequest &request);
+
+      /**
        * @summary Queries the statistics of vulnerabilities that are detected on a cluster.
        *
        * @param request DescribeClusterVulStatisticsRequest
@@ -4004,6 +4055,23 @@ namespace Sas20181203
        * @return DescribeCustomizeReportListResponse
        */
       Models::DescribeCustomizeReportListResponse describeCustomizeReportList(const Models::DescribeCustomizeReportListRequest &request);
+
+      /**
+       * @summary 查看自定义弱口令上传结果
+       *
+       * @param request DescribeCustomizedDictRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomizedDictResponse
+       */
+      Models::DescribeCustomizedDictResponse describeCustomizedDictWithOptions(const Models::DescribeCustomizedDictRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看自定义弱口令上传结果
+       *
+       * @param request DescribeCustomizedDictRequest
+       * @return DescribeCustomizedDictResponse
+       */
+      Models::DescribeCustomizedDictResponse describeCustomizedDict(const Models::DescribeCustomizedDictRequest &request);
 
       /**
        * @summary Queries the Object Storage Service (OSS) information of the file that is uploaded to create custom weak password rules.
@@ -8325,6 +8393,23 @@ namespace Sas20181203
       Models::FixCheckWarningsResponse fixCheckWarnings(const Models::FixCheckWarningsRequest &request);
 
       /**
+       * @summary 生成K8s集群扫描接入配置
+       *
+       * @param request GenerateClusterScannerWebhookYamlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateClusterScannerWebhookYamlResponse
+       */
+      Models::GenerateClusterScannerWebhookYamlResponse generateClusterScannerWebhookYamlWithOptions(const Models::GenerateClusterScannerWebhookYamlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成K8s集群扫描接入配置
+       *
+       * @param request GenerateClusterScannerWebhookYamlRequest
+       * @return GenerateClusterScannerWebhookYamlResponse
+       */
+      Models::GenerateClusterScannerWebhookYamlResponse generateClusterScannerWebhookYaml(const Models::GenerateClusterScannerWebhookYamlRequest &request);
+
+      /**
        * @summary Generates a custom dictionary of weak passwords for the baseline check feature.
        *
        * @param request GenerateDynamicDictRequest
@@ -8446,6 +8531,23 @@ namespace Sas20181203
        * @return GetAgentlessTaskCountResponse
        */
       Models::GetAgentlessTaskCountResponse getAgentlessTaskCount(const Models::GetAgentlessTaskCountRequest &request);
+
+      /**
+       * @summary Query the estimated volume for agentless detection.
+       *
+       * @param request GetAgentlessTaskUsedSizeEstimateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentlessTaskUsedSizeEstimateResponse
+       */
+      Models::GetAgentlessTaskUsedSizeEstimateResponse getAgentlessTaskUsedSizeEstimateWithOptions(const Models::GetAgentlessTaskUsedSizeEstimateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the estimated volume for agentless detection.
+       *
+       * @param request GetAgentlessTaskUsedSizeEstimateRequest
+       * @return GetAgentlessTaskUsedSizeEstimateResponse
+       */
+      Models::GetAgentlessTaskUsedSizeEstimateResponse getAgentlessTaskUsedSizeEstimate(const Models::GetAgentlessTaskUsedSizeEstimateRequest &request);
 
       /**
        * @summary Queries the number of servers on which alerts are generated.
@@ -9004,6 +9106,23 @@ namespace Sas20181203
        * @return GetClusterRuleSummaryResponse
        */
       Models::GetClusterRuleSummaryResponse getClusterRuleSummary(const Models::GetClusterRuleSummaryRequest &request);
+
+      /**
+       * @summary 查询K8s集群扫描接入配置
+       *
+       * @param request GetClusterScannerYamlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetClusterScannerYamlResponse
+       */
+      Models::GetClusterScannerYamlResponse getClusterScannerYamlWithOptions(const Models::GetClusterScannerYamlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询K8s集群扫描接入配置
+       *
+       * @param request GetClusterScannerYamlRequest
+       * @return GetClusterScannerYamlResponse
+       */
+      Models::GetClusterScannerYamlResponse getClusterScannerYaml(const Models::GetClusterScannerYamlRequest &request);
 
       /**
        * @summary Queries the number of policies in each cluster.
@@ -10325,6 +10444,27 @@ namespace Sas20181203
       Models::HandleSecurityEventsResponse handleSecurityEvents(const Models::HandleSecurityEventsRequest &request);
 
       /**
+       * @summary 批量处理恶意样本告警。
+       *
+       * @description ****
+       *
+       * @param request HandleSimilarMaliciousFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HandleSimilarMaliciousFilesResponse
+       */
+      Models::HandleSimilarMaliciousFilesResponse handleSimilarMaliciousFilesWithOptions(const Models::HandleSimilarMaliciousFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量处理恶意样本告警。
+       *
+       * @description ****
+       *
+       * @param request HandleSimilarMaliciousFilesRequest
+       * @return HandleSimilarMaliciousFilesResponse
+       */
+      Models::HandleSimilarMaliciousFilesResponse handleSimilarMaliciousFiles(const Models::HandleSimilarMaliciousFilesRequest &request);
+
+      /**
        * @summary Handles multiple alert events that are triggered by the same IP address rule or IP address rules of the same type at a time.
        *
        * @param request HandleSimilarSecurityEventsRequest
@@ -10944,6 +11084,40 @@ namespace Sas20181203
        * @return ListCheckItemWarningSummaryResponse
        */
       Models::ListCheckItemWarningSummaryResponse listCheckItemWarningSummary(const Models::ListCheckItemWarningSummaryRequest &request);
+
+      /**
+       * @summary List custom check items for situational awareness
+       *
+       * @param request ListCheckItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCheckItemsResponse
+       */
+      Models::ListCheckItemsResponse listCheckItemsWithOptions(const Models::ListCheckItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary List custom check items for situational awareness
+       *
+       * @param request ListCheckItemsRequest
+       * @return ListCheckItemsResponse
+       */
+      Models::ListCheckItemsResponse listCheckItems(const Models::ListCheckItemsRequest &request);
+
+      /**
+       * @summary List User Policies
+       *
+       * @param request ListCheckPoliciesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCheckPoliciesResponse
+       */
+      Models::ListCheckPoliciesResponse listCheckPoliciesWithOptions(const Models::ListCheckPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary List User Policies
+       *
+       * @param request ListCheckPoliciesRequest
+       * @return ListCheckPoliciesResponse
+       */
+      Models::ListCheckPoliciesResponse listCheckPolicies(const Models::ListCheckPoliciesRequest &request);
 
       /**
        * @summary Queries the details of the risk items that are detected in the configuration checks on cloud services.
@@ -12193,6 +12367,23 @@ namespace Sas20181203
        * @return ListUnfinishedOnceTaskResponse
        */
       Models::ListUnfinishedOnceTaskResponse listUnfinishedOnceTask(const Models::ListUnfinishedOnceTaskRequest &request);
+
+      /**
+       * @summary List Database Backup Records
+       *
+       * @param request ListUniBackupRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUniBackupRecordResponse
+       */
+      Models::ListUniBackupRecordResponse listUniBackupRecordWithOptions(const Models::ListUniBackupRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary List Database Backup Records
+       *
+       * @param request ListUniBackupRecordRequest
+       * @return ListUniBackupRecordResponse
+       */
+      Models::ListUniBackupRecordResponse listUniBackupRecord(const Models::ListUniBackupRecordRequest &request);
 
       /**
        * @summary Queries the information about the servers whose Security Center agent is not installed.
@@ -15082,6 +15273,23 @@ namespace Sas20181203
        * @return UpdateBaselineCheckWhiteRecordResponse
        */
       Models::UpdateBaselineCheckWhiteRecordResponse updateBaselineCheckWhiteRecord(const Models::UpdateBaselineCheckWhiteRecordRequest &request);
+
+      /**
+       * @summary User creates a custom check item
+       *
+       * @param tmpReq UpdateCheckItemRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCheckItemResponse
+       */
+      Models::UpdateCheckItemResponse updateCheckItemWithOptions(const Models::UpdateCheckItemRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary User creates a custom check item
+       *
+       * @param request UpdateCheckItemRequest
+       * @return UpdateCheckItemResponse
+       */
+      Models::UpdateCheckItemResponse updateCheckItem(const Models::UpdateCheckItemRequest &request);
 
       /**
        * @summary Modifies alerting settings for servers.

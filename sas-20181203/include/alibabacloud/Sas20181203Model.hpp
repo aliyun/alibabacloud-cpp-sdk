@@ -153,6 +153,10 @@
 #include <alibabacloud/models/CreateBinarySecurityPolicyRequest.hpp>
 #include <alibabacloud/models/CreateBinarySecurityPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateBinarySecurityPolicyResponse.hpp>
+#include <alibabacloud/models/CreateCheckItemRequest.hpp>
+#include <alibabacloud/models/CreateCheckItemShrinkRequest.hpp>
+#include <alibabacloud/models/CreateCheckItemResponseBody.hpp>
+#include <alibabacloud/models/CreateCheckItemResponse.hpp>
 #include <alibabacloud/models/CreateContainerScanTaskRequest.hpp>
 #include <alibabacloud/models/CreateContainerScanTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateContainerScanTaskResponse.hpp>
@@ -316,6 +320,9 @@
 #include <alibabacloud/models/DeleteBinarySecurityPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteBinarySecurityPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteBinarySecurityPolicyResponse.hpp>
+#include <alibabacloud/models/DeleteCheckItemRequest.hpp>
+#include <alibabacloud/models/DeleteCheckItemResponseBody.hpp>
+#include <alibabacloud/models/DeleteCheckItemResponse.hpp>
 #include <alibabacloud/models/DeleteCheckPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteCheckPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteCheckPolicyResponse.hpp>
@@ -616,6 +623,9 @@
 #include <alibabacloud/models/DescribeClusterNetworkRequest.hpp>
 #include <alibabacloud/models/DescribeClusterNetworkResponseBody.hpp>
 #include <alibabacloud/models/DescribeClusterNetworkResponse.hpp>
+#include <alibabacloud/models/DescribeClusterScannerListRequest.hpp>
+#include <alibabacloud/models/DescribeClusterScannerListResponseBody.hpp>
+#include <alibabacloud/models/DescribeClusterScannerListResponse.hpp>
 #include <alibabacloud/models/DescribeClusterVulStatisticsRequest.hpp>
 #include <alibabacloud/models/DescribeClusterVulStatisticsResponseBody.hpp>
 #include <alibabacloud/models/DescribeClusterVulStatisticsResponse.hpp>
@@ -685,6 +695,9 @@
 #include <alibabacloud/models/DescribeCustomizeReportListRequest.hpp>
 #include <alibabacloud/models/DescribeCustomizeReportListResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomizeReportListResponse.hpp>
+#include <alibabacloud/models/DescribeCustomizedDictRequest.hpp>
+#include <alibabacloud/models/DescribeCustomizedDictResponseBody.hpp>
+#include <alibabacloud/models/DescribeCustomizedDictResponse.hpp>
 #include <alibabacloud/models/DescribeCustomizedDictUploadInfoRequest.hpp>
 #include <alibabacloud/models/DescribeCustomizedDictUploadInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomizedDictUploadInfoResponse.hpp>
@@ -1397,6 +1410,9 @@
 #include <alibabacloud/models/FixCheckWarningsRequest.hpp>
 #include <alibabacloud/models/FixCheckWarningsResponseBody.hpp>
 #include <alibabacloud/models/FixCheckWarningsResponse.hpp>
+#include <alibabacloud/models/GenerateClusterScannerWebhookYamlRequest.hpp>
+#include <alibabacloud/models/GenerateClusterScannerWebhookYamlResponseBody.hpp>
+#include <alibabacloud/models/GenerateClusterScannerWebhookYamlResponse.hpp>
 #include <alibabacloud/models/GenerateDynamicDictRequest.hpp>
 #include <alibabacloud/models/GenerateDynamicDictResponseBody.hpp>
 #include <alibabacloud/models/GenerateDynamicDictResponse.hpp>
@@ -1418,6 +1434,9 @@
 #include <alibabacloud/models/GetAgentlessTaskCountRequest.hpp>
 #include <alibabacloud/models/GetAgentlessTaskCountResponseBody.hpp>
 #include <alibabacloud/models/GetAgentlessTaskCountResponse.hpp>
+#include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateRequest.hpp>
+#include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateResponseBody.hpp>
+#include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateResponse.hpp>
 #include <alibabacloud/models/GetAlarmMachineCountRequest.hpp>
 #include <alibabacloud/models/GetAlarmMachineCountResponseBody.hpp>
 #include <alibabacloud/models/GetAlarmMachineCountResponse.hpp>
@@ -1510,6 +1529,9 @@
 #include <alibabacloud/models/GetClusterRuleSummaryRequest.hpp>
 #include <alibabacloud/models/GetClusterRuleSummaryResponseBody.hpp>
 #include <alibabacloud/models/GetClusterRuleSummaryResponse.hpp>
+#include <alibabacloud/models/GetClusterScannerYamlRequest.hpp>
+#include <alibabacloud/models/GetClusterScannerYamlResponseBody.hpp>
+#include <alibabacloud/models/GetClusterScannerYamlResponse.hpp>
 #include <alibabacloud/models/GetClusterStrategyCountResponseBody.hpp>
 #include <alibabacloud/models/GetClusterStrategyCountResponse.hpp>
 #include <alibabacloud/models/GetClusterSuspEventStatisticsRequest.hpp>
@@ -1730,6 +1752,9 @@
 #include <alibabacloud/models/HandleSecurityEventsRequest.hpp>
 #include <alibabacloud/models/HandleSecurityEventsResponseBody.hpp>
 #include <alibabacloud/models/HandleSecurityEventsResponse.hpp>
+#include <alibabacloud/models/HandleSimilarMaliciousFilesRequest.hpp>
+#include <alibabacloud/models/HandleSimilarMaliciousFilesResponseBody.hpp>
+#include <alibabacloud/models/HandleSimilarMaliciousFilesResponse.hpp>
 #include <alibabacloud/models/HandleSimilarSecurityEventsRequest.hpp>
 #include <alibabacloud/models/HandleSimilarSecurityEventsResponseBody.hpp>
 #include <alibabacloud/models/HandleSimilarSecurityEventsResponse.hpp>
@@ -1838,6 +1863,12 @@
 #include <alibabacloud/models/ListCheckItemWarningSummaryRequest.hpp>
 #include <alibabacloud/models/ListCheckItemWarningSummaryResponseBody.hpp>
 #include <alibabacloud/models/ListCheckItemWarningSummaryResponse.hpp>
+#include <alibabacloud/models/ListCheckItemsRequest.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBody.hpp>
+#include <alibabacloud/models/ListCheckItemsResponse.hpp>
+#include <alibabacloud/models/ListCheckPoliciesRequest.hpp>
+#include <alibabacloud/models/ListCheckPoliciesResponseBody.hpp>
+#include <alibabacloud/models/ListCheckPoliciesResponse.hpp>
 #include <alibabacloud/models/ListCheckResultRequest.hpp>
 #include <alibabacloud/models/ListCheckResultResponseBody.hpp>
 #include <alibabacloud/models/ListCheckResultResponse.hpp>
@@ -2048,6 +2079,9 @@
 #include <alibabacloud/models/ListUnfinishedOnceTaskRequest.hpp>
 #include <alibabacloud/models/ListUnfinishedOnceTaskResponseBody.hpp>
 #include <alibabacloud/models/ListUnfinishedOnceTaskResponse.hpp>
+#include <alibabacloud/models/ListUniBackupRecordRequest.hpp>
+#include <alibabacloud/models/ListUniBackupRecordResponseBody.hpp>
+#include <alibabacloud/models/ListUniBackupRecordResponse.hpp>
 #include <alibabacloud/models/ListUninstallAegisMachinesRequest.hpp>
 #include <alibabacloud/models/ListUninstallAegisMachinesResponseBody.hpp>
 #include <alibabacloud/models/ListUninstallAegisMachinesResponse.hpp>
@@ -2543,6 +2577,10 @@
 #include <alibabacloud/models/UpdateBaselineCheckWhiteRecordRequest.hpp>
 #include <alibabacloud/models/UpdateBaselineCheckWhiteRecordResponseBody.hpp>
 #include <alibabacloud/models/UpdateBaselineCheckWhiteRecordResponse.hpp>
+#include <alibabacloud/models/UpdateCheckItemRequest.hpp>
+#include <alibabacloud/models/UpdateCheckItemShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateCheckItemResponseBody.hpp>
+#include <alibabacloud/models/UpdateCheckItemResponse.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeRequest.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeResponseBody.hpp>
 #include <alibabacloud/models/UpdateClientAlertModeResponse.hpp>
@@ -2706,6 +2744,10 @@
 #include <alibabacloud/models/CreateBackupPolicyResponseBodyBackupPolicy.hpp>
 #include <alibabacloud/models/CreateBatchUploadUrlResponseBodyUploadUrlListContext.hpp>
 #include <alibabacloud/models/CreateBatchUploadUrlResponseBodyUploadUrlList.hpp>
+#include <alibabacloud/models/CreateCheckItemRequestAssistInfo.hpp>
+#include <alibabacloud/models/CreateCheckItemRequestDescription.hpp>
+#include <alibabacloud/models/CreateCheckItemRequestSolution.hpp>
+#include <alibabacloud/models/CreateCheckItemResponseBodyData.hpp>
 #include <alibabacloud/models/CreateContainerScanTaskResponseBodyData.hpp>
 #include <alibabacloud/models/CreateContainerScanTaskByAppNameResponseBodyData.hpp>
 #include <alibabacloud/models/CreateFileDetectUploadUrlRequestHashKeyContextList.hpp>
@@ -2740,6 +2782,7 @@
 #include <alibabacloud/models/CreateSimilarSecurityEventsQueryTaskResponseBodyCreateSimilarSecurityEventsQueryTaskResponse.hpp>
 #include <alibabacloud/models/CreateVulAutoRepairConfigRequestVulAutoRepairConfigList.hpp>
 #include <alibabacloud/models/DeleteBackupSnapshotRequestBackupSnapshotList.hpp>
+#include <alibabacloud/models/DeleteCheckItemResponseBodyCheckItems.hpp>
 #include <alibabacloud/models/DeleteCheckPolicyResponseBodyPolicys.hpp>
 #include <alibabacloud/models/DeleteImageEventOperationResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeAiAssetSummaryResponseBodyDataSensitiveSummary.hpp>
@@ -2831,6 +2874,7 @@
 #include <alibabacloud/models/DescribeClusterNetworkResponseBodyClusterNetworkEdge.hpp>
 #include <alibabacloud/models/DescribeClusterNetworkResponseBodyClusterNetworkNode.hpp>
 #include <alibabacloud/models/DescribeClusterNetworkResponseBodyClusterNetwork.hpp>
+#include <alibabacloud/models/DescribeClusterScannerListResponseBodyList.hpp>
 #include <alibabacloud/models/DescribeClusterVulStatisticsResponseBodyVulStat.hpp>
 #include <alibabacloud/models/DescribeCommonOverallConfigResponseBodyOverallConfig.hpp>
 #include <alibabacloud/models/DescribeCommonOverallConfigListResponseBodyOverallList.hpp>
@@ -3420,6 +3464,14 @@
 #include <alibabacloud/models/ListCheckItemWarningMachineResponseBodyPageInfo.hpp>
 #include <alibabacloud/models/ListCheckItemWarningSummaryResponseBodyList.hpp>
 #include <alibabacloud/models/ListCheckItemWarningSummaryResponseBodyPageInfo.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyCheckItemsAssistInfo.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyCheckItemsCheckPolicies.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyCheckItemsDescription.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyCheckItemsSolution.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyCheckItems.hpp>
+#include <alibabacloud/models/ListCheckItemsResponseBodyPageInfo.hpp>
+#include <alibabacloud/models/ListCheckPoliciesResponseBodyPageInfo.hpp>
+#include <alibabacloud/models/ListCheckPoliciesResponseBodyPolicies.hpp>
 #include <alibabacloud/models/ListCheckResultResponseBodyChecksCheckPolicies.hpp>
 #include <alibabacloud/models/ListCheckResultResponseBodyChecks.hpp>
 #include <alibabacloud/models/ListCheckResultResponseBodyPageInfo.hpp>
@@ -3557,6 +3609,8 @@
 #include <alibabacloud/models/ListTargetByBatchResponseBodyPageInfo.hpp>
 #include <alibabacloud/models/ListUnfinishedOnceTaskResponseBodyOnceTasksTaskImageInfo.hpp>
 #include <alibabacloud/models/ListUnfinishedOnceTaskResponseBodyOnceTasks.hpp>
+#include <alibabacloud/models/ListUniBackupRecordResponseBodyPageInfo.hpp>
+#include <alibabacloud/models/ListUniBackupRecordResponseBodyUniBackupRecordList.hpp>
 #include <alibabacloud/models/ListUninstallAegisMachinesResponseBodyMachineList.hpp>
 #include <alibabacloud/models/ListUserVpcResponseBodyUserVpcInfos.hpp>
 #include <alibabacloud/models/ListUuidsByWebPathResponseBodyList.hpp>
@@ -3615,6 +3669,10 @@
 #include <alibabacloud/models/UpdateAttackPathSensitiveAssetConfigRequestAttackPathAssetList.hpp>
 #include <alibabacloud/models/UpdateAttackPathWhitelistRequestAttackPathAssetList.hpp>
 #include <alibabacloud/models/UpdateBaselineCheckWhiteRecordResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateCheckItemRequestAssistInfo.hpp>
+#include <alibabacloud/models/UpdateCheckItemRequestDescription.hpp>
+#include <alibabacloud/models/UpdateCheckItemRequestSolution.hpp>
+#include <alibabacloud/models/UpdateCheckItemResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateHoneypotResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateHoneypotProbeBindRequestBindPortList.hpp>
 #include <alibabacloud/models/UpdateImageEventOperationResponseBodyData.hpp>

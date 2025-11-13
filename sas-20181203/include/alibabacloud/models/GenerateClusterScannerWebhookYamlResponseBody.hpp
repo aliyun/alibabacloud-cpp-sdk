@@ -1,0 +1,78 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GENERATECLUSTERSCANNERWEBHOOKYAMLRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GENERATECLUSTERSCANNERWEBHOOKYAMLRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class GenerateClusterScannerWebhookYamlResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GenerateClusterScannerWebhookYamlResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(WebhookOpen, webhookOpen_);
+    };
+    friend void from_json(const Darabonba::Json& j, GenerateClusterScannerWebhookYamlResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(WebhookOpen, webhookOpen_);
+    };
+    GenerateClusterScannerWebhookYamlResponseBody() = default ;
+    GenerateClusterScannerWebhookYamlResponseBody(const GenerateClusterScannerWebhookYamlResponseBody &) = default ;
+    GenerateClusterScannerWebhookYamlResponseBody(GenerateClusterScannerWebhookYamlResponseBody &&) = default ;
+    GenerateClusterScannerWebhookYamlResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GenerateClusterScannerWebhookYamlResponseBody() = default ;
+    GenerateClusterScannerWebhookYamlResponseBody& operator=(const GenerateClusterScannerWebhookYamlResponseBody &) = default ;
+    GenerateClusterScannerWebhookYamlResponseBody& operator=(GenerateClusterScannerWebhookYamlResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->id_ == nullptr && return this->requestId_ == nullptr && return this->webhookOpen_ == nullptr; };
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline GenerateClusterScannerWebhookYamlResponseBody& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // id Field Functions 
+    bool hasId() const { return this->id_ != nullptr;};
+    void deleteId() { this->id_ = nullptr;};
+    inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+    inline GenerateClusterScannerWebhookYamlResponseBody& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GenerateClusterScannerWebhookYamlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // webhookOpen Field Functions 
+    bool hasWebhookOpen() const { return this->webhookOpen_ != nullptr;};
+    void deleteWebhookOpen() { this->webhookOpen_ = nullptr;};
+    inline int32_t webhookOpen() const { DARABONBA_PTR_GET_DEFAULT(webhookOpen_, 0) };
+    inline GenerateClusterScannerWebhookYamlResponseBody& setWebhookOpen(int32_t webhookOpen) { DARABONBA_PTR_SET_VALUE(webhookOpen_, webhookOpen) };
+
+
+  protected:
+    std::shared_ptr<string> clusterId_ = nullptr;
+    std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<int32_t> webhookOpen_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif
