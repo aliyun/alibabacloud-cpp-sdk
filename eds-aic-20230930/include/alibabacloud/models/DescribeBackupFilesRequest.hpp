@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(StatusList, statusList_);
     };
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(SaleMode, saleMode_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(StatusList, statusList_);
     };
@@ -57,7 +59,7 @@ namespace Models
     virtual bool empty() const override { return this->androidInstanceId_ == nullptr
         && return this->androidInstanceName_ == nullptr && return this->backupAll_ == nullptr && return this->backupFileId_ == nullptr && return this->backupFileName_ == nullptr && return this->description_ == nullptr
         && return this->endTime_ == nullptr && return this->endUserId_ == nullptr && return this->instanceGroupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
-        && return this->startTime_ == nullptr && return this->statusList_ == nullptr; };
+        && return this->saleMode_ == nullptr && return this->startTime_ == nullptr && return this->statusList_ == nullptr; };
     // androidInstanceId Field Functions 
     bool hasAndroidInstanceId() const { return this->androidInstanceId_ != nullptr;};
     void deleteAndroidInstanceId() { this->androidInstanceId_ = nullptr;};
@@ -135,6 +137,13 @@ namespace Models
     inline DescribeBackupFilesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // saleMode Field Functions 
+    bool hasSaleMode() const { return this->saleMode_ != nullptr;};
+    void deleteSaleMode() { this->saleMode_ = nullptr;};
+    inline string saleMode() const { DARABONBA_PTR_GET_DEFAULT(saleMode_, "") };
+    inline DescribeBackupFilesRequest& setSaleMode(string saleMode) { DARABONBA_PTR_SET_VALUE(saleMode_, saleMode) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -179,6 +188,7 @@ namespace Models
     std::shared_ptr<int64_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> saleMode_ = nullptr;
     // The beginning of the period for querying generated backup files.
     std::shared_ptr<string> startTime_ = nullptr;
     // The status of the backup files.

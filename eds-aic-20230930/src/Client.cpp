@@ -1853,6 +1853,10 @@ DescribeBackupFilesResponse Client::describeBackupFilesWithOptions(const Describ
     query["NextToken"] = request.nextToken();
   }
 
+  if (!!request.hasSaleMode()) {
+    query["SaleMode"] = request.saleMode();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.startTime();
   }
