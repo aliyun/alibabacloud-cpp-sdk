@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IP, IP_);
       DARABONBA_PTR_TO_JSON(NetType, netType_);
       DARABONBA_PTR_TO_JSON(Port, port_);
+      DARABONBA_PTR_TO_JSON(PortDescription, portDescription_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationAttributeResponseBodyEndpoints& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IP, IP_);
       DARABONBA_PTR_FROM_JSON(NetType, netType_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
+      DARABONBA_PTR_FROM_JSON(PortDescription, portDescription_);
     };
     DescribeApplicationAttributeResponseBodyEndpoints() = default ;
     DescribeApplicationAttributeResponseBodyEndpoints(const DescribeApplicationAttributeResponseBodyEndpoints &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->endpointId_ == nullptr && return this->IP_ == nullptr && return this->netType_ == nullptr && return this->port_ == nullptr; };
+        && return this->endpointId_ == nullptr && return this->IP_ == nullptr && return this->netType_ == nullptr && return this->port_ == nullptr && return this->portDescription_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -74,12 +76,20 @@ namespace Models
     inline DescribeApplicationAttributeResponseBodyEndpoints& setPort(string port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
+    // portDescription Field Functions 
+    bool hasPortDescription() const { return this->portDescription_ != nullptr;};
+    void deletePortDescription() { this->portDescription_ = nullptr;};
+    inline string portDescription() const { DARABONBA_PTR_GET_DEFAULT(portDescription_, "") };
+    inline DescribeApplicationAttributeResponseBodyEndpoints& setPortDescription(string portDescription) { DARABONBA_PTR_SET_VALUE(portDescription_, portDescription) };
+
+
   protected:
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> endpointId_ = nullptr;
     std::shared_ptr<string> IP_ = nullptr;
     std::shared_ptr<string> netType_ = nullptr;
     std::shared_ptr<string> port_ = nullptr;
+    std::shared_ptr<string> portDescription_ = nullptr;
   };
 
   } // namespace Models
