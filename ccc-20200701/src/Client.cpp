@@ -9670,6 +9670,66 @@ ModifyAudioFileResponse Client::modifyAudioFile(const ModifyAudioFileRequest &re
 }
 
 /**
+ * @summary 修改活动外呼号码
+ *
+ * @param tmpReq ModifyCampaignNumbersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCampaignNumbersResponse
+ */
+ModifyCampaignNumbersResponse Client::modifyCampaignNumbersWithOptions(const ModifyCampaignNumbersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyCampaignNumbersShrinkRequest request = ModifyCampaignNumbersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNumberList()) {
+    request.setNumberListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.numberList(), "NumberList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCampaignId()) {
+    query["CampaignId"] = request.campaignId();
+  }
+
+  if (!!request.hasInstGroupId()) {
+    query["InstGroupId"] = request.instGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNumberListShrink()) {
+    query["NumberList"] = request.numberListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCampaignNumbers"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCampaignNumbersResponse>();
+}
+
+/**
+ * @summary 修改活动外呼号码
+ *
+ * @param request ModifyCampaignNumbersRequest
+ * @return ModifyCampaignNumbersResponse
+ */
+ModifyCampaignNumbersResponse Client::modifyCampaignNumbers(const ModifyCampaignNumbersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCampaignNumbersWithOptions(request, runtime);
+}
+
+/**
  * @summary 编辑呼入控制号码
  *
  * @param request ModifyCustomCallTaggingRequest

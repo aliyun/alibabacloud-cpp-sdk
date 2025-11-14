@@ -556,6 +556,10 @@
 #include <alibabacloud/models/ModifyAudioFileRequest.hpp>
 #include <alibabacloud/models/ModifyAudioFileResponseBody.hpp>
 #include <alibabacloud/models/ModifyAudioFileResponse.hpp>
+#include <alibabacloud/models/ModifyCampaignNumbersRequest.hpp>
+#include <alibabacloud/models/ModifyCampaignNumbersShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyCampaignNumbersResponseBody.hpp>
+#include <alibabacloud/models/ModifyCampaignNumbersResponse.hpp>
 #include <alibabacloud/models/ModifyCustomCallTaggingRequest.hpp>
 #include <alibabacloud/models/ModifyCustomCallTaggingResponseBody.hpp>
 #include <alibabacloud/models/ModifyCustomCallTaggingResponse.hpp>

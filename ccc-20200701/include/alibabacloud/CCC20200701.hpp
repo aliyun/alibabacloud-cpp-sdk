@@ -2646,6 +2646,23 @@ namespace CCC20200701
       Models::ModifyAudioFileResponse modifyAudioFile(const Models::ModifyAudioFileRequest &request);
 
       /**
+       * @summary 修改活动外呼号码
+       *
+       * @param tmpReq ModifyCampaignNumbersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCampaignNumbersResponse
+       */
+      Models::ModifyCampaignNumbersResponse modifyCampaignNumbersWithOptions(const Models::ModifyCampaignNumbersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改活动外呼号码
+       *
+       * @param request ModifyCampaignNumbersRequest
+       * @return ModifyCampaignNumbersResponse
+       */
+      Models::ModifyCampaignNumbersResponse modifyCampaignNumbers(const Models::ModifyCampaignNumbersRequest &request);
+
+      /**
        * @summary 编辑呼入控制号码
        *
        * @param request ModifyCustomCallTaggingRequest
