@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->featureEntityCount_ != nullptr && this->featureViewCount_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->modelCount_ != nullptr
-        && this->name_ != nullptr && this->offlineDatasourceId_ != nullptr && this->offlineDatasourceName_ != nullptr && this->offlineDatasourceType_ != nullptr && this->offlineLifecycle_ != nullptr
-        && this->onlineDatasourceId_ != nullptr && this->onlineDatasourceName_ != nullptr && this->onlineDatasourceType_ != nullptr && this->owner_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->featureEntityCount_ == nullptr && return this->featureViewCount_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->modelCount_ == nullptr
+        && return this->name_ == nullptr && return this->offlineDatasourceId_ == nullptr && return this->offlineDatasourceName_ == nullptr && return this->offlineDatasourceType_ == nullptr && return this->offlineLifecycle_ == nullptr
+        && return this->onlineDatasourceId_ == nullptr && return this->onlineDatasourceName_ == nullptr && return this->onlineDatasourceType_ == nullptr && return this->owner_ == nullptr && return this->requestId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};

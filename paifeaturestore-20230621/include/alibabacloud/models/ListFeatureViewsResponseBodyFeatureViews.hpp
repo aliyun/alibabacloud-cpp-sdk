@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureEntityName_ != nullptr
-        && this->featureViewId_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr
-        && this->projectId_ != nullptr && this->projectName_ != nullptr && this->registerDatasourceId_ != nullptr && this->registerDatasourceName_ != nullptr && this->registerTable_ != nullptr
-        && this->TTL_ != nullptr && this->type_ != nullptr && this->writeToFeatureDB_ != nullptr; };
+    virtual bool empty() const override { return this->featureEntityName_ == nullptr
+        && return this->featureViewId_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr
+        && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->registerDatasourceId_ == nullptr && return this->registerDatasourceName_ == nullptr && return this->registerTable_ == nullptr
+        && return this->TTL_ == nullptr && return this->type_ == nullptr && return this->writeToFeatureDB_ == nullptr; };
     // featureEntityName Field Functions 
     bool hasFeatureEntityName() const { return this->featureEntityName_ != nullptr;};
     void deleteFeatureEntityName() { this->featureEntityName_ = nullptr;};

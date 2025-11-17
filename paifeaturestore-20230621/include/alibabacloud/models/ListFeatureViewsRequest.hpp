@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureName_ != nullptr
-        && this->featureViewIds_ != nullptr && this->name_ != nullptr && this->order_ != nullptr && this->owner_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->projectId_ != nullptr && this->sortBy_ != nullptr && this->tag_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->featureName_ == nullptr
+        && return this->featureViewIds_ == nullptr && return this->name_ == nullptr && return this->order_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr; };
     // featureName Field Functions 
     bool hasFeatureName() const { return this->featureName_ != nullptr;};
     void deleteFeatureName() { this->featureName_ = nullptr;};

@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exportTrainingSetTableScript_ != nullptr
-        && this->features_ != nullptr && this->gmtCreateTime_ != nullptr && this->gmtModifiedTime_ != nullptr && this->labelPriorityLevel_ != nullptr && this->labelTableId_ != nullptr
-        && this->labelTableName_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr && this->projectName_ != nullptr
-        && this->relations_ != nullptr && this->requestId_ != nullptr && this->trainingSetFGTable_ != nullptr && this->trainingSetTable_ != nullptr; };
+    virtual bool empty() const override { return this->exportTrainingSetTableScript_ == nullptr
+        && return this->features_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->labelPriorityLevel_ == nullptr && return this->labelTableId_ == nullptr
+        && return this->labelTableName_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr
+        && return this->relations_ == nullptr && return this->requestId_ == nullptr && return this->trainingSetFGTable_ == nullptr && return this->trainingSetTable_ == nullptr; };
     // exportTrainingSetTableScript Field Functions 
     bool hasExportTrainingSetTableScript() const { return this->exportTrainingSetTableScript_ != nullptr;};
     void deleteExportTrainingSetTableScript() { this->exportTrainingSetTableScript_ = nullptr;};

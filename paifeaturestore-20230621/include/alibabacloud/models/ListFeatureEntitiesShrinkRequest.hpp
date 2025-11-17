@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ParentFeatureEntityId, parentFeatureEntityId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ParentFeatureEntityId, parentFeatureEntityId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
     };
@@ -43,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureEntityIdsShrink_ != nullptr
-        && this->name_ != nullptr && this->order_ != nullptr && this->owner_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->projectId_ != nullptr && this->sortBy_ != nullptr; };
+    virtual bool empty() const override { return this->featureEntityIdsShrink_ == nullptr
+        && return this->name_ == nullptr && return this->order_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->parentFeatureEntityId_ == nullptr && return this->projectId_ == nullptr && return this->sortBy_ == nullptr; };
     // featureEntityIdsShrink Field Functions 
     bool hasFeatureEntityIdsShrink() const { return this->featureEntityIdsShrink_ != nullptr;};
     void deleteFeatureEntityIdsShrink() { this->featureEntityIdsShrink_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline ListFeatureEntitiesShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // parentFeatureEntityId Field Functions 
+    bool hasParentFeatureEntityId() const { return this->parentFeatureEntityId_ != nullptr;};
+    void deleteParentFeatureEntityId() { this->parentFeatureEntityId_ = nullptr;};
+    inline string parentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
+    inline ListFeatureEntitiesShrinkRequest& setParentFeatureEntityId(string parentFeatureEntityId) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityId_, parentFeatureEntityId) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -109,6 +118,7 @@ namespace Models
     std::shared_ptr<string> owner_ = nullptr;
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> parentFeatureEntityId_ = nullptr;
     std::shared_ptr<string> projectId_ = nullptr;
     std::shared_ptr<string> sortBy_ = nullptr;
   };

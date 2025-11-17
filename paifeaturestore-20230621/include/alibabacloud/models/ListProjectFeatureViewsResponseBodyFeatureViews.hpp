@@ -17,13 +17,17 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListProjectFeatureViewsResponseBodyFeatureViews& obj) { 
       DARABONBA_PTR_TO_JSON(FeatureViewId, featureViewId_);
       DARABONBA_PTR_TO_JSON(Features, features_);
+      DARABONBA_PTR_TO_JSON(JoinId, joinId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(ParentJoinId, parentJoinId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ListProjectFeatureViewsResponseBodyFeatureViews& obj) { 
       DARABONBA_PTR_FROM_JSON(FeatureViewId, featureViewId_);
       DARABONBA_PTR_FROM_JSON(Features, features_);
+      DARABONBA_PTR_FROM_JSON(JoinId, joinId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(ParentJoinId, parentJoinId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     ListProjectFeatureViewsResponseBodyFeatureViews() = default ;
@@ -37,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureViewId_ != nullptr
-        && this->features_ != nullptr && this->name_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->featureViewId_ == nullptr
+        && return this->features_ == nullptr && return this->joinId_ == nullptr && return this->name_ == nullptr && return this->parentJoinId_ == nullptr && return this->type_ == nullptr; };
     // featureViewId Field Functions 
     bool hasFeatureViewId() const { return this->featureViewId_ != nullptr;};
     void deleteFeatureViewId() { this->featureViewId_ = nullptr;};
@@ -55,11 +59,25 @@ namespace Models
     inline ListProjectFeatureViewsResponseBodyFeatureViews& setFeatures(vector<Models::ListProjectFeatureViewsResponseBodyFeatureViewsFeatures> && features) { DARABONBA_PTR_SET_RVALUE(features_, features) };
 
 
+    // joinId Field Functions 
+    bool hasJoinId() const { return this->joinId_ != nullptr;};
+    void deleteJoinId() { this->joinId_ = nullptr;};
+    inline string joinId() const { DARABONBA_PTR_GET_DEFAULT(joinId_, "") };
+    inline ListProjectFeatureViewsResponseBodyFeatureViews& setJoinId(string joinId) { DARABONBA_PTR_SET_VALUE(joinId_, joinId) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ListProjectFeatureViewsResponseBodyFeatureViews& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // parentJoinId Field Functions 
+    bool hasParentJoinId() const { return this->parentJoinId_ != nullptr;};
+    void deleteParentJoinId() { this->parentJoinId_ = nullptr;};
+    inline string parentJoinId() const { DARABONBA_PTR_GET_DEFAULT(parentJoinId_, "") };
+    inline ListProjectFeatureViewsResponseBodyFeatureViews& setParentJoinId(string parentJoinId) { DARABONBA_PTR_SET_VALUE(parentJoinId_, parentJoinId) };
 
 
     // type Field Functions 
@@ -72,7 +90,9 @@ namespace Models
   protected:
     std::shared_ptr<string> featureViewId_ = nullptr;
     std::shared_ptr<vector<Models::ListProjectFeatureViewsResponseBodyFeatureViewsFeatures>> features_ = nullptr;
+    std::shared_ptr<string> joinId_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> parentJoinId_ = nullptr;
     std::shared_ptr<string> type_ = nullptr;
   };
 

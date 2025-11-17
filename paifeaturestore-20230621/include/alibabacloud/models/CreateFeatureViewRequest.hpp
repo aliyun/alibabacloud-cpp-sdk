@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->featureEntityId_ != nullptr && this->fields_ != nullptr && this->name_ != nullptr && this->projectId_ != nullptr && this->registerDatasourceId_ != nullptr
-        && this->registerTable_ != nullptr && this->syncOnlineTable_ != nullptr && this->TTL_ != nullptr && this->tags_ != nullptr && this->type_ != nullptr
-        && this->writeMethod_ != nullptr && this->writeToFeatureDB_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->featureEntityId_ == nullptr && return this->fields_ == nullptr && return this->name_ == nullptr && return this->projectId_ == nullptr && return this->registerDatasourceId_ == nullptr
+        && return this->registerTable_ == nullptr && return this->syncOnlineTable_ == nullptr && return this->TTL_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr
+        && return this->writeMethod_ == nullptr && return this->writeToFeatureDB_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};

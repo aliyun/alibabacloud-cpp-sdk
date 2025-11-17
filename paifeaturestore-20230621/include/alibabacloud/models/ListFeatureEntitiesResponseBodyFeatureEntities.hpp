@@ -18,6 +18,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JoinId, joinId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
+      DARABONBA_PTR_TO_JSON(ParentFeatureEntityId, parentFeatureEntityId_);
+      DARABONBA_PTR_TO_JSON(ParentFeatureEntityName, parentFeatureEntityName_);
+      DARABONBA_PTR_TO_JSON(ParentJoinId, parentJoinId_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
     };
@@ -27,6 +30,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JoinId, joinId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
+      DARABONBA_PTR_FROM_JSON(ParentFeatureEntityId, parentFeatureEntityId_);
+      DARABONBA_PTR_FROM_JSON(ParentFeatureEntityName, parentFeatureEntityName_);
+      DARABONBA_PTR_FROM_JSON(ParentJoinId, parentJoinId_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
     };
@@ -41,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->featureEntityId_ != nullptr
-        && this->gmtCreateTime_ != nullptr && this->joinId_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->projectId_ != nullptr
-        && this->projectName_ != nullptr; };
+    virtual bool empty() const override { return this->featureEntityId_ == nullptr
+        && return this->gmtCreateTime_ == nullptr && return this->joinId_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->parentFeatureEntityId_ == nullptr
+        && return this->parentFeatureEntityName_ == nullptr && return this->parentJoinId_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr; };
     // featureEntityId Field Functions 
     bool hasFeatureEntityId() const { return this->featureEntityId_ != nullptr;};
     void deleteFeatureEntityId() { this->featureEntityId_ = nullptr;};
@@ -79,6 +85,27 @@ namespace Models
     inline ListFeatureEntitiesResponseBodyFeatureEntities& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
+    // parentFeatureEntityId Field Functions 
+    bool hasParentFeatureEntityId() const { return this->parentFeatureEntityId_ != nullptr;};
+    void deleteParentFeatureEntityId() { this->parentFeatureEntityId_ = nullptr;};
+    inline string parentFeatureEntityId() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityId_, "") };
+    inline ListFeatureEntitiesResponseBodyFeatureEntities& setParentFeatureEntityId(string parentFeatureEntityId) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityId_, parentFeatureEntityId) };
+
+
+    // parentFeatureEntityName Field Functions 
+    bool hasParentFeatureEntityName() const { return this->parentFeatureEntityName_ != nullptr;};
+    void deleteParentFeatureEntityName() { this->parentFeatureEntityName_ = nullptr;};
+    inline string parentFeatureEntityName() const { DARABONBA_PTR_GET_DEFAULT(parentFeatureEntityName_, "") };
+    inline ListFeatureEntitiesResponseBodyFeatureEntities& setParentFeatureEntityName(string parentFeatureEntityName) { DARABONBA_PTR_SET_VALUE(parentFeatureEntityName_, parentFeatureEntityName) };
+
+
+    // parentJoinId Field Functions 
+    bool hasParentJoinId() const { return this->parentJoinId_ != nullptr;};
+    void deleteParentJoinId() { this->parentJoinId_ = nullptr;};
+    inline string parentJoinId() const { DARABONBA_PTR_GET_DEFAULT(parentJoinId_, "") };
+    inline ListFeatureEntitiesResponseBodyFeatureEntities& setParentJoinId(string parentJoinId) { DARABONBA_PTR_SET_VALUE(parentJoinId_, parentJoinId) };
+
+
     // projectId Field Functions 
     bool hasProjectId() const { return this->projectId_ != nullptr;};
     void deleteProjectId() { this->projectId_ = nullptr;};
@@ -99,6 +126,9 @@ namespace Models
     std::shared_ptr<string> joinId_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> owner_ = nullptr;
+    std::shared_ptr<string> parentFeatureEntityId_ = nullptr;
+    std::shared_ptr<string> parentFeatureEntityName_ = nullptr;
+    std::shared_ptr<string> parentJoinId_ = nullptr;
     std::shared_ptr<string> projectId_ = nullptr;
     std::shared_ptr<string> projectName_ = nullptr;
   };
