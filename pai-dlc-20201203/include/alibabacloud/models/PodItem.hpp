@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/PodItem.hpp>
+#include <alibabacloud/models/PodNetworkInterface.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
       DARABONBA_PTR_TO_JSON(PodId, podId_);
       DARABONBA_PTR_TO_JSON(PodIp, podIp_);
+      DARABONBA_PTR_TO_JSON(PodIps, podIps_);
       DARABONBA_PTR_TO_JSON(PodUid, podUid_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SubStatus, subStatus_);
@@ -37,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
       DARABONBA_PTR_FROM_JSON(PodId, podId_);
       DARABONBA_PTR_FROM_JSON(PodIp, podIp_);
+      DARABONBA_PTR_FROM_JSON(PodIps, podIps_);
       DARABONBA_PTR_FROM_JSON(PodUid, podUid_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SubStatus, subStatus_);
@@ -55,8 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->gmtCreateTime_ == nullptr
         && return this->gmtFinishTime_ == nullptr && return this->gmtStartTime_ == nullptr && return this->historyPods_ == nullptr && return this->ip_ == nullptr && return this->nodeName_ == nullptr
-        && return this->podId_ == nullptr && return this->podIp_ == nullptr && return this->podUid_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr
-        && return this->type_ == nullptr; };
+        && return this->podId_ == nullptr && return this->podIp_ == nullptr && return this->podIps_ == nullptr && return this->podUid_ == nullptr && return this->status_ == nullptr
+        && return this->subStatus_ == nullptr && return this->type_ == nullptr; };
     // gmtCreateTime Field Functions 
     bool hasGmtCreateTime() const { return this->gmtCreateTime_ != nullptr;};
     void deleteGmtCreateTime() { this->gmtCreateTime_ = nullptr;};
@@ -115,6 +118,15 @@ namespace Models
     inline PodItem& setPodIp(string podIp) { DARABONBA_PTR_SET_VALUE(podIp_, podIp) };
 
 
+    // podIps Field Functions 
+    bool hasPodIps() const { return this->podIps_ != nullptr;};
+    void deletePodIps() { this->podIps_ = nullptr;};
+    inline const vector<PodNetworkInterface> & podIps() const { DARABONBA_PTR_GET_CONST(podIps_, vector<PodNetworkInterface>) };
+    inline vector<PodNetworkInterface> podIps() { DARABONBA_PTR_GET(podIps_, vector<PodNetworkInterface>) };
+    inline PodItem& setPodIps(const vector<PodNetworkInterface> & podIps) { DARABONBA_PTR_SET_VALUE(podIps_, podIps) };
+    inline PodItem& setPodIps(vector<PodNetworkInterface> && podIps) { DARABONBA_PTR_SET_RVALUE(podIps_, podIps) };
+
+
     // podUid Field Functions 
     bool hasPodUid() const { return this->podUid_ != nullptr;};
     void deletePodUid() { this->podUid_ = nullptr;};
@@ -152,6 +164,7 @@ namespace Models
     std::shared_ptr<string> nodeName_ = nullptr;
     std::shared_ptr<string> podId_ = nullptr;
     std::shared_ptr<string> podIp_ = nullptr;
+    std::shared_ptr<vector<PodNetworkInterface>> podIps_ = nullptr;
     std::shared_ptr<string> podUid_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> subStatus_ = nullptr;

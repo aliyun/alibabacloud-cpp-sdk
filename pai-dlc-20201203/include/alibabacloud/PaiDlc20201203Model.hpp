@@ -40,6 +40,7 @@
 #include <alibabacloud/models/SpotSpec.hpp>
 #include <alibabacloud/models/SystemDisk.hpp>
 #include <alibabacloud/models/JobSpec.hpp>
+#include <alibabacloud/models/PodNetworkInterface.hpp>
 #include <alibabacloud/models/PodItem.hpp>
 #include <alibabacloud/models/ModelConfig.hpp>
 #include <alibabacloud/models/JobSettings.hpp>
