@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiscountPrice, discountPrice_);
       DARABONBA_PTR_TO_JSON(OriginalPrice, originalPrice_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(SavingPlanRecommendPrice, savingPlanRecommendPrice_);
       DARABONBA_PTR_TO_JSON(TradePrice, tradePrice_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail& obj) { 
       DARABONBA_PTR_FROM_JSON(DiscountPrice, discountPrice_);
       DARABONBA_PTR_FROM_JSON(OriginalPrice, originalPrice_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(SavingPlanRecommendPrice, savingPlanRecommendPrice_);
       DARABONBA_PTR_FROM_JSON(TradePrice, tradePrice_);
     };
     DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail() = default ;
@@ -35,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->discountPrice_ != nullptr
-        && this->originalPrice_ != nullptr && this->resourceType_ != nullptr && this->tradePrice_ != nullptr; };
+    virtual bool empty() const override { return this->discountPrice_ == nullptr
+        && return this->originalPrice_ == nullptr && return this->resourceType_ == nullptr && return this->savingPlanRecommendPrice_ == nullptr && return this->tradePrice_ == nullptr; };
     // discountPrice Field Functions 
     bool hasDiscountPrice() const { return this->discountPrice_ != nullptr;};
     void deleteDiscountPrice() { this->discountPrice_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+    // savingPlanRecommendPrice Field Functions 
+    bool hasSavingPlanRecommendPrice() const { return this->savingPlanRecommendPrice_ != nullptr;};
+    void deleteSavingPlanRecommendPrice() { this->savingPlanRecommendPrice_ = nullptr;};
+    inline float savingPlanRecommendPrice() const { DARABONBA_PTR_GET_DEFAULT(savingPlanRecommendPrice_, 0.0) };
+    inline DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsPriceDetail& setSavingPlanRecommendPrice(float savingPlanRecommendPrice) { DARABONBA_PTR_SET_VALUE(savingPlanRecommendPrice_, savingPlanRecommendPrice) };
+
+
     // tradePrice Field Functions 
     bool hasTradePrice() const { return this->tradePrice_ != nullptr;};
     void deleteTradePrice() { this->tradePrice_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
     std::shared_ptr<float> discountPrice_ = nullptr;
     std::shared_ptr<float> originalPrice_ = nullptr;
     std::shared_ptr<string> resourceType_ = nullptr;
+    std::shared_ptr<float> savingPlanRecommendPrice_ = nullptr;
     std::shared_ptr<float> tradePrice_ = nullptr;
   };
 

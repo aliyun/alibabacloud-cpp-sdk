@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(SavingPlanPeriod, savingPlanPeriod_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMultiPriceRequestOrderItems& obj) { 
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
       DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(SavingPlanPeriod, savingPlanPeriod_);
     };
     DescribeMultiPriceRequestOrderItems() = default ;
     DescribeMultiPriceRequestOrderItems(const DescribeMultiPriceRequestOrderItems &) = default ;
@@ -45,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->amount_ != nullptr
-        && this->components_ != nullptr && this->instanceIds_ != nullptr && this->period_ != nullptr && this->periodUnit_ != nullptr && this->promotionId_ != nullptr
-        && this->resourceIds_ != nullptr && this->resourceType_ != nullptr; };
+    virtual bool empty() const override { return this->amount_ == nullptr
+        && return this->components_ == nullptr && return this->instanceIds_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr
+        && return this->resourceIds_ == nullptr && return this->resourceType_ == nullptr && return this->savingPlanPeriod_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
     inline DescribeMultiPriceRequestOrderItems& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
+    // savingPlanPeriod Field Functions 
+    bool hasSavingPlanPeriod() const { return this->savingPlanPeriod_ != nullptr;};
+    void deleteSavingPlanPeriod() { this->savingPlanPeriod_ = nullptr;};
+    inline string savingPlanPeriod() const { DARABONBA_PTR_GET_DEFAULT(savingPlanPeriod_, "") };
+    inline DescribeMultiPriceRequestOrderItems& setSavingPlanPeriod(string savingPlanPeriod) { DARABONBA_PTR_SET_VALUE(savingPlanPeriod_, savingPlanPeriod) };
+
+
   protected:
     std::shared_ptr<int32_t> amount_ = nullptr;
     std::shared_ptr<vector<Models::DescribeMultiPriceRequestOrderItemsComponents>> components_ = nullptr;
@@ -119,6 +128,7 @@ namespace Models
     std::shared_ptr<string> promotionId_ = nullptr;
     std::shared_ptr<vector<string>> resourceIds_ = nullptr;
     std::shared_ptr<string> resourceType_ = nullptr;
+    std::shared_ptr<string> savingPlanPeriod_ = nullptr;
   };
 
   } // namespace Models

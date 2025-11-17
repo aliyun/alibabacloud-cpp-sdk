@@ -69,7 +69,7 @@ CreateMultiOrderResponse Client::createMultiOrderWithOptions(const CreateMultiOr
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateMultiOrder"},
     {"version" , "2021-12-21"},
@@ -80,7 +80,7 @@ CreateMultiOrderResponse Client::createMultiOrderWithOptions(const CreateMultiOr
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateMultiOrderResponse>();
 }
 
@@ -114,7 +114,7 @@ DescribeDeliveryAddressResponse Client::describeDeliveryAddressWithOptions(const
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeDeliveryAddressResponse>();
 }
 
@@ -156,7 +156,7 @@ DescribeMultiPriceResponse Client::describeMultiPriceWithOptions(const DescribeM
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribeMultiPrice"},
     {"version" , "2021-12-21"},
@@ -167,7 +167,7 @@ DescribeMultiPriceResponse Client::describeMultiPriceWithOptions(const DescribeM
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribeMultiPriceResponse>();
 }
 
@@ -226,7 +226,7 @@ DescribePackageDeductionsResponse Client::describePackageDeductionsWithOptions(c
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "DescribePackageDeductions"},
     {"version" , "2021-12-21"},
@@ -237,7 +237,7 @@ DescribePackageDeductionsResponse Client::describePackageDeductionsWithOptions(c
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<DescribePackageDeductionsResponse>();
 }
 
@@ -284,7 +284,7 @@ ModifyInstancePropertiesResponse Client::modifyInstancePropertiesWithOptions(con
 
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ModifyInstanceProperties"},
     {"version" , "2021-12-21"},
@@ -295,7 +295,7 @@ ModifyInstancePropertiesResponse Client::modifyInstancePropertiesWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
-  }));
+  }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<ModifyInstancePropertiesResponse>();
 }
 

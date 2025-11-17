@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpu_ != nullptr
-        && this->desktopId_ != nullptr && this->desktopName_ != nullptr && this->desktopType_ != nullptr && this->endTime_ != nullptr && this->groupResourceType_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceState_ != nullptr && this->instanceType_ != nullptr && this->memory_ != nullptr && this->osType_ != nullptr
-        && this->regionId_ != nullptr && this->resourceType_ != nullptr && this->sessionId_ != nullptr && this->staTime_ != nullptr && this->usedCoreTime_ != nullptr
-        && this->usedTime_ != nullptr && this->usedTimeWithScale_ != nullptr; };
+    virtual bool empty() const override { return this->cpu_ == nullptr
+        && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr && return this->desktopType_ == nullptr && return this->endTime_ == nullptr && return this->groupResourceType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceState_ == nullptr && return this->instanceType_ == nullptr && return this->memory_ == nullptr && return this->osType_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->sessionId_ == nullptr && return this->staTime_ == nullptr && return this->usedCoreTime_ == nullptr
+        && return this->usedTime_ == nullptr && return this->usedTimeWithScale_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};

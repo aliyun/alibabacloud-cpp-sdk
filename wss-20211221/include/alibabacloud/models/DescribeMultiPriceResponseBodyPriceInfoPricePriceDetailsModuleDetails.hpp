@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModuleName, moduleName_);
       DARABONBA_PTR_TO_JSON(ModuleValue, moduleValue_);
       DARABONBA_PTR_TO_JSON(OriginalPrice, originalPrice_);
+      DARABONBA_PTR_TO_JSON(SavingPlanDiscountPrice, savingPlanDiscountPrice_);
       DARABONBA_PTR_TO_JSON(TradePrice, tradePrice_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModuleName, moduleName_);
       DARABONBA_PTR_FROM_JSON(ModuleValue, moduleValue_);
       DARABONBA_PTR_FROM_JSON(OriginalPrice, originalPrice_);
+      DARABONBA_PTR_FROM_JSON(SavingPlanDiscountPrice, savingPlanDiscountPrice_);
       DARABONBA_PTR_FROM_JSON(TradePrice, tradePrice_);
     };
     DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails() = default ;
@@ -39,8 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->discountPrice_ != nullptr
-        && this->moduleCode_ != nullptr && this->moduleName_ != nullptr && this->moduleValue_ != nullptr && this->originalPrice_ != nullptr && this->tradePrice_ != nullptr; };
+    virtual bool empty() const override { return this->discountPrice_ == nullptr
+        && return this->moduleCode_ == nullptr && return this->moduleName_ == nullptr && return this->moduleValue_ == nullptr && return this->originalPrice_ == nullptr && return this->savingPlanDiscountPrice_ == nullptr
+        && return this->tradePrice_ == nullptr; };
     // discountPrice Field Functions 
     bool hasDiscountPrice() const { return this->discountPrice_ != nullptr;};
     void deleteDiscountPrice() { this->discountPrice_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails& setOriginalPrice(float originalPrice) { DARABONBA_PTR_SET_VALUE(originalPrice_, originalPrice) };
 
 
+    // savingPlanDiscountPrice Field Functions 
+    bool hasSavingPlanDiscountPrice() const { return this->savingPlanDiscountPrice_ != nullptr;};
+    void deleteSavingPlanDiscountPrice() { this->savingPlanDiscountPrice_ = nullptr;};
+    inline float savingPlanDiscountPrice() const { DARABONBA_PTR_GET_DEFAULT(savingPlanDiscountPrice_, 0.0) };
+    inline DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails& setSavingPlanDiscountPrice(float savingPlanDiscountPrice) { DARABONBA_PTR_SET_VALUE(savingPlanDiscountPrice_, savingPlanDiscountPrice) };
+
+
     // tradePrice Field Functions 
     bool hasTradePrice() const { return this->tradePrice_ != nullptr;};
     void deleteTradePrice() { this->tradePrice_ = nullptr;};
@@ -89,6 +99,7 @@ namespace Models
     std::shared_ptr<string> moduleName_ = nullptr;
     std::shared_ptr<string> moduleValue_ = nullptr;
     std::shared_ptr<float> originalPrice_ = nullptr;
+    std::shared_ptr<float> savingPlanDiscountPrice_ = nullptr;
     std::shared_ptr<float> tradePrice_ = nullptr;
   };
 
