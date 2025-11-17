@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->description_ != nullptr && this->directory_ != nullptr && this->modifyName_ != nullptr && this->modifyTime_ != nullptr && this->ownerId_ != nullptr
-        && this->ownerName_ != nullptr && this->securityLevel_ != nullptr && this->status_ != nullptr && this->thirdPartAuthFlag_ != nullptr && this->workName_ != nullptr
-        && this->workType_ != nullptr && this->worksId_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->description_ == nullptr && return this->directory_ == nullptr && return this->modifyName_ == nullptr && return this->modifyTime_ == nullptr && return this->ownerId_ == nullptr
+        && return this->ownerName_ == nullptr && return this->securityLevel_ == nullptr && return this->status_ == nullptr && return this->thirdPartAuthFlag_ == nullptr && return this->workName_ == nullptr
+        && return this->workType_ == nullptr && return this->worksId_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

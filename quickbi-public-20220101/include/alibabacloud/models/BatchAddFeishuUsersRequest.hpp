@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->feishuUsers_ != nullptr
-        && this->isAdmin_ != nullptr && this->isAuthAdmin_ != nullptr && this->userGroupIds_ != nullptr && this->userType_ != nullptr; };
+    virtual bool empty() const override { return this->feishuUsers_ == nullptr
+        && return this->isAdmin_ == nullptr && return this->isAuthAdmin_ == nullptr && return this->userGroupIds_ == nullptr && return this->userType_ == nullptr; };
     // feishuUsers Field Functions 
     bool hasFeishuUsers() const { return this->feishuUsers_ != nullptr;};
     void deleteFeishuUsers() { this->feishuUsers_ = nullptr;};
@@ -75,10 +75,27 @@ namespace Models
 
 
   protected:
+    // Information of the users to be added
     std::shared_ptr<string> feishuUsers_ = nullptr;
+    // Whether the user is an admin user:
+    // - true
+    // - false
+    // 
+    // Default is false if not provided
     std::shared_ptr<bool> isAdmin_ = nullptr;
+    // Whether the user is an authorization administrator
+    // 
+    // - true
+    // - false
+    // 
+    // Default is false if not provided
     std::shared_ptr<bool> isAuthAdmin_ = nullptr;
+    // User group ID(s)
     std::shared_ptr<string> userGroupIds_ = nullptr;
+    // User type
+    // - Developer: 1
+    // - Visitor: 2
+    // - Analyst: 3
     std::shared_ptr<int32_t> userType_ = nullptr;
   };
 

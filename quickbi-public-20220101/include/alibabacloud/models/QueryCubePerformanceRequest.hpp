@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->costTimeAvgMin_ != nullptr
-        && this->cubeId_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->queryType_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->costTimeAvgMin_ == nullptr
+        && return this->cubeId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->queryType_ == nullptr && return this->workspaceId_ == nullptr; };
     // costTimeAvgMin Field Functions 
     bool hasCostTimeAvgMin() const { return this->costTimeAvgMin_ != nullptr;};
     void deleteCostTimeAvgMin() { this->costTimeAvgMin_ = nullptr;};

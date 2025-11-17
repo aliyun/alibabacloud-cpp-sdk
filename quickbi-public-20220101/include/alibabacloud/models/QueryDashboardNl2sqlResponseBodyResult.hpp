@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorities_ != nullptr
-        && this->dashboardName_ != nullptr && this->dashboardNl2sqlId_ != nullptr && this->ownerId_ != nullptr; };
+    virtual bool empty() const override { return this->authorities_ == nullptr
+        && return this->dashboardName_ == nullptr && return this->dashboardNl2sqlId_ == nullptr && return this->ownerId_ == nullptr; };
     // authorities Field Functions 
     bool hasAuthorities() const { return this->authorities_ != nullptr;};
     void deleteAuthorities() { this->authorities_ = nullptr;};
@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // If this parameter has a value and includes "READ", it indicates that the user has read permission for the dashboard question resource.
     std::shared_ptr<vector<string>> authorities_ = nullptr;
+    // Dashboard name
     std::shared_ptr<string> dashboardName_ = nullptr;
+    // Dashboard question resource ID
     std::shared_ptr<string> dashboardNl2sqlId_ = nullptr;
+    // UserID of the dashboard creator
     std::shared_ptr<string> ownerId_ = nullptr;
   };
 

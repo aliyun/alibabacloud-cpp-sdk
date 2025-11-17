@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowPublishOperation_ != nullptr
-        && this->allowShareOperation_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->createUserAccountName_ != nullptr && this->modifiedTime_ != nullptr
-        && this->modifyUser_ != nullptr && this->modifyUserAccountName_ != nullptr && this->organizationId_ != nullptr && this->owner_ != nullptr && this->ownerAccountName_ != nullptr
-        && this->workspaceDescription_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->allowPublishOperation_ == nullptr
+        && return this->allowShareOperation_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->createUserAccountName_ == nullptr && return this->modifiedTime_ == nullptr
+        && return this->modifyUser_ == nullptr && return this->modifyUserAccountName_ == nullptr && return this->organizationId_ == nullptr && return this->owner_ == nullptr && return this->ownerAccountName_ == nullptr
+        && return this->workspaceDescription_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // allowPublishOperation Field Functions 
     bool hasAllowPublishOperation() const { return this->allowPublishOperation_ != nullptr;};
     void deleteAllowPublishOperation() { this->allowPublishOperation_ = nullptr;};

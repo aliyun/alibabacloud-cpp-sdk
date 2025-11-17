@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessSourceFlag_ != nullptr
-        && this->endDate_ != nullptr && this->logType_ != nullptr && this->operatorId_ != nullptr && this->operatorTypes_ != nullptr && this->resourceType_ != nullptr
-        && this->startDate_ != nullptr && this->userAccessDevice_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->accessSourceFlag_ == nullptr
+        && return this->endDate_ == nullptr && return this->logType_ == nullptr && return this->operatorId_ == nullptr && return this->operatorTypes_ == nullptr && return this->resourceType_ == nullptr
+        && return this->startDate_ == nullptr && return this->userAccessDevice_ == nullptr && return this->workspaceId_ == nullptr; };
     // accessSourceFlag Field Functions 
     bool hasAccessSourceFlag() const { return this->accessSourceFlag_ != nullptr;};
     void deleteAccessSourceFlag() { this->accessSourceFlag_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicantId_ != nullptr
-        && this->applicantName_ != nullptr && this->applicationId_ != nullptr && this->applyReason_ != nullptr && this->approverId_ != nullptr && this->approverName_ != nullptr
-        && this->deleteFlag_ != nullptr && this->expireDate_ != nullptr && this->flagStatus_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr
-        && this->handleReason_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr && this->resourceType_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->applicantId_ == nullptr
+        && return this->applicantName_ == nullptr && return this->applicationId_ == nullptr && return this->applyReason_ == nullptr && return this->approverId_ == nullptr && return this->approverName_ == nullptr
+        && return this->deleteFlag_ == nullptr && return this->expireDate_ == nullptr && return this->flagStatus_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
+        && return this->handleReason_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr && return this->workspaceName_ == nullptr; };
     // applicantId Field Functions 
     bool hasApplicantId() const { return this->applicantId_ != nullptr;};
     void deleteApplicantId() { this->applicantId_ = nullptr;};

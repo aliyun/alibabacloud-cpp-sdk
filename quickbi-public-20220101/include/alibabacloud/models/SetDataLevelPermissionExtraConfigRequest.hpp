@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cubeId_ != nullptr
-        && this->missHitPolicy_ != nullptr && this->ruleType_ != nullptr; };
+    virtual bool empty() const override { return this->cubeId_ == nullptr
+        && return this->missHitPolicy_ == nullptr && return this->ruleType_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
@@ -57,10 +57,22 @@ namespace Models
 
 
   protected:
+    // Dataset ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> cubeId_ = nullptr;
+    // Policy when no rule is matched:
+    // 
+    // - NONE: No permission
+    // - ALL: Full permission
+    // 
     // This parameter is required.
     std::shared_ptr<string> missHitPolicy_ = nullptr;
+    // Type of dataset row and column permissions. Possible values:
+    // 
+    // - ROW_LEVEL: Row-level permission
+    // - COLUMN_LEVEL: Column-level permission
+    // 
     // This parameter is required.
     std::shared_ptr<string> ruleType_ = nullptr;
   };

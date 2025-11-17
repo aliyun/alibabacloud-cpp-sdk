@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caption_ != nullptr
-        && this->customsql_ != nullptr && this->datasourceId_ != nullptr && this->dsType_ != nullptr && this->factTable_ != nullptr && this->sql_ != nullptr
-        && this->tableName_ != nullptr && this->uniqueId_ != nullptr; };
+    virtual bool empty() const override { return this->caption_ == nullptr
+        && return this->customsql_ == nullptr && return this->datasourceId_ == nullptr && return this->dsType_ == nullptr && return this->factTable_ == nullptr && return this->sql_ == nullptr
+        && return this->tableName_ == nullptr && return this->uniqueId_ == nullptr; };
     // caption Field Functions 
     bool hasCaption() const { return this->caption_ != nullptr;};
     void deleteCaption() { this->caption_ = nullptr;};

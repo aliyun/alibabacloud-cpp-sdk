@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failCount_ != nullptr
-        && this->failResults_ != nullptr && this->okCount_ != nullptr; };
+    virtual bool empty() const override { return this->failCount_ == nullptr
+        && return this->failResults_ == nullptr && return this->okCount_ == nullptr; };
     // failCount Field Functions 
     bool hasFailCount() const { return this->failCount_ != nullptr;};
     void deleteFailCount() { this->failCount_ = nullptr;};
@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // Number of failed validations.
     std::shared_ptr<int32_t> failCount_ = nullptr;
+    // Details of the failures.
     std::shared_ptr<vector<Models::BatchAddFeishuUsersResponseBodyResultFailResults>> failResults_ = nullptr;
+    // Count of successes.
     std::shared_ptr<int32_t> okCount_ = nullptr;
   };
 

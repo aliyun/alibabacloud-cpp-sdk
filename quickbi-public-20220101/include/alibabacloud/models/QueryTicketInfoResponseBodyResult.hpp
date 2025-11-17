@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessTicket_ != nullptr
-        && this->cmptId_ != nullptr && this->globalParam_ != nullptr && this->invalidTime_ != nullptr && this->maxTicketNum_ != nullptr && this->organizationId_ != nullptr
-        && this->registerTime_ != nullptr && this->usedTicketNum_ != nullptr && this->userId_ != nullptr && this->watermarkParam_ != nullptr && this->worksId_ != nullptr; };
+    virtual bool empty() const override { return this->accessTicket_ == nullptr
+        && return this->cmptId_ == nullptr && return this->globalParam_ == nullptr && return this->invalidTime_ == nullptr && return this->maxTicketNum_ == nullptr && return this->organizationId_ == nullptr
+        && return this->registerTime_ == nullptr && return this->usedTicketNum_ == nullptr && return this->userId_ == nullptr && return this->watermarkParam_ == nullptr && return this->worksId_ == nullptr; };
     // accessTicket Field Functions 
     bool hasAccessTicket() const { return this->accessTicket_ != nullptr;};
     void deleteAccessTicket() { this->accessTicket_ = nullptr;};

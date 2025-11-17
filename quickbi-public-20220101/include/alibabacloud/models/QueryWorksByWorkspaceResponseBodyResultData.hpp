@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auth3rdFlag_ != nullptr
-        && this->description_ != nullptr && this->directory_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModify_ != nullptr && this->modifyName_ != nullptr
-        && this->ownerId_ != nullptr && this->ownerName_ != nullptr && this->publicFlag_ != nullptr && this->publicInvalidTime_ != nullptr && this->securityLevel_ != nullptr
-        && this->status_ != nullptr && this->workName_ != nullptr && this->workType_ != nullptr && this->worksId_ != nullptr && this->workspaceId_ != nullptr
-        && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->auth3rdFlag_ == nullptr
+        && return this->description_ == nullptr && return this->directory_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModify_ == nullptr && return this->modifyName_ == nullptr
+        && return this->ownerId_ == nullptr && return this->ownerName_ == nullptr && return this->publicFlag_ == nullptr && return this->publicInvalidTime_ == nullptr && return this->securityLevel_ == nullptr
+        && return this->status_ == nullptr && return this->workName_ == nullptr && return this->workType_ == nullptr && return this->worksId_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr; };
     // auth3rdFlag Field Functions 
     bool hasAuth3rdFlag() const { return this->auth3rdFlag_ != nullptr;};
     void deleteAuth3rdFlag() { this->auth3rdFlag_ = nullptr;};

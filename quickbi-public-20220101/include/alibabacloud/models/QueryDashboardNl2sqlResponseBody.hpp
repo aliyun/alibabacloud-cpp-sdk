@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->result_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->result_ == nullptr && return this->success_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -61,8 +61,17 @@ namespace Models
 
 
   protected:
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Result of the API execution. Possible values:
+    // 
+    // - true: Request succeeded
+    // - false: Request failed
     std::shared_ptr<vector<QueryDashboardNl2sqlResponseBodyResult>> result_ = nullptr;
+    // Indicates whether the request was successful. Possible values: 
+    // 
+    // - true: Request succeeded
+    // - false: Request failed
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->content_ != nullptr
-        && this->creatorId_ != nullptr && this->creatorName_ != nullptr && this->cubeId_ != nullptr && this->cubeName_ != nullptr && this->desc_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->modifierId_ != nullptr && this->modifierName_ != nullptr && this->name_ != nullptr
-        && this->ownerId_ != nullptr && this->ownerName_ != nullptr && this->sid_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->creatorId_ == nullptr && return this->creatorName_ == nullptr && return this->cubeId_ == nullptr && return this->cubeName_ == nullptr && return this->desc_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->modifierId_ == nullptr && return this->modifierName_ == nullptr && return this->name_ == nullptr
+        && return this->ownerId_ == nullptr && return this->ownerName_ == nullptr && return this->sid_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};

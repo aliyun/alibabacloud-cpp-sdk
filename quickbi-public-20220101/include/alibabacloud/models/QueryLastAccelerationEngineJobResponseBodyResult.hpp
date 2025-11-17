@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->jobHistoryId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->jobHistoryId_ == nullptr && return this->status_ == nullptr; };
     // gmtCreate Field Functions 
     bool hasGmtCreate() const { return this->gmtCreate_ != nullptr;};
     void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
@@ -66,9 +66,20 @@ namespace Models
 
 
   protected:
+    // Execution time, in the format yyyy-MM-dd hh:mm:ss.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // Completion time, in the format yyyy-MM-dd hh:mm:ss.
     std::shared_ptr<string> gmtModified_ = nullptr;
+    // Acceleration task ID.
     std::shared_ptr<string> jobHistoryId_ = nullptr;
+    // Task status. Possible values:
+    // 
+    // - TODO -- To be run
+    // - RUNNING -- Running
+    // - SUCCESS -- Successfully completed
+    // - FAILURE -- Abnormally terminated
+    // - CANCELED -- Canceled
+    // - CHECK_DEPENDENCY -- Checking dependencies
     std::shared_ptr<string> status_ = nullptr;
   };
 

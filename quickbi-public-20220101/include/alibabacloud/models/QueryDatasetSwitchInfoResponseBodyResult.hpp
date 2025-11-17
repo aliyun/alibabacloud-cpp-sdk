@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cubeId_ != nullptr
-        && this->isOpenColumnLevelPermission_ != nullptr && this->isOpenRowLevelPermission_ != nullptr; };
+    virtual bool empty() const override { return this->cubeId_ == nullptr
+        && return this->isOpenColumnLevelPermission_ == nullptr && return this->isOpenRowLevelPermission_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // Dataset ID.
     std::shared_ptr<string> cubeId_ = nullptr;
+    // Status of the column-level field permission switch. Possible values:
+    // 
+    // - 1: Enabled
+    // - 0: Disabled
     std::shared_ptr<int32_t> isOpenColumnLevelPermission_ = nullptr;
+    // Status of the row-level permission switch.
+    // 
+    // - 1: Enabled
+    // - 0: Disabled
     std::shared_ptr<int32_t> isOpenRowLevelPermission_ = nullptr;
   };
 

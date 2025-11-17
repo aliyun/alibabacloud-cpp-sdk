@@ -235,7 +235,7 @@ namespace QuickbiPublic20220101
       /**
        * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
        *
-       * @summary 批量添加飞书用户。
+       * @summary Batch add Feishu users.
        *
        * @param request BatchAddFeishuUsersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -246,7 +246,7 @@ namespace QuickbiPublic20220101
       /**
        * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
        *
-       * @summary 批量添加飞书用户。
+       * @summary Batch add Feishu users.
        *
        * @param request BatchAddFeishuUsersRequest
        * @return BatchAddFeishuUsersResponse
@@ -460,6 +460,23 @@ namespace QuickbiPublic20220101
        * @return CreateUserGroupResponse
        */
       Models::CreateUserGroupResponse createUserGroup(const Models::CreateUserGroupRequest &request);
+
+      /**
+       * @summary 创建工作空间
+       *
+       * @param request CreateWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建工作空间
+       *
+       * @param request CreateWorkspaceRequest
+       * @return CreateWorkspaceResponse
+       */
+      Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
        * @summary 数据解读开放接口
@@ -759,6 +776,23 @@ namespace QuickbiPublic20220101
       Models::GetWorksEmbedListResponse getWorksEmbedList(const Models::GetWorksEmbedListRequest &request);
 
       /**
+       * @summary 获取空间下加速引擎管控页任务信息。
+       *
+       * @param request ListAccelerationOfWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAccelerationOfWorkspaceResponse
+       */
+      Models::ListAccelerationOfWorkspaceResponse listAccelerationOfWorkspaceWithOptions(const Models::ListAccelerationOfWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取空间下加速引擎管控页任务信息。
+       *
+       * @param request ListAccelerationOfWorkspaceRequest
+       * @return ListAccelerationOfWorkspaceResponse
+       */
+      Models::ListAccelerationOfWorkspaceResponse listAccelerationOfWorkspace(const Models::ListAccelerationOfWorkspaceRequest &request);
+
+      /**
        * @summary Queries API data sources.
        *
        * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
@@ -797,7 +831,7 @@ namespace QuickbiPublic20220101
       Models::ListByUserGroupIdResponse listByUserGroupId(const Models::ListByUserGroupIdRequest &request);
 
       /**
-       * @summary The ID of the work.
+       * @summary Retrieve the list of works that a user has favorited.
        *
        * @param request ListCollectionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -806,7 +840,7 @@ namespace QuickbiPublic20220101
       Models::ListCollectionsResponse listCollectionsWithOptions(const Models::ListCollectionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The ID of the work.
+       * @summary Retrieve the list of works that a user has favorited.
        *
        * @param request ListCollectionsRequest
        * @return ListCollectionsResponse
@@ -1114,6 +1148,40 @@ namespace QuickbiPublic20220101
       Models::ModifyCopilotEmbedConfigResponse modifyCopilotEmbedConfig(const Models::ModifyCopilotEmbedConfigRequest &request);
 
       /**
+       * @summary 批量编辑仪表板的小Q问数状态
+       *
+       * @param request ModifyDashboardNl2sqlStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyDashboardNl2sqlStatusResponse
+       */
+      Models::ModifyDashboardNl2sqlStatusResponse modifyDashboardNl2sqlStatusWithOptions(const Models::ModifyDashboardNl2sqlStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量编辑仪表板的小Q问数状态
+       *
+       * @param request ModifyDashboardNl2sqlStatusRequest
+       * @return ModifyDashboardNl2sqlStatusResponse
+       */
+      Models::ModifyDashboardNl2sqlStatusResponse modifyDashboardNl2sqlStatus(const Models::ModifyDashboardNl2sqlStatusRequest &request);
+
+      /**
+       * @summary 获取指定数据集的加速任务运行日志
+       *
+       * @param request QueryAccelerationLogByCubeIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAccelerationLogByCubeIdResponse
+       */
+      Models::QueryAccelerationLogByCubeIdResponse queryAccelerationLogByCubeIdWithOptions(const Models::QueryAccelerationLogByCubeIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定数据集的加速任务运行日志
+       *
+       * @param request QueryAccelerationLogByCubeIdRequest
+       * @return QueryAccelerationLogByCubeIdResponse
+       */
+      Models::QueryAccelerationLogByCubeIdResponse queryAccelerationLogByCubeId(const Models::QueryAccelerationLogByCubeIdRequest &request);
+
+      /**
        * @summary Get approval flow information based on the approver.
        *
        * @param request QueryApprovalInfoRequest
@@ -1216,7 +1284,7 @@ namespace QuickbiPublic20220101
       Models::QueryCubePerformanceResponse queryCubePerformance(const Models::QueryCubePerformanceRequest &request);
 
       /**
-       * @summary 查询仪表板的问数资源信息
+       * @summary Query Dashboard\\"s Question Resource Information
        *
        * @param request QueryDashboardNl2sqlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1225,7 +1293,7 @@ namespace QuickbiPublic20220101
       Models::QueryDashboardNl2sqlResponse queryDashboardNl2sqlWithOptions(const Models::QueryDashboardNl2sqlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询仪表板的问数资源信息
+       * @summary Query Dashboard\\"s Question Resource Information
        *
        * @param request QueryDashboardNl2sqlRequest
        * @return QueryDashboardNl2sqlResponse
@@ -1409,7 +1477,9 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetSmartqStatusResponse queryDatasetSmartqStatus(const Models::QueryDatasetSmartqStatusRequest &request);
 
       /**
-       * @summary 获取指定数据集的行级权限开关状态。
+       * @summary Get the row-level permission switch status for a specified dataset.
+       *
+       * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request QueryDatasetSwitchInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1418,7 +1488,9 @@ namespace QuickbiPublic20220101
       Models::QueryDatasetSwitchInfoResponse queryDatasetSwitchInfoWithOptions(const Models::QueryDatasetSwitchInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定数据集的行级权限开关状态。
+       * @summary Get the row-level permission switch status for a specified dataset.
+       *
+       * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request QueryDatasetSwitchInfoRequest
        * @return QueryDatasetSwitchInfoResponse
@@ -1459,7 +1531,7 @@ namespace QuickbiPublic20220101
       Models::QueryEmbeddedStatusResponse queryEmbeddedStatus(const Models::QueryEmbeddedStatusRequest &request);
 
       /**
-       * @summary 通过数据集ID查询最近一次加速任务
+       * @summary Query the Most Recent Acceleration Task by Dataset ID
        *
        * @param request QueryLastAccelerationEngineJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1468,7 +1540,7 @@ namespace QuickbiPublic20220101
       Models::QueryLastAccelerationEngineJobResponse queryLastAccelerationEngineJobWithOptions(const Models::QueryLastAccelerationEngineJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过数据集ID查询最近一次加速任务
+       * @summary Query the Most Recent Acceleration Task by Dataset ID
        *
        * @param request QueryLastAccelerationEngineJobRequest
        * @return QueryLastAccelerationEngineJobResponse
@@ -1921,7 +1993,9 @@ namespace QuickbiPublic20220101
       Models::SaveFavoritesResponse saveFavorites(const Models::SaveFavoritesRequest &request);
 
       /**
-       * @summary 设置行列权限的额外配置
+       * @summary Set extra configuration for row and column permissions.
+       *
+       * @description > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request SetDataLevelPermissionExtraConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1930,7 +2004,9 @@ namespace QuickbiPublic20220101
       Models::SetDataLevelPermissionExtraConfigResponse setDataLevelPermissionExtraConfigWithOptions(const Models::SetDataLevelPermissionExtraConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置行列权限的额外配置
+       * @summary Set extra configuration for row and column permissions.
+       *
+       * @description > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request SetDataLevelPermissionExtraConfigRequest
        * @return SetDataLevelPermissionExtraConfigResponse
@@ -1938,7 +2014,9 @@ namespace QuickbiPublic20220101
       Models::SetDataLevelPermissionExtraConfigResponse setDataLevelPermissionExtraConfig(const Models::SetDataLevelPermissionExtraConfigRequest &request);
 
       /**
-       * @summary 设置单条数据集行列权限配置信息（新增和更新）
+       * @summary Set single dataset row and column permission configuration information (addition and update)
+       *
+       * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request SetDataLevelPermissionRuleConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1947,7 +2025,9 @@ namespace QuickbiPublic20220101
       Models::SetDataLevelPermissionRuleConfigResponse setDataLevelPermissionRuleConfigWithOptions(const Models::SetDataLevelPermissionRuleConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置单条数据集行列权限配置信息（新增和更新）
+       * @summary Set single dataset row and column permission configuration information (addition and update)
+       *
+       * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
        *
        * @param request SetDataLevelPermissionRuleConfigRequest
        * @return SetDataLevelPermissionRuleConfigResponse
@@ -2081,7 +2161,7 @@ namespace QuickbiPublic20220101
       Models::UpdateDataLevelPermissionStatusResponse updateDataLevelPermissionStatus(const Models::UpdateDataLevelPermissionStatusRequest &request);
 
       /**
-       * @summary 修改数据源配置
+       * @summary Modify Data Source Configuration
        *
        * @param request UpdateDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2090,7 +2170,7 @@ namespace QuickbiPublic20220101
       Models::UpdateDataSourceResponse updateDataSourceWithOptions(const Models::UpdateDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改数据源配置
+       * @summary Modify Data Source Configuration
        *
        * @param request UpdateDataSourceRequest
        * @return UpdateDataSourceResponse

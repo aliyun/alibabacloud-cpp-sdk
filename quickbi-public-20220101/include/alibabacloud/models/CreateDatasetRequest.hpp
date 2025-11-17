@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dsId_ != nullptr
-        && this->tableName_ != nullptr && this->targetDirectoryId_ != nullptr && this->userDefineCubeName_ != nullptr && this->userId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->dsId_ == nullptr
+        && return this->tableName_ == nullptr && return this->targetDirectoryId_ == nullptr && return this->userDefineCubeName_ == nullptr && return this->userId_ == nullptr && return this->workspaceId_ == nullptr; };
     // dsId Field Functions 
     bool hasDsId() const { return this->dsId_ != nullptr;};
     void deleteDsId() { this->dsId_ = nullptr;};

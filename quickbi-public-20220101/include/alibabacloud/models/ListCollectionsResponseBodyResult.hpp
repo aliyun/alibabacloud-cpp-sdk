@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->favoriteId_ != nullptr
-        && this->ownerId_ != nullptr && this->worksId_ != nullptr && this->worksName_ != nullptr && this->worksType_ != nullptr && this->workspaceId_ != nullptr
-        && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->favoriteId_ == nullptr
+        && return this->ownerId_ == nullptr && return this->worksId_ == nullptr && return this->worksName_ == nullptr && return this->worksType_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr; };
     // favoriteId Field Functions 
     bool hasFavoriteId() const { return this->favoriteId_ != nullptr;};
     void deleteFavoriteId() { this->favoriteId_ = nullptr;};
@@ -94,12 +94,25 @@ namespace Models
 
 
   protected:
+    // The primary key ID of the favorite record.
     std::shared_ptr<int32_t> favoriteId_ = nullptr;
+    // The user ID of the work owner. This refers to the UserID in Quick BI, not the Alibaba Cloud UID.
     std::shared_ptr<string> ownerId_ = nullptr;
+    // The ID of the work.
     std::shared_ptr<string> worksId_ = nullptr;
+    // The name of the work.
     std::shared_ptr<string> worksName_ = nullptr;
+    // The type of the work. Possible values:
+    // 
+    // - DATAPRODUCT: Data Portal
+    // - PAGE: Dashboard
+    // - REPORT: Spreadsheet
+    // - dataForm: Data Entry Form
+    // - dashboardOfflineQuery: Self-service Data Extraction
     std::shared_ptr<string> worksType_ = nullptr;
+    // Workspace ID.
     std::shared_ptr<string> workspaceId_ = nullptr;
+    // Workspace Name.
     std::shared_ptr<string> workspaceName_ = nullptr;
   };
 

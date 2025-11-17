@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->updateModel_ != nullptr; };
+    virtual bool empty() const override { return this->updateModel_ == nullptr; };
     // updateModel Field Functions 
     bool hasUpdateModel() const { return this->updateModel_ != nullptr;};
     void deleteUpdateModel() { this->updateModel_ = nullptr;};
@@ -38,6 +38,20 @@ namespace Models
 
 
   protected:
+    // Refer to the example JSON for parameter values. The parameters are explained as follows:
+    // 
+    // - dsId  --  Required  --  Data source ID
+    // - userId -- Optional -- User identity for modifying the data source, quickbi\\"s userId. If provided, it will use the current userId for modification.
+    // - dsType -- Required -- Data source type, not allowed to be modified, just pass the data source type.
+    // - showName -- Optional -- Display name of the data source.
+    // - address -- Optional -- Database connection string (domain or IP)
+    // - port -- Optional -- Port
+    // - schema --  Optional --  Database schema, only required for databases that support schemas. Example: sqlserver uses dbo by default; mysql does not support schemas.
+    // - instance -- Optional -- Instance db
+    // - username -- Optional -- Database username/ak
+    // - password -- Optional -- Database key
+    // - config -- Optional -- Additional database configuration items. Note that this data should be consistent with the different config parameters passed during creation for different data sources. Fields that do not need to be modified do not require parameters. For fields where parameters are passed, the default is to modify according to the passed parameters (including empty strings).
+    // 
     // This parameter is required.
     std::shared_ptr<string> updateModel_ = nullptr;
   };

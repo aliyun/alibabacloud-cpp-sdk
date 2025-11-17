@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authPoint_ != nullptr
-        && this->expireDate_ != nullptr && this->reportId_ != nullptr && this->shareId_ != nullptr && this->shareToId_ != nullptr && this->shareToName_ != nullptr
-        && this->shareToType_ != nullptr && this->shareType_ != nullptr; };
+    virtual bool empty() const override { return this->authPoint_ == nullptr
+        && return this->expireDate_ == nullptr && return this->reportId_ == nullptr && return this->shareId_ == nullptr && return this->shareToId_ == nullptr && return this->shareToName_ == nullptr
+        && return this->shareToType_ == nullptr && return this->shareType_ == nullptr; };
     // authPoint Field Functions 
     bool hasAuthPoint() const { return this->authPoint_ != nullptr;};
     void deleteAuthPoint() { this->authPoint_ = nullptr;};

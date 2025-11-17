@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->favorite_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->hasEditAuth_ != nullptr && this->hasViewAuth_ != nullptr && this->latestViewTime_ != nullptr
-        && this->name_ != nullptr && this->ownerName_ != nullptr && this->ownerNum_ != nullptr && this->publishStatus_ != nullptr && this->treeId_ != nullptr
-        && this->type_ != nullptr && this->viewCount_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->favorite_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->hasEditAuth_ == nullptr && return this->hasViewAuth_ == nullptr && return this->latestViewTime_ == nullptr
+        && return this->name_ == nullptr && return this->ownerName_ == nullptr && return this->ownerNum_ == nullptr && return this->publishStatus_ == nullptr && return this->treeId_ == nullptr
+        && return this->type_ == nullptr && return this->viewCount_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // favorite Field Functions 
     bool hasFavorite() const { return this->favorite_ != nullptr;};
     void deleteFavorite() { this->favorite_ = nullptr;};

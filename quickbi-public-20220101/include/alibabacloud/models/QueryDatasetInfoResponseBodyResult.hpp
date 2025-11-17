@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cubeTableList_ != nullptr
-        && this->custimzeSql_ != nullptr && this->datasetId_ != nullptr && this->datasetName_ != nullptr && this->dimensionList_ != nullptr && this->directory_ != nullptr
-        && this->dsId_ != nullptr && this->dsName_ != nullptr && this->dsType_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModify_ != nullptr
-        && this->measureList_ != nullptr && this->openOfflineAcceleration_ != nullptr && this->ownerId_ != nullptr && this->ownerName_ != nullptr && this->rowLevel_ != nullptr
-        && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->cubeTableList_ == nullptr
+        && return this->custimzeSql_ == nullptr && return this->datasetId_ == nullptr && return this->datasetName_ == nullptr && return this->dimensionList_ == nullptr && return this->directory_ == nullptr
+        && return this->dsId_ == nullptr && return this->dsName_ == nullptr && return this->dsType_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModify_ == nullptr
+        && return this->measureList_ == nullptr && return this->openOfflineAcceleration_ == nullptr && return this->ownerId_ == nullptr && return this->ownerName_ == nullptr && return this->rowLevel_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // cubeTableList Field Functions 
     bool hasCubeTableList() const { return this->cubeTableList_ != nullptr;};
     void deleteCubeTableList() { this->cubeTableList_ = nullptr;};

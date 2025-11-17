@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->failInfos_ != nullptr; };
+    virtual bool empty() const override { return this->failInfos_ == nullptr; };
     // failInfos Field Functions 
     bool hasFailInfos() const { return this->failInfos_ != nullptr;};
     void deleteFailInfos() { this->failInfos_ = nullptr;};
@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // Reasons for errors.
     std::shared_ptr<vector<Models::BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos>> failInfos_ = nullptr;
   };
 

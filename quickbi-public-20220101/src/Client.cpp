@@ -652,7 +652,7 @@ AuthorizeMenuResponse Client::authorizeMenu(const AuthorizeMenuRequest &request)
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary 批量添加飞书用户。
+ * @summary Batch add Feishu users.
  *
  * @param request BatchAddFeishuUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +701,7 @@ BatchAddFeishuUsersResponse Client::batchAddFeishuUsersWithOptions(const BatchAd
 /**
  * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
  *
- * @summary 批量添加飞书用户。
+ * @summary Batch add Feishu users.
  *
  * @param request BatchAddFeishuUsersRequest
  * @return BatchAddFeishuUsersResponse
@@ -1353,6 +1353,76 @@ CreateUserGroupResponse Client::createUserGroupWithOptions(const CreateUserGroup
 CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createUserGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建工作空间
+ *
+ * @param request CreateWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowPublish()) {
+    query["AllowPublish"] = request.allowPublish();
+  }
+
+  if (!!request.hasAllowShare()) {
+    query["AllowShare"] = request.allowShare();
+  }
+
+  if (!!request.hasAllowViewAll()) {
+    query["AllowViewAll"] = request.allowViewAll();
+  }
+
+  if (!!request.hasDefaultShareToAll()) {
+    query["DefaultShareToAll"] = request.defaultShareToAll();
+  }
+
+  if (!!request.hasOnlyAdminCreateDatasource()) {
+    query["OnlyAdminCreateDatasource"] = request.onlyAdminCreateDatasource();
+  }
+
+  if (!!request.hasUseComment()) {
+    query["UseComment"] = request.useComment();
+  }
+
+  if (!!request.hasWorkspaceDescription()) {
+    query["WorkspaceDescription"] = request.workspaceDescription();
+  }
+
+  if (!!request.hasWorkspaceName()) {
+    query["WorkspaceName"] = request.workspaceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateWorkspace"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建工作空间
+ *
+ * @param request CreateWorkspaceRequest
+ * @return CreateWorkspaceResponse
+ */
+CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWorkspaceWithOptions(request, runtime);
 }
 
 /**
@@ -2146,6 +2216,64 @@ GetWorksEmbedListResponse Client::getWorksEmbedList(const GetWorksEmbedListReque
 }
 
 /**
+ * @summary 获取空间下加速引擎管控页任务信息。
+ *
+ * @param request ListAccelerationOfWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAccelerationOfWorkspaceResponse
+ */
+ListAccelerationOfWorkspaceResponse Client::listAccelerationOfWorkspaceWithOptions(const ListAccelerationOfWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreatorId()) {
+    query["CreatorId"] = request.creatorId();
+  }
+
+  if (!!request.hasCubeName()) {
+    query["CubeName"] = request.cubeName();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAccelerationOfWorkspace"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAccelerationOfWorkspaceResponse>();
+}
+
+/**
+ * @summary 获取空间下加速引擎管控页任务信息。
+ *
+ * @param request ListAccelerationOfWorkspaceRequest
+ * @return ListAccelerationOfWorkspaceResponse
+ */
+ListAccelerationOfWorkspaceResponse Client::listAccelerationOfWorkspace(const ListAccelerationOfWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAccelerationOfWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries API data sources.
  *
  * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
@@ -2246,7 +2374,7 @@ ListByUserGroupIdResponse Client::listByUserGroupId(const ListByUserGroupIdReque
 }
 
 /**
- * @summary The ID of the work.
+ * @summary Retrieve the list of works that a user has favorited.
  *
  * @param request ListCollectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2277,7 +2405,7 @@ ListCollectionsResponse Client::listCollectionsWithOptions(const ListCollections
 }
 
 /**
- * @summary The ID of the work.
+ * @summary Retrieve the list of works that a user has favorited.
  *
  * @param request ListCollectionsRequest
  * @return ListCollectionsResponse
@@ -3113,6 +3241,110 @@ ModifyCopilotEmbedConfigResponse Client::modifyCopilotEmbedConfig(const ModifyCo
 }
 
 /**
+ * @summary 批量编辑仪表板的小Q问数状态
+ *
+ * @param request ModifyDashboardNl2sqlStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyDashboardNl2sqlStatusResponse
+ */
+ModifyDashboardNl2sqlStatusResponse Client::modifyDashboardNl2sqlStatusWithOptions(const ModifyDashboardNl2sqlStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDashboardIds()) {
+    query["DashboardIds"] = request.dashboardIds();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyDashboardNl2sqlStatus"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyDashboardNl2sqlStatusResponse>();
+}
+
+/**
+ * @summary 批量编辑仪表板的小Q问数状态
+ *
+ * @param request ModifyDashboardNl2sqlStatusRequest
+ * @return ModifyDashboardNl2sqlStatusResponse
+ */
+ModifyDashboardNl2sqlStatusResponse Client::modifyDashboardNl2sqlStatus(const ModifyDashboardNl2sqlStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyDashboardNl2sqlStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取指定数据集的加速任务运行日志
+ *
+ * @param request QueryAccelerationLogByCubeIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAccelerationLogByCubeIdResponse
+ */
+QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeIdWithOptions(const QueryAccelerationLogByCubeIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCubeId()) {
+    query["CubeId"] = request.cubeId();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAccelerationLogByCubeId"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAccelerationLogByCubeIdResponse>();
+}
+
+/**
+ * @summary 获取指定数据集的加速任务运行日志
+ *
+ * @param request QueryAccelerationLogByCubeIdRequest
+ * @return QueryAccelerationLogByCubeIdResponse
+ */
+QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeId(const QueryAccelerationLogByCubeIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAccelerationLogByCubeIdWithOptions(request, runtime);
+}
+
+/**
  * @summary Get approval flow information based on the approver.
  *
  * @param request QueryApprovalInfoRequest
@@ -3453,7 +3685,7 @@ QueryCubePerformanceResponse Client::queryCubePerformance(const QueryCubePerform
 }
 
 /**
- * @summary 查询仪表板的问数资源信息
+ * @summary Query Dashboard\\"s Question Resource Information
  *
  * @param request QueryDashboardNl2sqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3488,7 +3720,7 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sqlWithOptions(const Query
 }
 
 /**
- * @summary 查询仪表板的问数资源信息
+ * @summary Query Dashboard\\"s Question Resource Information
  *
  * @param request QueryDashboardNl2sqlRequest
  * @return QueryDashboardNl2sqlResponse
@@ -3931,7 +4163,9 @@ QueryDatasetSmartqStatusResponse Client::queryDatasetSmartqStatus(const QueryDat
 }
 
 /**
- * @summary 获取指定数据集的行级权限开关状态。
+ * @summary Get the row-level permission switch status for a specified dataset.
+ *
+ * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request QueryDatasetSwitchInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3962,7 +4196,9 @@ QueryDatasetSwitchInfoResponse Client::queryDatasetSwitchInfoWithOptions(const Q
 }
 
 /**
- * @summary 获取指定数据集的行级权限开关状态。
+ * @summary Get the row-level permission switch status for a specified dataset.
+ *
+ * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request QueryDatasetSwitchInfoRequest
  * @return QueryDatasetSwitchInfoResponse
@@ -4048,7 +4284,7 @@ QueryEmbeddedStatusResponse Client::queryEmbeddedStatus(const QueryEmbeddedStatu
 }
 
 /**
- * @summary 通过数据集ID查询最近一次加速任务
+ * @summary Query the Most Recent Acceleration Task by Dataset ID
  *
  * @param request QueryLastAccelerationEngineJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4079,7 +4315,7 @@ QueryLastAccelerationEngineJobResponse Client::queryLastAccelerationEngineJobWit
 }
 
 /**
- * @summary 通过数据集ID查询最近一次加速任务
+ * @summary Query the Most Recent Acceleration Task by Dataset ID
  *
  * @param request QueryLastAccelerationEngineJobRequest
  * @return QueryLastAccelerationEngineJobResponse
@@ -5289,7 +5525,9 @@ SaveFavoritesResponse Client::saveFavorites(const SaveFavoritesRequest &request)
 }
 
 /**
- * @summary 设置行列权限的额外配置
+ * @summary Set extra configuration for row and column permissions.
+ *
+ * @description > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request SetDataLevelPermissionExtraConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5328,7 +5566,9 @@ SetDataLevelPermissionExtraConfigResponse Client::setDataLevelPermissionExtraCon
 }
 
 /**
- * @summary 设置行列权限的额外配置
+ * @summary Set extra configuration for row and column permissions.
+ *
+ * @description > This interface only supports the new version of Quick BI\\"s row and column permission model. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. The steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request SetDataLevelPermissionExtraConfigRequest
  * @return SetDataLevelPermissionExtraConfigResponse
@@ -5339,7 +5579,9 @@ SetDataLevelPermissionExtraConfigResponse Client::setDataLevelPermissionExtraCon
 }
 
 /**
- * @summary 设置单条数据集行列权限配置信息（新增和更新）
+ * @summary Set single dataset row and column permission configuration information (addition and update)
+ *
+ * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request SetDataLevelPermissionRuleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5370,7 +5612,9 @@ SetDataLevelPermissionRuleConfigResponse Client::setDataLevelPermissionRuleConfi
 }
 
 /**
- * @summary 设置单条数据集行列权限配置信息（新增和更新）
+ * @summary Set single dataset row and column permission configuration information (addition and update)
+ *
+ * @description > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. Steps to migrate to the new row and column permission model: In Organization Management --> Security Configuration --> Upgrade Row and Column Permissions to New Version, click **One-Click Upgrade** to upgrade to the new row-level permissions.
  *
  * @param request SetDataLevelPermissionRuleConfigRequest
  * @return SetDataLevelPermissionRuleConfigResponse
@@ -5554,6 +5798,10 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
     query["CubeId"] = request.cubeId();
   }
 
+  if (!!request.hasMultipleCubeIds()) {
+    query["MultipleCubeIds"] = request.multipleCubeIds();
+  }
+
   if (!!request.hasUserId()) {
     query["UserId"] = request.userId();
   }
@@ -5713,7 +5961,7 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatus(
 }
 
 /**
- * @summary 修改数据源配置
+ * @summary Modify Data Source Configuration
  *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5744,7 +5992,7 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 }
 
 /**
- * @summary 修改数据源配置
+ * @summary Modify Data Source Configuration
  *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse

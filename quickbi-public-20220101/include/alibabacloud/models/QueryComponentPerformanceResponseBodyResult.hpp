@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheCostTimeAvg_ != nullptr
-        && this->cacheQueryCount_ != nullptr && this->componentId_ != nullptr && this->componentName_ != nullptr && this->costTimeAvg_ != nullptr && this->queryCount_ != nullptr
-        && this->queryCountAvg_ != nullptr && this->queryOverFivePercentNum_ != nullptr && this->queryOverFiveSecPercent_ != nullptr && this->queryOverTenSecPercent_ != nullptr && this->queryOverTenSecPercentNum_ != nullptr
-        && this->queryTimeoutCount_ != nullptr && this->queryTimeoutCountPercent_ != nullptr && this->quickIndexCostTimeAvg_ != nullptr && this->quickIndexQueryCount_ != nullptr && this->repeatQueryPercent_ != nullptr
-        && this->repeatQueryPercentNum_ != nullptr && this->repeatSqlQueryCount_ != nullptr && this->repeatSqlQueryPercent_ != nullptr && this->reportId_ != nullptr && this->reportName_ != nullptr
-        && this->reportType_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->cacheCostTimeAvg_ == nullptr
+        && return this->cacheQueryCount_ == nullptr && return this->componentId_ == nullptr && return this->componentName_ == nullptr && return this->costTimeAvg_ == nullptr && return this->queryCount_ == nullptr
+        && return this->queryCountAvg_ == nullptr && return this->queryOverFivePercentNum_ == nullptr && return this->queryOverFiveSecPercent_ == nullptr && return this->queryOverTenSecPercent_ == nullptr && return this->queryOverTenSecPercentNum_ == nullptr
+        && return this->queryTimeoutCount_ == nullptr && return this->queryTimeoutCountPercent_ == nullptr && return this->quickIndexCostTimeAvg_ == nullptr && return this->quickIndexQueryCount_ == nullptr && return this->repeatQueryPercent_ == nullptr
+        && return this->repeatQueryPercentNum_ == nullptr && return this->repeatSqlQueryCount_ == nullptr && return this->repeatSqlQueryPercent_ == nullptr && return this->reportId_ == nullptr && return this->reportName_ == nullptr
+        && return this->reportType_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // cacheCostTimeAvg Field Functions 
     bool hasCacheCostTimeAvg() const { return this->cacheCostTimeAvg_ != nullptr;};
     void deleteCacheCostTimeAvg() { this->cacheCostTimeAvg_ = nullptr;};

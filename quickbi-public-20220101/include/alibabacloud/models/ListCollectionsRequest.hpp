@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->userId_ == nullptr; };
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
+    // User ID. This refers to the UserID in Quick BI, not the Alibaba Cloud UID.
     // 
     // This parameter is required.
     std::shared_ptr<string> userId_ = nullptr;

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->roleModel_ != nullptr
-        && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->roleModel_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // roleModel Field Functions 
     bool hasRoleModel() const { return this->roleModel_ != nullptr;};
     void deleteRoleModel() { this->roleModel_ = nullptr;};

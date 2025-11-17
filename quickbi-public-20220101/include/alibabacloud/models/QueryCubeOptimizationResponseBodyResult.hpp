@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adviceType_ != nullptr
-        && this->cubePerformanceDiagnoseModel_ != nullptr; };
+    virtual bool empty() const override { return this->adviceType_ == nullptr
+        && return this->cubePerformanceDiagnoseModel_ == nullptr; };
     // adviceType Field Functions 
     bool hasAdviceType() const { return this->adviceType_ != nullptr;};
     void deleteAdviceType() { this->adviceType_ = nullptr;};

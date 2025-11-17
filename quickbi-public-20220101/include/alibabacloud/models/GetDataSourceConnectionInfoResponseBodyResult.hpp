@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->authLevel_ != nullptr && this->creatorId_ != nullptr && this->dsId_ != nullptr && this->dsType_ != nullptr && this->dsVersion_ != nullptr
-        && this->instance_ != nullptr && this->instanceId_ != nullptr && this->modifyUser_ != nullptr && this->noSasl_ != nullptr && this->parentDsType_ != nullptr
-        && this->port_ != nullptr && this->project_ != nullptr && this->schema_ != nullptr && this->showName_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->authLevel_ == nullptr && return this->creatorId_ == nullptr && return this->dsId_ == nullptr && return this->dsType_ == nullptr && return this->dsVersion_ == nullptr
+        && return this->instance_ == nullptr && return this->instanceId_ == nullptr && return this->modifyUser_ == nullptr && return this->noSasl_ == nullptr && return this->parentDsType_ == nullptr
+        && return this->port_ == nullptr && return this->project_ == nullptr && return this->schema_ == nullptr && return this->showName_ == nullptr && return this->workspaceId_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};

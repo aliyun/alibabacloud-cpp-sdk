@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->codeDesc_ != nullptr && this->input_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->codeDesc_ == nullptr && return this->input_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Error code.
     std::shared_ptr<string> code_ = nullptr;
+    // Description of the error code.
     std::shared_ptr<string> codeDesc_ = nullptr;
+    // Incorrect input value.
     std::shared_ptr<string> input_ = nullptr;
   };
 

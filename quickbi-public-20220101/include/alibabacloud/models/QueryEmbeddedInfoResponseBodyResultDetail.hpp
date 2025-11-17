@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dashboardOfflineQuery_ != nullptr
-        && this->page_ != nullptr && this->report_ != nullptr; };
+    virtual bool empty() const override { return this->dashboardOfflineQuery_ == nullptr
+        && return this->page_ == nullptr && return this->report_ == nullptr; };
     // dashboardOfflineQuery Field Functions 
     bool hasDashboardOfflineQuery() const { return this->dashboardOfflineQuery_ != nullptr;};
     void deleteDashboardOfflineQuery() { this->dashboardOfflineQuery_ = nullptr;};

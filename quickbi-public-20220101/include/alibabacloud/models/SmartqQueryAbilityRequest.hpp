@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SmartqQueryAbilityRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CubeId, cubeId_);
+      DARABONBA_PTR_TO_JSON(MultipleCubeIds, multipleCubeIds_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
       DARABONBA_PTR_TO_JSON(UserQuestion, userQuestion_);
     };
     friend void from_json(const Darabonba::Json& j, SmartqQueryAbilityRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CubeId, cubeId_);
+      DARABONBA_PTR_FROM_JSON(MultipleCubeIds, multipleCubeIds_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
       DARABONBA_PTR_FROM_JSON(UserQuestion, userQuestion_);
     };
@@ -33,13 +35,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cubeId_ != nullptr
-        && this->userId_ != nullptr && this->userQuestion_ != nullptr; };
+    virtual bool empty() const override { return this->cubeId_ == nullptr
+        && return this->multipleCubeIds_ == nullptr && return this->userId_ == nullptr && return this->userQuestion_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
     inline string cubeId() const { DARABONBA_PTR_GET_DEFAULT(cubeId_, "") };
     inline SmartqQueryAbilityRequest& setCubeId(string cubeId) { DARABONBA_PTR_SET_VALUE(cubeId_, cubeId) };
+
+
+    // multipleCubeIds Field Functions 
+    bool hasMultipleCubeIds() const { return this->multipleCubeIds_ != nullptr;};
+    void deleteMultipleCubeIds() { this->multipleCubeIds_ = nullptr;};
+    inline string multipleCubeIds() const { DARABONBA_PTR_GET_DEFAULT(multipleCubeIds_, "") };
+    inline SmartqQueryAbilityRequest& setMultipleCubeIds(string multipleCubeIds) { DARABONBA_PTR_SET_VALUE(multipleCubeIds_, multipleCubeIds) };
 
 
     // userId Field Functions 
@@ -58,9 +67,8 @@ namespace Models
 
   protected:
     // Dataset ID.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> cubeId_ = nullptr;
+    std::shared_ptr<string> multipleCubeIds_ = nullptr;
     // User ID.
     // >Notice: If this field is not filled, the data will be queried by default as the organization owner.
     std::shared_ptr<string> userId_ = nullptr;

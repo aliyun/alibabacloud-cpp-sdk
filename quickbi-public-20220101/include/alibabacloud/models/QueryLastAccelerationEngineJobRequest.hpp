@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cubeId_ != nullptr; };
+    virtual bool empty() const override { return this->cubeId_ == nullptr; };
     // cubeId Field Functions 
     bool hasCubeId() const { return this->cubeId_ != nullptr;};
     void deleteCubeId() { this->cubeId_ = nullptr;};
@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Dataset ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> cubeId_ = nullptr;
   };

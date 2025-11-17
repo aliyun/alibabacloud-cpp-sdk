@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->apiCopilotLlmCubeModels_ != nullptr
-        && this->createUser_ != nullptr && this->themeId_ != nullptr && this->themeName_ != nullptr; };
+    virtual bool empty() const override { return this->apiCopilotLlmCubeModels_ == nullptr
+        && return this->createUser_ == nullptr && return this->themeId_ == nullptr && return this->themeName_ == nullptr; };
     // apiCopilotLlmCubeModels Field Functions 
     bool hasApiCopilotLlmCubeModels() const { return this->apiCopilotLlmCubeModels_ != nullptr;};
     void deleteApiCopilotLlmCubeModels() { this->apiCopilotLlmCubeModels_ = nullptr;};
