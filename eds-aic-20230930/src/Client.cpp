@@ -2306,6 +2306,150 @@ DescribeMetricLastResponse Client::describeMetricLast(const DescribeMetricLastRe
 }
 
 /**
+ * @summary 查询指定监控项的监控数据
+ *
+ * @param request DescribeMetricListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetricListResponse
+ */
+DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeMetricListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAndroidInstanceIds()) {
+    body["AndroidInstanceIds"] = request.androidInstanceIds();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.instanceIds();
+  }
+
+  if (!!request.hasLength()) {
+    body["Length"] = request.length();
+  }
+
+  if (!!request.hasMetricNames()) {
+    body["MetricNames"] = request.metricNames();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    body["Period"] = request.period();
+  }
+
+  if (!!request.hasProcessInfos()) {
+    body["ProcessInfos"] = request.processInfos();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetricList"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetricListResponse>();
+}
+
+/**
+ * @summary 查询指定监控项的监控数据
+ *
+ * @param request DescribeMetricListRequest
+ * @return DescribeMetricListResponse
+ */
+DescribeMetricListResponse Client::describeMetricList(const DescribeMetricListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMetricListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询指定监控项的最新监控数据
+ *
+ * @param request DescribeMetricTopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetricTopResponse
+ */
+DescribeMetricTopResponse Client::describeMetricTopWithOptions(const DescribeMetricTopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAndroidInstanceIds()) {
+    body["AndroidInstanceIds"] = request.androidInstanceIds();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.instanceIds();
+  }
+
+  if (!!request.hasLength()) {
+    body["Length"] = request.length();
+  }
+
+  if (!!request.hasMetricNames()) {
+    body["MetricNames"] = request.metricNames();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    body["Period"] = request.period();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetricTop"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetricTopResponse>();
+}
+
+/**
+ * @summary 查询指定监控项的最新监控数据
+ *
+ * @param request DescribeMetricTopRequest
+ * @return DescribeMetricTopResponse
+ */
+DescribeMetricTopResponse Client::describeMetricTop(const DescribeMetricTopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMetricTopWithOptions(request, runtime);
+}
+
+/**
  * @summary Query available regions.
  *
  * @param request DescribeRegionsRequest
@@ -3303,6 +3447,72 @@ InstanceHealerResponse Client::instanceHealerWithOptions(const InstanceHealerReq
 InstanceHealerResponse Client::instanceHealer(const InstanceHealerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return instanceHealerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询ADB端口连接信息
+ *
+ * @param request ListInstanceAdbAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceAdbAttributesResponse
+ */
+ListInstanceAdbAttributesResponse Client::listInstanceAdbAttributesWithOptions(const ListInstanceAdbAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasExternalIp()) {
+    query["ExternalIp"] = request.externalIp();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  if (!!request.hasInternalIp()) {
+    query["InternalIp"] = request.internalIp();
+  }
+
+  if (!!request.hasInternalPort()) {
+    query["InternalPort"] = request.internalPort();
+  }
+
+  if (!!request.hasIpProtocol()) {
+    query["IpProtocol"] = request.ipProtocol();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceAdbAttributes"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceAdbAttributesResponse>();
+}
+
+/**
+ * @summary 查询ADB端口连接信息
+ *
+ * @param request ListInstanceAdbAttributesRequest
+ * @return ListInstanceAdbAttributesResponse
+ */
+ListInstanceAdbAttributesResponse Client::listInstanceAdbAttributes(const ListInstanceAdbAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstanceAdbAttributesWithOptions(request, runtime);
 }
 
 /**
@@ -4588,6 +4798,48 @@ StartAndroidInstanceResponse Client::startAndroidInstance(const StartAndroidInst
 }
 
 /**
+ * @summary 开启实例ADB端口并创建端口转发条目
+ *
+ * @param request StartInstanceAdbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartInstanceAdbResponse
+ */
+StartInstanceAdbResponse Client::startInstanceAdbWithOptions(const StartInstanceAdbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartInstanceAdb"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartInstanceAdbResponse>();
+}
+
+/**
+ * @summary 开启实例ADB端口并创建端口转发条目
+ *
+ * @param request StartInstanceAdbRequest
+ * @return StartInstanceAdbResponse
+ */
+StartInstanceAdbResponse Client::startInstanceAdb(const StartInstanceAdbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startInstanceAdbWithOptions(request, runtime);
+}
+
+/**
  * @summary Stops a cloud phone instance.
  *
  * @description Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
@@ -4639,6 +4891,48 @@ StopAndroidInstanceResponse Client::stopAndroidInstanceWithOptions(const StopAnd
 StopAndroidInstanceResponse Client::stopAndroidInstance(const StopAndroidInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopAndroidInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 停止实例ADB端口并删除端口转发条目
+ *
+ * @param request StopInstanceAdbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopInstanceAdbResponse
+ */
+StopInstanceAdbResponse Client::stopInstanceAdbWithOptions(const StopInstanceAdbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopInstanceAdb"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopInstanceAdbResponse>();
+}
+
+/**
+ * @summary 停止实例ADB端口并删除端口转发条目
+ *
+ * @param request StopInstanceAdbRequest
+ * @return StopInstanceAdbResponse
+ */
+StopInstanceAdbResponse Client::stopInstanceAdb(const StopInstanceAdbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopInstanceAdbWithOptions(request, runtime);
 }
 
 /**

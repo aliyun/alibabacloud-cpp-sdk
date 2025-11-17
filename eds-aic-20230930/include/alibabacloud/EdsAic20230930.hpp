@@ -664,6 +664,40 @@ namespace EdsAic20230930
       Models::DescribeMetricLastResponse describeMetricLast(const Models::DescribeMetricLastRequest &request);
 
       /**
+       * @summary 查询指定监控项的监控数据
+       *
+       * @param request DescribeMetricListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetricListResponse
+       */
+      Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定监控项的监控数据
+       *
+       * @param request DescribeMetricListRequest
+       * @return DescribeMetricListResponse
+       */
+      Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
+
+      /**
+       * @summary 查询指定监控项的最新监控数据
+       *
+       * @param request DescribeMetricTopRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetricTopResponse
+       */
+      Models::DescribeMetricTopResponse describeMetricTopWithOptions(const Models::DescribeMetricTopRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定监控项的最新监控数据
+       *
+       * @param request DescribeMetricTopRequest
+       * @return DescribeMetricTopResponse
+       */
+      Models::DescribeMetricTopResponse describeMetricTop(const Models::DescribeMetricTopRequest &request);
+
+      /**
        * @summary Query available regions.
        *
        * @param request DescribeRegionsRequest
@@ -1008,6 +1042,23 @@ namespace EdsAic20230930
        * @return InstanceHealerResponse
        */
       Models::InstanceHealerResponse instanceHealer(const Models::InstanceHealerRequest &request);
+
+      /**
+       * @summary 查询ADB端口连接信息
+       *
+       * @param request ListInstanceAdbAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceAdbAttributesResponse
+       */
+      Models::ListInstanceAdbAttributesResponse listInstanceAdbAttributesWithOptions(const Models::ListInstanceAdbAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询ADB端口连接信息
+       *
+       * @param request ListInstanceAdbAttributesRequest
+       * @return ListInstanceAdbAttributesResponse
+       */
+      Models::ListInstanceAdbAttributesResponse listInstanceAdbAttributes(const Models::ListInstanceAdbAttributesRequest &request);
 
       /**
        * @summary Queries policies.
@@ -1412,6 +1463,23 @@ namespace EdsAic20230930
       Models::StartAndroidInstanceResponse startAndroidInstance(const Models::StartAndroidInstanceRequest &request);
 
       /**
+       * @summary 开启实例ADB端口并创建端口转发条目
+       *
+       * @param request StartInstanceAdbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartInstanceAdbResponse
+       */
+      Models::StartInstanceAdbResponse startInstanceAdbWithOptions(const Models::StartInstanceAdbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启实例ADB端口并创建端口转发条目
+       *
+       * @param request StartInstanceAdbRequest
+       * @return StartInstanceAdbResponse
+       */
+      Models::StartInstanceAdbResponse startInstanceAdb(const Models::StartInstanceAdbRequest &request);
+
+      /**
        * @summary Stops a cloud phone instance.
        *
        * @description Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
@@ -1431,6 +1499,23 @@ namespace EdsAic20230930
        * @return StopAndroidInstanceResponse
        */
       Models::StopAndroidInstanceResponse stopAndroidInstance(const Models::StopAndroidInstanceRequest &request);
+
+      /**
+       * @summary 停止实例ADB端口并删除端口转发条目
+       *
+       * @param request StopInstanceAdbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopInstanceAdbResponse
+       */
+      Models::StopInstanceAdbResponse stopInstanceAdbWithOptions(const Models::StopInstanceAdbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止实例ADB端口并删除端口转发条目
+       *
+       * @param request StopInstanceAdbRequest
+       * @return StopInstanceAdbResponse
+       */
+      Models::StopInstanceAdbResponse stopInstanceAdb(const Models::StopInstanceAdbRequest &request);
 
       /**
        * @summary 给资源打标签
