@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_TO_JSON(Params, params_);
       DARABONBA_PTR_TO_JSON(ScheduleConfig, scheduleConfigShrink_);
+      DARABONBA_PTR_TO_JSON(TemplateConfig, templateConfig_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_FROM_JSON(Params, params_);
       DARABONBA_PTR_FROM_JSON(ScheduleConfig, scheduleConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(TemplateConfig, templateConfig_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
         && return this->contentAddr_ == nullptr && return this->contentType_ == nullptr && return this->inputShrink_ == nullptr && return this->notifyUrl_ == nullptr && return this->params_ == nullptr
-        && return this->scheduleConfigShrink_ == nullptr && return this->templateId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
+        && return this->scheduleConfigShrink_ == nullptr && return this->templateConfig_ == nullptr && return this->templateId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline SubmitSmarttagJobShrinkRequest& setScheduleConfigShrink(string scheduleConfigShrink) { DARABONBA_PTR_SET_VALUE(scheduleConfigShrink_, scheduleConfigShrink) };
 
 
+    // templateConfig Field Functions 
+    bool hasTemplateConfig() const { return this->templateConfig_ != nullptr;};
+    void deleteTemplateConfig() { this->templateConfig_ = nullptr;};
+    inline string templateConfig() const { DARABONBA_PTR_GET_DEFAULT(templateConfig_, "") };
+    inline SubmitSmarttagJobShrinkRequest& setTemplateConfig(string templateConfig) { DARABONBA_PTR_SET_VALUE(templateConfig_, templateConfig) };
+
+
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -140,6 +149,7 @@ namespace Models
     std::shared_ptr<string> params_ = nullptr;
     // The scheduling configurations.
     std::shared_ptr<string> scheduleConfigShrink_ = nullptr;
+    std::shared_ptr<string> templateConfig_ = nullptr;
     // The ID of the template that specifies the analysis algorithms. For more information about template operations, see [Configure templates](https://help.aliyun.com/document_detail/445702.html).
     std::shared_ptr<string> templateId_ = nullptr;
     // The video title. The title can contain letters, digits, and hyphens (-) and cannot start with a special character. The title can be up to 256 bytes in length.

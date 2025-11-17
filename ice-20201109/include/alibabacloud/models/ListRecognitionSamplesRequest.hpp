@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListRecognitionSamplesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(EntityId, entityId_);
+      DARABONBA_PTR_TO_JSON(EntityName, entityName_);
       DARABONBA_PTR_TO_JSON(LibId, libId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListRecognitionSamplesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(EntityId, entityId_);
+      DARABONBA_PTR_FROM_JSON(EntityName, entityName_);
       DARABONBA_PTR_FROM_JSON(LibId, libId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->entityId_ == nullptr && return this->libId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && return this->entityId_ == nullptr && return this->entityName_ == nullptr && return this->libId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteEntityId() { this->entityId_ = nullptr;};
     inline string entityId() const { DARABONBA_PTR_GET_DEFAULT(entityId_, "") };
     inline ListRecognitionSamplesRequest& setEntityId(string entityId) { DARABONBA_PTR_SET_VALUE(entityId_, entityId) };
+
+
+    // entityName Field Functions 
+    bool hasEntityName() const { return this->entityName_ != nullptr;};
+    void deleteEntityName() { this->entityName_ = nullptr;};
+    inline string entityName() const { DARABONBA_PTR_GET_DEFAULT(entityName_, "") };
+    inline ListRecognitionSamplesRequest& setEntityName(string entityName) { DARABONBA_PTR_SET_VALUE(entityName_, entityName) };
 
 
     // libId Field Functions 
@@ -125,6 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> entityId_ = nullptr;
+    std::shared_ptr<string> entityName_ = nullptr;
     // The ID of the recognition library.
     // 
     // This parameter is required.

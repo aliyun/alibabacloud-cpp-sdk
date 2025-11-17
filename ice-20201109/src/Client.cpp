@@ -12271,6 +12271,10 @@ ListRecognitionLibsResponse Client::listRecognitionLibsWithOptions(const ListRec
     query["Algorithm"] = request.algorithm();
   }
 
+  if (!!request.hasLibId()) {
+    query["LibId"] = request.libId();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.ownerAccount();
   }
@@ -12342,6 +12346,10 @@ ListRecognitionSamplesResponse Client::listRecognitionSamplesWithOptions(const L
 
   if (!!request.hasEntityId()) {
     query["EntityId"] = request.entityId();
+  }
+
+  if (!!request.hasEntityName()) {
+    query["EntityName"] = request.entityName();
   }
 
   if (!!request.hasLibId()) {
@@ -18560,6 +18568,10 @@ SubmitSmarttagJobResponse Client::submitSmarttagJobWithOptions(const SubmitSmart
     query["ScheduleConfig"] = request.scheduleConfigShrink();
   }
 
+  if (!!request.hasTemplateConfig()) {
+    query["TemplateConfig"] = request.templateConfig();
+  }
+
   if (!!request.hasTemplateId()) {
     query["TemplateId"] = request.templateId();
   }
@@ -19234,6 +19246,10 @@ SubmitVideoCognitionJobResponse Client::submitVideoCognitionJobWithOptions(const
 
   if (!!request.hasParams()) {
     query["Params"] = request.params();
+  }
+
+  if (!!request.hasTemplateConfig()) {
+    query["TemplateConfig"] = request.templateConfig();
   }
 
   if (!!request.hasTemplateId()) {

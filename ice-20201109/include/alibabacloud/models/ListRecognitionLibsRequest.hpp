@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListRecognitionLibsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_TO_JSON(LibId, libId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListRecognitionLibsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_FROM_JSON(LibId, libId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr; };
+        && return this->libId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
     inline string algorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline ListRecognitionLibsRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
+    // libId Field Functions 
+    bool hasLibId() const { return this->libId_ != nullptr;};
+    void deleteLibId() { this->libId_ = nullptr;};
+    inline string libId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+    inline ListRecognitionLibsRequest& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
 
 
     // ownerAccount Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> algorithm_ = nullptr;
+    std::shared_ptr<string> libId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The page number.
