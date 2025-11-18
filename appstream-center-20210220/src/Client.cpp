@@ -133,6 +133,10 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
   }
 
   json query = {};
+  if (!!request.hasAreaSite()) {
+    query["AreaSite"] = request.areaSite();
+  }
+
   if (!!request.hasAuthenticationCode()) {
     query["AuthenticationCode"] = request.authenticationCode();
   }
