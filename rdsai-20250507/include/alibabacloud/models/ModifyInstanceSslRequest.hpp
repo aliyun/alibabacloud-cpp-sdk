@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CAType_ != nullptr
-        && this->instanceName_ != nullptr && this->regionId_ != nullptr && this->SSLEnabled_ != nullptr && this->serverCert_ != nullptr && this->serverKey_ != nullptr; };
+    virtual bool empty() const override { return this->CAType_ == nullptr
+        && return this->instanceName_ == nullptr && return this->regionId_ == nullptr && return this->SSLEnabled_ == nullptr && return this->serverCert_ == nullptr && return this->serverKey_ == nullptr; };
     // CAType Field Functions 
     bool hasCAType() const { return this->CAType_ != nullptr;};
     void deleteCAType() { this->CAType_ = nullptr;};

@@ -618,6 +618,64 @@ ModifyInstanceAuthConfigResponse Client::modifyInstanceAuthConfig(const ModifyIn
 }
 
 /**
+ * @summary 修改实例RAG配置
+ *
+ * @param request ModifyInstanceConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceConfigResponse
+ */
+ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const ModifyInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasConfigName()) {
+    query["ConfigName"] = request.configName();
+  }
+
+  if (!!request.hasConfigValue()) {
+    query["ConfigValue"] = request.configValue();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceConfig"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceConfigResponse>();
+}
+
+/**
+ * @summary 修改实例RAG配置
+ *
+ * @param request ModifyInstanceConfigRequest
+ * @return ModifyInstanceConfigResponse
+ */
+ModifyInstanceConfigResponse Client::modifyInstanceConfig(const ModifyInstanceConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改服务白名单
  *
  * @param request ModifyInstanceIpWhitelistRequest

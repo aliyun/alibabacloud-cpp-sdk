@@ -208,6 +208,23 @@ namespace RdsAi20250507
       Models::ModifyInstanceAuthConfigResponse modifyInstanceAuthConfig(const Models::ModifyInstanceAuthConfigRequest &request);
 
       /**
+       * @summary 修改实例RAG配置
+       *
+       * @param request ModifyInstanceConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceConfigResponse
+       */
+      Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例RAG配置
+       *
+       * @param request ModifyInstanceConfigRequest
+       * @return ModifyInstanceConfigResponse
+       */
+      Models::ModifyInstanceConfigResponse modifyInstanceConfig(const Models::ModifyInstanceConfigRequest &request);
+
+      /**
        * @summary 修改服务白名单
        *
        * @param request ModifyInstanceIpWhitelistRequest
