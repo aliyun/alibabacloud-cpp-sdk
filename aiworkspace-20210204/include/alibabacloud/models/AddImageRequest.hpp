@@ -99,8 +99,8 @@ namespace Models
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
-    inline int32_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
-    inline AddImageRequest& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+    inline int64_t size() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+    inline AddImageRequest& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
     // sourceId Field Functions 
@@ -168,7 +168,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
     // The size of the image. Unit: GB.
-    std::shared_ptr<int32_t> size_ = nullptr;
+    std::shared_ptr<int64_t> size_ = nullptr;
     std::shared_ptr<string> sourceId_ = nullptr;
     std::shared_ptr<string> sourceType_ = nullptr;
     // The workspace ID. You can call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
