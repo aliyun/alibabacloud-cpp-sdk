@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Email address
     std::shared_ptr<string> email_ = nullptr;
+    // Country code
     std::shared_ptr<string> mobileCountryCode_ = nullptr;
+    // Contact\\"s mobile phone number
     std::shared_ptr<string> mobilePhoneNum_ = nullptr;
   };
 

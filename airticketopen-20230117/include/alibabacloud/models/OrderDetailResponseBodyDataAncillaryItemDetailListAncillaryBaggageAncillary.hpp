@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Number of luggage pieces. Values can be: 3, 2, 1, 0, -2. -2 indicates weight-based calculation.
     std::shared_ptr<int32_t> baggageAmount_ = nullptr;
+    // Luggage weight, 0-50. When isAllWeght=true, it indicates the total weight of all items.
     std::shared_ptr<int32_t> baggageWeight_ = nullptr;
+    // Unit of luggage weight
     std::shared_ptr<string> baggageWeightUnit_ = nullptr;
+    // whether all luggage weight
     std::shared_ptr<bool> isAllWeight_ = nullptr;
+    // Total Price
     std::shared_ptr<double> price_ = nullptr;
   };
 

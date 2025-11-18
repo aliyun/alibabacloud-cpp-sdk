@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // total price of the used flight tickets
+    // Total price of the used segments
     std::shared_ptr<double> alreadyUsedTotalFee_ = nullptr;
-    // amount refunded to the user after change (only available when has change order)
+    // Amount refunded to the user after a change
     std::shared_ptr<double> modifyRefundToBuyerMoney_ = nullptr;
-    // non-refundable change service fee
+    // Non-refundable change penalty
     std::shared_ptr<double> nonRefundableChangeServiceFee_ = nullptr;
-    // non-refundable upgrade fee
+    // Non-refundable fare difference
     std::shared_ptr<double> nonRefundableChangeUpgradeFee_ = nullptr;
-    // non-refundable tax amount, i.e., tax refund fee
+    // tax penalty
     std::shared_ptr<double> nonRefundableTaxFee_ = nullptr;
-    // non-refundable ticket amount, i.e., ticket refund fee
+    // fare penalty
     std::shared_ptr<double> nonRefundableTicketFee_ = nullptr;
-    // amount refundable to the user from the original ticket (fare + tax - non_refundable_ticket_fee - non_refundable_tax_fee - already_used_total_fee - discount)
+    // Amount refundable to the user (ticket price + taxes - fare penalty - tax penalty - total price of used segments)
     std::shared_ptr<double> refundToBuyerMoney_ = nullptr;
   };
 

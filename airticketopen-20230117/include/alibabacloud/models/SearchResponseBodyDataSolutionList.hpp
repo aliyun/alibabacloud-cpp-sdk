@@ -176,7 +176,7 @@ namespace Models
     std::shared_ptr<vector<Models::SearchResponseBodyDataSolutionListSegmentBaggageMappingList>> segmentBaggageMappingList_ = nullptr;
     // change and refund policy
     std::shared_ptr<vector<Models::SearchResponseBodyDataSolutionListSegmentRefundChangeRuleMappingList>> segmentRefundChangeRuleMappingList_ = nullptr;
-    // supply source type
+    // Quotation attributes
     std::shared_ptr<Models::SearchResponseBodyDataSolutionListSolutionAttribute> solutionAttribute_ = nullptr;
     // solution ID
     std::shared_ptr<string> solutionId_ = nullptr;

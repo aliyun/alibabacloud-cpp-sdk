@@ -60,23 +60,15 @@ namespace Models
 
 
   protected:
-    // attachment file URLs
-    // 
-    // (note: upload the files using a separate file upload interface to get the file URLs)
+    // Array of attachment file URLs. First, upload the files using a separate file upload interface to get the file URLs.
     std::shared_ptr<vector<string>> file_ = nullptr;
-    // refund type 
-    // 
-    // 2: voluntary (I want to change my travel plan/I don\\"t want to fly) 
-    // 
-    // 5: involuntary, due to flight delay or cancellation, schedule changes, etc., by the airline 
-    // 
-    // 6: involuntary, due to health reasons with a certificate from a hospital of at least secondary level A or above 
-    // 
-    //  (note: attachments are not mandatory, but it is recommended to provide them for involuntary refunds as they can increase the success rate)
+    // 2: Voluntary (I want to change my travel plan/I don\\"t want to fly). 
+    // 5: Involuntary, due to flight delay or cancellation, schedule changes, or other airline reasons. 
+    // 6: Involuntary, due to health reasons with a medical report from a hospital of at least secondary level A or above.
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> refundTypeId_ = nullptr;
-    // remark
+    // Remark: detailed description about the refund application
     std::shared_ptr<string> remark_ = nullptr;
   };
 

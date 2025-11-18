@@ -99,19 +99,19 @@ namespace Models
 
 
   protected:
-    // request ID
+    // Request RequestId
     std::shared_ptr<string> requestId_ = nullptr;
-    // data
+    // Properly processed return data
     std::shared_ptr<RefundDetailListResponseBodyData> data_ = nullptr;
     // error code
     std::shared_ptr<string> errorCode_ = nullptr;
-    // error data
+    // Data carried in error handling
     Darabonba::Json errorData_ = nullptr;
-    // error message
+    // Error message
     std::shared_ptr<string> errorMsg_ = nullptr;
-    // http reqeust has been processed successfully，status code is 200
+    // HTTP request successful, status value is 200
     std::shared_ptr<int32_t> status_ = nullptr;
-    // true represents success, false represents failure
+    // Whether the operation was successful
     std::shared_ptr<bool> success_ = nullptr;
   };
 

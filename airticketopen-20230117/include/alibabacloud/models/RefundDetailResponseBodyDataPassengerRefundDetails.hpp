@@ -54,9 +54,9 @@ namespace Models
 
 
   protected:
-    // information of the passenger applying for a refund
+    // Information of the passenger applying for a refund
     std::shared_ptr<Models::RefundDetailResponseBodyDataPassengerRefundDetailsPassenger> passenger_ = nullptr;
-    // details of the refund fee
+    // Refund fee details
     std::shared_ptr<Models::RefundDetailResponseBodyDataPassengerRefundDetailsRefundFee> refundFee_ = nullptr;
   };
 

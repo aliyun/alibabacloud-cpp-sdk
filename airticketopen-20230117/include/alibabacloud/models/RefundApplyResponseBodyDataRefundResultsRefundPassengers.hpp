@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // credential number
+    // Document number
     std::shared_ptr<string> document_ = nullptr;
-    // first name
+    // Passenger first name
     std::shared_ptr<string> firstName_ = nullptr;
-    // last name
+    // Passenger last name
     std::shared_ptr<string> lastName_ = nullptr;
   };
 

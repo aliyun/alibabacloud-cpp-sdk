@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // arrival airport code (capitalized)
+    // Three-letter code of the arrival airport (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> arrivalAirport_ = nullptr;
-    // arrival city code (capitalized)
+    // Three-letter code of the arrival city (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> arrivalCity_ = nullptr;
-    // departure airport code (capitalized)
+    // Three-letter code of the departure airport (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> departureAirport_ = nullptr;
-    // departure city code (capitalized)
+    // Three-letter code of the departure city (uppercase)
     // 
     // This parameter is required.
     std::shared_ptr<string> departureCity_ = nullptr;

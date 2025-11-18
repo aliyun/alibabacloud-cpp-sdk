@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // refund order number
+    // Refund order number
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> refundOrderNum_ = nullptr;

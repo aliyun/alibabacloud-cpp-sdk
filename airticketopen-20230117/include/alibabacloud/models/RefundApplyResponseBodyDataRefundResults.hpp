@@ -70,17 +70,13 @@ namespace Models
 
 
   protected:
-    // reason for refund application failure
+    // Reason for refund application failure
     std::shared_ptr<string> failReason_ = nullptr;
-    // refund order number
+    // Refund order number
     std::shared_ptr<int64_t> refundOrderNum_ = nullptr;
-    // passengers of current refund order
+    // List of passengers for the refund order
     std::shared_ptr<vector<Models::RefundApplyResponseBodyDataRefundResultsRefundPassengers>> refundPassengers_ = nullptr;
-    // refund order status 
-    // 
-    // 0: refund order created successfully
-    // 
-    // 1: refund order creation failed
+    // Refund order status 0: Refund order created successfully; 1: Refund order creation failed
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

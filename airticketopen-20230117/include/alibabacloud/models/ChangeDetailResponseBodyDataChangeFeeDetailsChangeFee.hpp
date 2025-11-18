@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // fare penalty
     std::shared_ptr<double> serviceFee_ = nullptr;
+    // tax penalty
     std::shared_ptr<double> taxFee_ = nullptr;
+    // price difference
     std::shared_ptr<double> upgradeFee_ = nullptr;
   };
 

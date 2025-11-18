@@ -109,7 +109,7 @@ namespace Models
     Darabonba::Json errorData_ = nullptr;
     // error message
     std::shared_ptr<string> errorMsg_ = nullptr;
-    // http reqeust has been processed successfully，status code is 200
+    // http request has been processed successfully，status code is 200
     std::shared_ptr<int32_t> status_ = nullptr;
     // true represents success, false represents failure
     std::shared_ptr<bool> success_ = nullptr;

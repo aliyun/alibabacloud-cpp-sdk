@@ -232,27 +232,49 @@ namespace Models
 
 
   protected:
+    // Arrival airport three-letter code (uppercase)
     std::shared_ptr<string> arrivalAirport_ = nullptr;
+    // Arrival city three-letter code (uppercase)
     std::shared_ptr<string> arrivalCity_ = nullptr;
+    // Arrival terminal of the flight
     std::shared_ptr<string> arrivalTerminal_ = nullptr;
+    // Flight arrival date and time, in the format (yyyy-MM-dd HH:mm:ss)
     std::shared_ptr<string> arrivalTime_ = nullptr;
+    // Number of available seats
     std::shared_ptr<string> availability_ = nullptr;
+    // RBD
     std::shared_ptr<string> cabin_ = nullptr;
+    // service class ( compartment )
     std::shared_ptr<string> cabinClass_ = nullptr;
+    // Whether it is a code-share flight
     std::shared_ptr<bool> codeShare_ = nullptr;
+    // Departure airport three-letter code (uppercase)
     std::shared_ptr<string> departureAirport_ = nullptr;
+    // Departure city three-letter code (uppercase)
     std::shared_ptr<string> departureCity_ = nullptr;
+    // Departure terminal of the flight
     std::shared_ptr<string> departureTerminal_ = nullptr;
+    // Flight departure date and time, in the format (yyyy-MM-dd HH:mm:ss)
     std::shared_ptr<string> departureTime_ = nullptr;
+    // Aircraft type
     std::shared_ptr<string> equipType_ = nullptr;
+    // Flight duration in minutes
     std::shared_ptr<int32_t> flightDuration_ = nullptr;
+    // Market airline (e.g., HO)
     std::shared_ptr<string> marketingAirline_ = nullptr;
+    // Marketing flight number (e.g., HO1295)
     std::shared_ptr<string> marketingFlightNo_ = nullptr;
+    // Marketing flight number (e.g., 1295)
     std::shared_ptr<int32_t> marketingFlightNoInt_ = nullptr;
+    // Operating airline (e.g., CX)
     std::shared_ptr<string> operatingAirline_ = nullptr;
+    // Operating flight number (e.g., CX601)
     std::shared_ptr<string> operatingFlightNo_ = nullptr;
+    // Segment ID format: flight number + departure airport + arrival airport + departure date (MMdd)
     std::shared_ptr<string> segmentId_ = nullptr;
+    // List of stop cities, with values when stopQuantity > 0, separated by commas
     std::shared_ptr<string> stopCityList_ = nullptr;
+    // Number of stop cities
     std::shared_ptr<int32_t> stopQuantity_ = nullptr;
   };
 

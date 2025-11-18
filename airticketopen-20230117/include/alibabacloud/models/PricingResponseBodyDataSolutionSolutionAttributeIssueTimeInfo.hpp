@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Issue ticket type: 1: after payment; 2: before departure; -1: unknown
     std::shared_ptr<int32_t> issueTicketType_ = nullptr;
+    // Estimated issue ticket time, unit: minutes
     std::shared_ptr<int32_t> issueTimeLimit_ = nullptr;
   };
 

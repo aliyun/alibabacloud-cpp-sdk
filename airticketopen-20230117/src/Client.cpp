@@ -537,7 +537,7 @@ ChangeConfirmResponse Client::changeConfirm(const ChangeConfirmRequest &request)
 }
 
 /**
- * @summary 改签-Detail
+ * @summary Change-Detail
  *
  * @param request ChangeDetailRequest
  * @param headers ChangeDetailHeaders
@@ -583,7 +583,7 @@ ChangeDetailResponse Client::changeDetailWithOptions(const ChangeDetailRequest &
 }
 
 /**
- * @summary 改签-Detail
+ * @summary Change-Detail
  *
  * @param request ChangeDetailRequest
  * @return ChangeDetailResponse
@@ -1260,7 +1260,7 @@ OrderListResponse Client::orderList(const OrderListRequest &request) {
 }
 
 /**
- * @summary Trade - Seat and Price Verification
+ * @summary Transaction - Seat and Price Verification
  *
  * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
  *
@@ -1308,7 +1308,7 @@ PricingResponse Client::pricingWithOptions(const PricingRequest &request, const 
 }
 
 /**
- * @summary Trade - Seat and Price Verification
+ * @summary Transaction - Seat and Price Verification
  *
  * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
  *
@@ -1322,9 +1322,7 @@ PricingResponse Client::pricing(const PricingRequest &request) {
 }
 
 /**
- * @summary 退票-申请
- *
- * @description Apply for a refund and generate a refund order.
+ * @summary Ticket Refund - Application
  *
  * @param tmpReq RefundApplyRequest
  * @param headers RefundApplyHeaders
@@ -1396,9 +1394,7 @@ RefundApplyResponse Client::refundApplyWithOptions(const RefundApplyRequest &tmp
 }
 
 /**
- * @summary 退票-申请
- *
- * @description Apply for a refund and generate a refund order.
+ * @summary Ticket Refund - Application
  *
  * @param request RefundApplyRequest
  * @return RefundApplyResponse
@@ -1411,8 +1407,6 @@ RefundApplyResponse Client::refundApply(const RefundApplyRequest &request) {
 
 /**
  * @summary Refund - Detail
- *
- * @description Query refund order detail.
  *
  * @param request RefundDetailRequest
  * @param headers RefundDetailHeaders
@@ -1460,8 +1454,6 @@ RefundDetailResponse Client::refundDetailWithOptions(const RefundDetailRequest &
 /**
  * @summary Refund - Detail
  *
- * @description Query refund order detail.
- *
  * @param request RefundDetailRequest
  * @return RefundDetailResponse
  */
@@ -1473,8 +1465,6 @@ RefundDetailResponse Client::refundDetail(const RefundDetailRequest &request) {
 
 /**
  * @summary Refund - Detail List
- *
- * @description Query refund order detail.
  *
  * @param request RefundDetailListRequest
  * @param headers RefundDetailListHeaders
@@ -1538,8 +1528,6 @@ RefundDetailListResponse Client::refundDetailListWithOptions(const RefundDetailL
 /**
  * @summary Refund - Detail List
  *
- * @description Query refund order detail.
- *
  * @param request RefundDetailListRequest
  * @return RefundDetailListResponse
  */
@@ -1550,7 +1538,7 @@ RefundDetailListResponse Client::refundDetailList(const RefundDetailListRequest 
 }
 
 /**
- * @summary search
+ * @summary Search
  *
  * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
  *
@@ -1628,7 +1616,7 @@ SearchResponse Client::searchWithOptions(const SearchRequest &tmpReq, const Sear
 }
 
 /**
- * @summary search
+ * @summary Search
  *
  * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
  *
@@ -1639,6 +1627,94 @@ SearchResponse Client::search(const SearchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   SearchHeaders headers = SearchHeaders();
   return searchWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 标准搜索
+ *
+ * @param tmpReq StandardSearchRequest
+ * @param headers StandardSearchHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StandardSearchResponse
+ */
+StandardSearchResponse Client::standardSearchWithOptions(const StandardSearchRequest &tmpReq, const StandardSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StandardSearchShrinkRequest request = StandardSearchShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAirLegs()) {
+    request.setAirLegsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.airLegs(), "air_legs", "json"));
+  }
+
+  if (!!tmpReq.hasSearchControlOptions()) {
+    request.setSearchControlOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchControlOptions(), "search_control_options", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAdults()) {
+    body["adults"] = request.adults();
+  }
+
+  if (!!request.hasAirLegsShrink()) {
+    body["air_legs"] = request.airLegsShrink();
+  }
+
+  if (!!request.hasCabinClass()) {
+    body["cabin_class"] = request.cabinClass();
+  }
+
+  if (!!request.hasChildren()) {
+    body["children"] = request.children();
+  }
+
+  if (!!request.hasInfants()) {
+    body["infants"] = request.infants();
+  }
+
+  if (!!request.hasSearchControlOptionsShrink()) {
+    body["search_control_options"] = request.searchControlOptionsShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasXAcsAirticketAccessToken()) {
+    realHeaders["x-acs-airticket-access-token"] = Darabonba::Convert::stringVal(headers.xAcsAirticketAccessToken());
+  }
+
+  if (!!headers.hasXAcsAirticketLanguage()) {
+    realHeaders["x-acs-airticket-language"] = Darabonba::Convert::stringVal(headers.xAcsAirticketLanguage());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StandardSearch"},
+    {"version" , "2023-01-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/airticket/v1/trade/action-standardsearch")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StandardSearchResponse>();
+}
+
+/**
+ * @summary 标准搜索
+ *
+ * @param request StandardSearchRequest
+ * @return StandardSearchResponse
+ */
+StandardSearchResponse Client::standardSearch(const StandardSearchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  StandardSearchHeaders headers = StandardSearchHeaders();
+  return standardSearchWithOptions(request, headers, runtime);
 }
 
 /**

@@ -99,12 +99,19 @@ namespace Models
 
 
   protected:
+    // Request RequestId
     std::shared_ptr<string> requestId_ = nullptr;
+    // Correctly processed return data
     std::shared_ptr<ChangeDetailResponseBodyData> data_ = nullptr;
+    // error code
     std::shared_ptr<string> errorCode_ = nullptr;
+    // Data carried in error handling
     Darabonba::Json errorData_ = nullptr;
+    // Error message
     std::shared_ptr<string> errorMsg_ = nullptr;
+    // HTTP request successful, status value is 200
     std::shared_ptr<int32_t> status_ = nullptr;
+    // Whether it is successful
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // supplementary refund order number
+    // Additional refund order number
     std::shared_ptr<int64_t> multiRefundOrderNum_ = nullptr;
-    // transaction number of the supplementary refund order
+    // Transaction number of the Additional Refund order
     std::shared_ptr<string> multiRefundTransactionNo_ = nullptr;
-    // supplementary refund details in passenger dimension
+    // Additional refund details from the passenger\\"s
     std::shared_ptr<vector<Models::RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetails>> passengerMultiRefundDetails_ = nullptr;
   };
 

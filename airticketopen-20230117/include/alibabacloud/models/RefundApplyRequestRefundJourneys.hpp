@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // segment list
+    // Flight segment information
     // 
     // This parameter is required.
     std::shared_ptr<vector<Models::RefundApplyRequestRefundJourneysSegmentList>> segmentList_ = nullptr;

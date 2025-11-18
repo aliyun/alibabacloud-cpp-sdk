@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // order number returned by Book
+    // Order number
     std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // pagination query parameters, from which page to start querying
+    // Page index
     std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    // pagination query parameters, how many orders to return
+    // Page size
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // the earliest time(timestamp) of refund order creation
+    // Refund order creation start time, UTC timestamp
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> refundCreateBeginTime_ = nullptr;
-    // the latest time(timestamp) of refund order creation
+    // Refund order creation end time, UTC timestamp
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> refundCreateEndTime_ = nullptr;

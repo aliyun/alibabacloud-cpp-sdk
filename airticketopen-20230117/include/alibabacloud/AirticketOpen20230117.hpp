@@ -165,7 +165,7 @@ namespace AirticketOpen20230117
       Models::ChangeConfirmResponse changeConfirm(const Models::ChangeConfirmRequest &request);
 
       /**
-       * @summary 改签-Detail
+       * @summary Change-Detail
        *
        * @param request ChangeDetailRequest
        * @param headers ChangeDetailHeaders
@@ -175,7 +175,7 @@ namespace AirticketOpen20230117
       Models::ChangeDetailResponse changeDetailWithOptions(const Models::ChangeDetailRequest &request, const Models::ChangeDetailHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 改签-Detail
+       * @summary Change-Detail
        *
        * @param request ChangeDetailRequest
        * @return ChangeDetailResponse
@@ -375,7 +375,7 @@ namespace AirticketOpen20230117
       Models::OrderListResponse orderList(const Models::OrderListRequest &request);
 
       /**
-       * @summary Trade - Seat and Price Verification
+       * @summary Transaction - Seat and Price Verification
        *
        * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
        *
@@ -387,7 +387,7 @@ namespace AirticketOpen20230117
       Models::PricingResponse pricingWithOptions(const Models::PricingRequest &request, const Models::PricingHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Trade - Seat and Price Verification
+       * @summary Transaction - Seat and Price Verification
        *
        * @description Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
        *
@@ -397,9 +397,7 @@ namespace AirticketOpen20230117
       Models::PricingResponse pricing(const Models::PricingRequest &request);
 
       /**
-       * @summary 退票-申请
-       *
-       * @description Apply for a refund and generate a refund order.
+       * @summary Ticket Refund - Application
        *
        * @param tmpReq RefundApplyRequest
        * @param headers RefundApplyHeaders
@@ -409,9 +407,7 @@ namespace AirticketOpen20230117
       Models::RefundApplyResponse refundApplyWithOptions(const Models::RefundApplyRequest &tmpReq, const Models::RefundApplyHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 退票-申请
-       *
-       * @description Apply for a refund and generate a refund order.
+       * @summary Ticket Refund - Application
        *
        * @param request RefundApplyRequest
        * @return RefundApplyResponse
@@ -420,8 +416,6 @@ namespace AirticketOpen20230117
 
       /**
        * @summary Refund - Detail
-       *
-       * @description Query refund order detail.
        *
        * @param request RefundDetailRequest
        * @param headers RefundDetailHeaders
@@ -433,8 +427,6 @@ namespace AirticketOpen20230117
       /**
        * @summary Refund - Detail
        *
-       * @description Query refund order detail.
-       *
        * @param request RefundDetailRequest
        * @return RefundDetailResponse
        */
@@ -442,8 +434,6 @@ namespace AirticketOpen20230117
 
       /**
        * @summary Refund - Detail List
-       *
-       * @description Query refund order detail.
        *
        * @param request RefundDetailListRequest
        * @param headers RefundDetailListHeaders
@@ -455,15 +445,13 @@ namespace AirticketOpen20230117
       /**
        * @summary Refund - Detail List
        *
-       * @description Query refund order detail.
-       *
        * @param request RefundDetailListRequest
        * @return RefundDetailListResponse
        */
       Models::RefundDetailListResponse refundDetailList(const Models::RefundDetailListRequest &request);
 
       /**
-       * @summary search
+       * @summary Search
        *
        * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
        *
@@ -475,7 +463,7 @@ namespace AirticketOpen20230117
       Models::SearchResponse searchWithOptions(const Models::SearchRequest &tmpReq, const Models::SearchHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary search
+       * @summary Search
        *
        * @description Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
        *
@@ -483,6 +471,24 @@ namespace AirticketOpen20230117
        * @return SearchResponse
        */
       Models::SearchResponse search(const Models::SearchRequest &request);
+
+      /**
+       * @summary 标准搜索
+       *
+       * @param tmpReq StandardSearchRequest
+       * @param headers StandardSearchHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StandardSearchResponse
+       */
+      Models::StandardSearchResponse standardSearchWithOptions(const Models::StandardSearchRequest &tmpReq, const Models::StandardSearchHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标准搜索
+       *
+       * @param request StandardSearchRequest
+       * @return StandardSearchResponse
+       */
+      Models::StandardSearchResponse standardSearch(const Models::StandardSearchRequest &request);
 
       /**
        * @summary Transaction - Payment and Ticket Issuance

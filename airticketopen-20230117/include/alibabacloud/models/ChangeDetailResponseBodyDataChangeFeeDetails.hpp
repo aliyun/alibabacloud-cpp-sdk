@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // Change fee details for the passenger
     std::shared_ptr<Models::ChangeDetailResponseBodyDataChangeFeeDetailsChangeFee> changeFee_ = nullptr;
+    // Information of the passenger for the change
     std::shared_ptr<Models::ChangeDetailResponseBodyDataChangeFeeDetailsPassenger> passenger_ = nullptr;
   };
 

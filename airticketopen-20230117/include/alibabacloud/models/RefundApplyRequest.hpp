@@ -76,19 +76,20 @@ namespace Models
 
 
   protected:
-    // order number
+    // Order number
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // journeys for which a refund is being requested
+    // Itinerary for which a refund is being requested
     // 
     // This parameter is required.
     std::shared_ptr<vector<RefundApplyRequestRefundJourneys>> refundJourneys_ = nullptr;
-    // passengers that applying for a refund
+    // List of passengers applying for a refund
     // 
     // This parameter is required.
     std::shared_ptr<vector<RefundApplyRequestRefundPassengerList>> refundPassengerList_ = nullptr;
-    // refund type and attachments
+    // Refund type - involuntary or voluntary. 
+    // attachments are required for involuntary refund application.
     // 
     // This parameter is required.
     std::shared_ptr<RefundApplyRequestRefundType> refundType_ = nullptr;

@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // order number
+    // Order number
     std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // refund results
+    // List of refund application results
     std::shared_ptr<vector<Models::RefundApplyResponseBodyDataRefundResults>> refundResults_ = nullptr;
   };
 

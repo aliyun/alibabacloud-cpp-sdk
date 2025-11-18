@@ -64,6 +64,7 @@ namespace Models
     std::shared_ptr<string> ancillaryId_ = nullptr;
     // ancillary product type currently supports 4: paid luggage
     std::shared_ptr<int32_t> ancillaryType_ = nullptr;
+    // Ancillary Service Details
     std::shared_ptr<Models::OrderDetailResponseBodyDataAncillaryItemDetailListAncillaryBaggageAncillary> baggageAncillary_ = nullptr;
   };
 

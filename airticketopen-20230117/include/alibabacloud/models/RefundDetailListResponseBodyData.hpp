@@ -55,9 +55,9 @@ namespace Models
 
 
   protected:
-    // refund order list
+    // Data list
     std::shared_ptr<vector<Models::RefundDetailListResponseBodyDataList>> list_ = nullptr;
-    // information of pagination
+    // Pagination information
     std::shared_ptr<Models::RefundDetailListResponseBodyDataPagination> pagination_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Document number
     std::shared_ptr<string> document_ = nullptr;
+    // Passenger\\"s first name
     std::shared_ptr<string> firstName_ = nullptr;
+    // Passenger\\"s last name
     std::shared_ptr<string> lastName_ = nullptr;
   };
 

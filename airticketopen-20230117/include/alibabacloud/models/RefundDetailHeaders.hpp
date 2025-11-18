@@ -61,11 +61,11 @@ namespace Models
 
   protected:
     std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    // access token
+    // access_token
     // 
     // This parameter is required.
     std::shared_ptr<string> xAcsAirticketAccessToken_ = nullptr;
-    // language code(refer to ISO_639), defaults to the buyer\\"s account configuration
+    // Multi-language, default to buyer account configuration
     std::shared_ptr<string> xAcsAirticketLanguage_ = nullptr;
   };
 

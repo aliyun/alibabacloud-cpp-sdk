@@ -214,23 +214,44 @@ namespace Models
 
 
   protected:
+    // Change fee details, per passenger
     std::shared_ptr<vector<Models::ChangeDetailResponseBodyDataChangeFeeDetails>> changeFeeDetails_ = nullptr;
+    // Change order number
     std::shared_ptr<int64_t> changeOrderNum_ = nullptr;
+    // List of passengers for the change
     std::shared_ptr<vector<Models::ChangeDetailResponseBodyDataChangePassengers>> changePassengers_ = nullptr;
+    // Change reason type. 
+    // 0: Voluntary change; 
+    // 1: Involuntary change, due to flight delay or cancellation, schedule changes, or other airline reasons; 
+    // 2: Involuntary change, due to health reasons with a medical report
     std::shared_ptr<int32_t> changeReasonType_ = nullptr;
+    // New journeys
     std::shared_ptr<vector<Models::ChangeDetailResponseBodyDataChangedJourneys>> changedJourneys_ = nullptr;
+    // Reason for closing the change order
     std::shared_ptr<string> closeReason_ = nullptr;
+    // The time when the order was closed, in UTC timestamp
     std::shared_ptr<int64_t> closeUtcTime_ = nullptr;
+    // Contact information for the change request
     std::shared_ptr<Models::ChangeDetailResponseBodyDataContact> contact_ = nullptr;
+    // Creation time of the change order, UTC timestamp
     std::shared_ptr<int64_t> createUtcTime_ = nullptr;
+    // Latest payment time for the buyer, UTC timestamp
     std::shared_ptr<int64_t> lastConfirmUtcTime_ = nullptr;
+    // The itinerary of the last change
     std::shared_ptr<vector<Models::ChangeDetailResponseBodyDataLastJourneys>> lastJourneys_ = nullptr;
+    // Ticketing Order number
     std::shared_ptr<int64_t> orderNum_ = nullptr;
+    // Change order status 0: Initial state; 1: Pending payment; 2: Payment successful; 3: Change successful; 4: Change closed
     std::shared_ptr<int32_t> orderStatus_ = nullptr;
+    // Original journeys
     std::shared_ptr<vector<Models::ChangeDetailResponseBodyDataOriginalJourneys>> originalJourneys_ = nullptr;
+    // Payment status 0: initial state; 1: pending payment; 2: payment successful; 4: successfully closed paid order; 5: successfully closed unpaid order
     std::shared_ptr<int32_t> payStatus_ = nullptr;
+    // The time when the buyer successfully paid, in UTC timestamp
     std::shared_ptr<int64_t> paySuccessUtcTime_ = nullptr;
+    // Total payment amount for the change order
     std::shared_ptr<double> totalAmount_ = nullptr;
+    // Transaction serial number
     std::shared_ptr<string> transactionNo_ = nullptr;
   };
 

@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // segment list info
+    // Segment information
     std::shared_ptr<vector<Models::RefundDetailResponseBodyDataRefundJourneysSegmentList>> segmentList_ = nullptr;
-    // transfer count
+    // Number of transfers
     std::shared_ptr<int32_t> transferCount_ = nullptr;
   };
 

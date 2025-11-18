@@ -170,51 +170,33 @@ namespace Models
 
 
   protected:
-    // whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+    // Whether it contains additional refunds
     std::shared_ptr<bool> containMultiRefund_ = nullptr;
-    // supplementary refund orders
+    // List of additional refund details associated with the initial refund
     std::shared_ptr<vector<Models::RefundDetailResponseBodyDataMultiRefundDetails>> multiRefundDetails_ = nullptr;
-    // order number that returned by Book
+    // Order number
     std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // refund details by passenger dimension
+    // List of passenger refund details, refund information by passenger
     std::shared_ptr<vector<Models::RefundDetailResponseBodyDataPassengerRefundDetails>> passengerRefundDetails_ = nullptr;
-    // refund completed time(timestamp)
+    // Actual refund time, UTC timestamp
     std::shared_ptr<int64_t> paySuccessUtcTime_ = nullptr;
-    // URLs for refund attachments
+    // List of URLs for medical refund attachments
     std::shared_ptr<vector<string>> refundAttachmentUrls_ = nullptr;
-    // refunded journey
+    // Refund journey
     std::shared_ptr<vector<Models::RefundDetailResponseBodyDataRefundJourneys>> refundJourneys_ = nullptr;
-    // refund order number that returned by RefundApply
+    // Refund order number
     std::shared_ptr<int64_t> refundOrderNum_ = nullptr;
-    // reason for refund
+    // Reason for refund
     std::shared_ptr<string> refundReason_ = nullptr;
-    // refund type 
-    // 
-    // 2: voluntary application
-    // 
-    // 5: flight delay or cancellation, flight schedule change, etc., due to airline reasons
-    // 
-    // 6: health reasons with a certificate from a secondary class A hospital or above
-    // 
-    // 7: non-voluntary confirmed guidance
-    // 
-    // 100: non-voluntary non-confirmed guidance
+    // 2: Voluntary application; 5: Flight delay or cancellation, flight schedule change, etc., due to airline reasons; 6: Health reasons with a report from a hospital of at least secondary level A; 7: Involuntary emergency guidance; 100: Involuntary non-emergency
     std::shared_ptr<int32_t> refundType_ = nullptr;
-    // reason for refund rejection
+    // Reason for refund rejection
     std::shared_ptr<string> refuseReason_ = nullptr;
-    // refund order status
-    // 
-    // 0: refund application
-    // 
-    // 1: refund in progress
-    // 
-    // 2: refund failed
-    // 
-    // 3: refund succeeded
+    // Refund order status 0: Refund application; 1: Refund in progress; 2: Refund failed; 3: Refund successful
     std::shared_ptr<int32_t> status_ = nullptr;
-    // transaction number
+    // Transaction serial number
     std::shared_ptr<string> transactionNo_ = nullptr;
-    // refund order created time(timestamp)
+    // Refund order creation time, UTC timestamp
     std::shared_ptr<int64_t> utcCreateTime_ = nullptr;
   };
 

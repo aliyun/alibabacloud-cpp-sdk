@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Change order number
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> changeOrderNum_ = nullptr;
   };

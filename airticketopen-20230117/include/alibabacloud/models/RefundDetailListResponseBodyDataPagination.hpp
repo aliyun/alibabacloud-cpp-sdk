@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // current page index
+    // Current page number
     std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // page size
+    // Number of items per page
     std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // the number of total refund orders
+    // Total count
     std::shared_ptr<int32_t> totalCount_ = nullptr;
-    // the number of total pages
+    // Total pages
     std::shared_ptr<int32_t> totalPage_ = nullptr;
   };
 

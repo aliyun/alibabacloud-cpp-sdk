@@ -232,49 +232,49 @@ namespace Models
 
 
   protected:
-    // arrival airport code
+    // Three-letter code of the arrival airport (in uppercase)
     std::shared_ptr<string> arrivalAirport_ = nullptr;
-    // arrival city code
+    // Three-letter code of the arrival city (in uppercase)
     std::shared_ptr<string> arrivalCity_ = nullptr;
-    // arrival terminal
+    // Arrival terminal of the flight
     std::shared_ptr<string> arrivalTerminal_ = nullptr;
-    // arrival time (yyyy-MM-dd HH:mm:ss)
+    // Arrival date and time in string format (yyyy-mm-dd hh:mm:ss)
     std::shared_ptr<string> arrivalTime_ = nullptr;
-    // field deprecated
+    // Number of available seats
     std::shared_ptr<string> availability_ = nullptr;
-    // carbin
+    // RBD
     std::shared_ptr<string> cabin_ = nullptr;
-    // cabin class
+    // service class ( compartment )
     std::shared_ptr<string> cabinClass_ = nullptr;
-    // code share or not
+    // Indicates whether it is a codeshare flight
     std::shared_ptr<bool> codeShare_ = nullptr;
-    // departure airport code
+    // Three-letter code of the departure airport (in uppercase)
     std::shared_ptr<string> departureAirport_ = nullptr;
-    // departure city code
+    // Three-letter code of the departure city (in uppercase)
     std::shared_ptr<string> departureCity_ = nullptr;
-    // departure terminal
+    // Departure terminal of the flight
     std::shared_ptr<string> departureTerminal_ = nullptr;
-    // departure time (yyyy-MM-dd HH:mm:ss)
+    // Departure date and time in string format (yyyy-mm-dd hh:mm:ss)
     std::shared_ptr<string> departureTime_ = nullptr;
-    // equipment type
+    // Aircraft type
     std::shared_ptr<string> equipType_ = nullptr;
-    // flight time, unit: minute
+    // Flight duration in minutes
     std::shared_ptr<int32_t> flightDuration_ = nullptr;
-    // marketing airline code (eg: KA)
+    // Marketing airline (e.g., HO)
     std::shared_ptr<string> marketingAirline_ = nullptr;
-    // marketing flight no. (eg: KA5809)
+    // Marketing flight number (e.g., HO1295)
     std::shared_ptr<string> marketingFlightNo_ = nullptr;
-    // marketing flight no. (eg: 5809)
+    // Marketing flight number (numeric part, e.g., 1295)
     std::shared_ptr<int32_t> marketingFlightNoInt_ = nullptr;
-    // operating airline code (eg: CX)
+    // Operating airline (e.g., CX)
     std::shared_ptr<string> operatingAirline_ = nullptr;
-    // operating flight no. (eg: CX601)
+    // Operating flight number (e.g., CX601)
     std::shared_ptr<string> operatingFlightNo_ = nullptr;
-    // segment ID: flight no.+departure airport+arrival airport+departure time(MMdd)
+    // Segment ID format: flight number + departure airport + arrival airport + departure date (MMdd)
     std::shared_ptr<string> segmentId_ = nullptr;
-    // stopover city list when stop_quantity > 0 , use “,” for seperation use
+    // List of stop cities, present when stopQuantity > 0, multiple values separated by commas
     std::shared_ptr<string> stopCityList_ = nullptr;
-    // number of stopover
+    // Number of stop cities
     std::shared_ptr<int32_t> stopQuantity_ = nullptr;
   };
 

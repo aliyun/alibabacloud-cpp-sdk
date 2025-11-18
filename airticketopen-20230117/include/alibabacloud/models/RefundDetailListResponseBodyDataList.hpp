@@ -94,27 +94,19 @@ namespace Models
 
 
   protected:
-    // whether it is a supplementary refund order (if the refund amount is not enough, you can use RefundApply to create a supplementary refund order)
+    // Whether it is a supplementary refund
     std::shared_ptr<bool> isMultiRefund_ = nullptr;
-    // order number that returned by Book
+    // Order number （ Ticketing Order Number）
     std::shared_ptr<int64_t> orderNum_ = nullptr;
-    // refund order number that returned by RefundApply
+    // Refund order number
     std::shared_ptr<int64_t> refundOrderNum_ = nullptr;
-    // refund order status 
-    // 
-    // 0: refund application
-    // 
-    // 1: refund in progress
-    // 
-    // 2: refund failed
-    // 
-    // 3: refund succeeded
+    // Refund order status: 0: Refund application; 1: Refund in progress; 2: Refund failed; 3: Refund succeeded
     std::shared_ptr<int32_t> refundOrderStatus_ = nullptr;
-    // the original refund order number associated with this supplementary refund order, only avaliable when is_multi_refund=true
+    // The original refund order number associated with this supplementary refund. Only present for supplementary refunds, indicating the ID of the original refund order.
     std::shared_ptr<string> relatedRefundOrderNum_ = nullptr;
-    // transaction number
+    // Transaction serial number
     std::shared_ptr<string> transactionNo_ = nullptr;
-    // refund time(timestamp)
+    // Creation time, UTC timestamp
     std::shared_ptr<int64_t> utcCreateTime_ = nullptr;
   };
 

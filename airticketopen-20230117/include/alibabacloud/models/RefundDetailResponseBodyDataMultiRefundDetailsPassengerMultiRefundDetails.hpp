@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // amount of the supplementary refund for the change order
+    // Amount refunded from the Change order
     std::shared_ptr<double> changeOrderRefundFee_ = nullptr;
-    // amount of the supplementary refund for the original order
+    // Amount refunded from the Ticketing order
     std::shared_ptr<double> originalOrderRefundFee_ = nullptr;
-    // passenger for the refund
+    // Passenger for the refund
     std::shared_ptr<Models::RefundDetailResponseBodyDataMultiRefundDetailsPassengerMultiRefundDetailsPassenger> passenger_ = nullptr;
   };
 
