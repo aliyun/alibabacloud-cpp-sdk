@@ -13,14 +13,14 @@ namespace Models
   class RelatedWorkload : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RelatedWorkload& obj) { 
-      DARABONBA_PTR_TO_JSON(workloadId, workloadId_);
-      DARABONBA_PTR_TO_JSON(workloadName, workloadName_);
-      DARABONBA_PTR_TO_JSON(workloadType, workloadType_);
+      DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(resourceName, resourceName_);
+      DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
     };
     friend void from_json(const Darabonba::Json& j, RelatedWorkload& obj) { 
-      DARABONBA_PTR_FROM_JSON(workloadId, workloadId_);
-      DARABONBA_PTR_FROM_JSON(workloadName, workloadName_);
-      DARABONBA_PTR_FROM_JSON(workloadType, workloadType_);
+      DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(resourceName, resourceName_);
+      DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
     };
     RelatedWorkload() = default ;
     RelatedWorkload(const RelatedWorkload &) = default ;
@@ -33,33 +33,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->workloadId_ == nullptr
-        && return this->workloadName_ == nullptr && return this->workloadType_ == nullptr; };
-    // workloadId Field Functions 
-    bool hasWorkloadId() const { return this->workloadId_ != nullptr;};
-    void deleteWorkloadId() { this->workloadId_ = nullptr;};
-    inline string workloadId() const { DARABONBA_PTR_GET_DEFAULT(workloadId_, "") };
-    inline RelatedWorkload& setWorkloadId(string workloadId) { DARABONBA_PTR_SET_VALUE(workloadId_, workloadId) };
+    virtual bool empty() const override { return this->resourceId_ == nullptr
+        && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr; };
+    // resourceId Field Functions 
+    bool hasResourceId() const { return this->resourceId_ != nullptr;};
+    void deleteResourceId() { this->resourceId_ = nullptr;};
+    inline string resourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+    inline RelatedWorkload& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
 
 
-    // workloadName Field Functions 
-    bool hasWorkloadName() const { return this->workloadName_ != nullptr;};
-    void deleteWorkloadName() { this->workloadName_ = nullptr;};
-    inline string workloadName() const { DARABONBA_PTR_GET_DEFAULT(workloadName_, "") };
-    inline RelatedWorkload& setWorkloadName(string workloadName) { DARABONBA_PTR_SET_VALUE(workloadName_, workloadName) };
+    // resourceName Field Functions 
+    bool hasResourceName() const { return this->resourceName_ != nullptr;};
+    void deleteResourceName() { this->resourceName_ = nullptr;};
+    inline string resourceName() const { DARABONBA_PTR_GET_DEFAULT(resourceName_, "") };
+    inline RelatedWorkload& setResourceName(string resourceName) { DARABONBA_PTR_SET_VALUE(resourceName_, resourceName) };
 
 
-    // workloadType Field Functions 
-    bool hasWorkloadType() const { return this->workloadType_ != nullptr;};
-    void deleteWorkloadType() { this->workloadType_ = nullptr;};
-    inline string workloadType() const { DARABONBA_PTR_GET_DEFAULT(workloadType_, "") };
-    inline RelatedWorkload& setWorkloadType(string workloadType) { DARABONBA_PTR_SET_VALUE(workloadType_, workloadType) };
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline RelatedWorkload& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
   protected:
-    std::shared_ptr<string> workloadId_ = nullptr;
-    std::shared_ptr<string> workloadName_ = nullptr;
-    std::shared_ptr<string> workloadType_ = nullptr;
+    std::shared_ptr<string> resourceId_ = nullptr;
+    std::shared_ptr<string> resourceName_ = nullptr;
+    std::shared_ptr<string> resourceType_ = nullptr;
   };
 
   } // namespace Models

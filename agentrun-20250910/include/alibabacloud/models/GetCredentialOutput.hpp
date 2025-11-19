@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_GETCREDENTIALOUTPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <vector>
+#include <alibabacloud/models/RelatedResource.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,23 +16,29 @@ namespace Models
   class GetCredentialOutput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetCredentialOutput& obj) { 
-      DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_TO_JSON(credentialAuthType, credentialAuthType_);
+      DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_TO_JSON(credentialPublicConfig, credentialPublicConfig_);
+      DARABONBA_PTR_TO_JSON(credentialSecret, credentialSecret_);
+      DARABONBA_PTR_TO_JSON(credentialSourceType, credentialSourceType_);
       DARABONBA_PTR_TO_JSON(description, description_);
-      DARABONBA_PTR_TO_JSON(id, id_);
-      DARABONBA_PTR_TO_JSON(name, name_);
-      DARABONBA_PTR_TO_JSON(secret, secret_);
-      DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(enabled, enabled_);
+      DARABONBA_PTR_TO_JSON(relatedResources, relatedResources_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
     };
     friend void from_json(const Darabonba::Json& j, GetCredentialOutput& obj) { 
-      DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_FROM_JSON(credentialAuthType, credentialAuthType_);
+      DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_FROM_JSON(credentialPublicConfig, credentialPublicConfig_);
+      DARABONBA_PTR_FROM_JSON(credentialSecret, credentialSecret_);
+      DARABONBA_PTR_FROM_JSON(credentialSourceType, credentialSourceType_);
       DARABONBA_PTR_FROM_JSON(description, description_);
-      DARABONBA_PTR_FROM_JSON(id, id_);
-      DARABONBA_PTR_FROM_JSON(name, name_);
-      DARABONBA_PTR_FROM_JSON(secret, secret_);
-      DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+      DARABONBA_PTR_FROM_JSON(relatedResources, relatedResources_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
     };
     GetCredentialOutput() = default ;
@@ -44,23 +52,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->config_ == nullptr
-        && return this->createdAt_ == nullptr && return this->description_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->secret_ == nullptr
-        && return this->type_ == nullptr && return this->updatedAt_ == nullptr; };
-    // config Field Functions 
-    bool hasConfig() const { return this->config_ != nullptr;};
-    void deleteConfig() { this->config_ = nullptr;};
-    inline const map<string, string> & config() const { DARABONBA_PTR_GET_CONST(config_, map<string, string>) };
-    inline map<string, string> config() { DARABONBA_PTR_GET(config_, map<string, string>) };
-    inline GetCredentialOutput& setConfig(const map<string, string> & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
-    inline GetCredentialOutput& setConfig(map<string, string> && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
-
-
+    virtual bool empty() const override { return this->createdAt_ == nullptr
+        && return this->credentialAuthType_ == nullptr && return this->credentialId_ == nullptr && return this->credentialName_ == nullptr && return this->credentialPublicConfig_ == nullptr && return this->credentialSecret_ == nullptr
+        && return this->credentialSourceType_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr && return this->relatedResources_ == nullptr && return this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
     inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline GetCredentialOutput& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+    // credentialAuthType Field Functions 
+    bool hasCredentialAuthType() const { return this->credentialAuthType_ != nullptr;};
+    void deleteCredentialAuthType() { this->credentialAuthType_ = nullptr;};
+    inline string credentialAuthType() const { DARABONBA_PTR_GET_DEFAULT(credentialAuthType_, "") };
+    inline GetCredentialOutput& setCredentialAuthType(string credentialAuthType) { DARABONBA_PTR_SET_VALUE(credentialAuthType_, credentialAuthType) };
+
+
+    // credentialId Field Functions 
+    bool hasCredentialId() const { return this->credentialId_ != nullptr;};
+    void deleteCredentialId() { this->credentialId_ = nullptr;};
+    inline string credentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
+    inline GetCredentialOutput& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
+
+
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline GetCredentialOutput& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
+
+
+    // credentialPublicConfig Field Functions 
+    bool hasCredentialPublicConfig() const { return this->credentialPublicConfig_ != nullptr;};
+    void deleteCredentialPublicConfig() { this->credentialPublicConfig_ = nullptr;};
+    inline const map<string, string> & credentialPublicConfig() const { DARABONBA_PTR_GET_CONST(credentialPublicConfig_, map<string, string>) };
+    inline map<string, string> credentialPublicConfig() { DARABONBA_PTR_GET(credentialPublicConfig_, map<string, string>) };
+    inline GetCredentialOutput& setCredentialPublicConfig(const map<string, string> & credentialPublicConfig) { DARABONBA_PTR_SET_VALUE(credentialPublicConfig_, credentialPublicConfig) };
+    inline GetCredentialOutput& setCredentialPublicConfig(map<string, string> && credentialPublicConfig) { DARABONBA_PTR_SET_RVALUE(credentialPublicConfig_, credentialPublicConfig) };
+
+
+    // credentialSecret Field Functions 
+    bool hasCredentialSecret() const { return this->credentialSecret_ != nullptr;};
+    void deleteCredentialSecret() { this->credentialSecret_ = nullptr;};
+    inline string credentialSecret() const { DARABONBA_PTR_GET_DEFAULT(credentialSecret_, "") };
+    inline GetCredentialOutput& setCredentialSecret(string credentialSecret) { DARABONBA_PTR_SET_VALUE(credentialSecret_, credentialSecret) };
+
+
+    // credentialSourceType Field Functions 
+    bool hasCredentialSourceType() const { return this->credentialSourceType_ != nullptr;};
+    void deleteCredentialSourceType() { this->credentialSourceType_ = nullptr;};
+    inline string credentialSourceType() const { DARABONBA_PTR_GET_DEFAULT(credentialSourceType_, "") };
+    inline GetCredentialOutput& setCredentialSourceType(string credentialSourceType) { DARABONBA_PTR_SET_VALUE(credentialSourceType_, credentialSourceType) };
 
 
     // description Field Functions 
@@ -70,32 +113,20 @@ namespace Models
     inline GetCredentialOutput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-    // id Field Functions 
-    bool hasId() const { return this->id_ != nullptr;};
-    void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-    inline GetCredentialOutput& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    // enabled Field Functions 
+    bool hasEnabled() const { return this->enabled_ != nullptr;};
+    void deleteEnabled() { this->enabled_ = nullptr;};
+    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline GetCredentialOutput& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
-    // name Field Functions 
-    bool hasName() const { return this->name_ != nullptr;};
-    void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
-    inline GetCredentialOutput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
-
-
-    // secret Field Functions 
-    bool hasSecret() const { return this->secret_ != nullptr;};
-    void deleteSecret() { this->secret_ = nullptr;};
-    inline string secret() const { DARABONBA_PTR_GET_DEFAULT(secret_, "") };
-    inline GetCredentialOutput& setSecret(string secret) { DARABONBA_PTR_SET_VALUE(secret_, secret) };
-
-
-    // type Field Functions 
-    bool hasType() const { return this->type_ != nullptr;};
-    void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-    inline GetCredentialOutput& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+    // relatedResources Field Functions 
+    bool hasRelatedResources() const { return this->relatedResources_ != nullptr;};
+    void deleteRelatedResources() { this->relatedResources_ = nullptr;};
+    inline const vector<RelatedResource> & relatedResources() const { DARABONBA_PTR_GET_CONST(relatedResources_, vector<RelatedResource>) };
+    inline vector<RelatedResource> relatedResources() { DARABONBA_PTR_GET(relatedResources_, vector<RelatedResource>) };
+    inline GetCredentialOutput& setRelatedResources(const vector<RelatedResource> & relatedResources) { DARABONBA_PTR_SET_VALUE(relatedResources_, relatedResources) };
+    inline GetCredentialOutput& setRelatedResources(vector<RelatedResource> && relatedResources) { DARABONBA_PTR_SET_RVALUE(relatedResources_, relatedResources) };
 
 
     // updatedAt Field Functions 
@@ -106,14 +137,16 @@ namespace Models
 
 
   protected:
-    // 凭证的配置参数，以键值对形式存储
-    std::shared_ptr<map<string, string>> config_ = nullptr;
     std::shared_ptr<string> createdAt_ = nullptr;
+    std::shared_ptr<string> credentialAuthType_ = nullptr;
+    std::shared_ptr<string> credentialId_ = nullptr;
+    std::shared_ptr<string> credentialName_ = nullptr;
+    std::shared_ptr<map<string, string>> credentialPublicConfig_ = nullptr;
+    std::shared_ptr<string> credentialSecret_ = nullptr;
+    std::shared_ptr<string> credentialSourceType_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> secret_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<bool> enabled_ = nullptr;
+    std::shared_ptr<vector<RelatedResource>> relatedResources_ = nullptr;
     std::shared_ptr<string> updatedAt_ = nullptr;
   };
 

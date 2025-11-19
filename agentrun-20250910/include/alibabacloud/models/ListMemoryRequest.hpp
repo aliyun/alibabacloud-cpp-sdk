@@ -13,14 +13,14 @@ namespace Models
   class ListMemoryRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListMemoryRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(namePrefix, namePrefix_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(pattern, pattern_);
     };
     friend void from_json(const Darabonba::Json& j, ListMemoryRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(namePrefix, namePrefix_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(pattern, pattern_);
     };
     ListMemoryRequest() = default ;
     ListMemoryRequest(const ListMemoryRequest &) = default ;
@@ -33,15 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->namePrefix_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
-    // namePrefix Field Functions 
-    bool hasNamePrefix() const { return this->namePrefix_ != nullptr;};
-    void deleteNamePrefix() { this->namePrefix_ = nullptr;};
-    inline string namePrefix() const { DARABONBA_PTR_GET_DEFAULT(namePrefix_, "") };
-    inline ListMemoryRequest& setNamePrefix(string namePrefix) { DARABONBA_PTR_SET_VALUE(namePrefix_, namePrefix) };
-
-
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pattern_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -56,12 +49,19 @@ namespace Models
     inline ListMemoryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // pattern Field Functions 
+    bool hasPattern() const { return this->pattern_ != nullptr;};
+    void deletePattern() { this->pattern_ = nullptr;};
+    inline string pattern() const { DARABONBA_PTR_GET_DEFAULT(pattern_, "") };
+    inline ListMemoryRequest& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
+
+
   protected:
-    std::shared_ptr<string> namePrefix_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> pattern_ = nullptr;
   };
 
   } // namespace Models

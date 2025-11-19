@@ -2,8 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_CREDENTIALLISTITEM_HPP_
 #define ALIBABACLOUD_MODELS_CREDENTIALLISTITEM_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
-#include <alibabacloud/models/RelatedWorkload.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,18 +14,22 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CredentialListItem& obj) { 
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
-      DARABONBA_PTR_TO_JSON(id, id_);
-      DARABONBA_PTR_TO_JSON(name, name_);
-      DARABONBA_PTR_TO_JSON(relatedWorloads, relatedWorloads_);
-      DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(credentialAuthType, credentialAuthType_);
+      DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_TO_JSON(credentialSourceType, credentialSourceType_);
+      DARABONBA_PTR_TO_JSON(enabled, enabled_);
+      DARABONBA_PTR_TO_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_TO_JSON(updatedAt, updatedAt_);
     };
     friend void from_json(const Darabonba::Json& j, CredentialListItem& obj) { 
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
-      DARABONBA_PTR_FROM_JSON(id, id_);
-      DARABONBA_PTR_FROM_JSON(name, name_);
-      DARABONBA_PTR_FROM_JSON(relatedWorloads, relatedWorloads_);
-      DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(credentialAuthType, credentialAuthType_);
+      DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_FROM_JSON(credentialSourceType, credentialSourceType_);
+      DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+      DARABONBA_PTR_FROM_JSON(relatedResourceCount, relatedResourceCount_);
       DARABONBA_PTR_FROM_JSON(updatedAt, updatedAt_);
     };
     CredentialListItem() = default ;
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->id_ == nullptr && return this->name_ == nullptr && return this->relatedWorloads_ == nullptr && return this->type_ == nullptr && return this->updatedAt_ == nullptr; };
+        && return this->credentialAuthType_ == nullptr && return this->credentialId_ == nullptr && return this->credentialName_ == nullptr && return this->credentialSourceType_ == nullptr && return this->enabled_ == nullptr
+        && return this->relatedResourceCount_ == nullptr && return this->updatedAt_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -50,34 +53,46 @@ namespace Models
     inline CredentialListItem& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
 
 
-    // id Field Functions 
-    bool hasId() const { return this->id_ != nullptr;};
-    void deleteId() { this->id_ = nullptr;};
-    inline string id() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
-    inline CredentialListItem& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+    // credentialAuthType Field Functions 
+    bool hasCredentialAuthType() const { return this->credentialAuthType_ != nullptr;};
+    void deleteCredentialAuthType() { this->credentialAuthType_ = nullptr;};
+    inline string credentialAuthType() const { DARABONBA_PTR_GET_DEFAULT(credentialAuthType_, "") };
+    inline CredentialListItem& setCredentialAuthType(string credentialAuthType) { DARABONBA_PTR_SET_VALUE(credentialAuthType_, credentialAuthType) };
 
 
-    // name Field Functions 
-    bool hasName() const { return this->name_ != nullptr;};
-    void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
-    inline CredentialListItem& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+    // credentialId Field Functions 
+    bool hasCredentialId() const { return this->credentialId_ != nullptr;};
+    void deleteCredentialId() { this->credentialId_ = nullptr;};
+    inline string credentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
+    inline CredentialListItem& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
 
 
-    // relatedWorloads Field Functions 
-    bool hasRelatedWorloads() const { return this->relatedWorloads_ != nullptr;};
-    void deleteRelatedWorloads() { this->relatedWorloads_ = nullptr;};
-    inline const vector<RelatedWorkload> & relatedWorloads() const { DARABONBA_PTR_GET_CONST(relatedWorloads_, vector<RelatedWorkload>) };
-    inline vector<RelatedWorkload> relatedWorloads() { DARABONBA_PTR_GET(relatedWorloads_, vector<RelatedWorkload>) };
-    inline CredentialListItem& setRelatedWorloads(const vector<RelatedWorkload> & relatedWorloads) { DARABONBA_PTR_SET_VALUE(relatedWorloads_, relatedWorloads) };
-    inline CredentialListItem& setRelatedWorloads(vector<RelatedWorkload> && relatedWorloads) { DARABONBA_PTR_SET_RVALUE(relatedWorloads_, relatedWorloads) };
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline CredentialListItem& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
-    // type Field Functions 
-    bool hasType() const { return this->type_ != nullptr;};
-    void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-    inline CredentialListItem& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+    // credentialSourceType Field Functions 
+    bool hasCredentialSourceType() const { return this->credentialSourceType_ != nullptr;};
+    void deleteCredentialSourceType() { this->credentialSourceType_ = nullptr;};
+    inline string credentialSourceType() const { DARABONBA_PTR_GET_DEFAULT(credentialSourceType_, "") };
+    inline CredentialListItem& setCredentialSourceType(string credentialSourceType) { DARABONBA_PTR_SET_VALUE(credentialSourceType_, credentialSourceType) };
+
+
+    // enabled Field Functions 
+    bool hasEnabled() const { return this->enabled_ != nullptr;};
+    void deleteEnabled() { this->enabled_ = nullptr;};
+    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline CredentialListItem& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+    // relatedResourceCount Field Functions 
+    bool hasRelatedResourceCount() const { return this->relatedResourceCount_ != nullptr;};
+    void deleteRelatedResourceCount() { this->relatedResourceCount_ = nullptr;};
+    inline int32_t relatedResourceCount() const { DARABONBA_PTR_GET_DEFAULT(relatedResourceCount_, 0) };
+    inline CredentialListItem& setRelatedResourceCount(int32_t relatedResourceCount) { DARABONBA_PTR_SET_VALUE(relatedResourceCount_, relatedResourceCount) };
 
 
     // updatedAt Field Functions 
@@ -89,10 +104,12 @@ namespace Models
 
   protected:
     std::shared_ptr<string> createdAt_ = nullptr;
-    std::shared_ptr<string> id_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<vector<RelatedWorkload>> relatedWorloads_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<string> credentialAuthType_ = nullptr;
+    std::shared_ptr<string> credentialId_ = nullptr;
+    std::shared_ptr<string> credentialName_ = nullptr;
+    std::shared_ptr<string> credentialSourceType_ = nullptr;
+    std::shared_ptr<bool> enabled_ = nullptr;
+    std::shared_ptr<int32_t> relatedResourceCount_ = nullptr;
     std::shared_ptr<string> updatedAt_ = nullptr;
   };
 

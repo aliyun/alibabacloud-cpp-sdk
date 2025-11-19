@@ -231,10 +231,6 @@ CreateMemoryResponse Client::createMemoryWithOptions(const CreateMemoryRequest &
     body["name"] = request.name();
   }
 
-  if (!!request.hasPermanent()) {
-    body["permanent"] = request.permanent();
-  }
-
   if (!!request.hasShortTtl()) {
     body["shortTtl"] = request.shortTtl();
   }
@@ -842,6 +838,10 @@ ListAgentRuntimeEndpointsResponse Client::listAgentRuntimeEndpointsWithOptions(c
     query["pageSize"] = request.pageSize();
   }
 
+  if (!!request.hasSearchMode()) {
+    query["searchMode"] = request.searchMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -946,6 +946,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSearchMode()) {
+    query["searchMode"] = request.searchMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1109,16 +1113,16 @@ ListCodeInterpretersResponse Client::listCodeInterpreters(const ListCodeInterpre
 ListMemoryResponse Client::listMemoryWithOptions(const ListMemoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasNamePrefix()) {
-    query["namePrefix"] = request.namePrefix();
-  }
-
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.pageNumber();
   }
 
   if (!!request.hasPageSize()) {
     query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPattern()) {
+    query["pattern"] = request.pattern();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1471,10 +1475,6 @@ UpdateMemoryResponse Client::updateMemoryWithOptions(const string &memoryName, c
   json body = {};
   if (!!request.hasLongTtl()) {
     body["longTtl"] = request.longTtl();
-  }
-
-  if (!!request.hasPermanent()) {
-    body["permanent"] = request.permanent();
   }
 
   if (!!request.hasShortTtl()) {

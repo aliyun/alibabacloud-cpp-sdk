@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(codeConfiguration, codeConfiguration_);
       DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(codeConfiguration, codeConfiguration_);
       DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
@@ -67,9 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && return this->artifactType_ == nullptr && return this->codeConfiguration_ == nullptr && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->description_ == nullptr
-        && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr
-        && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr && return this->sessionIdleTimeoutSeconds_ == nullptr; };
+        && return this->artifactType_ == nullptr && return this->codeConfiguration_ == nullptr && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->credentialName_ == nullptr
+        && return this->description_ == nullptr && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->logConfiguration_ == nullptr
+        && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr
+        && return this->sessionIdleTimeoutSeconds_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -107,6 +110,13 @@ namespace Models
     void deleteCpu() { this->cpu_ = nullptr;};
     inline float cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0.0) };
     inline UpdateAgentRuntimeInput& setCpu(float cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline UpdateAgentRuntimeInput& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
     // description Field Functions 
@@ -205,6 +215,8 @@ namespace Models
     std::shared_ptr<ContainerConfiguration> containerConfiguration_ = nullptr;
     // This parameter is required.
     std::shared_ptr<float> cpu_ = nullptr;
+    // 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+    std::shared_ptr<string> credentialName_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     // 智能体运行时的环境变量配置，用于在运行时传递配置参数
     std::shared_ptr<map<string, string>> environmentVariables_ = nullptr;

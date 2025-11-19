@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATECREDENTIALINPUT_HPP_
 #define ALIBABACLOUD_MODELS_UPDATECREDENTIALINPUT_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
+#include <alibabacloud/models/CredentialPublicConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,18 +14,16 @@ namespace Models
   class UpdateCredentialInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateCredentialInput& obj) { 
-      DARABONBA_PTR_TO_JSON(config, config_);
+      DARABONBA_PTR_TO_JSON(credentialPublicConfig, credentialPublicConfig_);
+      DARABONBA_PTR_TO_JSON(credentialSecret, credentialSecret_);
       DARABONBA_PTR_TO_JSON(description, description_);
-      DARABONBA_PTR_TO_JSON(name, name_);
-      DARABONBA_PTR_TO_JSON(secret, secret_);
-      DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(enabled, enabled_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateCredentialInput& obj) { 
-      DARABONBA_PTR_FROM_JSON(config, config_);
+      DARABONBA_PTR_FROM_JSON(credentialPublicConfig, credentialPublicConfig_);
+      DARABONBA_PTR_FROM_JSON(credentialSecret, credentialSecret_);
       DARABONBA_PTR_FROM_JSON(description, description_);
-      DARABONBA_PTR_FROM_JSON(name, name_);
-      DARABONBA_PTR_FROM_JSON(secret, secret_);
-      DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(enabled, enabled_);
     };
     UpdateCredentialInput() = default ;
     UpdateCredentialInput(const UpdateCredentialInput &) = default ;
@@ -38,15 +36,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->config_ == nullptr
-        && return this->description_ == nullptr && return this->name_ == nullptr && return this->secret_ == nullptr && return this->type_ == nullptr; };
-    // config Field Functions 
-    bool hasConfig() const { return this->config_ != nullptr;};
-    void deleteConfig() { this->config_ = nullptr;};
-    inline const map<string, string> & config() const { DARABONBA_PTR_GET_CONST(config_, map<string, string>) };
-    inline map<string, string> config() { DARABONBA_PTR_GET(config_, map<string, string>) };
-    inline UpdateCredentialInput& setConfig(const map<string, string> & config) { DARABONBA_PTR_SET_VALUE(config_, config) };
-    inline UpdateCredentialInput& setConfig(map<string, string> && config) { DARABONBA_PTR_SET_RVALUE(config_, config) };
+    virtual bool empty() const override { return this->credentialPublicConfig_ == nullptr
+        && return this->credentialSecret_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr; };
+    // credentialPublicConfig Field Functions 
+    bool hasCredentialPublicConfig() const { return this->credentialPublicConfig_ != nullptr;};
+    void deleteCredentialPublicConfig() { this->credentialPublicConfig_ = nullptr;};
+    inline const CredentialPublicConfig & credentialPublicConfig() const { DARABONBA_PTR_GET_CONST(credentialPublicConfig_, CredentialPublicConfig) };
+    inline CredentialPublicConfig credentialPublicConfig() { DARABONBA_PTR_GET(credentialPublicConfig_, CredentialPublicConfig) };
+    inline UpdateCredentialInput& setCredentialPublicConfig(const CredentialPublicConfig & credentialPublicConfig) { DARABONBA_PTR_SET_VALUE(credentialPublicConfig_, credentialPublicConfig) };
+    inline UpdateCredentialInput& setCredentialPublicConfig(CredentialPublicConfig && credentialPublicConfig) { DARABONBA_PTR_SET_RVALUE(credentialPublicConfig_, credentialPublicConfig) };
+
+
+    // credentialSecret Field Functions 
+    bool hasCredentialSecret() const { return this->credentialSecret_ != nullptr;};
+    void deleteCredentialSecret() { this->credentialSecret_ = nullptr;};
+    inline string credentialSecret() const { DARABONBA_PTR_GET_DEFAULT(credentialSecret_, "") };
+    inline UpdateCredentialInput& setCredentialSecret(string credentialSecret) { DARABONBA_PTR_SET_VALUE(credentialSecret_, credentialSecret) };
 
 
     // description Field Functions 
@@ -56,34 +61,18 @@ namespace Models
     inline UpdateCredentialInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-    // name Field Functions 
-    bool hasName() const { return this->name_ != nullptr;};
-    void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
-    inline UpdateCredentialInput& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
-
-
-    // secret Field Functions 
-    bool hasSecret() const { return this->secret_ != nullptr;};
-    void deleteSecret() { this->secret_ = nullptr;};
-    inline string secret() const { DARABONBA_PTR_GET_DEFAULT(secret_, "") };
-    inline UpdateCredentialInput& setSecret(string secret) { DARABONBA_PTR_SET_VALUE(secret_, secret) };
-
-
-    // type Field Functions 
-    bool hasType() const { return this->type_ != nullptr;};
-    void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
-    inline UpdateCredentialInput& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+    // enabled Field Functions 
+    bool hasEnabled() const { return this->enabled_ != nullptr;};
+    void deleteEnabled() { this->enabled_ = nullptr;};
+    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline UpdateCredentialInput& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
   protected:
-    // 凭证的配置参数，以键值对形式存储
-    std::shared_ptr<map<string, string>> config_ = nullptr;
+    std::shared_ptr<CredentialPublicConfig> credentialPublicConfig_ = nullptr;
+    std::shared_ptr<string> credentialSecret_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> secret_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<bool> enabled_ = nullptr;
   };
 
   } // namespace Models

@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentRuntimesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
     };
     ListAgentRuntimesRequest() = default ;
     ListAgentRuntimesRequest(const ListAgentRuntimesRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchMode_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline ListAgentRuntimesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // searchMode Field Functions 
+    bool hasSearchMode() const { return this->searchMode_ != nullptr;};
+    void deleteSearchMode() { this->searchMode_ = nullptr;};
+    inline string searchMode() const { DARABONBA_PTR_GET_DEFAULT(searchMode_, "") };
+    inline ListAgentRuntimesRequest& setSearchMode(string searchMode) { DARABONBA_PTR_SET_VALUE(searchMode_, searchMode) };
+
+
   protected:
     // 根据智能体运行时名称进行模糊匹配过滤
     std::shared_ptr<string> agentRuntimeName_ = nullptr;
@@ -63,6 +72,8 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // 每页返回的记录数量
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // 查询模式，支持精确查询和模糊查询
+    std::shared_ptr<string> searchMode_ = nullptr;
   };
 
   } // namespace Models

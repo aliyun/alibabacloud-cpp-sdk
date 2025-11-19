@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(credentialId, credentialId_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
@@ -70,9 +72,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
         && return this->artifactType_ == nullptr && return this->codeConfiguration_ == nullptr && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->credentialId_ == nullptr
-        && return this->description_ == nullptr && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->logConfiguration_ == nullptr
-        && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr
-        && return this->sessionIdleTimeoutSeconds_ == nullptr; };
+        && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr
+        && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr
+        && return this->sessionConcurrencyLimitPerInstance_ == nullptr && return this->sessionIdleTimeoutSeconds_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     void deleteCredentialId() { this->credentialId_ = nullptr;};
     inline string credentialId() const { DARABONBA_PTR_GET_DEFAULT(credentialId_, "") };
     inline CreateAgentRuntimeInput& setCredentialId(string credentialId) { DARABONBA_PTR_SET_VALUE(credentialId_, credentialId) };
+
+
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline CreateAgentRuntimeInput& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
     // description Field Functions 
@@ -225,6 +234,8 @@ namespace Models
     std::shared_ptr<float> cpu_ = nullptr;
     // 用于访问外部服务的凭证ID，智能体运行时将使用此凭证进行身份验证
     std::shared_ptr<string> credentialId_ = nullptr;
+    // 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+    std::shared_ptr<string> credentialName_ = nullptr;
     // 智能体运行时的描述信息，用于说明该运行时的用途和功能
     std::shared_ptr<string> description_ = nullptr;
     // 智能体运行时的环境变量配置，用于在运行时传递配置参数

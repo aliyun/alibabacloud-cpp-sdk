@@ -1,0 +1,119 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATEMODELSERVICEINPUT_HPP_
+#define ALIBABACLOUD_MODELS_UPDATEMODELSERVICEINPUT_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ModelInfoConfig.hpp>
+#include <alibabacloud/models/NetworkConfiguration.hpp>
+#include <alibabacloud/models/ProviderSettings.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AgentRun20250910
+{
+namespace Models
+{
+  class UpdateModelServiceInput : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateModelServiceInput& obj) { 
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(modelInfoConfigs, modelInfoConfigs_);
+      DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_TO_JSON(providerSettings, providerSettings_);
+      DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateModelServiceInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(modelInfoConfigs, modelInfoConfigs_);
+      DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
+      DARABONBA_PTR_FROM_JSON(providerSettings, providerSettings_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+    };
+    UpdateModelServiceInput() = default ;
+    UpdateModelServiceInput(const UpdateModelServiceInput &) = default ;
+    UpdateModelServiceInput(UpdateModelServiceInput &&) = default ;
+    UpdateModelServiceInput(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateModelServiceInput() = default ;
+    UpdateModelServiceInput& operator=(const UpdateModelServiceInput &) = default ;
+    UpdateModelServiceInput& operator=(UpdateModelServiceInput &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->credentialName_ == nullptr
+        && return this->description_ == nullptr && return this->modelInfoConfigs_ == nullptr && return this->networkConfiguration_ == nullptr && return this->providerSettings_ == nullptr && return this->status_ == nullptr
+        && return this->statusReason_ == nullptr; };
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline UpdateModelServiceInput& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline UpdateModelServiceInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // modelInfoConfigs Field Functions 
+    bool hasModelInfoConfigs() const { return this->modelInfoConfigs_ != nullptr;};
+    void deleteModelInfoConfigs() { this->modelInfoConfigs_ = nullptr;};
+    inline const vector<ModelInfoConfig> & modelInfoConfigs() const { DARABONBA_PTR_GET_CONST(modelInfoConfigs_, vector<ModelInfoConfig>) };
+    inline vector<ModelInfoConfig> modelInfoConfigs() { DARABONBA_PTR_GET(modelInfoConfigs_, vector<ModelInfoConfig>) };
+    inline UpdateModelServiceInput& setModelInfoConfigs(const vector<ModelInfoConfig> & modelInfoConfigs) { DARABONBA_PTR_SET_VALUE(modelInfoConfigs_, modelInfoConfigs) };
+    inline UpdateModelServiceInput& setModelInfoConfigs(vector<ModelInfoConfig> && modelInfoConfigs) { DARABONBA_PTR_SET_RVALUE(modelInfoConfigs_, modelInfoConfigs) };
+
+
+    // networkConfiguration Field Functions 
+    bool hasNetworkConfiguration() const { return this->networkConfiguration_ != nullptr;};
+    void deleteNetworkConfiguration() { this->networkConfiguration_ = nullptr;};
+    inline const NetworkConfiguration & networkConfiguration() const { DARABONBA_PTR_GET_CONST(networkConfiguration_, NetworkConfiguration) };
+    inline NetworkConfiguration networkConfiguration() { DARABONBA_PTR_GET(networkConfiguration_, NetworkConfiguration) };
+    inline UpdateModelServiceInput& setNetworkConfiguration(const NetworkConfiguration & networkConfiguration) { DARABONBA_PTR_SET_VALUE(networkConfiguration_, networkConfiguration) };
+    inline UpdateModelServiceInput& setNetworkConfiguration(NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
+
+
+    // providerSettings Field Functions 
+    bool hasProviderSettings() const { return this->providerSettings_ != nullptr;};
+    void deleteProviderSettings() { this->providerSettings_ = nullptr;};
+    inline const ProviderSettings & providerSettings() const { DARABONBA_PTR_GET_CONST(providerSettings_, ProviderSettings) };
+    inline ProviderSettings providerSettings() { DARABONBA_PTR_GET(providerSettings_, ProviderSettings) };
+    inline UpdateModelServiceInput& setProviderSettings(const ProviderSettings & providerSettings) { DARABONBA_PTR_SET_VALUE(providerSettings_, providerSettings) };
+    inline UpdateModelServiceInput& setProviderSettings(ProviderSettings && providerSettings) { DARABONBA_PTR_SET_RVALUE(providerSettings_, providerSettings) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline UpdateModelServiceInput& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // statusReason Field Functions 
+    bool hasStatusReason() const { return this->statusReason_ != nullptr;};
+    void deleteStatusReason() { this->statusReason_ = nullptr;};
+    inline string statusReason() const { DARABONBA_PTR_GET_DEFAULT(statusReason_, "") };
+    inline UpdateModelServiceInput& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
+
+
+  protected:
+    std::shared_ptr<string> credentialName_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ = nullptr;
+    std::shared_ptr<NetworkConfiguration> networkConfiguration_ = nullptr;
+    std::shared_ptr<ProviderSettings> providerSettings_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> statusReason_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AgentRun20250910
+#endif

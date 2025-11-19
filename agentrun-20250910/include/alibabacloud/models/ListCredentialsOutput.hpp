@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTCREDENTIALSOUTPUT_HPP_
 #define ALIBABACLOUD_MODELS_LISTCREDENTIALSOUTPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 #include <alibabacloud/models/CredentialListItem.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,13 +16,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListCredentialsOutput& obj) { 
       DARABONBA_PTR_TO_JSON(items, items_);
-      DARABONBA_PTR_TO_JSON(pageNum, pageNum_);
+      DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, ListCredentialsOutput& obj) { 
       DARABONBA_PTR_FROM_JSON(items, items_);
-      DARABONBA_PTR_FROM_JSON(pageNum, pageNum_);
+      DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(total, total_);
     };
@@ -37,21 +38,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->items_ == nullptr
-        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->total_ == nullptr; };
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->total_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
-    inline const CredentialListItem & items() const { DARABONBA_PTR_GET_CONST(items_, CredentialListItem) };
-    inline CredentialListItem items() { DARABONBA_PTR_GET(items_, CredentialListItem) };
-    inline ListCredentialsOutput& setItems(const CredentialListItem & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
-    inline ListCredentialsOutput& setItems(CredentialListItem && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+    inline const vector<CredentialListItem> & items() const { DARABONBA_PTR_GET_CONST(items_, vector<CredentialListItem>) };
+    inline vector<CredentialListItem> items() { DARABONBA_PTR_GET(items_, vector<CredentialListItem>) };
+    inline ListCredentialsOutput& setItems(const vector<CredentialListItem> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
+    inline ListCredentialsOutput& setItems(vector<CredentialListItem> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
-    // pageNum Field Functions 
-    bool hasPageNum() const { return this->pageNum_ != nullptr;};
-    void deletePageNum() { this->pageNum_ = nullptr;};
-    inline string pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, "") };
-    inline ListCredentialsOutput& setPageNum(string pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline string pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, "") };
+    inline ListCredentialsOutput& setPageNumber(string pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
@@ -69,8 +70,8 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<CredentialListItem> items_ = nullptr;
-    std::shared_ptr<string> pageNum_ = nullptr;
+    std::shared_ptr<vector<CredentialListItem>> items_ = nullptr;
+    std::shared_ptr<string> pageNumber_ = nullptr;
     std::shared_ptr<string> pageSize_ = nullptr;
     std::shared_ptr<string> total_ = nullptr;
   };
