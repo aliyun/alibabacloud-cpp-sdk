@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->registerMetadatas_ != nullptr
-        && this->templateGroupId_ != nullptr && this->userData_ != nullptr && this->workflowId_ != nullptr; };
+    virtual bool empty() const override { return this->registerMetadatas_ == nullptr
+        && return this->templateGroupId_ == nullptr && return this->userData_ == nullptr && return this->workflowId_ == nullptr; };
     // registerMetadatas Field Functions 
     bool hasRegisterMetadatas() const { return this->registerMetadatas_ != nullptr;};
     void deleteRegisterMetadatas() { this->registerMetadatas_ = nullptr;};

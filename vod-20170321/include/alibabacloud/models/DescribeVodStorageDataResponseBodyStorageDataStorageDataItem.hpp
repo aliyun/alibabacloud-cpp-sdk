@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->networkOut_ != nullptr
-        && this->storageUtilization_ != nullptr && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->networkOut_ == nullptr
+        && return this->storageUtilization_ == nullptr && return this->timeStamp_ == nullptr; };
     // networkOut Field Functions 
     bool hasNetworkOut() const { return this->networkOut_ != nullptr;};
     void deleteNetworkOut() { this->networkOut_ = nullptr;};

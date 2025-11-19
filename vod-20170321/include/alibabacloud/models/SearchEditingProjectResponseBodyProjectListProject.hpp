@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coverURL_ != nullptr
-        && this->creationTime_ != nullptr && this->description_ != nullptr && this->duration_ != nullptr && this->modifiedTime_ != nullptr && this->projectId_ != nullptr
-        && this->regionId_ != nullptr && this->status_ != nullptr && this->storageLocation_ != nullptr && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->coverURL_ == nullptr
+        && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->duration_ == nullptr && return this->modifiedTime_ == nullptr && return this->projectId_ == nullptr
+        && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->storageLocation_ == nullptr && return this->title_ == nullptr; };
     // coverURL Field Functions 
     bool hasCoverURL() const { return this->coverURL_ != nullptr;};
     void deleteCoverURL() { this->coverURL_ = nullptr;};

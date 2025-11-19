@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->userPlayStatisAvg_ != nullptr; };
+    virtual bool empty() const override { return this->userPlayStatisAvg_ == nullptr; };
     // userPlayStatisAvg Field Functions 
     bool hasUserPlayStatisAvg() const { return this->userPlayStatisAvg_ != nullptr;};
     void deleteUserPlayStatisAvg() { this->userPlayStatisAvg_ = nullptr;};

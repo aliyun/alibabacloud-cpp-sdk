@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->materialType_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->projectId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->materialType_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->projectId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->type_ == nullptr; };
     // materialType Field Functions 
     bool hasMaterialType() const { return this->materialType_ != nullptr;};
     void deleteMaterialType() { this->materialType_ = nullptr;};

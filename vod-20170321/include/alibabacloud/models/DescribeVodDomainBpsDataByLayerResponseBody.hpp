@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bpsDataInterval_ != nullptr
-        && this->dataInterval_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->bpsDataInterval_ == nullptr
+        && return this->dataInterval_ == nullptr && return this->requestId_ == nullptr; };
     // bpsDataInterval Field Functions 
     bool hasBpsDataInterval() const { return this->bpsDataInterval_ != nullptr;};
     void deleteBpsDataInterval() { this->bpsDataInterval_ = nullptr;};

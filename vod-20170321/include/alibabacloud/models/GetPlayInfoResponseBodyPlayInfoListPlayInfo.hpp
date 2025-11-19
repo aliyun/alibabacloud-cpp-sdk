@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bitDepth_ != nullptr
-        && this->bitrate_ != nullptr && this->codecName_ != nullptr && this->creationTime_ != nullptr && this->definition_ != nullptr && this->duration_ != nullptr
-        && this->encrypt_ != nullptr && this->encryptMode_ != nullptr && this->encryptType_ != nullptr && this->format_ != nullptr && this->fps_ != nullptr
-        && this->HDRType_ != nullptr && this->height_ != nullptr && this->jobExt_ != nullptr && this->jobId_ != nullptr && this->jobType_ != nullptr
-        && this->modificationTime_ != nullptr && this->narrowBandType_ != nullptr && this->playURL_ != nullptr && this->size_ != nullptr && this->specification_ != nullptr
-        && this->status_ != nullptr && this->streamType_ != nullptr && this->watermarkId_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->bitDepth_ == nullptr
+        && return this->bitrate_ == nullptr && return this->codecName_ == nullptr && return this->creationTime_ == nullptr && return this->definition_ == nullptr && return this->duration_ == nullptr
+        && return this->encrypt_ == nullptr && return this->encryptMode_ == nullptr && return this->encryptType_ == nullptr && return this->format_ == nullptr && return this->fps_ == nullptr
+        && return this->HDRType_ == nullptr && return this->height_ == nullptr && return this->jobExt_ == nullptr && return this->jobId_ == nullptr && return this->jobType_ == nullptr
+        && return this->modificationTime_ == nullptr && return this->narrowBandType_ == nullptr && return this->playURL_ == nullptr && return this->size_ == nullptr && return this->specification_ == nullptr
+        && return this->status_ == nullptr && return this->streamType_ == nullptr && return this->watermarkId_ == nullptr && return this->width_ == nullptr; };
     // bitDepth Field Functions 
     bool hasBitDepth() const { return this->bitDepth_ != nullptr;};
     void deleteBitDepth() { this->bitDepth_ = nullptr;};

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adLabel_ != nullptr
-        && this->adScore_ != nullptr && this->liveLabel_ != nullptr && this->liveScore_ != nullptr && this->logoLabel_ != nullptr && this->logoScore_ != nullptr
-        && this->pornLabel_ != nullptr && this->pornScore_ != nullptr && this->terrorismLabel_ != nullptr && this->terrorismScore_ != nullptr && this->timestamp_ != nullptr
-        && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->adLabel_ == nullptr
+        && return this->adScore_ == nullptr && return this->liveLabel_ == nullptr && return this->liveScore_ == nullptr && return this->logoLabel_ == nullptr && return this->logoScore_ == nullptr
+        && return this->pornLabel_ == nullptr && return this->pornScore_ == nullptr && return this->terrorismLabel_ == nullptr && return this->terrorismScore_ == nullptr && return this->timestamp_ == nullptr
+        && return this->url_ == nullptr; };
     // adLabel Field Functions 
     bool hasAdLabel() const { return this->adLabel_ != nullptr;};
     void deleteAdLabel() { this->adLabel_ = nullptr;};

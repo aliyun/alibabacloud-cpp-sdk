@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgPerCompletionVv_ != nullptr
-        && this->avgPerPlayDuration_ != nullptr && this->avgPerVv_ != nullptr && this->avgPlayBitrate_ != nullptr && this->avgPlayDuration_ != nullptr && this->avgStartBitrate_ != nullptr
-        && this->avgVideoDuration_ != nullptr && this->completionRate_ != nullptr && this->completionVv_ != nullptr && this->dimension_ != nullptr && this->errorCount100s_ != nullptr
-        && this->firstFrame_ != nullptr && this->jumpRate5s_ != nullptr && this->playFailRate_ != nullptr && this->realVv_ != nullptr && this->secondPlayRate_ != nullptr
-        && this->seedFailRate_ != nullptr && this->seekDuration_ != nullptr && this->slowPlayRate_ != nullptr && this->stuckCount100s_ != nullptr && this->stuckCountRate_ != nullptr
-        && this->stuckDuration100s_ != nullptr && this->timeStamp_ != nullptr && this->totalPlayDuration_ != nullptr && this->uv_ != nullptr && this->vv_ != nullptr; };
+    virtual bool empty() const override { return this->avgPerCompletionVv_ == nullptr
+        && return this->avgPerPlayDuration_ == nullptr && return this->avgPerVv_ == nullptr && return this->avgPlayBitrate_ == nullptr && return this->avgPlayDuration_ == nullptr && return this->avgStartBitrate_ == nullptr
+        && return this->avgVideoDuration_ == nullptr && return this->completionRate_ == nullptr && return this->completionVv_ == nullptr && return this->dimension_ == nullptr && return this->errorCount100s_ == nullptr
+        && return this->firstFrame_ == nullptr && return this->jumpRate5s_ == nullptr && return this->playFailRate_ == nullptr && return this->realVv_ == nullptr && return this->secondPlayRate_ == nullptr
+        && return this->seedFailRate_ == nullptr && return this->seekDuration_ == nullptr && return this->slowPlayRate_ == nullptr && return this->stuckCount100s_ == nullptr && return this->stuckCountRate_ == nullptr
+        && return this->stuckDuration100s_ == nullptr && return this->timeStamp_ == nullptr && return this->totalPlayDuration_ == nullptr && return this->uv_ == nullptr && return this->vv_ == nullptr; };
     // avgPerCompletionVv Field Functions 
     bool hasAvgPerCompletionVv() const { return this->avgPerCompletionVv_ != nullptr;};
     void deleteAvgPerCompletionVv() { this->avgPerCompletionVv_ = nullptr;};

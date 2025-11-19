@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->coverURL_ != nullptr && this->description_ != nullptr && this->mediaMetadata_ != nullptr && this->ownerId_ != nullptr && this->produceConfig_ != nullptr
-        && this->projectId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->timeline_ != nullptr && this->title_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->coverURL_ == nullptr && return this->description_ == nullptr && return this->mediaMetadata_ == nullptr && return this->ownerId_ == nullptr && return this->produceConfig_ == nullptr
+        && return this->projectId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->timeline_ == nullptr && return this->title_ == nullptr
+        && return this->userData_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

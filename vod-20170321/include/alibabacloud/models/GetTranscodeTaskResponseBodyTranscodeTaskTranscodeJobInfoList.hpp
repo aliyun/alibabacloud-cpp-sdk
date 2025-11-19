@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completeTime_ != nullptr
-        && this->creationTime_ != nullptr && this->definition_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->inputFileUrl_ != nullptr
-        && this->outputFile_ != nullptr && this->priority_ != nullptr && this->transcodeJobId_ != nullptr && this->transcodeJobStatus_ != nullptr && this->transcodeProgress_ != nullptr
-        && this->transcodeTemplateId_ != nullptr; };
+    virtual bool empty() const override { return this->completeTime_ == nullptr
+        && return this->creationTime_ == nullptr && return this->definition_ == nullptr && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->inputFileUrl_ == nullptr
+        && return this->outputFile_ == nullptr && return this->priority_ == nullptr && return this->transcodeJobId_ == nullptr && return this->transcodeJobStatus_ == nullptr && return this->transcodeProgress_ == nullptr
+        && return this->transcodeTemplateId_ == nullptr; };
     // completeTime Field Functions 
     bool hasCompleteTime() const { return this->completeTime_ != nullptr;};
     void deleteCompleteTime() { this->completeTime_ = nullptr;};

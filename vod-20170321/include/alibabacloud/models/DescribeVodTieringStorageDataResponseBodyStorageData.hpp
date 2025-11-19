@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lessthanMonthDatasize_ != nullptr
-        && this->region_ != nullptr && this->storageClass_ != nullptr && this->storageUtilization_ != nullptr && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->lessthanMonthDatasize_ == nullptr
+        && return this->region_ == nullptr && return this->storageClass_ == nullptr && return this->storageUtilization_ == nullptr && return this->timeStamp_ == nullptr; };
     // lessthanMonthDatasize Field Functions 
     bool hasLessthanMonthDatasize() const { return this->lessthanMonthDatasize_ != nullptr;};
     void deleteLessthanMonthDatasize() { this->lessthanMonthDatasize_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptConfig_ != nullptr
-        && this->overrideParams_ != nullptr && this->pipelineId_ != nullptr && this->priority_ != nullptr && this->sessionId_ != nullptr && this->templateGroupId_ != nullptr
-        && this->userData_ != nullptr && this->videoId_ != nullptr; };
+    virtual bool empty() const override { return this->encryptConfig_ == nullptr
+        && return this->overrideParams_ == nullptr && return this->pipelineId_ == nullptr && return this->priority_ == nullptr && return this->sessionId_ == nullptr && return this->templateGroupId_ == nullptr
+        && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
     // encryptConfig Field Functions 
     bool hasEncryptConfig() const { return this->encryptConfig_ != nullptr;};
     void deleteEncryptConfig() { this->encryptConfig_ = nullptr;};

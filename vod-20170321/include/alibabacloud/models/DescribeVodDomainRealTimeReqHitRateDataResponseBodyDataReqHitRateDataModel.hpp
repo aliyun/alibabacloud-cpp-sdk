@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->reqHitRate_ != nullptr
-        && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->reqHitRate_ == nullptr
+        && return this->timeStamp_ == nullptr; };
     // reqHitRate Field Functions 
     bool hasReqHitRate() const { return this->reqHitRate_ != nullptr;};
     void deleteReqHitRate() { this->reqHitRate_ = nullptr;};

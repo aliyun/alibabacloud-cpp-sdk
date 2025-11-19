@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bitrate_ != nullptr
-        && this->completeTime_ != nullptr && this->creationTime_ != nullptr && this->duration_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr
-        && this->filesize_ != nullptr && this->format_ != nullptr && this->fps_ != nullptr && this->height_ != nullptr && this->transcodeJobStatus_ != nullptr
-        && this->transcodeProgress_ != nullptr && this->transcodeTemplateId_ != nullptr && this->watermarkIdList_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->bitrate_ == nullptr
+        && return this->completeTime_ == nullptr && return this->creationTime_ == nullptr && return this->duration_ == nullptr && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr
+        && return this->filesize_ == nullptr && return this->format_ == nullptr && return this->fps_ == nullptr && return this->height_ == nullptr && return this->transcodeJobStatus_ == nullptr
+        && return this->transcodeProgress_ == nullptr && return this->transcodeTemplateId_ == nullptr && return this->watermarkIdList_ == nullptr && return this->width_ == nullptr; };
     // bitrate Field Functions 
     bool hasBitrate() const { return this->bitrate_ != nullptr;};
     void deleteBitrate() { this->bitrate_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->completionTime_ != nullptr
-        && this->creationTime_ != nullptr && this->deviceModel_ != nullptr && this->fileSize_ != nullptr && this->mediaId_ != nullptr && this->modificationTime_ != nullptr
-        && this->status_ != nullptr && this->title_ != nullptr && this->uploadIP_ != nullptr && this->uploadRatio_ != nullptr && this->uploadSize_ != nullptr
-        && this->uploadSource_ != nullptr && this->uploadStatus_ != nullptr; };
+    virtual bool empty() const override { return this->completionTime_ == nullptr
+        && return this->creationTime_ == nullptr && return this->deviceModel_ == nullptr && return this->fileSize_ == nullptr && return this->mediaId_ == nullptr && return this->modificationTime_ == nullptr
+        && return this->status_ == nullptr && return this->title_ == nullptr && return this->uploadIP_ == nullptr && return this->uploadRatio_ == nullptr && return this->uploadSize_ == nullptr
+        && return this->uploadSource_ == nullptr && return this->uploadStatus_ == nullptr; };
     // completionTime Field Functions 
     bool hasCompletionTime() const { return this->completionTime_ != nullptr;};
     void deleteCompletionTime() { this->completionTime_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mediaId_ != nullptr
-        && this->orderName_ != nullptr && this->orderType_ != nullptr && this->os_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr
-        && this->playDate_ != nullptr && this->region_ != nullptr && this->terminalType_ != nullptr; };
+    virtual bool empty() const override { return this->mediaId_ == nullptr
+        && return this->orderName_ == nullptr && return this->orderType_ == nullptr && return this->os_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr
+        && return this->playDate_ == nullptr && return this->region_ == nullptr && return this->terminalType_ == nullptr; };
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};

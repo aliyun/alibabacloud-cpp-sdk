@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cateId_ != nullptr
-        && this->cateName_ != nullptr && this->coverURL_ != nullptr && this->createTime_ != nullptr && this->customerId_ != nullptr && this->description_ != nullptr
-        && this->duration_ != nullptr && this->materialId_ != nullptr && this->materialType_ != nullptr && this->modifyTime_ != nullptr && this->size_ != nullptr
-        && this->snapshots_ != nullptr && this->spriteConfig_ != nullptr && this->sprites_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr
-        && this->title_ != nullptr; };
+    virtual bool empty() const override { return this->cateId_ == nullptr
+        && return this->cateName_ == nullptr && return this->coverURL_ == nullptr && return this->createTime_ == nullptr && return this->customerId_ == nullptr && return this->description_ == nullptr
+        && return this->duration_ == nullptr && return this->materialId_ == nullptr && return this->materialType_ == nullptr && return this->modifyTime_ == nullptr && return this->size_ == nullptr
+        && return this->snapshots_ == nullptr && return this->spriteConfig_ == nullptr && return this->sprites_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
+        && return this->title_ == nullptr; };
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};

@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->playAuth_ != nullptr
-        && this->requestId_ != nullptr && this->videoMeta_ != nullptr; };
+    virtual bool empty() const override { return this->playAuth_ == nullptr
+        && return this->requestId_ == nullptr && return this->videoMeta_ == nullptr; };
     // playAuth Field Functions 
     bool hasPlayAuth() const { return this->playAuth_ != nullptr;};
     void deletePlayAuth() { this->playAuth_ = nullptr;};

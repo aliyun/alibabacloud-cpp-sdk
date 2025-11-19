@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DAU_ != nullptr
-        && this->mediaId_ != nullptr && this->playDuration_ != nullptr && this->playDurationPerUv_ != nullptr && this->playPerVv_ != nullptr && this->playSuccessVv_ != nullptr
-        && this->videoDuration_ != nullptr && this->videoTitle_ != nullptr; };
+    virtual bool empty() const override { return this->DAU_ == nullptr
+        && return this->mediaId_ == nullptr && return this->playDuration_ == nullptr && return this->playDurationPerUv_ == nullptr && return this->playPerVv_ == nullptr && return this->playSuccessVv_ == nullptr
+        && return this->videoDuration_ == nullptr && return this->videoTitle_ == nullptr; };
     // DAU Field Functions 
     bool hasDAU() const { return this->DAU_ != nullptr;};
     void deleteDAU() { this->DAU_ = nullptr;};

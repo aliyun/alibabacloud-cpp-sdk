@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->CABulkRetrievalData_ != nullptr
-        && this->CAHighPriorRetrievalData_ != nullptr && this->CAStdRetrievalData_ != nullptr && this->region_ != nullptr && this->retrievalData_ != nullptr && this->storageClass_ != nullptr
-        && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->CABulkRetrievalData_ == nullptr
+        && return this->CAHighPriorRetrievalData_ == nullptr && return this->CAStdRetrievalData_ == nullptr && return this->region_ == nullptr && return this->retrievalData_ == nullptr && return this->storageClass_ == nullptr
+        && return this->timeStamp_ == nullptr; };
     // CABulkRetrievalData Field Functions 
     bool hasCABulkRetrievalData() const { return this->CABulkRetrievalData_ != nullptr;};
     void deleteCABulkRetrievalData() { this->CABulkRetrievalData_ = nullptr;};

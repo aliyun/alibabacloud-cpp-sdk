@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgPlayCount_ != nullptr
-        && this->avgPlayDuration_ != nullptr && this->date_ != nullptr; };
+    virtual bool empty() const override { return this->avgPlayCount_ == nullptr
+        && return this->avgPlayDuration_ == nullptr && return this->date_ == nullptr; };
     // avgPlayCount Field Functions 
     bool hasAvgPlayCount() const { return this->avgPlayCount_ != nullptr;};
     void deleteAvgPlayCount() { this->avgPlayCount_ = nullptr;};

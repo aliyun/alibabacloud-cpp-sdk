@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Bitrate, bitrate_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
+      DARABONBA_PTR_TO_JSON(FileMD5, fileMD5_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileURL, fileURL_);
       DARABONBA_PTR_TO_JSON(Fps, fps_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Bitrate, bitrate_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
+      DARABONBA_PTR_FROM_JSON(FileMD5, fileMD5_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileURL, fileURL_);
       DARABONBA_PTR_FROM_JSON(Fps, fps_);
@@ -56,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioStreamList_ != nullptr
-        && this->bitrate_ != nullptr && this->creationTime_ != nullptr && this->duration_ != nullptr && this->fileName_ != nullptr && this->fileURL_ != nullptr
-        && this->fps_ != nullptr && this->height_ != nullptr && this->mediaId_ != nullptr && this->size_ != nullptr && this->status_ != nullptr
-        && this->videoStreamList_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->audioStreamList_ == nullptr
+        && return this->bitrate_ == nullptr && return this->creationTime_ == nullptr && return this->duration_ == nullptr && return this->fileMD5_ == nullptr && return this->fileName_ == nullptr
+        && return this->fileURL_ == nullptr && return this->fps_ == nullptr && return this->height_ == nullptr && return this->mediaId_ == nullptr && return this->size_ == nullptr
+        && return this->status_ == nullptr && return this->videoStreamList_ == nullptr && return this->width_ == nullptr; };
     // audioStreamList Field Functions 
     bool hasAudioStreamList() const { return this->audioStreamList_ != nullptr;};
     void deleteAudioStreamList() { this->audioStreamList_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     void deleteDuration() { this->duration_ = nullptr;};
     inline string duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, "") };
     inline BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo& setDuration(string duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // fileMD5 Field Functions 
+    bool hasFileMD5() const { return this->fileMD5_ != nullptr;};
+    void deleteFileMD5() { this->fileMD5_ = nullptr;};
+    inline string fileMD5() const { DARABONBA_PTR_GET_DEFAULT(fileMD5_, "") };
+    inline BatchGetMediaInfosResponseBodyMediaInfosMezzanineInfo& setFileMD5(string fileMD5) { DARABONBA_PTR_SET_VALUE(fileMD5_, fileMD5) };
 
 
     // fileName Field Functions 
@@ -164,6 +173,7 @@ namespace Models
     std::shared_ptr<string> creationTime_ = nullptr;
     // The duration of the file. Unit: seconds.
     std::shared_ptr<string> duration_ = nullptr;
+    std::shared_ptr<string> fileMD5_ = nullptr;
     // The name of the file.
     std::shared_ptr<string> fileName_ = nullptr;
     // The OSS URL of the source file.

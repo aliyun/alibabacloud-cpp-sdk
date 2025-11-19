@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorMessage_ != nullptr && this->filterPolicy_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->mediaId_ != nullptr
-        && this->mediaRefreshJobId_ != nullptr && this->status_ != nullptr && this->successPlayUrls_ != nullptr && this->taskIds_ != nullptr && this->taskType_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->filterPolicy_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->mediaId_ == nullptr
+        && return this->mediaRefreshJobId_ == nullptr && return this->status_ == nullptr && return this->successPlayUrls_ == nullptr && return this->taskIds_ == nullptr && return this->taskType_ == nullptr
+        && return this->userData_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};

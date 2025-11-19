@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionType_ != nullptr
-        && this->authTimeout_ != nullptr && this->definition_ != nullptr && this->digitalWatermarkType_ != nullptr && this->formats_ != nullptr && this->outputType_ != nullptr
-        && this->playConfig_ != nullptr && this->reAuthInfo_ != nullptr && this->resultType_ != nullptr && this->streamType_ != nullptr && this->trace_ != nullptr
-        && this->videoId_ != nullptr; };
+    virtual bool empty() const override { return this->additionType_ == nullptr
+        && return this->authTimeout_ == nullptr && return this->definition_ == nullptr && return this->digitalWatermarkType_ == nullptr && return this->formats_ == nullptr && return this->outputType_ == nullptr
+        && return this->playConfig_ == nullptr && return this->reAuthInfo_ == nullptr && return this->resultType_ == nullptr && return this->streamType_ == nullptr && return this->trace_ == nullptr
+        && return this->videoId_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};

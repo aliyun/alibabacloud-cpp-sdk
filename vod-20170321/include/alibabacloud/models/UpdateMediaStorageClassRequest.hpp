@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowUpdateWithoutTimeLimit_ != nullptr
-        && this->mediaIds_ != nullptr && this->restoreTier_ != nullptr && this->scope_ != nullptr && this->storageClass_ != nullptr; };
+    virtual bool empty() const override { return this->allowUpdateWithoutTimeLimit_ == nullptr
+        && return this->mediaIds_ == nullptr && return this->restoreTier_ == nullptr && return this->scope_ == nullptr && return this->storageClass_ == nullptr; };
     // allowUpdateWithoutTimeLimit Field Functions 
     bool hasAllowUpdateWithoutTimeLimit() const { return this->allowUpdateWithoutTimeLimit_ != nullptr;};
     void deleteAllowUpdateWithoutTimeLimit() { this->allowUpdateWithoutTimeLimit_ = nullptr;};

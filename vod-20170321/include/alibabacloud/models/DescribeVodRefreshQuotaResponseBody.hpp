@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blockQuota_ != nullptr
-        && this->dirQuota_ != nullptr && this->dirRemain_ != nullptr && this->preloadQuota_ != nullptr && this->preloadRemain_ != nullptr && this->requestId_ != nullptr
-        && this->urlQuota_ != nullptr && this->urlRemain_ != nullptr && this->blockRemain_ != nullptr; };
+    virtual bool empty() const override { return this->blockQuota_ == nullptr
+        && return this->dirQuota_ == nullptr && return this->dirRemain_ == nullptr && return this->preloadQuota_ == nullptr && return this->preloadRemain_ == nullptr && return this->requestId_ == nullptr
+        && return this->urlQuota_ == nullptr && return this->urlRemain_ == nullptr && return this->blockRemain_ == nullptr; };
     // blockQuota Field Functions 
     bool hasBlockQuota() const { return this->blockQuota_ != nullptr;};
     void deleteBlockQuota() { this->blockQuota_ = nullptr;};

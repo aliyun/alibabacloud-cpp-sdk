@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualEndTime_ != nullptr
-        && this->actualStartTime_ != nullptr && this->intervalSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->actualEndTime_ == nullptr
+        && return this->actualStartTime_ == nullptr && return this->intervalSeconds_ == nullptr; };
     // actualEndTime Field Functions 
     bool hasActualEndTime() const { return this->actualEndTime_ != nullptr;};
     void deleteActualEndTime() { this->actualEndTime_ = nullptr;};

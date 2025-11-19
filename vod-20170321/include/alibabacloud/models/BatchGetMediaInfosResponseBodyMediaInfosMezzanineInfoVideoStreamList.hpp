@@ -75,12 +75,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgFPS_ != nullptr
-        && this->bitrate_ != nullptr && this->codecLongName_ != nullptr && this->codecName_ != nullptr && this->codecTag_ != nullptr && this->codecTagString_ != nullptr
-        && this->codecTimeBase_ != nullptr && this->dar_ != nullptr && this->duration_ != nullptr && this->fps_ != nullptr && this->HDRType_ != nullptr
-        && this->hasBFrames_ != nullptr && this->height_ != nullptr && this->index_ != nullptr && this->lang_ != nullptr && this->level_ != nullptr
-        && this->numFrames_ != nullptr && this->pixFmt_ != nullptr && this->profile_ != nullptr && this->rotate_ != nullptr && this->sar_ != nullptr
-        && this->startTime_ != nullptr && this->timebase_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->avgFPS_ == nullptr
+        && return this->bitrate_ == nullptr && return this->codecLongName_ == nullptr && return this->codecName_ == nullptr && return this->codecTag_ == nullptr && return this->codecTagString_ == nullptr
+        && return this->codecTimeBase_ == nullptr && return this->dar_ == nullptr && return this->duration_ == nullptr && return this->fps_ == nullptr && return this->HDRType_ == nullptr
+        && return this->hasBFrames_ == nullptr && return this->height_ == nullptr && return this->index_ == nullptr && return this->lang_ == nullptr && return this->level_ == nullptr
+        && return this->numFrames_ == nullptr && return this->pixFmt_ == nullptr && return this->profile_ == nullptr && return this->rotate_ == nullptr && return this->sar_ == nullptr
+        && return this->startTime_ == nullptr && return this->timebase_ == nullptr && return this->width_ == nullptr; };
     // avgFPS Field Functions 
     bool hasAvgFPS() const { return this->avgFPS_ != nullptr;};
     void deleteAvgFPS() { this->avgFPS_ = nullptr;};

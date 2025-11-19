@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audio_ != nullptr
-        && this->clip_ != nullptr && this->container_ != nullptr && this->copyrightMark_ != nullptr && this->definition_ != nullptr && this->encryptSetting_ != nullptr
-        && this->muxConfig_ != nullptr && this->packageSetting_ != nullptr && this->rotate_ != nullptr && this->subtitleList_ != nullptr && this->templateName_ != nullptr
-        && this->traceMark_ != nullptr && this->transConfig_ != nullptr && this->transcodeFileRegular_ != nullptr && this->transcodeTemplateId_ != nullptr && this->type_ != nullptr
-        && this->video_ != nullptr && this->watermarkIds_ != nullptr; };
+    virtual bool empty() const override { return this->audio_ == nullptr
+        && return this->clip_ == nullptr && return this->container_ == nullptr && return this->copyrightMark_ == nullptr && return this->definition_ == nullptr && return this->encryptSetting_ == nullptr
+        && return this->muxConfig_ == nullptr && return this->packageSetting_ == nullptr && return this->rotate_ == nullptr && return this->subtitleList_ == nullptr && return this->templateName_ == nullptr
+        && return this->traceMark_ == nullptr && return this->transConfig_ == nullptr && return this->transcodeFileRegular_ == nullptr && return this->transcodeTemplateId_ == nullptr && return this->type_ == nullptr
+        && return this->video_ == nullptr && return this->watermarkIds_ == nullptr; };
     // audio Field Functions 
     bool hasAudio() const { return this->audio_ != nullptr;};
     void deleteAudio() { this->audio_ = nullptr;};
