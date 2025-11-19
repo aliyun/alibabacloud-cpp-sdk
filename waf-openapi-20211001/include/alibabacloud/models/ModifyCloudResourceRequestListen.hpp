@@ -148,8 +148,6 @@ namespace Models
     // *   **false** (default)
     std::shared_ptr<bool> http2Enabled_ = nullptr;
     // The port of the cloud service instance that is added to WAF.
-    // 
-    // This parameter is required.
     std::shared_ptr<int32_t> port_ = nullptr;
     // The protocol type. Valid values:
     // 
@@ -159,8 +157,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> protocol_ = nullptr;
     // The ID of the cloud service instance that is added to WAF.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> resourceInstanceId_ = nullptr;
     // The type of the cloud service. Valid values:
     // 
@@ -168,8 +164,6 @@ namespace Models
     // *   **clb7**: Layer 7 CLB.
     // *   **ecs**: Elastic Compute Service (ECS).
     // *   **nlb**: Network Load Balancer (NLB).
-    // 
-    // This parameter is required.
     std::shared_ptr<string> resourceProduct_ = nullptr;
     // The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
     // 

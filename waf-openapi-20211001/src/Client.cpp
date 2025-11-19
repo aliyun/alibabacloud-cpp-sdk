@@ -1575,6 +1575,10 @@ DeleteApisecEventsResponse Client::deleteApisecEvents(const DeleteApisecEventsRe
 DeleteCloudResourceResponse Client::deleteCloudResourceWithOptions(const DeleteCloudResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.cloudResourceId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -11573,6 +11577,10 @@ ModifyCloudResourceResponse Client::modifyCloudResourceWithOptions(const ModifyC
   }
 
   json query = {};
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.cloudResourceId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }
@@ -11633,6 +11641,10 @@ ModifyCloudResourceCertResponse Client::modifyCloudResourceCertWithOptions(const
   json query = {};
   if (!!request.hasCertificates()) {
     query["Certificates"] = request.certificates();
+  }
+
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.cloudResourceId();
   }
 
   if (!!request.hasInstanceId()) {
@@ -13669,6 +13681,10 @@ ModifyUserWafLogStatusResponse Client::modifyUserWafLogStatus(const ModifyUserWa
 ReCreateCloudResourceResponse Client::reCreateCloudResourceWithOptions(const ReCreateCloudResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudResourceId()) {
+    query["CloudResourceId"] = request.cloudResourceId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }

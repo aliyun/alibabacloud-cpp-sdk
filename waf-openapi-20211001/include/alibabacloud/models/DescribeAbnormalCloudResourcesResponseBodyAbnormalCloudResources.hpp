@@ -15,6 +15,7 @@ namespace Models
   class DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources& obj) { 
+      DARABONBA_PTR_TO_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_TO_JSON(Details, details_);
       DARABONBA_PTR_TO_JSON(Reason, reason_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceId, resourceInstanceId_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceProduct, resourceProduct_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_FROM_JSON(Details, details_);
       DARABONBA_PTR_FROM_JSON(Reason, reason_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceId, resourceInstanceId_);
@@ -41,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->details_ == nullptr
-        && return this->reason_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceInstanceName_ == nullptr && return this->resourceInstancePort_ == nullptr && return this->resourceProduct_ == nullptr; };
+    virtual bool empty() const override { return this->cloudResourceId_ == nullptr
+        && return this->details_ == nullptr && return this->reason_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceInstanceName_ == nullptr && return this->resourceInstancePort_ == nullptr
+        && return this->resourceProduct_ == nullptr; };
+    // cloudResourceId Field Functions 
+    bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
+    void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
+    inline string cloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
+    inline DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources& setCloudResourceId(string cloudResourceId) { DARABONBA_PTR_SET_VALUE(cloudResourceId_, cloudResourceId) };
+
+
     // details Field Functions 
     bool hasDetails() const { return this->details_ != nullptr;};
     void deleteDetails() { this->details_ = nullptr;};
@@ -88,6 +98,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> cloudResourceId_ = nullptr;
     std::shared_ptr<vector<Models::DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails>> details_ = nullptr;
     std::shared_ptr<string> reason_ = nullptr;
     std::shared_ptr<string> resourceInstanceId_ = nullptr;

@@ -13,6 +13,7 @@ namespace Models
   class DeleteCloudResourceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteCloudResourceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceProduct, resourceProduct_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteCloudResourceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->port_ == nullptr && return this->regionId_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr && return this->resourceProduct_ == nullptr; };
+    virtual bool empty() const override { return this->cloudResourceId_ == nullptr
+        && return this->instanceId_ == nullptr && return this->port_ == nullptr && return this->regionId_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceManagerResourceGroupId_ == nullptr
+        && return this->resourceProduct_ == nullptr; };
+    // cloudResourceId Field Functions 
+    bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
+    void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
+    inline string cloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
+    inline DeleteCloudResourceRequest& setCloudResourceId(string cloudResourceId) { DARABONBA_PTR_SET_VALUE(cloudResourceId_, cloudResourceId) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> cloudResourceId_ = nullptr;
     // The ID of the WAF instance.
     // 
     // >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
@@ -91,8 +102,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
     // The port of the resource that is added to WAF.
-    // 
-    // This parameter is required.
     std::shared_ptr<int32_t> port_ = nullptr;
     // The region in which the WAF instance is deployed. Valid values:
     // 
@@ -102,8 +111,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     // The ID of the instance.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> resourceInstanceId_ = nullptr;
     // The ID of the Alibaba Cloud resource group.
     std::shared_ptr<string> resourceManagerResourceGroupId_ = nullptr;
@@ -112,8 +119,6 @@ namespace Models
     // *   **clb4**: Layer 4 CLB.
     // *   **clb7**: Layer 7 CLB.
     // *   **ecs**: ECS.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> resourceProduct_ = nullptr;
   };
 

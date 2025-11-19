@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyCloudResourceCertRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Certificates, certificates_);
+      DARABONBA_PTR_TO_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyCloudResourceCertRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Certificates, certificates_);
+      DARABONBA_PTR_FROM_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -42,7 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificates_ == nullptr
-        && return this->instanceId_ == nullptr && return this->port_ == nullptr && return this->regionId_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceProduct_ == nullptr; };
+        && return this->cloudResourceId_ == nullptr && return this->instanceId_ == nullptr && return this->port_ == nullptr && return this->regionId_ == nullptr && return this->resourceInstanceId_ == nullptr
+        && return this->resourceProduct_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};
@@ -50,6 +53,13 @@ namespace Models
     inline vector<ModifyCloudResourceCertRequestCertificates> certificates() { DARABONBA_PTR_GET(certificates_, vector<ModifyCloudResourceCertRequestCertificates>) };
     inline ModifyCloudResourceCertRequest& setCertificates(const vector<ModifyCloudResourceCertRequestCertificates> & certificates) { DARABONBA_PTR_SET_VALUE(certificates_, certificates) };
     inline ModifyCloudResourceCertRequest& setCertificates(vector<ModifyCloudResourceCertRequestCertificates> && certificates) { DARABONBA_PTR_SET_RVALUE(certificates_, certificates) };
+
+
+    // cloudResourceId Field Functions 
+    bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
+    void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
+    inline string cloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
+    inline ModifyCloudResourceCertRequest& setCloudResourceId(string cloudResourceId) { DARABONBA_PTR_SET_VALUE(cloudResourceId_, cloudResourceId) };
 
 
     // instanceId Field Functions 
@@ -90,15 +100,13 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<vector<ModifyCloudResourceCertRequestCertificates>> certificates_ = nullptr;
+    std::shared_ptr<string> cloudResourceId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<int32_t> port_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> resourceInstanceId_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> resourceProduct_ = nullptr;
   };
 

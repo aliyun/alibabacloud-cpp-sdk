@@ -19,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& obj) { 
       DARABONBA_PTR_TO_JSON(Certificates, certificates_);
       DARABONBA_PTR_TO_JSON(CipherSuite, cipherSuite_);
+      DARABONBA_PTR_TO_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_TO_JSON(CustomCiphers, customCiphers_);
       DARABONBA_PTR_TO_JSON(EnableTLSv3, enableTLSv3_);
       DARABONBA_PTR_TO_JSON(Http2Enabled, http2Enabled_);
@@ -42,6 +43,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& obj) { 
       DARABONBA_PTR_FROM_JSON(Certificates, certificates_);
       DARABONBA_PTR_FROM_JSON(CipherSuite, cipherSuite_);
+      DARABONBA_PTR_FROM_JSON(CloudResourceId, cloudResourceId_);
       DARABONBA_PTR_FROM_JSON(CustomCiphers, customCiphers_);
       DARABONBA_PTR_FROM_JSON(EnableTLSv3, enableTLSv3_);
       DARABONBA_PTR_FROM_JSON(Http2Enabled, http2Enabled_);
@@ -74,10 +76,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificates_ == nullptr
-        && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->http2Enabled_ == nullptr && return this->keepalive_ == nullptr
-        && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->logHeaders_ == nullptr && return this->ownerUserId_ == nullptr && return this->port_ == nullptr
-        && return this->protocol_ == nullptr && return this->readTimeout_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr && return this->subStatusDetails_ == nullptr
-        && return this->TLSVersion_ == nullptr && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
+        && return this->cipherSuite_ == nullptr && return this->cloudResourceId_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->http2Enabled_ == nullptr
+        && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->logHeaders_ == nullptr && return this->ownerUserId_ == nullptr
+        && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->readTimeout_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr
+        && return this->subStatusDetails_ == nullptr && return this->TLSVersion_ == nullptr && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr
+        && return this->xffProto_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};
@@ -92,6 +95,13 @@ namespace Models
     void deleteCipherSuite() { this->cipherSuite_ = nullptr;};
     inline int32_t cipherSuite() const { DARABONBA_PTR_GET_DEFAULT(cipherSuite_, 0) };
     inline DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& setCipherSuite(int32_t cipherSuite) { DARABONBA_PTR_SET_VALUE(cipherSuite_, cipherSuite) };
+
+
+    // cloudResourceId Field Functions 
+    bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
+    void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
+    inline string cloudResourceId() const { DARABONBA_PTR_GET_DEFAULT(cloudResourceId_, "") };
+    inline DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& setCloudResourceId(string cloudResourceId) { DARABONBA_PTR_SET_VALUE(cloudResourceId_, cloudResourceId) };
 
 
     // customCiphers Field Functions 
@@ -244,6 +254,7 @@ namespace Models
     // *   **2**: strong cipher suites.
     // *   **99**: custom cipher suites.
     std::shared_ptr<int32_t> cipherSuite_ = nullptr;
+    std::shared_ptr<string> cloudResourceId_ = nullptr;
     // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
     std::shared_ptr<vector<string>> customCiphers_ = nullptr;
     // Indicates whether to support TLS 1.3. Valid values:
