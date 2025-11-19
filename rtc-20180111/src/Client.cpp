@@ -5834,6 +5834,10 @@ RtcSipInviteMemberResponse Client::rtcSipInviteMemberWithOptions(const RtcSipInv
     query["SipUserPassword"] = request.sipUserPassword();
   }
 
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
   if (!!request.hasUid()) {
     query["Uid"] = request.uid();
   }

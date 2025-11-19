@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SipUserAgent, sipUserAgent_);
       DARABONBA_PTR_TO_JSON(SipUserId, sipUserId_);
       DARABONBA_PTR_TO_JSON(SipUserPassword, sipUserPassword_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(Uid, uid_);
     };
     friend void from_json(const Darabonba::Json& j, RtcSipInviteMemberRequest& obj) { 
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SipUserAgent, sipUserAgent_);
       DARABONBA_PTR_FROM_JSON(SipUserId, sipUserId_);
       DARABONBA_PTR_FROM_JSON(SipUserPassword, sipUserPassword_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(Uid, uid_);
     };
     RtcSipInviteMemberRequest() = default ;
@@ -58,7 +60,7 @@ namespace Models
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->appToken_ == nullptr && return this->callNumber_ == nullptr && return this->channelId_ == nullptr && return this->deviceType_ == nullptr && return this->registered_ == nullptr
         && return this->serverAddress_ == nullptr && return this->sipDisplayName_ == nullptr && return this->sipRoomId_ == nullptr && return this->sipUri_ == nullptr && return this->sipUserAgent_ == nullptr
-        && return this->sipUserId_ == nullptr && return this->sipUserPassword_ == nullptr && return this->uid_ == nullptr; };
+        && return this->sipUserId_ == nullptr && return this->sipUserPassword_ == nullptr && return this->taskId_ == nullptr && return this->uid_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -150,6 +152,13 @@ namespace Models
     inline RtcSipInviteMemberRequest& setSipUserPassword(string sipUserPassword) { DARABONBA_PTR_SET_VALUE(sipUserPassword_, sipUserPassword) };
 
 
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline RtcSipInviteMemberRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
@@ -178,6 +187,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> sipUserId_ = nullptr;
     std::shared_ptr<string> sipUserPassword_ = nullptr;
+    std::shared_ptr<string> taskId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> uid_ = nullptr;
   };
