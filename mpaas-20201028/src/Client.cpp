@@ -6725,6 +6725,11 @@ SaveMgsApirestResponse Client::saveMgsApirest(const SaveMgsApirestRequest &reque
  */
 StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithOptions(const StartUserAppAsyncEnhanceInMsaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasNewShieldConfig()) {
+    query["NewShieldConfig"] = request.newShieldConfig();
+  }
+
   json body = {};
   if (!!request.hasApkProtector()) {
     body["ApkProtector"] = request.apkProtector();
@@ -6802,13 +6807,18 @@ StartUserAppAsyncEnhanceInMsaResponse Client::startUserAppAsyncEnhanceInMsaWithO
     body["UseAShield"] = request.useAShield();
   }
 
+  if (!!request.hasUseYShield()) {
+    body["UseYShield"] = request.useYShield();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.workspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
+  }));
   Params params = Params(json({
     {"action" , "StartUserAppAsyncEnhanceInMsa"},
     {"version" , "2020-10-28"},
@@ -7356,6 +7366,10 @@ UploadUserAppToMsaResponse Client::uploadUserAppToMsaWithOptions(const UploadUse
 
   if (!!request.hasTenantId()) {
     body["TenantId"] = request.tenantId();
+  }
+
+  if (!!request.hasUseYShield()) {
+    body["UseYShield"] = request.useYShield();
   }
 
   if (!!request.hasWorkspaceId()) {

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MemoryDump, memoryDump_);
       DARABONBA_PTR_TO_JSON(NativeDebugger, nativeDebugger_);
       DARABONBA_PTR_TO_JSON(NativeHook, nativeHook_);
+      DARABONBA_PTR_TO_JSON(NewShieldConfig, newShieldConfig_);
       DARABONBA_PTR_TO_JSON(PackageTampered, packageTampered_);
       DARABONBA_PTR_TO_JSON(Root, root_);
       DARABONBA_PTR_TO_JSON(RunMode, runMode_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(TotalSwitch, totalSwitch_);
       DARABONBA_PTR_TO_JSON(UseAShield, useAShield_);
+      DARABONBA_PTR_TO_JSON(UseYShield, useYShield_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, StartUserAppAsyncEnhanceInMsaRequest& obj) { 
@@ -46,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MemoryDump, memoryDump_);
       DARABONBA_PTR_FROM_JSON(NativeDebugger, nativeDebugger_);
       DARABONBA_PTR_FROM_JSON(NativeHook, nativeHook_);
+      DARABONBA_PTR_FROM_JSON(NewShieldConfig, newShieldConfig_);
       DARABONBA_PTR_FROM_JSON(PackageTampered, packageTampered_);
       DARABONBA_PTR_FROM_JSON(Root, root_);
       DARABONBA_PTR_FROM_JSON(RunMode, runMode_);
@@ -54,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(TotalSwitch, totalSwitch_);
       DARABONBA_PTR_FROM_JSON(UseAShield, useAShield_);
+      DARABONBA_PTR_FROM_JSON(UseYShield, useYShield_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     StartUserAppAsyncEnhanceInMsaRequest() = default ;
@@ -70,8 +74,9 @@ namespace Models
     virtual bool empty() const override { return this->apkProtector_ == nullptr
         && return this->appId_ == nullptr && return this->assetsFileList_ == nullptr && return this->classes_ == nullptr && return this->dalvikDebugger_ == nullptr && return this->emulatorEnvironment_ == nullptr
         && return this->id_ == nullptr && return this->javaHook_ == nullptr && return this->memoryDump_ == nullptr && return this->nativeDebugger_ == nullptr && return this->nativeHook_ == nullptr
-        && return this->packageTampered_ == nullptr && return this->root_ == nullptr && return this->runMode_ == nullptr && return this->soFileList_ == nullptr && return this->taskType_ == nullptr
-        && return this->tenantId_ == nullptr && return this->totalSwitch_ == nullptr && return this->useAShield_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->newShieldConfig_ == nullptr && return this->packageTampered_ == nullptr && return this->root_ == nullptr && return this->runMode_ == nullptr && return this->soFileList_ == nullptr
+        && return this->taskType_ == nullptr && return this->tenantId_ == nullptr && return this->totalSwitch_ == nullptr && return this->useAShield_ == nullptr && return this->useYShield_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // apkProtector Field Functions 
     bool hasApkProtector() const { return this->apkProtector_ != nullptr;};
     void deleteApkProtector() { this->apkProtector_ = nullptr;};
@@ -149,6 +154,13 @@ namespace Models
     inline StartUserAppAsyncEnhanceInMsaRequest& setNativeHook(int32_t nativeHook) { DARABONBA_PTR_SET_VALUE(nativeHook_, nativeHook) };
 
 
+    // newShieldConfig Field Functions 
+    bool hasNewShieldConfig() const { return this->newShieldConfig_ != nullptr;};
+    void deleteNewShieldConfig() { this->newShieldConfig_ = nullptr;};
+    inline string newShieldConfig() const { DARABONBA_PTR_GET_DEFAULT(newShieldConfig_, "") };
+    inline StartUserAppAsyncEnhanceInMsaRequest& setNewShieldConfig(string newShieldConfig) { DARABONBA_PTR_SET_VALUE(newShieldConfig_, newShieldConfig) };
+
+
     // packageTampered Field Functions 
     bool hasPackageTampered() const { return this->packageTampered_ != nullptr;};
     void deletePackageTampered() { this->packageTampered_ = nullptr;};
@@ -205,6 +217,13 @@ namespace Models
     inline StartUserAppAsyncEnhanceInMsaRequest& setUseAShield(bool useAShield) { DARABONBA_PTR_SET_VALUE(useAShield_, useAShield) };
 
 
+    // useYShield Field Functions 
+    bool hasUseYShield() const { return this->useYShield_ != nullptr;};
+    void deleteUseYShield() { this->useYShield_ = nullptr;};
+    inline bool useYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
+    inline StartUserAppAsyncEnhanceInMsaRequest& setUseYShield(bool useYShield) { DARABONBA_PTR_SET_VALUE(useYShield_, useYShield) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -226,6 +245,7 @@ namespace Models
     std::shared_ptr<int32_t> memoryDump_ = nullptr;
     std::shared_ptr<int32_t> nativeDebugger_ = nullptr;
     std::shared_ptr<int32_t> nativeHook_ = nullptr;
+    std::shared_ptr<string> newShieldConfig_ = nullptr;
     std::shared_ptr<int32_t> packageTampered_ = nullptr;
     std::shared_ptr<int32_t> root_ = nullptr;
     std::shared_ptr<string> runMode_ = nullptr;
@@ -235,6 +255,7 @@ namespace Models
     std::shared_ptr<string> tenantId_ = nullptr;
     std::shared_ptr<bool> totalSwitch_ = nullptr;
     std::shared_ptr<bool> useAShield_ = nullptr;
+    std::shared_ptr<bool> useYShield_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

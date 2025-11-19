@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(UseYShield, useYShield_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, UploadUserAppToMsaRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(UseYShield, useYShield_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     UploadUserAppToMsaRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->fileName_ == nullptr && return this->fileUrl_ == nullptr && return this->tenantId_ == nullptr && return this->useYShield_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline UploadUserAppToMsaRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // useYShield Field Functions 
+    bool hasUseYShield() const { return this->useYShield_ != nullptr;};
+    void deleteUseYShield() { this->useYShield_ = nullptr;};
+    inline bool useYShield() const { DARABONBA_PTR_GET_DEFAULT(useYShield_, false) };
+    inline UploadUserAppToMsaRequest& setUseYShield(bool useYShield) { DARABONBA_PTR_SET_VALUE(useYShield_, useYShield) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -81,6 +90,7 @@ namespace Models
     std::shared_ptr<string> fileUrl_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> tenantId_ = nullptr;
+    std::shared_ptr<bool> useYShield_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };
