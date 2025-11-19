@@ -762,6 +762,56 @@ CreateRequestDiagnosisResponse Client::createRequestDiagnosis(const CreateReques
 }
 
 /**
+ * @summary 创建用户跨产品白名单模板
+ *
+ * @param request CreateSecurityIPGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityIPGroupResponse
+ */
+CreateSecurityIPGroupResponse Client::createSecurityIPGroupWithOptions(const CreateSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGIpList()) {
+    query["GIpList"] = request.GIpList();
+  }
+
+  if (!!request.hasGlobalIgName()) {
+    query["GlobalIgName"] = request.globalIgName();
+  }
+
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSecurityIPGroup"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityIPGroupResponse>();
+}
+
+/**
+ * @summary 创建用户跨产品白名单模板
+ *
+ * @param request CreateSecurityIPGroupRequest
+ * @return CreateSecurityIPGroupResponse
+ */
+CreateSecurityIPGroupResponse Client::createSecurityIPGroup(const CreateSecurityIPGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
  *
  * @description Before you call this operation, take note of the following items:
@@ -951,6 +1001,52 @@ DeleteCloudBenchTaskResponse Client::deleteCloudBenchTaskWithOptions(const Delet
 DeleteCloudBenchTaskResponse Client::deleteCloudBenchTask(const DeleteCloudBenchTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloudBenchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除用户跨产品白名单模板
+ *
+ * @param request DeleteSecurityIPGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityIPGroupResponse
+ */
+DeleteSecurityIPGroupResponse Client::deleteSecurityIPGroupWithOptions(const DeleteSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGlobalSecurityGroupId()) {
+    query["GlobalSecurityGroupId"] = request.globalSecurityGroupId();
+  }
+
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSecurityIPGroup"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityIPGroupResponse>();
+}
+
+/**
+ * @summary 删除用户跨产品白名单模板
+ *
+ * @param request DeleteSecurityIPGroupRequest
+ * @return DeleteSecurityIPGroupResponse
+ */
+DeleteSecurityIPGroupResponse Client::deleteSecurityIPGroup(const DeleteSecurityIPGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityIPGroupWithOptions(request, runtime);
 }
 
 /**
@@ -1763,6 +1859,94 @@ DescribeQueryExplainResponse Client::describeQueryExplainWithOptions(const Descr
 DescribeQueryExplainResponse Client::describeQueryExplain(const DescribeQueryExplainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeQueryExplainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 展示用户跨产品白名单模板具体信息
+ *
+ * @param request DescribeSecurityIPGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSecurityIPGroupResponse
+ */
+DescribeSecurityIPGroupResponse Client::describeSecurityIPGroupWithOptions(const DescribeSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSecurityIPGroup"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSecurityIPGroupResponse>();
+}
+
+/**
+ * @summary 展示用户跨产品白名单模板具体信息
+ *
+ * @param request DescribeSecurityIPGroupRequest
+ * @return DescribeSecurityIPGroupResponse
+ */
+DescribeSecurityIPGroupResponse Client::describeSecurityIPGroup(const DescribeSecurityIPGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 展示用户跨产品白名单模板与实例绑定信息
+ *
+ * @param request DescribeSecurityIPGroupRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSecurityIPGroupRelationResponse
+ */
+DescribeSecurityIPGroupRelationResponse Client::describeSecurityIPGroupRelationWithOptions(const DescribeSecurityIPGroupRelationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSecurityIPGroupRelation"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSecurityIPGroupRelationResponse>();
+}
+
+/**
+ * @summary 展示用户跨产品白名单模板与实例绑定信息
+ *
+ * @param request DescribeSecurityIPGroupRelationRequest
+ * @return DescribeSecurityIPGroupRelationResponse
+ */
+DescribeSecurityIPGroupRelationResponse Client::describeSecurityIPGroupRelation(const DescribeSecurityIPGroupRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSecurityIPGroupRelationWithOptions(request, runtime);
 }
 
 /**
@@ -6730,6 +6914,110 @@ ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const
 ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfig(const ModifyAutoScalingConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAutoScalingConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改用户跨产品白名单模板
+ *
+ * @param request ModifySecurityIPGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySecurityIPGroupResponse
+ */
+ModifySecurityIPGroupResponse Client::modifySecurityIPGroupWithOptions(const ModifySecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGIpList()) {
+    query["GIpList"] = request.GIpList();
+  }
+
+  if (!!request.hasGlobalIgName()) {
+    query["GlobalIgName"] = request.globalIgName();
+  }
+
+  if (!!request.hasGlobalSecurityGroupId()) {
+    query["GlobalSecurityGroupId"] = request.globalSecurityGroupId();
+  }
+
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySecurityIPGroup"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySecurityIPGroupResponse>();
+}
+
+/**
+ * @summary 修改用户跨产品白名单模板
+ *
+ * @param request ModifySecurityIPGroupRequest
+ * @return ModifySecurityIPGroupResponse
+ */
+ModifySecurityIPGroupResponse Client::modifySecurityIPGroup(const ModifySecurityIPGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySecurityIPGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 绑定/解绑用户跨产品白名单模板
+ *
+ * @param request ModifySecurityIPGroupRelationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySecurityIPGroupRelationResponse
+ */
+ModifySecurityIPGroupRelationResponse Client::modifySecurityIPGroupRelationWithOptions(const ModifySecurityIPGroupRelationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGlobalSecurityGroupId()) {
+    query["GlobalSecurityGroupId"] = request.globalSecurityGroupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionName()) {
+    query["RegionName"] = request.regionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySecurityIPGroupRelation"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySecurityIPGroupRelationResponse>();
+}
+
+/**
+ * @summary 绑定/解绑用户跨产品白名单模板
+ *
+ * @param request ModifySecurityIPGroupRelationRequest
+ * @return ModifySecurityIPGroupRelationResponse
+ */
+ModifySecurityIPGroupRelationResponse Client::modifySecurityIPGroupRelation(const ModifySecurityIPGroupRelationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySecurityIPGroupRelationWithOptions(request, runtime);
 }
 
 /**

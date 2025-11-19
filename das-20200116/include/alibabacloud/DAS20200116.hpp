@@ -270,6 +270,23 @@ namespace DAS20200116
       Models::CreateRequestDiagnosisResponse createRequestDiagnosis(const Models::CreateRequestDiagnosisRequest &request);
 
       /**
+       * @summary 创建用户跨产品白名单模板
+       *
+       * @param request CreateSecurityIPGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityIPGroupResponse
+       */
+      Models::CreateSecurityIPGroupResponse createSecurityIPGroupWithOptions(const Models::CreateSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建用户跨产品白名单模板
+       *
+       * @param request CreateSecurityIPGroupRequest
+       * @return CreateSecurityIPGroupResponse
+       */
+      Models::CreateSecurityIPGroupResponse createSecurityIPGroup(const Models::CreateSecurityIPGroupRequest &request);
+
+      /**
        * @summary Creates an offline task for Database Autonomy Service (DAS) Enterprise Edition.
        *
        * @description Before you call this operation, take note of the following items:
@@ -343,6 +360,23 @@ namespace DAS20200116
        * @return DeleteCloudBenchTaskResponse
        */
       Models::DeleteCloudBenchTaskResponse deleteCloudBenchTask(const Models::DeleteCloudBenchTaskRequest &request);
+
+      /**
+       * @summary 删除用户跨产品白名单模板
+       *
+       * @param request DeleteSecurityIPGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityIPGroupResponse
+       */
+      Models::DeleteSecurityIPGroupResponse deleteSecurityIPGroupWithOptions(const Models::DeleteSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户跨产品白名单模板
+       *
+       * @param request DeleteSecurityIPGroupRequest
+       * @return DeleteSecurityIPGroupResponse
+       */
+      Models::DeleteSecurityIPGroupResponse deleteSecurityIPGroup(const Models::DeleteSecurityIPGroupRequest &request);
 
       /**
        * @summary Deletes the metadata of a stopped DBGateway.
@@ -697,6 +731,40 @@ namespace DAS20200116
        * @return DescribeQueryExplainResponse
        */
       Models::DescribeQueryExplainResponse describeQueryExplain(const Models::DescribeQueryExplainRequest &request);
+
+      /**
+       * @summary 展示用户跨产品白名单模板具体信息
+       *
+       * @param request DescribeSecurityIPGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSecurityIPGroupResponse
+       */
+      Models::DescribeSecurityIPGroupResponse describeSecurityIPGroupWithOptions(const Models::DescribeSecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 展示用户跨产品白名单模板具体信息
+       *
+       * @param request DescribeSecurityIPGroupRequest
+       * @return DescribeSecurityIPGroupResponse
+       */
+      Models::DescribeSecurityIPGroupResponse describeSecurityIPGroup(const Models::DescribeSecurityIPGroupRequest &request);
+
+      /**
+       * @summary 展示用户跨产品白名单模板与实例绑定信息
+       *
+       * @param request DescribeSecurityIPGroupRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSecurityIPGroupRelationResponse
+       */
+      Models::DescribeSecurityIPGroupRelationResponse describeSecurityIPGroupRelationWithOptions(const Models::DescribeSecurityIPGroupRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 展示用户跨产品白名单模板与实例绑定信息
+       *
+       * @param request DescribeSecurityIPGroupRelationRequest
+       * @return DescribeSecurityIPGroupRelationResponse
+       */
+      Models::DescribeSecurityIPGroupRelationResponse describeSecurityIPGroupRelation(const Models::DescribeSecurityIPGroupRelationRequest &request);
 
       /**
        * @summary DescribeSlowLogHistogramAsync
@@ -2600,6 +2668,40 @@ namespace DAS20200116
        * @return ModifyAutoScalingConfigResponse
        */
       Models::ModifyAutoScalingConfigResponse modifyAutoScalingConfig(const Models::ModifyAutoScalingConfigRequest &request);
+
+      /**
+       * @summary 修改用户跨产品白名单模板
+       *
+       * @param request ModifySecurityIPGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySecurityIPGroupResponse
+       */
+      Models::ModifySecurityIPGroupResponse modifySecurityIPGroupWithOptions(const Models::ModifySecurityIPGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改用户跨产品白名单模板
+       *
+       * @param request ModifySecurityIPGroupRequest
+       * @return ModifySecurityIPGroupResponse
+       */
+      Models::ModifySecurityIPGroupResponse modifySecurityIPGroup(const Models::ModifySecurityIPGroupRequest &request);
+
+      /**
+       * @summary 绑定/解绑用户跨产品白名单模板
+       *
+       * @param request ModifySecurityIPGroupRelationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySecurityIPGroupRelationResponse
+       */
+      Models::ModifySecurityIPGroupRelationResponse modifySecurityIPGroupRelationWithOptions(const Models::ModifySecurityIPGroupRelationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定/解绑用户跨产品白名单模板
+       *
+       * @param request ModifySecurityIPGroupRelationRequest
+       * @return ModifySecurityIPGroupRelationResponse
+       */
+      Models::ModifySecurityIPGroupRelationResponse modifySecurityIPGroupRelation(const Models::ModifySecurityIPGroupRelationRequest &request);
 
       /**
        * @summary Enables or configures Database Autonomy Service (DAS) Enterprise Edition for a database instance.
