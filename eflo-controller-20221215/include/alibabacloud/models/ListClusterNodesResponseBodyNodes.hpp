@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(NodeGroupName, nodeGroupName_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_TO_JSON(Sn, sn_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupName, nodeGroupName_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(OperatingState, operatingState_);
       DARABONBA_PTR_FROM_JSON(Sn, sn_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -75,8 +77,9 @@ namespace Models
     virtual bool empty() const override { return this->commodityCode_ == nullptr
         && return this->createTime_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemMountEnabled_ == nullptr && return this->hostname_ == nullptr && return this->hpnZone_ == nullptr
         && return this->hyperNodeId_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->machineType_ == nullptr && return this->networks_ == nullptr
-        && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeId_ == nullptr && return this->operatingState_ == nullptr && return this->sn_ == nullptr
-        && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeId_ == nullptr && return this->nodeType_ == nullptr && return this->operatingState_ == nullptr
+        && return this->sn_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
@@ -177,6 +180,13 @@ namespace Models
     inline ListClusterNodesResponseBodyNodes& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline ListClusterNodesResponseBodyNodes& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
     // operatingState Field Functions 
     bool hasOperatingState() const { return this->operatingState_ != nullptr;};
     void deleteOperatingState() { this->operatingState_ = nullptr;};
@@ -256,6 +266,7 @@ namespace Models
     std::shared_ptr<string> nodeGroupName_ = nullptr;
     // The node ID.
     std::shared_ptr<string> nodeId_ = nullptr;
+    std::shared_ptr<string> nodeType_ = nullptr;
     // The node status.
     // 
     // Valid values:
