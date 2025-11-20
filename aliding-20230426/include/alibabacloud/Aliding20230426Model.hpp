@@ -176,6 +176,12 @@
 #include <alibabacloud/models/CopyDentryShrinkRequest.hpp>
 #include <alibabacloud/models/CopyDentryResponseBody.hpp>
 #include <alibabacloud/models/CopyDentryResponse.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdHeaders.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdShrinkHeaders.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdRequest.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdShrinkRequest.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdResponseBody.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdResponse.hpp>
 #include <alibabacloud/models/CreateAlidingAssistantHeaders.hpp>
 #include <alibabacloud/models/CreateAlidingAssistantShrinkHeaders.hpp>
 #include <alibabacloud/models/CreateAlidingAssistantRequest.hpp>
@@ -1617,6 +1623,8 @@
 #include <alibabacloud/models/CopyDentryResponseBodySpaceRecentList.hpp>
 #include <alibabacloud/models/CopyDentryResponseBodySpaceVisitorInfo.hpp>
 #include <alibabacloud/models/CopyDentryResponseBodySpace.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdHeadersAccountContext.hpp>
+#include <alibabacloud/models/CopyDentryByNodeIdRequestTenantContext.hpp>
 #include <alibabacloud/models/CreateAlidingAssistantHeadersAccountContext.hpp>
 #include <alibabacloud/models/CreateAlidingAssistantRequestTenantContext.hpp>
 #include <alibabacloud/models/CreateDeliveryPlanHeadersAccountContext.hpp>

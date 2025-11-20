@@ -543,6 +543,24 @@ namespace Aliding20230426
       Models::CopyDentryResponse copyDentry(const Models::CopyDentryRequest &request);
 
       /**
+       * @summary 通过NodeId创建知识库节点副本
+       *
+       * @param tmpReq CopyDentryByNodeIdRequest
+       * @param tmpHeader CopyDentryByNodeIdHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CopyDentryByNodeIdResponse
+       */
+      Models::CopyDentryByNodeIdResponse copyDentryByNodeIdWithOptions(const Models::CopyDentryByNodeIdRequest &tmpReq, const Models::CopyDentryByNodeIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过NodeId创建知识库节点副本
+       *
+       * @param request CopyDentryByNodeIdRequest
+       * @return CopyDentryByNodeIdResponse
+       */
+      Models::CopyDentryByNodeIdResponse copyDentryByNodeId(const Models::CopyDentryByNodeIdRequest &request);
+
+      /**
        * @param tmpReq CreateAlidingAssistantRequest
        * @param tmpHeader CreateAlidingAssistantHeaders
        * @param runtime runtime options for this request RuntimeOptions

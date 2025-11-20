@@ -2352,6 +2352,92 @@ CopyDentryResponse Client::copyDentry(const CopyDentryRequest &request) {
 }
 
 /**
+ * @summary 通过NodeId创建知识库节点副本
+ *
+ * @param tmpReq CopyDentryByNodeIdRequest
+ * @param tmpHeader CopyDentryByNodeIdHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CopyDentryByNodeIdResponse
+ */
+CopyDentryByNodeIdResponse Client::copyDentryByNodeIdWithOptions(const CopyDentryByNodeIdRequest &tmpReq, const CopyDentryByNodeIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CopyDentryByNodeIdShrinkRequest request = CopyDentryByNodeIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  CopyDentryByNodeIdShrinkHeaders headers = CopyDentryByNodeIdShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.accountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDentryUuid()) {
+    body["DentryUuid"] = request.dentryUuid();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.tenantContextShrink();
+  }
+
+  if (!!request.hasToNextNodeId()) {
+    body["ToNextNodeId"] = request.toNextNodeId();
+  }
+
+  if (!!request.hasToParentNodeId()) {
+    body["ToParentNodeId"] = request.toParentNodeId();
+  }
+
+  if (!!request.hasToPrevNodeId()) {
+    body["ToPrevNodeId"] = request.toPrevNodeId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.accountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CopyDentryByNodeId"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v2/documents/copyDentryByNodeId")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CopyDentryByNodeIdResponse>();
+}
+
+/**
+ * @summary 通过NodeId创建知识库节点副本
+ *
+ * @param request CopyDentryByNodeIdRequest
+ * @return CopyDentryByNodeIdResponse
+ */
+CopyDentryByNodeIdResponse Client::copyDentryByNodeId(const CopyDentryByNodeIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  CopyDentryByNodeIdHeaders headers = CopyDentryByNodeIdHeaders();
+  return copyDentryByNodeIdWithOptions(request, headers, runtime);
+}
+
+/**
  * @param tmpReq CreateAlidingAssistantRequest
  * @param tmpHeader CreateAlidingAssistantHeaders
  * @param runtime runtime options for this request RuntimeOptions
