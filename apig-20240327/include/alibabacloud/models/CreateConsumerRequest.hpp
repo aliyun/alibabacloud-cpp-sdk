@@ -104,12 +104,19 @@ namespace Models
 
 
   protected:
+    // The list of AK/SK identity configurations.
     std::shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ = nullptr;
+    // The configuration for the API key authentication method.
     std::shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ = nullptr;
+    // The description of the consumer.
     std::shared_ptr<string> description_ = nullptr;
+    // Indicates if enabled.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The type of the gateway.
     std::shared_ptr<string> gatewayType_ = nullptr;
+    // The configuration of the JWT identity.
     std::shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ = nullptr;
+    // The name of the consumer.
     std::shared_ptr<string> name_ = nullptr;
   };
 

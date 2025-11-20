@@ -143,16 +143,37 @@ namespace Models
 
 
   protected:
+    // The billing method.
+    // 
+    // Valid values:
+    // 
+    // *   POSTPAY
+    // *   PREPAY
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The gateway edition.
     std::shared_ptr<string> gatewayEdition_ = nullptr;
+    // The type of the gateway.
+    // 
+    // Valid values:
+    // 
+    // *   AI
+    // *   API
     std::shared_ptr<string> gatewayType_ = nullptr;
+    // The logging configurations.
     std::shared_ptr<CreateGatewayRequestLogConfig> logConfig_ = nullptr;
+    // The name of the gateway instance.
     std::shared_ptr<string> name_ = nullptr;
+    // The network access configuration.
     std::shared_ptr<CreateGatewayRequestNetworkAccessConfig> networkAccessConfig_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The specifications of the node.
     std::shared_ptr<string> spec_ = nullptr;
+    // The tags.
     std::shared_ptr<vector<CreateGatewayRequestTag>> tag_ = nullptr;
+    // The ID of the VPC.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The zone settings.
     std::shared_ptr<CreateGatewayRequestZoneConfig> zoneConfig_ = nullptr;
   };
 

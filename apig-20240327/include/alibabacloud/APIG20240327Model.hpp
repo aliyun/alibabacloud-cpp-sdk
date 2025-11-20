@@ -198,6 +198,8 @@
 #include <alibabacloud/models/ListEnvironmentsRequest.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponseBody.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponse.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponseBody.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponse.hpp>
 #include <alibabacloud/models/ListGatewaysRequest.hpp>
 #include <alibabacloud/models/ListGatewaysShrinkRequest.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBody.hpp>
@@ -426,6 +428,10 @@
 #include <alibabacloud/models/ListConsumersResponseBodyData.hpp>
 #include <alibabacloud/models/ListDomainsResponseBodyData.hpp>
 #include <alibabacloud/models/ListEnvironmentsResponseBodyData.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponseBodyDataItemsDefinition.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponseBodyDataItems.hpp>
+#include <alibabacloud/models/ListGatewayFeaturesResponseBodyData.hpp>
 #include <alibabacloud/models/ListGatewaysRequestTag.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsLoadBalancersPorts.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBodyDataItemsLoadBalancers.hpp>

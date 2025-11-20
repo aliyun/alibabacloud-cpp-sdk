@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The Simple Log Service configurations.
     std::shared_ptr<Models::CreateGatewayRequestLogConfigSls> sls_ = nullptr;
   };
 

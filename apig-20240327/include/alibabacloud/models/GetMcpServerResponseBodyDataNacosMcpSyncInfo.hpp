@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The Nacos instance.
     std::shared_ptr<string> importInstanceId_ = nullptr;
+    // The synchronized MCP server ID.
     std::shared_ptr<string> importMcpServerId_ = nullptr;
+    // The Nacos namespace.
     std::shared_ptr<string> importNamespace_ = nullptr;
   };
 

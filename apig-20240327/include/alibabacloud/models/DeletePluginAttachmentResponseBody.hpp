@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
+    // The response code.
     std::shared_ptr<string> code_ = nullptr;
+    // The response message returned.
     std::shared_ptr<string> message_ = nullptr;
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

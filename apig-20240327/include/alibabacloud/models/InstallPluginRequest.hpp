@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of gateway IDs.
     std::shared_ptr<vector<string>> gatewayIds_ = nullptr;
+    // The plug-in type ID.
     std::shared_ptr<string> pluginClassId_ = nullptr;
   };
 

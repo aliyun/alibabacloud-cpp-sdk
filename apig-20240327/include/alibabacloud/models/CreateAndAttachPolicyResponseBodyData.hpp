@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The association information of the policy.
     std::shared_ptr<Models::Attachment> attachment_ = nullptr;
+    // The policy ID.
     std::shared_ptr<string> policyId_ = nullptr;
   };
 

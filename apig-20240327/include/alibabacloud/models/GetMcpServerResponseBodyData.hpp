@@ -240,27 +240,53 @@ namespace Models
 
 
   protected:
+    // The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
     std::shared_ptr<vector<Models::GetMcpServerResponseBodyDataAssembledSources>> assembledSources_ = nullptr;
+    // The backend service of the route.
     std::shared_ptr<Models::Backend> backend_ = nullptr;
+    // Indicates the type of source for MCP server creation. Valid values: 
+    // 
+    // ApiGatewayHttpToMCP 
+    // ApiGatewayMcpHosting 
+    // ApiGatewayAssembly 
+    // NacosHttpToMCP 
+    // NacosMcpHosting
     std::shared_ptr<string> createFromType_ = nullptr;
+    // The publishing status of the API in the current environment.
     std::shared_ptr<string> deployStatus_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // The domain name IDs.
     std::shared_ptr<vector<string>> domainIds_ = nullptr;
+    // The list of domain information.
     std::shared_ptr<vector<Models::GetMcpServerResponseBodyDataDomainInfos>> domainInfos_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP, and the type parameter is set to RealMCP.
     std::shared_ptr<string> exposedUriPath_ = nullptr;
+    // The gateway instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The route match rule.
     std::shared_ptr<Models::HttpRouteMatch> match_ = nullptr;
+    // The HTTP-to-MCP configurations.
     std::shared_ptr<string> mcpServerConfig_ = nullptr;
+    // The attachment ID for the MCP server plug-in configuration.
     std::shared_ptr<string> mcpServerConfigPluginAttachmentId_ = nullptr;
-    // MCP Server ID
+    // The ID of the MCP server.
     std::shared_ptr<string> mcpServerId_ = nullptr;
+    // The MCP server access path provided by the gateway.
     std::shared_ptr<string> mcpServerPath_ = nullptr;
+    // Indicates whether MCP observability is enabled. Default value: false.
     std::shared_ptr<bool> mcpStatisticsEnable_ = nullptr;
+    // The MCP information managed and synchronized by Nacos.
     std::shared_ptr<Models::GetMcpServerResponseBodyDataNacosMcpSyncInfo> nacosMcpSyncInfo_ = nullptr;
+    // The name of the MCP server.
     std::shared_ptr<string> name_ = nullptr;
+    // The service protocol.
     std::shared_ptr<string> protocol_ = nullptr;
+    // The route ID.
     std::shared_ptr<string> routeId_ = nullptr;
+    // The type of the MCP server.
     std::shared_ptr<string> type_ = nullptr;
   };
 

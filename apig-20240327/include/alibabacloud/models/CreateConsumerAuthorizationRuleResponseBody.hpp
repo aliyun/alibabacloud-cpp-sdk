@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The status code.
     std::shared_ptr<string> code_ = nullptr;
+    // The response payload.
     std::shared_ptr<CreateConsumerAuthorizationRuleResponseBodyData> data_ = nullptr;
+    // The status message.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

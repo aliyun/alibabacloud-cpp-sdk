@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The backend node port of the service.
     std::shared_ptr<int32_t> port_ = nullptr;
+    // The service protocol. Valid values:
+    // 
+    // *   HTTP
+    // *   HTTPS
     std::shared_ptr<string> protocol_ = nullptr;
+    // The service ID.
     std::shared_ptr<string> serviceId_ = nullptr;
+    // The service version.
     std::shared_ptr<string> version_ = nullptr;
+    // The weight.
     std::shared_ptr<int32_t> weight_ = nullptr;
   };
 

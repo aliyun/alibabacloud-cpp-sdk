@@ -97,15 +97,33 @@ namespace Models
 
 
   protected:
+    // The association IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> attachResourceIds_ = nullptr;
+    // The supported associated resource type. Valid values:
+    // 
+    // *   HttpApi: an HTTP API
+    // *   Operation: an operation in an HTTP API
+    // *   GatewayRoute: a route
+    // *   GatewayService: a service
+    // *   GatewayServicePort: a service port
+    // *   Domain: a domain name
+    // *   Gateway: an instance
+    // 
     // This parameter is required.
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // The policy configurations. The value is a JSON string.
+    // 
     // This parameter is required.
     std::shared_ptr<string> config_ = nullptr;
+    // The policy description.
     std::shared_ptr<string> description_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The policy name.
     std::shared_ptr<string> name_ = nullptr;
   };
 

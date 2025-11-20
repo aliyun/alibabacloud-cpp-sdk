@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The attachment IDs.
     std::shared_ptr<vector<string>> attachResourceIds_ = nullptr;
+    // The type of the resource to which the plug-in is attached. Valid values: GatewayRoute, Gateway, GatewayDomain, HttpApi, and Operation.
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // Specifies whether to enable the plug-in. Default value: false.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The Base64-encoded configurations of the plug-in.
     std::shared_ptr<string> pluginConfig_ = nullptr;
+    // The plug-in ID.
     std::shared_ptr<string> pluginId_ = nullptr;
   };
 

@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The list of consumer information.
     std::shared_ptr<vector<Models::ListConsumersResponseBodyDataItems>> items_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalSize_ = nullptr;
   };
 

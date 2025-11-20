@@ -128,14 +128,23 @@ namespace Models
 
 
   protected:
+    // Indicates whether the plug-in is enabled.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The environment information.
     std::shared_ptr<Models::EnvironmentInfo> environmentInfo_ = nullptr;
+    // The instance information.
     std::shared_ptr<Models::GatewayInfo> gatewayInfo_ = nullptr;
+    // The information about the parent resource to which the plug-in is attached.
     std::shared_ptr<Models::ParentResourceInfo> parentResourceInfo_ = nullptr;
+    // The attachment ID.
     std::shared_ptr<string> pluginAttachmentId_ = nullptr;
+    // The plug-in type information.
     std::shared_ptr<Models::PluginClassInfo> pluginClassInfo_ = nullptr;
+    // The Base64-encoded configurations of the plug-in.
     std::shared_ptr<string> pluginConfig_ = nullptr;
+    // The plug-in ID.
     std::shared_ptr<string> pluginId_ = nullptr;
+    // The resource details.
     std::shared_ptr<vector<Models::ResourceInfo>> resourceInfos_ = nullptr;
   };
 

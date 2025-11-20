@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the vSwitch.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    // The zone ID.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

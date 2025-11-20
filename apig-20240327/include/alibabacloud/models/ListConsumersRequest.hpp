@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The instance type. Valid values: **AI** and **API**.
     std::shared_ptr<string> gatewayType_ = nullptr;
+    // The name used to perform a fuzzy search for operations.
     std::shared_ptr<string> nameLike_ = nullptr;
+    // The page number to return. Pages start from 1. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
   };
 

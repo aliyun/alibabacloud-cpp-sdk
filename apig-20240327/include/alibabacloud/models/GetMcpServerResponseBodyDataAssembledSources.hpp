@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
-    // MCP Server ID
+    // The ID of the MCP server.
     std::shared_ptr<string> mcpServerId_ = nullptr;
+    // The name of the MCP server.
     std::shared_ptr<string> mcpServerName_ = nullptr;
+    // The list of the MCP tools.
     std::shared_ptr<vector<string>> tools_ = nullptr;
   };
 

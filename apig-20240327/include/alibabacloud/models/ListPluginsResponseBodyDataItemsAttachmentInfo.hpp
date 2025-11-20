@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates if enabled.
     std::shared_ptr<string> enable_ = nullptr;
+    // The attachment ID.
     std::shared_ptr<string> pluginAttachmentId_ = nullptr;
   };
 

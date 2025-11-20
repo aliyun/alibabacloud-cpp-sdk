@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // The attachment point ID.
     std::shared_ptr<string> attachResourceId_ = nullptr;
+    // The types of attachment points supported by the policy. Valid values: 
+    // 
+    // - HttpApi
+    // - Operation
+    // - GatewayRoute
+    // - GatewayService
+    // - GatewayServicePort
+    // - Domain
+    // - Gateway
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The gateway ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // Specifies whether to return attachment information.
     std::shared_ptr<bool> withAttachments_ = nullptr;
+    // Specifies whether it is a system policy.
     std::shared_ptr<bool> withSystemPolicy_ = nullptr;
   };
 

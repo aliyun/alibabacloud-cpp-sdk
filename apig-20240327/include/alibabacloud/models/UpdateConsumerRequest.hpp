@@ -85,10 +85,15 @@ namespace Models
 
 
   protected:
+    // The list of AK/SK authentication configurations.
     std::shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ = nullptr;
+    // The API key authentication configurations.
     std::shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // Specifies the enablement status.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The JWT authentication configuration.
     std::shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ = nullptr;
   };
 

@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // The type of source to create from.
     std::shared_ptr<string> createFromTypes_ = nullptr;
+    // The deployment status of the MCP server.
     std::shared_ptr<string> deployStatuses_ = nullptr;
+    // The gateway instance ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The name to perform a fuzzy search on the MCP server.
     std::shared_ptr<string> nameLike_ = nullptr;
+    // The page number to return. Pages start from 1. Default value: 1.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The type of the MCP server.
     std::shared_ptr<string> type_ = nullptr;
   };
 

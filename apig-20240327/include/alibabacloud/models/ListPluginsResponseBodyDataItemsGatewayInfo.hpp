@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The instance name.
     std::shared_ptr<string> name_ = nullptr;
   };
 

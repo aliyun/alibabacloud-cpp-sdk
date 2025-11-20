@@ -106,17 +106,58 @@ namespace Models
 
 
   protected:
+    // The IDs of the resources to be associated with the policy.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> attachResourceIds_ = nullptr;
+    // The supported resource type. Valid values:
+    // 
+    // *   HttpApi: an HTTP API
+    // *   Operation: an operation in an HTTP API
+    // *   GatewayRoute: a route
+    // *   GatewayService: a service
+    // *   GatewayServicePort: a service port
+    // *   Domain: a domain name
+    // *   Gateway: an instance
+    // 
     // This parameter is required.
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // The class name supported by the policy. Different policies support different resources. This parameter is used in combination with AttachResourceType.
+    // 
+    // *   RateLimit: throttles traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   ConcurrencyLimit: controls concurrency. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   CircuitBreaker: breaks circuits and downgrades traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   HttpRewrite: rewrites HTTP traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   HeaderModify: modifies headers. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Cors: supports CORS. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   FlowCopy: replicates traffic. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Timeout: times out requests. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   Retry: retries requests. Supported: HttpApi, Operation, and GatewayRoute.
+    // *   IpAccessControl: implements IP address-based access control. Supported: HttpApi, Operation, GatewayRoute, Domain, and Gateway.
+    // *   DirectResponse: mocks responses. Supported: Operation and GatewayRoute.
+    // *   Redirect: redirects traffic. Supported: GatewayRoute.
+    // *   Fallback: implements fallback. Supported: Operation and GatewayRoute.
+    // *   ServiceTls: implements TLS authentication. Supported: GatewayService.
+    // *   ServiceLb: balances loads. Supported: GatewayService.
+    // *   ServicePortTls: implements service port TLS authentication. Supported: GatewayServicePort.
+    // *   Waf: implements WAF protection. Supported: GatewayRoute and Gateway.
+    // *   JWTAuth: implements global JWT authentication. Supported: Gateway.
+    // *   OIDCAuth: implements global OIDC authentication. Supported: Gateway.
+    // *   ExternalZAuth: implements custom authentication. Supported: Gateway.
+    // 
     // This parameter is required.
     std::shared_ptr<string> className_ = nullptr;
+    // The policy configurations.
+    // 
     // This parameter is required.
     std::shared_ptr<string> config_ = nullptr;
+    // The policy description.
     std::shared_ptr<string> description_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The policy name.
     std::shared_ptr<string> name_ = nullptr;
   };
 

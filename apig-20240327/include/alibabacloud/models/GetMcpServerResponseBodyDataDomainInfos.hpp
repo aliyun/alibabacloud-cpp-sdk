@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The domain name ID.
     std::shared_ptr<string> domainId_ = nullptr;
+    // The domain name.
     std::shared_ptr<string> name_ = nullptr;
+    // The protocol. Valid values: HTTP and HTTPS.
     std::shared_ptr<string> protocol_ = nullptr;
   };
 

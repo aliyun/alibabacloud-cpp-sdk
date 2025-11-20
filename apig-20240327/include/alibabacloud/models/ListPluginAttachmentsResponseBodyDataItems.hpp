@@ -125,14 +125,28 @@ namespace Models
 
 
   protected:
+    // The types of resource attachments.
+    // - HttpApi
+    // - Operation
+    // - GatewayRoute
+    // - GatewayDomain
+    // - Gateway
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // Indicates if enabled.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The environment metadata.
     std::shared_ptr<Models::EnvironmentInfo> environmentInfo_ = nullptr;
+    // The parent resource metadata.
     std::shared_ptr<Models::ParentResourceInfo> parentResourceInfo_ = nullptr;
+    // The ID of the resource attachment.
     std::shared_ptr<string> pluginAttachmentId_ = nullptr;
+    // The plug-in type metadata.
     std::shared_ptr<Models::PluginClassInfo> pluginClassInfo_ = nullptr;
+    // The plug-in configurations (Base64-encoded).
     std::shared_ptr<string> pluginConfig_ = nullptr;
+    // The plug-in ID.
     std::shared_ptr<string> pluginId_ = nullptr;
+    // The information of resource attachments.
     std::shared_ptr<vector<Models::ResourceInfo>> resourceInfos_ = nullptr;
   };
 

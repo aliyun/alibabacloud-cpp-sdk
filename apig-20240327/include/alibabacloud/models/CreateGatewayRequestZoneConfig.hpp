@@ -61,8 +61,16 @@ namespace Models
 
 
   protected:
+    // The option for selecting the zone.
+    // 
+    // Valid values:
+    // 
+    // *   Auto
+    // *   Manual
     std::shared_ptr<string> selectOption_ = nullptr;
+    // The ID of the vSwitch.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    // The supported zones.
     std::shared_ptr<vector<Models::CreateGatewayRequestZoneConfigZones>> zones_ = nullptr;
   };
 

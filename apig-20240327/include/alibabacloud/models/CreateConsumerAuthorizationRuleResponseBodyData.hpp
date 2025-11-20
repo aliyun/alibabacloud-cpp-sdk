@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Filters the list of operations based on a specific consumer authorization rule ID. Only authorized operations are returned in the response.
     std::shared_ptr<string> consumerAuthorizationRuleId_ = nullptr;
   };
 

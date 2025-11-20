@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The status code returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The response message returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID, which is used to trace the call link.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

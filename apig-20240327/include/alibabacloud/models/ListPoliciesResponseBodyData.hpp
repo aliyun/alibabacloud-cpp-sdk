@@ -70,9 +70,13 @@ namespace Models
 
 
   protected:
+    // The list of policies.
     std::shared_ptr<vector<Models::PolicyInfo>> items_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The page size.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalSize_ = nullptr;
   };
 

@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The service port (omit for dynamic ports).
     std::shared_ptr<int32_t> port_ = nullptr;
+    // The service protocol. Valid values:
+    // 
+    // *   TCP
+    // *   HTTP
+    // *   DUBBO
     std::shared_ptr<string> protocol_ = nullptr;
+    // The service ID.
     std::shared_ptr<string> serviceId_ = nullptr;
+    // The service version.
     std::shared_ptr<string> version_ = nullptr;
+    // The traffic weight percentage.
     std::shared_ptr<int32_t> weight_ = nullptr;
   };
 

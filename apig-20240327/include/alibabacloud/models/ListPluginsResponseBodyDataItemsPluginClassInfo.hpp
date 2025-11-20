@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The alias.
     std::shared_ptr<string> alias_ = nullptr;
+    // The execution priority.
     std::shared_ptr<string> executePriority_ = nullptr;
+    // The execution stage.
     std::shared_ptr<string> executeStage_ = nullptr;
+    // The name of the plug-in.
     std::shared_ptr<string> name_ = nullptr;
+    // The plug-in type ID.
     std::shared_ptr<string> pluginClassId_ = nullptr;
+    // The source of the plug-in.
     std::shared_ptr<string> source_ = nullptr;
+    // The version.
     std::shared_ptr<string> version_ = nullptr;
+    // The description of the version.
     std::shared_ptr<string> versionDescription_ = nullptr;
   };
 

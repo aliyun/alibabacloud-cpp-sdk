@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The consumer ID.
     std::shared_ptr<string> consumerId_ = nullptr;
   };
 

@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The resource attachment ID.
     std::shared_ptr<string> attachResourceId_ = nullptr;
+    // The resource attachment type (not yet in use).
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // The resource attachment types, separated by commas.
     std::shared_ptr<string> attachResourceTypes_ = nullptr;
+    // The environment ID.
     std::shared_ptr<string> environmentId_ = nullptr;
+    // The gateway ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The page number to return. Pages start from 1. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The plug-in ID.
     std::shared_ptr<string> pluginId_ = nullptr;
+    // Specifies whether to return parent resource attachments.
     std::shared_ptr<bool> withParentResource_ = nullptr;
   };
 

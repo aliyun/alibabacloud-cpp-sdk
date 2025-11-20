@@ -133,16 +133,28 @@ namespace Models
 
 
   protected:
+    // The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
     std::shared_ptr<vector<UpdateMcpServerRequestAssembledSources>> assembledSources_ = nullptr;
+    // The backend service configurations for the route.
     std::shared_ptr<UpdateMcpServerRequestBackendConfig> backendConfig_ = nullptr;
+    // Specifies the type of source for MCP server creation.
     std::shared_ptr<string> createFromType_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // The domain IDs.
     std::shared_ptr<vector<string>> domainIds_ = nullptr;
+    // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
     std::shared_ptr<string> exposedUriPath_ = nullptr;
+    // The route match rule.
     std::shared_ptr<HttpRouteMatch> match_ = nullptr;
+    // Specifies if MCP observability is enabled. Default value: false.
     std::shared_ptr<bool> mcpStatisticsEnable_ = nullptr;
+    // The service protocol. Valid values: HTTP, HTTPS, SSE, and StreamableHTTP.
+    // 
     // This parameter is required.
     std::shared_ptr<string> protocol_ = nullptr;
+    // The MCP server type. Valid values: RealMCP and AssemblyMCP.
+    // 
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
   };

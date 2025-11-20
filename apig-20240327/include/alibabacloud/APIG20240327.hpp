@@ -75,7 +75,7 @@ namespace APIG20240327
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary CreateAndAttachPolicy
+       * @summary Creates and associates a policy.
        *
        * @param request CreateAndAttachPolicyRequest
        * @param headers map
@@ -85,7 +85,7 @@ namespace APIG20240327
       Models::CreateAndAttachPolicyResponse createAndAttachPolicyWithOptions(const Models::CreateAndAttachPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateAndAttachPolicy
+       * @summary Creates and associates a policy.
        *
        * @param request CreateAndAttachPolicyRequest
        * @return CreateAndAttachPolicyResponse
@@ -93,7 +93,7 @@ namespace APIG20240327
       Models::CreateAndAttachPolicyResponse createAndAttachPolicy(const Models::CreateAndAttachPolicyRequest &request);
 
       /**
-       * @summary 创建消费者
+       * @summary Creates a consumer.
        *
        * @param request CreateConsumerRequest
        * @param headers map
@@ -103,7 +103,7 @@ namespace APIG20240327
       Models::CreateConsumerResponse createConsumerWithOptions(const Models::CreateConsumerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建消费者
+       * @summary Creates a consumer.
        *
        * @param request CreateConsumerRequest
        * @return CreateConsumerResponse
@@ -111,7 +111,7 @@ namespace APIG20240327
       Models::CreateConsumerResponse createConsumer(const Models::CreateConsumerRequest &request);
 
       /**
-       * @summary 创建消费者授权规则
+       * @summary Creates a consumer authorization rule.
        *
        * @param request CreateConsumerAuthorizationRuleRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRuleResponse createConsumerAuthorizationRuleWithOptions(const string &consumerId, const Models::CreateConsumerAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建消费者授权规则
+       * @summary Creates a consumer authorization rule.
        *
        * @param request CreateConsumerAuthorizationRuleRequest
        * @return CreateConsumerAuthorizationRuleResponse
@@ -195,7 +195,7 @@ namespace APIG20240327
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
-       * @summary 创建云原生网关
+       * @summary Creates a cloud-native gateway.
        *
        * @param request CreateGatewayRequest
        * @param headers map
@@ -205,7 +205,7 @@ namespace APIG20240327
       Models::CreateGatewayResponse createGatewayWithOptions(const Models::CreateGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建云原生网关
+       * @summary Creates a cloud-native gateway.
        *
        * @param request CreateGatewayRequest
        * @return CreateGatewayResponse
@@ -267,7 +267,7 @@ namespace APIG20240327
       Models::CreateHttpApiRouteResponse createHttpApiRoute(const string &httpApiId, const Models::CreateHttpApiRouteRequest &request);
 
       /**
-       * @summary 创建MCP server
+       * @summary Creates an MCP server.
        *
        * @param request CreateMcpServerRequest
        * @param headers map
@@ -277,7 +277,7 @@ namespace APIG20240327
       Models::CreateMcpServerResponse createMcpServerWithOptions(const Models::CreateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建MCP server
+       * @summary Creates an MCP server.
        *
        * @param request CreateMcpServerRequest
        * @return CreateMcpServerResponse
@@ -285,7 +285,7 @@ namespace APIG20240327
       Models::CreateMcpServerResponse createMcpServer(const Models::CreateMcpServerRequest &request);
 
       /**
-       * @summary 创建API
+       * @summary Attaches a plug-in.
        *
        * @param request CreatePluginAttachmentRequest
        * @param headers map
@@ -295,7 +295,7 @@ namespace APIG20240327
       Models::CreatePluginAttachmentResponse createPluginAttachmentWithOptions(const Models::CreatePluginAttachmentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建API
+       * @summary Attaches a plug-in.
        *
        * @param request CreatePluginAttachmentRequest
        * @return CreatePluginAttachmentResponse
@@ -361,7 +361,7 @@ namespace APIG20240327
       Models::CreateServiceResponse createService(const Models::CreateServiceRequest &request);
 
       /**
-       * @summary 删除消费者
+       * @summary Deletes a consumer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,14 +370,14 @@ namespace APIG20240327
       Models::DeleteConsumerResponse deleteConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除消费者
+       * @summary Deletes a consumer.
        *
        * @return DeleteConsumerResponse
        */
       Models::DeleteConsumerResponse deleteConsumer(const string &consumerId);
 
       /**
-       * @summary 删除消费者授权规则
+       * @summary Deletes a consumer authorization rule.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -386,7 +386,7 @@ namespace APIG20240327
       Models::DeleteConsumerAuthorizationRuleResponse deleteConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除消费者授权规则
+       * @summary Deletes a consumer authorization rule.
        *
        * @return DeleteConsumerAuthorizationRuleResponse
        */
@@ -527,7 +527,7 @@ namespace APIG20240327
       Models::DeleteMcpServerResponse deleteMcpServer(const string &mcpServerId);
 
       /**
-       * @summary 删除挂载规则API
+       * @summary Deletes a plug-in attachment.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -536,7 +536,7 @@ namespace APIG20240327
       Models::DeletePluginAttachmentResponse deletePluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除挂载规则API
+       * @summary Deletes a plug-in attachment.
        *
        * @return DeletePluginAttachmentResponse
        */
@@ -575,7 +575,7 @@ namespace APIG20240327
       Models::DeletePolicyAttachmentResponse deletePolicyAttachment(const string &policyAttachmentId);
 
       /**
-       * @summary 删除服务
+       * @summary Deletes a service.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,7 +584,7 @@ namespace APIG20240327
       Models::DeleteServiceResponse deleteServiceWithOptions(const string &serviceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除服务
+       * @summary Deletes a service.
        *
        * @return DeleteServiceResponse
        */
@@ -609,7 +609,7 @@ namespace APIG20240327
       Models::DeployHttpApiResponse deployHttpApi(const string &httpApiId, const Models::DeployHttpApiRequest &request);
 
       /**
-       * @summary 发布MCP server
+       * @summary Deploys an MCP server.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,7 +618,7 @@ namespace APIG20240327
       Models::DeployMcpServerResponse deployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布MCP server
+       * @summary Deploys an MCP server.
        *
        * @return DeployMcpServerResponse
        */
@@ -641,7 +641,7 @@ namespace APIG20240327
       Models::ExportHttpApiResponse exportHttpApi(const string &httpApiId);
 
       /**
-       * @summary 查询消费者
+       * @summary Obtains the information of a consumer.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -650,14 +650,14 @@ namespace APIG20240327
       Models::GetConsumerResponse getConsumerWithOptions(const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者
+       * @summary Obtains the information of a consumer.
        *
        * @return GetConsumerResponse
        */
       Models::GetConsumerResponse getConsumer(const string &consumerId);
 
       /**
-       * @summary 查询消费者授权规则
+       * @summary Obtains a consumer authentication rule.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -666,7 +666,7 @@ namespace APIG20240327
       Models::GetConsumerAuthorizationRuleResponse getConsumerAuthorizationRuleWithOptions(const string &consumerAuthorizationRuleId, const string &consumerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者授权规则
+       * @summary Obtains a consumer authentication rule.
        *
        * @return GetConsumerAuthorizationRuleResponse
        */
@@ -795,7 +795,9 @@ namespace APIG20240327
       Models::GetHttpApiRouteResponse getHttpApiRoute(const string &httpApiId, const string &routeId);
 
       /**
-       * @summary 获取MCP server
+       * @summary Queries the detailed information of an MCP server.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -804,14 +806,16 @@ namespace APIG20240327
       Models::GetMcpServerResponse getMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MCP server
+       * @summary Queries the detailed information of an MCP server.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @return GetMcpServerResponse
        */
       Models::GetMcpServerResponse getMcpServer(const string &mcpServerId);
 
       /**
-       * @summary GetPluginAttachment。
+       * @summary Queries a plug-in attachment.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -820,7 +824,7 @@ namespace APIG20240327
       Models::GetPluginAttachmentResponse getPluginAttachmentWithOptions(const string &pluginAttachmentId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetPluginAttachment。
+       * @summary Queries a plug-in attachment.
        *
        * @return GetPluginAttachmentResponse
        */
@@ -929,7 +933,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApi(const Models::ImportHttpApiRequest &request);
 
       /**
-       * @summary InstallPlugin
+       * @summary Installs a plug-in.
        *
        * @param request InstallPluginRequest
        * @param headers map
@@ -939,7 +943,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPluginWithOptions(const Models::InstallPluginRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary InstallPlugin
+       * @summary Installs a plug-in.
        *
        * @param request InstallPluginRequest
        * @return InstallPluginResponse
@@ -947,7 +951,7 @@ namespace APIG20240327
       Models::InstallPluginResponse installPlugin(const Models::InstallPluginRequest &request);
 
       /**
-       * @summary 查询消费者列表
+       * @summary Queries a list of consumers.
        *
        * @param request ListConsumersRequest
        * @param headers map
@@ -957,7 +961,7 @@ namespace APIG20240327
       Models::ListConsumersResponse listConsumersWithOptions(const Models::ListConsumersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询消费者列表
+       * @summary Queries a list of consumers.
        *
        * @param request ListConsumersRequest
        * @return ListConsumersResponse
@@ -1003,6 +1007,22 @@ namespace APIG20240327
        * @return ListEnvironmentsResponse
        */
       Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
+
+      /**
+       * @summary 获取Gateway的Features
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayFeaturesResponse
+       */
+      Models::ListGatewayFeaturesResponse listGatewayFeaturesWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Gateway的Features
+       *
+       * @return ListGatewayFeaturesResponse
+       */
+      Models::ListGatewayFeaturesResponse listGatewayFeatures(const string &gatewayId);
 
       /**
        * @summary Queries a list of instances.
@@ -1077,7 +1097,9 @@ namespace APIG20240327
       Models::ListHttpApisResponse listHttpApis(const Models::ListHttpApisRequest &request);
 
       /**
-       * @summary 获取MCP server列表
+       * @summary Retrieves a list of MCP servers.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListMcpServersRequest
        * @param headers map
@@ -1087,7 +1109,9 @@ namespace APIG20240327
       Models::ListMcpServersResponse listMcpServersWithOptions(const Models::ListMcpServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MCP server列表
+       * @summary Retrieves a list of MCP servers.
+       *
+       * @description You can call this operation to create multiple services at a time.
        *
        * @param request ListMcpServersRequest
        * @return ListMcpServersResponse
@@ -1095,7 +1119,7 @@ namespace APIG20240327
       Models::ListMcpServersResponse listMcpServers(const Models::ListMcpServersRequest &request);
 
       /**
-       * @summary 获取挂载列表
+       * @summary Retrieves a list of plug-in attachments.
        *
        * @param request ListPluginAttachmentsRequest
        * @param headers map
@@ -1105,7 +1129,7 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachmentsWithOptions(const Models::ListPluginAttachmentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取挂载列表
+       * @summary Retrieves a list of plug-in attachments.
        *
        * @param request ListPluginAttachmentsRequest
        * @return ListPluginAttachmentsResponse
@@ -1113,7 +1137,7 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachments(const Models::ListPluginAttachmentsRequest &request);
 
       /**
-       * @summary ListPlugins
+       * @summary Queries plug-ins.
        *
        * @param request ListPluginsRequest
        * @param headers map
@@ -1123,7 +1147,7 @@ namespace APIG20240327
       Models::ListPluginsResponse listPluginsWithOptions(const Models::ListPluginsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListPlugins
+       * @summary Queries plug-ins.
        *
        * @param request ListPluginsRequest
        * @return ListPluginsResponse
@@ -1131,7 +1155,7 @@ namespace APIG20240327
       Models::ListPluginsResponse listPlugins(const Models::ListPluginsRequest &request);
 
       /**
-       * @summary ListPolicies
+       * @summary Queries policies.
        *
        * @param request ListPoliciesRequest
        * @param headers map
@@ -1141,7 +1165,7 @@ namespace APIG20240327
       Models::ListPoliciesResponse listPoliciesWithOptions(const Models::ListPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListPolicies
+       * @summary Queries policies.
        *
        * @param request ListPoliciesRequest
        * @return ListPoliciesResponse
@@ -1269,7 +1293,7 @@ namespace APIG20240327
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
 
       /**
-       * @summary 取消发布MCP server
+       * @summary Undeploys an MCP server.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1278,7 +1302,7 @@ namespace APIG20240327
       Models::UnDeployMcpServerResponse unDeployMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消发布MCP server
+       * @summary Undeploys an MCP server.
        *
        * @return UnDeployMcpServerResponse
        */
@@ -1303,7 +1327,7 @@ namespace APIG20240327
       Models::UndeployHttpApiResponse undeployHttpApi(const string &httpApiId, const Models::UndeployHttpApiRequest &request);
 
       /**
-       * @summary UninstallPlugin
+       * @summary Uninstalls a plug-in.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1312,14 +1336,14 @@ namespace APIG20240327
       Models::UninstallPluginResponse uninstallPluginWithOptions(const string &pluginId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UninstallPlugin
+       * @summary Uninstalls a plug-in.
        *
        * @return UninstallPluginResponse
        */
       Models::UninstallPluginResponse uninstallPlugin(const string &pluginId);
 
       /**
-       * @summary UpdateAndAttachPolicy
+       * @summary Updates and associates a policy.
        *
        * @param request UpdateAndAttachPolicyRequest
        * @param headers map
@@ -1329,7 +1353,7 @@ namespace APIG20240327
       Models::UpdateAndAttachPolicyResponse updateAndAttachPolicyWithOptions(const string &policyId, const Models::UpdateAndAttachPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpdateAndAttachPolicy
+       * @summary Updates and associates a policy.
        *
        * @param request UpdateAndAttachPolicyRequest
        * @return UpdateAndAttachPolicyResponse
@@ -1337,7 +1361,7 @@ namespace APIG20240327
       Models::UpdateAndAttachPolicyResponse updateAndAttachPolicy(const string &policyId, const Models::UpdateAndAttachPolicyRequest &request);
 
       /**
-       * @summary 更新消费者
+       * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
        * @param headers map
@@ -1347,7 +1371,7 @@ namespace APIG20240327
       Models::UpdateConsumerResponse updateConsumerWithOptions(const string &consumerId, const Models::UpdateConsumerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新消费者
+       * @summary Updates a consumer.
        *
        * @param request UpdateConsumerRequest
        * @return UpdateConsumerResponse
@@ -1355,7 +1379,7 @@ namespace APIG20240327
       Models::UpdateConsumerResponse updateConsumer(const string &consumerId, const Models::UpdateConsumerRequest &request);
 
       /**
-       * @summary 更新消费者授权规则
+       * @summary Updates a consumer authorization rule.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @param headers map
@@ -1365,7 +1389,7 @@ namespace APIG20240327
       Models::UpdateConsumerAuthorizationRuleResponse updateConsumerAuthorizationRuleWithOptions(const string &consumerId, const string &consumerAuthorizationRuleId, const Models::UpdateConsumerAuthorizationRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新消费者授权规则
+       * @summary Updates a consumer authorization rule.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @return UpdateConsumerAuthorizationRuleResponse
@@ -1503,7 +1527,9 @@ namespace APIG20240327
       Models::UpdateHttpApiRouteResponse updateHttpApiRoute(const string &httpApiId, const string &routeId, const Models::UpdateHttpApiRouteRequest &request);
 
       /**
-       * @summary 更新MCP server
+       * @summary Updates an MCP server.
+       *
+       * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
        *
        * @param request UpdateMcpServerRequest
        * @param headers map
@@ -1513,7 +1539,9 @@ namespace APIG20240327
       Models::UpdateMcpServerResponse updateMcpServerWithOptions(const string &mcpServerId, const Models::UpdateMcpServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新MCP server
+       * @summary Updates an MCP server.
+       *
+       * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
        *
        * @param request UpdateMcpServerRequest
        * @return UpdateMcpServerResponse
@@ -1521,7 +1549,7 @@ namespace APIG20240327
       Models::UpdateMcpServerResponse updateMcpServer(const string &mcpServerId, const Models::UpdateMcpServerRequest &request);
 
       /**
-       * @summary 更新挂载规则API
+       * @summary Updates a plug-in attachment.
        *
        * @param request UpdatePluginAttachmentRequest
        * @param headers map
@@ -1531,7 +1559,7 @@ namespace APIG20240327
       Models::UpdatePluginAttachmentResponse updatePluginAttachmentWithOptions(const string &pluginAttachmentId, const Models::UpdatePluginAttachmentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新挂载规则API
+       * @summary Updates a plug-in attachment.
        *
        * @param request UpdatePluginAttachmentRequest
        * @return UpdatePluginAttachmentResponse

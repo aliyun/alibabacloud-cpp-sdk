@@ -158,19 +158,31 @@ namespace Models
 
 
   protected:
+    // The API information.
     std::shared_ptr<HttpApiApiInfo> apiInfo_ = nullptr;
+    // Filters the list of operations by a specific consumer authorization rule ID. Only authorized operations are returned in the response.
     std::shared_ptr<string> consumerAuthorizationRuleId_ = nullptr;
+    // The consumer ID.
     std::shared_ptr<string> consumerId_ = nullptr;
+    // The creation timestamp. Unit: milliseconds.
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
+    // The publishing status of the API in the current environment.
     std::shared_ptr<string> deployStatus_ = nullptr;
+    // The environment information.
     std::shared_ptr<EnvironmentInfo> environmentInfo_ = nullptr;
+    // The expiry mode. Valid values: LongTerm and ShortTerm.
     std::shared_ptr<string> expireMode_ = nullptr;
+    // The rule status.
     std::shared_ptr<string> expireStatus_ = nullptr;
+    // The expiration time.
     std::shared_ptr<int64_t> expireTimestamp_ = nullptr;
+    // The gateway information.
     std::shared_ptr<GatewayInfo> gatewayInfo_ = nullptr;
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The resource type.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The update timestamp. Unit: milliseconds.
     std::shared_ptr<int64_t> updateTimestamp_ = nullptr;
   };
 

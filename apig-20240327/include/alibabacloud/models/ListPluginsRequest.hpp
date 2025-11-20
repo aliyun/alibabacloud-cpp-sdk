@@ -121,15 +121,33 @@ namespace Models
 
 
   protected:
+    // The resource attachment ID.
     std::shared_ptr<string> attachResourceId_ = nullptr;
+    // The resource attachment type.
+    // 
+    // - HttpApi: HttpApi.
+    // - Operation: Operation of HttpApi.
+    // - GatewayRoute: Gateway route.
+    // - GatewayService: Gateway service.
+    // - GatewayServicePort: Gateway service port.
+    // - Domain: Gateway domain.
+    // - Gateway: Gateway.
     std::shared_ptr<string> attachResourceType_ = nullptr;
+    // The gateway instance ID for filtering.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The instance type. Valid values: **AI** and **API**.
     std::shared_ptr<string> gatewayType_ = nullptr;
+    // Specifies whether to include built-in AI plug-ins in the returned results. Default: false.
     std::shared_ptr<bool> includeBuiltinAiGateway_ = nullptr;
+    // The page number to return. Pages start from 1. Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The plug-in type ID for filtering.
     std::shared_ptr<string> pluginClassId_ = nullptr;
+    // The plug-in type name for filtering.
     std::shared_ptr<string> pluginClassName_ = nullptr;
+    // Specifies whether the returned results should include plug-in attachment information corresponding to the attachResourceId.
     std::shared_ptr<bool> withAttachmentInfo_ = nullptr;
   };
 

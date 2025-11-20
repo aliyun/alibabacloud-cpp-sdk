@@ -38,6 +38,13 @@ namespace Models
 
 
   protected:
+    // The network access type.
+    // 
+    // Valid values:
+    // 
+    // *   InternetAndIntranet
+    // *   Intranet
+    // *   Internet
     std::shared_ptr<string> type_ = nullptr;
   };
 

@@ -75,9 +75,13 @@ namespace Models
 
 
   protected:
+    // The attachment information.
     std::shared_ptr<Models::ListPluginsResponseBodyDataItemsAttachmentInfo> attachmentInfo_ = nullptr;
+    // The gateway instance information.
     std::shared_ptr<Models::ListPluginsResponseBodyDataItemsGatewayInfo> gatewayInfo_ = nullptr;
+    // The plug-in type information.
     std::shared_ptr<Models::ListPluginsResponseBodyDataItemsPluginClassInfo> pluginClassInfo_ = nullptr;
+    // The plug-in ID.
     std::shared_ptr<string> pluginId_ = nullptr;
   };
 

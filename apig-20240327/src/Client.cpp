@@ -192,7 +192,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary CreateAndAttachPolicy
+ * @summary Creates and associates a policy.
  *
  * @param request CreateAndAttachPolicyRequest
  * @param headers map
@@ -253,7 +253,7 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicyWithOptions(const Cre
 }
 
 /**
- * @summary CreateAndAttachPolicy
+ * @summary Creates and associates a policy.
  *
  * @param request CreateAndAttachPolicyRequest
  * @return CreateAndAttachPolicyResponse
@@ -265,7 +265,7 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicy(const CreateAndAttac
 }
 
 /**
- * @summary 创建消费者
+ * @summary Creates a consumer.
  *
  * @param request CreateConsumerRequest
  * @param headers map
@@ -322,7 +322,7 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
 }
 
 /**
- * @summary 创建消费者
+ * @summary Creates a consumer.
  *
  * @param request CreateConsumerRequest
  * @return CreateConsumerResponse
@@ -334,7 +334,7 @@ CreateConsumerResponse Client::createConsumer(const CreateConsumerRequest &reque
 }
 
 /**
- * @summary 创建消费者授权规则
+ * @summary Creates a consumer authorization rule.
  *
  * @param request CreateConsumerAuthorizationRuleRequest
  * @param headers map
@@ -383,7 +383,7 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRuleW
 }
 
 /**
- * @summary 创建消费者授权规则
+ * @summary Creates a consumer authorization rule.
  *
  * @param request CreateConsumerAuthorizationRuleRequest
  * @return CreateConsumerAuthorizationRuleResponse
@@ -606,7 +606,7 @@ CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentReque
 }
 
 /**
- * @summary 创建云原生网关
+ * @summary Creates a cloud-native gateway.
  *
  * @param request CreateGatewayRequest
  * @param headers map
@@ -679,7 +679,7 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
 }
 
 /**
- * @summary 创建云原生网关
+ * @summary Creates a cloud-native gateway.
  *
  * @param request CreateGatewayRequest
  * @return CreateGatewayResponse
@@ -914,7 +914,7 @@ CreateHttpApiRouteResponse Client::createHttpApiRoute(const string &httpApiId, c
 }
 
 /**
- * @summary 创建MCP server
+ * @summary Creates an MCP server.
  *
  * @param request CreateMcpServerRequest
  * @param headers map
@@ -991,7 +991,7 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
 }
 
 /**
- * @summary 创建MCP server
+ * @summary Creates an MCP server.
  *
  * @param request CreateMcpServerRequest
  * @return CreateMcpServerResponse
@@ -1003,7 +1003,7 @@ CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &re
 }
 
 /**
- * @summary 创建API
+ * @summary Attaches a plug-in.
  *
  * @param request CreatePluginAttachmentRequest
  * @param headers map
@@ -1060,7 +1060,7 @@ CreatePluginAttachmentResponse Client::createPluginAttachmentWithOptions(const C
 }
 
 /**
- * @summary 创建API
+ * @summary Attaches a plug-in.
  *
  * @param request CreatePluginAttachmentRequest
  * @return CreatePluginAttachmentResponse
@@ -1251,7 +1251,7 @@ CreateServiceResponse Client::createService(const CreateServiceRequest &request)
 }
 
 /**
- * @summary 删除消费者
+ * @summary Deletes a consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1276,7 +1276,7 @@ DeleteConsumerResponse Client::deleteConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary 删除消费者
+ * @summary Deletes a consumer.
  *
  * @return DeleteConsumerResponse
  */
@@ -1287,7 +1287,7 @@ DeleteConsumerResponse Client::deleteConsumer(const string &consumerId) {
 }
 
 /**
- * @summary 删除消费者授权规则
+ * @summary Deletes a consumer authorization rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1312,7 +1312,7 @@ DeleteConsumerAuthorizationRuleResponse Client::deleteConsumerAuthorizationRuleW
 }
 
 /**
- * @summary 删除消费者授权规则
+ * @summary Deletes a consumer authorization rule.
  *
  * @return DeleteConsumerAuthorizationRuleResponse
  */
@@ -1624,7 +1624,7 @@ DeleteMcpServerResponse Client::deleteMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary 删除挂载规则API
+ * @summary Deletes a plug-in attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1649,7 +1649,7 @@ DeletePluginAttachmentResponse Client::deletePluginAttachmentWithOptions(const s
 }
 
 /**
- * @summary 删除挂载规则API
+ * @summary Deletes a plug-in attachment.
  *
  * @return DeletePluginAttachmentResponse
  */
@@ -1732,7 +1732,7 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
 }
 
 /**
- * @summary 删除服务
+ * @summary Deletes a service.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1757,7 +1757,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const string &serviceId, 
 }
 
 /**
- * @summary 删除服务
+ * @summary Deletes a service.
  *
  * @return DeleteServiceResponse
  */
@@ -1821,7 +1821,7 @@ DeployHttpApiResponse Client::deployHttpApi(const string &httpApiId, const Deplo
 }
 
 /**
- * @summary 发布MCP server
+ * @summary Deploys an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1846,7 +1846,7 @@ DeployMcpServerResponse Client::deployMcpServerWithOptions(const string &mcpServ
 }
 
 /**
- * @summary 发布MCP server
+ * @summary Deploys an MCP server.
  *
  * @return DeployMcpServerResponse
  */
@@ -1893,7 +1893,7 @@ ExportHttpApiResponse Client::exportHttpApi(const string &httpApiId) {
 }
 
 /**
- * @summary 查询消费者
+ * @summary Obtains the information of a consumer.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1918,7 +1918,7 @@ GetConsumerResponse Client::getConsumerWithOptions(const string &consumerId, con
 }
 
 /**
- * @summary 查询消费者
+ * @summary Obtains the information of a consumer.
  *
  * @return GetConsumerResponse
  */
@@ -1929,7 +1929,7 @@ GetConsumerResponse Client::getConsumer(const string &consumerId) {
 }
 
 /**
- * @summary 查询消费者授权规则
+ * @summary Obtains a consumer authentication rule.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1954,7 +1954,7 @@ GetConsumerAuthorizationRuleResponse Client::getConsumerAuthorizationRuleWithOpt
 }
 
 /**
- * @summary 查询消费者授权规则
+ * @summary Obtains a consumer authentication rule.
  *
  * @return GetConsumerAuthorizationRuleResponse
  */
@@ -2290,7 +2290,9 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
- * @summary 获取MCP server
+ * @summary Queries the detailed information of an MCP server.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2315,7 +2317,9 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 }
 
 /**
- * @summary 获取MCP server
+ * @summary Queries the detailed information of an MCP server.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @return GetMcpServerResponse
  */
@@ -2326,7 +2330,7 @@ GetMcpServerResponse Client::getMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary GetPluginAttachment。
+ * @summary Queries a plug-in attachment.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2351,7 +2355,7 @@ GetPluginAttachmentResponse Client::getPluginAttachmentWithOptions(const string 
 }
 
 /**
- * @summary GetPluginAttachment。
+ * @summary Queries a plug-in attachment.
  *
  * @return GetPluginAttachmentResponse
  */
@@ -2653,7 +2657,7 @@ ImportHttpApiResponse Client::importHttpApi(const ImportHttpApiRequest &request)
 }
 
 /**
- * @summary InstallPlugin
+ * @summary Installs a plug-in.
  *
  * @param request InstallPluginRequest
  * @param headers map
@@ -2690,7 +2694,7 @@ InstallPluginResponse Client::installPluginWithOptions(const InstallPluginReques
 }
 
 /**
- * @summary InstallPlugin
+ * @summary Installs a plug-in.
  *
  * @param request InstallPluginRequest
  * @return InstallPluginResponse
@@ -2702,7 +2706,7 @@ InstallPluginResponse Client::installPlugin(const InstallPluginRequest &request)
 }
 
 /**
- * @summary 查询消费者列表
+ * @summary Queries a list of consumers.
  *
  * @param request ListConsumersRequest
  * @param headers map
@@ -2747,7 +2751,7 @@ ListConsumersResponse Client::listConsumersWithOptions(const ListConsumersReques
 }
 
 /**
- * @summary 查询消费者列表
+ * @summary Queries a list of consumers.
  *
  * @param request ListConsumersRequest
  * @return ListConsumersResponse
@@ -2898,6 +2902,42 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listEnvironmentsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取Gateway的Features
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayFeaturesResponse
+ */
+ListGatewayFeaturesResponse Client::listGatewayFeaturesWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayFeatures"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/gateway-features")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayFeaturesResponse>();
+}
+
+/**
+ * @summary 获取Gateway的Features
+ *
+ * @return ListGatewayFeaturesResponse
+ */
+ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
 }
 
 /**
@@ -3279,7 +3319,9 @@ ListHttpApisResponse Client::listHttpApis(const ListHttpApisRequest &request) {
 }
 
 /**
- * @summary 获取MCP server列表
+ * @summary Retrieves a list of MCP servers.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListMcpServersRequest
  * @param headers map
@@ -3336,7 +3378,9 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
 }
 
 /**
- * @summary 获取MCP server列表
+ * @summary Retrieves a list of MCP servers.
+ *
+ * @description You can call this operation to create multiple services at a time.
  *
  * @param request ListMcpServersRequest
  * @return ListMcpServersResponse
@@ -3348,7 +3392,7 @@ ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &reque
 }
 
 /**
- * @summary 获取挂载列表
+ * @summary Retrieves a list of plug-in attachments.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -3413,7 +3457,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary 获取挂载列表
+ * @summary Retrieves a list of plug-in attachments.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -3425,7 +3469,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachments(const ListPluginAtta
 }
 
 /**
- * @summary ListPlugins
+ * @summary Queries plug-ins.
  *
  * @param request ListPluginsRequest
  * @param headers map
@@ -3494,7 +3538,7 @@ ListPluginsResponse Client::listPluginsWithOptions(const ListPluginsRequest &req
 }
 
 /**
- * @summary ListPlugins
+ * @summary Queries plug-ins.
  *
  * @param request ListPluginsRequest
  * @return ListPluginsResponse
@@ -3506,7 +3550,7 @@ ListPluginsResponse Client::listPlugins(const ListPluginsRequest &request) {
 }
 
 /**
- * @summary ListPolicies
+ * @summary Queries policies.
  *
  * @param request ListPoliciesRequest
  * @param headers map
@@ -3559,7 +3603,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary ListPolicies
+ * @summary Queries policies.
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -3959,7 +4003,7 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
 }
 
 /**
- * @summary 取消发布MCP server
+ * @summary Undeploys an MCP server.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3984,7 +4028,7 @@ UnDeployMcpServerResponse Client::unDeployMcpServerWithOptions(const string &mcp
 }
 
 /**
- * @summary 取消发布MCP server
+ * @summary Undeploys an MCP server.
  *
  * @return UnDeployMcpServerResponse
  */
@@ -4052,7 +4096,7 @@ UndeployHttpApiResponse Client::undeployHttpApi(const string &httpApiId, const U
 }
 
 /**
- * @summary UninstallPlugin
+ * @summary Uninstalls a plug-in.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4077,7 +4121,7 @@ UninstallPluginResponse Client::uninstallPluginWithOptions(const string &pluginI
 }
 
 /**
- * @summary UninstallPlugin
+ * @summary Uninstalls a plug-in.
  *
  * @return UninstallPluginResponse
  */
@@ -4088,7 +4132,7 @@ UninstallPluginResponse Client::uninstallPlugin(const string &pluginId) {
 }
 
 /**
- * @summary UpdateAndAttachPolicy
+ * @summary Updates and associates a policy.
  *
  * @param request UpdateAndAttachPolicyRequest
  * @param headers map
@@ -4145,7 +4189,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicyWithOptions(const str
 }
 
 /**
- * @summary UpdateAndAttachPolicy
+ * @summary Updates and associates a policy.
  *
  * @param request UpdateAndAttachPolicyRequest
  * @return UpdateAndAttachPolicyResponse
@@ -4157,7 +4201,7 @@ UpdateAndAttachPolicyResponse Client::updateAndAttachPolicy(const string &policy
 }
 
 /**
- * @summary 更新消费者
+ * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
  * @param headers map
@@ -4206,7 +4250,7 @@ UpdateConsumerResponse Client::updateConsumerWithOptions(const string &consumerI
 }
 
 /**
- * @summary 更新消费者
+ * @summary Updates a consumer.
  *
  * @param request UpdateConsumerRequest
  * @return UpdateConsumerResponse
@@ -4218,7 +4262,7 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 }
 
 /**
- * @summary 更新消费者授权规则
+ * @summary Updates a consumer authorization rule.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @param headers map
@@ -4259,7 +4303,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 }
 
 /**
- * @summary 更新消费者授权规则
+ * @summary Updates a consumer authorization rule.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @return UpdateConsumerAuthorizationRuleResponse
@@ -4706,7 +4750,9 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRoute(const string &httpApiId, c
 }
 
 /**
- * @summary 更新MCP server
+ * @summary Updates an MCP server.
+ *
+ * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
  *
  * @param request UpdateMcpServerRequest
  * @param headers map
@@ -4775,7 +4821,9 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 }
 
 /**
- * @summary 更新MCP server
+ * @summary Updates an MCP server.
+ *
+ * @description You can only update the listening Ingress configuration for sources of the **ACK** type.
  *
  * @param request UpdateMcpServerRequest
  * @return UpdateMcpServerResponse
@@ -4787,7 +4835,7 @@ UpdateMcpServerResponse Client::updateMcpServer(const string &mcpServerId, const
 }
 
 /**
- * @summary 更新挂载规则API
+ * @summary Updates a plug-in attachment.
  *
  * @param request UpdatePluginAttachmentRequest
  * @param headers map
@@ -4828,7 +4876,7 @@ UpdatePluginAttachmentResponse Client::updatePluginAttachmentWithOptions(const s
 }
 
 /**
- * @summary 更新挂载规则API
+ * @summary Updates a plug-in attachment.
  *
  * @param request UpdatePluginAttachmentRequest
  * @return UpdatePluginAttachmentResponse

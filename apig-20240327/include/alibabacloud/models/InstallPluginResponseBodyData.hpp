@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The installation result.
     std::shared_ptr<vector<Models::InstallPluginResponseBodyDataInstallPluginResults>> installPluginResults_ = nullptr;
   };
 

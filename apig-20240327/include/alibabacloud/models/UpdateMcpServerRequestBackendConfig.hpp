@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The backend service scenario.
     std::shared_ptr<string> scene_ = nullptr;
+    // The backend services.
     std::shared_ptr<vector<Models::UpdateMcpServerRequestBackendConfigServices>> services_ = nullptr;
   };
 

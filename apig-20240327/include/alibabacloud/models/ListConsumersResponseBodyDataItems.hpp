@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The consumer ID.
     std::shared_ptr<string> consumerId_ = nullptr;
+    // The creation timestamp.
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
+    // The deployment status of the API in the current environment.
     std::shared_ptr<string> deployStatus_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // Indicates if enabled.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The consumer name.
     std::shared_ptr<string> name_ = nullptr;
+    // The last update timestamp.
     std::shared_ptr<int64_t> updateTimestamp_ = nullptr;
   };
 

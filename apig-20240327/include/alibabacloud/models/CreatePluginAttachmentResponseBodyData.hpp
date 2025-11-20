@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The plug-in ID.
     std::shared_ptr<string> pluginAttachmentId_ = nullptr;
   };
 

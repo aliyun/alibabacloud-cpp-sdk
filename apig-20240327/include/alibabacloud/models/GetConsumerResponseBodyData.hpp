@@ -130,15 +130,25 @@ namespace Models
 
 
   protected:
+    // The AK/SK authentication configurations.
     std::shared_ptr<Models::AkSkIdentityConfig> akSkIdentityConfigs_ = nullptr;
+    // The API key authentication configurations.
     std::shared_ptr<Models::ApiKeyIdentityConfig> apiKeyIdentityConfig_ = nullptr;
+    // The consumer ID.
     std::shared_ptr<string> consumerId_ = nullptr;
+    // The creation timestamp.
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
+    // The publishing status of the API in the current environment.
     std::shared_ptr<string> deployStatus_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // Indicates if enabled.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The JWT authentication configurations.
     std::shared_ptr<Models::JwtIdentityConfig> jwtIdentityConfig_ = nullptr;
+    // The consumer name.
     std::shared_ptr<string> name_ = nullptr;
+    // The last update timestamp.
     std::shared_ptr<int64_t> updateTimestamp_ = nullptr;
   };
 

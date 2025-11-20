@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The IDs of the resources to which the plug-in is attached.
     std::shared_ptr<vector<string>> attachResourceIds_ = nullptr;
+    // Specifies whether to enable the plug-in.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The Base64-encoded configurations of the plug-in.
     std::shared_ptr<string> pluginConfig_ = nullptr;
   };
 
