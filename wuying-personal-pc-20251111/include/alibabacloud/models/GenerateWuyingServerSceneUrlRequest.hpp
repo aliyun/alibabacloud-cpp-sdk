@@ -13,6 +13,7 @@ namespace Models
   class GenerateWuyingServerSceneUrlRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GenerateWuyingServerSceneUrlRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_TO_JSON(ClientOS, clientOS_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
     };
     friend void from_json(const Darabonba::Json& j, GenerateWuyingServerSceneUrlRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
       DARABONBA_PTR_FROM_JSON(ClientOS, clientOS_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr && return this->endUserId_ == nullptr
-        && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr && return this->productType_ == nullptr && return this->scene_ == nullptr && return this->sessionId_ == nullptr
-        && return this->uuid_ == nullptr && return this->wuyingServerId_ == nullptr; };
+    virtual bool empty() const override { return this->apiKey_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientIp_ == nullptr && return this->clientOS_ == nullptr && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr
+        && return this->endUserId_ == nullptr && return this->loginRegionId_ == nullptr && return this->loginToken_ == nullptr && return this->productType_ == nullptr && return this->scene_ == nullptr
+        && return this->sessionId_ == nullptr && return this->uuid_ == nullptr && return this->wuyingServerId_ == nullptr; };
+    // apiKey Field Functions 
+    bool hasApiKey() const { return this->apiKey_ != nullptr;};
+    void deleteApiKey() { this->apiKey_ = nullptr;};
+    inline string apiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+    inline GenerateWuyingServerSceneUrlRequest& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -149,6 +158,8 @@ namespace Models
 
 
   protected:
+    // This parameter is required.
+    std::shared_ptr<string> apiKey_ = nullptr;
     std::shared_ptr<string> clientId_ = nullptr;
     std::shared_ptr<string> clientIp_ = nullptr;
     std::shared_ptr<string> clientOS_ = nullptr;
@@ -156,13 +167,11 @@ namespace Models
     std::shared_ptr<string> clientVersion_ = nullptr;
     std::shared_ptr<string> endUserId_ = nullptr;
     std::shared_ptr<string> loginRegionId_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> loginToken_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> scene_ = nullptr;
-    // This parameter is required.
     std::shared_ptr<string> sessionId_ = nullptr;
     std::shared_ptr<string> uuid_ = nullptr;
     // This parameter is required.

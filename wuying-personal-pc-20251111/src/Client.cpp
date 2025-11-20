@@ -625,6 +625,10 @@ DescribePackageOrdersResponse Client::describePackageOrders(const DescribePackag
 GenerateWuyingServerSceneUrlResponse Client::generateWuyingServerSceneUrlWithOptions(const GenerateWuyingServerSceneUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasApiKey()) {
+    body["ApiKey"] = request.apiKey();
+  }
+
   if (!!request.hasClientId()) {
     body["ClientId"] = request.clientId();
   }
