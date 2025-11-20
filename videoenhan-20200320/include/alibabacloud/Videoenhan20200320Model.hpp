@@ -2,14 +2,6 @@
 #ifndef ALIBABACLOUD_VIDEOENHAN20200320MODEL_HPP_
 #define ALIBABACLOUD_VIDEOENHAN20200320MODEL_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AbstractEcommerceVideoRequest.hpp>
-#include <alibabacloud/models/AbstractEcommerceVideoAdvanceRequest.hpp>
-#include <alibabacloud/models/AbstractEcommerceVideoResponseBody.hpp>
-#include <alibabacloud/models/AbstractEcommerceVideoResponse.hpp>
-#include <alibabacloud/models/AbstractFilmVideoRequest.hpp>
-#include <alibabacloud/models/AbstractFilmVideoAdvanceRequest.hpp>
-#include <alibabacloud/models/AbstractFilmVideoResponseBody.hpp>
-#include <alibabacloud/models/AbstractFilmVideoResponse.hpp>
 #include <alibabacloud/models/AddFaceVideoTemplateRequest.hpp>
 #include <alibabacloud/models/AddFaceVideoTemplateAdvanceRequest.hpp>
 #include <alibabacloud/models/AddFaceVideoTemplateResponseBody.hpp>
@@ -22,10 +14,6 @@
 #include <alibabacloud/models/ChangeVideoSizeAdvanceRequest.hpp>
 #include <alibabacloud/models/ChangeVideoSizeResponseBody.hpp>
 #include <alibabacloud/models/ChangeVideoSizeResponse.hpp>
-#include <alibabacloud/models/ConvertHdrVideoRequest.hpp>
-#include <alibabacloud/models/ConvertHdrVideoAdvanceRequest.hpp>
-#include <alibabacloud/models/ConvertHdrVideoResponseBody.hpp>
-#include <alibabacloud/models/ConvertHdrVideoResponse.hpp>
 #include <alibabacloud/models/DeleteFaceVideoTemplateRequest.hpp>
 #include <alibabacloud/models/DeleteFaceVideoTemplateResponseBody.hpp>
 #include <alibabacloud/models/DeleteFaceVideoTemplateResponse.hpp>
@@ -71,25 +59,14 @@
 #include <alibabacloud/models/QueryFaceVideoTemplateRequest.hpp>
 #include <alibabacloud/models/QueryFaceVideoTemplateResponseBody.hpp>
 #include <alibabacloud/models/QueryFaceVideoTemplateResponse.hpp>
-#include <alibabacloud/models/ReduceVideoNoiseRequest.hpp>
-#include <alibabacloud/models/ReduceVideoNoiseAdvanceRequest.hpp>
-#include <alibabacloud/models/ReduceVideoNoiseResponseBody.hpp>
-#include <alibabacloud/models/ReduceVideoNoiseResponse.hpp>
 #include <alibabacloud/models/SuperResolveVideoRequest.hpp>
 #include <alibabacloud/models/SuperResolveVideoAdvanceRequest.hpp>
 #include <alibabacloud/models/SuperResolveVideoResponseBody.hpp>
 #include <alibabacloud/models/SuperResolveVideoResponse.hpp>
-#include <alibabacloud/models/ToneSdrVideoRequest.hpp>
-#include <alibabacloud/models/ToneSdrVideoAdvanceRequest.hpp>
-#include <alibabacloud/models/ToneSdrVideoResponseBody.hpp>
-#include <alibabacloud/models/ToneSdrVideoResponse.hpp>
-#include <alibabacloud/models/AbstractEcommerceVideoResponseBodyData.hpp>
-#include <alibabacloud/models/AbstractFilmVideoResponseBodyData.hpp>
 #include <alibabacloud/models/AddFaceVideoTemplateResponseBodyDateFaceInfos.hpp>
 #include <alibabacloud/models/AddFaceVideoTemplateResponseBodyDate.hpp>
 #include <alibabacloud/models/AdjustVideoColorResponseBodyData.hpp>
 #include <alibabacloud/models/ChangeVideoSizeResponseBodyData.hpp>
-#include <alibabacloud/models/ConvertHdrVideoResponseBodyData.hpp>
 #include <alibabacloud/models/EnhancePortraitVideoResponseBodyData.hpp>
 #include <alibabacloud/models/EnhanceVideoQualityResponseBodyData.hpp>
 #include <alibabacloud/models/EraseVideoLogoRequestBoxes.hpp>
@@ -109,8 +86,6 @@
 #include <alibabacloud/models/QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos.hpp>
 #include <alibabacloud/models/QueryFaceVideoTemplateResponseBodyDataElements.hpp>
 #include <alibabacloud/models/QueryFaceVideoTemplateResponseBodyData.hpp>
-#include <alibabacloud/models/ReduceVideoNoiseResponseBodyData.hpp>
 #include <alibabacloud/models/SuperResolveVideoResponseBodyData.hpp>
-#include <alibabacloud/models/ToneSdrVideoResponseBodyData.hpp>
 
 #endif

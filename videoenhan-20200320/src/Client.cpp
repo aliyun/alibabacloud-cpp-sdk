@@ -2,12 +2,14 @@
 #include <alibabacloud/Videoenhan20200320.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <darabonba/http/Form.hpp>
+#include <darabonba/Runtime.hpp>
+#include <darabonba/policy/Retry.hpp>
+#include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
+#include <darabonba/http/Form.hpp>
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
@@ -32,43 +34,88 @@ AlibabaCloud::Videoenhan20200320::Client::Client(AlibabaCloud::OpenApi::Utils::M
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
+Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
+  Darabonba::RuntimeOptions runtime_(json({
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"retryOptions", _retryOptions},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"tlsMinVersion", _tlsMinVersion}
     }));
+
+  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
+  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
+  Darabonba::Exception _lastException;
+  int _retriesAttempted = 0;
+  Darabonba::Policy::RetryPolicyContext _context = json({
+    {"retriesAttempted" , _retriesAttempted}
+  });
+  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+    if (_retriesAttempted > 0) {
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      if (_backoffTime > 0) {
+        Darabonba::sleep(_backoffTime);
+      }
+    }
+    _retriesAttempted++;
+    try {
+      Darabonba::Http::Request request_ = Darabonba::Http::Request();
+      string boundary = Darabonba::Http::Form::getBoundary();
+      request_.setProtocol("HTTPS");
+      request_.setMethod("POST");
+      request_.setPathname(DARA_STRING_TEMPLATE("/"));
+      request_.setHeaders(json({
+        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"date" , Utils::Utils::getDateUTCString()},
+        {"user-agent" , Utils::Utils::getUserAgent("")}
+      }).get<map<string, string>>());
+      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
+      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
+      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
+      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
+      _lastResponse  = response_;
+
+      json respMap = nullptr;
+      string bodyStr = Darabonba::Stream::readAsString(response_->body());
+      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+        json err = json(respMap["Error"]);
+        throw ClientException(json({
+          {"code" , Darabonba::Convert::stringVal(err["Code"])},
+          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"data" , json({
+            {"httpCode" , response_->statusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
+            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+          })}
+        }));
+      }
+
+      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+      return Darabonba::Core::merge(respMap
+      );
+    } catch (const Darabonba::Exception& ex) {
+      _context = Darabonba::Policy::RetryPolicyContext(json({
+        {"retriesAttempted" , _retriesAttempted},
+        {"lastRequest" , _lastRequest},
+        {"lastResponse" , _lastResponse},
+        {"exception" , ex},
+      }));
+      continue;
+    }
   }
 
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
+  throw *_context.exception();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -81,270 +128,6 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
-}
-
-/**
- * @param request AbstractEcommerceVideoRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return AbstractEcommerceVideoResponse
- */
-AbstractEcommerceVideoResponse Client::abstractEcommerceVideoWithOptions(const AbstractEcommerceVideoRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasDuration()) {
-    body["Duration"] = request.duration();
-  }
-
-  if (!!request.hasHeight()) {
-    body["Height"] = request.height();
-  }
-
-  if (!!request.hasVideoUrl()) {
-    body["VideoUrl"] = request.videoUrl();
-  }
-
-  if (!!request.hasWidth()) {
-    body["Width"] = request.width();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "AbstractEcommerceVideo"},
-    {"version" , "2020-03-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<AbstractEcommerceVideoResponse>();
-}
-
-/**
- * @param request AbstractEcommerceVideoRequest
- * @return AbstractEcommerceVideoResponse
- */
-AbstractEcommerceVideoResponse Client::abstractEcommerceVideo(const AbstractEcommerceVideoRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return abstractEcommerceVideoWithOptions(request, runtime);
-}
-
-AbstractEcommerceVideoResponse Client::abstractEcommerceVideoAdvance(const AbstractEcommerceVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "videoenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  AbstractEcommerceVideoRequest abstractEcommerceVideoReq = AbstractEcommerceVideoRequest();
-  Utils::Utils::convert(request, abstractEcommerceVideoReq);
-  if (!!request.hasVideoUrlObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.videoUrlObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    abstractEcommerceVideoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  AbstractEcommerceVideoResponse abstractEcommerceVideoResp = abstractEcommerceVideoWithOptions(abstractEcommerceVideoReq, runtime);
-  return abstractEcommerceVideoResp;
-}
-
-/**
- * @param request AbstractFilmVideoRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return AbstractFilmVideoResponse
- */
-AbstractFilmVideoResponse Client::abstractFilmVideoWithOptions(const AbstractFilmVideoRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasLength()) {
-    body["Length"] = request.length();
-  }
-
-  if (!!request.hasVideoUrl()) {
-    body["VideoUrl"] = request.videoUrl();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "AbstractFilmVideo"},
-    {"version" , "2020-03-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<AbstractFilmVideoResponse>();
-}
-
-/**
- * @param request AbstractFilmVideoRequest
- * @return AbstractFilmVideoResponse
- */
-AbstractFilmVideoResponse Client::abstractFilmVideo(const AbstractFilmVideoRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return abstractFilmVideoWithOptions(request, runtime);
-}
-
-AbstractFilmVideoResponse Client::abstractFilmVideoAdvance(const AbstractFilmVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "videoenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  AbstractFilmVideoRequest abstractFilmVideoReq = AbstractFilmVideoRequest();
-  Utils::Utils::convert(request, abstractFilmVideoReq);
-  if (!!request.hasVideoUrlObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.videoUrlObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    abstractFilmVideoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  AbstractFilmVideoResponse abstractFilmVideoResp = abstractFilmVideoWithOptions(abstractFilmVideoReq, runtime);
-  return abstractFilmVideoResp;
 }
 
 /**
@@ -471,7 +254,7 @@ AddFaceVideoTemplateResponse Client::addFaceVideoTemplateAdvance(const AddFaceVi
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     addFaceVideoTemplateReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -611,7 +394,7 @@ AdjustVideoColorResponse Client::adjustVideoColorAdvance(const AdjustVideoColorA
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     adjustVideoColorReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -767,148 +550,12 @@ ChangeVideoSizeResponse Client::changeVideoSizeAdvance(const ChangeVideoSizeAdva
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     changeVideoSizeReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
   ChangeVideoSizeResponse changeVideoSizeResp = changeVideoSizeWithOptions(changeVideoSizeReq, runtime);
   return changeVideoSizeResp;
-}
-
-/**
- * @param request ConvertHdrVideoRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ConvertHdrVideoResponse
- */
-ConvertHdrVideoResponse Client::convertHdrVideoWithOptions(const ConvertHdrVideoRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasBitrate()) {
-    body["Bitrate"] = request.bitrate();
-  }
-
-  if (!!request.hasHDRFormat()) {
-    body["HDRFormat"] = request.HDRFormat();
-  }
-
-  if (!!request.hasMaxIlluminance()) {
-    body["MaxIlluminance"] = request.maxIlluminance();
-  }
-
-  if (!!request.hasVideoURL()) {
-    body["VideoURL"] = request.videoURL();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ConvertHdrVideo"},
-    {"version" , "2020-03-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ConvertHdrVideoResponse>();
-}
-
-/**
- * @param request ConvertHdrVideoRequest
- * @return ConvertHdrVideoResponse
- */
-ConvertHdrVideoResponse Client::convertHdrVideo(const ConvertHdrVideoRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return convertHdrVideoWithOptions(request, runtime);
-}
-
-ConvertHdrVideoResponse Client::convertHdrVideoAdvance(const ConvertHdrVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "videoenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  ConvertHdrVideoRequest convertHdrVideoReq = ConvertHdrVideoRequest();
-  Utils::Utils::convert(request, convertHdrVideoReq);
-  if (!!request.hasVideoURLObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.videoURLObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    convertHdrVideoReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  ConvertHdrVideoResponse convertHdrVideoResp = convertHdrVideoWithOptions(convertHdrVideoReq, runtime);
-  return convertHdrVideoResp;
 }
 
 /**
@@ -1073,7 +720,7 @@ EnhancePortraitVideoResponse Client::enhancePortraitVideoAdvance(const EnhancePo
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     enhancePortraitVideoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1221,7 +868,7 @@ EnhanceVideoQualityResponse Client::enhanceVideoQualityAdvance(const EnhanceVide
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     enhanceVideoQualityReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1349,7 +996,7 @@ EraseVideoLogoResponse Client::eraseVideoLogoAdvance(const EraseVideoLogoAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     eraseVideoLogoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1489,7 +1136,7 @@ EraseVideoSubtitlesResponse Client::eraseVideoSubtitlesAdvance(const EraseVideoS
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     eraseVideoSubtitlesReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1621,7 +1268,7 @@ GenerateHumanAnimeStyleVideoResponse Client::generateHumanAnimeStyleVideoAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     generateHumanAnimeStyleVideoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1788,7 +1435,7 @@ GenerateVideoResponse Client::generateVideoAdvance(const GenerateVideoAdvanceReq
           {"file" , fileObj},
           {"success_action_status" , "201"}
         });
-        _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+        _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
         GenerateVideoRequestFileList tmpObj = generateVideoReq.fileList().at(i0);
         tmpObj.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
         i0++;
@@ -1963,7 +1610,7 @@ InterpolateVideoFrameResponse Client::interpolateVideoFrameAdvance(const Interpo
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     interpolateVideoFrameReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2103,7 +1750,7 @@ MergeVideoFaceResponse Client::mergeVideoFaceAdvance(const MergeVideoFaceAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     mergeVideoFaceReq.setReferenceURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2126,7 +1773,7 @@ MergeVideoFaceResponse Client::mergeVideoFaceAdvance(const MergeVideoFaceAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     mergeVideoFaceReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2274,7 +1921,7 @@ MergeVideoModelFaceResponse Client::mergeVideoModelFaceAdvance(const MergeVideoM
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     mergeVideoModelFaceReq.setFaceImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2330,134 +1977,6 @@ QueryFaceVideoTemplateResponse Client::queryFaceVideoTemplateWithOptions(const Q
 QueryFaceVideoTemplateResponse Client::queryFaceVideoTemplate(const QueryFaceVideoTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryFaceVideoTemplateWithOptions(request, runtime);
-}
-
-/**
- * @summary 视频降噪
- *
- * @param request ReduceVideoNoiseRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ReduceVideoNoiseResponse
- */
-ReduceVideoNoiseResponse Client::reduceVideoNoiseWithOptions(const ReduceVideoNoiseRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasVideoUrl()) {
-    body["VideoUrl"] = request.videoUrl();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ReduceVideoNoise"},
-    {"version" , "2020-03-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ReduceVideoNoiseResponse>();
-}
-
-/**
- * @summary 视频降噪
- *
- * @param request ReduceVideoNoiseRequest
- * @return ReduceVideoNoiseResponse
- */
-ReduceVideoNoiseResponse Client::reduceVideoNoise(const ReduceVideoNoiseRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return reduceVideoNoiseWithOptions(request, runtime);
-}
-
-ReduceVideoNoiseResponse Client::reduceVideoNoiseAdvance(const ReduceVideoNoiseAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "videoenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  ReduceVideoNoiseRequest reduceVideoNoiseReq = ReduceVideoNoiseRequest();
-  Utils::Utils::convert(request, reduceVideoNoiseReq);
-  if (!!request.hasVideoUrlObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.videoUrlObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    reduceVideoNoiseReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  ReduceVideoNoiseResponse reduceVideoNoiseResp = reduceVideoNoiseWithOptions(reduceVideoNoiseReq, runtime);
-  return reduceVideoNoiseResp;
 }
 
 /**
@@ -2580,144 +2099,12 @@ SuperResolveVideoResponse Client::superResolveVideoAdvance(const SuperResolveVid
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     superResolveVideoReq.setVideoUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
   SuperResolveVideoResponse superResolveVideoResp = superResolveVideoWithOptions(superResolveVideoReq, runtime);
   return superResolveVideoResp;
-}
-
-/**
- * @param request ToneSdrVideoRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return ToneSdrVideoResponse
- */
-ToneSdrVideoResponse Client::toneSdrVideoWithOptions(const ToneSdrVideoRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasBitrate()) {
-    body["Bitrate"] = request.bitrate();
-  }
-
-  if (!!request.hasRecolorModel()) {
-    body["RecolorModel"] = request.recolorModel();
-  }
-
-  if (!!request.hasVideoURL()) {
-    body["VideoURL"] = request.videoURL();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "ToneSdrVideo"},
-    {"version" , "2020-03-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<ToneSdrVideoResponse>();
-}
-
-/**
- * @param request ToneSdrVideoRequest
- * @return ToneSdrVideoResponse
- */
-ToneSdrVideoResponse Client::toneSdrVideo(const ToneSdrVideoRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return toneSdrVideoWithOptions(request, runtime);
-}
-
-ToneSdrVideoResponse Client::toneSdrVideoAdvance(const ToneSdrVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "videoenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  ToneSdrVideoRequest toneSdrVideoReq = ToneSdrVideoRequest();
-  Utils::Utils::convert(request, toneSdrVideoReq);
-  if (!!request.hasVideoURLObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.videoURLObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    toneSdrVideoReq.setVideoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  ToneSdrVideoResponse toneSdrVideoResp = toneSdrVideoWithOptions(toneSdrVideoReq, runtime);
-  return toneSdrVideoResp;
 }
 } // namespace AlibabaCloud
 } // namespace Videoenhan20200320

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duration_ != nullptr
-        && this->durationAdaption_ != nullptr && this->fileList_ != nullptr && this->height_ != nullptr && this->mute_ != nullptr && this->puzzleEffect_ != nullptr
-        && this->scene_ != nullptr && this->smartEffect_ != nullptr && this->style_ != nullptr && this->transitionStyle_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->duration_ == nullptr
+        && return this->durationAdaption_ == nullptr && return this->fileList_ == nullptr && return this->height_ == nullptr && return this->mute_ == nullptr && return this->puzzleEffect_ == nullptr
+        && return this->scene_ == nullptr && return this->smartEffect_ == nullptr && return this->style_ == nullptr && return this->transitionStyle_ == nullptr && return this->width_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addWatermark_ != nullptr
-        && this->enhance_ != nullptr && this->faceImageURLObject_ != nullptr && this->mergeInfos_ != nullptr && this->templateId_ != nullptr && this->watermarkType_ != nullptr; };
+    virtual bool empty() const override { return this->addWatermark_ == nullptr
+        && return this->enhance_ == nullptr && return this->faceImageURLObject_ == nullptr && return this->mergeInfos_ == nullptr && return this->templateId_ == nullptr && return this->watermarkType_ == nullptr; };
     // addWatermark Field Functions 
     bool hasAddWatermark() const { return this->addWatermark_ != nullptr;};
     void deleteAddWatermark() { this->addWatermark_ = nullptr;};

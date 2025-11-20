@@ -5,9 +5,9 @@
 #include <alibabacloud/Videoenhan20200320Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Videoenhan20200320.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,38 +19,8 @@ namespace Videoenhan20200320
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
-
-      /**
-       * @param request AbstractEcommerceVideoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AbstractEcommerceVideoResponse
-       */
-      Models::AbstractEcommerceVideoResponse abstractEcommerceVideoWithOptions(const Models::AbstractEcommerceVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AbstractEcommerceVideoRequest
-       * @return AbstractEcommerceVideoResponse
-       */
-      Models::AbstractEcommerceVideoResponse abstractEcommerceVideo(const Models::AbstractEcommerceVideoRequest &request);
-
-      Models::AbstractEcommerceVideoResponse abstractEcommerceVideoAdvance(const Models::AbstractEcommerceVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AbstractFilmVideoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return AbstractFilmVideoResponse
-       */
-      Models::AbstractFilmVideoResponse abstractFilmVideoWithOptions(const Models::AbstractFilmVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request AbstractFilmVideoRequest
-       * @return AbstractFilmVideoResponse
-       */
-      Models::AbstractFilmVideoResponse abstractFilmVideo(const Models::AbstractFilmVideoRequest &request);
-
-      Models::AbstractFilmVideoResponse abstractFilmVideoAdvance(const Models::AbstractFilmVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 视频人脸融合模板增加
@@ -100,21 +70,6 @@ namespace Videoenhan20200320
       Models::ChangeVideoSizeResponse changeVideoSize(const Models::ChangeVideoSizeRequest &request);
 
       Models::ChangeVideoSizeResponse changeVideoSizeAdvance(const Models::ChangeVideoSizeAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request ConvertHdrVideoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ConvertHdrVideoResponse
-       */
-      Models::ConvertHdrVideoResponse convertHdrVideoWithOptions(const Models::ConvertHdrVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request ConvertHdrVideoRequest
-       * @return ConvertHdrVideoResponse
-       */
-      Models::ConvertHdrVideoResponse convertHdrVideo(const Models::ConvertHdrVideoRequest &request);
-
-      Models::ConvertHdrVideoResponse convertHdrVideoAdvance(const Models::ConvertHdrVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 视频人脸融合模板删除
@@ -311,25 +266,6 @@ namespace Videoenhan20200320
       Models::QueryFaceVideoTemplateResponse queryFaceVideoTemplate(const Models::QueryFaceVideoTemplateRequest &request);
 
       /**
-       * @summary 视频降噪
-       *
-       * @param request ReduceVideoNoiseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ReduceVideoNoiseResponse
-       */
-      Models::ReduceVideoNoiseResponse reduceVideoNoiseWithOptions(const Models::ReduceVideoNoiseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 视频降噪
-       *
-       * @param request ReduceVideoNoiseRequest
-       * @return ReduceVideoNoiseResponse
-       */
-      Models::ReduceVideoNoiseResponse reduceVideoNoise(const Models::ReduceVideoNoiseRequest &request);
-
-      Models::ReduceVideoNoiseResponse reduceVideoNoiseAdvance(const Models::ReduceVideoNoiseAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
        * @param request SuperResolveVideoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SuperResolveVideoResponse
@@ -343,21 +279,6 @@ namespace Videoenhan20200320
       Models::SuperResolveVideoResponse superResolveVideo(const Models::SuperResolveVideoRequest &request);
 
       Models::SuperResolveVideoResponse superResolveVideoAdvance(const Models::SuperResolveVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request ToneSdrVideoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ToneSdrVideoResponse
-       */
-      Models::ToneSdrVideoResponse toneSdrVideoWithOptions(const Models::ToneSdrVideoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request ToneSdrVideoRequest
-       * @return ToneSdrVideoResponse
-       */
-      Models::ToneSdrVideoResponse toneSdrVideo(const Models::ToneSdrVideoRequest &request);
-
-      Models::ToneSdrVideoResponse toneSdrVideoAdvance(const Models::ToneSdrVideoAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
   };
 } // namespace AlibabaCloud
 } // namespace Videoenhan20200320
