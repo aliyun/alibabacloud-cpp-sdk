@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const InvokeSkillHeadersAccountContext& obj) { 
       DARABONBA_PTR_TO_JSON(accountId, accountId_);
+      DARABONBA_PTR_TO_JSON(ssoTicket, ssoTicket_);
     };
     friend void from_json(const Darabonba::Json& j, InvokeSkillHeadersAccountContext& obj) { 
       DARABONBA_PTR_FROM_JSON(accountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(ssoTicket, ssoTicket_);
     };
     InvokeSkillHeadersAccountContext() = default ;
     InvokeSkillHeadersAccountContext(const InvokeSkillHeadersAccountContext &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->accountId_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->ssoTicket_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -37,9 +40,17 @@ namespace Models
     inline InvokeSkillHeadersAccountContext& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
 
 
+    // ssoTicket Field Functions 
+    bool hasSsoTicket() const { return this->ssoTicket_ != nullptr;};
+    void deleteSsoTicket() { this->ssoTicket_ = nullptr;};
+    inline string ssoTicket() const { DARABONBA_PTR_GET_DEFAULT(ssoTicket_, "") };
+    inline InvokeSkillHeadersAccountContext& setSsoTicket(string ssoTicket) { DARABONBA_PTR_SET_VALUE(ssoTicket_, ssoTicket) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<string> accountId_ = nullptr;
+    std::shared_ptr<string> ssoTicket_ = nullptr;
   };
 
   } // namespace Models

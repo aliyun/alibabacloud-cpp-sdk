@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_ANY_TO_JSON(Params, params_);
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
       DARABONBA_PTR_TO_JSON(Stream, stream_);
+      DARABONBA_PTR_TO_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
     };
     friend void from_json(const Darabonba::Json& j, InvokeSkillRequest& obj) { 
       DARABONBA_ANY_FROM_JSON(Params, params_);
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
       DARABONBA_PTR_FROM_JSON(Stream, stream_);
+      DARABONBA_PTR_FROM_JSON(sourceIdOfAssistantId, sourceIdOfAssistantId_);
     };
     InvokeSkillRequest() = default ;
     InvokeSkillRequest(const InvokeSkillRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->params_ == nullptr
-        && return this->skillId_ == nullptr && return this->stream_ == nullptr; };
+        && return this->skillId_ == nullptr && return this->stream_ == nullptr && return this->sourceIdOfAssistantId_ == nullptr; };
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
@@ -58,11 +60,19 @@ namespace Models
     inline InvokeSkillRequest& setStream(bool stream) { DARABONBA_PTR_SET_VALUE(stream_, stream) };
 
 
+    // sourceIdOfAssistantId Field Functions 
+    bool hasSourceIdOfAssistantId() const { return this->sourceIdOfAssistantId_ != nullptr;};
+    void deleteSourceIdOfAssistantId() { this->sourceIdOfAssistantId_ = nullptr;};
+    inline string sourceIdOfAssistantId() const { DARABONBA_PTR_GET_DEFAULT(sourceIdOfAssistantId_, "") };
+    inline InvokeSkillRequest& setSourceIdOfAssistantId(string sourceIdOfAssistantId) { DARABONBA_PTR_SET_VALUE(sourceIdOfAssistantId_, sourceIdOfAssistantId) };
+
+
   protected:
     Darabonba::Json params_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> skillId_ = nullptr;
     std::shared_ptr<bool> stream_ = nullptr;
+    std::shared_ptr<string> sourceIdOfAssistantId_ = nullptr;
   };
 
   } // namespace Models

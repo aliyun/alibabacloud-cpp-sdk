@@ -12930,6 +12930,10 @@ FutrueGenerator<InvokeSkillResponse> Client::invokeSkillWithSSE(const InvokeSkil
     body["Stream"] = request.stream();
   }
 
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId();
+  }
+
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.commonHeaders();
@@ -13002,6 +13006,10 @@ InvokeSkillResponse Client::invokeSkillWithOptions(const InvokeSkillRequest &tmp
 
   if (!!request.hasStream()) {
     body["Stream"] = request.stream();
+  }
+
+  if (!!request.hasSourceIdOfAssistantId()) {
+    body["sourceIdOfAssistantId"] = request.sourceIdOfAssistantId();
   }
 
   map<string, string> realHeaders = {};
