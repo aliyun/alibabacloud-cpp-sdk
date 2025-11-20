@@ -37,6 +37,55 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 启动模板的MCP服务器
+ *
+ * @param request ActivateTemplateMCPRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActivateTemplateMCPResponse
+ */
+ActivateTemplateMCPResponse Client::activateTemplateMCPWithOptions(const string &templateName, const ActivateTemplateMCPRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnabledTools()) {
+    body["enabledTools"] = request.enabledTools();
+  }
+
+  if (!!request.hasTransport()) {
+    body["transport"] = request.transport();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ActivateTemplateMCP"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates/" , Darabonba::Encode::Encoder::percentEncode(templateName) , "/mcp/activate")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActivateTemplateMCPResponse>();
+}
+
+/**
+ * @summary 启动模板的MCP服务器
+ *
+ * @param request ActivateTemplateMCPRequest
+ * @return ActivateTemplateMCPResponse
+ */
+ActivateTemplateMCPResponse Client::activateTemplateMCP(const string &templateName, const ActivateTemplateMCPRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return activateTemplateMCPWithOptions(templateName, request, headers, runtime);
+}
+
+/**
  * @summary Create an agent runtime
  *
  * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -213,6 +262,46 @@ CreateCodeInterpreterResponse Client::createCodeInterpreter(const CreateCodeInte
 }
 
 /**
+ * @summary Create a credential
+ *
+ * @param request CreateCredentialRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCredentialResponse
+ */
+CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateCredential"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/credentials")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCredentialResponse>();
+}
+
+/**
+ * @summary Create a credential
+ *
+ * @param request CreateCredentialRequest
+ * @return CreateCredentialResponse
+ */
+CreateCredentialResponse Client::createCredential(const CreateCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createCredentialWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary create memory store
  *
  * @param request CreateMemoryRequest
@@ -312,6 +401,174 @@ CreateMemoryEventResponse Client::createMemoryEvent(const string &memoryName, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createMemoryEventWithOptions(memoryName, request, headers, runtime);
+}
+
+/**
+ * @summary 新增模型
+ *
+ * @param request CreateModelProxyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelProxyResponse
+ */
+CreateModelProxyResponse Client::createModelProxyWithOptions(const CreateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelProxy"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-proxies")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelProxyResponse>();
+}
+
+/**
+ * @summary 新增模型
+ *
+ * @param request CreateModelProxyRequest
+ * @return CreateModelProxyResponse
+ */
+CreateModelProxyResponse Client::createModelProxy(const CreateModelProxyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createModelProxyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 新增模型
+ *
+ * @param request CreateModelServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelService"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-services")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelServiceResponse>();
+}
+
+/**
+ * @summary 新增模型
+ *
+ * @param request CreateModelServiceRequest
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelService(const CreateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createModelServiceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建沙箱
+ *
+ * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+ *
+ * @param request CreateSandboxRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSandboxResponse
+ */
+CreateSandboxResponse Client::createSandboxWithOptions(const CreateSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSandboxResponse>();
+}
+
+/**
+ * @summary 创建沙箱
+ *
+ * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+ *
+ * @param request CreateSandboxRequest
+ * @return CreateSandboxResponse
+ */
+CreateSandboxResponse Client::createSandbox(const CreateSandboxRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSandboxWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建模板
+ *
+ * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+ *
+ * @param request CreateTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTemplate"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTemplateResponse>();
+}
+
+/**
+ * @summary 创建模板
+ *
+ * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+ *
+ * @param request CreateTemplateRequest
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTemplateWithOptions(request, headers, runtime);
 }
 
 /**
@@ -471,6 +728,42 @@ DeleteCodeInterpreterResponse Client::deleteCodeInterpreter(const string &codeIn
 }
 
 /**
+ * @summary Delete a credential
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCredentialResponse
+ */
+DeleteCredentialResponse Client::deleteCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCredential"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/credentials/" , Darabonba::Encode::Encoder::percentEncode(credentialName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCredentialResponse>();
+}
+
+/**
+ * @summary Delete a credential
+ *
+ * @return DeleteCredentialResponse
+ */
+DeleteCredentialResponse Client::deleteCredential(const string &credentialName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
  * @summary delete memory store
  *
  * @param headers map
@@ -504,6 +797,171 @@ DeleteMemoryResponse Client::deleteMemory(const string &memoryName) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteMemoryWithOptions(memoryName, headers, runtime);
+}
+
+/**
+ * @summary 删除模型
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelProxyResponse
+ */
+DeleteModelProxyResponse Client::deleteModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelProxy"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-proxies/" , Darabonba::Encode::Encoder::percentEncode(modelProxyName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelProxyResponse>();
+}
+
+/**
+ * @summary 删除模型
+ *
+ * @return DeleteModelProxyResponse
+ */
+DeleteModelProxyResponse Client::deleteModelProxy(const string &modelProxyName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelProxyWithOptions(modelProxyName, headers, runtime);
+}
+
+/**
+ * @summary 删除模型
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelService"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-services/" , Darabonba::Encode::Encoder::percentEncode(modelServiceName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelServiceResponse>();
+}
+
+/**
+ * @summary 删除模型
+ *
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelService(const string &modelServiceName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelServiceWithOptions(modelServiceName, headers, runtime);
+}
+
+/**
+ * @summary 删除模板
+ *
+ * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTemplate"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates/" , Darabonba::Encode::Encoder::percentEncode(templateName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTemplateResponse>();
+}
+
+/**
+ * @summary 删除模板
+ *
+ * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+ *
+ * @return DeleteTemplateResponse
+ */
+DeleteTemplateResponse Client::deleteTemplate(const string &templateName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteTemplateWithOptions(templateName, headers, runtime);
+}
+
+/**
+ * @summary Get access token for a resource
+ *
+ * @param request GetAccessTokenRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAccessTokenResponse
+ */
+GetAccessTokenResponse Client::getAccessTokenWithOptions(const GetAccessTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceId()) {
+    query["resourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceName()) {
+    query["resourceName"] = request.resourceName();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["resourceType"] = request.resourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAccessToken"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/accessToken")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAccessTokenResponse>();
+}
+
+/**
+ * @summary Get access token for a resource
+ *
+ * @param request GetAccessTokenRequest
+ * @return GetAccessTokenResponse
+ */
+GetAccessTokenResponse Client::getAccessToken(const GetAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAccessTokenWithOptions(request, headers, runtime);
 }
 
 /**
@@ -672,6 +1130,42 @@ GetCodeInterpreterResponse Client::getCodeInterpreter(const string &codeInterpre
 }
 
 /**
+ * @summary Get a credential
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCredentialResponse
+ */
+GetCredentialResponse Client::getCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCredential"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/credentials/" , Darabonba::Encode::Encoder::percentEncode(credentialName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCredentialResponse>();
+}
+
+/**
+ * @summary Get a credential
+ *
+ * @return GetCredentialResponse
+ */
+GetCredentialResponse Client::getCredential(const string &credentialName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCredentialWithOptions(credentialName, headers, runtime);
+}
+
+/**
  * @summary GetMemory
  *
  * @param headers map
@@ -811,6 +1305,158 @@ GetMemorySessionResponse Client::getMemorySession(const string &memoryName, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMemorySessionWithOptions(memoryName, sessionId, request, headers, runtime);
+}
+
+/**
+ * @summary 查看model
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelProxyResponse
+ */
+GetModelProxyResponse Client::getModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelProxy"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-proxies/" , Darabonba::Encode::Encoder::percentEncode(modelProxyName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelProxyResponse>();
+}
+
+/**
+ * @summary 查看model
+ *
+ * @return GetModelProxyResponse
+ */
+GetModelProxyResponse Client::getModelProxy(const string &modelProxyName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getModelProxyWithOptions(modelProxyName, headers, runtime);
+}
+
+/**
+ * @summary 查看model
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelServiceResponse
+ */
+GetModelServiceResponse Client::getModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelService"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-services/" , Darabonba::Encode::Encoder::percentEncode(modelServiceName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelServiceResponse>();
+}
+
+/**
+ * @summary 查看model
+ *
+ * @return GetModelServiceResponse
+ */
+GetModelServiceResponse Client::getModelService(const string &modelServiceName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getModelServiceWithOptions(modelServiceName, headers, runtime);
+}
+
+/**
+ * @summary 获取沙箱
+ *
+ * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSandboxResponse
+ */
+GetSandboxResponse Client::getSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSandboxResponse>();
+}
+
+/**
+ * @summary 获取沙箱
+ *
+ * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+ *
+ * @return GetSandboxResponse
+ */
+GetSandboxResponse Client::getSandbox(const string &sandboxId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSandboxWithOptions(sandboxId, headers, runtime);
+}
+
+/**
+ * @summary 获取模板
+ *
+ * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTemplate"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates/" , Darabonba::Encode::Encoder::percentEncode(templateName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTemplateResponse>();
+}
+
+/**
+ * @summary 获取模板
+ *
+ * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+ *
+ * @return GetTemplateResponse
+ */
+GetTemplateResponse Client::getTemplate(const string &templateName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTemplateWithOptions(templateName, headers, runtime);
 }
 
 /**
@@ -1103,6 +1749,75 @@ ListCodeInterpretersResponse Client::listCodeInterpreters(const ListCodeInterpre
 }
 
 /**
+ * @summary List credentials
+ *
+ * @param request ListCredentialsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCredentialsResponse
+ */
+ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialAuthType()) {
+    query["credentialAuthType"] = request.credentialAuthType();
+  }
+
+  if (!!request.hasCredentialName()) {
+    query["credentialName"] = request.credentialName();
+  }
+
+  if (!!request.hasCredentialSourceType()) {
+    query["credentialSourceType"] = request.credentialSourceType();
+  }
+
+  if (!!request.hasEnabled()) {
+    query["enabled"] = request.enabled();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.provider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCredentials"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/credentials")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCredentialsResponse>();
+}
+
+/**
+ * @summary List credentials
+ *
+ * @param request ListCredentialsRequest
+ * @return ListCredentialsResponse
+ */
+ListCredentialsResponse Client::listCredentials(const ListCredentialsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listCredentialsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary ListMemory
  *
  * @param request ListMemoryRequest
@@ -1274,6 +1989,307 @@ ListMemorySessionsResponse Client::listMemorySessions(const string &memoryName, 
 }
 
 /**
+ * @summary 查询支持的模型提供商及其模型
+ *
+ * @param request ListModelProvidersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelProvidersResponse
+ */
+ListModelProvidersResponse Client::listModelProvidersWithOptions(const ListModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelName()) {
+    query["modelName"] = request.modelName();
+  }
+
+  if (!!request.hasModelType()) {
+    query["modelType"] = request.modelType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.provider();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelProviders"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-providers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelProvidersResponse>();
+}
+
+/**
+ * @summary 查询支持的模型提供商及其模型
+ *
+ * @param request ListModelProvidersRequest
+ * @return ListModelProvidersResponse
+ */
+ListModelProvidersResponse Client::listModelProviders(const ListModelProvidersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelProvidersWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary model列表
+ *
+ * @param request ListModelProxiesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelProxiesResponse
+ */
+ListModelProxiesResponse Client::listModelProxiesWithOptions(const ListModelProxiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProxyMode()) {
+    query["proxyMode"] = request.proxyMode();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelProxies"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-proxies")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelProxiesResponse>();
+}
+
+/**
+ * @summary model列表
+ *
+ * @param request ListModelProxiesRequest
+ * @return ListModelProxiesResponse
+ */
+ListModelProxiesResponse Client::listModelProxies(const ListModelProxiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelProxiesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary model列表
+ *
+ * @param request ListModelServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelServicesResponse
+ */
+ListModelServicesResponse Client::listModelServicesWithOptions(const ListModelServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelType()) {
+    query["modelType"] = request.modelType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.provider();
+  }
+
+  if (!!request.hasProviderType()) {
+    query["providerType"] = request.providerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelServices"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-services")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelServicesResponse>();
+}
+
+/**
+ * @summary model列表
+ *
+ * @param request ListModelServicesRequest
+ * @return ListModelServicesResponse
+ */
+ListModelServicesResponse Client::listModelServices(const ListModelServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelServicesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出沙箱
+ *
+ * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+ *
+ * @param request ListSandboxesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSandboxesResponse
+ */
+ListSandboxesResponse Client::listSandboxesWithOptions(const ListSandboxesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["templateName"] = request.templateName();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["templateType"] = request.templateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSandboxes"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSandboxesResponse>();
+}
+
+/**
+ * @summary 列出沙箱
+ *
+ * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+ *
+ * @param request ListSandboxesRequest
+ * @return ListSandboxesResponse
+ */
+ListSandboxesResponse Client::listSandboxes(const ListSandboxesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSandboxesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出模板
+ *
+ * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+ *
+ * @param request ListTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTemplatesResponse
+ */
+ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["templateType"] = request.templateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTemplates"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTemplatesResponse>();
+}
+
+/**
+ * @summary 列出模板
+ *
+ * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+ *
+ * @param request ListTemplatesRequest
+ * @return ListTemplatesResponse
+ */
+ListTemplatesResponse Client::listTemplates(const ListTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 发布运行时版本
  *
  * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -1379,6 +2395,82 @@ RetrieveMemoryResponse Client::retrieveMemory(const string &memoryName, const Re
 }
 
 /**
+ * @summary 停止沙箱
+ *
+ * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopSandboxResponse
+ */
+StopSandboxResponse Client::stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopSandboxResponse>();
+}
+
+/**
+ * @summary 停止沙箱
+ *
+ * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+ *
+ * @return StopSandboxResponse
+ */
+StopSandboxResponse Client::stopSandbox(const string &sandboxId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopSandboxWithOptions(sandboxId, headers, runtime);
+}
+
+/**
+ * @summary 停止模板的MCP服务器
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopTemplateMCPResponse
+ */
+StopTemplateMCPResponse Client::stopTemplateMCPWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopTemplateMCP"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates/" , Darabonba::Encode::Encoder::percentEncode(templateName) , "/mcp/stop")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopTemplateMCPResponse>();
+}
+
+/**
+ * @summary 停止模板的MCP服务器
+ *
+ * @return StopTemplateMCPResponse
+ */
+StopTemplateMCPResponse Client::stopTemplateMCP(const string &templateName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopTemplateMCPWithOptions(templateName, headers, runtime);
+}
+
+/**
  * @summary 更新智能体运行时
  *
  * @description 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
@@ -1463,6 +2555,46 @@ UpdateAgentRuntimeEndpointResponse Client::updateAgentRuntimeEndpoint(const stri
 }
 
 /**
+ * @summary Update a credential
+ *
+ * @param request UpdateCredentialRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCredentialResponse
+ */
+UpdateCredentialResponse Client::updateCredentialWithOptions(const string &credentialName, const UpdateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateCredential"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/credentials/" , Darabonba::Encode::Encoder::percentEncode(credentialName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCredentialResponse>();
+}
+
+/**
+ * @summary Update a credential
+ *
+ * @param request UpdateCredentialRequest
+ * @return UpdateCredentialResponse
+ */
+UpdateCredentialResponse Client::updateCredential(const string &credentialName, const UpdateCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateCredentialWithOptions(credentialName, request, headers, runtime);
+}
+
+/**
  * @summary Update Memory
  *
  * @param request UpdateMemoryRequest
@@ -1513,6 +2645,136 @@ UpdateMemoryResponse Client::updateMemory(const string &memoryName, const Update
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateMemoryWithOptions(memoryName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新模型
+ *
+ * @param request UpdateModelProxyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelProxyResponse
+ */
+UpdateModelProxyResponse Client::updateModelProxyWithOptions(const string &modelProxyName, const UpdateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelProxy"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-proxies/" , Darabonba::Encode::Encoder::percentEncode(modelProxyName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelProxyResponse>();
+}
+
+/**
+ * @summary 更新模型
+ *
+ * @param request UpdateModelProxyRequest
+ * @return UpdateModelProxyResponse
+ */
+UpdateModelProxyResponse Client::updateModelProxy(const string &modelProxyName, const UpdateModelProxyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelProxyWithOptions(modelProxyName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新模型
+ *
+ * @param request UpdateModelServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelServiceResponse
+ */
+UpdateModelServiceResponse Client::updateModelServiceWithOptions(const string &modelServiceName, const UpdateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelService"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/model-services/" , Darabonba::Encode::Encoder::percentEncode(modelServiceName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelServiceResponse>();
+}
+
+/**
+ * @summary 更新模型
+ *
+ * @param request UpdateModelServiceRequest
+ * @return UpdateModelServiceResponse
+ */
+UpdateModelServiceResponse Client::updateModelService(const string &modelServiceName, const UpdateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelServiceWithOptions(modelServiceName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新模板
+ *
+ * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+ *
+ * @param request UpdateTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTemplateResponse
+ */
+UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateName, const UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.clientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTemplate"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/templates/" , Darabonba::Encode::Encoder::percentEncode(templateName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTemplateResponse>();
+}
+
+/**
+ * @summary 更新模板
+ *
+ * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+ *
+ * @param request UpdateTemplateRequest
+ * @return UpdateTemplateResponse
+ */
+UpdateTemplateResponse Client::updateTemplate(const string &templateName, const UpdateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateTemplateWithOptions(templateName, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910

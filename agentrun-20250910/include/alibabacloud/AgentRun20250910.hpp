@@ -21,6 +21,24 @@ namespace AgentRun20250910
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 启动模板的MCP服务器
+       *
+       * @param request ActivateTemplateMCPRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActivateTemplateMCPResponse
+       */
+      Models::ActivateTemplateMCPResponse activateTemplateMCPWithOptions(const string &templateName, const Models::ActivateTemplateMCPRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动模板的MCP服务器
+       *
+       * @param request ActivateTemplateMCPRequest
+       * @return ActivateTemplateMCPResponse
+       */
+      Models::ActivateTemplateMCPResponse activateTemplateMCP(const string &templateName, const Models::ActivateTemplateMCPRequest &request);
+
+      /**
        * @summary Create an agent runtime
        *
        * @description 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -109,6 +127,24 @@ namespace AgentRun20250910
       Models::CreateCodeInterpreterResponse createCodeInterpreter(const Models::CreateCodeInterpreterRequest &request);
 
       /**
+       * @summary Create a credential
+       *
+       * @param request CreateCredentialRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCredentialResponse
+       */
+      Models::CreateCredentialResponse createCredentialWithOptions(const Models::CreateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create a credential
+       *
+       * @param request CreateCredentialRequest
+       * @return CreateCredentialResponse
+       */
+      Models::CreateCredentialResponse createCredential(const Models::CreateCredentialRequest &request);
+
+      /**
        * @summary create memory store
        *
        * @param request CreateMemoryRequest
@@ -143,6 +179,86 @@ namespace AgentRun20250910
        * @return CreateMemoryEventResponse
        */
       Models::CreateMemoryEventResponse createMemoryEvent(const string &memoryName, const Models::CreateMemoryEventRequest &request);
+
+      /**
+       * @summary 新增模型
+       *
+       * @param request CreateModelProxyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelProxyResponse
+       */
+      Models::CreateModelProxyResponse createModelProxyWithOptions(const Models::CreateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增模型
+       *
+       * @param request CreateModelProxyRequest
+       * @return CreateModelProxyResponse
+       */
+      Models::CreateModelProxyResponse createModelProxy(const Models::CreateModelProxyRequest &request);
+
+      /**
+       * @summary 新增模型
+       *
+       * @param request CreateModelServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelServiceWithOptions(const Models::CreateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增模型
+       *
+       * @param request CreateModelServiceRequest
+       * @return CreateModelServiceResponse
+       */
+      Models::CreateModelServiceResponse createModelService(const Models::CreateModelServiceRequest &request);
+
+      /**
+       * @summary 创建沙箱
+       *
+       * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+       *
+       * @param request CreateSandboxRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSandboxResponse
+       */
+      Models::CreateSandboxResponse createSandboxWithOptions(const Models::CreateSandboxRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建沙箱
+       *
+       * @description 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+       *
+       * @param request CreateSandboxRequest
+       * @return CreateSandboxResponse
+       */
+      Models::CreateSandboxResponse createSandbox(const Models::CreateSandboxRequest &request);
+
+      /**
+       * @summary 创建模板
+       *
+       * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+       *
+       * @param request CreateTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模板
+       *
+       * @description 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+       *
+       * @param request CreateTemplateRequest
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
        * @summary 删除智能体运行时
@@ -221,6 +337,22 @@ namespace AgentRun20250910
       Models::DeleteCodeInterpreterResponse deleteCodeInterpreter(const string &codeInterpreterId);
 
       /**
+       * @summary Delete a credential
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCredentialResponse
+       */
+      Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete a credential
+       *
+       * @return DeleteCredentialResponse
+       */
+      Models::DeleteCredentialResponse deleteCredential(const string &credentialName);
+
+      /**
        * @summary delete memory store
        *
        * @param headers map
@@ -235,6 +367,76 @@ namespace AgentRun20250910
        * @return DeleteMemoryResponse
        */
       Models::DeleteMemoryResponse deleteMemory(const string &memoryName);
+
+      /**
+       * @summary 删除模型
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelProxyResponse
+       */
+      Models::DeleteModelProxyResponse deleteModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型
+       *
+       * @return DeleteModelProxyResponse
+       */
+      Models::DeleteModelProxyResponse deleteModelProxy(const string &modelProxyName);
+
+      /**
+       * @summary 删除模型
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型
+       *
+       * @return DeleteModelServiceResponse
+       */
+      Models::DeleteModelServiceResponse deleteModelService(const string &modelServiceName);
+
+      /**
+       * @summary 删除模板
+       *
+       * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模板
+       *
+       * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+       *
+       * @return DeleteTemplateResponse
+       */
+      Models::DeleteTemplateResponse deleteTemplate(const string &templateName);
+
+      /**
+       * @summary Get access token for a resource
+       *
+       * @param request GetAccessTokenRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAccessTokenResponse
+       */
+      Models::GetAccessTokenResponse getAccessTokenWithOptions(const Models::GetAccessTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get access token for a resource
+       *
+       * @param request GetAccessTokenRequest
+       * @return GetAccessTokenResponse
+       */
+      Models::GetAccessTokenResponse getAccessToken(const Models::GetAccessTokenRequest &request);
 
       /**
        * @summary 获取智能体运行时详情
@@ -315,6 +517,22 @@ namespace AgentRun20250910
       Models::GetCodeInterpreterResponse getCodeInterpreter(const string &codeInterpreterId);
 
       /**
+       * @summary Get a credential
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCredentialResponse
+       */
+      Models::GetCredentialResponse getCredentialWithOptions(const string &credentialName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get a credential
+       *
+       * @return GetCredentialResponse
+       */
+      Models::GetCredentialResponse getCredential(const string &credentialName);
+
+      /**
        * @summary GetMemory
        *
        * @param headers map
@@ -369,6 +587,78 @@ namespace AgentRun20250910
        * @return GetMemorySessionResponse
        */
       Models::GetMemorySessionResponse getMemorySession(const string &memoryName, const string &sessionId, const Models::GetMemorySessionRequest &request);
+
+      /**
+       * @summary 查看model
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelProxyResponse
+       */
+      Models::GetModelProxyResponse getModelProxyWithOptions(const string &modelProxyName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看model
+       *
+       * @return GetModelProxyResponse
+       */
+      Models::GetModelProxyResponse getModelProxy(const string &modelProxyName);
+
+      /**
+       * @summary 查看model
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelServiceResponse
+       */
+      Models::GetModelServiceResponse getModelServiceWithOptions(const string &modelServiceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看model
+       *
+       * @return GetModelServiceResponse
+       */
+      Models::GetModelServiceResponse getModelService(const string &modelServiceName);
+
+      /**
+       * @summary 获取沙箱
+       *
+       * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSandboxResponse
+       */
+      Models::GetSandboxResponse getSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取沙箱
+       *
+       * @description 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+       *
+       * @return GetSandboxResponse
+       */
+      Models::GetSandboxResponse getSandbox(const string &sandboxId);
+
+      /**
+       * @summary 获取模板
+       *
+       * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplateWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取模板
+       *
+       * @description 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+       *
+       * @return GetTemplateResponse
+       */
+      Models::GetTemplateResponse getTemplate(const string &templateName);
 
       /**
        * @summary 列出智能体运行时端点
@@ -477,6 +767,24 @@ namespace AgentRun20250910
       Models::ListCodeInterpretersResponse listCodeInterpreters(const Models::ListCodeInterpretersRequest &request);
 
       /**
+       * @summary List credentials
+       *
+       * @param request ListCredentialsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCredentialsResponse
+       */
+      Models::ListCredentialsResponse listCredentialsWithOptions(const Models::ListCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary List credentials
+       *
+       * @param request ListCredentialsRequest
+       * @return ListCredentialsResponse
+       */
+      Models::ListCredentialsResponse listCredentials(const Models::ListCredentialsRequest &request);
+
+      /**
        * @summary ListMemory
        *
        * @param request ListMemoryRequest
@@ -535,6 +843,104 @@ namespace AgentRun20250910
       Models::ListMemorySessionsResponse listMemorySessions(const string &memoryName, const Models::ListMemorySessionsRequest &request);
 
       /**
+       * @summary 查询支持的模型提供商及其模型
+       *
+       * @param request ListModelProvidersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelProvidersResponse
+       */
+      Models::ListModelProvidersResponse listModelProvidersWithOptions(const Models::ListModelProvidersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询支持的模型提供商及其模型
+       *
+       * @param request ListModelProvidersRequest
+       * @return ListModelProvidersResponse
+       */
+      Models::ListModelProvidersResponse listModelProviders(const Models::ListModelProvidersRequest &request);
+
+      /**
+       * @summary model列表
+       *
+       * @param request ListModelProxiesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelProxiesResponse
+       */
+      Models::ListModelProxiesResponse listModelProxiesWithOptions(const Models::ListModelProxiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary model列表
+       *
+       * @param request ListModelProxiesRequest
+       * @return ListModelProxiesResponse
+       */
+      Models::ListModelProxiesResponse listModelProxies(const Models::ListModelProxiesRequest &request);
+
+      /**
+       * @summary model列表
+       *
+       * @param request ListModelServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelServicesResponse
+       */
+      Models::ListModelServicesResponse listModelServicesWithOptions(const Models::ListModelServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary model列表
+       *
+       * @param request ListModelServicesRequest
+       * @return ListModelServicesResponse
+       */
+      Models::ListModelServicesResponse listModelServices(const Models::ListModelServicesRequest &request);
+
+      /**
+       * @summary 列出沙箱
+       *
+       * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+       *
+       * @param request ListSandboxesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSandboxesResponse
+       */
+      Models::ListSandboxesResponse listSandboxesWithOptions(const Models::ListSandboxesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出沙箱
+       *
+       * @description 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+       *
+       * @param request ListSandboxesRequest
+       * @return ListSandboxesResponse
+       */
+      Models::ListSandboxesResponse listSandboxes(const Models::ListSandboxesRequest &request);
+
+      /**
+       * @summary 列出模板
+       *
+       * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+       *
+       * @param request ListTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplatesResponse
+       */
+      Models::ListTemplatesResponse listTemplatesWithOptions(const Models::ListTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出模板
+       *
+       * @description 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+       *
+       * @param request ListTemplatesRequest
+       * @return ListTemplatesResponse
+       */
+      Models::ListTemplatesResponse listTemplates(const Models::ListTemplatesRequest &request);
+
+      /**
        * @summary 发布运行时版本
        *
        * @description 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
@@ -573,6 +979,42 @@ namespace AgentRun20250910
        * @return RetrieveMemoryResponse
        */
       Models::RetrieveMemoryResponse retrieveMemory(const string &memoryName, const Models::RetrieveMemoryRequest &request);
+
+      /**
+       * @summary 停止沙箱
+       *
+       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopSandboxResponse
+       */
+      Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止沙箱
+       *
+       * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+       *
+       * @return StopSandboxResponse
+       */
+      Models::StopSandboxResponse stopSandbox(const string &sandboxId);
+
+      /**
+       * @summary 停止模板的MCP服务器
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopTemplateMCPResponse
+       */
+      Models::StopTemplateMCPResponse stopTemplateMCPWithOptions(const string &templateName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止模板的MCP服务器
+       *
+       * @return StopTemplateMCPResponse
+       */
+      Models::StopTemplateMCPResponse stopTemplateMCP(const string &templateName);
 
       /**
        * @summary 更新智能体运行时
@@ -615,6 +1057,24 @@ namespace AgentRun20250910
       Models::UpdateAgentRuntimeEndpointResponse updateAgentRuntimeEndpoint(const string &agentRuntimeId, const string &agentRuntimeEndpointId, const Models::UpdateAgentRuntimeEndpointRequest &request);
 
       /**
+       * @summary Update a credential
+       *
+       * @param request UpdateCredentialRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCredentialResponse
+       */
+      Models::UpdateCredentialResponse updateCredentialWithOptions(const string &credentialName, const Models::UpdateCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update a credential
+       *
+       * @param request UpdateCredentialRequest
+       * @return UpdateCredentialResponse
+       */
+      Models::UpdateCredentialResponse updateCredential(const string &credentialName, const Models::UpdateCredentialRequest &request);
+
+      /**
        * @summary Update Memory
        *
        * @param request UpdateMemoryRequest
@@ -631,6 +1091,64 @@ namespace AgentRun20250910
        * @return UpdateMemoryResponse
        */
       Models::UpdateMemoryResponse updateMemory(const string &memoryName, const Models::UpdateMemoryRequest &request);
+
+      /**
+       * @summary 更新模型
+       *
+       * @param request UpdateModelProxyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelProxyResponse
+       */
+      Models::UpdateModelProxyResponse updateModelProxyWithOptions(const string &modelProxyName, const Models::UpdateModelProxyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模型
+       *
+       * @param request UpdateModelProxyRequest
+       * @return UpdateModelProxyResponse
+       */
+      Models::UpdateModelProxyResponse updateModelProxy(const string &modelProxyName, const Models::UpdateModelProxyRequest &request);
+
+      /**
+       * @summary 更新模型
+       *
+       * @param request UpdateModelServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelServiceResponse
+       */
+      Models::UpdateModelServiceResponse updateModelServiceWithOptions(const string &modelServiceName, const Models::UpdateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模型
+       *
+       * @param request UpdateModelServiceRequest
+       * @return UpdateModelServiceResponse
+       */
+      Models::UpdateModelServiceResponse updateModelService(const string &modelServiceName, const Models::UpdateModelServiceRequest &request);
+
+      /**
+       * @summary 更新模板
+       *
+       * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+       *
+       * @param request UpdateTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTemplateResponse
+       */
+      Models::UpdateTemplateResponse updateTemplateWithOptions(const string &templateName, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模板
+       *
+       * @description 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+       *
+       * @param request UpdateTemplateRequest
+       * @return UpdateTemplateResponse
+       */
+      Models::UpdateTemplateResponse updateTemplate(const string &templateName, const Models::UpdateTemplateRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentRun20250910

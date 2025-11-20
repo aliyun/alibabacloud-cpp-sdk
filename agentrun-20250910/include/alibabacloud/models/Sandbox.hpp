@@ -13,7 +13,9 @@ namespace Models
   class Sandbox : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Sandbox& obj) { 
+      DARABONBA_PTR_TO_JSON(SandboxIdleTTLInSeconds, sandboxIdleTTLInSeconds_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_TO_JSON(endedAt, endedAt_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_ANY_TO_JSON(metadata, metadata_);
       DARABONBA_PTR_TO_JSON(sandboxArn, sandboxArn_);
@@ -24,7 +26,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
     };
     friend void from_json(const Darabonba::Json& j, Sandbox& obj) { 
+      DARABONBA_PTR_FROM_JSON(SandboxIdleTTLInSeconds, sandboxIdleTTLInSeconds_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_FROM_JSON(endedAt, endedAt_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_ANY_FROM_JSON(metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(sandboxArn, sandboxArn_);
@@ -45,14 +49,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->lastUpdatedAt_ == nullptr && return this->metadata_ == nullptr && return this->sandboxArn_ == nullptr && return this->sandboxId_ == nullptr && return this->sandboxIdleTimeoutSeconds_ == nullptr
-        && return this->status_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr; };
+    virtual bool empty() const override { return this->sandboxIdleTTLInSeconds_ == nullptr
+        && return this->createdAt_ == nullptr && return this->endedAt_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->metadata_ == nullptr && return this->sandboxArn_ == nullptr
+        && return this->sandboxId_ == nullptr && return this->sandboxIdleTimeoutSeconds_ == nullptr && return this->status_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr; };
+    // sandboxIdleTTLInSeconds Field Functions 
+    bool hasSandboxIdleTTLInSeconds() const { return this->sandboxIdleTTLInSeconds_ != nullptr;};
+    void deleteSandboxIdleTTLInSeconds() { this->sandboxIdleTTLInSeconds_ = nullptr;};
+    inline int32_t sandboxIdleTTLInSeconds() const { DARABONBA_PTR_GET_DEFAULT(sandboxIdleTTLInSeconds_, 0) };
+    inline Sandbox& setSandboxIdleTTLInSeconds(int32_t sandboxIdleTTLInSeconds) { DARABONBA_PTR_SET_VALUE(sandboxIdleTTLInSeconds_, sandboxIdleTTLInSeconds) };
+
+
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
     inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline Sandbox& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+    // endedAt Field Functions 
+    bool hasEndedAt() const { return this->endedAt_ != nullptr;};
+    void deleteEndedAt() { this->endedAt_ = nullptr;};
+    inline string endedAt() const { DARABONBA_PTR_GET_DEFAULT(endedAt_, "") };
+    inline Sandbox& setEndedAt(string endedAt) { DARABONBA_PTR_SET_VALUE(endedAt_, endedAt) };
 
 
     // lastUpdatedAt Field Functions 
@@ -114,10 +132,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> sandboxIdleTTLInSeconds_ = nullptr;
     // 沙箱创建时间
     // 
     // This parameter is required.
     std::shared_ptr<string> createdAt_ = nullptr;
+    std::shared_ptr<string> endedAt_ = nullptr;
     // 最后更新时间
     std::shared_ptr<string> lastUpdatedAt_ = nullptr;
     Darabonba::Json metadata_ = nullptr;
