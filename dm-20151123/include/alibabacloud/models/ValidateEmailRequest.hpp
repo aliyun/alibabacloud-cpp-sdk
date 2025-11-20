@@ -13,10 +13,12 @@ namespace Models
   class ValidateEmailRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ValidateEmailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CheckGraylist, checkGraylist_);
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(Timeout, timeout_);
     };
     friend void from_json(const Darabonba::Json& j, ValidateEmailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CheckGraylist, checkGraylist_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->email_ == nullptr
-        && return this->timeout_ == nullptr; };
+    virtual bool empty() const override { return this->checkGraylist_ == nullptr
+        && return this->email_ == nullptr && return this->timeout_ == nullptr; };
+    // checkGraylist Field Functions 
+    bool hasCheckGraylist() const { return this->checkGraylist_ != nullptr;};
+    void deleteCheckGraylist() { this->checkGraylist_ = nullptr;};
+    inline bool checkGraylist() const { DARABONBA_PTR_GET_DEFAULT(checkGraylist_, false) };
+    inline ValidateEmailRequest& setCheckGraylist(bool checkGraylist) { DARABONBA_PTR_SET_VALUE(checkGraylist_, checkGraylist) };
+
+
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> checkGraylist_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> email_ = nullptr;
     std::shared_ptr<int64_t> timeout_ = nullptr;
