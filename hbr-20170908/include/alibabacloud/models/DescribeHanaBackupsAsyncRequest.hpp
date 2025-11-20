@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->databaseName_ != nullptr && this->includeDifferential_ != nullptr && this->includeIncremental_ != nullptr && this->includeLog_ != nullptr && this->logPosition_ != nullptr
-        && this->mode_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->recoveryPointInTime_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->source_ != nullptr && this->sourceClusterId_ != nullptr && this->systemCopy_ != nullptr && this->useBackint_ != nullptr && this->vaultId_ != nullptr
-        && this->volumeId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->databaseName_ == nullptr && return this->includeDifferential_ == nullptr && return this->includeIncremental_ == nullptr && return this->includeLog_ == nullptr && return this->logPosition_ == nullptr
+        && return this->mode_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->recoveryPointInTime_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->source_ == nullptr && return this->sourceClusterId_ == nullptr && return this->systemCopy_ == nullptr && return this->useBackint_ == nullptr && return this->vaultId_ == nullptr
+        && return this->volumeId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

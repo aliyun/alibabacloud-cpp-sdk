@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->tag_ != nullptr && this->vaultId_ != nullptr
-        && this->vaultName_ != nullptr && this->vaultRegionId_ != nullptr && this->vaultType_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->vaultId_ == nullptr
+        && return this->vaultName_ == nullptr && return this->vaultRegionId_ == nullptr && return this->vaultType_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};

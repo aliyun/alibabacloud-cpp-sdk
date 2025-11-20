@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogBackupParameterFile_ != nullptr
-        && this->catalogBackupUsingBackint_ != nullptr && this->clusterId_ != nullptr && this->dataBackupParameterFile_ != nullptr && this->databaseName_ != nullptr && this->enableAutoLogBackup_ != nullptr
-        && this->logBackupParameterFile_ != nullptr && this->logBackupTimeout_ != nullptr && this->logBackupUsingBackint_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->catalogBackupParameterFile_ == nullptr
+        && return this->catalogBackupUsingBackint_ == nullptr && return this->clusterId_ == nullptr && return this->dataBackupParameterFile_ == nullptr && return this->databaseName_ == nullptr && return this->enableAutoLogBackup_ == nullptr
+        && return this->logBackupParameterFile_ == nullptr && return this->logBackupTimeout_ == nullptr && return this->logBackupUsingBackint_ == nullptr && return this->vaultId_ == nullptr; };
     // catalogBackupParameterFile Field Functions 
     bool hasCatalogBackupParameterFile() const { return this->catalogBackupParameterFile_ != nullptr;};
     void deleteCatalogBackupParameterFile() { this->catalogBackupParameterFile_ = nullptr;};

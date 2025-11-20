@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertOnPartialComplete_ != nullptr
-        && this->clientId_ != nullptr && this->dataNetworkType_ != nullptr && this->dataProxySetting_ != nullptr && this->maxCpuCore_ != nullptr && this->maxMemory_ != nullptr
-        && this->maxWorker_ != nullptr && this->proxyHost_ != nullptr && this->proxyPassword_ != nullptr && this->proxyPort_ != nullptr && this->proxyUser_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->useHttps_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->alertOnPartialComplete_ == nullptr
+        && return this->clientId_ == nullptr && return this->dataNetworkType_ == nullptr && return this->dataProxySetting_ == nullptr && return this->maxCpuCore_ == nullptr && return this->maxMemory_ == nullptr
+        && return this->maxWorker_ == nullptr && return this->proxyHost_ == nullptr && return this->proxyPassword_ == nullptr && return this->proxyPort_ == nullptr && return this->proxyUser_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->useHttps_ == nullptr && return this->vaultId_ == nullptr; };
     // alertOnPartialComplete Field Functions 
     bool hasAlertOnPartialComplete() const { return this->alertOnPartialComplete_ != nullptr;};
     void deleteAlertOnPartialComplete() { this->alertOnPartialComplete_ = nullptr;};

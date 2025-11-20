@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualBytes_ != nullptr
-        && this->backupType_ != nullptr && this->bytesTotal_ != nullptr && this->completeTime_ != nullptr && this->createTime_ != nullptr && this->createdTime_ != nullptr
-        && this->instanceName_ != nullptr && this->jobId_ != nullptr && this->parentSnapshotHash_ != nullptr && this->rangeEnd_ != nullptr && this->rangeStart_ != nullptr
-        && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->tableName_ != nullptr && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->actualBytes_ == nullptr
+        && return this->backupType_ == nullptr && return this->bytesTotal_ == nullptr && return this->completeTime_ == nullptr && return this->createTime_ == nullptr && return this->createdTime_ == nullptr
+        && return this->instanceName_ == nullptr && return this->jobId_ == nullptr && return this->parentSnapshotHash_ == nullptr && return this->rangeEnd_ == nullptr && return this->rangeStart_ == nullptr
+        && return this->retention_ == nullptr && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->tableName_ == nullptr && return this->updatedTime_ == nullptr && return this->vaultId_ == nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};

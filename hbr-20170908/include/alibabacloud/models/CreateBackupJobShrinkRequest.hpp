@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupType_ != nullptr
-        && this->clusterId_ != nullptr && this->containerClusterId_ != nullptr && this->containerResources_ != nullptr && this->crossAccountRoleName_ != nullptr && this->crossAccountType_ != nullptr
-        && this->crossAccountUserId_ != nullptr && this->detailShrink_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->initiatedByAck_ != nullptr
-        && this->instanceId_ != nullptr && this->jobName_ != nullptr && this->options_ != nullptr && this->retention_ != nullptr && this->sourceType_ != nullptr
-        && this->speedLimit_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->backupType_ == nullptr
+        && return this->clusterId_ == nullptr && return this->containerClusterId_ == nullptr && return this->containerResources_ == nullptr && return this->crossAccountRoleName_ == nullptr && return this->crossAccountType_ == nullptr
+        && return this->crossAccountUserId_ == nullptr && return this->detailShrink_ == nullptr && return this->exclude_ == nullptr && return this->include_ == nullptr && return this->initiatedByAck_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobName_ == nullptr && return this->options_ == nullptr && return this->retention_ == nullptr && return this->sourceType_ == nullptr
+        && return this->speedLimit_ == nullptr && return this->vaultId_ == nullptr; };
     // backupType Field Functions 
     bool hasBackupType() const { return this->backupType_ != nullptr;};
     void deleteBackupType() { this->backupType_ = nullptr;};

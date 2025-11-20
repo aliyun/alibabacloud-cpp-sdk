@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fetchSliceSize_ != nullptr
-        && this->fullOnIncrementFail_ != nullptr; };
+    virtual bool empty() const override { return this->fetchSliceSize_ == nullptr
+        && return this->fullOnIncrementFail_ == nullptr; };
     // fetchSliceSize Field Functions 
     bool hasFetchSliceSize() const { return this->fetchSliceSize_ != nullptr;};
     void deleteFetchSliceSize() { this->fetchSliceSize_ = nullptr;};

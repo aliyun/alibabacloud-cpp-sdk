@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appConsistent_ != nullptr
-        && this->destinationKmsKeyId_ != nullptr && this->diskIdList_ != nullptr && this->enableFsFreeze_ != nullptr && this->enableWriters_ != nullptr && this->excludeDiskIdList_ != nullptr
-        && this->postScriptPath_ != nullptr && this->preScriptPath_ != nullptr && this->ramRoleName_ != nullptr && this->snapshotGroup_ != nullptr && this->timeoutInSeconds_ != nullptr; };
+    virtual bool empty() const override { return this->appConsistent_ == nullptr
+        && return this->destinationKmsKeyId_ == nullptr && return this->diskIdList_ == nullptr && return this->enableFsFreeze_ == nullptr && return this->enableWriters_ == nullptr && return this->excludeDiskIdList_ == nullptr
+        && return this->postScriptPath_ == nullptr && return this->preScriptPath_ == nullptr && return this->ramRoleName_ == nullptr && return this->snapshotGroup_ == nullptr && return this->timeoutInSeconds_ == nullptr; };
     // appConsistent Field Functions 
     bool hasAppConsistent() const { return this->appConsistent_ != nullptr;};
     void deleteAppConsistent() { this->appConsistent_ = nullptr;};

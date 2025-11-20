@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tempFileKey_ != nullptr; };
+    virtual bool empty() const override { return this->tempFileKey_ == nullptr; };
     // tempFileKey Field Functions 
     bool hasTempFileKey() const { return this->tempFileKey_ != nullptr;};
     void deleteTempFileKey() { this->tempFileKey_ = nullptr;};

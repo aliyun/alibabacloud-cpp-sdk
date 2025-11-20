@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupID_ != nullptr
-        && this->backupPrefix_ != nullptr && this->checkAccess_ != nullptr && this->clearLog_ != nullptr && this->clusterId_ != nullptr && this->currentPhase_ != nullptr
-        && this->currentProgress_ != nullptr && this->databaseName_ != nullptr && this->databaseRestoreId_ != nullptr && this->endTime_ != nullptr && this->logPosition_ != nullptr
-        && this->maxPhase_ != nullptr && this->maxProgress_ != nullptr && this->message_ != nullptr && this->mode_ != nullptr && this->phase_ != nullptr
-        && this->reachedTime_ != nullptr && this->recoveryPointInTime_ != nullptr && this->restoreId_ != nullptr && this->source_ != nullptr && this->sourceClusterId_ != nullptr
-        && this->startTime_ != nullptr && this->state_ != nullptr && this->status_ != nullptr && this->systemCopy_ != nullptr && this->useCatalog_ != nullptr
-        && this->useDelta_ != nullptr && this->vaultId_ != nullptr && this->volumeId_ != nullptr; };
+    virtual bool empty() const override { return this->backupID_ == nullptr
+        && return this->backupPrefix_ == nullptr && return this->checkAccess_ == nullptr && return this->clearLog_ == nullptr && return this->clusterId_ == nullptr && return this->currentPhase_ == nullptr
+        && return this->currentProgress_ == nullptr && return this->databaseName_ == nullptr && return this->databaseRestoreId_ == nullptr && return this->endTime_ == nullptr && return this->logPosition_ == nullptr
+        && return this->maxPhase_ == nullptr && return this->maxProgress_ == nullptr && return this->message_ == nullptr && return this->mode_ == nullptr && return this->phase_ == nullptr
+        && return this->reachedTime_ == nullptr && return this->recoveryPointInTime_ == nullptr && return this->restoreId_ == nullptr && return this->source_ == nullptr && return this->sourceClusterId_ == nullptr
+        && return this->startTime_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->systemCopy_ == nullptr && return this->useCatalog_ == nullptr
+        && return this->useDelta_ == nullptr && return this->vaultId_ == nullptr && return this->volumeId_ == nullptr; };
     // backupID Field Functions 
     bool hasBackupID() const { return this->backupID_ != nullptr;};
     void deleteBackupID() { this->backupID_ = nullptr;};

@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIds_ != nullptr
-        && this->clientType_ != nullptr && this->clusterId_ != nullptr && this->crossAccountRoleName_ != nullptr && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr
-        && this->filters_ != nullptr && this->instanceIds_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->clientIds_ == nullptr
+        && return this->clientType_ == nullptr && return this->clusterId_ == nullptr && return this->crossAccountRoleName_ == nullptr && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr
+        && return this->filters_ == nullptr && return this->instanceIds_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->tag_ == nullptr; };
     // clientIds Field Functions 
     bool hasClientIds() const { return this->clientIds_ != nullptr;};
     void deleteClientIds() { this->clientIds_ = nullptr;};

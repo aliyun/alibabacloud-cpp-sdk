@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualBytes_ != nullptr
-        && this->advancedRetentionType_ != nullptr && this->archiveErrorMessage_ != nullptr && this->archiveStatus_ != nullptr && this->archiveTriggerTime_ != nullptr && this->backupType_ != nullptr
-        && this->bytesTotal_ != nullptr && this->canBeDeleted_ != nullptr && this->completeTime_ != nullptr && this->createTime_ != nullptr && this->createdTime_ != nullptr
-        && this->detail_ != nullptr && this->diskId_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr && this->jobId_ != nullptr
-        && this->nativeSnapshotId_ != nullptr && this->nativeSnapshotInfo_ != nullptr && this->parentSnapshotHash_ != nullptr && this->prefix_ != nullptr && this->realSnapshotTime_ != nullptr
-        && this->retention_ != nullptr && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->updatedTime_ != nullptr; };
+    virtual bool empty() const override { return this->actualBytes_ == nullptr
+        && return this->advancedRetentionType_ == nullptr && return this->archiveErrorMessage_ == nullptr && return this->archiveStatus_ == nullptr && return this->archiveTriggerTime_ == nullptr && return this->backupType_ == nullptr
+        && return this->bytesTotal_ == nullptr && return this->canBeDeleted_ == nullptr && return this->completeTime_ == nullptr && return this->createTime_ == nullptr && return this->createdTime_ == nullptr
+        && return this->detail_ == nullptr && return this->diskId_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr && return this->jobId_ == nullptr
+        && return this->nativeSnapshotId_ == nullptr && return this->nativeSnapshotInfo_ == nullptr && return this->parentSnapshotHash_ == nullptr && return this->prefix_ == nullptr && return this->realSnapshotTime_ == nullptr
+        && return this->retention_ == nullptr && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->updatedTime_ == nullptr; };
     // actualBytes Field Functions 
     bool hasActualBytes() const { return this->actualBytes_ != nullptr;};
     void deleteActualBytes() { this->actualBytes_ = nullptr;};

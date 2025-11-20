@@ -121,16 +121,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupSourceGroupId_ != nullptr
-        && this->backupType_ != nullptr && this->bucket_ != nullptr && this->businessStatus_ != nullptr && this->changeListPath_ != nullptr && this->clientId_ != nullptr
-        && this->clusterId_ != nullptr && this->createTime_ != nullptr && this->createdByTag_ != nullptr && this->createdTime_ != nullptr && this->crossAccountRoleName_ != nullptr
-        && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->dataSourceId_ != nullptr && this->destDataSourceDetail_ != nullptr && this->destDataSourceId_ != nullptr
-        && this->destSourceType_ != nullptr && this->detail_ != nullptr && this->disabled_ != nullptr && this->exclude_ != nullptr && this->fileSystemId_ != nullptr
-        && this->hitTags_ != nullptr && this->include_ != nullptr && this->instanceGroupId_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->keepLatestSnapshots_ != nullptr && this->latestExecuteJobId_ != nullptr && this->latestFinishJobId_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr
-        && this->paths_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr && this->prefix_ != nullptr && this->resources_ != nullptr
-        && this->retention_ != nullptr && this->rules_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr
-        && this->trialInfo_ != nullptr && this->updatedTime_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->backupSourceGroupId_ == nullptr
+        && return this->backupType_ == nullptr && return this->bucket_ == nullptr && return this->businessStatus_ == nullptr && return this->changeListPath_ == nullptr && return this->clientId_ == nullptr
+        && return this->clusterId_ == nullptr && return this->createTime_ == nullptr && return this->createdByTag_ == nullptr && return this->createdTime_ == nullptr && return this->crossAccountRoleName_ == nullptr
+        && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr && return this->dataSourceId_ == nullptr && return this->destDataSourceDetail_ == nullptr && return this->destDataSourceId_ == nullptr
+        && return this->destSourceType_ == nullptr && return this->detail_ == nullptr && return this->disabled_ == nullptr && return this->exclude_ == nullptr && return this->fileSystemId_ == nullptr
+        && return this->hitTags_ == nullptr && return this->include_ == nullptr && return this->instanceGroupId_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->keepLatestSnapshots_ == nullptr && return this->latestExecuteJobId_ == nullptr && return this->latestFinishJobId_ == nullptr && return this->options_ == nullptr && return this->otsDetail_ == nullptr
+        && return this->paths_ == nullptr && return this->planId_ == nullptr && return this->planName_ == nullptr && return this->prefix_ == nullptr && return this->resources_ == nullptr
+        && return this->retention_ == nullptr && return this->rules_ == nullptr && return this->schedule_ == nullptr && return this->sourceType_ == nullptr && return this->speedLimit_ == nullptr
+        && return this->trialInfo_ == nullptr && return this->updatedTime_ == nullptr && return this->vaultId_ == nullptr; };
     // backupSourceGroupId Field Functions 
     bool hasBackupSourceGroupId() const { return this->backupSourceGroupId_ != nullptr;};
     void deleteBackupSourceGroupId() { this->backupSourceGroupId_ = nullptr;};

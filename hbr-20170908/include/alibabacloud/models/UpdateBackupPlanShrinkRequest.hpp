@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->changeListPath_ != nullptr
-        && this->detailShrink_ != nullptr && this->edition_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->keepLatestSnapshots_ != nullptr
-        && this->options_ != nullptr && this->otsDetailShrink_ != nullptr && this->path_ != nullptr && this->planId_ != nullptr && this->planName_ != nullptr
-        && this->prefix_ != nullptr && this->retention_ != nullptr && this->rule_ != nullptr && this->schedule_ != nullptr && this->sourceType_ != nullptr
-        && this->speedLimit_ != nullptr && this->updatePaths_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->changeListPath_ == nullptr
+        && return this->detailShrink_ == nullptr && return this->edition_ == nullptr && return this->exclude_ == nullptr && return this->include_ == nullptr && return this->keepLatestSnapshots_ == nullptr
+        && return this->options_ == nullptr && return this->otsDetailShrink_ == nullptr && return this->path_ == nullptr && return this->planId_ == nullptr && return this->planName_ == nullptr
+        && return this->prefix_ == nullptr && return this->retention_ == nullptr && return this->rule_ == nullptr && return this->schedule_ == nullptr && return this->sourceType_ == nullptr
+        && return this->speedLimit_ == nullptr && return this->updatePaths_ == nullptr && return this->vaultId_ == nullptr; };
     // changeListPath Field Functions 
     bool hasChangeListPath() const { return this->changeListPath_ != nullptr;};
     void deleteChangeListPath() { this->changeListPath_ = nullptr;};

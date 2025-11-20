@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appliance_ != nullptr
-        && this->archType_ != nullptr && this->backupStatus_ != nullptr && this->clientId_ != nullptr && this->clientType_ != nullptr && this->clientVersion_ != nullptr
-        && this->createdTime_ != nullptr && this->hostname_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->lastHeartBeatTime_ != nullptr
-        && this->maxClientVersion_ != nullptr && this->osType_ != nullptr && this->privateIpV4_ != nullptr && this->settings_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->updatedTime_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->appliance_ == nullptr
+        && return this->archType_ == nullptr && return this->backupStatus_ == nullptr && return this->clientId_ == nullptr && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr
+        && return this->createdTime_ == nullptr && return this->hostname_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->lastHeartBeatTime_ == nullptr
+        && return this->maxClientVersion_ == nullptr && return this->osType_ == nullptr && return this->privateIpV4_ == nullptr && return this->settings_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->updatedTime_ == nullptr && return this->zoneId_ == nullptr; };
     // appliance Field Functions 
     bool hasAppliance() const { return this->appliance_ != nullptr;};
     void deleteAppliance() { this->appliance_ = nullptr;};

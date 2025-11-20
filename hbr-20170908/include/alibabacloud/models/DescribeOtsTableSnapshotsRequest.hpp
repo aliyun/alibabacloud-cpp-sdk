@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->crossAccountRoleName_ != nullptr
-        && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->endTime_ != nullptr && this->limit_ != nullptr && this->nextToken_ != nullptr
-        && this->otsInstances_ != nullptr && this->snapshotIds_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->crossAccountRoleName_ == nullptr
+        && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr && return this->endTime_ == nullptr && return this->limit_ == nullptr && return this->nextToken_ == nullptr
+        && return this->otsInstances_ == nullptr && return this->snapshotIds_ == nullptr && return this->startTime_ == nullptr; };
     // crossAccountRoleName Field Functions 
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};

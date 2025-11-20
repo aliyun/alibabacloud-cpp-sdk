@@ -1263,6 +1263,23 @@ namespace Hbr20170908
       Models::InstallBackupClientsResponse installBackupClients(const Models::InstallBackupClientsRequest &request);
 
       /**
+       * @summary 查询已保护的资源列表
+       *
+       * @param request ListProtectedResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProtectedResourcesResponse
+       */
+      Models::ListProtectedResourcesResponse listProtectedResourcesWithOptions(const Models::ListProtectedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询已保护的资源列表
+       *
+       * @param request ListProtectedResourcesRequest
+       * @return ListProtectedResourcesResponse
+       */
+      Models::ListProtectedResourcesResponse listProtectedResources(const Models::ListProtectedResourcesRequest &request);
+
+      /**
        * @summary Activates Cloud Backup.
        *
        * @param request OpenHbrServiceRequest

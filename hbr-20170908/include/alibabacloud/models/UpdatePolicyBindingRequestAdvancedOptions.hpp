@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonFileSystemDetail_ != nullptr
-        && this->ossDetail_ != nullptr && this->udmDetail_ != nullptr; };
+    virtual bool empty() const override { return this->commonFileSystemDetail_ == nullptr
+        && return this->ossDetail_ == nullptr && return this->udmDetail_ == nullptr; };
     // commonFileSystemDetail Field Functions 
     bool hasCommonFileSystemDetail() const { return this->commonFileSystemDetail_ != nullptr;};
     void deleteCommonFileSystemDetail() { this->commonFileSystemDetail_ = nullptr;};

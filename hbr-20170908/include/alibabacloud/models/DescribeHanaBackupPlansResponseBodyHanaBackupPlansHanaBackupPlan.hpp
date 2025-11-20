@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupPrefix_ != nullptr
-        && this->backupType_ != nullptr && this->businessStatus_ != nullptr && this->clusterId_ != nullptr && this->databaseName_ != nullptr && this->disabled_ != nullptr
-        && this->planId_ != nullptr && this->planName_ != nullptr && this->schedule_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->backupPrefix_ == nullptr
+        && return this->backupType_ == nullptr && return this->businessStatus_ == nullptr && return this->clusterId_ == nullptr && return this->databaseName_ == nullptr && return this->disabled_ == nullptr
+        && return this->planId_ == nullptr && return this->planName_ == nullptr && return this->schedule_ == nullptr && return this->vaultId_ == nullptr; };
     // backupPrefix Field Functions 
     bool hasBackupPrefix() const { return this->backupPrefix_ != nullptr;};
     void deleteBackupPrefix() { this->backupPrefix_ = nullptr;};

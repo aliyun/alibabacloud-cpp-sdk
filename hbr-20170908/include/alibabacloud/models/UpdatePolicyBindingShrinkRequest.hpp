@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedOptionsShrink_ != nullptr
-        && this->dataSourceId_ != nullptr && this->disabled_ != nullptr && this->exclude_ != nullptr && this->include_ != nullptr && this->policyBindingDescription_ != nullptr
-        && this->policyId_ != nullptr && this->source_ != nullptr && this->sourceType_ != nullptr && this->speedLimit_ != nullptr; };
+    virtual bool empty() const override { return this->advancedOptionsShrink_ == nullptr
+        && return this->dataSourceId_ == nullptr && return this->disabled_ == nullptr && return this->exclude_ == nullptr && return this->include_ == nullptr && return this->policyBindingDescription_ == nullptr
+        && return this->policyId_ == nullptr && return this->source_ == nullptr && return this->sourceType_ == nullptr && return this->speedLimit_ == nullptr; };
     // advancedOptionsShrink Field Functions 
     bool hasAdvancedOptionsShrink() const { return this->advancedOptionsShrink_ != nullptr;};
     void deleteAdvancedOptionsShrink() { this->advancedOptionsShrink_ = nullptr;};

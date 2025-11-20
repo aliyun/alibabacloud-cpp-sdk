@@ -4252,6 +4252,68 @@ InstallBackupClientsResponse Client::installBackupClients(const InstallBackupCli
 }
 
 /**
+ * @summary 查询已保护的资源列表
+ *
+ * @param request ListProtectedResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProtectedResourcesResponse
+ */
+ListProtectedResourcesResponse Client::listProtectedResourcesWithOptions(const ListProtectedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreatedByProduct()) {
+    query["CreatedByProduct"] = request.createdByProduct();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasSkip()) {
+    query["Skip"] = request.skip();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.sourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProtectedResources"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProtectedResourcesResponse>();
+}
+
+/**
+ * @summary 查询已保护的资源列表
+ *
+ * @param request ListProtectedResourcesRequest
+ * @return ListProtectedResourcesResponse
+ */
+ListProtectedResourcesResponse Client::listProtectedResources(const ListProtectedResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProtectedResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Activates Cloud Backup.
  *
  * @param request OpenHbrServiceRequest

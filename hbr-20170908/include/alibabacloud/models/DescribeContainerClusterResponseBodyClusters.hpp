@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agentStatus_ != nullptr
-        && this->clusterId_ != nullptr && this->clusterType_ != nullptr && this->description_ != nullptr && this->identifier_ != nullptr && this->name_ != nullptr
-        && this->networkType_ != nullptr && this->token_ != nullptr; };
+    virtual bool empty() const override { return this->agentStatus_ == nullptr
+        && return this->clusterId_ == nullptr && return this->clusterType_ == nullptr && return this->description_ == nullptr && return this->identifier_ == nullptr && return this->name_ == nullptr
+        && return this->networkType_ == nullptr && return this->token_ == nullptr; };
     // agentStatus Field Functions 
     bool hasAgentStatus() const { return this->agentStatus_ != nullptr;};
     void deleteAgentStatus() { this->agentStatus_ = nullptr;};

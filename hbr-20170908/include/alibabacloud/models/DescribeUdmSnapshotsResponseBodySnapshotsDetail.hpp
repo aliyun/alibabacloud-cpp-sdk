@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->consistentLevel_ != nullptr
-        && this->containOsDisk_ != nullptr && this->diskCategory_ != nullptr && this->diskDevName_ != nullptr && this->diskHbrSnapshotIdWithDeviceMap_ != nullptr && this->diskIdList_ != nullptr
-        && this->downgradeReason_ != nullptr && this->hostName_ != nullptr && this->instanceIdWithDiskIdListMap_ != nullptr && this->instanceName_ != nullptr && this->instanceType_ != nullptr
-        && this->instantAccess_ != nullptr && this->nativeSnapshotIdList_ != nullptr && this->osDiskId_ != nullptr && this->osName_ != nullptr && this->osNameEn_ != nullptr
-        && this->osType_ != nullptr && this->performanceLevel_ != nullptr && this->platform_ != nullptr && this->snapshotGroupId_ != nullptr && this->systemDisk_ != nullptr
-        && this->vmName_ != nullptr; };
+    virtual bool empty() const override { return this->consistentLevel_ == nullptr
+        && return this->containOsDisk_ == nullptr && return this->diskCategory_ == nullptr && return this->diskDevName_ == nullptr && return this->diskHbrSnapshotIdWithDeviceMap_ == nullptr && return this->diskIdList_ == nullptr
+        && return this->downgradeReason_ == nullptr && return this->hostName_ == nullptr && return this->instanceIdWithDiskIdListMap_ == nullptr && return this->instanceName_ == nullptr && return this->instanceType_ == nullptr
+        && return this->instantAccess_ == nullptr && return this->nativeSnapshotIdList_ == nullptr && return this->osDiskId_ == nullptr && return this->osName_ == nullptr && return this->osNameEn_ == nullptr
+        && return this->osType_ == nullptr && return this->performanceLevel_ == nullptr && return this->platform_ == nullptr && return this->snapshotGroupId_ == nullptr && return this->systemDisk_ == nullptr
+        && return this->vmName_ == nullptr; };
     // consistentLevel Field Functions 
     bool hasConsistentLevel() const { return this->consistentLevel_ != nullptr;};
     void deleteConsistentLevel() { this->consistentLevel_ = nullptr;};

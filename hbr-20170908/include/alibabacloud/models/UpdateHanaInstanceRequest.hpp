@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertSetting_ != nullptr
-        && this->clusterId_ != nullptr && this->hanaName_ != nullptr && this->host_ != nullptr && this->instanceNumber_ != nullptr && this->password_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->useSsl_ != nullptr && this->userName_ != nullptr && this->validateCertificate_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->alertSetting_ == nullptr
+        && return this->clusterId_ == nullptr && return this->hanaName_ == nullptr && return this->host_ == nullptr && return this->instanceNumber_ == nullptr && return this->password_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->useSsl_ == nullptr && return this->userName_ == nullptr && return this->validateCertificate_ == nullptr && return this->vaultId_ == nullptr; };
     // alertSetting Field Functions 
     bool hasAlertSetting() const { return this->alertSetting_ != nullptr;};
     void deleteAlertSetting() { this->alertSetting_ = nullptr;};

@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->advancedOptions_ != nullptr
-        && this->createdByTag_ != nullptr && this->createdTime_ != nullptr && this->crossAccountRoleName_ != nullptr && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr
-        && this->dataSourceId_ != nullptr && this->disabled_ != nullptr && this->exclude_ != nullptr && this->hitTags_ != nullptr && this->include_ != nullptr
-        && this->policyBindingDescription_ != nullptr && this->policyBindingId_ != nullptr && this->policyId_ != nullptr && this->source_ != nullptr && this->sourceType_ != nullptr
-        && this->speedLimit_ != nullptr && this->updatedTime_ != nullptr; };
+    virtual bool empty() const override { return this->advancedOptions_ == nullptr
+        && return this->createdByTag_ == nullptr && return this->createdTime_ == nullptr && return this->crossAccountRoleName_ == nullptr && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr
+        && return this->dataSourceId_ == nullptr && return this->disabled_ == nullptr && return this->exclude_ == nullptr && return this->hitTags_ == nullptr && return this->include_ == nullptr
+        && return this->policyBindingDescription_ == nullptr && return this->policyBindingId_ == nullptr && return this->policyId_ == nullptr && return this->source_ == nullptr && return this->sourceType_ == nullptr
+        && return this->speedLimit_ == nullptr && return this->updatedTime_ == nullptr; };
     // advancedOptions Field Functions 
     bool hasAdvancedOptions() const { return this->advancedOptions_ != nullptr;};
     void deleteAdvancedOptions() { this->advancedOptions_ = nullptr;};

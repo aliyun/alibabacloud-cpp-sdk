@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchChannelCount_ != nullptr
-        && this->indexNameSuffix_ != nullptr && this->overwriteExisting_ != nullptr && this->reGenerateAutoIncrementPK_ != nullptr && this->restoreIndex_ != nullptr && this->restoreSearchIndex_ != nullptr
-        && this->searchIndexNameSuffix_ != nullptr; };
+    virtual bool empty() const override { return this->batchChannelCount_ == nullptr
+        && return this->indexNameSuffix_ == nullptr && return this->overwriteExisting_ == nullptr && return this->reGenerateAutoIncrementPK_ == nullptr && return this->restoreIndex_ == nullptr && return this->restoreSearchIndex_ == nullptr
+        && return this->searchIndexNameSuffix_ == nullptr; };
     // batchChannelCount Field Functions 
     bool hasBatchChannelCount() const { return this->batchChannelCount_ != nullptr;};
     void deleteBatchChannelCount() { this->batchChannelCount_ = nullptr;};

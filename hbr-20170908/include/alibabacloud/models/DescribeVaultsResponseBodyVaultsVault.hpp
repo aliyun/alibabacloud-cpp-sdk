@@ -114,15 +114,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveBytesDone_ != nullptr
-        && this->archiveStorageSize_ != nullptr && this->backupPlanStatistics_ != nullptr && this->bucketName_ != nullptr && this->bytesDone_ != nullptr && this->chargeType_ != nullptr
-        && this->chargedStorageSize_ != nullptr && this->compressionAlgorithm_ != nullptr && this->createdTime_ != nullptr && this->dedup_ != nullptr && this->description_ != nullptr
-        && this->encryptType_ != nullptr && this->indexAvailable_ != nullptr && this->indexLevel_ != nullptr && this->indexUpdateTime_ != nullptr && this->kmsKeyId_ != nullptr
-        && this->latestReplicationTime_ != nullptr && this->redundancyType_ != nullptr && this->replication_ != nullptr && this->replicationProgress_ != nullptr && this->replicationSourceRegionId_ != nullptr
-        && this->replicationSourceVault_ != nullptr && this->replicationSourceVaultId_ != nullptr && this->replicationTargetRegionId_ != nullptr && this->resourceGroupId_ != nullptr && this->retention_ != nullptr
-        && this->searchEnabled_ != nullptr && this->snapshotCount_ != nullptr && this->sourceTypes_ != nullptr && this->status_ != nullptr && this->storageSize_ != nullptr
-        && this->tags_ != nullptr && this->trialInfo_ != nullptr && this->updatedTime_ != nullptr && this->vaultId_ != nullptr && this->vaultName_ != nullptr
-        && this->vaultRegionId_ != nullptr && this->vaultStatusMessage_ != nullptr && this->vaultStorageClass_ != nullptr && this->vaultType_ != nullptr && this->wormEnabled_ != nullptr; };
+    virtual bool empty() const override { return this->archiveBytesDone_ == nullptr
+        && return this->archiveStorageSize_ == nullptr && return this->backupPlanStatistics_ == nullptr && return this->bucketName_ == nullptr && return this->bytesDone_ == nullptr && return this->chargeType_ == nullptr
+        && return this->chargedStorageSize_ == nullptr && return this->compressionAlgorithm_ == nullptr && return this->createdTime_ == nullptr && return this->dedup_ == nullptr && return this->description_ == nullptr
+        && return this->encryptType_ == nullptr && return this->indexAvailable_ == nullptr && return this->indexLevel_ == nullptr && return this->indexUpdateTime_ == nullptr && return this->kmsKeyId_ == nullptr
+        && return this->latestReplicationTime_ == nullptr && return this->redundancyType_ == nullptr && return this->replication_ == nullptr && return this->replicationProgress_ == nullptr && return this->replicationSourceRegionId_ == nullptr
+        && return this->replicationSourceVault_ == nullptr && return this->replicationSourceVaultId_ == nullptr && return this->replicationTargetRegionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->retention_ == nullptr
+        && return this->searchEnabled_ == nullptr && return this->snapshotCount_ == nullptr && return this->sourceTypes_ == nullptr && return this->status_ == nullptr && return this->storageSize_ == nullptr
+        && return this->tags_ == nullptr && return this->trialInfo_ == nullptr && return this->updatedTime_ == nullptr && return this->vaultId_ == nullptr && return this->vaultName_ == nullptr
+        && return this->vaultRegionId_ == nullptr && return this->vaultStatusMessage_ == nullptr && return this->vaultStorageClass_ == nullptr && return this->vaultType_ == nullptr && return this->wormEnabled_ == nullptr; };
     // archiveBytesDone Field Functions 
     bool hasArchiveBytesDone() const { return this->archiveBytesDone_ != nullptr;};
     void deleteArchiveBytesDone() { this->archiveBytesDone_ = nullptr;};

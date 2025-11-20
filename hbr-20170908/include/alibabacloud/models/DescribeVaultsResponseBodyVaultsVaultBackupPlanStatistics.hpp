@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archive_ != nullptr
-        && this->commonFileSystem_ != nullptr && this->commonNas_ != nullptr && this->csg_ != nullptr && this->ecsFile_ != nullptr && this->ecsHana_ != nullptr
-        && this->isilon_ != nullptr && this->localFile_ != nullptr && this->localVm_ != nullptr && this->mySql_ != nullptr && this->nas_ != nullptr
-        && this->oracle_ != nullptr && this->oss_ != nullptr && this->ots_ != nullptr && this->sqlServer_ != nullptr; };
+    virtual bool empty() const override { return this->archive_ == nullptr
+        && return this->commonFileSystem_ == nullptr && return this->commonNas_ == nullptr && return this->csg_ == nullptr && return this->ecsFile_ == nullptr && return this->ecsHana_ == nullptr
+        && return this->isilon_ == nullptr && return this->localFile_ == nullptr && return this->localVm_ == nullptr && return this->mySql_ == nullptr && return this->nas_ == nullptr
+        && return this->oracle_ == nullptr && return this->oss_ == nullptr && return this->ots_ == nullptr && return this->sqlServer_ == nullptr; };
     // archive Field Functions 
     bool hasArchive() const { return this->archive_ != nullptr;};
     void deleteArchive() { this->archive_ = nullptr;};

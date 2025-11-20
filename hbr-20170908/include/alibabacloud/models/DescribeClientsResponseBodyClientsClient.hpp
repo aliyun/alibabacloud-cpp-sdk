@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertSetting_ != nullptr
-        && this->clientId_ != nullptr && this->clientName_ != nullptr && this->clientType_ != nullptr && this->clientVersion_ != nullptr && this->clusterId_ != nullptr
-        && this->createdTime_ != nullptr && this->heartBeatTime_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->maxVersion_ != nullptr
-        && this->networkType_ != nullptr && this->status_ != nullptr && this->statusMessage_ != nullptr && this->updatedTime_ != nullptr && this->useHttps_ != nullptr
-        && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->alertSetting_ == nullptr
+        && return this->clientId_ == nullptr && return this->clientName_ == nullptr && return this->clientType_ == nullptr && return this->clientVersion_ == nullptr && return this->clusterId_ == nullptr
+        && return this->createdTime_ == nullptr && return this->heartBeatTime_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->maxVersion_ == nullptr
+        && return this->networkType_ == nullptr && return this->status_ == nullptr && return this->statusMessage_ == nullptr && return this->updatedTime_ == nullptr && return this->useHttps_ == nullptr
+        && return this->vaultId_ == nullptr; };
     // alertSetting Field Functions 
     bool hasAlertSetting() const { return this->alertSetting_ != nullptr;};
     void deleteAlertSetting() { this->alertSetting_ = nullptr;};

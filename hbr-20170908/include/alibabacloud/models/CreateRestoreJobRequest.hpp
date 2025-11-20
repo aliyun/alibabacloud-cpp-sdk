@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->crossAccountRoleName_ != nullptr
-        && this->crossAccountType_ != nullptr && this->crossAccountUserId_ != nullptr && this->edition_ != nullptr && this->exclude_ != nullptr && this->failbackDetail_ != nullptr
-        && this->include_ != nullptr && this->initiatedByAck_ != nullptr && this->options_ != nullptr && this->otsDetail_ != nullptr && this->restoreType_ != nullptr
-        && this->snapshotHash_ != nullptr && this->snapshotId_ != nullptr && this->sourceType_ != nullptr && this->targetBucket_ != nullptr && this->targetContainer_ != nullptr
-        && this->targetContainerClusterId_ != nullptr && this->targetCreateTime_ != nullptr && this->targetFileSystemId_ != nullptr && this->targetInstanceId_ != nullptr && this->targetInstanceName_ != nullptr
-        && this->targetPath_ != nullptr && this->targetPrefix_ != nullptr && this->targetTableName_ != nullptr && this->targetTime_ != nullptr && this->udmDetail_ != nullptr
-        && this->udmRegionId_ != nullptr && this->vaultId_ != nullptr; };
+    virtual bool empty() const override { return this->crossAccountRoleName_ == nullptr
+        && return this->crossAccountType_ == nullptr && return this->crossAccountUserId_ == nullptr && return this->edition_ == nullptr && return this->exclude_ == nullptr && return this->failbackDetail_ == nullptr
+        && return this->include_ == nullptr && return this->initiatedByAck_ == nullptr && return this->options_ == nullptr && return this->otsDetail_ == nullptr && return this->restoreType_ == nullptr
+        && return this->snapshotHash_ == nullptr && return this->snapshotId_ == nullptr && return this->sourceType_ == nullptr && return this->targetBucket_ == nullptr && return this->targetContainer_ == nullptr
+        && return this->targetContainerClusterId_ == nullptr && return this->targetCreateTime_ == nullptr && return this->targetFileSystemId_ == nullptr && return this->targetInstanceId_ == nullptr && return this->targetInstanceName_ == nullptr
+        && return this->targetPath_ == nullptr && return this->targetPrefix_ == nullptr && return this->targetTableName_ == nullptr && return this->targetTime_ == nullptr && return this->udmDetail_ == nullptr
+        && return this->udmRegionId_ == nullptr && return this->vaultId_ == nullptr; };
     // crossAccountRoleName Field Functions 
     bool hasCrossAccountRoleName() const { return this->crossAccountRoleName_ != nullptr;};
     void deleteCrossAccountRoleName() { this->crossAccountRoleName_ = nullptr;};
