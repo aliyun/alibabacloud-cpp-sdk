@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->renderAddApprovalNode_ != nullptr
-        && this->renderAgree_ != nullptr && this->renderCancel_ != nullptr && this->renderReject_ != nullptr && this->renderTransfer_ != nullptr && this->thirdpartyWorkflowComment_ != nullptr
-        && this->thirdpartyWorkflowUrl_ != nullptr && this->tid_ != nullptr && this->workflowInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->renderAddApprovalNode_ == nullptr
+        && return this->renderAgree_ == nullptr && return this->renderCancel_ == nullptr && return this->renderReject_ == nullptr && return this->renderTransfer_ == nullptr && return this->thirdpartyWorkflowComment_ == nullptr
+        && return this->thirdpartyWorkflowUrl_ == nullptr && return this->tid_ == nullptr && return this->workflowInstanceId_ == nullptr; };
     // renderAddApprovalNode Field Functions 
     bool hasRenderAddApprovalNode() const { return this->renderAddApprovalNode_ != nullptr;};
     void deleteRenderAddApprovalNode() { this->renderAddApprovalNode_ = nullptr;};
@@ -112,14 +112,41 @@ namespace Models
 
 
   protected:
+    // Specifies whether the Sign button is displayed in the ticket approval section of the DMS console for a third-party approval workflow. Valid values:
+    // 
+    // *   **true** (default): The Sign button is displayed.
+    // *   **false**: The Sign button is not displayed.
     std::shared_ptr<bool> renderAddApprovalNode_ = nullptr;
+    // Specifies whether the Agree button is displayed in the ticket approval section of the DMS console for a third-party approval workflow. Valid values:
+    // 
+    // *   **true** (default): The Agree button is displayed.
+    // *   **false**: The Agree button is not displayed.
     std::shared_ptr<bool> renderAgree_ = nullptr;
+    // Specifies whether the Revoke button is displayed in the ticket approval section of the DMS console for a third-party approval workflow. Valid values:
+    // 
+    // *   **true** (default): The Revoke button is displayed.
+    // *   **false**: The Revoke button is not displayed.
     std::shared_ptr<bool> renderCancel_ = nullptr;
+    // Specifies whether the Reject button is displayed in the ticket approval section of the DMS console for a third-party approval workflow. Valid values:
+    // 
+    // *   **true** (default): The Reject button is displayed.
+    // *   **false**: The Reject button is not displayed.
     std::shared_ptr<bool> renderReject_ = nullptr;
+    // Specifies whether the Forward button is displayed in the ticket approval section of the DMS console for a third-party approval workflow. Valid values:
+    // 
+    // *   **true** (default): The Forward button is displayed.
+    // *   **false**: The Forward button is not displayed.
     std::shared_ptr<bool> renderTransfer_ = nullptr;
+    // The remarks of approval workflow for third parties.
     std::shared_ptr<string> thirdpartyWorkflowComment_ = nullptr;
+    // The link of approval workflow for third parties.
     std::shared_ptr<string> thirdpartyWorkflowUrl_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // >  To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The ID of the approval workflow. You can call the [GetOrderBaseInfo](https://help.aliyun.com/document_detail/144642.html) operation to query the ID of the approval workflow.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> workflowInstanceId_ = nullptr;
   };

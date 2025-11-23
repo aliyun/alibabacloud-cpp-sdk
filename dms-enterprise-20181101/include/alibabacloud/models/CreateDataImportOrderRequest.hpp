@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentKey_ != nullptr
-        && this->comment_ != nullptr && this->param_ != nullptr && this->realLoginUserUid_ != nullptr && this->relatedUserList_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentKey_ == nullptr
+        && return this->comment_ == nullptr && return this->param_ == nullptr && return this->realLoginUserUid_ == nullptr && return this->relatedUserList_ == nullptr && return this->tid_ == nullptr; };
     // attachmentKey Field Functions 
     bool hasAttachmentKey() const { return this->attachmentKey_ != nullptr;};
     void deleteAttachmentKey() { this->attachmentKey_ = nullptr;};

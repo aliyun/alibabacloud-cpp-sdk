@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cronCallTimes_ != nullptr
-        && this->cronFormat_ != nullptr && this->cronLastCallStartTime_ != nullptr && this->cronNextCallTime_ != nullptr && this->cronStatus_ != nullptr && this->currentClearTaskCount_ != nullptr
-        && this->duration_ != nullptr && this->optimizeTableAfterEveryClearTimes_ != nullptr; };
+    virtual bool empty() const override { return this->cronCallTimes_ == nullptr
+        && return this->cronFormat_ == nullptr && return this->cronLastCallStartTime_ == nullptr && return this->cronNextCallTime_ == nullptr && return this->cronStatus_ == nullptr && return this->currentClearTaskCount_ == nullptr
+        && return this->duration_ == nullptr && return this->optimizeTableAfterEveryClearTimes_ == nullptr; };
     // cronCallTimes Field Functions 
     bool hasCronCallTimes() const { return this->cronCallTimes_ != nullptr;};
     void deleteCronCallTimes() { this->cronCallTimes_ = nullptr;};

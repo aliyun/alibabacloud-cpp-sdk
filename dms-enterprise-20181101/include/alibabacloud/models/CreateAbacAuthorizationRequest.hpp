@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->identityType_ != nullptr
-        && this->policyId_ != nullptr && this->roleId_ != nullptr && this->tid_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->identityType_ == nullptr
+        && return this->policyId_ == nullptr && return this->roleId_ == nullptr && return this->tid_ == nullptr && return this->userId_ == nullptr; };
     // identityType Field Functions 
     bool hasIdentityType() const { return this->identityType_ != nullptr;};
     void deleteIdentityType() { this->identityType_ = nullptr;};
@@ -75,12 +75,30 @@ namespace Models
 
 
   protected:
+    // Principal Type. Valid values:**user**or**custom role**.
+    // 
+    // Valid values:
+    // 
+    // *   USER
+    // *   ROLE
+    // 
     // This parameter is required.
     std::shared_ptr<string> identityType_ = nullptr;
+    // The ID of the policy.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> policyId_ = nullptr;
+    // The ID of the role.
+    // 
+    // > If IdentityType is set to ROLE, this parameter is required.
     std::shared_ptr<int64_t> roleId_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The ID of the user. You can call the [GetUser](https://help.aliyun.com/document_detail/465816.html) operation to query the user ID.
+    // 
+    // > If IdentityType is set to USER, this parameter is required.
     std::shared_ptr<int64_t> userId_ = nullptr;
   };
 

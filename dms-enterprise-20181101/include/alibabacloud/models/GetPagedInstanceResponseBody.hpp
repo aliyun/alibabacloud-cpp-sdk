@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->pageIndex_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr && this->total_ != nullptr && this->traceId_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr && return this->total_ == nullptr && return this->traceId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -115,15 +115,26 @@ namespace Models
 
 
   protected:
+    // The data returned.
     std::shared_ptr<GetPagedInstanceResponseBodyData> data_ = nullptr;
+    // The error code returned if the request failed.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The page number.
     std::shared_ptr<int64_t> pageIndex_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The request ID. You can use the request ID to query logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // The total number of instances.
     std::shared_ptr<int64_t> total_ = nullptr;
-    // Id of the request
+    // The trace ID, which is used to track the request.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

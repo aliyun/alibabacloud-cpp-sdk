@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoIncrement_ != nullptr
-        && this->columnId_ != nullptr && this->columnName_ != nullptr && this->columnType_ != nullptr && this->dataLength_ != nullptr && this->dataPrecision_ != nullptr
-        && this->dataScale_ != nullptr && this->defaultValue_ != nullptr && this->description_ != nullptr && this->functionType_ != nullptr && this->nullable_ != nullptr
-        && this->securityLevel_ != nullptr && this->sensitive_ != nullptr; };
+    virtual bool empty() const override { return this->autoIncrement_ == nullptr
+        && return this->columnId_ == nullptr && return this->columnName_ == nullptr && return this->columnType_ == nullptr && return this->dataLength_ == nullptr && return this->dataPrecision_ == nullptr
+        && return this->dataScale_ == nullptr && return this->defaultValue_ == nullptr && return this->description_ == nullptr && return this->functionType_ == nullptr && return this->nullable_ == nullptr
+        && return this->securityLevel_ == nullptr && return this->sensitive_ == nullptr; };
     // autoIncrement Field Functions 
     bool hasAutoIncrement() const { return this->autoIncrement_ != nullptr;};
     void deleteAutoIncrement() { this->autoIncrement_ = nullptr;};

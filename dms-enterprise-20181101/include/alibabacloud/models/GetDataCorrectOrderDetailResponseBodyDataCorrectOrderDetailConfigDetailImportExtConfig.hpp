@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->csvFirstRowIsColumnDef_ != nullptr
-        && this->ignoreError_ != nullptr && this->importMode_ != nullptr && this->insertType_ != nullptr; };
+    virtual bool empty() const override { return this->csvFirstRowIsColumnDef_ == nullptr
+        && return this->ignoreError_ == nullptr && return this->importMode_ == nullptr && return this->insertType_ == nullptr; };
     // csvFirstRowIsColumnDef Field Functions 
     bool hasCsvFirstRowIsColumnDef() const { return this->csvFirstRowIsColumnDef_ != nullptr;};
     void deleteCsvFirstRowIsColumnDef() { this->csvFirstRowIsColumnDef_ = nullptr;};

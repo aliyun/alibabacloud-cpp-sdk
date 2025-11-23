@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualAffectRows_ != nullptr
-        && this->attachmentName_ != nullptr && this->classify_ != nullptr && this->estimateAffectRows_ != nullptr && this->exeSQL_ != nullptr && this->ignoreAffectRows_ != nullptr
-        && this->ignoreAffectRowsReason_ != nullptr && this->rbAttachmentName_ != nullptr && this->rbSQL_ != nullptr && this->rbSQLType_ != nullptr && this->sqlType_ != nullptr; };
+    virtual bool empty() const override { return this->actualAffectRows_ == nullptr
+        && return this->attachmentName_ == nullptr && return this->classify_ == nullptr && return this->estimateAffectRows_ == nullptr && return this->exeSQL_ == nullptr && return this->ignoreAffectRows_ == nullptr
+        && return this->ignoreAffectRowsReason_ == nullptr && return this->rbAttachmentName_ == nullptr && return this->rbSQL_ == nullptr && return this->rbSQLType_ == nullptr && return this->sqlType_ == nullptr; };
     // actualAffectRows Field Functions 
     bool hasActualAffectRows() const { return this->actualAffectRows_ != nullptr;};
     void deleteActualAffectRows() { this->actualAffectRows_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->tableName_ != nullptr && this->tableSchemaName_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->tableName_ == nullptr && return this->tableSchemaName_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the physical database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> dbId_ = nullptr;
+    // The name of the table.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The schema name of the table, which is required only for SQL Server instances.
     std::shared_ptr<string> tableSchemaName_ = nullptr;
   };
 

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbType_ != nullptr
-        && this->envType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->searchKey_ != nullptr && this->tid_ != nullptr
-        && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->dbType_ == nullptr
+        && return this->envType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr
+        && return this->userId_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
@@ -94,12 +94,42 @@ namespace Models
 
 
   protected:
+    // The type of databases. Valid values:
+    // 
+    // *   **MySQL**
+    // *   **SQLServer**
+    // *   **PostgreSQL**
+    // *   **Oracle**
+    // *   **DRDS**
+    // *   **OceanBase**
+    // *   **Mongo**
+    // *   **Redis**
     std::shared_ptr<string> dbType_ = nullptr;
+    // The type of the environment in which the database instance is deployed. Valid values:
+    // 
+    // *   **product**: production environment.
+    // *   **dev**: development environment.
+    // *   **pre**: pre-release environment.
+    // *   **test**: test environment.
+    // *   **sit**: system integration testing (SIT) environment.
+    // *   **uat**: user acceptance testing (UAT) environment.
+    // *   **pet**: stress testing environment.
+    // *   **stag**: staging environment.
     std::shared_ptr<string> envType_ = nullptr;
+    // The page number.
     std::shared_ptr<string> pageNumber_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<string> pageSize_ = nullptr;
+    // The search keyword.
     std::shared_ptr<string> searchKey_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The ID of the user. You can call the [GetUser](https://help.aliyun.com/document_detail/465816.html) operation to query the user ID.
+    // 
+    // > If IdentityType is set to USER, this parameter is required.
+    // 
     // This parameter is required.
     std::shared_ptr<string> userId_ = nullptr;
   };

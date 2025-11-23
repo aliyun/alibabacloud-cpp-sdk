@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nickName_ != nullptr
-        && this->realName_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->nickName_ == nullptr
+        && return this->realName_ == nullptr && return this->userId_ == nullptr; };
     // nickName Field Functions 
     bool hasNickName() const { return this->nickName_ != nullptr;};
     void deleteNickName() { this->nickName_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The nickname of the approver.
     std::shared_ptr<string> nickName_ = nullptr;
+    // The name of the approver.
     std::shared_ptr<string> realName_ = nullptr;
+    // The ID of the approver.
     std::shared_ptr<int64_t> userId_ = nullptr;
   };
 

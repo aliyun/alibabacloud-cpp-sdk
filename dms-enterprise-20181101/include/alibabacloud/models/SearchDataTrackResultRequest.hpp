@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnFilter_ != nullptr
-        && this->filterEndTime_ != nullptr && this->filterStartTime_ != nullptr && this->filterTableList_ != nullptr && this->filterTypeList_ != nullptr && this->orderId_ != nullptr
-        && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->columnFilter_ == nullptr
+        && return this->filterEndTime_ == nullptr && return this->filterStartTime_ == nullptr && return this->filterTableList_ == nullptr && return this->filterTypeList_ == nullptr && return this->orderId_ == nullptr
+        && return this->tid_ == nullptr; };
     // columnFilter Field Functions 
     bool hasColumnFilter() const { return this->columnFilter_ != nullptr;};
     void deleteColumnFilter() { this->columnFilter_ = nullptr;};

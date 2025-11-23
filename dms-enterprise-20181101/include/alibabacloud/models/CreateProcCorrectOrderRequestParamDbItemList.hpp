@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->logic_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->logic_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -48,8 +48,18 @@ namespace Models
 
 
   protected:
+    // The database ID. Databases are divided into physical databases and logical databases.
+    // 
+    // *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+    // *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> dbId_ = nullptr;
+    // Specifies whether the database is a logical database. Valid values:
+    // 
+    // *   **true**: The database is a logical database.
+    // *   **false**: The database is a physical database.
+    // 
     // This parameter is required.
     std::shared_ptr<bool> logic_ = nullptr;
   };

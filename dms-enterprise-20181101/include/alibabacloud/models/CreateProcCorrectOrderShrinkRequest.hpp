@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentKey_ != nullptr
-        && this->comment_ != nullptr && this->paramShrink_ != nullptr && this->relatedUserListShrink_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentKey_ == nullptr
+        && return this->comment_ == nullptr && return this->paramShrink_ == nullptr && return this->relatedUserListShrink_ == nullptr && return this->tid_ == nullptr; };
     // attachmentKey Field Functions 
     bool hasAttachmentKey() const { return this->attachmentKey_ != nullptr;};
     void deleteAttachmentKey() { this->attachmentKey_ = nullptr;};
@@ -75,12 +75,23 @@ namespace Models
 
 
   protected:
+    // The key of the attachment for the ticket. The attachment provides more instructions for this operation.
+    // 
+    // You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to query the key of the attachment.
     std::shared_ptr<string> attachmentKey_ = nullptr;
+    // The remarks of the ticket.
+    // 
     // This parameter is required.
     std::shared_ptr<string> comment_ = nullptr;
+    // The parameters of the ticket.
+    // 
     // This parameter is required.
     std::shared_ptr<string> paramShrink_ = nullptr;
+    // The operators that are related to the ticket.
     std::shared_ptr<string> relatedUserListShrink_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

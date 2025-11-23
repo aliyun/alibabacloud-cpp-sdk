@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbType_ != nullptr
-        && this->dbaId_ != nullptr && this->dbaNickName_ != nullptr && this->envType_ != nullptr && this->host_ != nullptr && this->instanceId_ != nullptr
-        && this->ownerIds_ != nullptr && this->ownerNickName_ != nullptr && this->port_ != nullptr && this->searchName_ != nullptr; };
+    virtual bool empty() const override { return this->dbType_ == nullptr
+        && return this->dbaId_ == nullptr && return this->dbaNickName_ == nullptr && return this->envType_ == nullptr && return this->host_ == nullptr && return this->instanceId_ == nullptr
+        && return this->ownerIds_ == nullptr && return this->ownerNickName_ == nullptr && return this->port_ == nullptr && return this->searchName_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};

@@ -14,10 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDifyAttributeResponseBodyRoot& obj) { 
       DARABONBA_PTR_TO_JSON(AppUuid, appUuid_);
+      DARABONBA_PTR_TO_JSON(BillingInstanceId, billingInstanceId_);
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
       DARABONBA_PTR_TO_JSON(ResourceQuota, resourceQuota_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -25,10 +29,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeDifyAttributeResponseBodyRoot& obj) { 
       DARABONBA_PTR_FROM_JSON(AppUuid, appUuid_);
+      DARABONBA_PTR_FROM_JSON(BillingInstanceId, billingInstanceId_);
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(ResourceQuota, resourceQuota_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -45,14 +53,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appUuid_ != nullptr
-        && this->replicas_ != nullptr && this->resourceQuota_ != nullptr && this->securityGroupId_ != nullptr && this->status_ != nullptr && this->vSwitchId_ != nullptr
-        && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->appUuid_ == nullptr
+        && return this->billingInstanceId_ == nullptr && return this->chargeType_ == nullptr && return this->expireTime_ == nullptr && return this->replicas_ == nullptr && return this->resourceQuota_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->zoneId_ == nullptr; };
     // appUuid Field Functions 
     bool hasAppUuid() const { return this->appUuid_ != nullptr;};
     void deleteAppUuid() { this->appUuid_ = nullptr;};
     inline string appUuid() const { DARABONBA_PTR_GET_DEFAULT(appUuid_, "") };
     inline DescribeDifyAttributeResponseBodyRoot& setAppUuid(string appUuid) { DARABONBA_PTR_SET_VALUE(appUuid_, appUuid) };
+
+
+    // billingInstanceId Field Functions 
+    bool hasBillingInstanceId() const { return this->billingInstanceId_ != nullptr;};
+    void deleteBillingInstanceId() { this->billingInstanceId_ = nullptr;};
+    inline string billingInstanceId() const { DARABONBA_PTR_GET_DEFAULT(billingInstanceId_, "") };
+    inline DescribeDifyAttributeResponseBodyRoot& setBillingInstanceId(string billingInstanceId) { DARABONBA_PTR_SET_VALUE(billingInstanceId_, billingInstanceId) };
+
+
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string chargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline DescribeDifyAttributeResponseBodyRoot& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // expireTime Field Functions 
+    bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+    void deleteExpireTime() { this->expireTime_ = nullptr;};
+    inline int64_t expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, 0L) };
+    inline DescribeDifyAttributeResponseBodyRoot& setExpireTime(int64_t expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // replicas Field Functions 
@@ -81,6 +111,13 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeDifyAttributeResponseBodyRoot& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline DescribeDifyAttributeResponseBodyRoot& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // vSwitchId Field Functions 
@@ -113,10 +150,14 @@ namespace Models
 
   protected:
     std::shared_ptr<string> appUuid_ = nullptr;
+    std::shared_ptr<string> billingInstanceId_ = nullptr;
+    std::shared_ptr<string> chargeType_ = nullptr;
+    std::shared_ptr<int64_t> expireTime_ = nullptr;
     std::shared_ptr<string> replicas_ = nullptr;
     std::shared_ptr<string> resourceQuota_ = nullptr;
     std::shared_ptr<string> securityGroupId_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> storageType_ = nullptr;
     std::shared_ptr<string> vSwitchId_ = nullptr;
     std::shared_ptr<string> vpcId_ = nullptr;
     std::shared_ptr<string> workspaceId_ = nullptr;

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogName_ != nullptr
-        && this->dataRegion_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->searchKey_ != nullptr && this->tid_ != nullptr
-        && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->catalogName_ == nullptr
+        && return this->dataRegion_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
@@ -94,14 +94,28 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog. You can view the name of the data catalog in the [DLF console](https://dlf.console.aliyun.com/cn-hangzhou/metadata/catalog?spm=a2c4g.11186623.0.0.5a225658pT4Dkr).
+    // 
     // This parameter is required.
     std::shared_ptr<string> catalogName_ = nullptr;
+    // The region where the data lake resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dataRegion_ = nullptr;
+    // The number of entries per page. Valid values: 1 to 100.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // 
+    // *   If **NextToken** is empty, no next page exists.
+    // *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The keyword that is used to search for databases.
     std::shared_ptr<string> searchKey_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
   };
 

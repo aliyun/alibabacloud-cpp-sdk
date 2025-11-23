@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->canEdit_ != nullptr
-        && this->dagName_ != nullptr && this->edges_ != nullptr && this->nodes_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->canEdit_ == nullptr
+        && return this->dagName_ == nullptr && return this->edges_ == nullptr && return this->nodes_ == nullptr && return this->status_ == nullptr; };
     // canEdit Field Functions 
     bool hasCanEdit() const { return this->canEdit_ != nullptr;};
     void deleteCanEdit() { this->canEdit_ = nullptr;};

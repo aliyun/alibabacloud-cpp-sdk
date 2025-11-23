@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataLinkName_ != nullptr
-        && this->databasePassword_ != nullptr && this->databaseUser_ != nullptr && this->dbaId_ != nullptr && this->dbaNickName_ != nullptr && this->ddlOnline_ != nullptr
-        && this->ecsInstanceId_ != nullptr && this->ecsRegion_ != nullptr && this->envType_ != nullptr && this->exportTimeout_ != nullptr && this->host_ != nullptr
-        && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr && this->instanceSource_ != nullptr && this->instanceType_ != nullptr && this->ownerIdList_ != nullptr
-        && this->ownerNameList_ != nullptr && this->port_ != nullptr && this->queryTimeout_ != nullptr && this->safeRuleId_ != nullptr && this->sellSitd_ != nullptr
-        && this->sellTrust_ != nullptr && this->sid_ != nullptr && this->standardGroup_ != nullptr && this->state_ != nullptr && this->useDsql_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->dataLinkName_ == nullptr
+        && return this->databasePassword_ == nullptr && return this->databaseUser_ == nullptr && return this->dbaId_ == nullptr && return this->dbaNickName_ == nullptr && return this->ddlOnline_ == nullptr
+        && return this->ecsInstanceId_ == nullptr && return this->ecsRegion_ == nullptr && return this->envType_ == nullptr && return this->exportTimeout_ == nullptr && return this->host_ == nullptr
+        && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr && return this->instanceSource_ == nullptr && return this->instanceType_ == nullptr && return this->ownerIdList_ == nullptr
+        && return this->ownerNameList_ == nullptr && return this->port_ == nullptr && return this->queryTimeout_ == nullptr && return this->safeRuleId_ == nullptr && return this->sellSitd_ == nullptr
+        && return this->sellTrust_ == nullptr && return this->sid_ == nullptr && return this->standardGroup_ == nullptr && return this->state_ == nullptr && return this->useDsql_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // dataLinkName Field Functions 
     bool hasDataLinkName() const { return this->dataLinkName_ != nullptr;};
     void deleteDataLinkName() { this->dataLinkName_ = nullptr;};

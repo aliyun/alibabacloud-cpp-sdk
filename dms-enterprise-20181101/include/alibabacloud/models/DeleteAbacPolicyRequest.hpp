@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abacPolicyId_ != nullptr
-        && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->abacPolicyId_ == nullptr
+        && return this->tid_ == nullptr; };
     // abacPolicyId Field Functions 
     bool hasAbacPolicyId() const { return this->abacPolicyId_ != nullptr;};
     void deleteAbacPolicyId() { this->abacPolicyId_ = nullptr;};
@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The ID of the policy.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> abacPolicyId_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

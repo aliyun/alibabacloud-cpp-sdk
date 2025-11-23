@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->uid_ != nullptr
-        && this->userId_ != nullptr && this->userNickName_ != nullptr; };
+    virtual bool empty() const override { return this->uid_ == nullptr
+        && return this->userId_ == nullptr && return this->userNickName_ == nullptr; };
     // uid Field Functions 
     bool hasUid() const { return this->uid_ != nullptr;};
     void deleteUid() { this->uid_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The UID of the user\\"s Alibaba Cloud account.
     std::shared_ptr<string> uid_ = nullptr;
+    // The user IDs.
     std::shared_ptr<string> userId_ = nullptr;
+    // The nickname of the user.
     std::shared_ptr<string> userNickName_ = nullptr;
   };
 

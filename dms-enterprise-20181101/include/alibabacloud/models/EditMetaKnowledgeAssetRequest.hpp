@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetDescription_ != nullptr
-        && this->columnName_ != nullptr && this->dbId_ != nullptr && this->tableName_ != nullptr && this->tableSchemaName_ != nullptr; };
+    virtual bool empty() const override { return this->assetDescription_ == nullptr
+        && return this->columnName_ == nullptr && return this->dbId_ == nullptr && return this->tableName_ == nullptr && return this->tableSchemaName_ == nullptr; };
     // assetDescription Field Functions 
     bool hasAssetDescription() const { return this->assetDescription_ != nullptr;};
     void deleteAssetDescription() { this->assetDescription_ = nullptr;};
@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // Business knowledge content edited by users.
+    // 
     // This parameter is required.
     std::shared_ptr<string> assetDescription_ = nullptr;
+    // The name of the field. This parameter is used when the edited content is a field.
     std::shared_ptr<string> columnName_ = nullptr;
+    // The ID of the physical database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> dbId_ = nullptr;
+    // The name of the table.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The schema name of the table, which is required only for SQL Server instances.
     std::shared_ptr<string> tableSchemaName_ = nullptr;
   };
 

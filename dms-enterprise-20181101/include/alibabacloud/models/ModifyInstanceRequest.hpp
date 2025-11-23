@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataLinkName_ != nullptr
-        && this->databasePassword_ != nullptr && this->databaseUser_ != nullptr && this->dbaId_ != nullptr && this->ddlOnline_ != nullptr && this->ecsInstanceId_ != nullptr
-        && this->ecsRegion_ != nullptr && this->enableSellCommon_ != nullptr && this->enableSellSitd_ != nullptr && this->enableSellStable_ != nullptr && this->enableSellTrust_ != nullptr
-        && this->envType_ != nullptr && this->exportTimeout_ != nullptr && this->host_ != nullptr && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceSource_ != nullptr && this->instanceType_ != nullptr && this->networkType_ != nullptr && this->port_ != nullptr && this->queryTimeout_ != nullptr
-        && this->safeRule_ != nullptr && this->sid_ != nullptr && this->skipTest_ != nullptr && this->templateId_ != nullptr && this->templateType_ != nullptr
-        && this->tid_ != nullptr && this->useDsql_ != nullptr && this->useSsl_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->dataLinkName_ == nullptr
+        && return this->databasePassword_ == nullptr && return this->databaseUser_ == nullptr && return this->dbaId_ == nullptr && return this->ddlOnline_ == nullptr && return this->ecsInstanceId_ == nullptr
+        && return this->ecsRegion_ == nullptr && return this->enableSellCommon_ == nullptr && return this->enableSellSitd_ == nullptr && return this->enableSellStable_ == nullptr && return this->enableSellTrust_ == nullptr
+        && return this->envType_ == nullptr && return this->exportTimeout_ == nullptr && return this->host_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceSource_ == nullptr && return this->instanceType_ == nullptr && return this->networkType_ == nullptr && return this->port_ == nullptr && return this->queryTimeout_ == nullptr
+        && return this->safeRule_ == nullptr && return this->sid_ == nullptr && return this->skipTest_ == nullptr && return this->templateId_ == nullptr && return this->templateType_ == nullptr
+        && return this->tid_ == nullptr && return this->useDsql_ == nullptr && return this->useSsl_ == nullptr && return this->vpcId_ == nullptr; };
     // dataLinkName Field Functions 
     bool hasDataLinkName() const { return this->dataLinkName_ != nullptr;};
     void deleteDataLinkName() { this->dataLinkName_ = nullptr;};
@@ -305,36 +305,138 @@ namespace Models
 
 
   protected:
+    // The name of the database link for cross-database queries.
+    // 
+    // > 
+    // 
+    // *   This property must be specified when UseDsql is set to 1.
+    // 
+    // *   The name can contain only lowercase letters and underscores (_).
+    // 
+    // *   The name must be unique within a tenant.
     std::shared_ptr<string> dataLinkName_ = nullptr;
+    // The password of the account that is used to log on to the database instance.
     std::shared_ptr<string> databasePassword_ = nullptr;
+    // The account that is used to log on to the database instance.
     std::shared_ptr<string> databaseUser_ = nullptr;
+    // The ID of the user who assumes the database administrator (DBA) role. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to obtain the value of this parameter.
     std::shared_ptr<int64_t> dbaId_ = nullptr;
+    // Specifies whether to enable lock-free schema change. Valid values:
+    // 
+    // *   **0**: Disable Lock-free Schema Change.
+    // *   **1**: MySQL native online DDL first.
+    // *   **2**: DMS native online DDL first.
+    // 
+    // > Supported databases include ApsaraDB RDS for MySQL, PolarDB for MySQL, ApsaraDB MyBase for MySQL, and third-party MySQL databases.
     std::shared_ptr<int32_t> ddlOnline_ = nullptr;
+    // The ID of the ECS instance.
+    // 
+    // >  This parameter is required if InstanceSource is set to ECS_OWN.
     std::shared_ptr<string> ecsInstanceId_ = nullptr;
+    // The region in which the ECS instance resides.
+    // 
+    // >  This parameter is required if InstanceSource is set to RDS, ECS_OWN, or VPC_IDC.
     std::shared_ptr<string> ecsRegion_ = nullptr;
+    // Specifies whether to enable Security Collaboration for the database instance. Valid values:
+    // 
+    // *   Y: Enable.
+    // *   N: Disable.
     std::shared_ptr<string> enableSellCommon_ = nullptr;
+    // Specifies whether to enable sensitive data protection. Valid values:
+    // 
+    // *   Y: Enable.
+    // *   N: Disable.
     std::shared_ptr<string> enableSellSitd_ = nullptr;
+    // Specifies whether to enable Stable Change for the database instance. Valid values:
+    // 
+    // *   Y: Enable.
+    // *   N: Disable.
     std::shared_ptr<string> enableSellStable_ = nullptr;
+    // Specifies whether to enable the security hosting feature for the database instance. Valid values:
+    // 
+    // *   Y: Enable.
+    // *   N: Disable.
     std::shared_ptr<string> enableSellTrust_ = nullptr;
+    // The type of the environment in which the database instance is deployed. Valid values:
+    // 
+    // *   **product**: production environment.
+    // *   **dev**: development environment.
+    // *   **pre**: pre-release environment.
+    // *   **test**: test environment.
+    // *   **sit**: system integration testing (SIT) environment.
+    // *   **uat**: user acceptance testing (UAT) environment.
+    // *   **pet**: stress testing environment.
+    // *   **stag**: staging environment.
     std::shared_ptr<string> envType_ = nullptr;
+    // The timeout period for exporting data from the database instance. Unit: seconds.
     std::shared_ptr<int32_t> exportTimeout_ = nullptr;
+    // The endpoint that is used to connect to the database instance.
     std::shared_ptr<string> host_ = nullptr;
+    // The alias of the database instance. Specify an alias that can help you quickly identify the database instance in Data Management (DMS).
     std::shared_ptr<string> instanceAlias_ = nullptr;
+    // The ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the instance ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The source of the database instance. Valid values:
+    // 
+    // *   **PUBLIC_OWN**: a self-managed database instance that is deployed on the Internet.
+    // *   **RDS**: an ApsaraDB RDS instance.
+    // *   **ECS_OWN**: a self-managed database instance that is deployed on an Elastic Compute Service (ECS) instance.
+    // *   **VPC_IDC**: a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC).
     std::shared_ptr<string> instanceSource_ = nullptr;
+    // The type of the database instance. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
     std::shared_ptr<string> instanceType_ = nullptr;
+    // The network type of the database instance. Valid values:
+    // 
+    // *   **CLASSIC**: the classic network.
+    // *   **VPC**: VPC.
     std::shared_ptr<string> networkType_ = nullptr;
+    // The port that is used to connect to the database instance.
     std::shared_ptr<int32_t> port_ = nullptr;
+    // The timeout period for querying data from the database instance. Unit: seconds.
     std::shared_ptr<int32_t> queryTimeout_ = nullptr;
+    // The name of the security rule set for the database instance. This parameter is required if Security Collaboration is enabled. You can call the[ListStandardGroups](https://help.aliyun.com/document_detail/465940.html) or [GetInstance](https://help.aliyun.com/document_detail/465826.html) operation to obtain the name of the security rule set from GroupName.
     std::shared_ptr<string> safeRule_ = nullptr;
+    // The system ID (SID) of the database instance.
+    // 
+    // > This parameter is required if InstanceType is set to ORACLE.
     std::shared_ptr<string> sid_ = nullptr;
+    // Specifies whether to skip the connectivity test. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> skipTest_ = nullptr;
+    // The ID of the classification and grading template. You can call the [ListClassificationTemplates](https://help.aliyun.com/document_detail/465947.html) operation to query the template ID.
     std::shared_ptr<int64_t> templateId_ = nullptr;
+    // The type of the classification and grading template. You can call the [ListClassificationTemplates](https://help.aliyun.com/document_detail/465947.html) operation to query the template type.
     std::shared_ptr<string> templateType_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > You can move the pointer over the profile picture in the upper-right corner of the DMS console to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // Specifies whether to enable cross-instance query for the database instance. Valid values:
+    // 
+    // *   **0**: Disables cross-database query.
+    // *   **1**: Enables cross-database query.
+    // 
+    // > Supported databases include MySQL, SQL Server, PostgreSQL, PolarDB for Oracle, and Redis.
     std::shared_ptr<int32_t> useDsql_ = nullptr;
+    // Specifies whether to allow Data Management Service (DMS) to connect to the database instance by using SSL connections. Before you use SSL connections, make sure that the SSL encryption feature is enabled for the database instance. Valid values:
+    // 
+    // *   **0** (default): DMS automatically checks whether self-negotiation is enabled for the database instance. DMS automatically checks whether the SSL encryption feature is enabled for the database instance. If the SSL encryption feature is enabled, DMS connects to the database instance by using SSL connections. Otherwise, DMS connects to the database instance without encryption.
+    // *   **1**: DMS connects to the database instance by using SSL connections. This value is invalid if the SSL encryption feature is disabled for the database instance.
+    // *   **-1**: DMS does not connect to the database instance by using SSL connections.
+    // 
+    // > 
+    // 
+    // *   This parameter is available only for a MySQL or Redis database instance.
+    // 
+    // *   SSL encrypts network connections at the transport layer to improve the security and integrity of data in transmission. However, SSL increases the response time of network connections.
     std::shared_ptr<int32_t> useSsl_ = nullptr;
+    // The VPC ID.
+    // 
+    // >  This parameter is required if InstanceSource is set to VPC_IDC.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

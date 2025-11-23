@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->searchKey_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Valid values:
+    // 
+    // *   5
+    // *   10
+    // *   20
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The keyword that is used to search for permission templates.
     std::shared_ptr<string> searchKey_ = nullptr;
+    // The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

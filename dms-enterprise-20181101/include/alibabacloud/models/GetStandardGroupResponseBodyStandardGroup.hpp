@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbType_ != nullptr
-        && this->description_ != nullptr && this->groupId_ != nullptr && this->groupMode_ != nullptr && this->groupName_ != nullptr && this->lastMenderId_ != nullptr; };
+    virtual bool empty() const override { return this->dbType_ == nullptr
+        && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->groupMode_ == nullptr && return this->groupName_ == nullptr && return this->lastMenderId_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // The engine type.
     std::shared_ptr<string> dbType_ = nullptr;
+    // The description of the security rule set.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the security rule set.
     std::shared_ptr<int64_t> groupId_ = nullptr;
+    // The control mode. Valid values:
+    // 
+    // *   **NONE_CONTROL**: Flexible Management
+    // *   **STABLE**: Stable Change
+    // *   **COMMON**: Security Collaboration
     std::shared_ptr<string> groupMode_ = nullptr;
+    // The name of the security rule set.
     std::shared_ptr<string> groupName_ = nullptr;
+    // The ID of the user who last modified the security rules.
     std::shared_ptr<int64_t> lastMenderId_ = nullptr;
   };
 

@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentKey_ != nullptr
-        && this->fileName_ != nullptr && this->fileSize_ != nullptr && this->fileSource_ != nullptr && this->jobKey_ != nullptr && this->jobStatus_ != nullptr
-        && this->jobStatusDesc_ != nullptr && this->uploadOSSParam_ != nullptr && this->uploadType_ != nullptr && this->uploadURL_ != nullptr && this->uploadedSize_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentKey_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileSize_ == nullptr && return this->fileSource_ == nullptr && return this->jobKey_ == nullptr && return this->jobStatus_ == nullptr
+        && return this->jobStatusDesc_ == nullptr && return this->uploadOSSParam_ == nullptr && return this->uploadType_ == nullptr && return this->uploadURL_ == nullptr && return this->uploadedSize_ == nullptr; };
     // attachmentKey Field Functions 
     bool hasAttachmentKey() const { return this->attachmentKey_ != nullptr;};
     void deleteAttachmentKey() { this->attachmentKey_ = nullptr;};

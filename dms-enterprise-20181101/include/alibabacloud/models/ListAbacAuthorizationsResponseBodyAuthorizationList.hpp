@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorizationId_ != nullptr
-        && this->identityId_ != nullptr && this->identityName_ != nullptr && this->identityType_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr
-        && this->policySource_ != nullptr; };
+    virtual bool empty() const override { return this->authorizationId_ == nullptr
+        && return this->identityId_ == nullptr && return this->identityName_ == nullptr && return this->identityType_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr
+        && return this->policySource_ == nullptr; };
     // authorizationId Field Functions 
     bool hasAuthorizationId() const { return this->authorizationId_ != nullptr;};
     void deleteAuthorizationId() { this->authorizationId_ = nullptr;};
@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The authorization ID.
     std::shared_ptr<int64_t> authorizationId_ = nullptr;
+    // The ID of the object to which the policy is attached.
     std::shared_ptr<int64_t> identityId_ = nullptr;
+    // The name of the object to which the policy is attached.
     std::shared_ptr<string> identityName_ = nullptr;
+    // The type of the object to which the policy is attached.
     std::shared_ptr<string> identityType_ = nullptr;
+    // The ID of the policy.
     std::shared_ptr<int64_t> policyId_ = nullptr;
+    // The name of the policy.
     std::shared_ptr<string> policyName_ = nullptr;
+    // The source of the policy.
     std::shared_ptr<string> policySource_ = nullptr;
   };
 

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->policyId_ != nullptr && this->policySource_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->policyId_ == nullptr && return this->policySource_ == nullptr && return this->tid_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -75,10 +75,22 @@ namespace Models
 
 
   protected:
+    // The page number.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries on each page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The ID of the policy.
     std::shared_ptr<string> policyId_ = nullptr;
+    // The type of the policy. The value can be custom or system.
+    // 
+    // Valid values:
+    // 
+    // *   USER_DEFINE
+    // *   SYSTEM
     std::shared_ptr<string> policySource_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

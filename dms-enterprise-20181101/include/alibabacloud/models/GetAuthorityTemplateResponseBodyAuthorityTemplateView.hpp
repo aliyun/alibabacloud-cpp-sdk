@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorityTemplateItemList_ != nullptr
-        && this->createTime_ != nullptr && this->creatorId_ != nullptr && this->description_ != nullptr && this->name_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->authorityTemplateItemList_ == nullptr
+        && return this->createTime_ == nullptr && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->templateId_ == nullptr; };
     // authorityTemplateItemList Field Functions 
     bool hasAuthorityTemplateItemList() const { return this->authorityTemplateItemList_ != nullptr;};
     void deleteAuthorityTemplateItemList() { this->authorityTemplateItemList_ = nullptr;};

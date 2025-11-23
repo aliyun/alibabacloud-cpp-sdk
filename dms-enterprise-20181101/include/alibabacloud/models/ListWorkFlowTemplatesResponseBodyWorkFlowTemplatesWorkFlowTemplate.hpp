@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->createUserId_ != nullptr && this->enabled_ != nullptr && this->isSystem_ != nullptr && this->templateId_ != nullptr && this->templateName_ != nullptr
-        && this->workflowNodes_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->createUserId_ == nullptr && return this->enabled_ == nullptr && return this->isSystem_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr
+        && return this->workflowNodes_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};

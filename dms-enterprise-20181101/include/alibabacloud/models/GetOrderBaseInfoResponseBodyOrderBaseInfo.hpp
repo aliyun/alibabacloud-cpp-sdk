@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentKey_ != nullptr
-        && this->comment_ != nullptr && this->committer_ != nullptr && this->committerId_ != nullptr && this->createTime_ != nullptr && this->lastModifyTime_ != nullptr
-        && this->orderId_ != nullptr && this->originAttachmentName_ != nullptr && this->pluginType_ != nullptr && this->relatedUserList_ != nullptr && this->relatedUserNickList_ != nullptr
-        && this->statusCode_ != nullptr && this->statusDesc_ != nullptr && this->workflowInstanceId_ != nullptr && this->workflowStatusDesc_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentKey_ == nullptr
+        && return this->comment_ == nullptr && return this->committer_ == nullptr && return this->committerId_ == nullptr && return this->createTime_ == nullptr && return this->lastModifyTime_ == nullptr
+        && return this->orderId_ == nullptr && return this->originAttachmentName_ == nullptr && return this->pluginType_ == nullptr && return this->relatedUserList_ == nullptr && return this->relatedUserNickList_ == nullptr
+        && return this->statusCode_ == nullptr && return this->statusDesc_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowStatusDesc_ == nullptr; };
     // attachmentKey Field Functions 
     bool hasAttachmentKey() const { return this->attachmentKey_ != nullptr;};
     void deleteAttachmentKey() { this->attachmentKey_ = nullptr;};

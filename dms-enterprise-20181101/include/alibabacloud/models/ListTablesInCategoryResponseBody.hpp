@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->entityList_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->entityList_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
     // entityList Field Functions 
     bool hasEntityList() const { return this->entityList_ != nullptr;};
     void deleteEntityList() { this->entityList_ = nullptr;};
@@ -87,11 +87,20 @@ namespace Models
 
 
   protected:
+    // List of table information associated with the asset category.
     std::shared_ptr<ListTablesInCategoryResponseBodyEntityList> entityList_ = nullptr;
+    // The error code returned if the request failed.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request succeeded.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

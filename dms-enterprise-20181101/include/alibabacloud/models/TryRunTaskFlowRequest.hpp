@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dagId_ != nullptr; };
+    virtual bool empty() const override { return this->dagId_ == nullptr; };
     // dagId Field Functions 
     bool hasDagId() const { return this->dagId_ != nullptr;};
     void deleteDagId() { this->dagId_ = nullptr;};
@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The task flow ID. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the ID of the task flow.
     std::shared_ptr<int64_t> dagId_ = nullptr;
   };
 

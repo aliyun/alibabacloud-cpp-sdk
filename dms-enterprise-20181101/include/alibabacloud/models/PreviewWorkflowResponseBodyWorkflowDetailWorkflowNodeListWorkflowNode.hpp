@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditUserList_ != nullptr
-        && this->comment_ != nullptr && this->nodeName_ != nullptr && this->nodeType_ != nullptr; };
+    virtual bool empty() const override { return this->auditUserList_ == nullptr
+        && return this->comment_ == nullptr && return this->nodeName_ == nullptr && return this->nodeType_ == nullptr; };
     // auditUserList Field Functions 
     bool hasAuditUserList() const { return this->auditUserList_ != nullptr;};
     void deleteAuditUserList() { this->auditUserList_ = nullptr;};
@@ -69,9 +69,19 @@ namespace Models
 
 
   protected:
+    // The approvers.
     std::shared_ptr<Models::PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList> auditUserList_ = nullptr;
+    // The remarks of the approval node.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name of the approval node.
     std::shared_ptr<string> nodeName_ = nullptr;
+    // The type of the approval node.
+    // 
+    // Valid values:
+    // 
+    // *   USER_LIST: The approval node is created by a user.
+    // *   UNKNOWN: The source of the approval node is unknown.
+    // *   SYS: The approval node is predefined by the system.
     std::shared_ptr<string> nodeType_ = nullptr;
   };
 

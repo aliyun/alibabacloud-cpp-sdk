@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->dbId_ != nullptr && this->tableName_ != nullptr && this->tableSchemaName_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && return this->dbId_ == nullptr && return this->tableName_ == nullptr && return this->tableSchemaName_ == nullptr && return this->tid_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -75,13 +75,27 @@ namespace Models
 
 
   protected:
+    // The category ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> categoryId_ = nullptr;
+    // The database ID. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the ID of a physical database and the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the ID of a logical database.
+    // 
+    // >  The value of DatabaseId is that of DbId.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> dbId_ = nullptr;
+    // The table name.
+    // 
+    // > You can also call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The schema name of the table, which is required only for SQL Server instances.
     std::shared_ptr<string> tableSchemaName_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

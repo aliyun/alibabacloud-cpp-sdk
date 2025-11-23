@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->description_ != nullptr && this->regionId_ != nullptr && this->vpcId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && return this->description_ == nullptr && return this->regionId_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request.
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The description of the workspace.
+    // 
     // This parameter is required.
     std::shared_ptr<string> description_ = nullptr;
+    // The region to which the workspace belongs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The VPC ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The name of the workspace.
+    // 
     // This parameter is required.
     std::shared_ptr<string> workspaceName_ = nullptr;
   };

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveMethod_ != nullptr
-        && this->cronStr_ != nullptr && this->databaseId_ != nullptr && this->logic_ != nullptr && this->orderAfter_ != nullptr && this->runMethod_ != nullptr
-        && this->sourceCatalogName_ != nullptr && this->sourceInstanceName_ != nullptr && this->sourceSchemaName_ != nullptr && this->tableIncludes_ != nullptr && this->tableMapping_ != nullptr
-        && this->targetInstanceHost_ != nullptr && this->variables_ != nullptr; };
+    virtual bool empty() const override { return this->archiveMethod_ == nullptr
+        && return this->cronStr_ == nullptr && return this->databaseId_ == nullptr && return this->logic_ == nullptr && return this->orderAfter_ == nullptr && return this->runMethod_ == nullptr
+        && return this->sourceCatalogName_ == nullptr && return this->sourceInstanceName_ == nullptr && return this->sourceSchemaName_ == nullptr && return this->tableIncludes_ == nullptr && return this->tableMapping_ == nullptr
+        && return this->targetInstanceHost_ == nullptr && return this->variables_ == nullptr; };
     // archiveMethod Field Functions 
     bool hasArchiveMethod() const { return this->archiveMethod_ != nullptr;};
     void deleteArchiveMethod() { this->archiveMethod_ = nullptr;};

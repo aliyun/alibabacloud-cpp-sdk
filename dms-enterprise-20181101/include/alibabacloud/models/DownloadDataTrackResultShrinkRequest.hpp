@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnFilterShrink_ != nullptr
-        && this->eventIdListShrink_ != nullptr && this->filterEndTime_ != nullptr && this->filterStartTime_ != nullptr && this->filterTableListShrink_ != nullptr && this->filterTypeListShrink_ != nullptr
-        && this->orderId_ != nullptr && this->rollbackSQLType_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->columnFilterShrink_ == nullptr
+        && return this->eventIdListShrink_ == nullptr && return this->filterEndTime_ == nullptr && return this->filterStartTime_ == nullptr && return this->filterTableListShrink_ == nullptr && return this->filterTypeListShrink_ == nullptr
+        && return this->orderId_ == nullptr && return this->rollbackSQLType_ == nullptr && return this->tid_ == nullptr; };
     // columnFilterShrink Field Functions 
     bool hasColumnFilterShrink() const { return this->columnFilterShrink_ != nullptr;};
     void deleteColumnFilterShrink() { this->columnFilterShrink_ = nullptr;};

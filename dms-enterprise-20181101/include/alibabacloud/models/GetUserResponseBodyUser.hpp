@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->curExecuteCount_ != nullptr
-        && this->curResultCount_ != nullptr && this->dingRobot_ != nullptr && this->email_ != nullptr && this->lastLoginTime_ != nullptr && this->maxExecuteCount_ != nullptr
-        && this->maxResultCount_ != nullptr && this->mobile_ != nullptr && this->nickName_ != nullptr && this->notificationMode_ != nullptr && this->parentUid_ != nullptr
-        && this->roleIdList_ != nullptr && this->roleNameList_ != nullptr && this->signatureMethod_ != nullptr && this->state_ != nullptr && this->uid_ != nullptr
-        && this->userId_ != nullptr && this->webhook_ != nullptr; };
+    virtual bool empty() const override { return this->curExecuteCount_ == nullptr
+        && return this->curResultCount_ == nullptr && return this->dingRobot_ == nullptr && return this->email_ == nullptr && return this->lastLoginTime_ == nullptr && return this->maxExecuteCount_ == nullptr
+        && return this->maxResultCount_ == nullptr && return this->mobile_ == nullptr && return this->nickName_ == nullptr && return this->notificationMode_ == nullptr && return this->parentUid_ == nullptr
+        && return this->roleIdList_ == nullptr && return this->roleNameList_ == nullptr && return this->signatureMethod_ == nullptr && return this->state_ == nullptr && return this->uid_ == nullptr
+        && return this->userId_ == nullptr && return this->webhook_ == nullptr; };
     // curExecuteCount Field Functions 
     bool hasCurExecuteCount() const { return this->curExecuteCount_ != nullptr;};
     void deleteCurExecuteCount() { this->curExecuteCount_ = nullptr;};

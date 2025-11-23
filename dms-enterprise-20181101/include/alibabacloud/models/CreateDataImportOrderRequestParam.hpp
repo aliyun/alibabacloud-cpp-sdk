@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachmentName_ != nullptr
-        && this->classify_ != nullptr && this->csvFirstRowIsColumnDef_ != nullptr && this->dbItemList_ != nullptr && this->execMode_ != nullptr && this->fileEncoding_ != nullptr
-        && this->fileType_ != nullptr && this->ignoreError_ != nullptr && this->importMode_ != nullptr && this->insertType_ != nullptr && this->rollbackAttachmentName_ != nullptr
-        && this->rollbackSQL_ != nullptr && this->rollbackSqlType_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->attachmentName_ == nullptr
+        && return this->classify_ == nullptr && return this->csvFirstRowIsColumnDef_ == nullptr && return this->dbItemList_ == nullptr && return this->execMode_ == nullptr && return this->fileEncoding_ == nullptr
+        && return this->fileType_ == nullptr && return this->ignoreError_ == nullptr && return this->importMode_ == nullptr && return this->insertType_ == nullptr && return this->rollbackAttachmentName_ == nullptr
+        && return this->rollbackSQL_ == nullptr && return this->rollbackSqlType_ == nullptr && return this->tableName_ == nullptr; };
     // attachmentName Field Functions 
     bool hasAttachmentName() const { return this->attachmentName_ != nullptr;};
     void deleteAttachmentName() { this->attachmentName_ = nullptr;};

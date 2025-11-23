@@ -21,7 +21,7 @@ namespace DmsEnterprise20181101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加权限模板资源
+       * @summary Adds instances, databases, and tables to the specified permission template.
        *
        * @param tmpReq AddAuthorityTemplateItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace DmsEnterprise20181101
       Models::AddAuthorityTemplateItemsResponse addAuthorityTemplateItemsWithOptions(const Models::AddAuthorityTemplateItemsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加权限模板资源
+       * @summary Adds instances, databases, and tables to the specified permission template.
        *
        * @param request AddAuthorityTemplateItemsRequest
        * @return AddAuthorityTemplateItemsResponse
@@ -55,7 +55,9 @@ namespace DmsEnterprise20181101
       Models::AddDesensitizationRuleResponse addDesensitizationRule(const Models::AddDesensitizationRuleRequest &request);
 
       /**
-       * @summary 添加实例
+       * @summary Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+       *
+       * @description You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
        *
        * @param request AddInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +66,9 @@ namespace DmsEnterprise20181101
       Models::AddInstanceResponse addInstanceWithOptions(const Models::AddInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加实例
+       * @summary Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+       *
+       * @description You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
        *
        * @param request AddInstanceRequest
        * @return AddInstanceResponse
@@ -118,7 +122,7 @@ namespace DmsEnterprise20181101
       Models::AddLogicTableRouteConfigResponse addLogicTableRouteConfig(const Models::AddLogicTableRouteConfigRequest &request);
 
       /**
-       * @summary 添加表到资产类目
+       * @summary Add a table to an asset category.
        *
        * @param request AddTableToCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -127,7 +131,7 @@ namespace DmsEnterprise20181101
       Models::AddTableToCategoryResponse addTableToCategoryWithOptions(const Models::AddTableToCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加表到资产类目
+       * @summary Add a table to an asset category.
        *
        * @param request AddTableToCategoryRequest
        * @return AddTableToCategoryResponse
@@ -185,9 +189,9 @@ namespace DmsEnterprise20181101
       Models::AnalyzeSQLLineageResponse analyzeSQLLineage(const Models::AnalyzeSQLLineageRequest &request);
 
       /**
-       * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+       * @summary Answers the syntax questions of the corresponding engine according to the specified database ID.
        *
-       * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+       * @description You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
        *
        * @param request AnswerSqlSyntaxByMetaAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -196,9 +200,9 @@ namespace DmsEnterprise20181101
       Models::AnswerSqlSyntaxByMetaAgentResponse answerSqlSyntaxByMetaAgentWithOptions(const Models::AnswerSqlSyntaxByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+       * @summary Answers the syntax questions of the corresponding engine according to the specified database ID.
        *
-       * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+       * @description You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
        *
        * @param request AnswerSqlSyntaxByMetaAgentRequest
        * @return AnswerSqlSyntaxByMetaAgentResponse
@@ -244,7 +248,7 @@ namespace DmsEnterprise20181101
       Models::BackFillResponse backFill(const Models::BackFillRequest &request);
 
       /**
-       * @summary 批量新建湖仓表分区
+       * @summary Creates multiple partitions for a table in a data lakehouse at a time.
        *
        * @param tmpReq BatchCreateDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -253,7 +257,7 @@ namespace DmsEnterprise20181101
       Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitionsWithOptions(const Models::BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量新建湖仓表分区
+       * @summary Creates multiple partitions for a table in a data lakehouse at a time.
        *
        * @param request BatchCreateDataLakePartitionsRequest
        * @return BatchCreateDataLakePartitionsResponse
@@ -261,7 +265,7 @@ namespace DmsEnterprise20181101
       Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitions(const Models::BatchCreateDataLakePartitionsRequest &request);
 
       /**
-       * @summary 批量删除湖仓表分区
+       * @summary Deletes multiple partitions of a table in a data lakehouse at a time.
        *
        * @param request BatchDeleteDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -270,7 +274,7 @@ namespace DmsEnterprise20181101
       Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitionsWithOptions(const Models::BatchDeleteDataLakePartitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除湖仓表分区
+       * @summary Deletes multiple partitions of a table in a data lakehouse at a time.
        *
        * @param request BatchDeleteDataLakePartitionsRequest
        * @return BatchDeleteDataLakePartitionsResponse
@@ -278,7 +282,7 @@ namespace DmsEnterprise20181101
       Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitions(const Models::BatchDeleteDataLakePartitionsRequest &request);
 
       /**
-       * @summary 批量更新湖仓表分区
+       * @summary Updates multiple partitions of a table in a data lakehouse at a time.
        *
        * @param tmpReq BatchUpdateDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +291,7 @@ namespace DmsEnterprise20181101
       Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitionsWithOptions(const Models::BatchUpdateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量更新湖仓表分区
+       * @summary Updates multiple partitions of a table in a data lakehouse at a time.
        *
        * @param request BatchUpdateDataLakePartitionsRequest
        * @return BatchUpdateDataLakePartitionsResponse
@@ -329,7 +333,7 @@ namespace DmsEnterprise20181101
       Models::ChangeColumnSecLevelResponse changeColumnSecLevel(const Models::ChangeColumnSecLevelRequest &request);
 
       /**
-       * @summary 修改字段敏感序列
+       * @summary Changes the security level of a column.
        *
        * @param request ChangeColumnSecurityLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -338,7 +342,7 @@ namespace DmsEnterprise20181101
       Models::ChangeColumnSecurityLevelResponse changeColumnSecurityLevelWithOptions(const Models::ChangeColumnSecurityLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改字段敏感序列
+       * @summary Changes the security level of a column.
        *
        * @param request ChangeColumnSecurityLevelRequest
        * @return ChangeColumnSecurityLevelResponse
@@ -371,6 +375,27 @@ namespace DmsEnterprise20181101
       Models::ChangeLhDagOwnerResponse changeLhDagOwner(const Models::ChangeLhDagOwnerRequest &request);
 
       /**
+       * @summary 带有DMS脱敏能力的聊天API接口
+       *
+       * @description 带有DMS脱敏能力的聊天API接口
+       *
+       * @param tmpReq ChatWithDesensitizeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithDesensitizeResponse
+       */
+      Models::ChatWithDesensitizeResponse chatWithDesensitizeWithOptions(const Models::ChatWithDesensitizeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 带有DMS脱敏能力的聊天API接口
+       *
+       * @description 带有DMS脱敏能力的聊天API接口
+       *
+       * @param request ChatWithDesensitizeRequest
+       * @return ChatWithDesensitizeResponse
+       */
+      Models::ChatWithDesensitizeResponse chatWithDesensitize(const Models::ChatWithDesensitizeRequest &request);
+
+      /**
        * @summary Closes a ticket.
        *
        * @param request CloseOrderRequest
@@ -388,7 +413,7 @@ namespace DmsEnterprise20181101
       Models::CloseOrderResponse closeOrder(const Models::CloseOrderRequest &request);
 
       /**
-       * @summary 创建权限策略授权
+       * @summary Attaches a system policy or custom policy to a DMS user or custom role.
        *
        * @param request CreateAbacAuthorizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +422,7 @@ namespace DmsEnterprise20181101
       Models::CreateAbacAuthorizationResponse createAbacAuthorizationWithOptions(const Models::CreateAbacAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建权限策略授权
+       * @summary Attaches a system policy or custom policy to a DMS user or custom role.
        *
        * @param request CreateAbacAuthorizationRequest
        * @return CreateAbacAuthorizationResponse
@@ -405,7 +430,9 @@ namespace DmsEnterprise20181101
       Models::CreateAbacAuthorizationResponse createAbacAuthorization(const Models::CreateAbacAuthorizationRequest &request);
 
       /**
-       * @summary 创建权限策略
+       * @summary Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+       *
+       * @description Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
        *
        * @param request CreateAbacPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -414,7 +441,9 @@ namespace DmsEnterprise20181101
       Models::CreateAbacPolicyResponse createAbacPolicyWithOptions(const Models::CreateAbacPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建权限策略
+       * @summary Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+       *
+       * @description Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
        *
        * @param request CreateAbacPolicyRequest
        * @return CreateAbacPolicyResponse
@@ -546,7 +575,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataImportOrderResponse createDataImportOrder(const Models::CreateDataImportOrderRequest &request);
 
       /**
-       * @summary 新建湖仓数据库
+       * @summary Creates a database in a data lakehouse.
        *
        * @param tmpReq CreateDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -555,7 +584,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakeDatabaseResponse createDataLakeDatabaseWithOptions(const Models::CreateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓数据库
+       * @summary Creates a database in a data lakehouse.
        *
        * @param request CreateDataLakeDatabaseRequest
        * @return CreateDataLakeDatabaseResponse
@@ -563,7 +592,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakeDatabaseResponse createDataLakeDatabase(const Models::CreateDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 新建湖仓自定义函数
+       * @summary Creates a custom function in a data lakehouse.
        *
        * @param tmpReq CreateDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -572,7 +601,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakeFunctionResponse createDataLakeFunctionWithOptions(const Models::CreateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓自定义函数
+       * @summary Creates a custom function in a data lakehouse.
        *
        * @param request CreateDataLakeFunctionRequest
        * @return CreateDataLakeFunctionResponse
@@ -580,7 +609,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakeFunctionResponse createDataLakeFunction(const Models::CreateDataLakeFunctionRequest &request);
 
       /**
-       * @summary 新建湖仓表分区
+       * @summary Creates a partition for a table in a data lakehouse.
        *
        * @param tmpReq CreateDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -589,7 +618,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakePartitionResponse createDataLakePartitionWithOptions(const Models::CreateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓表分区
+       * @summary Creates a partition for a table in a data lakehouse.
        *
        * @param request CreateDataLakePartitionRequest
        * @return CreateDataLakePartitionResponse
@@ -597,7 +626,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakePartitionResponse createDataLakePartition(const Models::CreateDataLakePartitionRequest &request);
 
       /**
-       * @summary 新建湖仓表
+       * @summary Creates a table in a data lakehouse.
        *
        * @param tmpReq CreateDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -606,7 +635,7 @@ namespace DmsEnterprise20181101
       Models::CreateDataLakeTableResponse createDataLakeTableWithOptions(const Models::CreateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓表
+       * @summary Creates a table in a data lakehouse.
        *
        * @param request CreateDataLakeTableRequest
        * @return CreateDataLakeTableResponse
@@ -750,7 +779,7 @@ namespace DmsEnterprise20181101
       Models::CreateLogicDatabaseResponse createLogicDatabase(const Models::CreateLogicDatabaseRequest &request);
 
       /**
-       * @summary 创建资产类目
+       * @summary Create Asset Category
        *
        * @param request CreateMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -759,7 +788,7 @@ namespace DmsEnterprise20181101
       Models::CreateMetaCategoryResponse createMetaCategoryWithOptions(const Models::CreateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建资产类目
+       * @summary Create Asset Category
        *
        * @param request CreateMetaCategoryRequest
        * @return CreateMetaCategoryResponse
@@ -796,7 +825,9 @@ namespace DmsEnterprise20181101
       Models::CreateOrderResponse createOrder(const Models::CreateOrderRequest &request);
 
       /**
-       * @summary 创建可编程对象变更工单
+       * @summary Creates a programmable object ticket.
+       *
+       * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
        *
        * @param tmpReq CreateProcCorrectOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -805,7 +836,9 @@ namespace DmsEnterprise20181101
       Models::CreateProcCorrectOrderResponse createProcCorrectOrderWithOptions(const Models::CreateProcCorrectOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建可编程对象变更工单
+       * @summary Creates a programmable object ticket.
+       *
+       * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
        *
        * @param request CreateProcCorrectOrderRequest
        * @return CreateProcCorrectOrderResponse
@@ -1020,7 +1053,11 @@ namespace DmsEnterprise20181101
       Models::CreateUploadOSSFileJobResponse createUploadOSSFileJob(const Models::CreateUploadOSSFileJobRequest &request);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
+       *
+       * @description ## [](#)Prerequisites
+       * *   A virtual private cloud (VPC) is created.
+       * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
        *
        * @param request CreateWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1029,7 +1066,11 @@ namespace DmsEnterprise20181101
       Models::CreateWorkspaceResponse createWorkspaceWithOptions(const Models::CreateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作空间
+       * @summary Creates a workspace.
+       *
+       * @description ## [](#)Prerequisites
+       * *   A virtual private cloud (VPC) is created.
+       * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
        *
        * @param request CreateWorkspaceRequest
        * @return CreateWorkspaceResponse
@@ -1037,7 +1078,7 @@ namespace DmsEnterprise20181101
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
-       * @summary 删除权限策略授权
+       * @summary Detaches a policy from a user or role.
        *
        * @param request DeleteAbacAuthorizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1046,7 +1087,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAbacAuthorizationResponse deleteAbacAuthorizationWithOptions(const Models::DeleteAbacAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除权限策略授权
+       * @summary Detaches a policy from a user or role.
        *
        * @param request DeleteAbacAuthorizationRequest
        * @return DeleteAbacAuthorizationResponse
@@ -1054,7 +1095,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAbacAuthorizationResponse deleteAbacAuthorization(const Models::DeleteAbacAuthorizationRequest &request);
 
       /**
-       * @summary 删除权限策略
+       * @summary Deletes a created permission policy.
        *
        * @param request DeleteAbacPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1063,7 +1104,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAbacPolicyResponse deleteAbacPolicyWithOptions(const Models::DeleteAbacPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除权限策略
+       * @summary Deletes a created permission policy.
        *
        * @param request DeleteAbacPolicyRequest
        * @return DeleteAbacPolicyResponse
@@ -1071,7 +1112,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAbacPolicyResponse deleteAbacPolicy(const Models::DeleteAbacPolicyRequest &request);
 
       /**
-       * @summary 删除权限模版
+       * @summary Deletes a permission template.
        *
        * @param request DeleteAuthorityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1080,7 +1121,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAuthorityTemplateResponse deleteAuthorityTemplateWithOptions(const Models::DeleteAuthorityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除权限模版
+       * @summary Deletes a permission template.
        *
        * @param request DeleteAuthorityTemplateRequest
        * @return DeleteAuthorityTemplateResponse
@@ -1088,7 +1129,7 @@ namespace DmsEnterprise20181101
       Models::DeleteAuthorityTemplateResponse deleteAuthorityTemplate(const Models::DeleteAuthorityTemplateRequest &request);
 
       /**
-       * @summary 删除湖仓数据库
+       * @summary Deletes a database from a data lakehouse.
        *
        * @param request DeleteDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1097,7 +1138,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabaseWithOptions(const Models::DeleteDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓数据库
+       * @summary Deletes a database from a data lakehouse.
        *
        * @param request DeleteDataLakeDatabaseRequest
        * @return DeleteDataLakeDatabaseResponse
@@ -1105,7 +1146,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabase(const Models::DeleteDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 删除湖仓自定义函数
+       * @summary Deletes a user-defined function in a data lakehouse.
        *
        * @param request DeleteDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1114,7 +1155,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakeFunctionResponse deleteDataLakeFunctionWithOptions(const Models::DeleteDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓自定义函数
+       * @summary Deletes a user-defined function in a data lakehouse.
        *
        * @param request DeleteDataLakeFunctionRequest
        * @return DeleteDataLakeFunctionResponse
@@ -1122,7 +1163,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakeFunctionResponse deleteDataLakeFunction(const Models::DeleteDataLakeFunctionRequest &request);
 
       /**
-       * @summary 删除湖仓表分区
+       * @summary Deletes a partition from a table in a data lakehouse.
        *
        * @param tmpReq DeleteDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1131,7 +1172,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakePartitionResponse deleteDataLakePartitionWithOptions(const Models::DeleteDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓表分区
+       * @summary Deletes a partition from a table in a data lakehouse.
        *
        * @param request DeleteDataLakePartitionRequest
        * @return DeleteDataLakePartitionResponse
@@ -1139,7 +1180,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakePartitionResponse deleteDataLakePartition(const Models::DeleteDataLakePartitionRequest &request);
 
       /**
-       * @summary 删除湖仓表
+       * @summary Deletes a table from a data lakehouse.
        *
        * @param request DeleteDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1148,7 +1189,7 @@ namespace DmsEnterprise20181101
       Models::DeleteDataLakeTableResponse deleteDataLakeTableWithOptions(const Models::DeleteDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓表
+       * @summary Deletes a table from a data lakehouse.
        *
        * @param request DeleteDataLakeTableRequest
        * @return DeleteDataLakeTableResponse
@@ -1251,7 +1292,7 @@ namespace DmsEnterprise20181101
       Models::DeleteLogicTableRouteConfigResponse deleteLogicTableRouteConfig(const Models::DeleteLogicTableRouteConfigRequest &request);
 
       /**
-       * @summary 删除资产类目
+       * @summary Deletes an asset category.
        *
        * @param request DeleteMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1260,7 +1301,7 @@ namespace DmsEnterprise20181101
       Models::DeleteMetaCategoryResponse deleteMetaCategoryWithOptions(const Models::DeleteMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资产类目
+       * @summary Deletes an asset category.
        *
        * @param request DeleteMetaCategoryRequest
        * @return DeleteMetaCategoryResponse
@@ -1327,7 +1368,9 @@ namespace DmsEnterprise20181101
       Models::DeleteScenarioResponse deleteScenario(const Models::DeleteScenarioRequest &request);
 
       /**
-       * @summary 删除安全规则
+       * @summary Deletes a security rule set.
+       *
+       * @description Before you call this API operation, make sure that the security rule set is not associated with an instance.
        *
        * @param request DeleteStandardGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1336,7 +1379,9 @@ namespace DmsEnterprise20181101
       Models::DeleteStandardGroupResponse deleteStandardGroupWithOptions(const Models::DeleteStandardGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除安全规则
+       * @summary Deletes a security rule set.
+       *
+       * @description Before you call this API operation, make sure that the security rule set is not associated with an instance.
        *
        * @param request DeleteStandardGroupRequest
        * @return DeleteStandardGroupResponse
@@ -1422,7 +1467,7 @@ namespace DmsEnterprise20181101
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
        *
        * @param request DeleteWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1476,7 @@ namespace DmsEnterprise20181101
       Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const Models::DeleteWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作空间
+       * @summary Deletes a workspace.
        *
        * @param request DeleteWorkspaceRequest
        * @return DeleteWorkspaceResponse
@@ -1636,7 +1681,9 @@ namespace DmsEnterprise20181101
       Models::EditLogicDatabaseResponse editLogicDatabase(const Models::EditLogicDatabaseRequest &request);
 
       /**
-       * @summary 编辑指定guid的元数据业务知识
+       * @summary Edits the metadata business knowledge for specified GUIDs.
+       *
+       * @description Edits the business knowledge of the metadata represented by the specified GUID.
        *
        * @param request EditMetaKnowledgeAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1692,9 @@ namespace DmsEnterprise20181101
       Models::EditMetaKnowledgeAssetResponse editMetaKnowledgeAssetWithOptions(const Models::EditMetaKnowledgeAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑指定guid的元数据业务知识
+       * @summary Edits the metadata business knowledge for specified GUIDs.
+       *
+       * @description Edits the business knowledge of the metadata represented by the specified GUID.
        *
        * @param request EditMetaKnowledgeAssetRequest
        * @return EditMetaKnowledgeAssetResponse
@@ -1754,9 +1803,9 @@ namespace DmsEnterprise20181101
       Models::ExecuteStructSyncResponse executeStructSync(const Models::ExecuteStructSyncRequest &request);
 
       /**
-       * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       * @summary Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
        *
-       * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       * @description You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
        *
        * @param request FixSqlByMetaAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1765,9 +1814,9 @@ namespace DmsEnterprise20181101
       Models::FixSqlByMetaAgentResponse fixSqlByMetaAgentWithOptions(const Models::FixSqlByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       * @summary Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
        *
-       * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+       * @description You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
        *
        * @param request FixSqlByMetaAgentRequest
        * @return FixSqlByMetaAgentResponse
@@ -1825,7 +1874,7 @@ namespace DmsEnterprise20181101
       Models::GenerateSqlFromNLResponse generateSqlFromNL(const Models::GenerateSqlFromNLRequest &request);
 
       /**
-       * @summary 获取策略详情
+       * @summary Queries the details of a policy, including the name, content, and the user who created the policy.
        *
        * @param request GetAbacPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1834,7 +1883,7 @@ namespace DmsEnterprise20181101
       Models::GetAbacPolicyResponse getAbacPolicyWithOptions(const Models::GetAbacPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取策略详情
+       * @summary Queries the details of a policy, including the name, content, and the user who created the policy.
        *
        * @param request GetAbacPolicyRequest
        * @return GetAbacPolicyResponse
@@ -1901,7 +1950,7 @@ namespace DmsEnterprise20181101
       Models::GetAuthorityTemplateItemResponse getAuthorityTemplateItem(const Models::GetAuthorityTemplateItemRequest &request);
 
       /**
-       * @summary 获取实例绑定的分类分级模板
+       * @summary Queries the information about the classification and grading template associated with an instance.
        *
        * @param request GetClassificationTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1910,7 +1959,7 @@ namespace DmsEnterprise20181101
       Models::GetClassificationTemplateResponse getClassificationTemplateWithOptions(const Models::GetClassificationTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例绑定的分类分级模板
+       * @summary Queries the information about the classification and grading template associated with an instance.
        *
        * @param request GetClassificationTemplateRequest
        * @return GetClassificationTemplateResponse
@@ -2181,7 +2230,7 @@ namespace DmsEnterprise20181101
       Models::GetDataImportSQLResponse getDataImportSQL(const Models::GetDataImportSQLRequest &request);
 
       /**
-       * @summary 获取uc的数据库目录
+       * @summary Queries the data catalog of the data lake.
        *
        * @param request GetDataLakeCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2239,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeCatalogResponse getDataLakeCatalogWithOptions(const Models::GetDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取uc的数据库目录
+       * @summary Queries the data catalog of the data lake.
        *
        * @param request GetDataLakeCatalogRequest
        * @return GetDataLakeCatalogResponse
@@ -2198,7 +2247,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeCatalogResponse getDataLakeCatalog(const Models::GetDataLakeCatalogRequest &request);
 
       /**
-       * @summary 获取UC的数据库
+       * @summary Queries the information about the database in the data lake.
        *
        * @param request GetDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2207,7 +2256,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeDatabaseResponse getDataLakeDatabaseWithOptions(const Models::GetDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取UC的数据库
+       * @summary Queries the information about the database in the data lake.
        *
        * @param request GetDataLakeDatabaseRequest
        * @return GetDataLakeDatabaseResponse
@@ -2215,7 +2264,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeDatabaseResponse getDataLakeDatabase(const Models::GetDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 获取湖仓自定义函数详细信息
+       * @summary Obtains the details about a user-defined function in a data lakehouse.
        *
        * @param request GetDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2224,7 +2273,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeFunctionResponse getDataLakeFunctionWithOptions(const Models::GetDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取湖仓自定义函数详细信息
+       * @summary Obtains the details about a user-defined function in a data lakehouse.
        *
        * @param request GetDataLakeFunctionRequest
        * @return GetDataLakeFunctionResponse
@@ -2232,7 +2281,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeFunctionResponse getDataLakeFunction(const Models::GetDataLakeFunctionRequest &request);
 
       /**
-       * @summary 获取湖仓表分区详情
+       * @summary Queries the information about a partition of a table in a data lakehouse.
        *
        * @param tmpReq GetDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2241,7 +2290,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakePartitionResponse getDataLakePartitionWithOptions(const Models::GetDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取湖仓表分区详情
+       * @summary Queries the information about a partition of a table in a data lakehouse.
        *
        * @param request GetDataLakePartitionRequest
        * @return GetDataLakePartitionResponse
@@ -2249,7 +2298,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakePartitionResponse getDataLakePartition(const Models::GetDataLakePartitionRequest &request);
 
       /**
-       * @summary 获取表信息
+       * @summary Queries basic information about tables in the data lake.
        *
        * @param request GetDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2258,7 +2307,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeTableResponse getDataLakeTableWithOptions(const Models::GetDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表信息
+       * @summary Queries basic information about tables in the data lake.
        *
        * @param request GetDataLakeTableRequest
        * @return GetDataLakeTableResponse
@@ -2351,7 +2400,7 @@ namespace DmsEnterprise20181101
       Models::GetDatabaseExportOrderDetailResponse getDatabaseExportOrderDetail(const Models::GetDatabaseExportOrderDetailRequest &request);
 
       /**
-       * @summary 获取数据库导出下载地址
+       * @summary Queries the download URL of the results of a database export ticket.
        *
        * @param request GetDbExportDownloadURLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2360,7 +2409,7 @@ namespace DmsEnterprise20181101
       Models::GetDbExportDownloadURLResponse getDbExportDownloadURLWithOptions(const Models::GetDbExportDownloadURLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据库导出下载地址
+       * @summary Queries the download URL of the results of a database export ticket.
        *
        * @param request GetDbExportDownloadURLRequest
        * @return GetDbExportDownloadURLResponse
@@ -2575,7 +2624,7 @@ namespace DmsEnterprise20181101
       Models::GetOwnerApplyOrderDetailResponse getOwnerApplyOrderDetail(const Models::GetOwnerApplyOrderDetailRequest &request);
 
       /**
-       * @summary 获取数据归档工单任务实例
+       * @summary Queries the task information about a ticket.
        *
        * @param request GetPagedInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2584,7 +2633,7 @@ namespace DmsEnterprise20181101
       Models::GetPagedInstanceResponse getPagedInstanceWithOptions(const Models::GetPagedInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据归档工单任务实例
+       * @summary Queries the task information about a ticket.
        *
        * @param request GetPagedInstanceRequest
        * @return GetPagedInstanceResponse
@@ -2723,7 +2772,7 @@ namespace DmsEnterprise20181101
       Models::GetSQLReviewOptimizeDetailResponse getSQLReviewOptimizeDetail(const Models::GetSQLReviewOptimizeDetailRequest &request);
 
       /**
-       * @summary 获取安全规则
+       * @summary Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
        *
        * @param request GetStandardGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2732,7 +2781,7 @@ namespace DmsEnterprise20181101
       Models::GetStandardGroupResponse getStandardGroupWithOptions(const Models::GetStandardGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取安全规则
+       * @summary Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
        *
        * @param request GetStandardGroupRequest
        * @return GetStandardGroupResponse
@@ -2859,7 +2908,9 @@ namespace DmsEnterprise20181101
       Models::GetTableDesignProjectInfoResponse getTableDesignProjectInfo(const Models::GetTableDesignProjectInfoRequest &request);
 
       /**
-       * @summary 获取指定guid的元数据知识
+       * @summary Gets metadata knowledge for a specified GUID.
+       *
+       * @description This API can be called only for database instances that are enabled for security hosting.
        *
        * @param request GetTableKnowledgeInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2868,7 +2919,9 @@ namespace DmsEnterprise20181101
       Models::GetTableKnowledgeInfoResponse getTableKnowledgeInfoWithOptions(const Models::GetTableKnowledgeInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定guid的元数据知识
+       * @summary Gets metadata knowledge for a specified GUID.
+       *
+       * @description This API can be called only for database instances that are enabled for security hosting.
        *
        * @param request GetTableKnowledgeInfoRequest
        * @return GetTableKnowledgeInfoResponse
@@ -3012,7 +3065,7 @@ namespace DmsEnterprise20181101
       Models::GetUserUploadFileJobResponse getUserUploadFileJob(const Models::GetUserUploadFileJobRequest &request);
 
       /**
-       * @summary 获取空间描述
+       * @summary Queries the details of a workspace.
        *
        * @param request GetWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3021,7 +3074,7 @@ namespace DmsEnterprise20181101
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const Models::GetWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取空间描述
+       * @summary Queries the details of a workspace.
        *
        * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
@@ -3084,7 +3137,7 @@ namespace DmsEnterprise20181101
       Models::InspectProxyAccessSecretResponse inspectProxyAccessSecret(const Models::InspectProxyAccessSecretRequest &request);
 
       /**
-       * @summary 获取权限策略授权列表
+       * @summary Queries a list of users to which the specified policy is attached and the number of the users.
        *
        * @param request ListAbacAuthorizationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3093,7 +3146,7 @@ namespace DmsEnterprise20181101
       Models::ListAbacAuthorizationsResponse listAbacAuthorizationsWithOptions(const Models::ListAbacAuthorizationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取权限策略授权列表
+       * @summary Queries a list of users to which the specified policy is attached and the number of the users.
        *
        * @param request ListAbacAuthorizationsRequest
        * @return ListAbacAuthorizationsResponse
@@ -3101,7 +3154,7 @@ namespace DmsEnterprise20181101
       Models::ListAbacAuthorizationsResponse listAbacAuthorizations(const Models::ListAbacAuthorizationsRequest &request);
 
       /**
-       * @summary 获取权限策略列表
+       * @summary Queries a list of policies that are created by a user.
        *
        * @param request ListAbacPoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3110,7 +3163,7 @@ namespace DmsEnterprise20181101
       Models::ListAbacPoliciesResponse listAbacPoliciesWithOptions(const Models::ListAbacPoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取权限策略列表
+       * @summary Queries a list of policies that are created by a user.
        *
        * @param request ListAbacPoliciesRequest
        * @return ListAbacPoliciesResponse
@@ -3118,7 +3171,7 @@ namespace DmsEnterprise20181101
       Models::ListAbacPoliciesResponse listAbacPolicies(const Models::ListAbacPoliciesRequest &request);
 
       /**
-       * @summary 获取权限模版列表
+       * @summary Queries the information about permission templates, including the template creator, template name, and total number of templates.
        *
        * @param request ListAuthorityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3127,7 +3180,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorityTemplateResponse listAuthorityTemplateWithOptions(const Models::ListAuthorityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取权限模版列表
+       * @summary Queries the information about permission templates, including the template creator, template name, and total number of templates.
        *
        * @param request ListAuthorityTemplateRequest
        * @return ListAuthorityTemplateResponse
@@ -3135,7 +3188,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorityTemplateResponse listAuthorityTemplate(const Models::ListAuthorityTemplateRequest &request);
 
       /**
-       * @summary 获取用户有权限的数据库
+       * @summary Queries the databases on which the specified user has permissions.
        *
        * @param request ListAuthorizedDatabasesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3144,7 +3197,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedDatabasesForUserResponse listAuthorizedDatabasesForUserWithOptions(const Models::ListAuthorizedDatabasesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户有权限的数据库
+       * @summary Queries the databases on which the specified user has permissions.
        *
        * @param request ListAuthorizedDatabasesForUserRequest
        * @return ListAuthorizedDatabasesForUserResponse
@@ -3152,7 +3205,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedDatabasesForUserResponse listAuthorizedDatabasesForUser(const Models::ListAuthorizedDatabasesForUserRequest &request);
 
       /**
-       * @summary 获取用户有权限的实例
+       * @summary Queries the instances on which the specified user has permissions.
        *
        * @param request ListAuthorizedInstancesForUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3161,7 +3214,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedInstancesForUserResponse listAuthorizedInstancesForUserWithOptions(const Models::ListAuthorizedInstancesForUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户有权限的实例
+       * @summary Queries the instances on which the specified user has permissions.
        *
        * @param request ListAuthorizedInstancesForUserRequest
        * @return ListAuthorizedInstancesForUserResponse
@@ -3169,7 +3222,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedInstancesForUserResponse listAuthorizedInstancesForUser(const Models::ListAuthorizedInstancesForUserRequest &request);
 
       /**
-       * @summary 查询有数据库权限的用户
+       * @summary Queries a list of users that have permissions on the specified database.
        *
        * @param request ListAuthorizedUsersForDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3178,7 +3231,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedUsersForDatabaseResponse listAuthorizedUsersForDatabaseWithOptions(const Models::ListAuthorizedUsersForDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询有数据库权限的用户
+       * @summary Queries a list of users that have permissions on the specified database.
        *
        * @param request ListAuthorizedUsersForDatabaseRequest
        * @return ListAuthorizedUsersForDatabaseResponse
@@ -3186,7 +3239,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedUsersForDatabaseResponse listAuthorizedUsersForDatabase(const Models::ListAuthorizedUsersForDatabaseRequest &request);
 
       /**
-       * @summary 查询有实例权限的用户
+       * @summary Queries a list of users that have permissions on the specified instance.
        *
        * @param request ListAuthorizedUsersForInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3195,7 +3248,7 @@ namespace DmsEnterprise20181101
       Models::ListAuthorizedUsersForInstanceResponse listAuthorizedUsersForInstanceWithOptions(const Models::ListAuthorizedUsersForInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询有实例权限的用户
+       * @summary Queries a list of users that have permissions on the specified instance.
        *
        * @param request ListAuthorizedUsersForInstanceRequest
        * @return ListAuthorizedUsersForInstanceResponse
@@ -3393,7 +3446,7 @@ namespace DmsEnterprise20181101
       Models::ListDataImportSQLTypeResponse listDataImportSQLType(const Models::ListDataImportSQLTypeRequest &request);
 
       /**
-       * @summary 获取uc的数据库目录列表
+       * @summary Queries a list of data catalogs in a data lake.
        *
        * @param request ListDataLakeCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3402,7 +3455,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeCatalogResponse listDataLakeCatalogWithOptions(const Models::ListDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取uc的数据库目录列表
+       * @summary Queries a list of data catalogs in a data lake.
        *
        * @param request ListDataLakeCatalogRequest
        * @return ListDataLakeCatalogResponse
@@ -3410,7 +3463,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeCatalogResponse listDataLakeCatalog(const Models::ListDataLakeCatalogRequest &request);
 
       /**
-       * @summary 获取数据库列表
+       * @summary Queries the list of databases in the data lake.
        *
        * @param request ListDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3419,7 +3472,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeDatabaseResponse listDataLakeDatabaseWithOptions(const Models::ListDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据库列表
+       * @summary Queries the list of databases in the data lake.
        *
        * @param request ListDataLakeDatabaseRequest
        * @return ListDataLakeDatabaseResponse
@@ -3427,7 +3480,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeDatabaseResponse listDataLakeDatabase(const Models::ListDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 获取数据湖函数列表
+       * @summary Queries a list of functions in a data lake.
        *
        * @param request ListDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3436,7 +3489,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeFunctionResponse listDataLakeFunctionWithOptions(const Models::ListDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖函数列表
+       * @summary Queries a list of functions in a data lake.
        *
        * @param request ListDataLakeFunctionRequest
        * @return ListDataLakeFunctionResponse
@@ -3444,7 +3497,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeFunctionResponse listDataLakeFunction(const Models::ListDataLakeFunctionRequest &request);
 
       /**
-       * @summary 获取数据湖函数名列表
+       * @summary Gets a list of data lake function names.
        *
        * @param request ListDataLakeFunctionNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3453,7 +3506,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeFunctionNameResponse listDataLakeFunctionNameWithOptions(const Models::ListDataLakeFunctionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖函数名列表
+       * @summary Gets a list of data lake function names.
        *
        * @param request ListDataLakeFunctionNameRequest
        * @return ListDataLakeFunctionNameResponse
@@ -3461,7 +3514,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeFunctionNameResponse listDataLakeFunctionName(const Models::ListDataLakeFunctionNameRequest &request);
 
       /**
-       * @summary 获取数据湖表分区列表
+       * @summary Queries a list of partitions of a table in a data lake.
        *
        * @param tmpReq ListDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3470,7 +3523,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionResponse listDataLakePartitionWithOptions(const Models::ListDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表分区列表
+       * @summary Queries a list of partitions of a table in a data lake.
        *
        * @param request ListDataLakePartitionRequest
        * @return ListDataLakePartitionResponse
@@ -3478,7 +3531,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionResponse listDataLakePartition(const Models::ListDataLakePartitionRequest &request);
 
       /**
-       * @summary 根据筛选条件获取数据湖表分区列表
+       * @summary Queries a list of partitions of a table in a data lake based on filter conditions.
        *
        * @param request ListDataLakePartitionByFilterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3487,7 +3540,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilterWithOptions(const Models::ListDataLakePartitionByFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据筛选条件获取数据湖表分区列表
+       * @summary Queries a list of partitions of a table in a data lake based on filter conditions.
        *
        * @param request ListDataLakePartitionByFilterRequest
        * @return ListDataLakePartitionByFilterResponse
@@ -3495,7 +3548,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilter(const Models::ListDataLakePartitionByFilterRequest &request);
 
       /**
-       * @summary 获取数据湖表分区名列表
+       * @summary Queries a list of partition names of a table in a data lake.
        *
        * @param request ListDataLakePartitionNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3504,7 +3557,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionNameResponse listDataLakePartitionNameWithOptions(const Models::ListDataLakePartitionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表分区名列表
+       * @summary Queries a list of partition names of a table in a data lake.
        *
        * @param request ListDataLakePartitionNameRequest
        * @return ListDataLakePartitionNameResponse
@@ -3512,7 +3565,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakePartitionNameResponse listDataLakePartitionName(const Models::ListDataLakePartitionNameRequest &request);
 
       /**
-       * @summary 获取数据湖表列表
+       * @summary Queries a list of tables in a data lake.
        *
        * @param request ListDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3521,7 +3574,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeTableResponse listDataLakeTableWithOptions(const Models::ListDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表列表
+       * @summary Queries a list of tables in a data lake.
        *
        * @param request ListDataLakeTableRequest
        * @return ListDataLakeTableResponse
@@ -3529,7 +3582,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeTableResponse listDataLakeTable(const Models::ListDataLakeTableRequest &request);
 
       /**
-       * @summary 获取数据湖表名列表
+       * @summary Queries a list of names of tables in a data lake.
        *
        * @param request ListDataLakeTableNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3538,7 +3591,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeTableNameResponse listDataLakeTableNameWithOptions(const Models::ListDataLakeTableNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表名列表
+       * @summary Queries a list of names of tables in a data lake.
        *
        * @param request ListDataLakeTableNameRequest
        * @return ListDataLakeTableNameResponse
@@ -3546,7 +3599,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeTableNameResponse listDataLakeTableName(const Models::ListDataLakeTableNameRequest &request);
 
       /**
-       * @summary 获取表信息
+       * @summary Queries basic information about tables in the data lake.
        *
        * @param request ListDataLakeTablebaseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3555,7 +3608,7 @@ namespace DmsEnterprise20181101
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfoWithOptions(const Models::ListDataLakeTablebaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表信息
+       * @summary Queries basic information about tables in the data lake.
        *
        * @param request ListDataLakeTablebaseInfoRequest
        * @return ListDataLakeTablebaseInfoResponse
@@ -3825,7 +3878,7 @@ namespace DmsEnterprise20181101
       Models::ListLogicTablesResponse listLogicTables(const Models::ListLogicTablesRequest &request);
 
       /**
-       * @summary 获取资产类目列表
+       * @summary Queries a list of categories
        *
        * @param request ListMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3834,7 +3887,7 @@ namespace DmsEnterprise20181101
       Models::ListMetaCategoryResponse listMetaCategoryWithOptions(const Models::ListMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取资产类目列表
+       * @summary Queries a list of categories
        *
        * @param request ListMetaCategoryRequest
        * @return ListMetaCategoryResponse
@@ -3982,7 +4035,7 @@ namespace DmsEnterprise20181101
       Models::ListScenariosResponse listScenarios(const Models::ListScenariosRequest &request);
 
       /**
-       * @summary 获取敏感字段信息
+       * @summary Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
        *
        * @param request ListSensitiveColumnInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3991,7 +4044,7 @@ namespace DmsEnterprise20181101
       Models::ListSensitiveColumnInfoResponse listSensitiveColumnInfoWithOptions(const Models::ListSensitiveColumnInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取敏感字段信息
+       * @summary Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
        *
        * @param request ListSensitiveColumnInfoRequest
        * @return ListSensitiveColumnInfoResponse
@@ -4084,7 +4137,7 @@ namespace DmsEnterprise20181101
       Models::ListStandardGroupsResponse listStandardGroups(const Models::ListStandardGroupsRequest &request);
 
       /**
-       * @summary 获取表字段信息
+       * @summary Queries the details about fields in a table.
        *
        * @param request ListTableColumnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4093,7 +4146,7 @@ namespace DmsEnterprise20181101
       Models::ListTableColumnsResponse listTableColumnsWithOptions(const Models::ListTableColumnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表字段信息
+       * @summary Queries the details about fields in a table.
        *
        * @param request ListTableColumnsRequest
        * @return ListTableColumnsResponse
@@ -4122,7 +4175,7 @@ namespace DmsEnterprise20181101
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary 获取类目下的表列表
+       * @summary Obtains the list of tables in a category.
        *
        * @param request ListTablesInCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4131,7 +4184,7 @@ namespace DmsEnterprise20181101
       Models::ListTablesInCategoryResponse listTablesInCategoryWithOptions(const Models::ListTablesInCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取类目下的表列表
+       * @summary Obtains the list of tables in a category.
        *
        * @param request ListTablesInCategoryRequest
        * @return ListTablesInCategoryResponse
@@ -4279,6 +4332,23 @@ namespace DmsEnterprise20181101
       Models::ListTasksInTaskFlowResponse listTasksInTaskFlow(const Models::ListTasksInTaskFlowRequest &request);
 
       /**
+       * @summary Obtains
+       *
+       * @param request ListUserOwnedResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserOwnedResourcesResponse
+       */
+      Models::ListUserOwnedResourcesResponse listUserOwnedResourcesWithOptions(const Models::ListUserOwnedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtains
+       *
+       * @param request ListUserOwnedResourcesRequest
+       * @return ListUserOwnedResourcesResponse
+       */
+      Models::ListUserOwnedResourcesResponse listUserOwnedResources(const Models::ListUserOwnedResourcesRequest &request);
+
+      /**
        * @summary Queries the permissions of a specific user on a database or a table.
        *
        * @param request ListUserPermissionsRequest
@@ -4364,7 +4434,7 @@ namespace DmsEnterprise20181101
       Models::ListWorkFlowTemplatesResponse listWorkFlowTemplates(const Models::ListWorkFlowTemplatesRequest &request);
 
       /**
-       * @summary 搜索工作空间列表
+       * @summary Queries a list of workspaces of the tenant.
        *
        * @param request ListWorkspacesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4373,7 +4443,7 @@ namespace DmsEnterprise20181101
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 搜索工作空间列表
+       * @summary Queries a list of workspaces of the tenant.
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -4432,7 +4502,7 @@ namespace DmsEnterprise20181101
       Models::ModifyDesensitizationStrategyResponse modifyDesensitizationStrategy(const Models::ModifyDesensitizationStrategyRequest &request);
 
       /**
-       * @summary 修改实例信息，同时检查该实例连通性
+       * @summary Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
        *
        * @param request ModifyInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4441,7 +4511,7 @@ namespace DmsEnterprise20181101
       Models::ModifyInstanceResponse modifyInstanceWithOptions(const Models::ModifyInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例信息，同时检查该实例连通性
+       * @summary Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
        *
        * @param request ModifyInstanceRequest
        * @return ModifyInstanceResponse
@@ -4483,9 +4553,9 @@ namespace DmsEnterprise20181101
       Models::OfflineTaskFlowResponse offlineTaskFlow(const Models::OfflineTaskFlowRequest &request);
 
       /**
-       * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       * @summary Analyzes and optimizes the SQL statements in the specified database.
        *
-       * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       * @description You can call this operation to analyze and optimize the SQL statements in the specified database.
        *
        * @param request OptimizeSqlByMetaAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4494,9 +4564,9 @@ namespace DmsEnterprise20181101
       Models::OptimizeSqlByMetaAgentResponse optimizeSqlByMetaAgentWithOptions(const Models::OptimizeSqlByMetaAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       * @summary Analyzes and optimizes the SQL statements in the specified database.
        *
-       * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+       * @description You can call this operation to analyze and optimize the SQL statements in the specified database.
        *
        * @param request OptimizeSqlByMetaAgentRequest
        * @return OptimizeSqlByMetaAgentResponse
@@ -4525,7 +4595,7 @@ namespace DmsEnterprise20181101
       Models::PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJob(const Models::PauseDataCorrectSQLJobRequest &request);
 
       /**
-       * @summary 终止数据导出任务
+       * @summary Terminates a SQL result set export task.
        *
        * @param request PauseDataExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4534,7 +4604,7 @@ namespace DmsEnterprise20181101
       Models::PauseDataExportJobResponse pauseDataExportJobWithOptions(const Models::PauseDataExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 终止数据导出任务
+       * @summary Terminates a SQL result set export task.
        *
        * @param request PauseDataExportJobRequest
        * @return PauseDataExportJobResponse
@@ -4542,7 +4612,7 @@ namespace DmsEnterprise20181101
       Models::PauseDataExportJobResponse pauseDataExportJob(const Models::PauseDataExportJobRequest &request);
 
       /**
-       * @summary 创建工单审批流
+       * @summary Previews the approval process of a ticket before the ticket is submitted.
        *
        * @param request PreviewWorkflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4551,7 +4621,7 @@ namespace DmsEnterprise20181101
       Models::PreviewWorkflowResponse previewWorkflowWithOptions(const Models::PreviewWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工单审批流
+       * @summary Previews the approval process of a ticket before the ticket is submitted.
        *
        * @param request PreviewWorkflowRequest
        * @return PreviewWorkflowResponse
@@ -4721,7 +4791,7 @@ namespace DmsEnterprise20181101
       Models::RegisterUserResponse registerUser(const Models::RegisterUserRequest &request);
 
       /**
-       * @summary 删除数据导出任务
+       * @summary Deletes a data export task.
        *
        * @param request RemoveDataExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4730,7 +4800,7 @@ namespace DmsEnterprise20181101
       Models::RemoveDataExportJobResponse removeDataExportJobWithOptions(const Models::RemoveDataExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除数据导出任务
+       * @summary Deletes a data export task.
        *
        * @param request RemoveDataExportJobRequest
        * @return RemoveDataExportJobResponse
@@ -4738,7 +4808,7 @@ namespace DmsEnterprise20181101
       Models::RemoveDataExportJobResponse removeDataExportJob(const Models::RemoveDataExportJobRequest &request);
 
       /**
-       * @summary 从资产类目移除表
+       * @summary Removes table from the asset category.
        *
        * @param request RemoveTableFromCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4747,7 +4817,7 @@ namespace DmsEnterprise20181101
       Models::RemoveTableFromCategoryResponse removeTableFromCategoryWithOptions(const Models::RemoveTableFromCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从资产类目移除表
+       * @summary Removes table from the asset category.
        *
        * @param request RemoveTableFromCategoryRequest
        * @return RemoveTableFromCategoryResponse
@@ -4772,7 +4842,7 @@ namespace DmsEnterprise20181101
       Models::RestartDataCorrectSQLJobResponse restartDataCorrectSQLJob(const Models::RestartDataCorrectSQLJobRequest &request);
 
       /**
-       * @summary 重启数据导出任务
+       * @summary Restarts a SQL result set export task.
        *
        * @param request RestartDataExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4781,7 +4851,7 @@ namespace DmsEnterprise20181101
       Models::RestartDataExportJobResponse restartDataExportJobWithOptions(const Models::RestartDataExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重启数据导出任务
+       * @summary Restarts a SQL result set export task.
        *
        * @param request RestartDataExportJobRequest
        * @return RestartDataExportJobResponse
@@ -4937,7 +5007,7 @@ namespace DmsEnterprise20181101
       Models::SetOwnersResponse setOwners(const Models::SetOwnersRequest &request);
 
       /**
-       * @summary 修改审批流额外信息
+       * @summary Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
        *
        * @param request SetWorkflowExtraInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4946,7 +5016,7 @@ namespace DmsEnterprise20181101
       Models::SetWorkflowExtraInfoResponse setWorkflowExtraInfoWithOptions(const Models::SetWorkflowExtraInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改审批流额外信息
+       * @summary Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
        *
        * @param request SetWorkflowExtraInfoRequest
        * @return SetWorkflowExtraInfoResponse
@@ -5039,7 +5109,7 @@ namespace DmsEnterprise20181101
       Models::SubmitStructSyncOrderApprovalResponse submitStructSyncOrderApproval(const Models::SubmitStructSyncOrderApprovalRequest &request);
 
       /**
-       * @summary 中断数据导出任务
+       * @summary Suspends an ongoing or scheduled SQL result set export task.
        *
        * @param request SuspendDataExportJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5048,7 +5118,7 @@ namespace DmsEnterprise20181101
       Models::SuspendDataExportJobResponse suspendDataExportJobWithOptions(const Models::SuspendDataExportJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 中断数据导出任务
+       * @summary Suspends an ongoing or scheduled SQL result set export task.
        *
        * @param request SuspendDataExportJobRequest
        * @return SuspendDataExportJobResponse
@@ -5111,7 +5181,12 @@ namespace DmsEnterprise20181101
       Models::SyncInstanceMetaResponse syncInstanceMeta(const Models::SyncInstanceMetaRequest &request);
 
       /**
-       * @summary 任务编排试运行
+       * @summary Tests the task flow of task orchestration.
+       *
+       * @description ### [](#)Usage notes
+       * An edge can be created only when the following conditions are met:
+       * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+       * 2.  After the edge is created, the DAG does not contain loops.
        *
        * @param request TryRunTaskFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5120,7 +5195,12 @@ namespace DmsEnterprise20181101
       Models::TryRunTaskFlowResponse tryRunTaskFlowWithOptions(const Models::TryRunTaskFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务编排试运行
+       * @summary Tests the task flow of task orchestration.
+       *
+       * @description ### [](#)Usage notes
+       * An edge can be created only when the following conditions are met:
+       * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+       * 2.  After the edge is created, the DAG does not contain loops.
        *
        * @param request TryRunTaskFlowRequest
        * @return TryRunTaskFlowResponse
@@ -5128,7 +5208,7 @@ namespace DmsEnterprise20181101
       Models::TryRunTaskFlowResponse tryRunTaskFlow(const Models::TryRunTaskFlowRequest &request);
 
       /**
-       * @summary 更新权限策略
+       * @summary Updates the name, description, or content of a policy.
        *
        * @param request UpdateAbacPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5137,7 +5217,7 @@ namespace DmsEnterprise20181101
       Models::UpdateAbacPolicyResponse updateAbacPolicyWithOptions(const Models::UpdateAbacPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新权限策略
+       * @summary Updates the name, description, or content of a policy.
        *
        * @param request UpdateAbacPolicyRequest
        * @return UpdateAbacPolicyResponse
@@ -5166,7 +5246,7 @@ namespace DmsEnterprise20181101
       Models::UpdateAuthorityTemplateResponse updateAuthorityTemplate(const Models::UpdateAuthorityTemplateRequest &request);
 
       /**
-       * @summary 更新湖仓数据库
+       * @summary Updates the information about a database in a data lakehouse.
        *
        * @param tmpReq UpdateDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5175,7 +5255,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabaseWithOptions(const Models::UpdateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓数据库
+       * @summary Updates the information about a database in a data lakehouse.
        *
        * @param request UpdateDataLakeDatabaseRequest
        * @return UpdateDataLakeDatabaseResponse
@@ -5183,7 +5263,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabase(const Models::UpdateDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 更新湖仓自定义函数
+       * @summary Updates a user-defined function in a data lakehouse.
        *
        * @param tmpReq UpdateDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5192,7 +5272,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakeFunctionResponse updateDataLakeFunctionWithOptions(const Models::UpdateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓自定义函数
+       * @summary Updates a user-defined function in a data lakehouse.
        *
        * @param request UpdateDataLakeFunctionRequest
        * @return UpdateDataLakeFunctionResponse
@@ -5200,7 +5280,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakeFunctionResponse updateDataLakeFunction(const Models::UpdateDataLakeFunctionRequest &request);
 
       /**
-       * @summary 更新湖仓表分区
+       * @summary Updates the partition information of a table in a data lakehouse.
        *
        * @param tmpReq UpdateDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5209,7 +5289,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakePartitionResponse updateDataLakePartitionWithOptions(const Models::UpdateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓表分区
+       * @summary Updates the partition information of a table in a data lakehouse.
        *
        * @param request UpdateDataLakePartitionRequest
        * @return UpdateDataLakePartitionResponse
@@ -5217,7 +5297,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakePartitionResponse updateDataLakePartition(const Models::UpdateDataLakePartitionRequest &request);
 
       /**
-       * @summary 更新湖仓表信息
+       * @summary Updates the information about a table in a data lakehouse.
        *
        * @param tmpReq UpdateDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5226,7 +5306,7 @@ namespace DmsEnterprise20181101
       Models::UpdateDataLakeTableResponse updateDataLakeTableWithOptions(const Models::UpdateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓表信息
+       * @summary Updates the information about a table in a data lakehouse.
        *
        * @param request UpdateDataLakeTableRequest
        * @return UpdateDataLakeTableResponse
@@ -5255,7 +5335,7 @@ namespace DmsEnterprise20181101
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary 更新资产类目信息
+       * @summary Updates asset category information.
        *
        * @param request UpdateMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5264,7 +5344,7 @@ namespace DmsEnterprise20181101
       Models::UpdateMetaCategoryResponse updateMetaCategoryWithOptions(const Models::UpdateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新资产类目信息
+       * @summary Updates asset category information.
        *
        * @param request UpdateMetaCategoryRequest
        * @return UpdateMetaCategoryResponse
@@ -5369,7 +5449,9 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskContentResponse updateTaskContent(const Models::UpdateTaskContentRequest &request);
 
       /**
-       * @summary 大sql更新节点专用
+       * @summary Updates the node content in large SQL files.
+       *
+       * @description You can call this operation to modify node configurations.
        *
        * @param request UpdateTaskContentV2Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -5378,7 +5460,9 @@ namespace DmsEnterprise20181101
       Models::UpdateTaskContentV2Response updateTaskContentV2WithOptions(const Models::UpdateTaskContentV2Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 大sql更新节点专用
+       * @summary Updates the node content in large SQL files.
+       *
+       * @description You can call this operation to modify node configurations.
        *
        * @param request UpdateTaskContentV2Request
        * @return UpdateTaskContentV2Response
@@ -5637,7 +5721,7 @@ namespace DmsEnterprise20181101
       Models::UpdateUserResponse updateUser(const Models::UpdateUserRequest &request);
 
       /**
-       * @summary 修改工作空间
+       * @summary Updates the information about a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5646,7 +5730,7 @@ namespace DmsEnterprise20181101
       Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const Models::UpdateWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改工作空间
+       * @summary Updates the information about a workspace.
        *
        * @param request UpdateWorkspaceRequest
        * @return UpdateWorkspaceResponse

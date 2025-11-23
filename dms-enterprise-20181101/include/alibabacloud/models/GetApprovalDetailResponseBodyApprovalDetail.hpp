@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditId_ != nullptr
-        && this->createTime_ != nullptr && this->currentHandlers_ != nullptr && this->description_ != nullptr && this->orderId_ != nullptr && this->orderType_ != nullptr
-        && this->reasonList_ != nullptr && this->templateId_ != nullptr && this->thirdpartyWorkflowComment_ != nullptr && this->thirdpartyWorkflowUrl_ != nullptr && this->title_ != nullptr
-        && this->workflowInsCode_ != nullptr && this->workflowNodes_ != nullptr; };
+    virtual bool empty() const override { return this->auditId_ == nullptr
+        && return this->createTime_ == nullptr && return this->currentHandlers_ == nullptr && return this->description_ == nullptr && return this->orderId_ == nullptr && return this->orderType_ == nullptr
+        && return this->reasonList_ == nullptr && return this->templateId_ == nullptr && return this->thirdpartyWorkflowComment_ == nullptr && return this->thirdpartyWorkflowUrl_ == nullptr && return this->title_ == nullptr
+        && return this->workflowInsCode_ == nullptr && return this->workflowNodes_ == nullptr; };
     // auditId Field Functions 
     bool hasAuditId() const { return this->auditId_ != nullptr;};
     void deleteAuditId() { this->auditId_ = nullptr;};

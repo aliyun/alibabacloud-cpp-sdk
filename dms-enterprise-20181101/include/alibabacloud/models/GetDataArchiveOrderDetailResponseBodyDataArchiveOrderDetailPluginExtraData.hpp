@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dagInfo_ != nullptr
-        && this->dbBaseInfo_ != nullptr && this->instanceTotal_ != nullptr && this->instances_ != nullptr && this->nextFireTimeResult_ != nullptr && this->pageIndex_ != nullptr
-        && this->pageSize_ != nullptr && this->tempTableNameMap_ != nullptr; };
+    virtual bool empty() const override { return this->dagInfo_ == nullptr
+        && return this->dbBaseInfo_ == nullptr && return this->instanceTotal_ == nullptr && return this->instances_ == nullptr && return this->nextFireTimeResult_ == nullptr && return this->pageIndex_ == nullptr
+        && return this->pageSize_ == nullptr && return this->tempTableNameMap_ == nullptr; };
     // dagInfo Field Functions 
     bool hasDagInfo() const { return this->dagInfo_ != nullptr;};
     void deleteDagInfo() { this->dagInfo_ = nullptr;};

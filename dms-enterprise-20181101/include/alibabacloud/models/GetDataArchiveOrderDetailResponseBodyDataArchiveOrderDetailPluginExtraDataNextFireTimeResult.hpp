@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cronFireType_ != nullptr; };
+    virtual bool empty() const override { return this->cronFireType_ == nullptr; };
     // cronFireType Field Functions 
     bool hasCronFireType() const { return this->cronFireType_ != nullptr;};
     void deleteCronFireType() { this->cronFireType_ = nullptr;};

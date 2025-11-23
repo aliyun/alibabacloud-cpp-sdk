@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errorCode_ != nullptr
-        && this->errorMessage_ != nullptr && this->partitions_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->partitions_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -79,10 +79,18 @@ namespace Models
 
 
   protected:
+    // The error code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The details about the new partitions. This parameter is returned when the NeedResult parameter is set to true.
     std::shared_ptr<vector<DLPartition>> partitions_ = nullptr;
+    // The request ID. You can use the ID to query logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request succeeded.
+    // *   **false**: The request failed.
     std::shared_ptr<string> success_ = nullptr;
   };
 

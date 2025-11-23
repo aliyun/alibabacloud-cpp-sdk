@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cron_ != nullptr
-        && this->cronCallTimes_ != nullptr && this->cronExtConfig_ != nullptr && this->cronFormat_ != nullptr && this->cronLastCallStartTime_ != nullptr && this->cronNextCallTime_ != nullptr
-        && this->cronStatus_ != nullptr && this->csvTableName_ != nullptr && this->currentTaskId_ != nullptr && this->detailType_ != nullptr && this->duration_ != nullptr
-        && this->fileEncoding_ != nullptr && this->fileType_ != nullptr && this->importExtConfig_ != nullptr; };
+    virtual bool empty() const override { return this->cron_ == nullptr
+        && return this->cronCallTimes_ == nullptr && return this->cronExtConfig_ == nullptr && return this->cronFormat_ == nullptr && return this->cronLastCallStartTime_ == nullptr && return this->cronNextCallTime_ == nullptr
+        && return this->cronStatus_ == nullptr && return this->csvTableName_ == nullptr && return this->currentTaskId_ == nullptr && return this->detailType_ == nullptr && return this->duration_ == nullptr
+        && return this->fileEncoding_ == nullptr && return this->fileType_ == nullptr && return this->importExtConfig_ == nullptr; };
     // cron Field Functions 
     bool hasCron() const { return this->cron_ != nullptr;};
     void deleteCron() { this->cron_ = nullptr;};

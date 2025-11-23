@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->columnName_ != nullptr
-        && this->dbId_ != nullptr && this->isLogic_ != nullptr && this->newSensitivityLevel_ != nullptr && this->schemaName_ != nullptr && this->tableName_ != nullptr
-        && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->columnName_ == nullptr
+        && return this->dbId_ == nullptr && return this->isLogic_ == nullptr && return this->newSensitivityLevel_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr
+        && return this->tid_ == nullptr; };
     // columnName Field Functions 
     bool hasColumnName() const { return this->columnName_ != nullptr;};
     void deleteColumnName() { this->columnName_ = nullptr;};
@@ -94,18 +94,41 @@ namespace Models
 
 
   protected:
+    // The name of the field. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) or [ListColumns](https://help.aliyun.com/document_detail/141870.html) operation to query the column name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> columnName_ = nullptr;
+    // The database ID. The database can be a physical database or a logical database.
+    // 
+    // *   The ID of a physical database: You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the physical database ID.
+    // *   To obtain the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> dbId_ = nullptr;
+    // Specifies whether the database is a logical database. Valid values:
+    // 
+    // *   **true**: The database is a logical database
+    // *   **false**: The database is a physical database.
+    // 
     // This parameter is required.
     std::shared_ptr<bool> isLogic_ = nullptr;
+    // The new security level of the column. The valid values are the same as the sensitivity levels of the classification template that is associated with the instance. You can call the [ListSensitivityLevel](https://help.aliyun.com/document_detail/2539519.html) operation to obtain the sensitivity levels of the classification template.
+    // 
     // This parameter is required.
     std::shared_ptr<string> newSensitivityLevel_ = nullptr;
+    // The database name. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to query the database name.
+    // 
+    // > You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the name of a physical database and call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the name of a logical database.
+    // 
     // This parameter is required.
     std::shared_ptr<string> schemaName_ = nullptr;
+    // The name of the table. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) or [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

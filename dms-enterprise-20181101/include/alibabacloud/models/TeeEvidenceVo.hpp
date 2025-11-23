@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cipherSuite_ != nullptr
-        && this->enclaveData_ != nullptr && this->encryptPublicKeyPem_ != nullptr && this->encryptPublicKeyType_ != nullptr && this->modifiedDate_ != nullptr && this->publicKey_ != nullptr
-        && this->publicKeyRaBase64_ != nullptr && this->publicKeyRaType_ != nullptr && this->quoteReport_ != nullptr && this->signPublicKeyPem_ != nullptr && this->signPublicKeyType_ != nullptr
-        && this->trustedMrEnclave_ != nullptr; };
+    virtual bool empty() const override { return this->cipherSuite_ == nullptr
+        && return this->enclaveData_ == nullptr && return this->encryptPublicKeyPem_ == nullptr && return this->encryptPublicKeyType_ == nullptr && return this->modifiedDate_ == nullptr && return this->publicKey_ == nullptr
+        && return this->publicKeyRaBase64_ == nullptr && return this->publicKeyRaType_ == nullptr && return this->quoteReport_ == nullptr && return this->signPublicKeyPem_ == nullptr && return this->signPublicKeyType_ == nullptr
+        && return this->trustedMrEnclave_ == nullptr; };
     // cipherSuite Field Functions 
     bool hasCipherSuite() const { return this->cipherSuite_ != nullptr;};
     void deleteCipherSuite() { this->cipherSuite_ = nullptr;};

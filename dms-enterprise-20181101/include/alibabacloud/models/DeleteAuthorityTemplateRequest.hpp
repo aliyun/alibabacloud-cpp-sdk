@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->templateId_ != nullptr
-        && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->templateId_ == nullptr
+        && return this->tid_ == nullptr; };
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the permission template.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> templateId_ = nullptr;
+    // The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abacPolicyContent_ != nullptr
-        && this->abacPolicyDesc_ != nullptr && this->abacPolicyName_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->abacPolicyContent_ == nullptr
+        && return this->abacPolicyDesc_ == nullptr && return this->abacPolicyName_ == nullptr && return this->tid_ == nullptr; };
     // abacPolicyContent Field Functions 
     bool hasAbacPolicyContent() const { return this->abacPolicyContent_ != nullptr;};
     void deleteAbacPolicyContent() { this->abacPolicyContent_ = nullptr;};
@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The content of the policy. Specifies whether the authorized user can access and use the resources and features defined in the policy.
+    // 
     // This parameter is required.
     std::shared_ptr<string> abacPolicyContent_ = nullptr;
+    // The description of the policy.
     std::shared_ptr<string> abacPolicyDesc_ = nullptr;
+    // The name of the policy. The name must be unique for the tenant.
+    // 
     // This parameter is required.
     std::shared_ptr<string> abacPolicyName_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the ID of the tenant, go to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

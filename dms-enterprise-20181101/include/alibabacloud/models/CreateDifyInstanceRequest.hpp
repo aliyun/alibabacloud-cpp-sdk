@@ -143,19 +143,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adbpgInstanceMode_ != nullptr
-        && this->backupVSwitchId_ != nullptr && this->clientToken_ != nullptr && this->dataRegion_ != nullptr && this->databaseOption_ != nullptr && this->dbEngineType_ != nullptr
-        && this->dbEngineVersion_ != nullptr && this->dbInstanceAccount_ != nullptr && this->dbInstanceCategory_ != nullptr && this->dbInstanceClass_ != nullptr && this->dbInstancePassword_ != nullptr
-        && this->dbResourceId_ != nullptr && this->dbStorageSize_ != nullptr && this->dbStorageType_ != nullptr && this->dryRun_ != nullptr && this->edition_ != nullptr
-        && this->enableExtraEndpoint_ != nullptr && this->gpuNodeSpec_ != nullptr && this->kvStoreAccount_ != nullptr && this->kvStoreEngineVersion_ != nullptr && this->kvStoreInstanceClass_ != nullptr
-        && this->kvStoreNodeType_ != nullptr && this->kvStoreOption_ != nullptr && this->kvStorePassword_ != nullptr && this->kvStoreResourceId_ != nullptr && this->kvStoreType_ != nullptr
-        && this->majorVersion_ != nullptr && this->modelId_ != nullptr && this->modelOption_ != nullptr && this->natGatewayOption_ != nullptr && this->ossPath_ != nullptr
-        && this->ossResourceId_ != nullptr && this->payPeriod_ != nullptr && this->payPeriodType_ != nullptr && this->payType_ != nullptr && this->replicas_ != nullptr
-        && this->resourceQuota_ != nullptr && this->securityGroupId_ != nullptr && this->segDiskPerformanceLevel_ != nullptr && this->segNodeNum_ != nullptr && this->storageType_ != nullptr
-        && this->vSwitchId_ != nullptr && this->vectordbAccount_ != nullptr && this->vectordbCategory_ != nullptr && this->vectordbEngineVersion_ != nullptr && this->vectordbInstanceSpec_ != nullptr
-        && this->vectordbOption_ != nullptr && this->vectordbPassword_ != nullptr && this->vectordbResourceId_ != nullptr && this->vectordbStorageSize_ != nullptr && this->vectordbStorageType_ != nullptr
-        && this->vectordbType_ != nullptr && this->vpcId_ != nullptr && this->workspaceDescription_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr
-        && this->workspaceOption_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->adbpgInstanceMode_ == nullptr
+        && return this->backupVSwitchId_ == nullptr && return this->clientToken_ == nullptr && return this->dataRegion_ == nullptr && return this->databaseOption_ == nullptr && return this->dbEngineType_ == nullptr
+        && return this->dbEngineVersion_ == nullptr && return this->dbInstanceAccount_ == nullptr && return this->dbInstanceCategory_ == nullptr && return this->dbInstanceClass_ == nullptr && return this->dbInstancePassword_ == nullptr
+        && return this->dbResourceId_ == nullptr && return this->dbStorageSize_ == nullptr && return this->dbStorageType_ == nullptr && return this->dryRun_ == nullptr && return this->edition_ == nullptr
+        && return this->enableExtraEndpoint_ == nullptr && return this->gpuNodeSpec_ == nullptr && return this->kvStoreAccount_ == nullptr && return this->kvStoreEngineVersion_ == nullptr && return this->kvStoreInstanceClass_ == nullptr
+        && return this->kvStoreNodeType_ == nullptr && return this->kvStoreOption_ == nullptr && return this->kvStorePassword_ == nullptr && return this->kvStoreResourceId_ == nullptr && return this->kvStoreType_ == nullptr
+        && return this->majorVersion_ == nullptr && return this->modelId_ == nullptr && return this->modelOption_ == nullptr && return this->natGatewayOption_ == nullptr && return this->ossPath_ == nullptr
+        && return this->ossResourceId_ == nullptr && return this->payPeriod_ == nullptr && return this->payPeriodType_ == nullptr && return this->payType_ == nullptr && return this->replicas_ == nullptr
+        && return this->resourceQuota_ == nullptr && return this->securityGroupId_ == nullptr && return this->segDiskPerformanceLevel_ == nullptr && return this->segNodeNum_ == nullptr && return this->storageType_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vectordbAccount_ == nullptr && return this->vectordbCategory_ == nullptr && return this->vectordbEngineVersion_ == nullptr && return this->vectordbInstanceSpec_ == nullptr
+        && return this->vectordbOption_ == nullptr && return this->vectordbPassword_ == nullptr && return this->vectordbResourceId_ == nullptr && return this->vectordbStorageSize_ == nullptr && return this->vectordbStorageType_ == nullptr
+        && return this->vectordbType_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceDescription_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr
+        && return this->workspaceOption_ == nullptr && return this->zoneId_ == nullptr; };
     // adbpgInstanceMode Field Functions 
     bool hasAdbpgInstanceMode() const { return this->adbpgInstanceMode_ != nullptr;};
     void deleteAdbpgInstanceMode() { this->adbpgInstanceMode_ = nullptr;};

@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogName_ != nullptr
-        && this->databaseId_ != nullptr && this->dbType_ != nullptr && this->dbaId_ != nullptr && this->dbaName_ != nullptr && this->encoding_ != nullptr
-        && this->envType_ != nullptr && this->host_ != nullptr && this->instanceId_ != nullptr && this->ownerIdList_ != nullptr && this->ownerNameList_ != nullptr
-        && this->port_ != nullptr && this->schemaName_ != nullptr && this->searchName_ != nullptr && this->sid_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->catalogName_ == nullptr
+        && return this->databaseId_ == nullptr && return this->dbType_ == nullptr && return this->dbaId_ == nullptr && return this->dbaName_ == nullptr && return this->encoding_ == nullptr
+        && return this->envType_ == nullptr && return this->host_ == nullptr && return this->instanceId_ == nullptr && return this->ownerIdList_ == nullptr && return this->ownerNameList_ == nullptr
+        && return this->port_ == nullptr && return this->schemaName_ == nullptr && return this->searchName_ == nullptr && return this->sid_ == nullptr && return this->state_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};

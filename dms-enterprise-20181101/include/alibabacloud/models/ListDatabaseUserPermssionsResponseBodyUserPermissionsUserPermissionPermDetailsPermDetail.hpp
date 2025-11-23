@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createDate_ != nullptr
-        && this->expireDate_ != nullptr && this->extraData_ != nullptr && this->originFrom_ != nullptr && this->permType_ != nullptr && this->userAccessId_ != nullptr; };
+    virtual bool empty() const override { return this->createDate_ == nullptr
+        && return this->expireDate_ == nullptr && return this->extraData_ == nullptr && return this->originFrom_ == nullptr && return this->permType_ == nullptr && return this->userAccessId_ == nullptr; };
     // createDate Field Functions 
     bool hasCreateDate() const { return this->createDate_ != nullptr;};
     void deleteCreateDate() { this->createDate_ = nullptr;};

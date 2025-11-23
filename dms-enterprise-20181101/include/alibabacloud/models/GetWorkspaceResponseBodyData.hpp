@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->serviceAccountId_ != nullptr && this->tid_ != nullptr && this->vpcId_ != nullptr
-        && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->serviceAccountId_ == nullptr && return this->tid_ == nullptr && return this->vpcId_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -103,13 +103,23 @@ namespace Models
 
 
   protected:
+    // The description of the workspace.
     std::shared_ptr<string> description_ = nullptr;
+    // The owner ID.
     std::shared_ptr<string> ownerId_ = nullptr;
+    // The ID of the region to which the workspace belongs.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the service account.
     std::shared_ptr<string> serviceAccountId_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    // The name of the workspace.
     std::shared_ptr<string> workspaceName_ = nullptr;
   };
 

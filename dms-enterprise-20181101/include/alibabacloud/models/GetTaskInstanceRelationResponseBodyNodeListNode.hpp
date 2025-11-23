@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessTime_ != nullptr
-        && this->endTime_ != nullptr && this->executeTime_ != nullptr && this->id_ != nullptr && this->message_ != nullptr && this->nodeId_ != nullptr
-        && this->nodeName_ != nullptr && this->nodeType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->businessTime_ == nullptr
+        && return this->endTime_ == nullptr && return this->executeTime_ == nullptr && return this->id_ == nullptr && return this->message_ == nullptr && return this->nodeId_ == nullptr
+        && return this->nodeName_ == nullptr && return this->nodeType_ == nullptr && return this->status_ == nullptr; };
     // businessTime Field Functions 
     bool hasBusinessTime() const { return this->businessTime_ != nullptr;};
     void deleteBusinessTime() { this->businessTime_ = nullptr;};

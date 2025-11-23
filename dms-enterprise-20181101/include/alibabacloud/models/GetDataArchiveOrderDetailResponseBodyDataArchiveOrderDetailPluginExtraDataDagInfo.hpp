@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorId_ != nullptr
-        && this->cronBeginDate_ != nullptr && this->cronEndDate_ != nullptr && this->cronTrigger_ != nullptr && this->DWDevelop_ != nullptr && this->dagName_ != nullptr
-        && this->dagOwnerId_ != nullptr && this->deployId_ != nullptr && this->description_ != nullptr && this->editDagId_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->id_ != nullptr && this->isPublic_ != nullptr && this->legacy_ != nullptr && this->system_ != nullptr
-        && this->tenantId_ != nullptr && this->triggerOnce_ != nullptr; };
+    virtual bool empty() const override { return this->creatorId_ == nullptr
+        && return this->cronBeginDate_ == nullptr && return this->cronEndDate_ == nullptr && return this->cronTrigger_ == nullptr && return this->DWDevelop_ == nullptr && return this->dagName_ == nullptr
+        && return this->dagOwnerId_ == nullptr && return this->deployId_ == nullptr && return this->description_ == nullptr && return this->editDagId_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->isPublic_ == nullptr && return this->legacy_ == nullptr && return this->system_ == nullptr
+        && return this->tenantId_ == nullptr && return this->triggerOnce_ == nullptr; };
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};

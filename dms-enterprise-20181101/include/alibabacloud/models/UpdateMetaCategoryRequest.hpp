@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryId_ != nullptr
-        && this->name_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->categoryId_ == nullptr
+        && return this->name_ == nullptr && return this->tid_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The category ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> categoryId_ = nullptr;
+    // The updated name of the category.
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

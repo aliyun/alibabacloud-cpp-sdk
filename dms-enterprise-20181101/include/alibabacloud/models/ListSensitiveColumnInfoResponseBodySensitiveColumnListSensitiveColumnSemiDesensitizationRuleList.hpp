@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->semiDesensitizationRule_ != nullptr; };
+    virtual bool empty() const override { return this->semiDesensitizationRule_ == nullptr; };
     // semiDesensitizationRule Field Functions 
     bool hasSemiDesensitizationRule() const { return this->semiDesensitizationRule_ != nullptr;};
     void deleteSemiDesensitizationRule() { this->semiDesensitizationRule_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorizationId_ != nullptr
-        && this->identityType_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->authorizationId_ == nullptr
+        && return this->identityType_ == nullptr && return this->tid_ == nullptr; };
     // authorizationId Field Functions 
     bool hasAuthorizationId() const { return this->authorizationId_ != nullptr;};
     void deleteAuthorizationId() { this->authorizationId_ = nullptr;};
@@ -57,10 +57,22 @@ namespace Models
 
 
   protected:
+    // The authorization ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> authorizationId_ = nullptr;
+    // The type of object to which you want to attach the policy.********
+    // 
+    // Valid values:
+    // 
+    // *   USER
+    // *   ROLE
+    // 
     // This parameter is required.
     std::shared_ptr<string> identityType_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

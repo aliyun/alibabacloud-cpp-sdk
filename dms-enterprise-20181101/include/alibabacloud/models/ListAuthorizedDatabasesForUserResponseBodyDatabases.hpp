@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->dbType_ != nullptr && this->envType_ != nullptr && this->instanceId_ != nullptr && this->logic_ != nullptr && this->permissionDetail_ != nullptr
-        && this->schemaName_ != nullptr && this->searchName_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->dbType_ == nullptr && return this->envType_ == nullptr && return this->instanceId_ == nullptr && return this->logic_ == nullptr && return this->permissionDetail_ == nullptr
+        && return this->schemaName_ == nullptr && return this->searchName_ == nullptr && return this->userId_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -115,14 +115,26 @@ namespace Models
 
 
   protected:
+    // The database ID.
     std::shared_ptr<string> dbId_ = nullptr;
+    // The engine of the database.
     std::shared_ptr<string> dbType_ = nullptr;
+    // The type of the environment in which the database instance is deployed.
     std::shared_ptr<string> envType_ = nullptr;
+    // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Indicates whether the database is a logical database. Valid values:
+    // 
+    // *   **true.**: The database is a logical database
+    // *   **false**: The database is a physical database.
     std::shared_ptr<bool> logic_ = nullptr;
+    // The details of permissions. The format of the permission details varies with the permission source. For example, if the permission source is a normal permission, the following parameters are returned.
     std::shared_ptr<Models::ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail> permissionDetail_ = nullptr;
+    // The database name.
     std::shared_ptr<string> schemaName_ = nullptr;
+    // The name that is used to search for the database.
     std::shared_ptr<string> searchName_ = nullptr;
+    // The user IDs.
     std::shared_ptr<string> userId_ = nullptr;
   };
 

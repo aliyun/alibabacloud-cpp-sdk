@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBSearchName_ != nullptr
-        && this->databaseId_ != nullptr && this->dbName_ != nullptr && this->dbType_ != nullptr && this->description_ != nullptr && this->encoding_ != nullptr
-        && this->engine_ != nullptr && this->envType_ != nullptr && this->logic_ != nullptr && this->ownerIdList_ != nullptr && this->ownerNameList_ != nullptr
-        && this->tableGuid_ != nullptr && this->tableId_ != nullptr && this->tableName_ != nullptr && this->tableSchemaName_ != nullptr; };
+    virtual bool empty() const override { return this->DBSearchName_ == nullptr
+        && return this->databaseId_ == nullptr && return this->dbName_ == nullptr && return this->dbType_ == nullptr && return this->description_ == nullptr && return this->encoding_ == nullptr
+        && return this->engine_ == nullptr && return this->envType_ == nullptr && return this->logic_ == nullptr && return this->ownerIdList_ == nullptr && return this->ownerNameList_ == nullptr
+        && return this->tableGuid_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr && return this->tableSchemaName_ == nullptr; };
     // DBSearchName Field Functions 
     bool hasDBSearchName() const { return this->DBSearchName_ != nullptr;};
     void deleteDBSearchName() { this->DBSearchName_ = nullptr;};

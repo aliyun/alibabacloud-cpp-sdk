@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->success_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->success_ == nullptr && return this->workspaceId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The request ID. You can use the request ID to locate logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
   };
 

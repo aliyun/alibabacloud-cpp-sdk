@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualAffectRows_ != nullptr
-        && this->classify_ != nullptr && this->database_ != nullptr && this->dbId_ != nullptr && this->envType_ != nullptr && this->exeSQL_ != nullptr
-        && this->ignoreAffectRows_ != nullptr && this->ignoreAffectRowsReason_ != nullptr && this->logic_ != nullptr; };
+    virtual bool empty() const override { return this->actualAffectRows_ == nullptr
+        && return this->classify_ == nullptr && return this->database_ == nullptr && return this->dbId_ == nullptr && return this->envType_ == nullptr && return this->exeSQL_ == nullptr
+        && return this->ignoreAffectRows_ == nullptr && return this->ignoreAffectRowsReason_ == nullptr && return this->logic_ == nullptr; };
     // actualAffectRows Field Functions 
     bool hasActualAffectRows() const { return this->actualAffectRows_ != nullptr;};
     void deleteActualAffectRows() { this->actualAffectRows_ = nullptr;};

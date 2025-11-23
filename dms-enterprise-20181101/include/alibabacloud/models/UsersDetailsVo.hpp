@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalSignatureBase64_ != nullptr
-        && this->approvalSqlTemplate_ != nullptr && this->approvalStatus_ != nullptr && this->creator_ != nullptr && this->dataReady_ != nullptr && this->id_ != nullptr
-        && this->mekid_ != nullptr && this->pathPrefix_ != nullptr && this->resultParty_ != nullptr && this->uid_ != nullptr && this->userConfirmed_ != nullptr
-        && this->userName_ != nullptr && this->userPublicKeyPem_ != nullptr; };
+    virtual bool empty() const override { return this->approvalSignatureBase64_ == nullptr
+        && return this->approvalSqlTemplate_ == nullptr && return this->approvalStatus_ == nullptr && return this->creator_ == nullptr && return this->dataReady_ == nullptr && return this->id_ == nullptr
+        && return this->mekid_ == nullptr && return this->pathPrefix_ == nullptr && return this->resultParty_ == nullptr && return this->uid_ == nullptr && return this->userConfirmed_ == nullptr
+        && return this->userName_ == nullptr && return this->userPublicKeyPem_ == nullptr; };
     // approvalSignatureBase64 Field Functions 
     bool hasApprovalSignatureBase64() const { return this->approvalSignatureBase64_ != nullptr;};
     void deleteApprovalSignatureBase64() { this->approvalSignatureBase64_ = nullptr;};

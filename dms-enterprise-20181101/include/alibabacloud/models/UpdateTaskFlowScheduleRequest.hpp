@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cronBeginDate_ != nullptr
-        && this->cronEndDate_ != nullptr && this->cronStr_ != nullptr && this->cronType_ != nullptr && this->dagId_ != nullptr && this->scheduleParam_ != nullptr
-        && this->scheduleSwitch_ != nullptr && this->tid_ != nullptr && this->timeZoneId_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->cronBeginDate_ == nullptr
+        && return this->cronEndDate_ == nullptr && return this->cronStr_ == nullptr && return this->cronType_ == nullptr && return this->dagId_ == nullptr && return this->scheduleParam_ == nullptr
+        && return this->scheduleSwitch_ == nullptr && return this->tid_ == nullptr && return this->timeZoneId_ == nullptr && return this->triggerType_ == nullptr; };
     // cronBeginDate Field Functions 
     bool hasCronBeginDate() const { return this->cronBeginDate_ != nullptr;};
     void deleteCronBeginDate() { this->cronBeginDate_ = nullptr;};

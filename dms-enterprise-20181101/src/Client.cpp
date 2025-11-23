@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加权限模板资源
+ * @summary Adds instances, databases, and tables to the specified permission template.
  *
  * @param tmpReq AddAuthorityTemplateItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ AddAuthorityTemplateItemsResponse Client::addAuthorityTemplateItemsWithOptions(c
 }
 
 /**
- * @summary 添加权限模板资源
+ * @summary Adds instances, databases, and tables to the specified permission template.
  *
  * @param request AddAuthorityTemplateItemsRequest
  * @return AddAuthorityTemplateItemsResponse
@@ -160,7 +160,9 @@ AddDesensitizationRuleResponse Client::addDesensitizationRule(const AddDesensiti
 }
 
 /**
- * @summary 添加实例
+ * @summary Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+ *
+ * @description You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
  *
  * @param request AddInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -303,7 +305,9 @@ AddInstanceResponse Client::addInstanceWithOptions(const AddInstanceRequest &req
 }
 
 /**
- * @summary 添加实例
+ * @summary Adds a database instance to Data Management (DMS) and enable security hosting for the instance.
+ *
+ * @description You must be a database administrator (DBA) or a DMS administrator. For more information, see [View system roles](https://help.aliyun.com/document_detail/324212.html).
  *
  * @param request AddInstanceRequest
  * @return AddInstanceResponse
@@ -440,7 +444,7 @@ AddLogicTableRouteConfigResponse Client::addLogicTableRouteConfig(const AddLogic
 }
 
 /**
- * @summary 添加表到资产类目
+ * @summary Add a table to an asset category.
  *
  * @param request AddTableToCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -487,7 +491,7 @@ AddTableToCategoryResponse Client::addTableToCategoryWithOptions(const AddTableT
 }
 
 /**
- * @summary 添加表到资产类目
+ * @summary Add a table to an asset category.
  *
  * @param request AddTableToCategoryRequest
  * @return AddTableToCategoryResponse
@@ -620,9 +624,9 @@ AnalyzeSQLLineageResponse Client::analyzeSQLLineage(const AnalyzeSQLLineageReque
 }
 
 /**
- * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+ * @summary Answers the syntax questions of the corresponding engine according to the specified database ID.
  *
- * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+ * @description You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
  *
  * @param request AnswerSqlSyntaxByMetaAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,9 +665,9 @@ AnswerSqlSyntaxByMetaAgentResponse Client::answerSqlSyntaxByMetaAgentWithOptions
 }
 
 /**
- * @summary 根据用户提供的数据库ID，回答对应引擎的语法问题
+ * @summary Answers the syntax questions of the corresponding engine according to the specified database ID.
  *
- * @description 根据用户提供的数据库ID，回答对应引擎的语法问题
+ * @description You can call this operation to answer the syntax questions of the corresponding engine according to the specified database ID.
  *
  * @param request AnswerSqlSyntaxByMetaAgentRequest
  * @return AnswerSqlSyntaxByMetaAgentResponse
@@ -848,7 +852,7 @@ BackFillResponse Client::backFill(const BackFillRequest &request) {
 }
 
 /**
- * @summary 批量新建湖仓表分区
+ * @summary Creates multiple partitions for a table in a data lakehouse at a time.
  *
  * @param tmpReq BatchCreateDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -919,7 +923,7 @@ BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量新建湖仓表分区
+ * @summary Creates multiple partitions for a table in a data lakehouse at a time.
  *
  * @param request BatchCreateDataLakePartitionsRequest
  * @return BatchCreateDataLakePartitionsResponse
@@ -930,7 +934,7 @@ BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitions(cons
 }
 
 /**
- * @summary 批量删除湖仓表分区
+ * @summary Deletes multiple partitions of a table in a data lakehouse at a time.
  *
  * @param request BatchDeleteDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -989,7 +993,7 @@ BatchDeleteDataLakePartitionsResponse Client::batchDeleteDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量删除湖仓表分区
+ * @summary Deletes multiple partitions of a table in a data lakehouse at a time.
  *
  * @param request BatchDeleteDataLakePartitionsRequest
  * @return BatchDeleteDataLakePartitionsResponse
@@ -1000,7 +1004,7 @@ BatchDeleteDataLakePartitionsResponse Client::batchDeleteDataLakePartitions(cons
 }
 
 /**
- * @summary 批量更新湖仓表分区
+ * @summary Updates multiple partitions of a table in a data lakehouse at a time.
  *
  * @param tmpReq BatchUpdateDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1063,7 +1067,7 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量更新湖仓表分区
+ * @summary Updates multiple partitions of a table in a data lakehouse at a time.
  *
  * @param request BatchUpdateDataLakePartitionsRequest
  * @return BatchUpdateDataLakePartitionsResponse
@@ -1194,7 +1198,7 @@ ChangeColumnSecLevelResponse Client::changeColumnSecLevel(const ChangeColumnSecL
 }
 
 /**
- * @summary 修改字段敏感序列
+ * @summary Changes the security level of a column.
  *
  * @param request ChangeColumnSecurityLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1249,7 +1253,7 @@ ChangeColumnSecurityLevelResponse Client::changeColumnSecurityLevelWithOptions(c
 }
 
 /**
- * @summary 修改字段敏感序列
+ * @summary Changes the security level of a column.
  *
  * @param request ChangeColumnSecurityLevelRequest
  * @return ChangeColumnSecurityLevelResponse
@@ -1318,6 +1322,124 @@ ChangeLhDagOwnerResponse Client::changeLhDagOwner(const ChangeLhDagOwnerRequest 
 }
 
 /**
+ * @summary 带有DMS脱敏能力的聊天API接口
+ *
+ * @description 带有DMS脱敏能力的聊天API接口
+ *
+ * @param tmpReq ChatWithDesensitizeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithDesensitizeResponse
+ */
+ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWithDesensitizeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithDesensitizeShrinkRequest request = ChatWithDesensitizeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "Messages", "json"));
+  }
+
+  if (!!tmpReq.hasStop()) {
+    request.setStopShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stop(), "Stop", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDesensitizationRule()) {
+    query["DesensitizationRule"] = request.desensitizationRule();
+  }
+
+  if (!!request.hasEnableThinking()) {
+    query["EnableThinking"] = request.enableThinking();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMaxTokens()) {
+    query["MaxTokens"] = request.maxTokens();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.model();
+  }
+
+  if (!!request.hasNeedDesensitization()) {
+    query["NeedDesensitization"] = request.needDesensitization();
+  }
+
+  if (!!request.hasPresencePenalty()) {
+    query["PresencePenalty"] = request.presencePenalty();
+  }
+
+  if (!!request.hasResponseFormat()) {
+    query["ResponseFormat"] = request.responseFormat();
+  }
+
+  if (!!request.hasSeed()) {
+    query["Seed"] = request.seed();
+  }
+
+  if (!!request.hasStopShrink()) {
+    query["Stop"] = request.stopShrink();
+  }
+
+  if (!!request.hasTemperature()) {
+    query["Temperature"] = request.temperature();
+  }
+
+  if (!!request.hasThinkingBudget()) {
+    query["ThinkingBudget"] = request.thinkingBudget();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.topK();
+  }
+
+  if (!!request.hasTopLogprobs()) {
+    query["TopLogprobs"] = request.topLogprobs();
+  }
+
+  if (!!request.hasTopP()) {
+    query["TopP"] = request.topP();
+  }
+
+  json body = {};
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.messagesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatWithDesensitize"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatWithDesensitizeResponse>();
+}
+
+/**
+ * @summary 带有DMS脱敏能力的聊天API接口
+ *
+ * @description 带有DMS脱敏能力的聊天API接口
+ *
+ * @param request ChatWithDesensitizeRequest
+ * @return ChatWithDesensitizeResponse
+ */
+ChatWithDesensitizeResponse Client::chatWithDesensitize(const ChatWithDesensitizeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithDesensitizeWithOptions(request, runtime);
+}
+
+/**
  * @summary Closes a ticket.
  *
  * @param request CloseOrderRequest
@@ -1368,7 +1490,7 @@ CloseOrderResponse Client::closeOrder(const CloseOrderRequest &request) {
 }
 
 /**
- * @summary 创建权限策略授权
+ * @summary Attaches a system policy or custom policy to a DMS user or custom role.
  *
  * @param request CreateAbacAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1415,7 +1537,7 @@ CreateAbacAuthorizationResponse Client::createAbacAuthorizationWithOptions(const
 }
 
 /**
- * @summary 创建权限策略授权
+ * @summary Attaches a system policy or custom policy to a DMS user or custom role.
  *
  * @param request CreateAbacAuthorizationRequest
  * @return CreateAbacAuthorizationResponse
@@ -1426,7 +1548,9 @@ CreateAbacAuthorizationResponse Client::createAbacAuthorization(const CreateAbac
 }
 
 /**
- * @summary 创建权限策略
+ * @summary Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+ *
+ * @description Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
  *
  * @param request CreateAbacPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1469,7 +1593,9 @@ CreateAbacPolicyResponse Client::createAbacPolicyWithOptions(const CreateAbacPol
 }
 
 /**
- * @summary 创建权限策略
+ * @summary Creates a policy to manage the permissions on DMS features and data resources managed in DMS in a fine-grained manner.
+ *
+ * @description Currently, this feature is in the phased release phase. Only users who have phased out can use this feature and related APIs. For more information about the policy feature, see [Manage policies](https://help.aliyun.com/document_detail/2848565.html).
  *
  * @param request CreateAbacPolicyRequest
  * @return CreateAbacPolicyResponse
@@ -1912,7 +2038,7 @@ CreateDataImportOrderResponse Client::createDataImportOrder(const CreateDataImpo
 }
 
 /**
- * @summary 新建湖仓数据库
+ * @summary Creates a database in a data lakehouse.
  *
  * @param tmpReq CreateDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1977,7 +2103,7 @@ CreateDataLakeDatabaseResponse Client::createDataLakeDatabaseWithOptions(const C
 }
 
 /**
- * @summary 新建湖仓数据库
+ * @summary Creates a database in a data lakehouse.
  *
  * @param request CreateDataLakeDatabaseRequest
  * @return CreateDataLakeDatabaseResponse
@@ -1988,7 +2114,7 @@ CreateDataLakeDatabaseResponse Client::createDataLakeDatabase(const CreateDataLa
 }
 
 /**
- * @summary 新建湖仓自定义函数
+ * @summary Creates a custom function in a data lakehouse.
  *
  * @param tmpReq CreateDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2047,7 +2173,7 @@ CreateDataLakeFunctionResponse Client::createDataLakeFunctionWithOptions(const C
 }
 
 /**
- * @summary 新建湖仓自定义函数
+ * @summary Creates a custom function in a data lakehouse.
  *
  * @param request CreateDataLakeFunctionRequest
  * @return CreateDataLakeFunctionResponse
@@ -2058,7 +2184,7 @@ CreateDataLakeFunctionResponse Client::createDataLakeFunction(const CreateDataLa
 }
 
 /**
- * @summary 新建湖仓表分区
+ * @summary Creates a partition for a table in a data lakehouse.
  *
  * @param tmpReq CreateDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2255,7 @@ CreateDataLakePartitionResponse Client::createDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 新建湖仓表分区
+ * @summary Creates a partition for a table in a data lakehouse.
  *
  * @param request CreateDataLakePartitionRequest
  * @return CreateDataLakePartitionResponse
@@ -2140,7 +2266,7 @@ CreateDataLakePartitionResponse Client::createDataLakePartition(const CreateData
 }
 
 /**
- * @summary 新建湖仓表
+ * @summary Creates a table in a data lakehouse.
  *
  * @param tmpReq CreateDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2199,7 +2325,7 @@ CreateDataLakeTableResponse Client::createDataLakeTableWithOptions(const CreateD
 }
 
 /**
- * @summary 新建湖仓表
+ * @summary Creates a table in a data lakehouse.
  *
  * @param request CreateDataLakeTableRequest
  * @return CreateDataLakeTableResponse
@@ -2848,7 +2974,7 @@ CreateLogicDatabaseResponse Client::createLogicDatabase(const CreateLogicDatabas
 }
 
 /**
- * @summary 创建资产类目
+ * @summary Create Asset Category
  *
  * @param request CreateMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2887,7 +3013,7 @@ CreateMetaCategoryResponse Client::createMetaCategoryWithOptions(const CreateMet
 }
 
 /**
- * @summary 创建资产类目
+ * @summary Create Asset Category
  *
  * @param request CreateMetaCategoryRequest
  * @return CreateMetaCategoryResponse
@@ -2980,7 +3106,9 @@ CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
 }
 
 /**
- * @summary 创建可编程对象变更工单
+ * @summary Creates a programmable object ticket.
+ *
+ * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
  *
  * @param tmpReq CreateProcCorrectOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3037,7 +3165,9 @@ CreateProcCorrectOrderResponse Client::createProcCorrectOrderWithOptions(const C
 }
 
 /**
- * @summary 创建可编程对象变更工单
+ * @summary Creates a programmable object ticket.
+ *
+ * @description You can call this API operation only for database instances that are managed in Security Collaboration mode.
  *
  * @param request CreateProcCorrectOrderRequest
  * @return CreateProcCorrectOrderResponse
@@ -3716,7 +3846,11 @@ CreateUploadOSSFileJobResponse Client::createUploadOSSFileJob(const CreateUpload
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
+ *
+ * @description ## [](#)Prerequisites
+ * *   A virtual private cloud (VPC) is created.
+ * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
  *
  * @param request CreateWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3765,7 +3899,11 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
+ *
+ * @description ## [](#)Prerequisites
+ * *   A virtual private cloud (VPC) is created.
+ * *   Log on to the DMS console by using an Alibaba Cloud account or a RAM user that has high permissions, and grant DMS the permissions to access cloud resources (AliyunDMSProcessingDataRolePolicy).
  *
  * @param request CreateWorkspaceRequest
  * @return CreateWorkspaceResponse
@@ -3776,7 +3914,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary 删除权限策略授权
+ * @summary Detaches a policy from a user or role.
  *
  * @param request DeleteAbacAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3815,7 +3953,7 @@ DeleteAbacAuthorizationResponse Client::deleteAbacAuthorizationWithOptions(const
 }
 
 /**
- * @summary 删除权限策略授权
+ * @summary Detaches a policy from a user or role.
  *
  * @param request DeleteAbacAuthorizationRequest
  * @return DeleteAbacAuthorizationResponse
@@ -3826,7 +3964,7 @@ DeleteAbacAuthorizationResponse Client::deleteAbacAuthorization(const DeleteAbac
 }
 
 /**
- * @summary 删除权限策略
+ * @summary Deletes a created permission policy.
  *
  * @param request DeleteAbacPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3861,7 +3999,7 @@ DeleteAbacPolicyResponse Client::deleteAbacPolicyWithOptions(const DeleteAbacPol
 }
 
 /**
- * @summary 删除权限策略
+ * @summary Deletes a created permission policy.
  *
  * @param request DeleteAbacPolicyRequest
  * @return DeleteAbacPolicyResponse
@@ -3872,7 +4010,7 @@ DeleteAbacPolicyResponse Client::deleteAbacPolicy(const DeleteAbacPolicyRequest 
 }
 
 /**
- * @summary 删除权限模版
+ * @summary Deletes a permission template.
  *
  * @param request DeleteAuthorityTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3907,7 +4045,7 @@ DeleteAuthorityTemplateResponse Client::deleteAuthorityTemplateWithOptions(const
 }
 
 /**
- * @summary 删除权限模版
+ * @summary Deletes a permission template.
  *
  * @param request DeleteAuthorityTemplateRequest
  * @return DeleteAuthorityTemplateResponse
@@ -3918,7 +4056,7 @@ DeleteAuthorityTemplateResponse Client::deleteAuthorityTemplate(const DeleteAuth
 }
 
 /**
- * @summary 删除湖仓数据库
+ * @summary Deletes a database from a data lakehouse.
  *
  * @param request DeleteDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3965,7 +4103,7 @@ DeleteDataLakeDatabaseResponse Client::deleteDataLakeDatabaseWithOptions(const D
 }
 
 /**
- * @summary 删除湖仓数据库
+ * @summary Deletes a database from a data lakehouse.
  *
  * @param request DeleteDataLakeDatabaseRequest
  * @return DeleteDataLakeDatabaseResponse
@@ -3976,7 +4114,7 @@ DeleteDataLakeDatabaseResponse Client::deleteDataLakeDatabase(const DeleteDataLa
 }
 
 /**
- * @summary 删除湖仓自定义函数
+ * @summary Deletes a user-defined function in a data lakehouse.
  *
  * @param request DeleteDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4027,7 +4165,7 @@ DeleteDataLakeFunctionResponse Client::deleteDataLakeFunctionWithOptions(const D
 }
 
 /**
- * @summary 删除湖仓自定义函数
+ * @summary Deletes a user-defined function in a data lakehouse.
  *
  * @param request DeleteDataLakeFunctionRequest
  * @return DeleteDataLakeFunctionResponse
@@ -4038,7 +4176,7 @@ DeleteDataLakeFunctionResponse Client::deleteDataLakeFunction(const DeleteDataLa
 }
 
 /**
- * @summary 删除湖仓表分区
+ * @summary Deletes a partition from a table in a data lakehouse.
  *
  * @param tmpReq DeleteDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4103,7 +4241,7 @@ DeleteDataLakePartitionResponse Client::deleteDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 删除湖仓表分区
+ * @summary Deletes a partition from a table in a data lakehouse.
  *
  * @param request DeleteDataLakePartitionRequest
  * @return DeleteDataLakePartitionResponse
@@ -4114,7 +4252,7 @@ DeleteDataLakePartitionResponse Client::deleteDataLakePartition(const DeleteData
 }
 
 /**
- * @summary 删除湖仓表
+ * @summary Deletes a table from a data lakehouse.
  *
  * @param request DeleteDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4165,7 +4303,7 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTableWithOptions(const DeleteD
 }
 
 /**
- * @summary 删除湖仓表
+ * @summary Deletes a table from a data lakehouse.
  *
  * @param request DeleteDataLakeTableRequest
  * @return DeleteDataLakeTableResponse
@@ -4442,7 +4580,7 @@ DeleteLogicTableRouteConfigResponse Client::deleteLogicTableRouteConfig(const De
 }
 
 /**
- * @summary 删除资产类目
+ * @summary Deletes an asset category.
  *
  * @param request DeleteMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4477,7 +4615,7 @@ DeleteMetaCategoryResponse Client::deleteMetaCategoryWithOptions(const DeleteMet
 }
 
 /**
- * @summary 删除资产类目
+ * @summary Deletes an asset category.
  *
  * @param request DeleteMetaCategoryRequest
  * @return DeleteMetaCategoryResponse
@@ -4634,7 +4772,9 @@ DeleteScenarioResponse Client::deleteScenario(const DeleteScenarioRequest &reque
 }
 
 /**
- * @summary 删除安全规则
+ * @summary Deletes a security rule set.
+ *
+ * @description Before you call this API operation, make sure that the security rule set is not associated with an instance.
  *
  * @param request DeleteStandardGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4669,7 +4809,9 @@ DeleteStandardGroupResponse Client::deleteStandardGroupWithOptions(const DeleteS
 }
 
 /**
- * @summary 删除安全规则
+ * @summary Deletes a security rule set.
+ *
+ * @description Before you call this API operation, make sure that the security rule set is not associated with an instance.
  *
  * @param request DeleteStandardGroupRequest
  * @return DeleteStandardGroupResponse
@@ -4886,7 +5028,7 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Deletes a workspace.
  *
  * @param request DeleteWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4917,7 +5059,7 @@ DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const DeleteWorkspace
 }
 
 /**
- * @summary 删除工作空间
+ * @summary Deletes a workspace.
  *
  * @param request DeleteWorkspaceRequest
  * @return DeleteWorkspaceResponse
@@ -5400,7 +5542,9 @@ EditLogicDatabaseResponse Client::editLogicDatabase(const EditLogicDatabaseReque
 }
 
 /**
- * @summary 编辑指定guid的元数据业务知识
+ * @summary Edits the metadata business knowledge for specified GUIDs.
+ *
+ * @description Edits the business knowledge of the metadata represented by the specified GUID.
  *
  * @param request EditMetaKnowledgeAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5447,7 +5591,9 @@ EditMetaKnowledgeAssetResponse Client::editMetaKnowledgeAssetWithOptions(const E
 }
 
 /**
- * @summary 编辑指定guid的元数据业务知识
+ * @summary Edits the metadata business knowledge for specified GUIDs.
+ *
+ * @description Edits the business knowledge of the metadata represented by the specified GUID.
  *
  * @param request EditMetaKnowledgeAssetRequest
  * @return EditMetaKnowledgeAssetResponse
@@ -5744,9 +5890,9 @@ ExecuteStructSyncResponse Client::executeStructSync(const ExecuteStructSyncReque
 }
 
 /**
- * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+ * @summary Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
  *
- * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+ * @description You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
  *
  * @param request FixSqlByMetaAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5793,9 +5939,9 @@ FixSqlByMetaAgentResponse Client::fixSqlByMetaAgentWithOptions(const FixSqlByMet
 }
 
 /**
- * @summary 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+ * @summary Uses the specified SQL statement, error message, and database ID to analyze and fix the SQL error.
  *
- * @description 根据用户提供的SQL，报错信息和数据库ID，分析SQL报错原因并修复
+ * @description You can call this operation to analyze and fix SQL errors based on the specified SQL statement, error message, and database ID.
  *
  * @param request FixSqlByMetaAgentRequest
  * @return FixSqlByMetaAgentResponse
@@ -5934,7 +6080,7 @@ GenerateSqlFromNLResponse Client::generateSqlFromNL(const GenerateSqlFromNLReque
 }
 
 /**
- * @summary 获取策略详情
+ * @summary Queries the details of a policy, including the name, content, and the user who created the policy.
  *
  * @param request GetAbacPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5973,7 +6119,7 @@ GetAbacPolicyResponse Client::getAbacPolicyWithOptions(const GetAbacPolicyReques
 }
 
 /**
- * @summary 获取策略详情
+ * @summary Queries the details of a policy, including the name, content, and the user who created the policy.
  *
  * @param request GetAbacPolicyRequest
  * @return GetAbacPolicyResponse
@@ -6130,7 +6276,7 @@ GetAuthorityTemplateItemResponse Client::getAuthorityTemplateItem(const GetAutho
 }
 
 /**
- * @summary 获取实例绑定的分类分级模板
+ * @summary Queries the information about the classification and grading template associated with an instance.
  *
  * @param request GetClassificationTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6165,7 +6311,7 @@ GetClassificationTemplateResponse Client::getClassificationTemplateWithOptions(c
 }
 
 /**
- * @summary 获取实例绑定的分类分级模板
+ * @summary Queries the information about the classification and grading template associated with an instance.
  *
  * @param request GetClassificationTemplateRequest
  * @return GetClassificationTemplateResponse
@@ -6910,7 +7056,7 @@ GetDataImportSQLResponse Client::getDataImportSQL(const GetDataImportSQLRequest 
 }
 
 /**
- * @summary 获取uc的数据库目录
+ * @summary Queries the data catalog of the data lake.
  *
  * @param request GetDataLakeCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6953,7 +7099,7 @@ GetDataLakeCatalogResponse Client::getDataLakeCatalogWithOptions(const GetDataLa
 }
 
 /**
- * @summary 获取uc的数据库目录
+ * @summary Queries the data catalog of the data lake.
  *
  * @param request GetDataLakeCatalogRequest
  * @return GetDataLakeCatalogResponse
@@ -6964,7 +7110,7 @@ GetDataLakeCatalogResponse Client::getDataLakeCatalog(const GetDataLakeCatalogRe
 }
 
 /**
- * @summary 获取UC的数据库
+ * @summary Queries the information about the database in the data lake.
  *
  * @param request GetDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7011,7 +7157,7 @@ GetDataLakeDatabaseResponse Client::getDataLakeDatabaseWithOptions(const GetData
 }
 
 /**
- * @summary 获取UC的数据库
+ * @summary Queries the information about the database in the data lake.
  *
  * @param request GetDataLakeDatabaseRequest
  * @return GetDataLakeDatabaseResponse
@@ -7022,7 +7168,7 @@ GetDataLakeDatabaseResponse Client::getDataLakeDatabase(const GetDataLakeDatabas
 }
 
 /**
- * @summary 获取湖仓自定义函数详细信息
+ * @summary Obtains the details about a user-defined function in a data lakehouse.
  *
  * @param request GetDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7073,7 +7219,7 @@ GetDataLakeFunctionResponse Client::getDataLakeFunctionWithOptions(const GetData
 }
 
 /**
- * @summary 获取湖仓自定义函数详细信息
+ * @summary Obtains the details about a user-defined function in a data lakehouse.
  *
  * @param request GetDataLakeFunctionRequest
  * @return GetDataLakeFunctionResponse
@@ -7084,7 +7230,7 @@ GetDataLakeFunctionResponse Client::getDataLakeFunction(const GetDataLakeFunctio
 }
 
 /**
- * @summary 获取湖仓表分区详情
+ * @summary Queries the information about a partition of a table in a data lakehouse.
  *
  * @param tmpReq GetDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7145,7 +7291,7 @@ GetDataLakePartitionResponse Client::getDataLakePartitionWithOptions(const GetDa
 }
 
 /**
- * @summary 获取湖仓表分区详情
+ * @summary Queries the information about a partition of a table in a data lakehouse.
  *
  * @param request GetDataLakePartitionRequest
  * @return GetDataLakePartitionResponse
@@ -7156,7 +7302,7 @@ GetDataLakePartitionResponse Client::getDataLakePartition(const GetDataLakeParti
 }
 
 /**
- * @summary 获取表信息
+ * @summary Queries basic information about tables in the data lake.
  *
  * @param request GetDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7207,7 +7353,7 @@ GetDataLakeTableResponse Client::getDataLakeTableWithOptions(const GetDataLakeTa
 }
 
 /**
- * @summary 获取表信息
+ * @summary Queries basic information about tables in the data lake.
  *
  * @param request GetDataLakeTableRequest
  * @return GetDataLakeTableResponse
@@ -7466,7 +7612,7 @@ GetDatabaseExportOrderDetailResponse Client::getDatabaseExportOrderDetail(const 
 }
 
 /**
- * @summary 获取数据库导出下载地址
+ * @summary Queries the download URL of the results of a database export ticket.
  *
  * @param request GetDbExportDownloadURLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7501,7 +7647,7 @@ GetDbExportDownloadURLResponse Client::getDbExportDownloadURLWithOptions(const G
 }
 
 /**
- * @summary 获取数据库导出下载地址
+ * @summary Queries the download URL of the results of a database export ticket.
  *
  * @param request GetDbExportDownloadURLRequest
  * @return GetDbExportDownloadURLResponse
@@ -8078,7 +8224,7 @@ GetOwnerApplyOrderDetailResponse Client::getOwnerApplyOrderDetail(const GetOwner
 }
 
 /**
- * @summary 获取数据归档工单任务实例
+ * @summary Queries the task information about a ticket.
  *
  * @param request GetPagedInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8105,7 +8251,7 @@ GetPagedInstanceResponse Client::getPagedInstanceWithOptions(const GetPagedInsta
 }
 
 /**
- * @summary 获取数据归档工单任务实例
+ * @summary Queries the task information about a ticket.
  *
  * @param request GetPagedInstanceRequest
  * @return GetPagedInstanceResponse
@@ -8450,7 +8596,7 @@ GetSQLReviewOptimizeDetailResponse Client::getSQLReviewOptimizeDetail(const GetS
 }
 
 /**
- * @summary 获取安全规则
+ * @summary Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
  *
  * @param request GetStandardGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8485,7 +8631,7 @@ GetStandardGroupResponse Client::getStandardGroupWithOptions(const GetStandardGr
 }
 
 /**
- * @summary 获取安全规则
+ * @summary Queries the information about security rule sets of a tenant. The information includes the name and description of security rules, and instances associated with security rules.
  *
  * @param request GetStandardGroupRequest
  * @return GetStandardGroupResponse
@@ -8838,7 +8984,9 @@ GetTableDesignProjectInfoResponse Client::getTableDesignProjectInfo(const GetTab
 }
 
 /**
- * @summary 获取指定guid的元数据知识
+ * @summary Gets metadata knowledge for a specified GUID.
+ *
+ * @description This API can be called only for database instances that are enabled for security hosting.
  *
  * @param request GetTableKnowledgeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8877,7 +9025,9 @@ GetTableKnowledgeInfoResponse Client::getTableKnowledgeInfoWithOptions(const Get
 }
 
 /**
- * @summary 获取指定guid的元数据知识
+ * @summary Gets metadata knowledge for a specified GUID.
+ *
+ * @description This API can be called only for database instances that are enabled for security hosting.
  *
  * @param request GetTableKnowledgeInfoRequest
  * @return GetTableKnowledgeInfoResponse
@@ -9260,7 +9410,7 @@ GetUserUploadFileJobResponse Client::getUserUploadFileJob(const GetUserUploadFil
 }
 
 /**
- * @summary 获取空间描述
+ * @summary Queries the details of a workspace.
  *
  * @param request GetWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9291,7 +9441,7 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const GetWorkspaceRequest &
 }
 
 /**
- * @summary 获取空间描述
+ * @summary Queries the details of a workspace.
  *
  * @param request GetWorkspaceRequest
  * @return GetWorkspaceResponse
@@ -9488,7 +9638,7 @@ InspectProxyAccessSecretResponse Client::inspectProxyAccessSecret(const InspectP
 }
 
 /**
- * @summary 获取权限策略授权列表
+ * @summary Queries a list of users to which the specified policy is attached and the number of the users.
  *
  * @param request ListAbacAuthorizationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9535,7 +9685,7 @@ ListAbacAuthorizationsResponse Client::listAbacAuthorizationsWithOptions(const L
 }
 
 /**
- * @summary 获取权限策略授权列表
+ * @summary Queries a list of users to which the specified policy is attached and the number of the users.
  *
  * @param request ListAbacAuthorizationsRequest
  * @return ListAbacAuthorizationsResponse
@@ -9546,7 +9696,7 @@ ListAbacAuthorizationsResponse Client::listAbacAuthorizations(const ListAbacAuth
 }
 
 /**
- * @summary 获取权限策略列表
+ * @summary Queries a list of policies that are created by a user.
  *
  * @param request ListAbacPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9589,7 +9739,7 @@ ListAbacPoliciesResponse Client::listAbacPoliciesWithOptions(const ListAbacPolic
 }
 
 /**
- * @summary 获取权限策略列表
+ * @summary Queries a list of policies that are created by a user.
  *
  * @param request ListAbacPoliciesRequest
  * @return ListAbacPoliciesResponse
@@ -9600,7 +9750,7 @@ ListAbacPoliciesResponse Client::listAbacPolicies(const ListAbacPoliciesRequest 
 }
 
 /**
- * @summary 获取权限模版列表
+ * @summary Queries the information about permission templates, including the template creator, template name, and total number of templates.
  *
  * @param request ListAuthorityTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9643,7 +9793,7 @@ ListAuthorityTemplateResponse Client::listAuthorityTemplateWithOptions(const Lis
 }
 
 /**
- * @summary 获取权限模版列表
+ * @summary Queries the information about permission templates, including the template creator, template name, and total number of templates.
  *
  * @param request ListAuthorityTemplateRequest
  * @return ListAuthorityTemplateResponse
@@ -9654,7 +9804,7 @@ ListAuthorityTemplateResponse Client::listAuthorityTemplate(const ListAuthorityT
 }
 
 /**
- * @summary 获取用户有权限的数据库
+ * @summary Queries the databases on which the specified user has permissions.
  *
  * @param request ListAuthorizedDatabasesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9713,7 +9863,7 @@ ListAuthorizedDatabasesForUserResponse Client::listAuthorizedDatabasesForUserWit
 }
 
 /**
- * @summary 获取用户有权限的数据库
+ * @summary Queries the databases on which the specified user has permissions.
  *
  * @param request ListAuthorizedDatabasesForUserRequest
  * @return ListAuthorizedDatabasesForUserResponse
@@ -9724,7 +9874,7 @@ ListAuthorizedDatabasesForUserResponse Client::listAuthorizedDatabasesForUser(co
 }
 
 /**
- * @summary 获取用户有权限的实例
+ * @summary Queries the instances on which the specified user has permissions.
  *
  * @param request ListAuthorizedInstancesForUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9779,7 +9929,7 @@ ListAuthorizedInstancesForUserResponse Client::listAuthorizedInstancesForUserWit
 }
 
 /**
- * @summary 获取用户有权限的实例
+ * @summary Queries the instances on which the specified user has permissions.
  *
  * @param request ListAuthorizedInstancesForUserRequest
  * @return ListAuthorizedInstancesForUserResponse
@@ -9790,7 +9940,7 @@ ListAuthorizedInstancesForUserResponse Client::listAuthorizedInstancesForUser(co
 }
 
 /**
- * @summary 查询有数据库权限的用户
+ * @summary Queries a list of users that have permissions on the specified database.
  *
  * @param request ListAuthorizedUsersForDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9841,7 +9991,7 @@ ListAuthorizedUsersForDatabaseResponse Client::listAuthorizedUsersForDatabaseWit
 }
 
 /**
- * @summary 查询有数据库权限的用户
+ * @summary Queries a list of users that have permissions on the specified database.
  *
  * @param request ListAuthorizedUsersForDatabaseRequest
  * @return ListAuthorizedUsersForDatabaseResponse
@@ -9852,7 +10002,7 @@ ListAuthorizedUsersForDatabaseResponse Client::listAuthorizedUsersForDatabase(co
 }
 
 /**
- * @summary 查询有实例权限的用户
+ * @summary Queries a list of users that have permissions on the specified instance.
  *
  * @param request ListAuthorizedUsersForInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9899,7 +10049,7 @@ ListAuthorizedUsersForInstanceResponse Client::listAuthorizedUsersForInstanceWit
 }
 
 /**
- * @summary 查询有实例权限的用户
+ * @summary Queries a list of users that have permissions on the specified instance.
  *
  * @param request ListAuthorizedUsersForInstanceRequest
  * @return ListAuthorizedUsersForInstanceResponse
@@ -10450,7 +10600,7 @@ ListDataImportSQLTypeResponse Client::listDataImportSQLType(const ListDataImport
 }
 
 /**
- * @summary 获取uc的数据库目录列表
+ * @summary Queries a list of data catalogs in a data lake.
  *
  * @param request ListDataLakeCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10493,7 +10643,7 @@ ListDataLakeCatalogResponse Client::listDataLakeCatalogWithOptions(const ListDat
 }
 
 /**
- * @summary 获取uc的数据库目录列表
+ * @summary Queries a list of data catalogs in a data lake.
  *
  * @param request ListDataLakeCatalogRequest
  * @return ListDataLakeCatalogResponse
@@ -10504,7 +10654,7 @@ ListDataLakeCatalogResponse Client::listDataLakeCatalog(const ListDataLakeCatalo
 }
 
 /**
- * @summary 获取数据库列表
+ * @summary Queries the list of databases in the data lake.
  *
  * @param request ListDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10559,7 +10709,7 @@ ListDataLakeDatabaseResponse Client::listDataLakeDatabaseWithOptions(const ListD
 }
 
 /**
- * @summary 获取数据库列表
+ * @summary Queries the list of databases in the data lake.
  *
  * @param request ListDataLakeDatabaseRequest
  * @return ListDataLakeDatabaseResponse
@@ -10570,7 +10720,7 @@ ListDataLakeDatabaseResponse Client::listDataLakeDatabase(const ListDataLakeData
 }
 
 /**
- * @summary 获取数据湖函数列表
+ * @summary Queries a list of functions in a data lake.
  *
  * @param request ListDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10629,7 +10779,7 @@ ListDataLakeFunctionResponse Client::listDataLakeFunctionWithOptions(const ListD
 }
 
 /**
- * @summary 获取数据湖函数列表
+ * @summary Queries a list of functions in a data lake.
  *
  * @param request ListDataLakeFunctionRequest
  * @return ListDataLakeFunctionResponse
@@ -10640,7 +10790,7 @@ ListDataLakeFunctionResponse Client::listDataLakeFunction(const ListDataLakeFunc
 }
 
 /**
- * @summary 获取数据湖函数名列表
+ * @summary Gets a list of data lake function names.
  *
  * @param request ListDataLakeFunctionNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10699,7 +10849,7 @@ ListDataLakeFunctionNameResponse Client::listDataLakeFunctionNameWithOptions(con
 }
 
 /**
- * @summary 获取数据湖函数名列表
+ * @summary Gets a list of data lake function names.
  *
  * @param request ListDataLakeFunctionNameRequest
  * @return ListDataLakeFunctionNameResponse
@@ -10710,7 +10860,7 @@ ListDataLakeFunctionNameResponse Client::listDataLakeFunctionName(const ListData
 }
 
 /**
- * @summary 获取数据湖表分区列表
+ * @summary Queries a list of partitions of a table in a data lake.
  *
  * @param tmpReq ListDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10781,7 +10931,7 @@ ListDataLakePartitionResponse Client::listDataLakePartitionWithOptions(const Lis
 }
 
 /**
- * @summary 获取数据湖表分区列表
+ * @summary Queries a list of partitions of a table in a data lake.
  *
  * @param request ListDataLakePartitionRequest
  * @return ListDataLakePartitionResponse
@@ -10792,7 +10942,7 @@ ListDataLakePartitionResponse Client::listDataLakePartition(const ListDataLakePa
 }
 
 /**
- * @summary 根据筛选条件获取数据湖表分区列表
+ * @summary Queries a list of partitions of a table in a data lake based on filter conditions.
  *
  * @param request ListDataLakePartitionByFilterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10857,7 +11007,7 @@ ListDataLakePartitionByFilterResponse Client::listDataLakePartitionByFilterWithO
 }
 
 /**
- * @summary 根据筛选条件获取数据湖表分区列表
+ * @summary Queries a list of partitions of a table in a data lake based on filter conditions.
  *
  * @param request ListDataLakePartitionByFilterRequest
  * @return ListDataLakePartitionByFilterResponse
@@ -10868,7 +11018,7 @@ ListDataLakePartitionByFilterResponse Client::listDataLakePartitionByFilter(cons
 }
 
 /**
- * @summary 获取数据湖表分区名列表
+ * @summary Queries a list of partition names of a table in a data lake.
  *
  * @param request ListDataLakePartitionNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10927,7 +11077,7 @@ ListDataLakePartitionNameResponse Client::listDataLakePartitionNameWithOptions(c
 }
 
 /**
- * @summary 获取数据湖表分区名列表
+ * @summary Queries a list of partition names of a table in a data lake.
  *
  * @param request ListDataLakePartitionNameRequest
  * @return ListDataLakePartitionNameResponse
@@ -10938,7 +11088,7 @@ ListDataLakePartitionNameResponse Client::listDataLakePartitionName(const ListDa
 }
 
 /**
- * @summary 获取数据湖表列表
+ * @summary Queries a list of tables in a data lake.
  *
  * @param request ListDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11001,7 +11151,7 @@ ListDataLakeTableResponse Client::listDataLakeTableWithOptions(const ListDataLak
 }
 
 /**
- * @summary 获取数据湖表列表
+ * @summary Queries a list of tables in a data lake.
  *
  * @param request ListDataLakeTableRequest
  * @return ListDataLakeTableResponse
@@ -11012,7 +11162,7 @@ ListDataLakeTableResponse Client::listDataLakeTable(const ListDataLakeTableReque
 }
 
 /**
- * @summary 获取数据湖表名列表
+ * @summary Queries a list of names of tables in a data lake.
  *
  * @param request ListDataLakeTableNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11075,7 +11225,7 @@ ListDataLakeTableNameResponse Client::listDataLakeTableNameWithOptions(const Lis
 }
 
 /**
- * @summary 获取数据湖表名列表
+ * @summary Queries a list of names of tables in a data lake.
  *
  * @param request ListDataLakeTableNameRequest
  * @return ListDataLakeTableNameResponse
@@ -11086,7 +11236,7 @@ ListDataLakeTableNameResponse Client::listDataLakeTableName(const ListDataLakeTa
 }
 
 /**
- * @summary 获取表信息
+ * @summary Queries basic information about tables in the data lake.
  *
  * @param request ListDataLakeTablebaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11145,7 +11295,7 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfoWithOptions(c
 }
 
 /**
- * @summary 获取表信息
+ * @summary Queries basic information about tables in the data lake.
  *
  * @param request ListDataLakeTablebaseInfoRequest
  * @return ListDataLakeTablebaseInfoResponse
@@ -11972,7 +12122,7 @@ ListLogicTablesResponse Client::listLogicTables(const ListLogicTablesRequest &re
 }
 
 /**
- * @summary 获取资产类目列表
+ * @summary Queries a list of categories
  *
  * @param request ListMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12015,7 +12165,7 @@ ListMetaCategoryResponse Client::listMetaCategoryWithOptions(const ListMetaCateg
 }
 
 /**
- * @summary 获取资产类目列表
+ * @summary Queries a list of categories
  *
  * @param request ListMetaCategoryRequest
  * @return ListMetaCategoryResponse
@@ -12488,7 +12638,7 @@ ListScenariosResponse Client::listScenarios(const ListScenariosRequest &request)
 }
 
 /**
- * @summary 获取敏感字段信息
+ * @summary Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
  *
  * @param request ListSensitiveColumnInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12543,7 +12693,7 @@ ListSensitiveColumnInfoResponse Client::listSensitiveColumnInfoWithOptions(const
 }
 
 /**
- * @summary 获取敏感字段信息
+ * @summary Queries the information about a sensitive field. The information includes the masking algorithm ID, masking algorithm name, and field security level.
  *
  * @param request ListSensitiveColumnInfoRequest
  * @return ListSensitiveColumnInfoResponse
@@ -12848,7 +12998,7 @@ ListStandardGroupsResponse Client::listStandardGroups(const ListStandardGroupsRe
 }
 
 /**
- * @summary 获取表字段信息
+ * @summary Queries the details about fields in a table.
  *
  * @param request ListTableColumnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12891,7 +13041,7 @@ ListTableColumnsResponse Client::listTableColumnsWithOptions(const ListTableColu
 }
 
 /**
- * @summary 获取表字段信息
+ * @summary Queries the details about fields in a table.
  *
  * @param request ListTableColumnsRequest
  * @return ListTableColumnsResponse
@@ -12972,7 +13122,7 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary 获取类目下的表列表
+ * @summary Obtains the list of tables in a category.
  *
  * @param request ListTablesInCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13015,7 +13165,7 @@ ListTablesInCategoryResponse Client::listTablesInCategoryWithOptions(const ListT
 }
 
 /**
- * @summary 获取类目下的表列表
+ * @summary Obtains the list of tables in a category.
  *
  * @param request ListTablesInCategoryRequest
  * @return ListTablesInCategoryResponse
@@ -13456,6 +13606,80 @@ ListTasksInTaskFlowResponse Client::listTasksInTaskFlow(const ListTasksInTaskFlo
 }
 
 /**
+ * @summary Obtains
+ *
+ * @param request ListUserOwnedResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserOwnedResourcesResponse
+ */
+ListUserOwnedResourcesResponse Client::listUserOwnedResourcesWithOptions(const ListUserOwnedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.dbType();
+  }
+
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.envType();
+  }
+
+  if (!!request.hasLogic()) {
+    query["Logic"] = request.logic();
+  }
+
+  if (!!request.hasOwnerType()) {
+    query["OwnerType"] = request.ownerType();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasTid()) {
+    query["Tid"] = request.tid();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserOwnedResources"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserOwnedResourcesResponse>();
+}
+
+/**
+ * @summary Obtains
+ *
+ * @param request ListUserOwnedResourcesRequest
+ * @return ListUserOwnedResourcesResponse
+ */
+ListUserOwnedResourcesResponse Client::listUserOwnedResources(const ListUserOwnedResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUserOwnedResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the permissions of a specific user on a database or a table.
  *
  * @param request ListUserPermissionsRequest
@@ -13730,7 +13954,7 @@ ListWorkFlowTemplatesResponse Client::listWorkFlowTemplates(const ListWorkFlowTe
 }
 
 /**
- * @summary 搜索工作空间列表
+ * @summary Queries a list of workspaces of the tenant.
  *
  * @param request ListWorkspacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13793,7 +14017,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary 搜索工作空间列表
+ * @summary Queries a list of workspaces of the tenant.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -13982,7 +14206,7 @@ ModifyDesensitizationStrategyResponse Client::modifyDesensitizationStrategy(cons
 }
 
 /**
- * @summary 修改实例信息，同时检查该实例连通性
+ * @summary Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
  *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14129,7 +14353,7 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
- * @summary 修改实例信息，同时检查该实例连通性
+ * @summary Modifies the basic and advanced information about a database instance in Data Management (DMS). The basic information includes the hosting mode of the instance, the instance account username and password, and features that are enabled for the instance. The advanced information includes the environment type, the instance name in DMS, and the timeout period for querying and exporting data.
  *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
@@ -14236,9 +14460,9 @@ OfflineTaskFlowResponse Client::offlineTaskFlow(const OfflineTaskFlowRequest &re
 }
 
 /**
- * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+ * @summary Analyzes and optimizes the SQL statements in the specified database.
  *
- * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+ * @description You can call this operation to analyze and optimize the SQL statements in the specified database.
  *
  * @param request OptimizeSqlByMetaAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14281,9 +14505,9 @@ OptimizeSqlByMetaAgentResponse Client::optimizeSqlByMetaAgentWithOptions(const O
 }
 
 /**
- * @summary 根据用户提供的SQL数据库ID，分析SQL性能并优化
+ * @summary Analyzes and optimizes the SQL statements in the specified database.
  *
- * @description 根据用户提供的SQL数据库ID，分析SQL性能并优化
+ * @description You can call this operation to analyze and optimize the SQL statements in the specified database.
  *
  * @param request OptimizeSqlByMetaAgentRequest
  * @return OptimizeSqlByMetaAgentResponse
@@ -14352,7 +14576,7 @@ PauseDataCorrectSQLJobResponse Client::pauseDataCorrectSQLJob(const PauseDataCor
 }
 
 /**
- * @summary 终止数据导出任务
+ * @summary Terminates a SQL result set export task.
  *
  * @param request PauseDataExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14391,7 +14615,7 @@ PauseDataExportJobResponse Client::pauseDataExportJobWithOptions(const PauseData
 }
 
 /**
- * @summary 终止数据导出任务
+ * @summary Terminates a SQL result set export task.
  *
  * @param request PauseDataExportJobRequest
  * @return PauseDataExportJobResponse
@@ -14402,7 +14626,7 @@ PauseDataExportJobResponse Client::pauseDataExportJob(const PauseDataExportJobRe
 }
 
 /**
- * @summary 创建工单审批流
+ * @summary Previews the approval process of a ticket before the ticket is submitted.
  *
  * @param request PreviewWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14437,7 +14661,7 @@ PreviewWorkflowResponse Client::previewWorkflowWithOptions(const PreviewWorkflow
 }
 
 /**
- * @summary 创建工单审批流
+ * @summary Previews the approval process of a ticket before the ticket is submitted.
  *
  * @param request PreviewWorkflowRequest
  * @return PreviewWorkflowResponse
@@ -14986,7 +15210,7 @@ RegisterUserResponse Client::registerUser(const RegisterUserRequest &request) {
 }
 
 /**
- * @summary 删除数据导出任务
+ * @summary Deletes a data export task.
  *
  * @param request RemoveDataExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15025,7 +15249,7 @@ RemoveDataExportJobResponse Client::removeDataExportJobWithOptions(const RemoveD
 }
 
 /**
- * @summary 删除数据导出任务
+ * @summary Deletes a data export task.
  *
  * @param request RemoveDataExportJobRequest
  * @return RemoveDataExportJobResponse
@@ -15036,7 +15260,7 @@ RemoveDataExportJobResponse Client::removeDataExportJob(const RemoveDataExportJo
 }
 
 /**
- * @summary 从资产类目移除表
+ * @summary Removes table from the asset category.
  *
  * @param request RemoveTableFromCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15083,7 +15307,7 @@ RemoveTableFromCategoryResponse Client::removeTableFromCategoryWithOptions(const
 }
 
 /**
- * @summary 从资产类目移除表
+ * @summary Removes table from the asset category.
  *
  * @param request RemoveTableFromCategoryRequest
  * @return RemoveTableFromCategoryResponse
@@ -15152,7 +15376,7 @@ RestartDataCorrectSQLJobResponse Client::restartDataCorrectSQLJob(const RestartD
 }
 
 /**
- * @summary 重启数据导出任务
+ * @summary Restarts a SQL result set export task.
  *
  * @param request RestartDataExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15191,7 +15415,7 @@ RestartDataExportJobResponse Client::restartDataExportJobWithOptions(const Resta
 }
 
 /**
- * @summary 重启数据导出任务
+ * @summary Restarts a SQL result set export task.
  *
  * @param request RestartDataExportJobRequest
  * @return RestartDataExportJobResponse
@@ -15728,7 +15952,7 @@ SetOwnersResponse Client::setOwners(const SetOwnersRequest &request) {
 }
 
 /**
- * @summary 修改审批流额外信息
+ * @summary Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
  *
  * @param request SetWorkflowExtraInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15791,7 +16015,7 @@ SetWorkflowExtraInfoResponse Client::setWorkflowExtraInfoWithOptions(const SetWo
 }
 
 /**
- * @summary 修改审批流额外信息
+ * @summary Configures whether the operation buttons, such as Agree, Revoke, and Sign, are displayed in the ticket approval section of the DMS console.
  *
  * @param request SetWorkflowExtraInfoRequest
  * @return SetWorkflowExtraInfoResponse
@@ -16068,7 +16292,7 @@ SubmitStructSyncOrderApprovalResponse Client::submitStructSyncOrderApproval(cons
 }
 
 /**
- * @summary 中断数据导出任务
+ * @summary Suspends an ongoing or scheduled SQL result set export task.
  *
  * @param request SuspendDataExportJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16107,7 +16331,7 @@ SuspendDataExportJobResponse Client::suspendDataExportJobWithOptions(const Suspe
 }
 
 /**
- * @summary 中断数据导出任务
+ * @summary Suspends an ongoing or scheduled SQL result set export task.
  *
  * @param request SuspendDataExportJobRequest
  * @return SuspendDataExportJobResponse
@@ -16272,7 +16496,12 @@ SyncInstanceMetaResponse Client::syncInstanceMeta(const SyncInstanceMetaRequest 
 }
 
 /**
- * @summary 任务编排试运行
+ * @summary Tests the task flow of task orchestration.
+ *
+ * @description ### [](#)Usage notes
+ * An edge can be created only when the following conditions are met:
+ * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+ * 2.  After the edge is created, the DAG does not contain loops.
  *
  * @param request TryRunTaskFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16303,7 +16532,12 @@ TryRunTaskFlowResponse Client::tryRunTaskFlowWithOptions(const TryRunTaskFlowReq
 }
 
 /**
- * @summary 任务编排试运行
+ * @summary Tests the task flow of task orchestration.
+ *
+ * @description ### [](#)Usage notes
+ * An edge can be created only when the following conditions are met:
+ * 1.  The start and end nodes of the edge exist in the directed acyclic graph (DAG) of the task flow specified by DagId.
+ * 2.  After the edge is created, the DAG does not contain loops.
  *
  * @param request TryRunTaskFlowRequest
  * @return TryRunTaskFlowResponse
@@ -16314,7 +16548,7 @@ TryRunTaskFlowResponse Client::tryRunTaskFlow(const TryRunTaskFlowRequest &reque
 }
 
 /**
- * @summary 更新权限策略
+ * @summary Updates the name, description, or content of a policy.
  *
  * @param request UpdateAbacPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16361,7 +16595,7 @@ UpdateAbacPolicyResponse Client::updateAbacPolicyWithOptions(const UpdateAbacPol
 }
 
 /**
- * @summary 更新权限策略
+ * @summary Updates the name, description, or content of a policy.
  *
  * @param request UpdateAbacPolicyRequest
  * @return UpdateAbacPolicyResponse
@@ -16430,7 +16664,7 @@ UpdateAuthorityTemplateResponse Client::updateAuthorityTemplate(const UpdateAuth
 }
 
 /**
- * @summary 更新湖仓数据库
+ * @summary Updates the information about a database in a data lakehouse.
  *
  * @param tmpReq UpdateDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16495,7 +16729,7 @@ UpdateDataLakeDatabaseResponse Client::updateDataLakeDatabaseWithOptions(const U
 }
 
 /**
- * @summary 更新湖仓数据库
+ * @summary Updates the information about a database in a data lakehouse.
  *
  * @param request UpdateDataLakeDatabaseRequest
  * @return UpdateDataLakeDatabaseResponse
@@ -16506,7 +16740,7 @@ UpdateDataLakeDatabaseResponse Client::updateDataLakeDatabase(const UpdateDataLa
 }
 
 /**
- * @summary 更新湖仓自定义函数
+ * @summary Updates a user-defined function in a data lakehouse.
  *
  * @param tmpReq UpdateDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16569,7 +16803,7 @@ UpdateDataLakeFunctionResponse Client::updateDataLakeFunctionWithOptions(const U
 }
 
 /**
- * @summary 更新湖仓自定义函数
+ * @summary Updates a user-defined function in a data lakehouse.
  *
  * @param request UpdateDataLakeFunctionRequest
  * @return UpdateDataLakeFunctionResponse
@@ -16580,7 +16814,7 @@ UpdateDataLakeFunctionResponse Client::updateDataLakeFunction(const UpdateDataLa
 }
 
 /**
- * @summary 更新湖仓表分区
+ * @summary Updates the partition information of a table in a data lakehouse.
  *
  * @param tmpReq UpdateDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16643,7 +16877,7 @@ UpdateDataLakePartitionResponse Client::updateDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 更新湖仓表分区
+ * @summary Updates the partition information of a table in a data lakehouse.
  *
  * @param request UpdateDataLakePartitionRequest
  * @return UpdateDataLakePartitionResponse
@@ -16654,7 +16888,7 @@ UpdateDataLakePartitionResponse Client::updateDataLakePartition(const UpdateData
 }
 
 /**
- * @summary 更新湖仓表信息
+ * @summary Updates the information about a table in a data lakehouse.
  *
  * @param tmpReq UpdateDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16717,7 +16951,7 @@ UpdateDataLakeTableResponse Client::updateDataLakeTableWithOptions(const UpdateD
 }
 
 /**
- * @summary 更新湖仓表信息
+ * @summary Updates the information about a table in a data lakehouse.
  *
  * @param request UpdateDataLakeTableRequest
  * @return UpdateDataLakeTableResponse
@@ -16870,7 +17104,7 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 }
 
 /**
- * @summary 更新资产类目信息
+ * @summary Updates asset category information.
  *
  * @param request UpdateMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16909,7 +17143,7 @@ UpdateMetaCategoryResponse Client::updateMetaCategoryWithOptions(const UpdateMet
 }
 
 /**
- * @summary 更新资产类目信息
+ * @summary Updates asset category information.
  *
  * @param request UpdateMetaCategoryRequest
  * @return UpdateMetaCategoryResponse
@@ -17196,7 +17430,9 @@ UpdateTaskContentResponse Client::updateTaskContent(const UpdateTaskContentReque
 }
 
 /**
- * @summary 大sql更新节点专用
+ * @summary Updates the node content in large SQL files.
+ *
+ * @description You can call this operation to modify node configurations.
  *
  * @param request UpdateTaskContentV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -17233,7 +17469,9 @@ UpdateTaskContentV2Response Client::updateTaskContentV2WithOptions(const UpdateT
 }
 
 /**
- * @summary 大sql更新节点专用
+ * @summary Updates the node content in large SQL files.
+ *
+ * @description You can call this operation to modify node configurations.
  *
  * @param request UpdateTaskContentV2Request
  * @return UpdateTaskContentV2Response
@@ -18008,7 +18246,7 @@ UpdateUserResponse Client::updateUser(const UpdateUserRequest &request) {
 }
 
 /**
- * @summary 修改工作空间
+ * @summary Updates the information about a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18053,7 +18291,7 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 }
 
 /**
- * @summary 修改工作空间
+ * @summary Updates the information about a workspace.
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse

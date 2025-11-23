@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualAffectRows_ != nullptr
-        && this->createTime_ != nullptr && this->DBTaskGroupId_ != nullptr && this->jobStatus_ != nullptr; };
+    virtual bool empty() const override { return this->actualAffectRows_ == nullptr
+        && return this->createTime_ == nullptr && return this->DBTaskGroupId_ == nullptr && return this->jobStatus_ == nullptr; };
     // actualAffectRows Field Functions 
     bool hasActualAffectRows() const { return this->actualAffectRows_ != nullptr;};
     void deleteActualAffectRows() { this->actualAffectRows_ = nullptr;};

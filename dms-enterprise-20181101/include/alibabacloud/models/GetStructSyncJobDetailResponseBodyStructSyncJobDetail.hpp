@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->DBTaskGroupId_ != nullptr
-        && this->executeCount_ != nullptr && this->jobStatus_ != nullptr && this->message_ != nullptr && this->securityRule_ != nullptr && this->sqlCount_ != nullptr
-        && this->tableAnalyzed_ != nullptr && this->tableCount_ != nullptr; };
+    virtual bool empty() const override { return this->DBTaskGroupId_ == nullptr
+        && return this->executeCount_ == nullptr && return this->jobStatus_ == nullptr && return this->message_ == nullptr && return this->securityRule_ == nullptr && return this->sqlCount_ == nullptr
+        && return this->tableAnalyzed_ == nullptr && return this->tableCount_ == nullptr; };
     // DBTaskGroupId Field Functions 
     bool hasDBTaskGroupId() const { return this->DBTaskGroupId_ != nullptr;};
     void deleteDBTaskGroupId() { this->DBTaskGroupId_ = nullptr;};

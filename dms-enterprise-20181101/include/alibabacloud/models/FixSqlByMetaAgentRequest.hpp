@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->error_ != nullptr && this->model_ != nullptr && this->query_ != nullptr && this->sql_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->error_ == nullptr && return this->model_ == nullptr && return this->query_ == nullptr && return this->sql_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The ID of the database. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dbId_ = nullptr;
+    // The error message.
     std::shared_ptr<string> error_ = nullptr;
+    // The name of the selected model. You can use only Qwen series models.
     std::shared_ptr<string> model_ = nullptr;
+    // The remarks.
     std::shared_ptr<string> query_ = nullptr;
+    // The SQL statement that reports the error.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sql_ = nullptr;
   };

@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ignoreAffectRows_ != nullptr
-        && this->preCheckDetailList_ != nullptr; };
+    virtual bool empty() const override { return this->ignoreAffectRows_ == nullptr
+        && return this->preCheckDetailList_ == nullptr; };
     // ignoreAffectRows Field Functions 
     bool hasIgnoreAffectRows() const { return this->ignoreAffectRows_ != nullptr;};
     void deleteIgnoreAffectRows() { this->ignoreAffectRows_ = nullptr;};

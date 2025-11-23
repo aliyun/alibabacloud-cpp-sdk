@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->tableName_ != nullptr && this->tableSchemaName_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->tableName_ == nullptr && return this->tableSchemaName_ == nullptr && return this->tid_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID of a physical database: You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the physical database ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> dbId_ = nullptr;
+    // The table name.
+    // 
+    // >  You can also call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The schema name of the table, which is required only for SQL Server instances.
     std::shared_ptr<string> tableSchemaName_ = nullptr;
+    // The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

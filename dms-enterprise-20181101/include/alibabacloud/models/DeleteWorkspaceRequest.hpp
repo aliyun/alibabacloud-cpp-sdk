@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->workspaceId_ == nullptr; };
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the DMS workspace.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
   };

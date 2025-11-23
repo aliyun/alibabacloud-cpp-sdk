@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceId_ != nullptr
-        && this->resourceType_ != nullptr && this->templateId_ != nullptr && this->templateType_ != nullptr; };
+    virtual bool empty() const override { return this->resourceId_ == nullptr
+        && return this->resourceType_ == nullptr && return this->templateId_ == nullptr && return this->templateType_ == nullptr; };
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The ID of the resource. The supported resource type is INSTANCE. The resource ID corresponds to the value of InstanceId. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the value of InstanceId.
     std::shared_ptr<int64_t> resourceId_ = nullptr;
+    // The resource type. The value is fixed as **INSTANCE**.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The ID of the classification and grading template.
     std::shared_ptr<int64_t> templateId_ = nullptr;
+    // The type of the classification and grading template. Valid values:
+    // 
+    // *   **INNER**: a built-in template.
+    // *   **USER_DEFINE**: a custom template.
     std::shared_ptr<string> templateType_ = nullptr;
   };
 

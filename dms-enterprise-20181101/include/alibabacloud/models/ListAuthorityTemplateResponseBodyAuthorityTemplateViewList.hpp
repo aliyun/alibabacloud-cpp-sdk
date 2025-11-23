@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorityTemplateView_ != nullptr; };
+    virtual bool empty() const override { return this->authorityTemplateView_ == nullptr; };
     // authorityTemplateView Field Functions 
     bool hasAuthorityTemplateView() const { return this->authorityTemplateView_ != nullptr;};
     void deleteAuthorityTemplateView() { this->authorityTemplateView_ = nullptr;};

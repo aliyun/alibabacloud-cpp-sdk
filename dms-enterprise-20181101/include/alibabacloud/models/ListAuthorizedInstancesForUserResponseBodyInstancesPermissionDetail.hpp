@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dsType_ != nullptr
-        && this->expireDate_ != nullptr && this->message_ != nullptr && this->permType_ != nullptr; };
+    virtual bool empty() const override { return this->dsType_ == nullptr
+        && return this->expireDate_ == nullptr && return this->message_ == nullptr && return this->permType_ == nullptr; };
     // dsType Field Functions 
     bool hasDsType() const { return this->dsType_ != nullptr;};
     void deleteDsType() { this->dsType_ = nullptr;};
@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The type of object on which the operation is performed.
     std::shared_ptr<string> dsType_ = nullptr;
+    // The time when the permission expires.
     std::shared_ptr<string> expireDate_ = nullptr;
+    // If the permission source is a permission policy, the value of this parameter includes the policy name and the operations that are allowed for the user.
     std::shared_ptr<string> message_ = nullptr;
+    // The type of the permission. Valid values:
+    // 
+    // *   **QUERY**: the query permission
+    // *   **EXPORT**: the data export permission
+    // *   **CORRECT**: the data change permission
     std::shared_ptr<string> permType_ = nullptr;
   };
 

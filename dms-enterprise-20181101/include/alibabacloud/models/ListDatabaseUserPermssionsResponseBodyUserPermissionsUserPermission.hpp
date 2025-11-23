@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->columnName_ != nullptr && this->dbId_ != nullptr && this->dbType_ != nullptr && this->dsType_ != nullptr && this->envType_ != nullptr
-        && this->instanceId_ != nullptr && this->logic_ != nullptr && this->permDetails_ != nullptr && this->schemaName_ != nullptr && this->searchName_ != nullptr
-        && this->tableId_ != nullptr && this->tableName_ != nullptr && this->userId_ != nullptr && this->userNickName_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->columnName_ == nullptr && return this->dbId_ == nullptr && return this->dbType_ == nullptr && return this->dsType_ == nullptr && return this->envType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->logic_ == nullptr && return this->permDetails_ == nullptr && return this->schemaName_ == nullptr && return this->searchName_ == nullptr
+        && return this->tableId_ == nullptr && return this->tableName_ == nullptr && return this->userId_ == nullptr && return this->userNickName_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};

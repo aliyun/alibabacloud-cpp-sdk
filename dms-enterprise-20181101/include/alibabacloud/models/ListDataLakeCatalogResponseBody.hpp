@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cataLogList_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->cataLogList_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // cataLogList Field Functions 
     bool hasCataLogList() const { return this->cataLogList_ != nullptr;};
     void deleteCataLogList() { this->cataLogList_ = nullptr;};
@@ -79,10 +79,18 @@ namespace Models
 
 
   protected:
+    // The list of catalogs.
     std::shared_ptr<vector<DLCatalog>> cataLogList_ = nullptr;
+    // The error code returned if the request failed.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The ID of the request. You can use the request ID to locate logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

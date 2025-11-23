@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->abacPolicyContent_ != nullptr
-        && this->abacPolicyDesc_ != nullptr && this->abacPolicyId_ != nullptr && this->abacPolicyName_ != nullptr && this->abacPolicySource_ != nullptr && this->creatorId_ != nullptr; };
+    virtual bool empty() const override { return this->abacPolicyContent_ == nullptr
+        && return this->abacPolicyDesc_ == nullptr && return this->abacPolicyId_ == nullptr && return this->abacPolicyName_ == nullptr && return this->abacPolicySource_ == nullptr && return this->creatorId_ == nullptr; };
     // abacPolicyContent Field Functions 
     bool hasAbacPolicyContent() const { return this->abacPolicyContent_ != nullptr;};
     void deleteAbacPolicyContent() { this->abacPolicyContent_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The content of the policy.
     std::shared_ptr<string> abacPolicyContent_ = nullptr;
+    // The description of the policy.
     std::shared_ptr<string> abacPolicyDesc_ = nullptr;
+    // The ID of the policy.
     std::shared_ptr<int64_t> abacPolicyId_ = nullptr;
+    // The name of the policy.
     std::shared_ptr<string> abacPolicyName_ = nullptr;
+    // The source of the policy.
     std::shared_ptr<string> abacPolicySource_ = nullptr;
+    // The ID of the user who created the policy.
     std::shared_ptr<int64_t> creatorId_ = nullptr;
   };
 

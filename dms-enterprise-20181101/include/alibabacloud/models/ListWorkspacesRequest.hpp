@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alreadyJoined_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->region_ != nullptr && this->searchKey_ != nullptr
-        && this->serviceAccountId_ != nullptr && this->vpcId_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->alreadyJoined_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->searchKey_ == nullptr
+        && return this->serviceAccountId_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceId_ == nullptr; };
     // alreadyJoined Field Functions 
     bool hasAlreadyJoined() const { return this->alreadyJoined_ != nullptr;};
     void deleteAlreadyJoined() { this->alreadyJoined_ = nullptr;};
@@ -112,14 +112,24 @@ namespace Models
 
 
   protected:
+    // Specifies whether the current user has joined the workspace.
     std::shared_ptr<bool> alreadyJoined_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The region in which the bucket is located.
     std::shared_ptr<string> region_ = nullptr;
+    // The search keyword. Fuzzy match is supported.
     std::shared_ptr<string> searchKey_ = nullptr;
+    // The service account ID.
     std::shared_ptr<int64_t> serviceAccountId_ = nullptr;
+    // The virtual private cloud (VPC) ID.
+    // 
+    // > This parameter cannot be used as a filter.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
   };
 

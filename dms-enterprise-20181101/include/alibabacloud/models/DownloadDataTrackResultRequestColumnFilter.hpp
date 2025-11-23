@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->betweenEnd_ != nullptr
-        && this->betweenStart_ != nullptr && this->columnName_ != nullptr && this->inList_ != nullptr && this->operator_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->betweenEnd_ == nullptr
+        && return this->betweenStart_ == nullptr && return this->columnName_ == nullptr && return this->inList_ == nullptr && return this->operator_ == nullptr && return this->value_ == nullptr; };
     // betweenEnd Field Functions 
     bool hasBetweenEnd() const { return this->betweenEnd_ != nullptr;};
     void deleteBetweenEnd() { this->betweenEnd_ = nullptr;};

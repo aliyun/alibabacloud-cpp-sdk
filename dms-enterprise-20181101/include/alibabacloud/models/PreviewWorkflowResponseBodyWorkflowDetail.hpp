@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->wfCateName_ != nullptr && this->workflowNodeList_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->wfCateName_ == nullptr && return this->workflowNodeList_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The remarks of the approval template.
     std::shared_ptr<string> comment_ = nullptr;
+    // The name of the approval template.
     std::shared_ptr<string> wfCateName_ = nullptr;
+    // The approval nodes.
     std::shared_ptr<Models::PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList> workflowNodeList_ = nullptr;
   };
 

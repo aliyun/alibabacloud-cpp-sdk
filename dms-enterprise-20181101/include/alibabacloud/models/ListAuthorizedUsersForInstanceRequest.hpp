@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->searchKey_ != nullptr && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchKey_ == nullptr && return this->tid_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the instance ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The page number.
     std::shared_ptr<string> pageNumber_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<string> pageSize_ = nullptr;
+    // The keyword that is used for the search.
     std::shared_ptr<string> searchKey_ = nullptr;
+    // The ID of the tenant.
+    // 
+    // > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
     std::shared_ptr<int64_t> tid_ = nullptr;
   };
 

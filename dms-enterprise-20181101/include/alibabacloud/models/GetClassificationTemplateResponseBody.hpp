@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classificationResourceTemplateMap_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->classificationResourceTemplateMap_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // classificationResourceTemplateMap Field Functions 
     bool hasClassificationResourceTemplateMap() const { return this->classificationResourceTemplateMap_ != nullptr;};
     void deleteClassificationResourceTemplateMap() { this->classificationResourceTemplateMap_ = nullptr;};
@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // The information about the classification template that is associated to the instance.
     std::shared_ptr<GetClassificationTemplateResponseBodyClassificationResourceTemplateMap> classificationResourceTemplateMap_ = nullptr;
+    // The error code returned if the request failed.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The request ID. You can use the ID to query logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

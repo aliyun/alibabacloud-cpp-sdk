@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->data_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -106,13 +106,24 @@ namespace Models
 
 
   protected:
+    // The dataset.
     std::shared_ptr<ListWorkspacesResponseBodyData> data_ = nullptr;
+    // The error code.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The total number of workspaces that meet the condition, which is the same as the TotalCount parameter.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // NextToken does not take effect.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the call was successful. Valid values:
+    // 
+    // *   **true**: The request succeeded.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // The total number of workspaces that meet the conditions.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->archiveMethod_ != nullptr
-        && this->dbSchema_ != nullptr && this->logic_ != nullptr && this->orderAfter_ != nullptr && this->runMethod_ != nullptr && this->sourceDatabaseId_ != nullptr
-        && this->tableIncludes_ != nullptr && this->tableMapping_ != nullptr && this->targetInstanceId_ != nullptr && this->variables_ != nullptr; };
+    virtual bool empty() const override { return this->archiveMethod_ == nullptr
+        && return this->dbSchema_ == nullptr && return this->logic_ == nullptr && return this->orderAfter_ == nullptr && return this->runMethod_ == nullptr && return this->sourceDatabaseId_ == nullptr
+        && return this->tableIncludes_ == nullptr && return this->tableMapping_ == nullptr && return this->targetInstanceId_ == nullptr && return this->variables_ == nullptr; };
     // archiveMethod Field Functions 
     bool hasArchiveMethod() const { return this->archiveMethod_ != nullptr;};
     void deleteArchiveMethod() { this->archiveMethod_ = nullptr;};

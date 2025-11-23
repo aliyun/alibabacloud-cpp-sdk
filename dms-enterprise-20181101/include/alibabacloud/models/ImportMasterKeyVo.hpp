@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptMekDataBase64_ != nullptr
-        && this->mekId_ != nullptr && this->projectId_ != nullptr; };
+    virtual bool empty() const override { return this->encryptMekDataBase64_ == nullptr
+        && return this->mekId_ == nullptr && return this->projectId_ == nullptr; };
     // encryptMekDataBase64 Field Functions 
     bool hasEncryptMekDataBase64() const { return this->encryptMekDataBase64_ != nullptr;};
     void deleteEncryptMekDataBase64() { this->encryptMekDataBase64_ = nullptr;};

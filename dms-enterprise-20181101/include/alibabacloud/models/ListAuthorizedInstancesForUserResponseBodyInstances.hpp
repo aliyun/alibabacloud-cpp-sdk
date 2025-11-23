@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbType_ != nullptr
-        && this->envType_ != nullptr && this->host_ != nullptr && this->instanceAlias_ != nullptr && this->instanceId_ != nullptr && this->permissionDetail_ != nullptr
-        && this->port_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->dbType_ == nullptr
+        && return this->envType_ == nullptr && return this->host_ == nullptr && return this->instanceAlias_ == nullptr && return this->instanceId_ == nullptr && return this->permissionDetail_ == nullptr
+        && return this->port_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr; };
     // dbType Field Functions 
     bool hasDbType() const { return this->dbType_ != nullptr;};
     void deleteDbType() { this->dbType_ = nullptr;};
@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The database engine that the instance runs.
     std::shared_ptr<string> dbType_ = nullptr;
+    // The type of the environment to which the database instance belongs.
     std::shared_ptr<string> envType_ = nullptr;
+    // The endpoint that is used to connect to the instance.
     std::shared_ptr<string> host_ = nullptr;
+    // The alias of the instance.
     std::shared_ptr<string> instanceAlias_ = nullptr;
+    // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The details of permissions. The format of the permission details varies with the permission source. For example, if the permission source is a normal permission, the following parameters are returned.
     std::shared_ptr<Models::ListAuthorizedInstancesForUserResponseBodyInstancesPermissionDetail> permissionDetail_ = nullptr;
+    // The port number that is used to connect to the instance.
     std::shared_ptr<string> port_ = nullptr;
+    // The user IDs.
     std::shared_ptr<string> userId_ = nullptr;
+    // The user name.
     std::shared_ptr<string> userName_ = nullptr;
   };
 

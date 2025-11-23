@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->databases_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->databases_ == nullptr
+        && return this->requestId_ == nullptr; };
     // databases Field Functions 
     bool hasDatabases() const { return this->databases_ != nullptr;};
     void deleteDatabases() { this->databases_ = nullptr;};
@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The names of the databases on which the user has permissions.
     std::shared_ptr<vector<ListAuthorizedDatabasesForUserResponseBodyDatabases>> databases_ = nullptr;
+    // The request ID. You can use the ID to query logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

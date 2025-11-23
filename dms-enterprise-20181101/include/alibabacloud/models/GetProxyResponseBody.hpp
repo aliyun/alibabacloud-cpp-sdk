@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorId_ != nullptr
-        && this->creatorName_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->httpsPort_ != nullptr && this->instanceId_ != nullptr
-        && this->privateEnable_ != nullptr && this->privateHost_ != nullptr && this->protocolPort_ != nullptr && this->protocolType_ != nullptr && this->proxyId_ != nullptr
-        && this->publicEnable_ != nullptr && this->publicHost_ != nullptr && this->regionId_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    virtual bool empty() const override { return this->creatorId_ == nullptr
+        && return this->creatorName_ == nullptr && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->httpsPort_ == nullptr && return this->instanceId_ == nullptr
+        && return this->privateEnable_ == nullptr && return this->privateHost_ == nullptr && return this->protocolPort_ == nullptr && return this->protocolType_ == nullptr && return this->proxyId_ == nullptr
+        && return this->publicEnable_ == nullptr && return this->publicHost_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};

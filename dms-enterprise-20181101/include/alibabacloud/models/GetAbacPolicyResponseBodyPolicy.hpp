@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorizedQuantity_ != nullptr
-        && this->creatorId_ != nullptr && this->policyContent_ != nullptr && this->policyDesc_ != nullptr && this->policyId_ != nullptr && this->policyName_ != nullptr
-        && this->policySource_ != nullptr; };
+    virtual bool empty() const override { return this->authorizedQuantity_ == nullptr
+        && return this->creatorId_ == nullptr && return this->policyContent_ == nullptr && return this->policyDesc_ == nullptr && return this->policyId_ == nullptr && return this->policyName_ == nullptr
+        && return this->policySource_ == nullptr; };
     // authorizedQuantity Field Functions 
     bool hasAuthorizedQuantity() const { return this->authorizedQuantity_ != nullptr;};
     void deleteAuthorizedQuantity() { this->authorizedQuantity_ = nullptr;};
@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The number of users or custom roles to which the policy is attached.
     std::shared_ptr<string> authorizedQuantity_ = nullptr;
+    // The ID of the user who create the policy.
     std::shared_ptr<int64_t> creatorId_ = nullptr;
+    // The content of the policy.
     std::shared_ptr<string> policyContent_ = nullptr;
+    // The description of the policy.
     std::shared_ptr<string> policyDesc_ = nullptr;
+    // The ID of the policy.
     std::shared_ptr<int64_t> policyId_ = nullptr;
+    // The name of the policy.
     std::shared_ptr<string> policyName_ = nullptr;
+    // The source of the policy. Valid values:
     std::shared_ptr<string> policySource_ = nullptr;
   };
 

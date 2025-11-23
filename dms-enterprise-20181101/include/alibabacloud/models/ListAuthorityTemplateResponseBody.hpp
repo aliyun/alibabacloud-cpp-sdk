@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorityTemplateViewList_ != nullptr
-        && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr && this->tid_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->authorityTemplateViewList_ == nullptr
+        && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->tid_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // authorityTemplateViewList Field Functions 
     bool hasAuthorityTemplateViewList() const { return this->authorityTemplateViewList_ != nullptr;};
     void deleteAuthorityTemplateViewList() { this->authorityTemplateViewList_ = nullptr;};
@@ -97,12 +97,22 @@ namespace Models
 
 
   protected:
+    // The permission templates.
     std::shared_ptr<ListAuthorityTemplateResponseBodyAuthorityTemplateViewList> authorityTemplateViewList_ = nullptr;
+    // The error code that is returned if the request failed.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The error message that is returned if the request failed.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The request ID. You can use the request ID to locate logs and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: The request was successful.
+    // *   **false**: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the tenant.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The total number of permission templates.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

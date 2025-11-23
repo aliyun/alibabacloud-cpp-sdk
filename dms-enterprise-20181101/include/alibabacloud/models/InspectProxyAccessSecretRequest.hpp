@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->proxyAccessId_ != nullptr
-        && this->tid_ != nullptr; };
+    virtual bool empty() const override { return this->proxyAccessId_ == nullptr
+        && return this->tid_ == nullptr; };
     // proxyAccessId Field Functions 
     bool hasProxyAccessId() const { return this->proxyAccessId_ != nullptr;};
     void deleteProxyAccessId() { this->proxyAccessId_ = nullptr;};

@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alreadyJoined_ != nullptr
-        && this->creatorId_ != nullptr && this->creatorNickName_ != nullptr && this->creatorUid_ != nullptr && this->description_ != nullptr && this->gmtCreate_ != nullptr
-        && this->gmtModified_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->ownerNickName_ != nullptr && this->ownerUid_ != nullptr
-        && this->region_ != nullptr && this->serviceAccountId_ != nullptr && this->serviceAccountNickName_ != nullptr && this->serviceAccountUid_ != nullptr && this->tenantId_ != nullptr
-        && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->workspaceName_ != nullptr; };
+    virtual bool empty() const override { return this->alreadyJoined_ == nullptr
+        && return this->creatorId_ == nullptr && return this->creatorNickName_ == nullptr && return this->creatorUid_ == nullptr && return this->description_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtModified_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->ownerNickName_ == nullptr && return this->ownerUid_ == nullptr
+        && return this->region_ == nullptr && return this->serviceAccountId_ == nullptr && return this->serviceAccountNickName_ == nullptr && return this->serviceAccountUid_ == nullptr && return this->tenantId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr; };
     // alreadyJoined Field Functions 
     bool hasAlreadyJoined() const { return this->alreadyJoined_ != nullptr;};
     void deleteAlreadyJoined() { this->alreadyJoined_ = nullptr;};
@@ -204,24 +204,43 @@ namespace Models
 
 
   protected:
+    // Whether the current user has joined the workspace.
     std::shared_ptr<bool> alreadyJoined_ = nullptr;
+    // The ID of the creator.
     std::shared_ptr<int64_t> creatorId_ = nullptr;
+    // The nickname of the creator.
     std::shared_ptr<string> creatorNickName_ = nullptr;
+    // The Alibaba Cloud account UID of the creator.
     std::shared_ptr<string> creatorUid_ = nullptr;
+    // The description of the workspace.
     std::shared_ptr<string> description_ = nullptr;
+    // The creation time.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The update time.
     std::shared_ptr<string> gmtModified_ = nullptr;
+    // The name of the workspace.
     std::shared_ptr<string> name_ = nullptr;
+    // The owner ID.
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The nickname of the owner.
     std::shared_ptr<string> ownerNickName_ = nullptr;
+    // The Alibaba Cloud UID of the owner.
     std::shared_ptr<string> ownerUid_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> region_ = nullptr;
+    // The ID of the service account.
     std::shared_ptr<int64_t> serviceAccountId_ = nullptr;
+    // The nickname of the service account.
     std::shared_ptr<string> serviceAccountNickName_ = nullptr;
+    // The Alibaba Cloud account UID of the service account.
     std::shared_ptr<string> serviceAccountUid_ = nullptr;
+    // The ID of the tenant to which the workspace belongs.
     std::shared_ptr<int64_t> tenantId_ = nullptr;
+    // The VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
+    // The name of the workspace.
     std::shared_ptr<string> workspaceName_ = nullptr;
   };
 

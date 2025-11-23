@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dbId_ != nullptr
-        && this->instanceId_ != nullptr && this->permissionTypes_ != nullptr && this->resourceType_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->dbId_ == nullptr
+        && return this->instanceId_ == nullptr && return this->permissionTypes_ == nullptr && return this->resourceType_ == nullptr && return this->tableName_ == nullptr; };
     // dbId Field Functions 
     bool hasDbId() const { return this->dbId_ != nullptr;};
     void deleteDbId() { this->dbId_ = nullptr;};
@@ -78,11 +78,32 @@ namespace Models
 
 
   protected:
+    // The database ID. Databases are divided into physical databases and logical databases.
+    // 
+    // *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+    // *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+    // 
+    // > This parameter is required if the ResourceType parameter is set to META_DB, LOGIC_DB, META_TABLE, or LOGIC_TABLE.
     std::shared_ptr<int32_t> dbId_ = nullptr;
+    // The instance ID. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the instance ID.
+    // 
+    // > This parameter is required if the ResourceType parameter is set to INSTANCE.
     std::shared_ptr<int32_t> instanceId_ = nullptr;
+    // The permission types.
     std::shared_ptr<vector<string>> permissionTypes_ = nullptr;
+    // The type of the resource from which you want to remove tags. Valid values:
+    // 
+    // *   **INSTANCE**: instance
+    // *   **LOGIC_DB**: logical database
+    // *   **META_DB**: physical database
+    // *   **LOGIC_TABLE**: logical table
+    // *   **LOGIC_TABLE**: physical table
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The table name. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the name of the table.
+    // 
+    // > This parameter is required if the ResourceType parameter is set to META_TABLE or LOGIC_TABLE.
     std::shared_ptr<string> tableName_ = nullptr;
   };
 

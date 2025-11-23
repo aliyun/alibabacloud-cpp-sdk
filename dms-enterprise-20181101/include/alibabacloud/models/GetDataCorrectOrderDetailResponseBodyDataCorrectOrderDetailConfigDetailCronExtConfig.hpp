@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentClearTaskCount_ != nullptr
-        && this->optimizeTableAfterEveryClearTimes_ != nullptr; };
+    virtual bool empty() const override { return this->currentClearTaskCount_ == nullptr
+        && return this->optimizeTableAfterEveryClearTimes_ == nullptr; };
     // currentClearTaskCount Field Functions 
     bool hasCurrentClearTaskCount() const { return this->currentClearTaskCount_ != nullptr;};
     void deleteCurrentClearTaskCount() { this->currentClearTaskCount_ = nullptr;};

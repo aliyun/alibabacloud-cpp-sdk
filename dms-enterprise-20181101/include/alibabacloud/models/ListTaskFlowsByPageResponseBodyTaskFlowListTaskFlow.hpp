@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creatorId_ != nullptr
-        && this->creatorNickName_ != nullptr && this->cronBeginDate_ != nullptr && this->cronEndDate_ != nullptr && this->cronStr_ != nullptr && this->cronSwitch_ != nullptr
-        && this->cronType_ != nullptr && this->dagName_ != nullptr && this->dagOwnerId_ != nullptr && this->dagOwnerNickName_ != nullptr && this->deployId_ != nullptr
-        && this->description_ != nullptr && this->id_ != nullptr && this->latestInstanceStatus_ != nullptr && this->latestInstanceTime_ != nullptr && this->scenarioId_ != nullptr
-        && this->scheduleParam_ != nullptr && this->status_ != nullptr && this->timeZoneId_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->creatorId_ == nullptr
+        && return this->creatorNickName_ == nullptr && return this->cronBeginDate_ == nullptr && return this->cronEndDate_ == nullptr && return this->cronStr_ == nullptr && return this->cronSwitch_ == nullptr
+        && return this->cronType_ == nullptr && return this->dagName_ == nullptr && return this->dagOwnerId_ == nullptr && return this->dagOwnerNickName_ == nullptr && return this->deployId_ == nullptr
+        && return this->description_ == nullptr && return this->id_ == nullptr && return this->latestInstanceStatus_ == nullptr && return this->latestInstanceTime_ == nullptr && return this->scenarioId_ == nullptr
+        && return this->scheduleParam_ == nullptr && return this->status_ == nullptr && return this->timeZoneId_ == nullptr && return this->triggerType_ == nullptr; };
     // creatorId Field Functions 
     bool hasCreatorId() const { return this->creatorId_ != nullptr;};
     void deleteCreatorId() { this->creatorId_ = nullptr;};

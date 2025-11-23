@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoIncrement_ != nullptr
-        && this->columnId_ != nullptr && this->columnName_ != nullptr && this->columnType_ != nullptr && this->dataLength_ != nullptr && this->dataPrecision_ != nullptr
-        && this->dataScale_ != nullptr && this->defaultValue_ != nullptr && this->description_ != nullptr && this->functionType_ != nullptr && this->nullable_ != nullptr
-        && this->securityLevel_ != nullptr && this->sensitive_ != nullptr; };
+    virtual bool empty() const override { return this->autoIncrement_ == nullptr
+        && return this->columnId_ == nullptr && return this->columnName_ == nullptr && return this->columnType_ == nullptr && return this->dataLength_ == nullptr && return this->dataPrecision_ == nullptr
+        && return this->dataScale_ == nullptr && return this->defaultValue_ == nullptr && return this->description_ == nullptr && return this->functionType_ == nullptr && return this->nullable_ == nullptr
+        && return this->securityLevel_ == nullptr && return this->sensitive_ == nullptr; };
     // autoIncrement Field Functions 
     bool hasAutoIncrement() const { return this->autoIncrement_ != nullptr;};
     void deleteAutoIncrement() { this->autoIncrement_ = nullptr;};
@@ -149,18 +149,49 @@ namespace Models
 
 
   protected:
+    // Indicates whether the field is an auto-increment field. Valid values:
+    // 
+    // *   true: The field is an auto-increment field.
+    // *   false: The field is not an auto-increment field.
     std::shared_ptr<bool> autoIncrement_ = nullptr;
+    // The ID of the field.
     std::shared_ptr<string> columnId_ = nullptr;
+    // The field name.
     std::shared_ptr<string> columnName_ = nullptr;
+    // The data type of the field.
     std::shared_ptr<string> columnType_ = nullptr;
+    // The length of the field.
     std::shared_ptr<int64_t> dataLength_ = nullptr;
+    // The number of valid digits for the column.
     std::shared_ptr<int32_t> dataPrecision_ = nullptr;
+    // The number of decimal places of the field data.
     std::shared_ptr<int32_t> dataScale_ = nullptr;
+    // The default value of the column.
     std::shared_ptr<string> defaultValue_ = nullptr;
+    // The description of the field.
     std::shared_ptr<string> description_ = nullptr;
+    // The type of the masking algorithm that is used for the field. Valid values:
+    // 
+    // *   null: No masking algorithm is used.
+    // *   DEFAULT: A full masking algorithm is used.
+    // *   FIX_POS: The fixed position is masked.
+    // *   FIX_CHAR: The fixed characters are replaced.
     std::shared_ptr<string> functionType_ = nullptr;
+    // Indicates whether the field can be empty. Valid values:
+    // 
+    // *   true: The field can be empty.
+    // *   false: The field cannot be empty.
     std::shared_ptr<bool> nullable_ = nullptr;
+    // The security level of the field. Valid values:
+    // 
+    // *   INNER: The field is an internal field but not sensitive.
+    // *   SENSITIVE: The field is sensitive.
+    // *   CONFIDENTIAL: The field is a confidential column.
     std::shared_ptr<string> securityLevel_ = nullptr;
+    // Indicates whether the field is a sensitive column. Valid values:
+    // 
+    // *   true: The field is a sensitive field.
+    // *   false: The field is not a sensitive field.
     std::shared_ptr<bool> sensitive_ = nullptr;
   };
 

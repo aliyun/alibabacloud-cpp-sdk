@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->downloadCompletionDegree_ != nullptr
-        && this->filterCompletionDegree_ != nullptr && this->jobStatus_ != nullptr && this->listCompletionDegree_ != nullptr && this->statusDesc_ != nullptr; };
+    virtual bool empty() const override { return this->downloadCompletionDegree_ == nullptr
+        && return this->filterCompletionDegree_ == nullptr && return this->jobStatus_ == nullptr && return this->listCompletionDegree_ == nullptr && return this->statusDesc_ == nullptr; };
     // downloadCompletionDegree Field Functions 
     bool hasDownloadCompletionDegree() const { return this->downloadCompletionDegree_ != nullptr;};
     void deleteDownloadCompletionDegree() { this->downloadCompletionDegree_ = nullptr;};

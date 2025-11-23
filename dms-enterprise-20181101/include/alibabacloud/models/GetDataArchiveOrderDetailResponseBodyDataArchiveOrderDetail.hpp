@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->committer_ != nullptr && this->committerId_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
-        && this->pluginExtraData_ != nullptr && this->pluginParam_ != nullptr && this->pluginType_ != nullptr && this->relatedUserList_ != nullptr && this->relatedUserNickList_ != nullptr
-        && this->statusCode_ != nullptr && this->statusDesc_ != nullptr && this->workflowInstanceId_ != nullptr && this->workflowStatusDesc_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->committer_ == nullptr && return this->committerId_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr
+        && return this->pluginExtraData_ == nullptr && return this->pluginParam_ == nullptr && return this->pluginType_ == nullptr && return this->relatedUserList_ == nullptr && return this->relatedUserNickList_ == nullptr
+        && return this->statusCode_ == nullptr && return this->statusDesc_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowStatusDesc_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};

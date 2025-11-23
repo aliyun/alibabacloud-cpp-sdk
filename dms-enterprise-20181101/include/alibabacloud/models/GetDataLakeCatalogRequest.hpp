@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->catalogName_ != nullptr
-        && this->dataRegion_ != nullptr && this->tid_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->catalogName_ == nullptr
+        && return this->dataRegion_ == nullptr && return this->tid_ == nullptr && return this->workspaceId_ == nullptr; };
     // catalogName Field Functions 
     bool hasCatalogName() const { return this->catalogName_ != nullptr;};
     void deleteCatalogName() { this->catalogName_ = nullptr;};
@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     std::shared_ptr<string> catalogName_ = nullptr;
+    // The region where the data lake resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dataRegion_ = nullptr;
+    // The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
     std::shared_ptr<int64_t> tid_ = nullptr;
+    // The workspace ID.
     std::shared_ptr<int64_t> workspaceId_ = nullptr;
   };
 

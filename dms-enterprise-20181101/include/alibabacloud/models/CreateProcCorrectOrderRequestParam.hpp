@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->classify_ != nullptr
-        && this->dbItemList_ != nullptr && this->execMode_ != nullptr && this->execSQL_ != nullptr && this->rollbackAttachmentName_ != nullptr && this->rollbackSQL_ != nullptr
-        && this->rollbackSqlType_ != nullptr; };
+    virtual bool empty() const override { return this->classify_ == nullptr
+        && return this->dbItemList_ == nullptr && return this->execMode_ == nullptr && return this->execSQL_ == nullptr && return this->rollbackAttachmentName_ == nullptr && return this->rollbackSQL_ == nullptr
+        && return this->rollbackSqlType_ == nullptr; };
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};
@@ -98,14 +98,34 @@ namespace Models
 
 
   protected:
+    // The reason for the programmable object change.
     std::shared_ptr<string> classify_ = nullptr;
+    // The information about the database.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<Models::CreateProcCorrectOrderRequestParamDbItemList>> dbItemList_ = nullptr;
+    // The mode in which the data change ticket is executed after the ticket is approved. Valid values:
+    // 
+    // *   **COMMITOR**: The ticket is executed by the user who submits the ticket.
+    // *   **AUTO**: The ticket is automatically executed after the ticket is approved.
+    // *   **LAST_AUDITOR**: The ticket is executed by the last approver of the ticket.
     std::shared_ptr<string> execMode_ = nullptr;
+    // The SQL statements for data change.
+    // 
     // This parameter is required.
     std::shared_ptr<string> execSQL_ = nullptr;
+    // The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of AttachmentKey.
+    // 
+    // >  This parameter is required if you set **RollbackSqlType** to **ATTACHMENT**.
     std::shared_ptr<string> rollbackAttachmentName_ = nullptr;
+    // The SQL statements for rolling back the data change.
+    // 
+    // >  This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
     std::shared_ptr<string> rollbackSQL_ = nullptr;
+    // The format of the SQL statements used to roll back the data change. Valid values:
+    // 
+    // *   **TEXT**
+    // *   **ATTACHMENT**
     std::shared_ptr<string> rollbackSqlType_ = nullptr;
   };
 

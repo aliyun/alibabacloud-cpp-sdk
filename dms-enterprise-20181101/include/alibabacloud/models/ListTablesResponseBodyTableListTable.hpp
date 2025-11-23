@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->databaseId_ != nullptr
-        && this->description_ != nullptr && this->encoding_ != nullptr && this->engine_ != nullptr && this->numRows_ != nullptr && this->ownerIdList_ != nullptr
-        && this->ownerNameList_ != nullptr && this->storeCapacity_ != nullptr && this->tableGuid_ != nullptr && this->tableId_ != nullptr && this->tableName_ != nullptr
-        && this->tableSchemaName_ != nullptr && this->tableType_ != nullptr; };
+    virtual bool empty() const override { return this->databaseId_ == nullptr
+        && return this->description_ == nullptr && return this->encoding_ == nullptr && return this->engine_ == nullptr && return this->numRows_ == nullptr && return this->ownerIdList_ == nullptr
+        && return this->ownerNameList_ == nullptr && return this->storeCapacity_ == nullptr && return this->tableGuid_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr
+        && return this->tableSchemaName_ == nullptr && return this->tableType_ == nullptr; };
     // databaseId Field Functions 
     bool hasDatabaseId() const { return this->databaseId_ != nullptr;};
     void deleteDatabaseId() { this->databaseId_ = nullptr;};

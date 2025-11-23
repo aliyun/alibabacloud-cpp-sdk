@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->funcParams_ != nullptr
-        && this->funcSample_ != nullptr && this->functionType_ != nullptr && this->lastModifierId_ != nullptr && this->lastModifierName_ != nullptr && this->referenceCount_ != nullptr
-        && this->ruleDesc_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->ruleType_ != nullptr; };
+    virtual bool empty() const override { return this->funcParams_ == nullptr
+        && return this->funcSample_ == nullptr && return this->functionType_ == nullptr && return this->lastModifierId_ == nullptr && return this->lastModifierName_ == nullptr && return this->referenceCount_ == nullptr
+        && return this->ruleDesc_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->ruleType_ == nullptr; };
     // funcParams Field Functions 
     bool hasFuncParams() const { return this->funcParams_ != nullptr;};
     void deleteFuncParams() { this->funcParams_ = nullptr;};

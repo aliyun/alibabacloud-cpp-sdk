@@ -91,13 +91,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->alterTimeout_ != nullptr && this->assetControl_ != nullptr && this->catalogName_ != nullptr && this->clusterNode_ != nullptr && this->dbId_ != nullptr
-        && this->dbType_ != nullptr && this->dbaId_ != nullptr && this->dbaName_ != nullptr && this->description_ != nullptr && this->encoding_ != nullptr
-        && this->envType_ != nullptr && this->follow_ != nullptr && this->host_ != nullptr && this->idc_ != nullptr && this->idcTitle_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceSource_ != nullptr && this->lastSyncTime_ != nullptr && this->level_ != nullptr && this->logic_ != nullptr
-        && this->ownerIds_ != nullptr && this->ownerNames_ != nullptr && this->port_ != nullptr && this->schemaName_ != nullptr && this->searchName_ != nullptr
-        && this->standardGroup_ != nullptr && this->state_ != nullptr && this->tableCount_ != nullptr && this->tnsName_ != nullptr && this->unitType_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->alterTimeout_ == nullptr && return this->assetControl_ == nullptr && return this->catalogName_ == nullptr && return this->clusterNode_ == nullptr && return this->dbId_ == nullptr
+        && return this->dbType_ == nullptr && return this->dbaId_ == nullptr && return this->dbaName_ == nullptr && return this->description_ == nullptr && return this->encoding_ == nullptr
+        && return this->envType_ == nullptr && return this->follow_ == nullptr && return this->host_ == nullptr && return this->idc_ == nullptr && return this->idcTitle_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceSource_ == nullptr && return this->lastSyncTime_ == nullptr && return this->level_ == nullptr && return this->logic_ == nullptr
+        && return this->ownerIds_ == nullptr && return this->ownerNames_ == nullptr && return this->port_ == nullptr && return this->schemaName_ == nullptr && return this->searchName_ == nullptr
+        && return this->standardGroup_ == nullptr && return this->state_ == nullptr && return this->tableCount_ == nullptr && return this->tnsName_ == nullptr && return this->unitType_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};

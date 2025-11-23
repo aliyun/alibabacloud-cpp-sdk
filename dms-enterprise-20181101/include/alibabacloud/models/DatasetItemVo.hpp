@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asyncTaskList_ != nullptr
-        && this->datasetStatus_ != nullptr && this->datasetType_ != nullptr && this->digest_ != nullptr && this->fileSystem_ != nullptr && this->id_ != nullptr
-        && this->keyName_ != nullptr && this->moreInfo_ != nullptr && this->path_ != nullptr && this->projectsLinked_ != nullptr && this->recentTaskStatus_ != nullptr
-        && this->remark_ != nullptr && this->schema_ != nullptr && this->tableName_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->asyncTaskList_ == nullptr
+        && return this->datasetStatus_ == nullptr && return this->datasetType_ == nullptr && return this->digest_ == nullptr && return this->fileSystem_ == nullptr && return this->id_ == nullptr
+        && return this->keyName_ == nullptr && return this->moreInfo_ == nullptr && return this->path_ == nullptr && return this->projectsLinked_ == nullptr && return this->recentTaskStatus_ == nullptr
+        && return this->remark_ == nullptr && return this->schema_ == nullptr && return this->tableName_ == nullptr && return this->url_ == nullptr; };
     // asyncTaskList Field Functions 
     bool hasAsyncTaskList() const { return this->asyncTaskList_ != nullptr;};
     void deleteAsyncTaskList() { this->asyncTaskList_ = nullptr;};

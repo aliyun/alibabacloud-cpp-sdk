@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->creatorId_ != nullptr && this->description_ != nullptr && this->name_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->creatorId_ == nullptr && return this->description_ == nullptr && return this->name_ == nullptr && return this->templateId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The time when the permission template was created. The time is in the yyyy-MM-DD HH:mm:ss format.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The ID of the user who created the permission template.
     std::shared_ptr<int64_t> creatorId_ = nullptr;
+    // The description of the permission template.
     std::shared_ptr<string> description_ = nullptr;
+    // The name of the permission template.
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the permission template.
     std::shared_ptr<int64_t> templateId_ = nullptr;
   };
 

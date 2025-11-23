@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categoryName_ != nullptr
-        && this->columnName_ != nullptr && this->defaultDesensitizationRule_ != nullptr && this->instanceId_ != nullptr && this->isPlain_ != nullptr && this->sampleData_ != nullptr
-        && this->schemaName_ != nullptr && this->securityLevel_ != nullptr && this->semiDesensitizationRuleList_ != nullptr && this->tableName_ != nullptr && this->userSensitivityLevel_ != nullptr; };
+    virtual bool empty() const override { return this->categoryName_ == nullptr
+        && return this->columnName_ == nullptr && return this->defaultDesensitizationRule_ == nullptr && return this->instanceId_ == nullptr && return this->isPlain_ == nullptr && return this->sampleData_ == nullptr
+        && return this->schemaName_ == nullptr && return this->securityLevel_ == nullptr && return this->semiDesensitizationRuleList_ == nullptr && return this->tableName_ == nullptr && return this->userSensitivityLevel_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
@@ -136,16 +136,31 @@ namespace Models
 
 
   protected:
+    // The name of the category.
     std::shared_ptr<string> categoryName_ = nullptr;
+    // The name of the sensitive field.
     std::shared_ptr<string> columnName_ = nullptr;
+    // The information about the default masking algorithm.
     std::shared_ptr<Models::ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnDefaultDesensitizationRule> defaultDesensitizationRule_ = nullptr;
+    // The ID of the instance.
     std::shared_ptr<int32_t> instanceId_ = nullptr;
+    // Indicates whether the sensitive field is displayed in plaintext.
     std::shared_ptr<bool> isPlain_ = nullptr;
+    // The sample data.
     std::shared_ptr<string> sampleData_ = nullptr;
+    // The name of the database.
     std::shared_ptr<string> schemaName_ = nullptr;
+    // The sensitivity level of the field. Valid values:
+    // 
+    // *   Low
+    // *   Medium
+    // *   High
     std::shared_ptr<string> securityLevel_ = nullptr;
+    // The list of partial masking algorithms.
     std::shared_ptr<Models::ListSensitiveColumnInfoResponseBodySensitiveColumnListSensitiveColumnSemiDesensitizationRuleList> semiDesensitizationRuleList_ = nullptr;
+    // The name of the table.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The user-defined sensitivity level.
     std::shared_ptr<string> userSensitivityLevel_ = nullptr;
   };
 

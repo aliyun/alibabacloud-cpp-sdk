@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alias_ != nullptr
-        && this->catalogName_ != nullptr && this->databaseId_ != nullptr && this->datalinkName_ != nullptr && this->dbType_ != nullptr && this->dbaId_ != nullptr
-        && this->encoding_ != nullptr && this->envType_ != nullptr && this->host_ != nullptr && this->logic_ != nullptr && this->ownerIdList_ != nullptr
-        && this->ownerNameList_ != nullptr && this->port_ != nullptr && this->schemaName_ != nullptr && this->searchName_ != nullptr && this->sid_ != nullptr; };
+    virtual bool empty() const override { return this->alias_ == nullptr
+        && return this->catalogName_ == nullptr && return this->databaseId_ == nullptr && return this->datalinkName_ == nullptr && return this->dbType_ == nullptr && return this->dbaId_ == nullptr
+        && return this->encoding_ == nullptr && return this->envType_ == nullptr && return this->host_ == nullptr && return this->logic_ == nullptr && return this->ownerIdList_ == nullptr
+        && return this->ownerNameList_ == nullptr && return this->port_ == nullptr && return this->schemaName_ == nullptr && return this->searchName_ == nullptr && return this->sid_ == nullptr; };
     // alias Field Functions 
     bool hasAlias() const { return this->alias_ != nullptr;};
     void deleteAlias() { this->alias_ = nullptr;};

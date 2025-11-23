@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataAfter_ != nullptr
-        && this->dataBefore_ != nullptr && this->eventId_ != nullptr && this->eventLength_ != nullptr && this->eventTimestamp_ != nullptr && this->eventType_ != nullptr
-        && this->rollSQL_ != nullptr; };
+    virtual bool empty() const override { return this->dataAfter_ == nullptr
+        && return this->dataBefore_ == nullptr && return this->eventId_ == nullptr && return this->eventLength_ == nullptr && return this->eventTimestamp_ == nullptr && return this->eventType_ == nullptr
+        && return this->rollSQL_ == nullptr; };
     // dataAfter Field Functions 
     bool hasDataAfter() const { return this->dataAfter_ != nullptr;};
     void deleteDataAfter() { this->dataAfter_ = nullptr;};

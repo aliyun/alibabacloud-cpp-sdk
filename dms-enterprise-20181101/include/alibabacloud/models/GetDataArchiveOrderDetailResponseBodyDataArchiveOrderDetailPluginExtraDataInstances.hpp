@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessTime_ != nullptr
-        && this->dagId_ != nullptr && this->endTime_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->historyDagId_ != nullptr
-        && this->id_ != nullptr && this->lastRunningContext_ != nullptr && this->msg_ != nullptr && this->status_ != nullptr && this->tenantId_ != nullptr
-        && this->triggerType_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->businessTime_ == nullptr
+        && return this->dagId_ == nullptr && return this->endTime_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->historyDagId_ == nullptr
+        && return this->id_ == nullptr && return this->lastRunningContext_ == nullptr && return this->msg_ == nullptr && return this->status_ == nullptr && return this->tenantId_ == nullptr
+        && return this->triggerType_ == nullptr && return this->version_ == nullptr; };
     // businessTime Field Functions 
     bool hasBusinessTime() const { return this->businessTime_ != nullptr;};
     void deleteBusinessTime() { this->businessTime_ = nullptr;};

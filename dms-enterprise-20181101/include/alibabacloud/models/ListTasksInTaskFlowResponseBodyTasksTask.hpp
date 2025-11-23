@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->graphParam_ != nullptr
-        && this->nodeConfig_ != nullptr && this->nodeContent_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr && this->nodeOutput_ != nullptr
-        && this->nodeType_ != nullptr && this->timeVariables_ != nullptr; };
+    virtual bool empty() const override { return this->graphParam_ == nullptr
+        && return this->nodeConfig_ == nullptr && return this->nodeContent_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr && return this->nodeOutput_ == nullptr
+        && return this->nodeType_ == nullptr && return this->timeVariables_ == nullptr; };
     // graphParam Field Functions 
     bool hasGraphParam() const { return this->graphParam_ != nullptr;};
     void deleteGraphParam() { this->graphParam_ = nullptr;};

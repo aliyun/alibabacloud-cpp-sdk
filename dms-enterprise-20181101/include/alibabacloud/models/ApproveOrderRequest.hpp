@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvalNodeId_ != nullptr
-        && this->approvalNodePos_ != nullptr && this->approvalType_ != nullptr && this->comment_ != nullptr && this->newApprover_ != nullptr && this->newApproverList_ != nullptr
-        && this->oldApprover_ != nullptr && this->realLoginUserUid_ != nullptr && this->tid_ != nullptr && this->workflowInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->approvalNodeId_ == nullptr
+        && return this->approvalNodePos_ == nullptr && return this->approvalType_ == nullptr && return this->comment_ == nullptr && return this->newApprover_ == nullptr && return this->newApproverList_ == nullptr
+        && return this->oldApprover_ == nullptr && return this->realLoginUserUid_ == nullptr && return this->tid_ == nullptr && return this->workflowInstanceId_ == nullptr; };
     // approvalNodeId Field Functions 
     bool hasApprovalNodeId() const { return this->approvalNodeId_ != nullptr;};
     void deleteApprovalNodeId() { this->approvalNodeId_ = nullptr;};

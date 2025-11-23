@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appUuid_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceName_ != nullptr && this->replicas_ != nullptr && this->resourceQuota_ != nullptr && this->securityGroupId_ != nullptr
-        && this->status_ != nullptr && this->vSwitchId_ != nullptr && this->vpcId_ != nullptr && this->workspaceId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->appUuid_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->replicas_ == nullptr && return this->resourceQuota_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->status_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceId_ == nullptr && return this->zoneId_ == nullptr; };
     // appUuid Field Functions 
     bool hasAppUuid() const { return this->appUuid_ != nullptr;};
     void deleteAppUuid() { this->appUuid_ = nullptr;};
