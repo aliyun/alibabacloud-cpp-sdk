@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(snippet, snippet_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
       DARABONBA_PTR_TO_JSON(title, title_);
+      DARABONBA_PTR_TO_JSON(websiteAuthorityScore, websiteAuthorityScore_);
     };
     friend void from_json(const Darabonba::Json& j, ScorePageItem& obj) { 
       DARABONBA_PTR_FROM_JSON(cardType, cardType_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(snippet, snippet_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
       DARABONBA_PTR_FROM_JSON(title, title_);
+      DARABONBA_PTR_FROM_JSON(websiteAuthorityScore, websiteAuthorityScore_);
     };
     ScorePageItem() = default ;
     ScorePageItem(const ScorePageItem &) = default ;
@@ -74,7 +76,7 @@ namespace Models
         && return this->displayLink_ == nullptr && return this->hostAuthorityScore_ == nullptr && return this->hostLogo_ == nullptr && return this->hostname_ == nullptr && return this->htmlSnippet_ == nullptr
         && return this->htmlTitle_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr && return this->mainText_ == nullptr && return this->markdownText_ == nullptr
         && return this->mime_ == nullptr && return this->pageMap_ == nullptr && return this->publishTime_ == nullptr && return this->richMainBody_ == nullptr && return this->score_ == nullptr
-        && return this->siteLabel_ == nullptr && return this->snippet_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr; };
+        && return this->siteLabel_ == nullptr && return this->snippet_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr && return this->websiteAuthorityScore_ == nullptr; };
     // cardType Field Functions 
     bool hasCardType() const { return this->cardType_ != nullptr;};
     void deleteCardType() { this->cardType_ = nullptr;};
@@ -219,6 +221,13 @@ namespace Models
     inline ScorePageItem& setTitle(string title) { DARABONBA_PTR_SET_VALUE(title_, title) };
 
 
+    // websiteAuthorityScore Field Functions 
+    bool hasWebsiteAuthorityScore() const { return this->websiteAuthorityScore_ != nullptr;};
+    void deleteWebsiteAuthorityScore() { this->websiteAuthorityScore_ = nullptr;};
+    inline int32_t websiteAuthorityScore() const { DARABONBA_PTR_GET_DEFAULT(websiteAuthorityScore_, 0) };
+    inline ScorePageItem& setWebsiteAuthorityScore(int32_t websiteAuthorityScore) { DARABONBA_PTR_SET_VALUE(websiteAuthorityScore_, websiteAuthorityScore) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<string> cardType_ = nullptr;
@@ -247,6 +256,7 @@ namespace Models
     std::shared_ptr<string> summary_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> title_ = nullptr;
+    std::shared_ptr<int32_t> websiteAuthorityScore_ = nullptr;
   };
 
   } // namespace Models
