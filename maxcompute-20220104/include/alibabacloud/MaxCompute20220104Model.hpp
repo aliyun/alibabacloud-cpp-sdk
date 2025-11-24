@@ -244,6 +244,8 @@
 #include <alibabacloud/models/UpdateProjectIpWhiteListRequest.hpp>
 #include <alibabacloud/models/UpdateProjectIpWhiteListResponseBody.hpp>
 #include <alibabacloud/models/UpdateProjectIpWhiteListResponse.hpp>
+#include <alibabacloud/models/UpdateProjectModelTierResponseBody.hpp>
+#include <alibabacloud/models/UpdateProjectModelTierResponse.hpp>
 #include <alibabacloud/models/UpdateQuotaPlanRequest.hpp>
 #include <alibabacloud/models/UpdateQuotaPlanResponseBody.hpp>
 #include <alibabacloud/models/UpdateQuotaPlanResponse.hpp>

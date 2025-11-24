@@ -4880,6 +4880,42 @@ UpdateProjectIpWhiteListResponse Client::updateProjectIpWhiteList(const string &
 }
 
 /**
+ * @summary 将project的二层模型升级为三层模型
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProjectModelTierResponse
+ */
+UpdateProjectModelTierResponse Client::updateProjectModelTierWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateProjectModelTier"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/modelTier")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProjectModelTierResponse>();
+}
+
+/**
+ * @summary 将project的二层模型升级为三层模型
+ *
+ * @return UpdateProjectModelTierResponse
+ */
+UpdateProjectModelTierResponse Client::updateProjectModelTier(const string &projectName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateProjectModelTierWithOptions(projectName, headers, runtime);
+}
+
+/**
  * @summary Updates a quota plan.
  *
  * @param request UpdateQuotaPlanRequest

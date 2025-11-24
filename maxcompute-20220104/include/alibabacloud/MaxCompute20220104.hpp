@@ -1535,6 +1535,22 @@ namespace MaxCompute20220104
       Models::UpdateProjectIpWhiteListResponse updateProjectIpWhiteList(const string &projectName, const Models::UpdateProjectIpWhiteListRequest &request);
 
       /**
+       * @summary 将project的二层模型升级为三层模型
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProjectModelTierResponse
+       */
+      Models::UpdateProjectModelTierResponse updateProjectModelTierWithOptions(const string &projectName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将project的二层模型升级为三层模型
+       *
+       * @return UpdateProjectModelTierResponse
+       */
+      Models::UpdateProjectModelTierResponse updateProjectModelTier(const string &projectName);
+
+      /**
        * @summary Updates a quota plan.
        *
        * @param request UpdateQuotaPlanRequest
