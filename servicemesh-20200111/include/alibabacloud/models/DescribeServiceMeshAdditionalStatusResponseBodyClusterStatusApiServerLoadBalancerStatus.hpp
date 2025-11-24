@@ -1,0 +1,112 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBESERVICEMESHADDITIONALSTATUSRESPONSEBODYCLUSTERSTATUSAPISERVERLOADBALANCERSTATUS_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBESERVICEMESHADDITIONALSTATUSRESPONSEBODYCLUSTERSTATUSAPISERVERLOADBALANCERSTATUS_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Servicemesh20200111
+{
+namespace Models
+{
+  class DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& obj) { 
+      DARABONBA_PTR_TO_JSON(Locked, locked_);
+      DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(Reused, reused_);
+      DARABONBA_PTR_TO_JSON(SLBBackEndServerNumStatus, SLBBackEndServerNumStatus_);
+      DARABONBA_PTR_TO_JSON(SLBExistStatus, SLBExistStatus_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& obj) { 
+      DARABONBA_PTR_FROM_JSON(Locked, locked_);
+      DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(Reused, reused_);
+      DARABONBA_PTR_FROM_JSON(SLBBackEndServerNumStatus, SLBBackEndServerNumStatus_);
+      DARABONBA_PTR_FROM_JSON(SLBExistStatus, SLBExistStatus_);
+    };
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus() = default ;
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus(const DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus &) = default ;
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus(DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus &&) = default ;
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus() = default ;
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& operator=(const DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus &) = default ;
+    DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& operator=(DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->locked_ == nullptr
+        && return this->payType_ == nullptr && return this->reused_ == nullptr && return this->SLBBackEndServerNumStatus_ == nullptr && return this->SLBExistStatus_ == nullptr; };
+    // locked Field Functions 
+    bool hasLocked() const { return this->locked_ != nullptr;};
+    void deleteLocked() { this->locked_ = nullptr;};
+    inline bool locked() const { DARABONBA_PTR_GET_DEFAULT(locked_, false) };
+    inline DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& setLocked(bool locked) { DARABONBA_PTR_SET_VALUE(locked_, locked) };
+
+
+    // payType Field Functions 
+    bool hasPayType() const { return this->payType_ != nullptr;};
+    void deletePayType() { this->payType_ = nullptr;};
+    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // reused Field Functions 
+    bool hasReused() const { return this->reused_ != nullptr;};
+    void deleteReused() { this->reused_ = nullptr;};
+    inline bool reused() const { DARABONBA_PTR_GET_DEFAULT(reused_, false) };
+    inline DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& setReused(bool reused) { DARABONBA_PTR_SET_VALUE(reused_, reused) };
+
+
+    // SLBBackEndServerNumStatus Field Functions 
+    bool hasSLBBackEndServerNumStatus() const { return this->SLBBackEndServerNumStatus_ != nullptr;};
+    void deleteSLBBackEndServerNumStatus() { this->SLBBackEndServerNumStatus_ = nullptr;};
+    inline string SLBBackEndServerNumStatus() const { DARABONBA_PTR_GET_DEFAULT(SLBBackEndServerNumStatus_, "") };
+    inline DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& setSLBBackEndServerNumStatus(string SLBBackEndServerNumStatus) { DARABONBA_PTR_SET_VALUE(SLBBackEndServerNumStatus_, SLBBackEndServerNumStatus) };
+
+
+    // SLBExistStatus Field Functions 
+    bool hasSLBExistStatus() const { return this->SLBExistStatus_ != nullptr;};
+    void deleteSLBExistStatus() { this->SLBExistStatus_ = nullptr;};
+    inline string SLBExistStatus() const { DARABONBA_PTR_GET_DEFAULT(SLBExistStatus_, "") };
+    inline DescribeServiceMeshAdditionalStatusResponseBodyClusterStatusApiServerLoadBalancerStatus& setSLBExistStatus(string SLBExistStatus) { DARABONBA_PTR_SET_VALUE(SLBExistStatus_, SLBExistStatus) };
+
+
+  protected:
+    // Indicates whether the CLB instance is locked. Valid values:
+    // 
+    // *   `true`
+    // *   `false`
+    std::shared_ptr<bool> locked_ = nullptr;
+    // The billing method of the CLB instance. Valid values:
+    // 
+    // *   `PrePay`: subscription
+    // *   `PayOnDemand`: pay-as-you-go
+    std::shared_ptr<string> payType_ = nullptr;
+    // Indicates whether the CLB instance is reused. Valid values:
+    // 
+    // *   `true`
+    // *   `false`
+    std::shared_ptr<bool> reused_ = nullptr;
+    // The check results of the number of backend servers of the CLB instance created for exposing Istio Pilot. Valid values:
+    // 
+    // *   `too_much`: An excessive number of backend servers are created.
+    // *   `num_exact`: A proper number of backend servers are created.
+    // *   `too_little`: The number of backend servers falls short.
+    std::shared_ptr<string> SLBBackEndServerNumStatus_ = nullptr;
+    // The check results of the CLB instance. Valid values:
+    // 
+    // *   `exist`: The CLB instance exists.
+    // *   `not_exist`: The CLB instance does not exist.
+    // *   `conflict`: Conflicts are detected.
+    // *   `failed`: The check fails.
+    // *   `time_out`: The check times out.
+    std::shared_ptr<string> SLBExistStatus_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Servicemesh20200111
+#endif
