@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_STOPSANDBOXRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_STOPSANDBOXRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETESANDBOXRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_DELETESANDBOXRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/StopSandboxResult.hpp>
+#include <alibabacloud/models/DeleteSandboxResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace AgentRun20250910
 {
 namespace Models
 {
-  class StopSandboxResponse : public Darabonba::Model {
+  class DeleteSandboxResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const StopSandboxResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteSandboxResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, StopSandboxResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteSandboxResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    StopSandboxResponse() = default ;
-    StopSandboxResponse(const StopSandboxResponse &) = default ;
-    StopSandboxResponse(StopSandboxResponse &&) = default ;
-    StopSandboxResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~StopSandboxResponse() = default ;
-    StopSandboxResponse& operator=(const StopSandboxResponse &) = default ;
-    StopSandboxResponse& operator=(StopSandboxResponse &&) = default ;
+    DeleteSandboxResponse() = default ;
+    DeleteSandboxResponse(const DeleteSandboxResponse &) = default ;
+    DeleteSandboxResponse(DeleteSandboxResponse &&) = default ;
+    DeleteSandboxResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteSandboxResponse() = default ;
+    DeleteSandboxResponse& operator=(const DeleteSandboxResponse &) = default ;
+    DeleteSandboxResponse& operator=(DeleteSandboxResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline StopSandboxResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline StopSandboxResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline DeleteSandboxResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline DeleteSandboxResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline StopSandboxResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline DeleteSandboxResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const StopSandboxResult & body() const { DARABONBA_PTR_GET_CONST(body_, StopSandboxResult) };
-    inline StopSandboxResult body() { DARABONBA_PTR_GET(body_, StopSandboxResult) };
-    inline StopSandboxResponse& setBody(const StopSandboxResult & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline StopSandboxResponse& setBody(StopSandboxResult && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const DeleteSandboxResult & body() const { DARABONBA_PTR_GET_CONST(body_, DeleteSandboxResult) };
+    inline DeleteSandboxResult body() { DARABONBA_PTR_GET(body_, DeleteSandboxResult) };
+    inline DeleteSandboxResponse& setBody(const DeleteSandboxResult & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline DeleteSandboxResponse& setBody(DeleteSandboxResult && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     std::shared_ptr<map<string, string>> headers_ = nullptr;
     std::shared_ptr<int32_t> statusCode_ = nullptr;
-    std::shared_ptr<StopSandboxResult> body_ = nullptr;
+    std::shared_ptr<DeleteSandboxResult> body_ = nullptr;
   };
 
   } // namespace Models

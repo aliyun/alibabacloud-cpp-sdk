@@ -161,6 +161,7 @@
 #include <alibabacloud/models/StartCodeInterpreterSessionInput.hpp>
 #include <alibabacloud/models/StartCodeInterpreterSessionResult.hpp>
 #include <alibabacloud/models/StopCodeInterpreterSessionResult.hpp>
+#include <alibabacloud/models/StopSandboxResult.hpp>
 #include <alibabacloud/models/Target.hpp>
 #include <alibabacloud/models/TemplateResult.hpp>
 #include <alibabacloud/models/TriggerConfig.hpp>
@@ -213,6 +214,7 @@
 #include <alibabacloud/models/DeleteMemoryResponse.hpp>
 #include <alibabacloud/models/DeleteModelProxyResponse.hpp>
 #include <alibabacloud/models/DeleteModelServiceResponse.hpp>
+#include <alibabacloud/models/DeleteSandboxResponse.hpp>
 #include <alibabacloud/models/DeleteTemplateResponse.hpp>
 #include <alibabacloud/models/GetAccessTokenRequest.hpp>
 #include <alibabacloud/models/GetAccessTokenResponseBody.hpp>

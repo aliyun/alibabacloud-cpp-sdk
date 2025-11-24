@@ -401,6 +401,22 @@ namespace AgentRun20250910
       Models::DeleteModelServiceResponse deleteModelService(const string &modelServiceName);
 
       /**
+       * @summary 删除Sandbox
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSandboxResponse
+       */
+      Models::DeleteSandboxResponse deleteSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Sandbox
+       *
+       * @return DeleteSandboxResponse
+       */
+      Models::DeleteSandboxResponse deleteSandbox(const string &sandboxId);
+
+      /**
        * @summary 删除模板
        *
        * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
@@ -981,7 +997,7 @@ namespace AgentRun20250910
       Models::RetrieveMemoryResponse retrieveMemory(const string &memoryName, const Models::RetrieveMemoryRequest &request);
 
       /**
-       * @summary 停止沙箱
+       * @summary 删除沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *
@@ -992,7 +1008,7 @@ namespace AgentRun20250910
       Models::StopSandboxResponse stopSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止沙箱
+       * @summary 删除沙箱
        *
        * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
        *

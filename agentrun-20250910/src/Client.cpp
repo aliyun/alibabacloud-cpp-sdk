@@ -872,6 +872,42 @@ DeleteModelServiceResponse Client::deleteModelService(const string &modelService
 }
 
 /**
+ * @summary 删除Sandbox
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSandboxResponse
+ */
+DeleteSandboxResponse Client::deleteSandboxWithOptions(const string &sandboxId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSandbox"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSandboxResponse>();
+}
+
+/**
+ * @summary 删除Sandbox
+ *
+ * @return DeleteSandboxResponse
+ */
+DeleteSandboxResponse Client::deleteSandbox(const string &sandboxId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSandboxWithOptions(sandboxId, headers, runtime);
+}
+
+/**
  * @summary 删除模板
  *
  * @description 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
@@ -2253,6 +2289,14 @@ ListTemplatesResponse Client::listTemplatesWithOptions(const ListTemplatesReques
     query["pageSize"] = request.pageSize();
   }
 
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["templateName"] = request.templateName();
+  }
+
   if (!!request.hasTemplateType()) {
     query["templateType"] = request.templateType();
   }
@@ -2395,7 +2439,7 @@ RetrieveMemoryResponse Client::retrieveMemory(const string &memoryName, const Re
 }
 
 /**
- * @summary 停止沙箱
+ * @summary 删除沙箱
  *
  * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
  *
@@ -2411,8 +2455,8 @@ StopSandboxResponse Client::stopSandboxWithOptions(const string &sandboxId, cons
     {"action" , "StopSandbox"},
     {"version" , "2025-09-10"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId))},
-    {"method" , "DELETE"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId) , "/stop")},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
@@ -2422,7 +2466,7 @@ StopSandboxResponse Client::stopSandboxWithOptions(const string &sandboxId, cons
 }
 
 /**
- * @summary 停止沙箱
+ * @summary 删除沙箱
  *
  * @description 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
  *
