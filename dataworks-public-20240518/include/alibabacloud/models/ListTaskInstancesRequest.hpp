@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListTaskInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Bizdate, bizdate_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Ids, ids_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
@@ -31,12 +32,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
       DARABONBA_PTR_TO_JSON(TriggerRecurrence, triggerRecurrence_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_TO_JSON(WorkflowInstanceId, workflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WorkflowInstanceType, workflowInstanceType_);
     };
     friend void from_json(const Darabonba::Json& j, ListTaskInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Bizdate, bizdate_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Ids, ids_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
@@ -53,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
       DARABONBA_PTR_FROM_JSON(TriggerRecurrence, triggerRecurrence_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_FROM_JSON(WorkflowInstanceId, workflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WorkflowInstanceType, workflowInstanceType_);
@@ -69,15 +73,23 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizdate_ == nullptr
-        && return this->id_ == nullptr && return this->ids_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectEnv_ == nullptr && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->sortBy_ == nullptr && return this->status_ == nullptr
-        && return this->taskId_ == nullptr && return this->taskIds_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->triggerRecurrence_ == nullptr
-        && return this->triggerType_ == nullptr && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowInstanceType_ == nullptr; };
+        && return this->filter_ == nullptr && return this->id_ == nullptr && return this->ids_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->projectEnv_ == nullptr && return this->projectId_ == nullptr && return this->runtimeResource_ == nullptr && return this->sortBy_ == nullptr
+        && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskIds_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr
+        && return this->triggerRecurrence_ == nullptr && return this->triggerType_ == nullptr && return this->unifiedWorkflowInstanceId_ == nullptr && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr
+        && return this->workflowInstanceType_ == nullptr; };
     // bizdate Field Functions 
     bool hasBizdate() const { return this->bizdate_ != nullptr;};
     void deleteBizdate() { this->bizdate_ = nullptr;};
     inline int64_t bizdate() const { DARABONBA_PTR_GET_DEFAULT(bizdate_, 0L) };
     inline ListTaskInstancesRequest& setBizdate(int64_t bizdate) { DARABONBA_PTR_SET_VALUE(bizdate_, bizdate) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline ListTaskInstancesRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // id Field Functions 
@@ -196,6 +208,13 @@ namespace Models
     inline ListTaskInstancesRequest& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
+    // unifiedWorkflowInstanceId Field Functions 
+    bool hasUnifiedWorkflowInstanceId() const { return this->unifiedWorkflowInstanceId_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceId() { this->unifiedWorkflowInstanceId_ = nullptr;};
+    inline int64_t unifiedWorkflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(unifiedWorkflowInstanceId_, 0L) };
+    inline ListTaskInstancesRequest& setUnifiedWorkflowInstanceId(int64_t unifiedWorkflowInstanceId) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceId_, unifiedWorkflowInstanceId) };
+
+
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
@@ -222,6 +241,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> bizdate_ = nullptr;
+    std::shared_ptr<string> filter_ = nullptr;
     // The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
     std::shared_ptr<int64_t> id_ = nullptr;
     // The IDs of the instances. You can query multiple instances at a time by instance ID.
@@ -285,6 +305,7 @@ namespace Models
     // *   Scheduler: scheduling cycle-based trigger
     // *   Manual: manual trigger
     std::shared_ptr<string> triggerType_ = nullptr;
+    std::shared_ptr<int64_t> unifiedWorkflowInstanceId_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
     // The workflow instance ID.

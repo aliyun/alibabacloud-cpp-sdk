@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowsShrinkRequest& obj) { 
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
     };
     ListWorkflowsShrinkRequest() = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->envType_ == nullptr
         && return this->idsShrink_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->triggerType_ == nullptr; };
+        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->tagsShrink_ == nullptr && return this->triggerType_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
@@ -104,6 +106,13 @@ namespace Models
     inline ListWorkflowsShrinkRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
+    // tagsShrink Field Functions 
+    bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
+    void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
+    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline ListWorkflowsShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
+
+
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
@@ -139,6 +148,7 @@ namespace Models
     // 
     // Default value: Id Desc.
     std::shared_ptr<string> sortBy_ = nullptr;
+    std::shared_ptr<string> tagsShrink_ = nullptr;
     // The trigger type.
     // 
     // *   Scheduler

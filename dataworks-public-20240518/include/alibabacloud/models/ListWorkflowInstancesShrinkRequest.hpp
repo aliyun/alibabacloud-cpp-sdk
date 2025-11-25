@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListWorkflowInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Ids, idsShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
@@ -21,11 +22,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
       DARABONBA_PTR_TO_JSON(Type, type_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Ids, idsShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
@@ -33,7 +37,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
     };
     ListWorkflowInstancesShrinkRequest() = default ;
@@ -48,13 +54,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizDate_ == nullptr
-        && return this->idsShrink_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr; };
+        && return this->filter_ == nullptr && return this->idsShrink_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->tagsShrink_ == nullptr && return this->type_ == nullptr
+        && return this->unifiedWorkflowInstanceId_ == nullptr && return this->workflowId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
     inline int64_t bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
     inline ListWorkflowInstancesShrinkRequest& setBizDate(int64_t bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline ListWorkflowInstancesShrinkRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // idsShrink Field Functions 
@@ -106,11 +120,25 @@ namespace Models
     inline ListWorkflowInstancesShrinkRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
+    // tagsShrink Field Functions 
+    bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
+    void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
+    inline string tagsShrink() const { DARABONBA_PTR_GET_DEFAULT(tagsShrink_, "") };
+    inline ListWorkflowInstancesShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
     inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListWorkflowInstancesShrinkRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    // unifiedWorkflowInstanceId Field Functions 
+    bool hasUnifiedWorkflowInstanceId() const { return this->unifiedWorkflowInstanceId_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceId() { this->unifiedWorkflowInstanceId_ = nullptr;};
+    inline int64_t unifiedWorkflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(unifiedWorkflowInstanceId_, 0L) };
+    inline ListWorkflowInstancesShrinkRequest& setUnifiedWorkflowInstanceId(int64_t unifiedWorkflowInstanceId) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceId_, unifiedWorkflowInstanceId) };
 
 
     // workflowId Field Functions 
@@ -125,6 +153,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> bizDate_ = nullptr;
+    std::shared_ptr<string> filter_ = nullptr;
     // The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
     std::shared_ptr<string> idsShrink_ = nullptr;
     // The instance name. Fuzzy match is supported.
@@ -149,6 +178,7 @@ namespace Models
     // 
     // Default value: Id Desc.
     std::shared_ptr<string> sortBy_ = nullptr;
+    std::shared_ptr<string> tagsShrink_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
     // *   Normal: Scheduled execution
@@ -158,6 +188,7 @@ namespace Models
     // *   ManualWorkflow: Manually triggered workflow
     // *   TriggerWorkflow: Triggered Workflow
     std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<int64_t> unifiedWorkflowInstanceId_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
   };

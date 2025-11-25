@@ -45,6 +45,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TriggerRecurrence, triggerRecurrence_);
       DARABONBA_PTR_TO_JSON(TriggerTime, triggerTime_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WaitingResourceTime, waitingResourceTime_);
       DARABONBA_PTR_TO_JSON(WaitingTriggerTime, waitingTriggerTime_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
@@ -82,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TriggerRecurrence, triggerRecurrence_);
       DARABONBA_PTR_FROM_JSON(TriggerTime, triggerTime_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WaitingResourceTime, waitingResourceTime_);
       DARABONBA_PTR_FROM_JSON(WaitingTriggerTime, waitingTriggerTime_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
@@ -106,8 +108,8 @@ namespace Models
         && return this->periodNumber_ == nullptr && return this->priority_ == nullptr && return this->projectEnv_ == nullptr && return this->projectId_ == nullptr && return this->rerunMode_ == nullptr
         && return this->runNumber_ == nullptr && return this->runtime_ == nullptr && return this->runtimeResource_ == nullptr && return this->scriptParameters_ == nullptr && return this->startedTime_ == nullptr
         && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr && return this->taskType_ == nullptr && return this->timeout_ == nullptr
-        && return this->triggerRecurrence_ == nullptr && return this->triggerTime_ == nullptr && return this->triggerType_ == nullptr && return this->waitingResourceTime_ == nullptr && return this->waitingTriggerTime_ == nullptr
-        && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowInstanceType_ == nullptr && return this->workflowName_ == nullptr; };
+        && return this->triggerRecurrence_ == nullptr && return this->triggerTime_ == nullptr && return this->triggerType_ == nullptr && return this->unifiedWorkflowInstanceId_ == nullptr && return this->waitingResourceTime_ == nullptr
+        && return this->waitingTriggerTime_ == nullptr && return this->workflowId_ == nullptr && return this->workflowInstanceId_ == nullptr && return this->workflowInstanceType_ == nullptr && return this->workflowName_ == nullptr; };
     // baselineId Field Functions 
     bool hasBaselineId() const { return this->baselineId_ != nullptr;};
     void deleteBaselineId() { this->baselineId_ = nullptr;};
@@ -317,6 +319,13 @@ namespace Models
     inline ListTaskInstancesResponseBodyPagingInfoTaskInstances& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
 
 
+    // unifiedWorkflowInstanceId Field Functions 
+    bool hasUnifiedWorkflowInstanceId() const { return this->unifiedWorkflowInstanceId_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceId() { this->unifiedWorkflowInstanceId_ = nullptr;};
+    inline int64_t unifiedWorkflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(unifiedWorkflowInstanceId_, 0L) };
+    inline ListTaskInstancesResponseBodyPagingInfoTaskInstances& setUnifiedWorkflowInstanceId(int64_t unifiedWorkflowInstanceId) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceId_, unifiedWorkflowInstanceId) };
+
+
     // waitingResourceTime Field Functions 
     bool hasWaitingResourceTime() const { return this->waitingResourceTime_ != nullptr;};
     void deleteWaitingResourceTime() { this->waitingResourceTime_ = nullptr;};
@@ -453,6 +462,7 @@ namespace Models
     // *   Scheduler: scheduling cycle-based trigger
     // *   Manual: manual trigger
     std::shared_ptr<string> triggerType_ = nullptr;
+    std::shared_ptr<int64_t> unifiedWorkflowInstanceId_ = nullptr;
     // The timestamp for when it started waiting for resources.
     std::shared_ptr<int64_t> waitingResourceTime_ = nullptr;
     // The timestamp for when it started waiting for the scheduled time.

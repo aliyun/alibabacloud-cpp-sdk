@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_TO_JSON(WorkflowParameters, workflowParameters_);
       DARABONBA_PTR_TO_JSON(WorkflowTaskInstanceId, workflowTaskInstanceId_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_FROM_JSON(WorkflowParameters, workflowParameters_);
       DARABONBA_PTR_FROM_JSON(WorkflowTaskInstanceId, workflowTaskInstanceId_);
@@ -68,8 +70,8 @@ namespace Models
     virtual bool empty() const override { return this->bizDate_ == nullptr
         && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->envType_ == nullptr && return this->finishedTime_ == nullptr && return this->id_ == nullptr
         && return this->modifyTime_ == nullptr && return this->modifyUser_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->projectId_ == nullptr
-        && return this->startedTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr
-        && return this->workflowParameters_ == nullptr && return this->workflowTaskInstanceId_ == nullptr; };
+        && return this->startedTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->unifiedWorkflowInstanceId_ == nullptr
+        && return this->workflowId_ == nullptr && return this->workflowParameters_ == nullptr && return this->workflowTaskInstanceId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
@@ -177,6 +179,13 @@ namespace Models
     inline ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // unifiedWorkflowInstanceId Field Functions 
+    bool hasUnifiedWorkflowInstanceId() const { return this->unifiedWorkflowInstanceId_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceId() { this->unifiedWorkflowInstanceId_ = nullptr;};
+    inline int64_t unifiedWorkflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(unifiedWorkflowInstanceId_, 0L) };
+    inline ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances& setUnifiedWorkflowInstanceId(int64_t unifiedWorkflowInstanceId) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceId_, unifiedWorkflowInstanceId) };
+
+
     // workflowId Field Functions 
     bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
     void deleteWorkflowId() { this->workflowId_ = nullptr;};
@@ -246,6 +255,7 @@ namespace Models
     // *   ManualWorkflow: Manually triggered workflow
     // *   TriggerWorkflow: Triggered Workflow
     std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<int64_t> unifiedWorkflowInstanceId_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
     // The workflow parameters.

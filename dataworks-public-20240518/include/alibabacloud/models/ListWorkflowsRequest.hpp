@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowsRequest& obj) { 
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
     };
     ListWorkflowsRequest() = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->envType_ == nullptr
         && return this->ids_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->triggerType_ == nullptr; };
+        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->tags_ == nullptr && return this->triggerType_ == nullptr; };
     // envType Field Functions 
     bool hasEnvType() const { return this->envType_ != nullptr;};
     void deleteEnvType() { this->envType_ = nullptr;};
@@ -107,6 +109,15 @@ namespace Models
     inline ListWorkflowsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<string> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+    inline vector<string> tags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+    inline ListWorkflowsRequest& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline ListWorkflowsRequest& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // triggerType Field Functions 
     bool hasTriggerType() const { return this->triggerType_ != nullptr;};
     void deleteTriggerType() { this->triggerType_ = nullptr;};
@@ -142,6 +153,7 @@ namespace Models
     // 
     // Default value: Id Desc.
     std::shared_ptr<string> sortBy_ = nullptr;
+    std::shared_ptr<vector<string>> tags_ = nullptr;
     // The trigger type.
     // 
     // *   Scheduler

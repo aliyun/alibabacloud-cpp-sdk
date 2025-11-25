@@ -10151,6 +10151,10 @@ ListTaskInstancesResponse Client::listTaskInstancesWithOptions(const ListTaskIns
     body["Bizdate"] = request.bizdate();
   }
 
+  if (!!request.hasFilter()) {
+    body["Filter"] = request.filter();
+  }
+
   if (!!request.hasId()) {
     body["Id"] = request.id();
   }
@@ -10213,6 +10217,10 @@ ListTaskInstancesResponse Client::listTaskInstancesWithOptions(const ListTaskIns
 
   if (!!request.hasTriggerType()) {
     body["TriggerType"] = request.triggerType();
+  }
+
+  if (!!request.hasUnifiedWorkflowInstanceId()) {
+    body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId();
   }
 
   if (!!request.hasWorkflowId()) {
@@ -10532,9 +10540,17 @@ ListWorkflowInstancesResponse Client::listWorkflowInstancesWithOptions(const Lis
     request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
   }
 
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+  }
+
   json body = {};
   if (!!request.hasBizDate()) {
     body["BizDate"] = request.bizDate();
+  }
+
+  if (!!request.hasFilter()) {
+    body["Filter"] = request.filter();
   }
 
   if (!!request.hasIdsShrink()) {
@@ -10565,8 +10581,16 @@ ListWorkflowInstancesResponse Client::listWorkflowInstancesWithOptions(const Lis
     body["SortBy"] = request.sortBy();
   }
 
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.tagsShrink();
+  }
+
   if (!!request.hasType()) {
     body["Type"] = request.type();
+  }
+
+  if (!!request.hasUnifiedWorkflowInstanceId()) {
+    body["UnifiedWorkflowInstanceId"] = request.unifiedWorkflowInstanceId();
   }
 
   if (!!request.hasWorkflowId()) {
@@ -10620,6 +10644,10 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
     request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ids(), "Ids", "json"));
   }
 
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+  }
+
   json body = {};
   if (!!request.hasEnvType()) {
     body["EnvType"] = request.envType();
@@ -10651,6 +10679,10 @@ ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsReques
 
   if (!!request.hasSortBy()) {
     body["SortBy"] = request.sortBy();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.tagsShrink();
   }
 
   if (!!request.hasTriggerType()) {

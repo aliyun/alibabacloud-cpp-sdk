@@ -50,6 +50,7 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<int64_t> id_ = nullptr;
+    // This parameter is required.
     std::shared_ptr<int64_t> projectId_ = nullptr;
   };
 

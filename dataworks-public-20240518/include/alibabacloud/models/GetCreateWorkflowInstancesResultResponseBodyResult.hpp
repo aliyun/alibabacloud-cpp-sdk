@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetCreateWorkflowInstancesResultResponseBodyResult& obj) { 
       DARABONBA_PTR_TO_JSON(FailureMessage, failureMessage_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceIds, unifiedWorkflowInstanceIds_);
       DARABONBA_PTR_TO_JSON(WorkflowInstanceIds, workflowInstanceIds_);
       DARABONBA_PTR_TO_JSON(WorkflowTaskInstanceIds, workflowTaskInstanceIds_);
     };
     friend void from_json(const Darabonba::Json& j, GetCreateWorkflowInstancesResultResponseBodyResult& obj) { 
       DARABONBA_PTR_FROM_JSON(FailureMessage, failureMessage_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceIds, unifiedWorkflowInstanceIds_);
       DARABONBA_PTR_FROM_JSON(WorkflowInstanceIds, workflowInstanceIds_);
       DARABONBA_PTR_FROM_JSON(WorkflowTaskInstanceIds, workflowTaskInstanceIds_);
     };
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->failureMessage_ == nullptr
-        && return this->status_ == nullptr && return this->workflowInstanceIds_ == nullptr && return this->workflowTaskInstanceIds_ == nullptr; };
+        && return this->status_ == nullptr && return this->unifiedWorkflowInstanceIds_ == nullptr && return this->workflowInstanceIds_ == nullptr && return this->workflowTaskInstanceIds_ == nullptr; };
     // failureMessage Field Functions 
     bool hasFailureMessage() const { return this->failureMessage_ != nullptr;};
     void deleteFailureMessage() { this->failureMessage_ = nullptr;};
@@ -50,6 +52,15 @@ namespace Models
     void deleteStatus() { this->status_ = nullptr;};
     inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetCreateWorkflowInstancesResultResponseBodyResult& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // unifiedWorkflowInstanceIds Field Functions 
+    bool hasUnifiedWorkflowInstanceIds() const { return this->unifiedWorkflowInstanceIds_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceIds() { this->unifiedWorkflowInstanceIds_ = nullptr;};
+    inline const vector<int64_t> & unifiedWorkflowInstanceIds() const { DARABONBA_PTR_GET_CONST(unifiedWorkflowInstanceIds_, vector<int64_t>) };
+    inline vector<int64_t> unifiedWorkflowInstanceIds() { DARABONBA_PTR_GET(unifiedWorkflowInstanceIds_, vector<int64_t>) };
+    inline GetCreateWorkflowInstancesResultResponseBodyResult& setUnifiedWorkflowInstanceIds(const vector<int64_t> & unifiedWorkflowInstanceIds) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceIds_, unifiedWorkflowInstanceIds) };
+    inline GetCreateWorkflowInstancesResultResponseBodyResult& setUnifiedWorkflowInstanceIds(vector<int64_t> && unifiedWorkflowInstanceIds) { DARABONBA_PTR_SET_RVALUE(unifiedWorkflowInstanceIds_, unifiedWorkflowInstanceIds) };
 
 
     // workflowInstanceIds Field Functions 
@@ -79,6 +90,7 @@ namespace Models
     // *   Created
     // *   CreateFailure
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<vector<int64_t>> unifiedWorkflowInstanceIds_ = nullptr;
     // The workflow instance IDs. This parameter is returned only if the creation is successful.
     std::shared_ptr<vector<int64_t>> workflowInstanceIds_ = nullptr;
     std::shared_ptr<vector<int64_t>> workflowTaskInstanceIds_ = nullptr;

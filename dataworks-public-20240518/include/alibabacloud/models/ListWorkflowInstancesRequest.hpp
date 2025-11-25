@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListWorkflowInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Ids, ids_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
@@ -22,11 +23,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Type, type_);
+      DARABONBA_PTR_TO_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Ids, ids_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
@@ -34,7 +38,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
+      DARABONBA_PTR_FROM_JSON(UnifiedWorkflowInstanceId, unifiedWorkflowInstanceId_);
       DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
     };
     ListWorkflowInstancesRequest() = default ;
@@ -49,13 +55,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizDate_ == nullptr
-        && return this->ids_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->type_ == nullptr && return this->workflowId_ == nullptr; };
+        && return this->filter_ == nullptr && return this->ids_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->projectId_ == nullptr && return this->sortBy_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr
+        && return this->unifiedWorkflowInstanceId_ == nullptr && return this->workflowId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
     inline int64_t bizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
     inline ListWorkflowInstancesRequest& setBizDate(int64_t bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
+
+
+    // filter Field Functions 
+    bool hasFilter() const { return this->filter_ != nullptr;};
+    void deleteFilter() { this->filter_ = nullptr;};
+    inline string filter() const { DARABONBA_PTR_GET_DEFAULT(filter_, "") };
+    inline ListWorkflowInstancesRequest& setFilter(string filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
 
 
     // ids Field Functions 
@@ -109,11 +123,27 @@ namespace Models
     inline ListWorkflowInstancesRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<string> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<string>) };
+    inline vector<string> tags() { DARABONBA_PTR_GET(tags_, vector<string>) };
+    inline ListWorkflowInstancesRequest& setTags(const vector<string> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline ListWorkflowInstancesRequest& setTags(vector<string> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
     inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline ListWorkflowInstancesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    // unifiedWorkflowInstanceId Field Functions 
+    bool hasUnifiedWorkflowInstanceId() const { return this->unifiedWorkflowInstanceId_ != nullptr;};
+    void deleteUnifiedWorkflowInstanceId() { this->unifiedWorkflowInstanceId_ = nullptr;};
+    inline int64_t unifiedWorkflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(unifiedWorkflowInstanceId_, 0L) };
+    inline ListWorkflowInstancesRequest& setUnifiedWorkflowInstanceId(int64_t unifiedWorkflowInstanceId) { DARABONBA_PTR_SET_VALUE(unifiedWorkflowInstanceId_, unifiedWorkflowInstanceId) };
 
 
     // workflowId Field Functions 
@@ -128,6 +158,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> bizDate_ = nullptr;
+    std::shared_ptr<string> filter_ = nullptr;
     // The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
     std::shared_ptr<vector<int64_t>> ids_ = nullptr;
     // The instance name. Fuzzy match is supported.
@@ -152,6 +183,7 @@ namespace Models
     // 
     // Default value: Id Desc.
     std::shared_ptr<string> sortBy_ = nullptr;
+    std::shared_ptr<vector<string>> tags_ = nullptr;
     // The type of the workflow instance. Valid values:
     // 
     // *   Normal: Scheduled execution
@@ -161,6 +193,7 @@ namespace Models
     // *   ManualWorkflow: Manually triggered workflow
     // *   TriggerWorkflow: Triggered Workflow
     std::shared_ptr<string> type_ = nullptr;
+    std::shared_ptr<int64_t> unifiedWorkflowInstanceId_ = nullptr;
     // The ID of the workflow to which the instance belongs.
     std::shared_ptr<int64_t> workflowId_ = nullptr;
   };
