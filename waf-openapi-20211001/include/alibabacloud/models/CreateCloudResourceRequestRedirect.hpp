@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Keepalive, keepalive_);
       DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
+      DARABONBA_PTR_TO_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_TO_JSON(ReadTimeout, readTimeout_);
       DARABONBA_PTR_TO_JSON(RequestHeaders, requestHeaders_);
       DARABONBA_PTR_TO_JSON(WriteTimeout, writeTimeout_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Keepalive, keepalive_);
       DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
+      DARABONBA_PTR_FROM_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_FROM_JSON(ReadTimeout, readTimeout_);
       DARABONBA_PTR_FROM_JSON(RequestHeaders, requestHeaders_);
       DARABONBA_PTR_FROM_JSON(WriteTimeout, writeTimeout_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keepalive_ == nullptr
-        && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->writeTimeout_ == nullptr
-        && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
+        && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->maxBodySize_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr
+        && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
     // keepalive Field Functions 
     bool hasKeepalive() const { return this->keepalive_ != nullptr;};
     void deleteKeepalive() { this->keepalive_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteKeepaliveTimeout() { this->keepaliveTimeout_ = nullptr;};
     inline int32_t keepaliveTimeout() const { DARABONBA_PTR_GET_DEFAULT(keepaliveTimeout_, 0) };
     inline CreateCloudResourceRequestRedirect& setKeepaliveTimeout(int32_t keepaliveTimeout) { DARABONBA_PTR_SET_VALUE(keepaliveTimeout_, keepaliveTimeout) };
+
+
+    // maxBodySize Field Functions 
+    bool hasMaxBodySize() const { return this->maxBodySize_ != nullptr;};
+    void deleteMaxBodySize() { this->maxBodySize_ = nullptr;};
+    inline int32_t maxBodySize() const { DARABONBA_PTR_GET_DEFAULT(maxBodySize_, 0) };
+    inline CreateCloudResourceRequestRedirect& setMaxBodySize(int32_t maxBodySize) { DARABONBA_PTR_SET_VALUE(maxBodySize_, maxBodySize) };
 
 
     // readTimeout Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     // 
     // >  This parameter specifies the period of time after which an idle persistent connection is closed.
     std::shared_ptr<int32_t> keepaliveTimeout_ = nullptr;
+    std::shared_ptr<int32_t> maxBodySize_ = nullptr;
     // The timeout period of read connections. Unit: seconds. Valid values: 1 to 3600.
     std::shared_ptr<int32_t> readTimeout_ = nullptr;
     // The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of a custom header field. ***value*** specifies the value of a custom header field.

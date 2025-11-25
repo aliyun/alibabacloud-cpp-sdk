@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
       DARABONBA_PTR_TO_JSON(LogHeaders, logHeaders_);
+      DARABONBA_PTR_TO_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
       DARABONBA_PTR_FROM_JSON(LogHeaders, logHeaders_);
+      DARABONBA_PTR_FROM_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
@@ -77,10 +79,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificates_ == nullptr
         && return this->cipherSuite_ == nullptr && return this->cloudResourceId_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->http2Enabled_ == nullptr
-        && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->logHeaders_ == nullptr && return this->ownerUserId_ == nullptr
-        && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->readTimeout_ == nullptr && return this->status_ == nullptr && return this->subStatus_ == nullptr
-        && return this->subStatusDetails_ == nullptr && return this->TLSVersion_ == nullptr && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr && return this->xffHeaders_ == nullptr
-        && return this->xffProto_ == nullptr; };
+        && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->logHeaders_ == nullptr && return this->maxBodySize_ == nullptr
+        && return this->ownerUserId_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->readTimeout_ == nullptr && return this->status_ == nullptr
+        && return this->subStatus_ == nullptr && return this->subStatusDetails_ == nullptr && return this->TLSVersion_ == nullptr && return this->writeTimeout_ == nullptr && return this->xffHeaderMode_ == nullptr
+        && return this->xffHeaders_ == nullptr && return this->xffProto_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};
@@ -155,6 +157,13 @@ namespace Models
     inline vector<Models::DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders> logHeaders() { DARABONBA_PTR_GET(logHeaders_, vector<Models::DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders>) };
     inline DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& setLogHeaders(const vector<Models::DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders> & logHeaders) { DARABONBA_PTR_SET_VALUE(logHeaders_, logHeaders) };
     inline DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& setLogHeaders(vector<Models::DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders> && logHeaders) { DARABONBA_PTR_SET_RVALUE(logHeaders_, logHeaders) };
+
+
+    // maxBodySize Field Functions 
+    bool hasMaxBodySize() const { return this->maxBodySize_ != nullptr;};
+    void deleteMaxBodySize() { this->maxBodySize_ = nullptr;};
+    inline int32_t maxBodySize() const { DARABONBA_PTR_GET_DEFAULT(maxBodySize_, 0) };
+    inline DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails& setMaxBodySize(int32_t maxBodySize) { DARABONBA_PTR_SET_VALUE(maxBodySize_, maxBodySize) };
 
 
     // ownerUserId Field Functions 
@@ -284,6 +293,7 @@ namespace Models
     // 
     // >  This parameter is returned only when the traffic marking feature is enabled for the domain name.
     std::shared_ptr<vector<Models::DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders>> logHeaders_ = nullptr;
+    std::shared_ptr<int32_t> maxBodySize_ = nullptr;
     // The ID of the Alibaba Cloud account to which the resource belongs.
     std::shared_ptr<string> ownerUserId_ = nullptr;
     // The port of the cloud service that is added to WAF.

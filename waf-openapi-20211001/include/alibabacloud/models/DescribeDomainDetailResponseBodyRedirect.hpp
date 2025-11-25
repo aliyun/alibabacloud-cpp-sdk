@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
       DARABONBA_PTR_TO_JSON(Loadbalance, loadbalance_);
+      DARABONBA_PTR_TO_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_TO_JSON(ReadTimeout, readTimeout_);
       DARABONBA_PTR_TO_JSON(RequestHeaders, requestHeaders_);
       DARABONBA_PTR_TO_JSON(Retry, retry_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
       DARABONBA_PTR_FROM_JSON(Loadbalance, loadbalance_);
+      DARABONBA_PTR_FROM_JSON(MaxBodySize, maxBodySize_);
       DARABONBA_PTR_FROM_JSON(ReadTimeout, readTimeout_);
       DARABONBA_PTR_FROM_JSON(RequestHeaders, requestHeaders_);
       DARABONBA_PTR_FROM_JSON(Retry, retry_);
@@ -79,9 +81,9 @@ namespace Models
     virtual bool empty() const override { return this->backUpBackendList_ == nullptr
         && return this->backendList_ == nullptr && return this->backendPorts_ == nullptr && return this->backends_ == nullptr && return this->backupBackends_ == nullptr && return this->connectTimeout_ == nullptr
         && return this->focusHttpBackend_ == nullptr && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->loadbalance_ == nullptr
-        && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->retry_ == nullptr && return this->sniEnabled_ == nullptr && return this->sniHost_ == nullptr
-        && return this->WLProxyClientIp_ == nullptr && return this->webServerType_ == nullptr && return this->writeTimeout_ == nullptr && return this->XClientIp_ == nullptr && return this->XTrueIp_ == nullptr
-        && return this->xffProto_ == nullptr; };
+        && return this->maxBodySize_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->retry_ == nullptr && return this->sniEnabled_ == nullptr
+        && return this->sniHost_ == nullptr && return this->WLProxyClientIp_ == nullptr && return this->webServerType_ == nullptr && return this->writeTimeout_ == nullptr && return this->XClientIp_ == nullptr
+        && return this->XTrueIp_ == nullptr && return this->xffProto_ == nullptr; };
     // backUpBackendList Field Functions 
     bool hasBackUpBackendList() const { return this->backUpBackendList_ != nullptr;};
     void deleteBackUpBackendList() { this->backUpBackendList_ = nullptr;};
@@ -167,6 +169,13 @@ namespace Models
     void deleteLoadbalance() { this->loadbalance_ = nullptr;};
     inline string loadbalance() const { DARABONBA_PTR_GET_DEFAULT(loadbalance_, "") };
     inline DescribeDomainDetailResponseBodyRedirect& setLoadbalance(string loadbalance) { DARABONBA_PTR_SET_VALUE(loadbalance_, loadbalance) };
+
+
+    // maxBodySize Field Functions 
+    bool hasMaxBodySize() const { return this->maxBodySize_ != nullptr;};
+    void deleteMaxBodySize() { this->maxBodySize_ = nullptr;};
+    inline int32_t maxBodySize() const { DARABONBA_PTR_GET_DEFAULT(maxBodySize_, 0) };
+    inline DescribeDomainDetailResponseBodyRedirect& setMaxBodySize(int32_t maxBodySize) { DARABONBA_PTR_SET_VALUE(maxBodySize_, maxBodySize) };
 
 
     // readTimeout Field Functions 
@@ -282,6 +291,7 @@ namespace Models
     // *   **roundRobin:** the round-robin algorithm.
     // *   **leastTime:** the least response time algorithm.
     std::shared_ptr<string> loadbalance_ = nullptr;
+    std::shared_ptr<int32_t> maxBodySize_ = nullptr;
     // The read timeout period. Unit: seconds. Valid values: 5 to 1800.
     std::shared_ptr<int32_t> readTimeout_ = nullptr;
     // An array of key-value pairs that are used to mark the requests that pass through the WAF instance.
