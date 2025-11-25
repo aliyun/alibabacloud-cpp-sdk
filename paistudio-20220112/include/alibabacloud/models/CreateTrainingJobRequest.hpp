@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATETRAININGJOBREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AlgorithmSpec.hpp>
+#include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/Location.hpp>
 #include <alibabacloud/models/CreateTrainingJobRequestComputeResource.hpp>
 #include <map>
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlgorithmProvider, algorithmProvider_);
       DARABONBA_PTR_TO_JSON(AlgorithmSpec, algorithmSpec_);
       DARABONBA_PTR_TO_JSON(AlgorithmVersion, algorithmVersion_);
+      DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(CodeDir, codeDir_);
       DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
       DARABONBA_PTR_TO_JSON(Environments, environments_);
@@ -53,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AlgorithmProvider, algorithmProvider_);
       DARABONBA_PTR_FROM_JSON(AlgorithmSpec, algorithmSpec_);
       DARABONBA_PTR_FROM_JSON(AlgorithmVersion, algorithmVersion_);
+      DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(CodeDir, codeDir_);
       DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
       DARABONBA_PTR_FROM_JSON(Environments, environments_);
@@ -83,10 +86,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithmName_ == nullptr
-        && return this->algorithmProvider_ == nullptr && return this->algorithmSpec_ == nullptr && return this->algorithmVersion_ == nullptr && return this->codeDir_ == nullptr && return this->computeResource_ == nullptr
-        && return this->environments_ == nullptr && return this->experimentConfig_ == nullptr && return this->hyperParameters_ == nullptr && return this->inputChannels_ == nullptr && return this->labels_ == nullptr
-        && return this->outputChannels_ == nullptr && return this->priority_ == nullptr && return this->pythonRequirements_ == nullptr && return this->roleArn_ == nullptr && return this->scheduler_ == nullptr
-        && return this->settings_ == nullptr && return this->trainingJobDescription_ == nullptr && return this->trainingJobName_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->algorithmProvider_ == nullptr && return this->algorithmSpec_ == nullptr && return this->algorithmVersion_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->codeDir_ == nullptr
+        && return this->computeResource_ == nullptr && return this->environments_ == nullptr && return this->experimentConfig_ == nullptr && return this->hyperParameters_ == nullptr && return this->inputChannels_ == nullptr
+        && return this->labels_ == nullptr && return this->outputChannels_ == nullptr && return this->priority_ == nullptr && return this->pythonRequirements_ == nullptr && return this->roleArn_ == nullptr
+        && return this->scheduler_ == nullptr && return this->settings_ == nullptr && return this->trainingJobDescription_ == nullptr && return this->trainingJobName_ == nullptr && return this->userVpc_ == nullptr
+        && return this->workspaceId_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};
@@ -115,6 +119,15 @@ namespace Models
     void deleteAlgorithmVersion() { this->algorithmVersion_ = nullptr;};
     inline string algorithmVersion() const { DARABONBA_PTR_GET_DEFAULT(algorithmVersion_, "") };
     inline CreateTrainingJobRequest& setAlgorithmVersion(string algorithmVersion) { DARABONBA_PTR_SET_VALUE(algorithmVersion_, algorithmVersion) };
+
+
+    // assignNodeSpec Field Functions 
+    bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
+    void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
+    inline const AssignNodeSpec & assignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, AssignNodeSpec) };
+    inline AssignNodeSpec assignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, AssignNodeSpec) };
+    inline CreateTrainingJobRequest& setAssignNodeSpec(const AssignNodeSpec & assignNodeSpec) { DARABONBA_PTR_SET_VALUE(assignNodeSpec_, assignNodeSpec) };
+    inline CreateTrainingJobRequest& setAssignNodeSpec(AssignNodeSpec && assignNodeSpec) { DARABONBA_PTR_SET_RVALUE(assignNodeSpec_, assignNodeSpec) };
 
 
     // codeDir Field Functions 
@@ -265,6 +278,7 @@ namespace Models
     std::shared_ptr<string> algorithmProvider_ = nullptr;
     std::shared_ptr<AlgorithmSpec> algorithmSpec_ = nullptr;
     std::shared_ptr<string> algorithmVersion_ = nullptr;
+    std::shared_ptr<AssignNodeSpec> assignNodeSpec_ = nullptr;
     std::shared_ptr<Location> codeDir_ = nullptr;
     std::shared_ptr<CreateTrainingJobRequestComputeResource> computeResource_ = nullptr;
     std::shared_ptr<map<string, string>> environments_ = nullptr;

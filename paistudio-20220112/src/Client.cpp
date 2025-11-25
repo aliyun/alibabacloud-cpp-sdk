@@ -427,6 +427,10 @@ CreateTrainingJobResponse Client::createTrainingJobWithOptions(const CreateTrain
     body["AlgorithmVersion"] = request.algorithmVersion();
   }
 
+  if (!!request.hasAssignNodeSpec()) {
+    body["AssignNodeSpec"] = request.assignNodeSpec();
+  }
+
   if (!!request.hasCodeDir()) {
     body["CodeDir"] = request.codeDir();
   }

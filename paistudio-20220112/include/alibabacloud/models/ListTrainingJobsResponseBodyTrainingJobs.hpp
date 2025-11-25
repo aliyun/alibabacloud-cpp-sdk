@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTRAININGJOBSRESPONSEBODYTRAININGJOBS_HPP_
 #define ALIBABACLOUD_MODELS_LISTTRAININGJOBSRESPONSEBODYTRAININGJOBS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/ListTrainingJobsResponseBodyTrainingJobsComputeResource.hpp>
 #include <map>
 #include <alibabacloud/models/ListTrainingJobsResponseBodyTrainingJobsExperimentConfig.hpp>
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AlgorithmName, algorithmName_);
       DARABONBA_PTR_TO_JSON(AlgorithmProvider, algorithmProvider_);
       DARABONBA_PTR_TO_JSON(AlgorithmVersion, algorithmVersion_);
+      DARABONBA_PTR_TO_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_TO_JSON(ComputeResource, computeResource_);
       DARABONBA_PTR_TO_JSON(DlcJobId, dlcJobId_);
       DARABONBA_PTR_TO_JSON(Environments, environments_);
@@ -56,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AlgorithmName, algorithmName_);
       DARABONBA_PTR_FROM_JSON(AlgorithmProvider, algorithmProvider_);
       DARABONBA_PTR_FROM_JSON(AlgorithmVersion, algorithmVersion_);
+      DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
       DARABONBA_PTR_FROM_JSON(ComputeResource, computeResource_);
       DARABONBA_PTR_FROM_JSON(DlcJobId, dlcJobId_);
       DARABONBA_PTR_FROM_JSON(Environments, environments_);
@@ -93,12 +96,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->algorithmName_ == nullptr
-        && return this->algorithmProvider_ == nullptr && return this->algorithmVersion_ == nullptr && return this->computeResource_ == nullptr && return this->dlcJobId_ == nullptr && return this->environments_ == nullptr
-        && return this->experimentConfig_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperParameters_ == nullptr && return this->inputChannels_ == nullptr
-        && return this->isTempAlgo_ == nullptr && return this->labels_ == nullptr && return this->outputChannels_ == nullptr && return this->pythonRequirements_ == nullptr && return this->reasonCode_ == nullptr
-        && return this->reasonMessage_ == nullptr && return this->roleArn_ == nullptr && return this->scheduler_ == nullptr && return this->status_ == nullptr && return this->statusTransitions_ == nullptr
-        && return this->trainingJobDescription_ == nullptr && return this->trainingJobId_ == nullptr && return this->trainingJobName_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr
-        && return this->workspaceId_ == nullptr; };
+        && return this->algorithmProvider_ == nullptr && return this->algorithmVersion_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->computeResource_ == nullptr && return this->dlcJobId_ == nullptr
+        && return this->environments_ == nullptr && return this->experimentConfig_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->hyperParameters_ == nullptr
+        && return this->inputChannels_ == nullptr && return this->isTempAlgo_ == nullptr && return this->labels_ == nullptr && return this->outputChannels_ == nullptr && return this->pythonRequirements_ == nullptr
+        && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->roleArn_ == nullptr && return this->scheduler_ == nullptr && return this->status_ == nullptr
+        && return this->statusTransitions_ == nullptr && return this->trainingJobDescription_ == nullptr && return this->trainingJobId_ == nullptr && return this->trainingJobName_ == nullptr && return this->userId_ == nullptr
+        && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr; };
     // algorithmName Field Functions 
     bool hasAlgorithmName() const { return this->algorithmName_ != nullptr;};
     void deleteAlgorithmName() { this->algorithmName_ = nullptr;};
@@ -118,6 +121,15 @@ namespace Models
     void deleteAlgorithmVersion() { this->algorithmVersion_ = nullptr;};
     inline string algorithmVersion() const { DARABONBA_PTR_GET_DEFAULT(algorithmVersion_, "") };
     inline ListTrainingJobsResponseBodyTrainingJobs& setAlgorithmVersion(string algorithmVersion) { DARABONBA_PTR_SET_VALUE(algorithmVersion_, algorithmVersion) };
+
+
+    // assignNodeSpec Field Functions 
+    bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
+    void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
+    inline const Models::AssignNodeSpec & assignNodeSpec() const { DARABONBA_PTR_GET_CONST(assignNodeSpec_, Models::AssignNodeSpec) };
+    inline Models::AssignNodeSpec assignNodeSpec() { DARABONBA_PTR_GET(assignNodeSpec_, Models::AssignNodeSpec) };
+    inline ListTrainingJobsResponseBodyTrainingJobs& setAssignNodeSpec(const Models::AssignNodeSpec & assignNodeSpec) { DARABONBA_PTR_SET_VALUE(assignNodeSpec_, assignNodeSpec) };
+    inline ListTrainingJobsResponseBodyTrainingJobs& setAssignNodeSpec(Models::AssignNodeSpec && assignNodeSpec) { DARABONBA_PTR_SET_RVALUE(assignNodeSpec_, assignNodeSpec) };
 
 
     // computeResource Field Functions 
@@ -314,6 +326,7 @@ namespace Models
     std::shared_ptr<string> algorithmName_ = nullptr;
     std::shared_ptr<string> algorithmProvider_ = nullptr;
     std::shared_ptr<string> algorithmVersion_ = nullptr;
+    std::shared_ptr<Models::AssignNodeSpec> assignNodeSpec_ = nullptr;
     std::shared_ptr<Models::ListTrainingJobsResponseBodyTrainingJobsComputeResource> computeResource_ = nullptr;
     std::shared_ptr<string> dlcJobId_ = nullptr;
     std::shared_ptr<map<string, string>> environments_ = nullptr;
