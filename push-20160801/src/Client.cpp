@@ -868,6 +868,18 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
     query["AndroidOpenUrl"] = request.androidOpenUrl();
   }
 
+  if (!!request.hasAndroidOppoDeleteIntentData()) {
+    query["AndroidOppoDeleteIntentData"] = request.androidOppoDeleteIntentData();
+  }
+
+  if (!!request.hasAndroidOppoIntelligentIntent()) {
+    query["AndroidOppoIntelligentIntent"] = request.androidOppoIntelligentIntent();
+  }
+
+  if (!!request.hasAndroidOppoIntentEnv()) {
+    query["AndroidOppoIntentEnv"] = request.androidOppoIntentEnv();
+  }
+
   if (!!request.hasAndroidOppoPrivateContentParametersShrink()) {
     query["AndroidOppoPrivateContentParameters"] = request.androidOppoPrivateContentParametersShrink();
   }

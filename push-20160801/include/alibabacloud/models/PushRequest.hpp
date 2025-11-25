@@ -48,6 +48,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidNotifyType, androidNotifyType_);
       DARABONBA_PTR_TO_JSON(AndroidOpenType, androidOpenType_);
       DARABONBA_PTR_TO_JSON(AndroidOpenUrl, androidOpenUrl_);
+      DARABONBA_PTR_TO_JSON(AndroidOppoDeleteIntentData, androidOppoDeleteIntentData_);
+      DARABONBA_PTR_TO_JSON(AndroidOppoIntelligentIntent, androidOppoIntelligentIntent_);
+      DARABONBA_PTR_TO_JSON(AndroidOppoIntentEnv, androidOppoIntentEnv_);
       DARABONBA_PTR_TO_JSON(AndroidOppoPrivateContentParameters, androidOppoPrivateContentParameters_);
       DARABONBA_PTR_TO_JSON(AndroidOppoPrivateMsgTemplateId, androidOppoPrivateMsgTemplateId_);
       DARABONBA_PTR_TO_JSON(AndroidOppoPrivateTitleParameters, androidOppoPrivateTitleParameters_);
@@ -162,6 +165,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidNotifyType, androidNotifyType_);
       DARABONBA_PTR_FROM_JSON(AndroidOpenType, androidOpenType_);
       DARABONBA_PTR_FROM_JSON(AndroidOpenUrl, androidOpenUrl_);
+      DARABONBA_PTR_FROM_JSON(AndroidOppoDeleteIntentData, androidOppoDeleteIntentData_);
+      DARABONBA_PTR_FROM_JSON(AndroidOppoIntelligentIntent, androidOppoIntelligentIntent_);
+      DARABONBA_PTR_FROM_JSON(AndroidOppoIntentEnv, androidOppoIntentEnv_);
       DARABONBA_PTR_FROM_JSON(AndroidOppoPrivateContentParameters, androidOppoPrivateContentParameters_);
       DARABONBA_PTR_FROM_JSON(AndroidOppoPrivateMsgTemplateId, androidOppoPrivateMsgTemplateId_);
       DARABONBA_PTR_FROM_JSON(AndroidOppoPrivateTitleParameters, androidOppoPrivateTitleParameters_);
@@ -259,23 +265,23 @@ namespace Models
         && return this->androidMessageHuaweiUrgency_ == nullptr && return this->androidMessageOppoCategory_ == nullptr && return this->androidMessageOppoNotifyLevel_ == nullptr && return this->androidMessageVivoCategory_ == nullptr && return this->androidMusic_ == nullptr
         && return this->androidNotificationBarPriority_ == nullptr && return this->androidNotificationBarType_ == nullptr && return this->androidNotificationChannel_ == nullptr && return this->androidNotificationGroup_ == nullptr && return this->androidNotificationHonorChannel_ == nullptr
         && return this->androidNotificationHuaweiChannel_ == nullptr && return this->androidNotificationNotifyId_ == nullptr && return this->androidNotificationThreadId_ == nullptr && return this->androidNotificationVivoChannel_ == nullptr && return this->androidNotificationXiaomiChannel_ == nullptr
-        && return this->androidNotifyType_ == nullptr && return this->androidOpenType_ == nullptr && return this->androidOpenUrl_ == nullptr && return this->androidOppoPrivateContentParameters_ == nullptr && return this->androidOppoPrivateMsgTemplateId_ == nullptr
-        && return this->androidOppoPrivateTitleParameters_ == nullptr && return this->androidPopupActivity_ == nullptr && return this->androidPopupBody_ == nullptr && return this->androidPopupTitle_ == nullptr && return this->androidRemind_ == nullptr
-        && return this->androidRenderStyle_ == nullptr && return this->androidTargetUserType_ == nullptr && return this->androidVivoPushMode_ == nullptr && return this->androidVivoReceiptId_ == nullptr && return this->androidXiaoMiActivity_ == nullptr
-        && return this->androidXiaoMiNotifyBody_ == nullptr && return this->androidXiaoMiNotifyTitle_ == nullptr && return this->androidXiaomiBigPictureUrl_ == nullptr && return this->androidXiaomiImageUrl_ == nullptr && return this->appKey_ == nullptr
-        && return this->body_ == nullptr && return this->deviceType_ == nullptr && return this->expireTime_ == nullptr && return this->harmonyAction_ == nullptr && return this->harmonyActionType_ == nullptr
-        && return this->harmonyBadgeAddNum_ == nullptr && return this->harmonyBadgeSetNum_ == nullptr && return this->harmonyCategory_ == nullptr && return this->harmonyExtParameters_ == nullptr && return this->harmonyExtensionExtraData_ == nullptr
-        && return this->harmonyExtensionPush_ == nullptr && return this->harmonyImageUrl_ == nullptr && return this->harmonyInboxContent_ == nullptr && return this->harmonyLiveViewPayload_ == nullptr && return this->harmonyNotificationSlotType_ == nullptr
-        && return this->harmonyNotifyId_ == nullptr && return this->harmonyReceiptId_ == nullptr && return this->harmonyRemind_ == nullptr && return this->harmonyRemindBody_ == nullptr && return this->harmonyRemindTitle_ == nullptr
-        && return this->harmonyRenderStyle_ == nullptr && return this->harmonyTestMessage_ == nullptr && return this->harmonyUri_ == nullptr && return this->idempotentToken_ == nullptr && return this->jobKey_ == nullptr
-        && return this->pushTime_ == nullptr && return this->pushType_ == nullptr && return this->sendChannels_ == nullptr && return this->sendSpeed_ == nullptr && return this->smsDelaySecs_ == nullptr
-        && return this->smsParams_ == nullptr && return this->smsSendPolicy_ == nullptr && return this->smsSignName_ == nullptr && return this->smsTemplateName_ == nullptr && return this->storeOffline_ == nullptr
-        && return this->target_ == nullptr && return this->targetValue_ == nullptr && return this->title_ == nullptr && return this->trim_ == nullptr && return this->iOSApnsEnv_ == nullptr
-        && return this->iOSBadge_ == nullptr && return this->iOSBadgeAutoIncrement_ == nullptr && return this->iOSExtParameters_ == nullptr && return this->iOSInterruptionLevel_ == nullptr && return this->iOSLiveActivityAttributes_ == nullptr
-        && return this->iOSLiveActivityAttributesType_ == nullptr && return this->iOSLiveActivityContentState_ == nullptr && return this->iOSLiveActivityDismissalDate_ == nullptr && return this->iOSLiveActivityEvent_ == nullptr && return this->iOSLiveActivityId_ == nullptr
-        && return this->iOSLiveActivityStaleDate_ == nullptr && return this->iOSMusic_ == nullptr && return this->iOSMutableContent_ == nullptr && return this->iOSNotificationCategory_ == nullptr && return this->iOSNotificationCollapseId_ == nullptr
-        && return this->iOSNotificationThreadId_ == nullptr && return this->iOSRelevanceScore_ == nullptr && return this->iOSRemind_ == nullptr && return this->iOSRemindBody_ == nullptr && return this->iOSSilentNotification_ == nullptr
-        && return this->iOSSubtitle_ == nullptr; };
+        && return this->androidNotifyType_ == nullptr && return this->androidOpenType_ == nullptr && return this->androidOpenUrl_ == nullptr && return this->androidOppoDeleteIntentData_ == nullptr && return this->androidOppoIntelligentIntent_ == nullptr
+        && return this->androidOppoIntentEnv_ == nullptr && return this->androidOppoPrivateContentParameters_ == nullptr && return this->androidOppoPrivateMsgTemplateId_ == nullptr && return this->androidOppoPrivateTitleParameters_ == nullptr && return this->androidPopupActivity_ == nullptr
+        && return this->androidPopupBody_ == nullptr && return this->androidPopupTitle_ == nullptr && return this->androidRemind_ == nullptr && return this->androidRenderStyle_ == nullptr && return this->androidTargetUserType_ == nullptr
+        && return this->androidVivoPushMode_ == nullptr && return this->androidVivoReceiptId_ == nullptr && return this->androidXiaoMiActivity_ == nullptr && return this->androidXiaoMiNotifyBody_ == nullptr && return this->androidXiaoMiNotifyTitle_ == nullptr
+        && return this->androidXiaomiBigPictureUrl_ == nullptr && return this->androidXiaomiImageUrl_ == nullptr && return this->appKey_ == nullptr && return this->body_ == nullptr && return this->deviceType_ == nullptr
+        && return this->expireTime_ == nullptr && return this->harmonyAction_ == nullptr && return this->harmonyActionType_ == nullptr && return this->harmonyBadgeAddNum_ == nullptr && return this->harmonyBadgeSetNum_ == nullptr
+        && return this->harmonyCategory_ == nullptr && return this->harmonyExtParameters_ == nullptr && return this->harmonyExtensionExtraData_ == nullptr && return this->harmonyExtensionPush_ == nullptr && return this->harmonyImageUrl_ == nullptr
+        && return this->harmonyInboxContent_ == nullptr && return this->harmonyLiveViewPayload_ == nullptr && return this->harmonyNotificationSlotType_ == nullptr && return this->harmonyNotifyId_ == nullptr && return this->harmonyReceiptId_ == nullptr
+        && return this->harmonyRemind_ == nullptr && return this->harmonyRemindBody_ == nullptr && return this->harmonyRemindTitle_ == nullptr && return this->harmonyRenderStyle_ == nullptr && return this->harmonyTestMessage_ == nullptr
+        && return this->harmonyUri_ == nullptr && return this->idempotentToken_ == nullptr && return this->jobKey_ == nullptr && return this->pushTime_ == nullptr && return this->pushType_ == nullptr
+        && return this->sendChannels_ == nullptr && return this->sendSpeed_ == nullptr && return this->smsDelaySecs_ == nullptr && return this->smsParams_ == nullptr && return this->smsSendPolicy_ == nullptr
+        && return this->smsSignName_ == nullptr && return this->smsTemplateName_ == nullptr && return this->storeOffline_ == nullptr && return this->target_ == nullptr && return this->targetValue_ == nullptr
+        && return this->title_ == nullptr && return this->trim_ == nullptr && return this->iOSApnsEnv_ == nullptr && return this->iOSBadge_ == nullptr && return this->iOSBadgeAutoIncrement_ == nullptr
+        && return this->iOSExtParameters_ == nullptr && return this->iOSInterruptionLevel_ == nullptr && return this->iOSLiveActivityAttributes_ == nullptr && return this->iOSLiveActivityAttributesType_ == nullptr && return this->iOSLiveActivityContentState_ == nullptr
+        && return this->iOSLiveActivityDismissalDate_ == nullptr && return this->iOSLiveActivityEvent_ == nullptr && return this->iOSLiveActivityId_ == nullptr && return this->iOSLiveActivityStaleDate_ == nullptr && return this->iOSMusic_ == nullptr
+        && return this->iOSMutableContent_ == nullptr && return this->iOSNotificationCategory_ == nullptr && return this->iOSNotificationCollapseId_ == nullptr && return this->iOSNotificationThreadId_ == nullptr && return this->iOSRelevanceScore_ == nullptr
+        && return this->iOSRemind_ == nullptr && return this->iOSRemindBody_ == nullptr && return this->iOSSilentNotification_ == nullptr && return this->iOSSubtitle_ == nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};
@@ -512,6 +518,27 @@ namespace Models
     void deleteAndroidOpenUrl() { this->androidOpenUrl_ = nullptr;};
     inline string androidOpenUrl() const { DARABONBA_PTR_GET_DEFAULT(androidOpenUrl_, "") };
     inline PushRequest& setAndroidOpenUrl(string androidOpenUrl) { DARABONBA_PTR_SET_VALUE(androidOpenUrl_, androidOpenUrl) };
+
+
+    // androidOppoDeleteIntentData Field Functions 
+    bool hasAndroidOppoDeleteIntentData() const { return this->androidOppoDeleteIntentData_ != nullptr;};
+    void deleteAndroidOppoDeleteIntentData() { this->androidOppoDeleteIntentData_ = nullptr;};
+    inline string androidOppoDeleteIntentData() const { DARABONBA_PTR_GET_DEFAULT(androidOppoDeleteIntentData_, "") };
+    inline PushRequest& setAndroidOppoDeleteIntentData(string androidOppoDeleteIntentData) { DARABONBA_PTR_SET_VALUE(androidOppoDeleteIntentData_, androidOppoDeleteIntentData) };
+
+
+    // androidOppoIntelligentIntent Field Functions 
+    bool hasAndroidOppoIntelligentIntent() const { return this->androidOppoIntelligentIntent_ != nullptr;};
+    void deleteAndroidOppoIntelligentIntent() { this->androidOppoIntelligentIntent_ = nullptr;};
+    inline string androidOppoIntelligentIntent() const { DARABONBA_PTR_GET_DEFAULT(androidOppoIntelligentIntent_, "") };
+    inline PushRequest& setAndroidOppoIntelligentIntent(string androidOppoIntelligentIntent) { DARABONBA_PTR_SET_VALUE(androidOppoIntelligentIntent_, androidOppoIntelligentIntent) };
+
+
+    // androidOppoIntentEnv Field Functions 
+    bool hasAndroidOppoIntentEnv() const { return this->androidOppoIntentEnv_ != nullptr;};
+    void deleteAndroidOppoIntentEnv() { this->androidOppoIntentEnv_ = nullptr;};
+    inline int32_t androidOppoIntentEnv() const { DARABONBA_PTR_GET_DEFAULT(androidOppoIntentEnv_, 0) };
+    inline PushRequest& setAndroidOppoIntentEnv(int32_t androidOppoIntentEnv) { DARABONBA_PTR_SET_VALUE(androidOppoIntentEnv_, androidOppoIntentEnv) };
 
 
     // androidOppoPrivateContentParameters Field Functions 
@@ -1099,6 +1126,9 @@ namespace Models
     std::shared_ptr<string> androidNotifyType_ = nullptr;
     std::shared_ptr<string> androidOpenType_ = nullptr;
     std::shared_ptr<string> androidOpenUrl_ = nullptr;
+    std::shared_ptr<string> androidOppoDeleteIntentData_ = nullptr;
+    std::shared_ptr<string> androidOppoIntelligentIntent_ = nullptr;
+    std::shared_ptr<int32_t> androidOppoIntentEnv_ = nullptr;
     std::shared_ptr<map<string, string>> androidOppoPrivateContentParameters_ = nullptr;
     std::shared_ptr<string> androidOppoPrivateMsgTemplateId_ = nullptr;
     std::shared_ptr<map<string, string>> androidOppoPrivateTitleParameters_ = nullptr;
