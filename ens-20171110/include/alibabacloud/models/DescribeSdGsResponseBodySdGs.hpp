@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeSDGsResponseBodySDGs& obj) { 
       DARABONBA_PTR_TO_JSON(AvaliableRegionIds, avaliableRegionIds_);
       DARABONBA_PTR_TO_JSON(BillingCycle, billingCycle_);
+      DARABONBA_PTR_TO_JSON(BillingType, billingType_);
       DARABONBA_PTR_TO_JSON(CreationDiskType, creationDiskType_);
       DARABONBA_PTR_TO_JSON(CreationInstanceId, creationInstanceId_);
       DARABONBA_PTR_TO_JSON(CreationRegionId, creationRegionId_);
@@ -34,6 +35,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeSDGsResponseBodySDGs& obj) { 
       DARABONBA_PTR_FROM_JSON(AvaliableRegionIds, avaliableRegionIds_);
       DARABONBA_PTR_FROM_JSON(BillingCycle, billingCycle_);
+      DARABONBA_PTR_FROM_JSON(BillingType, billingType_);
       DARABONBA_PTR_FROM_JSON(CreationDiskType, creationDiskType_);
       DARABONBA_PTR_FROM_JSON(CreationInstanceId, creationInstanceId_);
       DARABONBA_PTR_FROM_JSON(CreationRegionId, creationRegionId_);
@@ -59,9 +61,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->avaliableRegionIds_ == nullptr
-        && return this->billingCycle_ == nullptr && return this->creationDiskType_ == nullptr && return this->creationInstanceId_ == nullptr && return this->creationRegionId_ == nullptr && return this->creationTime_ == nullptr
-        && return this->deployedInstanceIds_ == nullptr && return this->description_ == nullptr && return this->parentSDGId_ == nullptr && return this->performanceLevel_ == nullptr && return this->SDGId_ == nullptr
-        && return this->size_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->billingCycle_ == nullptr && return this->billingType_ == nullptr && return this->creationDiskType_ == nullptr && return this->creationInstanceId_ == nullptr && return this->creationRegionId_ == nullptr
+        && return this->creationTime_ == nullptr && return this->deployedInstanceIds_ == nullptr && return this->description_ == nullptr && return this->parentSDGId_ == nullptr && return this->performanceLevel_ == nullptr
+        && return this->SDGId_ == nullptr && return this->size_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // avaliableRegionIds Field Functions 
     bool hasAvaliableRegionIds() const { return this->avaliableRegionIds_ != nullptr;};
     void deleteAvaliableRegionIds() { this->avaliableRegionIds_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
     inline string billingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
     inline DescribeSDGsResponseBodySDGs& setBillingCycle(string billingCycle) { DARABONBA_PTR_SET_VALUE(billingCycle_, billingCycle) };
+
+
+    // billingType Field Functions 
+    bool hasBillingType() const { return this->billingType_ != nullptr;};
+    void deleteBillingType() { this->billingType_ = nullptr;};
+    inline string billingType() const { DARABONBA_PTR_GET_DEFAULT(billingType_, "") };
+    inline DescribeSDGsResponseBodySDGs& setBillingType(string billingType) { DARABONBA_PTR_SET_VALUE(billingType_, billingType) };
 
 
     // creationDiskType Field Functions 
@@ -168,6 +177,7 @@ namespace Models
     // The IDs of available edge nodes.
     std::shared_ptr<vector<Models::DescribeSDGsResponseBodySDGsAvaliableRegionIds>> avaliableRegionIds_ = nullptr;
     std::shared_ptr<string> billingCycle_ = nullptr;
+    std::shared_ptr<string> billingType_ = nullptr;
     std::shared_ptr<string> creationDiskType_ = nullptr;
     // The ID of the instance on which the SDG is created.
     std::shared_ptr<string> creationInstanceId_ = nullptr;

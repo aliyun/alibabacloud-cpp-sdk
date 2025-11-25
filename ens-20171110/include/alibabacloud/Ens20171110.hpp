@@ -1008,6 +1008,23 @@ namespace Ens20171110
       Models::CreateSecurityGroupResponse createSecurityGroup(const Models::CreateSecurityGroupRequest &request);
 
       /**
+       * @summary 调用CreateSecurityGroupPermissions创建安全组规则。
+       *
+       * @param tmpReq CreateSecurityGroupPermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityGroupPermissionsResponse
+       */
+      Models::CreateSecurityGroupPermissionsResponse createSecurityGroupPermissionsWithOptions(const Models::CreateSecurityGroupPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用CreateSecurityGroupPermissions创建安全组规则。
+       *
+       * @param request CreateSecurityGroupPermissionsRequest
+       * @return CreateSecurityGroupPermissionsResponse
+       */
+      Models::CreateSecurityGroupPermissionsResponse createSecurityGroupPermissions(const Models::CreateSecurityGroupPermissionsRequest &request);
+
+      /**
        * @summary Creates a snapshot.
        *
        * @param request CreateSnapshotRequest
@@ -1554,6 +1571,23 @@ namespace Ens20171110
        * @return DeleteSecurityGroupResponse
        */
       Models::DeleteSecurityGroupResponse deleteSecurityGroup(const Models::DeleteSecurityGroupRequest &request);
+
+      /**
+       * @summary 调用DeleteSecurityGroupPermissions删除安全组规则。
+       *
+       * @param tmpReq DeleteSecurityGroupPermissionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityGroupPermissionsResponse
+       */
+      Models::DeleteSecurityGroupPermissionsResponse deleteSecurityGroupPermissionsWithOptions(const Models::DeleteSecurityGroupPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用DeleteSecurityGroupPermissions删除安全组规则。
+       *
+       * @param request DeleteSecurityGroupPermissionsRequest
+       * @return DeleteSecurityGroupPermissionsResponse
+       */
+      Models::DeleteSecurityGroupPermissionsResponse deleteSecurityGroupPermissions(const Models::DeleteSecurityGroupPermissionsRequest &request);
 
       /**
        * @summary Deletes a snapshot.
@@ -2426,6 +2460,23 @@ namespace Ens20171110
        * @return DescribeFileSystemsResponse
        */
       Models::DescribeFileSystemsResponse describeFileSystems(const Models::DescribeFileSystemsRequest &request);
+
+      /**
+       * @summary 调用DescribeForwardEntryAttribute查询DNAT条目明细
+       *
+       * @param request DescribeForwardEntryAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeForwardEntryAttributeResponse
+       */
+      Models::DescribeForwardEntryAttributeResponse describeForwardEntryAttributeWithOptions(const Models::DescribeForwardEntryAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用DescribeForwardEntryAttribute查询DNAT条目明细
+       *
+       * @param request DescribeForwardEntryAttributeRequest
+       * @return DescribeForwardEntryAttributeResponse
+       */
+      Models::DescribeForwardEntryAttributeResponse describeForwardEntryAttribute(const Models::DescribeForwardEntryAttributeRequest &request);
 
       /**
        * @summary Queries Destination Network Address Translation (DNAT) entries that you created.
@@ -4279,6 +4330,23 @@ namespace Ens20171110
        * @return ModifyInstanceChargeTypeResponse
        */
       Models::ModifyInstanceChargeTypeResponse modifyInstanceChargeType(const Models::ModifyInstanceChargeTypeRequest &request);
+
+      /**
+       * @summary 修改实例网络
+       *
+       * @param request ModifyInstanceNetworkAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyInstanceNetworkAttributeResponse
+       */
+      Models::ModifyInstanceNetworkAttributeResponse modifyInstanceNetworkAttributeWithOptions(const Models::ModifyInstanceNetworkAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改实例网络
+       *
+       * @param request ModifyInstanceNetworkAttributeRequest
+       * @return ModifyInstanceNetworkAttributeResponse
+       */
+      Models::ModifyInstanceNetworkAttributeResponse modifyInstanceNetworkAttribute(const Models::ModifyInstanceNetworkAttributeRequest &request);
 
       /**
        * @summary Modifies the information about an Edge Load Balancer (ELB) instance.

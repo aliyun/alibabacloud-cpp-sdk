@@ -173,6 +173,10 @@
 #include <alibabacloud/models/CreateSecurityGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSecurityGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateSecurityGroupResponse.hpp>
+#include <alibabacloud/models/CreateSecurityGroupPermissionsRequest.hpp>
+#include <alibabacloud/models/CreateSecurityGroupPermissionsShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSecurityGroupPermissionsResponseBody.hpp>
+#include <alibabacloud/models/CreateSecurityGroupPermissionsResponse.hpp>
 #include <alibabacloud/models/CreateSnapshotRequest.hpp>
 #include <alibabacloud/models/CreateSnapshotResponseBody.hpp>
 #include <alibabacloud/models/CreateSnapshotResponse.hpp>
@@ -269,6 +273,10 @@
 #include <alibabacloud/models/DeleteSecurityGroupRequest.hpp>
 #include <alibabacloud/models/DeleteSecurityGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteSecurityGroupResponse.hpp>
+#include <alibabacloud/models/DeleteSecurityGroupPermissionsRequest.hpp>
+#include <alibabacloud/models/DeleteSecurityGroupPermissionsShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteSecurityGroupPermissionsResponseBody.hpp>
+#include <alibabacloud/models/DeleteSecurityGroupPermissionsResponse.hpp>
 #include <alibabacloud/models/DeleteSnapshotRequest.hpp>
 #include <alibabacloud/models/DeleteSnapshotResponseBody.hpp>
 #include <alibabacloud/models/DeleteSnapshotResponse.hpp>
@@ -418,6 +426,9 @@
 #include <alibabacloud/models/DescribeFileSystemsRequest.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBody.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponse.hpp>
+#include <alibabacloud/models/DescribeForwardEntryAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeForwardEntryAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeForwardEntryAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesRequest.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesResponseBody.hpp>
 #include <alibabacloud/models/DescribeForwardTableEntriesResponse.hpp>
@@ -723,6 +734,9 @@
 #include <alibabacloud/models/ModifyInstanceChargeTypeShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponse.hpp>
+#include <alibabacloud/models/ModifyInstanceNetworkAttributeRequest.hpp>
+#include <alibabacloud/models/ModifyInstanceNetworkAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifyInstanceNetworkAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyLoadBalancerAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyLoadBalancerAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyLoadBalancerAttributeResponse.hpp>
@@ -1004,6 +1018,7 @@
 #include <alibabacloud/models/CreateNatGatewayRequestTag.hpp>
 #include <alibabacloud/models/CreateNetworkRequestTag.hpp>
 #include <alibabacloud/models/CreateSecurityGroupRequestPermissions.hpp>
+#include <alibabacloud/models/CreateSecurityGroupPermissionsRequestPermissions.hpp>
 #include <alibabacloud/models/CreateStorageGatewayRequestOrderDetails.hpp>
 #include <alibabacloud/models/CreateStorageGatewayResponseBodyAllocationId.hpp>
 #include <alibabacloud/models/CreateStorageGatewayResponseBodyUnAllocationId.hpp>
@@ -1015,6 +1030,7 @@
 #include <alibabacloud/models/DeleteSdgResponseBodyDataResultFailedItems.hpp>
 #include <alibabacloud/models/DeleteSdgResponseBodyDataResult.hpp>
 #include <alibabacloud/models/DeleteSdgResponseBodyData.hpp>
+#include <alibabacloud/models/DeleteSecurityGroupPermissionsRequestPermissions.hpp>
 #include <alibabacloud/models/DeployInstanceSdgResponseBodyDataResultFailedItems.hpp>
 #include <alibabacloud/models/DeployInstanceSdgResponseBodyDataResult.hpp>
 #include <alibabacloud/models/DeployInstanceSdgResponseBodyData.hpp>

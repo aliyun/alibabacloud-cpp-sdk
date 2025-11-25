@@ -3260,6 +3260,58 @@ CreateSecurityGroupResponse Client::createSecurityGroup(const CreateSecurityGrou
 }
 
 /**
+ * @summary 调用CreateSecurityGroupPermissions创建安全组规则。
+ *
+ * @param tmpReq CreateSecurityGroupPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityGroupPermissionsResponse
+ */
+CreateSecurityGroupPermissionsResponse Client::createSecurityGroupPermissionsWithOptions(const CreateSecurityGroupPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityGroupPermissionsShrinkRequest request = CreateSecurityGroupPermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPermissions()) {
+    request.setPermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.permissions(), "Permissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasPermissionsShrink()) {
+    query["Permissions"] = request.permissionsShrink();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.securityGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSecurityGroupPermissions"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityGroupPermissionsResponse>();
+}
+
+/**
+ * @summary 调用CreateSecurityGroupPermissions创建安全组规则。
+ *
+ * @param request CreateSecurityGroupPermissionsRequest
+ * @return CreateSecurityGroupPermissionsResponse
+ */
+CreateSecurityGroupPermissionsResponse Client::createSecurityGroupPermissions(const CreateSecurityGroupPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityGroupPermissionsWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a snapshot.
  *
  * @param request CreateSnapshotRequest
@@ -4755,6 +4807,58 @@ DeleteSecurityGroupResponse Client::deleteSecurityGroupWithOptions(const DeleteS
 DeleteSecurityGroupResponse Client::deleteSecurityGroup(const DeleteSecurityGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteSecurityGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 调用DeleteSecurityGroupPermissions删除安全组规则。
+ *
+ * @param tmpReq DeleteSecurityGroupPermissionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityGroupPermissionsResponse
+ */
+DeleteSecurityGroupPermissionsResponse Client::deleteSecurityGroupPermissionsWithOptions(const DeleteSecurityGroupPermissionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteSecurityGroupPermissionsShrinkRequest request = DeleteSecurityGroupPermissionsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPermissions()) {
+    request.setPermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.permissions(), "Permissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasPermissionsShrink()) {
+    query["Permissions"] = request.permissionsShrink();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.securityGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSecurityGroupPermissions"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityGroupPermissionsResponse>();
+}
+
+/**
+ * @summary 调用DeleteSecurityGroupPermissions删除安全组规则。
+ *
+ * @param request DeleteSecurityGroupPermissionsRequest
+ * @return DeleteSecurityGroupPermissionsResponse
+ */
+DeleteSecurityGroupPermissionsResponse Client::deleteSecurityGroupPermissions(const DeleteSecurityGroupPermissionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityGroupPermissionsWithOptions(request, runtime);
 }
 
 /**
@@ -7295,6 +7399,48 @@ DescribeFileSystemsResponse Client::describeFileSystemsWithOptions(const Describ
 DescribeFileSystemsResponse Client::describeFileSystems(const DescribeFileSystemsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeFileSystemsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 调用DescribeForwardEntryAttribute查询DNAT条目明细
+ *
+ * @param request DescribeForwardEntryAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeForwardEntryAttributeResponse
+ */
+DescribeForwardEntryAttributeResponse Client::describeForwardEntryAttributeWithOptions(const DescribeForwardEntryAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasForwardEntryId()) {
+    query["ForwardEntryId"] = request.forwardEntryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeForwardEntryAttribute"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeForwardEntryAttributeResponse>();
+}
+
+/**
+ * @summary 调用DescribeForwardEntryAttribute查询DNAT条目明细
+ *
+ * @param request DescribeForwardEntryAttributeRequest
+ * @return DescribeForwardEntryAttributeResponse
+ */
+DescribeForwardEntryAttributeResponse Client::describeForwardEntryAttribute(const DescribeForwardEntryAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeForwardEntryAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -12696,6 +12842,56 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeTypeWithOptions(con
 ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeType(const ModifyInstanceChargeTypeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceChargeTypeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改实例网络
+ *
+ * @param request ModifyInstanceNetworkAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyInstanceNetworkAttributeResponse
+ */
+ModifyInstanceNetworkAttributeResponse Client::modifyInstanceNetworkAttributeWithOptions(const ModifyInstanceNetworkAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPrivateIpAddress()) {
+    query["PrivateIpAddress"] = request.privateIpAddress();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.vSwitchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyInstanceNetworkAttribute"},
+    {"version" , "2017-11-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyInstanceNetworkAttributeResponse>();
+}
+
+/**
+ * @summary 修改实例网络
+ *
+ * @param request ModifyInstanceNetworkAttributeRequest
+ * @return ModifyInstanceNetworkAttributeResponse
+ */
+ModifyInstanceNetworkAttributeResponse Client::modifyInstanceNetworkAttribute(const ModifyInstanceNetworkAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyInstanceNetworkAttributeWithOptions(request, runtime);
 }
 
 /**
