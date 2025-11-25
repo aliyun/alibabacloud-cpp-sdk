@@ -6,6 +6,10 @@
 #include <alibabacloud/models/BatchTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBody.hpp>
 #include <alibabacloud/models/BatchTranslateResponse.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequest.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlShrinkRequest.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlResponseBody.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlResponse.hpp>
 #include <alibabacloud/models/GetDocTranslateTaskRequest.hpp>
 #include <alibabacloud/models/GetDocTranslateTaskResponseBody.hpp>
 #include <alibabacloud/models/GetDocTranslateTaskResponse.hpp>
@@ -53,6 +57,14 @@
 #include <alibabacloud/models/BatchTranslateResponseBodyDataTranslationListUsage.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBodyDataTranslationList.hpp>
 #include <alibabacloud/models/BatchTranslateResponseBodyData.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequestExtConfig.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequestExtExamples.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequestExtTerminologies.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequestExtTextTransform.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlRequestExt.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlResponseBodyDataTranslationListUsage.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlResponseBodyDataTranslationList.hpp>
+#include <alibabacloud/models/BatchTranslateForHtmlResponseBodyData.hpp>
 #include <alibabacloud/models/GetDocTranslateTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetHtmlTranslateTaskResponseBodyData.hpp>

@@ -18,6 +18,7 @@ namespace Models
   class TextTranslateRequestExt : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TextTranslateRequestExt& obj) { 
+      DARABONBA_PTR_TO_JSON(agent, agent_);
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(examples, examples_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
     };
     friend void from_json(const Darabonba::Json& j, TextTranslateRequestExt& obj) { 
+      DARABONBA_PTR_FROM_JSON(agent, agent_);
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(examples, examples_);
@@ -44,8 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->config_ == nullptr
-        && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr && return this->textTransform_ == nullptr; };
+    virtual bool empty() const override { return this->agent_ == nullptr
+        && return this->config_ == nullptr && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr
+        && return this->textTransform_ == nullptr; };
+    // agent Field Functions 
+    bool hasAgent() const { return this->agent_ != nullptr;};
+    void deleteAgent() { this->agent_ = nullptr;};
+    inline string agent() const { DARABONBA_PTR_GET_DEFAULT(agent_, "") };
+    inline TextTranslateRequestExt& setAgent(string agent) { DARABONBA_PTR_SET_VALUE(agent_, agent) };
+
+
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -99,6 +109,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> agent_ = nullptr;
     std::shared_ptr<Models::TextTranslateRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::TextTranslateRequestExtExamples>> examples_ = nullptr;

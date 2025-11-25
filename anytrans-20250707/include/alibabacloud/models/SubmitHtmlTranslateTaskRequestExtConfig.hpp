@@ -13,9 +13,11 @@ namespace Models
   class SubmitHtmlTranslateTaskRequestExtConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitHtmlTranslateTaskRequestExtConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(callbackUrl, callbackUrl_);
       DARABONBA_PTR_TO_JSON(skipCsiCheck, skipCsiCheck_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitHtmlTranslateTaskRequestExtConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(callbackUrl, callbackUrl_);
       DARABONBA_PTR_FROM_JSON(skipCsiCheck, skipCsiCheck_);
     };
     SubmitHtmlTranslateTaskRequestExtConfig() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->skipCsiCheck_ == nullptr; };
+    virtual bool empty() const override { return this->callbackUrl_ == nullptr
+        && return this->skipCsiCheck_ == nullptr; };
+    // callbackUrl Field Functions 
+    bool hasCallbackUrl() const { return this->callbackUrl_ != nullptr;};
+    void deleteCallbackUrl() { this->callbackUrl_ = nullptr;};
+    inline string callbackUrl() const { DARABONBA_PTR_GET_DEFAULT(callbackUrl_, "") };
+    inline SubmitHtmlTranslateTaskRequestExtConfig& setCallbackUrl(string callbackUrl) { DARABONBA_PTR_SET_VALUE(callbackUrl_, callbackUrl) };
+
+
     // skipCsiCheck Field Functions 
     bool hasSkipCsiCheck() const { return this->skipCsiCheck_ != nullptr;};
     void deleteSkipCsiCheck() { this->skipCsiCheck_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> callbackUrl_ = nullptr;
     std::shared_ptr<bool> skipCsiCheck_ = nullptr;
   };
 

@@ -119,6 +119,89 @@ BatchTranslateResponse Client::batchTranslate(const BatchTranslateRequest &reque
 }
 
 /**
+ * @summary 通义多模态翻译批量翻译(供js sdk使用)
+ *
+ * @param tmpReq BatchTranslateForHtmlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchTranslateForHtmlResponse
+ */
+BatchTranslateForHtmlResponse Client::batchTranslateForHtmlWithOptions(const BatchTranslateForHtmlRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchTranslateForHtmlShrinkRequest request = BatchTranslateForHtmlShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+  }
+
+  if (!!tmpReq.hasText()) {
+    request.setTextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.text(), "text", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["appName"] = request.appName();
+  }
+
+  if (!!request.hasExtShrink()) {
+    body["ext"] = request.extShrink();
+  }
+
+  if (!!request.hasFormat()) {
+    body["format"] = request.format();
+  }
+
+  if (!!request.hasScene()) {
+    body["scene"] = request.scene();
+  }
+
+  if (!!request.hasSourceLanguage()) {
+    body["sourceLanguage"] = request.sourceLanguage();
+  }
+
+  if (!!request.hasTargetLanguage()) {
+    body["targetLanguage"] = request.targetLanguage();
+  }
+
+  if (!!request.hasTextShrink()) {
+    body["text"] = request.textShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchTranslateForHtml"},
+    {"version" , "2025-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/anytrans/translate/batchForHtml")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchTranslateForHtmlResponse>();
+}
+
+/**
+ * @summary 通义多模态翻译批量翻译(供js sdk使用)
+ *
+ * @param request BatchTranslateForHtmlRequest
+ * @return BatchTranslateForHtmlResponse
+ */
+BatchTranslateForHtmlResponse Client::batchTranslateForHtml(const BatchTranslateForHtmlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchTranslateForHtmlWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 通义多模态翻译获文档翻译任务
  *
  * @param request GetDocTranslateTaskRequest

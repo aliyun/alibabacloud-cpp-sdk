@@ -39,6 +39,24 @@ namespace AnyTrans20250707
       Models::BatchTranslateResponse batchTranslate(const Models::BatchTranslateRequest &request);
 
       /**
+       * @summary 通义多模态翻译批量翻译(供js sdk使用)
+       *
+       * @param tmpReq BatchTranslateForHtmlRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchTranslateForHtmlResponse
+       */
+      Models::BatchTranslateForHtmlResponse batchTranslateForHtmlWithOptions(const Models::BatchTranslateForHtmlRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态翻译批量翻译(供js sdk使用)
+       *
+       * @param request BatchTranslateForHtmlRequest
+       * @return BatchTranslateForHtmlResponse
+       */
+      Models::BatchTranslateForHtmlResponse batchTranslateForHtml(const Models::BatchTranslateForHtmlRequest &request);
+
+      /**
        * @summary 通义多模态翻译获文档翻译任务
        *
        * @param request GetDocTranslateTaskRequest
