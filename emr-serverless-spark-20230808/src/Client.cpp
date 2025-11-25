@@ -137,6 +137,128 @@ CancelJobRunResponse Client::cancelJobRun(const string &workspaceId, const strin
 }
 
 /**
+ * @summary CancelKyuubiSparkApplication
+ *
+ * @param request CancelKyuubiSparkApplicationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelKyuubiSparkApplicationResponse
+ */
+CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplicationWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const CancelKyuubiSparkApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelKyuubiSparkApplication"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/application/" , Darabonba::Encode::Encoder::percentEncode(applicationId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelKyuubiSparkApplicationResponse>();
+}
+
+/**
+ * @summary CancelKyuubiSparkApplication
+ *
+ * @param request CancelKyuubiSparkApplicationRequest
+ * @return CancelKyuubiSparkApplicationResponse
+ */
+CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplication(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const CancelKyuubiSparkApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelKyuubiSparkApplicationWithOptions(workspaceId, kyuubiServiceId, applicationId, request, headers, runtime);
+}
+
+/**
+ * @summary CreateKyuubiService
+ *
+ * @param request CreateKyuubiServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKyuubiServiceResponse
+ */
+CreateKyuubiServiceResponse Client::createKyuubiServiceWithOptions(const string &workspaceId, const CreateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComputeInstance()) {
+    body["computeInstance"] = request.computeInstance();
+  }
+
+  if (!!request.hasKyuubiConfigs()) {
+    body["kyuubiConfigs"] = request.kyuubiConfigs();
+  }
+
+  if (!!request.hasKyuubiReleaseVersion()) {
+    body["kyuubiReleaseVersion"] = request.kyuubiReleaseVersion();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasPublicEndpointEnabled()) {
+    body["publicEndpointEnabled"] = request.publicEndpointEnabled();
+  }
+
+  if (!!request.hasQueue()) {
+    body["queue"] = request.queue();
+  }
+
+  if (!!request.hasReleaseVersion()) {
+    body["releaseVersion"] = request.releaseVersion();
+  }
+
+  if (!!request.hasReplica()) {
+    body["replica"] = request.replica();
+  }
+
+  if (!!request.hasSparkConfigs()) {
+    body["sparkConfigs"] = request.sparkConfigs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKyuubiServiceResponse>();
+}
+
+/**
+ * @summary CreateKyuubiService
+ *
+ * @param request CreateKyuubiServiceRequest
+ * @return CreateKyuubiServiceResponse
+ */
+CreateKyuubiServiceResponse Client::createKyuubiService(const string &workspaceId, const CreateKyuubiServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createKyuubiServiceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 创建kyuubi的token
  *
  * @param request CreateKyuubiTokenRequest
@@ -774,6 +896,42 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
+ * @summary DeleteKyuubiService
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKyuubiServiceResponse
+ */
+DeleteKyuubiServiceResponse Client::deleteKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKyuubiServiceResponse>();
+}
+
+/**
+ * @summary DeleteKyuubiService
+ *
+ * @return DeleteKyuubiServiceResponse
+ */
+DeleteKyuubiServiceResponse Client::deleteKyuubiService(const string &workspaceId, const string &kyuubiServiceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+}
+
+/**
  * @summary 删除compute的token
  *
  * @param request DeleteKyuubiTokenRequest
@@ -972,6 +1130,59 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueue(const EditWorkspaceQueueRe
 }
 
 /**
+ * @summary 上线工作流及其调度
+ *
+ * @param request GenerateTaskCodesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateTaskCodesResponse
+ */
+GenerateTaskCodesResponse Client::generateTaskCodesWithOptions(const string &bizId, const GenerateTaskCodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGenNum()) {
+    query["genNum"] = request.genNum();
+  }
+
+  if (!!request.hasProductNamespace()) {
+    query["productNamespace"] = request.productNamespace();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateTaskCodes"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dolphinscheduler/projects/" , Darabonba::Encode::Encoder::percentEncode(bizId) , "/task-definition/gen-task-codes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateTaskCodesResponse>();
+}
+
+/**
+ * @summary 上线工作流及其调度
+ *
+ * @param request GenerateTaskCodesRequest
+ * @return GenerateTaskCodesResponse
+ */
+GenerateTaskCodesResponse Client::generateTaskCodes(const string &bizId, const GenerateTaskCodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return generateTaskCodesWithOptions(bizId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
  *
  * @param request GetCuHoursRequest
@@ -1116,6 +1327,42 @@ GetJobRunResponse Client::getJobRun(const string &workspaceId, const string &job
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getJobRunWithOptions(workspaceId, jobRunId, request, headers, runtime);
+}
+
+/**
+ * @summary GetKyuubiService
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKyuubiServiceResponse
+ */
+GetKyuubiServiceResponse Client::getKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKyuubiServiceResponse>();
+}
+
+/**
+ * @summary GetKyuubiService
+ *
+ * @return GetKyuubiServiceResponse
+ */
+GetKyuubiServiceResponse Client::getKyuubiService(const string &workspaceId, const string &kyuubiServiceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
 }
 
 /**
@@ -2559,6 +2806,42 @@ StartJobRunResponse Client::startJobRun(const string &workspaceId, const StartJo
 }
 
 /**
+ * @summary StartKyuubiService
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartKyuubiServiceResponse
+ */
+StartKyuubiServiceResponse Client::startKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/start")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartKyuubiServiceResponse>();
+}
+
+/**
+ * @summary StartKyuubiService
+ *
+ * @return StartKyuubiServiceResponse
+ */
+StartKyuubiServiceResponse Client::startKyuubiService(const string &workspaceId, const string &kyuubiServiceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return startKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+}
+
+/**
  * @summary 启动livy compute
  *
  * @param request StartLivyComputeRequest
@@ -2744,6 +3027,42 @@ StartSessionClusterResponse Client::startSessionCluster(const string &workspaceI
 }
 
 /**
+ * @summary StopKyuubiService
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopKyuubiServiceResponse
+ */
+StopKyuubiServiceResponse Client::stopKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId) , "/stop")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopKyuubiServiceResponse>();
+}
+
+/**
+ * @summary StopKyuubiService
+ *
+ * @return StopKyuubiServiceResponse
+ */
+StopKyuubiServiceResponse Client::stopKyuubiService(const string &workspaceId, const string &kyuubiServiceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, headers, runtime);
+}
+
+/**
  * @summary 停止livy compute
  *
  * @param request StopLivyComputeRequest
@@ -2886,6 +3205,87 @@ TerminateSqlStatementResponse Client::terminateSqlStatement(const string &worksp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+}
+
+/**
+ * @summary UpdateKyuubiService
+ *
+ * @param request UpdateKyuubiServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKyuubiServiceResponse
+ */
+UpdateKyuubiServiceResponse Client::updateKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const UpdateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComputeInstance()) {
+    body["computeInstance"] = request.computeInstance();
+  }
+
+  if (!!request.hasKyuubiConfigs()) {
+    body["kyuubiConfigs"] = request.kyuubiConfigs();
+  }
+
+  if (!!request.hasKyuubiReleaseVersion()) {
+    body["kyuubiReleaseVersion"] = request.kyuubiReleaseVersion();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasPublicEndpointEnabled()) {
+    body["publicEndpointEnabled"] = request.publicEndpointEnabled();
+  }
+
+  if (!!request.hasQueue()) {
+    body["queue"] = request.queue();
+  }
+
+  if (!!request.hasReleaseVersion()) {
+    body["releaseVersion"] = request.releaseVersion();
+  }
+
+  if (!!request.hasReplica()) {
+    body["replica"] = request.replica();
+  }
+
+  if (!!request.hasRestart()) {
+    body["restart"] = request.restart();
+  }
+
+  if (!!request.hasSparkConfigs()) {
+    body["sparkConfigs"] = request.sparkConfigs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateKyuubiService"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/kyuubi/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/" , Darabonba::Encode::Encoder::percentEncode(kyuubiServiceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKyuubiServiceResponse>();
+}
+
+/**
+ * @summary UpdateKyuubiService
+ *
+ * @param request UpdateKyuubiServiceRequest
+ * @return UpdateKyuubiServiceResponse
+ */
+UpdateKyuubiServiceResponse Client::updateKyuubiService(const string &workspaceId, const string &kyuubiServiceId, const UpdateKyuubiServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateKyuubiServiceWithOptions(workspaceId, kyuubiServiceId, request, headers, runtime);
 }
 
 /**

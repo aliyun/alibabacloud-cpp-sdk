@@ -26,6 +26,12 @@
 #include <alibabacloud/models/CancelJobRunRequest.hpp>
 #include <alibabacloud/models/CancelJobRunResponseBody.hpp>
 #include <alibabacloud/models/CancelJobRunResponse.hpp>
+#include <alibabacloud/models/CancelKyuubiSparkApplicationRequest.hpp>
+#include <alibabacloud/models/CancelKyuubiSparkApplicationResponseBody.hpp>
+#include <alibabacloud/models/CancelKyuubiSparkApplicationResponse.hpp>
+#include <alibabacloud/models/CreateKyuubiServiceRequest.hpp>
+#include <alibabacloud/models/CreateKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/CreateKyuubiTokenRequest.hpp>
 #include <alibabacloud/models/CreateKyuubiTokenResponseBody.hpp>
 #include <alibabacloud/models/CreateKyuubiTokenResponse.hpp>
@@ -48,6 +54,8 @@
 #include <alibabacloud/models/CreateWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
+#include <alibabacloud/models/DeleteKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/DeleteKyuubiTokenRequest.hpp>
 #include <alibabacloud/models/DeleteKyuubiTokenResponseBody.hpp>
 #include <alibabacloud/models/DeleteKyuubiTokenResponse.hpp>
@@ -60,6 +68,9 @@
 #include <alibabacloud/models/EditWorkspaceQueueRequest.hpp>
 #include <alibabacloud/models/EditWorkspaceQueueResponseBody.hpp>
 #include <alibabacloud/models/EditWorkspaceQueueResponse.hpp>
+#include <alibabacloud/models/GenerateTaskCodesRequest.hpp>
+#include <alibabacloud/models/GenerateTaskCodesResponseBody.hpp>
+#include <alibabacloud/models/GenerateTaskCodesResponse.hpp>
 #include <alibabacloud/models/GetCuHoursRequest.hpp>
 #include <alibabacloud/models/GetCuHoursResponseBody.hpp>
 #include <alibabacloud/models/GetCuHoursResponse.hpp>
@@ -69,6 +80,8 @@
 #include <alibabacloud/models/GetJobRunRequest.hpp>
 #include <alibabacloud/models/GetJobRunResponseBody.hpp>
 #include <alibabacloud/models/GetJobRunResponse.hpp>
+#include <alibabacloud/models/GetKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/GetKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/GetKyuubiTokenRequest.hpp>
 #include <alibabacloud/models/GetKyuubiTokenResponseBody.hpp>
 #include <alibabacloud/models/GetKyuubiTokenResponse.hpp>
@@ -146,6 +159,8 @@
 #include <alibabacloud/models/StartJobRunRequest.hpp>
 #include <alibabacloud/models/StartJobRunResponseBody.hpp>
 #include <alibabacloud/models/StartJobRunResponse.hpp>
+#include <alibabacloud/models/StartKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/StartKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/StartLivyComputeRequest.hpp>
 #include <alibabacloud/models/StartLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/StartLivyComputeResponse.hpp>
@@ -155,6 +170,8 @@
 #include <alibabacloud/models/StartSessionClusterRequest.hpp>
 #include <alibabacloud/models/StartSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/StartSessionClusterResponse.hpp>
+#include <alibabacloud/models/StopKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/StopKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/StopLivyComputeRequest.hpp>
 #include <alibabacloud/models/StopLivyComputeResponseBody.hpp>
 #include <alibabacloud/models/StopLivyComputeResponse.hpp>
@@ -164,6 +181,9 @@
 #include <alibabacloud/models/TerminateSqlStatementRequest.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponseBody.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponse.hpp>
+#include <alibabacloud/models/UpdateKyuubiServiceRequest.hpp>
+#include <alibabacloud/models/UpdateKyuubiServiceResponseBody.hpp>
+#include <alibabacloud/models/UpdateKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/UpdateKyuubiTokenRequest.hpp>
 #include <alibabacloud/models/UpdateKyuubiTokenResponseBody.hpp>
 #include <alibabacloud/models/UpdateKyuubiTokenResponse.hpp>
@@ -180,6 +200,8 @@
 #include <alibabacloud/models/SqlOutputSchemaFields.hpp>
 #include <alibabacloud/models/SqlOutputSchema.hpp>
 #include <alibabacloud/models/TaskCredential.hpp>
+#include <alibabacloud/models/CancelKyuubiSparkApplicationResponseBodyBody.hpp>
+#include <alibabacloud/models/CreateKyuubiServiceResponseBodyData.hpp>
 #include <alibabacloud/models/CreateKyuubiTokenRequestAutoExpireConfiguration.hpp>
 #include <alibabacloud/models/CreateKyuubiTokenResponseBodyData.hpp>
 #include <alibabacloud/models/CreateLivyComputeRequestAutoStartConfiguration.hpp>
@@ -207,6 +229,7 @@
 #include <alibabacloud/models/GetJobRunResponseBodyJobRunConfigurationOverrides.hpp>
 #include <alibabacloud/models/GetJobRunResponseBodyJobRunStateChangeReason.hpp>
 #include <alibabacloud/models/GetJobRunResponseBodyJobRun.hpp>
+#include <alibabacloud/models/GetKyuubiServiceResponseBodyData.hpp>
 #include <alibabacloud/models/GetKyuubiTokenResponseBodyDataAutoExpireConfiguration.hpp>
 #include <alibabacloud/models/GetKyuubiTokenResponseBodyData.hpp>
 #include <alibabacloud/models/GetLivyComputeResponseBodyDataAutoStopConfiguration.hpp>

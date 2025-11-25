@@ -57,6 +57,42 @@ namespace EmrServerlessSpark20230808
       Models::CancelJobRunResponse cancelJobRun(const string &workspaceId, const string &jobRunId, const Models::CancelJobRunRequest &request);
 
       /**
+       * @summary CancelKyuubiSparkApplication
+       *
+       * @param request CancelKyuubiSparkApplicationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelKyuubiSparkApplicationResponse
+       */
+      Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplicationWithOptions(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CancelKyuubiSparkApplication
+       *
+       * @param request CancelKyuubiSparkApplicationRequest
+       * @return CancelKyuubiSparkApplicationResponse
+       */
+      Models::CancelKyuubiSparkApplicationResponse cancelKyuubiSparkApplication(const string &workspaceId, const string &kyuubiServiceId, const string &applicationId, const Models::CancelKyuubiSparkApplicationRequest &request);
+
+      /**
+       * @summary CreateKyuubiService
+       *
+       * @param request CreateKyuubiServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateKyuubiServiceResponse
+       */
+      Models::CreateKyuubiServiceResponse createKyuubiServiceWithOptions(const string &workspaceId, const Models::CreateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateKyuubiService
+       *
+       * @param request CreateKyuubiServiceRequest
+       * @return CreateKyuubiServiceResponse
+       */
+      Models::CreateKyuubiServiceResponse createKyuubiService(const string &workspaceId, const Models::CreateKyuubiServiceRequest &request);
+
+      /**
        * @summary 创建kyuubi的token
        *
        * @param request CreateKyuubiTokenRequest
@@ -183,6 +219,22 @@ namespace EmrServerlessSpark20230808
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
+       * @summary DeleteKyuubiService
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKyuubiServiceResponse
+       */
+      Models::DeleteKyuubiServiceResponse deleteKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteKyuubiService
+       *
+       * @return DeleteKyuubiServiceResponse
+       */
+      Models::DeleteKyuubiServiceResponse deleteKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
+
+      /**
        * @summary 删除compute的token
        *
        * @param request DeleteKyuubiTokenRequest
@@ -255,6 +307,24 @@ namespace EmrServerlessSpark20230808
       Models::EditWorkspaceQueueResponse editWorkspaceQueue(const Models::EditWorkspaceQueueRequest &request);
 
       /**
+       * @summary 上线工作流及其调度
+       *
+       * @param request GenerateTaskCodesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateTaskCodesResponse
+       */
+      Models::GenerateTaskCodesResponse generateTaskCodesWithOptions(const string &bizId, const Models::GenerateTaskCodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上线工作流及其调度
+       *
+       * @param request GenerateTaskCodesRequest
+       * @return GenerateTaskCodesResponse
+       */
+      Models::GenerateTaskCodesResponse generateTaskCodes(const string &bizId, const Models::GenerateTaskCodesRequest &request);
+
+      /**
        * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
        *
        * @param request GetCuHoursRequest
@@ -307,6 +377,22 @@ namespace EmrServerlessSpark20230808
        * @return GetJobRunResponse
        */
       Models::GetJobRunResponse getJobRun(const string &workspaceId, const string &jobRunId, const Models::GetJobRunRequest &request);
+
+      /**
+       * @summary GetKyuubiService
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKyuubiServiceResponse
+       */
+      Models::GetKyuubiServiceResponse getKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetKyuubiService
+       *
+       * @return GetKyuubiServiceResponse
+       */
+      Models::GetKyuubiServiceResponse getKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
 
       /**
        * @summary 获取compute的token
@@ -757,6 +843,22 @@ namespace EmrServerlessSpark20230808
       Models::StartJobRunResponse startJobRun(const string &workspaceId, const Models::StartJobRunRequest &request);
 
       /**
+       * @summary StartKyuubiService
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartKyuubiServiceResponse
+       */
+      Models::StartKyuubiServiceResponse startKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary StartKyuubiService
+       *
+       * @return StartKyuubiServiceResponse
+       */
+      Models::StartKyuubiServiceResponse startKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
+
+      /**
        * @summary 启动livy compute
        *
        * @param request StartLivyComputeRequest
@@ -811,6 +913,22 @@ namespace EmrServerlessSpark20230808
       Models::StartSessionClusterResponse startSessionCluster(const string &workspaceId, const Models::StartSessionClusterRequest &request);
 
       /**
+       * @summary StopKyuubiService
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopKyuubiServiceResponse
+       */
+      Models::StopKyuubiServiceResponse stopKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary StopKyuubiService
+       *
+       * @return StopKyuubiServiceResponse
+       */
+      Models::StopKyuubiServiceResponse stopKyuubiService(const string &workspaceId, const string &kyuubiServiceId);
+
+      /**
        * @summary 停止livy compute
        *
        * @param request StopLivyComputeRequest
@@ -863,6 +981,24 @@ namespace EmrServerlessSpark20230808
        * @return TerminateSqlStatementResponse
        */
       Models::TerminateSqlStatementResponse terminateSqlStatement(const string &workspaceId, const string &statementId, const Models::TerminateSqlStatementRequest &request);
+
+      /**
+       * @summary UpdateKyuubiService
+       *
+       * @param request UpdateKyuubiServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKyuubiServiceResponse
+       */
+      Models::UpdateKyuubiServiceResponse updateKyuubiServiceWithOptions(const string &workspaceId, const string &kyuubiServiceId, const Models::UpdateKyuubiServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateKyuubiService
+       *
+       * @param request UpdateKyuubiServiceRequest
+       * @return UpdateKyuubiServiceResponse
+       */
+      Models::UpdateKyuubiServiceResponse updateKyuubiService(const string &workspaceId, const string &kyuubiServiceId, const Models::UpdateKyuubiServiceRequest &request);
 
       /**
        * @summary 更新kyuubi的token
