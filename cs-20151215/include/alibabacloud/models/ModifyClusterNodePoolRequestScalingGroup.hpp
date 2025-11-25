@@ -59,6 +59,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(system_disk_performance_level, systemDiskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(system_disk_provisioned_iops, systemDiskProvisionedIops_);
       DARABONBA_PTR_TO_JSON(system_disk_size, systemDiskSize_);
+      DARABONBA_PTR_TO_JSON(system_disk_snapshot_policy_id, systemDiskSnapshotPolicyId_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(vswitch_ids, vswitchIds_);
     };
@@ -102,6 +103,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(system_disk_performance_level, systemDiskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(system_disk_provisioned_iops, systemDiskProvisionedIops_);
       DARABONBA_PTR_FROM_JSON(system_disk_size, systemDiskSize_);
+      DARABONBA_PTR_FROM_JSON(system_disk_snapshot_policy_id, systemDiskSnapshotPolicyId_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(vswitch_ids, vswitchIds_);
     };
@@ -124,7 +126,8 @@ namespace Models
         && return this->privatePoolOptions_ == nullptr && return this->rdsInstances_ == nullptr && return this->resourcePoolOptions_ == nullptr && return this->scalingPolicy_ == nullptr && return this->securityGroupIds_ == nullptr
         && return this->spotInstancePools_ == nullptr && return this->spotInstanceRemedy_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->systemDiskBurstingEnabled_ == nullptr
         && return this->systemDiskCategories_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskEncryptAlgorithm_ == nullptr && return this->systemDiskEncrypted_ == nullptr && return this->systemDiskKmsKeyId_ == nullptr
-        && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskProvisionedIops_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tags_ == nullptr && return this->vswitchIds_ == nullptr; };
+        && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskProvisionedIops_ == nullptr && return this->systemDiskSize_ == nullptr && return this->systemDiskSnapshotPolicyId_ == nullptr && return this->tags_ == nullptr
+        && return this->vswitchIds_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -416,6 +419,13 @@ namespace Models
     inline ModifyClusterNodePoolRequestScalingGroup& setSystemDiskSize(int64_t systemDiskSize) { DARABONBA_PTR_SET_VALUE(systemDiskSize_, systemDiskSize) };
 
 
+    // systemDiskSnapshotPolicyId Field Functions 
+    bool hasSystemDiskSnapshotPolicyId() const { return this->systemDiskSnapshotPolicyId_ != nullptr;};
+    void deleteSystemDiskSnapshotPolicyId() { this->systemDiskSnapshotPolicyId_ = nullptr;};
+    inline string systemDiskSnapshotPolicyId() const { DARABONBA_PTR_GET_DEFAULT(systemDiskSnapshotPolicyId_, "") };
+    inline ModifyClusterNodePoolRequestScalingGroup& setSystemDiskSnapshotPolicyId(string systemDiskSnapshotPolicyId) { DARABONBA_PTR_SET_VALUE(systemDiskSnapshotPolicyId_, systemDiskSnapshotPolicyId) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -618,6 +628,7 @@ namespace Models
     // 
     // Default value: the greater value between 40 and the image size.
     std::shared_ptr<int64_t> systemDiskSize_ = nullptr;
+    std::shared_ptr<string> systemDiskSnapshotPolicyId_ = nullptr;
     // The tags that you want to add only to ECS instances.
     // 
     // The tag key must be unique and cannot exceed 128 characters in length. The tag key and value cannot start with aliyun or acs: or contain https:// or http://.

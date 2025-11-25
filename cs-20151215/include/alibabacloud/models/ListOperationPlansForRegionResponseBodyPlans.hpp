@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTOPERATIONPLANSFORREGIONRESPONSEBODYPLANS_HPP_
 #define ALIBABACLOUD_MODELS_LISTOPERATIONPLANSFORREGIONRESPONSEBODYPLANS_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionResponseBodyPlansStateReason.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(plan_id, planId_);
       DARABONBA_PTR_TO_JSON(start_time, startTime_);
       DARABONBA_PTR_TO_JSON(state, state_);
+      DARABONBA_PTR_TO_JSON(state_reason, stateReason_);
       DARABONBA_PTR_TO_JSON(target_id, targetId_);
       DARABONBA_PTR_TO_JSON(target_type, targetType_);
       DARABONBA_PTR_TO_JSON(task_id, taskId_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(plan_id, planId_);
       DARABONBA_PTR_FROM_JSON(start_time, startTime_);
       DARABONBA_PTR_FROM_JSON(state, state_);
+      DARABONBA_PTR_FROM_JSON(state_reason, stateReason_);
       DARABONBA_PTR_FROM_JSON(target_id, targetId_);
       DARABONBA_PTR_FROM_JSON(target_type, targetType_);
       DARABONBA_PTR_FROM_JSON(task_id, taskId_);
@@ -49,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
         && return this->created_ == nullptr && return this->endTime_ == nullptr && return this->planId_ == nullptr && return this->startTime_ == nullptr && return this->state_ == nullptr
-        && return this->targetId_ == nullptr && return this->targetType_ == nullptr && return this->taskId_ == nullptr && return this->type_ == nullptr; };
+        && return this->stateReason_ == nullptr && return this->targetId_ == nullptr && return this->targetType_ == nullptr && return this->taskId_ == nullptr && return this->type_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -92,6 +95,15 @@ namespace Models
     inline ListOperationPlansForRegionResponseBodyPlans& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+    // stateReason Field Functions 
+    bool hasStateReason() const { return this->stateReason_ != nullptr;};
+    void deleteStateReason() { this->stateReason_ = nullptr;};
+    inline const Models::ListOperationPlansForRegionResponseBodyPlansStateReason & stateReason() const { DARABONBA_PTR_GET_CONST(stateReason_, Models::ListOperationPlansForRegionResponseBodyPlansStateReason) };
+    inline Models::ListOperationPlansForRegionResponseBodyPlansStateReason stateReason() { DARABONBA_PTR_GET(stateReason_, Models::ListOperationPlansForRegionResponseBodyPlansStateReason) };
+    inline ListOperationPlansForRegionResponseBodyPlans& setStateReason(const Models::ListOperationPlansForRegionResponseBodyPlansStateReason & stateReason) { DARABONBA_PTR_SET_VALUE(stateReason_, stateReason) };
+    inline ListOperationPlansForRegionResponseBodyPlans& setStateReason(Models::ListOperationPlansForRegionResponseBodyPlansStateReason && stateReason) { DARABONBA_PTR_SET_RVALUE(stateReason_, stateReason) };
+
+
     // targetId Field Functions 
     bool hasTargetId() const { return this->targetId_ != nullptr;};
     void deleteTargetId() { this->targetId_ = nullptr;};
@@ -127,6 +139,7 @@ namespace Models
     std::shared_ptr<string> planId_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
     std::shared_ptr<string> state_ = nullptr;
+    std::shared_ptr<Models::ListOperationPlansForRegionResponseBodyPlansStateReason> stateReason_ = nullptr;
     std::shared_ptr<string> targetId_ = nullptr;
     std::shared_ptr<string> targetType_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;

@@ -424,6 +424,7 @@
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroupResourcePoolOptions.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroupSpotPriceLimit.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyScalingGroup.hpp>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyStatusConditions.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyStatus.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyTeeConfig.hpp>
 #include <alibabacloud/models/DescribeClusterNodePoolsResponseBodyNodepoolsAutoMode.hpp>
@@ -517,6 +518,7 @@
 #include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyPage.hpp>
 #include <alibabacloud/models/ListClusterKubeconfigStatesResponseBodyStates.hpp>
 #include <alibabacloud/models/ListOperationPlansResponseBodyPlans.hpp>
+#include <alibabacloud/models/ListOperationPlansForRegionResponseBodyPlansStateReason.hpp>
 #include <alibabacloud/models/ListOperationPlansForRegionResponseBodyPlans.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResourcesTagResource.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>

@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBECLUSTERNODEPOOLDETAILRESPONSEBODYSTATUS_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBECLUSTERNODEPOOLDETAILRESPONSEBODYSTATUS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeClusterNodePoolDetailResponseBodyStatusConditions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,6 +15,7 @@ namespace Models
   class DescribeClusterNodePoolDetailResponseBodyStatus : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeClusterNodePoolDetailResponseBodyStatus& obj) { 
+      DARABONBA_PTR_TO_JSON(conditions, conditions_);
       DARABONBA_PTR_TO_JSON(failed_nodes, failedNodes_);
       DARABONBA_PTR_TO_JSON(healthy_nodes, healthyNodes_);
       DARABONBA_PTR_TO_JSON(initial_nodes, initialNodes_);
@@ -23,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(total_nodes, totalNodes_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClusterNodePoolDetailResponseBodyStatus& obj) { 
+      DARABONBA_PTR_FROM_JSON(conditions, conditions_);
       DARABONBA_PTR_FROM_JSON(failed_nodes, failedNodes_);
       DARABONBA_PTR_FROM_JSON(healthy_nodes, healthyNodes_);
       DARABONBA_PTR_FROM_JSON(initial_nodes, initialNodes_);
@@ -43,9 +47,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->failedNodes_ == nullptr
-        && return this->healthyNodes_ == nullptr && return this->initialNodes_ == nullptr && return this->offlineNodes_ == nullptr && return this->removingNodes_ == nullptr && return this->servingNodes_ == nullptr
-        && return this->state_ == nullptr && return this->totalNodes_ == nullptr; };
+    virtual bool empty() const override { return this->conditions_ == nullptr
+        && return this->failedNodes_ == nullptr && return this->healthyNodes_ == nullptr && return this->initialNodes_ == nullptr && return this->offlineNodes_ == nullptr && return this->removingNodes_ == nullptr
+        && return this->servingNodes_ == nullptr && return this->state_ == nullptr && return this->totalNodes_ == nullptr; };
+    // conditions Field Functions 
+    bool hasConditions() const { return this->conditions_ != nullptr;};
+    void deleteConditions() { this->conditions_ = nullptr;};
+    inline const vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions> & conditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions>) };
+    inline vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions> conditions() { DARABONBA_PTR_GET(conditions_, vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions>) };
+    inline DescribeClusterNodePoolDetailResponseBodyStatus& setConditions(const vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
+    inline DescribeClusterNodePoolDetailResponseBodyStatus& setConditions(vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
+
+
     // failedNodes Field Functions 
     bool hasFailedNodes() const { return this->failedNodes_ != nullptr;};
     void deleteFailedNodes() { this->failedNodes_ = nullptr;};
@@ -103,6 +116,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<Models::DescribeClusterNodePoolDetailResponseBodyStatusConditions>> conditions_ = nullptr;
     // The number of failed nodes.
     std::shared_ptr<int64_t> failedNodes_ = nullptr;
     // The number of healthy nodes.
