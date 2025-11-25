@@ -241,6 +241,63 @@ DeleteAlertStrategyResponse Client::deleteAlertStrategy(const DeleteAlertStrateg
 }
 
 /**
+ * @summary 查询指标
+ *
+ * @param request DescribeMetricListRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMetricListResponse
+ */
+DescribeMetricListResponse Client::describeMetricListWithOptions(const DescribeMetricListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["endTime"] = request.endTime();
+  }
+
+  if (!!request.hasInstance()) {
+    query["instance"] = request.instance();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["metricName"] = request.metricName();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["startTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMetricList"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/openapi/proxy/get/describeMetricList")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMetricListResponse>();
+}
+
+/**
+ * @summary 查询指标
+ *
+ * @param request DescribeMetricListRequest
+ * @return DescribeMetricListResponse
+ */
+DescribeMetricListResponse Client::describeMetricList(const DescribeMetricListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeMetricListWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取copilot服务的返回结果
  *
  * @param request GenerateCopilotResponseRequest

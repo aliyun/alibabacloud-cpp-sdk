@@ -93,6 +93,24 @@ namespace SysOM20231230
       Models::DeleteAlertStrategyResponse deleteAlertStrategy(const Models::DeleteAlertStrategyRequest &request);
 
       /**
+       * @summary 查询指标
+       *
+       * @param request DescribeMetricListRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMetricListResponse
+       */
+      Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指标
+       *
+       * @param request DescribeMetricListRequest
+       * @return DescribeMetricListResponse
+       */
+      Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
+
+      /**
        * @summary 获取copilot服务的返回结果
        *
        * @param request GenerateCopilotResponseRequest

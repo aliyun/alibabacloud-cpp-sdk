@@ -14,6 +14,9 @@
 #include <alibabacloud/models/DeleteAlertStrategyRequest.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponse.hpp>
+#include <alibabacloud/models/DescribeMetricListRequest.hpp>
+#include <alibabacloud/models/DescribeMetricListResponseBody.hpp>
+#include <alibabacloud/models/DescribeMetricListResponse.hpp>
 #include <alibabacloud/models/GenerateCopilotResponseRequest.hpp>
 #include <alibabacloud/models/GenerateCopilotResponseResponseBody.hpp>
 #include <alibabacloud/models/GenerateCopilotResponseResponse.hpp>
@@ -183,6 +186,7 @@
 #include <alibabacloud/models/AuthDiagnosisRequestInstances.hpp>
 #include <alibabacloud/models/CheckInstanceSupportResponseBodyData.hpp>
 #include <alibabacloud/models/CreateAlertStrategyRequestStrategy.hpp>
+#include <alibabacloud/models/DescribeMetricListResponseBodyData.hpp>
 #include <alibabacloud/models/GetAbnormalEventsCountResponseBodyData.hpp>
 #include <alibabacloud/models/GetAgentResponseBodyDataVersions.hpp>
 #include <alibabacloud/models/GetAgentResponseBodyData.hpp>
