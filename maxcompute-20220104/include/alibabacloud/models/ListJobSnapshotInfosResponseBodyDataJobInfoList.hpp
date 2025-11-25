@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(extNodeId, extNodeId_);
       DARABONBA_PTR_TO_JSON(extNodeOnDuty, extNodeOnDuty_);
       DARABONBA_PTR_TO_JSON(extPlantFrom, extPlantFrom_);
+      DARABONBA_PTR_TO_JSON(extPlatformId, extPlatformId_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(jobOwner, jobOwner_);
       DARABONBA_PTR_TO_JSON(jobType, jobType_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(extNodeId, extNodeId_);
       DARABONBA_PTR_FROM_JSON(extNodeOnDuty, extNodeOnDuty_);
       DARABONBA_PTR_FROM_JSON(extPlantFrom, extPlantFrom_);
+      DARABONBA_PTR_FROM_JSON(extPlatformId, extPlatformId_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(jobOwner, jobOwner_);
       DARABONBA_PTR_FROM_JSON(jobType, jobType_);
@@ -89,11 +91,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpuRequest_ == nullptr
         && return this->cpuUsage_ == nullptr && return this->cpuUsageToRequestRatio_ == nullptr && return this->extNodeId_ == nullptr && return this->extNodeOnDuty_ == nullptr && return this->extPlantFrom_ == nullptr
-        && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->jobType_ == nullptr && return this->maxCpuPct_ == nullptr && return this->maxMemoryPct_ == nullptr
-        && return this->memoryRequest_ == nullptr && return this->memoryUsage_ == nullptr && return this->memoryUsageToRequestRatio_ == nullptr && return this->minCpuPct_ == nullptr && return this->minMemoryPct_ == nullptr
-        && return this->priority_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->quotaType_ == nullptr && return this->region_ == nullptr
-        && return this->runningAtTime_ == nullptr && return this->runningTime_ == nullptr && return this->signature_ == nullptr && return this->snapshotTime_ == nullptr && return this->status_ == nullptr
-        && return this->submittedAtTime_ == nullptr && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr && return this->waitingTime_ == nullptr; };
+        && return this->extPlatformId_ == nullptr && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->jobType_ == nullptr && return this->maxCpuPct_ == nullptr
+        && return this->maxMemoryPct_ == nullptr && return this->memoryRequest_ == nullptr && return this->memoryUsage_ == nullptr && return this->memoryUsageToRequestRatio_ == nullptr && return this->minCpuPct_ == nullptr
+        && return this->minMemoryPct_ == nullptr && return this->priority_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->quotaType_ == nullptr
+        && return this->region_ == nullptr && return this->runningAtTime_ == nullptr && return this->runningTime_ == nullptr && return this->signature_ == nullptr && return this->snapshotTime_ == nullptr
+        && return this->status_ == nullptr && return this->submittedAtTime_ == nullptr && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr && return this->waitingTime_ == nullptr; };
     // cpuRequest Field Functions 
     bool hasCpuRequest() const { return this->cpuRequest_ != nullptr;};
     void deleteCpuRequest() { this->cpuRequest_ = nullptr;};
@@ -134,6 +136,13 @@ namespace Models
     void deleteExtPlantFrom() { this->extPlantFrom_ = nullptr;};
     inline string extPlantFrom() const { DARABONBA_PTR_GET_DEFAULT(extPlantFrom_, "") };
     inline ListJobSnapshotInfosResponseBodyDataJobInfoList& setExtPlantFrom(string extPlantFrom) { DARABONBA_PTR_SET_VALUE(extPlantFrom_, extPlantFrom) };
+
+
+    // extPlatformId Field Functions 
+    bool hasExtPlatformId() const { return this->extPlatformId_ != nullptr;};
+    void deleteExtPlatformId() { this->extPlatformId_ = nullptr;};
+    inline string extPlatformId() const { DARABONBA_PTR_GET_DEFAULT(extPlatformId_, "") };
+    inline ListJobSnapshotInfosResponseBodyDataJobInfoList& setExtPlatformId(string extPlatformId) { DARABONBA_PTR_SET_VALUE(extPlatformId_, extPlatformId) };
 
 
     // instanceId Field Functions 
@@ -317,6 +326,7 @@ namespace Models
     std::shared_ptr<string> extNodeOnDuty_ = nullptr;
     // The upstream platform.
     std::shared_ptr<string> extPlantFrom_ = nullptr;
+    std::shared_ptr<string> extPlatformId_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
     // The account that commits the job.

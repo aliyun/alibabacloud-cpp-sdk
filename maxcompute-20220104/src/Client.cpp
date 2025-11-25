@@ -2368,6 +2368,10 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
     body["extNodeIdList"] = request.extNodeIdList();
   }
 
+  if (!!request.hasExtNodeNameList()) {
+    body["extNodeNameList"] = request.extNodeNameList();
+  }
+
   if (!!request.hasFrom()) {
     body["from"] = request.from();
   }
@@ -2410,6 +2414,10 @@ ListJobInfosResponse Client::listJobInfosWithOptions(const ListJobInfosRequest &
 
   if (!!request.hasStatusList()) {
     body["statusList"] = request.statusList();
+  }
+
+  if (!!request.hasTaskNameList()) {
+    body["taskNameList"] = request.taskNameList();
   }
 
   if (!!request.hasTo()) {

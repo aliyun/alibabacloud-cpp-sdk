@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListJobInfosRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ascOrder, ascOrder_);
       DARABONBA_PTR_TO_JSON(extNodeIdList, extNodeIdList_);
+      DARABONBA_PTR_TO_JSON(extNodeNameList, extNodeNameList_);
       DARABONBA_PTR_TO_JSON(from, from_);
       DARABONBA_PTR_TO_JSON(instanceIdList, instanceIdList_);
       DARABONBA_PTR_TO_JSON(jobOwnerList, jobOwnerList_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(sortByList, sortByList_);
       DARABONBA_PTR_TO_JSON(sortOrderList, sortOrderList_);
       DARABONBA_PTR_TO_JSON(statusList, statusList_);
+      DARABONBA_PTR_TO_JSON(taskNameList, taskNameList_);
       DARABONBA_PTR_TO_JSON(to, to_);
       DARABONBA_PTR_TO_JSON(typeList, typeList_);
       DARABONBA_PTR_TO_JSON(orderColumn, orderColumn_);
@@ -38,6 +40,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListJobInfosRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ascOrder, ascOrder_);
       DARABONBA_PTR_FROM_JSON(extNodeIdList, extNodeIdList_);
+      DARABONBA_PTR_FROM_JSON(extNodeNameList, extNodeNameList_);
       DARABONBA_PTR_FROM_JSON(from, from_);
       DARABONBA_PTR_FROM_JSON(instanceIdList, instanceIdList_);
       DARABONBA_PTR_FROM_JSON(jobOwnerList, jobOwnerList_);
@@ -49,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(sortByList, sortByList_);
       DARABONBA_PTR_FROM_JSON(sortOrderList, sortOrderList_);
       DARABONBA_PTR_FROM_JSON(statusList, statusList_);
+      DARABONBA_PTR_FROM_JSON(taskNameList, taskNameList_);
       DARABONBA_PTR_FROM_JSON(to, to_);
       DARABONBA_PTR_FROM_JSON(typeList, typeList_);
       DARABONBA_PTR_FROM_JSON(orderColumn, orderColumn_);
@@ -69,10 +73,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ascOrder_ == nullptr
-        && return this->extNodeIdList_ == nullptr && return this->from_ == nullptr && return this->instanceIdList_ == nullptr && return this->jobOwnerList_ == nullptr && return this->priorityList_ == nullptr
-        && return this->projectList_ == nullptr && return this->quotaNickname_ == nullptr && return this->sceneTagList_ == nullptr && return this->signatureList_ == nullptr && return this->sortByList_ == nullptr
-        && return this->sortOrderList_ == nullptr && return this->statusList_ == nullptr && return this->to_ == nullptr && return this->typeList_ == nullptr && return this->orderColumn_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr && return this->tenantId_ == nullptr; };
+        && return this->extNodeIdList_ == nullptr && return this->extNodeNameList_ == nullptr && return this->from_ == nullptr && return this->instanceIdList_ == nullptr && return this->jobOwnerList_ == nullptr
+        && return this->priorityList_ == nullptr && return this->projectList_ == nullptr && return this->quotaNickname_ == nullptr && return this->sceneTagList_ == nullptr && return this->signatureList_ == nullptr
+        && return this->sortByList_ == nullptr && return this->sortOrderList_ == nullptr && return this->statusList_ == nullptr && return this->taskNameList_ == nullptr && return this->to_ == nullptr
+        && return this->typeList_ == nullptr && return this->orderColumn_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->region_ == nullptr
+        && return this->tenantId_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};
@@ -87,6 +92,15 @@ namespace Models
     inline vector<string> extNodeIdList() { DARABONBA_PTR_GET(extNodeIdList_, vector<string>) };
     inline ListJobInfosRequest& setExtNodeIdList(const vector<string> & extNodeIdList) { DARABONBA_PTR_SET_VALUE(extNodeIdList_, extNodeIdList) };
     inline ListJobInfosRequest& setExtNodeIdList(vector<string> && extNodeIdList) { DARABONBA_PTR_SET_RVALUE(extNodeIdList_, extNodeIdList) };
+
+
+    // extNodeNameList Field Functions 
+    bool hasExtNodeNameList() const { return this->extNodeNameList_ != nullptr;};
+    void deleteExtNodeNameList() { this->extNodeNameList_ = nullptr;};
+    inline const vector<string> & extNodeNameList() const { DARABONBA_PTR_GET_CONST(extNodeNameList_, vector<string>) };
+    inline vector<string> extNodeNameList() { DARABONBA_PTR_GET(extNodeNameList_, vector<string>) };
+    inline ListJobInfosRequest& setExtNodeNameList(const vector<string> & extNodeNameList) { DARABONBA_PTR_SET_VALUE(extNodeNameList_, extNodeNameList) };
+    inline ListJobInfosRequest& setExtNodeNameList(vector<string> && extNodeNameList) { DARABONBA_PTR_SET_RVALUE(extNodeNameList_, extNodeNameList) };
 
 
     // from Field Functions 
@@ -184,6 +198,15 @@ namespace Models
     inline ListJobInfosRequest& setStatusList(vector<string> && statusList) { DARABONBA_PTR_SET_RVALUE(statusList_, statusList) };
 
 
+    // taskNameList Field Functions 
+    bool hasTaskNameList() const { return this->taskNameList_ != nullptr;};
+    void deleteTaskNameList() { this->taskNameList_ = nullptr;};
+    inline const vector<string> & taskNameList() const { DARABONBA_PTR_GET_CONST(taskNameList_, vector<string>) };
+    inline vector<string> taskNameList() { DARABONBA_PTR_GET(taskNameList_, vector<string>) };
+    inline ListJobInfosRequest& setTaskNameList(const vector<string> & taskNameList) { DARABONBA_PTR_SET_VALUE(taskNameList_, taskNameList) };
+    inline ListJobInfosRequest& setTaskNameList(vector<string> && taskNameList) { DARABONBA_PTR_SET_RVALUE(taskNameList_, taskNameList) };
+
+
     // to Field Functions 
     bool hasTo() const { return this->to_ != nullptr;};
     void deleteTo() { this->to_ = nullptr;};
@@ -240,6 +263,7 @@ namespace Models
     std::shared_ptr<bool> ascOrder_ = nullptr;
     // The ancestor node IDs.
     std::shared_ptr<vector<string>> extNodeIdList_ = nullptr;
+    std::shared_ptr<vector<string>> extNodeNameList_ = nullptr;
     // The start timestamp.
     // 
     // This parameter is required.
@@ -264,6 +288,7 @@ namespace Models
     std::shared_ptr<vector<string>> sortOrderList_ = nullptr;
     // The job states.
     std::shared_ptr<vector<string>> statusList_ = nullptr;
+    std::shared_ptr<vector<string>> taskNameList_ = nullptr;
     // The end timestamp.
     // 
     // This parameter is required.

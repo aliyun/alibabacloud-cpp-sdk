@@ -20,8 +20,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cuUsage, cuUsage_);
       DARABONBA_PTR_TO_JSON(endAtTime, endAtTime_);
       DARABONBA_PTR_TO_JSON(extNodeId, extNodeId_);
+      DARABONBA_PTR_TO_JSON(extNodeName, extNodeName_);
       DARABONBA_PTR_TO_JSON(extNodeOnDuty, extNodeOnDuty_);
       DARABONBA_PTR_TO_JSON(extPlantFrom, extPlantFrom_);
+      DARABONBA_PTR_TO_JSON(extPlatformId, extPlatformId_);
       DARABONBA_PTR_TO_JSON(inputBytes, inputBytes_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(jobOwner, jobOwner_);
@@ -41,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(statusSnapshot, statusSnapshot_);
       DARABONBA_PTR_TO_JSON(submittedAtTime, submittedAtTime_);
       DARABONBA_PTR_TO_JSON(tags, tags_);
+      DARABONBA_PTR_TO_JSON(taskName, taskName_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(totalTime, totalTime_);
       DARABONBA_PTR_TO_JSON(waitingTime, waitingTime_);
@@ -51,8 +54,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cuUsage, cuUsage_);
       DARABONBA_PTR_FROM_JSON(endAtTime, endAtTime_);
       DARABONBA_PTR_FROM_JSON(extNodeId, extNodeId_);
+      DARABONBA_PTR_FROM_JSON(extNodeName, extNodeName_);
       DARABONBA_PTR_FROM_JSON(extNodeOnDuty, extNodeOnDuty_);
       DARABONBA_PTR_FROM_JSON(extPlantFrom, extPlantFrom_);
+      DARABONBA_PTR_FROM_JSON(extPlatformId, extPlatformId_);
       DARABONBA_PTR_FROM_JSON(inputBytes, inputBytes_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(jobOwner, jobOwner_);
@@ -72,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(statusSnapshot, statusSnapshot_);
       DARABONBA_PTR_FROM_JSON(submittedAtTime, submittedAtTime_);
       DARABONBA_PTR_FROM_JSON(tags, tags_);
+      DARABONBA_PTR_FROM_JSON(taskName, taskName_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(totalTime, totalTime_);
       DARABONBA_PTR_FROM_JSON(waitingTime, waitingTime_);
@@ -88,12 +94,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cluster_ == nullptr
-        && return this->cuSnapshot_ == nullptr && return this->cuUsage_ == nullptr && return this->endAtTime_ == nullptr && return this->extNodeId_ == nullptr && return this->extNodeOnDuty_ == nullptr
-        && return this->extPlantFrom_ == nullptr && return this->inputBytes_ == nullptr && return this->instanceId_ == nullptr && return this->jobOwner_ == nullptr && return this->jobType_ == nullptr
-        && return this->memorySnapshot_ == nullptr && return this->memoryUsage_ == nullptr && return this->priority_ == nullptr && return this->project_ == nullptr && return this->quotaNickname_ == nullptr
-        && return this->quotaType_ == nullptr && return this->region_ == nullptr && return this->runningAtTime_ == nullptr && return this->runningTime_ == nullptr && return this->sceneResults_ == nullptr
-        && return this->signature_ == nullptr && return this->status_ == nullptr && return this->statusSnapshot_ == nullptr && return this->submittedAtTime_ == nullptr && return this->tags_ == nullptr
-        && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr && return this->waitingTime_ == nullptr; };
+        && return this->cuSnapshot_ == nullptr && return this->cuUsage_ == nullptr && return this->endAtTime_ == nullptr && return this->extNodeId_ == nullptr && return this->extNodeName_ == nullptr
+        && return this->extNodeOnDuty_ == nullptr && return this->extPlantFrom_ == nullptr && return this->extPlatformId_ == nullptr && return this->inputBytes_ == nullptr && return this->instanceId_ == nullptr
+        && return this->jobOwner_ == nullptr && return this->jobType_ == nullptr && return this->memorySnapshot_ == nullptr && return this->memoryUsage_ == nullptr && return this->priority_ == nullptr
+        && return this->project_ == nullptr && return this->quotaNickname_ == nullptr && return this->quotaType_ == nullptr && return this->region_ == nullptr && return this->runningAtTime_ == nullptr
+        && return this->runningTime_ == nullptr && return this->sceneResults_ == nullptr && return this->signature_ == nullptr && return this->status_ == nullptr && return this->statusSnapshot_ == nullptr
+        && return this->submittedAtTime_ == nullptr && return this->tags_ == nullptr && return this->taskName_ == nullptr && return this->tenantId_ == nullptr && return this->totalTime_ == nullptr
+        && return this->waitingTime_ == nullptr; };
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
@@ -129,6 +136,13 @@ namespace Models
     inline ListJobInfosResponseBodyDataJobInfoList& setExtNodeId(string extNodeId) { DARABONBA_PTR_SET_VALUE(extNodeId_, extNodeId) };
 
 
+    // extNodeName Field Functions 
+    bool hasExtNodeName() const { return this->extNodeName_ != nullptr;};
+    void deleteExtNodeName() { this->extNodeName_ = nullptr;};
+    inline string extNodeName() const { DARABONBA_PTR_GET_DEFAULT(extNodeName_, "") };
+    inline ListJobInfosResponseBodyDataJobInfoList& setExtNodeName(string extNodeName) { DARABONBA_PTR_SET_VALUE(extNodeName_, extNodeName) };
+
+
     // extNodeOnDuty Field Functions 
     bool hasExtNodeOnDuty() const { return this->extNodeOnDuty_ != nullptr;};
     void deleteExtNodeOnDuty() { this->extNodeOnDuty_ = nullptr;};
@@ -141,6 +155,13 @@ namespace Models
     void deleteExtPlantFrom() { this->extPlantFrom_ = nullptr;};
     inline string extPlantFrom() const { DARABONBA_PTR_GET_DEFAULT(extPlantFrom_, "") };
     inline ListJobInfosResponseBodyDataJobInfoList& setExtPlantFrom(string extPlantFrom) { DARABONBA_PTR_SET_VALUE(extPlantFrom_, extPlantFrom) };
+
+
+    // extPlatformId Field Functions 
+    bool hasExtPlatformId() const { return this->extPlatformId_ != nullptr;};
+    void deleteExtPlatformId() { this->extPlatformId_ = nullptr;};
+    inline string extPlatformId() const { DARABONBA_PTR_GET_DEFAULT(extPlatformId_, "") };
+    inline ListJobInfosResponseBodyDataJobInfoList& setExtPlatformId(string extPlatformId) { DARABONBA_PTR_SET_VALUE(extPlatformId_, extPlatformId) };
 
 
     // inputBytes Field Functions 
@@ -278,6 +299,13 @@ namespace Models
     inline ListJobInfosResponseBodyDataJobInfoList& setTags(string tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
 
 
+    // taskName Field Functions 
+    bool hasTaskName() const { return this->taskName_ != nullptr;};
+    void deleteTaskName() { this->taskName_ = nullptr;};
+    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline ListJobInfosResponseBodyDataJobInfoList& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -310,10 +338,12 @@ namespace Models
     std::shared_ptr<int64_t> endAtTime_ = nullptr;
     // The node ID of DataWorks.
     std::shared_ptr<string> extNodeId_ = nullptr;
+    std::shared_ptr<string> extNodeName_ = nullptr;
     // The account of the node owner.
     std::shared_ptr<string> extNodeOnDuty_ = nullptr;
     // The upstream platform.
     std::shared_ptr<string> extPlantFrom_ = nullptr;
+    std::shared_ptr<string> extPlatformId_ = nullptr;
     // The amount of scanned data for the job. Unit: byte.
     std::shared_ptr<double> inputBytes_ = nullptr;
     // The instance ID.
@@ -352,6 +382,7 @@ namespace Models
     std::shared_ptr<int64_t> submittedAtTime_ = nullptr;
     // The tags.
     std::shared_ptr<string> tags_ = nullptr;
+    std::shared_ptr<string> taskName_ = nullptr;
     // The tenant ID.
     std::shared_ptr<string> tenantId_ = nullptr;
     // The total period for which the job runs.
