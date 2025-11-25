@@ -2654,6 +2654,10 @@ DescribeComponentPropetiesResponse Client::describeComponentPropetiesWithOptions
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.storageType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
