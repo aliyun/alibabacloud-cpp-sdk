@@ -40,6 +40,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 备份ACL
+ *
+ * @param request AddAclBackupDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAclBackupDataResponse
+ */
+AddAclBackupDataResponse Client::addAclBackupDataWithOptions(const AddAclBackupDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackUpTime()) {
+    query["BackUpTime"] = request.backUpTime();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAclBackupData"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAclBackupDataResponse>();
+}
+
+/**
+ * @summary 备份ACL
+ *
+ * @param request AddAclBackupDataRequest
+ * @return AddAclBackupDataResponse
+ */
+AddAclBackupDataResponse Client::addAclBackupData(const AddAclBackupDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAclBackupDataWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
  *
  * @description You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
@@ -366,6 +420,56 @@ AddDnsFirewallPolicyResponse Client::addDnsFirewallPolicy(const AddDnsFirewallPo
 }
 
 /**
+ * @summary 新增域名解析实时任务
+ *
+ * @param request AddDomainResolveRealtimeTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddDomainResolveRealtimeTaskResponse
+ */
+AddDomainResolveRealtimeTaskResponse Client::addDomainResolveRealtimeTaskWithOptions(const AddDomainResolveRealtimeTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasFirewallType()) {
+    query["FirewallType"] = request.firewallType();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddDomainResolveRealtimeTask"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddDomainResolveRealtimeTaskResponse>();
+}
+
+/**
+ * @summary 新增域名解析实时任务
+ *
+ * @param request AddDomainResolveRealtimeTaskRequest
+ * @return AddDomainResolveRealtimeTaskResponse
+ */
+AddDomainResolveRealtimeTaskResponse Client::addDomainResolveRealtimeTask(const AddDomainResolveRealtimeTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addDomainResolveRealtimeTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds members to Cloud Firewall.
  *
  * @description You can call this operation to add members to Cloud Firewall.
@@ -466,6 +570,8 @@ AddPrivateDnsDomainNameResponse Client::addPrivateDnsDomainName(const AddPrivate
 }
 
 /**
+ * @deprecated OpenAPI BatchCopyVpcFirewallControlPolicy is deprecated
+ *
  * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
  *
  * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.  
@@ -516,6 +622,8 @@ BatchCopyVpcFirewallControlPolicyResponse Client::batchCopyVpcFirewallControlPol
 }
 
 /**
+ * @deprecated OpenAPI BatchCopyVpcFirewallControlPolicy is deprecated
+ *
  * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
  *
  * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.  
@@ -577,6 +685,39 @@ BatchDeleteVpcFirewallControlPolicyResponse Client::batchDeleteVpcFirewallContro
 BatchDeleteVpcFirewallControlPolicyResponse Client::batchDeleteVpcFirewallControlPolicy(const BatchDeleteVpcFirewallControlPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return batchDeleteVpcFirewallControlPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 清空防火墙日志
+ *
+ * @param request ClearLogStoreStorageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClearLogStoreStorageResponse
+ */
+ClearLogStoreStorageResponse Client::clearLogStoreStorageWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ClearLogStoreStorage"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClearLogStoreStorageResponse>();
+}
+
+/**
+ * @summary 清空防火墙日志
+ *
+ * @return ClearLogStoreStorageResponse
+ */
+ClearLogStoreStorageResponse Client::clearLogStoreStorage() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clearLogStoreStorageWithOptions(runtime);
 }
 
 /**
@@ -755,6 +896,98 @@ CreateDownloadTaskResponse Client::createDownloadTaskWithOptions(const CreateDow
 CreateDownloadTaskResponse Client::createDownloadTask(const CreateDownloadTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDownloadTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建实例资产同步任务
+ *
+ * @param request CreateInstanceSyncTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateInstanceSyncTaskResponse
+ */
+CreateInstanceSyncTaskResponse Client::createInstanceSyncTaskWithOptions(const CreateInstanceSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateInstanceSyncTask"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateInstanceSyncTaskResponse>();
+}
+
+/**
+ * @summary 创建实例资产同步任务
+ *
+ * @param request CreateInstanceSyncTaskRequest
+ * @return CreateInstanceSyncTaskResponse
+ */
+CreateInstanceSyncTaskResponse Client::createInstanceSyncTask(const CreateInstanceSyncTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createInstanceSyncTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建IPS私网关联信息
+ *
+ * @param request CreateIpsPrivateAssocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIpsPrivateAssocResponse
+ */
+CreateIpsPrivateAssocResponse Client::createIpsPrivateAssocWithOptions(const CreateIpsPrivateAssocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateIpsPrivateAssoc"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIpsPrivateAssocResponse>();
+}
+
+/**
+ * @summary 创建IPS私网关联信息
+ *
+ * @param request CreateIpsPrivateAssocRequest
+ * @return CreateIpsPrivateAssocResponse
+ */
+CreateIpsPrivateAssocResponse Client::createIpsPrivateAssoc(const CreateIpsPrivateAssocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createIpsPrivateAssocWithOptions(request, runtime);
 }
 
 /**
@@ -949,6 +1182,48 @@ CreateNatFirewallPreCheckResponse Client::createNatFirewallPreCheckWithOptions(c
 CreateNatFirewallPreCheckResponse Client::createNatFirewallPreCheck(const CreateNatFirewallPreCheckRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createNatFirewallPreCheckWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建NAT防火墙资产同步任务
+ *
+ * @param request CreateNatFirewallSyncTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateNatFirewallSyncTaskResponse
+ */
+CreateNatFirewallSyncTaskResponse Client::createNatFirewallSyncTaskWithOptions(const CreateNatFirewallSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateNatFirewallSyncTask"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateNatFirewallSyncTaskResponse>();
+}
+
+/**
+ * @summary 创建NAT防火墙资产同步任务
+ *
+ * @param request CreateNatFirewallSyncTaskRequest
+ * @return CreateNatFirewallSyncTaskResponse
+ */
+CreateNatFirewallSyncTaskResponse Client::createNatFirewallSyncTask(const CreateNatFirewallSyncTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createNatFirewallSyncTaskWithOptions(request, runtime);
 }
 
 /**
@@ -1442,6 +1717,8 @@ CreateVpcFirewallCenConfigureResponse Client::createVpcFirewallCenConfigure(cons
 }
 
 /**
+ * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
+ *
  * @summary 创建VPC防火墙手动配置
  *
  * @param request CreateVpcFirewallCenManualConfigureRequest
@@ -1493,6 +1770,8 @@ CreateVpcFirewallCenManualConfigureResponse Client::createVpcFirewallCenManualCo
 }
 
 /**
+ * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
+ *
  * @summary 创建VPC防火墙手动配置
  *
  * @param request CreateVpcFirewallCenManualConfigureRequest
@@ -3477,6 +3756,60 @@ DescribeAclAppsResponse Client::describeAclApps(const DescribeAclAppsRequest &re
 }
 
 /**
+ * @summary 获取ACL备份列表
+ *
+ * @param request DescribeAclBackupListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAclBackupListResponse
+ */
+DescribeAclBackupListResponse Client::describeAclBackupListWithOptions(const DescribeAclBackupListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAclBackupList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAclBackupListResponse>();
+}
+
+/**
+ * @summary 获取ACL备份列表
+ *
+ * @param request DescribeAclBackupListRequest
+ * @return DescribeAclBackupListResponse
+ */
+DescribeAclBackupListResponse Client::describeAclBackupList(const DescribeAclBackupListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAclBackupListWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询ACL检查详情
  *
  * @param request DescribeAclCheckRequest
@@ -3963,6 +4296,96 @@ DescribeAssetStatisticResponse Client::describeAssetStatistic(const DescribeAsse
 }
 
 /**
+ * @summary 获取敏感数据类别开关
+ *
+ * @param request DescribeAttackAppCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAttackAppCategoryResponse
+ */
+DescribeAttackAppCategoryResponse Client::describeAttackAppCategoryWithOptions(const DescribeAttackAppCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAttackAppCategory"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAttackAppCategoryResponse>();
+}
+
+/**
+ * @summary 获取敏感数据类别开关
+ *
+ * @param request DescribeAttackAppCategoryRequest
+ * @return DescribeAttackAppCategoryResponse
+ */
+DescribeAttackAppCategoryResponse Client::describeAttackAppCategory(const DescribeAttackAppCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAttackAppCategoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取日志分发状态
+ *
+ * @param request DescribeBatchSlsDispatchStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBatchSlsDispatchStatusResponse
+ */
+DescribeBatchSlsDispatchStatusResponse Client::describeBatchSlsDispatchStatusWithOptions(const DescribeBatchSlsDispatchStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBatchSlsDispatchStatus"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBatchSlsDispatchStatusResponse>();
+}
+
+/**
+ * @summary 获取日志分发状态
+ *
+ * @param request DescribeBatchSlsDispatchStatusRequest
+ * @return DescribeBatchSlsDispatchStatusResponse
+ */
+DescribeBatchSlsDispatchStatusResponse Client::describeBatchSlsDispatchStatus(const DescribeBatchSlsDispatchStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBatchSlsDispatchStatusWithOptions(request, runtime);
+}
+
+/**
+ * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
+ *
  * @summary Queries the firewall risk level.
  *
  * @param request DescribeCfwRiskLevelSummaryRequest
@@ -4002,6 +4425,8 @@ DescribeCfwRiskLevelSummaryResponse Client::describeCfwRiskLevelSummaryWithOptio
 }
 
 /**
+ * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
+ *
  * @summary Queries the firewall risk level.
  *
  * @param request DescribeCfwRiskLevelSummaryRequest
@@ -4043,6 +4468,162 @@ DescribeClearAuthInfoResponse Client::describeClearAuthInfoWithOptions(const Dar
 DescribeClearAuthInfoResponse Client::describeClearAuthInfo() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeClearAuthInfoWithOptions(runtime);
+}
+
+/**
+ * @summary 获取已配置的目的IP
+ *
+ * @param request DescribeConfiguredDestinationIPRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConfiguredDestinationIPResponse
+ */
+DescribeConfiguredDestinationIPResponse Client::describeConfiguredDestinationIPWithOptions(const DescribeConfiguredDestinationIPRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDestinationIP()) {
+    query["DestinationIP"] = request.destinationIP();
+  }
+
+  if (!!request.hasDestinationISP()) {
+    query["DestinationISP"] = request.destinationISP();
+  }
+
+  if (!!request.hasDestinationRegion()) {
+    query["DestinationRegion"] = request.destinationRegion();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConfiguredDestinationIP"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConfiguredDestinationIPResponse>();
+}
+
+/**
+ * @summary 获取已配置的目的IP
+ *
+ * @param request DescribeConfiguredDestinationIPRequest
+ * @return DescribeConfiguredDestinationIPResponse
+ */
+DescribeConfiguredDestinationIPResponse Client::describeConfiguredDestinationIP(const DescribeConfiguredDestinationIPRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeConfiguredDestinationIPWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取已配置的域名
+ *
+ * @param request DescribeConfiguredDomainNamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeConfiguredDomainNamesResponse
+ */
+DescribeConfiguredDomainNamesResponse Client::describeConfiguredDomainNamesWithOptions(const DescribeConfiguredDomainNamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasGroupName()) {
+    query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeConfiguredDomainNames"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeConfiguredDomainNamesResponse>();
+}
+
+/**
+ * @summary 获取已配置的域名
+ *
+ * @param request DescribeConfiguredDomainNamesRequest
+ * @return DescribeConfiguredDomainNamesResponse
+ */
+DescribeConfiguredDomainNamesResponse Client::describeConfiguredDomainNames(const DescribeConfiguredDomainNamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeConfiguredDomainNamesWithOptions(request, runtime);
 }
 
 /**
@@ -4145,6 +4726,82 @@ DescribeControlPolicyResponse Client::describeControlPolicyWithOptions(const Des
 DescribeControlPolicyResponse Client::describeControlPolicy(const DescribeControlPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeControlPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询访问控制策略的域名解析结果
+ *
+ * @param request DescribeControlPolicyDomainResolveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeControlPolicyDomainResolveResponse
+ */
+DescribeControlPolicyDomainResolveResponse Client::describeControlPolicyDomainResolveWithOptions(const DescribeControlPolicyDomainResolveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeControlPolicyDomainResolve"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeControlPolicyDomainResolveResponse>();
+}
+
+/**
+ * @summary 查询访问控制策略的域名解析结果
+ *
+ * @param request DescribeControlPolicyDomainResolveRequest
+ * @return DescribeControlPolicyDomainResolveResponse
+ */
+DescribeControlPolicyDomainResolveResponse Client::describeControlPolicyDomainResolve(const DescribeControlPolicyDomainResolveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeControlPolicyDomainResolveWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取已经创建的 NAT 防火墙
+ *
+ * @param request DescribeCreatedNatFirewallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCreatedNatFirewallResponse
+ */
+DescribeCreatedNatFirewallResponse Client::describeCreatedNatFirewallWithOptions(const DescribeCreatedNatFirewallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCreatedNatFirewall"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCreatedNatFirewallResponse>();
+}
+
+/**
+ * @summary 获取已经创建的 NAT 防火墙
+ *
+ * @param request DescribeCreatedNatFirewallRequest
+ * @return DescribeCreatedNatFirewallResponse
+ */
+DescribeCreatedNatFirewallResponse Client::describeCreatedNatFirewall(const DescribeCreatedNatFirewallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCreatedNatFirewallWithOptions(request, runtime);
 }
 
 /**
@@ -4487,6 +5144,8 @@ DescribeDownloadTaskTypeResponse Client::describeDownloadTaskType(const Describe
 }
 
 /**
+ * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
+ *
  * @summary 获取防火墙DROP数据统计
  *
  * @param request DescribeFirewallDropStatisticsRequest
@@ -4510,6 +5169,8 @@ DescribeFirewallDropStatisticsResponse Client::describeFirewallDropStatisticsWit
 }
 
 /**
+ * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
+ *
  * @summary 获取防火墙DROP数据统计
  *
  * @return DescribeFirewallDropStatisticsResponse
@@ -4652,6 +5313,64 @@ DescribeFirewallVSwitchResponse Client::describeFirewallVSwitch(const DescribeFi
 }
 
 /**
+ * @summary 获取防火墙交换机资源
+ *
+ * @param request DescribeFirewallVswitchResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeFirewallVswitchResourcesResponse
+ */
+DescribeFirewallVswitchResourcesResponse Client::describeFirewallVswitchResourcesWithOptions(const DescribeFirewallVswitchResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFirewallType()) {
+    query["FirewallType"] = request.firewallType();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeFirewallVswitchResources"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeFirewallVswitchResourcesResponse>();
+}
+
+/**
+ * @summary 获取防火墙交换机资源
+ *
+ * @param request DescribeFirewallVswitchResourcesRequest
+ * @return DescribeFirewallVswitchResourcesResponse
+ */
+DescribeFirewallVswitchResourcesResponse Client::describeFirewallVswitchResources(const DescribeFirewallVswitchResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeFirewallVswitchResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about members in Cloud Firewall.
  *
  * @description You can use this operation to query the information about members in Cloud Firewall.
@@ -4715,6 +5434,72 @@ DescribeInstanceMembersResponse Client::describeInstanceMembersWithOptions(const
 DescribeInstanceMembersResponse Client::describeInstanceMembers(const DescribeInstanceMembersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeInstanceMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例RD账号
+ *
+ * @param request DescribeInstanceRdAccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceRdAccountsResponse
+ */
+DescribeInstanceRdAccountsResponse Client::describeInstanceRdAccountsWithOptions(const DescribeInstanceRdAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberDesc()) {
+    query["MemberDesc"] = request.memberDesc();
+  }
+
+  if (!!request.hasMemberDisplayName()) {
+    query["MemberDisplayName"] = request.memberDisplayName();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceRdAccounts"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceRdAccountsResponse>();
+}
+
+/**
+ * @summary 获取实例RD账号
+ *
+ * @param request DescribeInstanceRdAccountsRequest
+ * @return DescribeInstanceRdAccountsResponse
+ */
+DescribeInstanceRdAccountsResponse Client::describeInstanceRdAccounts(const DescribeInstanceRdAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceRdAccountsWithOptions(request, runtime);
 }
 
 /**
@@ -4827,6 +5612,116 @@ DescribeInternetDropTrafficTrendResponse Client::describeInternetDropTrafficTren
 DescribeInternetDropTrafficTrendResponse Client::describeInternetDropTrafficTrend(const DescribeInternetDropTrafficTrendRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeInternetDropTrafficTrendWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取互联网开放详情
+ *
+ * @param request DescribeInternetOpenDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetOpenDetailResponse
+ */
+DescribeInternetOpenDetailResponse Client::describeInternetOpenDetailWithOptions(const DescribeInternetOpenDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetsInstanceId()) {
+    query["AssetsInstanceId"] = request.assetsInstanceId();
+  }
+
+  if (!!request.hasAssetsInstanceName()) {
+    query["AssetsInstanceName"] = request.assetsInstanceName();
+  }
+
+  if (!!request.hasAssetsType()) {
+    query["AssetsType"] = request.assetsType();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasPublicIp()) {
+    query["PublicIp"] = request.publicIp();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.riskLevel();
+  }
+
+  if (!!request.hasServiceName()) {
+    query["ServiceName"] = request.serviceName();
+  }
+
+  if (!!request.hasServiceNameFuzzy()) {
+    query["ServiceNameFuzzy"] = request.serviceNameFuzzy();
+  }
+
+  if (!!request.hasSortList()) {
+    query["SortList"] = request.sortList();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasSuggestLevel()) {
+    query["SuggestLevel"] = request.suggestLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetOpenDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetOpenDetailResponse>();
+}
+
+/**
+ * @summary 获取互联网开放详情
+ *
+ * @param request DescribeInternetOpenDetailRequest
+ * @return DescribeInternetOpenDetailResponse
+ */
+DescribeInternetOpenDetailResponse Client::describeInternetOpenDetail(const DescribeInternetOpenDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetOpenDetailWithOptions(request, runtime);
 }
 
 /**
@@ -5092,6 +5987,392 @@ DescribeInternetOpenServiceResponse Client::describeInternetOpenService(const De
 }
 
 /**
+ * @summary 获取互联网开放统计
+ *
+ * @param request DescribeInternetOpenStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetOpenStatisticResponse
+ */
+DescribeInternetOpenStatisticResponse Client::describeInternetOpenStatisticWithOptions(const DescribeInternetOpenStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetOpenStatistic"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetOpenStatisticResponse>();
+}
+
+/**
+ * @summary 获取互联网开放统计
+ *
+ * @param request DescribeInternetOpenStatisticRequest
+ * @return DescribeInternetOpenStatisticResponse
+ */
+DescribeInternetOpenStatisticResponse Client::describeInternetOpenStatistic(const DescribeInternetOpenStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetOpenStatisticWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取互联网服务名称列表
+ *
+ * @param request DescribeInternetServiceNameListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetServiceNameListResponse
+ */
+DescribeInternetServiceNameListResponse Client::describeInternetServiceNameListWithOptions(const DescribeInternetServiceNameListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetServiceNameList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetServiceNameListResponse>();
+}
+
+/**
+ * @summary 获取互联网服务名称列表
+ *
+ * @param request DescribeInternetServiceNameListRequest
+ * @return DescribeInternetServiceNameListResponse
+ */
+DescribeInternetServiceNameListResponse Client::describeInternetServiceNameList(const DescribeInternetServiceNameListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetServiceNameListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取互联网SLB
+ *
+ * @param request DescribeInternetSlbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetSlbResponse
+ */
+DescribeInternetSlbResponse Client::describeInternetSlbWithOptions(const DescribeInternetSlbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasIpProtocol()) {
+    query["IpProtocol"] = request.ipProtocol();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasPublicIp()) {
+    query["PublicIp"] = request.publicIp();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetSlb"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetSlbResponse>();
+}
+
+/**
+ * @summary 获取互联网SLB
+ *
+ * @param request DescribeInternetSlbRequest
+ * @return DescribeInternetSlbResponse
+ */
+DescribeInternetSlbResponse Client::describeInternetSlb(const DescribeInternetSlbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetSlbWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取互联网流量时间TOP
+ *
+ * @param request DescribeInternetTimeTopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetTimeTopResponse
+ */
+DescribeInternetTimeTopResponse Client::describeInternetTimeTopWithOptions(const DescribeInternetTimeTopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasIPType()) {
+    query["IPType"] = request.IPType();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.interval();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.limit();
+  }
+
+  if (!!request.hasNatIP()) {
+    query["NatIP"] = request.natIP();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasSrcIP()) {
+    query["SrcIP"] = request.srcIP();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTrafficTime()) {
+    query["TrafficTime"] = request.trafficTime();
+  }
+
+  if (!!request.hasTrafficType()) {
+    query["TrafficType"] = request.trafficType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetTimeTop"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetTimeTopResponse>();
+}
+
+/**
+ * @summary 获取互联网流量时间TOP
+ *
+ * @param request DescribeInternetTimeTopRequest
+ * @return DescribeInternetTimeTopResponse
+ */
+DescribeInternetTimeTopResponse Client::describeInternetTimeTop(const DescribeInternetTimeTopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetTimeTopWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取互联网流量TOP趋势图
+ *
+ * @param request DescribeInternetTrafficTopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInternetTrafficTopResponse
+ */
+DescribeInternetTrafficTopResponse Client::describeInternetTrafficTopWithOptions(const DescribeInternetTrafficTopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDataType()) {
+    query["DataType"] = request.dataType();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.limit();
+  }
+
+  if (!!request.hasRuleResult()) {
+    query["RuleResult"] = request.ruleResult();
+  }
+
+  if (!!request.hasRuleSource()) {
+    query["RuleSource"] = request.ruleSource();
+  }
+
+  if (!!request.hasShowCountryName()) {
+    query["ShowCountryName"] = request.showCountryName();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInternetTrafficTop"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInternetTrafficTopResponse>();
+}
+
+/**
+ * @summary 获取互联网流量TOP趋势图
+ *
+ * @param request DescribeInternetTrafficTopRequest
+ * @return DescribeInternetTrafficTopResponse
+ */
+DescribeInternetTrafficTopResponse Client::describeInternetTrafficTop(const DescribeInternetTrafficTopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInternetTrafficTopWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the trends of Internet traffic.
  *
  * @param request DescribeInternetTrafficTrendRequest
@@ -5167,6 +6448,126 @@ DescribeInternetTrafficTrendResponse Client::describeInternetTrafficTrendWithOpt
 DescribeInternetTrafficTrendResponse Client::describeInternetTrafficTrend(const DescribeInternetTrafficTrendRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeInternetTrafficTrendWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取ECS漏洞趋势
+ *
+ * @param request DescribeInvadeEcsTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInvadeEcsTrendResponse
+ */
+DescribeInvadeEcsTrendResponse Client::describeInvadeEcsTrendWithOptions(const DescribeInvadeEcsTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInvadeEcsTrend"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInvadeEcsTrendResponse>();
+}
+
+/**
+ * @summary 获取ECS漏洞趋势
+ *
+ * @param request DescribeInvadeEcsTrendRequest
+ * @return DescribeInvadeEcsTrendResponse
+ */
+DescribeInvadeEcsTrendResponse Client::describeInvadeEcsTrend(const DescribeInvadeEcsTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInvadeEcsTrendWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取漏洞事件详情
+ *
+ * @param request DescribeInvadeEventDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInvadeEventDetailResponse
+ */
+DescribeInvadeEventDetailResponse Client::describeInvadeEventDetailWithOptions(const DescribeInvadeEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssetsInstanceId()) {
+    query["AssetsInstanceId"] = request.assetsInstanceId();
+  }
+
+  if (!!request.hasEventUuid()) {
+    query["EventUuid"] = request.eventUuid();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPublicIP()) {
+    query["PublicIP"] = request.publicIP();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInvadeEventDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInvadeEventDetailResponse>();
+}
+
+/**
+ * @summary 获取漏洞事件详情
+ *
+ * @param request DescribeInvadeEventDetailRequest
+ * @return DescribeInvadeEventDetailResponse
+ */
+DescribeInvadeEventDetailResponse Client::describeInvadeEventDetail(const DescribeInvadeEventDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInvadeEventDetailWithOptions(request, runtime);
 }
 
 /**
@@ -5392,6 +6793,180 @@ DescribeInvadeEventStatisticResponse Client::describeInvadeEventStatistic(const 
 }
 
 /**
+ * @summary 查询IPS私网关联信息
+ *
+ * @param request DescribeIpsPrivateAssocRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeIpsPrivateAssocResponse
+ */
+DescribeIpsPrivateAssocResponse Client::describeIpsPrivateAssocWithOptions(const DescribeIpsPrivateAssocRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPublicIp()) {
+    query["PublicIp"] = request.publicIp();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeIpsPrivateAssoc"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeIpsPrivateAssocResponse>();
+}
+
+/**
+ * @summary 查询IPS私网关联信息
+ *
+ * @param request DescribeIpsPrivateAssocRequest
+ * @return DescribeIpsPrivateAssocResponse
+ */
+DescribeIpsPrivateAssocResponse Client::describeIpsPrivateAssoc(const DescribeIpsPrivateAssocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeIpsPrivateAssocWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取ISP信息
+ *
+ * @param request DescribeIspInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeIspInfoResponse
+ */
+DescribeIspInfoResponse Client::describeIspInfoWithOptions(const DescribeIspInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeIspInfo"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeIspInfoResponse>();
+}
+
+/**
+ * @summary 获取ISP信息
+ *
+ * @param request DescribeIspInfoRequest
+ * @return DescribeIspInfoResponse
+ */
+DescribeIspInfoResponse Client::describeIspInfo(const DescribeIspInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeIspInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取位置信息
+ *
+ * @param request DescribeLocationInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLocationInfoResponse
+ */
+DescribeLocationInfoResponse Client::describeLocationInfoWithOptions(const DescribeLocationInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLocationInfo"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLocationInfoResponse>();
+}
+
+/**
+ * @summary 获取位置信息
+ *
+ * @param request DescribeLocationInfoRequest
+ * @return DescribeLocationInfoResponse
+ */
+DescribeLocationInfoResponse Client::describeLocationInfo(const DescribeLocationInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLocationInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Get Log Service Information
  *
  * @param request DescribeLogStoreInfoRequest
@@ -5422,6 +6997,44 @@ DescribeLogStoreInfoResponse Client::describeLogStoreInfoWithOptions(const Darab
 DescribeLogStoreInfoResponse Client::describeLogStoreInfo() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeLogStoreInfoWithOptions(runtime);
+}
+
+/**
+ * @summary 免费版获取成员信息
+ *
+ * @param request DescribeMemberInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMemberInfoResponse
+ */
+DescribeMemberInfoResponse Client::describeMemberInfoWithOptions(const DescribeMemberInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMemberInfo"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMemberInfoResponse>();
+}
+
+/**
+ * @summary 免费版获取成员信息
+ *
+ * @param request DescribeMemberInfoRequest
+ * @return DescribeMemberInfoResponse
+ */
+DescribeMemberInfoResponse Client::describeMemberInfo(const DescribeMemberInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMemberInfoWithOptions(request, runtime);
 }
 
 /**
@@ -5464,6 +7077,48 @@ DescribeNatAclPageStatusResponse Client::describeNatAclPageStatusWithOptions(con
 DescribeNatAclPageStatusResponse Client::describeNatAclPageStatus(const DescribeNatAclPageStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeNatAclPageStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Nat防火墙分组列表
+ *
+ * @param request DescribeNatFirewallAclGroupListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNatFirewallAclGroupListResponse
+ */
+DescribeNatFirewallAclGroupListResponse Client::describeNatFirewallAclGroupListWithOptions(const DescribeNatFirewallAclGroupListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeNatFirewallAclGroupList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNatFirewallAclGroupListResponse>();
+}
+
+/**
+ * @summary 查询Nat防火墙分组列表
+ *
+ * @param request DescribeNatFirewallAclGroupListRequest
+ * @return DescribeNatFirewallAclGroupListResponse
+ */
+DescribeNatFirewallAclGroupListResponse Client::describeNatFirewallAclGroupList(const DescribeNatFirewallAclGroupListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNatFirewallAclGroupListWithOptions(request, runtime);
 }
 
 /**
@@ -5739,6 +7394,44 @@ DescribeNatFirewallPolicyPriorUsedResponse Client::describeNatFirewallPolicyPrio
 }
 
 /**
+ * @summary 查询NAT防火墙预检查结果
+ *
+ * @param request DescribeNatFirewallPrecheckDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNatFirewallPrecheckDetailResponse
+ */
+DescribeNatFirewallPrecheckDetailResponse Client::describeNatFirewallPrecheckDetailWithOptions(const DescribeNatFirewallPrecheckDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeNatFirewallPrecheckDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNatFirewallPrecheckDetailResponse>();
+}
+
+/**
+ * @summary 查询NAT防火墙预检查结果
+ *
+ * @param request DescribeNatFirewallPrecheckDetailRequest
+ * @return DescribeNatFirewallPrecheckDetailResponse
+ */
+DescribeNatFirewallPrecheckDetailResponse Client::describeNatFirewallPrecheckDetail(const DescribeNatFirewallPrecheckDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNatFirewallPrecheckDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取NAT防火墙配额
  *
  * @param request DescribeNatFirewallQuotaRequest
@@ -5774,6 +7467,44 @@ DescribeNatFirewallQuotaResponse Client::describeNatFirewallQuotaWithOptions(con
 DescribeNatFirewallQuotaResponse Client::describeNatFirewallQuota(const DescribeNatFirewallQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeNatFirewallQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询NAT防火墙时间点流量详情列表
+ *
+ * @param request DescribeNatFirewallTimeTopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeNatFirewallTimeTopResponse
+ */
+DescribeNatFirewallTimeTopResponse Client::describeNatFirewallTimeTopWithOptions(const DescribeNatFirewallTimeTopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeNatFirewallTimeTop"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeNatFirewallTimeTopResponse>();
+}
+
+/**
+ * @summary 查询NAT防火墙时间点流量详情列表
+ *
+ * @param request DescribeNatFirewallTimeTopRequest
+ * @return DescribeNatFirewallTimeTopResponse
+ */
+DescribeNatFirewallTimeTopResponse Client::describeNatFirewallTimeTop(const DescribeNatFirewallTimeTopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeNatFirewallTimeTopWithOptions(request, runtime);
 }
 
 /**
@@ -6209,6 +7940,190 @@ DescribeOutgoingAssetListResponse Client::describeOutgoingAssetList(const Descri
 }
 
 /**
+ * @summary 获取外联目的
+ *
+ * @param request DescribeOutgoingDestinationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOutgoingDestinationResponse
+ */
+DescribeOutgoingDestinationResponse Client::describeOutgoingDestinationWithOptions(const DescribeOutgoingDestinationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAclCoverage()) {
+    query["AclCoverage"] = request.aclCoverage();
+  }
+
+  if (!!request.hasApplicationName()) {
+    query["ApplicationName"] = request.applicationName();
+  }
+
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.categoryId();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDstIP()) {
+    query["DstIP"] = request.dstIP();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasIsAITraffic()) {
+    query["IsAITraffic"] = request.isAITraffic();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasPrivateIP()) {
+    query["PrivateIP"] = request.privateIP();
+  }
+
+  if (!!request.hasPublicIP()) {
+    query["PublicIP"] = request.publicIP();
+  }
+
+  if (!!request.hasSecuritySuggest()) {
+    query["SecuritySuggest"] = request.securitySuggest();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTagId()) {
+    query["TagId"] = request.tagId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOutgoingDestination"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOutgoingDestinationResponse>();
+}
+
+/**
+ * @summary 获取外联目的
+ *
+ * @param request DescribeOutgoingDestinationRequest
+ * @return DescribeOutgoingDestinationResponse
+ */
+DescribeOutgoingDestinationResponse Client::describeOutgoingDestination(const DescribeOutgoingDestinationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOutgoingDestinationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取外联目的分类
+ *
+ * @param request DescribeOutgoingDestinationCategoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOutgoingDestinationCategoryResponse
+ */
+DescribeOutgoingDestinationCategoryResponse Client::describeOutgoingDestinationCategoryWithOptions(const DescribeOutgoingDestinationCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryId()) {
+    query["CategoryId"] = request.categoryId();
+  }
+
+  if (!!request.hasDstType()) {
+    query["DstType"] = request.dstType();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTypeId()) {
+    query["TypeId"] = request.typeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOutgoingDestinationCategory"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOutgoingDestinationCategoryResponse>();
+}
+
+/**
+ * @summary 获取外联目的分类
+ *
+ * @param request DescribeOutgoingDestinationCategoryRequest
+ * @return DescribeOutgoingDestinationCategoryResponse
+ */
+DescribeOutgoingDestinationCategoryResponse Client::describeOutgoingDestinationCategory(const DescribeOutgoingDestinationCategoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOutgoingDestinationCategoryWithOptions(request, runtime);
+}
+
+/**
  * @summary Get details of outgoing destination IPs
  *
  * @param request DescribeOutgoingDestinationIPRequest
@@ -6300,6 +8215,108 @@ DescribeOutgoingDestinationIPResponse Client::describeOutgoingDestinationIPWithO
 DescribeOutgoingDestinationIPResponse Client::describeOutgoingDestinationIP(const DescribeOutgoingDestinationIPRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeOutgoingDestinationIPWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取外联目的IP详情
+ *
+ * @param request DescribeOutgoingDestinationIPDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOutgoingDestinationIPDetailResponse
+ */
+DescribeOutgoingDestinationIPDetailResponse Client::describeOutgoingDestinationIPDetailWithOptions(const DescribeOutgoingDestinationIPDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAclCoverage()) {
+    query["AclCoverage"] = request.aclCoverage();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDstIP()) {
+    query["DstIP"] = request.dstIP();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasIPType()) {
+    query["IPType"] = request.IPType();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasNatGatewayId()) {
+    query["NatGatewayId"] = request.natGatewayId();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPrivateIP()) {
+    query["PrivateIP"] = request.privateIP();
+  }
+
+  if (!!request.hasPublicIP()) {
+    query["PublicIP"] = request.publicIP();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTagId()) {
+    query["TagId"] = request.tagId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOutgoingDestinationIPDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOutgoingDestinationIPDetailResponse>();
+}
+
+/**
+ * @summary 获取外联目的IP详情
+ *
+ * @param request DescribeOutgoingDestinationIPDetailRequest
+ * @return DescribeOutgoingDestinationIPDetailResponse
+ */
+DescribeOutgoingDestinationIPDetailResponse Client::describeOutgoingDestinationIPDetail(const DescribeOutgoingDestinationIPDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOutgoingDestinationIPDetailWithOptions(request, runtime);
 }
 
 /**
@@ -6499,6 +8516,102 @@ DescribeOutgoingDomainDetailResponse Client::describeOutgoingDomainDetail(const 
 }
 
 /**
+ * @summary 获取外联风险域名与IP数
+ *
+ * @param request DescribeOutgoingRiskDomainAndIpCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOutgoingRiskDomainAndIpCountResponse
+ */
+DescribeOutgoingRiskDomainAndIpCountResponse Client::describeOutgoingRiskDomainAndIpCountWithOptions(const DescribeOutgoingRiskDomainAndIpCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOutgoingRiskDomainAndIpCount"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOutgoingRiskDomainAndIpCountResponse>();
+}
+
+/**
+ * @summary 获取外联风险域名与IP数
+ *
+ * @param request DescribeOutgoingRiskDomainAndIpCountRequest
+ * @return DescribeOutgoingRiskDomainAndIpCountResponse
+ */
+DescribeOutgoingRiskDomainAndIpCountResponse Client::describeOutgoingRiskDomainAndIpCount(const DescribeOutgoingRiskDomainAndIpCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOutgoingRiskDomainAndIpCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取外联风险趋势图
+ *
+ * @param request DescribeOutgoingRiskTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOutgoingRiskTrendResponse
+ */
+DescribeOutgoingRiskTrendResponse Client::describeOutgoingRiskTrendWithOptions(const DescribeOutgoingRiskTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOutgoingRiskTrend"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOutgoingRiskTrendResponse>();
+}
+
+/**
+ * @summary 获取外联风险趋势图
+ *
+ * @param request DescribeOutgoingRiskTrendRequest
+ * @return DescribeOutgoingRiskTrendResponse
+ */
+DescribeOutgoingRiskTrendResponse Client::describeOutgoingRiskTrend(const DescribeOutgoingRiskTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOutgoingRiskTrendWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取外联统计
  *
  * @param request DescribeOutgoingStatisticRequest
@@ -6623,6 +8736,8 @@ DescribeOutgoingTagResponse Client::describeOutgoingTag(const DescribeOutgoingTa
 }
 
 /**
+ * @deprecated OpenAPI DescribePageDocuments is deprecated
+ *
  * @summary 获取文档
  *
  * @param request DescribePageDocumentsRequest
@@ -6674,6 +8789,8 @@ DescribePageDocumentsResponse Client::describePageDocumentsWithOptions(const Des
 }
 
 /**
+ * @deprecated OpenAPI DescribePageDocuments is deprecated
+ *
  * @summary 获取文档
  *
  * @param request DescribePageDocumentsRequest
@@ -6802,6 +8919,44 @@ DescribePolicyPriorUsedResponse Client::describePolicyPriorUsedWithOptions(const
 DescribePolicyPriorUsedResponse Client::describePolicyPriorUsed(const DescribePolicyPriorUsedRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describePolicyPriorUsedWithOptions(request, runtime);
+}
+
+/**
+ * @summary 按量付费是否开启过防护
+ *
+ * @param request DescribePostpayEnabledProtectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePostpayEnabledProtectionResponse
+ */
+DescribePostpayEnabledProtectionResponse Client::describePostpayEnabledProtectionWithOptions(const DescribePostpayEnabledProtectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePostpayEnabledProtection"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePostpayEnabledProtectionResponse>();
+}
+
+/**
+ * @summary 按量付费是否开启过防护
+ *
+ * @param request DescribePostpayEnabledProtectionRequest
+ * @return DescribePostpayEnabledProtectionResponse
+ */
+DescribePostpayEnabledProtectionResponse Client::describePostpayEnabledProtection(const DescribePostpayEnabledProtectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePostpayEnabledProtectionWithOptions(request, runtime);
 }
 
 /**
@@ -7195,6 +9350,52 @@ DescribePrivateDnsEndpointListResponse Client::describePrivateDnsEndpointList(co
 }
 
 /**
+ * @summary 查询私有DNS的统计信息
+ *
+ * @param request DescribePrivateDnsStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePrivateDnsStatisticsResponse
+ */
+DescribePrivateDnsStatisticsResponse Client::describePrivateDnsStatisticsWithOptions(const DescribePrivateDnsStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainNameCreatedEndTime()) {
+    query["DomainNameCreatedEndTime"] = request.domainNameCreatedEndTime();
+  }
+
+  if (!!request.hasDomainNameCreatedStartTime()) {
+    query["DomainNameCreatedStartTime"] = request.domainNameCreatedStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePrivateDnsStatistics"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePrivateDnsStatisticsResponse>();
+}
+
+/**
+ * @summary 查询私有DNS的统计信息
+ *
+ * @param request DescribePrivateDnsStatisticsRequest
+ * @return DescribePrivateDnsStatisticsResponse
+ */
+DescribePrivateDnsStatisticsResponse Client::describePrivateDnsStatistics(const DescribePrivateDnsStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePrivateDnsStatisticsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取地域信息
  *
  * @param request DescribeRegionInfoRequest
@@ -7511,6 +9712,146 @@ DescribeRiskEventPayloadResponse Client::describeRiskEventPayload(const Describe
 }
 
 /**
+ * @summary 获取风险事件统计
+ *
+ * @param request DescribeRiskEventStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRiskEventStatisticResponse
+ */
+DescribeRiskEventStatisticResponse Client::describeRiskEventStatisticWithOptions(const DescribeRiskEventStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttackApp()) {
+    query["AttackApp"] = request.attackApp();
+  }
+
+  if (!!request.hasAttackType()) {
+    query["AttackType"] = request.attackType();
+  }
+
+  if (!!request.hasBuyVersion()) {
+    query["BuyVersion"] = request.buyVersion();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRiskEventStatistic"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRiskEventStatisticResponse>();
+}
+
+/**
+ * @summary 获取风险事件统计
+ *
+ * @param request DescribeRiskEventStatisticRequest
+ * @return DescribeRiskEventStatisticResponse
+ */
+DescribeRiskEventStatisticResponse Client::describeRiskEventStatistic(const DescribeRiskEventStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRiskEventStatisticWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Top风险事件攻击APP
+ *
+ * @param request DescribeRiskEventTopAttackAppRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRiskEventTopAttackAppResponse
+ */
+DescribeRiskEventTopAttackAppResponse Client::describeRiskEventTopAttackAppWithOptions(const DescribeRiskEventTopAttackAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAttackApp()) {
+    query["AttackApp"] = request.attackApp();
+  }
+
+  if (!!request.hasAttackType()) {
+    query["AttackType"] = request.attackType();
+  }
+
+  if (!!request.hasBuyVersion()) {
+    query["BuyVersion"] = request.buyVersion();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRiskEventTopAttackApp"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRiskEventTopAttackAppResponse>();
+}
+
+/**
+ * @summary 获取Top风险事件攻击APP
+ *
+ * @param request DescribeRiskEventTopAttackAppRequest
+ * @return DescribeRiskEventTopAttackAppResponse
+ */
+DescribeRiskEventTopAttackAppResponse Client::describeRiskEventTopAttackApp(const DescribeRiskEventTopAttackAppRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRiskEventTopAttackAppWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取Top风险事件资产
  *
  * @param request DescribeRiskEventTopAttackAssetRequest
@@ -7581,6 +9922,70 @@ DescribeRiskEventTopAttackAssetResponse Client::describeRiskEventTopAttackAsset(
 }
 
 /**
+ * @summary 获取Top风险事件类型
+ *
+ * @param request DescribeRiskEventTopAttackTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRiskEventTopAttackTypeResponse
+ */
+DescribeRiskEventTopAttackTypeResponse Client::describeRiskEventTopAttackTypeWithOptions(const DescribeRiskEventTopAttackTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBuyVersion()) {
+    query["BuyVersion"] = request.buyVersion();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRiskEventTopAttackType"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRiskEventTopAttackTypeResponse>();
+}
+
+/**
+ * @summary 获取Top风险事件类型
+ *
+ * @param request DescribeRiskEventTopAttackTypeRequest
+ * @return DescribeRiskEventTopAttackTypeResponse
+ */
+DescribeRiskEventTopAttackTypeResponse Client::describeRiskEventTopAttackType(const DescribeRiskEventTopAttackTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRiskEventTopAttackTypeWithOptions(request, runtime);
+}
+
+/**
+ * @deprecated OpenAPI DescribeRiskSecurityGroupDetail is deprecated
+ *
  * @summary 获取风险安全组详情
  *
  * @param request DescribeRiskSecurityGroupDetailRequest
@@ -7644,6 +10049,8 @@ DescribeRiskSecurityGroupDetailResponse Client::describeRiskSecurityGroupDetailW
 }
 
 /**
+ * @deprecated OpenAPI DescribeRiskSecurityGroupDetail is deprecated
+ *
  * @summary 获取风险安全组详情
  *
  * @param request DescribeRiskSecurityGroupDetailRequest
@@ -7652,6 +10059,336 @@ DescribeRiskSecurityGroupDetailResponse Client::describeRiskSecurityGroupDetailW
 DescribeRiskSecurityGroupDetailResponse Client::describeRiskSecurityGroupDetail(const DescribeRiskSecurityGroupDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRiskSecurityGroupDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据泄露的敏感数据事件列表
+ *
+ * @param request DescribeSdlEventDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSdlEventDetailResponse
+ */
+DescribeSdlEventDetailResponse Client::describeSdlEventDetailWithOptions(const DescribeSdlEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDstIp()) {
+    query["DstIp"] = request.dstIp();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSrcIp()) {
+    query["SrcIp"] = request.srcIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSdlEventDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSdlEventDetailResponse>();
+}
+
+/**
+ * @summary 获取数据泄露的敏感数据事件列表
+ *
+ * @param request DescribeSdlEventDetailRequest
+ * @return DescribeSdlEventDetailResponse
+ */
+DescribeSdlEventDetailResponse Client::describeSdlEventDetail(const DescribeSdlEventDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSdlEventDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据泄露事件列表
+ *
+ * @param request DescribeSdlEventListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSdlEventListResponse
+ */
+DescribeSdlEventListResponse Client::describeSdlEventListWithOptions(const DescribeSdlEventListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDstIp()) {
+    query["DstIp"] = request.dstIp();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLocation()) {
+    query["Location"] = request.location();
+  }
+
+  if (!!request.hasOnlyAiEvt()) {
+    query["OnlyAiEvt"] = request.onlyAiEvt();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSensitiveLevel()) {
+    query["SensitiveLevel"] = request.sensitiveLevel();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasSrcIp()) {
+    query["SrcIp"] = request.srcIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSdlEventList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSdlEventListResponse>();
+}
+
+/**
+ * @summary 获取数据泄露事件列表
+ *
+ * @param request DescribeSdlEventListRequest
+ * @return DescribeSdlEventListResponse
+ */
+DescribeSdlEventListResponse Client::describeSdlEventList(const DescribeSdlEventListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSdlEventListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据泄露的敏感数据列表
+ *
+ * @param request DescribeSdlEventSdListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSdlEventSdListResponse
+ */
+DescribeSdlEventSdListResponse Client::describeSdlEventSdListWithOptions(const DescribeSdlEventSdListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDstIp()) {
+    query["DstIp"] = request.dstIp();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSrcIp()) {
+    query["SrcIp"] = request.srcIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSdlEventSdList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSdlEventSdListResponse>();
+}
+
+/**
+ * @summary 获取数据泄露的敏感数据列表
+ *
+ * @param request DescribeSdlEventSdListRequest
+ * @return DescribeSdlEventSdListResponse
+ */
+DescribeSdlEventSdListResponse Client::describeSdlEventSdList(const DescribeSdlEventSdListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSdlEventSdListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据泄露事件统计数据
+ *
+ * @param request DescribeSdlEventStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSdlEventStatisticResponse
+ */
+DescribeSdlEventStatisticResponse Client::describeSdlEventStatisticWithOptions(const DescribeSdlEventStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSdlEventStatistic"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSdlEventStatisticResponse>();
+}
+
+/**
+ * @summary 获取数据泄露事件统计数据
+ *
+ * @param request DescribeSdlEventStatisticRequest
+ * @return DescribeSdlEventStatisticResponse
+ */
+DescribeSdlEventStatisticResponse Client::describeSdlEventStatistic(const DescribeSdlEventStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSdlEventStatisticWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据泄露事件类型分布/资产TOP/目的TOP
+ *
+ * @param request DescribeSdlStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSdlStatisticResponse
+ */
+DescribeSdlStatisticResponse Client::describeSdlStatisticWithOptions(const DescribeSdlStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSdlStatistic"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSdlStatisticResponse>();
+}
+
+/**
+ * @summary 获取数据泄露事件类型分布/资产TOP/目的TOP
+ *
+ * @param request DescribeSdlStatisticRequest
+ * @return DescribeSdlStatisticResponse
+ */
+DescribeSdlStatisticResponse Client::describeSdlStatistic(const DescribeSdlStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSdlStatisticWithOptions(request, runtime);
 }
 
 /**
@@ -7701,6 +10438,8 @@ DescribeSecurityModeResponse Client::describeSecurityMode(const DescribeSecurity
 }
 
 /**
+ * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
+ *
  * @summary 获取正向代理
  *
  * @param request DescribeSecurityProxyRequest
@@ -7772,6 +10511,8 @@ DescribeSecurityProxyResponse Client::describeSecurityProxyWithOptions(const Des
 }
 
 /**
+ * @deprecated OpenAPI DescribeSecurityProxy is deprecated, please use Cloudfw::2017-12-07::DescribeNatFirewallList instead.
+ *
  * @summary 获取正向代理
  *
  * @param request DescribeSecurityProxyRequest
@@ -7780,6 +10521,126 @@ DescribeSecurityProxyResponse Client::describeSecurityProxyWithOptions(const Des
 DescribeSecurityProxyResponse Client::describeSecurityProxy(const DescribeSecurityProxyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSecurityProxyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取正向代理资源
+ *
+ * @param request DescribeSecurityProxyResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSecurityProxyResourcesResponse
+ */
+DescribeSecurityProxyResourcesResponse Client::describeSecurityProxyResourcesWithOptions(const DescribeSecurityProxyResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasNatGatewayId()) {
+    query["NatGatewayId"] = request.natGatewayId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSecurityProxyResources"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSecurityProxyResourcesResponse>();
+}
+
+/**
+ * @summary 获取正向代理资源
+ *
+ * @param request DescribeSecurityProxyResourcesRequest
+ * @return DescribeSecurityProxyResourcesResponse
+ */
+DescribeSecurityProxyResourcesResponse Client::describeSecurityProxyResources(const DescribeSecurityProxyResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSecurityProxyResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取敏感数据类别开关
+ *
+ * @param request DescribeSensitiveSwitchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSensitiveSwitchResponse
+ */
+DescribeSensitiveSwitchResponse Client::describeSensitiveSwitchWithOptions(const DescribeSensitiveSwitchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCategoryName()) {
+    query["CategoryName"] = request.categoryName();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasParentCategory()) {
+    query["ParentCategory"] = request.parentCategory();
+  }
+
+  if (!!request.hasSensitiveCategory()) {
+    query["SensitiveCategory"] = request.sensitiveCategory();
+  }
+
+  if (!!request.hasSensitiveLevel()) {
+    query["SensitiveLevel"] = request.sensitiveLevel();
+  }
+
+  if (!!request.hasSwitchStatus()) {
+    query["SwitchStatus"] = request.switchStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSensitiveSwitch"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSensitiveSwitchResponse>();
+}
+
+/**
+ * @summary 获取敏感数据类别开关
+ *
+ * @param request DescribeSensitiveSwitchRequest
+ * @return DescribeSensitiveSwitchResponse
+ */
+DescribeSensitiveSwitchResponse Client::describeSensitiveSwitch(const DescribeSensitiveSwitchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSensitiveSwitchWithOptions(request, runtime);
 }
 
 /**
@@ -7813,6 +10674,52 @@ DescribeSignatureLibVersionResponse Client::describeSignatureLibVersionWithOptio
 DescribeSignatureLibVersionResponse Client::describeSignatureLibVersion() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeSignatureLibVersionWithOptions(runtime);
+}
+
+/**
+ * @summary 获取用户SLR授权信息
+ *
+ * @param request DescribeSlrGrantRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSlrGrantResponse
+ */
+DescribeSlrGrantResponse Client::describeSlrGrantWithOptions(const DescribeSlrGrantRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSlrGrant"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSlrGrantResponse>();
+}
+
+/**
+ * @summary 获取用户SLR授权信息
+ *
+ * @param request DescribeSlrGrantRequest
+ * @return DescribeSlrGrantResponse
+ */
+DescribeSlrGrantResponse Client::describeSlrGrant(const DescribeSlrGrantRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSlrGrantWithOptions(request, runtime);
 }
 
 /**
@@ -8195,6 +11102,332 @@ DescribeTrFirewallsV2RouteListResponse Client::describeTrFirewallsV2RouteList(co
 }
 
 /**
+ * @summary 查询日志
+ *
+ * @param request DescribeTrafficLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTrafficLogResponse
+ */
+DescribeTrafficLogResponse Client::describeTrafficLogWithOptions(const DescribeTrafficLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAclPreRuleId()) {
+    query["AclPreRuleId"] = request.aclPreRuleId();
+  }
+
+  if (!!request.hasAclPreState()) {
+    query["AclPreState"] = request.aclPreState();
+  }
+
+  if (!!request.hasAppDpiState()) {
+    query["AppDpiState"] = request.appDpiState();
+  }
+
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasAssetRegion()) {
+    query["AssetRegion"] = request.assetRegion();
+  }
+
+  if (!!request.hasAttackType()) {
+    query["AttackType"] = request.attackType();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasDomainUrl()) {
+    query["DomainUrl"] = request.domainUrl();
+  }
+
+  if (!!request.hasDstIP()) {
+    query["DstIP"] = request.dstIP();
+  }
+
+  if (!!request.hasDstPort()) {
+    query["DstPort"] = request.dstPort();
+  }
+
+  if (!!request.hasDstVpcId()) {
+    query["DstVpcId"] = request.dstVpcId();
+  }
+
+  if (!!request.hasDstVpcRegionNo()) {
+    query["DstVpcRegionNo"] = request.dstVpcRegionNo();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasFirewallType()) {
+    query["FirewallType"] = request.firewallType();
+  }
+
+  if (!!request.hasFlowType()) {
+    query["FlowType"] = request.flowType();
+  }
+
+  if (!!request.hasIpProtocol()) {
+    query["IpProtocol"] = request.ipProtocol();
+  }
+
+  if (!!request.hasIpVersion()) {
+    query["IpVersion"] = request.ipVersion();
+  }
+
+  if (!!request.hasIsp()) {
+    query["Isp"] = request.isp();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLocation()) {
+    query["Location"] = request.location();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasNatFirewallId()) {
+    query["NatFirewallId"] = request.natFirewallId();
+  }
+
+  if (!!request.hasNatGatewayId()) {
+    query["NatGatewayId"] = request.natGatewayId();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  if (!!request.hasRuleResult()) {
+    query["RuleResult"] = request.ruleResult();
+  }
+
+  if (!!request.hasRuleSource()) {
+    query["RuleSource"] = request.ruleSource();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasSrcIP()) {
+    query["SrcIP"] = request.srcIP();
+  }
+
+  if (!!request.hasSrcPort()) {
+    query["SrcPort"] = request.srcPort();
+  }
+
+  if (!!request.hasSrcPrivateIP()) {
+    query["SrcPrivateIP"] = request.srcPrivateIP();
+  }
+
+  if (!!request.hasSrcVpcId()) {
+    query["SrcVpcId"] = request.srcVpcId();
+  }
+
+  if (!!request.hasSrcVpcRegionNo()) {
+    query["SrcVpcRegionNo"] = request.srcVpcRegionNo();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTlsScopeId()) {
+    query["TlsScopeId"] = request.tlsScopeId();
+  }
+
+  if (!!request.hasVpcFirewallId()) {
+    query["VpcFirewallId"] = request.vpcFirewallId();
+  }
+
+  if (!!request.hasVulLevel()) {
+    query["VulLevel"] = request.vulLevel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTrafficLog"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTrafficLogResponse>();
+}
+
+/**
+ * @summary 查询日志
+ *
+ * @param request DescribeTrafficLogRequest
+ * @return DescribeTrafficLogResponse
+ */
+DescribeTrafficLogResponse Client::describeTrafficLog(const DescribeTrafficLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTrafficLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取TR交换机资源列表
+ *
+ * @param request DescribeTransitRouterResourcesListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTransitRouterResourcesListResponse
+ */
+DescribeTransitRouterResourcesListResponse Client::describeTransitRouterResourcesListWithOptions(const DescribeTransitRouterResourcesListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.cenId();
+  }
+
+  if (!!request.hasFirewallId()) {
+    query["FirewallId"] = request.firewallId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTransitRouterId()) {
+    query["TransitRouterId"] = request.transitRouterId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTransitRouterResourcesList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTransitRouterResourcesListResponse>();
+}
+
+/**
+ * @summary 获取TR交换机资源列表
+ *
+ * @param request DescribeTransitRouterResourcesListRequest
+ * @return DescribeTransitRouterResourcesListResponse
+ */
+DescribeTransitRouterResourcesListResponse Client::describeTransitRouterResourcesList(const DescribeTransitRouterResourcesListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTransitRouterResourcesListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取未保护的端口趋势
+ *
+ * @param request DescribeUnprotectedPortTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUnprotectedPortTrendResponse
+ */
+DescribeUnprotectedPortTrendResponse Client::describeUnprotectedPortTrendWithOptions(const DescribeUnprotectedPortTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUnprotectedPortTrend"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUnprotectedPortTrendResponse>();
+}
+
+/**
+ * @summary 获取未保护的端口趋势
+ *
+ * @param request DescribeUnprotectedPortTrendRequest
+ * @return DescribeUnprotectedPortTrendResponse
+ */
+DescribeUnprotectedPortTrendResponse Client::describeUnprotectedPortTrend(const DescribeUnprotectedPortTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUnprotectedPortTrendWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取未保护漏洞趋势
  *
  * @param request DescribeUnprotectedVulnTrendRequest
@@ -8303,6 +11536,8 @@ DescribeUserAlarmConfigResponse Client::describeUserAlarmConfig(const DescribeUs
 }
 
 /**
+ * @deprecated OpenAPI DescribeUserAssetIPTrafficInfo is deprecated
+ *
  * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
  *
  * @param request DescribeUserAssetIPTrafficInfoRequest
@@ -8330,6 +11565,8 @@ DescribeUserAssetIPTrafficInfoResponse Client::describeUserAssetIPTrafficInfoWit
 }
 
 /**
+ * @deprecated OpenAPI DescribeUserAssetIPTrafficInfo is deprecated
+ *
  * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
  *
  * @param request DescribeUserAssetIPTrafficInfoRequest
@@ -8438,6 +11675,44 @@ DescribeUserIPSWhitelistResponse Client::describeUserIPSWhitelistWithOptions(con
 DescribeUserIPSWhitelistResponse Client::describeUserIPSWhitelist(const DescribeUserIPSWhitelistRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeUserIPSWhitelistWithOptions(request, runtime);
+}
+
+/**
+ * @summary VPC防火墙IP配置列表
+ *
+ * @param request DescribeVfwIPSConfigListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVfwIPSConfigListResponse
+ */
+DescribeVfwIPSConfigListResponse Client::describeVfwIPSConfigListWithOptions(const DescribeVfwIPSConfigListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVfwIPSConfigList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVfwIPSConfigListResponse>();
+}
+
+/**
+ * @summary VPC防火墙IP配置列表
+ *
+ * @param request DescribeVfwIPSConfigListRequest
+ * @return DescribeVfwIPSConfigListResponse
+ */
+DescribeVfwIPSConfigListResponse Client::describeVfwIPSConfigList(const DescribeVfwIPSConfigListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVfwIPSConfigListWithOptions(request, runtime);
 }
 
 /**
@@ -8614,6 +11889,158 @@ DescribeVpcFirewallAclGroupListResponse Client::describeVpcFirewallAclGroupListW
 DescribeVpcFirewallAclGroupListResponse Client::describeVpcFirewallAclGroupList(const DescribeVpcFirewallAclGroupListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVpcFirewallAclGroupListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取VPC防火墙资产列表
+ *
+ * @param request DescribeVpcFirewallAssetListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallAssetListResponse
+ */
+DescribeVpcFirewallAssetListResponse Client::describeVpcFirewallAssetListWithOptions(const DescribeVpcFirewallAssetListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasAssetIP()) {
+    query["AssetIP"] = request.assetIP();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDirection()) {
+    query["Direction"] = request.direction();
+  }
+
+  if (!!request.hasEcsInstanceId()) {
+    query["EcsInstanceId"] = request.ecsInstanceId();
+  }
+
+  if (!!request.hasEcsInstanceName()) {
+    query["EcsInstanceName"] = request.ecsInstanceName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasIPProtocol()) {
+    query["IPProtocol"] = request.IPProtocol();
+  }
+
+  if (!!request.hasIsAITraffic()) {
+    query["IsAITraffic"] = request.isAITraffic();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPeerVpcId()) {
+    query["PeerVpcId"] = request.peerVpcId();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.port();
+  }
+
+  if (!!request.hasRiskLevel()) {
+    query["RiskLevel"] = request.riskLevel();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.sort();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallAssetList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallAssetListResponse>();
+}
+
+/**
+ * @summary 获取VPC防火墙资产列表
+ *
+ * @param request DescribeVpcFirewallAssetListRequest
+ * @return DescribeVpcFirewallAssetListResponse
+ */
+DescribeVpcFirewallAssetListResponse Client::describeVpcFirewallAssetList(const DescribeVpcFirewallAssetListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallAssetListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询VPC防火墙资产地域
+ *
+ * @param request DescribeVpcFirewallAssetRegionListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallAssetRegionListResponse
+ */
+DescribeVpcFirewallAssetRegionListResponse Client::describeVpcFirewallAssetRegionListWithOptions(const DescribeVpcFirewallAssetRegionListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallAssetRegionList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallAssetRegionListResponse>();
+}
+
+/**
+ * @summary 查询VPC防火墙资产地域
+ *
+ * @param request DescribeVpcFirewallAssetRegionListRequest
+ * @return DescribeVpcFirewallAssetRegionListResponse
+ */
+DescribeVpcFirewallAssetRegionListResponse Client::describeVpcFirewallAssetRegionList(const DescribeVpcFirewallAssetRegionListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallAssetRegionListWithOptions(request, runtime);
 }
 
 /**
@@ -9063,6 +12490,44 @@ DescribeVpcFirewallDetailResponse Client::describeVpcFirewallDetail(const Descri
 }
 
 /**
+ * @summary 概览页-vpc防火墙拦截趋势
+ *
+ * @param request DescribeVpcFirewallDropTrafficTrendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallDropTrafficTrendResponse
+ */
+DescribeVpcFirewallDropTrafficTrendResponse Client::describeVpcFirewallDropTrafficTrendWithOptions(const DescribeVpcFirewallDropTrafficTrendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallDropTrafficTrend"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallDropTrafficTrendResponse>();
+}
+
+/**
+ * @summary 概览页-vpc防火墙拦截趋势
+ *
+ * @param request DescribeVpcFirewallDropTrafficTrendRequest
+ * @return DescribeVpcFirewallDropTrafficTrendResponse
+ */
+DescribeVpcFirewallDropTrafficTrendResponse Client::describeVpcFirewallDropTrafficTrend(const DescribeVpcFirewallDropTrafficTrendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallDropTrafficTrendWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
  *
  * @param request DescribeVpcFirewallIPSWhitelistRequest
@@ -9207,6 +12672,68 @@ DescribeVpcFirewallListResponse Client::describeVpcFirewallList(const DescribeVp
 }
 
 /**
+ * @summary 获取防火墙手动交换机列表
+ *
+ * @param request DescribeVpcFirewallManualVSwitchListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallManualVSwitchListResponse
+ */
+DescribeVpcFirewallManualVSwitchListResponse Client::describeVpcFirewallManualVSwitchListWithOptions(const DescribeVpcFirewallManualVSwitchListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallManualVSwitchList"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallManualVSwitchListResponse>();
+}
+
+/**
+ * @summary 获取防火墙手动交换机列表
+ *
+ * @param request DescribeVpcFirewallManualVSwitchListRequest
+ * @return DescribeVpcFirewallManualVSwitchListResponse
+ */
+DescribeVpcFirewallManualVSwitchListResponse Client::describeVpcFirewallManualVSwitchList(const DescribeVpcFirewallManualVSwitchListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallManualVSwitchListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
  *
  * @description You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
@@ -9261,6 +12788,76 @@ DescribeVpcFirewallPolicyPriorUsedResponse Client::describeVpcFirewallPolicyPrio
 }
 
 /**
+ * @summary 获取VPC防火墙预检查详情
+ *
+ * @param request DescribeVpcFirewallPrecheckDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallPrecheckDetailResponse
+ */
+DescribeVpcFirewallPrecheckDetailResponse Client::describeVpcFirewallPrecheckDetailWithOptions(const DescribeVpcFirewallPrecheckDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.cenId();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasNetworkInstanceType()) {
+    query["NetworkInstanceType"] = request.networkInstanceType();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.region();
+  }
+
+  if (!!request.hasTransitRouterId()) {
+    query["TransitRouterId"] = request.transitRouterId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallPrecheckDetail"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallPrecheckDetailResponse>();
+}
+
+/**
+ * @summary 获取VPC防火墙预检查详情
+ *
+ * @param request DescribeVpcFirewallPrecheckDetailRequest
+ * @return DescribeVpcFirewallPrecheckDetailResponse
+ */
+DescribeVpcFirewallPrecheckDetailResponse Client::describeVpcFirewallPrecheckDetail(const DescribeVpcFirewallPrecheckDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallPrecheckDetailWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取VPC防火墙总结信息
  *
  * @param request DescribeVpcFirewallSummaryInfoRequest
@@ -9308,6 +12905,72 @@ DescribeVpcFirewallSummaryInfoResponse Client::describeVpcFirewallSummaryInfoWit
 DescribeVpcFirewallSummaryInfoResponse Client::describeVpcFirewallSummaryInfo(const DescribeVpcFirewallSummaryInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVpcFirewallSummaryInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询VPC防火墙资源可用区
+ *
+ * @param request DescribeVpcFirewallZoneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVpcFirewallZoneResponse
+ */
+DescribeVpcFirewallZoneResponse Client::describeVpcFirewallZoneWithOptions(const DescribeVpcFirewallZoneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCenId()) {
+    query["CenId"] = request.cenId();
+  }
+
+  if (!!request.hasEnvironment()) {
+    query["Environment"] = request.environment();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMemberUid()) {
+    query["MemberUid"] = request.memberUid();
+  }
+
+  if (!!request.hasRegionNo()) {
+    query["RegionNo"] = request.regionNo();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasTransitRouterId()) {
+    query["TransitRouterId"] = request.transitRouterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVpcFirewallZone"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVpcFirewallZoneResponse>();
+}
+
+/**
+ * @summary 查询VPC防火墙资源可用区
+ *
+ * @param request DescribeVpcFirewallZoneRequest
+ * @return DescribeVpcFirewallZoneResponse
+ */
+DescribeVpcFirewallZoneResponse Client::describeVpcFirewallZone(const DescribeVpcFirewallZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVpcFirewallZoneWithOptions(request, runtime);
 }
 
 /**
@@ -9534,6 +13197,52 @@ DescribeVulnerabilityProtectedListResponse Client::describeVulnerabilityProtecte
 DescribeVulnerabilityProtectedListResponse Client::describeVulnerabilityProtectedList(const DescribeVulnerabilityProtectedListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVulnerabilityProtectedListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关闭资产数据泄漏保护
+ *
+ * @param request DisableSdlProtectedAssetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSdlProtectedAssetResponse
+ */
+DisableSdlProtectedAssetResponse Client::disableSdlProtectedAssetWithOptions(const DisableSdlProtectedAssetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIpList()) {
+    query["IpList"] = request.ipList();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableSdlProtectedAsset"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSdlProtectedAssetResponse>();
+}
+
+/**
+ * @summary 关闭资产数据泄漏保护
+ *
+ * @param request DisableSdlProtectedAssetRequest
+ * @return DisableSdlProtectedAssetResponse
+ */
+DisableSdlProtectedAssetResponse Client::disableSdlProtectedAsset(const DisableSdlProtectedAssetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableSdlProtectedAssetWithOptions(request, runtime);
 }
 
 /**
@@ -9907,6 +13616,8 @@ ModifyControlPolicyResponse Client::modifyControlPolicy(const ModifyControlPolic
 }
 
 /**
+ * @deprecated OpenAPI ModifyControlPolicyPosition is deprecated, please use Cloudfw::2017-12-07::ModifyControlPolicyPriority instead.
+ *
  * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
  *
  * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
@@ -9958,6 +13669,8 @@ ModifyControlPolicyPositionResponse Client::modifyControlPolicyPositionWithOptio
 }
 
 /**
+ * @deprecated OpenAPI ModifyControlPolicyPosition is deprecated, please use Cloudfw::2017-12-07::ModifyControlPolicyPriority instead.
+ *
  * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
  *
  * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
@@ -10272,6 +13985,72 @@ ModifyInstanceMemberAttributesResponse Client::modifyInstanceMemberAttributesWit
 ModifyInstanceMemberAttributesResponse Client::modifyInstanceMemberAttributes(const ModifyInstanceMemberAttributesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceMemberAttributesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改IPS规则
+ *
+ * @param request ModifyIpsRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyIpsRulesResponse
+ */
+ModifyIpsRulesResponse Client::modifyIpsRulesWithOptions(const ModifyIpsRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFirewallType()) {
+    query["FirewallType"] = request.firewallType();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.ruleAction();
+  }
+
+  if (!!request.hasRuleType()) {
+    query["RuleType"] = request.ruleType();
+  }
+
+  if (!!request.hasRules()) {
+    query["Rules"] = request.rules();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyIpsRules"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyIpsRulesResponse>();
+}
+
+/**
+ * @summary 修改IPS规则
+ *
+ * @param request ModifyIpsRulesRequest
+ * @return ModifyIpsRulesResponse
+ */
+ModifyIpsRulesResponse Client::modifyIpsRules(const ModifyIpsRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyIpsRulesWithOptions(request, runtime);
 }
 
 /**
@@ -10723,6 +14502,52 @@ ModifyPrivateDnsEndpointResponse Client::modifyPrivateDnsEndpoint(const ModifyPr
 }
 
 /**
+ * @summary 开启资产类型默认引流
+ *
+ * @param request ModifyResourceTypeAutoEnableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyResourceTypeAutoEnableResponse
+ */
+ModifyResourceTypeAutoEnableResponse Client::modifyResourceTypeAutoEnableWithOptions(const ModifyResourceTypeAutoEnableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasResourceTypeAutoEnable()) {
+    query["ResourceTypeAutoEnable"] = request.resourceTypeAutoEnable();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyResourceTypeAutoEnable"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyResourceTypeAutoEnableResponse>();
+}
+
+/**
+ * @summary 开启资产类型默认引流
+ *
+ * @param request ModifyResourceTypeAutoEnableRequest
+ * @return ModifyResourceTypeAutoEnableResponse
+ */
+ModifyResourceTypeAutoEnableResponse Client::modifyResourceTypeAutoEnable(const ModifyResourceTypeAutoEnableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyResourceTypeAutoEnableWithOptions(request, runtime);
+}
+
+/**
  * @summary 修改敏感数据开关
  *
  * @param request ModifySensitiveSwitchRequest
@@ -10988,6 +14813,76 @@ ModifyTrFirewallV2RoutePolicyScopeResponse Client::modifyTrFirewallV2RoutePolicy
 ModifyTrFirewallV2RoutePolicyScopeResponse Client::modifyTrFirewallV2RoutePolicyScope(const ModifyTrFirewallV2RoutePolicyScopeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyTrFirewallV2RoutePolicyScopeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改用户告警配置
+ *
+ * @param request ModifyUserAlarmConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyUserAlarmConfigResponse
+ */
+ModifyUserAlarmConfigResponse Client::modifyUserAlarmConfigWithOptions(const ModifyUserAlarmConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlarmConfig()) {
+    query["AlarmConfig"] = request.alarmConfig();
+  }
+
+  if (!!request.hasAlarmLang()) {
+    query["AlarmLang"] = request.alarmLang();
+  }
+
+  if (!!request.hasContactConfig()) {
+    query["ContactConfig"] = request.contactConfig();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasNotifyConfig()) {
+    query["NotifyConfig"] = request.notifyConfig();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  if (!!request.hasUseDefaultContact()) {
+    query["UseDefaultContact"] = request.useDefaultContact();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyUserAlarmConfig"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyUserAlarmConfigResponse>();
+}
+
+/**
+ * @summary 修改用户告警配置
+ *
+ * @param request ModifyUserAlarmConfigRequest
+ * @return ModifyUserAlarmConfigResponse
+ */
+ModifyUserAlarmConfigResponse Client::modifyUserAlarmConfig(const ModifyUserAlarmConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyUserAlarmConfigWithOptions(request, runtime);
 }
 
 /**
@@ -12644,6 +16539,56 @@ UpdateSecurityProxyResponse Client::updateSecurityProxyWithOptions(const UpdateS
 UpdateSecurityProxyResponse Client::updateSecurityProxy(const UpdateSecurityProxyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateSecurityProxyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 使用ACL备份
+ *
+ * @param request UseAclBackupDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UseAclBackupDataResponse
+ */
+UseAclBackupDataResponse Client::useAclBackupDataWithOptions(const UseAclBackupDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackUpTime()) {
+    query["BackUpTime"] = request.backUpTime();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.sourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UseAclBackupData"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UseAclBackupDataResponse>();
+}
+
+/**
+ * @summary 使用ACL备份
+ *
+ * @param request UseAclBackupDataRequest
+ * @return UseAclBackupDataResponse
+ */
+UseAclBackupDataResponse Client::useAclBackupData(const UseAclBackupDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return useAclBackupDataWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Cloudfw20171207
