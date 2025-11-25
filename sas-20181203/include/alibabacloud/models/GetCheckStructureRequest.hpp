@@ -92,6 +92,7 @@ namespace Models
     // *   cn-hangzhou: China.
     // *   ap-southeast-1: outside China.
     std::shared_ptr<string> regionId_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
   };
 

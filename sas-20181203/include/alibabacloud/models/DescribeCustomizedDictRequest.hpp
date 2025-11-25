@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The IP address of the access source.
     std::shared_ptr<string> sourceIp_ = nullptr;
   };
 

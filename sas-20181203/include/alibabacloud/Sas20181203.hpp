@@ -882,6 +882,23 @@ namespace Sas20181203
       Models::CreateCheckItemResponse createCheckItem(const Models::CreateCheckItemRequest &request);
 
       /**
+       * @summary Create Policy
+       *
+       * @param request CreateCheckPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCheckPolicyResponse
+       */
+      Models::CreateCheckPolicyResponse createCheckPolicyWithOptions(const Models::CreateCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create Policy
+       *
+       * @param request CreateCheckPolicyRequest
+       * @return CreateCheckPolicyResponse
+       */
+      Models::CreateCheckPolicyResponse createCheckPolicy(const Models::CreateCheckPolicyRequest &request);
+
+      /**
        * @summary Creates a container scan task.
        *
        * @param request CreateContainerScanTaskRequest
@@ -1240,7 +1257,7 @@ namespace Sas20181203
       Models::CreateJenkinsImageScanTaskResponse createJenkinsImageScanTask(const Models::CreateJenkinsImageScanTaskRequest &request);
 
       /**
-       * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+       * @summary Get alert whitelist configuration details
        *
        * @param request CreateMaliciousFileWhitelistConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1249,7 +1266,7 @@ namespace Sas20181203
       Models::CreateMaliciousFileWhitelistConfigResponse createMaliciousFileWhitelistConfigWithOptions(const Models::CreateMaliciousFileWhitelistConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+       * @summary Get alert whitelist configuration details
        *
        * @param request CreateMaliciousFileWhitelistConfigRequest
        * @return CreateMaliciousFileWhitelistConfigResponse
@@ -3631,7 +3648,7 @@ namespace Sas20181203
       Models::DescribeClusterNetworkResponse describeClusterNetwork(const Models::DescribeClusterNetworkRequest &request);
 
       /**
-       * @summary 查询集群扫描组件状态
+       * @summary Query the status of cluster scanning components.
        *
        * @param request DescribeClusterScannerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3640,7 +3657,7 @@ namespace Sas20181203
       Models::DescribeClusterScannerListResponse describeClusterScannerListWithOptions(const Models::DescribeClusterScannerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询集群扫描组件状态
+       * @summary Query the status of cluster scanning components.
        *
        * @param request DescribeClusterScannerListRequest
        * @return DescribeClusterScannerListResponse
@@ -4057,7 +4074,7 @@ namespace Sas20181203
       Models::DescribeCustomizeReportListResponse describeCustomizeReportList(const Models::DescribeCustomizeReportListRequest &request);
 
       /**
-       * @summary 查看自定义弱口令上传结果
+       * @summary View the result of custom weak password uploads
        *
        * @param request DescribeCustomizedDictRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4066,7 +4083,7 @@ namespace Sas20181203
       Models::DescribeCustomizedDictResponse describeCustomizedDictWithOptions(const Models::DescribeCustomizedDictRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看自定义弱口令上传结果
+       * @summary View the result of custom weak password uploads
        *
        * @param request DescribeCustomizedDictRequest
        * @return DescribeCustomizedDictResponse
@@ -8393,7 +8410,7 @@ namespace Sas20181203
       Models::FixCheckWarningsResponse fixCheckWarnings(const Models::FixCheckWarningsRequest &request);
 
       /**
-       * @summary 生成K8s集群扫描接入配置
+       * @summary Generate K8s cluster scan access configuration.
        *
        * @param request GenerateClusterScannerWebhookYamlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8402,7 +8419,7 @@ namespace Sas20181203
       Models::GenerateClusterScannerWebhookYamlResponse generateClusterScannerWebhookYamlWithOptions(const Models::GenerateClusterScannerWebhookYamlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成K8s集群扫描接入配置
+       * @summary Generate K8s cluster scan access configuration.
        *
        * @param request GenerateClusterScannerWebhookYamlRequest
        * @return GenerateClusterScannerWebhookYamlResponse
@@ -9057,7 +9074,7 @@ namespace Sas20181203
       Models::GetCloudAssetDetailResponse getCloudAssetDetail(const Models::GetCloudAssetDetailRequest &request);
 
       /**
-       * @summary The total number of instances that are at risk.
+       * @summary 获取云资产概要
        *
        * @param request GetCloudAssetSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9066,7 +9083,7 @@ namespace Sas20181203
       Models::GetCloudAssetSummaryResponse getCloudAssetSummaryWithOptions(const Models::GetCloudAssetSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The total number of instances that are at risk.
+       * @summary 获取云资产概要
        *
        * @param request GetCloudAssetSummaryRequest
        * @return GetCloudAssetSummaryResponse
@@ -9108,7 +9125,7 @@ namespace Sas20181203
       Models::GetClusterRuleSummaryResponse getClusterRuleSummary(const Models::GetClusterRuleSummaryRequest &request);
 
       /**
-       * @summary 查询K8s集群扫描接入配置
+       * @summary Query K8s cluster scan access configuration.
        *
        * @param request GetClusterScannerYamlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9117,7 +9134,7 @@ namespace Sas20181203
       Models::GetClusterScannerYamlResponse getClusterScannerYamlWithOptions(const Models::GetClusterScannerYamlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询K8s集群扫描接入配置
+       * @summary Query K8s cluster scan access configuration.
        *
        * @param request GetClusterScannerYamlRequest
        * @return GetClusterScannerYamlResponse
@@ -9565,7 +9582,7 @@ namespace Sas20181203
       Models::GetHoneypotProbeResponse getHoneypotProbe(const Models::GetHoneypotProbeRequest &request);
 
       /**
-       * @summary 获取蜜罐使用量的统计数据
+       * @summary Get statistics on honey pot usage.
        *
        * @param request GetHoneypotStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9574,7 +9591,7 @@ namespace Sas20181203
       Models::GetHoneypotStatisticsResponse getHoneypotStatisticsWithOptions(const Models::GetHoneypotStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取蜜罐使用量的统计数据
+       * @summary Get statistics on honey pot usage.
        *
        * @param request GetHoneypotStatisticsRequest
        * @return GetHoneypotStatisticsResponse
@@ -9648,6 +9665,22 @@ namespace Sas20181203
        * @return GetInstanceAlarmStatisticsResponse
        */
       Models::GetInstanceAlarmStatisticsResponse getInstanceAlarmStatistics(const Models::GetInstanceAlarmStatisticsRequest &request);
+
+      /**
+       * @summary 获取实例授权取值范围
+       *
+       * @param request GetInstanceAuthRangeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceAuthRangeResponse
+       */
+      Models::GetInstanceAuthRangeResponse getInstanceAuthRangeWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例授权取值范围
+       *
+       * @return GetInstanceAuthRangeResponse
+       */
+      Models::GetInstanceAuthRangeResponse getInstanceAuthRange();
 
       /**
        * @summary Queries the details of a microsegmentation defense rule.
@@ -10444,7 +10477,7 @@ namespace Sas20181203
       Models::HandleSecurityEventsResponse handleSecurityEvents(const Models::HandleSecurityEventsRequest &request);
 
       /**
-       * @summary 批量处理恶意样本告警。
+       * @summary Batch process malicious alerts.
        *
        * @description ****
        *
@@ -10455,7 +10488,7 @@ namespace Sas20181203
       Models::HandleSimilarMaliciousFilesResponse handleSimilarMaliciousFilesWithOptions(const Models::HandleSimilarMaliciousFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量处理恶意样本告警。
+       * @summary Batch process malicious alerts.
        *
        * @description ****
        *
@@ -11052,7 +11085,7 @@ namespace Sas20181203
       Models::ListCheckItemResponse listCheckItem(const Models::ListCheckItemRequest &request);
 
       /**
-       * @summary Queries the servers that are affected by baseline risks.
+       * @summary Query the list of warning machines for a specific baseline check item.
        *
        * @param request ListCheckItemWarningMachineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11061,7 +11094,7 @@ namespace Sas20181203
       Models::ListCheckItemWarningMachineResponse listCheckItemWarningMachineWithOptions(const Models::ListCheckItemWarningMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the servers that are affected by baseline risks.
+       * @summary Query the list of warning machines for a specific baseline check item.
        *
        * @param request ListCheckItemWarningMachineRequest
        * @return ListCheckItemWarningMachineResponse
@@ -11270,6 +11303,44 @@ namespace Sas20181203
        * @return ListCloudAssetInstancesResponse
        */
       Models::ListCloudAssetInstancesResponse listCloudAssetInstances(const Models::ListCloudAssetInstancesRequest &request);
+
+      /**
+       * @summary Get the list of cloud product configuration rule operators
+       *
+       * @description Get the list of cloud asset data operators.
+       *
+       * @param request ListCloudAssetMatchOperatorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloudAssetMatchOperatorsResponse
+       */
+      Models::ListCloudAssetMatchOperatorsResponse listCloudAssetMatchOperatorsWithOptions(const Models::ListCloudAssetMatchOperatorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get the list of cloud product configuration rule operators
+       *
+       * @description Get the list of cloud asset data operators.
+       *
+       * @param request ListCloudAssetMatchOperatorsRequest
+       * @return ListCloudAssetMatchOperatorsResponse
+       */
+      Models::ListCloudAssetMatchOperatorsResponse listCloudAssetMatchOperators(const Models::ListCloudAssetMatchOperatorsRequest &request);
+
+      /**
+       * @summary 获取云产品资产结构列表
+       *
+       * @param request ListCloudAssetSchemasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCloudAssetSchemasResponse
+       */
+      Models::ListCloudAssetSchemasResponse listCloudAssetSchemasWithOptions(const Models::ListCloudAssetSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取云产品资产结构列表
+       *
+       * @param request ListCloudAssetSchemasRequest
+       * @return ListCloudAssetSchemasResponse
+       */
+      Models::ListCloudAssetSchemasResponse listCloudAssetSchemas(const Models::ListCloudAssetSchemasRequest &request);
 
       /**
        * @summary Queries the synchronization region configurations of other clouds on a site.
@@ -11913,6 +11984,23 @@ namespace Sas20181203
        * @return ListMaliciousFileWhitelistConfigsResponse
        */
       Models::ListMaliciousFileWhitelistConfigsResponse listMaliciousFileWhitelistConfigs(const Models::ListMaliciousFileWhitelistConfigsRequest &request);
+
+      /**
+       * @summary 查询多账号授权分配列表
+       *
+       * @param request ListMultiUserInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMultiUserInstancesResponse
+       */
+      Models::ListMultiUserInstancesResponse listMultiUserInstancesWithOptions(const Models::ListMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询多账号授权分配列表
+       *
+       * @param request ListMultiUserInstancesRequest
+       * @return ListMultiUserInstancesResponse
+       */
+      Models::ListMultiUserInstancesResponse listMultiUserInstances(const Models::ListMultiUserInstancesRequest &request);
 
       /**
        * @summary Queries alerts that are generated for malicious files.
@@ -15292,6 +15380,23 @@ namespace Sas20181203
       Models::UpdateCheckItemResponse updateCheckItem(const Models::UpdateCheckItemRequest &request);
 
       /**
+       * @summary Update Custom Policy
+       *
+       * @param request UpdateCheckPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCheckPolicyResponse
+       */
+      Models::UpdateCheckPolicyResponse updateCheckPolicyWithOptions(const Models::UpdateCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update Custom Policy
+       *
+       * @param request UpdateCheckPolicyRequest
+       * @return UpdateCheckPolicyResponse
+       */
+      Models::UpdateCheckPolicyResponse updateCheckPolicy(const Models::UpdateCheckPolicyRequest &request);
+
+      /**
        * @summary Modifies alerting settings for servers.
        *
        * @param request UpdateClientAlertModeRequest
@@ -15596,6 +15701,23 @@ namespace Sas20181203
        * @return UpdateMaliciousFileWhitelistConfigResponse
        */
       Models::UpdateMaliciousFileWhitelistConfigResponse updateMaliciousFileWhitelistConfig(const Models::UpdateMaliciousFileWhitelistConfigRequest &request);
+
+      /**
+       * @summary 修改多账号实例配置
+       *
+       * @param request UpdateMultiUserInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMultiUserInstancesResponse
+       */
+      Models::UpdateMultiUserInstancesResponse updateMultiUserInstancesWithOptions(const Models::UpdateMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改多账号实例配置
+       *
+       * @param request UpdateMultiUserInstancesRequest
+       * @return UpdateMultiUserInstancesResponse
+       */
+      Models::UpdateMultiUserInstancesResponse updateMultiUserInstances(const Models::UpdateMultiUserInstancesRequest &request);
 
       /**
        * @summary Updates the blocking rule for at-risk images.

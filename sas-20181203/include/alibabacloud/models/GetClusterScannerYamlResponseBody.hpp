@@ -103,13 +103,23 @@ namespace Models
 
 
   protected:
+    // Base64 encoded CA certificate.
     std::shared_ptr<string> caCertBase64_ = nullptr;
+    // Cluster environment information.
     std::shared_ptr<string> clusterEnvInfo_ = nullptr;
+    // The ID of the cluster that you want to scan.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // The name of the image.
     std::shared_ptr<string> image_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Base64 encoded webhook certificate.
     std::shared_ptr<string> tlsCertBase64_ = nullptr;
+    // Base64 encoded webhook private key.
     std::shared_ptr<string> tlsKeyBase64_ = nullptr;
+    // Indicates whether the incremental scan switch is enabled. Values:
+    // - **0**: Not enabled
+    // - **1**: Enabled
     std::shared_ptr<int32_t> webhookOpen_ = nullptr;
   };
 

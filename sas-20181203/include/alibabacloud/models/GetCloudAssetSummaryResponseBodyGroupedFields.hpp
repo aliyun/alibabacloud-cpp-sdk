@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The statistics of cloud services.
+    // List of cloud product statistics
     std::shared_ptr<vector<Models::GetCloudAssetSummaryResponseBodyGroupedFieldsCloudAssetSummaryMetas>> cloudAssetSummaryMetas_ = nullptr;
-    // The total number of cloud service instances.
+    // Total number of cloud product instances.
     std::shared_ptr<int32_t> instanceCountTotal_ = nullptr;
-    // The total number of cloud service instances that are at risk.
+    // Total number of cloud product instances at risk
     std::shared_ptr<int32_t> instanceRiskCountTotal_ = nullptr;
   };
 

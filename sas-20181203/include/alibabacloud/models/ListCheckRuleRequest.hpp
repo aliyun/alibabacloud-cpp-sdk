@@ -128,6 +128,7 @@ namespace Models
     // - **INSTNACE**: Instance
     // - **ITEM**: Check item
     std::shared_ptr<string> scopeType_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
   };
 

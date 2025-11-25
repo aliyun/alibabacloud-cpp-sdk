@@ -62,8 +62,16 @@ namespace Models
 
 
   protected:
+    // List of cluster IDs.
     std::shared_ptr<vector<string>> clusterIdList_ = nullptr;
+    // The language type for requests and responses.
+    // - **zh**: Chinese
+    // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // List of scanner statuses. Values:
+    // - **online**: Running
+    // - **offline**: Offline
+    // - **not_installed**: Not Installed
     std::shared_ptr<vector<string>> statusList_ = nullptr;
   };
 

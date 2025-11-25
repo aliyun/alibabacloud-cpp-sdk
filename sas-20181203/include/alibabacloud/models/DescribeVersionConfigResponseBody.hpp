@@ -479,6 +479,9 @@ namespace Models
     std::shared_ptr<int64_t> appWhiteListAuthCount_ = nullptr;
     // The quota for servers that can be protected.
     std::shared_ptr<int32_t> assetLevel_ = nullptr;
+    // Whether it supports the activation of a postpaid trial package. Values:
+    //  - **0**: Not supported 
+    // - **1**: Supported
     std::shared_ptr<int32_t> canTryPostPaidPackage_ = nullptr;
     // The purchased quota for configuration assessment. Unit: times/month.
     std::shared_ptr<int64_t> cspmCapacity_ = nullptr;

@@ -84,11 +84,24 @@ namespace Models
 
 
   protected:
+    // Latest heartbeat time.
     std::shared_ptr<int64_t> lastTime_ = nullptr;
+    // Whether an update is needed.
     std::shared_ptr<bool> needUpdate_ = nullptr;
+    // Scanner status. Values:
+    // - **online**: Running
+    // - **offline**: Offline
+    // - **not_installed**: Not Installed
     std::shared_ptr<string> status_ = nullptr;
+    // Version number.
     std::shared_ptr<string> version_ = nullptr;
+    // Whether the incremental scan switch is enabled. Values: 
+    // - **0**: Not enabled
+    //  - **1**: Enabled
     std::shared_ptr<int32_t> webhookOpen_ = nullptr;
+    // The incremental scan component status. Values: 
+    // - **n**: Not deployed 
+    // - **y**: Deployed
     std::shared_ptr<string> webhookStatus_ = nullptr;
   };
 

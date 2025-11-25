@@ -313,7 +313,9 @@ namespace Models
     // 
     // > This parameter is returned only when **Biz** is set to **web_server**.
     std::shared_ptr<string> domain_ = nullptr;
+    // LLM service endpoint
     std::shared_ptr<string> endPoint_ = nullptr;
+    // File path for requesting the LLM service.
     std::shared_ptr<string> file_ = nullptr;
     // The path to the kernel module file.
     // 
@@ -321,6 +323,7 @@ namespace Models
     std::shared_ptr<string> filepath_ = nullptr;
     // The name of the image.
     std::shared_ptr<string> imageName_ = nullptr;
+    // AI tool installation path
     std::shared_ptr<string> installationPath_ = nullptr;
     // The ID of the server.
     std::shared_ptr<string> instanceId_ = nullptr;
@@ -336,8 +339,11 @@ namespace Models
     // 
     // > This parameter is returned only when **Biz** is set to **web_server**.
     std::shared_ptr<string> listenProtocol_ = nullptr;
+    // AI tool name.
     std::shared_ptr<string> middlewareName_ = nullptr;
+    // AI tool version.
     std::shared_ptr<string> middlewareVersion_ = nullptr;
+    // Name of the LLM vendor.
     std::shared_ptr<string> modelName_ = nullptr;
     // The name of the module.
     // 

@@ -57,6 +57,8 @@ namespace Models
 
 
   protected:
+    // Set the action for this execution, default is **exec**. Values:
+    // - **exec**: Execute. - **terminate**: Terminate.
     std::shared_ptr<string> execAction_ = nullptr;
     // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 

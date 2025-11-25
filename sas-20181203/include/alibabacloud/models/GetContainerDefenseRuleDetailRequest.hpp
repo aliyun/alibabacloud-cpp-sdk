@@ -48,6 +48,10 @@ namespace Models
 
 
   protected:
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // 
+    // *   **zh**: Chinese
+    // *   **en**: English
     std::shared_ptr<string> lang_ = nullptr;
     // The rule ID.
     // 

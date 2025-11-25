@@ -103,32 +103,28 @@ namespace Models
 
 
   protected:
-    // The name of the alert.
-    // 
-    // *   Set the value to ALL, which indicates all alert types.
+    // Alert name:
+    // - ALL: All alerts
     std::shared_ptr<string> eventName_ = nullptr;
-    // The field that you want to use in the whitelist rule.
+    // Field used for whitelist in sensitive file alerts.
     std::shared_ptr<string> field_ = nullptr;
-    // The value of the field that you want to use in the whitelist rule.
+    // Expected value of the field to be whitelisted.
     std::shared_ptr<string> fieldValue_ = nullptr;
-    // The logical operator that you want to use in the whitelist rule.
-    // 
-    // *   Set the value to strEqual, which indicates the equality operator (=).
+    // Rule judgment operator:
+    // - strEqual: String equals
     std::shared_ptr<string> operator_ = nullptr;
+    // Remarks.
     std::shared_ptr<string> remark_ = nullptr;
-    // The feature to which this operation belongs.
-    // 
-    // *   Set the value to agentless, which indicates the agentless detection feature.
+    // Business source:
+    // - agentless: Agentless detection
     std::shared_ptr<string> source_ = nullptr;
-    // The type of the assets on which you want the whitelist rule to take effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   SELECTION_KEY: selected assets
+    // Effective target type:
+    // - ALL: All assets
+    // - SELECTION_KEY: Assets selected via the asset selection component
     std::shared_ptr<string> targetType_ = nullptr;
-    // The assets on which you want the whitelist rule to take effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   Others: selected assets
+    // Target effective scope:
+    // - ALL: All assets
+    // - Other: Key of the asset range selected by the asset selection component
     std::shared_ptr<string> targetValue_ = nullptr;
   };
 

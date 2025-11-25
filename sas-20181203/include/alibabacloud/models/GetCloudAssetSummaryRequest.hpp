@@ -54,8 +54,9 @@ namespace Models
 
 
   protected:
+    // List of asset type information for cloud assets
     std::shared_ptr<vector<GetCloudAssetSummaryRequestCloudAssetTypes>> cloudAssetTypes_ = nullptr;
-    // The asset type by service provider.
+    // List of cloud vendors to be queried.
     std::shared_ptr<vector<int32_t>> vendors_ = nullptr;
   };
 

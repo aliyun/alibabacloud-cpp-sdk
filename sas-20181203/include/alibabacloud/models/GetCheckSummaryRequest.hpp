@@ -94,6 +94,7 @@ namespace Models
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
     std::shared_ptr<string> resourceDirectoryAccountId_ = nullptr;
+    // List of task sources.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
     // The cloud service providers.
     std::shared_ptr<vector<string>> vendors_ = nullptr;

@@ -270,7 +270,9 @@ namespace Models
     // *   1: handled
     // *   2: added to the whitelist
     std::shared_ptr<int32_t> status_ = nullptr;
+    // User ID of the user who started the current process.
     std::shared_ptr<string> userId_ = nullptr;
+    // The username that started the current process.
     std::shared_ptr<string> userName_ = nullptr;
     // The UUID of the asset.
     std::shared_ptr<string> uuid_ = nullptr;

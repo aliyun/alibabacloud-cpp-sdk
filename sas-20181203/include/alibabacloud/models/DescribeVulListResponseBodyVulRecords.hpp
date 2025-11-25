@@ -155,8 +155,8 @@ namespace Models
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline int32_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0) };
-    inline DescribeVulListResponseBodyVulRecords& setGroupId(int32_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+    inline int64_t groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, 0L) };
+    inline DescribeVulListResponseBodyVulRecords& setGroupId(int64_t groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // image Field Functions 
@@ -412,7 +412,7 @@ namespace Models
     // The timestamp when the vulnerability was first detected. Unit: milliseconds.
     std::shared_ptr<int64_t> firstTs_ = nullptr;
     // The ID of the asset group.
-    std::shared_ptr<int32_t> groupId_ = nullptr;
+    std::shared_ptr<int64_t> groupId_ = nullptr;
     // The name of the image.
     std::shared_ptr<string> image_ = nullptr;
     // The ID of the asset.

@@ -1,0 +1,61 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETINSTANCEAUTHRANGERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETINSTANCEAUTHRANGERESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetInstanceAuthRangeResponseBodyInstanceAuthRange.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sas20181203
+{
+namespace Models
+{
+  class GetInstanceAuthRangeResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetInstanceAuthRangeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(InstanceAuthRange, instanceAuthRange_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetInstanceAuthRangeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(InstanceAuthRange, instanceAuthRange_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    GetInstanceAuthRangeResponseBody() = default ;
+    GetInstanceAuthRangeResponseBody(const GetInstanceAuthRangeResponseBody &) = default ;
+    GetInstanceAuthRangeResponseBody(GetInstanceAuthRangeResponseBody &&) = default ;
+    GetInstanceAuthRangeResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetInstanceAuthRangeResponseBody() = default ;
+    GetInstanceAuthRangeResponseBody& operator=(const GetInstanceAuthRangeResponseBody &) = default ;
+    GetInstanceAuthRangeResponseBody& operator=(GetInstanceAuthRangeResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->instanceAuthRange_ == nullptr
+        && return this->requestId_ == nullptr; };
+    // instanceAuthRange Field Functions 
+    bool hasInstanceAuthRange() const { return this->instanceAuthRange_ != nullptr;};
+    void deleteInstanceAuthRange() { this->instanceAuthRange_ = nullptr;};
+    inline const GetInstanceAuthRangeResponseBodyInstanceAuthRange & instanceAuthRange() const { DARABONBA_PTR_GET_CONST(instanceAuthRange_, GetInstanceAuthRangeResponseBodyInstanceAuthRange) };
+    inline GetInstanceAuthRangeResponseBodyInstanceAuthRange instanceAuthRange() { DARABONBA_PTR_GET(instanceAuthRange_, GetInstanceAuthRangeResponseBodyInstanceAuthRange) };
+    inline GetInstanceAuthRangeResponseBody& setInstanceAuthRange(const GetInstanceAuthRangeResponseBodyInstanceAuthRange & instanceAuthRange) { DARABONBA_PTR_SET_VALUE(instanceAuthRange_, instanceAuthRange) };
+    inline GetInstanceAuthRangeResponseBody& setInstanceAuthRange(GetInstanceAuthRangeResponseBodyInstanceAuthRange && instanceAuthRange) { DARABONBA_PTR_SET_RVALUE(instanceAuthRange_, instanceAuthRange) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GetInstanceAuthRangeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    std::shared_ptr<GetInstanceAuthRangeResponseBodyInstanceAuthRange> instanceAuthRange_ = nullptr;
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sas20181203
+#endif

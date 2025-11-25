@@ -3006,6 +3006,60 @@ CreateCheckItemResponse Client::createCheckItem(const CreateCheckItemRequest &re
 }
 
 /**
+ * @summary Create Policy
+ *
+ * @param request CreateCheckPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCheckPolicyResponse
+ */
+CreateCheckPolicyResponse Client::createCheckPolicyWithOptions(const CreateCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDependentPolicyId()) {
+    query["DependentPolicyId"] = request.dependentPolicyId();
+  }
+
+  if (!!request.hasPolicyShowName()) {
+    query["PolicyShowName"] = request.policyShowName();
+  }
+
+  if (!!request.hasPolicyType()) {
+    query["PolicyType"] = request.policyType();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCheckPolicy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCheckPolicyResponse>();
+}
+
+/**
+ * @summary Create Policy
+ *
+ * @param request CreateCheckPolicyRequest
+ * @return CreateCheckPolicyResponse
+ */
+CreateCheckPolicyResponse Client::createCheckPolicy(const CreateCheckPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCheckPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a container scan task.
  *
  * @param request CreateContainerScanTaskRequest
@@ -4298,7 +4352,7 @@ CreateJenkinsImageScanTaskResponse Client::createJenkinsImageScanTask(const Crea
 }
 
 /**
- * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+ * @summary Get alert whitelist configuration details
  *
  * @param request CreateMaliciousFileWhitelistConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4357,7 +4411,7 @@ CreateMaliciousFileWhitelistConfigResponse Client::createMaliciousFileWhitelistC
 }
 
 /**
- * @summary Creates an alert whitelist rule of sensitive files that are detected by using the agentless detection feature.
+ * @summary Get alert whitelist configuration details
  *
  * @param request CreateMaliciousFileWhitelistConfigRequest
  * @return CreateMaliciousFileWhitelistConfigResponse
@@ -11446,7 +11500,7 @@ DescribeClusterNetworkResponse Client::describeClusterNetwork(const DescribeClus
 }
 
 /**
- * @summary 查询集群扫描组件状态
+ * @summary Query the status of cluster scanning components.
  *
  * @param request DescribeClusterScannerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11485,7 +11539,7 @@ DescribeClusterScannerListResponse Client::describeClusterScannerListWithOptions
 }
 
 /**
- * @summary 查询集群扫描组件状态
+ * @summary Query the status of cluster scanning components.
  *
  * @param request DescribeClusterScannerListRequest
  * @return DescribeClusterScannerListResponse
@@ -12645,7 +12699,7 @@ DescribeCustomizeReportListResponse Client::describeCustomizeReportList(const De
 }
 
 /**
- * @summary 查看自定义弱口令上传结果
+ * @summary View the result of custom weak password uploads
  *
  * @param request DescribeCustomizedDictRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12676,7 +12730,7 @@ DescribeCustomizedDictResponse Client::describeCustomizedDictWithOptions(const D
 }
 
 /**
- * @summary 查看自定义弱口令上传结果
+ * @summary View the result of custom weak password uploads
  *
  * @param request DescribeCustomizedDictRequest
  * @return DescribeCustomizedDictResponse
@@ -14121,6 +14175,14 @@ DescribeExposedStatisticsDetailResponse Client::describeExposedStatisticsDetailW
 
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasExposureIp()) {
+    query["ExposureIp"] = request.exposureIp();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
   }
 
   if (!!request.hasPageSize()) {
@@ -26323,7 +26385,7 @@ FixCheckWarningsResponse Client::fixCheckWarnings(const FixCheckWarningsRequest 
 }
 
 /**
- * @summary 生成K8s集群扫描接入配置
+ * @summary Generate K8s cluster scan access configuration.
  *
  * @param request GenerateClusterScannerWebhookYamlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26358,7 +26420,7 @@ GenerateClusterScannerWebhookYamlResponse Client::generateClusterScannerWebhookY
 }
 
 /**
- * @summary 生成K8s集群扫描接入配置
+ * @summary Generate K8s cluster scan access configuration.
  *
  * @param request GenerateClusterScannerWebhookYamlRequest
  * @return GenerateClusterScannerWebhookYamlResponse
@@ -28162,7 +28224,7 @@ GetCloudAssetDetailResponse Client::getCloudAssetDetail(const GetCloudAssetDetai
 }
 
 /**
- * @summary The total number of instances that are at risk.
+ * @summary 获取云资产概要
  *
  * @param request GetCloudAssetSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28197,7 +28259,7 @@ GetCloudAssetSummaryResponse Client::getCloudAssetSummaryWithOptions(const GetCl
 }
 
 /**
- * @summary The total number of instances that are at risk.
+ * @summary 获取云资产概要
  *
  * @param request GetCloudAssetSummaryRequest
  * @return GetCloudAssetSummaryResponse
@@ -28296,7 +28358,7 @@ GetClusterRuleSummaryResponse Client::getClusterRuleSummary(const GetClusterRule
 }
 
 /**
- * @summary 查询K8s集群扫描接入配置
+ * @summary Query K8s cluster scan access configuration.
  *
  * @param request GetClusterScannerYamlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -28327,7 +28389,7 @@ GetClusterScannerYamlResponse Client::getClusterScannerYamlWithOptions(const Get
 }
 
 /**
- * @summary 查询K8s集群扫描接入配置
+ * @summary Query K8s cluster scan access configuration.
  *
  * @param request GetClusterScannerYamlRequest
  * @return GetClusterScannerYamlResponse
@@ -29512,7 +29574,7 @@ GetHoneypotProbeResponse Client::getHoneypotProbe(const GetHoneypotProbeRequest 
 }
 
 /**
- * @summary 获取蜜罐使用量的统计数据
+ * @summary Get statistics on honey pot usage.
  *
  * @param request GetHoneypotStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29543,7 +29605,7 @@ GetHoneypotStatisticsResponse Client::getHoneypotStatisticsWithOptions(const Get
 }
 
 /**
- * @summary 获取蜜罐使用量的统计数据
+ * @summary Get statistics on honey pot usage.
  *
  * @param request GetHoneypotStatisticsRequest
  * @return GetHoneypotStatisticsResponse
@@ -29727,6 +29789,39 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatisticsWithOptions
 GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatistics(const GetInstanceAlarmStatisticsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstanceAlarmStatisticsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例授权取值范围
+ *
+ * @param request GetInstanceAuthRangeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceAuthRangeResponse
+ */
+GetInstanceAuthRangeResponse Client::getInstanceAuthRangeWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetInstanceAuthRange"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceAuthRangeResponse>();
+}
+
+/**
+ * @summary 获取实例授权取值范围
+ *
+ * @return GetInstanceAuthRangeResponse
+ */
+GetInstanceAuthRangeResponse Client::getInstanceAuthRange() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceAuthRangeWithOptions(runtime);
 }
 
 /**
@@ -31813,7 +31908,7 @@ HandleSecurityEventsResponse Client::handleSecurityEvents(const HandleSecurityEv
 }
 
 /**
- * @summary 批量处理恶意样本告警。
+ * @summary Batch process malicious alerts.
  *
  * @description ****
  *
@@ -31862,7 +31957,7 @@ HandleSimilarMaliciousFilesResponse Client::handleSimilarMaliciousFilesWithOptio
 }
 
 /**
- * @summary 批量处理恶意样本告警。
+ * @summary Batch process malicious alerts.
  *
  * @description ****
  *
@@ -33810,7 +33905,7 @@ ListCheckItemResponse Client::listCheckItem(const ListCheckItemRequest &request)
 }
 
 /**
- * @summary Queries the servers that are affected by baseline risks.
+ * @summary Query the list of warning machines for a specific baseline check item.
  *
  * @param request ListCheckItemWarningMachineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33885,7 +33980,7 @@ ListCheckItemWarningMachineResponse Client::listCheckItemWarningMachineWithOptio
 }
 
 /**
- * @summary Queries the servers that are affected by baseline risks.
+ * @summary Query the list of warning machines for a specific baseline check item.
  *
  * @param request ListCheckItemWarningMachineRequest
  * @return ListCheckItemWarningMachineResponse
@@ -34576,6 +34671,114 @@ ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const
 ListCloudAssetInstancesResponse Client::listCloudAssetInstances(const ListCloudAssetInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCloudAssetInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Get the list of cloud product configuration rule operators
+ *
+ * @description Get the list of cloud asset data operators.
+ *
+ * @param request ListCloudAssetMatchOperatorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAssetMatchOperatorsResponse
+ */
+ListCloudAssetMatchOperatorsResponse Client::listCloudAssetMatchOperatorsWithOptions(const ListCloudAssetMatchOperatorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAssetMatchOperators"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAssetMatchOperatorsResponse>();
+}
+
+/**
+ * @summary Get the list of cloud product configuration rule operators
+ *
+ * @description Get the list of cloud asset data operators.
+ *
+ * @param request ListCloudAssetMatchOperatorsRequest
+ * @return ListCloudAssetMatchOperatorsResponse
+ */
+ListCloudAssetMatchOperatorsResponse Client::listCloudAssetMatchOperators(const ListCloudAssetMatchOperatorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAssetMatchOperatorsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取云产品资产结构列表
+ *
+ * @param request ListCloudAssetSchemasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloudAssetSchemasResponse
+ */
+ListCloudAssetSchemasResponse Client::listCloudAssetSchemasWithOptions(const ListCloudAssetSchemasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssociatedDataOnly()) {
+    query["AssociatedDataOnly"] = request.associatedDataOnly();
+  }
+
+  if (!!request.hasCloudAssetTypes()) {
+    query["CloudAssetTypes"] = request.cloudAssetTypes();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasDataNames()) {
+    query["DataNames"] = request.dataNames();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCloudAssetSchemas"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloudAssetSchemasResponse>();
+}
+
+/**
+ * @summary 获取云产品资产结构列表
+ *
+ * @param request ListCloudAssetSchemasRequest
+ * @return ListCloudAssetSchemasResponse
+ */
+ListCloudAssetSchemasResponse Client::listCloudAssetSchemas(const ListCloudAssetSchemasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloudAssetSchemasWithOptions(request, runtime);
 }
 
 /**
@@ -36612,6 +36815,52 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConfigs(const ListMaliciousFileWhitelistConfigsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listMaliciousFileWhitelistConfigsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询多账号授权分配列表
+ *
+ * @param request ListMultiUserInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMultiUserInstancesResponse
+ */
+ListMultiUserInstancesResponse Client::listMultiUserInstancesWithOptions(const ListMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMultiUserInstances"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMultiUserInstancesResponse>();
+}
+
+/**
+ * @summary 查询多账号授权分配列表
+ *
+ * @param request ListMultiUserInstancesRequest
+ * @return ListMultiUserInstancesResponse
+ */
+ListMultiUserInstancesResponse Client::listMultiUserInstances(const ListMultiUserInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMultiUserInstancesWithOptions(request, runtime);
 }
 
 /**
@@ -47061,6 +47310,64 @@ UpdateCheckItemResponse Client::updateCheckItem(const UpdateCheckItemRequest &re
 }
 
 /**
+ * @summary Update Custom Policy
+ *
+ * @param request UpdateCheckPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCheckPolicyResponse
+ */
+UpdateCheckPolicyResponse Client::updateCheckPolicyWithOptions(const UpdateCheckPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDependentPolicyId()) {
+    query["DependentPolicyId"] = request.dependentPolicyId();
+  }
+
+  if (!!request.hasPolicyId()) {
+    query["PolicyId"] = request.policyId();
+  }
+
+  if (!!request.hasPolicyShowName()) {
+    query["PolicyShowName"] = request.policyShowName();
+  }
+
+  if (!!request.hasPolicyType()) {
+    query["PolicyType"] = request.policyType();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCheckPolicy"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCheckPolicyResponse>();
+}
+
+/**
+ * @summary Update Custom Policy
+ *
+ * @param request UpdateCheckPolicyRequest
+ * @return UpdateCheckPolicyResponse
+ */
+UpdateCheckPolicyResponse Client::updateCheckPolicy(const UpdateCheckPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCheckPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies alerting settings for servers.
  *
  * @param request UpdateClientAlertModeRequest
@@ -48054,6 +48361,48 @@ UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistC
 UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistConfig(const UpdateMaliciousFileWhitelistConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateMaliciousFileWhitelistConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改多账号实例配置
+ *
+ * @param request UpdateMultiUserInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMultiUserInstancesResponse
+ */
+UpdateMultiUserInstancesResponse Client::updateMultiUserInstancesWithOptions(const UpdateMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMemberInstances()) {
+    query["MemberInstances"] = request.memberInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMultiUserInstances"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMultiUserInstancesResponse>();
+}
+
+/**
+ * @summary 修改多账号实例配置
+ *
+ * @param request UpdateMultiUserInstancesRequest
+ * @return UpdateMultiUserInstancesResponse
+ */
+UpdateMultiUserInstancesResponse Client::updateMultiUserInstances(const UpdateMultiUserInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMultiUserInstancesWithOptions(request, runtime);
 }
 
 /**

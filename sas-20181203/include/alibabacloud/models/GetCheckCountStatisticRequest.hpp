@@ -69,6 +69,7 @@ namespace Models
     // *   **instance**: the top five cloud services on which risks are detected.
     // *   **host**: the top five servers on which baseline risks are detected.
     std::shared_ptr<string> statisticType_ = nullptr;
+    // Task source.
     std::shared_ptr<vector<string>> taskSources_ = nullptr;
     // The cloud service providers.
     std::shared_ptr<vector<string>> vendors_ = nullptr;

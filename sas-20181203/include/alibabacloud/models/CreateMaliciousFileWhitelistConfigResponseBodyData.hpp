@@ -130,41 +130,35 @@ namespace Models
 
 
   protected:
-    // The number of the assets on which the whitelist rule takes effect.
-    // 
-    // >  The value of this parameter is returned only if the value of TargetType is SELECTION_KEY.
+    // Number of effective assets.
+    // > This field has a value when targetType is SELECTION_KEY
     std::shared_ptr<string> count_ = nullptr;
-    // The name of the alert.
-    // 
-    // *   The value is fixed as ALL, which indicates all alert types.
+    // Alert name:
+    // - ALL: All alert types
     std::shared_ptr<string> eventName_ = nullptr;
-    // The field that is used in the whitelist rule.
+    // Whitelisted field.
     std::shared_ptr<string> field_ = nullptr;
-    // The value of the field that is used in the whitelist rule.
+    // Whitelisted field value.
     std::shared_ptr<string> fieldValue_ = nullptr;
-    // The creation time.
+    // Creation time.
     std::shared_ptr<string> gmtCreate_ = nullptr;
-    // The modification time.
+    // Modification time.
     std::shared_ptr<string> gmtModified_ = nullptr;
-    // The ID of the whitelist rule.
+    // Rule ID.
     std::shared_ptr<string> id_ = nullptr;
-    // The logical operator that is used in the whitelist rule.
-    // 
-    // *   The value is fixed as strEqual, which indicates the equality operator (=).
+    // Rule judgment operator:
+    // - strEqual: String equals
     std::shared_ptr<string> operator_ = nullptr;
-    // The feature to which this operation belongs.
-    // 
-    // *   The value is fixed as agentless, which indicates the agentless detection feature.
+    // Business source:
+    // - agentless: Agentless detection
     std::shared_ptr<string> source_ = nullptr;
-    // The type of the assets on which the whitelist rule takes effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   SELECTION_KEY: selected assets
+    // Effective target type:
+    // - ALL: All assets
+    // - SELECTION_KEY: Assets selected via the asset selection component
     std::shared_ptr<string> targetType_ = nullptr;
-    // The assets on which the whitelist rule takes effect. Valid values:
-    // 
-    // *   ALL: all assets
-    // *   Others: selected assets
+    // Target effective scope:
+    // - ALL: All assets
+    // - Other: Key of the asset range selected by the asset selection component
     std::shared_ptr<string> targetValue_ = nullptr;
   };
 

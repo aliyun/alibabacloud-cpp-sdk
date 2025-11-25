@@ -195,6 +195,8 @@ namespace Models
 
 
   protected:
+    // The type of cloud product assets.
+    // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the types of cloud product assets.
     std::shared_ptr<string> assetType_ = nullptr;
     // The edition of Security Center that is authorized to protect the asset. Valid values:
     // 

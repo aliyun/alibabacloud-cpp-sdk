@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The ID of the container cluster.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) API to obtain this parameter from the ClusterId field.
+    // 
     // This parameter is required.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // Indicates whether the incremental scan switch is enabled. Values:
+    // - **0**: Not enabled
+    // - **1**: Enabled
     std::shared_ptr<int32_t> webhookOpen_ = nullptr;
   };
 

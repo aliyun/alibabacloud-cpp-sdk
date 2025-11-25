@@ -178,13 +178,23 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID of the member.
     std::shared_ptr<string> accountId_ = nullptr;
+    // This parameter is deprecated and should be ignored.
     std::shared_ptr<int32_t> buySas_ = nullptr;
+    // Whether a yearly or monthly subscription of Cloud Security Center is purchased. Values:
+    // - **true**: Yes
+    // - **false**: No
     std::shared_ptr<bool> buySasNew_ = nullptr;
+    // Subscription type. Values:
+    // * **0**: Prepaid
+    // * **1**: Pay-As-You-Go
     std::shared_ptr<int32_t> chargeType_ = nullptr;
     // The name of the member.
     std::shared_ptr<string> displayName_ = nullptr;
     // The ID of the folder in the resource directory.
     std::shared_ptr<string> folderId_ = nullptr;
+    // Instance purchase type. Values:
+    // - **0**: Self-purchased
+    // - **1**: Multi-account allocation
     std::shared_ptr<int32_t> instanceBuyType_ = nullptr;
     // Indicates whether the member is an administrator account of the resource directory. Valid values:
     // 
@@ -208,8 +218,24 @@ namespace Models
     // *   **yes**
     // *   **no**
     std::shared_ptr<string> isSiemDaAccount_ = nullptr;
+    // Post-paid module switch. Values:
+    // - **0**: Off
+    // - **1**: On
     std::shared_ptr<int32_t> postBasicService_ = nullptr;
+    // The switch status of the pay-as-you-go module. The value is a JSON string. Valid values:
+    // 
+    // *   Key:
+    // 
+    //     *   **VUL**: vulnerability fixing module
+    //     *   **CSPM**: cloud service configuration check module
+    //     *   **AGENTLESS**: agentless detection module
+    //     *   **SERVERLESS**: serverless asset module
+    // 
+    // *   Value: A value of 0 specifies disabled. A value of 1 specifies enabled.
+    // 
+    // >  If you do not specify a value for a module, the original value of the module is retained.
     std::shared_ptr<string> postPayModuleSwitch_ = nullptr;
+    // Cloud Security Center Instance ID.
     std::shared_ptr<string> saleInstance_ = nullptr;
     // The edition of Security Center that you use. Valid value:
     // 

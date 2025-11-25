@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The summary of cloud services.
+    // Summary information of cloud assets.
     std::shared_ptr<GetCloudAssetSummaryResponseBodyGroupedFields> groupedFields_ = nullptr;
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // 本次调用请求的ID，是由阿里云为该请求生成的唯一标识符，可用于排查和定位问题。
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

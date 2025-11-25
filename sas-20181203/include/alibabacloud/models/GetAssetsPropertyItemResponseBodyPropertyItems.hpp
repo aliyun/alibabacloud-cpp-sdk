@@ -90,7 +90,9 @@ namespace Models
     // 
     // > This parameter is returned only when **Biz** is set to **web_server**.
     std::shared_ptr<string> domain_ = nullptr;
+    // AI tool name.
     std::shared_ptr<string> middlewareName_ = nullptr;
+    // Name of the LLM service.
     std::shared_ptr<string> modelName_ = nullptr;
     // The name of the module.
     // 

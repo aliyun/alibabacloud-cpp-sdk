@@ -94,6 +94,9 @@ namespace Models
 
 
   protected:
+    // AI资产标识。取值：
+    // - **0**：非AI资产。
+    // - **1**：AI资产。
     std::shared_ptr<int32_t> aiAssetFlag_ = nullptr;
     // Node element type.
     std::shared_ptr<string> elementType_ = nullptr;

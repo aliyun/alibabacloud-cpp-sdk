@@ -75,12 +75,31 @@ namespace Models
 
 
   protected:
+    // Target alert ID
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> eventId_ = nullptr;
+    // Language type for request and response messages. Values include:
+    // - **zh**: Chinese
+    // - **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    // Handling action:
+    // - addWhitelist: Add to whitelist;
+    // - offWhitelist: Remove from whitelist;
+    // - offline_handled: Handled offline;
+    // - mark_mis_info: Report as false positive;
+    // - ignore: Ignore.
+    // 
     // This parameter is required.
     std::shared_ptr<string> operation_ = nullptr;
+    // File source. Values include:
+    // - agentless: Host detection;
+    // - ecs_snapshot: User snapshot detection;
+    // - ecs_image: User-defined image detection.
     std::shared_ptr<string> scanRange_ = nullptr;
+    // Batch processing scenario:
+    // - same_file_md5: Same file MD5;
+    // - default (default value): Same alert type.
     std::shared_ptr<string> scenario_ = nullptr;
   };
 

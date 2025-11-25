@@ -134,6 +134,8 @@ namespace Models
     std::shared_ptr<int64_t> authId_ = nullptr;
     // The modules that are associated with the AccessKey pair.
     std::shared_ptr<vector<Models::ModifyCloudVendorAccountAKResponseBodyDataAuthModules>> authModules_ = nullptr;
+    // Account ID. 
+    // >The account ID of the cloud provider being connected.
     std::shared_ptr<string> ctdrCloudUserId_ = nullptr;
     // The error message of the AccessKey pair.
     std::shared_ptr<string> message_ = nullptr;
@@ -159,6 +161,11 @@ namespace Models
     // *   **HUAWEICLOUD**: Huawei Cloud.
     // *   **Azure**: Microsoft Azure.
     // *   **AWS**: Amazon Web Services (AWS).
+    // *  **VOLCENGINE**: Volcengine 
+    // *  **google**: Google Cloud 
+    // *  **CHAITIN**: Chaitin Tech 
+    // *  **FORTINET**: Fortinet 
+    // *  **THREATBOOK**: ThreatBook
     std::shared_ptr<string> vendor_ = nullptr;
     // The name of the AccessKey pair.
     // 

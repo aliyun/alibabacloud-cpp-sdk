@@ -126,6 +126,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     // The exception message of the check item.
     std::shared_ptr<string> statusMessage_ = nullptr;
+    // The multi-cloud provider account name.
     std::shared_ptr<string> vendorUserName_ = nullptr;
   };
 
