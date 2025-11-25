@@ -349,6 +349,7 @@
 #include <alibabacloud/models/ListSolutionResponseBodySolutions.hpp>
 #include <alibabacloud/models/ListTagResponseBodyTagGroups.hpp>
 #include <alibabacloud/models/ListTagGroupResponseBodyTagGroups.hpp>
+#include <alibabacloud/models/ListTongyiConversationLogsResponseBodySessionFlowDebugInfo.hpp>
 #include <alibabacloud/models/ListUserSayResponseBodyUserSaysSlotInfos.hpp>
 #include <alibabacloud/models/ListUserSayResponseBodyUserSays.hpp>
 #include <alibabacloud/models/NluResponseBodyMessagesDialogHubNluInfoGlobalDictList.hpp>

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTTONGYICONVERSATIONLOGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ListTongyiConversationLogsResponseBodySessionFlowDebugInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,11 +18,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CostTime, costTime_);
       DARABONBA_PTR_TO_JSON(Datas, datas_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SessionFlowDebugInfo, sessionFlowDebugInfo_);
     };
     friend void from_json(const Darabonba::Json& j, ListTongyiConversationLogsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CostTime, costTime_);
       DARABONBA_PTR_FROM_JSON(Datas, datas_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SessionFlowDebugInfo, sessionFlowDebugInfo_);
     };
     ListTongyiConversationLogsResponseBody() = default ;
     ListTongyiConversationLogsResponseBody(const ListTongyiConversationLogsResponseBody &) = default ;
@@ -35,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->costTime_ == nullptr
-        && return this->datas_ == nullptr && return this->requestId_ == nullptr; };
+        && return this->datas_ == nullptr && return this->requestId_ == nullptr && return this->sessionFlowDebugInfo_ == nullptr; };
     // costTime Field Functions 
     bool hasCostTime() const { return this->costTime_ != nullptr;};
     void deleteCostTime() { this->costTime_ = nullptr;};
@@ -59,10 +62,20 @@ namespace Models
     inline ListTongyiConversationLogsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sessionFlowDebugInfo Field Functions 
+    bool hasSessionFlowDebugInfo() const { return this->sessionFlowDebugInfo_ != nullptr;};
+    void deleteSessionFlowDebugInfo() { this->sessionFlowDebugInfo_ = nullptr;};
+    inline const ListTongyiConversationLogsResponseBodySessionFlowDebugInfo & sessionFlowDebugInfo() const { DARABONBA_PTR_GET_CONST(sessionFlowDebugInfo_, ListTongyiConversationLogsResponseBodySessionFlowDebugInfo) };
+    inline ListTongyiConversationLogsResponseBodySessionFlowDebugInfo sessionFlowDebugInfo() { DARABONBA_PTR_GET(sessionFlowDebugInfo_, ListTongyiConversationLogsResponseBodySessionFlowDebugInfo) };
+    inline ListTongyiConversationLogsResponseBody& setSessionFlowDebugInfo(const ListTongyiConversationLogsResponseBodySessionFlowDebugInfo & sessionFlowDebugInfo) { DARABONBA_PTR_SET_VALUE(sessionFlowDebugInfo_, sessionFlowDebugInfo) };
+    inline ListTongyiConversationLogsResponseBody& setSessionFlowDebugInfo(ListTongyiConversationLogsResponseBodySessionFlowDebugInfo && sessionFlowDebugInfo) { DARABONBA_PTR_SET_RVALUE(sessionFlowDebugInfo_, sessionFlowDebugInfo) };
+
+
   protected:
     std::shared_ptr<string> costTime_ = nullptr;
     std::shared_ptr<vector<Darabonba::Json>> datas_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<ListTongyiConversationLogsResponseBodySessionFlowDebugInfo> sessionFlowDebugInfo_ = nullptr;
   };
 
   } // namespace Models
