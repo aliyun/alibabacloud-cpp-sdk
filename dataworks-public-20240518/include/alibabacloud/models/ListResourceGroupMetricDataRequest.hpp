@@ -94,12 +94,57 @@ namespace Models
 
 
   protected:
+    // Start Time
+    // 
+    // Supported format:
+    // 
+    // *   Unix timestamp, representing the number of milliseconds that have elapsed since January 1, 1970.
+    // 
+    // The interval between BeginTime and EndTime must be 31 days or less.
+    // 
+    // Default: The current time minus 2 hours, expressed as a millisecond Unix timestamp.
     std::shared_ptr<int64_t> beginTime_ = nullptr;
+    // End Time
+    // 
+    // Supported format:
+    // 
+    // *   Unix timestamp, representing the number of milliseconds that have elapsed since January 1, 1970.
+    // 
+    // The interval between BeginTime and EndTime must be 31 days or less.
+    // 
+    // Default: The current time, expressed as a millisecond Unix timestamp.
     std::shared_ptr<int64_t> endTime_ = nullptr;
     std::shared_ptr<int32_t> length_ = nullptr;
+    // The metric name. Available metrics include:
+    // 
+    // *   CUSpec: Maximum CU capacity of the resource group, in CUs.
+    // *   CUUsage: CU usage of the resource group, in CUs.
+    // *   CUUtilization: CU utilization of the resource group, in %.
+    // *   SlotSpec: Maximum concurrency for resource group scheduling, in slots.
+    // *   SlotUsage: Used concurrency for resource group scheduling, in slots.
+    // *   SchedulerCUMaxSpec: Maximum CU quota for data computing, in CUs.
+    // *   SchedulerCUUsage: CU usage for data computing, in CUs.
+    // *   SchedulerCUMinSpec: Minimum guaranteed CUs for data computing, in CUs.
+    // *   DataIntegrationCUMaxSpec: Maximum CU quota for Data Integration, in CUs.
+    // *   DataIntegrationCUUsage: CU usage for Data Integration, in CUs.
+    // *   DataIntegrationCUMinSpec: Minimum guaranteed CUs for Data Integration, in CUs.
+    // *   DataServiceCUMaxSpec: Maximum CU quota for dataservice, in CUs.
+    // *   DataServiceCUUsage: CU usage for DataService Studio, in CUs.
+    // *   DataServiceCUMinSpec: Minimum guaranteed CUs for DataService Studio, in CUs.
+    // *   ServerIdeCUMaxSpec: Maximum CU quota for personal development environment, in CUs.
+    // *   ServerIdeCUUsage: CU usage for personal development environment, in CUs.
+    // *   ServerIdeCUMinSpec: Minimum guaranteed CUs for personal development environment, in CUs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> metricName_ = nullptr;
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The statistical period for monitoring data.
+    // 
+    // Value: A multiple of 60.
+    // 
+    // Unit: Seconds.
+    // 
+    // Default: 60
     std::shared_ptr<string> period_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> resourceGroupId_ = nullptr;

@@ -60,6 +60,7 @@ namespace Models
 
 
   protected:
+    // Monitoring metric data.
     std::shared_ptr<ListResourceGroupMetricDataResponseBodyMetricData> metricData_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<bool> success_ = nullptr;

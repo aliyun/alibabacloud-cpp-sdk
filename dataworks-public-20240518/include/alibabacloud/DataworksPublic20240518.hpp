@@ -192,6 +192,23 @@ namespace DataworksPublic20240518
       Models::CreateComponentResponse createComponent(const Models::CreateComponentRequest &request);
 
       /**
+       * @summary 验证用
+       *
+       * @param request CreateComputeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateComputeResourceResponse
+       */
+      Models::CreateComputeResourceResponse createComputeResourceWithOptions(const Models::CreateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request CreateComputeResourceRequest
+       * @return CreateComputeResourceResponse
+       */
+      Models::CreateComputeResourceResponse createComputeResource(const Models::CreateComputeResourceRequest &request);
+
+      /**
        * @summary Creates an alert rule for a synchronization task.
        *
        * @param tmpReq CreateDIAlarmRuleRequest
@@ -850,6 +867,23 @@ namespace DataworksPublic20240518
        * @return DeleteComponentResponse
        */
       Models::DeleteComponentResponse deleteComponent(const Models::DeleteComponentRequest &request);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request DeleteComputeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteComputeResourceResponse
+       */
+      Models::DeleteComputeResourceResponse deleteComputeResourceWithOptions(const Models::DeleteComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request DeleteComputeResourceRequest
+       * @return DeleteComputeResourceResponse
+       */
+      Models::DeleteComputeResourceResponse deleteComputeResource(const Models::DeleteComputeResourceRequest &request);
 
       /**
        * @summary Deletes an alert rule configured for a synchronization task.
@@ -1592,6 +1626,23 @@ namespace DataworksPublic20240518
        * @return GetComponentResponse
        */
       Models::GetComponentResponse getComponent(const Models::GetComponentRequest &request);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request GetComputeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetComputeResourceResponse
+       */
+      Models::GetComputeResourceResponse getComputeResourceWithOptions(const Models::GetComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request GetComputeResourceRequest
+       * @return GetComputeResourceResponse
+       */
+      Models::GetComputeResourceResponse getComputeResource(const Models::GetComputeResourceRequest &request);
 
       /**
        * @summary Queries the result of asynchronously creating a workflow instance.
@@ -2571,6 +2622,23 @@ namespace DataworksPublic20240518
        * @return ListComponentsResponse
        */
       Models::ListComponentsResponse listComponents(const Models::ListComponentsRequest &request);
+
+      /**
+       * @summary 验证用
+       *
+       * @param tmpReq ListComputeResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListComputeResourcesResponse
+       */
+      Models::ListComputeResourcesResponse listComputeResourcesWithOptions(const Models::ListComputeResourcesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request ListComputeResourcesRequest
+       * @return ListComputeResourcesResponse
+       */
+      Models::ListComputeResourcesResponse listComputeResources(const Models::ListComputeResourcesRequest &request);
 
       /**
        * @summary 查询元数据采集器类型列表
@@ -4221,6 +4289,23 @@ namespace DataworksPublic20240518
        * @return UpdateComponentResponse
        */
       Models::UpdateComponentResponse updateComponent(const Models::UpdateComponentRequest &request);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request UpdateComputeResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateComputeResourceResponse
+       */
+      Models::UpdateComputeResourceResponse updateComputeResourceWithOptions(const Models::UpdateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 验证用
+       *
+       * @param request UpdateComputeResourceRequest
+       * @return UpdateComputeResourceResponse
+       */
+      Models::UpdateComputeResourceResponse updateComputeResource(const Models::UpdateComputeResourceRequest &request);
 
       /**
        * @summary Updates an alert rule configured for a synchronization task.

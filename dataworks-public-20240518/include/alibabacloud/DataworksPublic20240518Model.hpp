@@ -11,6 +11,7 @@
 #include <alibabacloud/models/DataQualityRule.hpp>
 #include <alibabacloud/models/DataQualityRuleTemplate.hpp>
 #include <alibabacloud/models/Database.hpp>
+#include <alibabacloud/models/IdentifyCredential.hpp>
 #include <alibabacloud/models/LineageEntity.hpp>
 #include <alibabacloud/models/LineageTask.hpp>
 #include <alibabacloud/models/LineageRelationship.hpp>
@@ -48,6 +49,9 @@
 #include <alibabacloud/models/CreateComponentRequest.hpp>
 #include <alibabacloud/models/CreateComponentResponseBody.hpp>
 #include <alibabacloud/models/CreateComponentResponse.hpp>
+#include <alibabacloud/models/CreateComputeResourceRequest.hpp>
+#include <alibabacloud/models/CreateComputeResourceResponseBody.hpp>
+#include <alibabacloud/models/CreateComputeResourceResponse.hpp>
 #include <alibabacloud/models/CreateDiAlarmRuleRequest.hpp>
 #include <alibabacloud/models/CreateDiAlarmRuleShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDiAlarmRuleResponseBody.hpp>
@@ -168,6 +172,9 @@
 #include <alibabacloud/models/DeleteComponentRequest.hpp>
 #include <alibabacloud/models/DeleteComponentResponseBody.hpp>
 #include <alibabacloud/models/DeleteComponentResponse.hpp>
+#include <alibabacloud/models/DeleteComputeResourceRequest.hpp>
+#include <alibabacloud/models/DeleteComputeResourceResponseBody.hpp>
+#include <alibabacloud/models/DeleteComputeResourceResponse.hpp>
 #include <alibabacloud/models/DeleteDiAlarmRuleRequest.hpp>
 #include <alibabacloud/models/DeleteDiAlarmRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteDiAlarmRuleResponse.hpp>
@@ -285,6 +292,9 @@
 #include <alibabacloud/models/GetComponentRequest.hpp>
 #include <alibabacloud/models/GetComponentResponseBody.hpp>
 #include <alibabacloud/models/GetComponentResponse.hpp>
+#include <alibabacloud/models/GetComputeResourceRequest.hpp>
+#include <alibabacloud/models/GetComputeResourceResponseBody.hpp>
+#include <alibabacloud/models/GetComputeResourceResponse.hpp>
 #include <alibabacloud/models/GetCreateWorkflowInstancesResultRequest.hpp>
 #include <alibabacloud/models/GetCreateWorkflowInstancesResultResponseBody.hpp>
 #include <alibabacloud/models/GetCreateWorkflowInstancesResultResponse.hpp>
@@ -442,6 +452,10 @@
 #include <alibabacloud/models/ListComponentsRequest.hpp>
 #include <alibabacloud/models/ListComponentsResponseBody.hpp>
 #include <alibabacloud/models/ListComponentsResponse.hpp>
+#include <alibabacloud/models/ListComputeResourcesRequest.hpp>
+#include <alibabacloud/models/ListComputeResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/ListComputeResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListComputeResourcesResponse.hpp>
 #include <alibabacloud/models/ListCrawlerTypesResponseBody.hpp>
 #include <alibabacloud/models/ListCrawlerTypesResponse.hpp>
 #include <alibabacloud/models/ListDiAlarmRulesRequest.hpp>
@@ -730,6 +744,9 @@
 #include <alibabacloud/models/UpdateComponentRequest.hpp>
 #include <alibabacloud/models/UpdateComponentResponseBody.hpp>
 #include <alibabacloud/models/UpdateComponentResponse.hpp>
+#include <alibabacloud/models/UpdateComputeResourceRequest.hpp>
+#include <alibabacloud/models/UpdateComputeResourceResponseBody.hpp>
+#include <alibabacloud/models/UpdateComputeResourceResponse.hpp>
 #include <alibabacloud/models/UpdateDiAlarmRuleRequest.hpp>
 #include <alibabacloud/models/UpdateDiAlarmRuleShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDiAlarmRuleResponseBody.hpp>
@@ -858,6 +875,7 @@
 #include <alibabacloud/models/DataQualityRuleTarget.hpp>
 #include <alibabacloud/models/DataQualityRuleTemplateCheckingConfig.hpp>
 #include <alibabacloud/models/DataQualityRuleTemplateSamplingConfig.hpp>
+#include <alibabacloud/models/IdentifyCredentialDataSource.hpp>
 #include <alibabacloud/models/TableBusinessMetadataCategories.hpp>
 #include <alibabacloud/models/TableBusinessMetadataExtension.hpp>
 #include <alibabacloud/models/TableBusinessMetadataTags.hpp>
@@ -976,6 +994,7 @@
 #include <alibabacloud/models/GetBusinessResponseBodyData.hpp>
 #include <alibabacloud/models/GetCertificateResponseBodyCertificate.hpp>
 #include <alibabacloud/models/GetComponentResponseBodyComponent.hpp>
+#include <alibabacloud/models/GetComputeResourceResponseBodyComputeResource.hpp>
 #include <alibabacloud/models/GetCreateWorkflowInstancesResultResponseBodyResult.hpp>
 #include <alibabacloud/models/GetDiJobResponseBodyPagingInfoDestinationDataSourceSettings.hpp>
 #include <alibabacloud/models/GetDiJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings.hpp>
@@ -1166,6 +1185,9 @@
 #include <alibabacloud/models/ListComponentsResponseBodyPagingInfoComponentsScript.hpp>
 #include <alibabacloud/models/ListComponentsResponseBodyPagingInfoComponents.hpp>
 #include <alibabacloud/models/ListComponentsResponseBodyPagingInfo.hpp>
+#include <alibabacloud/models/ListComputeResourcesResponseBodyPagingInfoComputeResourcesComputeResource.hpp>
+#include <alibabacloud/models/ListComputeResourcesResponseBodyPagingInfoComputeResources.hpp>
+#include <alibabacloud/models/ListComputeResourcesResponseBodyPagingInfo.hpp>
 #include <alibabacloud/models/ListDiAlarmRulesResponseBodyPagingInfoDiJobAlarmRulesNotificationSettingsNotificationChannels.hpp>
 #include <alibabacloud/models/ListDiAlarmRulesResponseBodyPagingInfoDiJobAlarmRulesNotificationSettingsNotificationReceivers.hpp>
 #include <alibabacloud/models/ListDiAlarmRulesResponseBodyPagingInfoDiJobAlarmRulesNotificationSettings.hpp>

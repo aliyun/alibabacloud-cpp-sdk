@@ -649,6 +649,68 @@ CreateComponentResponse Client::createComponent(const CreateComponentRequest &re
 }
 
 /**
+ * @summary 验证用
+ *
+ * @param request CreateComputeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateComputeResourceResponse
+ */
+CreateComputeResourceResponse Client::createComputeResourceWithOptions(const CreateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionProperties()) {
+    query["ConnectionProperties"] = request.connectionProperties();
+  }
+
+  if (!!request.hasConnectionPropertiesMode()) {
+    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.projectId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateComputeResource"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateComputeResourceResponse>();
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request CreateComputeResourceRequest
+ * @return CreateComputeResourceResponse
+ */
+CreateComputeResourceResponse Client::createComputeResource(const CreateComputeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createComputeResourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an alert rule for a synchronization task.
  *
  * @param tmpReq CreateDIAlarmRuleRequest
@@ -3253,6 +3315,52 @@ DeleteComponentResponse Client::deleteComponent(const DeleteComponentRequest &re
 }
 
 /**
+ * @summary 验证用
+ *
+ * @param request DeleteComputeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComputeResourceResponse
+ */
+DeleteComputeResourceResponse Client::deleteComputeResourceWithOptions(const DeleteComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.projectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComputeResource"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComputeResourceResponse>();
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request DeleteComputeResourceRequest
+ * @return DeleteComputeResourceResponse
+ */
+DeleteComputeResourceResponse Client::deleteComputeResource(const DeleteComputeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComputeResourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an alert rule configured for a synchronization task.
  *
  * @param request DeleteDIAlarmRuleRequest
@@ -5088,6 +5196,52 @@ GetComponentResponse Client::getComponentWithOptions(const GetComponentRequest &
 GetComponentResponse Client::getComponent(const GetComponentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getComponentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request GetComputeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetComputeResourceResponse
+ */
+GetComputeResourceResponse Client::getComputeResourceWithOptions(const GetComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.projectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetComputeResource"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetComputeResourceResponse>();
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request GetComputeResourceRequest
+ * @return GetComputeResourceResponse
+ */
+GetComputeResourceResponse Client::getComputeResource(const GetComputeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getComputeResourceWithOptions(request, runtime);
 }
 
 /**
@@ -7456,6 +7610,82 @@ ListComponentsResponse Client::listComponentsWithOptions(const ListComponentsReq
 ListComponentsResponse Client::listComponents(const ListComponentsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listComponentsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param tmpReq ListComputeResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListComputeResourcesResponse
+ */
+ListComputeResourcesResponse Client::listComputeResourcesWithOptions(const ListComputeResourcesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListComputeResourcesShrinkRequest request = ListComputeResourcesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTypes()) {
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.types(), "Types", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasEnvType()) {
+    query["EnvType"] = request.envType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.order();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.projectId();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.sortBy();
+  }
+
+  if (!!request.hasTypesShrink()) {
+    query["Types"] = request.typesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListComputeResources"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListComputeResourcesResponse>();
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request ListComputeResourcesRequest
+ * @return ListComputeResourcesResponse
+ */
+ListComputeResourcesResponse Client::listComputeResources(const ListComputeResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listComputeResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -12147,6 +12377,64 @@ UpdateComponentResponse Client::updateComponentWithOptions(const UpdateComponent
 UpdateComponentResponse Client::updateComponent(const UpdateComponentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateComponentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request UpdateComputeResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateComputeResourceResponse
+ */
+UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const UpdateComputeResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectionProperties()) {
+    query["ConnectionProperties"] = request.connectionProperties();
+  }
+
+  if (!!request.hasConnectionPropertiesMode()) {
+    query["ConnectionPropertiesMode"] = request.connectionPropertiesMode();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.projectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateComputeResource"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateComputeResourceResponse>();
+}
+
+/**
+ * @summary 验证用
+ *
+ * @param request UpdateComputeResourceRequest
+ * @return UpdateComputeResourceResponse
+ */
+UpdateComputeResourceResponse Client::updateComputeResource(const UpdateComputeResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateComputeResourceWithOptions(request, runtime);
 }
 
 /**
