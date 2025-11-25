@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AcceleratingEnable, acceleratingEnable_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_TO_JSON(BandwidthBaseLine, bandwidthBaseLine_);
+      DARABONBA_PTR_TO_JSON(BucketId, bucketId_);
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DBType, DBType_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
+      DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PolarFsVersion, polarFsVersion_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RelativeDbClusterId, relativeDbClusterId_);
+      DARABONBA_PTR_TO_JSON(RelativePfsClusterId, relativePfsClusterId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(StorageSpace, storageSpace_);
@@ -50,12 +53,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AcceleratingEnable, acceleratingEnable_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
       DARABONBA_PTR_FROM_JSON(BandwidthBaseLine, bandwidthBaseLine_);
+      DARABONBA_PTR_FROM_JSON(BucketId, bucketId_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DBType, DBType_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
+      DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(MetaUrl, metaUrl_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
@@ -68,6 +73,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PolarFsVersion, polarFsVersion_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RelativeDbClusterId, relativeDbClusterId_);
+      DARABONBA_PTR_FROM_JSON(RelativePfsClusterId, relativePfsClusterId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(StorageSpace, storageSpace_);
@@ -89,12 +95,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratedStorageSpace_ == nullptr
-        && return this->acceleratingEnable_ == nullptr && return this->bandwidth_ == nullptr && return this->bandwidthBaseLine_ == nullptr && return this->category_ == nullptr && return this->clientDownloadPath_ == nullptr
-        && return this->createTime_ == nullptr && return this->DBType_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->lockMode_ == nullptr
-        && return this->metaUrl_ == nullptr && return this->minorVersion_ == nullptr && return this->mountInfo_ == nullptr && return this->payType_ == nullptr && return this->polarFsInstanceDescription_ == nullptr
-        && return this->polarFsInstanceId_ == nullptr && return this->polarFsStatus_ == nullptr && return this->polarFsType_ == nullptr && return this->polarFsVersion_ == nullptr && return this->regionId_ == nullptr
-        && return this->relativeDbClusterId_ == nullptr && return this->requestId_ == nullptr && return this->securityGroupId_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr
-        && return this->storageUsed_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->acceleratingEnable_ == nullptr && return this->bandwidth_ == nullptr && return this->bandwidthBaseLine_ == nullptr && return this->bucketId_ == nullptr && return this->category_ == nullptr
+        && return this->clientDownloadPath_ == nullptr && return this->createTime_ == nullptr && return this->DBType_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr
+        && return this->fileSystemId_ == nullptr && return this->lockMode_ == nullptr && return this->metaUrl_ == nullptr && return this->minorVersion_ == nullptr && return this->mountInfo_ == nullptr
+        && return this->payType_ == nullptr && return this->polarFsInstanceDescription_ == nullptr && return this->polarFsInstanceId_ == nullptr && return this->polarFsStatus_ == nullptr && return this->polarFsType_ == nullptr
+        && return this->polarFsVersion_ == nullptr && return this->regionId_ == nullptr && return this->relativeDbClusterId_ == nullptr && return this->relativePfsClusterId_ == nullptr && return this->requestId_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr && return this->VPCId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // acceleratedStorageSpace Field Functions 
     bool hasAcceleratedStorageSpace() const { return this->acceleratedStorageSpace_ != nullptr;};
     void deleteAcceleratedStorageSpace() { this->acceleratedStorageSpace_ = nullptr;};
@@ -121,6 +128,13 @@ namespace Models
     void deleteBandwidthBaseLine() { this->bandwidthBaseLine_ = nullptr;};
     inline double bandwidthBaseLine() const { DARABONBA_PTR_GET_DEFAULT(bandwidthBaseLine_, 0.0) };
     inline DescribePolarFsAttributeResponseBody& setBandwidthBaseLine(double bandwidthBaseLine) { DARABONBA_PTR_SET_VALUE(bandwidthBaseLine_, bandwidthBaseLine) };
+
+
+    // bucketId Field Functions 
+    bool hasBucketId() const { return this->bucketId_ != nullptr;};
+    void deleteBucketId() { this->bucketId_ = nullptr;};
+    inline string bucketId() const { DARABONBA_PTR_GET_DEFAULT(bucketId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setBucketId(string bucketId) { DARABONBA_PTR_SET_VALUE(bucketId_, bucketId) };
 
 
     // category Field Functions 
@@ -163,6 +177,13 @@ namespace Models
     void deleteExpired() { this->expired_ = nullptr;};
     inline string expired() const { DARABONBA_PTR_GET_DEFAULT(expired_, "") };
     inline DescribePolarFsAttributeResponseBody& setExpired(string expired) { DARABONBA_PTR_SET_VALUE(expired_, expired) };
+
+
+    // fileSystemId Field Functions 
+    bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
+    void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
+    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // lockMode Field Functions 
@@ -251,6 +272,13 @@ namespace Models
     inline DescribePolarFsAttributeResponseBody& setRelativeDbClusterId(string relativeDbClusterId) { DARABONBA_PTR_SET_VALUE(relativeDbClusterId_, relativeDbClusterId) };
 
 
+    // relativePfsClusterId Field Functions 
+    bool hasRelativePfsClusterId() const { return this->relativePfsClusterId_ != nullptr;};
+    void deleteRelativePfsClusterId() { this->relativePfsClusterId_ = nullptr;};
+    inline string relativePfsClusterId() const { DARABONBA_PTR_GET_DEFAULT(relativePfsClusterId_, "") };
+    inline DescribePolarFsAttributeResponseBody& setRelativePfsClusterId(string relativePfsClusterId) { DARABONBA_PTR_SET_VALUE(relativePfsClusterId_, relativePfsClusterId) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -312,12 +340,14 @@ namespace Models
     std::shared_ptr<string> acceleratingEnable_ = nullptr;
     std::shared_ptr<double> bandwidth_ = nullptr;
     std::shared_ptr<double> bandwidthBaseLine_ = nullptr;
+    std::shared_ptr<string> bucketId_ = nullptr;
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<string> clientDownloadPath_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> DBType_ = nullptr;
     std::shared_ptr<string> expireTime_ = nullptr;
     std::shared_ptr<string> expired_ = nullptr;
+    std::shared_ptr<string> fileSystemId_ = nullptr;
     std::shared_ptr<string> lockMode_ = nullptr;
     std::shared_ptr<string> metaUrl_ = nullptr;
     std::shared_ptr<string> minorVersion_ = nullptr;
@@ -330,6 +360,7 @@ namespace Models
     std::shared_ptr<string> polarFsVersion_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> relativeDbClusterId_ = nullptr;
+    std::shared_ptr<string> relativePfsClusterId_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<string> securityGroupId_ = nullptr;

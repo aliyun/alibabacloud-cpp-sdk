@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
       DARABONBA_PTR_TO_JSON(InternalIp, internalIp_);
+      DARABONBA_PTR_TO_JSON(KVCacheInstanceId, KVCacheInstanceId_);
       DARABONBA_PTR_TO_JSON(KubeClusterId, kubeClusterId_);
       DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
       DARABONBA_PTR_TO_JSON(MaxQPM, maxQPM_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
       DARABONBA_PTR_FROM_JSON(InternalIp, internalIp_);
+      DARABONBA_PTR_FROM_JSON(KVCacheInstanceId, KVCacheInstanceId_);
       DARABONBA_PTR_FROM_JSON(KubeClusterId, kubeClusterId_);
       DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
       DARABONBA_PTR_FROM_JSON(MaxQPM, maxQPM_);
@@ -86,9 +88,10 @@ namespace Models
     virtual bool empty() const override { return this->aiNodeType_ == nullptr
         && return this->creationTime_ == nullptr && return this->DBClusterDescription_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBClusterStatus_ == nullptr && return this->DBNodes_ == nullptr
         && return this->DBVersion_ == nullptr && return this->endpointList_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->internalIp_ == nullptr
-        && return this->kubeClusterId_ == nullptr && return this->lockMode_ == nullptr && return this->maxQPM_ == nullptr && return this->modelName_ == nullptr && return this->payType_ == nullptr
-        && return this->publicIp_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->runType_ == nullptr && return this->storageType_ == nullptr
-        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->volumes_ == nullptr && return this->zoneId_ == nullptr && return this->zoneIds_ == nullptr; };
+        && return this->KVCacheInstanceId_ == nullptr && return this->kubeClusterId_ == nullptr && return this->lockMode_ == nullptr && return this->maxQPM_ == nullptr && return this->modelName_ == nullptr
+        && return this->payType_ == nullptr && return this->publicIp_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->runType_ == nullptr
+        && return this->storageType_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->volumes_ == nullptr && return this->zoneId_ == nullptr
+        && return this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -168,6 +171,13 @@ namespace Models
     void deleteInternalIp() { this->internalIp_ = nullptr;};
     inline string internalIp() const { DARABONBA_PTR_GET_DEFAULT(internalIp_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setInternalIp(string internalIp) { DARABONBA_PTR_SET_VALUE(internalIp_, internalIp) };
+
+
+    // KVCacheInstanceId Field Functions 
+    bool hasKVCacheInstanceId() const { return this->KVCacheInstanceId_ != nullptr;};
+    void deleteKVCacheInstanceId() { this->KVCacheInstanceId_ = nullptr;};
+    inline string KVCacheInstanceId() const { DARABONBA_PTR_GET_DEFAULT(KVCacheInstanceId_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setKVCacheInstanceId(string KVCacheInstanceId) { DARABONBA_PTR_SET_VALUE(KVCacheInstanceId_, KVCacheInstanceId) };
 
 
     // kubeClusterId Field Functions 
@@ -289,6 +299,7 @@ namespace Models
     std::shared_ptr<string> expireTime_ = nullptr;
     std::shared_ptr<bool> expired_ = nullptr;
     std::shared_ptr<string> internalIp_ = nullptr;
+    std::shared_ptr<string> KVCacheInstanceId_ = nullptr;
     std::shared_ptr<string> kubeClusterId_ = nullptr;
     std::shared_ptr<string> lockMode_ = nullptr;
     std::shared_ptr<string> maxQPM_ = nullptr;
