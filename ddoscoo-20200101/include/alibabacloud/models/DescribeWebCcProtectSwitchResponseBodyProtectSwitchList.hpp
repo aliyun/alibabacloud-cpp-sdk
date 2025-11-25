@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aiMode_ != nullptr
-        && this->aiRuleEnable_ != nullptr && this->aiTemplate_ != nullptr && this->blackWhiteListEnable_ != nullptr && this->ccCustomRuleEnable_ != nullptr && this->ccEnable_ != nullptr
-        && this->ccGlobalSwitch_ != nullptr && this->ccTemplate_ != nullptr && this->domain_ != nullptr && this->preciseRuleEnable_ != nullptr && this->regionBlockEnable_ != nullptr; };
+    virtual bool empty() const override { return this->aiMode_ == nullptr
+        && return this->aiRuleEnable_ == nullptr && return this->aiTemplate_ == nullptr && return this->blackWhiteListEnable_ == nullptr && return this->ccCustomRuleEnable_ == nullptr && return this->ccEnable_ == nullptr
+        && return this->ccGlobalSwitch_ == nullptr && return this->ccTemplate_ == nullptr && return this->domain_ == nullptr && return this->preciseRuleEnable_ == nullptr && return this->regionBlockEnable_ == nullptr; };
     // aiMode Field Functions 
     bool hasAiMode() const { return this->aiMode_ != nullptr;};
     void deleteAiMode() { this->aiMode_ = nullptr;};

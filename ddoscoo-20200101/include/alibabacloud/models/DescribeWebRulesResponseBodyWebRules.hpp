@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blackList_ != nullptr
-        && this->ccEnabled_ != nullptr && this->ccRuleEnabled_ != nullptr && this->ccTemplate_ != nullptr && this->certExpireTime_ != nullptr && this->certName_ != nullptr
-        && this->certRegion_ != nullptr && this->cname_ != nullptr && this->customCiphers_ != nullptr && this->domain_ != nullptr && this->gmCert_ != nullptr
-        && this->http2Enable_ != nullptr && this->http2HttpsEnable_ != nullptr && this->https2HttpEnable_ != nullptr && this->ocspEnabled_ != nullptr && this->policyMode_ != nullptr
-        && this->proxyEnabled_ != nullptr && this->proxyTypes_ != nullptr && this->punishReason_ != nullptr && this->punishStatus_ != nullptr && this->realServers_ != nullptr
-        && this->ssl13Enabled_ != nullptr && this->sslCiphers_ != nullptr && this->sslProtocols_ != nullptr && this->tls13CustomCiphers_ != nullptr && this->userCertName_ != nullptr
-        && this->whiteList_ != nullptr; };
+    virtual bool empty() const override { return this->blackList_ == nullptr
+        && return this->ccEnabled_ == nullptr && return this->ccRuleEnabled_ == nullptr && return this->ccTemplate_ == nullptr && return this->certExpireTime_ == nullptr && return this->certName_ == nullptr
+        && return this->certRegion_ == nullptr && return this->cname_ == nullptr && return this->customCiphers_ == nullptr && return this->domain_ == nullptr && return this->gmCert_ == nullptr
+        && return this->http2Enable_ == nullptr && return this->http2HttpsEnable_ == nullptr && return this->https2HttpEnable_ == nullptr && return this->ocspEnabled_ == nullptr && return this->policyMode_ == nullptr
+        && return this->proxyEnabled_ == nullptr && return this->proxyTypes_ == nullptr && return this->punishReason_ == nullptr && return this->punishStatus_ == nullptr && return this->realServers_ == nullptr
+        && return this->ssl13Enabled_ == nullptr && return this->sslCiphers_ == nullptr && return this->sslProtocols_ == nullptr && return this->tls13CustomCiphers_ == nullptr && return this->userCertName_ == nullptr
+        && return this->whiteList_ == nullptr; };
     // blackList Field Functions 
     bool hasBlackList() const { return this->blackList_ != nullptr;};
     void deleteBlackList() { this->blackList_ = nullptr;};

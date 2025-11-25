@@ -934,6 +934,19 @@ namespace Ddoscoo20200101
       Models::DescribeBlockStatusResponse describeBlockStatus(const Models::DescribeBlockStatusRequest &request);
 
       /**
+       * @param request DescribeCdnLinkageRulesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCdnLinkageRulesResponse
+       */
+      Models::DescribeCdnLinkageRulesResponse describeCdnLinkageRulesWithOptions(const Models::DescribeCdnLinkageRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeCdnLinkageRulesRequest
+       * @return DescribeCdnLinkageRulesResponse
+       */
+      Models::DescribeCdnLinkageRulesResponse describeCdnLinkageRules(const Models::DescribeCdnLinkageRulesRequest &request);
+
+      /**
        * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
        *
        * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.

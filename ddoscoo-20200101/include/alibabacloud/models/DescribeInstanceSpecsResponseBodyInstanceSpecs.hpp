@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthMbps_ != nullptr
-        && this->baseBandwidth_ != nullptr && this->connLimit_ != nullptr && this->cpsLimit_ != nullptr && this->defenseCount_ != nullptr && this->domainLimit_ != nullptr
-        && this->elasticBandwidth_ != nullptr && this->elasticBw_ != nullptr && this->elasticBwModel_ != nullptr && this->elasticQps_ != nullptr && this->elasticQpsMode_ != nullptr
-        && this->functionVersion_ != nullptr && this->instanceId_ != nullptr && this->portLimit_ != nullptr && this->qpsLimit_ != nullptr && this->realLimitBw_ != nullptr
-        && this->siteLimit_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthMbps_ == nullptr
+        && return this->baseBandwidth_ == nullptr && return this->connLimit_ == nullptr && return this->cpsLimit_ == nullptr && return this->defenseCount_ == nullptr && return this->domainLimit_ == nullptr
+        && return this->elasticBandwidth_ == nullptr && return this->elasticBw_ == nullptr && return this->elasticBwModel_ == nullptr && return this->elasticQps_ == nullptr && return this->elasticQpsMode_ == nullptr
+        && return this->functionVersion_ == nullptr && return this->instanceId_ == nullptr && return this->portLimit_ == nullptr && return this->qpsLimit_ == nullptr && return this->realLimitBw_ == nullptr
+        && return this->siteLimit_ == nullptr; };
     // bandwidthMbps Field Functions 
     bool hasBandwidthMbps() const { return this->bandwidthMbps_ != nullptr;};
     void deleteBandwidthMbps() { this->bandwidthMbps_ = nullptr;};

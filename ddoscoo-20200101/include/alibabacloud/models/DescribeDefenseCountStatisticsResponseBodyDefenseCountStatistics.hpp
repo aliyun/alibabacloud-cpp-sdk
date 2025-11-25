@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defenseCountTotalUsageOfCurrentMonth_ != nullptr
-        && this->flowPackCountRemain_ != nullptr && this->maxUsableDefenseCountCurrentMonth_ != nullptr && this->secHighSpeedCountRemain_ != nullptr; };
+    virtual bool empty() const override { return this->defenseCountTotalUsageOfCurrentMonth_ == nullptr
+        && return this->flowPackCountRemain_ == nullptr && return this->maxUsableDefenseCountCurrentMonth_ == nullptr && return this->secHighSpeedCountRemain_ == nullptr; };
     // defenseCountTotalUsageOfCurrentMonth Field Functions 
     bool hasDefenseCountTotalUsageOfCurrentMonth() const { return this->defenseCountTotalUsageOfCurrentMonth_ != nullptr;};
     void deleteDefenseCountTotalUsageOfCurrentMonth() { this->defenseCountTotalUsageOfCurrentMonth_ = nullptr;};

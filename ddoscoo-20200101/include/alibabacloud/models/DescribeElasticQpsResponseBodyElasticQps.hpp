@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->index_ != nullptr
-        && this->maxNormalQps_ != nullptr && this->maxQps_ != nullptr && this->pv_ != nullptr && this->status2_ != nullptr && this->status3_ != nullptr
-        && this->status4_ != nullptr && this->status5_ != nullptr && this->ups_ != nullptr; };
+    virtual bool empty() const override { return this->index_ == nullptr
+        && return this->maxNormalQps_ == nullptr && return this->maxQps_ == nullptr && return this->pv_ == nullptr && return this->status2_ == nullptr && return this->status3_ == nullptr
+        && return this->status4_ == nullptr && return this->status5_ == nullptr && return this->ups_ == nullptr; };
     // index Field Functions 
     bool hasIndex() const { return this->index_ != nullptr;};
     void deleteIndex() { this->index_ = nullptr;};

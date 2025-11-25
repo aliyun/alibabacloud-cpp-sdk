@@ -2602,6 +2602,56 @@ DescribeBlockStatusResponse Client::describeBlockStatus(const DescribeBlockStatu
 }
 
 /**
+ * @param request DescribeCdnLinkageRulesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCdnLinkageRulesResponse
+ */
+DescribeCdnLinkageRulesResponse Client::describeCdnLinkageRulesWithOptions(const DescribeCdnLinkageRulesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.domain();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCdnLinkageRules"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCdnLinkageRulesResponse>();
+}
+
+/**
+ * @param request DescribeCdnLinkageRulesRequest
+ * @return DescribeCdnLinkageRulesResponse
+ */
+DescribeCdnLinkageRulesResponse Client::describeCdnLinkageRules(const DescribeCdnLinkageRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCdnLinkageRulesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use.
  *
  * @description This operation is used to query all applicable certificates of a domain name that you want to add to Anti-DDoS Proxy. Multiple certificates may be queried for a domain name. You can use an exact domain name to query exact-domain certificates or wildcard-domain certificates.

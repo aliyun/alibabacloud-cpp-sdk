@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->elasticQps_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->elasticQps_ == nullptr
+        && return this->requestId_ == nullptr; };
     // elasticQps Field Functions 
     bool hasElasticQps() const { return this->elasticQps_ != nullptr;};
     void deleteElasticQps() { this->elasticQps_ = nullptr;};

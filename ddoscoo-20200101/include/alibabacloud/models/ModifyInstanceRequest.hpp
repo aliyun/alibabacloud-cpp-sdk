@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addressType_ != nullptr
-        && this->bandwidth_ != nullptr && this->baseBandwidth_ != nullptr && this->domainCount_ != nullptr && this->editionSale_ != nullptr && this->functionVersion_ != nullptr
-        && this->instanceId_ != nullptr && this->modifyType_ != nullptr && this->normalBandwidth_ != nullptr && this->normalQps_ != nullptr && this->portCount_ != nullptr
-        && this->productPlan_ != nullptr && this->productType_ != nullptr && this->serviceBandwidth_ != nullptr && this->servicePartner_ != nullptr; };
+    virtual bool empty() const override { return this->addressType_ == nullptr
+        && return this->bandwidth_ == nullptr && return this->baseBandwidth_ == nullptr && return this->domainCount_ == nullptr && return this->editionSale_ == nullptr && return this->functionVersion_ == nullptr
+        && return this->instanceId_ == nullptr && return this->modifyType_ == nullptr && return this->normalBandwidth_ == nullptr && return this->normalQps_ == nullptr && return this->portCount_ == nullptr
+        && return this->productPlan_ == nullptr && return this->productType_ == nullptr && return this->serviceBandwidth_ == nullptr && return this->servicePartner_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};

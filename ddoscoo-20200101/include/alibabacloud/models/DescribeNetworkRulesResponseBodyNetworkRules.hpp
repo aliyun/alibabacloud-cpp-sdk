@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backendPort_ != nullptr
-        && this->frontendPort_ != nullptr && this->instanceId_ != nullptr && this->isAutoCreate_ != nullptr && this->payloadRuleEnable_ != nullptr && this->protocol_ != nullptr
-        && this->proxyEnable_ != nullptr && this->proxyStatus_ != nullptr && this->realServers_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->backendPort_ == nullptr
+        && return this->frontendPort_ == nullptr && return this->instanceId_ == nullptr && return this->isAutoCreate_ == nullptr && return this->payloadRuleEnable_ == nullptr && return this->protocol_ == nullptr
+        && return this->proxyEnable_ == nullptr && return this->proxyStatus_ == nullptr && return this->realServers_ == nullptr && return this->remark_ == nullptr; };
     // backendPort Field Functions 
     bool hasBackendPort() const { return this->backendPort_ != nullptr;};
     void deleteBackendPort() { this->backendPort_ = nullptr;};

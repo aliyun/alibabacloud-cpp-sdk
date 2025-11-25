@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->debtStatus_ != nullptr && this->edition_ != nullptr && this->enabled_ != nullptr && this->expireTime_ != nullptr && this->instanceId_ != nullptr
-        && this->ip_ != nullptr && this->ipMode_ != nullptr && this->ipVersion_ != nullptr && this->isFirstOpenBw_ != nullptr && this->isFirstOpenQps_ != nullptr
-        && this->remark_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->debtStatus_ == nullptr && return this->edition_ == nullptr && return this->enabled_ == nullptr && return this->expireTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->ip_ == nullptr && return this->ipMode_ == nullptr && return this->ipVersion_ == nullptr && return this->isFirstOpenBw_ == nullptr && return this->isFirstOpenQps_ == nullptr
+        && return this->remark_ == nullptr && return this->status_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

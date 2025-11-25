@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blackholeStatus_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->blackholeStatus_ == nullptr
+        && return this->requestId_ == nullptr; };
     // blackholeStatus Field Functions 
     bool hasBlackholeStatus() const { return this->blackholeStatus_ != nullptr;};
     void deleteBlackholeStatus() { this->blackholeStatus_ = nullptr;};

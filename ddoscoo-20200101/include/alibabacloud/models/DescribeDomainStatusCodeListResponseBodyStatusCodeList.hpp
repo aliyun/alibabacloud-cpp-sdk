@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->index_ != nullptr
-        && this->status200_ != nullptr && this->status2XX_ != nullptr && this->status3XX_ != nullptr && this->status403_ != nullptr && this->status404_ != nullptr
-        && this->status405_ != nullptr && this->status410_ != nullptr && this->status499_ != nullptr && this->status4XX_ != nullptr && this->status501_ != nullptr
-        && this->status502_ != nullptr && this->status503_ != nullptr && this->status504_ != nullptr && this->status5XX_ != nullptr && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->index_ == nullptr
+        && return this->status200_ == nullptr && return this->status2XX_ == nullptr && return this->status3XX_ == nullptr && return this->status403_ == nullptr && return this->status404_ == nullptr
+        && return this->status405_ == nullptr && return this->status410_ == nullptr && return this->status499_ == nullptr && return this->status4XX_ == nullptr && return this->status501_ == nullptr
+        && return this->status502_ == nullptr && return this->status503_ == nullptr && return this->status504_ == nullptr && return this->status5XX_ == nullptr && return this->time_ == nullptr; };
     // index Field Functions 
     bool hasIndex() const { return this->index_ != nullptr;};
     void deleteIndex() { this->index_ = nullptr;};

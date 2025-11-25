@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipVersion_ != nullptr
-        && this->line_ != nullptr && this->resourceGroupId_ != nullptr; };
+    virtual bool empty() const override { return this->ipVersion_ == nullptr
+        && return this->line_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};

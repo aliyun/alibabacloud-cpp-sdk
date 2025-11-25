@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODIFYHTTP2ENABLERESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYHTTP2ENABLERESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/ModifyHttp2EnableResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Ddoscoo20200101
+{
+namespace Models
+{
+  class ModifyHttp2EnableResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModifyHttp2EnableResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModifyHttp2EnableResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    ModifyHttp2EnableResponse() = default ;
+    ModifyHttp2EnableResponse(const ModifyHttp2EnableResponse &) = default ;
+    ModifyHttp2EnableResponse(ModifyHttp2EnableResponse &&) = default ;
+    ModifyHttp2EnableResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyHttp2EnableResponse() = default ;
+    ModifyHttp2EnableResponse& operator=(const ModifyHttp2EnableResponse &) = default ;
+    ModifyHttp2EnableResponse& operator=(ModifyHttp2EnableResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline ModifyHttp2EnableResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline ModifyHttp2EnableResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline ModifyHttp2EnableResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const ModifyHttp2EnableResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, ModifyHttp2EnableResponseBody) };
+    inline ModifyHttp2EnableResponseBody body() { DARABONBA_PTR_GET(body_, ModifyHttp2EnableResponseBody) };
+    inline ModifyHttp2EnableResponse& setBody(const ModifyHttp2EnableResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline ModifyHttp2EnableResponse& setBody(ModifyHttp2EnableResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<ModifyHttp2EnableResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Ddoscoo20200101
+#endif

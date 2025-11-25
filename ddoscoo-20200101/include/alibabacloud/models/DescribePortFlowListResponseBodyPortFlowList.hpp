@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attackBps_ != nullptr
-        && this->attackPps_ != nullptr && this->inBps_ != nullptr && this->inPps_ != nullptr && this->index_ != nullptr && this->outBps_ != nullptr
-        && this->outPps_ != nullptr && this->region_ != nullptr && this->slaBpsDropBps_ != nullptr && this->slaBpsDropPps_ != nullptr && this->slaConnDropBps_ != nullptr
-        && this->slaConnDropPps_ != nullptr && this->slaCpsDropBps_ != nullptr && this->slaCpsDropPps_ != nullptr && this->slaPpsDropBps_ != nullptr && this->slaPpsDropPps_ != nullptr
-        && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->attackBps_ == nullptr
+        && return this->attackPps_ == nullptr && return this->inBps_ == nullptr && return this->inPps_ == nullptr && return this->index_ == nullptr && return this->outBps_ == nullptr
+        && return this->outPps_ == nullptr && return this->region_ == nullptr && return this->slaBpsDropBps_ == nullptr && return this->slaBpsDropPps_ == nullptr && return this->slaConnDropBps_ == nullptr
+        && return this->slaConnDropPps_ == nullptr && return this->slaCpsDropBps_ == nullptr && return this->slaCpsDropPps_ == nullptr && return this->slaPpsDropBps_ == nullptr && return this->slaPpsDropPps_ == nullptr
+        && return this->time_ == nullptr; };
     // attackBps Field Functions 
     bool hasAttackBps() const { return this->attackBps_ != nullptr;};
     void deleteAttackBps() { this->attackBps_ = nullptr;};

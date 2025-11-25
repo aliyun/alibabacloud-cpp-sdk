@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cacheTtl_ != nullptr
-        && this->mode_ != nullptr && this->name_ != nullptr && this->uri_ != nullptr; };
+    virtual bool empty() const override { return this->cacheTtl_ == nullptr
+        && return this->mode_ == nullptr && return this->name_ == nullptr && return this->uri_ == nullptr; };
     // cacheTtl Field Functions 
     bool hasCacheTtl() const { return this->cacheTtl_ != nullptr;};
     void deleteCacheTtl() { this->cacheTtl_ = nullptr;};
