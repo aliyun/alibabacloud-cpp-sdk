@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ResetInstancePasswordRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
+      DARABONBA_PTR_TO_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ResetInstancePasswordRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
+      DARABONBA_PTR_FROM_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dashboardPassword_ == nullptr
-        && return this->instanceName_ == nullptr && return this->regionId_ == nullptr; };
+        && return this->databasePassword_ == nullptr && return this->instanceName_ == nullptr && return this->regionId_ == nullptr; };
     // dashboardPassword Field Functions 
     bool hasDashboardPassword() const { return this->dashboardPassword_ != nullptr;};
     void deleteDashboardPassword() { this->dashboardPassword_ = nullptr;};
     inline string dashboardPassword() const { DARABONBA_PTR_GET_DEFAULT(dashboardPassword_, "") };
     inline ResetInstancePasswordRequest& setDashboardPassword(string dashboardPassword) { DARABONBA_PTR_SET_VALUE(dashboardPassword_, dashboardPassword) };
+
+
+    // databasePassword Field Functions 
+    bool hasDatabasePassword() const { return this->databasePassword_ != nullptr;};
+    void deleteDatabasePassword() { this->databasePassword_ = nullptr;};
+    inline string databasePassword() const { DARABONBA_PTR_GET_DEFAULT(databasePassword_, "") };
+    inline ResetInstancePasswordRequest& setDatabasePassword(string databasePassword) { DARABONBA_PTR_SET_VALUE(databasePassword_, databasePassword) };
 
 
     // instanceName Field Functions 
@@ -57,8 +66,8 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
     std::shared_ptr<string> dashboardPassword_ = nullptr;
+    std::shared_ptr<string> databasePassword_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;

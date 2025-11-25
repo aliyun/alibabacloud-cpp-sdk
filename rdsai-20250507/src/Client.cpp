@@ -87,6 +87,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
     query["InstanceClass"] = request.instanceClass();
   }
 
+  if (!!request.hasPublicEndpointEnabled()) {
+    query["PublicEndpointEnabled"] = request.publicEndpointEnabled();
+  }
+
   if (!!request.hasPublicNetworkAccessEnabled()) {
     query["PublicNetworkAccessEnabled"] = request.publicNetworkAccessEnabled();
   }
@@ -935,6 +939,10 @@ ResetInstancePasswordResponse Client::resetInstancePasswordWithOptions(const Res
   json query = {};
   if (!!request.hasDashboardPassword()) {
     query["DashboardPassword"] = request.dashboardPassword();
+  }
+
+  if (!!request.hasDatabasePassword()) {
+    query["DatabasePassword"] = request.databasePassword();
   }
 
   if (!!request.hasInstanceName()) {

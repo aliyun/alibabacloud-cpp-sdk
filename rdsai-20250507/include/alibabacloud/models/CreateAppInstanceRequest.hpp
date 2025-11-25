@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DashboardUsername, dashboardUsername_);
       DARABONBA_PTR_TO_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_TO_JSON(PublicEndpointEnabled, publicEndpointEnabled_);
       DARABONBA_PTR_TO_JSON(PublicNetworkAccessEnabled, publicNetworkAccessEnabled_);
       DARABONBA_PTR_TO_JSON(RAGEnabled, RAGEnabled_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DashboardUsername, dashboardUsername_);
       DARABONBA_PTR_FROM_JSON(DatabasePassword, databasePassword_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
+      DARABONBA_PTR_FROM_JSON(PublicEndpointEnabled, publicEndpointEnabled_);
       DARABONBA_PTR_FROM_JSON(PublicNetworkAccessEnabled, publicNetworkAccessEnabled_);
       DARABONBA_PTR_FROM_JSON(RAGEnabled, RAGEnabled_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -56,8 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && return this->appType_ == nullptr && return this->clientToken_ == nullptr && return this->DBInstanceConfig_ == nullptr && return this->DBInstanceName_ == nullptr && return this->dashboardPassword_ == nullptr
-        && return this->dashboardUsername_ == nullptr && return this->databasePassword_ == nullptr && return this->instanceClass_ == nullptr && return this->publicNetworkAccessEnabled_ == nullptr && return this->RAGEnabled_ == nullptr
-        && return this->regionId_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && return this->dashboardUsername_ == nullptr && return this->databasePassword_ == nullptr && return this->instanceClass_ == nullptr && return this->publicEndpointEnabled_ == nullptr && return this->publicNetworkAccessEnabled_ == nullptr
+        && return this->RAGEnabled_ == nullptr && return this->regionId_ == nullptr && return this->vSwitchId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     inline CreateAppInstanceRequest& setInstanceClass(string instanceClass) { DARABONBA_PTR_SET_VALUE(instanceClass_, instanceClass) };
 
 
+    // publicEndpointEnabled Field Functions 
+    bool hasPublicEndpointEnabled() const { return this->publicEndpointEnabled_ != nullptr;};
+    void deletePublicEndpointEnabled() { this->publicEndpointEnabled_ = nullptr;};
+    inline bool publicEndpointEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicEndpointEnabled_, false) };
+    inline CreateAppInstanceRequest& setPublicEndpointEnabled(bool publicEndpointEnabled) { DARABONBA_PTR_SET_VALUE(publicEndpointEnabled_, publicEndpointEnabled) };
+
+
     // publicNetworkAccessEnabled Field Functions 
     bool hasPublicNetworkAccessEnabled() const { return this->publicNetworkAccessEnabled_ != nullptr;};
     void deletePublicNetworkAccessEnabled() { this->publicNetworkAccessEnabled_ = nullptr;};
@@ -161,6 +170,7 @@ namespace Models
     std::shared_ptr<string> dashboardUsername_ = nullptr;
     std::shared_ptr<string> databasePassword_ = nullptr;
     std::shared_ptr<string> instanceClass_ = nullptr;
+    std::shared_ptr<bool> publicEndpointEnabled_ = nullptr;
     std::shared_ptr<bool> publicNetworkAccessEnabled_ = nullptr;
     std::shared_ptr<bool> RAGEnabled_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
