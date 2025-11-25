@@ -819,12 +819,20 @@ ModifyNodeNumberResponse Client::modifyNodeNumberWithOptions(const ModifyNodeNum
     query["NodeGroupId"] = request.nodeGroupId();
   }
 
+  if (!!request.hasParallelism()) {
+    query["Parallelism"] = request.parallelism();
+  }
+
   if (!!request.hasPromotionOptionNo()) {
     query["PromotionOptionNo"] = request.promotionOptionNo();
   }
 
   if (!!request.hasTarget()) {
     query["Target"] = request.target();
+  }
+
+  if (!!request.hasTerminationGracePeriodSeconds()) {
+    query["TerminationGracePeriodSeconds"] = request.terminationGracePeriodSeconds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
