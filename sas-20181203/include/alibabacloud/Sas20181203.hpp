@@ -9667,7 +9667,7 @@ namespace Sas20181203
       Models::GetInstanceAlarmStatisticsResponse getInstanceAlarmStatistics(const Models::GetInstanceAlarmStatisticsRequest &request);
 
       /**
-       * @summary 获取实例授权取值范围
+       * @summary Get Instance Authorization Value Range
        *
        * @param request GetInstanceAuthRangeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9676,7 +9676,7 @@ namespace Sas20181203
       Models::GetInstanceAuthRangeResponse getInstanceAuthRangeWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例授权取值范围
+       * @summary Get Instance Authorization Value Range
        *
        * @return GetInstanceAuthRangeResponse
        */
@@ -11986,7 +11986,9 @@ namespace Sas20181203
       Models::ListMaliciousFileWhitelistConfigsResponse listMaliciousFileWhitelistConfigs(const Models::ListMaliciousFileWhitelistConfigsRequest &request);
 
       /**
-       * @summary 查询多账号授权分配列表
+       * @summary Query Multi-Account Authorization Allocation List
+       *
+       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11995,7 +11997,9 @@ namespace Sas20181203
       Models::ListMultiUserInstancesResponse listMultiUserInstancesWithOptions(const Models::ListMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多账号授权分配列表
+       * @summary Query Multi-Account Authorization Allocation List
+       *
+       * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
        *
        * @param request ListMultiUserInstancesRequest
        * @return ListMultiUserInstancesResponse
@@ -15703,7 +15707,7 @@ namespace Sas20181203
       Models::UpdateMaliciousFileWhitelistConfigResponse updateMaliciousFileWhitelistConfig(const Models::UpdateMaliciousFileWhitelistConfigRequest &request);
 
       /**
-       * @summary 修改多账号实例配置
+       * @summary Modify Multi-Account Instance Configuration
        *
        * @param request UpdateMultiUserInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15712,7 +15716,7 @@ namespace Sas20181203
       Models::UpdateMultiUserInstancesResponse updateMultiUserInstancesWithOptions(const Models::UpdateMultiUserInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改多账号实例配置
+       * @summary Modify Multi-Account Instance Configuration
        *
        * @param request UpdateMultiUserInstancesRequest
        * @return UpdateMultiUserInstancesResponse

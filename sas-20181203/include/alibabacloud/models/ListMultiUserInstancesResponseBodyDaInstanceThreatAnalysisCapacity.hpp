@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned threat analysis capacity. Unit: GB.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased threat analysis capacity. Unit: GB.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used threat analysis capacity. Unit: GB.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

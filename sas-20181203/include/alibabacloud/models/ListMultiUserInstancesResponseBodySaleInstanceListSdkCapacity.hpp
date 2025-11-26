@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of malicious file detection SDK authorizations allocated.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Number of malicious file detection SDK authorizations used.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

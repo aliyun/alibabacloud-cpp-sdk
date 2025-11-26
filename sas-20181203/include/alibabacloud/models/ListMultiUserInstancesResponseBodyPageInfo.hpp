@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The current page number in a paginated query.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // The number of items to return in each batch query.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The NextToken value returned when using the NextToken method.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The maximum number of items to return per page in a paginated query.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Total number of items.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

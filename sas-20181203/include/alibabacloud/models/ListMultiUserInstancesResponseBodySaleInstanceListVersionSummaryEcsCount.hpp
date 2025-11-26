@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // 已分配已购授权台数。
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Number of ECS authorizations allocated.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Number of ECS authorizations used.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

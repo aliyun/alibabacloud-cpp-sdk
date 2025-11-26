@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of honeypot authorizations allocated.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Number of honeypot authorizations used.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

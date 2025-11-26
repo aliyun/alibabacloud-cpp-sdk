@@ -1890,6 +1890,10 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
     query["RemovedCheck"] = request.removedCheck();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
   if (!!request.hasStandardIds()) {
     query["StandardIds"] = request.standardIds();
   }
@@ -29792,7 +29796,7 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatistics(const GetI
 }
 
 /**
- * @summary 获取实例授权取值范围
+ * @summary Get Instance Authorization Value Range
  *
  * @param request GetInstanceAuthRangeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -29815,7 +29819,7 @@ GetInstanceAuthRangeResponse Client::getInstanceAuthRangeWithOptions(const Darab
 }
 
 /**
- * @summary 获取实例授权取值范围
+ * @summary Get Instance Authorization Value Range
  *
  * @return GetInstanceAuthRangeResponse
  */
@@ -36818,7 +36822,9 @@ ListMaliciousFileWhitelistConfigsResponse Client::listMaliciousFileWhitelistConf
 }
 
 /**
- * @summary 查询多账号授权分配列表
+ * @summary Query Multi-Account Authorization Allocation List
+ *
+ * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36853,7 +36859,9 @@ ListMultiUserInstancesResponse Client::listMultiUserInstancesWithOptions(const L
 }
 
 /**
- * @summary 查询多账号授权分配列表
+ * @summary Query Multi-Account Authorization Allocation List
+ *
+ * @description You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address of the asset. You can also search for assets that meet multiple search conditions by setting the logical relationship between different search conditions.
  *
  * @param request ListMultiUserInstancesRequest
  * @return ListMultiUserInstancesResponse
@@ -48364,7 +48372,7 @@ UpdateMaliciousFileWhitelistConfigResponse Client::updateMaliciousFileWhitelistC
 }
 
 /**
- * @summary 修改多账号实例配置
+ * @summary Modify Multi-Account Instance Configuration
  *
  * @param request UpdateMultiUserInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48395,7 +48403,7 @@ UpdateMultiUserInstancesResponse Client::updateMultiUserInstancesWithOptions(con
 }
 
 /**
- * @summary 修改多账号实例配置
+ * @summary Modify Multi-Account Instance Configuration
  *
  * @param request UpdateMultiUserInstancesRequest
  * @return UpdateMultiUserInstancesResponse

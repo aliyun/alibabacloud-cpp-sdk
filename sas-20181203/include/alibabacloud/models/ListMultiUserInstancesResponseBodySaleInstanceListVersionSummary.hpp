@@ -72,9 +72,23 @@ namespace Models
 
 
   protected:
+    // Authorization type consumed during binding, with values:
+    // - **ASSET**：Consumes the number of authorized instances
+    // - **CORE**：Consumes the number of authorized cores
+    // - **ASSET_AND_CORE**：Consumes both the number of authorized instances and cores.
     std::shared_ptr<string> authBindType_ = nullptr;
+    // Usage of core authorization for the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryCoreCount> coreCount_ = nullptr;
+    // Usage details of ECS authorizations for the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListVersionSummaryEcsCount> ecsCount_ = nullptr;
+    // Version of the Cloud Security Center for the member account. Values:  
+    // - **1**: Free Edition 
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Anti-Virus Edition    
+    // - **7**: Flagship Edition   
+    // - **8**: Multiple Versions   
+    // - **10**: Value-Added Services Only
     std::shared_ptr<int32_t> version_ = nullptr;
   };
 

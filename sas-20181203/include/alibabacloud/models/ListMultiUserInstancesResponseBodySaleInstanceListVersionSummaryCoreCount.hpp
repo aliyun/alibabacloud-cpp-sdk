@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned number of cores.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Allocated number of cores.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Number of cores used.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

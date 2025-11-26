@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // User UID.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // Error message returned when the call fails.
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // The Cloud Security Center instance ID purchased by the member account.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Update status. Values:  
+    // - **1**：Success 
+    // - **2**：Failure
     std::shared_ptr<string> updateStatus_ = nullptr;
   };
 

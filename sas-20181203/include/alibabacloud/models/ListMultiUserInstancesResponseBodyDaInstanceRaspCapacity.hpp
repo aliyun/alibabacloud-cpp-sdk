@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Allocated RASP capacity. Unit: per month.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased RASP capacity. Unit: per month.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used RASP capacity. Unit: per month.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

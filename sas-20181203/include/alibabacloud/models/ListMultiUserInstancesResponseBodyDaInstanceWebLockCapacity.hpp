@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned web lock (anti-tampering) authorization count.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased web lock (anti-tampering) authorization count.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used web lock (anti-tampering) authorization count.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

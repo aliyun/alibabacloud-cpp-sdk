@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Allocated anti-ransomware capacity, in GB.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used anti-ransomware capacity, in GB.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

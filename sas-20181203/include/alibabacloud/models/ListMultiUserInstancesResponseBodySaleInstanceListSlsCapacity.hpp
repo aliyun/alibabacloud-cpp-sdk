@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Allocated log storage capacity, in GB.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used log storage capacity, in GB.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

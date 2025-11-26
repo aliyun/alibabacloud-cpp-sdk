@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Allocated CSPM scan count. Unit: per month.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used CSPM scan count. Unit: per month.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

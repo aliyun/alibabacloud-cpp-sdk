@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned number of core licenses.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased number of core licenses.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used number of core licenses.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

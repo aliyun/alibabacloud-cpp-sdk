@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of web tamper-proof authorizations allocated.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Number of web tamper-proof authorizations used.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

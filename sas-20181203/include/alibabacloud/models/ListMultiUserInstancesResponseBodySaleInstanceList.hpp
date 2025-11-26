@@ -220,22 +220,52 @@ namespace Models
 
 
   protected:
+    // UID of the member account.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // Anti-ransomware capacity usage of the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListAntiRansomwareCapacity> antiRansomwareCapacity_ = nullptr;
+    // Member account CSPM (Cloud Security Posture Management) scan usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListCspmCapacity> cspmCapacity_ = nullptr;
+    // Usage details of honeypot authorizations for the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListHoneypotCapacity> honeypotCapacity_ = nullptr;
+    // Member account image scanning authorization usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListImageScanCapacity> imageScanCapacity_ = nullptr;
+    // Cloud Security Center instance ID purchased by the member account.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Instance purchase type. Values: 
+    // - **0**: Self-purchased.
+    // - **1**: Allocated.
     std::shared_ptr<int32_t> instancePurchaseType_ = nullptr;
+    // Member account RASP (Runtime Application Self-Protection) usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListRaspCapacity> raspCapacity_ = nullptr;
+    // Usage details of malicious file detection SDK authorizations for the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListSdkCapacity> sdkCapacity_ = nullptr;
+    // Log storage capacity usage of the member account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListSlsCapacity> slsCapacity_ = nullptr;
+    // Status of the member account instance. Values: 
+    // - **1**: Active.
+    // - **2**: Inactive.
     std::shared_ptr<int32_t> status_ = nullptr;
+    // Member account threat analysis capacity usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisCapacity> threatAnalysisCapacity_ = nullptr;
+    // Member account threat analysis and response log ingestion traffic usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListThreatAnalysisFlow> threatAnalysisFlow_ = nullptr;
+    // User type. Values:
+    // * **Administrator User**：1
+    // * **Regular User**：2
     std::shared_ptr<int32_t> userType_ = nullptr;
+    // Version of the Cloud Security Center for the member account. Values:  
+    // - **1**: Free Edition 
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Anti-Virus Edition    
+    // - **7**: Flagship Edition   
+    // - **8**: Multiple Versions   
+    // - **10**: Only Purchased Value-Added Services
     std::shared_ptr<int32_t> version_ = nullptr;
+    // Authorization usage statistics for the member account.
     std::shared_ptr<vector<Models::ListMultiUserInstancesResponseBodySaleInstanceListVersionSummary>> versionSummary_ = nullptr;
+    // Member account web lock (anti-tampering) authorization usage.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodySaleInstanceListWebLockCapacity> webLockCapacity_ = nullptr;
   };
 

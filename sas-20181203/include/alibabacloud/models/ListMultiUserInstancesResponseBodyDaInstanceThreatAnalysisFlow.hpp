@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned threat analysis and response log inbound traffic. Unit: GB/day.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased threat analysis and response log inbound traffic. Unit: GB/day.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used threat analysis and response log inbound traffic. Unit: GB/day.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

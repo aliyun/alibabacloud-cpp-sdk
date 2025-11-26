@@ -57,8 +57,18 @@ namespace Models
 
 
   protected:
+    // Number of cores authorized for the member.
     std::shared_ptr<int64_t> coreCount_ = nullptr;
+    // Number of authorizations allocated to the member.
     std::shared_ptr<int64_t> ecsCount_ = nullptr;
+    // Version of the Cloud Security Center for the member account. Values:  
+    // - **1**: Free Edition 
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Antivirus Edition    
+    // - **7**: Flagship Edition   
+    // - **8**: Multiple Versions   
+    // - **10**: Only Purchase Value-Added Services
     std::shared_ptr<int32_t> version_ = nullptr;
   };
 

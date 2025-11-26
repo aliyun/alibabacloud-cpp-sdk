@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Allocated threat analysis and response log ingestion traffic. Unit: GB/day.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used threat analysis and response log ingestion traffic. Unit: GB/day.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

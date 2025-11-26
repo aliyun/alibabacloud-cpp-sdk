@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Allocated image scanning authorizations.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used image scanning authorizations.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

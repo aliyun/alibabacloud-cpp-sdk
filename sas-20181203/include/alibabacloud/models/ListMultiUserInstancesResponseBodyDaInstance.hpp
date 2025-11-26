@@ -220,22 +220,52 @@ namespace Models
 
 
   protected:
+    // AliUid of the administrator account.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // Usage and allocation of administrator account anti-ransomware capacity.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceAntiRansomwareCapacity> antiRansomwareCapacity_ = nullptr;
+    // Usage and allocation of administrator account CSPM (Cloud Security Posture Management) scan count.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceCspmCapacity> cspmCapacity_ = nullptr;
+    // Usage and allocation of honeypot authorization count for the administrator account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceHoneypotCapacity> honeypotCapacity_ = nullptr;
+    // Usage and allocation of image scan authorization count for the administrator account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceImageScanCapacity> imageScanCapacity_ = nullptr;
+    // Cloud Security Center instance ID purchased by the administrator account.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Instance purchase type. Values:
+    // - **0**：Self-purchased.
+    // - **1**：Allocated.
     std::shared_ptr<int32_t> instancePurchaseType_ = nullptr;
+    // Usage and allocation of administrator account RASP (Runtime Application Self-Protection) capacity.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceRaspCapacity> raspCapacity_ = nullptr;
+    // Usage and allocation details of the malicious file detection SDK licenses for the administrator account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceSdkCapacity> sdkCapacity_ = nullptr;
+    // Usage and allocation of administrator account log storage capacity.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceSlsCapacity> slsCapacity_ = nullptr;
+    // Administrator account instance status. Values: 
+    // - **1**: Active.
+    // - **2**: Inactive.
     std::shared_ptr<int32_t> status_ = nullptr;
+    // Usage and allocation of administrator account threat analysis capacity.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisCapacity> threatAnalysisCapacity_ = nullptr;
+    // Usage and allocation of threat analysis and response log inbound traffic for the administrator account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceThreatAnalysisFlow> threatAnalysisFlow_ = nullptr;
+    // User type. Values: 
+    // * **Administrator User**: 1
+    // * **Regular User**: 2
     std::shared_ptr<int32_t> userType_ = nullptr;
+    // Purchased version of Cloud Security Center. Values:  
+    // - **1**：Free Edition 
+    // - **3**：Enterprise Edition
+    // - **5**：Advanced Edition
+    // - **6**：Anti-Virus Edition    
+    // - **7**：Flagship Edition   
+    // - **8**：Multiple Editions   
+    // - **10**：Value-Added Services Only
     std::shared_ptr<int32_t> version_ = nullptr;
+    // Authorization usage statistics for the administrator account.
     std::shared_ptr<vector<Models::ListMultiUserInstancesResponseBodyDaInstanceVersionSummary>> versionSummary_ = nullptr;
+    // Usage and allocation of web lock (anti-tampering) authorization count for the administrator account.
     std::shared_ptr<Models::ListMultiUserInstancesResponseBodyDaInstanceWebLockCapacity> webLockCapacity_ = nullptr;
   };
 

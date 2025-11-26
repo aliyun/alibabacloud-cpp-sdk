@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // Member instances.
     std::shared_ptr<vector<UpdateMultiUserInstancesRequestMemberInstances>> memberInstances_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Number of items per page in a paginated query. The maximum value is 100. Range: 10 - 100, default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Used for paginated queries. Leave it empty for the first request, and fill in the NextToken value returned from the previous response for subsequent requests.
     std::shared_ptr<string> nextToken_ = nullptr;
   };
 

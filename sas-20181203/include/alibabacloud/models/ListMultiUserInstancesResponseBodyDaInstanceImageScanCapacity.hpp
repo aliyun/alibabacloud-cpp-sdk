@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Assigned image scan authorization count.
     std::shared_ptr<int64_t> assigned_ = nullptr;
+    // Purchased image scan authorization count.
     std::shared_ptr<int64_t> count_ = nullptr;
+    // Used purchased image scan authorization count.
     std::shared_ptr<int64_t> used_ = nullptr;
   };
 

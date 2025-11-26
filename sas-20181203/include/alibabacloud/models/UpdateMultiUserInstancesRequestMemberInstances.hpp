@@ -190,22 +190,51 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account UID of the member.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    // Anti-ransomware capacity allocated to the member, in GB.
     std::shared_ptr<int64_t> antiRansomwareCapacity_ = nullptr;
+    // Charge type, values:
+    // * **PREPAID**: Prepaid.
+    // * **POSTPAID** (default): Postpaid.
     std::shared_ptr<string> chargeType_ = nullptr;
+    // Cloud platform configuration check scan count allocated to the member. Unit: times per month.
     std::shared_ptr<int64_t> cspmCapacity_ = nullptr;
+    // Honeypot authorization count allocated to the member.
     std::shared_ptr<int64_t> honeypotCapacity_ = nullptr;
+    // Image scan authorization count allocated to the member.
     std::shared_ptr<int64_t> imageScanCapacity_ = nullptr;
+    // The Cloud Security Center instance ID purchased by the member account.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Operation type. Values:  
+    // - **ADD**: Add 
+    // - **CHANGE**: Change
+    // - **DEL**: Delete
     std::shared_ptr<string> optType_ = nullptr;
+    // Application protection count allocated to the member. Unit: per month.
     std::shared_ptr<int64_t> raspCapacity_ = nullptr;
+    // Malicious file detection SDK authorization count allocated to the member.
     std::shared_ptr<int64_t> sdkCapacity_ = nullptr;
+    // Log storage capacity allocated to the member, in GB.
     std::shared_ptr<int64_t> slsCapacity_ = nullptr;
+    // Status of the member account instance. Values: 
+    // - **1**: Valid. 
+    // - **2**: Invalid.
     std::shared_ptr<int32_t> status_ = nullptr;
+    // Threat analysis capacity allocated to the member. Unit: GB.
     std::shared_ptr<int64_t> threatAnalysisCapacity_ = nullptr;
+    // Threat analysis and response log access traffic allocated to the member. Unit: GB/day.
     std::shared_ptr<int64_t> threatAnalysisFlow_ = nullptr;
+    // The version of Cloud Security Center protection to be bound. Values:  
+    // - **1**: Free Edition 
+    // - **3**: Enterprise Edition
+    // - **5**: Advanced Edition
+    // - **6**: Antivirus Edition    
+    // - **7**: Flagship Edition
     std::shared_ptr<string> version_ = nullptr;
+    // Member account authorization usage information.
     std::shared_ptr<vector<Models::UpdateMultiUserInstancesRequestMemberInstancesVersionSummary>> versionSummary_ = nullptr;
+    // Web tamper-proof authorization count allocated to the member.
     std::shared_ptr<int64_t> webLockCapacity_ = nullptr;
   };
 

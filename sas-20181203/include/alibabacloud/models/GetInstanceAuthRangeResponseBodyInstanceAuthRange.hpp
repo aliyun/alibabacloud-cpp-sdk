@@ -176,21 +176,83 @@ namespace Models
 
 
   protected:
+    // Advanced version count. Values:
+    // 
+    // - **1-2000000000**: Range
+    // - **1**: Step
     std::shared_ptr<string> advancedCount_ = nullptr;
+    // Anti-ransomware capacity. Values:
+    // 
+    // - **1-9000000000**: Range
+    // - **10**: Step
     std::shared_ptr<string> antiRansomwareCapacity_ = nullptr;
+    // Anti-ransomware service. Values:
+    // - **0**: Not enabled
+    // - **1**: Enabled
     std::shared_ptr<int32_t> antiRansomwareService_ = nullptr;
+    // Anti-virus core count. Values:
+    // 
+    // - **1-2000000000**: Range
+    // - **1**: Step
     std::shared_ptr<string> antiVirusCore_ = nullptr;
+    // Flagship version core count. Values:
+    // 
+    // - **1-2000000000**: Range
+    // - **1**: Step
     std::shared_ptr<string> containerCore_ = nullptr;
+    // Flagship version count. Values:
+    // 
+    // - **1-2000000000**: Range
+    // - **1**: Step
     std::shared_ptr<string> containerCount_ = nullptr;
+    // Number of cloud platform configuration check scans. Value:
+    // 
+    // - **15000-9999999999**：Range
+    // - **55000**：Step
     std::shared_ptr<string> cspmCapacity_ = nullptr;
+    // Enterprise version count. Range:
+    // - **Value**: 1-2000000000
+    // - **Step**: 1
     std::shared_ptr<string> enterpriseCount_ = nullptr;
+    // Number of authorized honeypots. Value:
+    // 
+    // - **20-500**：Range
+    // - **1**：Step
     std::shared_ptr<string> honeypotCapacity_ = nullptr;
+    // Image scan authorization count. Values:
+    // 
+    // - **1-200000**: Range
+    // - **20**: Step
     std::shared_ptr<string> imageScanCapacity_ = nullptr;
+    // Application protection count. Values:
+    // 
+    // - **1-100000000**: Range
+    // - **1**: Step
     std::shared_ptr<string> raspCapacity_ = nullptr;
+    // Number of authorized malicious file detection SDKs. Value:
+    // 
+    // - **10-9999999999**：Range
+    // - **10**：Step
     std::shared_ptr<string> sdkCapacity_ = nullptr;
+    // Log storage capacity. Values:
+    // 
+    // - **1-600000000**: Range
+    // - **10**: Step
     std::shared_ptr<string> slsCapacity_ = nullptr;
+    // Threat analysis capacity. Values:
+    // 
+    // - **1-9999999999**: Range
+    // - **1000**: Step
     std::shared_ptr<string> threatAnalysisCapacity_ = nullptr;
+    // Threat analysis and response log access traffic. Values:
+    // 
+    // - **1-9999999999**: Range
+    // - **100**: Step
     std::shared_ptr<string> threatAnalysisFlow_ = nullptr;
+    // Web tamper-proof authorization count. Values:
+    // 
+    // - **1-9999**: Range
+    // - **1**: Step
     std::shared_ptr<string> webLockCapacity_ = nullptr;
   };
 

@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RemovedCheck, removedCheck_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(StandardIds, standardIds_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(SystemConfig, systemConfig_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RemovedCheck, removedCheck_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(StandardIds, standardIds_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(SystemConfig, systemConfig_);
@@ -60,8 +62,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addedCheck_ == nullptr
         && return this->configRequirementIdsShrink_ == nullptr && return this->configStandardIdsShrink_ == nullptr && return this->configure_ == nullptr && return this->cycleDays_ == nullptr && return this->enableAddCheck_ == nullptr
-        && return this->enableAutoCheck_ == nullptr && return this->endTime_ == nullptr && return this->regionId_ == nullptr && return this->removedCheck_ == nullptr && return this->standardIds_ == nullptr
-        && return this->startTime_ == nullptr && return this->systemConfig_ == nullptr && return this->vendors_ == nullptr; };
+        && return this->enableAutoCheck_ == nullptr && return this->endTime_ == nullptr && return this->regionId_ == nullptr && return this->removedCheck_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr
+        && return this->standardIds_ == nullptr && return this->startTime_ == nullptr && return this->systemConfig_ == nullptr && return this->vendors_ == nullptr; };
     // addedCheck Field Functions 
     bool hasAddedCheck() const { return this->addedCheck_ != nullptr;};
     void deleteAddedCheck() { this->addedCheck_ = nullptr;};
@@ -136,6 +138,13 @@ namespace Models
     inline vector<ChangeCheckConfigShrinkRequestRemovedCheck> removedCheck() { DARABONBA_PTR_GET(removedCheck_, vector<ChangeCheckConfigShrinkRequestRemovedCheck>) };
     inline ChangeCheckConfigShrinkRequest& setRemovedCheck(const vector<ChangeCheckConfigShrinkRequestRemovedCheck> & removedCheck) { DARABONBA_PTR_SET_VALUE(removedCheck_, removedCheck) };
     inline ChangeCheckConfigShrinkRequest& setRemovedCheck(vector<ChangeCheckConfigShrinkRequestRemovedCheck> && removedCheck) { DARABONBA_PTR_SET_RVALUE(removedCheck_, removedCheck) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ChangeCheckConfigShrinkRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // standardIds Field Functions 
@@ -213,6 +222,10 @@ namespace Models
     // 
     // >  If the ConfigStandardIds or ConfigRequirementIds parameter is configured, this parameter does not take effect.
     std::shared_ptr<vector<ChangeCheckConfigShrinkRequestRemovedCheck>> removedCheck_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // An array that consists of the information about the check item.
     std::shared_ptr<vector<int64_t>> standardIds_ = nullptr;
     // The start time of the check. The value specifies a point in time in a day.
