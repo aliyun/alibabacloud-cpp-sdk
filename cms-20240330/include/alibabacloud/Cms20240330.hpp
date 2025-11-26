@@ -61,6 +61,22 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
+       * @summary 创建云资源中心
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCloudResourceResponse
+       */
+      Models::CreateCloudResourceResponse createCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建云资源中心
+       *
+       * @return CreateCloudResourceResponse
+       */
+      Models::CreateCloudResourceResponse createCloudResource();
+
+      /**
        * @summary Create storage related to EntityStore
        *
        * @param headers map
@@ -253,6 +269,22 @@ namespace Cms20240330
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
 
       /**
+       * @summary 删除云资源中心
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCloudResourceResponse
+       */
+      Models::DeleteCloudResourceResponse deleteCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除云资源中心
+       *
+       * @return DeleteCloudResourceResponse
+       */
+      Models::DeleteCloudResourceResponse deleteCloudResource();
+
+      /**
        * @summary Delete EntityStore related storage
        *
        * @param headers map
@@ -419,6 +451,24 @@ namespace Cms20240330
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceName);
 
       /**
+       * @summary 查询地域信息列表
+       *
+       * @param request DescribeRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询地域信息列表
+       *
+       * @param request DescribeRegionsRequest
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
+
+      /**
        * @summary Check addon release (view connection status)
        *
        * @param headers map
@@ -449,6 +499,58 @@ namespace Cms20240330
        * @return GetAggTaskGroupResponse
        */
       Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId);
+
+      /**
+       * @summary 查询云资源中心
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCloudResourceResponse
+       */
+      Models::GetCloudResourceResponse getCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云资源中心
+       *
+       * @return GetCloudResourceResponse
+       */
+      Models::GetCloudResourceResponse getCloudResource();
+
+      /**
+       * @summary 查询云资源中心数据
+       *
+       * @param request GetCloudResourceDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCloudResourceDataResponse
+       */
+      Models::GetCloudResourceDataResponse getCloudResourceDataWithOptions(const Models::GetCloudResourceDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云资源中心数据
+       *
+       * @param request GetCloudResourceDataRequest
+       * @return GetCloudResourceDataResponse
+       */
+      Models::GetCloudResourceDataResponse getCloudResourceData(const Models::GetCloudResourceDataRequest &request);
+
+      /**
+       * @summary 获取云监控开通状态
+       *
+       * @param request GetCmsServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCmsServiceResponse
+       */
+      Models::GetCmsServiceResponse getCmsServiceWithOptions(const Models::GetCmsServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取云监控开通状态
+       *
+       * @param request GetCmsServiceRequest
+       * @return GetCmsServiceResponse
+       */
+      Models::GetCmsServiceResponse getCmsService(const Models::GetCmsServiceRequest &request);
 
       /**
        * @summary Get EntityStore related storage information
@@ -521,6 +623,24 @@ namespace Cms20240330
        * @return GetPrometheusInstanceResponse
        */
       Models::GetPrometheusInstanceResponse getPrometheusInstance(const string &prometheusInstanceId, const Models::GetPrometheusInstanceRequest &request);
+
+      /**
+       * @summary 查询指定环境实例
+       *
+       * @param request GetPrometheusUserSettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPrometheusUserSettingResponse
+       */
+      Models::GetPrometheusUserSettingResponse getPrometheusUserSettingWithOptions(const Models::GetPrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定环境实例
+       *
+       * @param request GetPrometheusUserSettingRequest
+       * @return GetPrometheusUserSettingResponse
+       */
+      Models::GetPrometheusUserSettingResponse getPrometheusUserSetting(const Models::GetPrometheusUserSettingRequest &request);
 
       /**
        * @summary Query a specified Prometheus view instance
@@ -793,6 +913,24 @@ namespace Cms20240330
       Models::ListIntegrationPolicyPodMonitorsResponse listIntegrationPolicyPodMonitors(const string &policyId, const Models::ListIntegrationPolicyPodMonitorsRequest &request);
 
       /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyServiceMonitorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyServiceMonitorsResponse
+       */
+      Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyServiceMonitorsRequest
+       * @return ListIntegrationPolicyServiceMonitorsResponse
+       */
+      Models::ListIntegrationPolicyServiceMonitorsResponse listIntegrationPolicyServiceMonitors(const string &policyId, const Models::ListIntegrationPolicyServiceMonitorsRequest &request);
+
+      /**
        * @summary Get Storage Requirements Information for Access Center Policy
        *
        * @description During the effective period of the policy, all alarms within the application group will no longer send notifications.
@@ -1033,7 +1171,7 @@ namespace Cms20240330
       Models::UpdateIntegrationPolicyResponse updateIntegrationPolicy(const string &integrationPolicyId, const Models::UpdateIntegrationPolicyRequest &request);
 
       /**
-       * @summary 更新订阅
+       * @summary 更新通知策略
        *
        * @param request UpdateNotifyStrategyRequest
        * @param headers map
@@ -1043,7 +1181,7 @@ namespace Cms20240330
       Models::UpdateNotifyStrategyResponse updateNotifyStrategyWithOptions(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新订阅
+       * @summary 更新通知策略
        *
        * @param request UpdateNotifyStrategyRequest
        * @return UpdateNotifyStrategyResponse
@@ -1071,6 +1209,24 @@ namespace Cms20240330
        * @return UpdatePrometheusInstanceResponse
        */
       Models::UpdatePrometheusInstanceResponse updatePrometheusInstance(const string &prometheusInstanceId, const Models::UpdatePrometheusInstanceRequest &request);
+
+      /**
+       * @summary 更新Prom实例信息
+       *
+       * @param request UpdatePrometheusUserSettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePrometheusUserSettingResponse
+       */
+      Models::UpdatePrometheusUserSettingResponse updatePrometheusUserSettingWithOptions(const string &settingKey, const Models::UpdatePrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Prom实例信息
+       *
+       * @param request UpdatePrometheusUserSettingRequest
+       * @return UpdatePrometheusUserSettingResponse
+       */
+      Models::UpdatePrometheusUserSettingResponse updatePrometheusUserSetting(const string &settingKey, const Models::UpdatePrometheusUserSettingRequest &request);
 
       /**
        * @summary Update Prometheus view instance information

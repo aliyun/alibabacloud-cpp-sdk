@@ -234,6 +234,42 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 创建云资源中心
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCloudResourceResponse
+ */
+CreateCloudResourceResponse Client::createCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCloudResource"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cloudresource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCloudResourceResponse>();
+}
+
+/**
+ * @summary 创建云资源中心
+ *
+ * @return CreateCloudResourceResponse
+ */
+CreateCloudResourceResponse Client::createCloudResource() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createCloudResourceWithOptions(headers, runtime);
+}
+
+/**
  * @summary Create storage related to EntityStore
  *
  * @param headers map
@@ -818,6 +854,42 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 删除云资源中心
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCloudResourceResponse
+ */
+DeleteCloudResourceResponse Client::deleteCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCloudResource"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cloudresource")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCloudResourceResponse>();
+}
+
+/**
+ * @summary 删除云资源中心
+ *
+ * @return DeleteCloudResourceResponse
+ */
+DeleteCloudResourceResponse Client::deleteCloudResource() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteCloudResourceWithOptions(headers, runtime);
+}
+
+/**
  * @summary Delete EntityStore related storage
  *
  * @param headers map
@@ -1193,6 +1265,51 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceName) {
 }
 
 /**
+ * @summary 查询地域信息列表
+ *
+ * @param request DescribeRegionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLanguage()) {
+    query["language"] = request.language();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRegions"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/regions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
+}
+
+/**
+ * @summary 查询地域信息列表
+ *
+ * @param request DescribeRegionsRequest
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Check addon release (view connection status)
  *
  * @param headers map
@@ -1262,6 +1379,144 @@ GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+}
+
+/**
+ * @summary 查询云资源中心
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudResourceResponse
+ */
+GetCloudResourceResponse Client::getCloudResourceWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudResource"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cloudresource")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudResourceResponse>();
+}
+
+/**
+ * @summary 查询云资源中心
+ *
+ * @return GetCloudResourceResponse
+ */
+GetCloudResourceResponse Client::getCloudResource() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 查询云资源中心数据
+ *
+ * @param request GetCloudResourceDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCloudResourceDataResponse
+ */
+GetCloudResourceDataResponse Client::getCloudResourceDataWithOptions(const GetCloudResourceDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFrom()) {
+    query["from"] = request.from();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.query();
+  }
+
+  if (!!request.hasTo()) {
+    query["to"] = request.to();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCloudResourceData"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cloudresource/data")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCloudResourceDataResponse>();
+}
+
+/**
+ * @summary 查询云资源中心数据
+ *
+ * @param request GetCloudResourceDataRequest
+ * @return GetCloudResourceDataResponse
+ */
+GetCloudResourceDataResponse Client::getCloudResourceData(const GetCloudResourceDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCloudResourceDataWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取云监控开通状态
+ *
+ * @param request GetCmsServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCmsServiceResponse
+ */
+GetCmsServiceResponse Client::getCmsServiceWithOptions(const GetCmsServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProduct()) {
+    query["product"] = request.product();
+  }
+
+  if (!!request.hasService()) {
+    query["service"] = request.service();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCmsService"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/cmsservice")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCmsServiceResponse>();
+}
+
+/**
+ * @summary 获取云监控开通状态
+ *
+ * @param request GetCmsServiceRequest
+ * @return GetCmsServiceResponse
+ */
+GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCmsServiceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1449,6 +1704,51 @@ GetPrometheusInstanceResponse Client::getPrometheusInstance(const string &promet
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getPrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询指定环境实例
+ *
+ * @param request GetPrometheusUserSettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPrometheusUserSettingResponse
+ */
+GetPrometheusUserSettingResponse Client::getPrometheusUserSettingWithOptions(const GetPrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPrometheusUserSetting"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-user-setting")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPrometheusUserSettingResponse>();
+}
+
+/**
+ * @summary 查询指定环境实例
+ *
+ * @param request GetPrometheusUserSettingRequest
+ * @return GetPrometheusUserSettingResponse
+ */
+GetPrometheusUserSettingResponse Client::getPrometheusUserSetting(const GetPrometheusUserSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPrometheusUserSettingWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2214,6 +2514,59 @@ ListIntegrationPolicyPodMonitorsResponse Client::listIntegrationPolicyPodMonitor
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIntegrationPolicyPodMonitorsWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyServiceMonitorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyServiceMonitorsResponse
+ */
+ListIntegrationPolicyServiceMonitorsResponse Client::listIntegrationPolicyServiceMonitorsWithOptions(const string &policyId, const ListIntegrationPolicyServiceMonitorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonReleaseName()) {
+    query["addonReleaseName"] = request.addonReleaseName();
+  }
+
+  if (!!request.hasEncryptYaml()) {
+    query["encryptYaml"] = request.encryptYaml();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request._namespace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyServiceMonitors"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Encode::Encoder::percentEncode(policyId) , "/service-monitors")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyServiceMonitorsResponse>();
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyServiceMonitorsRequest
+ * @return ListIntegrationPolicyServiceMonitorsResponse
+ */
+ListIntegrationPolicyServiceMonitorsResponse Client::listIntegrationPolicyServiceMonitors(const string &policyId, const ListIntegrationPolicyServiceMonitorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyServiceMonitorsWithOptions(policyId, request, headers, runtime);
 }
 
 /**
@@ -2995,7 +3348,7 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
 }
 
 /**
- * @summary 更新订阅
+ * @summary 更新通知策略
  *
  * @param request UpdateNotifyStrategyRequest
  * @param headers map
@@ -3029,7 +3382,7 @@ UpdateNotifyStrategyResponse Client::updateNotifyStrategyWithOptions(const strin
 }
 
 /**
- * @summary 更新订阅
+ * @summary 更新通知策略
  *
  * @param request UpdateNotifyStrategyRequest
  * @return UpdateNotifyStrategyResponse
@@ -3127,6 +3480,51 @@ UpdatePrometheusInstanceResponse Client::updatePrometheusInstance(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新Prom实例信息
+ *
+ * @param request UpdatePrometheusUserSettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePrometheusUserSettingResponse
+ */
+UpdatePrometheusUserSettingResponse Client::updatePrometheusUserSettingWithOptions(const string &settingKey, const UpdatePrometheusUserSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSettingValue()) {
+    query["settingValue"] = request.settingValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePrometheusUserSetting"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/prometheus-user-setting/" , Darabonba::Encode::Encoder::percentEncode(settingKey))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePrometheusUserSettingResponse>();
+}
+
+/**
+ * @summary 更新Prom实例信息
+ *
+ * @param request UpdatePrometheusUserSettingRequest
+ * @return UpdatePrometheusUserSettingResponse
+ */
+UpdatePrometheusUserSettingResponse Client::updatePrometheusUserSetting(const string &settingKey, const UpdatePrometheusUserSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePrometheusUserSettingWithOptions(settingKey, request, headers, runtime);
 }
 
 /**

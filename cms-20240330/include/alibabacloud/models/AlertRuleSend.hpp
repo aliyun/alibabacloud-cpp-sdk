@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AlertRuleAction.hpp>
 #include <alibabacloud/models/AlertRuleNotification.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,11 +18,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AlertRuleSend& obj) { 
       DARABONBA_PTR_TO_JSON(action, action_);
       DARABONBA_PTR_TO_JSON(notification, notification_);
+      DARABONBA_PTR_TO_JSON(notifyStrategies, notifyStrategies_);
       DARABONBA_PTR_TO_JSON(sendToArms, sendToArms_);
     };
     friend void from_json(const Darabonba::Json& j, AlertRuleSend& obj) { 
       DARABONBA_PTR_FROM_JSON(action, action_);
       DARABONBA_PTR_FROM_JSON(notification, notification_);
+      DARABONBA_PTR_FROM_JSON(notifyStrategies, notifyStrategies_);
       DARABONBA_PTR_FROM_JSON(sendToArms, sendToArms_);
     };
     AlertRuleSend() = default ;
@@ -36,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && return this->notification_ == nullptr && return this->sendToArms_ == nullptr; };
+        && return this->notification_ == nullptr && return this->notifyStrategies_ == nullptr && return this->sendToArms_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -55,6 +58,15 @@ namespace Models
     inline AlertRuleSend& setNotification(AlertRuleNotification && notification) { DARABONBA_PTR_SET_RVALUE(notification_, notification) };
 
 
+    // notifyStrategies Field Functions 
+    bool hasNotifyStrategies() const { return this->notifyStrategies_ != nullptr;};
+    void deleteNotifyStrategies() { this->notifyStrategies_ = nullptr;};
+    inline const vector<string> & notifyStrategies() const { DARABONBA_PTR_GET_CONST(notifyStrategies_, vector<string>) };
+    inline vector<string> notifyStrategies() { DARABONBA_PTR_GET(notifyStrategies_, vector<string>) };
+    inline AlertRuleSend& setNotifyStrategies(const vector<string> & notifyStrategies) { DARABONBA_PTR_SET_VALUE(notifyStrategies_, notifyStrategies) };
+    inline AlertRuleSend& setNotifyStrategies(vector<string> && notifyStrategies) { DARABONBA_PTR_SET_RVALUE(notifyStrategies_, notifyStrategies) };
+
+
     // sendToArms Field Functions 
     bool hasSendToArms() const { return this->sendToArms_ != nullptr;};
     void deleteSendToArms() { this->sendToArms_ = nullptr;};
@@ -65,6 +77,7 @@ namespace Models
   protected:
     std::shared_ptr<AlertRuleAction> action_ = nullptr;
     std::shared_ptr<AlertRuleNotification> notification_ = nullptr;
+    std::shared_ptr<vector<string>> notifyStrategies_ = nullptr;
     std::shared_ptr<bool> sendToArms_ = nullptr;
   };
 

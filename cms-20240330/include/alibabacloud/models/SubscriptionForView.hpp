@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pushingSetting, pushingSetting_);
       DARABONBA_PTR_TO_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_TO_JSON(subscriptionName, subscriptionName_);
+      DARABONBA_PTR_TO_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
       DARABONBA_PTR_TO_JSON(workspace, workspace_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pushingSetting, pushingSetting_);
       DARABONBA_PTR_FROM_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_FROM_JSON(subscriptionName, subscriptionName_);
+      DARABONBA_PTR_FROM_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
       DARABONBA_PTR_FROM_JSON(workspace, workspace_);
@@ -53,7 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
         && return this->description_ == nullptr && return this->enable_ == nullptr && return this->filterSetting_ == nullptr && return this->notifyStrategyId_ == nullptr && return this->pushingSetting_ == nullptr
-        && return this->subscriptionId_ == nullptr && return this->subscriptionName_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr && return this->workspace_ == nullptr; };
+        && return this->subscriptionId_ == nullptr && return this->subscriptionName_ == nullptr && return this->syncFromType_ == nullptr && return this->updateTime_ == nullptr && return this->userId_ == nullptr
+        && return this->workspace_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -114,6 +117,13 @@ namespace Models
     inline SubscriptionForView& setSubscriptionName(string subscriptionName) { DARABONBA_PTR_SET_VALUE(subscriptionName_, subscriptionName) };
 
 
+    // syncFromType Field Functions 
+    bool hasSyncFromType() const { return this->syncFromType_ != nullptr;};
+    void deleteSyncFromType() { this->syncFromType_ = nullptr;};
+    inline string syncFromType() const { DARABONBA_PTR_GET_DEFAULT(syncFromType_, "") };
+    inline SubscriptionForView& setSyncFromType(string syncFromType) { DARABONBA_PTR_SET_VALUE(syncFromType_, syncFromType) };
+
+
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -145,6 +155,7 @@ namespace Models
     std::shared_ptr<string> subscriptionId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> subscriptionName_ = nullptr;
+    std::shared_ptr<string> syncFromType_ = nullptr;
     std::shared_ptr<string> updateTime_ = nullptr;
     std::shared_ptr<string> userId_ = nullptr;
     std::shared_ptr<string> workspace_ = nullptr;
