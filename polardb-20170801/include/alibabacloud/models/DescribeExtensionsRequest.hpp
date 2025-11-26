@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeExtensionsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
+      DARABONBA_PTR_TO_JSON(ExtensionName, extensionName_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeExtensionsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
+      DARABONBA_PTR_FROM_JSON(ExtensionName, extensionName_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->DBName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && return this->DBName_ == nullptr && return this->extensionName_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteDBName() { this->DBName_ = nullptr;};
     inline string DBName() const { DARABONBA_PTR_GET_DEFAULT(DBName_, "") };
     inline DescribeExtensionsRequest& setDBName(string DBName) { DARABONBA_PTR_SET_VALUE(DBName_, DBName) };
+
+
+    // extensionName Field Functions 
+    bool hasExtensionName() const { return this->extensionName_ != nullptr;};
+    void deleteExtensionName() { this->extensionName_ = nullptr;};
+    inline string extensionName() const { DARABONBA_PTR_GET_DEFAULT(extensionName_, "") };
+    inline DescribeExtensionsRequest& setExtensionName(string extensionName) { DARABONBA_PTR_SET_VALUE(extensionName_, extensionName) };
 
 
     // ownerAccount Field Functions 
@@ -88,6 +98,7 @@ namespace Models
     std::shared_ptr<string> DBClusterId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> DBName_ = nullptr;
+    std::shared_ptr<string> extensionName_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;

@@ -9703,6 +9703,10 @@ DescribeExtensionsResponse Client::describeExtensionsWithOptions(const DescribeE
     query["DBName"] = request.DBName();
   }
 
+  if (!!request.hasExtensionName()) {
+    query["ExtensionName"] = request.extensionName();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.ownerAccount();
   }
