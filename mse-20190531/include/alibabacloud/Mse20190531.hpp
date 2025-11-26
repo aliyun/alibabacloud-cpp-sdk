@@ -3303,6 +3303,23 @@ namespace Mse20190531
       Models::QueryMonitorResponse queryMonitor(const Models::QueryMonitorRequest &request);
 
       /**
+       * @summary 查询nacos灰度配置
+       *
+       * @param request QueryNacosGrayConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryNacosGrayConfigResponse
+       */
+      Models::QueryNacosGrayConfigResponse queryNacosGrayConfigWithOptions(const Models::QueryNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询nacos灰度配置
+       *
+       * @param request QueryNacosGrayConfigRequest
+       * @return QueryNacosGrayConfigResponse
+       */
+      Models::QueryNacosGrayConfigResponse queryNacosGrayConfig(const Models::QueryNacosGrayConfigRequest &request);
+
+      /**
        * @summary 查询MSE命名空间
        *
        * @param request QueryNamespaceRequest

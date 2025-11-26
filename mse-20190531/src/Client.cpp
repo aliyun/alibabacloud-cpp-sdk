@@ -11938,6 +11938,76 @@ QueryMonitorResponse Client::queryMonitor(const QueryMonitorRequest &request) {
 }
 
 /**
+ * @summary 查询nacos灰度配置
+ *
+ * @param request QueryNacosGrayConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryNacosGrayConfigResponse
+ */
+QueryNacosGrayConfigResponse Client::queryNacosGrayConfigWithOptions(const QueryNacosGrayConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
+  if (!!request.hasDataId()) {
+    query["DataId"] = request.dataId();
+  }
+
+  if (!!request.hasGrayName()) {
+    query["GrayName"] = request.grayName();
+  }
+
+  if (!!request.hasGroup()) {
+    query["Group"] = request.group();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.namespaceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRequestPars()) {
+    query["RequestPars"] = request.requestPars();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryNacosGrayConfig"},
+    {"version" , "2019-05-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryNacosGrayConfigResponse>();
+}
+
+/**
+ * @summary 查询nacos灰度配置
+ *
+ * @param request QueryNacosGrayConfigRequest
+ * @return QueryNacosGrayConfigResponse
+ */
+QueryNacosGrayConfigResponse Client::queryNacosGrayConfig(const QueryNacosGrayConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryNacosGrayConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询MSE命名空间
  *
  * @param request QueryNamespaceRequest

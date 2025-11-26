@@ -594,6 +594,9 @@
 #include <alibabacloud/models/QueryMonitorRequest.hpp>
 #include <alibabacloud/models/QueryMonitorResponseBody.hpp>
 #include <alibabacloud/models/QueryMonitorResponse.hpp>
+#include <alibabacloud/models/QueryNacosGrayConfigRequest.hpp>
+#include <alibabacloud/models/QueryNacosGrayConfigResponseBody.hpp>
+#include <alibabacloud/models/QueryNacosGrayConfigResponse.hpp>
 #include <alibabacloud/models/QueryNamespaceRequest.hpp>
 #include <alibabacloud/models/QueryNamespaceResponseBody.hpp>
 #include <alibabacloud/models/QueryNamespaceResponse.hpp>
@@ -1101,6 +1104,7 @@
 #include <alibabacloud/models/QueryGovernanceKubernetesClusterResponseBodyData.hpp>
 #include <alibabacloud/models/QueryInstancesInfoResponseBodyData.hpp>
 #include <alibabacloud/models/QueryMonitorResponseBodyData.hpp>
+#include <alibabacloud/models/QueryNacosGrayConfigResponseBodyData.hpp>
 #include <alibabacloud/models/QueryNamespaceResponseBodyData.hpp>
 #include <alibabacloud/models/QuerySlbSpecResponseBodyData.hpp>
 #include <alibabacloud/models/QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems.hpp>
