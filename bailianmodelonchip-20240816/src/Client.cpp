@@ -81,6 +81,51 @@ ActiveInteractionCreateResponse Client::activeInteractionCreate(const ActiveInte
 }
 
 /**
+ * @summary 主动交互消息生成eu
+ *
+ * @param request ActiveInteractionEuCreateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ActiveInteractionEuCreateResponse
+ */
+ActiveInteractionEuCreateResponse Client::activeInteractionEuCreateWithOptions(const ActiveInteractionEuCreateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasImage()) {
+    body["image"] = request.image();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ActiveInteractionEuCreate"},
+    {"version" , "2024-08-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/api/eu/active/interaction/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ActiveInteractionEuCreateResponse>();
+}
+
+/**
+ * @summary 主动交互消息生成eu
+ *
+ * @param request ActiveInteractionEuCreateRequest
+ * @return ActiveInteractionEuCreateResponse
+ */
+ActiveInteractionEuCreateResponse Client::activeInteractionEuCreate(const ActiveInteractionEuCreateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return activeInteractionEuCreateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 设备注册
  *
  * @param request DeviceRegisterRequest
@@ -259,6 +304,59 @@ ModelTypeDetermineResponse Client::modelTypeDetermine(const ModelTypeDetermineRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelTypeDetermineWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 音频-供机械臂调用
+ *
+ * @param request OmniRealtimeConversationEURequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OmniRealtimeConversationEUResponse
+ */
+OmniRealtimeConversationEUResponse Client::omniRealtimeConversationEUWithOptions(const OmniRealtimeConversationEURequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInputAudio()) {
+    body["inputAudio"] = request.inputAudio();
+  }
+
+  if (!!request.hasUserPrompt()) {
+    body["userPrompt"] = request.userPrompt();
+  }
+
+  if (!!request.hasVoice()) {
+    body["voice"] = request.voice();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OmniRealtimeConversationEU"},
+    {"version" , "2024-08-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/api/eu/active/interaction/audio")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OmniRealtimeConversationEUResponse>();
+}
+
+/**
+ * @summary 音频-供机械臂调用
+ *
+ * @param request OmniRealtimeConversationEURequest
+ * @return OmniRealtimeConversationEUResponse
+ */
+OmniRealtimeConversationEUResponse Client::omniRealtimeConversationEU(const OmniRealtimeConversationEURequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return omniRealtimeConversationEUWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace BailianModelOnChip20240816

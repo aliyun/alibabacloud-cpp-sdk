@@ -39,6 +39,24 @@ namespace BailianModelOnChip20240816
       Models::ActiveInteractionCreateResponse activeInteractionCreate(const Models::ActiveInteractionCreateRequest &request);
 
       /**
+       * @summary 主动交互消息生成eu
+       *
+       * @param request ActiveInteractionEuCreateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ActiveInteractionEuCreateResponse
+       */
+      Models::ActiveInteractionEuCreateResponse activeInteractionEuCreateWithOptions(const Models::ActiveInteractionEuCreateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 主动交互消息生成eu
+       *
+       * @param request ActiveInteractionEuCreateRequest
+       * @return ActiveInteractionEuCreateResponse
+       */
+      Models::ActiveInteractionEuCreateResponse activeInteractionEuCreate(const Models::ActiveInteractionEuCreateRequest &request);
+
+      /**
        * @summary 设备注册
        *
        * @param request DeviceRegisterRequest
@@ -91,6 +109,24 @@ namespace BailianModelOnChip20240816
        * @return ModelTypeDetermineResponse
        */
       Models::ModelTypeDetermineResponse modelTypeDetermine(const Models::ModelTypeDetermineRequest &request);
+
+      /**
+       * @summary 音频-供机械臂调用
+       *
+       * @param request OmniRealtimeConversationEURequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OmniRealtimeConversationEUResponse
+       */
+      Models::OmniRealtimeConversationEUResponse omniRealtimeConversationEUWithOptions(const Models::OmniRealtimeConversationEURequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 音频-供机械臂调用
+       *
+       * @param request OmniRealtimeConversationEURequest
+       * @return OmniRealtimeConversationEUResponse
+       */
+      Models::OmniRealtimeConversationEUResponse omniRealtimeConversationEU(const Models::OmniRealtimeConversationEURequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace BailianModelOnChip20240816

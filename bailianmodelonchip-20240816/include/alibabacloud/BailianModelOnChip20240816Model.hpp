@@ -5,6 +5,9 @@
 #include <alibabacloud/models/ActiveInteractionCreateRequest.hpp>
 #include <alibabacloud/models/ActiveInteractionCreateResponseBody.hpp>
 #include <alibabacloud/models/ActiveInteractionCreateResponse.hpp>
+#include <alibabacloud/models/ActiveInteractionEuCreateRequest.hpp>
+#include <alibabacloud/models/ActiveInteractionEuCreateResponseBody.hpp>
+#include <alibabacloud/models/ActiveInteractionEuCreateResponse.hpp>
 #include <alibabacloud/models/DeviceRegisterRequest.hpp>
 #include <alibabacloud/models/DeviceRegisterResponseBody.hpp>
 #include <alibabacloud/models/DeviceRegisterResponse.hpp>
@@ -15,10 +18,15 @@
 #include <alibabacloud/models/ModelTypeDetermineShrinkRequest.hpp>
 #include <alibabacloud/models/ModelTypeDetermineResponseBody.hpp>
 #include <alibabacloud/models/ModelTypeDetermineResponse.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEuRequest.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEuResponseBody.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEuResponse.hpp>
 #include <alibabacloud/models/ActiveInteractionCreateResponseBodyData.hpp>
+#include <alibabacloud/models/ActiveInteractionEuCreateResponseBodyData.hpp>
 #include <alibabacloud/models/DeviceRegisterResponseBodyData.hpp>
 #include <alibabacloud/models/GetTokenResponseBodyData.hpp>
 #include <alibabacloud/models/ModelTypeDetermineRequestHistory.hpp>
 #include <alibabacloud/models/ModelTypeDetermineResponseBodyData.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEuResponseBodyData.hpp>
 
 #endif
