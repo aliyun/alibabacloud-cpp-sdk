@@ -31,6 +31,7 @@
 #include <alibabacloud/models/Partition.hpp>
 #include <alibabacloud/models/PartitionSummary.hpp>
 #include <alibabacloud/models/PartitionSummaries.hpp>
+#include <alibabacloud/models/PrepayResource.hpp>
 #include <alibabacloud/models/ReceivedShare.hpp>
 #include <alibabacloud/models/Receiver.hpp>
 #include <alibabacloud/models/User.hpp>

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(access, access_);
       DARABONBA_PTR_TO_JSON(columns, columns_);
       DARABONBA_PTR_TO_JSON(database, database_);
+      DARABONBA_PTR_TO_JSON(expireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(function, function_);
       DARABONBA_PTR_TO_JSON(principal, principal_);
       DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(access, access_);
       DARABONBA_PTR_FROM_JSON(columns, columns_);
       DARABONBA_PTR_FROM_JSON(database, database_);
+      DARABONBA_PTR_FROM_JSON(expireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(function, function_);
       DARABONBA_PTR_FROM_JSON(principal, principal_);
       DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->access_ == nullptr
-        && return this->columns_ == nullptr && return this->database_ == nullptr && return this->function_ == nullptr && return this->principal_ == nullptr && return this->resourceType_ == nullptr
-        && return this->table_ == nullptr && return this->view_ == nullptr; };
+        && return this->columns_ == nullptr && return this->database_ == nullptr && return this->expireTime_ == nullptr && return this->function_ == nullptr && return this->principal_ == nullptr
+        && return this->resourceType_ == nullptr && return this->table_ == nullptr && return this->view_ == nullptr; };
     // access Field Functions 
     bool hasAccess() const { return this->access_ != nullptr;};
     void deleteAccess() { this->access_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     void deleteDatabase() { this->database_ = nullptr;};
     inline string database() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
     inline Permission& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+
+
+    // expireTime Field Functions 
+    bool hasExpireTime() const { return this->expireTime_ != nullptr;};
+    void deleteExpireTime() { this->expireTime_ = nullptr;};
+    inline string expireTime() const { DARABONBA_PTR_GET_DEFAULT(expireTime_, "") };
+    inline Permission& setExpireTime(string expireTime) { DARABONBA_PTR_SET_VALUE(expireTime_, expireTime) };
 
 
     // function Field Functions 
@@ -109,6 +118,7 @@ namespace Models
     std::shared_ptr<string> access_ = nullptr;
     std::shared_ptr<PermissionColumns> columns_ = nullptr;
     std::shared_ptr<string> database_ = nullptr;
+    std::shared_ptr<string> expireTime_ = nullptr;
     std::shared_ptr<string> function_ = nullptr;
     std::shared_ptr<string> principal_ = nullptr;
     std::shared_ptr<string> resourceType_ = nullptr;
