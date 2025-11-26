@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(Disk, disk_);
       DARABONBA_PTR_TO_JSON(EnableHiveAccess, enableHiveAccess_);
+      DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_TO_JSON(EnableServerless, enableServerless_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
@@ -56,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(Disk, disk_);
       DARABONBA_PTR_FROM_JSON(EnableHiveAccess, enableHiveAccess_);
+      DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_FROM_JSON(EnableServerless, enableServerless_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
@@ -92,11 +94,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenewal_ == nullptr
         && return this->coldStorage_ == nullptr && return this->commodityCode_ == nullptr && return this->computeNodeCount_ == nullptr && return this->cpu_ == nullptr && return this->creationTime_ == nullptr
-        && return this->disk_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->enableServerless_ == nullptr && return this->endpoints_ == nullptr && return this->expirationTime_ == nullptr
-        && return this->gatewayCount_ == nullptr && return this->gatewayCpu_ == nullptr && return this->gatewayMemory_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr
-        && return this->instanceName_ == nullptr && return this->instanceOwner_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr && return this->leaderInstanceId_ == nullptr
-        && return this->memory_ == nullptr && return this->regionId_ == nullptr && return this->replicaRole_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageType_ == nullptr
-        && return this->suspendReason_ == nullptr && return this->tags_ == nullptr && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->disk_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->enableSSL_ == nullptr && return this->enableServerless_ == nullptr && return this->endpoints_ == nullptr
+        && return this->expirationTime_ == nullptr && return this->gatewayCount_ == nullptr && return this->gatewayCpu_ == nullptr && return this->gatewayMemory_ == nullptr && return this->instanceChargeType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceOwner_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr
+        && return this->leaderInstanceId_ == nullptr && return this->memory_ == nullptr && return this->regionId_ == nullptr && return this->replicaRole_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->storageType_ == nullptr && return this->suspendReason_ == nullptr && return this->tags_ == nullptr && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenewal Field Functions 
     bool hasAutoRenewal() const { return this->autoRenewal_ != nullptr;};
     void deleteAutoRenewal() { this->autoRenewal_ = nullptr;};
@@ -151,6 +153,13 @@ namespace Models
     void deleteEnableHiveAccess() { this->enableHiveAccess_ = nullptr;};
     inline string enableHiveAccess() const { DARABONBA_PTR_GET_DEFAULT(enableHiveAccess_, "") };
     inline GetInstanceResponseBodyInstance& setEnableHiveAccess(string enableHiveAccess) { DARABONBA_PTR_SET_VALUE(enableHiveAccess_, enableHiveAccess) };
+
+
+    // enableSSL Field Functions 
+    bool hasEnableSSL() const { return this->enableSSL_ != nullptr;};
+    void deleteEnableSSL() { this->enableSSL_ = nullptr;};
+    inline bool enableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, false) };
+    inline GetInstanceResponseBodyInstance& setEnableSSL(bool enableSSL) { DARABONBA_PTR_SET_VALUE(enableSSL_, enableSSL) };
 
 
     // enableServerless Field Functions 
@@ -456,6 +465,7 @@ namespace Models
     std::shared_ptr<string> disk_ = nullptr;
     // Indicates whether data lake acceleration is enabled.
     std::shared_ptr<string> enableHiveAccess_ = nullptr;
+    std::shared_ptr<bool> enableSSL_ = nullptr;
     // EnableServerless
     std::shared_ptr<bool> enableServerless_ = nullptr;
     // The list of endpoints.

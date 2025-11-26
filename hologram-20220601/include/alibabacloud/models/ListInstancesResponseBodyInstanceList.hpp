@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(EnableHiveAccess, enableHiveAccess_);
+      DARABONBA_PTR_TO_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(EnableHiveAccess, enableHiveAccess_);
+      DARABONBA_PTR_FROM_JSON(EnableSSL, enableSSL_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
@@ -67,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->commodityCode_ == nullptr
-        && return this->creationTime_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->endpoints_ == nullptr && return this->expirationTime_ == nullptr && return this->instanceChargeType_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr && return this->leaderInstanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageType_ == nullptr && return this->suspendReason_ == nullptr && return this->tags_ == nullptr
-        && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->creationTime_ == nullptr && return this->enableHiveAccess_ == nullptr && return this->enableSSL_ == nullptr && return this->endpoints_ == nullptr && return this->expirationTime_ == nullptr
+        && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->instanceStatus_ == nullptr && return this->instanceType_ == nullptr
+        && return this->leaderInstanceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->storageType_ == nullptr && return this->suspendReason_ == nullptr
+        && return this->tags_ == nullptr && return this->version_ == nullptr && return this->zoneId_ == nullptr; };
     // commodityCode Field Functions 
     bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
     void deleteCommodityCode() { this->commodityCode_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     void deleteEnableHiveAccess() { this->enableHiveAccess_ = nullptr;};
     inline string enableHiveAccess() const { DARABONBA_PTR_GET_DEFAULT(enableHiveAccess_, "") };
     inline ListInstancesResponseBodyInstanceList& setEnableHiveAccess(string enableHiveAccess) { DARABONBA_PTR_SET_VALUE(enableHiveAccess_, enableHiveAccess) };
+
+
+    // enableSSL Field Functions 
+    bool hasEnableSSL() const { return this->enableSSL_ != nullptr;};
+    void deleteEnableSSL() { this->enableSSL_ = nullptr;};
+    inline string enableSSL() const { DARABONBA_PTR_GET_DEFAULT(enableSSL_, "") };
+    inline ListInstancesResponseBodyInstanceList& setEnableSSL(string enableSSL) { DARABONBA_PTR_SET_VALUE(enableSSL_, enableSSL) };
 
 
     // endpoints Field Functions 
@@ -226,6 +235,7 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<string> enableHiveAccess_ = nullptr;
+    std::shared_ptr<string> enableSSL_ = nullptr;
     // The list of endpoints.
     std::shared_ptr<vector<Models::ListInstancesResponseBodyInstanceListEndpoints>> endpoints_ = nullptr;
     // The time when the cluster expires.
