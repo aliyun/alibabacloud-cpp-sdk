@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SEARCHTASKRESPONSEBODYSEARCHTASKINFOLISTLABELS_HPP_
+#define ALIBABACLOUD_MODELS_SEARCHTASKRESPONSEBODYSEARCHTASKINFOLISTLABELS_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace OutboundBot20191226
+{
+namespace Models
+{
+  class SearchTaskResponseBodySearchTaskInfoListLabels : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SearchTaskResponseBodySearchTaskInfoListLabels& obj) { 
+      DARABONBA_PTR_TO_JSON(K, k_);
+      DARABONBA_PTR_TO_JSON(V, v_);
+    };
+    friend void from_json(const Darabonba::Json& j, SearchTaskResponseBodySearchTaskInfoListLabels& obj) { 
+      DARABONBA_PTR_FROM_JSON(K, k_);
+      DARABONBA_PTR_FROM_JSON(V, v_);
+    };
+    SearchTaskResponseBodySearchTaskInfoListLabels() = default ;
+    SearchTaskResponseBodySearchTaskInfoListLabels(const SearchTaskResponseBodySearchTaskInfoListLabels &) = default ;
+    SearchTaskResponseBodySearchTaskInfoListLabels(SearchTaskResponseBodySearchTaskInfoListLabels &&) = default ;
+    SearchTaskResponseBodySearchTaskInfoListLabels(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SearchTaskResponseBodySearchTaskInfoListLabels() = default ;
+    SearchTaskResponseBodySearchTaskInfoListLabels& operator=(const SearchTaskResponseBodySearchTaskInfoListLabels &) = default ;
+    SearchTaskResponseBodySearchTaskInfoListLabels& operator=(SearchTaskResponseBodySearchTaskInfoListLabels &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->k_ == nullptr
+        && return this->v_ == nullptr; };
+    // k Field Functions 
+    bool hasK() const { return this->k_ != nullptr;};
+    void deleteK() { this->k_ = nullptr;};
+    inline string k() const { DARABONBA_PTR_GET_DEFAULT(k_, "") };
+    inline SearchTaskResponseBodySearchTaskInfoListLabels& setK(string k) { DARABONBA_PTR_SET_VALUE(k_, k) };
+
+
+    // v Field Functions 
+    bool hasV() const { return this->v_ != nullptr;};
+    void deleteV() { this->v_ = nullptr;};
+    inline string v() const { DARABONBA_PTR_GET_DEFAULT(v_, "") };
+    inline SearchTaskResponseBodySearchTaskInfoListLabels& setV(string v) { DARABONBA_PTR_SET_VALUE(v_, v) };
+
+
+  protected:
+    std::shared_ptr<string> k_ = nullptr;
+    std::shared_ptr<string> v_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace OutboundBot20191226
+#endif
