@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_MODELS_LISTEVALUATIONRESULTSRESPONSEBODYRESULTSMETRICRESULTS_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary.hpp>
+#include <vector>
+#include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary.hpp>
 using namespace std;
@@ -17,6 +19,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListEvaluationResultsResponseBodyResultsMetricResults& obj) { 
       DARABONBA_PTR_TO_JSON(AccountSummary, accountSummary_);
+      DARABONBA_PTR_TO_JSON(AvailableRemediation, availableRemediation_);
       DARABONBA_PTR_TO_JSON(ErrorInfo, errorInfo_);
       DARABONBA_PTR_TO_JSON(EvaluationTime, evaluationTime_);
       DARABONBA_PTR_TO_JSON(Id, id_);
@@ -28,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationResultsResponseBodyResultsMetricResults& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountSummary, accountSummary_);
+      DARABONBA_PTR_FROM_JSON(AvailableRemediation, availableRemediation_);
       DARABONBA_PTR_FROM_JSON(ErrorInfo, errorInfo_);
       DARABONBA_PTR_FROM_JSON(EvaluationTime, evaluationTime_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
@@ -49,8 +53,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountSummary_ == nullptr
-        && return this->errorInfo_ == nullptr && return this->evaluationTime_ == nullptr && return this->id_ == nullptr && return this->potentialScoreIncrease_ == nullptr && return this->resourcesSummary_ == nullptr
-        && return this->result_ == nullptr && return this->risk_ == nullptr && return this->status_ == nullptr; };
+        && return this->availableRemediation_ == nullptr && return this->errorInfo_ == nullptr && return this->evaluationTime_ == nullptr && return this->id_ == nullptr && return this->potentialScoreIncrease_ == nullptr
+        && return this->resourcesSummary_ == nullptr && return this->result_ == nullptr && return this->risk_ == nullptr && return this->status_ == nullptr; };
     // accountSummary Field Functions 
     bool hasAccountSummary() const { return this->accountSummary_ != nullptr;};
     void deleteAccountSummary() { this->accountSummary_ = nullptr;};
@@ -58,6 +62,15 @@ namespace Models
     inline Models::ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary accountSummary() { DARABONBA_PTR_GET(accountSummary_, Models::ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary) };
     inline ListEvaluationResultsResponseBodyResultsMetricResults& setAccountSummary(const Models::ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary & accountSummary) { DARABONBA_PTR_SET_VALUE(accountSummary_, accountSummary) };
     inline ListEvaluationResultsResponseBodyResultsMetricResults& setAccountSummary(Models::ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary && accountSummary) { DARABONBA_PTR_SET_RVALUE(accountSummary_, accountSummary) };
+
+
+    // availableRemediation Field Functions 
+    bool hasAvailableRemediation() const { return this->availableRemediation_ != nullptr;};
+    void deleteAvailableRemediation() { this->availableRemediation_ = nullptr;};
+    inline const vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation> & availableRemediation() const { DARABONBA_PTR_GET_CONST(availableRemediation_, vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation>) };
+    inline vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation> availableRemediation() { DARABONBA_PTR_GET(availableRemediation_, vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation>) };
+    inline ListEvaluationResultsResponseBodyResultsMetricResults& setAvailableRemediation(const vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation> & availableRemediation) { DARABONBA_PTR_SET_VALUE(availableRemediation_, availableRemediation) };
+    inline ListEvaluationResultsResponseBodyResultsMetricResults& setAvailableRemediation(vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation> && availableRemediation) { DARABONBA_PTR_SET_RVALUE(availableRemediation_, availableRemediation) };
 
 
     // errorInfo Field Functions 
@@ -122,6 +135,7 @@ namespace Models
 
   protected:
     std::shared_ptr<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary> accountSummary_ = nullptr;
+    std::shared_ptr<vector<Models::ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation>> availableRemediation_ = nullptr;
     // The error information.
     // 
     // >  This parameter is returned only if the value of `Status` is `Failed`.

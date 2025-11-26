@@ -78,6 +78,7 @@
 #include <alibabacloud/models/ListEvaluationMetricDetailsResponseBodyResources.hpp>
 #include <alibabacloud/models/ListEvaluationResultsRequestFilters.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsAccountSummary.hpp>
+#include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsAvailableRemediation.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsErrorInfo.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResultsResourcesSummary.hpp>
 #include <alibabacloud/models/ListEvaluationResultsResponseBodyResultsMetricResults.hpp>
