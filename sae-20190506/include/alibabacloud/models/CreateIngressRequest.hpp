@@ -241,6 +241,7 @@ namespace Models
 
 
   protected:
+    // -
     std::shared_ptr<string> addressType_ = nullptr;
     // The ID of the **CLB** certificate. Valid values:
     // 
@@ -253,6 +254,7 @@ namespace Models
     // *   If the **LoadBalanceType** is **alb**, use this field to configure multiple certificates for HTTPS listeners. Separate multiple certificate IDs with commas (,).
     // *   The ID of the SSL certificate used by ALB must be obtained from the digital certificate product. For example, in the configuration `756***-cn-hangzhou`, the `756***` is the certificate ID obtained from the product page, and the `-cn-hangzhou` is a fixed suffix. For more information, see [Manage certificates](https://help.aliyun.com/document_detail/209076.html).
     std::shared_ptr<string> certIds_ = nullptr;
+    // -
     std::shared_ptr<string> corsConfig_ = nullptr;
     // The default forwarding rule. Forwards traffic to a specified application through a specified port based on the IP address. The following table describes the parameters.
     // 
@@ -265,11 +267,17 @@ namespace Models
     std::shared_ptr<string> defaultRule_ = nullptr;
     // The name of the routing rule.
     std::shared_ptr<string> description_ = nullptr;
+    // -
     std::shared_ptr<bool> enableGzip_ = nullptr;
+    // -
     std::shared_ptr<bool> enableXForwardedFor_ = nullptr;
+    // -
     std::shared_ptr<bool> enableXForwardedForClientSrcPort_ = nullptr;
+    // -
     std::shared_ptr<bool> enableXForwardedForProto_ = nullptr;
+    // -
     std::shared_ptr<bool> enableXForwardedForSlbId_ = nullptr;
+    // -
     std::shared_ptr<bool> enableXForwardedForSlbPort_ = nullptr;
     // Specifies the connection idle timeout period. Unit: seconds. Valid values: 1 to 60. If there is no access request within the timeout period, the SLB will temporarily interrupt the current connection until the next request comes to re-establish a new connection.
     std::shared_ptr<int32_t> idleTimeout_ = nullptr;
@@ -287,6 +295,7 @@ namespace Models
     // *   **clb**: traditional SLB CLB (formerly SLB).
     // *   **alb**: Applied SLB ALB.
     std::shared_ptr<string> loadBalanceType_ = nullptr;
+    // -
     std::shared_ptr<string> loadBalancerEdition_ = nullptr;
     // The ID of the namespace where the application resides. Currently, cross-namespace applications are not supported.
     // 
@@ -313,6 +322,7 @@ namespace Models
     // 
     // >  SLB SLB instances include CLB instances and ALB instances.
     std::shared_ptr<string> slbId_ = nullptr;
+    // -
     std::shared_ptr<string> zoneMappings_ = nullptr;
   };
 

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RescaleApplicationVerticallyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+      DARABONBA_PTR_TO_JSON(Deploy, deploy_);
       DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, RescaleApplicationVerticallyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+      DARABONBA_PTR_FROM_JSON(Deploy, deploy_);
       DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->cpu_ == nullptr && return this->diskSize_ == nullptr && return this->memory_ == nullptr && return this->resourceType_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->autoEnableApplicationScalingRule_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr; };
+        && return this->cpu_ == nullptr && return this->deploy_ == nullptr && return this->diskSize_ == nullptr && return this->memory_ == nullptr && return this->resourceType_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->autoEnableApplicationScalingRule_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteCpu() { this->cpu_ = nullptr;};
     inline string cpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
     inline RescaleApplicationVerticallyRequest& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+    // deploy Field Functions 
+    bool hasDeploy() const { return this->deploy_ != nullptr;};
+    void deleteDeploy() { this->deploy_ = nullptr;};
+    inline bool deploy() const { DARABONBA_PTR_GET_DEFAULT(deploy_, false) };
+    inline RescaleApplicationVerticallyRequest& setDeploy(bool deploy) { DARABONBA_PTR_SET_VALUE(deploy_, deploy) };
 
 
     // diskSize Field Functions 
@@ -120,6 +129,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> cpu_ = nullptr;
+    std::shared_ptr<bool> deploy_ = nullptr;
     // The disk size. Unit: GB.
     std::shared_ptr<string> diskSize_ = nullptr;
     // Target memory specification. Unit: MB.

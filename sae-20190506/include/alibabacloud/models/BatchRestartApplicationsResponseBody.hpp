@@ -97,12 +97,27 @@ namespace Models
 
 
   protected:
+    // The API status or POP error code. Value description:
+    // 
+    // 2xx: The request was successful. 3xx: The request was redirected. 4xx: The request was invalid. 5xx: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The response.
     std::shared_ptr<BatchRestartApplicationsResponseBodyData> data_ = nullptr;
+    // The error code. Value description:
+    // 
+    // If the request succeeds, this field is not returned. It is returned only if the request fails. For more information, see the "Error codes" section in this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The additional information. Value description:
+    // 
+    // If the request succeeds, a success message is returned. If the request fails, an error code is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the applications were started. Valid values:
+    // 
+    // true and false
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the trace, which is used to query the exact call information.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

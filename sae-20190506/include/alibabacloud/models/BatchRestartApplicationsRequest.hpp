@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application IDs. Separate multiple IDs with commas (,).
+    // 
     // This parameter is required.
     std::shared_ptr<string> appIds_ = nullptr;
+    // The namespace ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespaceId_ = nullptr;
   };

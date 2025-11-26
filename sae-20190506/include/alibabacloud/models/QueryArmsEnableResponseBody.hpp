@@ -97,12 +97,28 @@ namespace Models
 
 
   protected:
+    // The status code or error code. Valid values: 2xx: The request was successful. 3xx: The request was redirected. 4xx: The request was invalid. 5xx: A server error occurred.
     std::shared_ptr<string> code_ = nullptr;
+    // The response data.
     std::shared_ptr<QueryArmsEnableResponseBodyData> data_ = nullptr;
+    // The error code. Value description:
+    // 
+    // *   If the request was successful, this field is not returned.
+    // *   For more information, see the **Error codes** section of this topic.
     std::shared_ptr<string> errorCode_ = nullptr;
+    // The additional information. Value description:
+    // 
+    // *   If the request was successful, **success** is returned.
+    // *   If the request failed, an error code is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> success_ = nullptr;
+    // The ID of the trace, which is used to query the details of a request.
     std::shared_ptr<string> traceId_ = nullptr;
   };
 

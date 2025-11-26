@@ -57,7 +57,7 @@ namespace Sae20190506
       Models::AbortChangeOrderResponse abortChangeOrder(const Models::AbortChangeOrderRequest &request);
 
       /**
-       * @summary 批量重启应用
+       * @summary Restarts applications in batches.
        *
        * @param request BatchRestartApplicationsRequest
        * @param headers map
@@ -67,7 +67,7 @@ namespace Sae20190506
       Models::BatchRestartApplicationsResponse batchRestartApplicationsWithOptions(const Models::BatchRestartApplicationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量重启应用
+       * @summary Restarts applications in batches.
        *
        * @param request BatchRestartApplicationsRequest
        * @return BatchRestartApplicationsResponse
@@ -775,6 +775,8 @@ namespace Sae20190506
       Models::DescribeApplicationInstancesResponse describeApplicationInstances(const Models::DescribeApplicationInstancesRequest &request);
 
       /**
+       * @summary Queries the information of the associated MSE microservice governance application.
+       *
        * @param request DescribeApplicationMseServiceRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -783,6 +785,8 @@ namespace Sae20190506
       Models::DescribeApplicationMseServiceResponse describeApplicationMseServiceWithOptions(const Models::DescribeApplicationMseServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the information of the associated MSE microservice governance application.
+       *
        * @param request DescribeApplicationMseServiceRequest
        * @return DescribeApplicationMseServiceResponse
        */
@@ -2089,6 +2093,8 @@ namespace Sae20190506
       Models::PublishWebApplicationRevisionResponse publishWebApplicationRevision(const string &ApplicationId, const Models::PublishWebApplicationRevisionRequest &request);
 
       /**
+       * @summary Queries whether ARMS monitoring is enabled for a specified application.
+       *
        * @param request QueryArmsEnableRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -2097,6 +2103,8 @@ namespace Sae20190506
       Models::QueryArmsEnableResponse queryArmsEnableWithOptions(const Models::QueryArmsEnableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries whether ARMS monitoring is enabled for a specified application.
+       *
        * @param request QueryArmsEnableRequest
        * @return QueryArmsEnableResponse
        */

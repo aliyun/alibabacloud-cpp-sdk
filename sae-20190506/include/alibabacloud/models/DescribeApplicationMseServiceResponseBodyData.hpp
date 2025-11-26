@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The application ID.
     std::shared_ptr<string> mseAppId_ = nullptr;
+    // The application name.
     std::shared_ptr<string> mseAppName_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> mseAppNameSpace_ = nullptr;
+    // The application status. Valid values:
+    // 
+    // *   EXPIRED
+    // *   REBOOTING
+    // *   WAITING
+    // *   FAIL
+    // *   NULL/SUCCESS
     std::shared_ptr<string> status_ = nullptr;
   };
 

@@ -131,7 +131,7 @@ AbortChangeOrderResponse Client::abortChangeOrder(const AbortChangeOrderRequest 
 }
 
 /**
- * @summary 批量重启应用
+ * @summary Restarts applications in batches.
  *
  * @param request BatchRestartApplicationsRequest
  * @param headers map
@@ -168,7 +168,7 @@ BatchRestartApplicationsResponse Client::batchRestartApplicationsWithOptions(con
 }
 
 /**
- * @summary 批量重启应用
+ * @summary Restarts applications in batches.
  *
  * @param request BatchRestartApplicationsRequest
  * @return BatchRestartApplicationsResponse
@@ -3193,6 +3193,8 @@ DescribeApplicationInstancesResponse Client::describeApplicationInstances(const 
 }
 
 /**
+ * @summary Queries the information of the associated MSE microservice governance application.
+ *
  * @param request DescribeApplicationMseServiceRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3228,6 +3230,8 @@ DescribeApplicationMseServiceResponse Client::describeApplicationMseServiceWithO
 }
 
 /**
+ * @summary Queries the information of the associated MSE microservice governance application.
+ *
  * @param request DescribeApplicationMseServiceRequest
  * @return DescribeApplicationMseServiceResponse
  */
@@ -6979,6 +6983,8 @@ PublishWebApplicationRevisionResponse Client::publishWebApplicationRevision(cons
 }
 
 /**
+ * @summary Queries whether ARMS monitoring is enabled for a specified application.
+ *
  * @param request QueryArmsEnableRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -7010,6 +7016,8 @@ QueryArmsEnableResponse Client::queryArmsEnableWithOptions(const QueryArmsEnable
 }
 
 /**
+ * @summary Queries whether ARMS monitoring is enabled for a specified application.
+ *
  * @param request QueryArmsEnableRequest
  * @return QueryArmsEnableResponse
  */
@@ -7191,6 +7199,10 @@ RescaleApplicationVerticallyResponse Client::rescaleApplicationVerticallyWithOpt
 
   if (!!request.hasCpu()) {
     query["Cpu"] = request.cpu();
+  }
+
+  if (!!request.hasDeploy()) {
+    query["Deploy"] = request.deploy();
   }
 
   if (!!request.hasDiskSize()) {
@@ -8134,6 +8146,10 @@ UpdateApplicationVswitchesResponse Client::updateApplicationVswitchesWithOptions
   json query = {};
   if (!!request.hasAppId()) {
     query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasDeploy()) {
+    query["Deploy"] = request.deploy();
   }
 
   if (!!request.hasVSwitchId()) {

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the change process.
     std::shared_ptr<string> changeOrderId_ = nullptr;
   };
 

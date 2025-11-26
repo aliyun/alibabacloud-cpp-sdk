@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
+    // Specifies whether to enable traffic limiting and degradation. Set to true to check traffic limiting and degradation permissions when accessing related APIs; set to false otherwise.
+    // 
     // This parameter is required.
     std::shared_ptr<bool> enableAhas_ = nullptr;
   };

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Indicates if enabled. Valid values: true and false.
     std::shared_ptr<bool> enable_ = nullptr;
   };
 
