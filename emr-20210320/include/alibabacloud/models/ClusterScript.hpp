@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executionFailStrategy_ != nullptr
-        && this->executionMoment_ != nullptr && this->nodeSelect_ != nullptr && this->priority_ != nullptr && this->scriptArgs_ != nullptr && this->scriptName_ != nullptr
-        && this->scriptPath_ != nullptr; };
+    virtual bool empty() const override { return this->executionFailStrategy_ == nullptr
+        && return this->executionMoment_ == nullptr && return this->nodeSelect_ == nullptr && return this->priority_ == nullptr && return this->scriptArgs_ == nullptr && return this->scriptName_ == nullptr
+        && return this->scriptPath_ == nullptr; };
     // executionFailStrategy Field Functions 
     bool hasExecutionFailStrategy() const { return this->executionFailStrategy_ != nullptr;};
     void deleteExecutionFailStrategy() { this->executionFailStrategy_ = nullptr;};

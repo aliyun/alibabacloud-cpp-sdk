@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->batchInterval_ != nullptr
-        && this->batchSize_ != nullptr && this->clusterId_ != nullptr && this->decreaseNodeCount_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeIds_ != nullptr
-        && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->batchInterval_ == nullptr
+        && return this->batchSize_ == nullptr && return this->clusterId_ == nullptr && return this->decreaseNodeCount_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeIds_ == nullptr
+        && return this->regionId_ == nullptr; };
     // batchInterval Field Functions 
     bool hasBatchInterval() const { return this->batchInterval_ != nullptr;};
     void deleteBatchInterval() { this->batchInterval_ = nullptr;};

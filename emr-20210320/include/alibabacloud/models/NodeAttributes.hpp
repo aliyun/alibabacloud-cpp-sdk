@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskEncrypted_ != nullptr
-        && this->dataDiskKMSKeyId_ != nullptr && this->keyPairName_ != nullptr && this->masterRootPassword_ != nullptr && this->ramRole_ != nullptr && this->securityGroupId_ != nullptr
-        && this->systemDiskEncrypted_ != nullptr && this->systemDiskKMSKeyId_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskEncrypted_ == nullptr
+        && return this->dataDiskKMSKeyId_ == nullptr && return this->keyPairName_ == nullptr && return this->masterRootPassword_ == nullptr && return this->ramRole_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->systemDiskEncrypted_ == nullptr && return this->systemDiskKMSKeyId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // dataDiskEncrypted Field Functions 
     bool hasDataDiskEncrypted() const { return this->dataDiskEncrypted_ != nullptr;};
     void deleteDataDiskEncrypted() { this->dataDiskEncrypted_ = nullptr;};

@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityId_ != nullptr
-        && this->activityResults_ != nullptr && this->activityState_ != nullptr && this->activityType_ != nullptr && this->clusterId_ != nullptr && this->description_ != nullptr
-        && this->endTime_ != nullptr && this->expectNum_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->operationId_ != nullptr
-        && this->policyType_ != nullptr && this->ruleDetail_ != nullptr && this->ruleName_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->activityId_ == nullptr
+        && return this->activityResults_ == nullptr && return this->activityState_ == nullptr && return this->activityType_ == nullptr && return this->clusterId_ == nullptr && return this->description_ == nullptr
+        && return this->endTime_ == nullptr && return this->expectNum_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->operationId_ == nullptr
+        && return this->policyType_ == nullptr && return this->ruleDetail_ == nullptr && return this->ruleName_ == nullptr && return this->startTime_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};

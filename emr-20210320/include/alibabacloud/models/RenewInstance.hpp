@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->emrRenewDuration_ != nullptr
-        && this->emrRenewDurationUnit_ != nullptr && this->instanceId_ != nullptr && this->renewDuration_ != nullptr && this->renewDurationUnit_ != nullptr; };
+    virtual bool empty() const override { return this->emrRenewDuration_ == nullptr
+        && return this->emrRenewDurationUnit_ == nullptr && return this->instanceId_ == nullptr && return this->renewDuration_ == nullptr && return this->renewDurationUnit_ == nullptr; };
     // emrRenewDuration Field Functions 
     bool hasEmrRenewDuration() const { return this->emrRenewDuration_ != nullptr;};
     void deleteEmrRenewDuration() { this->emrRenewDuration_ = nullptr;};

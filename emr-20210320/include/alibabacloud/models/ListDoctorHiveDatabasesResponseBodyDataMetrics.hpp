@@ -159,16 +159,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->coldDataDayGrowthSize_ != nullptr
-        && this->coldDataRatio_ != nullptr && this->coldDataSize_ != nullptr && this->coldDataSizeDayGrowthRatio_ != nullptr && this->emptyFileCount_ != nullptr && this->emptyFileCountDayGrowthRatio_ != nullptr
-        && this->emptyFileDayGrowthCount_ != nullptr && this->emptyFileRatio_ != nullptr && this->freezeDataDayGrowthSize_ != nullptr && this->freezeDataRatio_ != nullptr && this->freezeDataSize_ != nullptr
-        && this->freezeDataSizeDayGrowthRatio_ != nullptr && this->hotDataDayGrowthSize_ != nullptr && this->hotDataRatio_ != nullptr && this->hotDataSize_ != nullptr && this->hotDataSizeDayGrowthRatio_ != nullptr
-        && this->largeFileCount_ != nullptr && this->largeFileCountDayGrowthRatio_ != nullptr && this->largeFileDayGrowthCount_ != nullptr && this->largeFileRatio_ != nullptr && this->mediumFileCount_ != nullptr
-        && this->mediumFileCountDayGrowthRatio_ != nullptr && this->mediumFileDayGrowthCount_ != nullptr && this->mediumFileRatio_ != nullptr && this->partitionNum_ != nullptr && this->smallFileCount_ != nullptr
-        && this->smallFileCountDayGrowthRatio_ != nullptr && this->smallFileDayGrowthCount_ != nullptr && this->smallFileRatio_ != nullptr && this->tableCount_ != nullptr && this->tinyFileCount_ != nullptr
-        && this->tinyFileCountDayGrowthRatio_ != nullptr && this->tinyFileDayGrowthCount_ != nullptr && this->tinyFileRatio_ != nullptr && this->totalDataDayGrowthSize_ != nullptr && this->totalDataSize_ != nullptr
-        && this->totalDataSizeDayGrowthRatio_ != nullptr && this->totalFileCount_ != nullptr && this->totalFileCountDayGrowthRatio_ != nullptr && this->totalFileDayGrowthCount_ != nullptr && this->warmDataDayGrowthSize_ != nullptr
-        && this->warmDataRatio_ != nullptr && this->warmDataSize_ != nullptr && this->warmDataSizeDayGrowthRatio_ != nullptr; };
+    virtual bool empty() const override { return this->coldDataDayGrowthSize_ == nullptr
+        && return this->coldDataRatio_ == nullptr && return this->coldDataSize_ == nullptr && return this->coldDataSizeDayGrowthRatio_ == nullptr && return this->emptyFileCount_ == nullptr && return this->emptyFileCountDayGrowthRatio_ == nullptr
+        && return this->emptyFileDayGrowthCount_ == nullptr && return this->emptyFileRatio_ == nullptr && return this->freezeDataDayGrowthSize_ == nullptr && return this->freezeDataRatio_ == nullptr && return this->freezeDataSize_ == nullptr
+        && return this->freezeDataSizeDayGrowthRatio_ == nullptr && return this->hotDataDayGrowthSize_ == nullptr && return this->hotDataRatio_ == nullptr && return this->hotDataSize_ == nullptr && return this->hotDataSizeDayGrowthRatio_ == nullptr
+        && return this->largeFileCount_ == nullptr && return this->largeFileCountDayGrowthRatio_ == nullptr && return this->largeFileDayGrowthCount_ == nullptr && return this->largeFileRatio_ == nullptr && return this->mediumFileCount_ == nullptr
+        && return this->mediumFileCountDayGrowthRatio_ == nullptr && return this->mediumFileDayGrowthCount_ == nullptr && return this->mediumFileRatio_ == nullptr && return this->partitionNum_ == nullptr && return this->smallFileCount_ == nullptr
+        && return this->smallFileCountDayGrowthRatio_ == nullptr && return this->smallFileDayGrowthCount_ == nullptr && return this->smallFileRatio_ == nullptr && return this->tableCount_ == nullptr && return this->tinyFileCount_ == nullptr
+        && return this->tinyFileCountDayGrowthRatio_ == nullptr && return this->tinyFileDayGrowthCount_ == nullptr && return this->tinyFileRatio_ == nullptr && return this->totalDataDayGrowthSize_ == nullptr && return this->totalDataSize_ == nullptr
+        && return this->totalDataSizeDayGrowthRatio_ == nullptr && return this->totalFileCount_ == nullptr && return this->totalFileCountDayGrowthRatio_ == nullptr && return this->totalFileDayGrowthCount_ == nullptr && return this->warmDataDayGrowthSize_ == nullptr
+        && return this->warmDataRatio_ == nullptr && return this->warmDataSize_ == nullptr && return this->warmDataSizeDayGrowthRatio_ == nullptr; };
     // coldDataDayGrowthSize Field Functions 
     bool hasColdDataDayGrowthSize() const { return this->coldDataDayGrowthSize_ != nullptr;};
     void deleteColdDataDayGrowthSize() { this->coldDataDayGrowthSize_ = nullptr;};

@@ -6,6 +6,7 @@
 #include <alibabacloud/models/ApplicationConfig.hpp>
 #include <alibabacloud/models/Application.hpp>
 #include <alibabacloud/models/Script.hpp>
+#include <alibabacloud/models/CollationTimeZone.hpp>
 #include <alibabacloud/models/NodeAttributes.hpp>
 #include <alibabacloud/models/NodeGroup.hpp>
 #include <alibabacloud/models/GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies.hpp>
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_TO_JSON(ClusterState, clusterState_);
       DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
+      DARABONBA_PTR_TO_JSON(CollationTimeZone, collationTimeZone_);
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
       DARABONBA_PTR_TO_JSON(DeployMode, deployMode_);
       DARABONBA_PTR_TO_JSON(EmrDefaultRole, emrDefaultRole_);
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
       DARABONBA_PTR_FROM_JSON(ClusterState, clusterState_);
       DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
+      DARABONBA_PTR_FROM_JSON(CollationTimeZone, collationTimeZone_);
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
       DARABONBA_PTR_FROM_JSON(DeployMode, deployMode_);
       DARABONBA_PTR_FROM_JSON(EmrDefaultRole, emrDefaultRole_);
@@ -78,11 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->applications_ != nullptr && this->bootstrapScripts_ != nullptr && this->clusterId_ != nullptr && this->clusterName_ != nullptr && this->clusterState_ != nullptr
-        && this->clusterType_ != nullptr && this->deletionProtection_ != nullptr && this->deployMode_ != nullptr && this->emrDefaultRole_ != nullptr && this->existCloneConfig_ != nullptr
-        && this->nodeAttributes_ != nullptr && this->nodeGroups_ != nullptr && this->paymentType_ != nullptr && this->regionId_ != nullptr && this->releaseVersion_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->scalingPolicies_ != nullptr && this->securityMode_ != nullptr && this->subscriptionConfig_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->applications_ == nullptr && return this->bootstrapScripts_ == nullptr && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterState_ == nullptr
+        && return this->clusterType_ == nullptr && return this->collationTimeZone_ == nullptr && return this->deletionProtection_ == nullptr && return this->deployMode_ == nullptr && return this->emrDefaultRole_ == nullptr
+        && return this->existCloneConfig_ == nullptr && return this->nodeAttributes_ == nullptr && return this->nodeGroups_ == nullptr && return this->paymentType_ == nullptr && return this->regionId_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scalingPolicies_ == nullptr && return this->securityMode_ == nullptr && return this->subscriptionConfig_ == nullptr
+        && return this->tags_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};
@@ -136,6 +140,15 @@ namespace Models
     void deleteClusterType() { this->clusterType_ = nullptr;};
     inline string clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
     inline GetClusterCloneMetaResponseBodyClusterCloneMeta& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
+    // collationTimeZone Field Functions 
+    bool hasCollationTimeZone() const { return this->collationTimeZone_ != nullptr;};
+    void deleteCollationTimeZone() { this->collationTimeZone_ = nullptr;};
+    inline const Models::CollationTimeZone & collationTimeZone() const { DARABONBA_PTR_GET_CONST(collationTimeZone_, Models::CollationTimeZone) };
+    inline Models::CollationTimeZone collationTimeZone() { DARABONBA_PTR_GET(collationTimeZone_, Models::CollationTimeZone) };
+    inline GetClusterCloneMetaResponseBodyClusterCloneMeta& setCollationTimeZone(const Models::CollationTimeZone & collationTimeZone) { DARABONBA_PTR_SET_VALUE(collationTimeZone_, collationTimeZone) };
+    inline GetClusterCloneMetaResponseBodyClusterCloneMeta& setCollationTimeZone(Models::CollationTimeZone && collationTimeZone) { DARABONBA_PTR_SET_RVALUE(collationTimeZone_, collationTimeZone) };
 
 
     // deletionProtection Field Functions 
@@ -277,6 +290,7 @@ namespace Models
     // *   CUSTOM
     // *   HADOOP
     std::shared_ptr<string> clusterType_ = nullptr;
+    std::shared_ptr<Models::CollationTimeZone> collationTimeZone_ = nullptr;
     // Indicates whether release protection is enabled for the cluster. Valid values:
     // 
     // *   true: Release protection is enabled for the cluster.

@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataDiskCategory_ != nullptr
-        && this->dataDiskCount_ != nullptr && this->dataDiskSize_ != nullptr && this->defaultCoolDownTime_ != nullptr && this->instanceTypeList_ != nullptr && this->multiAvailablePolicy_ != nullptr
-        && this->nodeOfflinePolicy_ != nullptr && this->privatePoolOptions_ != nullptr && this->scalingMaxSize_ != nullptr && this->scalingMinSize_ != nullptr && this->spotStrategy_ != nullptr
-        && this->sysDiskCategory_ != nullptr && this->sysDiskSize_ != nullptr && this->triggerMode_ != nullptr; };
+    virtual bool empty() const override { return this->dataDiskCategory_ == nullptr
+        && return this->dataDiskCount_ == nullptr && return this->dataDiskSize_ == nullptr && return this->defaultCoolDownTime_ == nullptr && return this->instanceTypeList_ == nullptr && return this->multiAvailablePolicy_ == nullptr
+        && return this->nodeOfflinePolicy_ == nullptr && return this->privatePoolOptions_ == nullptr && return this->scalingMaxSize_ == nullptr && return this->scalingMinSize_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->sysDiskCategory_ == nullptr && return this->sysDiskSize_ == nullptr && return this->triggerMode_ == nullptr; };
     // dataDiskCategory Field Functions 
     bool hasDataDiskCategory() const { return this->dataDiskCategory_ != nullptr;};
     void deleteDataDiskCategory() { this->dataDiskCategory_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationName_ != nullptr
-        && this->configEffectState_ != nullptr && this->configFileName_ != nullptr && this->configItemKey_ != nullptr && this->configItemValue_ != nullptr && this->createTime_ != nullptr
-        && this->custom_ != nullptr && this->description_ != nullptr && this->initValue_ != nullptr && this->modifier_ != nullptr && this->nodeGroupId_ != nullptr
-        && this->nodeId_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->applicationName_ == nullptr
+        && return this->configEffectState_ == nullptr && return this->configFileName_ == nullptr && return this->configItemKey_ == nullptr && return this->configItemValue_ == nullptr && return this->createTime_ == nullptr
+        && return this->custom_ == nullptr && return this->description_ == nullptr && return this->initValue_ == nullptr && return this->modifier_ == nullptr && return this->nodeGroupId_ == nullptr
+        && return this->nodeId_ == nullptr && return this->updateTime_ == nullptr; };
     // applicationName Field Functions 
     bool hasApplicationName() const { return this->applicationName_ != nullptr;};
     void deleteApplicationName() { this->applicationName_ = nullptr;};

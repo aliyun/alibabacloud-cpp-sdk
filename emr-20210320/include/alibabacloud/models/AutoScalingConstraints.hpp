@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoScalingMetricUnits_ != nullptr
-        && this->defaultMetricTriggeredRules_ != nullptr && this->maxAdjustmentValue_ != nullptr && this->maxByLoadRuleCount_ != nullptr && this->maxByTimeRuleCount_ != nullptr && this->supportMetricTags_ != nullptr
-        && this->supportMetrics_ != nullptr && this->supportRuleTypes_ != nullptr; };
+    virtual bool empty() const override { return this->autoScalingMetricUnits_ == nullptr
+        && return this->defaultMetricTriggeredRules_ == nullptr && return this->maxAdjustmentValue_ == nullptr && return this->maxByLoadRuleCount_ == nullptr && return this->maxByTimeRuleCount_ == nullptr && return this->supportMetricTags_ == nullptr
+        && return this->supportMetrics_ == nullptr && return this->supportRuleTypes_ == nullptr; };
     // autoScalingMetricUnits Field Functions 
     bool hasAutoScalingMetricUnits() const { return this->autoScalingMetricUnits_ != nullptr;};
     void deleteAutoScalingMetricUnits() { this->autoScalingMetricUnits_ = nullptr;};

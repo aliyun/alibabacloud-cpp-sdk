@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETAUTOSCALINGPOLICYRESPONSEBODYSCALINGPOLICYSCALINGRULES_HPP_
 #define ALIBABACLOUD_MODELS_GETAUTOSCALINGPOLICYRESPONSEBODYSCALINGPOLICYSCALINGRULES_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CollationTimeZone.hpp>
 #include <alibabacloud/models/MetricsTrigger.hpp>
 #include <alibabacloud/models/TimeTrigger.hpp>
 using namespace std;
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ActivityType, activityType_);
       DARABONBA_PTR_TO_JSON(AdjustmentType, adjustmentType_);
       DARABONBA_PTR_TO_JSON(AdjustmentValue, adjustmentValue_);
+      DARABONBA_PTR_TO_JSON(CollationTimeZone, collationTimeZone_);
       DARABONBA_PTR_TO_JSON(MetricsTrigger, metricsTrigger_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(TimeTrigger, timeTrigger_);
@@ -27,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ActivityType, activityType_);
       DARABONBA_PTR_FROM_JSON(AdjustmentType, adjustmentType_);
       DARABONBA_PTR_FROM_JSON(AdjustmentValue, adjustmentValue_);
+      DARABONBA_PTR_FROM_JSON(CollationTimeZone, collationTimeZone_);
       DARABONBA_PTR_FROM_JSON(MetricsTrigger, metricsTrigger_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(TimeTrigger, timeTrigger_);
@@ -43,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityType_ != nullptr
-        && this->adjustmentType_ != nullptr && this->adjustmentValue_ != nullptr && this->metricsTrigger_ != nullptr && this->ruleName_ != nullptr && this->timeTrigger_ != nullptr
-        && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->activityType_ == nullptr
+        && return this->adjustmentType_ == nullptr && return this->adjustmentValue_ == nullptr && return this->collationTimeZone_ == nullptr && return this->metricsTrigger_ == nullptr && return this->ruleName_ == nullptr
+        && return this->timeTrigger_ == nullptr && return this->triggerType_ == nullptr; };
     // activityType Field Functions 
     bool hasActivityType() const { return this->activityType_ != nullptr;};
     void deleteActivityType() { this->activityType_ = nullptr;};
@@ -65,6 +68,15 @@ namespace Models
     void deleteAdjustmentValue() { this->adjustmentValue_ = nullptr;};
     inline int32_t adjustmentValue() const { DARABONBA_PTR_GET_DEFAULT(adjustmentValue_, 0) };
     inline GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules& setAdjustmentValue(int32_t adjustmentValue) { DARABONBA_PTR_SET_VALUE(adjustmentValue_, adjustmentValue) };
+
+
+    // collationTimeZone Field Functions 
+    bool hasCollationTimeZone() const { return this->collationTimeZone_ != nullptr;};
+    void deleteCollationTimeZone() { this->collationTimeZone_ = nullptr;};
+    inline const Models::CollationTimeZone & collationTimeZone() const { DARABONBA_PTR_GET_CONST(collationTimeZone_, Models::CollationTimeZone) };
+    inline Models::CollationTimeZone collationTimeZone() { DARABONBA_PTR_GET(collationTimeZone_, Models::CollationTimeZone) };
+    inline GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules& setCollationTimeZone(const Models::CollationTimeZone & collationTimeZone) { DARABONBA_PTR_SET_VALUE(collationTimeZone_, collationTimeZone) };
+    inline GetAutoScalingPolicyResponseBodyScalingPolicyScalingRules& setCollationTimeZone(Models::CollationTimeZone && collationTimeZone) { DARABONBA_PTR_SET_RVALUE(collationTimeZone_, collationTimeZone) };
 
 
     // metricsTrigger Field Functions 
@@ -109,6 +121,7 @@ namespace Models
     std::shared_ptr<string> adjustmentType_ = nullptr;
     // The adjustment value. The parameter value must be a positive integer, which indicates the number of instances that you want to add or remove.
     std::shared_ptr<int32_t> adjustmentValue_ = nullptr;
+    std::shared_ptr<Models::CollationTimeZone> collationTimeZone_ = nullptr;
     // The description of load-based scaling.
     std::shared_ptr<Models::MetricsTrigger> metricsTrigger_ = nullptr;
     // The name of the auto scaling rule.

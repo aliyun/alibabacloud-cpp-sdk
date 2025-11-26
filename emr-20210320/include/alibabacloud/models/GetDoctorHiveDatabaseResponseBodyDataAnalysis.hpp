@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hiveDistributionScore_ != nullptr
-        && this->hiveFormatScore_ != nullptr && this->hiveFrequencyScore_ != nullptr && this->hiveScore_ != nullptr; };
+    virtual bool empty() const override { return this->hiveDistributionScore_ == nullptr
+        && return this->hiveFormatScore_ == nullptr && return this->hiveFrequencyScore_ == nullptr && return this->hiveScore_ == nullptr; };
     // hiveDistributionScore Field Functions 
     bool hasHiveDistributionScore() const { return this->hiveDistributionScore_ != nullptr;};
     void deleteHiveDistributionScore() { this->hiveDistributionScore_ = nullptr;};

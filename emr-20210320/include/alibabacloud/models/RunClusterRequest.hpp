@@ -74,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->applications_ != nullptr && this->bootstrapScripts_ != nullptr && this->clientToken_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr
-        && this->deletionProtection_ != nullptr && this->deployMode_ != nullptr && this->description_ != nullptr && this->nodeAttributes_ != nullptr && this->nodeGroups_ != nullptr
-        && this->paymentType_ != nullptr && this->promotions_ != nullptr && this->regionId_ != nullptr && this->releaseVersion_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityMode_ != nullptr && this->subscriptionConfig_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->applications_ == nullptr && return this->bootstrapScripts_ == nullptr && return this->clientToken_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->deployMode_ == nullptr && return this->description_ == nullptr && return this->nodeAttributes_ == nullptr && return this->nodeGroups_ == nullptr
+        && return this->paymentType_ == nullptr && return this->promotions_ == nullptr && return this->regionId_ == nullptr && return this->releaseVersion_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->securityMode_ == nullptr && return this->subscriptionConfig_ == nullptr && return this->tags_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->inefficientTaskRate_ != nullptr
-        && this->memoryUtilizationRate_ != nullptr && this->originalTotalVcore_ != nullptr && this->vcoreUtilizationRate_ != nullptr; };
+    virtual bool empty() const override { return this->inefficientTaskRate_ == nullptr
+        && return this->memoryUtilizationRate_ == nullptr && return this->originalTotalVcore_ == nullptr && return this->vcoreUtilizationRate_ == nullptr; };
     // inefficientTaskRate Field Functions 
     bool hasInefficientTaskRate() const { return this->inefficientTaskRate_ != nullptr;};
     void deleteInefficientTaskRate() { this->inefficientTaskRate_ = nullptr;};

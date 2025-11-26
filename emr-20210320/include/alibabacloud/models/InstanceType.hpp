@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cpuArchitecture_ != nullptr
-        && this->cpuCore_ != nullptr && this->instanceCategory_ != nullptr && this->instanceType_ != nullptr && this->instanceTypeFamily_ != nullptr && this->localStorageAmount_ != nullptr
-        && this->localStorageCapacity_ != nullptr && this->modifyType_ != nullptr && this->optimized_ != nullptr; };
+    virtual bool empty() const override { return this->cpuArchitecture_ == nullptr
+        && return this->cpuCore_ == nullptr && return this->instanceCategory_ == nullptr && return this->instanceType_ == nullptr && return this->instanceTypeFamily_ == nullptr && return this->localStorageAmount_ == nullptr
+        && return this->localStorageCapacity_ == nullptr && return this->modifyType_ == nullptr && return this->optimized_ == nullptr; };
     // cpuArchitecture Field Functions 
     bool hasCpuArchitecture() const { return this->cpuArchitecture_ != nullptr;};
     void deleteCpuArchitecture() { this->cpuArchitecture_ = nullptr;};

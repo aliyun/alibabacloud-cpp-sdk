@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityType_ != nullptr
-        && this->adjustmentValue_ != nullptr && this->instanceType_ != nullptr && this->maxSave_ != nullptr && this->metricsTrigger_ != nullptr && this->ruleName_ != nullptr
-        && this->timeTrigger_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->activityType_ == nullptr
+        && return this->adjustmentValue_ == nullptr && return this->instanceType_ == nullptr && return this->maxSave_ == nullptr && return this->metricsTrigger_ == nullptr && return this->ruleName_ == nullptr
+        && return this->timeTrigger_ == nullptr && return this->triggerType_ == nullptr; };
     // activityType Field Functions 
     bool hasActivityType() const { return this->activityType_ != nullptr;};
     void deleteActivityType() { this->activityType_ = nullptr;};

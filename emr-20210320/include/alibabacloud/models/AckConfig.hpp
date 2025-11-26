@@ -73,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ackInstanceId_ != nullptr
-        && this->customAnnotations_ != nullptr && this->customLabels_ != nullptr && this->dataDiskSize_ != nullptr && this->dataDiskStorageClass_ != nullptr && this->limitCpu_ != nullptr
-        && this->limitMemory_ != nullptr && this->mountHostCgroup_ != nullptr && this->namespace_ != nullptr && this->nodeAffinity_ != nullptr && this->nodeSelectors_ != nullptr
-        && this->podAffinity_ != nullptr && this->podAntiAffinity_ != nullptr && this->preStartCommand_ != nullptr && this->pvcs_ != nullptr && this->requestCpu_ != nullptr
-        && this->requestMemory_ != nullptr && this->tolerations_ != nullptr && this->volumeMounts_ != nullptr && this->volumes_ != nullptr; };
+    virtual bool empty() const override { return this->ackInstanceId_ == nullptr
+        && return this->customAnnotations_ == nullptr && return this->customLabels_ == nullptr && return this->dataDiskSize_ == nullptr && return this->dataDiskStorageClass_ == nullptr && return this->limitCpu_ == nullptr
+        && return this->limitMemory_ == nullptr && return this->mountHostCgroup_ == nullptr && return this->namespace_ == nullptr && return this->nodeAffinity_ == nullptr && return this->nodeSelectors_ == nullptr
+        && return this->podAffinity_ == nullptr && return this->podAntiAffinity_ == nullptr && return this->preStartCommand_ == nullptr && return this->pvcs_ == nullptr && return this->requestCpu_ == nullptr
+        && return this->requestMemory_ == nullptr && return this->tolerations_ == nullptr && return this->volumeMounts_ == nullptr && return this->volumes_ == nullptr; };
     // ackInstanceId Field Functions 
     bool hasAckInstanceId() const { return this->ackInstanceId_ != nullptr;};
     void deleteAckInstanceId() { this->ackInstanceId_ = nullptr;};

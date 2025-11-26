@@ -74,11 +74,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->clusterName_ != nullptr && this->clusterState_ != nullptr && this->clusterType_ != nullptr && this->createTime_ != nullptr && this->deletionProtection_ != nullptr
-        && this->deployMode_ != nullptr && this->description_ != nullptr && this->emrDefaultRole_ != nullptr && this->endTime_ != nullptr && this->expireTime_ != nullptr
-        && this->nodeAttributes_ != nullptr && this->paymentType_ != nullptr && this->readyTime_ != nullptr && this->regionId_ != nullptr && this->releaseVersion_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->securityMode_ != nullptr && this->stateChangeReason_ != nullptr && this->subscriptionConfig_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->clusterName_ == nullptr && return this->clusterState_ == nullptr && return this->clusterType_ == nullptr && return this->createTime_ == nullptr && return this->deletionProtection_ == nullptr
+        && return this->deployMode_ == nullptr && return this->description_ == nullptr && return this->emrDefaultRole_ == nullptr && return this->endTime_ == nullptr && return this->expireTime_ == nullptr
+        && return this->nodeAttributes_ == nullptr && return this->paymentType_ == nullptr && return this->readyTime_ == nullptr && return this->regionId_ == nullptr && return this->releaseVersion_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->securityMode_ == nullptr && return this->stateChangeReason_ == nullptr && return this->subscriptionConfig_ == nullptr && return this->tags_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

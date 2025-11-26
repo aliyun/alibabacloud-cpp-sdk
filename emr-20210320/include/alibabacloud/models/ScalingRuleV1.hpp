@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adjustmentType_ != nullptr
-        && this->adjustmentValue_ != nullptr && this->coolDownTime_ != nullptr && this->ruleName_ != nullptr && this->ruleParam_ != nullptr && this->ruleType_ != nullptr
-        && this->scalingConfigBizId_ != nullptr; };
+    virtual bool empty() const override { return this->adjustmentType_ == nullptr
+        && return this->adjustmentValue_ == nullptr && return this->coolDownTime_ == nullptr && return this->ruleName_ == nullptr && return this->ruleParam_ == nullptr && return this->ruleType_ == nullptr
+        && return this->scalingConfigBizId_ == nullptr; };
     // adjustmentType Field Functions 
     bool hasAdjustmentType() const { return this->adjustmentType_ != nullptr;};
     void deleteAdjustmentType() { this->adjustmentType_ = nullptr;};

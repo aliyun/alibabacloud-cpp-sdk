@@ -52,9 +52,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigs_ != nullptr
-        && this->autoPayOrder_ != nullptr && this->autoRenew_ != nullptr && this->clusterId_ != nullptr && this->increaseNodeCount_ != nullptr && this->minIncreaseNodeCount_ != nullptr
-        && this->nodeGroupId_ != nullptr && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr && this->promotions_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigs_ == nullptr
+        && return this->autoPayOrder_ == nullptr && return this->autoRenew_ == nullptr && return this->clusterId_ == nullptr && return this->increaseNodeCount_ == nullptr && return this->minIncreaseNodeCount_ == nullptr
+        && return this->nodeGroupId_ == nullptr && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->promotions_ == nullptr && return this->regionId_ == nullptr; };
     // applicationConfigs Field Functions 
     bool hasApplicationConfigs() const { return this->applicationConfigs_ != nullptr;};
     void deleteApplicationConfigs() { this->applicationConfigs_ = nullptr;};

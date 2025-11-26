@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applicationConfigsShrink_ != nullptr
-        && this->applicationsShrink_ != nullptr && this->bootstrapScriptsShrink_ != nullptr && this->clientToken_ != nullptr && this->clusterName_ != nullptr && this->clusterType_ != nullptr
-        && this->deletionProtection_ != nullptr && this->deployMode_ != nullptr && this->description_ != nullptr && this->nodeAttributesShrink_ != nullptr && this->nodeGroupsShrink_ != nullptr
-        && this->paymentType_ != nullptr && this->promotionsShrink_ != nullptr && this->regionId_ != nullptr && this->releaseVersion_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->securityMode_ != nullptr && this->subscriptionConfigShrink_ != nullptr && this->tagsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->applicationConfigsShrink_ == nullptr
+        && return this->applicationsShrink_ == nullptr && return this->bootstrapScriptsShrink_ == nullptr && return this->clientToken_ == nullptr && return this->clusterName_ == nullptr && return this->clusterType_ == nullptr
+        && return this->deletionProtection_ == nullptr && return this->deployMode_ == nullptr && return this->description_ == nullptr && return this->nodeAttributesShrink_ == nullptr && return this->nodeGroupsShrink_ == nullptr
+        && return this->paymentType_ == nullptr && return this->promotionsShrink_ == nullptr && return this->regionId_ == nullptr && return this->releaseVersion_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->securityMode_ == nullptr && return this->subscriptionConfigShrink_ == nullptr && return this->tagsShrink_ == nullptr; };
     // applicationConfigsShrink Field Functions 
     bool hasApplicationConfigsShrink() const { return this->applicationConfigsShrink_ != nullptr;};
     void deleteApplicationConfigsShrink() { this->applicationConfigsShrink_ = nullptr;};

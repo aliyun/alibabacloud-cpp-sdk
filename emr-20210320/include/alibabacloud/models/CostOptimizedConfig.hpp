@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->onDemandBaseCapacity_ != nullptr
-        && this->onDemandPercentageAboveBaseCapacity_ != nullptr && this->spotInstancePools_ != nullptr; };
+    virtual bool empty() const override { return this->onDemandBaseCapacity_ == nullptr
+        && return this->onDemandPercentageAboveBaseCapacity_ == nullptr && return this->spotInstancePools_ == nullptr; };
     // onDemandBaseCapacity Field Functions 
     bool hasOnDemandBaseCapacity() const { return this->onDemandBaseCapacity_ != nullptr;};
     void deleteOnDemandBaseCapacity() { this->onDemandBaseCapacity_ = nullptr;};

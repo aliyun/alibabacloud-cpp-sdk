@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterId_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->nodeGroupIds_ != nullptr && this->nodeIds_ != nullptr && this->nodeNames_ != nullptr
-        && this->nodeStates_ != nullptr && this->privateIps_ != nullptr && this->publicIps_ != nullptr && this->regionId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->nodeGroupIds_ == nullptr && return this->nodeIds_ == nullptr && return this->nodeNames_ == nullptr
+        && return this->nodeStates_ == nullptr && return this->privateIps_ == nullptr && return this->publicIps_ == nullptr && return this->regionId_ == nullptr && return this->tags_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};

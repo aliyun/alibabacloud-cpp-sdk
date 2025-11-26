@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isAdmin_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->isAdmin_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->users_ == nullptr; };
     // isAdmin Field Functions 
     bool hasIsAdmin() const { return this->isAdmin_ != nullptr;};
     void deleteIsAdmin() { this->isAdmin_ = nullptr;};

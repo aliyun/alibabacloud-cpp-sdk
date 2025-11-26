@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewDuration_ != nullptr && this->autoRenewDurationUnit_ != nullptr && this->dataDisks_ != nullptr && this->instanceTypes_ != nullptr && this->nodeCount_ != nullptr
-        && this->nodeGroupName_ != nullptr && this->nodeGroupType_ != nullptr && this->nodeKeyPairName_ != nullptr && this->nodeRamRole_ != nullptr && this->nodeRootPassword_ != nullptr
-        && this->paymentDuration_ != nullptr && this->paymentDurationUnit_ != nullptr && this->paymentType_ != nullptr && this->securityGroupId_ != nullptr && this->spotStrategy_ != nullptr
-        && this->systemDisk_ != nullptr && this->vSwitchIds_ != nullptr && this->withPublicIp_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewDuration_ == nullptr && return this->autoRenewDurationUnit_ == nullptr && return this->dataDisks_ == nullptr && return this->instanceTypes_ == nullptr && return this->nodeCount_ == nullptr
+        && return this->nodeGroupName_ == nullptr && return this->nodeGroupType_ == nullptr && return this->nodeKeyPairName_ == nullptr && return this->nodeRamRole_ == nullptr && return this->nodeRootPassword_ == nullptr
+        && return this->paymentDuration_ == nullptr && return this->paymentDurationUnit_ == nullptr && return this->paymentType_ == nullptr && return this->securityGroupId_ == nullptr && return this->spotStrategy_ == nullptr
+        && return this->systemDisk_ == nullptr && return this->vSwitchIds_ == nullptr && return this->withPublicIp_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

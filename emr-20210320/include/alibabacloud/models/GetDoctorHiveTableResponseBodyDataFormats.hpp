@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->formatDayGrowthSize_ != nullptr
-        && this->formatName_ != nullptr && this->formatRatio_ != nullptr && this->formatSize_ != nullptr && this->formatSizeDayGrowthRatio_ != nullptr && this->formatSizeUnit_ != nullptr; };
+    virtual bool empty() const override { return this->formatDayGrowthSize_ == nullptr
+        && return this->formatName_ == nullptr && return this->formatRatio_ == nullptr && return this->formatSize_ == nullptr && return this->formatSizeDayGrowthRatio_ == nullptr && return this->formatSizeUnit_ == nullptr; };
     // formatDayGrowthSize Field Functions 
     bool hasFormatDayGrowthSize() const { return this->formatDayGrowthSize_ != nullptr;};
     void deleteFormatDayGrowthSize() { this->formatDayGrowthSize_ = nullptr;};

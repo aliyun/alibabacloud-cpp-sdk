@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cause_ != nullptr
-        && this->description_ != nullptr && this->endTime_ != nullptr && this->essScalingRuleId_ != nullptr && this->expectNum_ != nullptr && this->hostGroupName_ != nullptr
-        && this->id_ != nullptr && this->instanceIds_ != nullptr && this->scalingGroupId_ != nullptr && this->scalingRuleName_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->totalCapacity_ != nullptr && this->transition_ != nullptr; };
+    virtual bool empty() const override { return this->cause_ == nullptr
+        && return this->description_ == nullptr && return this->endTime_ == nullptr && return this->essScalingRuleId_ == nullptr && return this->expectNum_ == nullptr && return this->hostGroupName_ == nullptr
+        && return this->id_ == nullptr && return this->instanceIds_ == nullptr && return this->scalingGroupId_ == nullptr && return this->scalingRuleName_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->totalCapacity_ == nullptr && return this->transition_ == nullptr; };
     // cause Field Functions 
     bool hasCause() const { return this->cause_ != nullptr;};
     void deleteCause() { this->cause_ = nullptr;};

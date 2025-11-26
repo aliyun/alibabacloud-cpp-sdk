@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoRenew_ != nullptr
-        && this->autoRenewDuration_ != nullptr && this->autoRenewDurationUnit_ != nullptr && this->createTime_ != nullptr && this->expireTime_ != nullptr && this->instanceType_ != nullptr
-        && this->maintenanceStatus_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupType_ != nullptr && this->nodeId_ != nullptr && this->nodeName_ != nullptr
-        && this->nodeState_ != nullptr && this->privateIp_ != nullptr && this->publicIp_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->autoRenew_ == nullptr
+        && return this->autoRenewDuration_ == nullptr && return this->autoRenewDurationUnit_ == nullptr && return this->createTime_ == nullptr && return this->expireTime_ == nullptr && return this->instanceType_ == nullptr
+        && return this->maintenanceStatus_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupType_ == nullptr && return this->nodeId_ == nullptr && return this->nodeName_ == nullptr
+        && return this->nodeState_ == nullptr && return this->privateIp_ == nullptr && return this->publicIp_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};

@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adjustmentValue_ != nullptr
-        && this->byLoadScalingRuleSpec_ != nullptr && this->byTimeScalingRuleSpec_ != nullptr && this->coolDownInterval_ != nullptr && this->scalingActivityType_ != nullptr && this->scalingRuleName_ != nullptr
-        && this->scalingRuleType_ != nullptr; };
+    virtual bool empty() const override { return this->adjustmentValue_ == nullptr
+        && return this->byLoadScalingRuleSpec_ == nullptr && return this->byTimeScalingRuleSpec_ == nullptr && return this->coolDownInterval_ == nullptr && return this->scalingActivityType_ == nullptr && return this->scalingRuleName_ == nullptr
+        && return this->scalingRuleType_ == nullptr; };
     // adjustmentValue Field Functions 
     bool hasAdjustmentValue() const { return this->adjustmentValue_ != nullptr;};
     void deleteAdjustmentValue() { this->adjustmentValue_ = nullptr;};

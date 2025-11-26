@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->memoryUtilizationRate_ != nullptr
-        && this->vcoreUtilizationRate_ != nullptr; };
+    virtual bool empty() const override { return this->memoryUtilizationRate_ == nullptr
+        && return this->vcoreUtilizationRate_ == nullptr; };
     // memoryUtilizationRate Field Functions 
     bool hasMemoryUtilizationRate() const { return this->memoryUtilizationRate_ != nullptr;};
     void deleteMemoryUtilizationRate() { this->memoryUtilizationRate_ = nullptr;};

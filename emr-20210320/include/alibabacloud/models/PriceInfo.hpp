@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currency_ != nullptr
-        && this->discountPrice_ != nullptr && this->originalPrice_ != nullptr && this->payType_ != nullptr && this->promotionResults_ != nullptr && this->resourceType_ != nullptr
-        && this->spotInstanceTypeOriginalPrice_ != nullptr && this->spotInstanceTypePrice_ != nullptr && this->spotOriginalPrice_ != nullptr && this->spotPrice_ != nullptr && this->taxPrice_ != nullptr
-        && this->tradePrice_ != nullptr; };
+    virtual bool empty() const override { return this->currency_ == nullptr
+        && return this->discountPrice_ == nullptr && return this->originalPrice_ == nullptr && return this->payType_ == nullptr && return this->promotionResults_ == nullptr && return this->resourceType_ == nullptr
+        && return this->spotInstanceTypeOriginalPrice_ == nullptr && return this->spotInstanceTypePrice_ == nullptr && return this->spotOriginalPrice_ == nullptr && return this->spotPrice_ == nullptr && return this->taxPrice_ == nullptr
+        && return this->tradePrice_ == nullptr; };
     // currency Field Functions 
     bool hasCurrency() const { return this->currency_ != nullptr;};
     void deleteCurrency() { this->currency_ = nullptr;};

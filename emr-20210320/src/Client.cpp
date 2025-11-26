@@ -692,6 +692,8 @@ DeleteUsersResponse Client::deleteUsers(const DeleteUsersRequest &request) {
 }
 
 /**
+ * @summary 导出应用服务配置
+ *
  * @param request ExportApplicationConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExportApplicationConfigsResponse
@@ -707,12 +709,24 @@ ExportApplicationConfigsResponse Client::exportApplicationConfigsWithOptions(con
     query["ClusterId"] = request.clusterId();
   }
 
+  if (!!request.hasConfigScope()) {
+    query["ConfigScope"] = request.configScope();
+  }
+
   if (!!request.hasExportMode()) {
     query["ExportMode"] = request.exportMode();
   }
 
   if (!!request.hasFileFormat()) {
     query["FileFormat"] = request.fileFormat();
+  }
+
+  if (!!request.hasNodeGroupIds()) {
+    query["NodeGroupIds"] = request.nodeGroupIds();
+  }
+
+  if (!!request.hasNodeIds()) {
+    query["NodeIds"] = request.nodeIds();
   }
 
   if (!!request.hasRegionId()) {
@@ -737,6 +751,8 @@ ExportApplicationConfigsResponse Client::exportApplicationConfigsWithOptions(con
 }
 
 /**
+ * @summary 导出应用服务配置
+ *
  * @param request ExportApplicationConfigsRequest
  * @return ExportApplicationConfigsResponse
  */
@@ -4645,6 +4661,68 @@ UpdateClusterAttributeResponse Client::updateClusterAttributeWithOptions(const U
 UpdateClusterAttributeResponse Client::updateClusterAttribute(const UpdateClusterAttributeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateClusterAttributeWithOptions(request, runtime);
+}
+
+/**
+ * @param request UpdateClusterAutoRenewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateClusterAutoRenewResponse
+ */
+UpdateClusterAutoRenewResponse Client::updateClusterAutoRenewWithOptions(const UpdateClusterAutoRenewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenewInstances()) {
+    query["AutoRenewInstances"] = request.autoRenewInstances();
+  }
+
+  if (!!request.hasClusterAutoRenew()) {
+    query["ClusterAutoRenew"] = request.clusterAutoRenew();
+  }
+
+  if (!!request.hasClusterAutoRenewDuration()) {
+    query["ClusterAutoRenewDuration"] = request.clusterAutoRenewDuration();
+  }
+
+  if (!!request.hasClusterAutoRenewDurationUnit()) {
+    query["ClusterAutoRenewDurationUnit"] = request.clusterAutoRenewDurationUnit();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRenewAllInstances()) {
+    query["RenewAllInstances"] = request.renewAllInstances();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateClusterAutoRenew"},
+    {"version" , "2021-03-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateClusterAutoRenewResponse>();
+}
+
+/**
+ * @param request UpdateClusterAutoRenewRequest
+ * @return UpdateClusterAutoRenewResponse
+ */
+UpdateClusterAutoRenewResponse Client::updateClusterAutoRenew(const UpdateClusterAutoRenewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateClusterAutoRenewWithOptions(request, runtime);
 }
 
 /**

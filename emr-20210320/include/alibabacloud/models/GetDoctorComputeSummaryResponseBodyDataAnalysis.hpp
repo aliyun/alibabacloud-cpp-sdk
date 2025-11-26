@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->healthyJobCount_ != nullptr
-        && this->needAttentionJobCount_ != nullptr && this->score_ != nullptr && this->scoreDayGrowthRatio_ != nullptr && this->subHealthyJobCount_ != nullptr && this->unhealthyJobCount_ != nullptr; };
+    virtual bool empty() const override { return this->healthyJobCount_ == nullptr
+        && return this->needAttentionJobCount_ == nullptr && return this->score_ == nullptr && return this->scoreDayGrowthRatio_ == nullptr && return this->subHealthyJobCount_ == nullptr && return this->unhealthyJobCount_ == nullptr; };
     // healthyJobCount Field Functions 
     bool hasHealthyJobCount() const { return this->healthyJobCount_ != nullptr;};
     void deleteHealthyJobCount() { this->healthyJobCount_ = nullptr;};

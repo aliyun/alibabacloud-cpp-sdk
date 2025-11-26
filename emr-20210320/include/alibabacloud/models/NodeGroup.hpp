@@ -82,12 +82,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalSecurityGroupIds_ != nullptr
-        && this->compensateWithOnDemand_ != nullptr && this->costOptimizedConfig_ != nullptr && this->dataDisks_ != nullptr && this->deploymentSetStrategy_ != nullptr && this->gracefulShutdown_ != nullptr
-        && this->instanceTypes_ != nullptr && this->nodeGroupId_ != nullptr && this->nodeGroupName_ != nullptr && this->nodeGroupState_ != nullptr && this->nodeGroupType_ != nullptr
-        && this->nodeResizeStrategy_ != nullptr && this->paymentType_ != nullptr && this->privatePoolOptions_ != nullptr && this->runningNodeCount_ != nullptr && this->spotBidPrices_ != nullptr
-        && this->spotInstanceRemedy_ != nullptr && this->spotStrategy_ != nullptr && this->stateChangeReason_ != nullptr && this->status_ != nullptr && this->systemDisk_ != nullptr
-        && this->vSwitchIds_ != nullptr && this->withPublicIp_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->additionalSecurityGroupIds_ == nullptr
+        && return this->compensateWithOnDemand_ == nullptr && return this->costOptimizedConfig_ == nullptr && return this->dataDisks_ == nullptr && return this->deploymentSetStrategy_ == nullptr && return this->gracefulShutdown_ == nullptr
+        && return this->instanceTypes_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeGroupState_ == nullptr && return this->nodeGroupType_ == nullptr
+        && return this->nodeResizeStrategy_ == nullptr && return this->paymentType_ == nullptr && return this->privatePoolOptions_ == nullptr && return this->runningNodeCount_ == nullptr && return this->spotBidPrices_ == nullptr
+        && return this->spotInstanceRemedy_ == nullptr && return this->spotStrategy_ == nullptr && return this->stateChangeReason_ == nullptr && return this->status_ == nullptr && return this->systemDisk_ == nullptr
+        && return this->vSwitchIds_ == nullptr && return this->withPublicIp_ == nullptr && return this->zoneId_ == nullptr; };
     // additionalSecurityGroupIds Field Functions 
     bool hasAdditionalSecurityGroupIds() const { return this->additionalSecurityGroupIds_ != nullptr;};
     void deleteAdditionalSecurityGroupIds() { this->additionalSecurityGroupIds_ = nullptr;};

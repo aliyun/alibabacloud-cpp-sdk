@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->initialReplica_ != nullptr
-        && this->initialShard_ != nullptr && this->newNodeCount_ != nullptr && this->resizeType_ != nullptr; };
+    virtual bool empty() const override { return this->initialReplica_ == nullptr
+        && return this->initialShard_ == nullptr && return this->newNodeCount_ == nullptr && return this->resizeType_ == nullptr; };
     // initialReplica Field Functions 
     bool hasInitialReplica() const { return this->initialReplica_ != nullptr;};
     void deleteInitialReplica() { this->initialReplica_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->memSeconds_ != nullptr
-        && this->memSecondsDayGrowthRatio_ != nullptr && this->memUtilization_ != nullptr && this->readSize_ != nullptr && this->vcoreSeconds_ != nullptr && this->vcoreSecondsDayGrowthRatio_ != nullptr
-        && this->vcoreUtilization_ != nullptr && this->writeSize_ != nullptr; };
+    virtual bool empty() const override { return this->memSeconds_ == nullptr
+        && return this->memSecondsDayGrowthRatio_ == nullptr && return this->memUtilization_ == nullptr && return this->readSize_ == nullptr && return this->vcoreSeconds_ == nullptr && return this->vcoreSecondsDayGrowthRatio_ == nullptr
+        && return this->vcoreUtilization_ == nullptr && return this->writeSize_ == nullptr; };
     // memSeconds Field Functions 
     bool hasMemSeconds() const { return this->memSeconds_ != nullptr;};
     void deleteMemSeconds() { this->memSeconds_ = nullptr;};

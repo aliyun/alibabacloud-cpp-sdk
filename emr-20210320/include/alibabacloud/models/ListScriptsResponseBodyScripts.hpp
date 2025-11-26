@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->endTime_ != nullptr && this->executionFailStrategy_ != nullptr && this->executionMoment_ != nullptr && this->executionState_ != nullptr && this->lastUpdateTime_ != nullptr
-        && this->nodeSelector_ != nullptr && this->regionId_ != nullptr && this->scriptArgs_ != nullptr && this->scriptId_ != nullptr && this->scriptName_ != nullptr
-        && this->scriptPath_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->endTime_ == nullptr && return this->executionFailStrategy_ == nullptr && return this->executionMoment_ == nullptr && return this->executionState_ == nullptr && return this->lastUpdateTime_ == nullptr
+        && return this->nodeSelector_ == nullptr && return this->regionId_ == nullptr && return this->scriptArgs_ == nullptr && return this->scriptId_ == nullptr && return this->scriptName_ == nullptr
+        && return this->scriptPath_ == nullptr && return this->startTime_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};

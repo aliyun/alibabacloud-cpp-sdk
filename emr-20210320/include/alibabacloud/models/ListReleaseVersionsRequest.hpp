@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clusterType_ != nullptr
-        && this->iaasType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clusterType_ == nullptr
+        && return this->iaasType_ == nullptr && return this->regionId_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->iaasType_ != nullptr
-        && this->releaseVersion_ != nullptr && this->series_ != nullptr; };
+    virtual bool empty() const override { return this->iaasType_ == nullptr
+        && return this->releaseVersion_ == nullptr && return this->series_ == nullptr; };
     // iaasType Field Functions 
     bool hasIaasType() const { return this->iaasType_ != nullptr;};
     void deleteIaasType() { this->iaasType_ = nullptr;};

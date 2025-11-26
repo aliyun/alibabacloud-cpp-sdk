@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxCapacity_ != nullptr
-        && this->maxOnDemandCapacity_ != nullptr && this->minCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->maxCapacity_ == nullptr
+        && return this->maxOnDemandCapacity_ == nullptr && return this->minCapacity_ == nullptr; };
     // maxCapacity Field Functions 
     bool hasMaxCapacity() const { return this->maxCapacity_ != nullptr;};
     void deleteMaxCapacity() { this->maxCapacity_ = nullptr;};

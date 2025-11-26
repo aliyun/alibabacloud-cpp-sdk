@@ -199,6 +199,8 @@ namespace Emr20210320
       Models::DeleteUsersResponse deleteUsers(const Models::DeleteUsersRequest &request);
 
       /**
+       * @summary 导出应用服务配置
+       *
        * @param request ExportApplicationConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExportApplicationConfigsResponse
@@ -206,6 +208,8 @@ namespace Emr20210320
       Models::ExportApplicationConfigsResponse exportApplicationConfigsWithOptions(const Models::ExportApplicationConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 导出应用服务配置
+       *
        * @param request ExportApplicationConfigsRequest
        * @return ExportApplicationConfigsResponse
        */
@@ -1342,6 +1346,19 @@ namespace Emr20210320
        * @return UpdateClusterAttributeResponse
        */
       Models::UpdateClusterAttributeResponse updateClusterAttribute(const Models::UpdateClusterAttributeRequest &request);
+
+      /**
+       * @param request UpdateClusterAutoRenewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateClusterAutoRenewResponse
+       */
+      Models::UpdateClusterAutoRenewResponse updateClusterAutoRenewWithOptions(const Models::UpdateClusterAutoRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request UpdateClusterAutoRenewRequest
+       * @return UpdateClusterAutoRenewResponse
+       */
+      Models::UpdateClusterAutoRenewResponse updateClusterAutoRenew(const Models::UpdateClusterAutoRenewRequest &request);
 
       /**
        * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
