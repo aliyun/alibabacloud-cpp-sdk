@@ -523,6 +523,23 @@ namespace DataworksPublic20240518
       Models::CreateFunctionResponse createFunction(const Models::CreateFunctionRequest &request);
 
       /**
+       * @summary 创建身份凭证
+       *
+       * @param tmpReq CreateIdentifyCredentialRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIdentifyCredentialResponse
+       */
+      Models::CreateIdentifyCredentialResponse createIdentifyCredentialWithOptions(const Models::CreateIdentifyCredentialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建身份凭证
+       *
+       * @param request CreateIdentifyCredentialRequest
+       * @return CreateIdentifyCredentialResponse
+       */
+      Models::CreateIdentifyCredentialResponse createIdentifyCredential(const Models::CreateIdentifyCredentialRequest &request);
+
+      /**
        * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
        *
        * @param tmpReq CreateLineageRelationshipRequest

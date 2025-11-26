@@ -110,6 +110,10 @@
 #include <alibabacloud/models/CreateFunctionRequest.hpp>
 #include <alibabacloud/models/CreateFunctionResponseBody.hpp>
 #include <alibabacloud/models/CreateFunctionResponse.hpp>
+#include <alibabacloud/models/CreateIdentifyCredentialRequest.hpp>
+#include <alibabacloud/models/CreateIdentifyCredentialShrinkRequest.hpp>
+#include <alibabacloud/models/CreateIdentifyCredentialResponseBody.hpp>
+#include <alibabacloud/models/CreateIdentifyCredentialResponse.hpp>
 #include <alibabacloud/models/CreateLineageRelationshipRequest.hpp>
 #include <alibabacloud/models/CreateLineageRelationshipShrinkRequest.hpp>
 #include <alibabacloud/models/CreateLineageRelationshipResponseBody.hpp>

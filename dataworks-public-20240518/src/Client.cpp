@@ -1987,6 +1987,54 @@ CreateFunctionResponse Client::createFunction(const CreateFunctionRequest &reque
 }
 
 /**
+ * @summary 创建身份凭证
+ *
+ * @param tmpReq CreateIdentifyCredentialRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIdentifyCredentialResponse
+ */
+CreateIdentifyCredentialResponse Client::createIdentifyCredentialWithOptions(const CreateIdentifyCredentialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateIdentifyCredentialShrinkRequest request = CreateIdentifyCredentialShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasIdentifyCredential()) {
+    request.setIdentifyCredentialShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.identifyCredential(), "IdentifyCredential", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasIdentifyCredentialShrink()) {
+    body["IdentifyCredential"] = request.identifyCredentialShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateIdentifyCredential"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIdentifyCredentialResponse>();
+}
+
+/**
+ * @summary 创建身份凭证
+ *
+ * @param request CreateIdentifyCredentialRequest
+ * @return CreateIdentifyCredentialResponse
+ */
+CreateIdentifyCredentialResponse Client::createIdentifyCredential(const CreateIdentifyCredentialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createIdentifyCredentialWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a lineage between a source entity and a destination entity. Either the source or destination entity must be a custom entity.
  *
  * @param tmpReq CreateLineageRelationshipRequest
