@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardPhoneNumbers_ != nullptr
-        && this->cardSignNames_ != nullptr && this->cardSmsLinks_ != nullptr && this->cardTmpState_ != nullptr && this->notMediaMobiles_ != nullptr; };
+    virtual bool empty() const override { return this->cardPhoneNumbers_ == nullptr
+        && return this->cardSignNames_ == nullptr && return this->cardSmsLinks_ == nullptr && return this->cardTmpState_ == nullptr && return this->notMediaMobiles_ == nullptr; };
     // cardPhoneNumbers Field Functions 
     bool hasCardPhoneNumbers() const { return this->cardPhoneNumbers_ != nullptr;};
     void deleteCardPhoneNumbers() { this->cardPhoneNumbers_ = nullptr;};

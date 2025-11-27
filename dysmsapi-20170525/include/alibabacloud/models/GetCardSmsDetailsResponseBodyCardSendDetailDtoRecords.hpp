@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->errCode_ != nullptr
-        && this->outId_ != nullptr && this->phoneNumber_ != nullptr && this->receiveDate_ != nullptr && this->receiveType_ != nullptr && this->renderDate_ != nullptr
-        && this->renderStatus_ != nullptr && this->sendDate_ != nullptr && this->sendStatus_ != nullptr && this->smsContent_ != nullptr && this->templateCode_ != nullptr; };
+    virtual bool empty() const override { return this->errCode_ == nullptr
+        && return this->outId_ == nullptr && return this->phoneNumber_ == nullptr && return this->receiveDate_ == nullptr && return this->receiveType_ == nullptr && return this->renderDate_ == nullptr
+        && return this->renderStatus_ == nullptr && return this->sendDate_ == nullptr && return this->sendStatus_ == nullptr && return this->smsContent_ == nullptr && return this->templateCode_ == nullptr; };
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};

@@ -1647,6 +1647,60 @@ GetQualificationOssInfoResponse Client::getQualificationOssInfo(const GetQualifi
 }
 
 /**
+ * @summary 获取OCR的OSS信息
+ *
+ * @param request GetSmsOcrOssInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSmsOcrOssInfoResponse
+ */
+GetSmsOcrOssInfoResponse Client::getSmsOcrOssInfoWithOptions(const GetSmsOcrOssInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.taskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSmsOcrOssInfo"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSmsOcrOssInfoResponse>();
+}
+
+/**
+ * @summary 获取OCR的OSS信息
+ *
+ * @param request GetSmsOcrOssInfoRequest
+ * @return GetSmsOcrOssInfoResponse
+ */
+GetSmsOcrOssInfoResponse Client::getSmsOcrOssInfo(const GetSmsOcrOssInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSmsOcrOssInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary Query SMS Signature Details
  *
  * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).

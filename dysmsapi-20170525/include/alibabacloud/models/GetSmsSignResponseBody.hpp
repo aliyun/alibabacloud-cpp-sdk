@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyScene_ != nullptr
-        && this->auditInfo_ != nullptr && this->authorizationLetterAuditPass_ != nullptr && this->authorizationLetterId_ != nullptr && this->code_ != nullptr && this->createDate_ != nullptr
-        && this->fileUrlList_ != nullptr && this->message_ != nullptr && this->orderId_ != nullptr && this->qualificationId_ != nullptr && this->registerResult_ != nullptr
-        && this->remark_ != nullptr && this->requestId_ != nullptr && this->signCode_ != nullptr && this->signIspRegisterDetailList_ != nullptr && this->signName_ != nullptr
-        && this->signStatus_ != nullptr && this->signTag_ != nullptr && this->signUsage_ != nullptr && this->thirdParty_ != nullptr; };
+    virtual bool empty() const override { return this->applyScene_ == nullptr
+        && return this->auditInfo_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->code_ == nullptr && return this->createDate_ == nullptr
+        && return this->fileUrlList_ == nullptr && return this->message_ == nullptr && return this->orderId_ == nullptr && return this->qualificationId_ == nullptr && return this->registerResult_ == nullptr
+        && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->signCode_ == nullptr && return this->signIspRegisterDetailList_ == nullptr && return this->signName_ == nullptr
+        && return this->signStatus_ == nullptr && return this->signTag_ == nullptr && return this->signUsage_ == nullptr && return this->thirdParty_ == nullptr; };
     // applyScene Field Functions 
     bool hasApplyScene() const { return this->applyScene_ != nullptr;};
     void deleteApplyScene() { this->applyScene_ = nullptr;};

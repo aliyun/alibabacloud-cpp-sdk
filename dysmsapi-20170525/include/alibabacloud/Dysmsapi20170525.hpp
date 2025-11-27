@@ -563,6 +563,23 @@ namespace Dysmsapi20170525
       Models::GetQualificationOssInfoResponse getQualificationOssInfo(const Models::GetQualificationOssInfoRequest &request);
 
       /**
+       * @summary 获取OCR的OSS信息
+       *
+       * @param request GetSmsOcrOssInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSmsOcrOssInfoResponse
+       */
+      Models::GetSmsOcrOssInfoResponse getSmsOcrOssInfoWithOptions(const Models::GetSmsOcrOssInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取OCR的OSS信息
+       *
+       * @param request GetSmsOcrOssInfoRequest
+       * @return GetSmsOcrOssInfoResponse
+       */
+      Models::GetSmsOcrOssInfoResponse getSmsOcrOssInfo(const Models::GetSmsOcrOssInfoRequest &request);
+
+      /**
        * @summary Query SMS Signature Details
        *
        * @description - For details about the changes of this new interface and the original one, please refer to [Announcement on the Update of SMS Signature & Template Interfaces](https://help.aliyun.com/zh/sms/product-overview/announcement-on-sms-service-update-signature-template-interface).

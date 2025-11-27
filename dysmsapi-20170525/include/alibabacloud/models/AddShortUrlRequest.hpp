@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->effectiveDays_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->shortUrlName_ != nullptr && this->sourceUrl_ != nullptr; };
+    virtual bool empty() const override { return this->effectiveDays_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->shortUrlName_ == nullptr && return this->sourceUrl_ == nullptr; };
     // effectiveDays Field Functions 
     bool hasEffectiveDays() const { return this->effectiveDays_ != nullptr;};
     void deleteEffectiveDays() { this->effectiveDays_ = nullptr;};

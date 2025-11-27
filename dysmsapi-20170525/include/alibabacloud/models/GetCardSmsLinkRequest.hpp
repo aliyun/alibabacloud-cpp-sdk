@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardCodeType_ != nullptr
-        && this->cardLinkType_ != nullptr && this->cardTemplateCode_ != nullptr && this->cardTemplateParamJson_ != nullptr && this->customShortCodeJson_ != nullptr && this->domain_ != nullptr
-        && this->outId_ != nullptr && this->phoneNumberJson_ != nullptr && this->signNameJson_ != nullptr; };
+    virtual bool empty() const override { return this->cardCodeType_ == nullptr
+        && return this->cardLinkType_ == nullptr && return this->cardTemplateCode_ == nullptr && return this->cardTemplateParamJson_ == nullptr && return this->customShortCodeJson_ == nullptr && return this->domain_ == nullptr
+        && return this->outId_ == nullptr && return this->phoneNumberJson_ == nullptr && return this->signNameJson_ == nullptr; };
     // cardCodeType Field Functions 
     bool hasCardCodeType() const { return this->cardCodeType_ != nullptr;};
     void deleteCardCodeType() { this->cardCodeType_ = nullptr;};

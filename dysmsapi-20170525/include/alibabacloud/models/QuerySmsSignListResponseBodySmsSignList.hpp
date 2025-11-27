@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->authorizationLetterId_ != nullptr && this->businessType_ != nullptr && this->createDate_ != nullptr && this->orderId_ != nullptr && this->reason_ != nullptr
-        && this->signName_ != nullptr && this->authorizationLetterAuditPass_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->authorizationLetterId_ == nullptr && return this->businessType_ == nullptr && return this->createDate_ == nullptr && return this->orderId_ == nullptr && return this->reason_ == nullptr
+        && return this->signName_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

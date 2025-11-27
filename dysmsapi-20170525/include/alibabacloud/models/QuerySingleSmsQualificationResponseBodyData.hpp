@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminIDCardExpDate_ != nullptr
-        && this->adminIDCardFrontFace_ != nullptr && this->adminIDCardNo_ != nullptr && this->adminIDCardPic_ != nullptr && this->adminIDCardType_ != nullptr && this->adminName_ != nullptr
-        && this->adminPhoneNo_ != nullptr && this->businessLicensePics_ != nullptr && this->businessType_ != nullptr && this->companyName_ != nullptr && this->companyType_ != nullptr
-        && this->effTimeStr_ != nullptr && this->legalPersonIDCardNo_ != nullptr && this->legalPersonIDCardType_ != nullptr && this->legalPersonIdCardEffTime_ != nullptr && this->legalPersonName_ != nullptr
-        && this->organizationCode_ != nullptr && this->otherFiles_ != nullptr && this->qualificationGroupId_ != nullptr && this->qualificationName_ != nullptr && this->remark_ != nullptr
-        && this->state_ != nullptr && this->useBySelf_ != nullptr && this->whetherShare_ != nullptr && this->workOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->adminIDCardExpDate_ == nullptr
+        && return this->adminIDCardFrontFace_ == nullptr && return this->adminIDCardNo_ == nullptr && return this->adminIDCardPic_ == nullptr && return this->adminIDCardType_ == nullptr && return this->adminName_ == nullptr
+        && return this->adminPhoneNo_ == nullptr && return this->businessLicensePics_ == nullptr && return this->businessType_ == nullptr && return this->companyName_ == nullptr && return this->companyType_ == nullptr
+        && return this->effTimeStr_ == nullptr && return this->legalPersonIDCardNo_ == nullptr && return this->legalPersonIDCardType_ == nullptr && return this->legalPersonIdCardEffTime_ == nullptr && return this->legalPersonName_ == nullptr
+        && return this->organizationCode_ == nullptr && return this->otherFiles_ == nullptr && return this->qualificationGroupId_ == nullptr && return this->qualificationName_ == nullptr && return this->remark_ == nullptr
+        && return this->state_ == nullptr && return this->useBySelf_ == nullptr && return this->whetherShare_ == nullptr && return this->workOrderId_ == nullptr; };
     // adminIDCardExpDate Field Functions 
     bool hasAdminIDCardExpDate() const { return this->adminIDCardExpDate_ != nullptr;};
     void deleteAdminIDCardExpDate() { this->adminIDCardExpDate_ = nullptr;};

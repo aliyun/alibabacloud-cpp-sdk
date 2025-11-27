@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->outId_ != nullptr
-        && this->ownerId_ != nullptr && this->phoneNumberJson_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->signNameJson_ != nullptr
-        && this->smsUpExtendCodeJson_ != nullptr && this->templateCode_ != nullptr && this->templateParamJson_ != nullptr; };
+    virtual bool empty() const override { return this->outId_ == nullptr
+        && return this->ownerId_ == nullptr && return this->phoneNumberJson_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signNameJson_ == nullptr
+        && return this->smsUpExtendCodeJson_ == nullptr && return this->templateCode_ == nullptr && return this->templateParamJson_ == nullptr; };
     // outId Field Functions 
     bool hasOutId() const { return this->outId_ != nullptr;};
     void deleteOutId() { this->outId_ = nullptr;};

@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->existExtCode_ != nullptr
-        && this->newExtCode_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->signName_ != nullptr; };
+    virtual bool empty() const override { return this->existExtCode_ == nullptr
+        && return this->newExtCode_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr; };
     // existExtCode Field Functions 
     bool hasExistExtCode() const { return this->existExtCode_ != nullptr;};
     void deleteExistExtCode() { this->existExtCode_ = nullptr;};

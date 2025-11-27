@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applySceneContent_ != nullptr
-        && this->intlType_ != nullptr && this->moreData_ != nullptr && this->ownerId_ != nullptr && this->relatedSignName_ != nullptr && this->remark_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->templateContent_ != nullptr && this->templateName_ != nullptr && this->templateRule_ != nullptr
-        && this->templateType_ != nullptr && this->trafficDriving_ != nullptr; };
+    virtual bool empty() const override { return this->applySceneContent_ == nullptr
+        && return this->intlType_ == nullptr && return this->moreData_ == nullptr && return this->ownerId_ == nullptr && return this->relatedSignName_ == nullptr && return this->remark_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->templateContent_ == nullptr && return this->templateName_ == nullptr && return this->templateRule_ == nullptr
+        && return this->templateType_ == nullptr && return this->trafficDriving_ == nullptr; };
     // applySceneContent Field Functions 
     bool hasApplySceneContent() const { return this->applySceneContent_ != nullptr;};
     void deleteApplySceneContent() { this->applySceneContent_ = nullptr;};

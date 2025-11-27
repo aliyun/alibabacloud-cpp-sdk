@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authorizationLetterIdList_ != nullptr
-        && this->organizationCode_ != nullptr && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->signName_ != nullptr
-        && this->state_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->authorizationLetterIdList_ == nullptr
+        && return this->organizationCode_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr
+        && return this->state_ == nullptr && return this->status_ == nullptr; };
     // authorizationLetterIdList Field Functions 
     bool hasAuthorizationLetterIdList() const { return this->authorizationLetterIdList_ != nullptr;};
     void deleteAuthorizationLetterIdList() { this->authorizationLetterIdList_ = nullptr;};

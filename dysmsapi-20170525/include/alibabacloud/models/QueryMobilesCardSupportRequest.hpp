@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->encryptType_ != nullptr
-        && this->mobiles_ != nullptr && this->templateCode_ != nullptr; };
+    virtual bool empty() const override { return this->encryptType_ == nullptr
+        && return this->mobiles_ == nullptr && return this->templateCode_ == nullptr; };
     // encryptType Field Functions 
     bool hasEncryptType() const { return this->encryptType_ != nullptr;};
     void deleteEncryptType() { this->encryptType_ = nullptr;};

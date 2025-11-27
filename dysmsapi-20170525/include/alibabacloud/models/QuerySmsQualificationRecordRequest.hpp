@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->companyName_ != nullptr
-        && this->legalPersonName_ != nullptr && this->ownerId_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->qualificationGroupName_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->state_ != nullptr && this->useBySelf_ != nullptr && this->workOrderId_ != nullptr; };
+    virtual bool empty() const override { return this->companyName_ == nullptr
+        && return this->legalPersonName_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->qualificationGroupName_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->state_ == nullptr && return this->useBySelf_ == nullptr && return this->workOrderId_ == nullptr; };
     // companyName Field Functions 
     bool hasCompanyName() const { return this->companyName_ != nullptr;};
     void deleteCompanyName() { this->companyName_ = nullptr;};

@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cardObjects_ != nullptr
-        && this->cardTemplateCode_ != nullptr && this->digitalTemplateCode_ != nullptr && this->digitalTemplateParam_ != nullptr && this->fallbackType_ != nullptr && this->outId_ != nullptr
-        && this->signName_ != nullptr && this->smsTemplateCode_ != nullptr && this->smsTemplateParam_ != nullptr && this->smsUpExtendCode_ != nullptr && this->templateCode_ != nullptr
-        && this->templateParam_ != nullptr; };
+    virtual bool empty() const override { return this->cardObjects_ == nullptr
+        && return this->cardTemplateCode_ == nullptr && return this->digitalTemplateCode_ == nullptr && return this->digitalTemplateParam_ == nullptr && return this->fallbackType_ == nullptr && return this->outId_ == nullptr
+        && return this->signName_ == nullptr && return this->smsTemplateCode_ == nullptr && return this->smsTemplateParam_ == nullptr && return this->smsUpExtendCode_ == nullptr && return this->templateCode_ == nullptr
+        && return this->templateParam_ == nullptr; };
     // cardObjects Field Functions 
     bool hasCardObjects() const { return this->cardObjects_ != nullptr;};
     void deleteCardObjects() { this->cardObjects_ = nullptr;};

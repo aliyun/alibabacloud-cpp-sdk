@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateContent, templateContent_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
       DARABONBA_PTR_TO_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_TO_JSON(TrafficDriving, trafficDriving_);
     };
     friend void from_json(const Darabonba::Json& j, QuerySmsTemplateListResponseBodySmsTemplateList& obj) { 
       DARABONBA_PTR_FROM_JSON(AuditStatus, auditStatus_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TemplateContent, templateContent_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
       DARABONBA_PTR_FROM_JSON(TemplateType, templateType_);
+      DARABONBA_PTR_FROM_JSON(TrafficDriving, trafficDriving_);
     };
     QuerySmsTemplateListResponseBodySmsTemplateList() = default ;
     QuerySmsTemplateListResponseBodySmsTemplateList(const QuerySmsTemplateListResponseBodySmsTemplateList &) = default ;
@@ -48,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->createDate_ != nullptr && this->orderId_ != nullptr && this->outerTemplateType_ != nullptr && this->reason_ != nullptr && this->signatureName_ != nullptr
-        && this->templateCode_ != nullptr && this->templateContent_ != nullptr && this->templateName_ != nullptr && this->templateType_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->createDate_ == nullptr && return this->orderId_ == nullptr && return this->outerTemplateType_ == nullptr && return this->reason_ == nullptr && return this->signatureName_ == nullptr
+        && return this->templateCode_ == nullptr && return this->templateContent_ == nullptr && return this->templateName_ == nullptr && return this->templateType_ == nullptr && return this->trafficDriving_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     inline QuerySmsTemplateListResponseBodySmsTemplateList& setTemplateType(int32_t templateType) { DARABONBA_PTR_SET_VALUE(templateType_, templateType) };
 
 
+    // trafficDriving Field Functions 
+    bool hasTrafficDriving() const { return this->trafficDriving_ != nullptr;};
+    void deleteTrafficDriving() { this->trafficDriving_ = nullptr;};
+    inline string trafficDriving() const { DARABONBA_PTR_GET_DEFAULT(trafficDriving_, "") };
+    inline QuerySmsTemplateListResponseBodySmsTemplateList& setTrafficDriving(string trafficDriving) { DARABONBA_PTR_SET_VALUE(trafficDriving_, trafficDriving) };
+
+
   protected:
     // The approval status of the message template. Valid values:
     // 
@@ -167,6 +176,7 @@ namespace Models
     // *   **6**: message sent to countries or regions outside the Chinese mainland
     // *   **7**: digital message
     std::shared_ptr<int32_t> templateType_ = nullptr;
+    std::shared_ptr<string> trafficDriving_ = nullptr;
   };
 
   } // namespace Models

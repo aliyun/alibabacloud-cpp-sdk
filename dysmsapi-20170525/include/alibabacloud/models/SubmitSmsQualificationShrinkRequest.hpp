@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adminIDCardExpDate_ != nullptr
-        && this->adminIDCardFrontFace_ != nullptr && this->adminIDCardNo_ != nullptr && this->adminIDCardPic_ != nullptr && this->adminIDCardType_ != nullptr && this->adminName_ != nullptr
-        && this->adminPhoneNo_ != nullptr && this->businessLicensePicsShrink_ != nullptr && this->bussinessLicenseExpDate_ != nullptr && this->certifyCode_ != nullptr && this->companyName_ != nullptr
-        && this->companyType_ != nullptr && this->legalPersonIDCardNo_ != nullptr && this->legalPersonIDCardType_ != nullptr && this->legalPersonIdCardBackSide_ != nullptr && this->legalPersonIdCardEffTime_ != nullptr
-        && this->legalPersonIdCardFrontSide_ != nullptr && this->legalPersonName_ != nullptr && this->organizationCode_ != nullptr && this->otherFilesShrink_ != nullptr && this->ownerId_ != nullptr
-        && this->qualificationName_ != nullptr && this->remark_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->useBySelf_ != nullptr
-        && this->whetherShare_ != nullptr; };
+    virtual bool empty() const override { return this->adminIDCardExpDate_ == nullptr
+        && return this->adminIDCardFrontFace_ == nullptr && return this->adminIDCardNo_ == nullptr && return this->adminIDCardPic_ == nullptr && return this->adminIDCardType_ == nullptr && return this->adminName_ == nullptr
+        && return this->adminPhoneNo_ == nullptr && return this->businessLicensePicsShrink_ == nullptr && return this->bussinessLicenseExpDate_ == nullptr && return this->certifyCode_ == nullptr && return this->companyName_ == nullptr
+        && return this->companyType_ == nullptr && return this->legalPersonIDCardNo_ == nullptr && return this->legalPersonIDCardType_ == nullptr && return this->legalPersonIdCardBackSide_ == nullptr && return this->legalPersonIdCardEffTime_ == nullptr
+        && return this->legalPersonIdCardFrontSide_ == nullptr && return this->legalPersonName_ == nullptr && return this->organizationCode_ == nullptr && return this->otherFilesShrink_ == nullptr && return this->ownerId_ == nullptr
+        && return this->qualificationName_ == nullptr && return this->remark_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->useBySelf_ == nullptr
+        && return this->whetherShare_ == nullptr; };
     // adminIDCardExpDate Field Functions 
     bool hasAdminIDCardExpDate() const { return this->adminIDCardExpDate_ != nullptr;};
     void deleteAdminIDCardExpDate() { this->adminIDCardExpDate_ = nullptr;};

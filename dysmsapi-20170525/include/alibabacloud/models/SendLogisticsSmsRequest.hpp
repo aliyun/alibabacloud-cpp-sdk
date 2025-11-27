@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->expressCompanyCode_ != nullptr
-        && this->mailNo_ != nullptr && this->outId_ != nullptr && this->ownerId_ != nullptr && this->platformCompanyCode_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->signName_ != nullptr && this->templateCode_ != nullptr && this->templateParam_ != nullptr; };
+    virtual bool empty() const override { return this->expressCompanyCode_ == nullptr
+        && return this->mailNo_ == nullptr && return this->outId_ == nullptr && return this->ownerId_ == nullptr && return this->platformCompanyCode_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->templateCode_ == nullptr && return this->templateParam_ == nullptr; };
     // expressCompanyCode Field Functions 
     bool hasExpressCompanyCode() const { return this->expressCompanyCode_ != nullptr;};
     void deleteExpressCompanyCode() { this->expressCompanyCode_ = nullptr;};
