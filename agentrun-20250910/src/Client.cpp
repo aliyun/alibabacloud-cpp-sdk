@@ -1634,6 +1634,10 @@ ListAgentRuntimesResponse Client::listAgentRuntimesWithOptions(const ListAgentRu
     query["searchMode"] = request.searchMode();
   }
 
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}

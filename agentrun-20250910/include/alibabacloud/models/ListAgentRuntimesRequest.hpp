@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(searchMode, searchMode_);
+      DARABONBA_PTR_TO_JSON(status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListAgentRuntimesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentRuntimeName, agentRuntimeName_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(searchMode, searchMode_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
     };
     ListAgentRuntimesRequest() = default ;
     ListAgentRuntimesRequest(const ListAgentRuntimesRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeName_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchMode_ == nullptr; };
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->searchMode_ == nullptr && return this->status_ == nullptr; };
     // agentRuntimeName Field Functions 
     bool hasAgentRuntimeName() const { return this->agentRuntimeName_ != nullptr;};
     void deleteAgentRuntimeName() { this->agentRuntimeName_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline ListAgentRuntimesRequest& setSearchMode(string searchMode) { DARABONBA_PTR_SET_VALUE(searchMode_, searchMode) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListAgentRuntimesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     // 根据智能体运行时名称进行模糊匹配过滤
     std::shared_ptr<string> agentRuntimeName_ = nullptr;
@@ -74,6 +83,8 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // 查询模式，支持精确查询和模糊查询
     std::shared_ptr<string> searchMode_ = nullptr;
+    // 根据状态进行过滤，多个状态用逗号分隔，支持精确匹配
+    std::shared_ptr<string> status_ = nullptr;
   };
 
   } // namespace Models

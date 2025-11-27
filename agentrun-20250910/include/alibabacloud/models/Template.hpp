@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(credentialConfiguration, credentialConfiguration_);
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(credentialConfiguration, credentialConfiguration_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
@@ -86,11 +88,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerConfiguration_ == nullptr
-        && return this->cpu_ == nullptr && return this->createdAt_ == nullptr && return this->credentialConfiguration_ == nullptr && return this->diskSize_ == nullptr && return this->environmentVariables_ == nullptr
-        && return this->executionRoleArn_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->logConfiguration_ == nullptr && return this->mcpOptions_ == nullptr && return this->mcpState_ == nullptr
-        && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->ossConfiguration_ == nullptr && return this->resourceName_ == nullptr && return this->sandboxIdleTimeoutInSeconds_ == nullptr
-        && return this->sandboxTTLInSeconds_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->templateArn_ == nullptr && return this->templateConfiguration_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateName_ == nullptr && return this->templateType_ == nullptr && return this->templateVersion_ == nullptr; };
+        && return this->cpu_ == nullptr && return this->createdAt_ == nullptr && return this->credentialConfiguration_ == nullptr && return this->description_ == nullptr && return this->diskSize_ == nullptr
+        && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->logConfiguration_ == nullptr && return this->mcpOptions_ == nullptr
+        && return this->mcpState_ == nullptr && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->ossConfiguration_ == nullptr && return this->resourceName_ == nullptr
+        && return this->sandboxIdleTimeoutInSeconds_ == nullptr && return this->sandboxTTLInSeconds_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->templateArn_ == nullptr
+        && return this->templateConfiguration_ == nullptr && return this->templateId_ == nullptr && return this->templateName_ == nullptr && return this->templateType_ == nullptr && return this->templateVersion_ == nullptr; };
     // containerConfiguration Field Functions 
     bool hasContainerConfiguration() const { return this->containerConfiguration_ != nullptr;};
     void deleteContainerConfiguration() { this->containerConfiguration_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     inline CredentialConfiguration credentialConfiguration() { DARABONBA_PTR_GET(credentialConfiguration_, CredentialConfiguration) };
     inline Template& setCredentialConfiguration(const CredentialConfiguration & credentialConfiguration) { DARABONBA_PTR_SET_VALUE(credentialConfiguration_, credentialConfiguration) };
     inline Template& setCredentialConfiguration(CredentialConfiguration && credentialConfiguration) { DARABONBA_PTR_SET_RVALUE(credentialConfiguration_, credentialConfiguration) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline Template& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // diskSize Field Functions 
@@ -286,6 +295,7 @@ namespace Models
     std::shared_ptr<float> cpu_ = nullptr;
     std::shared_ptr<string> createdAt_ = nullptr;
     std::shared_ptr<CredentialConfiguration> credentialConfiguration_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<int32_t> diskSize_ = nullptr;
     std::shared_ptr<string> environmentVariables_ = nullptr;
     std::shared_ptr<string> executionRoleArn_ = nullptr;
