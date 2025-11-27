@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
       DARABONBA_PTR_TO_JSON(AuthVersion, authVersion_);
       DARABONBA_PTR_TO_JSON(Bind, bind_);
+      DARABONBA_PTR_TO_JSON(ContainerId, containerId_);
       DARABONBA_PTR_TO_JSON(ExtendContentJson, extendContentJson_);
       DARABONBA_PTR_TO_JSON(FirstTs, firstTs_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
       DARABONBA_PTR_FROM_JSON(AuthVersion, authVersion_);
       DARABONBA_PTR_FROM_JSON(Bind, bind_);
+      DARABONBA_PTR_FROM_JSON(ContainerId, containerId_);
       DARABONBA_PTR_FROM_JSON(ExtendContentJson, extendContentJson_);
       DARABONBA_PTR_FROM_JSON(FirstTs, firstTs_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
@@ -107,14 +109,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasName_ == nullptr
-        && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->extendContentJson_ == nullptr && return this->firstTs_ == nullptr && return this->groupId_ == nullptr
-        && return this->image_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr
-        && return this->k8sClusterId_ == nullptr && return this->k8sNamespace_ == nullptr && return this->k8sNodeId_ == nullptr && return this->k8sNodeName_ == nullptr && return this->k8sPodName_ == nullptr
-        && return this->lastTs_ == nullptr && return this->modifyTs_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr && return this->necessity_ == nullptr
-        && return this->online_ == nullptr && return this->osName_ == nullptr && return this->osVersion_ == nullptr && return this->primaryId_ == nullptr && return this->progress_ == nullptr
-        && return this->raspDefend_ == nullptr && return this->raspStatus_ == nullptr && return this->realRisk_ == nullptr && return this->regionId_ == nullptr && return this->related_ == nullptr
-        && return this->repairTs_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr && return this->ruleTag_ == nullptr && return this->status_ == nullptr
-        && return this->tag_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->authVersion_ == nullptr && return this->bind_ == nullptr && return this->containerId_ == nullptr && return this->extendContentJson_ == nullptr && return this->firstTs_ == nullptr
+        && return this->groupId_ == nullptr && return this->image_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr && return this->internetIp_ == nullptr
+        && return this->intranetIp_ == nullptr && return this->k8sClusterId_ == nullptr && return this->k8sNamespace_ == nullptr && return this->k8sNodeId_ == nullptr && return this->k8sNodeName_ == nullptr
+        && return this->k8sPodName_ == nullptr && return this->lastTs_ == nullptr && return this->modifyTs_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr
+        && return this->necessity_ == nullptr && return this->online_ == nullptr && return this->osName_ == nullptr && return this->osVersion_ == nullptr && return this->primaryId_ == nullptr
+        && return this->progress_ == nullptr && return this->raspDefend_ == nullptr && return this->raspStatus_ == nullptr && return this->realRisk_ == nullptr && return this->regionId_ == nullptr
+        && return this->related_ == nullptr && return this->repairTs_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr && return this->ruleTag_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->uuid_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -134,6 +136,13 @@ namespace Models
     void deleteBind() { this->bind_ = nullptr;};
     inline bool bind() const { DARABONBA_PTR_GET_DEFAULT(bind_, false) };
     inline DescribeVulListResponseBodyVulRecords& setBind(bool bind) { DARABONBA_PTR_SET_VALUE(bind_, bind) };
+
+
+    // containerId Field Functions 
+    bool hasContainerId() const { return this->containerId_ != nullptr;};
+    void deleteContainerId() { this->containerId_ = nullptr;};
+    inline string containerId() const { DARABONBA_PTR_GET_DEFAULT(containerId_, "") };
+    inline DescribeVulListResponseBodyVulRecords& setContainerId(string containerId) { DARABONBA_PTR_SET_VALUE(containerId_, containerId) };
 
 
     // extendContentJson Field Functions 
@@ -407,6 +416,7 @@ namespace Models
     // *   **true**
     // *   **false**
     std::shared_ptr<bool> bind_ = nullptr;
+    std::shared_ptr<string> containerId_ = nullptr;
     // The extended information about the vulnerability.
     std::shared_ptr<Models::DescribeVulListResponseBodyVulRecordsExtendContentJson> extendContentJson_ = nullptr;
     // The timestamp when the vulnerability was first detected. Unit: milliseconds.
