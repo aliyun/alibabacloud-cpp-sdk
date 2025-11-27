@@ -13,6 +13,7 @@ namespace Models
   class SubmitConvertImageToPdfJobShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitConvertImageToPdfJobShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_TO_JSON(ImageNameExtension, imageNameExtension_);
       DARABONBA_PTR_TO_JSON(ImageNames, imageNamesShrink_);
       DARABONBA_PTR_TO_JSON(ImageUrls, imageUrlsShrink_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitConvertImageToPdfJobShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_FROM_JSON(ImageNameExtension, imageNameExtension_);
       DARABONBA_PTR_FROM_JSON(ImageNames, imageNamesShrink_);
       DARABONBA_PTR_FROM_JSON(ImageUrls, imageUrlsShrink_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageNameExtension_ == nullptr
-        && return this->imageNamesShrink_ == nullptr && return this->imageUrlsShrink_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr; };
+    virtual bool empty() const override { return this->enableEventCallback_ == nullptr
+        && return this->imageNameExtension_ == nullptr && return this->imageNamesShrink_ == nullptr && return this->imageUrlsShrink_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr; };
+    // enableEventCallback Field Functions 
+    bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
+    void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
+    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline SubmitConvertImageToPdfJobShrinkRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
+
+
     // imageNameExtension Field Functions 
     bool hasImageNameExtension() const { return this->imageNameExtension_ != nullptr;};
     void deleteImageNameExtension() { this->imageNameExtension_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> enableEventCallback_ = nullptr;
     std::shared_ptr<string> imageNameExtension_ = nullptr;
     std::shared_ptr<string> imageNamesShrink_ = nullptr;
     std::shared_ptr<string> imageUrlsShrink_ = nullptr;

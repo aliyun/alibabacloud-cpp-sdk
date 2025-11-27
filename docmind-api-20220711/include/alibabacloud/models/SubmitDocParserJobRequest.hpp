@@ -17,6 +17,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocParserJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CustomOssConfig, customOssConfig_);
+      DARABONBA_PTR_TO_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_TO_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
@@ -34,6 +35,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocParserJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomOssConfig, customOssConfig_);
+      DARABONBA_PTR_FROM_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_FROM_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
@@ -61,9 +63,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customOssConfig_ == nullptr
-        && return this->enhancementMode_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr
-        && return this->LLMParam_ == nullptr && return this->llmEnhancement_ == nullptr && return this->multimediaParameters_ == nullptr && return this->needHeaderFooter_ == nullptr && return this->option_ == nullptr
-        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->outputHtmlTable_ == nullptr && return this->pageIndex_ == nullptr; };
+        && return this->enableEventCallback_ == nullptr && return this->enhancementMode_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr
+        && return this->formulaEnhancement_ == nullptr && return this->LLMParam_ == nullptr && return this->llmEnhancement_ == nullptr && return this->multimediaParameters_ == nullptr && return this->needHeaderFooter_ == nullptr
+        && return this->option_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->outputHtmlTable_ == nullptr && return this->pageIndex_ == nullptr; };
     // customOssConfig Field Functions 
     bool hasCustomOssConfig() const { return this->customOssConfig_ != nullptr;};
     void deleteCustomOssConfig() { this->customOssConfig_ = nullptr;};
@@ -71,6 +73,13 @@ namespace Models
     inline SubmitDocParserJobRequestCustomOssConfig customOssConfig() { DARABONBA_PTR_GET(customOssConfig_, SubmitDocParserJobRequestCustomOssConfig) };
     inline SubmitDocParserJobRequest& setCustomOssConfig(const SubmitDocParserJobRequestCustomOssConfig & customOssConfig) { DARABONBA_PTR_SET_VALUE(customOssConfig_, customOssConfig) };
     inline SubmitDocParserJobRequest& setCustomOssConfig(SubmitDocParserJobRequestCustomOssConfig && customOssConfig) { DARABONBA_PTR_SET_RVALUE(customOssConfig_, customOssConfig) };
+
+
+    // enableEventCallback Field Functions 
+    bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
+    void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
+    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline SubmitDocParserJobRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
 
 
     // enhancementMode Field Functions 
@@ -177,6 +186,7 @@ namespace Models
 
   protected:
     std::shared_ptr<SubmitDocParserJobRequestCustomOssConfig> customOssConfig_ = nullptr;
+    std::shared_ptr<bool> enableEventCallback_ = nullptr;
     std::shared_ptr<string> enhancementMode_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     std::shared_ptr<string> fileNameExtension_ = nullptr;

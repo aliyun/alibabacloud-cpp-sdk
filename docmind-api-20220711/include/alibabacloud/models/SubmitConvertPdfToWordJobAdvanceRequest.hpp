@@ -13,6 +13,7 @@ namespace Models
   class SubmitConvertPdfToWordJobAdvanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitConvertPdfToWordJobAdvanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_TO_JSON(FileUrl, fileUrlObject_);
       DARABONBA_PTR_TO_JSON(ForceExportInnerImage, forceExportInnerImage_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OssEndpoint, ossEndpoint_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitConvertPdfToWordJobAdvanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_FROM_JSON(FileUrl, fileUrlObject_);
       DARABONBA_PTR_FROM_JSON(ForceExportInnerImage, forceExportInnerImage_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileName_ == nullptr
-        && return this->fileUrlObject_ == nullptr && return this->forceExportInnerImage_ == nullptr && return this->formulaEnhancement_ == nullptr && return this->option_ == nullptr && return this->ossBucket_ == nullptr
-        && return this->ossEndpoint_ == nullptr; };
+    virtual bool empty() const override { return this->enableEventCallback_ == nullptr
+        && return this->fileName_ == nullptr && return this->fileUrlObject_ == nullptr && return this->forceExportInnerImage_ == nullptr && return this->formulaEnhancement_ == nullptr && return this->option_ == nullptr
+        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr; };
+    // enableEventCallback Field Functions 
+    bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
+    void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
+    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline SubmitConvertPdfToWordJobAdvanceRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
+
+
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> enableEventCallback_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     shared_ptr<Darabonba::IStream> fileUrlObject_ = nullptr;
     std::shared_ptr<bool> forceExportInnerImage_ = nullptr;

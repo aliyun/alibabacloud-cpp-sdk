@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocParserJobShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CustomOssConfig, customOssConfigShrink_);
+      DARABONBA_PTR_TO_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_TO_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
@@ -31,6 +32,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocParserJobShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CustomOssConfig, customOssConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_FROM_JSON(EnhancementMode, enhancementMode_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
@@ -58,14 +60,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customOssConfigShrink_ == nullptr
-        && return this->enhancementMode_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr
-        && return this->LLMParamShrink_ == nullptr && return this->llmEnhancement_ == nullptr && return this->multimediaParametersShrink_ == nullptr && return this->needHeaderFooter_ == nullptr && return this->option_ == nullptr
-        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->outputHtmlTable_ == nullptr && return this->pageIndex_ == nullptr; };
+        && return this->enableEventCallback_ == nullptr && return this->enhancementMode_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr
+        && return this->formulaEnhancement_ == nullptr && return this->LLMParamShrink_ == nullptr && return this->llmEnhancement_ == nullptr && return this->multimediaParametersShrink_ == nullptr && return this->needHeaderFooter_ == nullptr
+        && return this->option_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->outputHtmlTable_ == nullptr && return this->pageIndex_ == nullptr; };
     // customOssConfigShrink Field Functions 
     bool hasCustomOssConfigShrink() const { return this->customOssConfigShrink_ != nullptr;};
     void deleteCustomOssConfigShrink() { this->customOssConfigShrink_ = nullptr;};
     inline string customOssConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(customOssConfigShrink_, "") };
     inline SubmitDocParserJobShrinkRequest& setCustomOssConfigShrink(string customOssConfigShrink) { DARABONBA_PTR_SET_VALUE(customOssConfigShrink_, customOssConfigShrink) };
+
+
+    // enableEventCallback Field Functions 
+    bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
+    void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
+    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline SubmitDocParserJobShrinkRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
 
 
     // enhancementMode Field Functions 
@@ -168,6 +177,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> customOssConfigShrink_ = nullptr;
+    std::shared_ptr<bool> enableEventCallback_ = nullptr;
     std::shared_ptr<string> enhancementMode_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     std::shared_ptr<string> fileNameExtension_ = nullptr;

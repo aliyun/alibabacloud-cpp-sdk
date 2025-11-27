@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitDocStructureJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AllowPptFormat, allowPptFormat_);
+      DARABONBA_PTR_TO_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocStructureJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AllowPptFormat, allowPptFormat_);
+      DARABONBA_PTR_FROM_JSON(EnableEventCallback, enableEventCallback_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileNameExtension, fileNameExtension_);
       DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
@@ -46,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowPptFormat_ == nullptr
-        && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr && return this->ossBucket_ == nullptr
-        && return this->ossEndpoint_ == nullptr && return this->pageIndex_ == nullptr && return this->structureType_ == nullptr; };
+        && return this->enableEventCallback_ == nullptr && return this->fileName_ == nullptr && return this->fileNameExtension_ == nullptr && return this->fileUrl_ == nullptr && return this->formulaEnhancement_ == nullptr
+        && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr && return this->pageIndex_ == nullptr && return this->structureType_ == nullptr; };
     // allowPptFormat Field Functions 
     bool hasAllowPptFormat() const { return this->allowPptFormat_ != nullptr;};
     void deleteAllowPptFormat() { this->allowPptFormat_ = nullptr;};
     inline bool allowPptFormat() const { DARABONBA_PTR_GET_DEFAULT(allowPptFormat_, false) };
     inline SubmitDocStructureJobRequest& setAllowPptFormat(bool allowPptFormat) { DARABONBA_PTR_SET_VALUE(allowPptFormat_, allowPptFormat) };
+
+
+    // enableEventCallback Field Functions 
+    bool hasEnableEventCallback() const { return this->enableEventCallback_ != nullptr;};
+    void deleteEnableEventCallback() { this->enableEventCallback_ = nullptr;};
+    inline bool enableEventCallback() const { DARABONBA_PTR_GET_DEFAULT(enableEventCallback_, false) };
+    inline SubmitDocStructureJobRequest& setEnableEventCallback(bool enableEventCallback) { DARABONBA_PTR_SET_VALUE(enableEventCallback_, enableEventCallback) };
 
 
     // fileName Field Functions 
@@ -113,6 +122,7 @@ namespace Models
 
   protected:
     std::shared_ptr<bool> allowPptFormat_ = nullptr;
+    std::shared_ptr<bool> enableEventCallback_ = nullptr;
     std::shared_ptr<string> fileName_ = nullptr;
     std::shared_ptr<string> fileNameExtension_ = nullptr;
     std::shared_ptr<string> fileUrl_ = nullptr;
