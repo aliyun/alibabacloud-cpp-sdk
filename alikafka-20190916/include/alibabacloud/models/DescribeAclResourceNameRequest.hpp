@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclResourcePatternType_ != nullptr
-        && this->aclResourceType_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->aclResourcePatternType_ == nullptr
+        && return this->aclResourceType_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
     // aclResourcePatternType Field Functions 
     bool hasAclResourcePatternType() const { return this->aclResourcePatternType_ != nullptr;};
     void deleteAclResourcePatternType() { this->aclResourcePatternType_ = nullptr;};

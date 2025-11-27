@@ -49,6 +49,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SaslDomainEndpoint, saslDomainEndpoint_);
       DARABONBA_PTR_TO_JSON(SaslEndPoint, saslEndPoint_);
+      DARABONBA_PTR_TO_JSON(ScheduledRetirement, scheduledRetirement_);
       DARABONBA_PTR_TO_JSON(SecurityGroup, securityGroup_);
       DARABONBA_PTR_TO_JSON(Series, series_);
       DARABONBA_PTR_TO_JSON(ServiceStatus, serviceStatus_);
@@ -102,6 +103,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SaslDomainEndpoint, saslDomainEndpoint_);
       DARABONBA_PTR_FROM_JSON(SaslEndPoint, saslEndPoint_);
+      DARABONBA_PTR_FROM_JSON(ScheduledRetirement, scheduledRetirement_);
       DARABONBA_PTR_FROM_JSON(SecurityGroup, securityGroup_);
       DARABONBA_PTR_FROM_JSON(Series, series_);
       DARABONBA_PTR_FROM_JSON(ServiceStatus, serviceStatus_);
@@ -134,17 +136,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allConfig_ != nullptr
-        && this->autoCreateGroupEnable_ != nullptr && this->autoCreateTopicEnable_ != nullptr && this->backupZoneId_ != nullptr && this->confluentConfig_ != nullptr && this->confluentInstanceComponents_ != nullptr
-        && this->createTime_ != nullptr && this->defaultPartitionNum_ != nullptr && this->deployType_ != nullptr && this->diskSize_ != nullptr && this->diskType_ != nullptr
-        && this->domainEndpoint_ != nullptr && this->eipMax_ != nullptr && this->endPoint_ != nullptr && this->expiredTime_ != nullptr && this->instanceId_ != nullptr
-        && this->ioMax_ != nullptr && this->ioMaxRead_ != nullptr && this->ioMaxSpec_ != nullptr && this->ioMaxWrite_ != nullptr && this->kmsKeyId_ != nullptr
-        && this->msgRetain_ != nullptr && this->name_ != nullptr && this->paidType_ != nullptr && this->recommendedPartitionCount_ != nullptr && this->regionId_ != nullptr
-        && this->reservedPublishCapacity_ != nullptr && this->reservedSubscribeCapacity_ != nullptr && this->resourceGroupId_ != nullptr && this->saslDomainEndpoint_ != nullptr && this->saslEndPoint_ != nullptr
-        && this->securityGroup_ != nullptr && this->series_ != nullptr && this->serviceStatus_ != nullptr && this->specType_ != nullptr && this->sslDomainEndpoint_ != nullptr
-        && this->sslEndPoint_ != nullptr && this->standardZoneId_ != nullptr && this->tags_ != nullptr && this->topicNumLimit_ != nullptr && this->upgradeServiceDetailInfo_ != nullptr
-        && this->usedGroupCount_ != nullptr && this->usedPartitionCount_ != nullptr && this->usedTopicCount_ != nullptr && this->vSwitchId_ != nullptr && this->vSwitchIds_ != nullptr
-        && this->viewInstanceStatusCode_ != nullptr && this->vpcId_ != nullptr && this->vpcSaslDomainEndpoint_ != nullptr && this->vpcSaslEndPoint_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->allConfig_ == nullptr
+        && return this->autoCreateGroupEnable_ == nullptr && return this->autoCreateTopicEnable_ == nullptr && return this->backupZoneId_ == nullptr && return this->confluentConfig_ == nullptr && return this->confluentInstanceComponents_ == nullptr
+        && return this->createTime_ == nullptr && return this->defaultPartitionNum_ == nullptr && return this->deployType_ == nullptr && return this->diskSize_ == nullptr && return this->diskType_ == nullptr
+        && return this->domainEndpoint_ == nullptr && return this->eipMax_ == nullptr && return this->endPoint_ == nullptr && return this->expiredTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->ioMax_ == nullptr && return this->ioMaxRead_ == nullptr && return this->ioMaxSpec_ == nullptr && return this->ioMaxWrite_ == nullptr && return this->kmsKeyId_ == nullptr
+        && return this->msgRetain_ == nullptr && return this->name_ == nullptr && return this->paidType_ == nullptr && return this->recommendedPartitionCount_ == nullptr && return this->regionId_ == nullptr
+        && return this->reservedPublishCapacity_ == nullptr && return this->reservedSubscribeCapacity_ == nullptr && return this->resourceGroupId_ == nullptr && return this->saslDomainEndpoint_ == nullptr && return this->saslEndPoint_ == nullptr
+        && return this->scheduledRetirement_ == nullptr && return this->securityGroup_ == nullptr && return this->series_ == nullptr && return this->serviceStatus_ == nullptr && return this->specType_ == nullptr
+        && return this->sslDomainEndpoint_ == nullptr && return this->sslEndPoint_ == nullptr && return this->standardZoneId_ == nullptr && return this->tags_ == nullptr && return this->topicNumLimit_ == nullptr
+        && return this->upgradeServiceDetailInfo_ == nullptr && return this->usedGroupCount_ == nullptr && return this->usedPartitionCount_ == nullptr && return this->usedTopicCount_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vSwitchIds_ == nullptr && return this->viewInstanceStatusCode_ == nullptr && return this->vpcId_ == nullptr && return this->vpcSaslDomainEndpoint_ == nullptr && return this->vpcSaslEndPoint_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // allConfig Field Functions 
     bool hasAllConfig() const { return this->allConfig_ != nullptr;};
     void deleteAllConfig() { this->allConfig_ = nullptr;};
@@ -364,6 +367,13 @@ namespace Models
     void deleteSaslEndPoint() { this->saslEndPoint_ = nullptr;};
     inline string saslEndPoint() const { DARABONBA_PTR_GET_DEFAULT(saslEndPoint_, "") };
     inline GetInstanceListResponseBodyInstanceListInstanceVO& setSaslEndPoint(string saslEndPoint) { DARABONBA_PTR_SET_VALUE(saslEndPoint_, saslEndPoint) };
+
+
+    // scheduledRetirement Field Functions 
+    bool hasScheduledRetirement() const { return this->scheduledRetirement_ != nullptr;};
+    void deleteScheduledRetirement() { this->scheduledRetirement_ = nullptr;};
+    inline bool scheduledRetirement() const { DARABONBA_PTR_GET_DEFAULT(scheduledRetirement_, false) };
+    inline GetInstanceListResponseBodyInstanceListInstanceVO& setScheduledRetirement(bool scheduledRetirement) { DARABONBA_PTR_SET_VALUE(scheduledRetirement_, scheduledRetirement) };
 
 
     // securityGroup Field Functions 
@@ -600,6 +610,7 @@ namespace Models
     // *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
     // *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
     std::shared_ptr<string> saslEndPoint_ = nullptr;
+    std::shared_ptr<bool> scheduledRetirement_ = nullptr;
     // The security group to which the instance belongs.
     // 
     // *   If the instance is deployed in the ApsaraMQ for Kafka console or by calling the [StartInstance](https://help.aliyun.com/document_detail/157786.html) operation without a security group configured, no value is returned.

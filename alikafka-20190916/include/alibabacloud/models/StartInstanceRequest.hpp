@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->config_ != nullptr
-        && this->crossZone_ != nullptr && this->deployModule_ != nullptr && this->instanceId_ != nullptr && this->isEipInner_ != nullptr && this->isForceSelectedZones_ != nullptr
-        && this->isSetUserAndPassword_ != nullptr && this->KMSKeyId_ != nullptr && this->name_ != nullptr && this->notifier_ != nullptr && this->password_ != nullptr
-        && this->regionId_ != nullptr && this->securityGroup_ != nullptr && this->selectedZones_ != nullptr && this->serviceVersion_ != nullptr && this->userPhoneNum_ != nullptr
-        && this->username_ != nullptr && this->vSwitchId_ != nullptr && this->vSwitchIds_ != nullptr && this->vpcId_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && return this->crossZone_ == nullptr && return this->deployModule_ == nullptr && return this->instanceId_ == nullptr && return this->isEipInner_ == nullptr && return this->isForceSelectedZones_ == nullptr
+        && return this->isSetUserAndPassword_ == nullptr && return this->KMSKeyId_ == nullptr && return this->name_ == nullptr && return this->notifier_ == nullptr && return this->password_ == nullptr
+        && return this->regionId_ == nullptr && return this->securityGroup_ == nullptr && return this->selectedZones_ == nullptr && return this->serviceVersion_ == nullptr && return this->userPhoneNum_ == nullptr
+        && return this->username_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};

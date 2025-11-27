@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoCreate_ != nullptr
-        && this->compactTopic_ != nullptr && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->localTopic_ != nullptr && this->partitionNum_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr && this->statusName_ != nullptr && this->tags_ != nullptr
-        && this->topic_ != nullptr && this->topicConfig_ != nullptr; };
+    virtual bool empty() const override { return this->autoCreate_ == nullptr
+        && return this->compactTopic_ == nullptr && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->localTopic_ == nullptr && return this->partitionNum_ == nullptr
+        && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->status_ == nullptr && return this->statusName_ == nullptr && return this->tags_ == nullptr
+        && return this->topic_ == nullptr && return this->topicConfig_ == nullptr; };
     // autoCreate Field Functions 
     bool hasAutoCreate() const { return this->autoCreate_ != nullptr;};
     void deleteAutoCreate() { this->autoCreate_ = nullptr;};

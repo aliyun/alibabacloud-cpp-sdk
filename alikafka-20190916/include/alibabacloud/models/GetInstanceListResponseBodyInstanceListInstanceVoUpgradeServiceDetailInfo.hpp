@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->current2OpenSourceVersion_ != nullptr; };
+    virtual bool empty() const override { return this->current2OpenSourceVersion_ == nullptr; };
     // current2OpenSourceVersion Field Functions 
     bool hasCurrent2OpenSourceVersion() const { return this->current2OpenSourceVersion_ != nullptr;};
     void deleteCurrent2OpenSourceVersion() { this->current2OpenSourceVersion_ = nullptr;};

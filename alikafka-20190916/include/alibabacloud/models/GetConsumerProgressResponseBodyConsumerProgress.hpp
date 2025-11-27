@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->lastTimestamp_ != nullptr
-        && this->rebalanceInfoList_ != nullptr && this->topicList_ != nullptr && this->totalDiff_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->lastTimestamp_ == nullptr
+        && return this->rebalanceInfoList_ == nullptr && return this->topicList_ == nullptr && return this->totalDiff_ == nullptr && return this->state_ == nullptr; };
     // lastTimestamp Field Functions 
     bool hasLastTimestamp() const { return this->lastTimestamp_ != nullptr;};
     void deleteLastTimestamp() { this->lastTimestamp_ = nullptr;};

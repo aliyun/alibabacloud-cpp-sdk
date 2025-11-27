@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->confluentConfigShrink_ != nullptr
-        && this->diskSize_ != nullptr && this->eipMax_ != nullptr && this->eipModel_ != nullptr && this->instanceId_ != nullptr && this->ioMax_ != nullptr
-        && this->ioMaxSpec_ != nullptr && this->paidType_ != nullptr && this->partitionNum_ != nullptr && this->regionId_ != nullptr && this->specType_ != nullptr
-        && this->topicQuota_ != nullptr; };
+    virtual bool empty() const override { return this->confluentConfigShrink_ == nullptr
+        && return this->diskSize_ == nullptr && return this->eipMax_ == nullptr && return this->eipModel_ == nullptr && return this->instanceId_ == nullptr && return this->ioMax_ == nullptr
+        && return this->ioMaxSpec_ == nullptr && return this->paidType_ == nullptr && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr && return this->specType_ == nullptr
+        && return this->topicQuota_ == nullptr; };
     // confluentConfigShrink Field Functions 
     bool hasConfluentConfigShrink() const { return this->confluentConfigShrink_ != nullptr;};
     void deleteConfluentConfigShrink() { this->confluentConfigShrink_ = nullptr;};

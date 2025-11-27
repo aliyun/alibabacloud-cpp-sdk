@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->gradeType_ != nullptr && this->health_ != nullptr && this->instanceId_ != nullptr && this->lastAlarmTime_ != nullptr && this->levelType_ != nullptr
-        && this->modifiedTime_ != nullptr && this->name_ != nullptr && this->owner_ != nullptr && this->relationList_ != nullptr && this->reportTips_ != nullptr
-        && this->reportType_ != nullptr && this->reportValue_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->gradeType_ == nullptr && return this->health_ == nullptr && return this->instanceId_ == nullptr && return this->lastAlarmTime_ == nullptr && return this->levelType_ == nullptr
+        && return this->modifiedTime_ == nullptr && return this->name_ == nullptr && return this->owner_ == nullptr && return this->relationList_ == nullptr && return this->reportTips_ == nullptr
+        && return this->reportType_ == nullptr && return this->reportValue_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->value_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

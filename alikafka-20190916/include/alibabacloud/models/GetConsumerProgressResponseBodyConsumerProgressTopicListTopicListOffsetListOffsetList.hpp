@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accumulate_ != nullptr
-        && this->brokerOffset_ != nullptr && this->clientId_ != nullptr && this->clientIp_ != nullptr && this->consumerOffset_ != nullptr && this->lastTimestamp_ != nullptr
-        && this->memberId_ != nullptr && this->partition_ != nullptr; };
+    virtual bool empty() const override { return this->accumulate_ == nullptr
+        && return this->brokerOffset_ == nullptr && return this->clientId_ == nullptr && return this->clientIp_ == nullptr && return this->consumerOffset_ == nullptr && return this->lastTimestamp_ == nullptr
+        && return this->memberId_ == nullptr && return this->partition_ == nullptr; };
     // accumulate Field Functions 
     bool hasAccumulate() const { return this->accumulate_ != nullptr;};
     void deleteAccumulate() { this->accumulate_ = nullptr;};

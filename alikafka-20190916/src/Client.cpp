@@ -1434,6 +1434,186 @@ DescribeSaslUsersResponse Client::describeSaslUsers(const DescribeSaslUsersReque
 }
 
 /**
+ * @summary 降配后付费实例
+ *
+ * @param tmpReq DowngradePostPayOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DowngradePostPayOrderResponse
+ */
+DowngradePostPayOrderResponse Client::downgradePostPayOrderWithOptions(const DowngradePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DowngradePostPayOrderShrinkRequest request = DowngradePostPayOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasServerlessConfig()) {
+    request.setServerlessConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.serverlessConfig(), "ServerlessConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDiskSize()) {
+    query["DiskSize"] = request.diskSize();
+  }
+
+  if (!!request.hasEipMax()) {
+    query["EipMax"] = request.eipMax();
+  }
+
+  if (!!request.hasEipModel()) {
+    query["EipModel"] = request.eipModel();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIoMax()) {
+    query["IoMax"] = request.ioMax();
+  }
+
+  if (!!request.hasIoMaxSpec()) {
+    query["IoMaxSpec"] = request.ioMaxSpec();
+  }
+
+  if (!!request.hasPartitionNum()) {
+    query["PartitionNum"] = request.partitionNum();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasServerlessConfigShrink()) {
+    query["ServerlessConfig"] = request.serverlessConfigShrink();
+  }
+
+  if (!!request.hasSpecType()) {
+    query["SpecType"] = request.specType();
+  }
+
+  if (!!request.hasTopicQuota()) {
+    query["TopicQuota"] = request.topicQuota();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DowngradePostPayOrder"},
+    {"version" , "2019-09-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DowngradePostPayOrderResponse>();
+}
+
+/**
+ * @summary 降配后付费实例
+ *
+ * @param request DowngradePostPayOrderRequest
+ * @return DowngradePostPayOrderResponse
+ */
+DowngradePostPayOrderResponse Client::downgradePostPayOrder(const DowngradePostPayOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downgradePostPayOrderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 降配预付费实例
+ *
+ * @param tmpReq DowngradePrePayOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DowngradePrePayOrderResponse
+ */
+DowngradePrePayOrderResponse Client::downgradePrePayOrderWithOptions(const DowngradePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DowngradePrePayOrderShrinkRequest request = DowngradePrePayOrderShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfluentConfig()) {
+    request.setConfluentConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.confluentConfig(), "ConfluentConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfluentConfigShrink()) {
+    query["ConfluentConfig"] = request.confluentConfigShrink();
+  }
+
+  if (!!request.hasDiskSize()) {
+    query["DiskSize"] = request.diskSize();
+  }
+
+  if (!!request.hasEipMax()) {
+    query["EipMax"] = request.eipMax();
+  }
+
+  if (!!request.hasEipModel()) {
+    query["EipModel"] = request.eipModel();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIoMax()) {
+    query["IoMax"] = request.ioMax();
+  }
+
+  if (!!request.hasIoMaxSpec()) {
+    query["IoMaxSpec"] = request.ioMaxSpec();
+  }
+
+  if (!!request.hasPaidType()) {
+    query["PaidType"] = request.paidType();
+  }
+
+  if (!!request.hasPartitionNum()) {
+    query["PartitionNum"] = request.partitionNum();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSpecType()) {
+    query["SpecType"] = request.specType();
+  }
+
+  if (!!request.hasTopicQuota()) {
+    query["TopicQuota"] = request.topicQuota();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DowngradePrePayOrder"},
+    {"version" , "2019-09-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DowngradePrePayOrderResponse>();
+}
+
+/**
+ * @summary 降配预付费实例
+ *
+ * @param request DowngradePrePayOrderRequest
+ * @return DowngradePrePayOrderResponse
+ */
+DowngradePrePayOrderResponse Client::downgradePrePayOrder(const DowngradePrePayOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downgradePrePayOrderWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables and disables the flexible group creation feature.
  *
  * @param request EnableAutoGroupCreationRequest

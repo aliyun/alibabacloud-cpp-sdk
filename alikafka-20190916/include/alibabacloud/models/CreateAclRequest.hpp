@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aclOperationType_ != nullptr
-        && this->aclOperationTypes_ != nullptr && this->aclPermissionType_ != nullptr && this->aclResourceName_ != nullptr && this->aclResourcePatternType_ != nullptr && this->aclResourceType_ != nullptr
-        && this->host_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->username_ != nullptr; };
+    virtual bool empty() const override { return this->aclOperationType_ == nullptr
+        && return this->aclOperationTypes_ == nullptr && return this->aclPermissionType_ == nullptr && return this->aclResourceName_ == nullptr && return this->aclResourcePatternType_ == nullptr && return this->aclResourceType_ == nullptr
+        && return this->host_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->username_ == nullptr; };
     // aclOperationType Field Functions 
     bool hasAclOperationType() const { return this->aclOperationType_ != nullptr;};
     void deleteAclOperationType() { this->aclOperationType_ = nullptr;};

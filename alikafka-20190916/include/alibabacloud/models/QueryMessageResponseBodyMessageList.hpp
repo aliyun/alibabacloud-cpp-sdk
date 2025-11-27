@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checksum_ != nullptr
-        && this->key_ != nullptr && this->keyTruncated_ != nullptr && this->offset_ != nullptr && this->partition_ != nullptr && this->serializedKeySize_ != nullptr
-        && this->serializedValueSize_ != nullptr && this->timestamp_ != nullptr && this->timestampType_ != nullptr && this->topic_ != nullptr && this->truncatedKeySize_ != nullptr
-        && this->truncatedValueSize_ != nullptr && this->value_ != nullptr && this->valueTruncated_ != nullptr; };
+    virtual bool empty() const override { return this->checksum_ == nullptr
+        && return this->key_ == nullptr && return this->keyTruncated_ == nullptr && return this->offset_ == nullptr && return this->partition_ == nullptr && return this->serializedKeySize_ == nullptr
+        && return this->serializedValueSize_ == nullptr && return this->timestamp_ == nullptr && return this->timestampType_ == nullptr && return this->topic_ == nullptr && return this->truncatedKeySize_ == nullptr
+        && return this->truncatedValueSize_ == nullptr && return this->value_ == nullptr && return this->valueTruncated_ == nullptr; };
     // checksum Field Functions 
     bool hasChecksum() const { return this->checksum_ != nullptr;};
     void deleteChecksum() { this->checksum_ = nullptr;};

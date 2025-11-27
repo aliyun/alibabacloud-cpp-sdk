@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->connectCU_ != nullptr
-        && this->connectReplica_ != nullptr && this->controlCenterCU_ != nullptr && this->controlCenterReplica_ != nullptr && this->controlCenterStorage_ != nullptr && this->kafkaCU_ != nullptr
-        && this->kafkaReplica_ != nullptr && this->kafkaRestProxyCU_ != nullptr && this->kafkaRestProxyReplica_ != nullptr && this->kafkaStorage_ != nullptr && this->ksqlCU_ != nullptr
-        && this->ksqlReplica_ != nullptr && this->ksqlStorage_ != nullptr && this->schemaRegistryCU_ != nullptr && this->schemaRegistryReplica_ != nullptr && this->zooKeeperCU_ != nullptr
-        && this->zooKeeperReplica_ != nullptr && this->zooKeeperStorage_ != nullptr; };
+    virtual bool empty() const override { return this->connectCU_ == nullptr
+        && return this->connectReplica_ == nullptr && return this->controlCenterCU_ == nullptr && return this->controlCenterReplica_ == nullptr && return this->controlCenterStorage_ == nullptr && return this->kafkaCU_ == nullptr
+        && return this->kafkaReplica_ == nullptr && return this->kafkaRestProxyCU_ == nullptr && return this->kafkaRestProxyReplica_ == nullptr && return this->kafkaStorage_ == nullptr && return this->ksqlCU_ == nullptr
+        && return this->ksqlReplica_ == nullptr && return this->ksqlStorage_ == nullptr && return this->schemaRegistryCU_ == nullptr && return this->schemaRegistryReplica_ == nullptr && return this->zooKeeperCU_ == nullptr
+        && return this->zooKeeperReplica_ == nullptr && return this->zooKeeperStorage_ == nullptr; };
     // connectCU Field Functions 
     bool hasConnectCU() const { return this->connectCU_ != nullptr;};
     void deleteConnectCU() { this->connectCU_ = nullptr;};

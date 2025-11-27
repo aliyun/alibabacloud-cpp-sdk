@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->kafkaAclVO_ != nullptr; };
+    virtual bool empty() const override { return this->kafkaAclVO_ == nullptr; };
     // kafkaAclVO Field Functions 
     bool hasKafkaAclVO() const { return this->kafkaAclVO_ != nullptr;};
     void deleteKafkaAclVO() { this->kafkaAclVO_ = nullptr;};

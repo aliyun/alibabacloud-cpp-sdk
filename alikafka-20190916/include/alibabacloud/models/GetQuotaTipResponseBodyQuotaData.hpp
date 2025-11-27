@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupLeft_ != nullptr
-        && this->groupUsed_ != nullptr && this->isPartitionBuy_ != nullptr && this->partitionLeft_ != nullptr && this->partitionNumOfBuy_ != nullptr && this->partitionQuota_ != nullptr
-        && this->partitionUsed_ != nullptr && this->topicLeft_ != nullptr && this->topicNumOfBuy_ != nullptr && this->topicQuota_ != nullptr && this->topicUsed_ != nullptr; };
+    virtual bool empty() const override { return this->groupLeft_ == nullptr
+        && return this->groupUsed_ == nullptr && return this->isPartitionBuy_ == nullptr && return this->partitionLeft_ == nullptr && return this->partitionNumOfBuy_ == nullptr && return this->partitionQuota_ == nullptr
+        && return this->partitionUsed_ == nullptr && return this->topicLeft_ == nullptr && return this->topicNumOfBuy_ == nullptr && return this->topicQuota_ == nullptr && return this->topicUsed_ == nullptr; };
     // groupLeft Field Functions 
     bool hasGroupLeft() const { return this->groupLeft_ != nullptr;};
     void deleteGroupLeft() { this->groupLeft_ = nullptr;};

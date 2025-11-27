@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->confluentConfig_ != nullptr
-        && this->deployType_ != nullptr && this->diskSize_ != nullptr && this->diskType_ != nullptr && this->duration_ != nullptr && this->eipMax_ != nullptr
-        && this->ioMaxSpec_ != nullptr && this->paidType_ != nullptr && this->partitionNum_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->specType_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->confluentConfig_ == nullptr
+        && return this->deployType_ == nullptr && return this->diskSize_ == nullptr && return this->diskType_ == nullptr && return this->duration_ == nullptr && return this->eipMax_ == nullptr
+        && return this->ioMaxSpec_ == nullptr && return this->paidType_ == nullptr && return this->partitionNum_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->specType_ == nullptr && return this->tag_ == nullptr; };
     // confluentConfig Field Functions 
     bool hasConfluentConfig() const { return this->confluentConfig_ != nullptr;};
     void deleteConfluentConfig() { this->confluentConfig_ = nullptr;};

@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compactTopic_ != nullptr
-        && this->config_ != nullptr && this->instanceId_ != nullptr && this->localTopic_ != nullptr && this->minInsyncReplicas_ != nullptr && this->partitionNum_ != nullptr
-        && this->regionId_ != nullptr && this->remark_ != nullptr && this->replicationFactor_ != nullptr && this->tag_ != nullptr && this->topic_ != nullptr; };
+    virtual bool empty() const override { return this->compactTopic_ == nullptr
+        && return this->config_ == nullptr && return this->instanceId_ == nullptr && return this->localTopic_ == nullptr && return this->minInsyncReplicas_ == nullptr && return this->partitionNum_ == nullptr
+        && return this->regionId_ == nullptr && return this->remark_ == nullptr && return this->replicationFactor_ == nullptr && return this->tag_ == nullptr && return this->topic_ == nullptr; };
     // compactTopic Field Functions 
     bool hasCompactTopic() const { return this->compactTopic_ != nullptr;};
     void deleteCompactTopic() { this->compactTopic_ = nullptr;};

@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->automaticallyCreatedGroup_ != nullptr
-        && this->consumerId_ != nullptr && this->createTime_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->remark_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->automaticallyCreatedGroup_ == nullptr
+        && return this->consumerId_ == nullptr && return this->createTime_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->remark_ == nullptr
+        && return this->tags_ == nullptr; };
     // automaticallyCreatedGroup Field Functions 
     bool hasAutomaticallyCreatedGroup() const { return this->automaticallyCreatedGroup_ != nullptr;};
     void deleteAutomaticallyCreatedGroup() { this->automaticallyCreatedGroup_ = nullptr;};

@@ -385,6 +385,40 @@ namespace Alikafka20190916
       Models::DescribeSaslUsersResponse describeSaslUsers(const Models::DescribeSaslUsersRequest &request);
 
       /**
+       * @summary 降配后付费实例
+       *
+       * @param tmpReq DowngradePostPayOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DowngradePostPayOrderResponse
+       */
+      Models::DowngradePostPayOrderResponse downgradePostPayOrderWithOptions(const Models::DowngradePostPayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 降配后付费实例
+       *
+       * @param request DowngradePostPayOrderRequest
+       * @return DowngradePostPayOrderResponse
+       */
+      Models::DowngradePostPayOrderResponse downgradePostPayOrder(const Models::DowngradePostPayOrderRequest &request);
+
+      /**
+       * @summary 降配预付费实例
+       *
+       * @param tmpReq DowngradePrePayOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DowngradePrePayOrderResponse
+       */
+      Models::DowngradePrePayOrderResponse downgradePrePayOrderWithOptions(const Models::DowngradePrePayOrderRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 降配预付费实例
+       *
+       * @param request DowngradePrePayOrderRequest
+       * @return DowngradePrePayOrderResponse
+       */
+      Models::DowngradePrePayOrderResponse downgradePrePayOrder(const Models::DowngradePrePayOrderRequest &request);
+
+      /**
        * @summary Enables and disables the flexible group creation feature.
        *
        * @param request EnableAutoGroupCreationRequest

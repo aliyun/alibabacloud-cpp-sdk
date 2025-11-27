@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->reservedPublishCapacity_ != nullptr
-        && this->reservedSubscribeCapacity_ != nullptr; };
+    virtual bool empty() const override { return this->reservedPublishCapacity_ == nullptr
+        && return this->reservedSubscribeCapacity_ == nullptr; };
     // reservedPublishCapacity Field Functions 
     bool hasReservedPublishCapacity() const { return this->reservedPublishCapacity_ != nullptr;};
     void deleteReservedPublishCapacity() { this->reservedPublishCapacity_ = nullptr;};

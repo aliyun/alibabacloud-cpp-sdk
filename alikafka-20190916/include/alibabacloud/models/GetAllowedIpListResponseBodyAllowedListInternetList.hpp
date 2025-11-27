@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowedIpGroup_ != nullptr
-        && this->allowedIpList_ != nullptr && this->blackIPList_ != nullptr && this->blackIPMap_ != nullptr && this->portRange_ != nullptr && this->securityGroupId_ != nullptr
-        && this->userDefinedSharedSecurityGroup_ != nullptr; };
+    virtual bool empty() const override { return this->allowedIpGroup_ == nullptr
+        && return this->allowedIpList_ == nullptr && return this->blackIPList_ == nullptr && return this->blackIPMap_ == nullptr && return this->portRange_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->userDefinedSharedSecurityGroup_ == nullptr; };
     // allowedIpGroup Field Functions 
     bool hasAllowedIpGroup() const { return this->allowedIpGroup_ != nullptr;};
     void deleteAllowedIpGroup() { this->allowedIpGroup_ = nullptr;};

@@ -54,10 +54,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->durationMinutes_ != nullptr
-        && this->enable_ != nullptr && this->estimatedElasticScalingDownTimeSecs_ != nullptr && this->estimatedElasticScalingUpTimeSecs_ != nullptr && this->firstScheduledTime_ != nullptr && this->repeatType_ != nullptr
-        && this->reservedPubFlow_ != nullptr && this->reservedSubFlow_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->scheduleType_ != nullptr
-        && this->timeZone_ != nullptr && this->weeklyTypes_ != nullptr; };
+    virtual bool empty() const override { return this->durationMinutes_ == nullptr
+        && return this->enable_ == nullptr && return this->estimatedElasticScalingDownTimeSecs_ == nullptr && return this->estimatedElasticScalingUpTimeSecs_ == nullptr && return this->firstScheduledTime_ == nullptr && return this->repeatType_ == nullptr
+        && return this->reservedPubFlow_ == nullptr && return this->reservedSubFlow_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->scheduleType_ == nullptr
+        && return this->timeZone_ == nullptr && return this->weeklyTypes_ == nullptr; };
     // durationMinutes Field Functions 
     bool hasDurationMinutes() const { return this->durationMinutes_ != nullptr;};
     void deleteDurationMinutes() { this->durationMinutes_ = nullptr;};
