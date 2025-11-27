@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The folder where the bookmark is located.
     std::shared_ptr<string> bookmarkFolder_ = nullptr;
+    // The ID of the bookmark. This parameter needs to be specified only to modify the bookmark.
     std::shared_ptr<string> bookmarkId_ = nullptr;
+    // The name of the bookmark.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bookmarkName_ = nullptr;
+    // The URL of the bookmark.
+    // 
     // This parameter is required.
     std::shared_ptr<string> bookmarkURL_ = nullptr;
   };

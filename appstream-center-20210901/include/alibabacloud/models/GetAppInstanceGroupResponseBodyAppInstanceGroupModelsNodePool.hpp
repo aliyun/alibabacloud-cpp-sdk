@@ -208,25 +208,57 @@ namespace Models
 
 
   protected:
+    // The number of resources purchased when the delivery group was created.
     std::shared_ptr<int32_t> amount_ = nullptr;
-    // The maximum number of idle sessions. After you specify a value for this parameter, auto scaling is triggered only if the number of idle sessions in the delivery group is smaller than the specified value and the session usage exceeds the value specified for `ScalingUsageThreshold`. Otherwise, the system determines that the idle sessions in the delivery group are sufficient and does not perform auto scaling.`` You can use this parameter to flexibly manage auto scaling and reduce costs.
+    // 空闲会话数上限。指定该值时，当会话使用率超过`ScalingUsageThreshold`且当前交付组空闲会话数小于`MaxIdleAppInstanceAmount`时，才会触发自动扩容，否则认为交付组空闲会话已足够使用，不自动扩容。该参数可用于灵活控制弹性扩容行为和降低使用成本。
     std::shared_ptr<int32_t> maxIdleAppInstanceAmount_ = nullptr;
+    // The maximum number of resources that can be created for scale-out.
     std::shared_ptr<int32_t> maxScalingAmount_ = nullptr;
+    // The total number of subscription resources.
     std::shared_ptr<int32_t> nodeAmount_ = nullptr;
+    // The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+    // 
+    // *   appstreaming.general.4c8g: 1 to 2
+    // *   appstreaming.general.8c16g: 1 to 4
+    // *   appstreaming.vgpu.8c16g.4g: 1 to 4
+    // *   appstreaming.vgpu.8c31g.16g: 1 to 4
+    // *   appstreaming.vgpu.14c93g.12g: 1 to 6
     std::shared_ptr<int32_t> nodeCapacity_ = nullptr;
+    // The ID of the resource type that you purchase.
     std::shared_ptr<string> nodeInstanceType_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> nodePoolId_ = nullptr;
+    // The name of the resource type.
     std::shared_ptr<string> nodeTypeName_ = nullptr;
+    // The number of subscription resources that are in use.
     std::shared_ptr<int32_t> nodeUsed_ = nullptr;
+    // The schedules of the scaling policy.
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules>> recurrenceSchedules_ = nullptr;
+    // The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, automatic scale-in is triggered. Default value: 5.
     std::shared_ptr<int32_t> scalingDownAfterIdleMinutes_ = nullptr;
+    // The total number of scalable resources.
     std::shared_ptr<int32_t> scalingNodeAmount_ = nullptr;
+    // The number of scalable resources that are in use.
     std::shared_ptr<int32_t> scalingNodeUsed_ = nullptr;
+    // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10.
     std::shared_ptr<int32_t> scalingStep_ = nullptr;
+    // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`.
     std::shared_ptr<string> scalingUsageThreshold_ = nullptr;
+    // The expiration date of the scaling policy. Format: yyyy-MM-dd.
     std::shared_ptr<string> strategyDisableDate_ = nullptr;
+    // The effective date of the scaling policy. Format: yyyy-MM-dd.
     std::shared_ptr<string> strategyEnableDate_ = nullptr;
+    // The type of the scaling policy.
+    // 
+    // >  `NODE_SCALING_BY_USAGE` is returned for this parameter only if ChargeType is set to `PrePaid`. `NODE_SCALING_BY_SCHEDULE` is returned for this parameter only if ChargeType is set to `PostPaid`.
+    // 
+    // Valid values:
+    // 
+    // *   NODE_FIXED: No scalable resources are used.
+    // *   NODE_SCALING_BY_SCHEDULE: Scheduled scaling is used.
+    // *   NODE_SCALING_BY_USAGE: Resources are scaled based on usage.
     std::shared_ptr<string> strategyType_ = nullptr;
+    // Indicates whether the warmup policy is enabled for resources.
     std::shared_ptr<bool> warmUp_ = nullptr;
   };
 

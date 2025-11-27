@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The frame rate.
     std::shared_ptr<int32_t> frameRate_ = nullptr;
   };
 

@@ -318,6 +318,10 @@ CreateAppInstanceGroupResponse Client::createAppInstanceGroupWithOptions(const C
     body["SubPayType"] = request.subPayType();
   }
 
+  if (!!request.hasUserGroupIds()) {
+    body["UserGroupIds"] = request.userGroupIds();
+  }
+
   if (!!request.hasUserInfoShrink()) {
     body["UserInfo"] = request.userInfoShrink();
   }
@@ -1296,8 +1300,16 @@ ListAppInstanceGroupResponse Client::listAppInstanceGroupWithOptions(const ListA
   }
 
   json body = {};
+  if (!!request.hasExcludedUserGroupIds()) {
+    body["ExcludedUserGroupIds"] = request.excludedUserGroupIds();
+  }
+
   if (!!request.hasStatus()) {
     body["Status"] = request.status();
+  }
+
+  if (!!request.hasUserGroupIds()) {
+    body["UserGroupIds"] = request.userGroupIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1530,7 +1542,7 @@ ListBindInfoResponse Client::listBindInfo(const ListBindInfoRequest &request) {
 }
 
 /**
- * @summary 列表显示镜像
+ * @summary Queries the image information about an ECS instance.
  *
  * @param request ListImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1643,7 +1655,7 @@ ListImageResponse Client::listImageWithOptions(const ListImageRequest &request, 
 }
 
 /**
- * @summary 列表显示镜像
+ * @summary Queries the image information about an ECS instance.
  *
  * @param request ListImageRequest
  * @return ListImageResponse
@@ -2353,7 +2365,9 @@ ModifyAppPolicyResponse Client::modifyAppPolicy(const ModifyAppPolicyRequest &re
 }
 
 /**
- * @summary 修改浏览器交付组
+ * @summary Modifies the properties of the cloud browser.
+ *
+ * @description Modifies the properties of the cloud browser.
  *
  * @param tmpReq ModifyBrowserInstanceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2424,7 +2438,9 @@ ModifyBrowserInstanceGroupResponse Client::modifyBrowserInstanceGroupWithOptions
 }
 
 /**
- * @summary 修改浏览器交付组
+ * @summary Modifies the properties of the cloud browser.
+ *
+ * @description Modifies the properties of the cloud browser.
  *
  * @param request ModifyBrowserInstanceGroupRequest
  * @return ModifyBrowserInstanceGroupResponse

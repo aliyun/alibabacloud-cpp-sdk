@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of destination resources.
     std::shared_ptr<int32_t> amount_ = nullptr;
+    // The end time of the scaling policy. Format: HH:mm.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The start time of the scaling policy. Format: HH:mm.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

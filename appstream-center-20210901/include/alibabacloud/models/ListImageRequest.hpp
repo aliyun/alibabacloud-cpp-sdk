@@ -236,26 +236,105 @@ namespace Models
 
 
   protected:
+    // The regions that are supported. The EDS images are centralized. Use this parameter to query the regions where the image is deployed.
     std::shared_ptr<vector<string>> bizRegionIdList_ = nullptr;
+    // The service type. This parameter is not available publicly.
+    // 
+    // Valid value:
+    // 
+    // *   1 (default)
     std::shared_ptr<int32_t> bizType_ = nullptr;
+    // The list of all service types. It is not available publicly.
     std::shared_ptr<vector<int32_t>> bizTypeList_ = nullptr;
+    // The features supported by the image.
     std::shared_ptr<vector<string>> featureList_ = nullptr;
+    // The image version.
     std::shared_ptr<string> fotaVersion_ = nullptr;
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The image name. Fuzzy match is supported.
     std::shared_ptr<string> imageName_ = nullptr;
+    // The type of the images.
+    // 
+    // Valid values:
+    // 
+    // *   User: a custom image.
+    // *   Shared: a shared image.
+    // *   System: a system image.
+    // *   Community: a community image.
     std::shared_ptr<string> imageType_ = nullptr;
+    // The language.
+    // 
+    // Valid values:
+    // 
+    // *   en-US: English.
+    // *   zh-HK: Chinese, Traditional (Hong Kong, China).
+    // *   zh-CN: Simplified Chinese.
+    // *   ja-JP: Japanese.
     std::shared_ptr<string> languageType_ = nullptr;
+    // The OS type of the image.
+    // 
+    // Valid values:
+    // 
+    // *   Linux
+    // *   Unknown
+    // *   Windows
+    // *   Android
     std::shared_ptr<string> osType_ = nullptr;
+    // The image encapsulation type.
+    // 
+    // Valid values:
+    // 
+    // *   Ecs_Container: ECS and Docker image
+    // *   Ecs: ECS image
     std::shared_ptr<string> packageType_ = nullptr;
+    // The current page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Maximum value: 100. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The name of the operating system platform.
+    // 
+    // Valid values:
+    // 
+    // *   Ubuntu
+    // *   Debian
+    // *   Windows Server 2022
+    // *   Windows Server 2019
+    // *   Windows Server 2016
+    // *   Windows 11
+    // *   Windows 10
     std::shared_ptr<string> platformName_ = nullptr;
+    // The list of supported platform types. For valid values, refer to PlatformName above.
     std::shared_ptr<vector<string>> platformNameList_ = nullptr;
+    // The product type.
+    // 
+    // Valid values:
+    // 
+    // *   CloudDesktop: Elastic Desktop Service
+    // *   CloudApp: App Streaming
+    // *   WuyingServer: Workstation
     std::shared_ptr<string> productType_ = nullptr;
+    // The list of products that are supported when the image supports multiple products.
     std::shared_ptr<vector<string>> productTypeList_ = nullptr;
+    // The protocol type of the image.
+    // 
+    // Valid values:
+    // 
+    // *   HDX: the High-definition Experience (HDX) protocol
+    // *   ASP: the Alibaba Cloud-developed ASP protocol
     std::shared_ptr<string> protocolType_ = nullptr;
+    // Find images with certain fixed specifications.
     std::shared_ptr<string> resourceInstanceType_ = nullptr;
+    // The status of the image. You can query images in the specified status. By default, all images in the Not Deleted state are queried.
+    // 
+    // Valid values:
+    // 
+    // *   AVAILABLE: The image is available.
+    // *   INIT: The image is being initialized.
+    // *   CREATE_FAILED: The image failed to be created.
+    // *   CREATING: The image is being created.
     std::shared_ptr<string> status_ = nullptr;
+    // The tags to query.
     std::shared_ptr<vector<ListImageRequestTagList>> tagList_ = nullptr;
   };
 

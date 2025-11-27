@@ -130,15 +130,32 @@ namespace Models
 
 
   protected:
+    // The settings related to clipboard control.
     std::shared_ptr<Models::ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy> clipboardPolicy_ = nullptr;
+    // Defines what happens to a session when a user disconnects.
+    // 
+    // Valid values:
+    // 
+    // *   customTime: The session will be terminated after a custom-defined timeout.
+    // *   persistent: The session will never be automatically terminated..
     std::shared_ptr<string> disconnectKeepSession_ = nullptr;
+    // The session persistence duration.
     std::shared_ptr<int32_t> disconnectKeepSessionTime_ = nullptr;
+    // The file transfer policy on the web client.
     std::shared_ptr<string> html5FileTransfer_ = nullptr;
     std::shared_ptr<string> noOperationDisconnect_ = nullptr;
     std::shared_ptr<int32_t> noOperationDisconnectTime_ = nullptr;
+    // The ID of the policy.
     std::shared_ptr<string> policyId_ = nullptr;
+    // The policy version.
+    // 
+    // Valid value:
+    // 
+    // *   Center: center policy
     std::shared_ptr<string> policyVersion_ = nullptr;
+    // The display policy.
     std::shared_ptr<Models::ModifyBrowserInstanceGroupRequestPolicyVideoPolicy> videoPolicy_ = nullptr;
+    // The watermark configuration.
     std::shared_ptr<Models::ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy> watermarkPolicy_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the domain name. This parameter is required only when you want to modify the domain restriction configuration.
     std::shared_ptr<string> restrictedURLId_ = nullptr;
+    // The restricted domain name.
     std::shared_ptr<string> URL_ = nullptr;
   };
 

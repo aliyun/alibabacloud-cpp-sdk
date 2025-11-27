@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The application icon.
     std::shared_ptr<string> appIcon_ = nullptr;
+    // The application ID.
     std::shared_ptr<string> appId_ = nullptr;
+    // The application name.
     std::shared_ptr<string> appName_ = nullptr;
+    // The application version.
     std::shared_ptr<string> appVersion_ = nullptr;
+    // The name of the application version.
     std::shared_ptr<string> appVersionName_ = nullptr;
   };
 

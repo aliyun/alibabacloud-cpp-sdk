@@ -59,9 +59,7 @@ namespace Models
   protected:
     // 标签键。
     std::shared_ptr<string> key_ = nullptr;
-    // 标签类型。取值范围：
-    // Custom：自定义标签。
-    // System：系统标签。
+    // 标签类型。
     std::shared_ptr<string> scope_ = nullptr;
     // 标签值。
     std::shared_ptr<string> value_ = nullptr;

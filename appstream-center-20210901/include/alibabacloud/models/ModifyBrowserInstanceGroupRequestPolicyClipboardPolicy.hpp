@@ -94,12 +94,52 @@ namespace Models
 
 
   protected:
+    // The clipboard policy.
+    // 
+    // Valid values:
+    // 
+    // *   read: Allows copying from the local device to the cloud browser.
+    // *   readwrite: Allows copying in both directions.
+    // *   write: Allows copying from the cloud browser to the local device.
+    // *   off: Blocks copying in both directions.
     std::shared_ptr<string> clipboard_ = nullptr;
+    // The maximum number of characters allowed when copying from the clipboard.
     std::shared_ptr<int32_t> clipboardReadLimit_ = nullptr;
+    // The clipboard control scope.
+    // 
+    // Valid values:
+    // 
+    // *   grained: fine-grained control
+    // *   global: global control
     std::shared_ptr<string> clipboardScope_ = nullptr;
+    // The maximum number of characters allowed when copying to the clipboard.
     std::shared_ptr<int32_t> clipboardWriteLimit_ = nullptr;
+    // The file clipboard policy.
+    // 
+    // Valid values:
+    // 
+    // *   read: Allows copying from the local device to the cloud browser.
+    // *   readwrite: Allows copying in both directions.
+    // *   write: Allows copying from the cloud browser to the local device.
+    // *   off: Blocks copying in both directions.
     std::shared_ptr<string> fileClipboard_ = nullptr;
+    // The rich text clipboard policy.
+    // 
+    // Valid values:
+    // 
+    // *   read: Allows copying from the local device to the cloud browser.
+    // *   readwrite: Allows copying in both directions.
+    // *   write: Allows copying from the cloud browser to the local device.
+    // *   off: Blocks copying in both directions.
     std::shared_ptr<string> richTextClipboard_ = nullptr;
+    // The text clipboard policy.
+    // 
+    // Valid values:
+    // 
+    // *   read: Allows copying from the local device to the cloud browser.
+    // *   readwrite: Allows copying in both directions.
+    // *   write: Allows copying from the cloud browser to the local device.
+    // *   off: Blocks copying in both directions.
     std::shared_ptr<string> textClipboard_ = nullptr;
   };
 

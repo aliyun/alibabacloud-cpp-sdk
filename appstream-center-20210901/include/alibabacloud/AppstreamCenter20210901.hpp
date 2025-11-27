@@ -422,7 +422,7 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfo(const Models::ListBindInfoRequest &request);
 
       /**
-       * @summary 列表显示镜像
+       * @summary Queries the image information about an ECS instance.
        *
        * @param request ListImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -431,7 +431,7 @@ namespace AppstreamCenter20210901
       Models::ListImageResponse listImageWithOptions(const Models::ListImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列表显示镜像
+       * @summary Queries the image information about an ECS instance.
        *
        * @param request ListImageRequest
        * @return ListImageResponse
@@ -633,7 +633,9 @@ namespace AppstreamCenter20210901
       Models::ModifyAppPolicyResponse modifyAppPolicy(const Models::ModifyAppPolicyRequest &request);
 
       /**
-       * @summary 修改浏览器交付组
+       * @summary Modifies the properties of the cloud browser.
+       *
+       * @description Modifies the properties of the cloud browser.
        *
        * @param tmpReq ModifyBrowserInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +644,9 @@ namespace AppstreamCenter20210901
       Models::ModifyBrowserInstanceGroupResponse modifyBrowserInstanceGroupWithOptions(const Models::ModifyBrowserInstanceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改浏览器交付组
+       * @summary Modifies the properties of the cloud browser.
+       *
+       * @description Modifies the properties of the cloud browser.
        *
        * @param request ModifyBrowserInstanceGroupRequest
        * @return ModifyBrowserInstanceGroupResponse

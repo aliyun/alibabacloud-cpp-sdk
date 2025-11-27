@@ -51,7 +51,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the watermark.
+    // 
+    // Valid values:
+    // 
+    // *   off
+    // *   on
     std::shared_ptr<string> watermarkSwitch_ = nullptr;
+    // The watermark types.
     std::shared_ptr<vector<string>> watermarkTypes_ = nullptr;
   };
 

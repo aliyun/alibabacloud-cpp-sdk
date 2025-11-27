@@ -72,9 +72,13 @@ namespace Models
 
 
   protected:
+    // The bookmark.
     std::shared_ptr<vector<Models::ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks>> bookmarks_ = nullptr;
+    // The startup parameter.
     std::shared_ptr<string> browserParam_ = nullptr;
+    // The home page.
     std::shared_ptr<string> homepage_ = nullptr;
+    // The removed bookmarks.
     std::shared_ptr<vector<string>> removeBookmarks_ = nullptr;
   };
 

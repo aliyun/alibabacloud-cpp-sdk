@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(AppInstanceGroupName, appInstanceGroupName_);
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ExcludedUserGroupIds, excludedUserGroupIds_);
       DARABONBA_PTR_TO_JSON(NodeInstanceType, nodeInstanceType_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -27,12 +28,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
+      DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstanceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppCenterImageId, appCenterImageId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupName, appInstanceGroupName_);
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ExcludedUserGroupIds, excludedUserGroupIds_);
       DARABONBA_PTR_FROM_JSON(NodeInstanceType, nodeInstanceType_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -41,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
+      DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
     };
     ListAppInstanceGroupRequest() = default ;
     ListAppInstanceGroupRequest(const ListAppInstanceGroupRequest &) = default ;
@@ -54,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCenterImageId_ == nullptr
-        && return this->appInstanceGroupId_ == nullptr && return this->appInstanceGroupName_ == nullptr && return this->bizRegionId_ == nullptr && return this->nodeInstanceType_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->productType_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr
-        && return this->tag_ == nullptr; };
+        && return this->appInstanceGroupId_ == nullptr && return this->appInstanceGroupName_ == nullptr && return this->bizRegionId_ == nullptr && return this->excludedUserGroupIds_ == nullptr && return this->nodeInstanceType_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->productType_ == nullptr && return this->regionId_ == nullptr
+        && return this->status_ == nullptr && return this->tag_ == nullptr && return this->userGroupIds_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};
@@ -83,6 +87,15 @@ namespace Models
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string bizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline ListAppInstanceGroupRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // excludedUserGroupIds Field Functions 
+    bool hasExcludedUserGroupIds() const { return this->excludedUserGroupIds_ != nullptr;};
+    void deleteExcludedUserGroupIds() { this->excludedUserGroupIds_ = nullptr;};
+    inline const vector<string> & excludedUserGroupIds() const { DARABONBA_PTR_GET_CONST(excludedUserGroupIds_, vector<string>) };
+    inline vector<string> excludedUserGroupIds() { DARABONBA_PTR_GET(excludedUserGroupIds_, vector<string>) };
+    inline ListAppInstanceGroupRequest& setExcludedUserGroupIds(const vector<string> & excludedUserGroupIds) { DARABONBA_PTR_SET_VALUE(excludedUserGroupIds_, excludedUserGroupIds) };
+    inline ListAppInstanceGroupRequest& setExcludedUserGroupIds(vector<string> && excludedUserGroupIds) { DARABONBA_PTR_SET_RVALUE(excludedUserGroupIds_, excludedUserGroupIds) };
 
 
     // nodeInstanceType Field Functions 
@@ -145,6 +158,15 @@ namespace Models
     inline ListAppInstanceGroupRequest& setTag(vector<ListAppInstanceGroupRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
+    // userGroupIds Field Functions 
+    bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
+    void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
+    inline const vector<string> & userGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
+    inline vector<string> userGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
+    inline ListAppInstanceGroupRequest& setUserGroupIds(const vector<string> & userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
+    inline ListAppInstanceGroupRequest& setUserGroupIds(vector<string> && userGroupIds) { DARABONBA_PTR_SET_RVALUE(userGroupIds_, userGroupIds) };
+
+
   protected:
     // The image ID of the app. You can obtain the ID from the Images page in the App Streaming console.
     std::shared_ptr<string> appCenterImageId_ = nullptr;
@@ -159,6 +181,7 @@ namespace Models
     // *   cn-shanghai: China (Shanghai)
     // *   cn-hangzhou: China (Hangzhou)
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    std::shared_ptr<vector<string>> excludedUserGroupIds_ = nullptr;
     // The ID of the resource specification that you purchase. You can call the [ListNodeInstanceType](~~ListNodeInstanceType~~) operation to obtain the ID.
     std::shared_ptr<string> nodeInstanceType_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
@@ -179,6 +202,7 @@ namespace Models
     // The status of the delivery groups.
     std::shared_ptr<vector<string>> status_ = nullptr;
     std::shared_ptr<vector<ListAppInstanceGroupRequestTag>> tag_ = nullptr;
+    std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
   };
 
   } // namespace Models

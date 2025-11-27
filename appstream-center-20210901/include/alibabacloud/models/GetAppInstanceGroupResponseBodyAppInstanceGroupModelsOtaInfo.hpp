@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The new OTA version. A null value indicates that no new version is available.
     std::shared_ptr<string> newOtaVersion_ = nullptr;
+    // The current OTA version.
     std::shared_ptr<string> otaVersion_ = nullptr;
+    // The ID of the OTA update task.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

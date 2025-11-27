@@ -53,7 +53,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SkipUserAuthCheck, skipUserAuthCheck_);
       DARABONBA_PTR_TO_JSON(SpecId, specId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(UserGroupAuthMode, userGroupAuthMode_);
     };
     friend void from_json(const Darabonba::Json& j, GetAppInstanceGroupResponseBodyAppInstanceGroupModels& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
@@ -91,7 +93,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SkipUserAuthCheck, skipUserAuthCheck_);
       DARABONBA_PTR_FROM_JSON(SpecId, specId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(UserGroupAuthMode, userGroupAuthMode_);
     };
     GetAppInstanceGroupResponseBodyAppInstanceGroupModels() = default ;
     GetAppInstanceGroupResponseBodyAppInstanceGroupModels(const GetAppInstanceGroupResponseBodyAppInstanceGroupModels &) = default ;
@@ -111,7 +115,8 @@ namespace Models
         && return this->minAmount_ == nullptr && return this->nodePool_ == nullptr && return this->officeSiteId_ == nullptr && return this->osType_ == nullptr && return this->otaInfo_ == nullptr
         && return this->productType_ == nullptr && return this->regionId_ == nullptr && return this->reserveAmountRatio_ == nullptr && return this->reserveMaxAmount_ == nullptr && return this->reserveMinAmount_ == nullptr
         && return this->resourceStatus_ == nullptr && return this->scalingDownAfterIdleMinutes_ == nullptr && return this->scalingStep_ == nullptr && return this->scalingUsageThreshold_ == nullptr && return this->sessionTimeout_ == nullptr
-        && return this->sessionType_ == nullptr && return this->skipUserAuthCheck_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
+        && return this->sessionType_ == nullptr && return this->skipUserAuthCheck_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr && return this->supportUserGroupMixedAuth_ == nullptr
+        && return this->tags_ == nullptr && return this->userGroupAuthMode_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -363,6 +368,13 @@ namespace Models
     inline GetAppInstanceGroupResponseBodyAppInstanceGroupModels& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // supportUserGroupMixedAuth Field Functions 
+    bool hasSupportUserGroupMixedAuth() const { return this->supportUserGroupMixedAuth_ != nullptr;};
+    void deleteSupportUserGroupMixedAuth() { this->supportUserGroupMixedAuth_ = nullptr;};
+    inline bool supportUserGroupMixedAuth() const { DARABONBA_PTR_GET_DEFAULT(supportUserGroupMixedAuth_, false) };
+    inline GetAppInstanceGroupResponseBodyAppInstanceGroupModels& setSupportUserGroupMixedAuth(bool supportUserGroupMixedAuth) { DARABONBA_PTR_SET_VALUE(supportUserGroupMixedAuth_, supportUserGroupMixedAuth) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -372,43 +384,96 @@ namespace Models
     inline GetAppInstanceGroupResponseBodyAppInstanceGroupModels& setTags(vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // userGroupAuthMode Field Functions 
+    bool hasUserGroupAuthMode() const { return this->userGroupAuthMode_ != nullptr;};
+    void deleteUserGroupAuthMode() { this->userGroupAuthMode_ = nullptr;};
+    inline string userGroupAuthMode() const { DARABONBA_PTR_GET_DEFAULT(userGroupAuthMode_, "") };
+    inline GetAppInstanceGroupResponseBodyAppInstanceGroupModels& setUserGroupAuthMode(string userGroupAuthMode) { DARABONBA_PTR_SET_VALUE(userGroupAuthMode_, userGroupAuthMode) };
+
+
   protected:
     // 接入类型。
     std::shared_ptr<string> accessType_ = nullptr;
+    // The number of subscription resources. Minimum value: 1.
     std::shared_ptr<int32_t> amount_ = nullptr;
+    // The image ID of the application.
     std::shared_ptr<string> appCenterImageId_ = nullptr;
+    // The image name of the application.
     std::shared_ptr<string> appCenterImageName_ = nullptr;
+    // The ID of the delivery group.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The name of the delivery group.
     std::shared_ptr<string> appInstanceGroupName_ = nullptr;
+    // The resource type of the delivery group.
     std::shared_ptr<string> appInstanceType_ = nullptr;
+    // The name of the resource type of the delivery group.
     std::shared_ptr<string> appInstanceTypeName_ = nullptr;
+    // The policy ID of the application.
     std::shared_ptr<string> appPolicyId_ = nullptr;
+    // The applications.
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps>> apps_ = nullptr;
     // 授权模式。
     std::shared_ptr<string> authMode_ = nullptr;
+    // The sales mode.
+    // 
+    // Valid values:
+    // 
+    // *   AppInstance: by session
+    // *   Node: by resource
     std::shared_ptr<string> chargeResourceMode_ = nullptr;
+    // The billing method.
+    // 
+    // Valid values:
+    // 
+    // *   PostPaid: pay-as-you-go
+    // *   PrePaid: subscription
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The time when the delivery group expires.
     std::shared_ptr<string> expiredTime_ = nullptr;
+    // The time when the delivery group was created.
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The maximum number of instances. Minimum value: 1.
     std::shared_ptr<int32_t> maxAmount_ = nullptr;
+    // The minimum number of instances. Minimum value: 1.
     std::shared_ptr<int32_t> minAmount_ = nullptr;
-    // The resource groups.
+    // The information about the resource group.
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool_ = nullptr;
+    // 办公网络ID。
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The type of the operating system.
     std::shared_ptr<string> osType_ = nullptr;
+    // The information about the over-the-air (OTA) update task.
     std::shared_ptr<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo> otaInfo_ = nullptr;
+    // The product type.
     std::shared_ptr<string> productType_ = nullptr;
+    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     std::shared_ptr<string> regionId_ = nullptr;
+    // The percentage of reserved instances. The value indicates the percentage of unused sessions in the delivery group. Valid values: 0 to 99.
     std::shared_ptr<string> reserveAmountRatio_ = nullptr;
+    // The maximum number of reserved instances. The value indicates the maximum number of unused sessions in the delivery group. Minimum value: 1.
     std::shared_ptr<int32_t> reserveMaxAmount_ = nullptr;
+    // The minimum number of reserved instances. The value indicates the minimum number of unused sessions in the delivery group. Minimum value: 1.
     std::shared_ptr<int32_t> reserveMinAmount_ = nullptr;
+    // The resource status.
     std::shared_ptr<string> resourceStatus_ = nullptr;
+    // The duration for which no session is connected. Unit: minutes. If no session is connected in the resources after the specified duration elapses, automatic scale-in is triggered. Minimum value: 0.
     std::shared_ptr<int32_t> scalingDownAfterIdleMinutes_ = nullptr;
+    // The number of sessions that are created each time the delivery group is scaled out. Minimum value: 1.
     std::shared_ptr<int32_t> scalingStep_ = nullptr;
+    // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage rate is calculated by using the following formula: Session usage rate = Number of sessions in use/Total number of sessions × 100%. Valid values: 0 to 99.
     std::shared_ptr<string> scalingUsageThreshold_ = nullptr;
+    // The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
     std::shared_ptr<string> sessionTimeout_ = nullptr;
+    // 会话类型。
     std::shared_ptr<string> sessionType_ = nullptr;
+    // Indicates whether user permission verification is skipped.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false: This is the default value.
     std::shared_ptr<bool> skipUserAuthCheck_ = nullptr;
+    // The specification ID that uniquely corresponds to the ID of the delivery group.
     std::shared_ptr<string> specId_ = nullptr;
     // The status of the delivery group.
     // 
@@ -423,8 +488,10 @@ namespace Models
     // *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
     // *   DEPLOYING: The delivery group is being published.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<bool> supportUserGroupMixedAuth_ = nullptr;
     // 资源标签列表。
     std::shared_ptr<vector<Models::GetAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>> tags_ = nullptr;
+    std::shared_ptr<string> userGroupAuthMode_ = nullptr;
   };
 
   } // namespace Models

@@ -182,6 +182,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // The environment configuration.
     std::shared_ptr<string> environmentConfig_ = nullptr;
     // The product type.
     // 

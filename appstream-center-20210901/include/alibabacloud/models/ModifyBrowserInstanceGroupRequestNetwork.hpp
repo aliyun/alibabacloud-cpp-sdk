@@ -63,8 +63,15 @@ namespace Models
 
 
   protected:
+    // The type of the access control list.
+    // 
+    // Valid value:
+    // 
+    // *   ALLOW_LIST: The whitelist.
     std::shared_ptr<string> accessRestriction_ = nullptr;
+    // The domain names to be removed.
     std::shared_ptr<vector<string>> removeRestrictedURLIds_ = nullptr;
+    // The domain restriction configurations.
     std::shared_ptr<vector<Models::ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs>> restrictedURLs_ = nullptr;
   };
 

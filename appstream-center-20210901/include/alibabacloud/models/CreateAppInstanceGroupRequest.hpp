@@ -8,8 +8,8 @@
 #include <alibabacloud/models/CreateAppInstanceGroupRequestSecurityPolicy.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestStoragePolicy.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestUserDefinePolicy.hpp>
-#include <alibabacloud/models/CreateAppInstanceGroupRequestUserInfo.hpp>
 #include <vector>
+#include <alibabacloud/models/CreateAppInstanceGroupRequestUserInfo.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestVideoPolicy.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -46,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StoragePolicy, storagePolicy_);
       DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_TO_JSON(UserDefinePolicy, userDefinePolicy_);
+      DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_TO_JSON(UserInfo, userInfo_);
       DARABONBA_PTR_TO_JSON(Users, users_);
       DARABONBA_PTR_TO_JSON(VideoPolicy, videoPolicy_);
@@ -75,6 +76,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StoragePolicy, storagePolicy_);
       DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_FROM_JSON(UserDefinePolicy, userDefinePolicy_);
+      DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_FROM_JSON(UserInfo, userInfo_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
       DARABONBA_PTR_FROM_JSON(VideoPolicy, videoPolicy_);
@@ -95,8 +97,8 @@ namespace Models
         && return this->autoRenew_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeResourceMode_ == nullptr && return this->chargeType_ == nullptr && return this->clusterId_ == nullptr
         && return this->network_ == nullptr && return this->nodePool_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->preOpenAppId_ == nullptr
         && return this->productType_ == nullptr && return this->promotionId_ == nullptr && return this->runtimePolicy_ == nullptr && return this->securityPolicy_ == nullptr && return this->sessionTimeout_ == nullptr
-        && return this->storagePolicy_ == nullptr && return this->subPayType_ == nullptr && return this->userDefinePolicy_ == nullptr && return this->userInfo_ == nullptr && return this->users_ == nullptr
-        && return this->videoPolicy_ == nullptr; };
+        && return this->storagePolicy_ == nullptr && return this->subPayType_ == nullptr && return this->userDefinePolicy_ == nullptr && return this->userGroupIds_ == nullptr && return this->userInfo_ == nullptr
+        && return this->users_ == nullptr && return this->videoPolicy_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};
@@ -277,6 +279,15 @@ namespace Models
     inline CreateAppInstanceGroupRequest& setUserDefinePolicy(CreateAppInstanceGroupRequestUserDefinePolicy && userDefinePolicy) { DARABONBA_PTR_SET_RVALUE(userDefinePolicy_, userDefinePolicy) };
 
 
+    // userGroupIds Field Functions 
+    bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
+    void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
+    inline const vector<string> & userGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
+    inline vector<string> userGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
+    inline CreateAppInstanceGroupRequest& setUserGroupIds(const vector<string> & userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
+    inline CreateAppInstanceGroupRequest& setUserGroupIds(vector<string> && userGroupIds) { DARABONBA_PTR_SET_RVALUE(userGroupIds_, userGroupIds) };
+
+
     // userInfo Field Functions 
     bool hasUserInfo() const { return this->userInfo_ != nullptr;};
     void deleteUserInfo() { this->userInfo_ = nullptr;};
@@ -339,6 +350,7 @@ namespace Models
     std::shared_ptr<CreateAppInstanceGroupRequestStoragePolicy> storagePolicy_ = nullptr;
     std::shared_ptr<string> subPayType_ = nullptr;
     std::shared_ptr<CreateAppInstanceGroupRequestUserDefinePolicy> userDefinePolicy_ = nullptr;
+    std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
     std::shared_ptr<CreateAppInstanceGroupRequestUserInfo> userInfo_ = nullptr;
     std::shared_ptr<vector<string>> users_ = nullptr;
     std::shared_ptr<CreateAppInstanceGroupRequestVideoPolicy> videoPolicy_ = nullptr;

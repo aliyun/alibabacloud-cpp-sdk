@@ -107,13 +107,26 @@ namespace Models
 
 
   protected:
+    // The HTTP status code that is returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<int32_t> count_ = nullptr;
+    // The returned data.
     std::shared_ptr<vector<ListImageResponseBodyData>> data_ = nullptr;
+    // The message that is returned for the request.
     std::shared_ptr<string> message_ = nullptr;
+    // The page number returned.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
+    // 
+    // Valid values:
+    // 
+    // *   true: The request is successful.
+    // *   false: The request failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

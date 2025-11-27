@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StoragePolicy, storagePolicyShrink_);
       DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_TO_JSON(UserDefinePolicy, userDefinePolicyShrink_);
+      DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_TO_JSON(UserInfo, userInfoShrink_);
       DARABONBA_PTR_TO_JSON(Users, users_);
       DARABONBA_PTR_TO_JSON(VideoPolicy, videoPolicyShrink_);
@@ -67,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StoragePolicy, storagePolicyShrink_);
       DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
       DARABONBA_PTR_FROM_JSON(UserDefinePolicy, userDefinePolicyShrink_);
+      DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_FROM_JSON(UserInfo, userInfoShrink_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
       DARABONBA_PTR_FROM_JSON(VideoPolicy, videoPolicyShrink_);
@@ -87,8 +89,8 @@ namespace Models
         && return this->autoRenew_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeResourceMode_ == nullptr && return this->chargeType_ == nullptr && return this->clusterId_ == nullptr
         && return this->networkShrink_ == nullptr && return this->nodePoolShrink_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->preOpenAppId_ == nullptr
         && return this->productType_ == nullptr && return this->promotionId_ == nullptr && return this->runtimePolicyShrink_ == nullptr && return this->securityPolicyShrink_ == nullptr && return this->sessionTimeout_ == nullptr
-        && return this->storagePolicyShrink_ == nullptr && return this->subPayType_ == nullptr && return this->userDefinePolicyShrink_ == nullptr && return this->userInfoShrink_ == nullptr && return this->users_ == nullptr
-        && return this->videoPolicyShrink_ == nullptr; };
+        && return this->storagePolicyShrink_ == nullptr && return this->subPayType_ == nullptr && return this->userDefinePolicyShrink_ == nullptr && return this->userGroupIds_ == nullptr && return this->userInfoShrink_ == nullptr
+        && return this->users_ == nullptr && return this->videoPolicyShrink_ == nullptr; };
     // appCenterImageId Field Functions 
     bool hasAppCenterImageId() const { return this->appCenterImageId_ != nullptr;};
     void deleteAppCenterImageId() { this->appCenterImageId_ = nullptr;};
@@ -257,6 +259,15 @@ namespace Models
     inline CreateAppInstanceGroupShrinkRequest& setUserDefinePolicyShrink(string userDefinePolicyShrink) { DARABONBA_PTR_SET_VALUE(userDefinePolicyShrink_, userDefinePolicyShrink) };
 
 
+    // userGroupIds Field Functions 
+    bool hasUserGroupIds() const { return this->userGroupIds_ != nullptr;};
+    void deleteUserGroupIds() { this->userGroupIds_ = nullptr;};
+    inline const vector<string> & userGroupIds() const { DARABONBA_PTR_GET_CONST(userGroupIds_, vector<string>) };
+    inline vector<string> userGroupIds() { DARABONBA_PTR_GET(userGroupIds_, vector<string>) };
+    inline CreateAppInstanceGroupShrinkRequest& setUserGroupIds(const vector<string> & userGroupIds) { DARABONBA_PTR_SET_VALUE(userGroupIds_, userGroupIds) };
+    inline CreateAppInstanceGroupShrinkRequest& setUserGroupIds(vector<string> && userGroupIds) { DARABONBA_PTR_SET_RVALUE(userGroupIds_, userGroupIds) };
+
+
     // userInfoShrink Field Functions 
     bool hasUserInfoShrink() const { return this->userInfoShrink_ != nullptr;};
     void deleteUserInfoShrink() { this->userInfoShrink_ = nullptr;};
@@ -315,6 +326,7 @@ namespace Models
     std::shared_ptr<string> storagePolicyShrink_ = nullptr;
     std::shared_ptr<string> subPayType_ = nullptr;
     std::shared_ptr<string> userDefinePolicyShrink_ = nullptr;
+    std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
     std::shared_ptr<string> userInfoShrink_ = nullptr;
     std::shared_ptr<vector<string>> users_ = nullptr;
     std::shared_ptr<string> videoPolicyShrink_ = nullptr;

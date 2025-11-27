@@ -53,6 +53,7 @@ namespace Models
   protected:
     // AppInstanceGroupModels
     std::shared_ptr<GetAppInstanceGroupResponseBodyAppInstanceGroupModels> appInstanceGroupModels_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

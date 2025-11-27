@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key of the custom tag.
     std::shared_ptr<string> key_ = nullptr;
+    // The value of the custom tag.
     std::shared_ptr<string> value_ = nullptr;
   };
 

@@ -97,12 +97,19 @@ namespace Models
 
 
   protected:
+    // The browser settings.
     std::shared_ptr<ModifyBrowserInstanceGroupRequestBrowserConfig> browserConfig_ = nullptr;
+    // The ID of the cloud browser to be modified.
+    // 
     // This parameter is required.
     std::shared_ptr<string> browserInstanceGroupId_ = nullptr;
+    // The name of the cloud browser.
     std::shared_ptr<string> cloudBrowserName_ = nullptr;
+    // The network configurations.
     std::shared_ptr<ModifyBrowserInstanceGroupRequestNetwork> network_ = nullptr;
+    // The access policy.
     std::shared_ptr<ModifyBrowserInstanceGroupRequestPolicy> policy_ = nullptr;
+    // The timer.
     std::shared_ptr<vector<ModifyBrowserInstanceGroupRequestTimers>> timers_ = nullptr;
   };
 

@@ -54,7 +54,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SkipUserAuthCheck, skipUserAuthCheck_);
       DARABONBA_PTR_TO_JSON(SpecId, specId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(UserGroupAuthMode, userGroupAuthMode_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstanceGroupResponseBodyAppInstanceGroupModels& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
@@ -92,7 +94,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SkipUserAuthCheck, skipUserAuthCheck_);
       DARABONBA_PTR_FROM_JSON(SpecId, specId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SupportUserGroupMixedAuth, supportUserGroupMixedAuth_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(UserGroupAuthMode, userGroupAuthMode_);
     };
     ListAppInstanceGroupResponseBodyAppInstanceGroupModels() = default ;
     ListAppInstanceGroupResponseBodyAppInstanceGroupModels(const ListAppInstanceGroupResponseBodyAppInstanceGroupModels &) = default ;
@@ -112,7 +116,8 @@ namespace Models
         && return this->minAmount_ == nullptr && return this->nodePool_ == nullptr && return this->officeSiteId_ == nullptr && return this->osType_ == nullptr && return this->otaInfo_ == nullptr
         && return this->productType_ == nullptr && return this->regionId_ == nullptr && return this->reserveAmountRatio_ == nullptr && return this->reserveMaxAmount_ == nullptr && return this->reserveMinAmount_ == nullptr
         && return this->resourceStatus_ == nullptr && return this->resourceTags_ == nullptr && return this->scalingDownAfterIdleMinutes_ == nullptr && return this->scalingStep_ == nullptr && return this->scalingUsageThreshold_ == nullptr
-        && return this->sessionTimeout_ == nullptr && return this->skipUserAuthCheck_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
+        && return this->sessionTimeout_ == nullptr && return this->skipUserAuthCheck_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr && return this->supportUserGroupMixedAuth_ == nullptr
+        && return this->tags_ == nullptr && return this->userGroupAuthMode_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -366,6 +371,13 @@ namespace Models
     inline ListAppInstanceGroupResponseBodyAppInstanceGroupModels& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // supportUserGroupMixedAuth Field Functions 
+    bool hasSupportUserGroupMixedAuth() const { return this->supportUserGroupMixedAuth_ != nullptr;};
+    void deleteSupportUserGroupMixedAuth() { this->supportUserGroupMixedAuth_ = nullptr;};
+    inline bool supportUserGroupMixedAuth() const { DARABONBA_PTR_GET_DEFAULT(supportUserGroupMixedAuth_, false) };
+    inline ListAppInstanceGroupResponseBodyAppInstanceGroupModels& setSupportUserGroupMixedAuth(bool supportUserGroupMixedAuth) { DARABONBA_PTR_SET_VALUE(supportUserGroupMixedAuth_, supportUserGroupMixedAuth) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -373,6 +385,13 @@ namespace Models
     inline vector<Models::ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>) };
     inline ListAppInstanceGroupResponseBodyAppInstanceGroupModels& setTags(const vector<Models::ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
     inline ListAppInstanceGroupResponseBodyAppInstanceGroupModels& setTags(vector<Models::ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+    // userGroupAuthMode Field Functions 
+    bool hasUserGroupAuthMode() const { return this->userGroupAuthMode_ != nullptr;};
+    void deleteUserGroupAuthMode() { this->userGroupAuthMode_ = nullptr;};
+    inline string userGroupAuthMode() const { DARABONBA_PTR_GET_DEFAULT(userGroupAuthMode_, "") };
+    inline ListAppInstanceGroupResponseBodyAppInstanceGroupModels& setUserGroupAuthMode(string userGroupAuthMode) { DARABONBA_PTR_SET_VALUE(userGroupAuthMode_, userGroupAuthMode) };
 
 
   protected:
@@ -484,7 +503,9 @@ namespace Models
     // *   EXPIRED_RECYCLING: The delivery group is expired and being recycled.
     // *   DEPLOYING: The delivery group is being published.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<bool> supportUserGroupMixedAuth_ = nullptr;
     std::shared_ptr<vector<Models::ListAppInstanceGroupResponseBodyAppInstanceGroupModelsTags>> tags_ = nullptr;
+    std::shared_ptr<string> userGroupAuthMode_ = nullptr;
   };
 
   } // namespace Models

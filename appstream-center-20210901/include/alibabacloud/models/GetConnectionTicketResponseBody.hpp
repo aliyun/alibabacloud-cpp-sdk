@@ -136,6 +136,7 @@ namespace Models
     std::shared_ptr<string> appInstanceId_ = nullptr;
     // The ID of the persistent session.
     std::shared_ptr<string> appInstancePersistentId_ = nullptr;
+    // The avatar ID.
     std::shared_ptr<string> avatarId_ = nullptr;
     // The region ID.
     std::shared_ptr<string> bizRegionId_ = nullptr;

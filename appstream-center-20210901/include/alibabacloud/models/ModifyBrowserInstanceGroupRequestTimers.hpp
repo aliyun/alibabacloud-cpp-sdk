@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The interval.
     std::shared_ptr<int32_t> interval_ = nullptr;
+    // The timer type:
+    // 
+    // Valid value:
+    // 
+    // *   SESSION_TIMEOUT: Defines the timeout period before a disconnected session is terminated.
     std::shared_ptr<string> timerType_ = nullptr;
   };
 
