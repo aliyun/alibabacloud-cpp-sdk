@@ -1212,6 +1212,114 @@ GetMonthlyBillResponse Client::getMonthlyBill(const GetMonthlyBillRequest &reque
 }
 
 /**
+ * @summary 下单控制记录查询
+ *
+ * @param request GetPurchaseControlRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPurchaseControlRecordResponse
+ */
+GetPurchaseControlRecordResponse Client::getPurchaseControlRecordWithOptions(const GetPurchaseControlRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomerUID()) {
+    query["CustomerUID"] = request.customerUID();
+  }
+
+  if (!!request.hasOperationTime()) {
+    query["OperationTime"] = request.operationTime();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPurchaseControlRecord"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPurchaseControlRecordResponse>();
+}
+
+/**
+ * @summary 下单控制记录查询
+ *
+ * @param request GetPurchaseControlRecordRequest
+ * @return GetPurchaseControlRecordResponse
+ */
+GetPurchaseControlRecordResponse Client::getPurchaseControlRecord(const GetPurchaseControlRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPurchaseControlRecordWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询延停策略修改记录
+ *
+ * @param request GetShutdownPolicyRecordRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetShutdownPolicyRecordResponse
+ */
+GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecordWithOptions(const GetShutdownPolicyRecordRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomerUID()) {
+    query["CustomerUID"] = request.customerUID();
+  }
+
+  if (!!request.hasOperationTime()) {
+    query["OperationTime"] = request.operationTime();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetShutdownPolicyRecord"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetShutdownPolicyRecordResponse>();
+}
+
+/**
+ * @summary 查询延停策略修改记录
+ *
+ * @param request GetShutdownPolicyRecordRequest
+ * @return GetShutdownPolicyRecordResponse
+ */
+GetShutdownPolicyRecordResponse Client::getShutdownPolicyRecord(const GetShutdownPolicyRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getShutdownPolicyRecordWithOptions(request, runtime);
+}
+
+/**
  * @summary Query all the Unassociated Customer.
  *
  * @param request GetUnassociatedCustomerRequest
@@ -1458,6 +1566,10 @@ ListCouponUsageResponse Client::listCouponUsage(const ListCouponUsageRequest &re
 ListExportTasksResponse Client::listExportTasksWithOptions(const ListExportTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
   if (!!request.hasLanguage()) {
     query["Language"] = request.language();
   }

@@ -433,6 +433,40 @@ namespace Agency20221216
       Models::GetMonthlyBillResponse getMonthlyBill(const Models::GetMonthlyBillRequest &request);
 
       /**
+       * @summary 下单控制记录查询
+       *
+       * @param request GetPurchaseControlRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPurchaseControlRecordResponse
+       */
+      Models::GetPurchaseControlRecordResponse getPurchaseControlRecordWithOptions(const Models::GetPurchaseControlRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下单控制记录查询
+       *
+       * @param request GetPurchaseControlRecordRequest
+       * @return GetPurchaseControlRecordResponse
+       */
+      Models::GetPurchaseControlRecordResponse getPurchaseControlRecord(const Models::GetPurchaseControlRecordRequest &request);
+
+      /**
+       * @summary 查询延停策略修改记录
+       *
+       * @param request GetShutdownPolicyRecordRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetShutdownPolicyRecordResponse
+       */
+      Models::GetShutdownPolicyRecordResponse getShutdownPolicyRecordWithOptions(const Models::GetShutdownPolicyRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询延停策略修改记录
+       *
+       * @param request GetShutdownPolicyRecordRequest
+       * @return GetShutdownPolicyRecordResponse
+       */
+      Models::GetShutdownPolicyRecordResponse getShutdownPolicyRecord(const Models::GetShutdownPolicyRecordRequest &request);
+
+      /**
        * @summary Query all the Unassociated Customer.
        *
        * @param request GetUnassociatedCustomerRequest

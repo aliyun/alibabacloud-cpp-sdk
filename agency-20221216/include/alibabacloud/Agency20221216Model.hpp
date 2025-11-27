@@ -70,6 +70,12 @@
 #include <alibabacloud/models/GetMonthlyBillRequest.hpp>
 #include <alibabacloud/models/GetMonthlyBillResponseBody.hpp>
 #include <alibabacloud/models/GetMonthlyBillResponse.hpp>
+#include <alibabacloud/models/GetPurchaseControlRecordRequest.hpp>
+#include <alibabacloud/models/GetPurchaseControlRecordResponseBody.hpp>
+#include <alibabacloud/models/GetPurchaseControlRecordResponse.hpp>
+#include <alibabacloud/models/GetShutdownPolicyRecordRequest.hpp>
+#include <alibabacloud/models/GetShutdownPolicyRecordResponseBody.hpp>
+#include <alibabacloud/models/GetShutdownPolicyRecordResponse.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerRequest.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponseBody.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponse.hpp>
@@ -127,6 +133,8 @@
 #include <alibabacloud/models/GetInviteStatusResponseBodyDataInviteStatus.hpp>
 #include <alibabacloud/models/GetInviteStatusResponseBodyData.hpp>
 #include <alibabacloud/models/GetMonthlyBillResponseBodyData.hpp>
+#include <alibabacloud/models/GetPurchaseControlRecordResponseBodyData.hpp>
+#include <alibabacloud/models/GetShutdownPolicyRecordResponseBodyData.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponseBodyInviteInfoListInviteInfo.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponseBodyInviteInfoList.hpp>
 #include <alibabacloud/models/GetUnassociatedCustomerResponseBodyPageInfo.hpp>
