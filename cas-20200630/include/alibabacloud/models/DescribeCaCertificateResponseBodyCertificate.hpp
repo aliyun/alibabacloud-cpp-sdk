@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CertRemainingCount, certRemainingCount_);
       DARABONBA_PTR_TO_JSON(CertTotalCount, certTotalCount_);
       DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
       DARABONBA_PTR_TO_JSON(CrlDay, crlDay_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FullAlgorithm, fullAlgorithm_);
       DARABONBA_PTR_TO_JSON(Identifier, identifier_);
       DARABONBA_PTR_TO_JSON(IssuerType, issuerType_);
+      DARABONBA_PTR_TO_JSON(KeyIndex, keyIndex_);
       DARABONBA_PTR_TO_JSON(KeySize, keySize_);
       DARABONBA_PTR_TO_JSON(Locality, locality_);
       DARABONBA_PTR_TO_JSON(Md5, md5_);
@@ -58,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CertRemainingCount, certRemainingCount_);
       DARABONBA_PTR_FROM_JSON(CertTotalCount, certTotalCount_);
       DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
       DARABONBA_PTR_FROM_JSON(CrlDay, crlDay_);
@@ -66,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FullAlgorithm, fullAlgorithm_);
       DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
       DARABONBA_PTR_FROM_JSON(IssuerType, issuerType_);
+      DARABONBA_PTR_FROM_JSON(KeyIndex, keyIndex_);
       DARABONBA_PTR_FROM_JSON(KeySize, keySize_);
       DARABONBA_PTR_FROM_JSON(Locality, locality_);
       DARABONBA_PTR_FROM_JSON(Md5, md5_);
@@ -97,12 +101,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterDate_ == nullptr
         && return this->algorithm_ == nullptr && return this->beforeDate_ == nullptr && return this->caCertChain_ == nullptr && return this->certIssuedCount_ == nullptr && return this->certRemainingCount_ == nullptr
-        && return this->certTotalCount_ == nullptr && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr && return this->crlDay_ == nullptr
-        && return this->crlStatus_ == nullptr && return this->crlUrl_ == nullptr && return this->fullAlgorithm_ == nullptr && return this->identifier_ == nullptr && return this->issuerType_ == nullptr
-        && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->md5_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr
-        && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr && return this->serialNumber_ == nullptr && return this->sha2_ == nullptr
-        && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr && return this->subjectDN_ == nullptr && return this->tags_ == nullptr
-        && return this->x509Certificate_ == nullptr && return this->years_ == nullptr; };
+        && return this->certTotalCount_ == nullptr && return this->certificateType_ == nullptr && return this->clusterId_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr
+        && return this->crlDay_ == nullptr && return this->crlStatus_ == nullptr && return this->crlUrl_ == nullptr && return this->fullAlgorithm_ == nullptr && return this->identifier_ == nullptr
+        && return this->issuerType_ == nullptr && return this->keyIndex_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->md5_ == nullptr
+        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr
+        && return this->serialNumber_ == nullptr && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr
+        && return this->subjectDN_ == nullptr && return this->tags_ == nullptr && return this->x509Certificate_ == nullptr && return this->years_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -159,6 +163,13 @@ namespace Models
     inline DescribeCACertificateResponseBodyCertificate& setCertificateType(string certificateType) { DARABONBA_PTR_SET_VALUE(certificateType_, certificateType) };
 
 
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline DescribeCACertificateResponseBodyCertificate& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};
@@ -213,6 +224,13 @@ namespace Models
     void deleteIssuerType() { this->issuerType_ = nullptr;};
     inline string issuerType() const { DARABONBA_PTR_GET_DEFAULT(issuerType_, "") };
     inline DescribeCACertificateResponseBodyCertificate& setIssuerType(string issuerType) { DARABONBA_PTR_SET_VALUE(issuerType_, issuerType) };
+
+
+    // keyIndex Field Functions 
+    bool hasKeyIndex() const { return this->keyIndex_ != nullptr;};
+    void deleteKeyIndex() { this->keyIndex_ = nullptr;};
+    inline int32_t keyIndex() const { DARABONBA_PTR_GET_DEFAULT(keyIndex_, 0) };
+    inline DescribeCACertificateResponseBodyCertificate& setKeyIndex(int32_t keyIndex) { DARABONBA_PTR_SET_VALUE(keyIndex_, keyIndex) };
 
 
     // keySize Field Functions 
@@ -360,6 +378,7 @@ namespace Models
     // *   **ROOT**: root CA certificate
     // *   **SUB_ROOT**: intermediate CA certificate
     std::shared_ptr<string> certificateType_ = nullptr;
+    std::shared_ptr<string> clusterId_ = nullptr;
     // The common name or abbreviation of the organization that is associated with the CA certificate.
     std::shared_ptr<string> commonName_ = nullptr;
     // The code of the country in which the organization is located.
@@ -376,6 +395,7 @@ namespace Models
     // The unique identifier of the CA certificate.
     std::shared_ptr<string> identifier_ = nullptr;
     std::shared_ptr<string> issuerType_ = nullptr;
+    std::shared_ptr<int32_t> keyIndex_ = nullptr;
     // The key length of the CA certificate.
     std::shared_ptr<int32_t> keySize_ = nullptr;
     // The name of the city in which the organization is located.
