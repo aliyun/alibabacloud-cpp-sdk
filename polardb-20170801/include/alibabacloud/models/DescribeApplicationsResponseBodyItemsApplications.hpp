@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && return this->applicationType_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->endpoints_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->payType_ == nullptr && return this->polarFSInstanceId_ == nullptr && return this->regionId_ == nullptr
-        && return this->status_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->applicationType_ == nullptr && return this->creationTime_ == nullptr && return this->DBClusterId_ == nullptr && return this->description_ == nullptr && return this->endpoints_ == nullptr
+        && return this->engineVersion_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->payType_ == nullptr && return this->polarFSInstanceId_ == nullptr
+        && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     void deleteCreationTime() { this->creationTime_ = nullptr;};
     inline string creationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
     inline DescribeApplicationsResponseBodyItemsApplications& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+    // DBClusterId Field Functions 
+    bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
+    void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
+    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline DescribeApplicationsResponseBodyItemsApplications& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // description Field Functions 
@@ -155,6 +164,7 @@ namespace Models
     std::shared_ptr<string> applicationId_ = nullptr;
     std::shared_ptr<string> applicationType_ = nullptr;
     std::shared_ptr<string> creationTime_ = nullptr;
+    std::shared_ptr<string> DBClusterId_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<Models::DescribeApplicationsResponseBodyItemsApplicationsEndpoints> endpoints_ = nullptr;
     std::shared_ptr<string> engineVersion_ = nullptr;
