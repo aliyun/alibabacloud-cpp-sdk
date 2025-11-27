@@ -1,0 +1,63 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_MODIFYDBINSTANCEENDPOINTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_MODIFYDBINSTANCEENDPOINTRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/ModifyDBInstanceEndpointResponseBodyData.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Rds20140815
+{
+namespace Models
+{
+  class ModifyDBInstanceEndpointResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ModifyDBInstanceEndpointResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ModifyDBInstanceEndpointResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+    };
+    ModifyDBInstanceEndpointResponseBody() = default ;
+    ModifyDBInstanceEndpointResponseBody(const ModifyDBInstanceEndpointResponseBody &) = default ;
+    ModifyDBInstanceEndpointResponseBody(ModifyDBInstanceEndpointResponseBody &&) = default ;
+    ModifyDBInstanceEndpointResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ModifyDBInstanceEndpointResponseBody() = default ;
+    ModifyDBInstanceEndpointResponseBody& operator=(const ModifyDBInstanceEndpointResponseBody &) = default ;
+    ModifyDBInstanceEndpointResponseBody& operator=(ModifyDBInstanceEndpointResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->data_ == nullptr
+        && return this->requestId_ == nullptr; };
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const ModifyDBInstanceEndpointResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, ModifyDBInstanceEndpointResponseBodyData) };
+    inline ModifyDBInstanceEndpointResponseBodyData data() { DARABONBA_PTR_GET(data_, ModifyDBInstanceEndpointResponseBodyData) };
+    inline ModifyDBInstanceEndpointResponseBody& setData(const ModifyDBInstanceEndpointResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ModifyDBInstanceEndpointResponseBody& setData(ModifyDBInstanceEndpointResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ModifyDBInstanceEndpointResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+  protected:
+    // The returned data.
+    std::shared_ptr<ModifyDBInstanceEndpointResponseBodyData> data_ = nullptr;
+    // The ID of the request.
+    std::shared_ptr<string> requestId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Rds20140815
+#endif
