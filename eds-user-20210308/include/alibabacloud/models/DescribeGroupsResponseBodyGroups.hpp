@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attachedLoginPolicy_ != nullptr
-        && this->authedResources_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr
-        && this->transferFileNeedApproval_ != nullptr && this->userCount_ != nullptr; };
+    virtual bool empty() const override { return this->attachedLoginPolicy_ == nullptr
+        && return this->authedResources_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr
+        && return this->transferFileNeedApproval_ == nullptr && return this->userCount_ == nullptr; };
     // attachedLoginPolicy Field Functions 
     bool hasAttachedLoginPolicy() const { return this->attachedLoginPolicy_ != nullptr;};
     void deleteAttachedLoginPolicy() { this->attachedLoginPolicy_ = nullptr;};
@@ -110,12 +110,18 @@ namespace Models
 
   protected:
     std::shared_ptr<Models::DescribeGroupsResponseBodyGroupsAttachedLoginPolicy> attachedLoginPolicy_ = nullptr;
+    // The type of the resource assigned to the user group.
     std::shared_ptr<map<string, string>> authedResources_ = nullptr;
+    // The time when the user group is created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description of the user group.
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the user group.
     std::shared_ptr<string> groupName_ = nullptr;
+    // Indicates whether the file approval feature is enabled.
     std::shared_ptr<bool> transferFileNeedApproval_ = nullptr;
+    // The number of users in the user group.
     std::shared_ptr<int32_t> userCount_ = nullptr;
   };
 

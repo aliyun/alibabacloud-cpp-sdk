@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nextToken_ != nullptr
-        && this->requestId_ != nullptr && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && return this->requestId_ == nullptr && return this->users_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -65,7 +65,7 @@ namespace Models
     std::shared_ptr<string> nextToken_ = nullptr;
     // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The convenience accounts.
+    // The information about the convenience accounts.
     std::shared_ptr<vector<DescribeUsersResponseBodyUsers>> users_ = nullptr;
   };
 

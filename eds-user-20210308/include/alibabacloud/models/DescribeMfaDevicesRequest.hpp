@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adDomain_ != nullptr
-        && this->endUserIds_ != nullptr && this->filter_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->serialNumbers_ != nullptr; };
+    virtual bool empty() const override { return this->adDomain_ == nullptr
+        && return this->endUserIds_ == nullptr && return this->filter_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->serialNumbers_ == nullptr; };
     // adDomain Field Functions 
     bool hasAdDomain() const { return this->adDomain_ != nullptr;};
     void deleteAdDomain() { this->adDomain_ = nullptr;};
@@ -89,9 +89,9 @@ namespace Models
 
 
   protected:
-    // The domain of the Active Directory (AD) workspace.
+    // The address of the AD office network.
     std::shared_ptr<string> adDomain_ = nullptr;
-    // The usernames of the convenience users.
+    // The usernames of the convenience accounts.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
     std::shared_ptr<string> filter_ = nullptr;
     // The maximum number of entries to return. Valid values: 1 to 500.\\

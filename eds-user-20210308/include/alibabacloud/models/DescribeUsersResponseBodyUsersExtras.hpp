@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignedResourceCount_ != nullptr; };
+    virtual bool empty() const override { return this->assignedResourceCount_ == nullptr; };
     // assignedResourceCount Field Functions 
     bool hasAssignedResourceCount() const { return this->assignedResourceCount_ != nullptr;};
     void deleteAssignedResourceCount() { this->assignedResourceCount_ = nullptr;};

@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->groups_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->count_ == nullptr
+        && return this->groups_ == nullptr && return this->requestId_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
@@ -61,7 +61,9 @@ namespace Models
 
 
   protected:
+    // The number of the entries returned.
     std::shared_ptr<int32_t> count_ = nullptr;
+    // The user groups.
     std::shared_ptr<vector<DescribeGroupsResponseBodyGroups>> groups_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
   };

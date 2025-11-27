@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->newParentOrgId_ != nullptr
-        && this->orgId_ != nullptr; };
+    virtual bool empty() const override { return this->newParentOrgId_ == nullptr
+        && return this->orgId_ == nullptr; };
     // newParentOrgId Field Functions 
     bool hasNewParentOrgId() const { return this->newParentOrgId_ != nullptr;};
     void deleteNewParentOrgId() { this->newParentOrgId_ = nullptr;};
@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the parent organization.
+    // 
     // This parameter is required.
     std::shared_ptr<string> newParentOrgId_ = nullptr;
+    // The ID of the organization that you want to move.
+    // 
     // This parameter is required.
     std::shared_ptr<string> orgId_ = nullptr;
   };

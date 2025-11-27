@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->avatar_ != nullptr && this->email_ != nullptr && this->endUserId_ != nullptr && this->gmtCreated_ != nullptr && this->gmtJoinGroup_ != nullptr
-        && this->jobNumber_ != nullptr && this->nickName_ != nullptr && this->phone_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->avatar_ == nullptr && return this->email_ == nullptr && return this->endUserId_ == nullptr && return this->gmtCreated_ == nullptr && return this->gmtJoinGroup_ == nullptr
+        && return this->jobNumber_ == nullptr && return this->nickName_ == nullptr && return this->phone_ == nullptr && return this->remark_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // >  This field is deprecated.
     std::shared_ptr<string> address_ = nullptr;
+    // >  This field is deprecated.
     std::shared_ptr<string> avatar_ = nullptr;
+    // The email address.
     std::shared_ptr<string> email_ = nullptr;
+    // The user name.
     std::shared_ptr<string> endUserId_ = nullptr;
+    // The time when the user was created.
     std::shared_ptr<string> gmtCreated_ = nullptr;
+    // The time when the user was added to the user group.
     std::shared_ptr<string> gmtJoinGroup_ = nullptr;
+    // >  This field is deprecated.
     std::shared_ptr<string> jobNumber_ = nullptr;
+    // The display name.
     std::shared_ptr<string> nickName_ = nullptr;
+    // The mobile number.
     std::shared_ptr<string> phone_ = nullptr;
+    // The remarks on the user.
     std::shared_ptr<string> remark_ = nullptr;
   };
 

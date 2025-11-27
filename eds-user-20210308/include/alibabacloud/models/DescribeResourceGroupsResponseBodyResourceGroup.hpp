@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appRules_ != nullptr
-        && this->authCount_ != nullptr && this->createTime_ != nullptr && this->policies_ != nullptr && this->resourceCount_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceGroupName_ != nullptr && this->timers_ != nullptr; };
+    virtual bool empty() const override { return this->appRules_ == nullptr
+        && return this->authCount_ == nullptr && return this->createTime_ == nullptr && return this->policies_ == nullptr && return this->resourceCount_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceGroupName_ == nullptr && return this->timers_ == nullptr; };
     // appRules Field Functions 
     bool hasAppRules() const { return this->appRules_ != nullptr;};
     void deleteAppRules() { this->appRules_ = nullptr;};
@@ -114,12 +114,25 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<Models::DescribeResourceGroupsResponseBodyResourceGroupAppRules>> appRules_ = nullptr;
+    // The number of administrators that are authorized to access the resource group.
     std::shared_ptr<string> authCount_ = nullptr;
+    // The time when the resource group was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // >  The policy that is associated with the resource group.
+    // 
+    // *   The policy applies to cloud computers in the resource group. If multiple policies exist, they are enforced in order of priority.
+    // 
+    // *   If any of these cloud computers are already associated with other policies, the resource group\\"s policy takes precedence.
     std::shared_ptr<vector<Models::DescribeResourceGroupsResponseBodyResourceGroupPolicies>> policies_ = nullptr;
+    // The number of resources in the resource group.
     std::shared_ptr<string> resourceCount_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The name of the resource group.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
+    // >  The associated scheduled task.
+    // 
+    // *   The scheduled task applies to all cloud computers in the resource group. If any of these cloud computers are already associated with other scheduled tasks, the resource group\\"s scheduled task takes precedence.
     std::shared_ptr<vector<Models::DescribeResourceGroupsResponseBodyResourceGroupTimers>> timers_ = nullptr;
   };
 

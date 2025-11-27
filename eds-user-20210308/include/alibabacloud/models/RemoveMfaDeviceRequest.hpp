@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adDomain_ != nullptr
-        && this->serialNumber_ != nullptr; };
+    virtual bool empty() const override { return this->adDomain_ == nullptr
+        && return this->serialNumber_ == nullptr; };
     // adDomain Field Functions 
     bool hasAdDomain() const { return this->adDomain_ != nullptr;};
     void deleteAdDomain() { this->adDomain_ = nullptr;};
@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The domain of the Active Directory (AD) workspace.
+    // The address of the AD office network.
     std::shared_ptr<string> adDomain_ = nullptr;
-    // The serial number of the virtual MFA device. The serial number is unique for each device.
+    // The serial number of the virtual MFA device. You can call the [DescribeMfaDevices](~~DescribeMfaDevices~~) operation to get this information.
     // 
     // This parameter is required.
     std::shared_ptr<string> serialNumber_ = nullptr;

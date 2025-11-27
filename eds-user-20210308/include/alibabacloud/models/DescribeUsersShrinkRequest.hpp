@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->endUserIds_ != nullptr && this->excludeEndUserIds_ != nullptr && this->excludeGroupId_ != nullptr && this->filter_ != nullptr && this->filterWithAssignedResourceShrink_ != nullptr
-        && this->filterWithAssignedResourcesShrink_ != nullptr && this->groupId_ != nullptr && this->isQueryAllSubOrgs_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->orgId_ != nullptr && this->showExtrasShrink_ != nullptr && this->solutionId_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->endUserIds_ == nullptr && return this->excludeEndUserIds_ == nullptr && return this->excludeGroupId_ == nullptr && return this->filter_ == nullptr && return this->filterWithAssignedResourceShrink_ == nullptr
+        && return this->filterWithAssignedResourcesShrink_ == nullptr && return this->groupId_ == nullptr && return this->isQueryAllSubOrgs_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->orgId_ == nullptr && return this->showExtrasShrink_ == nullptr && return this->solutionId_ == nullptr && return this->status_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -197,6 +197,7 @@ namespace Models
     std::shared_ptr<string> orgId_ = nullptr;
     std::shared_ptr<string> showExtrasShrink_ = nullptr;
     std::shared_ptr<string> solutionId_ = nullptr;
+    // The status.
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

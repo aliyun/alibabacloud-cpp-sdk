@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersExternalInfo.hpp>
 #include <vector>
+#include <alibabacloud/models/FilterUsersResponseBodyUsersGroups.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersOrgList.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersSupportLoginIdps.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersUserSetPropertiesModels.hpp>
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(ExternalInfo, externalInfo_);
+      DARABONBA_PTR_TO_JSON(Groups, groups_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(IsTenantManager, isTenantManager_);
       DARABONBA_PTR_TO_JSON(OrgList, orgList_);
@@ -46,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableAdminAccess, enableAdminAccess_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(ExternalInfo, externalInfo_);
+      DARABONBA_PTR_FROM_JSON(Groups, groups_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(IsTenantManager, isTenantManager_);
       DARABONBA_PTR_FROM_JSON(OrgList, orgList_);
@@ -70,11 +73,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoLockTime_ != nullptr
-        && this->desktopCount_ != nullptr && this->desktopGroupCount_ != nullptr && this->email_ != nullptr && this->enableAdminAccess_ != nullptr && this->endUserId_ != nullptr
-        && this->externalInfo_ != nullptr && this->id_ != nullptr && this->isTenantManager_ != nullptr && this->orgList_ != nullptr && this->ownerType_ != nullptr
-        && this->passwordExpireDays_ != nullptr && this->passwordExpireRestDays_ != nullptr && this->phone_ != nullptr && this->realNickName_ != nullptr && this->remark_ != nullptr
-        && this->status_ != nullptr && this->supportLoginIdps_ != nullptr && this->userSetPropertiesModels_ != nullptr; };
+    virtual bool empty() const override { return this->autoLockTime_ == nullptr
+        && return this->desktopCount_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->email_ == nullptr && return this->enableAdminAccess_ == nullptr && return this->endUserId_ == nullptr
+        && return this->externalInfo_ == nullptr && return this->groups_ == nullptr && return this->id_ == nullptr && return this->isTenantManager_ == nullptr && return this->orgList_ == nullptr
+        && return this->ownerType_ == nullptr && return this->passwordExpireDays_ == nullptr && return this->passwordExpireRestDays_ == nullptr && return this->phone_ == nullptr && return this->realNickName_ == nullptr
+        && return this->remark_ == nullptr && return this->status_ == nullptr && return this->supportLoginIdps_ == nullptr && return this->userSetPropertiesModels_ == nullptr; };
     // autoLockTime Field Functions 
     bool hasAutoLockTime() const { return this->autoLockTime_ != nullptr;};
     void deleteAutoLockTime() { this->autoLockTime_ = nullptr;};
@@ -124,6 +127,15 @@ namespace Models
     inline Models::FilterUsersResponseBodyUsersExternalInfo externalInfo() { DARABONBA_PTR_GET(externalInfo_, Models::FilterUsersResponseBodyUsersExternalInfo) };
     inline FilterUsersResponseBodyUsers& setExternalInfo(const Models::FilterUsersResponseBodyUsersExternalInfo & externalInfo) { DARABONBA_PTR_SET_VALUE(externalInfo_, externalInfo) };
     inline FilterUsersResponseBodyUsers& setExternalInfo(Models::FilterUsersResponseBodyUsersExternalInfo && externalInfo) { DARABONBA_PTR_SET_RVALUE(externalInfo_, externalInfo) };
+
+
+    // groups Field Functions 
+    bool hasGroups() const { return this->groups_ != nullptr;};
+    void deleteGroups() { this->groups_ = nullptr;};
+    inline const vector<Models::FilterUsersResponseBodyUsersGroups> & groups() const { DARABONBA_PTR_GET_CONST(groups_, vector<Models::FilterUsersResponseBodyUsersGroups>) };
+    inline vector<Models::FilterUsersResponseBodyUsersGroups> groups() { DARABONBA_PTR_GET(groups_, vector<Models::FilterUsersResponseBodyUsersGroups>) };
+    inline FilterUsersResponseBodyUsers& setGroups(const vector<Models::FilterUsersResponseBodyUsersGroups> & groups) { DARABONBA_PTR_SET_VALUE(groups_, groups) };
+    inline FilterUsersResponseBodyUsers& setGroups(vector<Models::FilterUsersResponseBodyUsersGroups> && groups) { DARABONBA_PTR_SET_RVALUE(groups_, groups) };
 
 
     // id Field Functions 
@@ -249,6 +261,7 @@ namespace Models
     std::shared_ptr<string> endUserId_ = nullptr;
     // The additional information about the convenience user.
     std::shared_ptr<Models::FilterUsersResponseBodyUsersExternalInfo> externalInfo_ = nullptr;
+    std::shared_ptr<vector<Models::FilterUsersResponseBodyUsersGroups>> groups_ = nullptr;
     // The ID of the convenience user.
     std::shared_ptr<int64_t> id_ = nullptr;
     // Indicates whether the convenience user is a tenant administrator.
@@ -271,6 +284,7 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<bool> isTenantManager_ = nullptr;
+    // The organizations to which the user belongs.
     std::shared_ptr<vector<Models::FilterUsersResponseBodyUsersOrgList>> orgList_ = nullptr;
     // The type of the account ownership.
     // 
@@ -298,6 +312,7 @@ namespace Models
     // *   0: The convenience account is normal.
     // *   9: The convenience account is locked.
     std::shared_ptr<int64_t> status_ = nullptr;
+    // The supported identity provider logon methods.
     std::shared_ptr<vector<Models::FilterUsersResponseBodyUsersSupportLoginIdps>> supportLoginIdps_ = nullptr;
     // The information about the properties.
     std::shared_ptr<vector<Models::FilterUsersResponseBodyUsersUserSetPropertiesModels>> userSetPropertiesModels_ = nullptr;

@@ -36,7 +36,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 批量设置桌面管理员
+ * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+ *
+ * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
  *
  * @param request BatchSetDesktopManagerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +73,9 @@ BatchSetDesktopManagerResponse Client::batchSetDesktopManagerWithOptions(const B
 }
 
 /**
- * @summary 批量设置桌面管理员
+ * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+ *
+ * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
  *
  * @param request BatchSetDesktopManagerRequest
  * @return BatchSetDesktopManagerResponse
@@ -220,7 +224,7 @@ CheckUsedPropertyValueResponse Client::checkUsedPropertyValue(const CheckUsedPro
 }
 
 /**
- * @summary 创建角色.
+ * @summary Creates a user group.
  *
  * @param request CreateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -267,7 +271,7 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 }
 
 /**
- * @summary 创建角色.
+ * @summary Creates a user group.
  *
  * @param request CreateGroupRequest
  * @return CreateGroupResponse
@@ -278,7 +282,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary 创建组织
+ * @summary Creates an organization.
  *
  * @param request CreateOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -313,7 +317,7 @@ CreateOrgResponse Client::createOrgWithOptions(const CreateOrgRequest &request, 
 }
 
 /**
- * @summary 创建组织
+ * @summary Creates an organization.
  *
  * @param request CreateOrgRequest
  * @return CreateOrgResponse
@@ -370,7 +374,7 @@ CreatePropertyResponse Client::createProperty(const CreatePropertyRequest &reque
 }
 
 /**
- * @summary 创建资源组
+ * @summary Creates a resource group.
  *
  * @param request CreateResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -409,7 +413,7 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
 }
 
 /**
- * @summary 创建资源组
+ * @summary Creates a resource group.
  *
  * @param request CreateResourceGroupRequest
  * @return CreateResourceGroupResponse
@@ -584,7 +588,7 @@ DeleteUserPropertyValueResponse Client::deleteUserPropertyValue(const DeleteUser
 }
 
 /**
- * @summary 全量同步初始化
+ * @summary Queries the members of a user group.
  *
  * @param request DescribeGroupUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -635,7 +639,7 @@ DescribeGroupUserResponse Client::describeGroupUserWithOptions(const DescribeGro
 }
 
 /**
- * @summary 全量同步初始化
+ * @summary Queries the members of a user group.
  *
  * @param request DescribeGroupUserRequest
  * @return DescribeGroupUserResponse
@@ -646,7 +650,7 @@ DescribeGroupUserResponse Client::describeGroupUser(const DescribeGroupUserReque
 }
 
 /**
- * @summary 全量同步初始化.
+ * @summary Queries user groups.
  *
  * @param request DescribeGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -669,6 +673,10 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
 
   if (!!request.hasGroupName()) {
     query["GroupName"] = request.groupName();
+  }
+
+  if (!!request.hasIdpId()) {
+    query["IdpId"] = request.idpId();
   }
 
   if (!!request.hasLoginPolicyId()) {
@@ -709,7 +717,7 @@ DescribeGroupsResponse Client::describeGroupsWithOptions(const DescribeGroupsReq
 }
 
 /**
- * @summary 全量同步初始化.
+ * @summary Queries user groups.
  *
  * @param request DescribeGroupsRequest
  * @return DescribeGroupsResponse
@@ -720,7 +728,7 @@ DescribeGroupsResponse Client::describeGroups(const DescribeGroupsRequest &reque
 }
 
 /**
- * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+ * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
  *
  * @param request DescribeMfaDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -771,7 +779,7 @@ DescribeMfaDevicesResponse Client::describeMfaDevicesWithOptions(const DescribeM
 }
 
 /**
- * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+ * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
  *
  * @param request DescribeMfaDevicesRequest
  * @return DescribeMfaDevicesResponse
@@ -782,7 +790,7 @@ DescribeMfaDevicesResponse Client::describeMfaDevices(const DescribeMfaDevicesRe
 }
 
 /**
- * @summary 查找下级组织
+ * @summary Queries subordinate organizations.
  *
  * @param request DescribeOrgByLayerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -817,7 +825,7 @@ DescribeOrgByLayerResponse Client::describeOrgByLayerWithOptions(const DescribeO
 }
 
 /**
- * @summary 查找下级组织
+ * @summary Queries subordinate organizations.
  *
  * @param request DescribeOrgByLayerRequest
  * @return DescribeOrgByLayerResponse
@@ -896,7 +904,7 @@ DescribeOrgsResponse Client::describeOrgs(const DescribeOrgsRequest &request) {
 }
 
 /**
- * @summary 查看资源组
+ * @summary Queries resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -947,7 +955,7 @@ DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const D
 }
 
 /**
- * @summary 查看资源组
+ * @summary Queries resource groups.
  *
  * @param request DescribeResourceGroupsRequest
  * @return DescribeResourceGroupsResponse
@@ -1218,7 +1226,7 @@ GetManagerInfoByAuthCodeResponse Client::getManagerInfoByAuthCode(const GetManag
 }
 
 /**
- * @summary 初始化TenantAlias
+ * @summary Initializes an organization ID.
  *
  * @param request InitTenantAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1249,7 @@ InitTenantAliasResponse Client::initTenantAliasWithOptions(const Darabonba::Runt
 }
 
 /**
- * @summary 初始化TenantAlias
+ * @summary Initializes an organization ID.
  *
  * @return InitTenantAliasResponse
  */
@@ -1424,7 +1432,7 @@ LockUsersResponse Client::lockUsers(const LockUsersRequest &request) {
 }
 
 /**
- * @summary 修改角色.
+ * @summary Modifies the name and description of a user group.
  *
  * @param request ModifyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1463,7 +1471,7 @@ ModifyGroupResponse Client::modifyGroupWithOptions(const ModifyGroupRequest &req
 }
 
 /**
- * @summary 修改角色.
+ * @summary Modifies the name and description of a user group.
  *
  * @param request ModifyGroupRequest
  * @return ModifyGroupResponse
@@ -1474,7 +1482,7 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 }
 
 /**
- * @summary 修改组织
+ * @summary Modifies an organization.
  *
  * @param request ModifyOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1517,7 @@ ModifyOrgResponse Client::modifyOrgWithOptions(const ModifyOrgRequest &request, 
 }
 
 /**
- * @summary 修改组织
+ * @summary Modifies an organization.
  *
  * @param request ModifyOrgRequest
  * @return ModifyOrgResponse
@@ -1570,7 +1578,7 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 }
 
 /**
- * @summary 移动组织
+ * @summary Moves an organization.
  *
  * @param request MoveOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +1613,7 @@ MoveOrgResponse Client::moveOrgWithOptions(const MoveOrgRequest &request, const 
 }
 
 /**
- * @summary 移动组织
+ * @summary Moves an organization.
  *
  * @param request MoveOrgRequest
  * @return MoveOrgResponse
@@ -1616,7 +1624,7 @@ MoveOrgResponse Client::moveOrg(const MoveOrgRequest &request) {
 }
 
 /**
- * @summary 移动用户组织
+ * @summary Moves users to a specific organization.
  *
  * @param request MoveUserOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1651,7 +1659,7 @@ MoveUserOrgResponse Client::moveUserOrgWithOptions(const MoveUserOrgRequest &req
 }
 
 /**
- * @summary 移动用户组织
+ * @summary Moves users to a specific organization.
  *
  * @param request MoveUserOrgRequest
  * @return MoveUserOrgResponse
@@ -1695,7 +1703,7 @@ QuerySyncStatusByAliUidResponse Client::querySyncStatusByAliUid() {
 }
 
 /**
- * @summary 删除角色.
+ * @summary Deletes a single user group or multiple user groups at a time.
  *
  * @param request RemoveGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1730,7 +1738,7 @@ RemoveGroupResponse Client::removeGroupWithOptions(const RemoveGroupRequest &req
 }
 
 /**
- * @summary 删除角色.
+ * @summary Deletes a single user group or multiple user groups at a time.
  *
  * @param request RemoveGroupRequest
  * @return RemoveGroupResponse
@@ -1741,9 +1749,9 @@ RemoveGroupResponse Client::removeGroup(const RemoveGroupRequest &request) {
 }
 
 /**
- * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
  *
- * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+ * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
  *
  * @param request RemoveMfaDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1778,9 +1786,9 @@ RemoveMfaDeviceResponse Client::removeMfaDeviceWithOptions(const RemoveMfaDevice
 }
 
 /**
- * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+ * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
  *
- * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+ * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
  *
  * @param request RemoveMfaDeviceRequest
  * @return RemoveMfaDeviceResponse
@@ -1791,7 +1799,7 @@ RemoveMfaDeviceResponse Client::removeMfaDevice(const RemoveMfaDeviceRequest &re
 }
 
 /**
- * @summary 移除组织
+ * @summary Removes an organization.
  *
  * @param request RemoveOrgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1822,7 +1830,7 @@ RemoveOrgResponse Client::removeOrgWithOptions(const RemoveOrgRequest &request, 
 }
 
 /**
- * @summary 移除组织
+ * @summary Removes an organization.
  *
  * @param request RemoveOrgRequest
  * @return RemoveOrgResponse
@@ -2194,7 +2202,7 @@ UpdatePropertyResponse Client::updateProperty(const UpdatePropertyRequest &reque
 }
 
 /**
- * @summary 用户批量分配角色
+ * @summary Add multiple users to a user group at a time.
  *
  * @param request UserBatchJoinGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2229,7 +2237,7 @@ UserBatchJoinGroupResponse Client::userBatchJoinGroupWithOptions(const UserBatch
 }
 
 /**
- * @summary 用户批量分配角色
+ * @summary Add multiple users to a user group at a time.
  *
  * @param request UserBatchJoinGroupRequest
  * @return UserBatchJoinGroupResponse
@@ -2240,7 +2248,7 @@ UserBatchJoinGroupResponse Client::userBatchJoinGroup(const UserBatchJoinGroupRe
 }
 
 /**
- * @summary 用户批量移出角色
+ * @summary Removes multiple users from a user group at a time.
  *
  * @param request UserBatchQuitGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2275,7 +2283,7 @@ UserBatchQuitGroupResponse Client::userBatchQuitGroupWithOptions(const UserBatch
 }
 
 /**
- * @summary 用户批量移出角色
+ * @summary Removes multiple users from a user group at a time.
  *
  * @param request UserBatchQuitGroupRequest
  * @return UserBatchQuitGroupResponse

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adUser_ != nullptr
-        && this->consecutiveFails_ != nullptr && this->deviceType_ != nullptr && this->email_ != nullptr && this->endUserId_ != nullptr && this->gmtEnabled_ != nullptr
-        && this->gmtUnlock_ != nullptr && this->id_ != nullptr && this->serialNumber_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->adUser_ == nullptr
+        && return this->consecutiveFails_ == nullptr && return this->deviceType_ == nullptr && return this->email_ == nullptr && return this->endUserId_ == nullptr && return this->gmtEnabled_ == nullptr
+        && return this->gmtUnlock_ == nullptr && return this->id_ == nullptr && return this->serialNumber_ == nullptr && return this->status_ == nullptr; };
     // adUser Field Functions 
     bool hasAdUser() const { return this->adUser_ != nullptr;};
     void deleteAdUser() { this->adUser_ = nullptr;};
@@ -127,19 +127,19 @@ namespace Models
     std::shared_ptr<Models::DescribeMfaDevicesResponseBodyMfaDevicesAdUser> adUser_ = nullptr;
     // The number of consecutive failures to bind the virtual MFA device, or the number of authentication failures based on the virtual MFA device.
     std::shared_ptr<int32_t> consecutiveFails_ = nullptr;
-    // The type of the virtual MFA device. The value can only be TOTP_VIRTUAL. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
+    // The type of the virtual MFA device. The value can only be `TOTP_VIRTUAL`. This value indicates that the virtual MFA device follows the Time-based One-time Password (TOTP) algorithm.
     std::shared_ptr<string> deviceType_ = nullptr;
     // >  This parameter is not publicly available.
     std::shared_ptr<string> email_ = nullptr;
-    // The username of the convenience user that uses the virtual MFA device.
+    // The username of the convenience account that uses the virtual MFA device.
     std::shared_ptr<string> endUserId_ = nullptr;
-    // The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
     std::shared_ptr<string> gmtEnabled_ = nullptr;
-    // The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The time when the locked virtual MFA device was automatically unlocked. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
     std::shared_ptr<string> gmtUnlock_ = nullptr;
-    // >  This parameter is not publicly available.
+    // The ID of the virtual MFA device.
     std::shared_ptr<int64_t> id_ = nullptr;
-    // The serial number of the virtual MFA device. The serial number is unique for each device.
+    // The serial number of the virtual MFA device.
     std::shared_ptr<string> serialNumber_ = nullptr;
     // The status of the virtual MFA device.
     // 

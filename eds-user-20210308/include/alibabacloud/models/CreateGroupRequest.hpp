@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->description_ != nullptr && this->groupName_ != nullptr && this->parentGroupId_ != nullptr && this->solutionId_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->description_ == nullptr && return this->groupName_ == nullptr && return this->parentGroupId_ == nullptr && return this->solutionId_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -76,9 +76,12 @@ namespace Models
 
   protected:
     std::shared_ptr<string> bizType_ = nullptr;
+    // The description of the user group.
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> groupName_ = nullptr;
+    // > This parameter is not publicly available.
     std::shared_ptr<string> parentGroupId_ = nullptr;
+    // > This parameter is not publicly available.
     std::shared_ptr<string> solutionId_ = nullptr;
   };
 

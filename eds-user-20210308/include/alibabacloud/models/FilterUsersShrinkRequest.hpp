@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->excludeEndUserIds_ != nullptr
-        && this->filter_ != nullptr && this->includeDesktopCount_ != nullptr && this->includeDesktopGroupCount_ != nullptr && this->includeOrgInfo_ != nullptr && this->includeSupportIdps_ != nullptr
-        && this->isQueryAllSubOrgs_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->orderParamShrink_ != nullptr && this->orgId_ != nullptr
-        && this->ownerType_ != nullptr && this->propertyFilterParam_ != nullptr && this->propertyKeyValueFilterParam_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->excludeEndUserIds_ == nullptr
+        && return this->filter_ == nullptr && return this->includeDesktopCount_ == nullptr && return this->includeDesktopGroupCount_ == nullptr && return this->includeOrgInfo_ == nullptr && return this->includeSupportIdps_ == nullptr
+        && return this->isQueryAllSubOrgs_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->orderParamShrink_ == nullptr && return this->orgId_ == nullptr
+        && return this->ownerType_ == nullptr && return this->propertyFilterParam_ == nullptr && return this->propertyKeyValueFilterParam_ == nullptr && return this->status_ == nullptr; };
     // excludeEndUserIds Field Functions 
     bool hasExcludeEndUserIds() const { return this->excludeEndUserIds_ != nullptr;};
     void deleteExcludeEndUserIds() { this->excludeEndUserIds_ = nullptr;};
@@ -220,8 +220,11 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<bool> includeDesktopGroupCount_ = nullptr;
+    // Specifies whether to return the organization information.
     std::shared_ptr<bool> includeOrgInfo_ = nullptr;
+    // Specifies whether to return the supported logon types.
     std::shared_ptr<bool> includeSupportIdps_ = nullptr;
+    // Specifies whether to query all sub-organizations.
     std::shared_ptr<bool> isQueryAllSubOrgs_ = nullptr;
     // The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
     std::shared_ptr<int64_t> maxResults_ = nullptr;
@@ -242,6 +245,7 @@ namespace Models
     std::shared_ptr<vector<FilterUsersShrinkRequestPropertyFilterParam>> propertyFilterParam_ = nullptr;
     // The list of property names and property values.
     std::shared_ptr<vector<FilterUsersShrinkRequestPropertyKeyValueFilterParam>> propertyKeyValueFilterParam_ = nullptr;
+    // The status.
     std::shared_ptr<int32_t> status_ = nullptr;
   };
 

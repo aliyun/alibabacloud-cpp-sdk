@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groups_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->groups_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->users_ == nullptr; };
     // groups Field Functions 
     bool hasGroups() const { return this->groups_ != nullptr;};
     void deleteGroups() { this->groups_ = nullptr;};
@@ -73,9 +73,13 @@ namespace Models
 
 
   protected:
+    // >  This field is deprecated.
     std::shared_ptr<vector<DescribeGroupUserResponseBodyGroups>> groups_ = nullptr;
+    // The token for the next query. If NextToken is empty, all results have been queried.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The members.
     std::shared_ptr<vector<DescribeGroupUserResponseBodyUsers>> users_ = nullptr;
   };
 

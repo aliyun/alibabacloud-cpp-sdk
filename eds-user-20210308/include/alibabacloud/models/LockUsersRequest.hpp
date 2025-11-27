@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->logoutSession_ != nullptr
-        && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->logoutSession_ == nullptr
+        && return this->users_ == nullptr; };
     // logoutSession Field Functions 
     bool hasLogoutSession() const { return this->logoutSession_ != nullptr;};
     void deleteLogoutSession() { this->logoutSession_ = nullptr;};

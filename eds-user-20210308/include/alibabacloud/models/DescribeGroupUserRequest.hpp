@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->filter_ != nullptr && this->groupId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->solutionId_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->filter_ == nullptr && return this->groupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->solutionId_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // >  This parameter is not available for public use.
     std::shared_ptr<string> bizType_ = nullptr;
+    // The fuzzy search string that matches the username (EndUserId) and email address (Email) of the regular user.
     std::shared_ptr<string> filter_ = nullptr;
+    // The ID of the user group.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The token for the next query. You can obtain this parameter from the response parameters of the last call to this operation.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // >  This parameter is not available for public use.
     std::shared_ptr<string> solutionId_ = nullptr;
   };
 

@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endUserIds_ != nullptr
-        && this->groupId_ != nullptr; };
+    virtual bool empty() const override { return this->endUserIds_ == nullptr
+        && return this->groupId_ == nullptr; };
     // endUserIds Field Functions 
     bool hasEndUserIds() const { return this->endUserIds_ != nullptr;};
     void deleteEndUserIds() { this->endUserIds_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The user IDs.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    // The ID of the user group.
     std::shared_ptr<string> groupId_ = nullptr;
   };
 

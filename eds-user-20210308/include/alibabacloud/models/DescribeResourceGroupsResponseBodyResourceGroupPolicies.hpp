@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->id_ != nullptr
-        && this->isDefault_ != nullptr && this->name_ != nullptr; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && return this->isDefault_ == nullptr && return this->name_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The policy ID.
     std::shared_ptr<string> id_ = nullptr;
+    // Specifies whether to use the default policy.
     std::shared_ptr<bool> isDefault_ = nullptr;
+    // The policy name.
     std::shared_ptr<string> name_ = nullptr;
   };
 

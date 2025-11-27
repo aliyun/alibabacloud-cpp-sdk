@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExcludeAttachedLoginPolicyGroups, excludeAttachedLoginPolicyGroups_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
+      DARABONBA_PTR_TO_JSON(IdpId, idpId_);
       DARABONBA_PTR_TO_JSON(LoginPolicyId, loginPolicyId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExcludeAttachedLoginPolicyGroups, excludeAttachedLoginPolicyGroups_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
+      DARABONBA_PTR_FROM_JSON(IdpId, idpId_);
       DARABONBA_PTR_FROM_JSON(LoginPolicyId, loginPolicyId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -45,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->excludeAttachedLoginPolicyGroups_ != nullptr && this->groupId_ != nullptr && this->groupName_ != nullptr && this->loginPolicyId_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->solutionId_ != nullptr && this->transferFileNeedApproval_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->excludeAttachedLoginPolicyGroups_ == nullptr && return this->groupId_ == nullptr && return this->groupName_ == nullptr && return this->idpId_ == nullptr && return this->loginPolicyId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->solutionId_ == nullptr && return this->transferFileNeedApproval_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteGroupName() { this->groupName_ = nullptr;};
     inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline DescribeGroupsRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+    // idpId Field Functions 
+    bool hasIdpId() const { return this->idpId_ != nullptr;};
+    void deleteIdpId() { this->idpId_ = nullptr;};
+    inline string idpId() const { DARABONBA_PTR_GET_DEFAULT(idpId_, "") };
+    inline DescribeGroupsRequest& setIdpId(string idpId) { DARABONBA_PTR_SET_VALUE(idpId_, idpId) };
 
 
     // loginPolicyId Field Functions 
@@ -112,14 +121,24 @@ namespace Models
 
 
   protected:
+    // > This parameter is not publicly available.
     std::shared_ptr<string> bizType_ = nullptr;
+    // 是否排除已关联登录策略的用户组。
     std::shared_ptr<bool> excludeAttachedLoginPolicyGroups_ = nullptr;
+    // The ID of the user group.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the user group.
     std::shared_ptr<string> groupName_ = nullptr;
+    std::shared_ptr<string> idpId_ = nullptr;
+    // 指定关联的登录策略筛选。
     std::shared_ptr<string> loginPolicyId_ = nullptr;
+    // The number of the page to return.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // > This parameter is not publicly available.
     std::shared_ptr<string> solutionId_ = nullptr;
+    // Indicates whether the file approval feature is enabled.
     std::shared_ptr<bool> transferFileNeedApproval_ = nullptr;
   };
 

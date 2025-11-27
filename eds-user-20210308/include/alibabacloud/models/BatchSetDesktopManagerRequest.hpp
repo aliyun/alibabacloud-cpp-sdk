@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isDesktopManager_ != nullptr
-        && this->users_ != nullptr; };
+    virtual bool empty() const override { return this->isDesktopManager_ == nullptr
+        && return this->users_ == nullptr; };
     // isDesktopManager Field Functions 
     bool hasIsDesktopManager() const { return this->isDesktopManager_ != nullptr;};
     void deleteIsDesktopManager() { this->isDesktopManager_ = nullptr;};
@@ -51,7 +51,15 @@ namespace Models
 
 
   protected:
+    // Whether the convenience account has the local administrator permissions on cloud computers.
+    // 
+    // Valid values:
+    // 
+    // *   0: no
+    // *   1 (default): yes
     std::shared_ptr<string> isDesktopManager_ = nullptr;
+    // The convenience accounts.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> users_ = nullptr;
   };

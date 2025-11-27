@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasInfo_ != nullptr
-        && this->data_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->aliasInfo_ == nullptr
+        && return this->data_ == nullptr && return this->requestId_ == nullptr; };
     // aliasInfo Field Functions 
     bool hasAliasInfo() const { return this->aliasInfo_ != nullptr;};
     void deleteAliasInfo() { this->aliasInfo_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The data returned.
     std::shared_ptr<InitTenantAliasResponseBodyAliasInfo> aliasInfo_ = nullptr;
+    // The generated ID of the organization.
     std::shared_ptr<string> data_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

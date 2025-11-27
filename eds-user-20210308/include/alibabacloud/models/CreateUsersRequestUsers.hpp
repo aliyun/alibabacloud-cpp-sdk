@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEUSERSREQUESTUSERS_HPP_
 #define ALIBABACLOUD_MODELS_CREATEUSERSREQUESTUSERS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateUsersRequestUsers& obj) { 
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_TO_JSON(GroupIdList, groupIdList_);
       DARABONBA_PTR_TO_JSON(OrgId, orgId_);
       DARABONBA_PTR_TO_JSON(OwnerType, ownerType_);
       DARABONBA_PTR_TO_JSON(Password, password_);
@@ -25,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateUsersRequestUsers& obj) { 
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
+      DARABONBA_PTR_FROM_JSON(GroupIdList, groupIdList_);
       DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
       DARABONBA_PTR_FROM_JSON(OwnerType, ownerType_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
@@ -43,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->email_ != nullptr
-        && this->endUserId_ != nullptr && this->orgId_ != nullptr && this->ownerType_ != nullptr && this->password_ != nullptr && this->phone_ != nullptr
-        && this->realNickName_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->email_ == nullptr
+        && return this->endUserId_ == nullptr && return this->groupIdList_ == nullptr && return this->orgId_ == nullptr && return this->ownerType_ == nullptr && return this->password_ == nullptr
+        && return this->phone_ == nullptr && return this->realNickName_ == nullptr && return this->remark_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
@@ -58,6 +61,15 @@ namespace Models
     void deleteEndUserId() { this->endUserId_ = nullptr;};
     inline string endUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
     inline CreateUsersRequestUsers& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
+
+
+    // groupIdList Field Functions 
+    bool hasGroupIdList() const { return this->groupIdList_ != nullptr;};
+    void deleteGroupIdList() { this->groupIdList_ = nullptr;};
+    inline const vector<string> & groupIdList() const { DARABONBA_PTR_GET_CONST(groupIdList_, vector<string>) };
+    inline vector<string> groupIdList() { DARABONBA_PTR_GET(groupIdList_, vector<string>) };
+    inline CreateUsersRequestUsers& setGroupIdList(const vector<string> & groupIdList) { DARABONBA_PTR_SET_VALUE(groupIdList_, groupIdList) };
+    inline CreateUsersRequestUsers& setGroupIdList(vector<string> && groupIdList) { DARABONBA_PTR_SET_RVALUE(groupIdList_, groupIdList) };
 
 
     // orgId Field Functions 
@@ -109,6 +121,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> endUserId_ = nullptr;
+    std::shared_ptr<vector<string>> groupIdList_ = nullptr;
     // The organization to which the convenience user belongs.
     std::shared_ptr<string> orgId_ = nullptr;
     // The type of the account ownership.

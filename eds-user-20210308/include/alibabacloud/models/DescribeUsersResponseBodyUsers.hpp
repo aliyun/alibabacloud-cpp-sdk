@@ -33,6 +33,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrgId, orgId_);
       DARABONBA_PTR_TO_JSON(Orgs, orgs_);
       DARABONBA_PTR_TO_JSON(OwnerType, ownerType_);
+      DARABONBA_PTR_TO_JSON(PasswordExpireDays, passwordExpireDays_);
+      DARABONBA_PTR_TO_JSON(PasswordExpireRestDays, passwordExpireRestDays_);
       DARABONBA_PTR_TO_JSON(Phone, phone_);
       DARABONBA_PTR_TO_JSON(Properties, properties_);
       DARABONBA_PTR_TO_JSON(RealNickName, realNickName_);
@@ -56,6 +58,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
       DARABONBA_PTR_FROM_JSON(Orgs, orgs_);
       DARABONBA_PTR_FROM_JSON(OwnerType, ownerType_);
+      DARABONBA_PTR_FROM_JSON(PasswordExpireDays, passwordExpireDays_);
+      DARABONBA_PTR_FROM_JSON(PasswordExpireRestDays, passwordExpireRestDays_);
       DARABONBA_PTR_FROM_JSON(Phone, phone_);
       DARABONBA_PTR_FROM_JSON(Properties, properties_);
       DARABONBA_PTR_FROM_JSON(RealNickName, realNickName_);
@@ -74,11 +78,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->avatar_ != nullptr && this->email_ != nullptr && this->enableAdminAccess_ != nullptr && this->endUserId_ != nullptr && this->externalName_ != nullptr
-        && this->extras_ != nullptr && this->groups_ != nullptr && this->id_ != nullptr && this->isTenantManager_ != nullptr && this->jobNumber_ != nullptr
-        && this->nickName_ != nullptr && this->orgId_ != nullptr && this->orgs_ != nullptr && this->ownerType_ != nullptr && this->phone_ != nullptr
-        && this->properties_ != nullptr && this->realNickName_ != nullptr && this->remark_ != nullptr && this->status_ != nullptr && this->wyId_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->avatar_ == nullptr && return this->email_ == nullptr && return this->enableAdminAccess_ == nullptr && return this->endUserId_ == nullptr && return this->externalName_ == nullptr
+        && return this->extras_ == nullptr && return this->groups_ == nullptr && return this->id_ == nullptr && return this->isTenantManager_ == nullptr && return this->jobNumber_ == nullptr
+        && return this->nickName_ == nullptr && return this->orgId_ == nullptr && return this->orgs_ == nullptr && return this->ownerType_ == nullptr && return this->passwordExpireDays_ == nullptr
+        && return this->passwordExpireRestDays_ == nullptr && return this->phone_ == nullptr && return this->properties_ == nullptr && return this->realNickName_ == nullptr && return this->remark_ == nullptr
+        && return this->status_ == nullptr && return this->wyId_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -190,6 +195,20 @@ namespace Models
     inline DescribeUsersResponseBodyUsers& setOwnerType(string ownerType) { DARABONBA_PTR_SET_VALUE(ownerType_, ownerType) };
 
 
+    // passwordExpireDays Field Functions 
+    bool hasPasswordExpireDays() const { return this->passwordExpireDays_ != nullptr;};
+    void deletePasswordExpireDays() { this->passwordExpireDays_ = nullptr;};
+    inline int32_t passwordExpireDays() const { DARABONBA_PTR_GET_DEFAULT(passwordExpireDays_, 0) };
+    inline DescribeUsersResponseBodyUsers& setPasswordExpireDays(int32_t passwordExpireDays) { DARABONBA_PTR_SET_VALUE(passwordExpireDays_, passwordExpireDays) };
+
+
+    // passwordExpireRestDays Field Functions 
+    bool hasPasswordExpireRestDays() const { return this->passwordExpireRestDays_ != nullptr;};
+    void deletePasswordExpireRestDays() { this->passwordExpireRestDays_ = nullptr;};
+    inline int32_t passwordExpireRestDays() const { DARABONBA_PTR_GET_DEFAULT(passwordExpireRestDays_, 0) };
+    inline DescribeUsersResponseBodyUsers& setPasswordExpireRestDays(int32_t passwordExpireRestDays) { DARABONBA_PTR_SET_VALUE(passwordExpireRestDays_, passwordExpireRestDays) };
+
+
     // phone Field Functions 
     bool hasPhone() const { return this->phone_ != nullptr;};
     void deletePhone() { this->phone_ = nullptr;};
@@ -241,6 +260,7 @@ namespace Models
     std::shared_ptr<string> avatar_ = nullptr;
     // The email address of the convenience user.
     std::shared_ptr<string> email_ = nullptr;
+    // Enables the administrator permissions.
     std::shared_ptr<bool> enableAdminAccess_ = nullptr;
     // The username of the convenience user.
     std::shared_ptr<string> endUserId_ = nullptr;
@@ -293,6 +313,8 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<string> ownerType_ = nullptr;
+    std::shared_ptr<int32_t> passwordExpireDays_ = nullptr;
+    std::shared_ptr<int32_t> passwordExpireRestDays_ = nullptr;
     // The mobile number of the convenience user. If you leave this parameter empty, the value of this parameter is not returned.
     std::shared_ptr<string> phone_ = nullptr;
     std::shared_ptr<vector<Models::DescribeUsersResponseBodyUsersProperties>> properties_ = nullptr;

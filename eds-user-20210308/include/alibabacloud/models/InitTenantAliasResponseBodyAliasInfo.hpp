@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasEditDisabledReason_ != nullptr
-        && this->aliasEditable_ != nullptr && this->aliasSourceType_ != nullptr && this->nextModifyTime_ != nullptr; };
+    virtual bool empty() const override { return this->aliasEditDisabledReason_ == nullptr
+        && return this->aliasEditable_ == nullptr && return this->aliasSourceType_ == nullptr && return this->nextModifyTime_ == nullptr; };
     // aliasEditDisabledReason Field Functions 
     bool hasAliasEditDisabledReason() const { return this->aliasEditDisabledReason_ != nullptr;};
     void deleteAliasEditDisabledReason() { this->aliasEditDisabledReason_ = nullptr;};
@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The reason why modification is not allowed.
     std::shared_ptr<string> aliasEditDisabledReason_ = nullptr;
+    // Indicates whether modification is allowed.
     std::shared_ptr<bool> aliasEditable_ = nullptr;
+    // The source of the organization ID.
+    // 
+    // Valid values:
+    // 
+    // *   Generated: auto-generated.
+    // *   Customized: user-defined.
     std::shared_ptr<string> aliasSourceType_ = nullptr;
+    // The time window during which modification is allowed.
     std::shared_ptr<string> nextModifyTime_ = nullptr;
   };
 

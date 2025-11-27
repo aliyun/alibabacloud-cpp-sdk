@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessTokenEffectiveTime_ != nullptr
-        && this->codeEffectiveTime_ != nullptr && this->enableAuthLogin_ != nullptr && this->endpoints_ != nullptr && this->grantScopes_ != nullptr && this->grantTypes_ != nullptr
-        && this->idTokenAlgorithmType_ != nullptr && this->idTokenEffectiveTime_ != nullptr && this->redirectUris_ != nullptr && this->refreshTokenEffective_ != nullptr; };
+    virtual bool empty() const override { return this->accessTokenEffectiveTime_ == nullptr
+        && return this->codeEffectiveTime_ == nullptr && return this->enableAuthLogin_ == nullptr && return this->endpoints_ == nullptr && return this->grantScopes_ == nullptr && return this->grantTypes_ == nullptr
+        && return this->idTokenAlgorithmType_ == nullptr && return this->idTokenEffectiveTime_ == nullptr && return this->redirectUris_ == nullptr && return this->refreshTokenEffective_ == nullptr; };
     // accessTokenEffectiveTime Field Functions 
     bool hasAccessTokenEffectiveTime() const { return this->accessTokenEffectiveTime_ != nullptr;};
     void deleteAccessTokenEffectiveTime() { this->accessTokenEffectiveTime_ = nullptr;};

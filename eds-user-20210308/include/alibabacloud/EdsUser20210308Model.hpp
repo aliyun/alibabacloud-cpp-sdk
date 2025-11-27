@@ -170,6 +170,7 @@
 #include <alibabacloud/models/FilterUsersShrinkRequestPropertyFilterParam.hpp>
 #include <alibabacloud/models/FilterUsersShrinkRequestPropertyKeyValueFilterParam.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersExternalInfo.hpp>
+#include <alibabacloud/models/FilterUsersResponseBodyUsersGroups.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersOrgList.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersSupportLoginIdps.hpp>
 #include <alibabacloud/models/FilterUsersResponseBodyUsersUserSetPropertiesModelsPropertyValues.hpp>

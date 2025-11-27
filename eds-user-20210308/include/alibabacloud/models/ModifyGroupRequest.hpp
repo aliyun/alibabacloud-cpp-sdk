@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->description_ != nullptr
-        && this->groupId_ != nullptr && this->newGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->groupId_ == nullptr && return this->newGroupName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The new description of the user group.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the user group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the new user group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> newGroupName_ = nullptr;
   };

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->needContainResourceGroupWithOfficeSite_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->platform_ != nullptr && this->resourceGroupIds_ != nullptr && this->resourceGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->needContainResourceGroupWithOfficeSite_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->platform_ == nullptr && return this->resourceGroupIds_ == nullptr && return this->resourceGroupName_ == nullptr; };
     // needContainResourceGroupWithOfficeSite Field Functions 
     bool hasNeedContainResourceGroupWithOfficeSite() const { return this->needContainResourceGroupWithOfficeSite_ != nullptr;};
     void deleteNeedContainResourceGroupWithOfficeSite() { this->needContainResourceGroupWithOfficeSite_ = nullptr;};
@@ -87,11 +87,19 @@ namespace Models
 
 
   protected:
+    // >  This parameter is not publicly available.
     std::shared_ptr<int64_t> needContainResourceGroupWithOfficeSite_ = nullptr;
+    // The page number. Pages start from page 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // >  Set the value to AliyunConsole.
+    // 
+    // *   This parameter is not publicly available on other platforms.
     std::shared_ptr<string> platform_ = nullptr;
+    // The IDs of the resource groups that you want to query.
     std::shared_ptr<vector<string>> resourceGroupIds_ = nullptr;
+    // The name of the resource group.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
   };
 

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->groupId_ != nullptr
-        && this->groupName_ != nullptr && this->userCount_ != nullptr; };
+    virtual bool empty() const override { return this->groupId_ == nullptr
+        && return this->groupName_ == nullptr && return this->userCount_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The user group ID.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The name of the user group.
     std::shared_ptr<string> groupName_ = nullptr;
+    // The number of members in the user group.
     std::shared_ptr<string> userCount_ = nullptr;
   };
 

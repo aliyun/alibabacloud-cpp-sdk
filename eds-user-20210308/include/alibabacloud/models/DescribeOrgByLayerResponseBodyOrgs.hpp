@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->orgId_ != nullptr
-        && this->orgName_ != nullptr && this->parentOrgId_ != nullptr; };
+    virtual bool empty() const override { return this->orgId_ == nullptr
+        && return this->orgName_ == nullptr && return this->parentOrgId_ == nullptr; };
     // orgId Field Functions 
     bool hasOrgId() const { return this->orgId_ != nullptr;};
     void deleteOrgId() { this->orgId_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the organization.
     std::shared_ptr<string> orgId_ = nullptr;
+    // The name of the organization.
     std::shared_ptr<string> orgName_ = nullptr;
+    // The ID of the parent organization.
     std::shared_ptr<string> parentOrgId_ = nullptr;
   };
 

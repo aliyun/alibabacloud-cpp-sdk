@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isResourceGroupWithOfficeSite_ != nullptr
-        && this->platform_ != nullptr && this->resourceGroupName_ != nullptr; };
+    virtual bool empty() const override { return this->isResourceGroupWithOfficeSite_ == nullptr
+        && return this->platform_ == nullptr && return this->resourceGroupName_ == nullptr; };
     // isResourceGroupWithOfficeSite Field Functions 
     bool hasIsResourceGroupWithOfficeSite() const { return this->isResourceGroupWithOfficeSite_ != nullptr;};
     void deleteIsResourceGroupWithOfficeSite() { this->isResourceGroupWithOfficeSite_ = nullptr;};
@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // >  This parameter is not publicly available.
     std::shared_ptr<int64_t> isResourceGroupWithOfficeSite_ = nullptr;
+    // >  Set the value to AliyunConsole.
+    // 
+    // *   This parameter is not publicly available in other platforms.
     std::shared_ptr<string> platform_ = nullptr;
+    // The name of the resource group.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
   };
 

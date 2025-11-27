@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->idpId_ != nullptr
-        && this->idpName_ != nullptr; };
+    virtual bool empty() const override { return this->idpId_ == nullptr
+        && return this->idpName_ == nullptr; };
     // idpId Field Functions 
     bool hasIdpId() const { return this->idpId_ != nullptr;};
     void deleteIdpId() { this->idpId_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The enterprise identity provider ID.
     std::shared_ptr<string> idpId_ = nullptr;
+    // The enterprise identity provider name.
     std::shared_ptr<string> idpName_ = nullptr;
   };
 

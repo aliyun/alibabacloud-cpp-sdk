@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindStatus_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->timerStatus_ != nullptr; };
+    virtual bool empty() const override { return this->bindStatus_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->timerStatus_ == nullptr; };
     // bindStatus Field Functions 
     bool hasBindStatus() const { return this->bindStatus_ != nullptr;};
     void deleteBindStatus() { this->bindStatus_ = nullptr;};
@@ -67,7 +67,9 @@ namespace Models
 
   protected:
     std::shared_ptr<string> bindStatus_ = nullptr;
+    // The ID of the scheduled task.
     std::shared_ptr<string> id_ = nullptr;
+    // The name of the scheduled task.
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> timerStatus_ = nullptr;
   };

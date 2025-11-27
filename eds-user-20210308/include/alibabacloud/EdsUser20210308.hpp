@@ -21,7 +21,9 @@ namespace EdsUser20210308
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 批量设置桌面管理员
+       * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+       *
+       * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
        *
        * @param request BatchSetDesktopManagerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace EdsUser20210308
       Models::BatchSetDesktopManagerResponse batchSetDesktopManagerWithOptions(const Models::BatchSetDesktopManagerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量设置桌面管理员
+       * @summary Grants or revokes the local administrator permissions on cloud computers for convenience accounts.
+       *
+       * @description Convenience accounts with the local administrator permissions on cloud computers can install software and modify system settings on cloud computers.
        *
        * @param request BatchSetDesktopManagerRequest
        * @return BatchSetDesktopManagerResponse
@@ -93,7 +97,7 @@ namespace EdsUser20210308
       Models::CheckUsedPropertyValueResponse checkUsedPropertyValue(const Models::CheckUsedPropertyValueRequest &request);
 
       /**
-       * @summary 创建角色.
+       * @summary Creates a user group.
        *
        * @param request CreateGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +106,7 @@ namespace EdsUser20210308
       Models::CreateGroupResponse createGroupWithOptions(const Models::CreateGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建角色.
+       * @summary Creates a user group.
        *
        * @param request CreateGroupRequest
        * @return CreateGroupResponse
@@ -110,7 +114,7 @@ namespace EdsUser20210308
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary 创建组织
+       * @summary Creates an organization.
        *
        * @param request CreateOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +123,7 @@ namespace EdsUser20210308
       Models::CreateOrgResponse createOrgWithOptions(const Models::CreateOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建组织
+       * @summary Creates an organization.
        *
        * @param request CreateOrgRequest
        * @return CreateOrgResponse
@@ -144,7 +148,7 @@ namespace EdsUser20210308
       Models::CreatePropertyResponse createProperty(const Models::CreatePropertyRequest &request);
 
       /**
-       * @summary 创建资源组
+       * @summary Creates a resource group.
        *
        * @param request CreateResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +157,7 @@ namespace EdsUser20210308
       Models::CreateResourceGroupResponse createResourceGroupWithOptions(const Models::CreateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建资源组
+       * @summary Creates a resource group.
        *
        * @param request CreateResourceGroupRequest
        * @return CreateResourceGroupResponse
@@ -220,7 +224,7 @@ namespace EdsUser20210308
       Models::DeleteUserPropertyValueResponse deleteUserPropertyValue(const Models::DeleteUserPropertyValueRequest &request);
 
       /**
-       * @summary 全量同步初始化
+       * @summary Queries the members of a user group.
        *
        * @param request DescribeGroupUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -229,7 +233,7 @@ namespace EdsUser20210308
       Models::DescribeGroupUserResponse describeGroupUserWithOptions(const Models::DescribeGroupUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 全量同步初始化
+       * @summary Queries the members of a user group.
        *
        * @param request DescribeGroupUserRequest
        * @return DescribeGroupUserResponse
@@ -237,7 +241,7 @@ namespace EdsUser20210308
       Models::DescribeGroupUserResponse describeGroupUser(const Models::DescribeGroupUserRequest &request);
 
       /**
-       * @summary 全量同步初始化.
+       * @summary Queries user groups.
        *
        * @param request DescribeGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -246,7 +250,7 @@ namespace EdsUser20210308
       Models::DescribeGroupsResponse describeGroupsWithOptions(const Models::DescribeGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 全量同步初始化.
+       * @summary Queries user groups.
        *
        * @param request DescribeGroupsRequest
        * @return DescribeGroupsResponse
@@ -254,7 +258,7 @@ namespace EdsUser20210308
       Models::DescribeGroupsResponse describeGroups(const Models::DescribeGroupsRequest &request);
 
       /**
-       * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+       * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
        *
        * @param request DescribeMfaDevicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -263,7 +267,7 @@ namespace EdsUser20210308
       Models::DescribeMfaDevicesResponse describeMfaDevicesWithOptions(const Models::DescribeMfaDevicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience users.
+       * @summary Queries the information about virtual multi-factor authentication (MFA) devices that are bound to convenience accounts.
        *
        * @param request DescribeMfaDevicesRequest
        * @return DescribeMfaDevicesResponse
@@ -271,7 +275,7 @@ namespace EdsUser20210308
       Models::DescribeMfaDevicesResponse describeMfaDevices(const Models::DescribeMfaDevicesRequest &request);
 
       /**
-       * @summary 查找下级组织
+       * @summary Queries subordinate organizations.
        *
        * @param request DescribeOrgByLayerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -280,7 +284,7 @@ namespace EdsUser20210308
       Models::DescribeOrgByLayerResponse describeOrgByLayerWithOptions(const Models::DescribeOrgByLayerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查找下级组织
+       * @summary Queries subordinate organizations.
        *
        * @param request DescribeOrgByLayerRequest
        * @return DescribeOrgByLayerResponse
@@ -309,7 +313,7 @@ namespace EdsUser20210308
       Models::DescribeOrgsResponse describeOrgs(const Models::DescribeOrgsRequest &request);
 
       /**
-       * @summary 查看资源组
+       * @summary Queries resource groups.
        *
        * @param request DescribeResourceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +322,7 @@ namespace EdsUser20210308
       Models::DescribeResourceGroupsResponse describeResourceGroupsWithOptions(const Models::DescribeResourceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看资源组
+       * @summary Queries resource groups.
        *
        * @param request DescribeResourceGroupsRequest
        * @return DescribeResourceGroupsResponse
@@ -377,7 +381,7 @@ namespace EdsUser20210308
       Models::GetManagerInfoByAuthCodeResponse getManagerInfoByAuthCode(const Models::GetManagerInfoByAuthCodeRequest &request);
 
       /**
-       * @summary 初始化TenantAlias
+       * @summary Initializes an organization ID.
        *
        * @param request InitTenantAliasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -386,7 +390,7 @@ namespace EdsUser20210308
       Models::InitTenantAliasResponse initTenantAliasWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化TenantAlias
+       * @summary Initializes an organization ID.
        *
        * @return InitTenantAliasResponse
        */
@@ -464,7 +468,7 @@ namespace EdsUser20210308
       Models::LockUsersResponse lockUsers(const Models::LockUsersRequest &request);
 
       /**
-       * @summary 修改角色.
+       * @summary Modifies the name and description of a user group.
        *
        * @param request ModifyGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +477,7 @@ namespace EdsUser20210308
       Models::ModifyGroupResponse modifyGroupWithOptions(const Models::ModifyGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改角色.
+       * @summary Modifies the name and description of a user group.
        *
        * @param request ModifyGroupRequest
        * @return ModifyGroupResponse
@@ -481,7 +485,7 @@ namespace EdsUser20210308
       Models::ModifyGroupResponse modifyGroup(const Models::ModifyGroupRequest &request);
 
       /**
-       * @summary 修改组织
+       * @summary Modifies an organization.
        *
        * @param request ModifyOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +494,7 @@ namespace EdsUser20210308
       Models::ModifyOrgResponse modifyOrgWithOptions(const Models::ModifyOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改组织
+       * @summary Modifies an organization.
        *
        * @param request ModifyOrgRequest
        * @return ModifyOrgResponse
@@ -515,7 +519,7 @@ namespace EdsUser20210308
       Models::ModifyUserResponse modifyUser(const Models::ModifyUserRequest &request);
 
       /**
-       * @summary 移动组织
+       * @summary Moves an organization.
        *
        * @param request MoveOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -524,7 +528,7 @@ namespace EdsUser20210308
       Models::MoveOrgResponse moveOrgWithOptions(const Models::MoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移动组织
+       * @summary Moves an organization.
        *
        * @param request MoveOrgRequest
        * @return MoveOrgResponse
@@ -532,7 +536,7 @@ namespace EdsUser20210308
       Models::MoveOrgResponse moveOrg(const Models::MoveOrgRequest &request);
 
       /**
-       * @summary 移动用户组织
+       * @summary Moves users to a specific organization.
        *
        * @param request MoveUserOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -541,7 +545,7 @@ namespace EdsUser20210308
       Models::MoveUserOrgResponse moveUserOrgWithOptions(const Models::MoveUserOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移动用户组织
+       * @summary Moves users to a specific organization.
        *
        * @param request MoveUserOrgRequest
        * @return MoveUserOrgResponse
@@ -565,7 +569,7 @@ namespace EdsUser20210308
       Models::QuerySyncStatusByAliUidResponse querySyncStatusByAliUid();
 
       /**
-       * @summary 删除角色.
+       * @summary Deletes a single user group or multiple user groups at a time.
        *
        * @param request RemoveGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +578,7 @@ namespace EdsUser20210308
       Models::RemoveGroupResponse removeGroupWithOptions(const Models::RemoveGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除角色.
+       * @summary Deletes a single user group or multiple user groups at a time.
        *
        * @param request RemoveGroupRequest
        * @return RemoveGroupResponse
@@ -582,9 +586,9 @@ namespace EdsUser20210308
       Models::RemoveGroupResponse removeGroup(const Models::RemoveGroupRequest &request);
 
       /**
-       * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+       * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
        *
-       * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+       * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
        *
        * @param request RemoveMfaDeviceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -593,9 +597,9 @@ namespace EdsUser20210308
       Models::RemoveMfaDeviceResponse removeMfaDeviceWithOptions(const Models::RemoveMfaDeviceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience user.
+       * @summary Removes a virtual multi-factor authentication (MFA) device that is bound to a convenience account.
        *
-       * @description If you remove a virtual MFA device that is bound to a convenience user, the convenience user can no longer use the virtual MFA device to log on to cloud desktops. Before the convenience user can log on to cloud desktops again, a new virtual MFA device must be bound to the convenience user.
+       * @description If you remove a virtual MFA device that is bound to a convenience account, the convenience account can no longer use the virtual MFA device to log on to cloud computers. Before the convenience account can log on to Alibaba Cloud Workspace terminals again, a new virtual MFA device must be bound to the convenience account.
        *
        * @param request RemoveMfaDeviceRequest
        * @return RemoveMfaDeviceResponse
@@ -603,7 +607,7 @@ namespace EdsUser20210308
       Models::RemoveMfaDeviceResponse removeMfaDevice(const Models::RemoveMfaDeviceRequest &request);
 
       /**
-       * @summary 移除组织
+       * @summary Removes an organization.
        *
        * @param request RemoveOrgRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +616,7 @@ namespace EdsUser20210308
       Models::RemoveOrgResponse removeOrgWithOptions(const Models::RemoveOrgRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除组织
+       * @summary Removes an organization.
        *
        * @param request RemoveOrgRequest
        * @return RemoveOrgResponse
@@ -755,7 +759,7 @@ namespace EdsUser20210308
       Models::UpdatePropertyResponse updateProperty(const Models::UpdatePropertyRequest &request);
 
       /**
-       * @summary 用户批量分配角色
+       * @summary Add multiple users to a user group at a time.
        *
        * @param request UserBatchJoinGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -764,7 +768,7 @@ namespace EdsUser20210308
       Models::UserBatchJoinGroupResponse userBatchJoinGroupWithOptions(const Models::UserBatchJoinGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户批量分配角色
+       * @summary Add multiple users to a user group at a time.
        *
        * @param request UserBatchJoinGroupRequest
        * @return UserBatchJoinGroupResponse
@@ -772,7 +776,7 @@ namespace EdsUser20210308
       Models::UserBatchJoinGroupResponse userBatchJoinGroup(const Models::UserBatchJoinGroupRequest &request);
 
       /**
-       * @summary 用户批量移出角色
+       * @summary Removes multiple users from a user group at a time.
        *
        * @param request UserBatchQuitGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -781,7 +785,7 @@ namespace EdsUser20210308
       Models::UserBatchQuitGroupResponse userBatchQuitGroupWithOptions(const Models::UserBatchQuitGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户批量移出角色
+       * @summary Removes multiple users from a user group at a time.
        *
        * @param request UserBatchQuitGroupRequest
        * @return UserBatchQuitGroupResponse
