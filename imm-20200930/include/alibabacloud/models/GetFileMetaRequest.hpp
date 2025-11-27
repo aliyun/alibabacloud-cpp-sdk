@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetName_ != nullptr
-        && this->projectName_ != nullptr && this->URI_ != nullptr && this->withFields_ != nullptr; };
+    virtual bool empty() const override { return this->datasetName_ == nullptr
+        && return this->projectName_ == nullptr && return this->URI_ == nullptr && return this->withFields_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -85,6 +85,9 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> URI_ = nullptr;
+    // The metadata fields that you want to include in the response. You can use this parameter to reduce the size of the response.
+    // 
+    // If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields of the file.
     std::shared_ptr<vector<string>> withFields_ = nullptr;
   };
 

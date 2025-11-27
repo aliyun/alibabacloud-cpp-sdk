@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->projectName_ != nullptr
-        && this->requestDefinition_ != nullptr && this->taskId_ != nullptr && this->taskType_ != nullptr; };
+    virtual bool empty() const override { return this->projectName_ == nullptr
+        && return this->requestDefinition_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr; };
     // projectName Field Functions 
     bool hasProjectName() const { return this->projectName_ != nullptr;};
     void deleteProjectName() { this->projectName_ = nullptr;};
@@ -70,7 +70,25 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
-    // Specifies whether to return the initial request parameters that are used to create the task. Default value: False.
+    // Specifies whether to return original request parameters specified to create the task.
+    // 
+    // *   true
+    // *   false (default)
+    // 
+    // This parameter applies only to the following tasks:
+    // 
+    // *   MediaConvert
+    // *   VideoLabelClassification
+    // *   FaceClustering
+    // *   FileCompression
+    // *   ArchiveFileInspection
+    // *   FileUncompression
+    // *   PointCloudCompress
+    // *   ImageToPDF
+    // *   StoryCreation
+    // *   LocationDateClustering
+    // *   ImageSplicing
+    // *   FacesSearching
     std::shared_ptr<bool> requestDefinition_ = nullptr;
     // The ID of the task. You can obtain the ID of a task after you create the task.
     // 

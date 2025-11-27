@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->similarity_ != nullptr
-        && this->smartClusterId_ != nullptr; };
+    virtual bool empty() const override { return this->similarity_ == nullptr
+        && return this->smartClusterId_ == nullptr; };
     // similarity Field Functions 
     bool hasSimilarity() const { return this->similarity_ != nullptr;};
     void deleteSimilarity() { this->similarity_ = nullptr;};

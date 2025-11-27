@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alignmentIndex_ != nullptr
-        && this->credentialConfigShrink_ != nullptr && this->notificationShrink_ != nullptr && this->projectName_ != nullptr && this->sourcesShrink_ != nullptr && this->tagsShrink_ != nullptr
-        && this->targetsShrink_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->alignmentIndex_ == nullptr
+        && return this->credentialConfigShrink_ == nullptr && return this->notificationShrink_ == nullptr && return this->projectName_ == nullptr && return this->sourcesShrink_ == nullptr && return this->tagsShrink_ == nullptr
+        && return this->targetsShrink_ == nullptr && return this->userData_ == nullptr; };
     // alignmentIndex Field Functions 
     bool hasAlignmentIndex() const { return this->alignmentIndex_ != nullptr;};
     void deleteAlignmentIndex() { this->alignmentIndex_ = nullptr;};
@@ -103,29 +103,29 @@ namespace Models
 
 
   protected:
-    // The sequence number of the main media file in the concatenation list of media files. The main media file provides the default transcoding settings, such as the resolution and the frame rate, for videos and audios. Default value: `0`. A value of `0` specifies that the main media file is aligned with the first media file in the concatenation list.
+    // When performing media concatenation, the index of the primary media file (which provides the default transcoding parameters for `Video` and `Audio`, including resolution, frame rate, etc.) in the concatenation list. The default value is 0 (aligning with the first media file in the concatenation list).
     std::shared_ptr<int32_t> alignmentIndex_ = nullptr;
-    // **If you have no special requirements, leave this parameter empty.**
+    // **If there are no special requirements, please leave this blank.**
     // 
-    // The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+    // Chain authorization configuration. For more information, see [Using Chain Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<string> credentialConfigShrink_ = nullptr;
-    // The notification settings. For more information, see "Notification". For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+    // Notification configuration. For details, click Notification. The format of asynchronous notification messages can be found in [Asynchronous Notification Message Format](https://help.aliyun.com/document_detail/2743997.html).
     std::shared_ptr<string> notificationShrink_ = nullptr;
-    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // The name of the project. For how to obtain it, see [Creating a Project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
-    // The source media files. If multiple files exist at the same time, the Concat feature is enabled. The video files are concatenated in the order of their URI inputs.
+    // A list of media files. If the list contains more than one element, it indicates that the Concat (concatenation) function is enabled. The Concat order follows the sequence of the input video file URIs.
     // 
     // This parameter is required.
     std::shared_ptr<string> sourcesShrink_ = nullptr;
-    // The custom tags. You can search for or filter asynchronous tasks by custom tag.
+    // Custom tags used for searching and filtering asynchronous tasks.
     std::shared_ptr<string> tagsShrink_ = nullptr;
-    // The media processing tasks. You can specify multiple values for this parameter.
+    // List of media processing tasks, supporting multiple task configurations.
     // 
     // This parameter is required.
     std::shared_ptr<string> targetsShrink_ = nullptr;
-    // The custom information, which is returned as asynchronous notifications to facilitate notification management in your system. The maximum information length is 2,048 bytes.
+    // User-defined information that will be returned in asynchronous message notifications, used for convenient association and processing within your system. The maximum length is 2048 bytes.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

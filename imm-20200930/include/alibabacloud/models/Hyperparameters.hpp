@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backupInterval_ != nullptr
-        && this->batchSize_ != nullptr && this->dataLoaderWorkers_ != nullptr && this->evaluator_ != nullptr && this->inputSize_ != nullptr && this->maxEpoch_ != nullptr
-        && this->optimization_ != nullptr && this->schedule_ != nullptr; };
+    virtual bool empty() const override { return this->backupInterval_ == nullptr
+        && return this->batchSize_ == nullptr && return this->dataLoaderWorkers_ == nullptr && return this->evaluator_ == nullptr && return this->inputSize_ == nullptr && return this->maxEpoch_ == nullptr
+        && return this->optimization_ == nullptr && return this->schedule_ == nullptr; };
     // backupInterval Field Functions 
     bool hasBackupInterval() const { return this->backupInterval_ != nullptr;};
     void deleteBackupInterval() { this->backupInterval_ = nullptr;};

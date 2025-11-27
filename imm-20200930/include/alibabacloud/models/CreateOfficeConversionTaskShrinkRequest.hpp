@@ -91,14 +91,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfigShrink_ != nullptr
-        && this->endPage_ != nullptr && this->firstPage_ != nullptr && this->fitToHeight_ != nullptr && this->fitToWidth_ != nullptr && this->holdLineFeed_ != nullptr
-        && this->imageDPI_ != nullptr && this->longPicture_ != nullptr && this->longText_ != nullptr && this->maxSheetColumn_ != nullptr && this->maxSheetRow_ != nullptr
-        && this->notificationShrink_ != nullptr && this->pages_ != nullptr && this->paperHorizontal_ != nullptr && this->paperSize_ != nullptr && this->password_ != nullptr
-        && this->projectName_ != nullptr && this->quality_ != nullptr && this->scalePercentage_ != nullptr && this->sheetCount_ != nullptr && this->sheetIndex_ != nullptr
-        && this->showComments_ != nullptr && this->sourceType_ != nullptr && this->sourceURI_ != nullptr && this->sourcesShrink_ != nullptr && this->startPage_ != nullptr
-        && this->tagsShrink_ != nullptr && this->targetType_ != nullptr && this->targetURI_ != nullptr && this->targetURIPrefix_ != nullptr && this->trimPolicyShrink_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfigShrink_ == nullptr
+        && return this->endPage_ == nullptr && return this->firstPage_ == nullptr && return this->fitToHeight_ == nullptr && return this->fitToWidth_ == nullptr && return this->holdLineFeed_ == nullptr
+        && return this->imageDPI_ == nullptr && return this->longPicture_ == nullptr && return this->longText_ == nullptr && return this->maxSheetColumn_ == nullptr && return this->maxSheetRow_ == nullptr
+        && return this->notificationShrink_ == nullptr && return this->pages_ == nullptr && return this->paperHorizontal_ == nullptr && return this->paperSize_ == nullptr && return this->password_ == nullptr
+        && return this->projectName_ == nullptr && return this->quality_ == nullptr && return this->scalePercentage_ == nullptr && return this->sheetCount_ == nullptr && return this->sheetIndex_ == nullptr
+        && return this->showComments_ == nullptr && return this->sourceType_ == nullptr && return this->sourceURI_ == nullptr && return this->sourcesShrink_ == nullptr && return this->startPage_ == nullptr
+        && return this->tagsShrink_ == nullptr && return this->targetType_ == nullptr && return this->targetURI_ == nullptr && return this->targetURIPrefix_ == nullptr && return this->trimPolicyShrink_ == nullptr
+        && return this->userData_ == nullptr; };
     // credentialConfigShrink Field Functions 
     bool hasCredentialConfigShrink() const { return this->credentialConfigShrink_ != nullptr;};
     void deleteCredentialConfigShrink() { this->credentialConfigShrink_ = nullptr;};
@@ -410,9 +410,9 @@ namespace Models
     std::shared_ptr<string> projectName_ = nullptr;
     // The quality of the output file. Valid values: 0 to 100. A smaller value indicates lower quality and better conversion performance. By default, the system specifies an appropriate value that provides an optimal balance between the quality and conversion performance based on the document content.
     std::shared_ptr<int64_t> quality_ = nullptr;
-    // The percentage scale relative to the source document. Valid values: 20 to 200. The default value is 100, which indicates that the document is not scaled.
+    // The percentage scale relative to the source document. Valid values: 20 to 199. The default value is 100, which indicates that the document is not scaled.
     // 
-    // >  A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
+    // > A value that is less than 100 indicates a size reduction. A value that is greater than 100 indicates an enlargement.
     std::shared_ptr<int64_t> scalePercentage_ = nullptr;
     // The number of sheets to be converted to an image. By default, all sheets within the spreadsheet file are converted.
     std::shared_ptr<int64_t> sheetCount_ = nullptr;
@@ -434,6 +434,7 @@ namespace Models
     // 
     // Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
     std::shared_ptr<string> sourceURI_ = nullptr;
+    // The list of images. The sequence of image URIs in the list determines the order in which they are converted. (**This parameter is not officially available and is not recommended.**)
     std::shared_ptr<string> sourcesShrink_ = nullptr;
     // The starting page for document conversion. Default value: 1.
     // 

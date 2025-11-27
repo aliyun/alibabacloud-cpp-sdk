@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->centricScore_ != nullptr
-        && this->labelConfidence_ != nullptr && this->labelLevel_ != nullptr && this->labelName_ != nullptr && this->language_ != nullptr && this->parentLabelName_ != nullptr; };
+    virtual bool empty() const override { return this->centricScore_ == nullptr
+        && return this->labelConfidence_ == nullptr && return this->labelLevel_ == nullptr && return this->labelName_ == nullptr && return this->language_ == nullptr && return this->parentLabelName_ == nullptr; };
     // centricScore Field Functions 
     bool hasCentricScore() const { return this->centricScore_ != nullptr;};
     void deleteCentricScore() { this->centricScore_ = nullptr;};

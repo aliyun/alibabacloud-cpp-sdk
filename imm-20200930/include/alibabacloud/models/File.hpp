@@ -209,24 +209,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessControlAllowOrigin_ != nullptr
-        && this->accessControlRequestMethod_ != nullptr && this->addresses_ != nullptr && this->album_ != nullptr && this->albumArtist_ != nullptr && this->artist_ != nullptr
-        && this->audioCovers_ != nullptr && this->audioStreams_ != nullptr && this->bitrate_ != nullptr && this->cacheControl_ != nullptr && this->composer_ != nullptr
-        && this->contentDisposition_ != nullptr && this->contentEncoding_ != nullptr && this->contentLanguage_ != nullptr && this->contentMd5_ != nullptr && this->contentType_ != nullptr
-        && this->createTime_ != nullptr && this->croppingSuggestions_ != nullptr && this->customId_ != nullptr && this->customLabels_ != nullptr && this->datasetName_ != nullptr
-        && this->duration_ != nullptr && this->ETag_ != nullptr && this->EXIF_ != nullptr && this->elements_ != nullptr && this->figureCount_ != nullptr
-        && this->figures_ != nullptr && this->fileAccessTime_ != nullptr && this->fileCreateTime_ != nullptr && this->fileHash_ != nullptr && this->fileModifiedTime_ != nullptr
-        && this->filename_ != nullptr && this->formatLongName_ != nullptr && this->formatName_ != nullptr && this->imageHeight_ != nullptr && this->imageScore_ != nullptr
-        && this->imageWidth_ != nullptr && this->insights_ != nullptr && this->labels_ != nullptr && this->language_ != nullptr && this->latLong_ != nullptr
-        && this->mediaType_ != nullptr && this->OCRContents_ != nullptr && this->OCRTexts_ != nullptr && this->OSSCRC64_ != nullptr && this->OSSDeleteMarker_ != nullptr
-        && this->OSSExpiration_ != nullptr && this->OSSObjectType_ != nullptr && this->OSSStorageClass_ != nullptr && this->OSSTagging_ != nullptr && this->OSSTaggingCount_ != nullptr
-        && this->OSSURI_ != nullptr && this->OSSUserMeta_ != nullptr && this->OSSVersionId_ != nullptr && this->objectACL_ != nullptr && this->objectId_ != nullptr
-        && this->objectStatus_ != nullptr && this->objectType_ != nullptr && this->orientation_ != nullptr && this->ownerId_ != nullptr && this->pageCount_ != nullptr
-        && this->performer_ != nullptr && this->produceTime_ != nullptr && this->programCount_ != nullptr && this->projectName_ != nullptr && this->reason_ != nullptr
-        && this->sceneElements_ != nullptr && this->semanticTypes_ != nullptr && this->serverSideDataEncryption_ != nullptr && this->serverSideEncryption_ != nullptr && this->serverSideEncryptionCustomerAlgorithm_ != nullptr
-        && this->serverSideEncryptionKeyId_ != nullptr && this->size_ != nullptr && this->startTime_ != nullptr && this->streamCount_ != nullptr && this->subtitles_ != nullptr
-        && this->timezone_ != nullptr && this->title_ != nullptr && this->travelClusterId_ != nullptr && this->URI_ != nullptr && this->updateTime_ != nullptr
-        && this->videoHeight_ != nullptr && this->videoStreams_ != nullptr && this->videoWidth_ != nullptr; };
+    virtual bool empty() const override { return this->accessControlAllowOrigin_ == nullptr
+        && return this->accessControlRequestMethod_ == nullptr && return this->addresses_ == nullptr && return this->album_ == nullptr && return this->albumArtist_ == nullptr && return this->artist_ == nullptr
+        && return this->audioCovers_ == nullptr && return this->audioStreams_ == nullptr && return this->bitrate_ == nullptr && return this->cacheControl_ == nullptr && return this->composer_ == nullptr
+        && return this->contentDisposition_ == nullptr && return this->contentEncoding_ == nullptr && return this->contentLanguage_ == nullptr && return this->contentMd5_ == nullptr && return this->contentType_ == nullptr
+        && return this->createTime_ == nullptr && return this->croppingSuggestions_ == nullptr && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr
+        && return this->duration_ == nullptr && return this->ETag_ == nullptr && return this->EXIF_ == nullptr && return this->elements_ == nullptr && return this->figureCount_ == nullptr
+        && return this->figures_ == nullptr && return this->fileAccessTime_ == nullptr && return this->fileCreateTime_ == nullptr && return this->fileHash_ == nullptr && return this->fileModifiedTime_ == nullptr
+        && return this->filename_ == nullptr && return this->formatLongName_ == nullptr && return this->formatName_ == nullptr && return this->imageHeight_ == nullptr && return this->imageScore_ == nullptr
+        && return this->imageWidth_ == nullptr && return this->insights_ == nullptr && return this->labels_ == nullptr && return this->language_ == nullptr && return this->latLong_ == nullptr
+        && return this->mediaType_ == nullptr && return this->OCRContents_ == nullptr && return this->OCRTexts_ == nullptr && return this->OSSCRC64_ == nullptr && return this->OSSDeleteMarker_ == nullptr
+        && return this->OSSExpiration_ == nullptr && return this->OSSObjectType_ == nullptr && return this->OSSStorageClass_ == nullptr && return this->OSSTagging_ == nullptr && return this->OSSTaggingCount_ == nullptr
+        && return this->OSSURI_ == nullptr && return this->OSSUserMeta_ == nullptr && return this->OSSVersionId_ == nullptr && return this->objectACL_ == nullptr && return this->objectId_ == nullptr
+        && return this->objectStatus_ == nullptr && return this->objectType_ == nullptr && return this->orientation_ == nullptr && return this->ownerId_ == nullptr && return this->pageCount_ == nullptr
+        && return this->performer_ == nullptr && return this->produceTime_ == nullptr && return this->programCount_ == nullptr && return this->projectName_ == nullptr && return this->reason_ == nullptr
+        && return this->sceneElements_ == nullptr && return this->semanticTypes_ == nullptr && return this->serverSideDataEncryption_ == nullptr && return this->serverSideEncryption_ == nullptr && return this->serverSideEncryptionCustomerAlgorithm_ == nullptr
+        && return this->serverSideEncryptionKeyId_ == nullptr && return this->size_ == nullptr && return this->startTime_ == nullptr && return this->streamCount_ == nullptr && return this->subtitles_ == nullptr
+        && return this->timezone_ == nullptr && return this->title_ == nullptr && return this->travelClusterId_ == nullptr && return this->URI_ == nullptr && return this->updateTime_ == nullptr
+        && return this->videoHeight_ == nullptr && return this->videoStreams_ == nullptr && return this->videoWidth_ == nullptr; };
     // accessControlAllowOrigin Field Functions 
     bool hasAccessControlAllowOrigin() const { return this->accessControlAllowOrigin_ != nullptr;};
     void deleteAccessControlAllowOrigin() { this->accessControlAllowOrigin_ = nullptr;};

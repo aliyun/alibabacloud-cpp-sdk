@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetMaxBindCount_ != nullptr
-        && this->datasetMaxEntityCount_ != nullptr && this->datasetMaxFileCount_ != nullptr && this->datasetMaxRelationCount_ != nullptr && this->datasetMaxTotalFileSize_ != nullptr && this->datasetName_ != nullptr
-        && this->description_ != nullptr && this->projectName_ != nullptr && this->templateId_ != nullptr && this->workflowParameters_ != nullptr; };
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && return this->datasetMaxEntityCount_ == nullptr && return this->datasetMaxFileCount_ == nullptr && return this->datasetMaxRelationCount_ == nullptr && return this->datasetMaxTotalFileSize_ == nullptr && return this->datasetName_ == nullptr
+        && return this->description_ == nullptr && return this->projectName_ == nullptr && return this->templateId_ == nullptr && return this->workflowParameters_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};
@@ -125,32 +125,32 @@ namespace Models
 
 
   protected:
-    // The maximum number of bindings for the dataset. Valid values: 1 to 10. Default value: 10.
+    // The maximum number of bindings per dataset. The range is 1~10, with a default value of 10.
     std::shared_ptr<int64_t> datasetMaxBindCount_ = nullptr;
-    // The maximum number of metadata entities in the dataset. Default value: 10000000000.
+    // The maximum number of metadata entities in each dataset. The default value is 10000000000.
     std::shared_ptr<int64_t> datasetMaxEntityCount_ = nullptr;
-    // The maximum number of files in the dataset. Valid values: 1 to 100000000. Default value: 100000000.
+    // The maximum number of files in each dataset. The range is 1~100000000, with a default value of 100000000.
     std::shared_ptr<int64_t> datasetMaxFileCount_ = nullptr;
-    // The maximum number of metadata relationships in the dataset. Default value: 100000000000.
+    // The maximum number of metadata relationships in each dataset. The default value is 100000000000.
     std::shared_ptr<int64_t> datasetMaxRelationCount_ = nullptr;
-    // The maximum total file size for the dataset. If the total file size of the dataset exceeds this limit, indexes can no longer be added. Default value: 90000000000000000. Unit: bytes.
+    // The maximum total size of files in each dataset. Once the limit is exceeded, no more indexes can be added. The default value is 90000000000000000, in bytes.
     std::shared_ptr<int64_t> datasetMaxTotalFileSize_ = nullptr;
-    // The name of the dataset. The dataset name must be unique in the same project. The name must meet the following requirements:
-    // 
-    // *   The name must be 1 to 128 characters in length.
-    // *   The name can contain only letters, digits, hyphens (-), and underscores (_).
-    // *   The name must start with a letter or underscore (_).
+    // The name of the dataset, which must be unique under the same Project. Naming rules are as follows:
+    // - Length should be 1~128 characters.
+    // - Can only contain English letters, numbers, hyphens (-), and underscores (_).
+    // - Must start with an English letter or underscore (_).
     // 
     // This parameter is required.
     std::shared_ptr<string> datasetName_ = nullptr;
-    // The description of the dataset. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+    // Description of the dataset. The length should be 1~256 English or Chinese characters, with a default value of empty.
     std::shared_ptr<string> description_ = nullptr;
-    // The name of the project.[](~~478153~~)
+    // The name of the project. For more information on how to obtain it, see [Create Project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
-    // The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+    // Workflow template ID. For more information, see [Workflow Templates and Operators](https://help.aliyun.com/document_detail/466304.html). The default value is empty.
     std::shared_ptr<string> templateId_ = nullptr;
+    // Invalid parameter.
     std::shared_ptr<vector<WorkflowParameter>> workflowParameters_ = nullptr;
   };
 

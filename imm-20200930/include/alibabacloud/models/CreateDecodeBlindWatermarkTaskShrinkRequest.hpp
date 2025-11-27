@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageQuality_ != nullptr
-        && this->model_ != nullptr && this->notificationShrink_ != nullptr && this->originalImageURI_ != nullptr && this->projectName_ != nullptr && this->sourceURI_ != nullptr
-        && this->strengthLevel_ != nullptr && this->targetURI_ != nullptr && this->watermarkType_ != nullptr; };
+    virtual bool empty() const override { return this->imageQuality_ == nullptr
+        && return this->model_ == nullptr && return this->notificationShrink_ == nullptr && return this->originalImageURI_ == nullptr && return this->projectName_ == nullptr && return this->sourceURI_ == nullptr
+        && return this->strengthLevel_ == nullptr && return this->targetURI_ == nullptr && return this->watermarkType_ == nullptr; };
     // imageQuality Field Functions 
     bool hasImageQuality() const { return this->imageQuality_ != nullptr;};
     void deleteImageQuality() { this->imageQuality_ = nullptr;};
@@ -140,7 +140,11 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> sourceURI_ = nullptr;
-    // The watermark strength level. The higher the strength level, the more resistant the watermarked image is to attacks, but the more the image is distorted. Valid values: low, medium, and high. Default value: low.
+    // The level of watermark extraction. A higher level indicates a longer time and a higher quality. Valid values:
+    // 
+    // *   low
+    // *   medium
+    // *   high
     std::shared_ptr<string> strengthLevel_ = nullptr;
     // The OSS URI of the output image. This parameter is also available in the earlier DecodeBlindWatermark operation.
     // 

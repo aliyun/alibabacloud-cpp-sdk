@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventId_ != nullptr
-        && this->requestId_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->eventId_ == nullptr
+        && return this->requestId_ == nullptr && return this->taskId_ == nullptr; };
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The event ID.
+    // Event ID.
     std::shared_ptr<string> eventId_ = nullptr;
-    // The request ID.
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The task ID.
+    // Task ID.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

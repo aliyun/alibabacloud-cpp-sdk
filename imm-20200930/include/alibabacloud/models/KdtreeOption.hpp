@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compressionLevel_ != nullptr
-        && this->libraryName_ != nullptr && this->quantizationBits_ != nullptr; };
+    virtual bool empty() const override { return this->compressionLevel_ == nullptr
+        && return this->libraryName_ == nullptr && return this->quantizationBits_ == nullptr; };
     // compressionLevel Field Functions 
     bool hasCompressionLevel() const { return this->compressionLevel_ != nullptr;};
     void deleteCompressionLevel() { this->compressionLevel_ = nullptr;};

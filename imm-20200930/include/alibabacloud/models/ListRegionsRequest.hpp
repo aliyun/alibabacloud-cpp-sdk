@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acceptLanguage_ != nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr; };
     // acceptLanguage Field Functions 
     bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
     void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
@@ -38,11 +38,10 @@ namespace Models
 
 
   protected:
-    // The language. Valid values:
-    // 
-    // *   zh-CN: Chinese.
-    // *   en-US: English.
-    // *   ja: Japanese.
+    // Language type. The range of values is as follows:
+    // - zh-CN: Chinese
+    // - en-US: English
+    // - ja: Japanese
     // 
     // This parameter is required.
     std::shared_ptr<string> acceptLanguage_ = nullptr;

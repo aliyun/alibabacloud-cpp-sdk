@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeRange_ != nullptr
-        && this->customLabels_ != nullptr && this->datasetName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr
-        && this->projectName_ != nullptr && this->sort_ != nullptr && this->updateTimeRange_ != nullptr && this->withTotalCount_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeRange_ == nullptr
+        && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr
+        && return this->projectName_ == nullptr && return this->sort_ == nullptr && return this->updateTimeRange_ == nullptr && return this->withTotalCount_ == nullptr; };
     // createTimeRange Field Functions 
     bool hasCreateTimeRange() const { return this->createTimeRange_ != nullptr;};
     void deleteCreateTimeRange() { this->createTimeRange_ = nullptr;};

@@ -83,13 +83,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageFrameRate_ != nullptr
-        && this->bitDepth_ != nullptr && this->bitrate_ != nullptr && this->codecLongName_ != nullptr && this->codecName_ != nullptr && this->codecTag_ != nullptr
-        && this->codecTagString_ != nullptr && this->codecTimeBase_ != nullptr && this->colorPrimaries_ != nullptr && this->colorRange_ != nullptr && this->colorSpace_ != nullptr
-        && this->colorTransfer_ != nullptr && this->displayAspectRatio_ != nullptr && this->duration_ != nullptr && this->frameCount_ != nullptr && this->frameRate_ != nullptr
-        && this->hasBFrames_ != nullptr && this->height_ != nullptr && this->index_ != nullptr && this->language_ != nullptr && this->level_ != nullptr
-        && this->pixelFormat_ != nullptr && this->profile_ != nullptr && this->rotate_ != nullptr && this->sampleAspectRatio_ != nullptr && this->startTime_ != nullptr
-        && this->timeBase_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->averageFrameRate_ == nullptr
+        && return this->bitDepth_ == nullptr && return this->bitrate_ == nullptr && return this->codecLongName_ == nullptr && return this->codecName_ == nullptr && return this->codecTag_ == nullptr
+        && return this->codecTagString_ == nullptr && return this->codecTimeBase_ == nullptr && return this->colorPrimaries_ == nullptr && return this->colorRange_ == nullptr && return this->colorSpace_ == nullptr
+        && return this->colorTransfer_ == nullptr && return this->displayAspectRatio_ == nullptr && return this->duration_ == nullptr && return this->frameCount_ == nullptr && return this->frameRate_ == nullptr
+        && return this->hasBFrames_ == nullptr && return this->height_ == nullptr && return this->index_ == nullptr && return this->language_ == nullptr && return this->level_ == nullptr
+        && return this->pixelFormat_ == nullptr && return this->profile_ == nullptr && return this->rotate_ == nullptr && return this->sampleAspectRatio_ == nullptr && return this->startTime_ == nullptr
+        && return this->timeBase_ == nullptr && return this->width_ == nullptr; };
     // averageFrameRate Field Functions 
     bool hasAverageFrameRate() const { return this->averageFrameRate_ != nullptr;};
     void deleteAverageFrameRate() { this->averageFrameRate_ = nullptr;};

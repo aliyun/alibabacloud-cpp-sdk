@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfig_ != nullptr
-        && this->masterURI_ != nullptr && this->notification_ != nullptr && this->overwritePolicy_ != nullptr && this->projectName_ != nullptr && this->sourceDuration_ != nullptr
-        && this->sourceStartTime_ != nullptr && this->sourceSubtitles_ != nullptr && this->sourceURI_ != nullptr && this->tags_ != nullptr && this->targets_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfig_ == nullptr
+        && return this->masterURI_ == nullptr && return this->notification_ == nullptr && return this->overwritePolicy_ == nullptr && return this->projectName_ == nullptr && return this->sourceDuration_ == nullptr
+        && return this->sourceStartTime_ == nullptr && return this->sourceSubtitles_ == nullptr && return this->sourceURI_ == nullptr && return this->tags_ == nullptr && return this->targets_ == nullptr
+        && return this->userData_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
@@ -156,7 +156,7 @@ namespace Models
 
 
   protected:
-    // **If you do not have special requirements, leave this parameter empty.**
+    // **If you have no special requirements, leave this parameter empty.**
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
@@ -166,7 +166,7 @@ namespace Models
     // 
     // >  If a playlist contains subtitles or multiple outputs, the MasterURI parameter is required and the URI of subtitle files or outputs must be in the directory specified by the MasterURI parameter or its subdirectory.
     std::shared_ptr<string> masterURI_ = nullptr;
-    // The notification settings. To view details, click Notification. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+    // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
     std::shared_ptr<Notification> notification_ = nullptr;
     // The overwrite policy when the media playlist exists. Valid values:
     // 
@@ -203,9 +203,9 @@ namespace Models
     std::shared_ptr<string> sourceURI_ = nullptr;
     // The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
     std::shared_ptr<map<string, string>> tags_ = nullptr;
-    // The live transcoding playlists. Up to 6 playlists are supported. Each output corresponds to at most one video media playlist and one or more subtitle media playlists.
+    // The array of live transcoding playlists. The maximum length of the array is 6. Each element corresponds to at most one video media playlist and one or more subtitle media playlists.
     // 
-    // >  If more than one output is configured, the **MasterURI** parameter is required.
+    // >  If the array contains more than one element, the **MasterURI** parameter cannot be left empty.
     // 
     // This parameter is required.
     std::shared_ptr<vector<GenerateVideoPlaylistRequestTargets>> targets_ = nullptr;

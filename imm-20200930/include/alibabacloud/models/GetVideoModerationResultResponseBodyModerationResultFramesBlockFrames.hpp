@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->label_ != nullptr
-        && this->offset_ != nullptr && this->rate_ != nullptr; };
+    virtual bool empty() const override { return this->label_ == nullptr
+        && return this->offset_ == nullptr && return this->rate_ == nullptr; };
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The label of the violation.
     std::shared_ptr<string> label_ = nullptr;
+    // The offset of the frame.
     std::shared_ptr<int32_t> offset_ = nullptr;
+    // The confidence level of the violation.
     std::shared_ptr<double> rate_ = nullptr;
   };
 

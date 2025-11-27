@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deviceInfo_ != nullptr
-        && this->license_ != nullptr && this->requestId_ != nullptr && this->states_ != nullptr; };
+    virtual bool empty() const override { return this->deviceInfo_ == nullptr
+        && return this->license_ == nullptr && return this->requestId_ == nullptr && return this->states_ == nullptr; };
     // deviceInfo Field Functions 
     bool hasDeviceInfo() const { return this->deviceInfo_ != nullptr;};
     void deleteDeviceInfo() { this->deviceInfo_ = nullptr;};

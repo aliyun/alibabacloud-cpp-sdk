@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audio_ != nullptr
-        && this->duration_ != nullptr && this->initialSegments_ != nullptr && this->initialTranscode_ != nullptr && this->subtitle_ != nullptr && this->tags_ != nullptr
-        && this->transcodeAhead_ != nullptr && this->URI_ != nullptr && this->video_ != nullptr; };
+    virtual bool empty() const override { return this->audio_ == nullptr
+        && return this->duration_ == nullptr && return this->initialSegments_ == nullptr && return this->initialTranscode_ == nullptr && return this->subtitle_ == nullptr && return this->tags_ == nullptr
+        && return this->transcodeAhead_ == nullptr && return this->URI_ == nullptr && return this->video_ == nullptr; };
     // audio Field Functions 
     bool hasAudio() const { return this->audio_ != nullptr;};
     void deleteAudio() { this->audio_ = nullptr;};
@@ -129,11 +129,11 @@ namespace Models
   protected:
     // The audio processing configuration. If you set this parameter to null (default), audio processing is disabled. The generated TS files do not contain audio streams.
     // 
-    // >  The Audio and Subtitle parameters in the same output are mutually exclusive. If the Audio parameter is configured, the Subtitle parameter is ignored. The Audio and Video parameters can be configured at the same time. You can also configure only the Audio parameter to generate only audio information.
+    // >  The Audio and Subtitle parameters in the same element are mutually exclusive. If the Audio parameter is configured, the Subtitle parameter is ignored. The Audio and Video parameters can be configured at the same time. You can also configure only the Audio parameter to generate only audio.
     std::shared_ptr<Models::TargetAudio> audio_ = nullptr;
     // The playback duration of a single TS file. Unit: seconds. Default value: 10. Valid values: 5 to 15.
     std::shared_ptr<float> duration_ = nullptr;
-    // The array of the durations of the pre-transcoded TS files. The array can contain the durations of up to six pre-transcoded TS files. By default, this parameter is left empty. This parameter is independent of the **Duration** parameter.
+    // The array of the durations of the pre-transcoded TS files. The maximum length of the array is 6. By default, this parameter is left empty. This parameter is independent of the **Duration** parameter.
     std::shared_ptr<vector<float>> initialSegments_ = nullptr;
     // The pre-transcoding duration. Unit: seconds. Default value: 30.
     // 
@@ -141,31 +141,31 @@ namespace Models
     // *   If you set this parameter to a value that is less than 0 or greater than the duration of a source video, the entire video is pre-transcoded.
     // *   If you set this parameter to a value that is within the middle of the playback duration of a TS file, the transcoding continues until the end of the playback duration.
     // 
-    // >  This parameter is used to reduce the time spent in waiting for the initial playback of a video and improve the playback experience. If you want to replace the traditional video on demand (VOD) business scenario, you can try to pre-transcode the entire video.
+    // >  This parameter reduces the time required to start the first playback, which enhances the viewing experience. If you want to use live transcoding in traditional video-on-demand scenarios, you can pre-transcode entire videos.
     std::shared_ptr<float> initialTranscode_ = nullptr;
     // The subtitle processing configuration.
     // 
-    // >  The Subtitle and Video or Audio parameters in the same output are mutually exclusive. You must configure the Subtitle parameter independently to generate subtitles.
+    // >  The Subtitle and Video or Audio parameters in the same element are mutually exclusive. You must configure the Subtitle parameter independently to generate subtitles.
     std::shared_ptr<Models::TargetSubtitle> subtitle_ = nullptr;
     // The [tags](https://help.aliyun.com/document_detail/106678.html) that you want to add to a TS file in OSS. You can use tags to manage the lifecycles of TS files in OSS.
     // 
-    // >  The combination of the value of the Tags parameter and the value of the Tags parameter in the upper level is used as the tag value of the current output. If the value of the Tags parameter in the current level is the same as the value of the Tags parameter in the upper level, use the value of the Tags parameter in the current level.
+    // >  The combination of the value of the Tags parameter and the value of the Tags parameter in the upper level is used as the tag value of the current output. If the value of the Tags parameter in the current level is the same as the value of the Tags parameter in the upper level, the value of the Tags parameter in the current level is used.
     std::shared_ptr<map<string, string>> tags_ = nullptr;
     // The number of TS files that are pre-transcoded when the live transcoding is triggered. By default, a 2-minute video is pre-transcoded.
     // 
-    // *   Example: If you set the **Duration** parameter to 10, the value of the **TranscodeAhead** parameter is 12 by default. You can configure this parameter to manage the number of pre-transcoded files in an asynchronous manner. Valid values: 10 to 30.
+    // *   Example: If you set the **Duration** parameter to 10, the value of the **TranscodeAhead** parameter is 12 by default. You can configure this parameter to manage the number of pre-transcoded files. Valid values: 10 to 30.
     std::shared_ptr<int32_t> transcodeAhead_ = nullptr;
     // The prefix of the OSS path that is used to store the live transcoding files. The live transcoding files include a M3U8 file and multiple TS files.
     // 
-    // The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the prefix of the full path of the file that does not contain the file name extension.
+    // The OSS path must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the prefix of the full path that does not contain the file name extension.
     // 
     // *   Example: If the URI is oss://test-bucket/test-object/output-video, the output-video.m3u8 file and multiple output-video-${token}-${index}.ts files are generated in the oss://test-bucket/test-object/ directory. ${token} is a unique string generated based on the transcoding parameters. The ${token} parameter is included in the response of the operation. ${index} is the serial number of the generated TS files that are numbered starting from 0.
     // 
-    // >  If the **MasterURI** parameter is not left empty, the URI specified by this parameter must be in the directory specified by the **MasterURI** parameter or its subdirectory.
+    // >  If the **MasterURI** parameter is not left empty, the path specified by this parameter must be in the directory specified by the **MasterURI** parameter or its subdirectory.
     std::shared_ptr<string> URI_ = nullptr;
     // The video processing configuration. If you set this parameter to null (default), video processing is disabled. The generated TS files do not contain video streams.
     // 
-    // >  The Video and Subtitle parameters in the same output are mutually exclusive. If the Video parameter is configured, the Subtitle parameter is ignored.
+    // >  The Video and Subtitle parameters in the same element are mutually exclusive. If the Video parameter is configured, the Subtitle parameter is ignored.
     std::shared_ptr<Models::TargetVideo> video_ = nullptr;
   };
 

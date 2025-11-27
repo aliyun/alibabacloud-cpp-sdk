@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->backbone_ != nullptr
-        && this->classNum_ != nullptr && this->head_ != nullptr && this->inputChannel_ != nullptr && this->loss_ != nullptr && this->name_ != nullptr
-        && this->neck_ != nullptr && this->numLandmarks_ != nullptr && this->pretrainedPath_ != nullptr; };
+    virtual bool empty() const override { return this->backbone_ == nullptr
+        && return this->classNum_ == nullptr && return this->head_ == nullptr && return this->inputChannel_ == nullptr && return this->loss_ == nullptr && return this->name_ == nullptr
+        && return this->neck_ == nullptr && return this->numLandmarks_ == nullptr && return this->pretrainedPath_ == nullptr; };
     // backbone Field Functions 
     bool hasBackbone() const { return this->backbone_ != nullptr;};
     void deleteBackbone() { this->backbone_ = nullptr;};

@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answer_ != nullptr
-        && this->code_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->answer_ == nullptr
+        && return this->code_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
     // answer Field Functions 
     bool hasAnswer() const { return this->answer_ != nullptr;};
     void deleteAnswer() { this->answer_ = nullptr;};
@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Content of the response from the large model.
     std::shared_ptr<Answer> answer_ = nullptr;
+    // Error code.
     std::shared_ptr<string> code_ = nullptr;
+    // Error message.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID of the current request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetName_ != nullptr
-        && this->fileShrink_ != nullptr && this->notificationShrink_ != nullptr && this->projectName_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->datasetName_ == nullptr
+        && return this->fileShrink_ == nullptr && return this->notificationShrink_ == nullptr && return this->projectName_ == nullptr && return this->userData_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -83,12 +83,13 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> fileShrink_ = nullptr;
-    // The notification settings. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+    // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
     std::shared_ptr<string> notificationShrink_ = nullptr;
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The custom user information, which is returned in an asynchronous notification. The maximum length of a notification is 2048 bytes.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

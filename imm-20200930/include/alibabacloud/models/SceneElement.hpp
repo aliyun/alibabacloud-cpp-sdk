@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->frameTimes_ != nullptr
-        && this->timeRange_ != nullptr; };
+    virtual bool empty() const override { return this->frameTimes_ == nullptr
+        && return this->timeRange_ == nullptr; };
     // frameTimes Field Functions 
     bool hasFrameTimes() const { return this->frameTimes_ != nullptr;};
     void deleteFrameTimes() { this->frameTimes_ = nullptr;};

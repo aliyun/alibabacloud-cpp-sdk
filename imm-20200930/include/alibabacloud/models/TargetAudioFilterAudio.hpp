@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mixing_ != nullptr; };
+    virtual bool empty() const override { return this->mixing_ == nullptr; };
     // mixing Field Functions 
     bool hasMixing() const { return this->mixing_ != nullptr;};
     void deleteMixing() { this->mixing_ = nullptr;};

@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetName_ != nullptr
-        && this->files_ != nullptr && this->notification_ != nullptr && this->projectName_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->datasetName_ == nullptr
+        && return this->files_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->userData_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -96,6 +96,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum information length is 2,048 bytes.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

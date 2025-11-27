@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->extendedMessageURI_ != nullptr
-        && this->MNS_ != nullptr && this->rocketMQ_ != nullptr; };
+    virtual bool empty() const override { return this->extendedMessageURI_ == nullptr
+        && return this->MNS_ == nullptr && return this->rocketMQ_ == nullptr; };
     // extendedMessageURI Field Functions 
     bool hasExtendedMessageURI() const { return this->extendedMessageURI_ != nullptr;};
     void deleteExtendedMessageURI() { this->extendedMessageURI_ = nullptr;};

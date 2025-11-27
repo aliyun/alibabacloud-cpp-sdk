@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addresses_ != nullptr
-        && this->album_ != nullptr && this->albumArtist_ != nullptr && this->artist_ != nullptr && this->composer_ != nullptr && this->contentType_ != nullptr
-        && this->customId_ != nullptr && this->customLabels_ != nullptr && this->figures_ != nullptr && this->fileHash_ != nullptr && this->labels_ != nullptr
-        && this->latLong_ != nullptr && this->mediaType_ != nullptr && this->OSSURI_ != nullptr && this->performer_ != nullptr && this->produceTime_ != nullptr
-        && this->title_ != nullptr && this->URI_ != nullptr; };
+    virtual bool empty() const override { return this->addresses_ == nullptr
+        && return this->album_ == nullptr && return this->albumArtist_ == nullptr && return this->artist_ == nullptr && return this->composer_ == nullptr && return this->contentType_ == nullptr
+        && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->figures_ == nullptr && return this->fileHash_ == nullptr && return this->labels_ == nullptr
+        && return this->latLong_ == nullptr && return this->mediaType_ == nullptr && return this->OSSURI_ == nullptr && return this->performer_ == nullptr && return this->produceTime_ == nullptr
+        && return this->title_ == nullptr && return this->URI_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};

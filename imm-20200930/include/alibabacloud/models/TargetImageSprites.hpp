@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->format_ != nullptr
-        && this->interval_ != nullptr && this->margin_ != nullptr && this->mode_ != nullptr && this->number_ != nullptr && this->pad_ != nullptr
-        && this->scaleHeight_ != nullptr && this->scaleType_ != nullptr && this->scaleWidth_ != nullptr && this->startTime_ != nullptr && this->threshold_ != nullptr
-        && this->tileHeight_ != nullptr && this->tileWidth_ != nullptr && this->URI_ != nullptr; };
+    virtual bool empty() const override { return this->format_ == nullptr
+        && return this->interval_ == nullptr && return this->margin_ == nullptr && return this->mode_ == nullptr && return this->number_ == nullptr && return this->pad_ == nullptr
+        && return this->scaleHeight_ == nullptr && return this->scaleType_ == nullptr && return this->scaleWidth_ == nullptr && return this->startTime_ == nullptr && return this->threshold_ == nullptr
+        && return this->tileHeight_ == nullptr && return this->tileWidth_ == nullptr && return this->URI_ == nullptr; };
     // format Field Functions 
     bool hasFormat() const { return this->format_ != nullptr;};
     void deleteFormat() { this->format_ = nullptr;};

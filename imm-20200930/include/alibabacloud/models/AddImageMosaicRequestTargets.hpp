@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blurRadius_ != nullptr
-        && this->boundary_ != nullptr && this->color_ != nullptr && this->mosaicRadius_ != nullptr && this->sigma_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->blurRadius_ == nullptr
+        && return this->boundary_ == nullptr && return this->color_ == nullptr && return this->mosaicRadius_ == nullptr && return this->sigma_ == nullptr && return this->type_ == nullptr; };
     // blurRadius Field Functions 
     bool hasBlurRadius() const { return this->blurRadius_ != nullptr;};
     void deleteBlurRadius() { this->blurRadius_ = nullptr;};

@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResolutionOption, resolutionOption_);
       DARABONBA_PTR_TO_JSON(Rotation, rotation_);
       DARABONBA_PTR_TO_JSON(ScaleType, scaleType_);
+      DARABONBA_PTR_TO_JSON(VideoSlim, videoSlim_);
     };
     friend void from_json(const Darabonba::Json& j, TargetVideoTranscodeVideo& obj) { 
       DARABONBA_PTR_FROM_JSON(AdaptiveResolutionDirection, adaptiveResolutionDirection_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResolutionOption, resolutionOption_);
       DARABONBA_PTR_FROM_JSON(Rotation, rotation_);
       DARABONBA_PTR_FROM_JSON(ScaleType, scaleType_);
+      DARABONBA_PTR_FROM_JSON(VideoSlim, videoSlim_);
     };
     TargetVideoTranscodeVideo() = default ;
     TargetVideoTranscodeVideo(const TargetVideoTranscodeVideo &) = default ;
@@ -61,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adaptiveResolutionDirection_ != nullptr
-        && this->BFrames_ != nullptr && this->bitrate_ != nullptr && this->bitrateOption_ != nullptr && this->bufferSize_ != nullptr && this->CRF_ != nullptr
-        && this->codec_ != nullptr && this->frameRate_ != nullptr && this->frameRateOption_ != nullptr && this->GOPSize_ != nullptr && this->maxBitrate_ != nullptr
-        && this->pixelFormat_ != nullptr && this->refs_ != nullptr && this->resolution_ != nullptr && this->resolutionOption_ != nullptr && this->rotation_ != nullptr
-        && this->scaleType_ != nullptr; };
+    virtual bool empty() const override { return this->adaptiveResolutionDirection_ == nullptr
+        && return this->BFrames_ == nullptr && return this->bitrate_ == nullptr && return this->bitrateOption_ == nullptr && return this->bufferSize_ == nullptr && return this->CRF_ == nullptr
+        && return this->codec_ == nullptr && return this->frameRate_ == nullptr && return this->frameRateOption_ == nullptr && return this->GOPSize_ == nullptr && return this->maxBitrate_ == nullptr
+        && return this->pixelFormat_ == nullptr && return this->refs_ == nullptr && return this->resolution_ == nullptr && return this->resolutionOption_ == nullptr && return this->rotation_ == nullptr
+        && return this->scaleType_ == nullptr && return this->videoSlim_ == nullptr; };
     // adaptiveResolutionDirection Field Functions 
     bool hasAdaptiveResolutionDirection() const { return this->adaptiveResolutionDirection_ != nullptr;};
     void deleteAdaptiveResolutionDirection() { this->adaptiveResolutionDirection_ = nullptr;};
@@ -185,6 +187,13 @@ namespace Models
     inline TargetVideoTranscodeVideo& setScaleType(string scaleType) { DARABONBA_PTR_SET_VALUE(scaleType_, scaleType) };
 
 
+    // videoSlim Field Functions 
+    bool hasVideoSlim() const { return this->videoSlim_ != nullptr;};
+    void deleteVideoSlim() { this->videoSlim_ = nullptr;};
+    inline int32_t videoSlim() const { DARABONBA_PTR_GET_DEFAULT(videoSlim_, 0) };
+    inline TargetVideoTranscodeVideo& setVideoSlim(int32_t videoSlim) { DARABONBA_PTR_SET_VALUE(videoSlim_, videoSlim) };
+
+
   protected:
     std::shared_ptr<bool> adaptiveResolutionDirection_ = nullptr;
     std::shared_ptr<int32_t> BFrames_ = nullptr;
@@ -203,6 +212,7 @@ namespace Models
     std::shared_ptr<string> resolutionOption_ = nullptr;
     std::shared_ptr<int32_t> rotation_ = nullptr;
     std::shared_ptr<string> scaleType_ = nullptr;
+    std::shared_ptr<int32_t> videoSlim_ = nullptr;
   };
 
   } // namespace Models

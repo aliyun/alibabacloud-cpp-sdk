@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->customId_ != nullptr && this->customLabels_ != nullptr && this->datasetName_ != nullptr && this->maxFileCount_ != nullptr && this->minFileCount_ != nullptr
-        && this->notification_ != nullptr && this->notifyTopicName_ != nullptr && this->objectId_ != nullptr && this->projectName_ != nullptr && this->storyEndTime_ != nullptr
-        && this->storyName_ != nullptr && this->storyStartTime_ != nullptr && this->storySubType_ != nullptr && this->storyType_ != nullptr && this->tags_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr && return this->maxFileCount_ == nullptr && return this->minFileCount_ == nullptr
+        && return this->notification_ == nullptr && return this->notifyTopicName_ == nullptr && return this->objectId_ == nullptr && return this->projectName_ == nullptr && return this->storyEndTime_ == nullptr
+        && return this->storyName_ == nullptr && return this->storyStartTime_ == nullptr && return this->storySubType_ == nullptr && return this->storyType_ == nullptr && return this->tags_ == nullptr
+        && return this->userData_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -198,7 +198,7 @@ namespace Models
   protected:
     // The address of the story. IMM filters candidate photos to generate a story based on the value of this parameter. This parameter takes effect only if you set StoryType to TravelMemory.
     // 
-    // >  If you are located in Hong Kong (China), Macao (China), Taiwan (China), or overseas, you cannot specify an address in the Chinese mainland by using this parameter.
+    // >  If the caller of the operation is located in Hong Kong (China), Macao (China), Taiwan (China), or another region outside the Chinese mainland, the system cannot convert the GPS information in the Chinese mainland into the textual address version.
     std::shared_ptr<AddressForStory> address_ = nullptr;
     // The custom ID. A custom ID of a generated story may differ from the value of ObjectID and can be utilized for subsequent retrieval and sorting of stories.
     std::shared_ptr<string> customId_ = nullptr;

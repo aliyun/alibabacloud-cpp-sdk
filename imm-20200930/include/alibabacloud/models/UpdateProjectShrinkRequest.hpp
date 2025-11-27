@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetMaxBindCount_ != nullptr
-        && this->datasetMaxEntityCount_ != nullptr && this->datasetMaxFileCount_ != nullptr && this->datasetMaxRelationCount_ != nullptr && this->datasetMaxTotalFileSize_ != nullptr && this->description_ != nullptr
-        && this->projectMaxDatasetCount_ != nullptr && this->projectName_ != nullptr && this->serviceRole_ != nullptr && this->tagShrink_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->datasetMaxBindCount_ == nullptr
+        && return this->datasetMaxEntityCount_ == nullptr && return this->datasetMaxFileCount_ == nullptr && return this->datasetMaxRelationCount_ == nullptr && return this->datasetMaxTotalFileSize_ == nullptr && return this->description_ == nullptr
+        && return this->projectMaxDatasetCount_ == nullptr && return this->projectName_ == nullptr && return this->serviceRole_ == nullptr && return this->tagShrink_ == nullptr && return this->templateId_ == nullptr; };
     // datasetMaxBindCount Field Functions 
     bool hasDatasetMaxBindCount() const { return this->datasetMaxBindCount_ != nullptr;};
     void deleteDatasetMaxBindCount() { this->datasetMaxBindCount_ = nullptr;};

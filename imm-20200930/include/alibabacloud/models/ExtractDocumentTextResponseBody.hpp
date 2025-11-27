@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->documentText_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->documentText_ == nullptr
+        && return this->requestId_ == nullptr; };
     // documentText Field Functions 
     bool hasDocumentText() const { return this->documentText_ != nullptr;};
     void deleteDocumentText() { this->documentText_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The text content of the document.
     std::shared_ptr<string> documentText_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

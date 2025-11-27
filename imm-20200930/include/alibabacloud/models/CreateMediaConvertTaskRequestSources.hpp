@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alignMode_ != nullptr
-        && this->attached_ != nullptr && this->disableAudio_ != nullptr && this->disableVideo_ != nullptr && this->duration_ != nullptr && this->startTime_ != nullptr
-        && this->subtitles_ != nullptr && this->URI_ != nullptr; };
+    virtual bool empty() const override { return this->alignMode_ == nullptr
+        && return this->attached_ == nullptr && return this->disableAudio_ == nullptr && return this->disableVideo_ == nullptr && return this->duration_ == nullptr && return this->startTime_ == nullptr
+        && return this->subtitles_ == nullptr && return this->URI_ == nullptr; };
     // alignMode Field Functions 
     bool hasAlignMode() const { return this->alignMode_ != nullptr;};
     void deleteAlignMode() { this->alignMode_ = nullptr;};
@@ -107,20 +107,35 @@ namespace Models
 
 
   protected:
+    // The alignment strategy for adding audio and video streams, with the following value range:
+    // - false (default): No alignment.
+    // - loop: Loop the audio and video content to align.
+    // - pad: Align by padding silent frames and black video frames.
+    // > - Only valid when the Attached parameter is true.
     std::shared_ptr<string> alignMode_ = nullptr;
-    std::shared_ptr<bool> attached_ = nullptr;
-    std::shared_ptr<bool> disableAudio_ = nullptr;
-    std::shared_ptr<bool> disableVideo_ = nullptr;
-    // The transcoding duration of the media. Unit: seconds. Default value: 0. A value of 0 specifies that the transcoding duration lasts until the end of the video.
-    std::shared_ptr<double> duration_ = nullptr;
-    // The start time of the media transcoding task. Unit: seconds. Valid values:
+    // Add the current source media file as a synchronized audio or video stream to the output media file, with a default value of false.
     // 
-    // *   0 (default): starts transcoding when the media starts playing.
-    // *   n: starts transcoding n seconds after the media starts playing. n must be greater than 0.
+    // > - The AlignmentIndex parameter pointing to the Attached parameter of the Source cannot be true.
+    std::shared_ptr<bool> attached_ = nullptr;
+    // Whether to disable the audio in the source media file. The value range is as follows:
+    // 
+    // - true: Disable.
+    // - false (default): Do not disable.
+    std::shared_ptr<bool> disableAudio_ = nullptr;
+    // Whether to disable the video in the source media file. The value range is as follows:
+    // 
+    // - true: Disable.
+    // - false (default): Do not disable.
+    std::shared_ptr<bool> disableVideo_ = nullptr;
+    // The duration of media transcoding, in seconds. The default value is 0, indicating until the end of the video.
+    std::shared_ptr<double> duration_ = nullptr;
+    // The start time for media transcoding, in seconds. The value range is as follows:
+    // - 0 (default): Start transcoding from the beginning of the media.
+    // - n (greater than 0): Start transcoding n seconds after the beginning of the media.
     std::shared_ptr<double> startTime_ = nullptr;
-    // The subtitles. By default, this parameter is left empty.
+    // A list of subtitles to add, which is empty by default.
     std::shared_ptr<vector<Models::CreateMediaConvertTaskRequestSourcesSubtitles>> subtitles_ = nullptr;
-    // The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
+    // The OSS address rule is `oss://${Bucket}/${Object}`, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
     std::shared_ptr<string> URI_ = nullptr;
   };
 

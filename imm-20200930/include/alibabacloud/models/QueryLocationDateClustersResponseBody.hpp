@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->locationDateClusters_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->locationDateClusters_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
     // locationDateClusters Field Functions 
     bool hasLocationDateClusters() const { return this->locationDateClusters_ != nullptr;};
     void deleteLocationDateClusters() { this->locationDateClusters_ = nullptr;};
@@ -63,7 +63,7 @@ namespace Models
   protected:
     // The list of spatiotemporal clusters.
     std::shared_ptr<vector<LocationDateCluster>> locationDateClusters_ = nullptr;
-    // The pagination token.
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;

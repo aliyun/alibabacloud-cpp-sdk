@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addresses_ != nullptr
-        && this->cover_ != nullptr && this->createTime_ != nullptr && this->customId_ != nullptr && this->customLabels_ != nullptr && this->datasetName_ != nullptr
-        && this->figureClusterIds_ != nullptr && this->files_ != nullptr && this->objectId_ != nullptr && this->objectType_ != nullptr && this->ownerId_ != nullptr
-        && this->projectName_ != nullptr && this->storyEndTime_ != nullptr && this->storyName_ != nullptr && this->storyStartTime_ != nullptr && this->storySubType_ != nullptr
-        && this->storyType_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->addresses_ == nullptr
+        && return this->cover_ == nullptr && return this->createTime_ == nullptr && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr
+        && return this->figureClusterIds_ == nullptr && return this->files_ == nullptr && return this->objectId_ == nullptr && return this->objectType_ == nullptr && return this->ownerId_ == nullptr
+        && return this->projectName_ == nullptr && return this->storyEndTime_ == nullptr && return this->storyName_ == nullptr && return this->storyStartTime_ == nullptr && return this->storySubType_ == nullptr
+        && return this->storyType_ == nullptr && return this->updateTime_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};

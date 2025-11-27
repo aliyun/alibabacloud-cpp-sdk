@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTimeRangeShrink_ != nullptr
-        && this->customLabels_ != nullptr && this->datasetName_ != nullptr && this->figureClusterIdsShrink_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->objectId_ != nullptr && this->order_ != nullptr && this->projectName_ != nullptr && this->sort_ != nullptr && this->storyEndTimeRangeShrink_ != nullptr
-        && this->storyName_ != nullptr && this->storyStartTimeRangeShrink_ != nullptr && this->storySubType_ != nullptr && this->storyType_ != nullptr && this->withEmptyStories_ != nullptr; };
+    virtual bool empty() const override { return this->createTimeRangeShrink_ == nullptr
+        && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr && return this->figureClusterIdsShrink_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->objectId_ == nullptr && return this->order_ == nullptr && return this->projectName_ == nullptr && return this->sort_ == nullptr && return this->storyEndTimeRangeShrink_ == nullptr
+        && return this->storyName_ == nullptr && return this->storyStartTimeRangeShrink_ == nullptr && return this->storySubType_ == nullptr && return this->storyType_ == nullptr && return this->withEmptyStories_ == nullptr; };
     // createTimeRangeShrink Field Functions 
     bool hasCreateTimeRangeShrink() const { return this->createTimeRangeShrink_ != nullptr;};
     void deleteCreateTimeRangeShrink() { this->createTimeRangeShrink_ = nullptr;};

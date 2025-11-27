@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bindCount_ != nullptr
-        && this->createTime_ != nullptr && this->datasetMaxBindCount_ != nullptr && this->datasetMaxEntityCount_ != nullptr && this->datasetMaxFileCount_ != nullptr && this->datasetMaxRelationCount_ != nullptr
-        && this->datasetMaxTotalFileSize_ != nullptr && this->datasetName_ != nullptr && this->description_ != nullptr && this->fileCount_ != nullptr && this->projectName_ != nullptr
-        && this->templateId_ != nullptr && this->totalFileSize_ != nullptr && this->updateTime_ != nullptr && this->workflowParameters_ != nullptr; };
+    virtual bool empty() const override { return this->bindCount_ == nullptr
+        && return this->createTime_ == nullptr && return this->datasetMaxBindCount_ == nullptr && return this->datasetMaxEntityCount_ == nullptr && return this->datasetMaxFileCount_ == nullptr && return this->datasetMaxRelationCount_ == nullptr
+        && return this->datasetMaxTotalFileSize_ == nullptr && return this->datasetName_ == nullptr && return this->description_ == nullptr && return this->fileCount_ == nullptr && return this->projectName_ == nullptr
+        && return this->templateId_ == nullptr && return this->totalFileSize_ == nullptr && return this->updateTime_ == nullptr && return this->workflowParameters_ == nullptr; };
     // bindCount Field Functions 
     bool hasBindCount() const { return this->bindCount_ != nullptr;};
     void deleteBindCount() { this->bindCount_ = nullptr;};

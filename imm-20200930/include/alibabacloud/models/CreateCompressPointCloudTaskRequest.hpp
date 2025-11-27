@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compressMethod_ != nullptr
-        && this->credentialConfig_ != nullptr && this->kdtreeOption_ != nullptr && this->notification_ != nullptr && this->octreeOption_ != nullptr && this->pointCloudFields_ != nullptr
-        && this->pointCloudFileFormat_ != nullptr && this->projectName_ != nullptr && this->sourceURI_ != nullptr && this->tags_ != nullptr && this->targetURI_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->compressMethod_ == nullptr
+        && return this->credentialConfig_ == nullptr && return this->kdtreeOption_ == nullptr && return this->notification_ == nullptr && return this->octreeOption_ == nullptr && return this->pointCloudFields_ == nullptr
+        && return this->pointCloudFileFormat_ == nullptr && return this->projectName_ == nullptr && return this->sourceURI_ == nullptr && return this->tags_ == nullptr && return this->targetURI_ == nullptr
+        && return this->userData_ == nullptr; };
     // compressMethod Field Functions 
     bool hasCompressMethod() const { return this->compressMethod_ != nullptr;};
     void deleteCompressMethod() { this->compressMethod_ = nullptr;};
@@ -171,6 +171,8 @@ namespace Models
     // The k-d tree compression options.
     std::shared_ptr<KdtreeOption> kdtreeOption_ = nullptr;
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+    // 
+    // >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
     std::shared_ptr<Notification> notification_ = nullptr;
     // The octree compression options.
     std::shared_ptr<OctreeOption> octreeOption_ = nullptr;

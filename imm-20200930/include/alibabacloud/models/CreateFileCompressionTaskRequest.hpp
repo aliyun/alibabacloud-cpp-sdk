@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->compressedFormat_ != nullptr
-        && this->credentialConfig_ != nullptr && this->notification_ != nullptr && this->projectName_ != nullptr && this->sourceManifestURI_ != nullptr && this->sources_ != nullptr
-        && this->targetURI_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->compressedFormat_ == nullptr
+        && return this->credentialConfig_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->sourceManifestURI_ == nullptr && return this->sources_ == nullptr
+        && return this->targetURI_ == nullptr && return this->userData_ == nullptr; };
     // compressedFormat Field Functions 
     bool hasCompressedFormat() const { return this->compressedFormat_ != nullptr;};
     void deleteCompressedFormat() { this->compressedFormat_ = nullptr;};
@@ -113,9 +113,9 @@ namespace Models
 
 
   protected:
-    // The format of the package. Default value: zip.
+    // The format of the output file.
     // 
-    // >  Only the ZIP format is supported.
+    // > Only the ZIP format is supported.
     std::shared_ptr<string> compressedFormat_ = nullptr;
     // **If you have no special requirements, leave this parameter empty.**
     // 

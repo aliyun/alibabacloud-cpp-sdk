@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTimeRangeShrink_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr && this->projectName_ != nullptr && this->requestDefinition_ != nullptr
-        && this->sort_ != nullptr && this->startTimeRangeShrink_ != nullptr && this->status_ != nullptr && this->tagSelector_ != nullptr && this->taskTypesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->endTimeRangeShrink_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->projectName_ == nullptr && return this->requestDefinition_ == nullptr
+        && return this->sort_ == nullptr && return this->startTimeRangeShrink_ == nullptr && return this->status_ == nullptr && return this->tagSelector_ == nullptr && return this->taskTypesShrink_ == nullptr; };
     // endTimeRangeShrink Field Functions 
     bool hasEndTimeRangeShrink() const { return this->endTimeRangeShrink_ != nullptr;};
     void deleteEndTimeRangeShrink() { this->endTimeRangeShrink_ = nullptr;};

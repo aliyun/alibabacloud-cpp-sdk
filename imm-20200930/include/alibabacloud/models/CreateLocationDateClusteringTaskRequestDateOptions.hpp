@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->gapDays_ != nullptr
-        && this->maxDays_ != nullptr && this->minDays_ != nullptr; };
+    virtual bool empty() const override { return this->gapDays_ == nullptr
+        && return this->maxDays_ == nullptr && return this->minDays_ == nullptr; };
     // gapDays Field Functions 
     bool hasGapDays() const { return this->gapDays_ != nullptr;};
     void deleteGapDays() { this->gapDays_ = nullptr;};

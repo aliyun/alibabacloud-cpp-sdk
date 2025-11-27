@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audio_ != nullptr
-        && this->container_ != nullptr && this->image_ != nullptr && this->segment_ != nullptr && this->speed_ != nullptr && this->stripMetadata_ != nullptr
-        && this->subtitle_ != nullptr && this->URI_ != nullptr && this->video_ != nullptr; };
+    virtual bool empty() const override { return this->audio_ == nullptr
+        && return this->container_ == nullptr && return this->image_ == nullptr && return this->segment_ == nullptr && return this->speed_ == nullptr && return this->stripMetadata_ == nullptr
+        && return this->subtitle_ == nullptr && return this->URI_ == nullptr && return this->video_ == nullptr; };
     // audio Field Functions 
     bool hasAudio() const { return this->audio_ != nullptr;};
     void deleteAudio() { this->audio_ = nullptr;};
@@ -127,48 +127,36 @@ namespace Models
 
 
   protected:
-    // The audio processing settings.
-    // 
-    // >  If you leave Audio empty and the first audio stream exists, the first audio stream is directly copied to the output file.
+    // Audio processing parameter configuration.
+    // >Notice: If Audio is null, the first audio stream (if present) will be directly copied to the output file.</notice>
     std::shared_ptr<Models::TargetAudio> audio_ = nullptr;
-    // The type of the media container.
-    // 
-    // *   Valid values for audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, and flv.
-    // 
-    // *   Valid values only for audio containers: mp3, aac, flac, oga, ac3, and opus.
-    // 
-    //     **
-    // 
-    //     **Note** Specify Container and URI at the same time. If you want to extract subtitles, capture frames, capture image sprites, or rotate media images, set Container and URI to null. In this case, Segment, Video, Audio, and Speed do not take effect.
+    // Media container type. Available container types are as follows:
+    // - Audio and video containers: mp4, mkv, mov, asf, avi, mxf, ts, flv
+    // - Audio containers: mp3, aac, flac, oga, ac3, opus
+    // >Notice: Both Container and URI parameters need to be set. If only subtitle extraction, frame capture, sprite image capture, or media-to-gif conversion is performed, both Container and URI should be set to null, making the Segment, Video, Audio, and Speed parameters meaningless.</notice>
     std::shared_ptr<string> container_ = nullptr;
-    // The frame capturing, sprite capturing, and media rotation settings.
+    // Configuration for frame capture, sprite image capture, and media to animated image conversion.
     std::shared_ptr<Models::TargetImage> image_ = nullptr;
-    // The media segmentation settings. By default, no segmentation is performed.
+    // Media segment settings, no segmentation by default.
     std::shared_ptr<Models::CreateMediaConvertTaskRequestTargetsSegment> segment_ = nullptr;
-    // The playback speed of the media. Valid values: 0.5 to 2. Default value: 1.0.
-    // 
-    // >  This parameter specifies the ratio of the non-regular playback speed of the transcoded media file to the default playback speed of the source media file.
+    // Media playback speed setting, with a value range of [0.5,1.0], default is 1.0.
+    // > The ratio of the playback speed of the transcoded media file to the original media file, not a speed-up transcoding.
     std::shared_ptr<float> speed_ = nullptr;
-    // Specifies whether to remove the metadata, such as `title` and `album`, from the media file. Default value: false.
+    // Removes metadata from the media file, such as `title`, `album`, etc. The default value is false.
     std::shared_ptr<bool> stripMetadata_ = nullptr;
-    // The subtitle processing settings.
-    // 
-    // >  If you leave Subtitle empty and the first subtitle stream exists, the first subtitle stream is directly copied to the output file.
+    // Subtitle processing parameter configuration.
+    // >Notice: If Subtitle is null, the first subtitle stream (if present) will be directly copied to the output file.</notice>
     std::shared_ptr<Models::TargetSubtitle> subtitle_ = nullptr;
-    // The URI of the OSS bucket in which you want to store the media transcoding output file.
+    // OSS address for the output file of media transcoding.
     // 
-    // Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
-    // 
-    // *   If the value of **URI** contains an extension, the endpoint of the OSS bucket matches the URI. If multiple media transcoding output files exist, the endpoints of the correspodning OSS buckets may be overwritten.****
-    // 
-    // *   If the value of **URI** does not contain an extension, the endpoint of the OSS bucket consists of the following parameters: **URI**, **Container**, and **Segment**. In the following examples, the value of **URI** is `oss://examplebucket/outputVideo`.
-    // 
-    //     *   If the value of **Container** is `mp4` and the value of **Segment** is null, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.mp4`.
-    //     *   If the value of **Container** is `ts` and the value of **Format** in **Segment** is `hls`, the endpoint of the OSS bucket is `oss://examplebucket/outputVideo.m3u8`. In addition, multiple ts files prefixed with `oss://examplebucket/outputVideo` are generated.
+    // The OSS address rule is `oss://${Bucket}/${Object}`, where `${Bucket}` is the name of the OSS Bucket in the same region (Region) as the current project, and `${Object}` is the complete path of the file including the file extension.
+    // - When **URI** has an extension, the OSS address for the transcoded media file will be **URI**. If there are multiple output files, they may overwrite each other.
+    // - When **URI** does not have an extension, the OSS address for the transcoded media file is determined by the **URI**, **Container**, and **Segment** parameters. For example, if **URI** is `oss://examplebucket/outputVideo`:
+    //    -  When **Container** is `mp4` and **Segment** is empty, the generated media file\\"s OSS address will be `oss://examplebucket/outputVideo.mp4`.
+    //    -  When **Container** is `ts` and **Segment**\\"s **Format** is `hls`, it will generate an m3u8 file with the OSS address `oss://examplebucket/outputVideo.m3u8` and multiple ts files with the prefix `oss://examplebucket/outputVideo`.
     std::shared_ptr<string> URI_ = nullptr;
-    // The video processing settings.
-    // 
-    // >  If you leave Video empty and the first video stream exists, the first video stream is directly copied to the output file.
+    // Video processing parameter configuration.
+    // >Notice: If Video is null, the first video stream (if present) will be directly copied to the output file.</notice>
     std::shared_ptr<Models::TargetVideo> video_ = nullptr;
   };
 

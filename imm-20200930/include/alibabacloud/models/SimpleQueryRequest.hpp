@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aggregations_ != nullptr
-        && this->datasetName_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->order_ != nullptr && this->projectName_ != nullptr
-        && this->query_ != nullptr && this->sort_ != nullptr && this->withFields_ != nullptr && this->withoutTotalHits_ != nullptr; };
+    virtual bool empty() const override { return this->aggregations_ == nullptr
+        && return this->datasetName_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->order_ == nullptr && return this->projectName_ == nullptr
+        && return this->query_ == nullptr && return this->sort_ == nullptr && return this->withFields_ == nullptr && return this->withoutTotalHits_ == nullptr; };
     // aggregations Field Functions 
     bool hasAggregations() const { return this->aggregations_ != nullptr;};
     void deleteAggregations() { this->aggregations_ = nullptr;};

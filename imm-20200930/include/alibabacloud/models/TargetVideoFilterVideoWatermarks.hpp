@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->borderColor_ != nullptr
-        && this->borderWidth_ != nullptr && this->content_ != nullptr && this->duration_ != nullptr && this->dx_ != nullptr && this->dy_ != nullptr
-        && this->fontApha_ != nullptr && this->fontColor_ != nullptr && this->fontName_ != nullptr && this->fontSize_ != nullptr && this->height_ != nullptr
-        && this->referPos_ != nullptr && this->startTime_ != nullptr && this->type_ != nullptr && this->URI_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->borderColor_ == nullptr
+        && return this->borderWidth_ == nullptr && return this->content_ == nullptr && return this->duration_ == nullptr && return this->dx_ == nullptr && return this->dy_ == nullptr
+        && return this->fontApha_ == nullptr && return this->fontColor_ == nullptr && return this->fontName_ == nullptr && return this->fontSize_ == nullptr && return this->height_ == nullptr
+        && return this->referPos_ == nullptr && return this->startTime_ == nullptr && return this->type_ == nullptr && return this->URI_ == nullptr && return this->width_ == nullptr; };
     // borderColor Field Functions 
     bool hasBorderColor() const { return this->borderColor_ != nullptr;};
     void deleteBorderColor() { this->borderColor_ = nullptr;};

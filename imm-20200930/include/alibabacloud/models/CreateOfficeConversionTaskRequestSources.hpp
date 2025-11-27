@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->rotate_ != nullptr
-        && this->URI_ != nullptr; };
+    virtual bool empty() const override { return this->rotate_ == nullptr
+        && return this->URI_ == nullptr; };
     // rotate Field Functions 
     bool hasRotate() const { return this->rotate_ != nullptr;};
     void deleteRotate() { this->rotate_ = nullptr;};
@@ -48,7 +48,18 @@ namespace Models
 
 
   protected:
+    // The rotation angle. Valid values:
+    // 
+    // *   0 (default)
+    // *   90
+    // *   180
+    // *   270
     std::shared_ptr<int64_t> rotate_ = nullptr;
+    // The OSS URI of the input image.
+    // 
+    // The URI must be in the oss://${Bucket}/${Object} format. ${Bucket} specifies the name of the OSS bucket that is in the same region as the current project. ${Object} specifies the full path of the file that contains the file name extension.
+    // 
+    // The operation supports the following image formats: JPG, JP2, PNG, TIFF, WebP, BMP, and SVG.
     std::shared_ptr<string> URI_ = nullptr;
   };
 

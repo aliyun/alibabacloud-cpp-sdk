@@ -81,12 +81,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->age_ != nullptr
-        && this->ageSD_ != nullptr && this->attractive_ != nullptr && this->beard_ != nullptr && this->beardConfidence_ != nullptr && this->boundary_ != nullptr
-        && this->emotion_ != nullptr && this->emotionConfidence_ != nullptr && this->faceQuality_ != nullptr && this->figureClusterConfidence_ != nullptr && this->figureClusterId_ != nullptr
-        && this->figureConfidence_ != nullptr && this->figureId_ != nullptr && this->figureType_ != nullptr && this->gender_ != nullptr && this->genderConfidence_ != nullptr
-        && this->glasses_ != nullptr && this->glassesConfidence_ != nullptr && this->hat_ != nullptr && this->hatConfidence_ != nullptr && this->headPose_ != nullptr
-        && this->mask_ != nullptr && this->maskConfidence_ != nullptr && this->mouth_ != nullptr && this->mouthConfidence_ != nullptr && this->sharpness_ != nullptr; };
+    virtual bool empty() const override { return this->age_ == nullptr
+        && return this->ageSD_ == nullptr && return this->attractive_ == nullptr && return this->beard_ == nullptr && return this->beardConfidence_ == nullptr && return this->boundary_ == nullptr
+        && return this->emotion_ == nullptr && return this->emotionConfidence_ == nullptr && return this->faceQuality_ == nullptr && return this->figureClusterConfidence_ == nullptr && return this->figureClusterId_ == nullptr
+        && return this->figureConfidence_ == nullptr && return this->figureId_ == nullptr && return this->figureType_ == nullptr && return this->gender_ == nullptr && return this->genderConfidence_ == nullptr
+        && return this->glasses_ == nullptr && return this->glassesConfidence_ == nullptr && return this->hat_ == nullptr && return this->hatConfidence_ == nullptr && return this->headPose_ == nullptr
+        && return this->mask_ == nullptr && return this->maskConfidence_ == nullptr && return this->mouth_ == nullptr && return this->mouthConfidence_ == nullptr && return this->sharpness_ == nullptr; };
     // age Field Functions 
     bool hasAge() const { return this->age_ != nullptr;};
     void deleteAge() { this->age_ = nullptr;};

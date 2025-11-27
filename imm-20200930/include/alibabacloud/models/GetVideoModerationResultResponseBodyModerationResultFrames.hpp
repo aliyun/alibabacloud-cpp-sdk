@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->blockFrames_ != nullptr
-        && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->blockFrames_ == nullptr
+        && return this->totalCount_ == nullptr; };
     // blockFrames Field Functions 
     bool hasBlockFrames() const { return this->blockFrames_ != nullptr;};
     void deleteBlockFrames() { this->blockFrames_ = nullptr;};
@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The information about violated frames.
     std::shared_ptr<vector<Models::GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames>> blockFrames_ = nullptr;
+    // The total number of detected frames.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

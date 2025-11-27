@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->endTime_ != nullptr && this->eventId_ != nullptr && this->message_ != nullptr && this->progress_ != nullptr && this->projectName_ != nullptr
-        && this->requestId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr && this->taskId_ != nullptr
-        && this->taskRequestDefinition_ != nullptr && this->taskType_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->endTime_ == nullptr && return this->eventId_ == nullptr && return this->message_ == nullptr && return this->progress_ == nullptr && return this->projectName_ == nullptr
+        && return this->requestId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskRequestDefinition_ == nullptr && return this->taskType_ == nullptr && return this->userData_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};

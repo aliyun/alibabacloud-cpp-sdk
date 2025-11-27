@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->duration_ != nullptr
-        && this->format_ != nullptr && this->startNumber_ != nullptr; };
+    virtual bool empty() const override { return this->duration_ == nullptr
+        && return this->format_ == nullptr && return this->startNumber_ == nullptr; };
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // The duration of the segment. Unit: seconds.
+    // Segment length. Unit: seconds.
     std::shared_ptr<double> duration_ = nullptr;
-    // The media segmentation mode. Valid values:
-    // 
-    // *   hls
-    // *   dash
+    // Media slicing method. The value range is as follows:
+    // - hls
+    // - dash
     std::shared_ptr<string> format_ = nullptr;
-    // The start sequence number. You can specify this parameter only if you set Format to hls. Default value: 0.
+    // Starting sequence number, supported only for hls, default is 0.
     std::shared_ptr<int32_t> startNumber_ = nullptr;
   };
 

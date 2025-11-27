@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasetName_ != nullptr
-        && this->messages_ != nullptr && this->projectName_ != nullptr && this->recallOnly_ != nullptr && this->smartClusterIds_ != nullptr; };
+    virtual bool empty() const override { return this->datasetName_ == nullptr
+        && return this->messages_ == nullptr && return this->projectName_ == nullptr && return this->recallOnly_ == nullptr && return this->smartClusterIds_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -81,13 +81,21 @@ namespace Models
 
 
   protected:
+    // The dataset.
+    // 
     // This parameter is required.
     std::shared_ptr<string> datasetName_ = nullptr;
+    // The conversation or tool invocation history. The latest message is at the end of the list (with an index number of n-1), whereas the earliest message is at the beginning of the list (with an index number of 0). Historical messages must be provided in user-assistant pairs. The maximum number of messages that you can specify is 2\\*n+1. The current question cannot exceed 1,000 characters in length. The maximum number of historical messages allowed is 100.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<ContextualMessage>> messages_ = nullptr;
+    // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/zh/imm/getting-started/create-a-project-1?spm=a2c4g.11186623.help-menu-search-62354.d_0).
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // Indicates whether to enable recall-only (embedding-based search). If you set this parameter to true, returned results have not been re-ranked and can be ranked in custom order. Default value: false.
     std::shared_ptr<bool> recallOnly_ = nullptr;
+    // The IDs of clusters from which results are retrieved.
     std::shared_ptr<vector<string>> smartClusterIds_ = nullptr;
   };
 

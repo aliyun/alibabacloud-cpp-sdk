@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->credentialConfigShrink_ != nullptr && this->projectName_ != nullptr && this->refreshToken_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->credentialConfigShrink_ == nullptr && return this->projectName_ == nullptr && return this->refreshToken_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -66,14 +66,20 @@ namespace Models
 
 
   protected:
+    // Weboffice access token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
+    // 
     // This parameter is required.
     std::shared_ptr<string> accessToken_ = nullptr;
-    // **If you have no special requirements, leave this parameter empty.**
+    // **If there are no special requirements, leave it blank.**
     // 
-    // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+    // Chained authorization configuration, optional. For more information, see [Access Other Entity Resources Using Chained Authorization](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<string> credentialConfigShrink_ = nullptr;
+    // Project name. For more information on how to obtain it, see [Create Project](https://help.aliyun.com/document_detail/478153.html).
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // Weboffice refresh token. Obtain it through the [GenerateWebofficeToken](https://help.aliyun.com/document_detail/478226.html) or [RefreshWebofficeToken](https://help.aliyun.com/document_detail/478227.html) interfaces.
+    // 
     // This parameter is required.
     std::shared_ptr<string> refreshToken_ = nullptr;
   };

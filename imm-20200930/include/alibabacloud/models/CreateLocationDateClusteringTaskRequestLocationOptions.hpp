@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->locationDateClusterLevels_ != nullptr; };
+    virtual bool empty() const override { return this->locationDateClusterLevels_ == nullptr; };
     // locationDateClusterLevels Field Functions 
     bool hasLocationDateClusterLevels() const { return this->locationDateClusterLevels_ != nullptr;};
     void deleteLocationDateClusterLevels() { this->locationDateClusterLevels_ = nullptr;};

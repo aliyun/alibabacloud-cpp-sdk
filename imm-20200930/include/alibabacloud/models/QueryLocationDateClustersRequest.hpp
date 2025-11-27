@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->createTimeRange_ != nullptr && this->customLabels_ != nullptr && this->datasetName_ != nullptr && this->locationDateClusterEndTimeRange_ != nullptr && this->locationDateClusterLevels_ != nullptr
-        && this->locationDateClusterStartTimeRange_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->objectId_ != nullptr && this->order_ != nullptr
-        && this->projectName_ != nullptr && this->sort_ != nullptr && this->title_ != nullptr && this->updateTimeRange_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->createTimeRange_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr && return this->locationDateClusterEndTimeRange_ == nullptr && return this->locationDateClusterLevels_ == nullptr
+        && return this->locationDateClusterStartTimeRange_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->objectId_ == nullptr && return this->order_ == nullptr
+        && return this->projectName_ == nullptr && return this->sort_ == nullptr && return this->title_ == nullptr && return this->updateTimeRange_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -186,15 +186,15 @@ namespace Models
     std::shared_ptr<Address> address_ = nullptr;
     // The time range during which the spatiotemporal clusters were generated.
     std::shared_ptr<TimeRange> createTimeRange_ = nullptr;
-    // The custom labels, which can be used as query conditions.
+    // The custom labels.
     std::shared_ptr<string> customLabels_ = nullptr;
-    // The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+    // The name of the dataset. For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
     std::shared_ptr<string> datasetName_ = nullptr;
     // The time range during which the latest photo in a cluster was taken.
     std::shared_ptr<TimeRange> locationDateClusterEndTimeRange_ = nullptr;
-    // The administrative level of the spatiotemporal clustering groups to be queried.
+    // The container for the administrative division level of the spatiotemporal clusters to be queried.
     std::shared_ptr<vector<string>> locationDateClusterLevels_ = nullptr;
     // The time range during which the earliest photo in a cluster was taken.
     std::shared_ptr<TimeRange> locationDateClusterStartTimeRange_ = nullptr;
@@ -202,29 +202,29 @@ namespace Models
     std::shared_ptr<int32_t> maxResults_ = nullptr;
     // The pagination token.
     std::shared_ptr<string> nextToken_ = nullptr;
-    // The ID of the group that you want to query. Specify this parameter if you want to obtain the information about a specific spatiotemporal clustering group. Otherwise, leave this parameter empty and use other parameters to query the groups that meet the matching conditions.
+    // The ID of the cluster that you want to query. Specify this parameter if you want to query a specific spatiotemporal cluster. Otherwise, leave this parameter empty to query spatiotemporal clusters that meet the specified conditions.
     std::shared_ptr<string> objectId_ = nullptr;
-    // The sorting order.
-    // 
-    // Default value: asc. Valid values:
-    // 
-    // *   asc: ascending order.
-    // *   desc: descending order.
-    std::shared_ptr<string> order_ = nullptr;
-    // The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> projectName_ = nullptr;
-    // The condition by which the results are sorted.
+    // The order that you use to sort the query results.
     // 
     // Valid values:
     // 
-    // *   LocationDateClusterEndTime: by the end time of the spatiotemporal clustering groups.
-    // *   CreateTime: by the creation time of the spatiotemporal clustering groups.
-    // *   UpdateTime: by the update time of the spatiotemporal clustering groups.
-    // *   LocationDateClusterStartTime: by the start time of the spatiotemporal clustering groups. This is the default value.
+    // *   asc: ascending order. This is the default value.
+    // *   desc: descending order.
+    std::shared_ptr<string> order_ = nullptr;
+    // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> projectName_ = nullptr;
+    // The field that you use to sort the query results.
+    // 
+    // Valid values:
+    // 
+    // *   LocationDateClusterEndTime: by the time at which the latest photo in a cluster was taken.
+    // *   CreateTime: by the creation time of a spatiotemporal cluster.
+    // *   UpdateTime: by the update time of a spatiotemporal cluster.
+    // *   LocationDateClusterStartTime: by the time at which the earliest photo in a cluster was taken. This is the default value.
     std::shared_ptr<string> sort_ = nullptr;
-    // The title of spatiotemporal clustering. Fuzzy matching is performed.
+    // The characters that are included in the titles of spatiotemporal clusters to be queried. Matches are found by using fuzzy matching.
     std::shared_ptr<string> title_ = nullptr;
     // The time range during which the spatiotemporal clusters were updated.
     std::shared_ptr<TimeRange> updateTimeRange_ = nullptr;

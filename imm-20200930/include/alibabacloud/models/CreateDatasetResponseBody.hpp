@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataset_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->dataset_ == nullptr
+        && return this->requestId_ == nullptr; };
     // dataset Field Functions 
     bool hasDataset() const { return this->dataset_ != nullptr;};
     void deleteDataset() { this->dataset_ = nullptr;};
@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The information about the dataset.
+    // Dataset information.
     std::shared_ptr<Dataset> dataset_ = nullptr;
-    // The request ID.
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

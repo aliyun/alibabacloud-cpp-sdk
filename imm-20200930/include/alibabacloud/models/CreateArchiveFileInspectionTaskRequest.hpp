@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfig_ != nullptr
-        && this->notification_ != nullptr && this->password_ != nullptr && this->projectName_ != nullptr && this->sourceURI_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfig_ == nullptr
+        && return this->notification_ == nullptr && return this->password_ == nullptr && return this->projectName_ == nullptr && return this->sourceURI_ == nullptr && return this->userData_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
@@ -95,6 +95,8 @@ namespace Models
     // The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+    // 
+    // >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
     std::shared_ptr<Notification> notification_ = nullptr;
     // The password that protects the package. If the package is password-protected, you must provide the password to view the contents of the package.
     std::shared_ptr<string> password_ = nullptr;

@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfig_ != nullptr
-        && this->interval_ != nullptr && this->maxFrames_ != nullptr && this->notification_ != nullptr && this->projectName_ != nullptr && this->scenes_ != nullptr
-        && this->sourceURI_ != nullptr && this->tags_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfig_ == nullptr
+        && return this->interval_ == nullptr && return this->maxFrames_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->scenes_ == nullptr
+        && return this->sourceURI_ == nullptr && return this->tags_ == nullptr && return this->userData_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};

@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addresses_ != nullptr
-        && this->album_ != nullptr && this->albumArtist_ != nullptr && this->artist_ != nullptr && this->audioStreams_ != nullptr && this->bitrate_ != nullptr
-        && this->composer_ != nullptr && this->duration_ != nullptr && this->formatLongName_ != nullptr && this->formatName_ != nullptr && this->language_ != nullptr
-        && this->latLong_ != nullptr && this->performer_ != nullptr && this->produceTime_ != nullptr && this->programCount_ != nullptr && this->requestId_ != nullptr
-        && this->size_ != nullptr && this->startTime_ != nullptr && this->streamCount_ != nullptr && this->subtitles_ != nullptr && this->title_ != nullptr
-        && this->videoHeight_ != nullptr && this->videoStreams_ != nullptr && this->videoWidth_ != nullptr; };
+    virtual bool empty() const override { return this->addresses_ == nullptr
+        && return this->album_ == nullptr && return this->albumArtist_ == nullptr && return this->artist_ == nullptr && return this->audioStreams_ == nullptr && return this->bitrate_ == nullptr
+        && return this->composer_ == nullptr && return this->duration_ == nullptr && return this->formatLongName_ == nullptr && return this->formatName_ == nullptr && return this->language_ == nullptr
+        && return this->latLong_ == nullptr && return this->performer_ == nullptr && return this->produceTime_ == nullptr && return this->programCount_ == nullptr && return this->requestId_ == nullptr
+        && return this->size_ == nullptr && return this->startTime_ == nullptr && return this->streamCount_ == nullptr && return this->subtitles_ == nullptr && return this->title_ == nullptr
+        && return this->videoHeight_ == nullptr && return this->videoStreams_ == nullptr && return this->videoWidth_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};

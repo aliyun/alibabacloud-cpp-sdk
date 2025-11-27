@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->align_ != nullptr
-        && this->backgroundColor_ != nullptr && this->credentialConfig_ != nullptr && this->direction_ != nullptr && this->imageFormat_ != nullptr && this->margin_ != nullptr
-        && this->notification_ != nullptr && this->padding_ != nullptr && this->projectName_ != nullptr && this->quality_ != nullptr && this->scaleType_ != nullptr
-        && this->sources_ != nullptr && this->tags_ != nullptr && this->targetURI_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->align_ == nullptr
+        && return this->backgroundColor_ == nullptr && return this->credentialConfig_ == nullptr && return this->direction_ == nullptr && return this->imageFormat_ == nullptr && return this->margin_ == nullptr
+        && return this->notification_ == nullptr && return this->padding_ == nullptr && return this->projectName_ == nullptr && return this->quality_ == nullptr && return this->scaleType_ == nullptr
+        && return this->sources_ == nullptr && return this->tags_ == nullptr && return this->targetURI_ == nullptr && return this->userData_ == nullptr; };
     // align Field Functions 
     bool hasAlign() const { return this->align_ != nullptr;};
     void deleteAlign() { this->align_ = nullptr;};

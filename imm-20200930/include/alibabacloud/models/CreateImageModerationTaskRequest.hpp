@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfig_ != nullptr
-        && this->interval_ != nullptr && this->maxFrames_ != nullptr && this->notification_ != nullptr && this->projectName_ != nullptr && this->scenes_ != nullptr
-        && this->sourceURI_ != nullptr && this->tags_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfig_ == nullptr
+        && return this->interval_ == nullptr && return this->maxFrames_ == nullptr && return this->notification_ == nullptr && return this->projectName_ == nullptr && return this->scenes_ == nullptr
+        && return this->sourceURI_ == nullptr && return this->tags_ == nullptr && return this->userData_ == nullptr; };
     // credentialConfig Field Functions 
     bool hasCredentialConfig() const { return this->credentialConfig_ != nullptr;};
     void deleteCredentialConfig() { this->credentialConfig_ = nullptr;};
@@ -123,13 +123,13 @@ namespace Models
 
 
   protected:
-    // The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+    // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
     // The time interval between two consecutive frames in a GIF or long image. Default value: 1.
     std::shared_ptr<int64_t> interval_ = nullptr;
     // The maximum number of frames that can be captured in a GIF or long image. Default value: 1.
     std::shared_ptr<int64_t> maxFrames_ = nullptr;
-    // The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+    // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
     std::shared_ptr<Notification> notification_ = nullptr;
     // The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
     // 

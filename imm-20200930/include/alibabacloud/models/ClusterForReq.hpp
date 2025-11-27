@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cover_ != nullptr
-        && this->customId_ != nullptr && this->customLabels_ != nullptr && this->name_ != nullptr && this->objectId_ != nullptr; };
+    virtual bool empty() const override { return this->cover_ == nullptr
+        && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->name_ == nullptr && return this->objectId_ == nullptr; };
     // cover Field Functions 
     bool hasCover() const { return this->cover_ != nullptr;};
     void deleteCover() { this->cover_ = nullptr;};

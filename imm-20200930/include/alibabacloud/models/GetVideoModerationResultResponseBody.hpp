@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->endTime_ != nullptr && this->eventId_ != nullptr && this->message_ != nullptr && this->moderationResult_ != nullptr && this->projectName_ != nullptr
-        && this->requestId_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->taskType_ != nullptr
-        && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->code_ == nullptr
+        && return this->endTime_ == nullptr && return this->eventId_ == nullptr && return this->message_ == nullptr && return this->moderationResult_ == nullptr && return this->projectName_ == nullptr
+        && return this->requestId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskType_ == nullptr
+        && return this->userData_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -143,17 +143,33 @@ namespace Models
 
 
   protected:
+    // The error code of the task.
     std::shared_ptr<string> code_ = nullptr;
+    // The end time of the task.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The event ID.
     std::shared_ptr<string> eventId_ = nullptr;
+    // The error message of the task.
     std::shared_ptr<string> message_ = nullptr;
+    // The result of the image compliance detection task.
     std::shared_ptr<GetVideoModerationResultResponseBodyModerationResult> moderationResult_ = nullptr;
+    // The project name.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The start time of the task.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The task status. Valid values:
+    // 
+    // *   Running: The task is running.
+    // *   Succeeded: The task is successful.
+    // *   Failed: The task failed.
     std::shared_ptr<string> status_ = nullptr;
+    // The task ID.
     std::shared_ptr<string> taskId_ = nullptr;
+    // The type of the task.
     std::shared_ptr<string> taskType_ = nullptr;
+    // The user-defined data.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

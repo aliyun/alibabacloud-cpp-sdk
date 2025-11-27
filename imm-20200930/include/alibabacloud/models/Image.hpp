@@ -43,8 +43,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->croppingSuggestions_ != nullptr
-        && this->EXIF_ != nullptr && this->imageHeight_ != nullptr && this->imageScore_ != nullptr && this->imageWidth_ != nullptr && this->OCRContents_ != nullptr; };
+    virtual bool empty() const override { return this->croppingSuggestions_ == nullptr
+        && return this->EXIF_ == nullptr && return this->imageHeight_ == nullptr && return this->imageScore_ == nullptr && return this->imageWidth_ == nullptr && return this->OCRContents_ == nullptr; };
     // croppingSuggestions Field Functions 
     bool hasCroppingSuggestions() const { return this->croppingSuggestions_ != nullptr;};
     void deleteCroppingSuggestions() { this->croppingSuggestions_ = nullptr;};

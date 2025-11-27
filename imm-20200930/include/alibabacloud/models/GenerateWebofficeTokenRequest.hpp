@@ -64,10 +64,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cachePreview_ != nullptr
-        && this->credentialConfig_ != nullptr && this->externalUploaded_ != nullptr && this->filename_ != nullptr && this->hidecmb_ != nullptr && this->notification_ != nullptr
-        && this->notifyTopicName_ != nullptr && this->password_ != nullptr && this->permission_ != nullptr && this->previewPages_ != nullptr && this->projectName_ != nullptr
-        && this->referer_ != nullptr && this->sourceURI_ != nullptr && this->user_ != nullptr && this->userData_ != nullptr && this->watermark_ != nullptr; };
+    virtual bool empty() const override { return this->cachePreview_ == nullptr
+        && return this->credentialConfig_ == nullptr && return this->externalUploaded_ == nullptr && return this->filename_ == nullptr && return this->hidecmb_ == nullptr && return this->notification_ == nullptr
+        && return this->notifyTopicName_ == nullptr && return this->password_ == nullptr && return this->permission_ == nullptr && return this->previewPages_ == nullptr && return this->projectName_ == nullptr
+        && return this->referer_ == nullptr && return this->sourceURI_ == nullptr && return this->user_ == nullptr && return this->userData_ == nullptr && return this->watermark_ == nullptr; };
     // cachePreview Field Functions 
     bool hasCachePreview() const { return this->cachePreview_ != nullptr;};
     void deleteCachePreview() { this->cachePreview_ = nullptr;};
@@ -191,69 +191,84 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable cache preview.
-    // 
-    // *   true: enables cache preview. The document can be previewed only and cannot be collaboratively edited.
-    // *   false: does not enable cache preview. The document can be collaboratively edited when it is being previewed.
-    // 
-    // >  The pricing for document previews varies based on whether cache preview is enabled or disabled.
-    // 
-    // >  During a cache preview, document content search and printing are not supported.
+    // Cache preview flag: 
+    // - true: When enabled, the document preview will no longer update collaborative editing content, suitable for scenarios where only preview is needed. 
+    // - false: When disabled, it defaults to collaborative preview, allowing the preview to synchronously update collaborative editing content.
+    // >Notice: The price for cache preview and non-cache preview differs. Please refer to the billing item description for more details.</notice> >Notice: Search and print functions are not supported during cache preview.</notice> <notice>Updating cached content is currently not supported in cache preview mode.</notice>
     std::shared_ptr<bool> cachePreview_ = nullptr;
-    // **If you have no special requirements, leave this parameter empty.**
+    // **If there are no special requirements, leave this blank.**
     // 
-    // The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+    // Chained authorization configuration, not required. For more information, see [Using Chained Authorization to Access Other Entity Resources](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<CredentialConfig> credentialConfig_ = nullptr;
-    // Specifies whether to allow an upload of a document to the Object Storage Service (OSS) bucket. Valid values:
+    // Indicates whether uploading a file with the same name to OSS is an expected behavior. Possible values are as follows:
     // 
-    // *   true: Documents can be directly uploaded to OSS. The uploaded document overwrites the existing document and a new version is generated for the document. Before you upload a new document, close the existing document if it is being edited. After the document is uploaded, wait for approximately 5 minutes before you open the document again so that the new version can successfully load. Upload a new document only when the existing is closed. Otherwise, the uploaded document is overwritten when the existing document is saved.
-    // *   false: Documents cannot be directly uploaded to OSS. If you try to upload a document, an error is returned. This is the default value.
+    // - true: Uploading a file with the same name to OSS is an expected behavior. The uploaded document will overwrite the original document and generate a new version. After setting it to true, you still need to close the currently editing document and wait for about 5 minutes before reopening it to load the new document. The upload is only effective when the document is closed; if the document is open, the new save will overwrite the uploaded file.
+    // - false (default): Uploading a file with the same name to OSS is not an expected behavior, and the interface will return an error.
     std::shared_ptr<bool> externalUploaded_ = nullptr;
-    // The name of the file. The extension must be included in the file name. By default, this parameter is set to the last depth level of the **SourceURI** parameter value.
-    // 
-    // Supported extensions (only preview supported for .pdf):
-    // 
-    // *   Word documents: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
-    // *   Presentation documents: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
-    // *   Table documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
-    // *   PDF documents: .pdf
+    // Filename, which must include the file extension. By default, it is the last segment of the **SourceURI** parameter.
+    // Supported file extensions (PDF is only supported for preview):
+    // - Text documents (Word): doc, docx, txt, dot, wps, wpt, dotx, docm, dotm, rtf 
+    // - Presentation documents (PPT): ppt, pptx, pptm, ppsx, ppsm, pps, potx, potm, dpt, dps - Spreadsheet documents (Excel): et, xls, xlt, xlsx, xlsm, xltx, xltm, csv 
+    // - PDF documents: pdf
     std::shared_ptr<string> filename_ = nullptr;
+    // Whether to hide the toolbar. This parameter can be set in document preview mode. Possible values are as follows:
+    // 
+    // - false (default): Do not hide the toolbar.
+    // - true: Hide the toolbar.
     std::shared_ptr<bool> hidecmb_ = nullptr;
-    // The notification settings. Only SMQ messages are supported. For more information, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
+    // Notification message configuration, currently supporting only MNS. For the asynchronous notification message format, refer to [WebOffice Message Notification Format](https://help.aliyun.com/document_detail/2743999.html).
     // 
-    // >  A notification is sent after the document is saved or renamed.
+    // > There will be message notifications when the file is saved or renamed.
     std::shared_ptr<Notification> notification_ = nullptr;
+    // Supports notifying some events to customers via MNS messages. This parameter is the topic for MNS asynchronous message notifications.
     std::shared_ptr<string> notifyTopicName_ = nullptr;
+    // The password to open the document.
+    // > If you need to preview or edit a password-protected document, set this parameter.
     std::shared_ptr<string> password_ = nullptr;
-    // The user permission settings in the JSON format.
+    // User permission information, represented in JSON format.
     // 
-    // The parameter supports the following permission fields:
+    // User permissions include the following options:
     // 
-    // Each field is of type Boolean and can have a value of true and false (the default value):
+    // Each option is of type Boolean, with a default value of false, and can be set to true or false.
     // 
-    // *   Readonly: grants the permission to preview the document. This field is optional.
-    // *   Rename: grants the permission to rename the document. Notification messages of a rename event can be sent only by using SMQ. This field is optional.
-    // *   History: grants the permission to view historical versions. This field is optional.
-    // *   Copy: grants the permission to copy the document. This field is optional.
-    // *   Export: grants the permission to export the document as a PDF file. This field is optional.
-    // *   Print: grants the permission to print the document. This field is optional.
+    // - Readonly (optional): Preview mode.
+    // - Rename (optional): File renaming permission, which only provides message notification functionality. The renaming event will be sent to MNS.
+    // - History (optional): Permission to view historical versions.
+    // - Copy (optional): Copy permission.
+    // - Export (optional): PDF export permission.
+    // - Print (optional): Print permission.
     // 
-    // >  Only online preview is supported for PDF documents. When you call the operation on a PDF document, you can set Readonly only to true.
-    // 
-    // >  To manage multiple versions of the document, you must enable versioning for the bucket that stores the document and set the History parameter to true.
-    // 
-    // >  Printing is not supported during cache preview.
+    // >PDF only supports preview functionality, so the "Readonly" parameter must be set to true.
+    // >
+    // >PDF files do not support exporting.
+    // > 
+    // >To use the multi-version feature, you must first enable the multi-version feature in OSS and then set the "History" parameter to true.
+    // >
+    // >Notice: Printing is not supported in cached preview.
+    // >Notice: Historical versions can be viewed in edit mode but not in preview mode.
     std::shared_ptr<WebofficePermission> permission_ = nullptr;
+    // Limits the number of pages that can be previewed. By default, there is no limit. The maximum cannot exceed 5000.
     std::shared_ptr<int64_t> previewPages_ = nullptr;
+    // Project name, for how to obtain it, please refer to [Create Project](https://help.aliyun.com/document_detail/478153.html).
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // OSS anti-leeching. IMM needs to obtain the source file from OSS. If OSS has set up anti-leeching, IMM must pass the corresponding header to OSS to get the source file.
+    // > If the Bucket where the document is located has Referer set, please configure this parameter.
     std::shared_ptr<string> referer_ = nullptr;
+    // OSS address of the document to be previewed or edited. The OSS address follows the rule `oss://${Bucket}/${Object}`, where `Bucket` is the name of the OSS Bucket in the same region as the current project, and `Object` is the full path of the file including the file extension.
+    // 
     // This parameter is required.
     std::shared_ptr<string> sourceURI_ = nullptr;
-    // The user information. The user information that you want to display on the WebOffice page. If you do not specify this parameter, the user name displayed is Unknown.
+    // User information. You can pass in user information from the business side, which will be displayed on the WebOffice page.
+    // 
+    // The system distinguishes different users by User.Id, and User.Name is used only for front-end display. If User.Id is not provided, the backend will generate a random ID. Users with different IDs are considered different entities and cannot modify or delete each other\\"s comments.
+    // 
+    // The default format is: Unknown_random string. If User.Id is not provided, the user information will default to "Unknown".
     std::shared_ptr<WebofficeUser> user_ = nullptr;
-    // The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum length of the value is 2,048 bytes.
+    // User-defined information. It only takes effect when Notification parameters are filled in for MNS configuration. It will be returned in asynchronous message notifications, which can help you correlate and process messages within your system. The maximum length is 2048 bytes.
     std::shared_ptr<string> userData_ = nullptr;
+    // Watermark information. The watermark is generated on the front end and is not written into the source document. The same document with different parameters will result in different watermarks.
     std::shared_ptr<WebofficeWatermark> watermark_ = nullptr;
   };
 

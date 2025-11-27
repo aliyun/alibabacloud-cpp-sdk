@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialConfigShrink_ != nullptr
-        && this->notificationShrink_ != nullptr && this->password_ != nullptr && this->projectName_ != nullptr && this->selectedFilesShrink_ != nullptr && this->sourceURI_ != nullptr
-        && this->targetURI_ != nullptr && this->userData_ != nullptr; };
+    virtual bool empty() const override { return this->credentialConfigShrink_ == nullptr
+        && return this->notificationShrink_ == nullptr && return this->password_ == nullptr && return this->projectName_ == nullptr && return this->selectedFilesShrink_ == nullptr && return this->sourceURI_ == nullptr
+        && return this->targetURI_ == nullptr && return this->userData_ == nullptr; };
     // credentialConfigShrink Field Functions 
     bool hasCredentialConfigShrink() const { return this->credentialConfigShrink_ != nullptr;};
     void deleteCredentialConfigShrink() { this->credentialConfigShrink_ = nullptr;};
@@ -103,11 +103,13 @@ namespace Models
 
 
   protected:
-    // **If you have no special requirements, leave this parameter empty.**
+    // **If you do not have special requirements, leave this parameter empty.**
     // 
-    // The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+    // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     std::shared_ptr<string> credentialConfigShrink_ = nullptr;
     // The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+    // 
+    // >  The IMM operation does not support a callback URL. We recommend that you use Simple Message Queue (SMQ) to receive notifications.
     std::shared_ptr<string> notificationShrink_ = nullptr;
     // The password that protects the package.
     std::shared_ptr<string> password_ = nullptr;

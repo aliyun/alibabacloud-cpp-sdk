@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->doVoxelGridDownDownSampling_ != nullptr
-        && this->libraryName_ != nullptr && this->octreeResolution_ != nullptr && this->pointResolution_ != nullptr; };
+    virtual bool empty() const override { return this->doVoxelGridDownDownSampling_ == nullptr
+        && return this->libraryName_ == nullptr && return this->octreeResolution_ == nullptr && return this->pointResolution_ == nullptr; };
     // doVoxelGridDownDownSampling Field Functions 
     bool hasDoVoxelGridDownDownSampling() const { return this->doVoxelGridDownDownSampling_ != nullptr;};
     void deleteDoVoxelGridDownDownSampling() { this->doVoxelGridDownDownSampling_ = nullptr;};

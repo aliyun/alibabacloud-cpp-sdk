@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->datasets_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->datasets_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
     // datasets Field Functions 
     bool hasDatasets() const { return this->datasets_ != nullptr;};
     void deleteDatasets() { this->datasets_ = nullptr;};
@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // The list of datasets.
+    // The datasets.
     std::shared_ptr<vector<Dataset>> datasets_ = nullptr;
     // The pagination token. If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. This parameter has a value only if not all the datasets that meet the conditions are returned.
     // 

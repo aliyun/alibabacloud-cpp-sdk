@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessToken_ != nullptr
-        && this->accessTokenExpiredTime_ != nullptr && this->refreshToken_ != nullptr && this->refreshTokenExpiredTime_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->accessToken_ == nullptr
+        && return this->accessTokenExpiredTime_ == nullptr && return this->refreshToken_ == nullptr && return this->refreshTokenExpiredTime_ == nullptr && return this->requestId_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Weboffice access token.
     std::shared_ptr<string> accessToken_ = nullptr;
+    // Expiration time of the access token. The expiration period is 30 minutes.
     std::shared_ptr<string> accessTokenExpiredTime_ = nullptr;
+    // Weboffice refresh token.
     std::shared_ptr<string> refreshToken_ = nullptr;
+    // Expiration time of the refresh token. The expiration period is 1 day.
     std::shared_ptr<string> refreshTokenExpiredTime_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

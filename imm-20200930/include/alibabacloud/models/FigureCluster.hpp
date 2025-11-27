@@ -66,11 +66,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->averageAge_ != nullptr
-        && this->cover_ != nullptr && this->createTime_ != nullptr && this->customId_ != nullptr && this->customLabels_ != nullptr && this->datasetName_ != nullptr
-        && this->faceCount_ != nullptr && this->gender_ != nullptr && this->imageCount_ != nullptr && this->maxAge_ != nullptr && this->metaLockVersion_ != nullptr
-        && this->minAge_ != nullptr && this->name_ != nullptr && this->objectId_ != nullptr && this->objectType_ != nullptr && this->ownerId_ != nullptr
-        && this->projectName_ != nullptr && this->updateTime_ != nullptr && this->videoCount_ != nullptr; };
+    virtual bool empty() const override { return this->averageAge_ == nullptr
+        && return this->cover_ == nullptr && return this->createTime_ == nullptr && return this->customId_ == nullptr && return this->customLabels_ == nullptr && return this->datasetName_ == nullptr
+        && return this->faceCount_ == nullptr && return this->gender_ == nullptr && return this->imageCount_ == nullptr && return this->maxAge_ == nullptr && return this->metaLockVersion_ == nullptr
+        && return this->minAge_ == nullptr && return this->name_ == nullptr && return this->objectId_ == nullptr && return this->objectType_ == nullptr && return this->ownerId_ == nullptr
+        && return this->projectName_ == nullptr && return this->updateTime_ == nullptr && return this->videoCount_ == nullptr; };
     // averageAge Field Functions 
     bool hasAverageAge() const { return this->averageAge_ != nullptr;};
     void deleteAverageAge() { this->averageAge_ = nullptr;};

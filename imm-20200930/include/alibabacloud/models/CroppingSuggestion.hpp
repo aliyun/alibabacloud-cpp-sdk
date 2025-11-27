@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aspectRatio_ != nullptr
-        && this->boundary_ != nullptr && this->confidence_ != nullptr; };
+    virtual bool empty() const override { return this->aspectRatio_ == nullptr
+        && return this->boundary_ == nullptr && return this->confidence_ == nullptr; };
     // aspectRatio Field Functions 
     bool hasAspectRatio() const { return this->aspectRatio_ != nullptr;};
     void deleteAspectRatio() { this->aspectRatio_ = nullptr;};

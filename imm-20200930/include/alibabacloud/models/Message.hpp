@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assistantType_ != nullptr
-        && this->content_ != nullptr && this->createTime_ != nullptr && this->datasetName_ != nullptr && this->language_ != nullptr && this->regenerate_ != nullptr
-        && this->reply_ != nullptr && this->score_ != nullptr && this->sourceURI_ != nullptr && this->suggestion_ != nullptr && this->tone_ != nullptr
-        && this->topic_ != nullptr; };
+    virtual bool empty() const override { return this->assistantType_ == nullptr
+        && return this->content_ == nullptr && return this->createTime_ == nullptr && return this->datasetName_ == nullptr && return this->language_ == nullptr && return this->regenerate_ == nullptr
+        && return this->reply_ == nullptr && return this->score_ == nullptr && return this->sourceURI_ == nullptr && return this->suggestion_ == nullptr && return this->tone_ == nullptr
+        && return this->topic_ == nullptr; };
     // assistantType Field Functions 
     bool hasAssistantType() const { return this->assistantType_ != nullptr;};
     void deleteAssistantType() { this->assistantType_ = nullptr;};
