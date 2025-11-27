@@ -234,6 +234,67 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 创建业务链路
+ *
+ * @param request CreateBizTraceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBizTraceResponse
+ */
+CreateBizTraceResponse Client::createBizTraceWithOptions(const CreateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAdvancedConfig()) {
+    body["advancedConfig"] = request.advancedConfig();
+  }
+
+  if (!!request.hasBizTraceCode()) {
+    body["bizTraceCode"] = request.bizTraceCode();
+  }
+
+  if (!!request.hasBizTraceName()) {
+    body["bizTraceName"] = request.bizTraceName();
+  }
+
+  if (!!request.hasRuleConfig()) {
+    body["ruleConfig"] = request.ruleConfig();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBizTrace"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bizTrace")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBizTraceResponse>();
+}
+
+/**
+ * @summary 创建业务链路
+ *
+ * @param request CreateBizTraceRequest
+ * @return CreateBizTraceResponse
+ */
+CreateBizTraceResponse Client::createBizTrace(const CreateBizTraceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createBizTraceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建云资源中心
  *
  * @param headers map
@@ -854,6 +915,42 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary 删除业务链路
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBizTraceResponse
+ */
+DeleteBizTraceResponse Client::deleteBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBizTrace"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bizTrace/" , Darabonba::Encode::Encoder::percentEncode(bizTraceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBizTraceResponse>();
+}
+
+/**
+ * @summary 删除业务链路
+ *
+ * @return DeleteBizTraceResponse
+ */
+DeleteBizTraceResponse Client::deleteBizTrace(const string &bizTraceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteBizTraceWithOptions(bizTraceId, headers, runtime);
+}
+
+/**
  * @summary 删除云资源中心
  *
  * @param headers map
@@ -1310,6 +1407,108 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
+ * @summary 插件详情(Addon)
+ *
+ * @param request GetAddonRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAddonResponse
+ */
+GetAddonResponse Client::getAddonWithOptions(const string &addonName, const GetAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAddon"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/addons/" , Darabonba::Encode::Encoder::percentEncode(addonName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAddonResponse>();
+}
+
+/**
+ * @summary 插件详情(Addon)
+ *
+ * @param request GetAddonRequest
+ * @return GetAddonResponse
+ */
+GetAddonResponse Client::getAddon(const string &addonName, const GetAddonRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAddonWithOptions(addonName, request, headers, runtime);
+}
+
+/**
+ * @summary 插件schema详情(Addon)
+ *
+ * @param request GetAddonCodeTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAddonCodeTemplateResponse
+ */
+GetAddonCodeTemplateResponse Client::getAddonCodeTemplateWithOptions(const string &addonName, const GetAddonCodeTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasEnvironmentType()) {
+    query["environmentType"] = request.environmentType();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAddonCodeTemplate"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/addons/" , Darabonba::Encode::Encoder::percentEncode(addonName) , "/alert-code-template")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAddonCodeTemplateResponse>();
+}
+
+/**
+ * @summary 插件schema详情(Addon)
+ *
+ * @param request GetAddonCodeTemplateRequest
+ * @return GetAddonCodeTemplateResponse
+ */
+GetAddonCodeTemplateResponse Client::getAddonCodeTemplate(const string &addonName, const GetAddonCodeTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAddonCodeTemplateWithOptions(addonName, request, headers, runtime);
+}
+
+/**
  * @summary Check addon release (view connection status)
  *
  * @param headers map
@@ -1346,6 +1545,59 @@ GetAddonReleaseResponse Client::getAddonRelease(const string &releaseName, const
 }
 
 /**
+ * @summary 插件schema详情(Addon)
+ *
+ * @param request GetAddonSchemaRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAddonSchemaResponse
+ */
+GetAddonSchemaResponse Client::getAddonSchemaWithOptions(const string &addonName, const GetAddonSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasEnvironmentType()) {
+    query["environmentType"] = request.environmentType();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAddonSchema"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/addons/" , Darabonba::Encode::Encoder::percentEncode(addonName) , "/schema")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAddonSchemaResponse>();
+}
+
+/**
+ * @summary 插件schema详情(Addon)
+ *
+ * @param request GetAddonSchemaRequest
+ * @return GetAddonSchemaResponse
+ */
+GetAddonSchemaResponse Client::getAddonSchema(const string &addonName, const GetAddonSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getAddonSchemaWithOptions(addonName, request, headers, runtime);
+}
+
+/**
  * @summary Describes the aggregation task group
  *
  * @param headers map
@@ -1379,6 +1631,42 @@ GetAggTaskGroupResponse Client::getAggTaskGroup(const string &instanceId, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+}
+
+/**
+ * @summary 查询业务链路
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBizTraceResponse
+ */
+GetBizTraceResponse Client::getBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBizTrace"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bizTrace/" , Darabonba::Encode::Encoder::percentEncode(bizTraceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBizTraceResponse>();
+}
+
+/**
+ * @summary 查询业务链路
+ *
+ * @return GetBizTraceResponse
+ */
+GetBizTraceResponse Client::getBizTrace(const string &bizTraceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBizTraceWithOptions(bizTraceId, headers, runtime);
 }
 
 /**
@@ -1651,6 +1939,55 @@ GetIntegrationPolicyResponse Client::getIntegrationPolicy(const string &policyId
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIntegrationPolicyWithOptions(policyId, headers, runtime);
+}
+
+/**
+ * @summary 查询接入中心在CS的版本
+ *
+ * @param request GetIntegrationVersionForCSRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIntegrationVersionForCSResponse
+ */
+GetIntegrationVersionForCSResponse Client::getIntegrationVersionForCSWithOptions(const GetIntegrationVersionForCSRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["clusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasClusterType()) {
+    query["clusterType"] = request.clusterType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetIntegrationVersionForCS"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-version/cs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIntegrationVersionForCSResponse>();
+}
+
+/**
+ * @summary 查询接入中心在CS的版本
+ *
+ * @param request GetIntegrationVersionForCSRequest
+ * @return GetIntegrationVersionForCSResponse
+ */
+GetIntegrationVersionForCSResponse Client::getIntegrationVersionForCS(const GetIntegrationVersionForCSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getIntegrationVersionForCSWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2097,6 +2434,63 @@ ListAddonReleasesResponse Client::listAddonReleases(const string &policyId, cons
 }
 
 /**
+ * @summary 新版接入中心产品列表(分组)
+ *
+ * @param request ListAddonsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAddonsResponse
+ */
+ListAddonsResponse Client::listAddonsWithOptions(const ListAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.aliyunLang();
+  }
+
+  if (!!request.hasCategory()) {
+    query["category"] = request.category();
+  }
+
+  if (!!request.hasRegexp()) {
+    query["regexp"] = request.regexp();
+  }
+
+  if (!!request.hasSearch()) {
+    query["search"] = request.search();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAddons"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/addons")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAddonsResponse>();
+}
+
+/**
+ * @summary 新版接入中心产品列表(分组)
+ *
+ * @param request ListAddonsRequest
+ * @return ListAddonsResponse
+ */
+ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listAddonsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary List Aggregation Task Groups
  *
  * @param tmpReq ListAggTaskGroupsRequest
@@ -2243,6 +2637,59 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
+ * @summary 业务链路列表
+ *
+ * @param request ListBizTracesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBizTracesResponse
+ */
+ListBizTracesResponse Client::listBizTracesWithOptions(const ListBizTracesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBizTraces"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bizTraces")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBizTracesResponse>();
+}
+
+/**
+ * @summary 业务链路列表
+ *
+ * @param request ListBizTracesRequest
+ * @return ListBizTracesResponse
+ */
+ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBizTracesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Query Access Center Policy List Information
  *
  * @description Query integration list
@@ -2347,6 +2794,95 @@ ListIntegrationPoliciesResponse Client::listIntegrationPolicies(const ListIntegr
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIntegrationPoliciesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 策略addon列表
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyAddonsResponse
+ */
+ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddonsWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyAddons"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Encode::Encoder::percentEncode(policyId) , "/addons")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyAddonsResponse>();
+}
+
+/**
+ * @summary 策略addon列表
+ *
+ * @return ListIntegrationPolicyAddonsResponse
+ */
+ListIntegrationPolicyAddonsResponse Client::listIntegrationPolicyAddons(const string &policyId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyAddonsWithOptions(policyId, headers, runtime);
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyCollectorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIntegrationPolicyCollectorsResponse
+ */
+ListIntegrationPolicyCollectorsResponse Client::listIntegrationPolicyCollectorsWithOptions(const string &policyId, const ListIntegrationPolicyCollectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddonReleaseName()) {
+    query["addonReleaseName"] = request.addonReleaseName();
+  }
+
+  if (!!request.hasCollectorType()) {
+    query["collectorType"] = request.collectorType();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["language"] = request.language();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIntegrationPolicyCollectors"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/integration-policies/" , Darabonba::Encode::Encoder::percentEncode(policyId) , "/collectors")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIntegrationPolicyCollectorsResponse>();
+}
+
+/**
+ * @summary 获取接入中心策略的存储要求信息
+ *
+ * @param request ListIntegrationPolicyCollectorsRequest
+ * @return ListIntegrationPolicyCollectorsResponse
+ */
+ListIntegrationPolicyCollectorsResponse Client::listIntegrationPolicyCollectors(const string &policyId, const ListIntegrationPolicyCollectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIntegrationPolicyCollectorsWithOptions(policyId, request, headers, runtime);
 }
 
 /**
@@ -3288,6 +3824,63 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改业务链路
+ *
+ * @param request UpdateBizTraceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBizTraceResponse
+ */
+UpdateBizTraceResponse Client::updateBizTraceWithOptions(const string &bizTraceId, const UpdateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAdvancedConfig()) {
+    body["advancedConfig"] = request.advancedConfig();
+  }
+
+  if (!!request.hasBizTraceName()) {
+    body["bizTraceName"] = request.bizTraceName();
+  }
+
+  if (!!request.hasRuleConfig()) {
+    body["ruleConfig"] = request.ruleConfig();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.workspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateBizTrace"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/bizTrace/" , Darabonba::Encode::Encoder::percentEncode(bizTraceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBizTraceResponse>();
+}
+
+/**
+ * @summary 修改业务链路
+ *
+ * @param request UpdateBizTraceRequest
+ * @return UpdateBizTraceResponse
+ */
+UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const UpdateBizTraceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
 }
 
 /**

@@ -61,6 +61,24 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
+       * @summary 创建业务链路
+       *
+       * @param request CreateBizTraceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBizTraceResponse
+       */
+      Models::CreateBizTraceResponse createBizTraceWithOptions(const Models::CreateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建业务链路
+       *
+       * @param request CreateBizTraceRequest
+       * @return CreateBizTraceResponse
+       */
+      Models::CreateBizTraceResponse createBizTrace(const Models::CreateBizTraceRequest &request);
+
+      /**
        * @summary 创建云资源中心
        *
        * @param headers map
@@ -269,6 +287,22 @@ namespace Cms20240330
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId);
 
       /**
+       * @summary 删除业务链路
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBizTraceResponse
+       */
+      Models::DeleteBizTraceResponse deleteBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除业务链路
+       *
+       * @return DeleteBizTraceResponse
+       */
+      Models::DeleteBizTraceResponse deleteBizTrace(const string &bizTraceId);
+
+      /**
        * @summary 删除云资源中心
        *
        * @param headers map
@@ -469,6 +503,42 @@ namespace Cms20240330
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
+       * @summary 插件详情(Addon)
+       *
+       * @param request GetAddonRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAddonResponse
+       */
+      Models::GetAddonResponse getAddonWithOptions(const string &addonName, const Models::GetAddonRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 插件详情(Addon)
+       *
+       * @param request GetAddonRequest
+       * @return GetAddonResponse
+       */
+      Models::GetAddonResponse getAddon(const string &addonName, const Models::GetAddonRequest &request);
+
+      /**
+       * @summary 插件schema详情(Addon)
+       *
+       * @param request GetAddonCodeTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAddonCodeTemplateResponse
+       */
+      Models::GetAddonCodeTemplateResponse getAddonCodeTemplateWithOptions(const string &addonName, const Models::GetAddonCodeTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 插件schema详情(Addon)
+       *
+       * @param request GetAddonCodeTemplateRequest
+       * @return GetAddonCodeTemplateResponse
+       */
+      Models::GetAddonCodeTemplateResponse getAddonCodeTemplate(const string &addonName, const Models::GetAddonCodeTemplateRequest &request);
+
+      /**
        * @summary Check addon release (view connection status)
        *
        * @param headers map
@@ -485,6 +555,24 @@ namespace Cms20240330
       Models::GetAddonReleaseResponse getAddonRelease(const string &releaseName, const string &policyId);
 
       /**
+       * @summary 插件schema详情(Addon)
+       *
+       * @param request GetAddonSchemaRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAddonSchemaResponse
+       */
+      Models::GetAddonSchemaResponse getAddonSchemaWithOptions(const string &addonName, const Models::GetAddonSchemaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 插件schema详情(Addon)
+       *
+       * @param request GetAddonSchemaRequest
+       * @return GetAddonSchemaResponse
+       */
+      Models::GetAddonSchemaResponse getAddonSchema(const string &addonName, const Models::GetAddonSchemaRequest &request);
+
+      /**
        * @summary Describes the aggregation task group
        *
        * @param headers map
@@ -499,6 +587,22 @@ namespace Cms20240330
        * @return GetAggTaskGroupResponse
        */
       Models::GetAggTaskGroupResponse getAggTaskGroup(const string &instanceId, const string &groupId);
+
+      /**
+       * @summary 查询业务链路
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBizTraceResponse
+       */
+      Models::GetBizTraceResponse getBizTraceWithOptions(const string &bizTraceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询业务链路
+       *
+       * @return GetBizTraceResponse
+       */
+      Models::GetBizTraceResponse getBizTrace(const string &bizTraceId);
 
       /**
        * @summary 查询云资源中心
@@ -601,6 +705,24 @@ namespace Cms20240330
        * @return GetIntegrationPolicyResponse
        */
       Models::GetIntegrationPolicyResponse getIntegrationPolicy(const string &policyId);
+
+      /**
+       * @summary 查询接入中心在CS的版本
+       *
+       * @param request GetIntegrationVersionForCSRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIntegrationVersionForCSResponse
+       */
+      Models::GetIntegrationVersionForCSResponse getIntegrationVersionForCSWithOptions(const Models::GetIntegrationVersionForCSRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询接入中心在CS的版本
+       *
+       * @param request GetIntegrationVersionForCSRequest
+       * @return GetIntegrationVersionForCSResponse
+       */
+      Models::GetIntegrationVersionForCSResponse getIntegrationVersionForCS(const Models::GetIntegrationVersionForCSRequest &request);
 
       /**
        * @summary Query the instance in a specified environment
@@ -793,6 +915,24 @@ namespace Cms20240330
       Models::ListAddonReleasesResponse listAddonReleases(const string &policyId, const Models::ListAddonReleasesRequest &request);
 
       /**
+       * @summary 新版接入中心产品列表(分组)
+       *
+       * @param request ListAddonsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAddonsResponse
+       */
+      Models::ListAddonsResponse listAddonsWithOptions(const Models::ListAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新版接入中心产品列表(分组)
+       *
+       * @param request ListAddonsRequest
+       * @return ListAddonsResponse
+       */
+      Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
+
+      /**
        * @summary List Aggregation Task Groups
        *
        * @param tmpReq ListAggTaskGroupsRequest
@@ -829,6 +969,24 @@ namespace Cms20240330
       Models::ListAlertActionsResponse listAlertActions(const Models::ListAlertActionsRequest &request);
 
       /**
+       * @summary 业务链路列表
+       *
+       * @param request ListBizTracesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBizTracesResponse
+       */
+      Models::ListBizTracesResponse listBizTracesWithOptions(const Models::ListBizTracesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 业务链路列表
+       *
+       * @param request ListBizTracesRequest
+       * @return ListBizTracesResponse
+       */
+      Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
+
+      /**
        * @summary Query Access Center Policy List Information
        *
        * @description Query integration list
@@ -849,6 +1007,40 @@ namespace Cms20240330
        * @return ListIntegrationPoliciesResponse
        */
       Models::ListIntegrationPoliciesResponse listIntegrationPolicies(const Models::ListIntegrationPoliciesRequest &request);
+
+      /**
+       * @summary 策略addon列表
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyAddonsResponse
+       */
+      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddonsWithOptions(const string &policyId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 策略addon列表
+       *
+       * @return ListIntegrationPolicyAddonsResponse
+       */
+      Models::ListIntegrationPolicyAddonsResponse listIntegrationPolicyAddons(const string &policyId);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyCollectorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIntegrationPolicyCollectorsResponse
+       */
+      Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectorsWithOptions(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取接入中心策略的存储要求信息
+       *
+       * @param request ListIntegrationPolicyCollectorsRequest
+       * @return ListIntegrationPolicyCollectorsResponse
+       */
+      Models::ListIntegrationPolicyCollectorsResponse listIntegrationPolicyCollectors(const string &policyId, const Models::ListIntegrationPolicyCollectorsRequest &request);
 
       /**
        * @summary Get storage requirement information for the access center policy
@@ -1151,6 +1343,24 @@ namespace Cms20240330
        * @return UpdateAggTaskGroupStatusResponse
        */
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
+
+      /**
+       * @summary 修改业务链路
+       *
+       * @param request UpdateBizTraceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBizTraceResponse
+       */
+      Models::UpdateBizTraceResponse updateBizTraceWithOptions(const string &bizTraceId, const Models::UpdateBizTraceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改业务链路
+       *
+       * @param request UpdateBizTraceRequest
+       * @return UpdateBizTraceResponse
+       */
+      Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
 
       /**
        * @summary Update the specified policy

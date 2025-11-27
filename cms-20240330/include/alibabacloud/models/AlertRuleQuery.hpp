@@ -4,8 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <map>
+#include <alibabacloud/models/AlertRuleQueryEntityFields.hpp>
 #include <alibabacloud/models/AlertRuleQueryEntityFilter.hpp>
 #include <alibabacloud/models/AlertRuleSlsQueryJoin.hpp>
+#include <alibabacloud/models/AlertRuleQueryLabelFilters.hpp>
 #include <alibabacloud/models/AlertRuleQueryQueries.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -22,12 +24,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dimensions, dimensions_);
       DARABONBA_PTR_TO_JSON(domain, domain_);
       DARABONBA_PTR_TO_JSON(duration, duration_);
+      DARABONBA_PTR_TO_JSON(entityFields, entityFields_);
       DARABONBA_PTR_TO_JSON(entityFilter, entityFilter_);
       DARABONBA_PTR_TO_JSON(expr, expr_);
       DARABONBA_PTR_TO_JSON(firstJoin, firstJoin_);
       DARABONBA_PTR_TO_JSON(groupFieldList, groupFieldList_);
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(groupType, groupType_);
+      DARABONBA_PTR_TO_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_TO_JSON(metric, metric_);
       DARABONBA_PTR_TO_JSON(metricSet, metricSet_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
@@ -42,12 +46,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dimensions, dimensions_);
       DARABONBA_PTR_FROM_JSON(domain, domain_);
       DARABONBA_PTR_FROM_JSON(duration, duration_);
+      DARABONBA_PTR_FROM_JSON(entityFields, entityFields_);
       DARABONBA_PTR_FROM_JSON(entityFilter, entityFilter_);
       DARABONBA_PTR_FROM_JSON(expr, expr_);
       DARABONBA_PTR_FROM_JSON(firstJoin, firstJoin_);
       DARABONBA_PTR_FROM_JSON(groupFieldList, groupFieldList_);
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(groupType, groupType_);
+      DARABONBA_PTR_FROM_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_FROM_JSON(metric, metric_);
       DARABONBA_PTR_FROM_JSON(metricSet, metricSet_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
@@ -69,10 +75,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkAfterDataComplete_ == nullptr
-        && return this->dimensions_ == nullptr && return this->domain_ == nullptr && return this->duration_ == nullptr && return this->entityFilter_ == nullptr && return this->expr_ == nullptr
-        && return this->firstJoin_ == nullptr && return this->groupFieldList_ == nullptr && return this->groupId_ == nullptr && return this->groupType_ == nullptr && return this->metric_ == nullptr
-        && return this->metricSet_ == nullptr && return this->namespace_ == nullptr && return this->queries_ == nullptr && return this->relationType_ == nullptr && return this->secondJoin_ == nullptr
-        && return this->serviceIds_ == nullptr && return this->type_ == nullptr; };
+        && return this->dimensions_ == nullptr && return this->domain_ == nullptr && return this->duration_ == nullptr && return this->entityFields_ == nullptr && return this->entityFilter_ == nullptr
+        && return this->expr_ == nullptr && return this->firstJoin_ == nullptr && return this->groupFieldList_ == nullptr && return this->groupId_ == nullptr && return this->groupType_ == nullptr
+        && return this->labelFilters_ == nullptr && return this->metric_ == nullptr && return this->metricSet_ == nullptr && return this->namespace_ == nullptr && return this->queries_ == nullptr
+        && return this->relationType_ == nullptr && return this->secondJoin_ == nullptr && return this->serviceIds_ == nullptr && return this->type_ == nullptr; };
     // checkAfterDataComplete Field Functions 
     bool hasCheckAfterDataComplete() const { return this->checkAfterDataComplete_ != nullptr;};
     void deleteCheckAfterDataComplete() { this->checkAfterDataComplete_ = nullptr;};
@@ -101,6 +107,15 @@ namespace Models
     void deleteDuration() { this->duration_ = nullptr;};
     inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline AlertRuleQuery& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
+
+
+    // entityFields Field Functions 
+    bool hasEntityFields() const { return this->entityFields_ != nullptr;};
+    void deleteEntityFields() { this->entityFields_ = nullptr;};
+    inline const vector<AlertRuleQueryEntityFields> & entityFields() const { DARABONBA_PTR_GET_CONST(entityFields_, vector<AlertRuleQueryEntityFields>) };
+    inline vector<AlertRuleQueryEntityFields> entityFields() { DARABONBA_PTR_GET(entityFields_, vector<AlertRuleQueryEntityFields>) };
+    inline AlertRuleQuery& setEntityFields(const vector<AlertRuleQueryEntityFields> & entityFields) { DARABONBA_PTR_SET_VALUE(entityFields_, entityFields) };
+    inline AlertRuleQuery& setEntityFields(vector<AlertRuleQueryEntityFields> && entityFields) { DARABONBA_PTR_SET_RVALUE(entityFields_, entityFields) };
 
 
     // entityFilter Field Functions 
@@ -149,6 +164,15 @@ namespace Models
     void deleteGroupType() { this->groupType_ = nullptr;};
     inline string groupType() const { DARABONBA_PTR_GET_DEFAULT(groupType_, "") };
     inline AlertRuleQuery& setGroupType(string groupType) { DARABONBA_PTR_SET_VALUE(groupType_, groupType) };
+
+
+    // labelFilters Field Functions 
+    bool hasLabelFilters() const { return this->labelFilters_ != nullptr;};
+    void deleteLabelFilters() { this->labelFilters_ = nullptr;};
+    inline const vector<AlertRuleQueryLabelFilters> & labelFilters() const { DARABONBA_PTR_GET_CONST(labelFilters_, vector<AlertRuleQueryLabelFilters>) };
+    inline vector<AlertRuleQueryLabelFilters> labelFilters() { DARABONBA_PTR_GET(labelFilters_, vector<AlertRuleQueryLabelFilters>) };
+    inline AlertRuleQuery& setLabelFilters(const vector<AlertRuleQueryLabelFilters> & labelFilters) { DARABONBA_PTR_SET_VALUE(labelFilters_, labelFilters) };
+    inline AlertRuleQuery& setLabelFilters(vector<AlertRuleQueryLabelFilters> && labelFilters) { DARABONBA_PTR_SET_RVALUE(labelFilters_, labelFilters) };
 
 
     // metric Field Functions 
@@ -218,12 +242,14 @@ namespace Models
     std::shared_ptr<vector<map<string, string>>> dimensions_ = nullptr;
     std::shared_ptr<string> domain_ = nullptr;
     std::shared_ptr<int64_t> duration_ = nullptr;
+    std::shared_ptr<vector<AlertRuleQueryEntityFields>> entityFields_ = nullptr;
     std::shared_ptr<AlertRuleQueryEntityFilter> entityFilter_ = nullptr;
     std::shared_ptr<string> expr_ = nullptr;
     std::shared_ptr<AlertRuleSlsQueryJoin> firstJoin_ = nullptr;
     std::shared_ptr<vector<string>> groupFieldList_ = nullptr;
     std::shared_ptr<string> groupId_ = nullptr;
     std::shared_ptr<string> groupType_ = nullptr;
+    std::shared_ptr<vector<AlertRuleQueryLabelFilters>> labelFilters_ = nullptr;
     std::shared_ptr<string> metric_ = nullptr;
     std::shared_ptr<string> metricSet_ = nullptr;
     std::shared_ptr<string> namespace_ = nullptr;
