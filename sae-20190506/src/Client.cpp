@@ -725,6 +725,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["SlsConfigs"] = request.slsConfigs();
   }
 
+  if (!!request.hasSlsLogEnvTags()) {
+    query["SlsLogEnvTags"] = request.slsLogEnvTags();
+  }
+
   if (!!request.hasStartupProbe()) {
     query["StartupProbe"] = request.startupProbe();
   }
@@ -2777,6 +2781,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasSlsConfigs()) {
     query["SlsConfigs"] = request.slsConfigs();
+  }
+
+  if (!!request.hasSlsLogEnvTags()) {
+    query["SlsLogEnvTags"] = request.slsLogEnvTags();
   }
 
   if (!!request.hasStartupProbe()) {

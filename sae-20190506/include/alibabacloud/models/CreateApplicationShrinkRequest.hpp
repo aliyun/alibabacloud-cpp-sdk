@@ -89,6 +89,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceTags, serviceTags_);
       DARABONBA_PTR_TO_JSON(SidecarContainersConfig, sidecarContainersConfigShrink_);
       DARABONBA_PTR_TO_JSON(SlsConfigs, slsConfigs_);
+      DARABONBA_PTR_TO_JSON(SlsLogEnvTags, slsLogEnvTags_);
       DARABONBA_PTR_TO_JSON(StartupProbe, startupProbe_);
       DARABONBA_PTR_TO_JSON(TerminationGracePeriodSeconds, terminationGracePeriodSeconds_);
       DARABONBA_PTR_TO_JSON(Timezone, timezone_);
@@ -175,6 +176,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceTags, serviceTags_);
       DARABONBA_PTR_FROM_JSON(SidecarContainersConfig, sidecarContainersConfigShrink_);
       DARABONBA_PTR_FROM_JSON(SlsConfigs, slsConfigs_);
+      DARABONBA_PTR_FROM_JSON(SlsLogEnvTags, slsLogEnvTags_);
       DARABONBA_PTR_FROM_JSON(StartupProbe, startupProbe_);
       DARABONBA_PTR_FROM_JSON(TerminationGracePeriodSeconds, terminationGracePeriodSeconds_);
       DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
@@ -211,8 +213,8 @@ namespace Models
         && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->programmingLanguage_ == nullptr && return this->pvtzDiscoverySvc_ == nullptr && return this->python_ == nullptr
         && return this->pythonModules_ == nullptr && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->resourceType_ == nullptr && return this->saeVersion_ == nullptr
         && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceTags_ == nullptr && return this->sidecarContainersConfigShrink_ == nullptr && return this->slsConfigs_ == nullptr
-        && return this->startupProbe_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
+        && return this->slsLogEnvTags_ == nullptr && return this->startupProbe_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -745,6 +747,13 @@ namespace Models
     inline CreateApplicationShrinkRequest& setSlsConfigs(string slsConfigs) { DARABONBA_PTR_SET_VALUE(slsConfigs_, slsConfigs) };
 
 
+    // slsLogEnvTags Field Functions 
+    bool hasSlsLogEnvTags() const { return this->slsLogEnvTags_ != nullptr;};
+    void deleteSlsLogEnvTags() { this->slsLogEnvTags_ = nullptr;};
+    inline string slsLogEnvTags() const { DARABONBA_PTR_GET_DEFAULT(slsLogEnvTags_, "") };
+    inline CreateApplicationShrinkRequest& setSlsLogEnvTags(string slsLogEnvTags) { DARABONBA_PTR_SET_VALUE(slsLogEnvTags_, slsLogEnvTags) };
+
+
     // startupProbe Field Functions 
     bool hasStartupProbe() const { return this->startupProbe_ != nullptr;};
     void deleteStartupProbe() { this->startupProbe_ = nullptr;};
@@ -1166,6 +1175,7 @@ namespace Models
     // 
     // > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
     std::shared_ptr<string> slsConfigs_ = nullptr;
+    std::shared_ptr<string> slsLogEnvTags_ = nullptr;
     // Enable application startup probe.
     // 
     // Check succeeded: Indicates that the application has started successfully. If you have configured Liveness and Readiness checks, they will be performed after the application startup is successful.
