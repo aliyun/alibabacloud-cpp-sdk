@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->architecture_ != nullptr
-        && this->imageId_ != nullptr && this->osTag_ != nullptr && this->platform_ != nullptr; };
+    virtual bool empty() const override { return this->architecture_ == nullptr
+        && return this->imageId_ == nullptr && return this->osTag_ == nullptr && return this->platform_ == nullptr; };
     // architecture Field Functions 
     bool hasArchitecture() const { return this->architecture_ != nullptr;};
     void deleteArchitecture() { this->architecture_ = nullptr;};
@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The type of the architecture.
     std::shared_ptr<string> architecture_ = nullptr;
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The ID of the specific OS version.
     std::shared_ptr<string> osTag_ = nullptr;
+    // The type of the platform.
     std::shared_ptr<string> platform_ = nullptr;
   };
 

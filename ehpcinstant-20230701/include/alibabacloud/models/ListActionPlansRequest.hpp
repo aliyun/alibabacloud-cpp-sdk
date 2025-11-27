@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanIds_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanIds_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
     // actionPlanIds Field Functions 
     bool hasActionPlanIds() const { return this->actionPlanIds_ != nullptr;};
     void deleteActionPlanIds() { this->actionPlanIds_ = nullptr;};
@@ -60,8 +60,15 @@ namespace Models
 
 
   protected:
+    // The IDs of the execution plans to be queried.
     std::shared_ptr<vector<string>> actionPlanIds_ = nullptr;
+    // The maximum number of entries per page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token.
     std::shared_ptr<string> nextToken_ = nullptr;
   };
 

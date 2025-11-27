@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->nextToken_ != nullptr
-        && this->requestId_ != nullptr && this->tagResources_ != nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && return this->requestId_ == nullptr && return this->tagResources_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The resource list.
     std::shared_ptr<ListTagResourcesResponseBodyTagResources> tagResources_ = nullptr;
   };
 

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resource_ != nullptr
-        && this->retryPolicy_ != nullptr && this->taskExecutor_ != nullptr; };
+    virtual bool empty() const override { return this->resource_ == nullptr
+        && return this->retryPolicy_ == nullptr && return this->taskExecutor_ == nullptr; };
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
@@ -67,8 +67,10 @@ namespace Models
 
 
   protected:
+    // The resource information.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoTasksTaskSpecResource> resource_ = nullptr;
     std::shared_ptr<Models::GetJobResponseBodyJobInfoTasksTaskSpecRetryPolicy> retryPolicy_ = nullptr;
+    // The task execution configurations.
     std::shared_ptr<vector<Models::GetJobResponseBodyJobInfoTasksTaskSpecTaskExecutor>> taskExecutor_ = nullptr;
   };
 

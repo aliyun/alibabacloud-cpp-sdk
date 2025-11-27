@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->taskName_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The page number of the page to return.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The job name.
     std::shared_ptr<string> taskName_ = nullptr;
   };
 

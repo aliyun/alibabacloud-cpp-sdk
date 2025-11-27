@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executors_ != nullptr
-        && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->executors_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // executors Field Functions 
     bool hasExecutors() const { return this->executors_ != nullptr;};
     void deleteExecutors() { this->executors_ = nullptr;};
@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Executor list.
     std::shared_ptr<vector<ListExecutorsResponseBodyExecutors>> executors_ = nullptr;
+    // The current page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries returned per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<string> totalCount_ = nullptr;
   };
 

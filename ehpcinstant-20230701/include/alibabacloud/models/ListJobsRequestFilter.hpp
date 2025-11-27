@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr
-        && this->jobName_ != nullptr && this->status_ != nullptr && this->timeCreatedAfter_ != nullptr && this->timeCreatedBefore_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr
+        && return this->jobName_ == nullptr && return this->status_ == nullptr && return this->timeCreatedAfter_ == nullptr && return this->timeCreatedBefore_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -75,10 +75,27 @@ namespace Models
 
 
   protected:
+    // The ID of the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The job name. Fuzzy search is supported.
     std::shared_ptr<string> jobName_ = nullptr;
+    // The job status. Valid values:
+    // 
+    // *   Pending
+    // *   initing
+    // *   Succeed
+    // *   Failed
+    // *   Running
+    // *   Exception
+    // *   Retrying
+    // *   Expired
+    // *   Suspended
+    // *   Restarting
+    // *   Deleted
     std::shared_ptr<string> status_ = nullptr;
+    // For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
     std::shared_ptr<int32_t> timeCreatedAfter_ = nullptr;
+    // For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
     std::shared_ptr<int32_t> timeCreatedBefore_ = nullptr;
   };
 

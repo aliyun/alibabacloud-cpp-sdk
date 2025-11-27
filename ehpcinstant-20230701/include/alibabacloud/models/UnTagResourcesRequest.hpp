@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->all_ != nullptr
-        && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->tagKey_ != nullptr; };
+    virtual bool empty() const override { return this->all_ == nullptr
+        && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->tagKey_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
@@ -71,11 +71,20 @@ namespace Models
 
 
   protected:
+    // Whether to delete all tags of the target resource. This field takes effect only when TagKey.N is left empty. Default False
     std::shared_ptr<bool> all_ = nullptr;
+    // The list of resource IDs. Valid values of N: 1 to 50.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    // The type of the resource. Valid values:
+    // 
+    // *   Job
+    // *   Executor
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The list of tag keys, which can contain a maximum of 20 child items.
     std::shared_ptr<vector<string>> tagKey_ = nullptr;
   };
 

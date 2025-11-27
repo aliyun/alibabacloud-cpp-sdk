@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->mountOptions_ != nullptr
-        && this->mountPath_ != nullptr && this->readOnly_ != nullptr && this->volumeDriver_ != nullptr; };
+    virtual bool empty() const override { return this->mountOptions_ == nullptr
+        && return this->mountPath_ == nullptr && return this->readOnly_ == nullptr && return this->volumeDriver_ == nullptr; };
     // mountOptions Field Functions 
     bool hasMountOptions() const { return this->mountOptions_ != nullptr;};
     void deleteMountOptions() { this->mountOptions_ = nullptr;};
@@ -66,9 +66,26 @@ namespace Models
 
 
   protected:
+    // The list of data volume mount parameters. Each option is a key-value pair in a JSON string.
+    // 
+    // *   Format for mounting a NAS file system:{"server":"xxxxx-xxxxx.cn-heyuan.nas.aliyuncs.com","vers":"3","path":"/data","options":"nolock,tcp,noresvport"}
+    // 
+    // > server indicates the address of the mount point of the NAS file system. path indicates the subdirectory of the NAS file system. The subdirectory must start with a (/) and must already exist. vers indicates the version number of the NFS protocol used to mount the file system. We recommend that you use v3. options indicates the custom parameters in the format of "xxx,xxx,xxx".
+    // 
+    // *   OSS mount format:{"bucket":"xxxxx", "url":"oss-cn-heyuan-internal.aliyuncs.com","path":"/data","akId":"xxxxx","akSecret":"xxxxx"}
+    // 
+    // > bucket indicates the name of the OSS bucket. url indicates the endpoint of the OSS bucket. You can log on to the OSS console and obtain the endpoint on the Overview page of the destination bucket. path indicates the directory structure of the root file of the bucket. The default value is /, which requires that the directory already exists. akId indicates the AccessKey ID. akSecret indicates the AccessKey secret.
     std::shared_ptr<string> mountOptions_ = nullptr;
+    // The directory where the task mounts the data volume.
+    // 
+    // > The content of the mounted directory is overwritten by the content of the volume. Exercise caution when you use the directory.
     std::shared_ptr<string> mountPath_ = nullptr;
+    // Specifies whether the volume is read-only. Default value: false.
     std::shared_ptr<bool> readOnly_ = nullptr;
+    // Currently supported data volume types.
+    // 
+    // *   alicloud/nas: mounts NAS.
+    // *   alicloud/oss: mounts OSS.
     std::shared_ptr<string> volumeDriver_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->action_ != nullptr
-        && this->exitCode_ != nullptr; };
+    virtual bool empty() const override { return this->action_ == nullptr
+        && return this->exitCode_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The next step behavior of the task.
+    // 
+    // *   Retry: The job starts a retry when a specific exit code is hit.
+    // *   Exit: The job exits when a specific exit code is hit.
+    // 
     // This parameter is required.
     std::shared_ptr<string> action_ = nullptr;
+    // The task exit code, which is used together with the action to form a job retry rule. Valid values: 0 to 255.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> exitCode_ = nullptr;
   };

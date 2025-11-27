@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->poolName_ != nullptr
-        && this->priority_ != nullptr && this->resourceLimitsShrink_ != nullptr; };
+    virtual bool empty() const override { return this->poolName_ == nullptr
+        && return this->priority_ == nullptr && return this->resourceLimitsShrink_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // The name of the resource pool.
+    // 
+    // *   The value can be up to 15 characters in length.
+    // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
+    // 
     // This parameter is required.
     std::shared_ptr<string> poolName_ = nullptr;
+    // The priority of the resource pool.
+    // 
+    // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
+    // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
     std::shared_ptr<int32_t> priority_ = nullptr;
+    // The quota of resources that users are allowed to concurrently use in a resource pool.
     std::shared_ptr<string> resourceLimitsShrink_ = nullptr;
   };
 

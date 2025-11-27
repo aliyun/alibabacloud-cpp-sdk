@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arrayIndex_ != nullptr
-        && this->jobId_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->arrayIndex_ == nullptr
+        && return this->jobId_ == nullptr && return this->taskName_ == nullptr; };
     // arrayIndex Field Functions 
     bool hasArrayIndex() const { return this->arrayIndex_ != nullptr;};
     void deleteArrayIndex() { this->arrayIndex_ = nullptr;};
@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The list of array job indexes.
     std::shared_ptr<vector<int32_t>> arrayIndex_ = nullptr;
+    // The job ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The name of the task.
     std::shared_ptr<string> taskName_ = nullptr;
   };
 

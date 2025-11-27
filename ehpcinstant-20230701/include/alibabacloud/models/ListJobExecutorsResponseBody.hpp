@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executorStatus_ != nullptr
-        && this->executors_ != nullptr && this->jobId_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr
-        && this->taskName_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->executorStatus_ == nullptr
+        && return this->executors_ == nullptr && return this->jobId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
+        && return this->taskName_ == nullptr && return this->totalCount_ == nullptr; };
     // executorStatus Field Functions 
     bool hasExecutorStatus() const { return this->executorStatus_ != nullptr;};
     void deleteExecutorStatus() { this->executorStatus_ = nullptr;};
@@ -110,13 +110,21 @@ namespace Models
 
 
   protected:
+    // Executor status statistics.
     std::shared_ptr<ListJobExecutorsResponseBodyExecutorStatus> executorStatus_ = nullptr;
+    // The executor list.
     std::shared_ptr<vector<ListJobExecutorsResponseBodyExecutors>> executors_ = nullptr;
+    // The job ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The job name.
     std::shared_ptr<string> taskName_ = nullptr;
+    // The total number of list entries.
     std::shared_ptr<string> totalCount_ = nullptr;
   };
 

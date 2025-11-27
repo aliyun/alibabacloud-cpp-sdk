@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataPoints_ != nullptr
-        && this->period_ != nullptr && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->dataPoints_ == nullptr
+        && return this->period_ == nullptr && return this->requestId_ == nullptr; };
     // dataPoints Field Functions 
     bool hasDataPoints() const { return this->dataPoints_ != nullptr;};
     void deleteDataPoints() { this->dataPoints_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Monitoring statistics points.
     std::shared_ptr<string> dataPoints_ = nullptr;
+    // The statistical period of the monitoring data. Valid values: 15, 60, 900, and 3600. Unit: seconds.
     std::shared_ptr<int32_t> period_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

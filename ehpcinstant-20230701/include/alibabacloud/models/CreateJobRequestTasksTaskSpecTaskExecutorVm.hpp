@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->image_ != nullptr && this->password_ != nullptr && this->prologScript_ != nullptr && this->script_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->image_ == nullptr && return this->password_ == nullptr && return this->prologScript_ == nullptr && return this->script_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -75,11 +75,21 @@ namespace Models
 
 
   protected:
+    // The ID of the virtual machine application.
     std::shared_ptr<string> appId_ = nullptr;
+    // The ID of the image.
+    // 
     // This parameter is required.
     std::shared_ptr<string> image_ = nullptr;
+    // The logon password of the virtual machine environment. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+    // 
+    // ()\\`~!@#$%^&\\*-_+=|{}[]:;\\"<>,.?/ In Windows, the password cannot contain a forward slash (/) as the first character.
+    // 
+    // > We recommend that you use HTTPS to send requests if you specify Password to avoid password leakage.
     std::shared_ptr<string> password_ = nullptr;
+    // The pre-processing script. Base64 encoding is required.
     std::shared_ptr<string> prologScript_ = nullptr;
+    // The running-job script. Base64 encoding is required.
     std::shared_ptr<string> script_ = nullptr;
   };
 

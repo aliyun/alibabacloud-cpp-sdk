@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appExtraInfo_ != nullptr
-        && this->createTime_ != nullptr && this->dependencyPolicy_ != nullptr && this->deploymentPolicy_ != nullptr && this->endTime_ != nullptr && this->jobDescription_ != nullptr
-        && this->jobId_ != nullptr && this->jobName_ != nullptr && this->jobScheduler_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->tasks_ != nullptr; };
+    virtual bool empty() const override { return this->appExtraInfo_ == nullptr
+        && return this->createTime_ == nullptr && return this->dependencyPolicy_ == nullptr && return this->deploymentPolicy_ == nullptr && return this->endTime_ == nullptr && return this->jobDescription_ == nullptr
+        && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->jobScheduler_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->tasks_ == nullptr; };
     // appExtraInfo Field Functions 
     bool hasAppExtraInfo() const { return this->appExtraInfo_ != nullptr;};
     void deleteAppExtraInfo() { this->appExtraInfo_ = nullptr;};
@@ -150,17 +150,40 @@ namespace Models
 
 
   protected:
+    // The additional information about the application.
     std::shared_ptr<string> appExtraInfo_ = nullptr;
+    // The time when the job was submitted.
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<Models::GetJobResponseBodyJobInfoDependencyPolicy> dependencyPolicy_ = nullptr;
+    // The resource deployment policy.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoDeploymentPolicy> deploymentPolicy_ = nullptr;
+    // The time when the job is complete.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The description of the job.
     std::shared_ptr<string> jobDescription_ = nullptr;
+    // The ID of the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The job name.
     std::shared_ptr<string> jobName_ = nullptr;
+    // The type of the job scheduler.
     std::shared_ptr<string> jobScheduler_ = nullptr;
+    // The time when the job started.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The job status. Valid values:
+    // 
+    // *   Pending: The job is being queued.
+    // *   Initing: The job is being initialized.
+    // *   Succeed: The job is successfully run.
+    // *   Failed: The job failed to run.
+    // *   Running: The job is running.
+    // *   Exception: scheduling exception
+    // *   Retrying: The job is being retried.
+    // *   Expired: The job timed out.
+    // *   Deleted: The job is deleted.
+    // *   Suspended: job hibernation
+    // *   Restarting: The job is being restarted.
     std::shared_ptr<string> status_ = nullptr;
+    // The list of tasks. Only one task is supported.
     std::shared_ptr<vector<Models::GetJobResponseBodyJobInfoTasks>> tasks_ = nullptr;
   };
 

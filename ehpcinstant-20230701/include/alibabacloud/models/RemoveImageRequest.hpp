@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageId_ != nullptr
-        && this->imageType_ != nullptr; };
+    virtual bool empty() const override { return this->imageId_ == nullptr
+        && return this->imageType_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The image ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The type of the images. Valid values:
+    // 
+    // *   VM: Virtual Machine Image
+    // *   Container: container image
     std::shared_ptr<string> imageType_ = nullptr;
   };
 

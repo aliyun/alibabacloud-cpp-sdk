@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr
-        && this->jobOperationType_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr
+        && return this->jobOperationType_ == nullptr && return this->regionId_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The operation type of the execution plan activity on the job. Possible values are as follows:
+    // 
+    // *   Create
+    // *   Delete
     std::shared_ptr<string> jobOperationType_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

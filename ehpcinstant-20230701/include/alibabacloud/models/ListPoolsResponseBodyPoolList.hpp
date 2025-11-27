@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isDefault_ != nullptr
-        && this->maxExectorNum_ != nullptr && this->poolName_ != nullptr && this->priority_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->isDefault_ == nullptr
+        && return this->maxExectorNum_ == nullptr && return this->poolName_ == nullptr && return this->priority_ == nullptr && return this->status_ == nullptr; };
     // isDefault Field Functions 
     bool hasIsDefault() const { return this->isDefault_ != nullptr;};
     void deleteIsDefault() { this->isDefault_ = nullptr;};
@@ -75,10 +75,30 @@ namespace Models
 
 
   protected:
+    // Indices whether the resource pool is the default resource pool. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> isDefault_ = nullptr;
+    // The maximum number of execution nodes that can run concurrently in a resource pool.
     std::shared_ptr<int32_t> maxExectorNum_ = nullptr;
+    // The name of the resource pool.
+    // 
+    // *   The value can be up to 15 characters in length.
+    // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
     std::shared_ptr<string> poolName_ = nullptr;
+    // The priority of the resource pool.
+    // 
+    // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
+    // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
     std::shared_ptr<int32_t> priority_ = nullptr;
+    // The status of the resource pool. Valid values:
+    // 
+    // *   Creating: The resource pool is being created.
+    // *   Updating: The resource pool is being updated.
+    // *   Deleting: The resource pool is being deleted.
+    // *   Working: The resource pool is working.
+    // *   Deleted: The resource pool is deleted.
     std::shared_ptr<string> status_ = nullptr;
   };
 

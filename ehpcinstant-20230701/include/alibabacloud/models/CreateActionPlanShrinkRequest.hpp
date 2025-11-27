@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanName_ != nullptr
-        && this->allocationSpec_ != nullptr && this->appId_ != nullptr && this->desiredCapacity_ != nullptr && this->level_ != nullptr && this->prologScript_ != nullptr
-        && this->regionsShrink_ != nullptr && this->resourceType_ != nullptr && this->resourcesShrink_ != nullptr && this->script_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanName_ == nullptr
+        && return this->allocationSpec_ == nullptr && return this->appId_ == nullptr && return this->desiredCapacity_ == nullptr && return this->level_ == nullptr && return this->prologScript_ == nullptr
+        && return this->regionsShrink_ == nullptr && return this->resourceType_ == nullptr && return this->resourcesShrink_ == nullptr && return this->script_ == nullptr; };
     // actionPlanName Field Functions 
     bool hasActionPlanName() const { return this->actionPlanName_ != nullptr;};
     void deleteActionPlanName() { this->actionPlanName_ = nullptr;};
@@ -121,15 +121,37 @@ namespace Models
 
 
   protected:
+    // The name of the execution plan.
     std::shared_ptr<string> actionPlanName_ = nullptr;
+    // The type of the resource.
+    // 
+    // *   Standard
+    // *   Dedicated: You must enable a whitelist for use.
+    // *   Economic: You must enable a whitelist for use.
     std::shared_ptr<string> allocationSpec_ = nullptr;
+    // The ID of the application.
     std::shared_ptr<string> appId_ = nullptr;
+    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
     std::shared_ptr<double> desiredCapacity_ = nullptr;
+    // The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
+    // 
+    // *   General
+    // *   Performance
+    // 
+    // Default value: General
     std::shared_ptr<string> level_ = nullptr;
+    // The pre-processing script. Base64 encoding is required.
     std::shared_ptr<string> prologScript_ = nullptr;
+    // The list of resource configurations in the region where the execution plan runs.
     std::shared_ptr<string> regionsShrink_ = nullptr;
+    // Target resource type: the capacity of vCPUs or the number of execution nodes. Valid values:
+    // 
+    // *   VCpuCapacity
+    // *   ExecutorCapacity
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The list of resource configurations of the execution plan runtime environment. You can configure 1 to 10 resources.
     std::shared_ptr<string> resourcesShrink_ = nullptr;
+    // The running-job script. Base64 encoding is required.
     std::shared_ptr<string> script_ = nullptr;
   };
 

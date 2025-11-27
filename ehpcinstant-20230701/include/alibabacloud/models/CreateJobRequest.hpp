@@ -46,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dependencyPolicy_ != nullptr
-        && this->deploymentPolicy_ != nullptr && this->jobDescription_ != nullptr && this->jobName_ != nullptr && this->jobScheduler_ != nullptr && this->securityPolicy_ != nullptr
-        && this->tasks_ != nullptr; };
+    virtual bool empty() const override { return this->dependencyPolicy_ == nullptr
+        && return this->deploymentPolicy_ == nullptr && return this->jobDescription_ == nullptr && return this->jobName_ == nullptr && return this->jobScheduler_ == nullptr && return this->securityPolicy_ == nullptr
+        && return this->tasks_ == nullptr; };
     // dependencyPolicy Field Functions 
     bool hasDependencyPolicy() const { return this->dependencyPolicy_ != nullptr;};
     void deleteDependencyPolicy() { this->dependencyPolicy_ = nullptr;};
@@ -107,13 +107,27 @@ namespace Models
 
 
   protected:
+    // Dependency policy.
     std::shared_ptr<CreateJobRequestDependencyPolicy> dependencyPolicy_ = nullptr;
+    // The resource deployment policy.
     std::shared_ptr<CreateJobRequestDeploymentPolicy> deploymentPolicy_ = nullptr;
+    // The description of the job.
     std::shared_ptr<string> jobDescription_ = nullptr;
+    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobName_ = nullptr;
+    // The type of the job scheduler.
+    // 
+    // *   HPC
+    // *   K8S
+    // 
+    // Default value: HPC
     std::shared_ptr<string> jobScheduler_ = nullptr;
+    // The security policy.
     std::shared_ptr<CreateJobRequestSecurityPolicy> securityPolicy_ = nullptr;
+    // The list of tasks. Only one task is supported.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<CreateJobRequestTasks>> tasks_ = nullptr;
   };

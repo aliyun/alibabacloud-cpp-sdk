@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->exectorUsage_ != nullptr && this->isDefault_ != nullptr && this->maxExectorNum_ != nullptr && this->poolName_ != nullptr && this->priority_ != nullptr
-        && this->reason_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->exectorUsage_ == nullptr && return this->isDefault_ == nullptr && return this->maxExectorNum_ == nullptr && return this->poolName_ == nullptr && return this->priority_ == nullptr
+        && return this->reason_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -112,14 +112,38 @@ namespace Models
 
 
   protected:
+    // The time when the resource pool is created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The usage of execution nodes that are running in a resource pool.
     std::shared_ptr<int32_t> exectorUsage_ = nullptr;
+    // Indices whether the resource pool is the default resource pool. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> isDefault_ = nullptr;
+    // The maximum number of execution nodes that can run concurrently in a resource pool.
     std::shared_ptr<int32_t> maxExectorNum_ = nullptr;
+    // The name of the resource group.
+    // 
+    // *   The value can be up to 15 characters in length.
+    // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
     std::shared_ptr<string> poolName_ = nullptr;
+    // The priority of the resource pool.
+    // 
+    // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
+    // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
     std::shared_ptr<int32_t> priority_ = nullptr;
+    // The cause of the error.
     std::shared_ptr<string> reason_ = nullptr;
+    // The status of the resource pool. Valid values:
+    // 
+    // *   Creating: The resource pool is being created.
+    // *   Updating: The resource pool is being updated.
+    // *   Deleting: The resource pool is being deleted.
+    // *   Working: The resource pool is working.
+    // *   Deleted: The resource pool is deleted.
     std::shared_ptr<string> status_ = nullptr;
+    // The time when the resource pool was updated.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

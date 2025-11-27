@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationSpec_ != nullptr
-        && this->arrayIndex_ != nullptr && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr && this->executorId_ != nullptr
-        && this->expirationTime_ != nullptr && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->ipAddress_ != nullptr && this->preemptible_ != nullptr
-        && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->allocationSpec_ == nullptr
+        && return this->arrayIndex_ == nullptr && return this->blockDuration_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr && return this->executorId_ == nullptr
+        && return this->expirationTime_ == nullptr && return this->externalIpAddress_ == nullptr && return this->hostName_ == nullptr && return this->ipAddress_ == nullptr && return this->preemptible_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->tags_ == nullptr; };
     // allocationSpec Field Functions 
     bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
     void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -178,19 +178,41 @@ namespace Models
 
   protected:
     std::shared_ptr<string> allocationSpec_ = nullptr;
+    // The executor index number.
     std::shared_ptr<int32_t> arrayIndex_ = nullptr;
     std::shared_ptr<int32_t> blockDuration_ = nullptr;
+    // The time when the storage resource was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The end time.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The executor ID. The format is JobId-TaskName-ArrayIndex.
     std::shared_ptr<string> executorId_ = nullptr;
     std::shared_ptr<string> expirationTime_ = nullptr;
+    // The list of public IP addresses of the nodes.
     std::shared_ptr<vector<string>> externalIpAddress_ = nullptr;
+    // An array of node hostnames.
     std::shared_ptr<vector<string>> hostName_ = nullptr;
+    // The list of node IP addresses.
     std::shared_ptr<vector<string>> ipAddress_ = nullptr;
     std::shared_ptr<bool> preemptible_ = nullptr;
+    // The create time.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The status of the executor. Valid values:
+    // 
+    // *   Pending
+    // *   Initing
+    // *   Succeed
+    // *   Failed
+    // *   Running
+    // *   Unknown
+    // *   Exception
+    // *   Retrying
+    // *   Expired
+    // *   Deleted
     std::shared_ptr<string> status_ = nullptr;
+    // The description of the status reason.
     std::shared_ptr<string> statusReason_ = nullptr;
+    // The list of executor tags.
     std::shared_ptr<vector<Models::ListJobExecutorsResponseBodyExecutorsTags>> tags_ = nullptr;
   };
 

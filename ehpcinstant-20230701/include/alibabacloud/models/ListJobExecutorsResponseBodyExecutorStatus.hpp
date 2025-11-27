@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->deleted_ != nullptr
-        && this->exception_ != nullptr && this->failed_ != nullptr && this->initing_ != nullptr && this->pending_ != nullptr && this->restarting_ != nullptr
-        && this->running_ != nullptr && this->succeeded_ != nullptr && this->suspended_ != nullptr; };
+    virtual bool empty() const override { return this->deleted_ == nullptr
+        && return this->exception_ == nullptr && return this->failed_ == nullptr && return this->initing_ == nullptr && return this->pending_ == nullptr && return this->restarting_ == nullptr
+        && return this->running_ == nullptr && return this->succeeded_ == nullptr && return this->suspended_ == nullptr; };
     // deleted Field Functions 
     bool hasDeleted() const { return this->deleted_ != nullptr;};
     void deleteDeleted() { this->deleted_ = nullptr;};
@@ -112,13 +112,20 @@ namespace Models
 
 
   protected:
+    // The number of executers in the Deleted state.
     std::shared_ptr<int32_t> deleted_ = nullptr;
+    // The number of executers in the abnormal state.
     std::shared_ptr<int32_t> exception_ = nullptr;
+    // The number of executers in the Failed state.
     std::shared_ptr<int32_t> failed_ = nullptr;
+    // The number of executers in the initialized state.
     std::shared_ptr<int32_t> initing_ = nullptr;
+    // The number of executers in the queued state.
     std::shared_ptr<int32_t> pending_ = nullptr;
     std::shared_ptr<int32_t> restarting_ = nullptr;
+    // The number of executers in the running state.
     std::shared_ptr<int32_t> running_ = nullptr;
+    // The number of executoresin the Successful state.
     std::shared_ptr<int32_t> succeeded_ = nullptr;
     std::shared_ptr<int32_t> suspended_ = nullptr;
   };

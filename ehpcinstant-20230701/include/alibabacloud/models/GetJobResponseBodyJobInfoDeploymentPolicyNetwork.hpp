@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableENIMapping_ != nullptr
-        && this->enableExternalIpAddress_ != nullptr && this->vswitch_ != nullptr; };
+    virtual bool empty() const override { return this->enableENIMapping_ == nullptr
+        && return this->enableExternalIpAddress_ == nullptr && return this->vswitch_ == nullptr; };
     // enableENIMapping Field Functions 
     bool hasEnableENIMapping() const { return this->enableENIMapping_ != nullptr;};
     void deleteEnableENIMapping() { this->enableENIMapping_ = nullptr;};
@@ -60,8 +60,19 @@ namespace Models
 
 
   protected:
+    // Whether the resource is created in the zone corresponding to the passed-in VSwitch parameter.
+    // 
+    // *   true: The resource is created in the zone corresponding to the passed-in VSwitch parameter.
+    // *   false: The resource is created in any zone that has resources.
     std::shared_ptr<bool> enableENIMapping_ = nullptr;
+    // Whether to create a public IP address.
+    // 
+    // Valid values:
+    // 
+    // *   false: false.
+    // *   true: true.
     std::shared_ptr<bool> enableExternalIpAddress_ = nullptr;
+    // The VSwitch array.
     std::shared_ptr<vector<string>> vswitch_ = nullptr;
   };
 

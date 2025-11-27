@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加托管侧用户自定义镜像
+ * @summary Add a custom image.
  *
  * @param tmpReq AddImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -97,7 +97,7 @@ AddImageResponse Client::addImageWithOptions(const AddImageRequest &tmpReq, cons
 }
 
 /**
- * @summary 添加托管侧用户自定义镜像
+ * @summary Add a custom image.
  *
  * @param request AddImageRequest
  * @return AddImageResponse
@@ -108,7 +108,9 @@ AddImageResponse Client::addImage(const AddImageRequest &request) {
 }
 
 /**
- * @summary 创建执行计划创建执行计划
+ * @summary Create a E-HPC execution plan.
+ *
+ * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
  *
  * @param tmpReq CreateActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -185,7 +187,9 @@ CreateActionPlanResponse Client::createActionPlanWithOptions(const CreateActionP
 }
 
 /**
- * @summary 创建执行计划创建执行计划
+ * @summary Create a E-HPC execution plan.
+ *
+ * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
  *
  * @param request CreateActionPlanRequest
  * @return CreateActionPlanResponse
@@ -196,7 +200,7 @@ CreateActionPlanResponse Client::createActionPlan(const CreateActionPlanRequest 
 }
 
 /**
- * @summary 提交任务
+ * @summary Create a E-HPC Instant job.
  *
  * @param tmpReq CreateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -269,7 +273,7 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 }
 
 /**
- * @summary 提交任务
+ * @summary Create a E-HPC Instant job.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -280,7 +284,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary 创建资源池
+ * @summary Creates a resource pool.
  *
  * @param tmpReq CreatePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +329,7 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
 }
 
 /**
- * @summary 创建资源池
+ * @summary Creates a resource pool.
  *
  * @param request CreatePoolRequest
  * @return CreatePoolResponse
@@ -336,7 +340,10 @@ CreatePoolResponse Client::createPool(const CreatePoolRequest &request) {
 }
 
 /**
- * @summary 删除执行计划
+ * @summary Delete an execution plan
+ *
+ * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+ * This operation stops all Instant jobs that are managed by ActionPlanId.
  *
  * @param request DeleteActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -367,7 +374,10 @@ DeleteActionPlanResponse Client::deleteActionPlanWithOptions(const DeleteActionP
 }
 
 /**
- * @summary 删除执行计划
+ * @summary Delete an execution plan
+ *
+ * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+ * This operation stops all Instant jobs that are managed by ActionPlanId.
  *
  * @param request DeleteActionPlanRequest
  * @return DeleteActionPlanResponse
@@ -378,7 +388,55 @@ DeleteActionPlanResponse Client::deleteActionPlan(const DeleteActionPlanRequest 
 }
 
 /**
- * @summary 删除作业
+ * @summary Deletes one or more job records that are in the final state from a specified cluster.
+ *
+ * @param tmpReq DeleteJobRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteJobRecordsResponse
+ */
+DeleteJobRecordsResponse Client::deleteJobRecordsWithOptions(const DeleteJobRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteJobRecordsShrinkRequest request = DeleteJobRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasJobIds()) {
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasJobIdsShrink()) {
+    query["JobIds"] = request.jobIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteJobRecords"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteJobRecordsResponse>();
+}
+
+/**
+ * @summary Deletes one or more job records that are in the final state from a specified cluster.
+ *
+ * @param request DeleteJobRecordsRequest
+ * @return DeleteJobRecordsResponse
+ */
+DeleteJobRecordsResponse Client::deleteJobRecords(const DeleteJobRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteJobRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes one or more jobs from a specified cluster.
  *
  * @param tmpReq DeleteJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -427,7 +485,7 @@ DeleteJobsResponse Client::deleteJobsWithOptions(const DeleteJobsRequest &tmpReq
 }
 
 /**
- * @summary 删除作业
+ * @summary Deletes one or more jobs from a specified cluster.
  *
  * @param request DeleteJobsRequest
  * @return DeleteJobsResponse
@@ -438,7 +496,7 @@ DeleteJobsResponse Client::deleteJobs(const DeleteJobsRequest &request) {
 }
 
 /**
- * @summary 删除资源池
+ * @summary You can execute this statement to delete a resource pool.
  *
  * @param request DeletePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +527,7 @@ DeletePoolResponse Client::deletePoolWithOptions(const DeletePoolRequest &reques
 }
 
 /**
- * @summary 删除资源池
+ * @summary You can execute this statement to delete a resource pool.
  *
  * @param request DeletePoolRequest
  * @return DeletePoolResponse
@@ -480,7 +538,7 @@ DeletePoolResponse Client::deletePool(const DeletePoolRequest &request) {
 }
 
 /**
- * @summary 查询作业性能数据
+ * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
  *
  * @param tmpReq DescribeJobMetricDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -529,7 +587,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricDataWithOptions(const Des
 }
 
 /**
- * @summary 查询作业性能数据
+ * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
  *
  * @param request DescribeJobMetricDataRequest
  * @return DescribeJobMetricDataResponse
@@ -540,7 +598,7 @@ DescribeJobMetricDataResponse Client::describeJobMetricData(const DescribeJobMet
 }
 
 /**
- * @summary 查询作业即时监控项
+ * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
  *
  * @param tmpReq DescribeJobMetricLastRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -585,7 +643,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLastWithOptions(const Des
 }
 
 /**
- * @summary 查询作业即时监控项
+ * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
  *
  * @param request DescribeJobMetricLastRequest
  * @return DescribeJobMetricLastResponse
@@ -596,7 +654,7 @@ DescribeJobMetricLastResponse Client::describeJobMetricLast(const DescribeJobMet
 }
 
 /**
- * @summary 查询执行计划详情
+ * @summary Querying Execution Plan Details
  *
  * @param request GetActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -627,7 +685,7 @@ GetActionPlanResponse Client::getActionPlanWithOptions(const GetActionPlanReques
 }
 
 /**
- * @summary 查询执行计划详情
+ * @summary Querying Execution Plan Details
  *
  * @param request GetActionPlanRequest
  * @return GetActionPlanResponse
@@ -638,7 +696,7 @@ GetActionPlanResponse Client::getActionPlan(const GetActionPlanRequest &request)
 }
 
 /**
- * @summary 查看应用版本列表
+ * @summary Obtains the application version list.
  *
  * @param request GetAppVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +743,7 @@ GetAppVersionsResponse Client::getAppVersionsWithOptions(const GetAppVersionsReq
 }
 
 /**
- * @summary 查看应用版本列表
+ * @summary Obtains the application version list.
  *
  * @param request GetAppVersionsRequest
  * @return GetAppVersionsResponse
@@ -696,7 +754,7 @@ GetAppVersionsResponse Client::getAppVersions(const GetAppVersionsRequest &reque
 }
 
 /**
- * @summary 查询托管侧镜像详情。
+ * @summary Obtains the information about an image.
  *
  * @param tmpReq GetImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +803,7 @@ GetImageResponse Client::getImageWithOptions(const GetImageRequest &tmpReq, cons
 }
 
 /**
- * @summary 查询托管侧镜像详情。
+ * @summary Obtains the information about an image.
  *
  * @param request GetImageRequest
  * @return GetImageResponse
@@ -756,7 +814,7 @@ GetImageResponse Client::getImage(const GetImageRequest &request) {
 }
 
 /**
- * @summary 查询作业详情
+ * @summary Obtains the details of an execution job.
  *
  * @param request GetJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +845,7 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 }
 
 /**
- * @summary 查询作业详情
+ * @summary Obtains the details of an execution job.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -798,7 +856,7 @@ GetJobResponse Client::getJob(const GetJobRequest &request) {
 }
 
 /**
- * @summary 查询队列详细信息
+ * @summary Obtains the details of a resource pool.
  *
  * @param request GetPoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +887,7 @@ GetPoolResponse Client::getPoolWithOptions(const GetPoolRequest &request, const 
 }
 
 /**
- * @summary 查询队列详细信息
+ * @summary Obtains the details of a resource pool.
  *
  * @param request GetPoolRequest
  * @return GetPoolResponse
@@ -840,7 +898,7 @@ GetPoolResponse Client::getPool(const GetPoolRequest &request) {
 }
 
 /**
- * @summary 查询执行计划的执行情况。
+ * @summary Queries the execution status of an execution plan.
  *
  * @param request ListActionPlanActivitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,7 +937,7 @@ ListActionPlanActivitiesResponse Client::listActionPlanActivitiesWithOptions(con
 }
 
 /**
- * @summary 查询执行计划的执行情况。
+ * @summary Queries the execution status of an execution plan.
  *
  * @param request ListActionPlanActivitiesRequest
  * @return ListActionPlanActivitiesResponse
@@ -890,7 +948,7 @@ ListActionPlanActivitiesResponse Client::listActionPlanActivities(const ListActi
 }
 
 /**
- * @summary 查询执行计划列表
+ * @summary Queries the list of execution plans.
  *
  * @param tmpReq ListActionPlansRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -935,7 +993,7 @@ ListActionPlansResponse Client::listActionPlansWithOptions(const ListActionPlans
 }
 
 /**
- * @summary 查询执行计划列表
+ * @summary Queries the list of execution plans.
  *
  * @param request ListActionPlansRequest
  * @return ListActionPlansResponse
@@ -946,7 +1004,7 @@ ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &re
 }
 
 /**
- * @summary 查询全局Executor信息
+ * @summary Querying Global Executor Information
  *
  * @param tmpReq ListExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -991,7 +1049,7 @@ ListExecutorsResponse Client::listExecutorsWithOptions(const ListExecutorsReques
 }
 
 /**
- * @summary 查询全局Executor信息
+ * @summary Querying Global Executor Information
  *
  * @param request ListExecutorsRequest
  * @return ListExecutorsResponse
@@ -1002,7 +1060,7 @@ ListExecutorsResponse Client::listExecutors(const ListExecutorsRequest &request)
 }
 
 /**
- * @summary 查看托管侧镜像列表
+ * @summary Queries the image list.
  *
  * @param tmpReq ListImagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1125,7 @@ ListImagesResponse Client::listImagesWithOptions(const ListImagesRequest &tmpReq
 }
 
 /**
- * @summary 查看托管侧镜像列表
+ * @summary Queries the image list.
  *
  * @param request ListImagesRequest
  * @return ListImagesResponse
@@ -1078,7 +1136,9 @@ ListImagesResponse Client::listImages(const ListImagesRequest &request) {
 }
 
 /**
- * @summary 查询作业Executor信息
+ * @summary Queries job executor information.
+ *
+ * @description Queries job executor information.
  *
  * @param request ListJobExecutorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1181,9 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const ListJobExecut
 }
 
 /**
- * @summary 查询作业Executor信息
+ * @summary Queries job executor information.
+ *
+ * @description Queries job executor information.
  *
  * @param request ListJobExecutorsRequest
  * @return ListJobExecutorsResponse
@@ -1132,7 +1194,7 @@ ListJobExecutorsResponse Client::listJobExecutors(const ListJobExecutorsRequest 
 }
 
 /**
- * @summary 查询作业列表
+ * @summary Queries the jobs in a cluster.
  *
  * @param tmpReq ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1185,7 +1247,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &tmpReq, cons
 }
 
 /**
- * @summary 查询作业列表
+ * @summary Queries the jobs in a cluster.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -1196,7 +1258,7 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary 查询资源池列表
+ * @summary Queries the resource pool list.
  *
  * @param tmpReq ListPoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1303,7 @@ ListPoolsResponse Client::listPoolsWithOptions(const ListPoolsRequest &tmpReq, c
 }
 
 /**
- * @summary 查询资源池列表
+ * @summary Queries the resource pool list.
  *
  * @param request ListPoolsRequest
  * @return ListPoolsResponse
@@ -1252,7 +1314,7 @@ ListPoolsResponse Client::listPools(const ListPoolsRequest &request) {
 }
 
 /**
- * @summary 查询一个或多个资源已经绑定的标签列表
+ * @summary Queries the tags that are bound to one or more Instant resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1361,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary 查询一个或多个资源已经绑定的标签列表
+ * @summary Queries the tags that are bound to one or more Instant resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -1310,7 +1372,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary 移除托管侧镜像信息。
+ * @summary Remove a custom image
  *
  * @param request RemoveImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1345,7 +1407,7 @@ RemoveImageResponse Client::removeImageWithOptions(const RemoveImageRequest &req
 }
 
 /**
- * @summary 移除托管侧镜像信息。
+ * @summary Remove a custom image
  *
  * @param request RemoveImageRequest
  * @return RemoveImageResponse
@@ -1356,7 +1418,7 @@ RemoveImageResponse Client::removeImage(const RemoveImageRequest &request) {
 }
 
 /**
- * @summary 应用跨地域同步
+ * @summary Application cross-region synchronization
  *
  * @param tmpReq SynchronizeAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1459,7 @@ SynchronizeAppResponse Client::synchronizeAppWithOptions(const SynchronizeAppReq
 }
 
 /**
- * @summary 应用跨地域同步
+ * @summary Application cross-region synchronization
  *
  * @param request SynchronizeAppRequest
  * @return SynchronizeAppResponse
@@ -1408,7 +1470,7 @@ SynchronizeAppResponse Client::synchronizeApp(const SynchronizeAppRequest &reque
 }
 
 /**
- * @summary 为指定的资源列表统一创建并绑定标签
+ * @summary Create and bind tags to Instant resource list
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1447,7 +1509,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary 为指定的资源列表统一创建并绑定标签
+ * @summary Create and bind tags to Instant resource list
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -1458,7 +1520,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 为指定的ECS资源列表统一解绑标签
+ * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
  *
  * @param request UnTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1501,7 +1563,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary 为指定的ECS资源列表统一解绑标签
+ * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -1512,7 +1574,7 @@ UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &reque
 }
 
 /**
- * @summary 更新执行计划
+ * @summary Adjust the resource scale of the execution plan or modify the execution status
  *
  * @param request UpdateActionPlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1551,7 +1613,7 @@ UpdateActionPlanResponse Client::updateActionPlanWithOptions(const UpdateActionP
 }
 
 /**
- * @summary 更新执行计划
+ * @summary Adjust the resource scale of the execution plan or modify the execution status
  *
  * @param request UpdateActionPlanRequest
  * @return UpdateActionPlanResponse
@@ -1562,7 +1624,7 @@ UpdateActionPlanResponse Client::updateActionPlan(const UpdateActionPlanRequest 
 }
 
 /**
- * @summary 更新资源池
+ * @summary Update the resource pool configuration.
  *
  * @param tmpReq UpdatePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1607,7 +1669,7 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
 }
 
 /**
- * @summary 更新资源池
+ * @summary Update the resource pool configuration.
  *
  * @param request UpdatePoolRequest
  * @return UpdatePoolResponse

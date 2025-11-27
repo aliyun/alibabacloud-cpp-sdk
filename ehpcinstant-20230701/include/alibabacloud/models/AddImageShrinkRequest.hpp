@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->containerImageSpecShrink_ != nullptr
-        && this->description_ != nullptr && this->imageType_ != nullptr && this->imageVersion_ != nullptr && this->name_ != nullptr && this->VMImageSpecShrink_ != nullptr; };
+    virtual bool empty() const override { return this->containerImageSpecShrink_ == nullptr
+        && return this->description_ == nullptr && return this->imageType_ == nullptr && return this->imageVersion_ == nullptr && return this->name_ == nullptr && return this->VMImageSpecShrink_ == nullptr; };
     // containerImageSpecShrink Field Functions 
     bool hasContainerImageSpecShrink() const { return this->containerImageSpecShrink_ != nullptr;};
     void deleteContainerImageSpecShrink() { this->containerImageSpecShrink_ = nullptr;};
@@ -84,12 +84,22 @@ namespace Models
 
 
   protected:
+    // The configurations of the container image.
     std::shared_ptr<string> containerImageSpecShrink_ = nullptr;
+    // The description of the image.
     std::shared_ptr<string> description_ = nullptr;
+    // The type of the images. Valid values:
+    // 
+    // *   VM: virtual machine image.
+    // *   Container: the container image.
     std::shared_ptr<string> imageType_ = nullptr;
+    // The version of the image.
     std::shared_ptr<string> imageVersion_ = nullptr;
+    // The name of the custom image.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The image configuration of the virtual machine.
     std::shared_ptr<string> VMImageSpecShrink_ = nullptr;
   };
 

@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->arg_ != nullptr && this->command_ != nullptr && this->environmentVars_ != nullptr && this->image_ != nullptr && this->workingDir_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->arg_ == nullptr && return this->command_ == nullptr && return this->environmentVars_ == nullptr && return this->image_ == nullptr && return this->workingDir_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -92,12 +92,25 @@ namespace Models
 
 
   protected:
+    // The application ID.
     std::shared_ptr<string> appId_ = nullptr;
+    // The startup argument of the init container. A maximum of 10 groups.
     std::shared_ptr<vector<string>> arg_ = nullptr;
+    // The container startup commands. You can specify up to 20 commands. Each command can be up to 256 characters in length.
+    // 
+    // > 
+    // 
+    // *   If the start command contains spaces (for example, `sleep 60s` ), the input JSON format parameter is `["sleep", "60s"]`.
+    // 
+    // *   If the startup command is complex, the parameter format may be a combination of `Command: ["/bin/bash"]` and `Arg:["-c", "<customized command>"]`. The `<customized command>` is a user-defined combination of commands and can contain characters such as spaces.
     std::shared_ptr<vector<string>> command_ = nullptr;
+    // The environment variables of the container. A maximum of 20 groups.
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecTaskExecutorContainerEnvironmentVars>> environmentVars_ = nullptr;
+    // The image of the container.
+    // 
     // This parameter is required.
     std::shared_ptr<string> image_ = nullptr;
+    // The working directory of the container.
     std::shared_ptr<string> workingDir_ = nullptr;
   };
 

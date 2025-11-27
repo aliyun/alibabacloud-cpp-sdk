@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalRegionsInfo_ != nullptr
-        && this->appId_ != nullptr && this->containerImageSpec_ != nullptr && this->createTime_ != nullptr && this->description_ != nullptr && this->documentInfo_ != nullptr
-        && this->imageType_ != nullptr && this->name_ != nullptr && this->size_ != nullptr && this->status_ != nullptr && this->VMImageSpec_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->additionalRegionsInfo_ == nullptr
+        && return this->appId_ == nullptr && return this->containerImageSpec_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->documentInfo_ == nullptr
+        && return this->imageType_ == nullptr && return this->name_ == nullptr && return this->size_ == nullptr && return this->status_ == nullptr && return this->VMImageSpec_ == nullptr
+        && return this->version_ == nullptr; };
     // additionalRegionsInfo Field Functions 
     bool hasAdditionalRegionsInfo() const { return this->additionalRegionsInfo_ != nullptr;};
     void deleteAdditionalRegionsInfo() { this->additionalRegionsInfo_ = nullptr;};
@@ -155,16 +155,25 @@ namespace Models
   protected:
     std::shared_ptr<vector<Models::GetImageResponseBodyImageAdditionalRegionsInfo>> additionalRegionsInfo_ = nullptr;
     std::shared_ptr<string> appId_ = nullptr;
+    // The configuration details of the container image.
     std::shared_ptr<Models::GetImageResponseBodyImageContainerImageSpec> containerImageSpec_ = nullptr;
+    // The time when the image was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description of the image.
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<Models::GetImageResponseBodyImageDocumentInfo> documentInfo_ = nullptr;
+    // The type of the image.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageType_ = nullptr;
+    // The name of the image.
     std::shared_ptr<string> name_ = nullptr;
+    // The size of the image. Unit: GiB.
     std::shared_ptr<string> size_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
+    // The configuration details of the virtual machine image.
     std::shared_ptr<Models::GetImageResponseBodyImageVMImageSpec> VMImageSpec_ = nullptr;
+    // The version.
     std::shared_ptr<string> version_ = nullptr;
   };
 

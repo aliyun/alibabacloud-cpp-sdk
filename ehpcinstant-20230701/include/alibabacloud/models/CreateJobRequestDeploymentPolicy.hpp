@@ -42,8 +42,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationSpec_ != nullptr
-        && this->level_ != nullptr && this->network_ != nullptr && this->pool_ != nullptr && this->priority_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->allocationSpec_ == nullptr
+        && return this->level_ == nullptr && return this->network_ == nullptr && return this->pool_ == nullptr && return this->priority_ == nullptr && return this->tag_ == nullptr; };
     // allocationSpec Field Functions 
     bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
     void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -91,11 +91,26 @@ namespace Models
 
 
   protected:
+    // The resource type,
+    // 
+    // *   Standard
+    // *   Dedicated: You must enable a whitelist for use.
+    // *   Economic: You must enable a whitelist for use.
     std::shared_ptr<string> allocationSpec_ = nullptr;
+    // The computing power level. This value is valid only when the resource type is Economic. The following disk categories are supported:
+    // 
+    // *   General
+    // *   Performance
+    // 
+    // Default value: General.
     std::shared_ptr<string> level_ = nullptr;
+    // The network configuration information.
     std::shared_ptr<Models::CreateJobRequestDeploymentPolicyNetwork> network_ = nullptr;
+    // The resource pool of the job.
     std::shared_ptr<string> pool_ = nullptr;
+    // The priorities of the jobs. A larger value indicates a higher job scheduling priority. Valid values: 1 to 100.
     std::shared_ptr<int32_t> priority_ = nullptr;
+    // The tag information of the job. A maximum of 20 groups.
     std::shared_ptr<vector<Models::CreateJobRequestDeploymentPolicyTag>> tag_ = nullptr;
   };
 

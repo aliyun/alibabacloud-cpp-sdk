@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appExtraInfo_ != nullptr
-        && this->appName_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr && this->executorCount_ != nullptr && this->jobDescription_ != nullptr
-        && this->jobId_ != nullptr && this->jobName_ != nullptr && this->ownerUid_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->tags_ != nullptr && this->taskCount_ != nullptr && this->taskSustainable_ != nullptr; };
+    virtual bool empty() const override { return this->appExtraInfo_ == nullptr
+        && return this->appName_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr && return this->executorCount_ == nullptr && return this->jobDescription_ == nullptr
+        && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->ownerUid_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->taskCount_ == nullptr && return this->taskSustainable_ == nullptr; };
     // appExtraInfo Field Functions 
     bool hasAppExtraInfo() const { return this->appExtraInfo_ != nullptr;};
     void deleteAppExtraInfo() { this->appExtraInfo_ = nullptr;};
@@ -162,19 +162,43 @@ namespace Models
 
 
   protected:
+    // The additional information about the application.
     std::shared_ptr<string> appExtraInfo_ = nullptr;
     std::shared_ptr<string> appName_ = nullptr;
+    // The time when the job was submitted.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The end time of the job.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The number of running nodes.
     std::shared_ptr<int32_t> executorCount_ = nullptr;
+    // The description of the job.
     std::shared_ptr<string> jobDescription_ = nullptr;
+    // The ID of the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The job name.
     std::shared_ptr<string> jobName_ = nullptr;
+    // The UID of the creator.
     std::shared_ptr<string> ownerUid_ = nullptr;
+    // The start time of the job.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The status of the job. Valid values:
+    // 
+    // *   Pending
+    // *   Initing
+    // *   Succeed
+    // *   Failed
+    // *   Running
+    // *   Exception
+    // *   Retrying
+    // *   Expired
+    // *   Deleting
+    // *   Deleted
     std::shared_ptr<string> status_ = nullptr;
+    // The list of job tags.
     std::shared_ptr<vector<Models::ListJobsResponseBodyJobListTags>> tags_ = nullptr;
+    // The number of tasks.
     std::shared_ptr<int32_t> taskCount_ = nullptr;
+    // Indicate whether the job is a long-running job.
     std::shared_ptr<bool> taskSustainable_ = nullptr;
   };
 

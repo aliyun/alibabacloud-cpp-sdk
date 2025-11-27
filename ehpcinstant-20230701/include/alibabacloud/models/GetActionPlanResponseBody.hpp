@@ -60,10 +60,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanId_ != nullptr
-        && this->actionPlanName_ != nullptr && this->allocationSpec_ != nullptr && this->appId_ != nullptr && this->createTime_ != nullptr && this->desiredCapacity_ != nullptr
-        && this->level_ != nullptr && this->prologScript_ != nullptr && this->regions_ != nullptr && this->requestId_ != nullptr && this->resourceType_ != nullptr
-        && this->resources_ != nullptr && this->status_ != nullptr && this->totalCapacity_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanId_ == nullptr
+        && return this->actionPlanName_ == nullptr && return this->allocationSpec_ == nullptr && return this->appId_ == nullptr && return this->createTime_ == nullptr && return this->desiredCapacity_ == nullptr
+        && return this->level_ == nullptr && return this->prologScript_ == nullptr && return this->regions_ == nullptr && return this->requestId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->resources_ == nullptr && return this->status_ == nullptr && return this->totalCapacity_ == nullptr && return this->updateTime_ == nullptr; };
     // actionPlanId Field Functions 
     bool hasActionPlanId() const { return this->actionPlanId_ != nullptr;};
     void deleteActionPlanId() { this->actionPlanId_ = nullptr;};
@@ -174,20 +174,42 @@ namespace Models
 
 
   protected:
+    // The ID of the execution plan.
     std::shared_ptr<string> actionPlanId_ = nullptr;
+    // The name of the execution plan.
     std::shared_ptr<string> actionPlanName_ = nullptr;
+    // The type of the resource.
     std::shared_ptr<string> allocationSpec_ = nullptr;
+    // The ID of the application.
     std::shared_ptr<string> appId_ = nullptr;
+    // The time when the execution plan was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
     std::shared_ptr<float> desiredCapacity_ = nullptr;
+    // The computing power level.
     std::shared_ptr<string> level_ = nullptr;
+    // The pre-processing script. Base64 encoding is required.
     std::shared_ptr<string> prologScript_ = nullptr;
+    // The list of resource configurations in the region where the execution plan runs.
     std::shared_ptr<vector<GetActionPlanResponseBodyRegions>> regions_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Target resource type: the capacity of vCPUs or the number of execution nodes. Valid values:
+    // 
+    // *   VCpuCapacity
+    // *   ExecutorCapacity
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The list of resource configurations of the execution plan runtime environment.
     std::shared_ptr<vector<GetActionPlanResponseBodyResources>> resources_ = nullptr;
+    // The status of the execution plan. The possible values are as follows:
+    // 
+    // *   Active Instant tasks are dynamically managed only when the execution plan is in the Active state.
+    // *   Inactive Instant tasks are no longer managed by execution plans in the Inactive state.
+    // *   Deleting You cannot modify the parameters of an execution plan in this state.
     std::shared_ptr<string> status_ = nullptr;
+    // The size of the resources currently managed by the execution plan.
     std::shared_ptr<float> totalCapacity_ = nullptr;
+    // The time when the execution plan was last modified.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

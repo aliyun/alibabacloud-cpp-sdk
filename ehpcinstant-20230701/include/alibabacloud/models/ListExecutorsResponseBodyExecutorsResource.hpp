@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->disks_ != nullptr && this->instanceType_ != nullptr && this->memory_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->disks_ == nullptr && return this->instanceType_ == nullptr && return this->memory_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
@@ -70,9 +70,12 @@ namespace Models
 
 
   protected:
+    // The number of running CPUs.
     std::shared_ptr<float> cores_ = nullptr;
+    // The array of the disks.
     std::shared_ptr<vector<Models::ListExecutorsResponseBodyExecutorsResourceDisks>> disks_ = nullptr;
     std::shared_ptr<string> instanceType_ = nullptr;
+    // The total amount of memory resources. Unit: GiB.
     std::shared_ptr<float> memory_ = nullptr;
   };
 

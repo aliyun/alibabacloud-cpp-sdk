@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxExectorNum_ != nullptr; };
+    virtual bool empty() const override { return this->maxExectorNum_ == nullptr; };
     // maxExectorNum Field Functions 
     bool hasMaxExectorNum() const { return this->maxExectorNum_ != nullptr;};
     void deleteMaxExectorNum() { this->maxExectorNum_ = nullptr;};
@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The maximum number of concurrent execution nodes in a resource pool.
     std::shared_ptr<int32_t> maxExectorNum_ = nullptr;
   };
 

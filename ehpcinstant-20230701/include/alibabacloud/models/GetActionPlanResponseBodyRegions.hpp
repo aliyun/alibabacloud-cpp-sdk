@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->securityGroupIds_ != nullptr && this->vSwitchIds_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && return this->securityGroupIds_ == nullptr && return this->vSwitchIds_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // The region ID of the instance.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The list of security groups available for the execution plan in the region.
     std::shared_ptr<vector<string>> securityGroupIds_ = nullptr;
+    // The list of VSwitches available for the execution plan in the region.
     std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
   };
 

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->exitCodeActions_ != nullptr
-        && this->retryCount_ != nullptr; };
+    virtual bool empty() const override { return this->exitCodeActions_ == nullptr
+        && return this->retryCount_ == nullptr; };
     // exitCodeActions Field Functions 
     bool hasExitCodeActions() const { return this->exitCodeActions_ != nullptr;};
     void deleteExitCodeActions() { this->exitCodeActions_ = nullptr;};
@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The retry rule. A maximum of 10 groups.
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecRetryPolicyExitCodeActions>> exitCodeActions_ = nullptr;
+    // The maximum number of retries. Valid values: 1 to 10. Default value: 3.
     std::shared_ptr<int32_t> retryCount_ = nullptr;
   };
 

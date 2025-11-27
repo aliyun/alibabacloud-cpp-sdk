@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->indexEnd_ != nullptr
-        && this->indexStart_ != nullptr && this->indexStep_ != nullptr; };
+    virtual bool empty() const override { return this->indexEnd_ == nullptr
+        && return this->indexStart_ == nullptr && return this->indexStep_ == nullptr; };
     // indexEnd Field Functions 
     bool hasIndexEnd() const { return this->indexEnd_ != nullptr;};
     void deleteIndexEnd() { this->indexEnd_ = nullptr;};
@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
     std::shared_ptr<int32_t> indexEnd_ = nullptr;
+    // The starting value of the array job index. Valid values: 0 to 4999.
     std::shared_ptr<int32_t> indexStart_ = nullptr;
+    // The interval of the array job index.
+    // 
+    // > If the array job property is IndexStart=1,IndexEnd=5, and IndexStep=2, the array job contains three sub-jobs. The index values of the sub-jobs are 1,3, and 5. You can access the sub-jobs by using environment variables.
     std::shared_ptr<int32_t> indexStep_ = nullptr;
   };
 

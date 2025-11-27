@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SYNCHRONIZEAPPRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_SYNCHRONIZEAPPRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETEJOBRECORDSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETEJOBRECORDSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,21 +10,21 @@ namespace EhpcInstant20230701
 {
 namespace Models
 {
-  class SynchronizeAppResponseBody : public Darabonba::Model {
+  class DeleteJobRecordsResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SynchronizeAppResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteJobRecordsResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, SynchronizeAppResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteJobRecordsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    SynchronizeAppResponseBody() = default ;
-    SynchronizeAppResponseBody(const SynchronizeAppResponseBody &) = default ;
-    SynchronizeAppResponseBody(SynchronizeAppResponseBody &&) = default ;
-    SynchronizeAppResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SynchronizeAppResponseBody() = default ;
-    SynchronizeAppResponseBody& operator=(const SynchronizeAppResponseBody &) = default ;
-    SynchronizeAppResponseBody& operator=(SynchronizeAppResponseBody &&) = default ;
+    DeleteJobRecordsResponseBody() = default ;
+    DeleteJobRecordsResponseBody(const DeleteJobRecordsResponseBody &) = default ;
+    DeleteJobRecordsResponseBody(DeleteJobRecordsResponseBody &&) = default ;
+    DeleteJobRecordsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteJobRecordsResponseBody() = default ;
+    DeleteJobRecordsResponseBody& operator=(const DeleteJobRecordsResponseBody &) = default ;
+    DeleteJobRecordsResponseBody& operator=(DeleteJobRecordsResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -34,11 +34,11 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline SynchronizeAppResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteJobRecordsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // Request ID.
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanId_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanId_ == nullptr; };
     // actionPlanId Field Functions 
     bool hasActionPlanId() const { return this->actionPlanId_ != nullptr;};
     void deleteActionPlanId() { this->actionPlanId_ = nullptr;};
@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the execution plan.
     std::shared_ptr<string> actionPlanId_ = nullptr;
   };
 

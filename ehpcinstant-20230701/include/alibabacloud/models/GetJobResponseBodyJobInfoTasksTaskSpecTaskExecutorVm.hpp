@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->image_ != nullptr
-        && this->prologScript_ != nullptr && this->script_ != nullptr; };
+    virtual bool empty() const override { return this->image_ == nullptr
+        && return this->prologScript_ == nullptr && return this->script_ == nullptr; };
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The image ID.
     std::shared_ptr<string> image_ = nullptr;
+    // The pre-processing script. Base64 encoding is required.
     std::shared_ptr<string> prologScript_ = nullptr;
+    // The running-job script. Base64 encoding is required.
     std::shared_ptr<string> script_ = nullptr;
   };
 

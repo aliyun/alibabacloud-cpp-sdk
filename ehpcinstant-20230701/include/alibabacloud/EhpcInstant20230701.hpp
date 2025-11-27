@@ -21,7 +21,7 @@ namespace EhpcInstant20230701
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加托管侧用户自定义镜像
+       * @summary Add a custom image.
        *
        * @param tmpReq AddImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImageWithOptions(const Models::AddImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加托管侧用户自定义镜像
+       * @summary Add a custom image.
        *
        * @param request AddImageRequest
        * @return AddImageResponse
@@ -38,7 +38,9 @@ namespace EhpcInstant20230701
       Models::AddImageResponse addImage(const Models::AddImageRequest &request);
 
       /**
-       * @summary 创建执行计划创建执行计划
+       * @summary Create a E-HPC execution plan.
+       *
+       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
        *
        * @param tmpReq CreateActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +49,9 @@ namespace EhpcInstant20230701
       Models::CreateActionPlanResponse createActionPlanWithOptions(const Models::CreateActionPlanRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建执行计划创建执行计划
+       * @summary Create a E-HPC execution plan.
+       *
+       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).
        *
        * @param request CreateActionPlanRequest
        * @return CreateActionPlanResponse
@@ -55,7 +59,7 @@ namespace EhpcInstant20230701
       Models::CreateActionPlanResponse createActionPlan(const Models::CreateActionPlanRequest &request);
 
       /**
-       * @summary 提交任务
+       * @summary Create a E-HPC Instant job.
        *
        * @param tmpReq CreateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +68,7 @@ namespace EhpcInstant20230701
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交任务
+       * @summary Create a E-HPC Instant job.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -72,7 +76,7 @@ namespace EhpcInstant20230701
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary 创建资源池
+       * @summary Creates a resource pool.
        *
        * @param tmpReq CreatePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace EhpcInstant20230701
       Models::CreatePoolResponse createPoolWithOptions(const Models::CreatePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建资源池
+       * @summary Creates a resource pool.
        *
        * @param request CreatePoolRequest
        * @return CreatePoolResponse
@@ -89,7 +93,10 @@ namespace EhpcInstant20230701
       Models::CreatePoolResponse createPool(const Models::CreatePoolRequest &request);
 
       /**
-       * @summary 删除执行计划
+       * @summary Delete an execution plan
+       *
+       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+       * This operation stops all Instant jobs that are managed by ActionPlanId.
        *
        * @param request DeleteActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +105,10 @@ namespace EhpcInstant20230701
       Models::DeleteActionPlanResponse deleteActionPlanWithOptions(const Models::DeleteActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除执行计划
+       * @summary Delete an execution plan
+       *
+       * @description **Make sure that you fully understand E-HPC Instnat billing methods and [prices](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO).**
+       * This operation stops all Instant jobs that are managed by ActionPlanId.
        *
        * @param request DeleteActionPlanRequest
        * @return DeleteActionPlanResponse
@@ -106,7 +116,24 @@ namespace EhpcInstant20230701
       Models::DeleteActionPlanResponse deleteActionPlan(const Models::DeleteActionPlanRequest &request);
 
       /**
-       * @summary 删除作业
+       * @summary Deletes one or more job records that are in the final state from a specified cluster.
+       *
+       * @param tmpReq DeleteJobRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteJobRecordsResponse
+       */
+      Models::DeleteJobRecordsResponse deleteJobRecordsWithOptions(const Models::DeleteJobRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes one or more job records that are in the final state from a specified cluster.
+       *
+       * @param request DeleteJobRecordsRequest
+       * @return DeleteJobRecordsResponse
+       */
+      Models::DeleteJobRecordsResponse deleteJobRecords(const Models::DeleteJobRecordsRequest &request);
+
+      /**
+       * @summary Deletes one or more jobs from a specified cluster.
        *
        * @param tmpReq DeleteJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +142,7 @@ namespace EhpcInstant20230701
       Models::DeleteJobsResponse deleteJobsWithOptions(const Models::DeleteJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除作业
+       * @summary Deletes one or more jobs from a specified cluster.
        *
        * @param request DeleteJobsRequest
        * @return DeleteJobsResponse
@@ -123,7 +150,7 @@ namespace EhpcInstant20230701
       Models::DeleteJobsResponse deleteJobs(const Models::DeleteJobsRequest &request);
 
       /**
-       * @summary 删除资源池
+       * @summary You can execute this statement to delete a resource pool.
        *
        * @param request DeletePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +159,7 @@ namespace EhpcInstant20230701
       Models::DeletePoolResponse deletePoolWithOptions(const Models::DeletePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资源池
+       * @summary You can execute this statement to delete a resource pool.
        *
        * @param request DeletePoolRequest
        * @return DeletePoolResponse
@@ -140,7 +167,7 @@ namespace EhpcInstant20230701
       Models::DeletePoolResponse deletePool(const Models::DeletePoolRequest &request);
 
       /**
-       * @summary 查询作业性能数据
+       * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
        *
        * @param tmpReq DescribeJobMetricDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +176,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricDataResponse describeJobMetricDataWithOptions(const Models::DescribeJobMetricDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业性能数据
+       * @summary You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
        *
        * @param request DescribeJobMetricDataRequest
        * @return DescribeJobMetricDataResponse
@@ -157,7 +184,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricDataResponse describeJobMetricData(const Models::DescribeJobMetricDataRequest &request);
 
       /**
-       * @summary 查询作业即时监控项
+       * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
        *
        * @param tmpReq DescribeJobMetricLastRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +193,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLastWithOptions(const Models::DescribeJobMetricLastRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业即时监控项
+       * @summary Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
        *
        * @param request DescribeJobMetricLastRequest
        * @return DescribeJobMetricLastResponse
@@ -174,7 +201,7 @@ namespace EhpcInstant20230701
       Models::DescribeJobMetricLastResponse describeJobMetricLast(const Models::DescribeJobMetricLastRequest &request);
 
       /**
-       * @summary 查询执行计划详情
+       * @summary Querying Execution Plan Details
        *
        * @param request GetActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +210,7 @@ namespace EhpcInstant20230701
       Models::GetActionPlanResponse getActionPlanWithOptions(const Models::GetActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询执行计划详情
+       * @summary Querying Execution Plan Details
        *
        * @param request GetActionPlanRequest
        * @return GetActionPlanResponse
@@ -191,7 +218,7 @@ namespace EhpcInstant20230701
       Models::GetActionPlanResponse getActionPlan(const Models::GetActionPlanRequest &request);
 
       /**
-       * @summary 查看应用版本列表
+       * @summary Obtains the application version list.
        *
        * @param request GetAppVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +227,7 @@ namespace EhpcInstant20230701
       Models::GetAppVersionsResponse getAppVersionsWithOptions(const Models::GetAppVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看应用版本列表
+       * @summary Obtains the application version list.
        *
        * @param request GetAppVersionsRequest
        * @return GetAppVersionsResponse
@@ -208,7 +235,7 @@ namespace EhpcInstant20230701
       Models::GetAppVersionsResponse getAppVersions(const Models::GetAppVersionsRequest &request);
 
       /**
-       * @summary 查询托管侧镜像详情。
+       * @summary Obtains the information about an image.
        *
        * @param tmpReq GetImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +244,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImageWithOptions(const Models::GetImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询托管侧镜像详情。
+       * @summary Obtains the information about an image.
        *
        * @param request GetImageRequest
        * @return GetImageResponse
@@ -225,7 +252,7 @@ namespace EhpcInstant20230701
       Models::GetImageResponse getImage(const Models::GetImageRequest &request);
 
       /**
-       * @summary 查询作业详情
+       * @summary Obtains the details of an execution job.
        *
        * @param request GetJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +261,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJobWithOptions(const Models::GetJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业详情
+       * @summary Obtains the details of an execution job.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -242,7 +269,7 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJob(const Models::GetJobRequest &request);
 
       /**
-       * @summary 查询队列详细信息
+       * @summary Obtains the details of a resource pool.
        *
        * @param request GetPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +278,7 @@ namespace EhpcInstant20230701
       Models::GetPoolResponse getPoolWithOptions(const Models::GetPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询队列详细信息
+       * @summary Obtains the details of a resource pool.
        *
        * @param request GetPoolRequest
        * @return GetPoolResponse
@@ -259,7 +286,7 @@ namespace EhpcInstant20230701
       Models::GetPoolResponse getPool(const Models::GetPoolRequest &request);
 
       /**
-       * @summary 查询执行计划的执行情况。
+       * @summary Queries the execution status of an execution plan.
        *
        * @param request ListActionPlanActivitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +295,7 @@ namespace EhpcInstant20230701
       Models::ListActionPlanActivitiesResponse listActionPlanActivitiesWithOptions(const Models::ListActionPlanActivitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询执行计划的执行情况。
+       * @summary Queries the execution status of an execution plan.
        *
        * @param request ListActionPlanActivitiesRequest
        * @return ListActionPlanActivitiesResponse
@@ -276,7 +303,7 @@ namespace EhpcInstant20230701
       Models::ListActionPlanActivitiesResponse listActionPlanActivities(const Models::ListActionPlanActivitiesRequest &request);
 
       /**
-       * @summary 查询执行计划列表
+       * @summary Queries the list of execution plans.
        *
        * @param tmpReq ListActionPlansRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +312,7 @@ namespace EhpcInstant20230701
       Models::ListActionPlansResponse listActionPlansWithOptions(const Models::ListActionPlansRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询执行计划列表
+       * @summary Queries the list of execution plans.
        *
        * @param request ListActionPlansRequest
        * @return ListActionPlansResponse
@@ -293,7 +320,7 @@ namespace EhpcInstant20230701
       Models::ListActionPlansResponse listActionPlans(const Models::ListActionPlansRequest &request);
 
       /**
-       * @summary 查询全局Executor信息
+       * @summary Querying Global Executor Information
        *
        * @param tmpReq ListExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +329,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorsResponse listExecutorsWithOptions(const Models::ListExecutorsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询全局Executor信息
+       * @summary Querying Global Executor Information
        *
        * @param request ListExecutorsRequest
        * @return ListExecutorsResponse
@@ -310,7 +337,7 @@ namespace EhpcInstant20230701
       Models::ListExecutorsResponse listExecutors(const Models::ListExecutorsRequest &request);
 
       /**
-       * @summary 查看托管侧镜像列表
+       * @summary Queries the image list.
        *
        * @param tmpReq ListImagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +346,7 @@ namespace EhpcInstant20230701
       Models::ListImagesResponse listImagesWithOptions(const Models::ListImagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看托管侧镜像列表
+       * @summary Queries the image list.
        *
        * @param request ListImagesRequest
        * @return ListImagesResponse
@@ -327,7 +354,9 @@ namespace EhpcInstant20230701
       Models::ListImagesResponse listImages(const Models::ListImagesRequest &request);
 
       /**
-       * @summary 查询作业Executor信息
+       * @summary Queries job executor information.
+       *
+       * @description Queries job executor information.
        *
        * @param request ListJobExecutorsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +365,9 @@ namespace EhpcInstant20230701
       Models::ListJobExecutorsResponse listJobExecutorsWithOptions(const Models::ListJobExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业Executor信息
+       * @summary Queries job executor information.
+       *
+       * @description Queries job executor information.
        *
        * @param request ListJobExecutorsRequest
        * @return ListJobExecutorsResponse
@@ -344,7 +375,7 @@ namespace EhpcInstant20230701
       Models::ListJobExecutorsResponse listJobExecutors(const Models::ListJobExecutorsRequest &request);
 
       /**
-       * @summary 查询作业列表
+       * @summary Queries the jobs in a cluster.
        *
        * @param tmpReq ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +384,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询作业列表
+       * @summary Queries the jobs in a cluster.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -361,7 +392,7 @@ namespace EhpcInstant20230701
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary 查询资源池列表
+       * @summary Queries the resource pool list.
        *
        * @param tmpReq ListPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +401,7 @@ namespace EhpcInstant20230701
       Models::ListPoolsResponse listPoolsWithOptions(const Models::ListPoolsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资源池列表
+       * @summary Queries the resource pool list.
        *
        * @param request ListPoolsRequest
        * @return ListPoolsResponse
@@ -378,7 +409,7 @@ namespace EhpcInstant20230701
       Models::ListPoolsResponse listPools(const Models::ListPoolsRequest &request);
 
       /**
-       * @summary 查询一个或多个资源已经绑定的标签列表
+       * @summary Queries the tags that are bound to one or more Instant resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +418,7 @@ namespace EhpcInstant20230701
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一个或多个资源已经绑定的标签列表
+       * @summary Queries the tags that are bound to one or more Instant resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -395,7 +426,7 @@ namespace EhpcInstant20230701
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary 移除托管侧镜像信息。
+       * @summary Remove a custom image
        *
        * @param request RemoveImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +435,7 @@ namespace EhpcInstant20230701
       Models::RemoveImageResponse removeImageWithOptions(const Models::RemoveImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 移除托管侧镜像信息。
+       * @summary Remove a custom image
        *
        * @param request RemoveImageRequest
        * @return RemoveImageResponse
@@ -412,7 +443,7 @@ namespace EhpcInstant20230701
       Models::RemoveImageResponse removeImage(const Models::RemoveImageRequest &request);
 
       /**
-       * @summary 应用跨地域同步
+       * @summary Application cross-region synchronization
        *
        * @param tmpReq SynchronizeAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +452,7 @@ namespace EhpcInstant20230701
       Models::SynchronizeAppResponse synchronizeAppWithOptions(const Models::SynchronizeAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 应用跨地域同步
+       * @summary Application cross-region synchronization
        *
        * @param request SynchronizeAppRequest
        * @return SynchronizeAppResponse
@@ -429,7 +460,7 @@ namespace EhpcInstant20230701
       Models::SynchronizeAppResponse synchronizeApp(const Models::SynchronizeAppRequest &request);
 
       /**
-       * @summary 为指定的资源列表统一创建并绑定标签
+       * @summary Create and bind tags to Instant resource list
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +469,7 @@ namespace EhpcInstant20230701
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为指定的资源列表统一创建并绑定标签
+       * @summary Create and bind tags to Instant resource list
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -446,7 +477,7 @@ namespace EhpcInstant20230701
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 为指定的ECS资源列表统一解绑标签
+       * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
        *
        * @param request UnTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +486,7 @@ namespace EhpcInstant20230701
       Models::UnTagResourcesResponse unTagResourcesWithOptions(const Models::UnTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为指定的ECS资源列表统一解绑标签
+       * @summary Unbind tags from Instant resource list. If the tag is not bound to other resources, the tag is automatically deleted.
        *
        * @param request UnTagResourcesRequest
        * @return UnTagResourcesResponse
@@ -463,7 +494,7 @@ namespace EhpcInstant20230701
       Models::UnTagResourcesResponse unTagResources(const Models::UnTagResourcesRequest &request);
 
       /**
-       * @summary 更新执行计划
+       * @summary Adjust the resource scale of the execution plan or modify the execution status
        *
        * @param request UpdateActionPlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +503,7 @@ namespace EhpcInstant20230701
       Models::UpdateActionPlanResponse updateActionPlanWithOptions(const Models::UpdateActionPlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新执行计划
+       * @summary Adjust the resource scale of the execution plan or modify the execution status
        *
        * @param request UpdateActionPlanRequest
        * @return UpdateActionPlanResponse
@@ -480,7 +511,7 @@ namespace EhpcInstant20230701
       Models::UpdateActionPlanResponse updateActionPlan(const Models::UpdateActionPlanRequest &request);
 
       /**
-       * @summary 更新资源池
+       * @summary Update the resource pool configuration.
        *
        * @param tmpReq UpdatePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +520,7 @@ namespace EhpcInstant20230701
       Models::UpdatePoolResponse updatePoolWithOptions(const Models::UpdatePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新资源池
+       * @summary Update the resource pool configuration.
        *
        * @param request UpdatePoolRequest
        * @return UpdatePoolResponse

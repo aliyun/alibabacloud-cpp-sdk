@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arrayIndex_ != nullptr
-        && this->metric_ != nullptr; };
+    virtual bool empty() const override { return this->arrayIndex_ == nullptr
+        && return this->metric_ == nullptr; };
     // arrayIndex Field Functions 
     bool hasArrayIndex() const { return this->arrayIndex_ != nullptr;};
     void deleteArrayIndex() { this->arrayIndex_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The index of the array job.
     std::shared_ptr<int32_t> arrayIndex_ = nullptr;
+    // The monitoring item information corresponding to the array job index.
     std::shared_ptr<string> metric_ = nullptr;
   };
 

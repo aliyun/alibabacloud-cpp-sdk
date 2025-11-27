@@ -40,8 +40,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resource_ != nullptr
-        && this->retryPolicy_ != nullptr && this->taskExecutor_ != nullptr && this->volumeMount_ != nullptr; };
+    virtual bool empty() const override { return this->resource_ == nullptr
+        && return this->retryPolicy_ == nullptr && return this->taskExecutor_ == nullptr && return this->volumeMount_ == nullptr; };
     // resource Field Functions 
     bool hasResource() const { return this->resource_ != nullptr;};
     void deleteResource() { this->resource_ = nullptr;};
@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // The resource information of the running environment.
     std::shared_ptr<Models::CreateJobRequestTasksTaskSpecResource> resource_ = nullptr;
+    // Task retry policy.
     std::shared_ptr<Models::CreateJobRequestTasksTaskSpecRetryPolicy> retryPolicy_ = nullptr;
+    // The task execution configurations.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecTaskExecutor>> taskExecutor_ = nullptr;
+    // The list of data volumes mounted to the task. A maximum of 10 groups.
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecVolumeMount>> volumeMount_ = nullptr;
   };
 

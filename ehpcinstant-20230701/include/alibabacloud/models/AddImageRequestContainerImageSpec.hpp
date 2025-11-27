@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isACREnterprise_ != nullptr
-        && this->isACRRegistry_ != nullptr && this->registryCredential_ != nullptr && this->registryCriId_ != nullptr && this->registryUrl_ != nullptr; };
+    virtual bool empty() const override { return this->isACREnterprise_ == nullptr
+        && return this->isACRRegistry_ == nullptr && return this->registryCredential_ == nullptr && return this->registryCriId_ == nullptr && return this->registryUrl_ == nullptr; };
     // isACREnterprise Field Functions 
     bool hasIsACREnterprise() const { return this->isACREnterprise_ != nullptr;};
     void deleteIsACREnterprise() { this->isACREnterprise_ = nullptr;};
@@ -78,10 +78,21 @@ namespace Models
 
 
   protected:
+    // Whether the instance is an Alibaba Cloud image repository Enterprise Edition.
+    // 
+    // *   True
+    // *   False
     std::shared_ptr<bool> isACREnterprise_ = nullptr;
+    // Whether it is an Alibaba Cloud image repository.
+    // 
+    // *   True
+    // *   False
     std::shared_ptr<bool> isACRRegistry_ = nullptr;
+    // The authentication of the private image repository.
     std::shared_ptr<Models::AddImageRequestContainerImageSpecRegistryCredential> registryCredential_ = nullptr;
+    // The ID of the Container Registry Enterprise Edition image repository.
     std::shared_ptr<string> registryCriId_ = nullptr;
+    // The endpoint of the container image.
     std::shared_ptr<string> registryUrl_ = nullptr;
   };
 

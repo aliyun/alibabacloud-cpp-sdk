@@ -21,6 +21,10 @@
 #include <alibabacloud/models/DeleteActionPlanRequest.hpp>
 #include <alibabacloud/models/DeleteActionPlanResponseBody.hpp>
 #include <alibabacloud/models/DeleteActionPlanResponse.hpp>
+#include <alibabacloud/models/DeleteJobRecordsRequest.hpp>
+#include <alibabacloud/models/DeleteJobRecordsShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteJobRecordsResponseBody.hpp>
+#include <alibabacloud/models/DeleteJobRecordsResponse.hpp>
 #include <alibabacloud/models/DeleteJobsRequest.hpp>
 #include <alibabacloud/models/DeleteJobsShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteJobsResponseBody.hpp>
@@ -103,7 +107,7 @@
 #include <alibabacloud/models/UpdatePoolResponse.hpp>
 #include <alibabacloud/models/AddImageRequestContainerImageSpecRegistryCredential.hpp>
 #include <alibabacloud/models/AddImageRequestContainerImageSpec.hpp>
-#include <alibabacloud/models/AddImageRequestVmimageSpec.hpp>
+#include <alibabacloud/models/AddImageRequestVmImageSpec.hpp>
 #include <alibabacloud/models/CreateActionPlanRequestRegions.hpp>
 #include <alibabacloud/models/CreateActionPlanRequestResources.hpp>
 #include <alibabacloud/models/CreateJobRequestDependencyPolicyJobDependency.hpp>
@@ -138,7 +142,7 @@
 #include <alibabacloud/models/GetImageResponseBodyImageContainerImageSpecRegistryCredential.hpp>
 #include <alibabacloud/models/GetImageResponseBodyImageContainerImageSpec.hpp>
 #include <alibabacloud/models/GetImageResponseBodyImageDocumentInfo.hpp>
-#include <alibabacloud/models/GetImageResponseBodyImageVmimageSpec.hpp>
+#include <alibabacloud/models/GetImageResponseBodyImageVmImageSpec.hpp>
 #include <alibabacloud/models/GetImageResponseBodyImage.hpp>
 #include <alibabacloud/models/GetJobResponseBodyJobInfoDependencyPolicyJobDependency.hpp>
 #include <alibabacloud/models/GetJobResponseBodyJobInfoDependencyPolicy.hpp>

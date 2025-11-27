@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dependencyPolicyShrink_ != nullptr
-        && this->deploymentPolicyShrink_ != nullptr && this->jobDescription_ != nullptr && this->jobName_ != nullptr && this->jobScheduler_ != nullptr && this->securityPolicyShrink_ != nullptr
-        && this->tasksShrink_ != nullptr; };
+    virtual bool empty() const override { return this->dependencyPolicyShrink_ == nullptr
+        && return this->deploymentPolicyShrink_ == nullptr && return this->jobDescription_ == nullptr && return this->jobName_ == nullptr && return this->jobScheduler_ == nullptr && return this->securityPolicyShrink_ == nullptr
+        && return this->tasksShrink_ == nullptr; };
     // dependencyPolicyShrink Field Functions 
     bool hasDependencyPolicyShrink() const { return this->dependencyPolicyShrink_ != nullptr;};
     void deleteDependencyPolicyShrink() { this->dependencyPolicyShrink_ = nullptr;};
@@ -94,13 +94,27 @@ namespace Models
 
 
   protected:
+    // Dependency policy.
     std::shared_ptr<string> dependencyPolicyShrink_ = nullptr;
+    // The resource deployment policy.
     std::shared_ptr<string> deploymentPolicyShrink_ = nullptr;
+    // The description of the job.
     std::shared_ptr<string> jobDescription_ = nullptr;
+    // The job name. The name must be 2 to 64 characters in length and can contain letters, digits, and Chinese characters. It can contain hyphens (-) and underscores (_).
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobName_ = nullptr;
+    // The type of the job scheduler.
+    // 
+    // *   HPC
+    // *   K8S
+    // 
+    // Default value: HPC
     std::shared_ptr<string> jobScheduler_ = nullptr;
+    // The security policy.
     std::shared_ptr<string> securityPolicyShrink_ = nullptr;
+    // The list of tasks. Only one task is supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tasksShrink_ = nullptr;
   };

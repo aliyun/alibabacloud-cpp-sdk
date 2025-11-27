@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->poolName_ != nullptr
-        && this->status_ != nullptr && this->timeCreatedAfter_ != nullptr && this->timeCreatedBefore_ != nullptr; };
+    virtual bool empty() const override { return this->poolName_ == nullptr
+        && return this->status_ == nullptr && return this->timeCreatedAfter_ == nullptr && return this->timeCreatedBefore_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
@@ -71,9 +71,13 @@ namespace Models
 
 
   protected:
+    // Queries the list of resource pool names.
     std::shared_ptr<vector<string>> poolName_ = nullptr;
+    // Queries resource pool status list.
     std::shared_ptr<vector<string>> status_ = nullptr;
+    // For node pools created after this time, the time in the region is converted into a UNIX timestamp.
     std::shared_ptr<int32_t> timeCreatedAfter_ = nullptr;
+    // For node pools created before this time, the time in the region is converted into a UNIX timestamp.
     std::shared_ptr<int32_t> timeCreatedBefore_ = nullptr;
   };
 

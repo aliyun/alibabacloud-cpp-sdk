@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appName_ != nullptr
-        && this->imageCategory_ != nullptr && this->imageType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->appName_ == nullptr
+        && return this->imageCategory_ == nullptr && return this->imageType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -75,11 +75,25 @@ namespace Models
 
 
   protected:
+    // The application name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appName_ = nullptr;
+    // The source of the image. Valid values:
+    // 
+    // Public: public images provided by Alibaba Cloud.
+    // 
+    // Custom: the custom image that you added.
     std::shared_ptr<string> imageCategory_ = nullptr;
+    // The type of the images. Valid values:
+    // 
+    // VM: Virtual Machine Image
+    // 
+    // Container: container image
     std::shared_ptr<string> imageType_ = nullptr;
+    // The page number. Default value: 1.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries to return on each page. Default value: 20.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
   };
 

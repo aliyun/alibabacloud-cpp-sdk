@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanId_ != nullptr
-        && this->desiredCapacity_ != nullptr && this->enabled_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanId_ == nullptr
+        && return this->desiredCapacity_ == nullptr && return this->enabled_ == nullptr; };
     // actionPlanId Field Functions 
     bool hasActionPlanId() const { return this->actionPlanId_ != nullptr;};
     void deleteActionPlanId() { this->actionPlanId_ = nullptr;};
@@ -57,8 +57,19 @@ namespace Models
 
 
   protected:
+    // The ID of the execution plan.
     std::shared_ptr<string> actionPlanId_ = nullptr;
+    // The expected scale of resources for the execution plan. If the ResourceType parameter is set to VcpuCapacity, the execution plan is expected to have 10000 vCPUs.
     std::shared_ptr<float> desiredCapacity_ = nullptr;
+    // Whether to enable the execution plan. Valid values:
+    // 
+    // *   true: enables the execution plan.
+    // 
+    // *   false: The execution plan is disabled.
+    // 
+    //     **
+    // 
+    //     **Note:** After an execution plan is disabled, the created Instant jobs are not automatically managed by the execution plan.
     std::shared_ptr<string> enabled_ = nullptr;
   };
 

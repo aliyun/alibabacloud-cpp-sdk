@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->image_ != nullptr
-        && this->requestId_ != nullptr && this->success_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->image_ == nullptr
+        && return this->requestId_ == nullptr && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
@@ -69,9 +69,16 @@ namespace Models
 
 
   protected:
+    // The details of the image.
     std::shared_ptr<GetImageResponseBodyImage> image_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   true: The task is successful.
+    // *   false: The error occurred.
     std::shared_ptr<bool> success_ = nullptr;
+    // The total amount of data in this request.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

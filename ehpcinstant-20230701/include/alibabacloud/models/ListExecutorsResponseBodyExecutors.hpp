@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TaskName, taskName_);
       DARABONBA_PTR_TO_JSON(TaskSustainable, taskSustainable_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
     };
     friend void from_json(const Darabonba::Json& j, ListExecutorsResponseBodyExecutors& obj) { 
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
       DARABONBA_PTR_FROM_JSON(TaskSustainable, taskSustainable_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswitchId, vswitchId_);
     };
     ListExecutorsResponseBodyExecutors() = default ;
@@ -78,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationSpec_ != nullptr
-        && this->appName_ != nullptr && this->arrayIndex_ != nullptr && this->blockDuration_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr
-        && this->executorId_ != nullptr && this->expirationTime_ != nullptr && this->externalIpAddress_ != nullptr && this->hostName_ != nullptr && this->image_ != nullptr
-        && this->ipAddress_ != nullptr && this->jobId_ != nullptr && this->jobName_ != nullptr && this->preemptible_ != nullptr && this->resource_ != nullptr
-        && this->resourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr && this->tags_ != nullptr
-        && this->taskName_ != nullptr && this->taskSustainable_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->allocationSpec_ == nullptr
+        && return this->appName_ == nullptr && return this->arrayIndex_ == nullptr && return this->blockDuration_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr
+        && return this->executorId_ == nullptr && return this->expirationTime_ == nullptr && return this->externalIpAddress_ == nullptr && return this->hostName_ == nullptr && return this->image_ == nullptr
+        && return this->ipAddress_ == nullptr && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->preemptible_ == nullptr && return this->resource_ == nullptr
+        && return this->resourceType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr && return this->tags_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskSustainable_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
     // allocationSpec Field Functions 
     bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
     void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -255,6 +257,13 @@ namespace Models
     inline ListExecutorsResponseBodyExecutors& setTaskSustainable(bool taskSustainable) { DARABONBA_PTR_SET_VALUE(taskSustainable_, taskSustainable) };
 
 
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline ListExecutorsResponseBodyExecutors& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
     // vswitchId Field Functions 
     bool hasVswitchId() const { return this->vswitchId_ != nullptr;};
     void deleteVswitchId() { this->vswitchId_ = nullptr;};
@@ -265,27 +274,58 @@ namespace Models
   protected:
     std::shared_ptr<string> allocationSpec_ = nullptr;
     std::shared_ptr<string> appName_ = nullptr;
+    // The executor number.
     std::shared_ptr<int32_t> arrayIndex_ = nullptr;
     std::shared_ptr<int32_t> blockDuration_ = nullptr;
+    // The time when the instance was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The end time.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The executor ID. The format is JobId-TaskName-ArrayIndex.
     std::shared_ptr<string> executorId_ = nullptr;
     std::shared_ptr<string> expirationTime_ = nullptr;
+    // The list of public IP addresses of the nodes.
     std::shared_ptr<vector<string>> externalIpAddress_ = nullptr;
+    // The list of hostnames.
     std::shared_ptr<vector<string>> hostName_ = nullptr;
+    // Executor image.
     std::shared_ptr<string> image_ = nullptr;
+    // The list of internal IP addresses.
     std::shared_ptr<vector<string>> ipAddress_ = nullptr;
+    // The job ID.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The job name.
     std::shared_ptr<string> jobName_ = nullptr;
     std::shared_ptr<bool> preemptible_ = nullptr;
+    // The resource information.
     std::shared_ptr<Models::ListExecutorsResponseBodyExecutorsResource> resource_ = nullptr;
+    // The type of the resource.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The start time.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The status of the executor. Valid values:
+    // 
+    // *   Pending
+    // *   Initing
+    // *   Succeed
+    // *   Failed
+    // *   Running
+    // *   Unknown
+    // *   Exception
+    // *   Retrying
+    // *   Expired
+    // *   Deleted
     std::shared_ptr<string> status_ = nullptr;
+    // The description of the status reason.
     std::shared_ptr<string> statusReason_ = nullptr;
+    // The list of executor tags.
     std::shared_ptr<vector<Models::ListExecutorsResponseBodyExecutorsTags>> tags_ = nullptr;
+    // The name of the task.
     std::shared_ptr<string> taskName_ = nullptr;
+    // Indicate whether the job is a long-running job.
     std::shared_ptr<bool> taskSustainable_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
+    // The ID of the vSwitch.
     std::shared_ptr<string> vswitchId_ = nullptr;
   };
 

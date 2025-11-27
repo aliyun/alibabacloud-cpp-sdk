@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->createTime_ != nullptr && this->description_ != nullptr && this->documentId_ != nullptr && this->imageId_ != nullptr && this->imageType_ != nullptr
-        && this->name_ != nullptr && this->osTag_ != nullptr && this->updateTime_ != nullptr && this->version_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->documentId_ == nullptr && return this->imageId_ == nullptr && return this->imageType_ == nullptr
+        && return this->name_ == nullptr && return this->osTag_ == nullptr && return this->updateTime_ == nullptr && return this->version_ == nullptr && return this->weight_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -130,19 +130,33 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appId_ = nullptr;
+    // The time when the storage resource was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description of the image.
     std::shared_ptr<string> description_ = nullptr;
+    // The document ID.
     std::shared_ptr<int32_t> documentId_ = nullptr;
+    // The image ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The type of the image.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageType_ = nullptr;
+    // The name of the image.
     std::shared_ptr<string> name_ = nullptr;
+    // The ID of the specific OS version.
     std::shared_ptr<string> osTag_ = nullptr;
+    // The time when the image was updated.
     std::shared_ptr<string> updateTime_ = nullptr;
+    // The version of the image.
     std::shared_ptr<string> version_ = nullptr;
+    // The weight.
     std::shared_ptr<int32_t> weight_ = nullptr;
   };
 

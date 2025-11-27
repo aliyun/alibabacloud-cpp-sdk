@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arrayId_ != nullptr
-        && this->createTime_ != nullptr && this->endTime_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->statusReason_ != nullptr; };
+    virtual bool empty() const override { return this->arrayId_ == nullptr
+        && return this->createTime_ == nullptr && return this->endTime_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
     // arrayId Field Functions 
     bool hasArrayId() const { return this->arrayId_ != nullptr;};
     void deleteArrayId() { this->arrayId_ = nullptr;};
@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Sub-job ID
     std::shared_ptr<int32_t> arrayId_ = nullptr;
+    // The time when the job was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The end time of the scaling plan job.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The start time of the scaling plan job.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The status of the job.
     std::shared_ptr<string> status_ = nullptr;
+    // The reason why the stack instance is in the OUTDATED state.
     std::shared_ptr<string> statusReason_ = nullptr;
   };
 

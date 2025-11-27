@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->label_ != nullptr
-        && this->order_ != nullptr; };
+    virtual bool empty() const override { return this->label_ == nullptr
+        && return this->order_ == nullptr; };
     // label Field Functions 
     bool hasLabel() const { return this->label_ != nullptr;};
     void deleteLabel() { this->label_ = nullptr;};
@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The sorting label. Valid values:
+    // 
+    // *   time_start
+    // *   job_name
     std::shared_ptr<string> label_ = nullptr;
+    // The sorting order. Valid values:
+    // 
+    // *   ASC (default): ascending order
+    // *   DESC: descending order
     std::shared_ptr<string> order_ = nullptr;
   };
 

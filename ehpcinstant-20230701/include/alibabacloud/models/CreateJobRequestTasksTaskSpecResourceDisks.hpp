@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->size_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->size_ == nullptr
+        && return this->type_ == nullptr; };
     // size Field Functions 
     bool hasSize() const { return this->size_ != nullptr;};
     void deleteSize() { this->size_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The size of the disk. Unit: GiB.
     std::shared_ptr<int32_t> size_ = nullptr;
+    // The type of the disk. Currently, only System is supported, which indicates the system disk.
     std::shared_ptr<string> type_ = nullptr;
   };
 

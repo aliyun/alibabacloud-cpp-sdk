@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cores_ != nullptr
-        && this->disks_ != nullptr && this->enableHT_ != nullptr && this->hostNamePrefix_ != nullptr && this->instanceTypes_ != nullptr && this->memory_ != nullptr; };
+    virtual bool empty() const override { return this->cores_ == nullptr
+        && return this->disks_ == nullptr && return this->enableHT_ == nullptr && return this->hostNamePrefix_ == nullptr && return this->instanceTypes_ == nullptr && return this->memory_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
@@ -90,11 +90,15 @@ namespace Models
 
 
   protected:
+    // The number of CPUs in the running environment.
     std::shared_ptr<float> cores_ = nullptr;
+    // The array of the disks.
     std::shared_ptr<vector<Models::CreateJobRequestTasksTaskSpecResourceDisks>> disks_ = nullptr;
     std::shared_ptr<bool> enableHT_ = nullptr;
     std::shared_ptr<string> hostNamePrefix_ = nullptr;
+    // The instance type of the running environment. A maximum of 5 groups.
     std::shared_ptr<vector<string>> instanceTypes_ = nullptr;
+    // The memory size of the running environment. Unit: GiB.
     std::shared_ptr<float> memory_ = nullptr;
   };
 

@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arraySpec_ != nullptr
-        && this->maxCount_ != nullptr; };
+    virtual bool empty() const override { return this->arraySpec_ == nullptr
+        && return this->maxCount_ == nullptr; };
     // arraySpec Field Functions 
     bool hasArraySpec() const { return this->arraySpec_ != nullptr;};
     void deleteArraySpec() { this->arraySpec_ = nullptr;};
@@ -51,7 +51,21 @@ namespace Models
 
 
   protected:
+    // The details of the array job. The index value of the sub-job is passed to the running environment through environment variables to support user business program reference. Environment variables include:
+    // 
+    // *   EHPC_JOB_NAME: the name of the job. This parameter corresponds to the JobName parameter.
+    // *   EHPC_JOB_ID: The ID of the job.
+    // *   EHPC_TASK_NAME: the name of the task. This parameter corresponds to the TaskName parameter.
+    // *   EHPC_EXECUTOR_ID: The ID of the execution unit.
+    // *   EHPC_ARRAY_TASK_ID: the sub-job index value.
+    // *   EHPC_ARRAY_TASK_COUNT: the total number of sub-jobs.
+    // *   EHPC_ARRAY_TASK_MAX: the maximum sub-job index, which corresponds to the IndexStart parameter.
+    // *   EHPC_ARRAY_TASK_MIN: the minimum value of the sub-job index, which corresponds to the IndexEnd parameter.
+    // *   EHPC_ARRAY_TASK_STEP: the index step size of the sub-job, which corresponds to the IndexStep parameter.
     std::shared_ptr<Models::CreateJobRequestTasksExecutorPolicyArraySpec> arraySpec_ = nullptr;
+    // The maximum number of nodes to run the job.
+    // 
+    // > Follow the calculation formula: `MaxCount = (IndexEnd - IndexStart) / IndexStep +1`
     std::shared_ptr<int32_t> maxCount_ = nullptr;
   };
 

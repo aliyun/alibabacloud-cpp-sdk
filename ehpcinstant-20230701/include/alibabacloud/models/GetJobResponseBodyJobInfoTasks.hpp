@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executorPolicy_ != nullptr
-        && this->executorStatus_ != nullptr && this->taskName_ != nullptr && this->taskSpec_ != nullptr && this->taskSustainable_ != nullptr; };
+    virtual bool empty() const override { return this->executorPolicy_ == nullptr
+        && return this->executorStatus_ == nullptr && return this->taskName_ == nullptr && return this->taskSpec_ == nullptr && return this->taskSustainable_ == nullptr; };
     // executorPolicy Field Functions 
     bool hasExecutorPolicy() const { return this->executorPolicy_ != nullptr;};
     void deleteExecutorPolicy() { this->executorPolicy_ = nullptr;};
@@ -85,10 +85,15 @@ namespace Models
 
 
   protected:
+    // The task execution policy.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoTasksExecutorPolicy> executorPolicy_ = nullptr;
+    // The execution status of the task.
     std::shared_ptr<vector<Models::GetJobResponseBodyJobInfoTasksExecutorStatus>> executorStatus_ = nullptr;
+    // The name of the task.
     std::shared_ptr<string> taskName_ = nullptr;
+    // The details of the task specification.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoTasksTaskSpec> taskSpec_ = nullptr;
+    // Indicate whether the job is a long-running job.
     std::shared_ptr<bool> taskSustainable_ = nullptr;
   };
 

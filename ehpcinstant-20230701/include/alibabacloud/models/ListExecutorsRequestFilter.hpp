@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TimeCreatedAfter, timeCreatedAfter_);
       DARABONBA_PTR_TO_JSON(TimeCreatedBefore, timeCreatedBefore_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
     };
     friend void from_json(const Darabonba::Json& j, ListExecutorsRequestFilter& obj) { 
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TimeCreatedAfter, timeCreatedAfter_);
       DARABONBA_PTR_FROM_JSON(TimeCreatedBefore, timeCreatedBefore_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswitchId, vswitchId_);
     };
     ListExecutorsRequestFilter() = default ;
@@ -44,9 +46,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executorIds_ != nullptr
-        && this->image_ != nullptr && this->ipAddresses_ != nullptr && this->jobName_ != nullptr && this->status_ != nullptr && this->timeCreatedAfter_ != nullptr
-        && this->timeCreatedBefore_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->executorIds_ == nullptr
+        && return this->image_ == nullptr && return this->ipAddresses_ == nullptr && return this->jobName_ == nullptr && return this->status_ == nullptr && return this->timeCreatedAfter_ == nullptr
+        && return this->timeCreatedBefore_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
     // executorIds Field Functions 
     bool hasExecutorIds() const { return this->executorIds_ != nullptr;};
     void deleteExecutorIds() { this->executorIds_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline ListExecutorsRequestFilter& setTimeCreatedBefore(int32_t timeCreatedBefore) { DARABONBA_PTR_SET_VALUE(timeCreatedBefore_, timeCreatedBefore) };
 
 
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline ListExecutorsRequestFilter& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
     // vswitchId Field Functions 
     bool hasVswitchId() const { return this->vswitchId_ != nullptr;};
     void deleteVswitchId() { this->vswitchId_ = nullptr;};
@@ -110,13 +119,22 @@ namespace Models
 
 
   protected:
+    // The list of executor IDs. A maximum of 100 IDs are supported.
     std::shared_ptr<vector<string>> executorIds_ = nullptr;
+    // Executor image.
     std::shared_ptr<string> image_ = nullptr;
+    // The list of internal IP addresses. A maximum of 100 IP addresses are supported.
     std::shared_ptr<vector<string>> ipAddresses_ = nullptr;
+    // The job name. Exact filtering. Fuzzy query is not supported.
     std::shared_ptr<string> jobName_ = nullptr;
+    // Executor status list.
     std::shared_ptr<vector<string>> status_ = nullptr;
+    // For jobs submitted after this time, the time in the region is converted into a UNIX timestamp (UI8).
     std::shared_ptr<int32_t> timeCreatedAfter_ = nullptr;
+    // For jobs submitted before this time, the time in the region is converted into a Unix timestamp (for domestic sites, the UI8 region).
     std::shared_ptr<int32_t> timeCreatedBefore_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
+    // The ID of the vSwitch.
     std::shared_ptr<string> vswitchId_ = nullptr;
   };
 

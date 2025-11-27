@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arraySpec_ != nullptr
-        && this->maxCount_ != nullptr; };
+    virtual bool empty() const override { return this->arraySpec_ == nullptr
+        && return this->maxCount_ == nullptr; };
     // arraySpec Field Functions 
     bool hasArraySpec() const { return this->arraySpec_ != nullptr;};
     void deleteArraySpec() { this->arraySpec_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The details of the array job.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoTasksExecutorPolicyArraySpec> arraySpec_ = nullptr;
+    // The maximum number of nodes to run the job.
     std::shared_ptr<int32_t> maxCount_ = nullptr;
   };
 

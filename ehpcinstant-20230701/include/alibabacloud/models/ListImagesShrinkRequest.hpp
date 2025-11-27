@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageCategory_ != nullptr
-        && this->imageIdsShrink_ != nullptr && this->imageNamesShrink_ != nullptr && this->imageType_ != nullptr && this->mode_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr; };
+    virtual bool empty() const override { return this->imageCategory_ == nullptr
+        && return this->imageIdsShrink_ == nullptr && return this->imageNamesShrink_ == nullptr && return this->imageType_ == nullptr && return this->mode_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr; };
     // imageCategory Field Functions 
     bool hasImageCategory() const { return this->imageCategory_ != nullptr;};
     void deleteImageCategory() { this->imageCategory_ = nullptr;};
@@ -94,12 +94,32 @@ namespace Models
 
 
   protected:
+    // The source of the image. Valid values:
+    // 
+    // *   Public: public images provided by Alibaba Cloud.
+    // *   Custom: the custom image that you added.
     std::shared_ptr<string> imageCategory_ = nullptr;
+    // The array of image IDs.
     std::shared_ptr<string> imageIdsShrink_ = nullptr;
+    // The array of image names.
     std::shared_ptr<string> imageNamesShrink_ = nullptr;
+    // The type of the images. Valid values:
+    // 
+    // *   VM: virtual machine image.
+    // *   Container: the container image.
+    // 
+    // Default value: VM
     std::shared_ptr<string> imageType_ = nullptr;
+    // The query mode. Valid values:
+    // 
+    // *   List: queries the list of all corresponding image versions.
+    // *   Merge: merges images to query the latest version list.
     std::shared_ptr<string> mode_ = nullptr;
+    // The number of the page to return.\\
+    // Default value: 1.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of pieces per page.\\
+    // Default value: 20.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
   };
 

@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanId_ != nullptr
-        && this->actionPlanName_ != nullptr && this->createTime_ != nullptr && this->status_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanId_ == nullptr
+        && return this->actionPlanName_ == nullptr && return this->createTime_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // actionPlanId Field Functions 
     bool hasActionPlanId() const { return this->actionPlanId_ != nullptr;};
     void deleteActionPlanId() { this->actionPlanId_ = nullptr;};
@@ -75,10 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the execution plan.
     std::shared_ptr<string> actionPlanId_ = nullptr;
+    // The name of the execution plan.
     std::shared_ptr<string> actionPlanName_ = nullptr;
+    // The time when the execution plan was created.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The status of the execution plan. The possible values are as follows:
+    // 
+    // *   Active Instant tasks are dynamically managed only when the execution plan is in the Active state.
+    // *   Inactive Instant tasks are no longer managed by execution plans in the Inactive state.
+    // *   Deleting: The execution plan is being deleted. You cannot modify the parameters of an execution plan in this state.
     std::shared_ptr<string> status_ = nullptr;
+    // The time when the execution plan was last modified. The time follows the ISO 8601 standard and UTC +0. The format is yyyy-MM-ddTHH:mmZ.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->jobId_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->jobId_ == nullptr
+        && return this->type_ == nullptr; };
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -48,8 +48,18 @@ namespace Models
 
 
   protected:
+    // The ID of the job.
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The type of the dependency. Valid values:
+    // 
+    // *   AfterSucceeded: **All subtasks** of the dependent job or array job succeed. The exit code is 0.
+    // *   AfterFailed: **All subtasks** of the dependent job or array job fail. The exit code is not 0.
+    // *   AfterAny: The dependent job completes (succeeds or fails).
+    // *   AfterCorresponding: The subtask corresponding to the dependent array job succeeds. The exit code is 0.
+    // 
+    // Default value: AfterSucceeded.
     std::shared_ptr<string> type_ = nullptr;
   };
 

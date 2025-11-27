@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageId_ != nullptr
-        && this->name_ != nullptr && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->imageId_ == nullptr
+        && return this->name_ == nullptr && return this->version_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The image ID of the application.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The application name.
     std::shared_ptr<string> name_ = nullptr;
+    // The application version.
     std::shared_ptr<string> version_ = nullptr;
   };
 

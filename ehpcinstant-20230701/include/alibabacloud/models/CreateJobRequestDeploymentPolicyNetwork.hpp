@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableExternalIpAddress_ != nullptr
-        && this->vswitch_ != nullptr; };
+    virtual bool empty() const override { return this->enableExternalIpAddress_ == nullptr
+        && return this->vswitch_ == nullptr; };
     // enableExternalIpAddress Field Functions 
     bool hasEnableExternalIpAddress() const { return this->enableExternalIpAddress_ != nullptr;};
     void deleteEnableExternalIpAddress() { this->enableExternalIpAddress_ = nullptr;};
@@ -51,7 +51,14 @@ namespace Models
 
 
   protected:
+    // Whether the job creates a public IP address.
+    // 
+    // *   true: creates a public IP address.
+    // *   false: does not create a public IP address.
+    // 
+    // Default value: false.
     std::shared_ptr<bool> enableExternalIpAddress_ = nullptr;
+    // The VSwitch array.
     std::shared_ptr<vector<string>> vswitch_ = nullptr;
   };
 

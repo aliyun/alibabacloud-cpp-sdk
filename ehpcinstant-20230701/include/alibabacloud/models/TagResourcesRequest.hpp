@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resourceId_ != nullptr
-        && this->resourceType_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->resourceId_ == nullptr
+        && return this->resourceType_ == nullptr && return this->tag_ == nullptr; };
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -63,10 +63,19 @@ namespace Models
 
 
   protected:
+    // The list of resource IDs. Valid values of N: 1 to 50.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    // The type of the resource. Valid values:
+    // 
+    // *   Job
+    // *   Executor
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<TagResourcesRequestTag>> tag_ = nullptr;
   };

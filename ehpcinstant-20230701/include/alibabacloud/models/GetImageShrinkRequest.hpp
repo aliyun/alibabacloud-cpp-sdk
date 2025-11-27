@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalRegionIdsShrink_ != nullptr
-        && this->imageCategory_ != nullptr && this->imageId_ != nullptr && this->imageType_ != nullptr; };
+    virtual bool empty() const override { return this->additionalRegionIdsShrink_ == nullptr
+        && return this->imageCategory_ == nullptr && return this->imageId_ == nullptr && return this->imageType_ == nullptr; };
     // additionalRegionIdsShrink Field Functions 
     bool hasAdditionalRegionIdsShrink() const { return this->additionalRegionIdsShrink_ != nullptr;};
     void deleteAdditionalRegionIdsShrink() { this->additionalRegionIdsShrink_ = nullptr;};
@@ -67,8 +67,19 @@ namespace Models
 
   protected:
     std::shared_ptr<string> additionalRegionIdsShrink_ = nullptr;
+    // The source of the image. Valid values:
+    // 
+    // *   Public: public images provided by Alibaba Cloud.
+    // *   Custom: the custom image that you added.
     std::shared_ptr<string> imageCategory_ = nullptr;
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The type of the images. Valid values:
+    // 
+    // *   VM: virtual machine image.
+    // *   Container: the container image.
+    // 
+    // Default value: VM
     std::shared_ptr<string> imageType_ = nullptr;
   };
 

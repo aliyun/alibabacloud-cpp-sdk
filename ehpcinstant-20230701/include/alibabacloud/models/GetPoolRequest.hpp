@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->poolName_ != nullptr; };
+    virtual bool empty() const override { return this->poolName_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // The name of the resource pool.
+    // 
+    // *   The value can be up to 15 characters in length.
+    // *   It can contain digits, uppercase letters, lowercase letters, underscores (_), and dots (.).
+    // 
     // This parameter is required.
     std::shared_ptr<string> poolName_ = nullptr;
   };

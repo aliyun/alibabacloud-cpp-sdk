@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResult_ != nullptr
-        && this->nextToken_ != nullptr && this->resourceId_ != nullptr && this->resourceType_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->maxResult_ == nullptr
+        && return this->nextToken_ == nullptr && return this->resourceId_ == nullptr && return this->resourceType_ == nullptr && return this->tag_ == nullptr; };
     // maxResult Field Functions 
     bool hasMaxResult() const { return this->maxResult_ != nullptr;};
     void deleteMaxResult() { this->maxResult_ = nullptr;};
@@ -81,11 +81,20 @@ namespace Models
 
 
   protected:
+    // The number of records per page.
     std::shared_ptr<int32_t> maxResult_ = nullptr;
+    // A pagination token.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The list of resource IDs. Valid values of N: 1 to 50.
     std::shared_ptr<vector<string>> resourceId_ = nullptr;
+    // The type of the resource. Valid values:
+    // 
+    // *   Job
+    // *   Executor
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
     std::shared_ptr<vector<ListTagResourcesRequestTag>> tag_ = nullptr;
   };
 

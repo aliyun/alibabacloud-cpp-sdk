@@ -38,8 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationSpec_ != nullptr
-        && this->level_ != nullptr && this->network_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->allocationSpec_ == nullptr
+        && return this->level_ == nullptr && return this->network_ == nullptr && return this->tags_ == nullptr; };
     // allocationSpec Field Functions 
     bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
     void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -73,9 +73,18 @@ namespace Models
 
 
   protected:
+    // The type of the resource. Only Dedicated is supported. You must enable a whitelist.
     std::shared_ptr<string> allocationSpec_ = nullptr;
+    // The computing power level. The following disk categories are supported:
+    // 
+    // *   General
+    // *   Performance
+    // 
+    // Default value: General
     std::shared_ptr<string> level_ = nullptr;
+    // The network configuration information.
     std::shared_ptr<Models::GetJobResponseBodyJobInfoDeploymentPolicyNetwork> network_ = nullptr;
+    // The list of job tags.
     std::shared_ptr<vector<Models::GetJobResponseBodyJobInfoDeploymentPolicyTags>> tags_ = nullptr;
   };
 

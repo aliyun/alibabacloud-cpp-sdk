@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->executorIds_ != nullptr
-        && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->executorIds_ == nullptr
+        && return this->taskName_ == nullptr; };
     // executorIds Field Functions 
     bool hasExecutorIds() const { return this->executorIds_ != nullptr;};
     void deleteExecutorIds() { this->executorIds_ = nullptr;};
@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of executor IDs contained in the task.
     std::shared_ptr<vector<string>> executorIds_ = nullptr;
+    // The name of the task.
     std::shared_ptr<string> taskName_ = nullptr;
   };
 

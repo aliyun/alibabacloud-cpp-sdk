@@ -39,8 +39,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlans_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlans_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr; };
     // actionPlans Field Functions 
     bool hasActionPlans() const { return this->actionPlans_ != nullptr;};
     void deleteActionPlans() { this->actionPlans_ = nullptr;};
@@ -79,11 +79,17 @@ namespace Models
 
 
   protected:
+    // The list of execution plan results.
     std::shared_ptr<vector<ListActionPlansResponseBodyActionPlans>> actionPlans_ = nullptr;
+    // The maximum number of records returned in this request.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // Indicates the read position returned by the current call. An empty value means all data has been read.
+    // 
     // This parameter is required.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Total data count under the current request conditions (optional; not returned by default).
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

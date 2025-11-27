@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionPlanActivityId_ != nullptr
-        && this->createdCapacity_ != nullptr && this->destroyCapacity_ != nullptr && this->endTime_ != nullptr && this->jobs_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->actionPlanActivityId_ == nullptr
+        && return this->createdCapacity_ == nullptr && return this->destroyCapacity_ == nullptr && return this->endTime_ == nullptr && return this->jobs_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr; };
     // actionPlanActivityId Field Functions 
     bool hasActionPlanActivityId() const { return this->actionPlanActivityId_ != nullptr;};
     void deleteActionPlanActivityId() { this->actionPlanActivityId_ = nullptr;};
@@ -98,12 +98,23 @@ namespace Models
 
 
   protected:
+    // The activity ID of the execution plan.
     std::shared_ptr<string> actionPlanActivityId_ = nullptr;
+    // The increased capacity of this execution plan activity.
     std::shared_ptr<float> createdCapacity_ = nullptr;
+    // The capacity released by this execution plan activity.
     std::shared_ptr<float> destroyCapacity_ = nullptr;
+    // The end time of the execution plan activity.
     std::shared_ptr<string> endTime_ = nullptr;
+    // The list of Instant jobs involved in the execution plan.
     std::shared_ptr<vector<Models::ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs>> jobs_ = nullptr;
+    // The start time of the implementation of the planned activity.
     std::shared_ptr<string> startTime_ = nullptr;
+    // The implementation status of the execution plan activity. Valid values:
+    // 
+    // *   InProcess
+    // *   Completed
+    // *   Failed
     std::shared_ptr<string> status_ = nullptr;
   };
 

@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->tagKey_ != nullptr
-        && this->tagValue_ != nullptr; };
+    virtual bool empty() const override { return this->tagKey_ == nullptr
+        && return this->tagValue_ == nullptr; };
     // tagKey Field Functions 
     bool hasTagKey() const { return this->tagKey_ != nullptr;};
     void deleteTagKey() { this->tagKey_ = nullptr;};
@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key of the job tag.
     std::shared_ptr<string> tagKey_ = nullptr;
+    // The value of the job tag.
     std::shared_ptr<string> tagValue_ = nullptr;
   };
 
