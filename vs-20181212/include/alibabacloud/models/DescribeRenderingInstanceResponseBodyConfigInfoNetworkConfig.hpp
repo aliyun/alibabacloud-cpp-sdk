@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandwidthStatus_ != nullptr
-        && this->maxEgressBandwidth_ != nullptr && this->maxIngressBandwidth_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->bandwidthStatus_ == nullptr
+        && return this->maxEgressBandwidth_ == nullptr && return this->maxIngressBandwidth_ == nullptr && return this->updateTime_ == nullptr; };
     // bandwidthStatus Field Functions 
     bool hasBandwidthStatus() const { return this->bandwidthStatus_ != nullptr;};
     void deleteBandwidthStatus() { this->bandwidthStatus_ = nullptr;};

@@ -93,14 +93,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmMethod_ != nullptr
-        && this->autoDirectory_ != nullptr && this->autoPos_ != nullptr && this->autoStart_ != nullptr && this->channelSyncTime_ != nullptr && this->createdTime_ != nullptr
-        && this->description_ != nullptr && this->directory_ != nullptr && this->directoryId_ != nullptr && this->dsn_ != nullptr && this->enabled_ != nullptr
-        && this->gbId_ != nullptr && this->groupId_ != nullptr && this->id_ != nullptr && this->ip_ != nullptr && this->latitude_ != nullptr
-        && this->longitude_ != nullptr && this->name_ != nullptr && this->params_ != nullptr && this->parentId_ != nullptr && this->password_ != nullptr
-        && this->port_ != nullptr && this->posInterval_ != nullptr && this->protocol_ != nullptr && this->registeredTime_ != nullptr && this->requestId_ != nullptr
-        && this->stats_ != nullptr && this->status_ != nullptr && this->type_ != nullptr && this->url_ != nullptr && this->username_ != nullptr
-        && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->alarmMethod_ == nullptr
+        && return this->autoDirectory_ == nullptr && return this->autoPos_ == nullptr && return this->autoStart_ == nullptr && return this->channelSyncTime_ == nullptr && return this->createdTime_ == nullptr
+        && return this->description_ == nullptr && return this->directory_ == nullptr && return this->directoryId_ == nullptr && return this->dsn_ == nullptr && return this->enabled_ == nullptr
+        && return this->gbId_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr && return this->ip_ == nullptr && return this->latitude_ == nullptr
+        && return this->longitude_ == nullptr && return this->name_ == nullptr && return this->params_ == nullptr && return this->parentId_ == nullptr && return this->password_ == nullptr
+        && return this->port_ == nullptr && return this->posInterval_ == nullptr && return this->protocol_ == nullptr && return this->registeredTime_ == nullptr && return this->requestId_ == nullptr
+        && return this->stats_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr && return this->url_ == nullptr && return this->username_ == nullptr
+        && return this->vendor_ == nullptr; };
     // alarmMethod Field Functions 
     bool hasAlarmMethod() const { return this->alarmMethod_ != nullptr;};
     void deleteAlarmMethod() { this->alarmMethod_ = nullptr;};

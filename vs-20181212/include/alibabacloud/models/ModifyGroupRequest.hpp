@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callback_ != nullptr
-        && this->description_ != nullptr && this->enabled_ != nullptr && this->id_ != nullptr && this->inProtocol_ != nullptr && this->lazyPull_ != nullptr
-        && this->name_ != nullptr && this->outProtocol_ != nullptr && this->ownerId_ != nullptr && this->playDomain_ != nullptr && this->pushDomain_ != nullptr
-        && this->region_ != nullptr; };
+    virtual bool empty() const override { return this->callback_ == nullptr
+        && return this->description_ == nullptr && return this->enabled_ == nullptr && return this->id_ == nullptr && return this->inProtocol_ == nullptr && return this->lazyPull_ == nullptr
+        && return this->name_ == nullptr && return this->outProtocol_ == nullptr && return this->ownerId_ == nullptr && return this->playDomain_ == nullptr && return this->pushDomain_ == nullptr
+        && return this->region_ == nullptr; };
     // callback Field Functions 
     bool hasCallback() const { return this->callback_ != nullptr;};
     void deleteCallback() { this->callback_ = nullptr;};

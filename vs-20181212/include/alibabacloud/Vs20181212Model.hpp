@@ -178,9 +178,9 @@
 #include <alibabacloud/models/DescribeDeviceGatewayRequest.hpp>
 #include <alibabacloud/models/DescribeDeviceGatewayResponseBody.hpp>
 #include <alibabacloud/models/DescribeDeviceGatewayResponse.hpp>
-#include <alibabacloud/models/DescribeDeviceUrlrequest.hpp>
-#include <alibabacloud/models/DescribeDeviceUrlresponseBody.hpp>
-#include <alibabacloud/models/DescribeDeviceUrlresponse.hpp>
+#include <alibabacloud/models/DescribeDeviceUrlRequest.hpp>
+#include <alibabacloud/models/DescribeDeviceUrlResponseBody.hpp>
+#include <alibabacloud/models/DescribeDeviceUrlResponse.hpp>
 #include <alibabacloud/models/DescribeDevicesRequest.hpp>
 #include <alibabacloud/models/DescribeDevicesResponseBody.hpp>
 #include <alibabacloud/models/DescribeDevicesResponse.hpp>
@@ -237,9 +237,9 @@
 #include <alibabacloud/models/DescribeStreamRequest.hpp>
 #include <alibabacloud/models/DescribeStreamResponseBody.hpp>
 #include <alibabacloud/models/DescribeStreamResponse.hpp>
-#include <alibabacloud/models/DescribeStreamUrlrequest.hpp>
-#include <alibabacloud/models/DescribeStreamUrlresponseBody.hpp>
-#include <alibabacloud/models/DescribeStreamUrlresponse.hpp>
+#include <alibabacloud/models/DescribeStreamUrlRequest.hpp>
+#include <alibabacloud/models/DescribeStreamUrlResponseBody.hpp>
+#include <alibabacloud/models/DescribeStreamUrlResponse.hpp>
 #include <alibabacloud/models/DescribeStreamVodListRequest.hpp>
 #include <alibabacloud/models/DescribeStreamVodListResponseBody.hpp>
 #include <alibabacloud/models/DescribeStreamVodListResponse.hpp>
@@ -252,9 +252,9 @@
 #include <alibabacloud/models/DescribeTemplatesRequest.hpp>
 #include <alibabacloud/models/DescribeTemplatesResponseBody.hpp>
 #include <alibabacloud/models/DescribeTemplatesResponse.hpp>
-#include <alibabacloud/models/DescribeVodStreamUrlrequest.hpp>
-#include <alibabacloud/models/DescribeVodStreamUrlresponseBody.hpp>
-#include <alibabacloud/models/DescribeVodStreamUrlresponse.hpp>
+#include <alibabacloud/models/DescribeVodStreamUrlRequest.hpp>
+#include <alibabacloud/models/DescribeVodStreamUrlResponseBody.hpp>
+#include <alibabacloud/models/DescribeVodStreamUrlResponse.hpp>
 #include <alibabacloud/models/DescribeVsCertificateDetailRequest.hpp>
 #include <alibabacloud/models/DescribeVsCertificateDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeVsCertificateDetailResponse.hpp>
@@ -618,6 +618,7 @@
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyConfigInfo.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyPortMappings.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyRenderingStatus.hpp>
+#include <alibabacloud/models/DescribeRenderingInstanceResponseBodyResourceAttributes.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodySystemInfo.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceConfigurationRequestConfiguration.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceConfigurationResponseBodyConfigurationAttributes.hpp>

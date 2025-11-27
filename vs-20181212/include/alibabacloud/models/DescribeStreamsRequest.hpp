@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->deviceId_ != nullptr && this->domain_ != nullptr && this->groupId_ != nullptr && this->id_ != nullptr && this->name_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->parentId_ != nullptr && this->sortBy_ != nullptr
-        && this->sortDirection_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->deviceId_ == nullptr && return this->domain_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->parentId_ == nullptr && return this->sortBy_ == nullptr
+        && return this->sortDirection_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};

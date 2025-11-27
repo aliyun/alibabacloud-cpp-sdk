@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->ownerId_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr && this->privateBucket_ != nullptr && this->sortBy_ != nullptr
-        && this->sortDirection_ != nullptr && this->startTime_ != nullptr && this->streamId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->privateBucket_ == nullptr && return this->sortBy_ == nullptr
+        && return this->sortDirection_ == nullptr && return this->startTime_ == nullptr && return this->streamId_ == nullptr && return this->type_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

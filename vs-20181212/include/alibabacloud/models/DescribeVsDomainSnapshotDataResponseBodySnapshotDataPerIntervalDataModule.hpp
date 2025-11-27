@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->snapshotValue_ != nullptr
-        && this->timeStamp_ != nullptr; };
+    virtual bool empty() const override { return this->snapshotValue_ == nullptr
+        && return this->timeStamp_ == nullptr; };
     // snapshotValue Field Functions 
     bool hasSnapshotValue() const { return this->snapshotValue_ != nullptr;};
     void deleteSnapshotValue() { this->snapshotValue_ = nullptr;};

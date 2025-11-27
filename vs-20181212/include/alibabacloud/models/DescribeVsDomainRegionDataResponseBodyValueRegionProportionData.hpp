@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->avgObjectSize_ != nullptr
-        && this->avgResponseRate_ != nullptr && this->avgResponseTime_ != nullptr && this->bps_ != nullptr && this->bytesProportion_ != nullptr && this->proportion_ != nullptr
-        && this->qps_ != nullptr && this->region_ != nullptr && this->regionEname_ != nullptr && this->reqErrRate_ != nullptr && this->totalBytes_ != nullptr
-        && this->totalQuery_ != nullptr; };
+    virtual bool empty() const override { return this->avgObjectSize_ == nullptr
+        && return this->avgResponseRate_ == nullptr && return this->avgResponseTime_ == nullptr && return this->bps_ == nullptr && return this->bytesProportion_ == nullptr && return this->proportion_ == nullptr
+        && return this->qps_ == nullptr && return this->region_ == nullptr && return this->regionEname_ == nullptr && return this->reqErrRate_ == nullptr && return this->totalBytes_ == nullptr
+        && return this->totalQuery_ == nullptr; };
     // avgObjectSize Field Functions 
     bool hasAvgObjectSize() const { return this->avgObjectSize_ != nullptr;};
     void deleteAvgObjectSize() { this->avgObjectSize_ = nullptr;};

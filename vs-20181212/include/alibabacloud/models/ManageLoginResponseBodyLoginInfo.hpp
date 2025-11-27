@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adbLoginPort_ != nullptr
-        && this->loginHostname_ != nullptr && this->loginPort_ != nullptr; };
+    virtual bool empty() const override { return this->adbLoginPort_ == nullptr
+        && return this->loginHostname_ == nullptr && return this->loginPort_ == nullptr; };
     // adbLoginPort Field Functions 
     bool hasAdbLoginPort() const { return this->adbLoginPort_ != nullptr;};
     void deleteAdbLoginPort() { this->adbLoginPort_ = nullptr;};

@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileId_ != nullptr
-        && this->fileName_ != nullptr && this->pushTime_ != nullptr && this->renderingInstanceId_ != nullptr && this->status_ != nullptr && this->statusDescription_ != nullptr
-        && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->fileId_ == nullptr
+        && return this->fileName_ == nullptr && return this->pushTime_ == nullptr && return this->renderingInstanceId_ == nullptr && return this->status_ == nullptr && return this->statusDescription_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // fileId Field Functions 
     bool hasFileId() const { return this->fileId_ != nullptr;};
     void deleteFileId() { this->fileId_ = nullptr;};

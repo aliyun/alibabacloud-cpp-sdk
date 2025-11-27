@@ -7,6 +7,7 @@
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyConfigInfo.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyPortMappings.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodyRenderingStatus.hpp>
+#include <alibabacloud/models/DescribeRenderingInstanceResponseBodyResourceAttributes.hpp>
 #include <alibabacloud/models/DescribeRenderingInstanceResponseBodySystemInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RenderingSpec, renderingSpec_);
       DARABONBA_PTR_TO_JSON(RenderingStatus, renderingStatus_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(ResourceAttributes, resourceAttributes_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_TO_JSON(SystemInfo, systemInfo_);
     };
@@ -47,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RenderingSpec, renderingSpec_);
       DARABONBA_PTR_FROM_JSON(RenderingStatus, renderingStatus_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(ResourceAttributes, resourceAttributes_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_FROM_JSON(SystemInfo, systemInfo_);
     };
@@ -61,10 +64,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalIngresses_ != nullptr
-        && this->configInfo_ != nullptr && this->creationTime_ != nullptr && this->egressIp_ != nullptr && this->hostname_ != nullptr && this->internalIp_ != nullptr
-        && this->isp_ != nullptr && this->portMappings_ != nullptr && this->renderingInstanceId_ != nullptr && this->renderingSpec_ != nullptr && this->renderingStatus_ != nullptr
-        && this->requestId_ != nullptr && this->storageSize_ != nullptr && this->systemInfo_ != nullptr; };
+    virtual bool empty() const override { return this->additionalIngresses_ == nullptr
+        && return this->configInfo_ == nullptr && return this->creationTime_ == nullptr && return this->egressIp_ == nullptr && return this->hostname_ == nullptr && return this->internalIp_ == nullptr
+        && return this->isp_ == nullptr && return this->portMappings_ == nullptr && return this->renderingInstanceId_ == nullptr && return this->renderingSpec_ == nullptr && return this->renderingStatus_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceAttributes_ == nullptr && return this->storageSize_ == nullptr && return this->systemInfo_ == nullptr; };
     // additionalIngresses Field Functions 
     bool hasAdditionalIngresses() const { return this->additionalIngresses_ != nullptr;};
     void deleteAdditionalIngresses() { this->additionalIngresses_ = nullptr;};
@@ -157,6 +160,15 @@ namespace Models
     inline DescribeRenderingInstanceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // resourceAttributes Field Functions 
+    bool hasResourceAttributes() const { return this->resourceAttributes_ != nullptr;};
+    void deleteResourceAttributes() { this->resourceAttributes_ = nullptr;};
+    inline const DescribeRenderingInstanceResponseBodyResourceAttributes & resourceAttributes() const { DARABONBA_PTR_GET_CONST(resourceAttributes_, DescribeRenderingInstanceResponseBodyResourceAttributes) };
+    inline DescribeRenderingInstanceResponseBodyResourceAttributes resourceAttributes() { DARABONBA_PTR_GET(resourceAttributes_, DescribeRenderingInstanceResponseBodyResourceAttributes) };
+    inline DescribeRenderingInstanceResponseBody& setResourceAttributes(const DescribeRenderingInstanceResponseBodyResourceAttributes & resourceAttributes) { DARABONBA_PTR_SET_VALUE(resourceAttributes_, resourceAttributes) };
+    inline DescribeRenderingInstanceResponseBody& setResourceAttributes(DescribeRenderingInstanceResponseBodyResourceAttributes && resourceAttributes) { DARABONBA_PTR_SET_RVALUE(resourceAttributes_, resourceAttributes) };
+
+
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
@@ -186,6 +198,7 @@ namespace Models
     std::shared_ptr<string> renderingSpec_ = nullptr;
     std::shared_ptr<DescribeRenderingInstanceResponseBodyRenderingStatus> renderingStatus_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<DescribeRenderingInstanceResponseBodyResourceAttributes> resourceAttributes_ = nullptr;
     std::shared_ptr<int32_t> storageSize_ = nullptr;
     std::shared_ptr<DescribeRenderingInstanceResponseBodySystemInfo> systemInfo_ = nullptr;
   };

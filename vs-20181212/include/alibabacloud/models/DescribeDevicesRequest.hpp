@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->directoryId_ != nullptr
-        && this->dsn_ != nullptr && this->gbId_ != nullptr && this->groupId_ != nullptr && this->id_ != nullptr && this->includeDirectory_ != nullptr
-        && this->includeStats_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->pageNum_ != nullptr && this->pageSize_ != nullptr
-        && this->parentId_ != nullptr && this->sortBy_ != nullptr && this->sortDirection_ != nullptr && this->status_ != nullptr && this->type_ != nullptr
-        && this->vendor_ != nullptr; };
+    virtual bool empty() const override { return this->directoryId_ == nullptr
+        && return this->dsn_ == nullptr && return this->gbId_ == nullptr && return this->groupId_ == nullptr && return this->id_ == nullptr && return this->includeDirectory_ == nullptr
+        && return this->includeStats_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr
+        && return this->parentId_ == nullptr && return this->sortBy_ == nullptr && return this->sortDirection_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr
+        && return this->vendor_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};

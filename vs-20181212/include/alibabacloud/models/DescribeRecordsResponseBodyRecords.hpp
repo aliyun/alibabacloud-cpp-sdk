@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->fileFormat_ != nullptr && this->height_ != nullptr && this->id_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr
-        && this->ossObject_ != nullptr && this->startTime_ != nullptr && this->streamId_ != nullptr && this->templateId_ != nullptr && this->type_ != nullptr
-        && this->url_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->fileFormat_ == nullptr && return this->height_ == nullptr && return this->id_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr
+        && return this->ossObject_ == nullptr && return this->startTime_ == nullptr && return this->streamId_ == nullptr && return this->templateId_ == nullptr && return this->type_ == nullptr
+        && return this->url_ == nullptr && return this->width_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};

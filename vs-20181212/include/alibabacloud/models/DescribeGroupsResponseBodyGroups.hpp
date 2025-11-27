@@ -71,11 +71,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliasId_ != nullptr
-        && this->app_ != nullptr && this->callback_ != nullptr && this->createdTime_ != nullptr && this->description_ != nullptr && this->enabled_ != nullptr
-        && this->gbId_ != nullptr && this->gbIp_ != nullptr && this->gbPort_ != nullptr && this->gbTcpPorts_ != nullptr && this->gbUdpPorts_ != nullptr
-        && this->id_ != nullptr && this->inProtocol_ != nullptr && this->lazyPull_ != nullptr && this->name_ != nullptr && this->outProtocol_ != nullptr
-        && this->playDomain_ != nullptr && this->pushDomain_ != nullptr && this->region_ != nullptr && this->stats_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->aliasId_ == nullptr
+        && return this->app_ == nullptr && return this->callback_ == nullptr && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->enabled_ == nullptr
+        && return this->gbId_ == nullptr && return this->gbIp_ == nullptr && return this->gbPort_ == nullptr && return this->gbTcpPorts_ == nullptr && return this->gbUdpPorts_ == nullptr
+        && return this->id_ == nullptr && return this->inProtocol_ == nullptr && return this->lazyPull_ == nullptr && return this->name_ == nullptr && return this->outProtocol_ == nullptr
+        && return this->playDomain_ == nullptr && return this->pushDomain_ == nullptr && return this->region_ == nullptr && return this->stats_ == nullptr && return this->status_ == nullptr; };
     // aliasId Field Functions 
     bool hasAliasId() const { return this->aliasId_ != nullptr;};
     void deleteAliasId() { this->aliasId_ = nullptr;};

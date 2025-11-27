@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->app_ != nullptr
-        && this->createdTime_ != nullptr && this->deviceId_ != nullptr && this->enabled_ != nullptr && this->groupId_ != nullptr && this->height_ != nullptr
-        && this->id_ != nullptr && this->name_ != nullptr && this->playDomain_ != nullptr && this->protocol_ != nullptr && this->pushDomain_ != nullptr
-        && this->status_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->app_ == nullptr
+        && return this->createdTime_ == nullptr && return this->deviceId_ == nullptr && return this->enabled_ == nullptr && return this->groupId_ == nullptr && return this->height_ == nullptr
+        && return this->id_ == nullptr && return this->name_ == nullptr && return this->playDomain_ == nullptr && return this->protocol_ == nullptr && return this->pushDomain_ == nullptr
+        && return this->status_ == nullptr && return this->width_ == nullptr; };
     // app Field Functions 
     bool hasApp() const { return this->app_ != nullptr;};
     void deleteApp() { this->app_ = nullptr;};

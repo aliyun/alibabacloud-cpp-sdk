@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->additionalIngresses_ != nullptr
-        && this->appId_ != nullptr && this->clientId_ != nullptr && this->hostname_ != nullptr && this->isp_ != nullptr && this->location_ != nullptr
-        && this->patchId_ != nullptr && this->portMappings_ != nullptr && this->renderingInstanceId_ != nullptr && this->requestId_ != nullptr && this->sessionId_ != nullptr
-        && this->startTime_ != nullptr && this->stateInfo_ != nullptr; };
+    virtual bool empty() const override { return this->additionalIngresses_ == nullptr
+        && return this->appId_ == nullptr && return this->clientId_ == nullptr && return this->hostname_ == nullptr && return this->isp_ == nullptr && return this->location_ == nullptr
+        && return this->patchId_ == nullptr && return this->portMappings_ == nullptr && return this->renderingInstanceId_ == nullptr && return this->requestId_ == nullptr && return this->sessionId_ == nullptr
+        && return this->startTime_ == nullptr && return this->stateInfo_ == nullptr; };
     // additionalIngresses Field Functions 
     bool hasAdditionalIngresses() const { return this->additionalIngresses_ != nullptr;};
     void deleteAdditionalIngresses() { this->additionalIngresses_ = nullptr;};

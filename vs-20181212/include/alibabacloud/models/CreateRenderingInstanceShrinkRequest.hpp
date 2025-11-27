@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attributesShrink_ != nullptr
-        && this->autoRenew_ != nullptr && this->clientInfoShrink_ != nullptr && this->instanceBillingCycle_ != nullptr && this->instanceChargeType_ != nullptr && this->internetChargeType_ != nullptr
-        && this->internetMaxBandwidth_ != nullptr && this->period_ != nullptr && this->renderingSpec_ != nullptr && this->storageSize_ != nullptr; };
+    virtual bool empty() const override { return this->attributesShrink_ == nullptr
+        && return this->autoRenew_ == nullptr && return this->clientInfoShrink_ == nullptr && return this->instanceBillingCycle_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr
+        && return this->internetMaxBandwidth_ == nullptr && return this->period_ == nullptr && return this->renderingSpec_ == nullptr && return this->storageSize_ == nullptr; };
     // attributesShrink Field Functions 
     bool hasAttributesShrink() const { return this->attributesShrink_ != nullptr;};
     void deleteAttributesShrink() { this->attributesShrink_ = nullptr;};

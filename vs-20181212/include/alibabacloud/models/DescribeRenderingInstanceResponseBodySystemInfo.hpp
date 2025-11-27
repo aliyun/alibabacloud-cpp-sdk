@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->frequency_ != nullptr
-        && this->resolution_ != nullptr; };
+    virtual bool empty() const override { return this->frequency_ == nullptr
+        && return this->resolution_ == nullptr; };
     // frequency Field Functions 
     bool hasFrequency() const { return this->frequency_ != nullptr;};
     void deleteFrequency() { this->frequency_ = nullptr;};

@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callback_ != nullptr
-        && this->createdTime_ != nullptr && this->description_ != nullptr && this->fileFormat_ != nullptr && this->flv_ != nullptr && this->hlsM3u8_ != nullptr
-        && this->hlsTs_ != nullptr && this->id_ != nullptr && this->interval_ != nullptr && this->jpgOnDemand_ != nullptr && this->jpgOverwrite_ != nullptr
-        && this->jpgSequence_ != nullptr && this->mp4_ != nullptr && this->name_ != nullptr && this->ossBucket_ != nullptr && this->ossEndpoint_ != nullptr
-        && this->ossFilePrefix_ != nullptr && this->region_ != nullptr && this->retention_ != nullptr && this->transConfigs_ != nullptr && this->trigger_ != nullptr
-        && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->callback_ == nullptr
+        && return this->createdTime_ == nullptr && return this->description_ == nullptr && return this->fileFormat_ == nullptr && return this->flv_ == nullptr && return this->hlsM3u8_ == nullptr
+        && return this->hlsTs_ == nullptr && return this->id_ == nullptr && return this->interval_ == nullptr && return this->jpgOnDemand_ == nullptr && return this->jpgOverwrite_ == nullptr
+        && return this->jpgSequence_ == nullptr && return this->mp4_ == nullptr && return this->name_ == nullptr && return this->ossBucket_ == nullptr && return this->ossEndpoint_ == nullptr
+        && return this->ossFilePrefix_ == nullptr && return this->region_ == nullptr && return this->retention_ == nullptr && return this->transConfigs_ == nullptr && return this->trigger_ == nullptr
+        && return this->type_ == nullptr; };
     // callback Field Functions 
     bool hasCallback() const { return this->callback_ != nullptr;};
     void deleteCallback() { this->callback_ = nullptr;};

@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoStart_ != nullptr
-        && this->clientAuth_ != nullptr && this->clientPassword_ != nullptr && this->clientUsername_ != nullptr && this->description_ != nullptr && this->gbId_ != nullptr
-        && this->ip_ != nullptr && this->name_ != nullptr && this->ownerId_ != nullptr && this->port_ != nullptr && this->protocol_ != nullptr; };
+    virtual bool empty() const override { return this->autoStart_ == nullptr
+        && return this->clientAuth_ == nullptr && return this->clientPassword_ == nullptr && return this->clientUsername_ == nullptr && return this->description_ == nullptr && return this->gbId_ == nullptr
+        && return this->ip_ == nullptr && return this->name_ == nullptr && return this->ownerId_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr; };
     // autoStart Field Functions 
     bool hasAutoStart() const { return this->autoStart_ != nullptr;};
     void deleteAutoStart() { this->autoStart_ = nullptr;};
