@@ -396,6 +396,38 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeResponse chatWithDesensitize(const Models::ChatWithDesensitizeRequest &request);
 
       /**
+       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @description 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @param tmpReq ChatWithDesensitizeSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithDesensitizeSSEResponse
+       */
+      FutrueGenerator<Models::ChatWithDesensitizeSSEResponse> chatWithDesensitizeSSEWithSSE(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @description 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @param tmpReq ChatWithDesensitizeSSERequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatWithDesensitizeSSEResponse
+       */
+      Models::ChatWithDesensitizeSSEResponse chatWithDesensitizeSSEWithOptions(const Models::ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @description 带有DMS脱敏能力的聊天SSE API接口
+       *
+       * @param request ChatWithDesensitizeSSERequest
+       * @return ChatWithDesensitizeSSEResponse
+       */
+      Models::ChatWithDesensitizeSSEResponse chatWithDesensitizeSSE(const Models::ChatWithDesensitizeSSERequest &request);
+
+      /**
        * @summary 批量校验是否有表访问权限
        *
        * @param tmpReq CheckBatchTableAccessPermissionRequest

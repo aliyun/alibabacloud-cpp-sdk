@@ -95,6 +95,10 @@
 #include <alibabacloud/models/ChatWithDesensitizeShrinkRequest.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponseBody.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponse.hpp>
+#include <alibabacloud/models/ChatWithDesensitizeSseRequest.hpp>
+#include <alibabacloud/models/ChatWithDesensitizeSseShrinkRequest.hpp>
+#include <alibabacloud/models/ChatWithDesensitizeSseResponseBody.hpp>
+#include <alibabacloud/models/ChatWithDesensitizeSseResponse.hpp>
 #include <alibabacloud/models/CheckBatchTableAccessPermissionRequest.hpp>
 #include <alibabacloud/models/CheckBatchTableAccessPermissionShrinkRequest.hpp>
 #include <alibabacloud/models/CheckBatchTableAccessPermissionResponseBody.hpp>

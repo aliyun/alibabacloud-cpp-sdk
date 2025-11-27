@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::DmsEnterprise20181101::Models;
@@ -1477,6 +1478,337 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
 ChatWithDesensitizeResponse Client::chatWithDesensitize(const ChatWithDesensitizeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return chatWithDesensitizeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @description 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @param tmpReq ChatWithDesensitizeSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithDesensitizeSSEResponse
+ */
+FutrueGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWithSSE(const ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithDesensitizeSSEShrinkRequest request = ChatWithDesensitizeSSEShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "Messages", "json"));
+  }
+
+  if (!!tmpReq.hasModalitiesList()) {
+    request.setModalitiesListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList(), "ModalitiesList", "json"));
+  }
+
+  if (!!tmpReq.hasSearchOptions()) {
+    request.setSearchOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchOptions(), "SearchOptions", "json"));
+  }
+
+  if (!!tmpReq.hasStop()) {
+    request.setStopShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stop(), "Stop", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAudioJson()) {
+    query["AudioJson"] = request.audioJson();
+  }
+
+  if (!!request.hasDesensitizationRule()) {
+    query["DesensitizationRule"] = request.desensitizationRule();
+  }
+
+  if (!!request.hasEnableCodeInterpreter()) {
+    query["EnableCodeInterpreter"] = request.enableCodeInterpreter();
+  }
+
+  if (!!request.hasEnableSearch()) {
+    query["EnableSearch"] = request.enableSearch();
+  }
+
+  if (!!request.hasEnableThinking()) {
+    query["EnableThinking"] = request.enableThinking();
+  }
+
+  if (!!request.hasIncludeUsage()) {
+    query["IncludeUsage"] = request.includeUsage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogprobs()) {
+    query["Logprobs"] = request.logprobs();
+  }
+
+  if (!!request.hasMaxTokens()) {
+    query["MaxTokens"] = request.maxTokens();
+  }
+
+  if (!!request.hasModalitiesListShrink()) {
+    query["ModalitiesList"] = request.modalitiesListShrink();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.model();
+  }
+
+  if (!!request.hasNeedDesensitization()) {
+    query["NeedDesensitization"] = request.needDesensitization();
+  }
+
+  if (!!request.hasPresencePenalty()) {
+    query["PresencePenalty"] = request.presencePenalty();
+  }
+
+  if (!!request.hasResponseFormat()) {
+    query["ResponseFormat"] = request.responseFormat();
+  }
+
+  if (!!request.hasSearchOptionsShrink()) {
+    query["SearchOptions"] = request.searchOptionsShrink();
+  }
+
+  if (!!request.hasSeed()) {
+    query["Seed"] = request.seed();
+  }
+
+  if (!!request.hasStopShrink()) {
+    query["Stop"] = request.stopShrink();
+  }
+
+  if (!!request.hasStream()) {
+    query["Stream"] = request.stream();
+  }
+
+  if (!!request.hasTemperature()) {
+    query["Temperature"] = request.temperature();
+  }
+
+  if (!!request.hasThinkingBudget()) {
+    query["ThinkingBudget"] = request.thinkingBudget();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.topK();
+  }
+
+  if (!!request.hasTopLogprobs()) {
+    query["TopLogprobs"] = request.topLogprobs();
+  }
+
+  if (!!request.hasTopP()) {
+    query["TopP"] = request.topP();
+  }
+
+  if (!!request.hasVlHighResolutionImages()) {
+    query["VlHighResolutionImages"] = request.vlHighResolutionImages();
+  }
+
+  if (!!request.hasXDashScopeDataInspection()) {
+    query["XDashScopeDataInspection"] = request.XDashScopeDataInspection();
+  }
+
+  json body = {};
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.messagesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatWithDesensitizeSSE"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<ChatWithDesensitizeSSEResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @description 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @param tmpReq ChatWithDesensitizeSSERequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatWithDesensitizeSSEResponse
+ */
+ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const ChatWithDesensitizeSSERequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatWithDesensitizeSSEShrinkRequest request = ChatWithDesensitizeSSEShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "Messages", "json"));
+  }
+
+  if (!!tmpReq.hasModalitiesList()) {
+    request.setModalitiesListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList(), "ModalitiesList", "json"));
+  }
+
+  if (!!tmpReq.hasSearchOptions()) {
+    request.setSearchOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchOptions(), "SearchOptions", "json"));
+  }
+
+  if (!!tmpReq.hasStop()) {
+    request.setStopShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stop(), "Stop", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAudioJson()) {
+    query["AudioJson"] = request.audioJson();
+  }
+
+  if (!!request.hasDesensitizationRule()) {
+    query["DesensitizationRule"] = request.desensitizationRule();
+  }
+
+  if (!!request.hasEnableCodeInterpreter()) {
+    query["EnableCodeInterpreter"] = request.enableCodeInterpreter();
+  }
+
+  if (!!request.hasEnableSearch()) {
+    query["EnableSearch"] = request.enableSearch();
+  }
+
+  if (!!request.hasEnableThinking()) {
+    query["EnableThinking"] = request.enableThinking();
+  }
+
+  if (!!request.hasIncludeUsage()) {
+    query["IncludeUsage"] = request.includeUsage();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLogprobs()) {
+    query["Logprobs"] = request.logprobs();
+  }
+
+  if (!!request.hasMaxTokens()) {
+    query["MaxTokens"] = request.maxTokens();
+  }
+
+  if (!!request.hasModalitiesListShrink()) {
+    query["ModalitiesList"] = request.modalitiesListShrink();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.model();
+  }
+
+  if (!!request.hasNeedDesensitization()) {
+    query["NeedDesensitization"] = request.needDesensitization();
+  }
+
+  if (!!request.hasPresencePenalty()) {
+    query["PresencePenalty"] = request.presencePenalty();
+  }
+
+  if (!!request.hasResponseFormat()) {
+    query["ResponseFormat"] = request.responseFormat();
+  }
+
+  if (!!request.hasSearchOptionsShrink()) {
+    query["SearchOptions"] = request.searchOptionsShrink();
+  }
+
+  if (!!request.hasSeed()) {
+    query["Seed"] = request.seed();
+  }
+
+  if (!!request.hasStopShrink()) {
+    query["Stop"] = request.stopShrink();
+  }
+
+  if (!!request.hasStream()) {
+    query["Stream"] = request.stream();
+  }
+
+  if (!!request.hasTemperature()) {
+    query["Temperature"] = request.temperature();
+  }
+
+  if (!!request.hasThinkingBudget()) {
+    query["ThinkingBudget"] = request.thinkingBudget();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.topK();
+  }
+
+  if (!!request.hasTopLogprobs()) {
+    query["TopLogprobs"] = request.topLogprobs();
+  }
+
+  if (!!request.hasTopP()) {
+    query["TopP"] = request.topP();
+  }
+
+  if (!!request.hasVlHighResolutionImages()) {
+    query["VlHighResolutionImages"] = request.vlHighResolutionImages();
+  }
+
+  if (!!request.hasXDashScopeDataInspection()) {
+    query["XDashScopeDataInspection"] = request.XDashScopeDataInspection();
+  }
+
+  json body = {};
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.messagesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatWithDesensitizeSSE"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatWithDesensitizeSSEResponse>();
+}
+
+/**
+ * @summary 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @description 带有DMS脱敏能力的聊天SSE API接口
+ *
+ * @param request ChatWithDesensitizeSSERequest
+ * @return ChatWithDesensitizeSSEResponse
+ */
+ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSE(const ChatWithDesensitizeSSERequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithDesensitizeSSEWithOptions(request, runtime);
 }
 
 /**
