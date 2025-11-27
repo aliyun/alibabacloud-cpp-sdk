@@ -396,6 +396,23 @@ namespace DmsEnterprise20181101
       Models::ChatWithDesensitizeResponse chatWithDesensitize(const Models::ChatWithDesensitizeRequest &request);
 
       /**
+       * @summary 批量校验是否有表访问权限
+       *
+       * @param tmpReq CheckBatchTableAccessPermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckBatchTableAccessPermissionResponse
+       */
+      Models::CheckBatchTableAccessPermissionResponse checkBatchTableAccessPermissionWithOptions(const Models::CheckBatchTableAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量校验是否有表访问权限
+       *
+       * @param request CheckBatchTableAccessPermissionRequest
+       * @return CheckBatchTableAccessPermissionResponse
+       */
+      Models::CheckBatchTableAccessPermissionResponse checkBatchTableAccessPermission(const Models::CheckBatchTableAccessPermissionRequest &request);
+
+      /**
        * @summary Closes a ticket.
        *
        * @param request CloseOrderRequest

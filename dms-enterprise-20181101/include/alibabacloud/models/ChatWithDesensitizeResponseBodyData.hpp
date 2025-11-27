@@ -18,13 +18,19 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChatWithDesensitizeResponseBodyData& obj) { 
       DARABONBA_PTR_TO_JSON(Choices, choices_);
       DARABONBA_PTR_TO_JSON(Created, created_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(StatusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(Usage, usage_);
     };
     friend void from_json(const Darabonba::Json& j, ChatWithDesensitizeResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(Choices, choices_);
       DARABONBA_PTR_FROM_JSON(Created, created_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(StatusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(Usage, usage_);
     };
     ChatWithDesensitizeResponseBodyData() = default ;
@@ -39,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->choices_ == nullptr
-        && return this->created_ == nullptr && return this->model_ == nullptr && return this->usage_ == nullptr; };
+        && return this->created_ == nullptr && return this->message_ == nullptr && return this->model_ == nullptr && return this->statusCode_ == nullptr && return this->type_ == nullptr
+        && return this->usage_ == nullptr; };
     // choices Field Functions 
     bool hasChoices() const { return this->choices_ != nullptr;};
     void deleteChoices() { this->choices_ = nullptr;};
@@ -56,11 +63,32 @@ namespace Models
     inline ChatWithDesensitizeResponseBodyData& setCreated(string created) { DARABONBA_PTR_SET_VALUE(created_, created) };
 
 
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ChatWithDesensitizeResponseBodyData& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
     // model Field Functions 
     bool hasModel() const { return this->model_ != nullptr;};
     void deleteModel() { this->model_ = nullptr;};
     inline string model() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
     inline ChatWithDesensitizeResponseBodyData& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline string statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, "") };
+    inline ChatWithDesensitizeResponseBodyData& setStatusCode(string statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline ChatWithDesensitizeResponseBodyData& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // usage Field Functions 
@@ -75,7 +103,10 @@ namespace Models
   protected:
     std::shared_ptr<vector<Models::ChatWithDesensitizeResponseBodyDataChoices>> choices_ = nullptr;
     std::shared_ptr<string> created_ = nullptr;
+    std::shared_ptr<string> message_ = nullptr;
     std::shared_ptr<string> model_ = nullptr;
+    std::shared_ptr<string> statusCode_ = nullptr;
+    std::shared_ptr<string> type_ = nullptr;
     std::shared_ptr<Models::ChatWithDesensitizeResponseBodyDataUsage> usage_ = nullptr;
   };
 

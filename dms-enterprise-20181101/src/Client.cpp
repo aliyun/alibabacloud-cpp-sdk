@@ -1338,13 +1338,33 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
     request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.messages(), "Messages", "json"));
   }
 
+  if (!!tmpReq.hasModalitiesList()) {
+    request.setModalitiesListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.modalitiesList(), "ModalitiesList", "json"));
+  }
+
+  if (!!tmpReq.hasSearchOptions()) {
+    request.setSearchOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchOptions(), "SearchOptions", "json"));
+  }
+
   if (!!tmpReq.hasStop()) {
     request.setStopShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stop(), "Stop", "json"));
   }
 
   json query = {};
+  if (!!request.hasAudioJson()) {
+    query["AudioJson"] = request.audioJson();
+  }
+
   if (!!request.hasDesensitizationRule()) {
     query["DesensitizationRule"] = request.desensitizationRule();
+  }
+
+  if (!!request.hasEnableCodeInterpreter()) {
+    query["EnableCodeInterpreter"] = request.enableCodeInterpreter();
+  }
+
+  if (!!request.hasEnableSearch()) {
+    query["EnableSearch"] = request.enableSearch();
   }
 
   if (!!request.hasEnableThinking()) {
@@ -1355,8 +1375,16 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
     query["InstanceId"] = request.instanceId();
   }
 
+  if (!!request.hasLogprobs()) {
+    query["Logprobs"] = request.logprobs();
+  }
+
   if (!!request.hasMaxTokens()) {
     query["MaxTokens"] = request.maxTokens();
+  }
+
+  if (!!request.hasModalitiesListShrink()) {
+    query["ModalitiesList"] = request.modalitiesListShrink();
   }
 
   if (!!request.hasModel()) {
@@ -1373,6 +1401,10 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
 
   if (!!request.hasResponseFormat()) {
     query["ResponseFormat"] = request.responseFormat();
+  }
+
+  if (!!request.hasSearchOptionsShrink()) {
+    query["SearchOptions"] = request.searchOptionsShrink();
   }
 
   if (!!request.hasSeed()) {
@@ -1401,6 +1433,14 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
 
   if (!!request.hasTopP()) {
     query["TopP"] = request.topP();
+  }
+
+  if (!!request.hasVlHighResolutionImages()) {
+    query["VlHighResolutionImages"] = request.vlHighResolutionImages();
+  }
+
+  if (!!request.hasXDashScopeDataInspection()) {
+    query["XDashScopeDataInspection"] = request.XDashScopeDataInspection();
   }
 
   json body = {};
@@ -1437,6 +1477,70 @@ ChatWithDesensitizeResponse Client::chatWithDesensitizeWithOptions(const ChatWit
 ChatWithDesensitizeResponse Client::chatWithDesensitize(const ChatWithDesensitizeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return chatWithDesensitizeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量校验是否有表访问权限
+ *
+ * @param tmpReq CheckBatchTableAccessPermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckBatchTableAccessPermissionResponse
+ */
+CheckBatchTableAccessPermissionResponse Client::checkBatchTableAccessPermissionWithOptions(const CheckBatchTableAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CheckBatchTableAccessPermissionShrinkRequest request = CheckBatchTableAccessPermissionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTableNameList()) {
+    request.setTableNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tableNameList(), "TableNameList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.dbId();
+  }
+
+  if (!!request.hasLogic()) {
+    query["Logic"] = request.logic();
+  }
+
+  if (!!request.hasPermissionType()) {
+    query["PermissionType"] = request.permissionType();
+  }
+
+  if (!!request.hasTableNameListShrink()) {
+    query["TableNameList"] = request.tableNameListShrink();
+  }
+
+  if (!!request.hasTid()) {
+    query["Tid"] = request.tid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckBatchTableAccessPermission"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckBatchTableAccessPermissionResponse>();
+}
+
+/**
+ * @summary 批量校验是否有表访问权限
+ *
+ * @param request CheckBatchTableAccessPermissionRequest
+ * @return CheckBatchTableAccessPermissionResponse
+ */
+CheckBatchTableAccessPermissionResponse Client::checkBatchTableAccessPermission(const CheckBatchTableAccessPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkBatchTableAccessPermissionWithOptions(request, runtime);
 }
 
 /**

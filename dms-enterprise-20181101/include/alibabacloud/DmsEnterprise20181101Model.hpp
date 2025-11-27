@@ -95,6 +95,10 @@
 #include <alibabacloud/models/ChatWithDesensitizeShrinkRequest.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponseBody.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponse.hpp>
+#include <alibabacloud/models/CheckBatchTableAccessPermissionRequest.hpp>
+#include <alibabacloud/models/CheckBatchTableAccessPermissionShrinkRequest.hpp>
+#include <alibabacloud/models/CheckBatchTableAccessPermissionResponseBody.hpp>
+#include <alibabacloud/models/CheckBatchTableAccessPermissionResponse.hpp>
 #include <alibabacloud/models/CloseOrderRequest.hpp>
 #include <alibabacloud/models/CloseOrderResponseBody.hpp>
 #include <alibabacloud/models/CloseOrderResponse.hpp>
@@ -1006,6 +1010,7 @@
 #include <alibabacloud/models/ChatWithDesensitizeResponseBodyDataChoices.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/ChatWithDesensitizeResponseBodyData.hpp>
+#include <alibabacloud/models/CheckBatchTableAccessPermissionResponseBodyData.hpp>
 #include <alibabacloud/models/CreateAuthorityTemplateResponseBodyAuthorityTemplateView.hpp>
 #include <alibabacloud/models/CreateDataArchiveOrderRequestParamTableIncludes.hpp>
 #include <alibabacloud/models/CreateDataArchiveOrderRequestParamVariables.hpp>

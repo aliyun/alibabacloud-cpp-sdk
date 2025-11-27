@@ -81,6 +81,7 @@ namespace Models
     std::shared_ptr<ChatWithDesensitizeResponseBodyData> data_ = nullptr;
     std::shared_ptr<string> errorCode_ = nullptr;
     std::shared_ptr<string> errorMessage_ = nullptr;
+    // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<bool> success_ = nullptr;
   };
