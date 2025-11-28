@@ -13,6 +13,7 @@ namespace Models
   class DocOcrMaxRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DocOcrMaxRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Authorize, authorize_);
       DARABONBA_PTR_TO_JSON(DocPage, docPage_);
       DARABONBA_PTR_TO_JSON(DocType, docType_);
       DARABONBA_PTR_TO_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Spoof, spoof_);
     };
     friend void from_json(const Darabonba::Json& j, DocOcrMaxRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Authorize, authorize_);
       DARABONBA_PTR_FROM_JSON(DocPage, docPage_);
       DARABONBA_PTR_FROM_JSON(DocType, docType_);
       DARABONBA_PTR_FROM_JSON(IdOcrPictureBase64, idOcrPictureBase64_);
@@ -55,10 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->docPage_ == nullptr
-        && return this->docType_ == nullptr && return this->idOcrPictureBase64_ == nullptr && return this->idOcrPictureUrl_ == nullptr && return this->idSpoof_ == nullptr && return this->idThreshold_ == nullptr
-        && return this->merchantBizId_ == nullptr && return this->merchantUserId_ == nullptr && return this->ocrModel_ == nullptr && return this->ocrValueStandard_ == nullptr && return this->productCode_ == nullptr
-        && return this->prompt_ == nullptr && return this->sceneCode_ == nullptr && return this->spoof_ == nullptr; };
+    virtual bool empty() const override { return this->authorize_ == nullptr
+        && return this->docPage_ == nullptr && return this->docType_ == nullptr && return this->idOcrPictureBase64_ == nullptr && return this->idOcrPictureUrl_ == nullptr && return this->idSpoof_ == nullptr
+        && return this->idThreshold_ == nullptr && return this->merchantBizId_ == nullptr && return this->merchantUserId_ == nullptr && return this->ocrModel_ == nullptr && return this->ocrValueStandard_ == nullptr
+        && return this->productCode_ == nullptr && return this->prompt_ == nullptr && return this->sceneCode_ == nullptr && return this->spoof_ == nullptr; };
+    // authorize Field Functions 
+    bool hasAuthorize() const { return this->authorize_ != nullptr;};
+    void deleteAuthorize() { this->authorize_ = nullptr;};
+    inline string authorize() const { DARABONBA_PTR_GET_DEFAULT(authorize_, "") };
+    inline DocOcrMaxRequest& setAuthorize(string authorize) { DARABONBA_PTR_SET_VALUE(authorize_, authorize) };
+
+
     // docPage Field Functions 
     bool hasDocPage() const { return this->docPage_ != nullptr;};
     void deleteDocPage() { this->docPage_ = nullptr;};
@@ -158,6 +167,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> authorize_ = nullptr;
     // Page expected to be recognized
     // 
     // - 01 (default): ID portrait.
