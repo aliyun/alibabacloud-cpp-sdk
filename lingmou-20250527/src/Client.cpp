@@ -88,6 +88,55 @@ CloseChatInstanceSessionsResponse Client::closeChatInstanceSessions(const string
 }
 
 /**
+ * @summary 用户确认
+ *
+ * @param request ConfirmTrainPicAvatarRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfirmTrainPicAvatarResponse
+ */
+ConfirmTrainPicAvatarResponse Client::confirmTrainPicAvatarWithOptions(const ConfirmTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAvatarId()) {
+    query["avatarId"] = request.avatarId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfirmTrainPicAvatar"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/train/confirmTrainPicAvatar")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfirmTrainPicAvatarResponse>();
+}
+
+/**
+ * @summary 用户确认
+ *
+ * @param request ConfirmTrainPicAvatarRequest
+ * @return ConfirmTrainPicAvatarResponse
+ */
+ConfirmTrainPicAvatarResponse Client::confirmTrainPicAvatar(const ConfirmTrainPicAvatarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return confirmTrainPicAvatarWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建背景素材
  *
  * @param request CreateBackgroundPicRequest
@@ -308,6 +357,173 @@ CreateNoTrainPicAvatarResponse Client::createNoTrainPicAvatar(const CreateNoTrai
 }
 
 /**
+ * @summary 创建TTS音色
+ *
+ * @param request CreateTTSVoiceCustomRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTTSVoiceCustomResponse
+ */
+CreateTTSVoiceCustomResponse Client::createTTSVoiceCustomWithOptions(const CreateTTSVoiceCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["fileName"] = request.fileName();
+  }
+
+  if (!!request.hasGender()) {
+    query["gender"] = request.gender();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasOssKey()) {
+    query["ossKey"] = request.ossKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTTSVoiceCustom"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/voice/createTTSVoiceCustom")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTTSVoiceCustomResponse>();
+}
+
+/**
+ * @summary 创建TTS音色
+ *
+ * @param request CreateTTSVoiceCustomRequest
+ * @return CreateTTSVoiceCustomResponse
+ */
+CreateTTSVoiceCustomResponse Client::createTTSVoiceCustom(const CreateTTSVoiceCustomRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTTSVoiceCustomWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建图片训练数字人
+ *
+ * @param request CreateTrainPicAvatarRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTrainPicAvatarResponse
+ */
+CreateTrainPicAvatarResponse Client::createTrainPicAvatarWithOptions(const CreateTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGender()) {
+    query["gender"] = request.gender();
+  }
+
+  if (!!request.hasGenerateAssets()) {
+    query["generateAssets"] = request.generateAssets();
+  }
+
+  if (!!request.hasImageOssPath()) {
+    query["imageOssPath"] = request.imageOssPath();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["templateId"] = request.templateId();
+  }
+
+  if (!!request.hasTransparent()) {
+    query["transparent"] = request.transparent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTrainPicAvatar"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/train/createTrainPicAvatar")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTrainPicAvatarResponse>();
+}
+
+/**
+ * @summary 创建图片训练数字人
+ *
+ * @param request CreateTrainPicAvatarRequest
+ * @return CreateTrainPicAvatarResponse
+ */
+CreateTrainPicAvatarResponse Client::createTrainPicAvatar(const CreateTrainPicAvatarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTrainPicAvatarWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询图片训练数字人的状态
+ *
+ * @param request GetTrainPicAvatarStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTrainPicAvatarStatusResponse
+ */
+GetTrainPicAvatarStatusResponse Client::getTrainPicAvatarStatusWithOptions(const GetTrainPicAvatarStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAvatarId()) {
+    query["avatarId"] = request.avatarId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTrainPicAvatarStatus"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/train/getTrainPicAvatarStatus")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTrainPicAvatarStatusResponse>();
+}
+
+/**
+ * @summary 查询图片训练数字人的状态
+ *
+ * @param request GetTrainPicAvatarStatusRequest
+ * @return GetTrainPicAvatarStatusResponse
+ */
+GetTrainPicAvatarStatusResponse Client::getTrainPicAvatarStatus(const GetTrainPicAvatarStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTrainPicAvatarStatusWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取对话免训图片素材上传凭证
  *
  * @param request GetUploadPolicyRequest
@@ -354,6 +570,128 @@ GetUploadPolicyResponse Client::getUploadPolicy(const GetUploadPolicyRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getUploadPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列举私有TTS音色
+ *
+ * @param request ListPrivateTTSVoicesCustomRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPrivateTTSVoicesCustomResponse
+ */
+ListPrivateTTSVoicesCustomResponse Client::listPrivateTTSVoicesCustomWithOptions(const ListPrivateTTSVoicesCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["pageIndex"] = request.pageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPrivateTTSVoicesCustom"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/voice/listPrivateTTSVoicesCustom")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPrivateTTSVoicesCustomResponse>();
+}
+
+/**
+ * @summary 列举私有TTS音色
+ *
+ * @param request ListPrivateTTSVoicesCustomRequest
+ * @return ListPrivateTTSVoicesCustomResponse
+ */
+ListPrivateTTSVoicesCustomResponse Client::listPrivateTTSVoicesCustom(const ListPrivateTTSVoicesCustomRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPrivateTTSVoicesCustomWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询底板素材
+ *
+ * @param request ListTemplateMaterialRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTemplateMaterialResponse
+ */
+ListTemplateMaterialResponse Client::listTemplateMaterialWithOptions(const ListTemplateMaterialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.page();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.size();
+  }
+
+  if (!!request.hasTemplateIds()) {
+    query["templateIds"] = request.templateIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTemplateMaterial"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/train/listTemplateMaterial")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTemplateMaterialResponse>();
+}
+
+/**
+ * @summary 查询底板素材
+ *
+ * @param request ListTemplateMaterialRequest
+ * @return ListTemplateMaterialResponse
+ */
+ListTemplateMaterialResponse Client::listTemplateMaterial(const ListTemplateMaterialRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTemplateMaterialWithOptions(request, headers, runtime);
 }
 
 /**

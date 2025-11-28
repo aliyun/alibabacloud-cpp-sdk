@@ -39,6 +39,24 @@ namespace LingMou20250527
       Models::CloseChatInstanceSessionsResponse closeChatInstanceSessions(const string &instanceId, const Models::CloseChatInstanceSessionsRequest &request);
 
       /**
+       * @summary 用户确认
+       *
+       * @param request ConfirmTrainPicAvatarRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmTrainPicAvatarResponse
+       */
+      Models::ConfirmTrainPicAvatarResponse confirmTrainPicAvatarWithOptions(const Models::ConfirmTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户确认
+       *
+       * @param request ConfirmTrainPicAvatarRequest
+       * @return ConfirmTrainPicAvatarResponse
+       */
+      Models::ConfirmTrainPicAvatarResponse confirmTrainPicAvatar(const Models::ConfirmTrainPicAvatarRequest &request);
+
+      /**
        * @summary 创建背景素材
        *
        * @param request CreateBackgroundPicRequest
@@ -111,6 +129,60 @@ namespace LingMou20250527
       Models::CreateNoTrainPicAvatarResponse createNoTrainPicAvatar(const Models::CreateNoTrainPicAvatarRequest &request);
 
       /**
+       * @summary 创建TTS音色
+       *
+       * @param request CreateTTSVoiceCustomRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTTSVoiceCustomResponse
+       */
+      Models::CreateTTSVoiceCustomResponse createTTSVoiceCustomWithOptions(const Models::CreateTTSVoiceCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建TTS音色
+       *
+       * @param request CreateTTSVoiceCustomRequest
+       * @return CreateTTSVoiceCustomResponse
+       */
+      Models::CreateTTSVoiceCustomResponse createTTSVoiceCustom(const Models::CreateTTSVoiceCustomRequest &request);
+
+      /**
+       * @summary 创建图片训练数字人
+       *
+       * @param request CreateTrainPicAvatarRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTrainPicAvatarResponse
+       */
+      Models::CreateTrainPicAvatarResponse createTrainPicAvatarWithOptions(const Models::CreateTrainPicAvatarRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建图片训练数字人
+       *
+       * @param request CreateTrainPicAvatarRequest
+       * @return CreateTrainPicAvatarResponse
+       */
+      Models::CreateTrainPicAvatarResponse createTrainPicAvatar(const Models::CreateTrainPicAvatarRequest &request);
+
+      /**
+       * @summary 查询图片训练数字人的状态
+       *
+       * @param request GetTrainPicAvatarStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTrainPicAvatarStatusResponse
+       */
+      Models::GetTrainPicAvatarStatusResponse getTrainPicAvatarStatusWithOptions(const Models::GetTrainPicAvatarStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询图片训练数字人的状态
+       *
+       * @param request GetTrainPicAvatarStatusRequest
+       * @return GetTrainPicAvatarStatusResponse
+       */
+      Models::GetTrainPicAvatarStatusResponse getTrainPicAvatarStatus(const Models::GetTrainPicAvatarStatusRequest &request);
+
+      /**
        * @summary 获取对话免训图片素材上传凭证
        *
        * @param request GetUploadPolicyRequest
@@ -127,6 +199,42 @@ namespace LingMou20250527
        * @return GetUploadPolicyResponse
        */
       Models::GetUploadPolicyResponse getUploadPolicy(const Models::GetUploadPolicyRequest &request);
+
+      /**
+       * @summary 列举私有TTS音色
+       *
+       * @param request ListPrivateTTSVoicesCustomRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPrivateTTSVoicesCustomResponse
+       */
+      Models::ListPrivateTTSVoicesCustomResponse listPrivateTTSVoicesCustomWithOptions(const Models::ListPrivateTTSVoicesCustomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举私有TTS音色
+       *
+       * @param request ListPrivateTTSVoicesCustomRequest
+       * @return ListPrivateTTSVoicesCustomResponse
+       */
+      Models::ListPrivateTTSVoicesCustomResponse listPrivateTTSVoicesCustom(const Models::ListPrivateTTSVoicesCustomRequest &request);
+
+      /**
+       * @summary 查询底板素材
+       *
+       * @param request ListTemplateMaterialRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplateMaterialResponse
+       */
+      Models::ListTemplateMaterialResponse listTemplateMaterialWithOptions(const Models::ListTemplateMaterialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询底板素材
+       *
+       * @param request ListTemplateMaterialRequest
+       * @return ListTemplateMaterialResponse
+       */
+      Models::ListTemplateMaterialResponse listTemplateMaterial(const Models::ListTemplateMaterialRequest &request);
 
       /**
        * @summary 查询会话实例session
