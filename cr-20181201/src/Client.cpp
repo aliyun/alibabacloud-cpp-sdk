@@ -1572,6 +1572,138 @@ CreateRepositoryResponse Client::createRepository(const CreateRepositoryRequest 
 }
 
 /**
+ * @summary 创建扫描规则
+ *
+ * @param tmpReq CreateScanRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateScanRuleResponse
+ */
+CreateScanRuleResponse Client::createScanRuleWithOptions(const CreateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateScanRuleShrinkRequest request = CreateScanRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNamespaces()) {
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaces(), "Namespaces", "json"));
+  }
+
+  if (!!tmpReq.hasRepoNames()) {
+    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.repoNames(), "RepoNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNamespacesShrink()) {
+    query["Namespaces"] = request.namespacesShrink();
+  }
+
+  if (!!request.hasRepoNamesShrink()) {
+    query["RepoNames"] = request.repoNamesShrink();
+  }
+
+  if (!!request.hasRepoTagFilterPattern()) {
+    query["RepoTagFilterPattern"] = request.repoTagFilterPattern();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasScanScope()) {
+    query["ScanScope"] = request.scanScope();
+  }
+
+  if (!!request.hasScanType()) {
+    query["ScanType"] = request.scanType();
+  }
+
+  if (!!request.hasTriggerType()) {
+    query["TriggerType"] = request.triggerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateScanRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateScanRuleResponse>();
+}
+
+/**
+ * @summary 创建扫描规则
+ *
+ * @param request CreateScanRuleRequest
+ * @return CreateScanRuleResponse
+ */
+CreateScanRuleResponse Client::createScanRule(const CreateScanRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createScanRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建实例域名路由规则
+ *
+ * @param tmpReq CreateStorageDomainRoutingRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStorageDomainRoutingRuleResponse
+ */
+CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRuleWithOptions(const CreateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateStorageDomainRoutingRuleShrinkRequest request = CreateStorageDomainRoutingRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRoutes()) {
+    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routes(), "Routes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRoutesShrink()) {
+    query["Routes"] = request.routesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateStorageDomainRoutingRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStorageDomainRoutingRuleResponse>();
+}
+
+/**
+ * @summary 创建实例域名路由规则
+ *
+ * @param request CreateStorageDomainRoutingRuleRequest
+ * @return CreateStorageDomainRoutingRuleResponse
+ */
+CreateStorageDomainRoutingRuleResponse Client::createStorageDomainRoutingRule(const CreateStorageDomainRoutingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStorageDomainRoutingRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an artifact lifecycle management rule.
  *
  * @param request DeleteArtifactLifecycleRuleRequest
@@ -2323,6 +2455,98 @@ DeleteRepositoryResponse Client::deleteRepositoryWithOptions(const DeleteReposit
 DeleteRepositoryResponse Client::deleteRepository(const DeleteRepositoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteRepositoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除扫描规则
+ *
+ * @param request DeleteScanRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteScanRuleResponse
+ */
+DeleteScanRuleResponse Client::deleteScanRuleWithOptions(const DeleteScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasScanRuleId()) {
+    query["ScanRuleId"] = request.scanRuleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteScanRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteScanRuleResponse>();
+}
+
+/**
+ * @summary 删除扫描规则
+ *
+ * @param request DeleteScanRuleRequest
+ * @return DeleteScanRuleResponse
+ */
+DeleteScanRuleResponse Client::deleteScanRule(const DeleteScanRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteScanRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除实例存储域名映射规则
+ *
+ * @param request DeleteStorageDomainRoutingRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStorageDomainRoutingRuleResponse
+ */
+DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRuleWithOptions(const DeleteStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteStorageDomainRoutingRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStorageDomainRoutingRuleResponse>();
+}
+
+/**
+ * @summary 删除实例存储域名映射规则
+ *
+ * @param request DeleteStorageDomainRoutingRuleRequest
+ * @return DeleteStorageDomainRoutingRuleResponse
+ */
+DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRule(const DeleteStorageDomainRoutingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStorageDomainRoutingRuleWithOptions(request, runtime);
 }
 
 /**
@@ -3398,6 +3622,98 @@ GetRepositoryResponse Client::getRepositoryWithOptions(const GetRepositoryReques
 GetRepositoryResponse Client::getRepository(const GetRepositoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getRepositoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询扫描规则
+ *
+ * @param request GetScanRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScanRuleResponse
+ */
+GetScanRuleResponse Client::getScanRuleWithOptions(const GetScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasScanRuleId()) {
+    query["ScanRuleId"] = request.scanRuleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetScanRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScanRuleResponse>();
+}
+
+/**
+ * @summary 查询扫描规则
+ *
+ * @param request GetScanRuleRequest
+ * @return GetScanRuleResponse
+ */
+GetScanRuleResponse Client::getScanRule(const GetScanRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getScanRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例存储域名路由规则
+ *
+ * @param request GetStorageDomainRoutingRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetStorageDomainRoutingRuleResponse
+ */
+GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRuleWithOptions(const GetStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetStorageDomainRoutingRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetStorageDomainRoutingRuleResponse>();
+}
+
+/**
+ * @summary 查询实例存储域名路由规则
+ *
+ * @param request GetStorageDomainRoutingRuleRequest
+ * @return GetStorageDomainRoutingRuleResponse
+ */
+GetStorageDomainRoutingRuleResponse Client::getStorageDomainRoutingRule(const GetStorageDomainRoutingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getStorageDomainRoutingRuleWithOptions(request, runtime);
 }
 
 /**
@@ -4757,6 +5073,44 @@ ListScanMaliciousFileByTaskResponse Client::listScanMaliciousFileByTask(const Li
 }
 
 /**
+ * @summary 查询扫描规则
+ *
+ * @param request ListScanRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListScanRuleResponse
+ */
+ListScanRuleResponse Client::listScanRuleWithOptions(const ListScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListScanRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListScanRuleResponse>();
+}
+
+/**
+ * @summary 查询扫描规则
+ *
+ * @param request ListScanRuleRequest
+ * @return ListScanRuleResponse
+ */
+ListScanRuleResponse Client::listScanRule(const ListScanRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listScanRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
  *
  * @param request ListTagResourcesRequest
@@ -5802,6 +6156,142 @@ UpdateRepositoryResponse Client::updateRepositoryWithOptions(const UpdateReposit
 UpdateRepositoryResponse Client::updateRepository(const UpdateRepositoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRepositoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新扫描规则
+ *
+ * @param tmpReq UpdateScanRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateScanRuleResponse
+ */
+UpdateScanRuleResponse Client::updateScanRuleWithOptions(const UpdateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateScanRuleShrinkRequest request = UpdateScanRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNamespaces()) {
+    request.setNamespacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.namespaces(), "Namespaces", "json"));
+  }
+
+  if (!!tmpReq.hasRepoNames()) {
+    request.setRepoNamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.repoNames(), "RepoNames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasNamespacesShrink()) {
+    query["Namespaces"] = request.namespacesShrink();
+  }
+
+  if (!!request.hasRepoNamesShrink()) {
+    query["RepoNames"] = request.repoNamesShrink();
+  }
+
+  if (!!request.hasRepoTagFilterPattern()) {
+    query["RepoTagFilterPattern"] = request.repoTagFilterPattern();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasScanRuleId()) {
+    query["ScanRuleId"] = request.scanRuleId();
+  }
+
+  if (!!request.hasScanScope()) {
+    query["ScanScope"] = request.scanScope();
+  }
+
+  if (!!request.hasTriggerType()) {
+    query["TriggerType"] = request.triggerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateScanRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateScanRuleResponse>();
+}
+
+/**
+ * @summary 更新扫描规则
+ *
+ * @param request UpdateScanRuleRequest
+ * @return UpdateScanRuleResponse
+ */
+UpdateScanRuleResponse Client::updateScanRule(const UpdateScanRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateScanRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例域名路由规则
+ *
+ * @param tmpReq UpdateStorageDomainRoutingRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateStorageDomainRoutingRuleResponse
+ */
+UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRuleWithOptions(const UpdateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateStorageDomainRoutingRuleShrinkRequest request = UpdateStorageDomainRoutingRuleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRoutes()) {
+    request.setRoutesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.routes(), "Routes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRoutesShrink()) {
+    query["Routes"] = request.routesShrink();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateStorageDomainRoutingRule"},
+    {"version" , "2018-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateStorageDomainRoutingRuleResponse>();
+}
+
+/**
+ * @summary 更新实例域名路由规则
+ *
+ * @param request UpdateStorageDomainRoutingRuleRequest
+ * @return UpdateStorageDomainRoutingRuleResponse
+ */
+UpdateStorageDomainRoutingRuleResponse Client::updateStorageDomainRoutingRule(const UpdateStorageDomainRoutingRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateStorageDomainRoutingRuleWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Cr20181201

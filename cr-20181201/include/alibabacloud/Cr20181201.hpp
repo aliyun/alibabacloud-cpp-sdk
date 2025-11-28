@@ -452,6 +452,40 @@ namespace Cr20181201
       Models::CreateRepositoryResponse createRepository(const Models::CreateRepositoryRequest &request);
 
       /**
+       * @summary 创建扫描规则
+       *
+       * @param tmpReq CreateScanRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateScanRuleResponse
+       */
+      Models::CreateScanRuleResponse createScanRuleWithOptions(const Models::CreateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建扫描规则
+       *
+       * @param request CreateScanRuleRequest
+       * @return CreateScanRuleResponse
+       */
+      Models::CreateScanRuleResponse createScanRule(const Models::CreateScanRuleRequest &request);
+
+      /**
+       * @summary 创建实例域名路由规则
+       *
+       * @param tmpReq CreateStorageDomainRoutingRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStorageDomainRoutingRuleResponse
+       */
+      Models::CreateStorageDomainRoutingRuleResponse createStorageDomainRoutingRuleWithOptions(const Models::CreateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建实例域名路由规则
+       *
+       * @param request CreateStorageDomainRoutingRuleRequest
+       * @return CreateStorageDomainRoutingRuleResponse
+       */
+      Models::CreateStorageDomainRoutingRuleResponse createStorageDomainRoutingRule(const Models::CreateStorageDomainRoutingRuleRequest &request);
+
+      /**
        * @summary Deletes an artifact lifecycle management rule.
        *
        * @param request DeleteArtifactLifecycleRuleRequest
@@ -717,6 +751,40 @@ namespace Cr20181201
        * @return DeleteRepositoryResponse
        */
       Models::DeleteRepositoryResponse deleteRepository(const Models::DeleteRepositoryRequest &request);
+
+      /**
+       * @summary 删除扫描规则
+       *
+       * @param request DeleteScanRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteScanRuleResponse
+       */
+      Models::DeleteScanRuleResponse deleteScanRuleWithOptions(const Models::DeleteScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除扫描规则
+       *
+       * @param request DeleteScanRuleRequest
+       * @return DeleteScanRuleResponse
+       */
+      Models::DeleteScanRuleResponse deleteScanRule(const Models::DeleteScanRuleRequest &request);
+
+      /**
+       * @summary 删除实例存储域名映射规则
+       *
+       * @param request DeleteStorageDomainRoutingRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStorageDomainRoutingRuleResponse
+       */
+      Models::DeleteStorageDomainRoutingRuleResponse deleteStorageDomainRoutingRuleWithOptions(const Models::DeleteStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除实例存储域名映射规则
+       *
+       * @param request DeleteStorageDomainRoutingRuleRequest
+       * @return DeleteStorageDomainRoutingRuleResponse
+       */
+      Models::DeleteStorageDomainRoutingRuleResponse deleteStorageDomainRoutingRule(const Models::DeleteStorageDomainRoutingRuleRequest &request);
 
       /**
        * @param request GetArtifactBuildRuleRequest
@@ -1124,6 +1192,40 @@ namespace Cr20181201
        * @return GetRepositoryResponse
        */
       Models::GetRepositoryResponse getRepository(const Models::GetRepositoryRequest &request);
+
+      /**
+       * @summary 查询扫描规则
+       *
+       * @param request GetScanRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScanRuleResponse
+       */
+      Models::GetScanRuleResponse getScanRuleWithOptions(const Models::GetScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询扫描规则
+       *
+       * @param request GetScanRuleRequest
+       * @return GetScanRuleResponse
+       */
+      Models::GetScanRuleResponse getScanRule(const Models::GetScanRuleRequest &request);
+
+      /**
+       * @summary 查询实例存储域名路由规则
+       *
+       * @param request GetStorageDomainRoutingRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetStorageDomainRoutingRuleResponse
+       */
+      Models::GetStorageDomainRoutingRuleResponse getStorageDomainRoutingRuleWithOptions(const Models::GetStorageDomainRoutingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例存储域名路由规则
+       *
+       * @param request GetStorageDomainRoutingRuleRequest
+       * @return GetStorageDomainRoutingRuleResponse
+       */
+      Models::GetStorageDomainRoutingRuleResponse getStorageDomainRoutingRule(const Models::GetStorageDomainRoutingRuleRequest &request);
 
       /**
        * @summary Queries the log entries of an artifact building task.
@@ -1576,6 +1678,23 @@ namespace Cr20181201
       Models::ListScanMaliciousFileByTaskResponse listScanMaliciousFileByTask(const Models::ListScanMaliciousFileByTaskRequest &request);
 
       /**
+       * @summary 查询扫描规则
+       *
+       * @param request ListScanRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScanRuleResponse
+       */
+      Models::ListScanRuleResponse listScanRuleWithOptions(const Models::ListScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询扫描规则
+       *
+       * @param request ListScanRuleRequest
+       * @return ListScanRuleResponse
+       */
+      Models::ListScanRuleResponse listScanRule(const Models::ListScanRuleRequest &request);
+
+      /**
        * @summary Queries the tags that are added to cloud resources. Instance resources are supported.
        *
        * @param request ListTagResourcesRequest
@@ -1846,6 +1965,40 @@ namespace Cr20181201
        * @return UpdateRepositoryResponse
        */
       Models::UpdateRepositoryResponse updateRepository(const Models::UpdateRepositoryRequest &request);
+
+      /**
+       * @summary 更新扫描规则
+       *
+       * @param tmpReq UpdateScanRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateScanRuleResponse
+       */
+      Models::UpdateScanRuleResponse updateScanRuleWithOptions(const Models::UpdateScanRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新扫描规则
+       *
+       * @param request UpdateScanRuleRequest
+       * @return UpdateScanRuleResponse
+       */
+      Models::UpdateScanRuleResponse updateScanRule(const Models::UpdateScanRuleRequest &request);
+
+      /**
+       * @summary 更新实例域名路由规则
+       *
+       * @param tmpReq UpdateStorageDomainRoutingRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateStorageDomainRoutingRuleResponse
+       */
+      Models::UpdateStorageDomainRoutingRuleResponse updateStorageDomainRoutingRuleWithOptions(const Models::UpdateStorageDomainRoutingRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例域名路由规则
+       *
+       * @param request UpdateStorageDomainRoutingRuleRequest
+       * @return UpdateStorageDomainRoutingRuleResponse
+       */
+      Models::UpdateStorageDomainRoutingRuleResponse updateStorageDomainRoutingRule(const Models::UpdateStorageDomainRoutingRuleRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Cr20181201
