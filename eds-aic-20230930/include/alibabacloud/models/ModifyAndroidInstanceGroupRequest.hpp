@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_TO_JSON(NewInstanceGroupName, newInstanceGroupName_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
+      DARABONBA_PTR_TO_JSON(StreamMode, streamMode_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAndroidInstanceGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceGroupId, instanceGroupId_);
       DARABONBA_PTR_FROM_JSON(NewInstanceGroupName, newInstanceGroupName_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
+      DARABONBA_PTR_FROM_JSON(StreamMode, streamMode_);
     };
     ModifyAndroidInstanceGroupRequest() = default ;
     ModifyAndroidInstanceGroupRequest(const ModifyAndroidInstanceGroupRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceGroupId_ == nullptr
-        && return this->newInstanceGroupName_ == nullptr && return this->policyGroupId_ == nullptr; };
+        && return this->newInstanceGroupName_ == nullptr && return this->policyGroupId_ == nullptr && return this->streamMode_ == nullptr; };
     // instanceGroupId Field Functions 
     bool hasInstanceGroupId() const { return this->instanceGroupId_ != nullptr;};
     void deleteInstanceGroupId() { this->instanceGroupId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline ModifyAndroidInstanceGroupRequest& setPolicyGroupId(string policyGroupId) { DARABONBA_PTR_SET_VALUE(policyGroupId_, policyGroupId) };
 
 
+    // streamMode Field Functions 
+    bool hasStreamMode() const { return this->streamMode_ != nullptr;};
+    void deleteStreamMode() { this->streamMode_ = nullptr;};
+    inline int32_t streamMode() const { DARABONBA_PTR_GET_DEFAULT(streamMode_, 0) };
+    inline ModifyAndroidInstanceGroupRequest& setStreamMode(int32_t streamMode) { DARABONBA_PTR_SET_VALUE(streamMode_, streamMode) };
+
+
   protected:
     // The ID of the instance group.
     std::shared_ptr<string> instanceGroupId_ = nullptr;
@@ -67,6 +76,7 @@ namespace Models
     std::shared_ptr<string> newInstanceGroupName_ = nullptr;
     // The ID of the policy.
     std::shared_ptr<string> policyGroupId_ = nullptr;
+    std::shared_ptr<int32_t> streamMode_ = nullptr;
   };
 
   } // namespace Models

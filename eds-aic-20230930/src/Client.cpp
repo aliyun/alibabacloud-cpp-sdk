@@ -531,6 +531,10 @@ CreateAndroidInstanceGroupResponse Client::createAndroidInstanceGroupWithOptions
     query["PromotionId"] = request.promotionId();
   }
 
+  if (!!request.hasStreamMode()) {
+    query["StreamMode"] = request.streamMode();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.tag();
   }
@@ -3713,6 +3717,10 @@ ModifyAndroidInstanceGroupResponse Client::modifyAndroidInstanceGroupWithOptions
 
   if (!!request.hasPolicyGroupId()) {
     query["PolicyGroupId"] = request.policyGroupId();
+  }
+
+  if (!!request.hasStreamMode()) {
+    query["StreamMode"] = request.streamMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

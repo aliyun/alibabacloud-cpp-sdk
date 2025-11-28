@@ -38,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(StreamMode, streamMode_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(StreamMode, streamMode_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
@@ -84,7 +86,7 @@ namespace Models
         && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->enableIpv6_ == nullptr && return this->gpuAcceleration_ == nullptr && return this->imageId_ == nullptr
         && return this->instanceGroupName_ == nullptr && return this->instanceGroupSpec_ == nullptr && return this->ipv6Bandwidth_ == nullptr && return this->keyPairId_ == nullptr && return this->networkInfoShrink_ == nullptr
         && return this->networkType_ == nullptr && return this->numberOfInstances_ == nullptr && return this->officeSiteId_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr
-        && return this->policyGroupId_ == nullptr && return this->promotionId_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && return this->policyGroupId_ == nullptr && return this->promotionId_ == nullptr && return this->streamMode_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -246,6 +248,13 @@ namespace Models
     inline CreateAndroidInstanceGroupShrinkRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
+    // streamMode Field Functions 
+    bool hasStreamMode() const { return this->streamMode_ != nullptr;};
+    void deleteStreamMode() { this->streamMode_ = nullptr;};
+    inline int32_t streamMode() const { DARABONBA_PTR_GET_DEFAULT(streamMode_, 0) };
+    inline CreateAndroidInstanceGroupShrinkRequest& setStreamMode(int32_t streamMode) { DARABONBA_PTR_SET_VALUE(streamMode_, streamMode) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -358,6 +367,7 @@ namespace Models
     // The ID of the policy. You can call the [ListPolicyGroups](https://help.aliyun.com/document_detail/2807352.html) operation to query policies.
     std::shared_ptr<string> policyGroupId_ = nullptr;
     std::shared_ptr<string> promotionId_ = nullptr;
+    std::shared_ptr<int32_t> streamMode_ = nullptr;
     // The tags
     std::shared_ptr<vector<CreateAndroidInstanceGroupShrinkRequestTag>> tag_ = nullptr;
     // The ID of the vSwitch. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/448774.html) operation to query vSwitches.
