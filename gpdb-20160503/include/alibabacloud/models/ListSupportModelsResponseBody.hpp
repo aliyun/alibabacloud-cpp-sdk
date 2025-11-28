@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of supported model names.
     std::shared_ptr<ListSupportModelsResponseBodyModelNames> modelNames_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

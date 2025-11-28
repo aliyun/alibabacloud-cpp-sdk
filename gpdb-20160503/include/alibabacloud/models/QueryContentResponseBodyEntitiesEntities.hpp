@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Entity description.
     std::shared_ptr<string> description_ = nullptr;
+    // The entity name.
     std::shared_ptr<string> entity_ = nullptr;
+    // The file name.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The entity ID.
     std::shared_ptr<string> id_ = nullptr;
+    // The entity type.
     std::shared_ptr<string> type_ = nullptr;
   };
 

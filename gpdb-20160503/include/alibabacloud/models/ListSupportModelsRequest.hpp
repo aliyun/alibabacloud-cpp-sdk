@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The region ID of the instance.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

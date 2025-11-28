@@ -101,6 +101,7 @@ namespace Models
     // 
     // >  You must specify one of the SecretArn and SecretName parameters.
     std::shared_ptr<string> secretName_ = nullptr;
+    // The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };
 

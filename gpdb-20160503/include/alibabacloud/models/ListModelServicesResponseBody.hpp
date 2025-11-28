@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Model services.
     std::shared_ptr<vector<ListModelServicesResponseBodyModelServices>> modelServices_ = nullptr;
+    // The page number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageRecordCount_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int32_t> totalRecordCount_ = nullptr;
   };
 

@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The embedding values.
     std::shared_ptr<Models::TextEmbeddingResponseBodyResultsResultsEmbedding> embedding_ = nullptr;
+    // The number of the embedding in the Input request parameter, which starts from 0.
     std::shared_ptr<int32_t> index_ = nullptr;
   };
 

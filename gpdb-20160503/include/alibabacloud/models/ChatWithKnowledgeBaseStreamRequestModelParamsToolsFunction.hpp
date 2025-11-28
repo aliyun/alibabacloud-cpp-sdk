@@ -59,8 +59,11 @@ namespace Models
 
 
   protected:
+    // The description of the function.
     std::shared_ptr<string> description_ = nullptr;
+    // The name of the function.
     std::shared_ptr<string> name_ = nullptr;
+    // JSON Schema for function parameters.
     Darabonba::Json parameters_ = nullptr;
   };
 

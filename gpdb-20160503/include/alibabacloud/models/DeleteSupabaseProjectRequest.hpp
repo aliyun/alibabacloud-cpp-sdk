@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The Supabase project ID. You can go to the Supabase page in the AnalyticDB for PostgreSQL console to obtain the workspace ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

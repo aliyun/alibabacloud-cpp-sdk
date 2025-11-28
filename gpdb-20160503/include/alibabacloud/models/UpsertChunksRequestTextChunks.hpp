@@ -68,13 +68,15 @@ namespace Models
 
 
   protected:
-    // Document content.
+    // The content of the document.
     // 
     // This parameter is required.
     std::shared_ptr<string> content_ = nullptr;
+    // The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause.
     std::shared_ptr<string> filter_ = nullptr;
+    // The unique ID of the vector data.
     std::shared_ptr<string> id_ = nullptr;
-    // Metadata.
+    // The metadata.
     Darabonba::Json metadata_ = nullptr;
   };
 

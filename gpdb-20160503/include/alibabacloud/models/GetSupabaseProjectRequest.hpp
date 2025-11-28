@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The ID of the Supabase instance. You can obtain the ID on the Supabase page in the console.
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The region ID of the cluster.
+    // 
+    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

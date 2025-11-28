@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The information about a function.
     std::shared_ptr<Models::ChatWithKnowledgeBaseStreamRequestModelParamsToolsFunction> function_ = nullptr;
   };
 

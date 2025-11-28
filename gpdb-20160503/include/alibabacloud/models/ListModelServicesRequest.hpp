@@ -66,10 +66,23 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The page number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page. Valid values:
+    // 
+    // *   **20**
+    // *   **50**
+    // *   **100**
+    // 
+    // Default value: **20**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The region ID of the cluster.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

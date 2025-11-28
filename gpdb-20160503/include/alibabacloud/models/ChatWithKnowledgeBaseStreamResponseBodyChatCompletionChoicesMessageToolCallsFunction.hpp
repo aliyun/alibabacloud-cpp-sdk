@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Arguments of the called function.
     std::shared_ptr<string> arguments_ = nullptr;
+    // The name of the called function.
     std::shared_ptr<string> name_ = nullptr;
   };
 

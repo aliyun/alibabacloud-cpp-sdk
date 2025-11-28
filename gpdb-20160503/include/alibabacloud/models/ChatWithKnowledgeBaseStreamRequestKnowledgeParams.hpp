@@ -82,11 +82,26 @@ namespace Models
 
 
   protected:
+    // The method used to merge multiple knowledge base. Default value: RRF. Valid values:
+    // 
+    // *   RRF
+    // *   Weight
     std::shared_ptr<string> mergeMethod_ = nullptr;
+    // Parameters for multi-knowledge-base fusion.
     std::shared_ptr<Models::ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs> mergeMethodArgs_ = nullptr;
+    // The rerank factor. If you specify this parameter, the search result is reranked once again. Valid values: 1\\<RerankFactor<=5.
+    // 
+    // > 
+    // 
+    // *   If the document is segmented into sparse parts, reranking is inefficient.
+    // 
+    // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
     std::shared_ptr<double> rerankFactor_ = nullptr;
+    // Knowledge base.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection>> sourceCollection_ = nullptr;
+    // Specifies the number of top results to return after merging retrieved results from multiple vector collections.
     std::shared_ptr<int64_t> topK_ = nullptr;
   };
 

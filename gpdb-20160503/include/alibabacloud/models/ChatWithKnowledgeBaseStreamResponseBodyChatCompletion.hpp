@@ -82,10 +82,15 @@ namespace Models
 
 
   protected:
+    // Text content generated in real time.
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseStreamResponseBodyChatCompletionChoices>> choices_ = nullptr;
+    // The creation time.
     std::shared_ptr<int64_t> created_ = nullptr;
+    // The ID of the response.
     std::shared_ptr<string> id_ = nullptr;
+    // The name of the model.
     std::shared_ptr<string> model_ = nullptr;
+    // The number of tokens used in LLM output.
     std::shared_ptr<Models::ChatWithKnowledgeBaseStreamResponseBodyChatCompletionUsage> usage_ = nullptr;
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The username for accessing the project\\"s dashboard.
     std::shared_ptr<string> dashboardPassword_ = nullptr;
+    // The password associated with the dashboard username.
     std::shared_ptr<string> dashboardUsername_ = nullptr;
+    // The ID of the Supabase project.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The name of the Supabase project.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

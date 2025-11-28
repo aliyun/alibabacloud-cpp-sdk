@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // An array of weights for each SourceCollection.
     std::shared_ptr<vector<double>> weights_ = nullptr;
   };
 

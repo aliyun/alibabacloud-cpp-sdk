@@ -94,36 +94,36 @@ namespace Models
 
 
   protected:
-    // Document collection name.
+    // The name of the document collection.
     // 
-    // > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the already created document collections.
+    // > You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection. and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
     // 
     // This parameter is required.
     std::shared_ptr<string> collection_ = nullptr;
-    // Instance ID.
+    // The cluster ID.
     // 
-    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
     // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
-    // Document name.
+    // The name of the document.
     // 
-    // > You can view the list of documents using the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API.
+    // > You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileName_ = nullptr;
-    // Namespace, default is public.
+    // The name of the namespace. Default value: public.
     // 
-    // > You can create it via the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list through the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+    // > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
     std::shared_ptr<string> namespace_ = nullptr;
-    // Password for the namespace.
+    // The password of the namespace.
     // 
-    // > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+    // > The value of this parameter is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
     // 
     // This parameter is required.
     std::shared_ptr<string> namespacePassword_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // Region ID where the instance is located.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;

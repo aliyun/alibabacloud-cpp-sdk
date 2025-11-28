@@ -94,12 +94,50 @@ namespace Models
 
 
   protected:
+    // The binding type of the AI node.
     std::shared_ptr<string> bindObject_ = nullptr;
+    // The status of the AI node.
+    // 
+    // *   unbound: The node is not bound.
+    // *   bound: The node is bound.
     std::shared_ptr<string> bindStatus_ = nullptr;
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The name of the AI node.
     std::shared_ptr<string> nodeName_ = nullptr;
+    // The AI node specifications. The list of supported specifications is shown below.
+    // 
+    //     ADB.AIMedium.1
+    //     ADB.AILarge.1
+    //     ADB.AIStandard.2
+    //     ADB.AIMedium.2
+    //     ADB.AILarge.2
+    //     ADB.AIXLarge.2
+    //     ADB.AIStandard.6
+    //     ADB.AIMedium.6
+    //     ADB.AILarge.6
+    //     ADB.AIXLarge.6
+    //     ADB.AIStandard.3
+    //     ADB.AIMedium.3
+    //     ADB.AILarge.3
+    //     ADB.AIXLarge.3
+    //     ADB.AIStandard.4
+    //     ADB.AIMedium.4
+    //     ADB.AILarge.4
+    //     ADB.AIXLarge.4
+    //     ADB.AIStandard.5
+    //     ADB.AIMedium.5
+    //     ADB.AILarge.5
+    //     ADB.AIXLarge.5
+    //     ADB.AIStandard.8
+    //     ADB.AIMedium.8
+    //     ADB.AILarge.8
+    //     ADB.AIXLarge.8
+    //     ADB.AI2XLarge.8
     std::shared_ptr<string> nodeSpec_ = nullptr;
+    // The update time.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

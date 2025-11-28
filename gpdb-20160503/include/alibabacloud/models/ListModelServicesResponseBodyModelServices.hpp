@@ -136,16 +136,34 @@ namespace Models
 
 
   protected:
+    // A list of AI nodes for model deployment.
     std::shared_ptr<vector<string>> aiNodes_ = nullptr;
+    // The API key.
     std::shared_ptr<string> apiKey_ = nullptr;
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // The model name.
     std::shared_ptr<string> modelName_ = nullptr;
+    // Model service parameters (not available).
     std::shared_ptr<map<string, string>> modelParams_ = nullptr;
+    // Model service ID.
     std::shared_ptr<string> modelServiceId_ = nullptr;
+    // Private Endpoint.
     std::shared_ptr<string> privateConnUrl_ = nullptr;
+    // Public endpoint.
     std::shared_ptr<string> publicConnUrl_ = nullptr;
+    // The IP addresses listed in the whitelist. Up to 1,000 IP addresses are contained in a whitelist and separated by commas (,). The IP addresses must use one of the following formats:
+    // 
+    // *   0.0.0.0/0
+    // *   10.23.12.24(IP)
+    // *   10.23.12.24/24 (This is a CIDR block. The value`/24`indicates the network prefix length, which must be an integer and in the range of `[1,32]`.)
     std::shared_ptr<string> securityIPList_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
   };
 

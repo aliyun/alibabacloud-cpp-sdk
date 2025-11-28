@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The backup job ID.
     std::shared_ptr<int64_t> backupJobId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

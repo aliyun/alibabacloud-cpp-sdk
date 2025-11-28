@@ -115,13 +115,26 @@ namespace Models
 
 
   protected:
+    // The number of tokens that are used during vectorization.
+    // 
+    // >  A token is the minimum unit for segmenting text. A token can be a word, phrase, punctuation, or character.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
+    // The details of the entity.
     std::shared_ptr<QueryKnowledgeBasesContentResponseBodyEntities> entities_ = nullptr;
+    // A single data record.
     std::shared_ptr<QueryKnowledgeBasesContentResponseBodyMatches> matches_ = nullptr;
+    // The returned information.
     std::shared_ptr<string> message_ = nullptr;
+    // The details of the relationship edge.
     std::shared_ptr<QueryKnowledgeBasesContentResponseBodyRelations> relations_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**.
+    // *   **fail**.
     std::shared_ptr<string> status_ = nullptr;
+    // The total number of tokens that are consumed by this query.
     std::shared_ptr<QueryKnowledgeBasesContentResponseBodyUsage> usage_ = nullptr;
   };
 

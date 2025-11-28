@@ -69,9 +69,16 @@ namespace Models
 
 
   protected:
+    // The details of the index creation job.
     std::shared_ptr<DescribeCreateIndexJobResponseBodyJob> job_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**.
+    // *   **fail**.
     std::shared_ptr<string> status_ = nullptr;
   };
 

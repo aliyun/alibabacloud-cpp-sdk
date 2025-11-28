@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The parameter that can be configured when the MergeMethod parameter is set to RRF.
     std::shared_ptr<Models::QueryKnowledgeBasesContentRequestMergeMethodArgsRrf> rrf_ = nullptr;
+    // The parameter that you can configure when you set the MergeMethod parameter to Weight.
     std::shared_ptr<Models::QueryKnowledgeBasesContentRequestMergeMethodArgsWeight> weight_ = nullptr;
   };
 

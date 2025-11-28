@@ -285,7 +285,9 @@ namespace Models
     // > 
     // > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
     std::shared_ptr<string> filter_ = nullptr;
+    // Whether to enable knowledge graph enhancement. Default value: false.
     std::shared_ptr<bool> graphEnhance_ = nullptr;
+    // The search parameters of the knowledge graph.
     std::shared_ptr<string> graphSearchArgsShrink_ = nullptr;
     // Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
     // 
@@ -342,7 +344,13 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> namespacePassword_ = nullptr;
+    // Offset, used for paginated queries.
     std::shared_ptr<int32_t> offset_ = nullptr;
+    // The fields by which to sort the results. This parameter is empty by default.
+    // 
+    // The field must be either a metadata field or a default field in the table (e.g., id). Supported formats include:
+    // 
+    // Single field, such as chunk_id. Multiple fields that are separated by commas (,), such as block_id,chunk_id. Descending order is supported, e.g., block_id DESC, chunk_id DESC.
     std::shared_ptr<string> orderBy_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
@@ -357,8 +365,17 @@ namespace Models
     // > - Re-ranking is slower when documents are sparsely split.
     // > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
     std::shared_ptr<double> rerankFactor_ = nullptr;
-    // Set the number of top results to return.
+    // The number of the returned top results.
     std::shared_ptr<int32_t> topK_ = nullptr;
+    // The validity period of the returned image URL.
+    // 
+    // >  Value Description
+    // 
+    // *   Supported units are seconds (s) and days (d). For example, 300s specifies that the URL is valid for 300 seconds, and 60d specifies that the URL is valid for 60 days.
+    // 
+    // *   Valid values: 60s to 365d.
+    // 
+    // *   Default value: 7200s, that is, 2 hours.
     std::shared_ptr<string> urlExpiration_ = nullptr;
     // Whether to use full-text retrieval (dual recall). Default is false, which means only vector retrieval is used.
     std::shared_ptr<bool> useFullTextRetrieval_ = nullptr;

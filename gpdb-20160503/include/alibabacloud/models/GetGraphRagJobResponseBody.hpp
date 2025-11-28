@@ -81,10 +81,18 @@ namespace Models
 
 
   protected:
+    // The details of the task for building a knowledge graph.
     std::shared_ptr<GetGraphRAGJobResponseBodyJob> job_ = nullptr;
+    // The additional information that is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
+    // The number of tokens that are consumed by document understanding or embedding.
     std::shared_ptr<GetGraphRAGJobResponseBodyUsage> usage_ = nullptr;
   };
 

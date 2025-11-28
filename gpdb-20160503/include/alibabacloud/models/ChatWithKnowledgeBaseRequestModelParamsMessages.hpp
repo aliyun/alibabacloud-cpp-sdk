@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The message content.
     std::shared_ptr<string> content_ = nullptr;
+    // The message role. Valid values:
+    // 
+    // *   system
+    // *   user
+    // *   assistant
     std::shared_ptr<string> role_ = nullptr;
   };
 

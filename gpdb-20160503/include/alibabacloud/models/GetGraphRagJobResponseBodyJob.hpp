@@ -94,12 +94,24 @@ namespace Models
 
 
   protected:
+    // Indicates whether the operation is complete.
     std::shared_ptr<bool> completed_ = nullptr;
+    // The job creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The error message that is returned when the current operation is abnormal or fails.
     std::shared_ptr<string> error_ = nullptr;
+    // The job ID.
     std::shared_ptr<string> id_ = nullptr;
+    // The progress of the document upload job. Unit: %. A value of 100 indicates that the job is complete.
     std::shared_ptr<int32_t> progress_ = nullptr;
+    // The state of the job. Valid values:
+    // 
+    // *   **Success**
+    // *   **Failed** (See the Error parameter for failure reasons.)
+    // *   **Running**
+    // *   **Pending**
     std::shared_ptr<string> status_ = nullptr;
+    // The job last updated time.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

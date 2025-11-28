@@ -134,6 +134,10 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The vector type. Valid values:
+    // 
+    // *   Dense (default)
+    // *   Sparse
     std::shared_ptr<string> type_ = nullptr;
   };
 

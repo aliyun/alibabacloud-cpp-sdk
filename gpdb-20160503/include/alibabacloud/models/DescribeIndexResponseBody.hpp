@@ -94,12 +94,22 @@ namespace Models
 
 
   protected:
+    // The name of the collection.
     std::shared_ptr<string> collection_ = nullptr;
+    // The definition of the index.
     std::shared_ptr<string> indexDef_ = nullptr;
+    // The name of the index.
     std::shared_ptr<string> indexName_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **false**: The operation fails.
+    // *   **true**: The operation is successful.
     std::shared_ptr<string> status_ = nullptr;
   };
 

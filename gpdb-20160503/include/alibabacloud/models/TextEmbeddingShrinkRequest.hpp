@@ -84,12 +84,30 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The number of embedding dimensions. The default value is the number of dimensions supported by the embedding algorithm.
+    // 
+    // > 
+    // 
+    // *   The text-embedding-v3 supports 1024, 768, and 512 dimensions. Default value: 1024.
     std::shared_ptr<int32_t> dimension_ = nullptr;
+    // A list of text content to be embedded. The list length must not exceed 100.
     std::shared_ptr<string> inputShrink_ = nullptr;
+    // The text embedding model. Valid values:
+    // 
+    // *   text-embedding-v1:1536 dimensions
+    // *   text-embedding-v2:1536 dimensions
+    // *   text-embedding-v3 (default):1024, 768, and 512 dimensions
+    // *   text2vec: 1024 dimensions
+    // *   m3e-base: 768 dimensions
+    // *   m3e-small: 512 dimensions
     std::shared_ptr<string> model_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID of the cluster.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

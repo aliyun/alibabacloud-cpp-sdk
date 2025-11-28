@@ -69,11 +69,21 @@ namespace Models
 
 
   protected:
+    // The name of the collection to be recalled.
+    // 
     // This parameter is required.
     std::shared_ptr<string> collection_ = nullptr;
+    // The name of the namespace. Default value: public.
+    // 
+    // >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The password of the namespace.
+    // 
+    // >  The value of this parameter is specified when you call the CreateNamespace operation.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespacePassword_ = nullptr;
+    // Parameters related to the knowledge base retrieval.
     std::shared_ptr<Models::ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParams> queryParams_ = nullptr;
   };
 

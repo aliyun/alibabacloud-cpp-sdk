@@ -131,11 +131,13 @@ namespace Models
     // 
     // > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
+    // The entities.
     std::shared_ptr<QueryContentResponseBodyEntities> entities_ = nullptr;
     // The retrieved data.
     std::shared_ptr<QueryContentResponseBodyMatches> matches_ = nullptr;
     // Return message.
     std::shared_ptr<string> message_ = nullptr;
+    // The list of relationship edges.
     std::shared_ptr<QueryContentResponseBodyRelations> relations_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;

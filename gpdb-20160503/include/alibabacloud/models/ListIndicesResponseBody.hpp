@@ -69,10 +69,16 @@ namespace Models
 
 
   protected:
+    // The queried indexes.
     std::shared_ptr<ListIndicesResponseBodyIndices> indices_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
     // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**.
+    // *   **fail**.
     std::shared_ptr<string> status_ = nullptr;
   };
 

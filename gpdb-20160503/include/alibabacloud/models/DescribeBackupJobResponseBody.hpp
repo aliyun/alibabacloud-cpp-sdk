@@ -94,12 +94,29 @@ namespace Models
 
 
   protected:
+    // The backup set ID.
+    // 
+    // >  You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets in the instance.
     std::shared_ptr<string> backupId_ = nullptr;
+    // The backup job ID.
     std::shared_ptr<string> backupJobId_ = nullptr;
+    // The backup mode. Valid values:
+    // 
+    // *   **Automated**
+    // *   **Manual**
     std::shared_ptr<string> backupMode_ = nullptr;
+    // The backup status. Valid values:
+    // 
+    // *   **schedule**
+    // *   **check**
+    // *   **backup**
+    // *   **finish**
     std::shared_ptr<string> backupStatus_ = nullptr;
+    // The progress of the backup job.
     std::shared_ptr<string> process_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The time when the backup job started. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> startTime_ = nullptr;
   };
 

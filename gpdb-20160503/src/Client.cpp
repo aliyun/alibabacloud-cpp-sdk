@@ -59,7 +59,12 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 添加AI节点
+ * @summary Adds AI nodes to the cluster.
+ *
+ * @description ## [](#)Usage notes
+ * This operation is used to add an AINode node.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
  *
  * @param request AddAINodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +103,12 @@ AddAINodeResponse Client::addAINodeWithOptions(const AddAINodeRequest &request, 
 }
 
 /**
- * @summary 添加AI节点
+ * @summary Adds AI nodes to the cluster.
+ *
+ * @description ## [](#)Usage notes
+ * This operation is used to add an AINode node.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
  *
  * @param request AddAINodeRequest
  * @return AddAINodeResponse
@@ -243,7 +253,7 @@ BindDBResourceGroupWithRoleResponse Client::bindDBResourceGroupWithRole(const Bi
 }
 
 /**
- * @summary 取消创建索引任务
+ * @summary Cancels an index creation job.
  *
  * @param request CancelCreateIndexJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +312,7 @@ CancelCreateIndexJobResponse Client::cancelCreateIndexJobWithOptions(const Cance
 }
 
 /**
- * @summary 取消创建索引任务
+ * @summary Cancels an index creation job.
  *
  * @param request CancelCreateIndexJobRequest
  * @return CancelCreateIndexJobResponse
@@ -465,9 +475,13 @@ CancelUpsertCollectionDataJobResponse Client::cancelUpsertCollectionDataJob(cons
 }
 
 /**
- * @summary 通过结合知识库和大模型，提供智能问答服务。
+ * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
  *
- * @description 通过结合知识库和大模型，提供智能问答服务。
+ * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+ * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+ * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+ * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+ * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -532,9 +546,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBaseWithOptions(const Cha
 }
 
 /**
- * @summary 通过结合知识库和大模型，提供智能问答服务。
+ * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
  *
- * @description 通过结合知识库和大模型，提供智能问答服务。
+ * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+ * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+ * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+ * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+ * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
  *
  * @param request ChatWithKnowledgeBaseRequest
  * @return ChatWithKnowledgeBaseResponse
@@ -545,9 +563,13 @@ ChatWithKnowledgeBaseResponse Client::chatWithKnowledgeBase(const ChatWithKnowle
 }
 
 /**
- * @summary 通过结合知识库和大模型，提供智能问答服务。
+ * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
  *
- * @description 通过结合知识库和大模型，提供智能问答服务。
+ * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+ * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+ * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+ * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+ * *   PromptTemplate: optional. It is used to customize a system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -624,9 +646,13 @@ return Darbaonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 通过结合知识库和大模型，提供智能问答服务。
+ * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
  *
- * @description 通过结合知识库和大模型，提供智能问答服务。
+ * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+ * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+ * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+ * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+ * *   PromptTemplate: optional. It is used to customize a system prompt template.
  *
  * @param tmpReq ChatWithKnowledgeBaseStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -691,9 +717,13 @@ ChatWithKnowledgeBaseStreamResponse Client::chatWithKnowledgeBaseStreamWithOptio
 }
 
 /**
- * @summary 通过结合知识库和大模型，提供智能问答服务。
+ * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
  *
- * @description 通过结合知识库和大模型，提供智能问答服务。
+ * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+ * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+ * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+ * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+ * *   PromptTemplate: optional. It is used to customize a system prompt template.
  *
  * @param request ChatWithKnowledgeBaseStreamRequest
  * @return ChatWithKnowledgeBaseStreamResponse
@@ -908,7 +938,7 @@ CheckServiceLinkedRoleResponse Client::checkServiceLinkedRole(const CheckService
 }
 
 /**
- * @summary 恢复数据至指定实例
+ * @summary Restores data to a new AnalyticDB for PostgreSQL instance.
  *
  * @param request CloneDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -947,7 +977,7 @@ CloneDBInstanceResponse Client::cloneDBInstanceWithOptions(const CloneDBInstance
 }
 
 /**
- * @summary 恢复数据至指定实例
+ * @summary Restores data to a new AnalyticDB for PostgreSQL instance.
  *
  * @param request CloneDBInstanceRequest
  * @return CloneDBInstanceResponse
@@ -1034,7 +1064,7 @@ CreateAccountResponse Client::createAccount(const CreateAccountRequest &request)
 }
 
 /**
- * @summary 创建备份
+ * @summary Creates a backup set.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1065,7 +1095,7 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary 创建备份
+ * @summary Creates a backup set.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -1426,6 +1456,66 @@ CreateDBInstanceResponse Client::createDBInstance(const CreateDBInstanceRequest 
 }
 
 /**
+ * @summary Adds an IP whitelist group.
+ *
+ * @param tmpReq CreateDBInstanceIPArrayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDBInstanceIPArrayResponse
+ */
+CreateDBInstanceIPArrayResponse Client::createDBInstanceIPArrayWithOptions(const CreateDBInstanceIPArrayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDBInstanceIPArrayShrinkRequest request = CreateDBInstanceIPArrayShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSecurityIPList()) {
+    request.setSecurityIPListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.securityIPList(), "SecurityIPList", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasIPArrayAttribute()) {
+    query["IPArrayAttribute"] = request.IPArrayAttribute();
+  }
+
+  if (!!request.hasIPArrayName()) {
+    query["IPArrayName"] = request.IPArrayName();
+  }
+
+  if (!!request.hasSecurityIPListShrink()) {
+    query["SecurityIPList"] = request.securityIPListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDBInstanceIPArray"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDBInstanceIPArrayResponse>();
+}
+
+/**
+ * @summary Adds an IP whitelist group.
+ *
+ * @param request CreateDBInstanceIPArrayRequest
+ * @return CreateDBInstanceIPArrayResponse
+ */
+CreateDBInstanceIPArrayResponse Client::createDBInstanceIPArray(const CreateDBInstanceIPArrayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDBInstanceIPArrayWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
  *
  * @description *   The plan management feature is supported only for pay-as-you-go instances.
@@ -1559,6 +1649,72 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 CreateDBResourceGroupResponse Client::createDBResourceGroup(const CreateDBResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createDBResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a database.
+ *
+ * @param request CreateDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatabaseResponse
+ */
+CreateDatabaseResponse Client::createDatabaseWithOptions(const CreateDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCharacterSetName()) {
+    query["CharacterSetName"] = request.characterSetName();
+  }
+
+  if (!!request.hasCollate()) {
+    query["Collate"] = request.collate();
+  }
+
+  if (!!request.hasCtype()) {
+    query["Ctype"] = request.ctype();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasOwner()) {
+    query["Owner"] = request.owner();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDatabase"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatabaseResponse>();
+}
+
+/**
+ * @summary Creates a database.
+ *
+ * @param request CreateDatabaseRequest
+ * @return CreateDatabaseResponse
+ */
+CreateDatabaseResponse Client::createDatabase(const CreateDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatabaseWithOptions(request, runtime);
 }
 
 /**
@@ -1904,7 +2060,7 @@ CreateHadoopDataSourceResponse Client::createHadoopDataSource(const CreateHadoop
 }
 
 /**
- * @summary 创建索引
+ * @summary Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
  *
  * @param request CreateIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1971,7 +2127,7 @@ CreateIndexResponse Client::createIndexWithOptions(const CreateIndexRequest &req
 }
 
 /**
- * @summary 创建索引
+ * @summary Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
  *
  * @param request CreateIndexRequest
  * @return CreateIndexResponse
@@ -2052,7 +2208,9 @@ CreateJDBCDataSourceResponse Client::createJDBCDataSource(const CreateJDBCDataSo
 }
 
 /**
- * @summary 创建模型服务
+ * @summary Creates a model service.
+ *
+ * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param tmpReq CreateModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2135,7 +2293,9 @@ CreateModelServiceResponse Client::createModelServiceWithOptions(const CreateMod
 }
 
 /**
- * @summary 创建模型服务
+ * @summary Creates a model service.
+ *
+ * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request CreateModelServiceRequest
  * @return CreateModelServiceResponse
@@ -2736,7 +2896,9 @@ CreateStreamingJobResponse Client::createStreamingJob(const CreateStreamingJobRe
 }
 
 /**
- * @summary 创建supabase project
+ * @summary Creates a Supabase project.
+ *
+ * @description *   You can call this operation to create a Supabase project.
  *
  * @param request CreateSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2807,7 +2969,9 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 }
 
 /**
- * @summary 创建supabase project
+ * @summary Creates a Supabase project.
+ *
+ * @description *   You can call this operation to create a Supabase project.
  *
  * @param request CreateSupabaseProjectRequest
  * @return CreateSupabaseProjectResponse
@@ -2912,7 +3076,10 @@ CreateVectorIndexResponse Client::createVectorIndex(const CreateVectorIndexReque
 }
 
 /**
- * @summary 删除AI节点
+ * @summary Delete AI Node
+ *
+ * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+ * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
  *
  * @param request DeleteAINodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2955,7 +3122,10 @@ DeleteAINodeResponse Client::deleteAINodeWithOptions(const DeleteAINodeRequest &
 }
 
 /**
- * @summary 删除AI节点
+ * @summary Delete AI Node
+ *
+ * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+ * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
  *
  * @param request DeleteAINodeRequest
  * @return DeleteAINodeResponse
@@ -3012,7 +3182,7 @@ DeleteAccountResponse Client::deleteAccount(const DeleteAccountRequest &request)
 }
 
 /**
- * @summary 删除备份
+ * @summary Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
  *
  * @param request DeleteBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3047,7 +3217,7 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 }
 
 /**
- * @summary 删除备份
+ * @summary Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
  *
  * @param request DeleteBackupRequest
  * @return DeleteBackupResponse
@@ -3262,6 +3432,52 @@ DeleteDBInstanceResponse Client::deleteDBInstance(const DeleteDBInstanceRequest 
 }
 
 /**
+ * @summary 删除IP分组
+ *
+ * @param request DeleteDBInstanceIPArrayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDBInstanceIPArrayResponse
+ */
+DeleteDBInstanceIPArrayResponse Client::deleteDBInstanceIPArrayWithOptions(const DeleteDBInstanceIPArrayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasIPArrayName()) {
+    query["IPArrayName"] = request.IPArrayName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDBInstanceIPArray"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDBInstanceIPArrayResponse>();
+}
+
+/**
+ * @summary 删除IP分组
+ *
+ * @param request DeleteDBInstanceIPArrayRequest
+ * @return DeleteDBInstanceIPArrayResponse
+ */
+DeleteDBInstanceIPArrayResponse Client::deleteDBInstanceIPArray(const DeleteDBInstanceIPArrayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDBInstanceIPArrayWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
  *
  * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
@@ -3367,6 +3583,52 @@ DeleteDBResourceGroupResponse Client::deleteDBResourceGroupWithOptions(const Del
 DeleteDBResourceGroupResponse Client::deleteDBResourceGroup(const DeleteDBResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDBResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据库
+ *
+ * @param request DeleteDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatabaseResponse
+ */
+DeleteDatabaseResponse Client::deleteDatabaseWithOptions(const DeleteDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDatabase"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatabaseResponse>();
+}
+
+/**
+ * @summary 删除数据库
+ *
+ * @param request DeleteDatabaseRequest
+ * @return DeleteDatabaseResponse
+ */
+DeleteDatabaseResponse Client::deleteDatabase(const DeleteDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatabaseWithOptions(request, runtime);
 }
 
 /**
@@ -3652,7 +3914,7 @@ DeleteHadoopDataSourceResponse Client::deleteHadoopDataSource(const DeleteHadoop
 }
 
 /**
- * @summary 删除索引
+ * @summary Deletes an index.
  *
  * @param request DeleteIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3711,7 +3973,7 @@ DeleteIndexResponse Client::deleteIndexWithOptions(const DeleteIndexRequest &req
 }
 
 /**
- * @summary 删除索引
+ * @summary Deletes an index.
  *
  * @param request DeleteIndexRequest
  * @return DeleteIndexResponse
@@ -3772,7 +4034,9 @@ DeleteJDBCDataSourceResponse Client::deleteJDBCDataSource(const DeleteJDBCDataSo
 }
 
 /**
- * @summary 删除模型服务
+ * @summary Delete Model Service
+ *
+ * @description Deletes a model service.
  *
  * @param request DeleteModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3807,7 +4071,9 @@ DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const DeleteMod
 }
 
 /**
- * @summary 删除模型服务
+ * @summary Delete Model Service
+ *
+ * @description Deletes a model service.
  *
  * @param request DeleteModelServiceRequest
  * @return DeleteModelServiceResponse
@@ -3881,6 +4147,48 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteNamespaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关闭私有RAG服务
+ *
+ * @param request DeletePrivateRAGServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePrivateRAGServiceResponse
+ */
+DeletePrivateRAGServiceResponse Client::deletePrivateRAGServiceWithOptions(const DeletePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePrivateRAGService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePrivateRAGServiceResponse>();
+}
+
+/**
+ * @summary 关闭私有RAG服务
+ *
+ * @param request DeletePrivateRAGServiceRequest
+ * @return DeletePrivateRAGServiceResponse
+ */
+DeletePrivateRAGServiceResponse Client::deletePrivateRAGService(const DeletePrivateRAGServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deletePrivateRAGServiceWithOptions(request, runtime);
 }
 
 /**
@@ -4146,7 +4454,9 @@ DeleteStreamingJobResponse Client::deleteStreamingJob(const DeleteStreamingJobRe
 }
 
 /**
- * @summary 删除Supabase实例
+ * @summary Deletes a Supabase project.
+ *
+ * @description *   You can call this operation to delete a Supabase project.
  *
  * @param request DeleteSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4181,7 +4491,9 @@ DeleteSupabaseProjectResponse Client::deleteSupabaseProjectWithOptions(const Del
 }
 
 /**
- * @summary 删除Supabase实例
+ * @summary Deletes a Supabase project.
+ *
+ * @description *   You can call this operation to delete a Supabase project.
  *
  * @param request DeleteSupabaseProjectRequest
  * @return DeleteSupabaseProjectResponse
@@ -4259,6 +4571,56 @@ DeleteVectorIndexResponse Client::deleteVectorIndexWithOptions(const DeleteVecto
 DeleteVectorIndexResponse Client::deleteVectorIndex(const DeleteVectorIndexRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteVectorIndexWithOptions(request, runtime);
+}
+
+/**
+ * @summary 部署私有RAG服务
+ *
+ * @param request DeployPrivateRAGServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeployPrivateRAGServiceResponse
+ */
+DeployPrivateRAGServiceResponse Client::deployPrivateRAGServiceWithOptions(const DeployPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.vSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.zoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeployPrivateRAGService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeployPrivateRAGServiceResponse>();
+}
+
+/**
+ * @summary 部署私有RAG服务
+ *
+ * @param request DeployPrivateRAGServiceRequest
+ * @return DeployPrivateRAGServiceResponse
+ */
+DeployPrivateRAGServiceResponse Client::deployPrivateRAGService(const DeployPrivateRAGServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deployPrivateRAGServiceWithOptions(request, runtime);
 }
 
 /**
@@ -4448,7 +4810,7 @@ DescribeAvailableResourcesResponse Client::describeAvailableResources(const Desc
 }
 
 /**
- * @summary 获取备份任务详情
+ * @summary Queries the information about a backup job.
  *
  * @param request DescribeBackupJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4483,7 +4845,7 @@ DescribeBackupJobResponse Client::describeBackupJobWithOptions(const DescribeBac
 }
 
 /**
- * @summary 获取备份任务详情
+ * @summary Queries the information about a backup job.
  *
  * @param request DescribeBackupJobRequest
  * @return DescribeBackupJobResponse
@@ -4610,7 +4972,7 @@ DescribeCollectionResponse Client::describeCollection(const DescribeCollectionRe
 }
 
 /**
- * @summary 获取创建索引任务
+ * @summary Queries the information about an index creation job.
  *
  * @param request DescribeCreateIndexJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4669,7 +5031,7 @@ DescribeCreateIndexJobResponse Client::describeCreateIndexJobWithOptions(const D
 }
 
 /**
- * @summary 获取创建索引任务
+ * @summary Queries the information about an index creation job.
  *
  * @param request DescribeCreateIndexJobRequest
  * @return DescribeCreateIndexJobResponse
@@ -6072,6 +6434,52 @@ DescribeDataSharePerformanceResponse Client::describeDataSharePerformance(const 
 }
 
 /**
+ * @summary 描述数据库
+ *
+ * @param request DescribeDatabaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDatabaseResponse
+ */
+DescribeDatabaseResponse Client::describeDatabaseWithOptions(const DescribeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDatabase"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDatabaseResponse>();
+}
+
+/**
+ * @summary 描述数据库
+ *
+ * @param request DescribeDatabaseRequest
+ * @return DescribeDatabaseResponse
+ */
+DescribeDatabaseResponse Client::describeDatabase(const DescribeDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDatabaseWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
  *
  * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -6334,7 +6742,7 @@ DescribeDiagnosisSQLInfoResponse Client::describeDiagnosisSQLInfo(const Describe
 }
 
 /**
- * @summary Get Document Details
+ * @summary Queries the information about a document.
  *
  * @param request DescribeDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6389,7 +6797,7 @@ DescribeDocumentResponse Client::describeDocumentWithOptions(const DescribeDocum
 }
 
 /**
- * @summary Get Document Details
+ * @summary Queries the information about a document.
  *
  * @param request DescribeDocumentRequest
  * @return DescribeDocumentResponse
@@ -6491,6 +6899,56 @@ DescribeDownloadSQLLogsResponse Client::describeDownloadSQLLogsWithOptions(const
 DescribeDownloadSQLLogsResponse Client::describeDownloadSQLLogs(const DescribeDownloadSQLLogsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDownloadSQLLogsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取安装在某个数据库上的插件信息
+ *
+ * @param request DescribeExtensionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeExtensionResponse
+ */
+DescribeExtensionResponse Client::describeExtensionWithOptions(const DescribeExtensionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  if (!!request.hasExtensionName()) {
+    query["ExtensionName"] = request.extensionName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeExtension"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeExtensionResponse>();
+}
+
+/**
+ * @summary 获取安装在某个数据库上的插件信息
+ *
+ * @param request DescribeExtensionRequest
+ * @return DescribeExtensionResponse
+ */
+DescribeExtensionResponse Client::describeExtension(const DescribeExtensionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeExtensionWithOptions(request, runtime);
 }
 
 /**
@@ -6798,7 +7256,7 @@ DescribeIMVInfosResponse Client::describeIMVInfos(const DescribeIMVInfosRequest 
 }
 
 /**
- * @summary 获取索引详情
+ * @summary Retrieves the information about an index.
  *
  * @param request DescribeIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6857,7 +7315,7 @@ DescribeIndexResponse Client::describeIndexWithOptions(const DescribeIndexReques
 }
 
 /**
- * @summary 获取索引详情
+ * @summary Retrieves the information about an index.
  *
  * @param request DescribeIndexRequest
  * @return DescribeIndexResponse
@@ -6972,7 +7430,12 @@ DescribeLogBackupsResponse Client::describeLogBackups(const DescribeLogBackupsRe
 }
 
 /**
- * @summary 查询模型服务
+ * @summary Queries the information about a model service.
+ *
+ * @description ## [](#)Usage notes
+ * This interface is used to view the details of a model service.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
  *
  * @param request DescribeModelServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7007,7 +7470,12 @@ DescribeModelServiceResponse Client::describeModelServiceWithOptions(const Descr
 }
 
 /**
- * @summary 查询模型服务
+ * @summary Queries the information about a model service.
+ *
+ * @description ## [](#)Usage notes
+ * This interface is used to view the details of a model service.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
  *
  * @param request DescribeModelServiceRequest
  * @return DescribeModelServiceResponse
@@ -7184,6 +7652,48 @@ DescribeParametersResponse Client::describeParameters(const DescribeParametersRe
 }
 
 /**
+ * @summary 获取私有RAG服务详情
+ *
+ * @param request DescribePrivateRAGServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePrivateRAGServiceResponse
+ */
+DescribePrivateRAGServiceResponse Client::describePrivateRAGServiceWithOptions(const DescribePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePrivateRAGService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePrivateRAGServiceResponse>();
+}
+
+/**
+ * @summary 获取私有RAG服务详情
+ *
+ * @param request DescribePrivateRAGServiceRequest
+ * @return DescribePrivateRAGServiceResponse
+ */
+DescribePrivateRAGServiceResponse Client::describePrivateRAGService(const DescribePrivateRAGServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePrivateRAGServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of vSwitches.
  *
  * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
@@ -7341,6 +7851,48 @@ DescribeRdsVpcsResponse Client::describeRdsVpcsWithOptions(const DescribeRdsVpcs
 DescribeRdsVpcsResponse Client::describeRdsVpcs(const DescribeRdsVpcsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRdsVpcsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 描述一个实例是否处于平衡状态
+ *
+ * @param request DescribeRebalanceStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRebalanceStatusResponse
+ */
+DescribeRebalanceStatusResponse Client::describeRebalanceStatusWithOptions(const DescribeRebalanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRebalanceStatus"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRebalanceStatusResponse>();
+}
+
+/**
+ * @summary 描述一个实例是否处于平衡状态
+ *
+ * @param request DescribeRebalanceStatusRequest
+ * @return DescribeRebalanceStatusResponse
+ */
+DescribeRebalanceStatusResponse Client::describeRebalanceStatus(const DescribeRebalanceStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRebalanceStatusWithOptions(request, runtime);
 }
 
 /**
@@ -8326,6 +8878,52 @@ DescribeWaitingSQLRecordsResponse Client::describeWaitingSQLRecords(const Descri
 }
 
 /**
+ * @summary 获取私有RAG服务可部署可用区
+ *
+ * @param request DescribeZonesPrivateRAGServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeZonesPrivateRAGServiceResponse
+ */
+DescribeZonesPrivateRAGServiceResponse Client::describeZonesPrivateRAGServiceWithOptions(const DescribeZonesPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeZonesPrivateRAGService"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeZonesPrivateRAGServiceResponse>();
+}
+
+/**
+ * @summary 获取私有RAG服务可部署可用区
+ *
+ * @param request DescribeZonesPrivateRAGServiceRequest
+ * @return DescribeZonesPrivateRAGServiceResponse
+ */
+DescribeZonesPrivateRAGServiceResponse Client::describeZonesPrivateRAGService(const DescribeZonesPrivateRAGServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeZonesPrivateRAGServiceWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
  *
  * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
@@ -8562,7 +9160,85 @@ DownloadSQLLogsRecordsResponse Client::downloadSQLLogsRecords(const DownloadSQLL
 }
 
 /**
- * @summary 知识库开启构建知识图谱
+ * @summary Downloads slow SQL records.
+ *
+ * @param request DownloadSlowSQLRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadSlowSQLRecordsResponse
+ */
+DownloadSlowSQLRecordsResponse Client::downloadSlowSQLRecordsWithOptions(const DownloadSlowSQLRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.keyword();
+  }
+
+  if (!!request.hasMaxDuration()) {
+    query["MaxDuration"] = request.maxDuration();
+  }
+
+  if (!!request.hasMinDuration()) {
+    query["MinDuration"] = request.minDuration();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadSlowSQLRecords"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadSlowSQLRecordsResponse>();
+}
+
+/**
+ * @summary Downloads slow SQL records.
+ *
+ * @param request DownloadSlowSQLRecordsRequest
+ * @return DownloadSlowSQLRecordsResponse
+ */
+DownloadSlowSQLRecordsResponse Client::downloadSlowSQLRecords(const DownloadSlowSQLRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadSlowSQLRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Enables knowledge graph construction for the knowledge base.
  *
  * @param tmpReq EnableCollectionGraphRAGRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8647,7 +9323,7 @@ EnableCollectionGraphRAGResponse Client::enableCollectionGraphRAGWithOptions(con
 }
 
 /**
- * @summary 知识库开启构建知识图谱
+ * @summary Enables knowledge graph construction for the knowledge base.
  *
  * @param request EnableCollectionGraphRAGRequest
  * @return EnableCollectionGraphRAGResponse
@@ -8860,7 +9536,7 @@ GetAccountResponse Client::getAccount(const GetAccountRequest &request) {
 }
 
 /**
- * @summary 获取构建知识图谱任务
+ * @summary Retrieves a task to build a knowledge graph.
  *
  * @param request GetGraphRAGJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8915,7 +9591,7 @@ GetGraphRAGJobResponse Client::getGraphRAGJobWithOptions(const GetGraphRAGJobReq
 }
 
 /**
- * @summary 获取构建知识图谱任务
+ * @summary Retrieves a task to build a knowledge graph.
  *
  * @param request GetGraphRAGJobRequest
  * @return GetGraphRAGJobResponse
@@ -9050,7 +9726,9 @@ GetStatementResultResponse Client::getStatementResult(const GetStatementResultRe
 }
 
 /**
- * @summary 查询Supabase实例详情
+ * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+ *
+ * @description This interface is used to query the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9085,7 +9763,9 @@ GetSupabaseProjectResponse Client::getSupabaseProjectWithOptions(const GetSupaba
 }
 
 /**
- * @summary 查询Supabase实例详情
+ * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+ *
+ * @description This interface is used to query the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @return GetSupabaseProjectResponse
@@ -9096,7 +9776,9 @@ GetSupabaseProjectResponse Client::getSupabaseProject(const GetSupabaseProjectRe
 }
 
 /**
- * @summary 查询Supabase实例 API Keys
+ * @summary Queries a list of API keys for a Supabase project.
+ *
+ * @description You can call this operation to query a list of API keys for a Supabase project.
  *
  * @param request GetSupabaseProjectApiKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9131,7 +9813,9 @@ GetSupabaseProjectApiKeysResponse Client::getSupabaseProjectApiKeysWithOptions(c
 }
 
 /**
- * @summary 查询Supabase实例 API Keys
+ * @summary Queries a list of API keys for a Supabase project.
+ *
+ * @description You can call this operation to query a list of API keys for a Supabase project.
  *
  * @param request GetSupabaseProjectApiKeysRequest
  * @return GetSupabaseProjectApiKeysResponse
@@ -9142,7 +9826,9 @@ GetSupabaseProjectApiKeysResponse Client::getSupabaseProjectApiKeys(const GetSup
 }
 
 /**
- * @summary 查询Supabase项目dashboard账号信息
+ * @summary Retrieves the username and password for the dashboard of a specific Supabase project.
+ *
+ * @description Query Supabase Project Dashboard Account Information
  *
  * @param request GetSupabaseProjectDashboardAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9177,7 +9863,9 @@ GetSupabaseProjectDashboardAccountResponse Client::getSupabaseProjectDashboardAc
 }
 
 /**
- * @summary 查询Supabase项目dashboard账号信息
+ * @summary Retrieves the username and password for the dashboard of a specific Supabase project.
+ *
+ * @description Query Supabase Project Dashboard Account Information
  *
  * @param request GetSupabaseProjectDashboardAccountRequest
  * @return GetSupabaseProjectDashboardAccountResponse
@@ -9190,9 +9878,9 @@ GetSupabaseProjectDashboardAccountResponse Client::getSupabaseProjectDashboardAc
 /**
  * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
  *
- * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
- * >  Suggestions:
- * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+ * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+ * > Suggestions
+ * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
  *
  * @param request GetUploadDocumentJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9251,9 +9939,9 @@ GetUploadDocumentJobResponse Client::getUploadDocumentJobWithOptions(const GetUp
 /**
  * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
  *
- * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
- * >  Suggestions:
- * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+ * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+ * > Suggestions
+ * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
  *
  * @param request GetUploadDocumentJobRequest
  * @return GetUploadDocumentJobResponse
@@ -9528,7 +10216,9 @@ InitVectorDatabaseResponse Client::initVectorDatabase(const InitVectorDatabaseRe
 }
 
 /**
- * @summary 列举AI节点池
+ * @summary Queries a list of AI nodes.
+ *
+ * @description *   This operation queries a list of AI nodes.
  *
  * @param request ListAINodePoolsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9563,7 +10253,9 @@ ListAINodePoolsResponse Client::listAINodePoolsWithOptions(const ListAINodePools
 }
 
 /**
- * @summary 列举AI节点池
+ * @summary Queries a list of AI nodes.
+ *
+ * @description *   This operation queries a list of AI nodes.
  *
  * @param request ListAINodePoolsRequest
  * @return ListAINodePoolsResponse
@@ -9574,7 +10266,7 @@ ListAINodePoolsResponse Client::listAINodePools(const ListAINodePoolsRequest &re
 }
 
 /**
- * @summary 获取备份任务列表
+ * @summary Queries a list of backup jobs.
  *
  * @param request ListBackupJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9609,7 +10301,7 @@ ListBackupJobsResponse Client::listBackupJobsWithOptions(const ListBackupJobsReq
 }
 
 /**
- * @summary 获取备份任务列表
+ * @summary Queries a list of backup jobs.
  *
  * @param request ListBackupJobsRequest
  * @return ListBackupJobsResponse
@@ -9679,6 +10371,52 @@ ListCollectionsResponse Client::listCollectionsWithOptions(const ListCollections
 ListCollectionsResponse Client::listCollections(const ListCollectionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCollectionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取安装在某个数据库上的所有插件信息
+ *
+ * @param request ListDatabaseExtensionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatabaseExtensionsResponse
+ */
+ListDatabaseExtensionsResponse Client::listDatabaseExtensionsWithOptions(const ListDatabaseExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.databaseName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDatabaseExtensions"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatabaseExtensionsResponse>();
+}
+
+/**
+ * @summary 获取安装在某个数据库上的所有插件信息
+ *
+ * @param request ListDatabaseExtensionsRequest
+ * @return ListDatabaseExtensionsResponse
+ */
+ListDatabaseExtensionsResponse Client::listDatabaseExtensions(const ListDatabaseExtensionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDatabaseExtensionsWithOptions(request, runtime);
 }
 
 /**
@@ -9984,7 +10722,7 @@ ListExternalDataSourcesResponse Client::listExternalDataSources(const ListExtern
 }
 
 /**
- * @summary 获取索引列表
+ * @summary Queries a list of indexes.
  *
  * @param request ListIndicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10039,7 +10777,7 @@ ListIndicesResponse Client::listIndicesWithOptions(const ListIndicesRequest &req
 }
 
 /**
- * @summary 获取索引列表
+ * @summary Queries a list of indexes.
  *
  * @param request ListIndicesRequest
  * @return ListIndicesResponse
@@ -10047,6 +10785,56 @@ ListIndicesResponse Client::listIndicesWithOptions(const ListIndicesRequest &req
 ListIndicesResponse Client::listIndices(const ListIndicesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listIndicesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列举数据库
+ *
+ * @param request ListInstanceDatabasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceDatabasesResponse
+ */
+ListInstanceDatabasesResponse Client::listInstanceDatabasesWithOptions(const ListInstanceDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceDatabases"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceDatabasesResponse>();
+}
+
+/**
+ * @summary 列举数据库
+ *
+ * @param request ListInstanceDatabasesRequest
+ * @return ListInstanceDatabasesResponse
+ */
+ListInstanceDatabasesResponse Client::listInstanceDatabases(const ListInstanceDatabasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstanceDatabasesWithOptions(request, runtime);
 }
 
 /**
@@ -10112,7 +10900,12 @@ ListInstanceExtensionsResponse Client::listInstanceExtensions(const ListInstance
 }
 
 /**
- * @summary 查询模型服务
+ * @summary Queries all model services.
+ *
+ * @description ## [](#)Usage notes
+ * This interface is used to view all model service information.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
  *
  * @param request ListModelServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10155,7 +10948,12 @@ ListModelServicesResponse Client::listModelServicesWithOptions(const ListModelSe
 }
 
 /**
- * @summary 查询模型服务
+ * @summary Queries all model services.
+ *
+ * @description ## [](#)Usage notes
+ * This interface is used to view all model service information.
+ * ## [](#qps-)QPS limit
+ * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
  *
  * @param request ListModelServicesRequest
  * @return ListModelServicesResponse
@@ -10402,6 +11200,92 @@ ListSecretsResponse Client::listSecrets(const ListSecretsRequest &request) {
 }
 
 /**
+ * @summary Queries slow SQL queries.
+ *
+ * @param request ListSlowSQLRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSlowSQLRecordsResponse
+ */
+ListSlowSQLRecordsResponse Client::listSlowSQLRecordsWithOptions(const ListSlowSQLRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasDBName()) {
+    query["DBName"] = request.DBName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.keyword();
+  }
+
+  if (!!request.hasMaxDuration()) {
+    query["MaxDuration"] = request.maxDuration();
+  }
+
+  if (!!request.hasMinDuration()) {
+    query["MinDuration"] = request.minDuration();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.userName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSlowSQLRecords"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSlowSQLRecordsResponse>();
+}
+
+/**
+ * @summary Queries slow SQL queries.
+ *
+ * @param request ListSlowSQLRecordsRequest
+ * @return ListSlowSQLRecordsResponse
+ */
+ListSlowSQLRecordsResponse Client::listSlowSQLRecords(const ListSlowSQLRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSlowSQLRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary Create External Data Source Configuration
  *
  * @param request ListStreamingDataServicesRequest
@@ -10564,7 +11448,9 @@ ListStreamingJobsResponse Client::listStreamingJobs(const ListStreamingJobsReque
 }
 
 /**
- * @summary 查询Supabase实例列表
+ * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+ *
+ * @description *   You can call this operation to query Supabase instances.
  *
  * @param request ListSupabaseProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10603,7 +11489,9 @@ ListSupabaseProjectsResponse Client::listSupabaseProjectsWithOptions(const ListS
 }
 
 /**
- * @summary 查询Supabase实例列表
+ * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+ *
+ * @description *   You can call this operation to query Supabase instances.
  *
  * @param request ListSupabaseProjectsRequest
  * @return ListSupabaseProjectsResponse
@@ -10614,7 +11502,9 @@ ListSupabaseProjectsResponse Client::listSupabaseProjects(const ListSupabaseProj
 }
 
 /**
- * @summary 获取支持的模型列表
+ * @summary Get the list of supported models
+ *
+ * @description *   This API is used to query the list of supported models.
  *
  * @param request ListSupportModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10645,7 +11535,9 @@ ListSupportModelsResponse Client::listSupportModelsWithOptions(const ListSupport
 }
 
 /**
- * @summary 获取支持的模型列表
+ * @summary Get the list of supported models
+ *
+ * @description *   This API is used to query the list of supported models.
  *
  * @param request ListSupportModelsRequest
  * @return ListSupportModelsResponse
@@ -10920,7 +11812,7 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicy(const ModifyBackupPolicyRe
 }
 
 /**
- * @summary 更新Collection
+ * @summary Updates a collection.
  *
  * @param request ModifyCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10979,7 +11871,7 @@ ModifyCollectionResponse Client::modifyCollectionWithOptions(const ModifyCollect
 }
 
 /**
- * @summary 更新Collection
+ * @summary Updates a collection.
  *
  * @param request ModifyCollectionRequest
  * @return ModifyCollectionResponse
@@ -11106,7 +11998,7 @@ ModifyDBInstanceConnectionStringResponse Client::modifyDBInstanceConnectionStrin
 }
 
 /**
- * @summary 修改实例部署模式
+ * @summary Changes the development mode of an instance.
  *
  * @param request ModifyDBInstanceDeploymentModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11149,7 +12041,7 @@ ModifyDBInstanceDeploymentModeResponse Client::modifyDBInstanceDeploymentModeWit
 }
 
 /**
- * @summary 修改实例部署模式
+ * @summary Changes the development mode of an instance.
  *
  * @param request ModifyDBInstanceDeploymentModeRequest
  * @return ModifyDBInstanceDeploymentModeResponse
@@ -12354,7 +13246,9 @@ ModifyStreamingJobResponse Client::modifyStreamingJob(const ModifyStreamingJobRe
 }
 
 /**
- * @summary 修改supabase项目白名单
+ * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+ *
+ * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
  *
  * @param request ModifySupabaseProjectSecurityIpsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12393,7 +13287,9 @@ ModifySupabaseProjectSecurityIpsResponse Client::modifySupabaseProjectSecurityIp
 }
 
 /**
- * @summary 修改supabase项目白名单
+ * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+ *
+ * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
  *
  * @param request ModifySupabaseProjectSecurityIpsRequest
  * @return ModifySupabaseProjectSecurityIpsResponse
@@ -12931,7 +13827,7 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     queryContentReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -12940,7 +13836,7 @@ QueryContentResponse Client::queryContentAdvance(const QueryContentAdvanceReques
 }
 
 /**
- * @summary 多知识库查询
+ * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
  *
  * @param tmpReq QueryKnowledgeBasesContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13013,7 +13909,7 @@ QueryKnowledgeBasesContentResponse Client::queryKnowledgeBasesContentWithOptions
 }
 
 /**
- * @summary 多知识库查询
+ * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
  *
  * @param request QueryKnowledgeBasesContentRequest
  * @return QueryKnowledgeBasesContentResponse
@@ -13298,7 +14194,9 @@ ResetIMVMonitorDataResponse Client::resetIMVMonitorData(const ResetIMVMonitorDat
 }
 
 /**
- * @summary 重置supabase数据库密码
+ * @summary Reset the password of a Supabase database
+ *
+ * @description Call this API to reset the password of the Supabase database.
  *
  * @param request ResetSupabaseProjectPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13337,7 +14235,9 @@ ResetSupabaseProjectPasswordResponse Client::resetSupabaseProjectPasswordWithOpt
 }
 
 /**
- * @summary 重置supabase数据库密码
+ * @summary Reset the password of a Supabase database
+ *
+ * @description Call this API to reset the password of the Supabase database.
  *
  * @param request ResetSupabaseProjectPasswordRequest
  * @return ResetSupabaseProjectPasswordResponse
@@ -13760,7 +14660,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary 通过模型对文本文档进行向量化
+ * @summary Generates text embeddings using an embedding model.
  *
  * @param tmpReq TextEmbeddingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13819,7 +14719,7 @@ TextEmbeddingResponse Client::textEmbeddingWithOptions(const TextEmbeddingReques
 }
 
 /**
- * @summary 通过模型对文本文档进行向量化
+ * @summary Generates text embeddings using an embedding model.
  *
  * @param request TextEmbeddingRequest
  * @return TextEmbeddingResponse
@@ -14629,7 +15529,7 @@ UploadDocumentAsyncResponse Client::uploadDocumentAsyncAdvance(const UploadDocum
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     uploadDocumentAsyncReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -14638,9 +15538,9 @@ UploadDocumentAsyncResponse Client::uploadDocumentAsyncAdvance(const UploadDocum
 }
 
 /**
- * @summary Upload split text
+ * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
  *
- * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+ * @description The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
  *
  * @param tmpReq UpsertChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14715,9 +15615,9 @@ UpsertChunksResponse Client::upsertChunksWithOptions(const UpsertChunksRequest &
 }
 
 /**
- * @summary Upload split text
+ * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
  *
- * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+ * @description The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
  *
  * @param request UpsertChunksRequest
  * @return UpsertChunksResponse
@@ -14967,7 +15867,7 @@ UpsertCollectionDataAsyncResponse Client::upsertCollectionDataAsyncAdvance(const
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     upsertCollectionDataAsyncReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

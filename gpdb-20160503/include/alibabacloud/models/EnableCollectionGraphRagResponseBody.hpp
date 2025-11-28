@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The ID of the job. You can use the `GetGraphRAGJob` to view the job status.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The response message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
   };
 

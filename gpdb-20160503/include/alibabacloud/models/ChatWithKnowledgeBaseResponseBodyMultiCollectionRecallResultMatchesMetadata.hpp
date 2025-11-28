@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The source of the document.
     std::shared_ptr<int64_t> source_ = nullptr;
   };
 

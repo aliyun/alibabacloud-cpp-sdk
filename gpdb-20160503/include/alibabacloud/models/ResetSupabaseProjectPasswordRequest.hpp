@@ -57,10 +57,19 @@ namespace Models
 
 
   protected:
+    // The password of the database account.
+    // 
+    // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // *   The password must be 8 to 32 characters in length.
+    // 
     // This parameter is required.
     std::shared_ptr<string> accountPassword_ = nullptr;
+    // Supabase Instance ID
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The region ID of the instance.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The Supabase project ID.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The number of tokens that are consumed during vectorization.
+    // 
+    // > A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
     std::shared_ptr<int32_t> embeddingTokens_ = nullptr;
+    // The number of tokens used by the large model input.
     std::shared_ptr<int32_t> LLMInputTokens_ = nullptr;
+    // The number of tokens used for large model output.
     std::shared_ptr<int32_t> LLMOutputTokens_ = nullptr;
   };
 

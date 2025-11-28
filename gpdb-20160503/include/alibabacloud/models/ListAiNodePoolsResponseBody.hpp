@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // Details of the AI node resource pool.
     std::shared_ptr<vector<ListAINodePoolsResponseBodyAINodePoolInfos>> AINodePoolInfos_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

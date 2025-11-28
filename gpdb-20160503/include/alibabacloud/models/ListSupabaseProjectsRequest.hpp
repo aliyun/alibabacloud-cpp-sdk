@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of instances to return per page. Default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // A pagination token returned from a previous call. Use it to retrieve the next page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The region ID of the cluster.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation get a list of available region IDs.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

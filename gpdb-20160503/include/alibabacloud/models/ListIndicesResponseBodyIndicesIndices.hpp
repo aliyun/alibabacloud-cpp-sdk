@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the collection.
     std::shared_ptr<string> collection_ = nullptr;
+    // The definition of the index.
     std::shared_ptr<string> indexDef_ = nullptr;
+    // The name of the index.
     std::shared_ptr<string> indexName_ = nullptr;
+    // The namespace to which the pod belongs.
     std::shared_ptr<string> namespace_ = nullptr;
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The smoothing constant k in the formula to calculate the score: 1/(k + rank_i). It must be a positive integer greater than 1.
     std::shared_ptr<int64_t> k_ = nullptr;
   };
 

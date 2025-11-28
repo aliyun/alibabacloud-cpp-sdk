@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The number of tokens consumed by the generated content.
     std::shared_ptr<int64_t> completionTokens_ = nullptr;
+    // The number of tokens consumed by the prompt.
     std::shared_ptr<int64_t> promptTokens_ = nullptr;
+    // The details about the prompt token.
     std::shared_ptr<Models::ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails> promptTokensDetails_ = nullptr;
+    // The total number of tokens.
     std::shared_ptr<int64_t> totalTokens_ = nullptr;
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The number of tokens from cache hits.
     std::shared_ptr<int64_t> cachedTokens_ = nullptr;
   };
 

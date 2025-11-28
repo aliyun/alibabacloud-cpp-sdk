@@ -70,9 +70,17 @@ namespace Models
 
 
   protected:
+    // The content of the document.
     std::shared_ptr<string> content_ = nullptr;
+    // 模型思维内容
     std::shared_ptr<string> reasoningContent_ = nullptr;
+    // Message role:
+    // 
+    // *   system
+    // *   user
+    // *   assistant
     std::shared_ptr<string> role_ = nullptr;
+    // Tool call response.
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls>> toolCalls_ = nullptr;
   };
 

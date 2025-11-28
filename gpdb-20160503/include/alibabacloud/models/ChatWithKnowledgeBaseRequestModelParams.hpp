@@ -130,17 +130,29 @@ namespace Models
 
 
   protected:
+    // Maximum number of tokens to generate.
     std::shared_ptr<int64_t> maxTokens_ = nullptr;
+    // Message list.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseRequestModelParamsMessages>> messages_ = nullptr;
+    // The model name. See [Model Studio Document](https://help.aliyun.com/zh/model-studio/compatibility-of-openai-with-dashscope?spm=a2c4g.11186623.help-menu-2400256.d_2_10_0.45b5516eZIciC8\\&scm=20140722.H_2833609._.OR_help-T_cn~zh-V_1#eadfc13038jd5) for the available models.
+    // 
     // This parameter is required.
     std::shared_ptr<string> model_ = nullptr;
+    // The number of candidate responses to generate.
     std::shared_ptr<int64_t> n_ = nullptr;
+    // Presence penalty coefficient (-2.0 to 2.0).
     std::shared_ptr<double> presencePenalty_ = nullptr;
+    // The random seed.
     std::shared_ptr<int64_t> seed_ = nullptr;
+    // Stop words.
     std::shared_ptr<vector<string>> stop_ = nullptr;
+    // Sampling temperature (0~2).
     std::shared_ptr<double> temperature_ = nullptr;
+    // Tools
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseRequestModelParamsTools>> tools_ = nullptr;
+    // Top-p (nucleus) sampling threshold (0–1).
     std::shared_ptr<double> topP_ = nullptr;
   };
 

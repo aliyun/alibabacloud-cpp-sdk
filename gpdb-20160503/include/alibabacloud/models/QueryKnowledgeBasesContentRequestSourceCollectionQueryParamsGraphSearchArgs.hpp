@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Returns the top number of entities and relationship edges. Default value: 60.
     std::shared_ptr<int64_t> graphTopK_ = nullptr;
   };
 

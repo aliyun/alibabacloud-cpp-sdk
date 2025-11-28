@@ -66,9 +66,22 @@ namespace Models
 
 
   protected:
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
+    // 
+    // > 
+    // 
+    // *   For information about the supported data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
+    // 
+    // *   The money data type is not supported.
     std::shared_ptr<string> metadata_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **false**
+    // *   **true**
     std::shared_ptr<string> status_ = nullptr;
   };
 

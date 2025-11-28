@@ -115,14 +115,25 @@ namespace Models
 
 
   protected:
+    // The content of the text.
     std::shared_ptr<string> content_ = nullptr;
+    // The name of the file.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The public network URL of the image result. By default, the URL is valid for 2 hours.
+    // 
+    // You can use the UrlExpiration parameter to specify a validity period.
     std::shared_ptr<string> fileURL_ = nullptr;
+    // The unique ID of the vector data.
     std::shared_ptr<string> id_ = nullptr;
+    // Document loader metadata.
     std::shared_ptr<string> loaderMetadata_ = nullptr;
+    // The metadata map.
     std::shared_ptr<map<string, string>> metadata_ = nullptr;
+    // The rerank score.
     std::shared_ptr<double> rerankScore_ = nullptr;
+    // The source of the retrieval results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
     std::shared_ptr<int32_t> retrievalSource_ = nullptr;
+    // The similarity score of the data. It is related to the algorithm (l2, ip, or cosine) that is specified when you create an index.
     std::shared_ptr<double> score_ = nullptr;
   };
 

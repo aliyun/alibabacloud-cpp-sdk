@@ -148,17 +148,79 @@ namespace Models
 
 
   protected:
+    // The filter condition that is used to query data. Specify this parameter in a format that is the same as the WHERE clause. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The condition can be a simple comparison using operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal (>=), or less than or equal (<=). It can also be a more complex expression combining multiple conditions with logical operators (AND, OR, NOT), or use keywords such as IN, BETWEEN, and LIKE.
+    // 
+    // > 
+    // 
+    // *   For the syntax, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
     std::shared_ptr<string> filter_ = nullptr;
+    // Whether to enable knowledge graph enhancement. Default value: false.
     std::shared_ptr<bool> graphEnhance_ = nullptr;
+    // Returns the top number of entities and relationship edges. Default value: 60.
     std::shared_ptr<Models::QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsGraphSearchArgs> graphSearchArgs_ = nullptr;
+    // The dual-path retrieval algorithm. This parameter is empty by default, which specifies that scores of vector retrieval and full-text retrieval are directly compared and sorted together.
+    // 
+    // Valid values:
+    // 
+    // *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
+    // *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
+    // *   Cascaded: This algorithm performs first full-text retrieval and then vector retrieval.
     std::shared_ptr<string> hybridSearch_ = nullptr;
+    // The parameters of the dual-path retrieval algorithm. RRF and Weight are supported at this time:
+    // 
+    // *   RRF: Specifies the smoothing constant k in the formula to calculate the score: `1/(k + rank_i)`. The k constant must be a positive integer greater than 1. The format:
+    // 
+    // <!---->
+    // 
+    //     { 
+    //        "RRF": {
+    //         "k": 60
+    //        }
+    //     }
+    // 
+    // *   Weight: The score is computed as `alpha * vector_score + (1 - alpha) * text_score`. The parameter alpha controls the weighting between vector search and full-text search scores, with a valid range of [0, 1]. 0 specifies only full-text search score. 1 specifies only vector search score.
+    // 
+    // <!---->
+    // 
+    //     { 
+    //        "Weight": {
+    //         "alpha": 0.5
+    //        }
+    //     }
     Darabonba::Json hybridSearchArgs_ = nullptr;
+    // The method that is used to create vector indexes. Valid values:
+    // 
+    // *   l2: Euclidean distance.
+    // *   ip: Inner product distance.
+    // *   cosine: Cosine similarity.
     std::shared_ptr<string> metrics_ = nullptr;
+    // Offset for pagination.
     std::shared_ptr<int32_t> offset_ = nullptr;
+    // The fields by which to sort the results. This parameter is empty by default.
+    // 
+    // The field must be either a metadata field or a default field in the table (e.g., id). Supported formats include:
+    // 
+    // Single field, such as chunk_id. Multiple fields that are separated by commas (,), such as block_id,chunk_id. Descending order is supported, such as block_id DESC,chunk_id DESC.
     std::shared_ptr<string> orderBy_ = nullptr;
+    // The retrieval window. If you specify this parameter, the context of the retrieved result is added in the output. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
+    // 
+    // > 
+    // 
+    // *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces, which may result in loss of contextual information during retrieval.
+    // 
+    // *   Perform re-ranking before windowing.
     std::shared_ptr<vector<int64_t>> recallWindow_ = nullptr;
+    // The rerank factor. If you specify this parameter, the vector retrieval results are reranked once more. Valid values: 1\\<RerankFactor<=5.
+    // 
+    // > 
+    // 
+    // *   If the document is segmented into sparse parts, reranking is inefficient.
+    // 
+    // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
     std::shared_ptr<double> rerankFactor_ = nullptr;
+    // The number of top results.
     std::shared_ptr<int64_t> topK_ = nullptr;
+    // Specifies whether to use full-text retrieval (dual-path retrieval). The default value is false, which means only vector retrieval is used.
     std::shared_ptr<bool> useFullTextRetrieval_ = nullptr;
   };
 

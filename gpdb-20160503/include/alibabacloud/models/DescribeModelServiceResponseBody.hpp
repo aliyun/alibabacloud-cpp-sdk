@@ -145,17 +145,29 @@ namespace Models
 
 
   protected:
+    // The list of AI nodes.
     std::shared_ptr<vector<string>> aiNodes_ = nullptr;
+    // The API key.
     std::shared_ptr<string> apiKey_ = nullptr;
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
+    // The model name.
     std::shared_ptr<string> modelName_ = nullptr;
+    // Model parameters.
     Darabonba::Json modelParams_ = nullptr;
+    // The model service ID.
     std::shared_ptr<string> modelServiceId_ = nullptr;
+    // The internal endpoint.
     std::shared_ptr<string> privateConnectUrl_ = nullptr;
+    // The public endpoint.
     std::shared_ptr<string> publicConnectUrl_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // A comma-separated list of IP addresses and CIDR blocks allowed to connect.
     std::shared_ptr<string> securityIpList_ = nullptr;
+    // The status of the model service.
     std::shared_ptr<string> status_ = nullptr;
   };
 

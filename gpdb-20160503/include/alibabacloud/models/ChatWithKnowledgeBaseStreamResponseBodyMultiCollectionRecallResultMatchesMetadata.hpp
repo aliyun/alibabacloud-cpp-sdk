@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The source of the retrieved results. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path retrieval.
     std::shared_ptr<int64_t> source_ = nullptr;
   };
 

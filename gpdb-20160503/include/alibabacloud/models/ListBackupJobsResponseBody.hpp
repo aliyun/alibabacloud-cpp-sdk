@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The queried backup jobs.
     std::shared_ptr<ListBackupJobsResponseBodyItems> items_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

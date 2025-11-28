@@ -204,26 +204,51 @@ namespace Models
 
 
   protected:
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // Supabase Dashboard password (not used).
     std::shared_ptr<string> dashboardPassword_ = nullptr;
+    // Supabase Dashboard user name (not used).
     std::shared_ptr<string> dashboardUserName_ = nullptr;
+    // The ESSD performance level.
     std::shared_ptr<string> diskPerformanceLevel_ = nullptr;
+    // The database engine type.
     std::shared_ptr<string> engine_ = nullptr;
+    // The database engine version.
     std::shared_ptr<string> engineVersion_ = nullptr;
+    // The billing method of the instance. Valid values:
+    // 
+    // *   **Postpaid**: pay-as-you-go
+    // *   **Prepaid**: subscription.
+    // *   **Free**: Free.
     std::shared_ptr<string> payType_ = nullptr;
+    // The private (VPC) connection URL for the Supabase Dashboard.
     std::shared_ptr<string> privateConnectUrl_ = nullptr;
+    // The Supabase project ID.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The name of the Supabase project.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The type of the Supabase instance.
     std::shared_ptr<string> projectSpec_ = nullptr;
+    // The public connection URL for the Supabase Dashboard.
     std::shared_ptr<string> publicConnectUrl_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // A comma-separated list of IP addresses and CIDR blocks allowed to connect. Valid values:
+    // 
+    // *   0.0.0.0/0
+    // *   10.23.12.24(IP)
+    // *   10.23.12.24/24. This is a CIDR block. The value`/24`indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of`[1,32]`.
     std::shared_ptr<string> securityIPList_ = nullptr;
+    // The status of the Supabase instance.
     std::shared_ptr<string> status_ = nullptr;
+    // The storage capacity of the instance. Unit: GB.
     std::shared_ptr<int64_t> storageSize_ = nullptr;
-    // vSwitch ID。
+    // The vSwitch ID of the instance.
     std::shared_ptr<string> vSwitchId_ = nullptr;
-    // VPC ID。
+    // The VPC ID.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The zone ID.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

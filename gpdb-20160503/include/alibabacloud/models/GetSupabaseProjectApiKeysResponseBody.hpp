@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The queried API keys.
     std::shared_ptr<vector<GetSupabaseProjectApiKeysResponseBodyApiKeys>> apiKeys_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

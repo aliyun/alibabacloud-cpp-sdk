@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The ID of the model service to be deleted.
+    // 
     // This parameter is required.
     std::shared_ptr<string> modelServiceId_ = nullptr;
   };

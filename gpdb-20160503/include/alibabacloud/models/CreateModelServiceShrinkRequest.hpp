@@ -130,19 +130,36 @@ namespace Models
 
 
   protected:
+    // A list of AI nodes for model deployment.
+    // 
     // This parameter is required.
     std::shared_ptr<string> aiNodesShrink_ = nullptr;
+    // The client token that is used to ensure the idempotence of the request. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/327176.html)
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The description.
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<bool> enablePublicConnection_ = nullptr;
+    // The inference engine. Only vllm is supported.
     std::shared_ptr<string> inferenceEngine_ = nullptr;
+    // The name of the model.
+    // 
     // This parameter is required.
     std::shared_ptr<string> modelName_ = nullptr;
+    // Model parameters (to be supported).
     std::shared_ptr<string> modelParamsShrink_ = nullptr;
+    // The number of model service replicas.
     std::shared_ptr<int32_t> replicas_ = nullptr;
+    // The ID of the resource group to which the instance belongs. For more information about how to get the ID of a resource group, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The IP address whitelist.
+    // 
+    // 127.0.0.1 indicates that access from any external IP address is prohibited. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after the instance is created.
     std::shared_ptr<string> securityIPList_ = nullptr;
   };
 

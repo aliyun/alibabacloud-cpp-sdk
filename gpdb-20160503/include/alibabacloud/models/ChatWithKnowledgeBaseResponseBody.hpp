@@ -81,10 +81,18 @@ namespace Models
 
 
   protected:
+    // model response.
     std::shared_ptr<ChatWithKnowledgeBaseResponseBodyChatCompletion> chatCompletion_ = nullptr;
+    // The returned information.
     std::shared_ptr<string> message_ = nullptr;
+    // Retrieve information from multiple knowledge bases.
     std::shared_ptr<ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult> multiCollectionRecallResult_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
   };
 

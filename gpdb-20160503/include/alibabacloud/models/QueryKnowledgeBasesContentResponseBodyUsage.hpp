@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The number of entries that are used during vectorization.
+    // 
+    // >  An entry refers to a single unit of vectorization processing. Processing one text input counts as 1 entry, while processing one image counts as 2 entries.
     std::shared_ptr<string> embeddingEntries_ = nullptr;
+    // The number of tokens that are used for vectorization.
+    // 
+    // >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
   };
 

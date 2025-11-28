@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The count of embedding entries.
+    // The number of entries during vectorization.
     std::shared_ptr<int32_t> embeddingEntries_ = nullptr;
-    // The number of tokens that are used for vectorization.
+    // The number of tokens that are consumed during vectorization.
     // 
-    // >  A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+    // > A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
     std::shared_ptr<int32_t> embeddingTokens_ = nullptr;
   };
 

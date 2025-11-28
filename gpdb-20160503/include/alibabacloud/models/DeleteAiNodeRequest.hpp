@@ -69,11 +69,19 @@ namespace Models
 
 
   protected:
+    // The number of AINodes to be deleted.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> AINodeNum_ = nullptr;
+    // The ID of the AINode resource pool.
     std::shared_ptr<string> AINodePoolId_ = nullptr;
+    // The ID of the instance.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The list of AINodes to be deleted.
     std::shared_ptr<vector<string>> nodeNames_ = nullptr;
   };
 

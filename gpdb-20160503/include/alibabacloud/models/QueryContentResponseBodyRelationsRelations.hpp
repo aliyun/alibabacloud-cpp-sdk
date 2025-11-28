@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The description of the relationship edge.
     std::shared_ptr<string> description_ = nullptr;
+    // The file name.
     std::shared_ptr<string> fileName_ = nullptr;
+    // The ID of the relationship edge.
     std::shared_ptr<string> id_ = nullptr;
+    // The source entity.
     std::shared_ptr<string> sourceEntity_ = nullptr;
+    // The destination entity.
     std::shared_ptr<string> targetEntity_ = nullptr;
   };
 

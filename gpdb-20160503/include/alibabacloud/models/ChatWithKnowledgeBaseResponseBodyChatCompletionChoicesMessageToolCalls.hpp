@@ -60,9 +60,11 @@ namespace Models
 
 
   protected:
+    // Function call information.
     std::shared_ptr<Models::ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction> function_ = nullptr;
     // ID
     std::shared_ptr<string> id_ = nullptr;
+    // The position of this tool in the \\"input\\" request parameter.
     std::shared_ptr<int64_t> index_ = nullptr;
   };
 

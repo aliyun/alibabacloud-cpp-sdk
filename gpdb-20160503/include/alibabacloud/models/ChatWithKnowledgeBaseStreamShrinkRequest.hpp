@@ -94,14 +94,24 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // Whether to return the retrieved result. Default value: false.
     std::shared_ptr<bool> includeKnowledgeBaseResults_ = nullptr;
+    // The knowledge retrieval parameter object. If you do not specify this parameter, only chat mode is enabled.
     std::shared_ptr<string> knowledgeParamsShrink_ = nullptr;
+    // The Large Language Model (LLM) invocation parameter object.
+    // 
     // This parameter is required.
     std::shared_ptr<string> modelParamsShrink_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The system prompt template, which should include {{ text_chunks }},{{ user_system_prompt }},{{ graph_entities },{{ graph_relations }}. If any of these placeholders are not specified, the corresponding section should have no effect.
     std::shared_ptr<string> promptParams_ = nullptr;
+    // The region ID of the instance.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

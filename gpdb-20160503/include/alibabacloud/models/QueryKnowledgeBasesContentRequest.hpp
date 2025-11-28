@@ -119,18 +119,41 @@ namespace Models
 
 
   protected:
+    // The text content for retrieval.
+    // 
     // This parameter is required.
     std::shared_ptr<string> content_ = nullptr;
+    // The cluster ID.
+    // 
+    // >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The method used to merge multiple knowledge bases. Default value: RRF. Valid values:
+    // 
+    // *   RRF
+    // *   Weight
     std::shared_ptr<string> mergeMethod_ = nullptr;
+    // The parameters of the merge method for each SourceCollection.
     std::shared_ptr<QueryKnowledgeBasesContentRequestMergeMethodArgs> mergeMethodArgs_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The rerank factor. If you specify this parameter, the vector retrieval results are reranked once more. Valid values: 1\\<RerankFactor<=5.
+    // 
+    // > 
+    // 
+    // *   If the document is segmented into sparse parts, reranking is inefficient.
+    // 
+    // *   We recommend that the number of reranked results (the ceiling of TopK × RerankFactor) not exceed 50.
     std::shared_ptr<double> rerankFactor_ = nullptr;
+    // The information about collections to retrieve from.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<QueryKnowledgeBasesContentRequestSourceCollection>> sourceCollection_ = nullptr;
+    // Set the number of top results to be returned after merging results from multiple path retrieval.
     std::shared_ptr<int64_t> topK_ = nullptr;
   };
 

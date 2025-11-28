@@ -113,9 +113,9 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> fileName_ = nullptr;
-    // Namespace, default is public.
+    // The name of the namespace. Default value: public.
     // 
-    // > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+    // >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
     std::shared_ptr<string> namespace_ = nullptr;
     // Password for the namespace.
     // 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // Finish reason.
     std::shared_ptr<string> finishReason_ = nullptr;
+    // The sequence number of the reply.
     std::shared_ptr<int64_t> index_ = nullptr;
+    // LLM response.
     std::shared_ptr<Models::ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage> message_ = nullptr;
   };
 

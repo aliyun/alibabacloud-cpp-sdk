@@ -61,9 +61,14 @@ namespace Models
 
 
   protected:
+    // The ID of the resource pool to which the AI node belongs.
     std::shared_ptr<string> AINodePoolId_ = nullptr;
+    // The AI node specifications.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<AddAINodeRequestAINodeSpecInfos>> AINodeSpecInfos_ = nullptr;
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
   };

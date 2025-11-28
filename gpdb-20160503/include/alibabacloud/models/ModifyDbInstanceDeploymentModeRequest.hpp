@@ -66,11 +66,36 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in the specified region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // The deployment mode. Valid values:
+    // 
+    // *   multiple: Multi-zone development.
+    // *   single: Single-zone deployment.
+    // 
     // This parameter is required.
     std::shared_ptr<string> deployMode_ = nullptr;
+    // The vSwitch ID of the secondary zone.
+    // 
+    // > 
+    // 
+    // *   This parameter must be specified only when DeployMode is set to multiple.
+    // 
+    // *   The vSwitch must be deployed in the zone that is specified by the StandbyZoneId parameter.
     std::shared_ptr<string> standbyVSwitchId_ = nullptr;
+    // The ID of the secondary zone.
+    // 
+    // > 
+    // 
+    // *   This parameter must be specified only when DeployMode is set to multiple.
+    // 
+    // *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available zone list.
+    // 
+    // *   The ID of the secondary zone must be different from the ID of the primary zone.
     std::shared_ptr<string> standbyZoneId_ = nullptr;
   };
 

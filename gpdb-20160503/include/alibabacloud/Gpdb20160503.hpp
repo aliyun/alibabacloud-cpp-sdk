@@ -22,7 +22,12 @@ namespace Gpdb20160503
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 添加AI节点
+       * @summary Adds AI nodes to the cluster.
+       *
+       * @description ## [](#)Usage notes
+       * This operation is used to add an AINode node.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
        *
        * @param request AddAINodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -31,7 +36,12 @@ namespace Gpdb20160503
       Models::AddAINodeResponse addAINodeWithOptions(const Models::AddAINodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加AI节点
+       * @summary Adds AI nodes to the cluster.
+       *
+       * @description ## [](#)Usage notes
+       * This operation is used to add an AINode node.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
        *
        * @param request AddAINodeRequest
        * @return AddAINodeResponse
@@ -81,7 +91,7 @@ namespace Gpdb20160503
       Models::BindDBResourceGroupWithRoleResponse bindDBResourceGroupWithRole(const Models::BindDBResourceGroupWithRoleRequest &request);
 
       /**
-       * @summary 取消创建索引任务
+       * @summary Cancels an index creation job.
        *
        * @param request CancelCreateIndexJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -90,7 +100,7 @@ namespace Gpdb20160503
       Models::CancelCreateIndexJobResponse cancelCreateIndexJobWithOptions(const Models::CancelCreateIndexJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消创建索引任务
+       * @summary Cancels an index creation job.
        *
        * @param request CancelCreateIndexJobRequest
        * @return CancelCreateIndexJobResponse
@@ -144,9 +154,13 @@ namespace Gpdb20160503
       Models::CancelUpsertCollectionDataJobResponse cancelUpsertCollectionDataJob(const Models::CancelUpsertCollectionDataJobRequest &request);
 
       /**
-       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
        *
-       * @description 通过结合知识库和大模型，提供智能问答服务。
+       * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+       * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+       * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+       * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+       * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -155,9 +169,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBaseWithOptions(const Models::ChatWithKnowledgeBaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model.
        *
-       * @description 通过结合知识库和大模型，提供智能问答服务。
+       * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+       * *   **DBInstanceId**: Required. This parameter specifies the ID of the database instance.
+       * *   **KnowledgeParams**: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+       * *   **ModelParams**: required. It contains parameters related to model inference, such as the message list and the name of the model.
+       * *   **PromptTemplate**: optional. It is used to customize the system prompt template.
        *
        * @param request ChatWithKnowledgeBaseRequest
        * @return ChatWithKnowledgeBaseResponse
@@ -165,9 +183,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseResponse chatWithKnowledgeBase(const Models::ChatWithKnowledgeBaseRequest &request);
 
       /**
-       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
        *
-       * @description 通过结合知识库和大模型，提供智能问答服务。
+       * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+       * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+       * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+       * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+       * *   PromptTemplate: optional. It is used to customize a system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -176,9 +198,13 @@ namespace Gpdb20160503
       FutrueGenerator<Models::ChatWithKnowledgeBaseStreamResponse> chatWithKnowledgeBaseStreamWithSSE(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
        *
-       * @description 通过结合知识库和大模型，提供智能问答服务。
+       * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+       * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+       * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+       * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+       * *   PromptTemplate: optional. It is used to customize a system prompt template.
        *
        * @param tmpReq ChatWithKnowledgeBaseStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -187,9 +213,13 @@ namespace Gpdb20160503
       Models::ChatWithKnowledgeBaseStreamResponse chatWithKnowledgeBaseStreamWithOptions(const Models::ChatWithKnowledgeBaseStreamRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过结合知识库和大模型，提供智能问答服务。
+       * @summary Provides intelligent question-and-answer services by combining a knowledge base with a large language model. A streaming API, which is called by using the SSE or the Java asynchronous SDK.
        *
-       * @description 通过结合知识库和大模型，提供智能问答服务。
+       * @description This API enables users to query a large language model with answers grounded in a specified knowledge base collection. You can configure multiple parameters to customize requests, including but not limited to database instance IDs, knowledge retrieval parameters, and model inference parameters. In addition, a default system prompt template is provided and users are allowed to customize the system prompt.
+       * *   DBInstanceId: required. This parameter specifies the ID of the database instance.
+       * *   KnowledgeParams: optional. It contains parameters related to knowledge retrieval, such as retrieval content and merge policy.
+       * *   ModelParams: required. It contains parameters related to model inference, such as the message list and the name of the model.
+       * *   PromptTemplate: optional. It is used to customize a system prompt template.
        *
        * @param request ChatWithKnowledgeBaseStreamRequest
        * @return ChatWithKnowledgeBaseStreamResponse
@@ -265,7 +295,7 @@ namespace Gpdb20160503
       Models::CheckServiceLinkedRoleResponse checkServiceLinkedRole(const Models::CheckServiceLinkedRoleRequest &request);
 
       /**
-       * @summary 恢复数据至指定实例
+       * @summary Restores data to a new AnalyticDB for PostgreSQL instance.
        *
        * @param request CloneDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -274,7 +304,7 @@ namespace Gpdb20160503
       Models::CloneDBInstanceResponse cloneDBInstanceWithOptions(const Models::CloneDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 恢复数据至指定实例
+       * @summary Restores data to a new AnalyticDB for PostgreSQL instance.
        *
        * @param request CloneDBInstanceRequest
        * @return CloneDBInstanceResponse
@@ -309,7 +339,7 @@ namespace Gpdb20160503
       Models::CreateAccountResponse createAccount(const Models::CreateAccountRequest &request);
 
       /**
-       * @summary 创建备份
+       * @summary Creates a backup set.
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -318,7 +348,7 @@ namespace Gpdb20160503
       Models::CreateBackupResponse createBackupWithOptions(const Models::CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建备份
+       * @summary Creates a backup set.
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -364,6 +394,23 @@ namespace Gpdb20160503
       Models::CreateDBInstanceResponse createDBInstance(const Models::CreateDBInstanceRequest &request);
 
       /**
+       * @summary Adds an IP whitelist group.
+       *
+       * @param tmpReq CreateDBInstanceIPArrayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDBInstanceIPArrayResponse
+       */
+      Models::CreateDBInstanceIPArrayResponse createDBInstanceIPArrayWithOptions(const Models::CreateDBInstanceIPArrayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Adds an IP whitelist group.
+       *
+       * @param request CreateDBInstanceIPArrayRequest
+       * @return CreateDBInstanceIPArrayResponse
+       */
+      Models::CreateDBInstanceIPArrayResponse createDBInstanceIPArray(const Models::CreateDBInstanceIPArrayRequest &request);
+
+      /**
        * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
        *
        * @description *   The plan management feature is supported only for pay-as-you-go instances.
@@ -404,6 +451,23 @@ namespace Gpdb20160503
        * @return CreateDBResourceGroupResponse
        */
       Models::CreateDBResourceGroupResponse createDBResourceGroup(const Models::CreateDBResourceGroupRequest &request);
+
+      /**
+       * @summary Creates a database.
+       *
+       * @param request CreateDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatabaseResponse
+       */
+      Models::CreateDatabaseResponse createDatabaseWithOptions(const Models::CreateDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a database.
+       *
+       * @param request CreateDatabaseRequest
+       * @return CreateDatabaseResponse
+       */
+      Models::CreateDatabaseResponse createDatabase(const Models::CreateDatabaseRequest &request);
 
       /**
        * @summary Creates a document collection.
@@ -474,7 +538,7 @@ namespace Gpdb20160503
       Models::CreateHadoopDataSourceResponse createHadoopDataSource(const Models::CreateHadoopDataSourceRequest &request);
 
       /**
-       * @summary 创建索引
+       * @summary Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
        *
        * @param request CreateIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -483,7 +547,7 @@ namespace Gpdb20160503
       Models::CreateIndexResponse createIndexWithOptions(const Models::CreateIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建索引
+       * @summary Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
        *
        * @param request CreateIndexRequest
        * @return CreateIndexResponse
@@ -508,7 +572,9 @@ namespace Gpdb20160503
       Models::CreateJDBCDataSourceResponse createJDBCDataSource(const Models::CreateJDBCDataSourceRequest &request);
 
       /**
-       * @summary 创建模型服务
+       * @summary Creates a model service.
+       *
+       * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param tmpReq CreateModelServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +583,9 @@ namespace Gpdb20160503
       Models::CreateModelServiceResponse createModelServiceWithOptions(const Models::CreateModelServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型服务
+       * @summary Creates a model service.
+       *
+       * @description Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and [pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param request CreateModelServiceRequest
        * @return CreateModelServiceResponse
@@ -669,7 +737,9 @@ namespace Gpdb20160503
       Models::CreateStreamingJobResponse createStreamingJob(const Models::CreateStreamingJobRequest &request);
 
       /**
-       * @summary 创建supabase project
+       * @summary Creates a Supabase project.
+       *
+       * @description *   You can call this operation to create a Supabase project.
        *
        * @param request CreateSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -678,7 +748,9 @@ namespace Gpdb20160503
       Models::CreateSupabaseProjectResponse createSupabaseProjectWithOptions(const Models::CreateSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建supabase project
+       * @summary Creates a Supabase project.
+       *
+       * @description *   You can call this operation to create a Supabase project.
        *
        * @param request CreateSupabaseProjectRequest
        * @return CreateSupabaseProjectResponse
@@ -703,7 +775,10 @@ namespace Gpdb20160503
       Models::CreateVectorIndexResponse createVectorIndex(const Models::CreateVectorIndexRequest &request);
 
       /**
-       * @summary 删除AI节点
+       * @summary Delete AI Node
+       *
+       * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+       * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
        *
        * @param request DeleteAINodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -712,7 +787,10 @@ namespace Gpdb20160503
       Models::DeleteAINodeResponse deleteAINodeWithOptions(const Models::DeleteAINodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除AI节点
+       * @summary Delete AI Node
+       *
+       * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+       * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
        *
        * @param request DeleteAINodeRequest
        * @return DeleteAINodeResponse
@@ -737,7 +815,7 @@ namespace Gpdb20160503
       Models::DeleteAccountResponse deleteAccount(const Models::DeleteAccountRequest &request);
 
       /**
-       * @summary 删除备份
+       * @summary Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
        *
        * @param request DeleteBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -746,7 +824,7 @@ namespace Gpdb20160503
       Models::DeleteBackupResponse deleteBackupWithOptions(const Models::DeleteBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除备份
+       * @summary Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
        *
        * @param request DeleteBackupRequest
        * @return DeleteBackupResponse
@@ -815,6 +893,23 @@ namespace Gpdb20160503
       Models::DeleteDBInstanceResponse deleteDBInstance(const Models::DeleteDBInstanceRequest &request);
 
       /**
+       * @summary 删除IP分组
+       *
+       * @param request DeleteDBInstanceIPArrayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDBInstanceIPArrayResponse
+       */
+      Models::DeleteDBInstanceIPArrayResponse deleteDBInstanceIPArrayWithOptions(const Models::DeleteDBInstanceIPArrayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除IP分组
+       *
+       * @param request DeleteDBInstanceIPArrayRequest
+       * @return DeleteDBInstanceIPArrayResponse
+       */
+      Models::DeleteDBInstanceIPArrayResponse deleteDBInstanceIPArray(const Models::DeleteDBInstanceIPArrayRequest &request);
+
+      /**
        * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
        *
        * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
@@ -855,6 +950,23 @@ namespace Gpdb20160503
        * @return DeleteDBResourceGroupResponse
        */
       Models::DeleteDBResourceGroupResponse deleteDBResourceGroup(const Models::DeleteDBResourceGroupRequest &request);
+
+      /**
+       * @summary 删除数据库
+       *
+       * @param request DeleteDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatabaseResponse
+       */
+      Models::DeleteDatabaseResponse deleteDatabaseWithOptions(const Models::DeleteDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据库
+       *
+       * @param request DeleteDatabaseRequest
+       * @return DeleteDatabaseResponse
+       */
+      Models::DeleteDatabaseResponse deleteDatabase(const Models::DeleteDatabaseRequest &request);
 
       /**
        * @summary Delete Document
@@ -942,7 +1054,7 @@ namespace Gpdb20160503
       Models::DeleteHadoopDataSourceResponse deleteHadoopDataSource(const Models::DeleteHadoopDataSourceRequest &request);
 
       /**
-       * @summary 删除索引
+       * @summary Deletes an index.
        *
        * @param request DeleteIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -951,7 +1063,7 @@ namespace Gpdb20160503
       Models::DeleteIndexResponse deleteIndexWithOptions(const Models::DeleteIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除索引
+       * @summary Deletes an index.
        *
        * @param request DeleteIndexRequest
        * @return DeleteIndexResponse
@@ -976,7 +1088,9 @@ namespace Gpdb20160503
       Models::DeleteJDBCDataSourceResponse deleteJDBCDataSource(const Models::DeleteJDBCDataSourceRequest &request);
 
       /**
-       * @summary 删除模型服务
+       * @summary Delete Model Service
+       *
+       * @description Deletes a model service.
        *
        * @param request DeleteModelServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -985,7 +1099,9 @@ namespace Gpdb20160503
       Models::DeleteModelServiceResponse deleteModelServiceWithOptions(const Models::DeleteModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型服务
+       * @summary Delete Model Service
+       *
+       * @description Deletes a model service.
        *
        * @param request DeleteModelServiceRequest
        * @return DeleteModelServiceResponse
@@ -1008,6 +1124,23 @@ namespace Gpdb20160503
        * @return DeleteNamespaceResponse
        */
       Models::DeleteNamespaceResponse deleteNamespace(const Models::DeleteNamespaceRequest &request);
+
+      /**
+       * @summary 关闭私有RAG服务
+       *
+       * @param request DeletePrivateRAGServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePrivateRAGServiceResponse
+       */
+      Models::DeletePrivateRAGServiceResponse deletePrivateRAGServiceWithOptions(const Models::DeletePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭私有RAG服务
+       *
+       * @param request DeletePrivateRAGServiceRequest
+       * @return DeletePrivateRAGServiceResponse
+       */
+      Models::DeletePrivateRAGServiceResponse deletePrivateRAGService(const Models::DeletePrivateRAGServiceRequest &request);
 
       /**
        * @summary Deletes a remote AnalyticDB data source.
@@ -1095,7 +1228,9 @@ namespace Gpdb20160503
       Models::DeleteStreamingJobResponse deleteStreamingJob(const Models::DeleteStreamingJobRequest &request);
 
       /**
-       * @summary 删除Supabase实例
+       * @summary Deletes a Supabase project.
+       *
+       * @description *   You can call this operation to delete a Supabase project.
        *
        * @param request DeleteSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1104,7 +1239,9 @@ namespace Gpdb20160503
       Models::DeleteSupabaseProjectResponse deleteSupabaseProjectWithOptions(const Models::DeleteSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Supabase实例
+       * @summary Deletes a Supabase project.
+       *
+       * @description *   You can call this operation to delete a Supabase project.
        *
        * @param request DeleteSupabaseProjectRequest
        * @return DeleteSupabaseProjectResponse
@@ -1127,6 +1264,23 @@ namespace Gpdb20160503
        * @return DeleteVectorIndexResponse
        */
       Models::DeleteVectorIndexResponse deleteVectorIndex(const Models::DeleteVectorIndexRequest &request);
+
+      /**
+       * @summary 部署私有RAG服务
+       *
+       * @param request DeployPrivateRAGServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeployPrivateRAGServiceResponse
+       */
+      Models::DeployPrivateRAGServiceResponse deployPrivateRAGServiceWithOptions(const Models::DeployPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 部署私有RAG服务
+       *
+       * @param request DeployPrivateRAGServiceRequest
+       * @return DeployPrivateRAGServiceResponse
+       */
+      Models::DeployPrivateRAGServiceResponse deployPrivateRAGService(const Models::DeployPrivateRAGServiceRequest &request);
 
       /**
        * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
@@ -1192,7 +1346,7 @@ namespace Gpdb20160503
       Models::DescribeAvailableResourcesResponse describeAvailableResources(const Models::DescribeAvailableResourcesRequest &request);
 
       /**
-       * @summary 获取备份任务详情
+       * @summary Queries the information about a backup job.
        *
        * @param request DescribeBackupJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1201,7 +1355,7 @@ namespace Gpdb20160503
       Models::DescribeBackupJobResponse describeBackupJobWithOptions(const Models::DescribeBackupJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取备份任务详情
+       * @summary Queries the information about a backup job.
        *
        * @param request DescribeBackupJobRequest
        * @return DescribeBackupJobResponse
@@ -1251,7 +1405,7 @@ namespace Gpdb20160503
       Models::DescribeCollectionResponse describeCollection(const Models::DescribeCollectionRequest &request);
 
       /**
-       * @summary 获取创建索引任务
+       * @summary Queries the information about an index creation job.
        *
        * @param request DescribeCreateIndexJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1260,7 +1414,7 @@ namespace Gpdb20160503
       Models::DescribeCreateIndexJobResponse describeCreateIndexJobWithOptions(const Models::DescribeCreateIndexJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取创建索引任务
+       * @summary Queries the information about an index creation job.
        *
        * @param request DescribeCreateIndexJobRequest
        * @return DescribeCreateIndexJobResponse
@@ -1744,6 +1898,23 @@ namespace Gpdb20160503
       Models::DescribeDataSharePerformanceResponse describeDataSharePerformance(const Models::DescribeDataSharePerformanceRequest &request);
 
       /**
+       * @summary 描述数据库
+       *
+       * @param request DescribeDatabaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDatabaseResponse
+       */
+      Models::DescribeDatabaseResponse describeDatabaseWithOptions(const Models::DescribeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 描述数据库
+       *
+       * @param request DescribeDatabaseRequest
+       * @return DescribeDatabaseResponse
+       */
+      Models::DescribeDatabaseResponse describeDatabase(const Models::DescribeDatabaseRequest &request);
+
+      /**
        * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
        *
        * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
@@ -1842,7 +2013,7 @@ namespace Gpdb20160503
       Models::DescribeDiagnosisSQLInfoResponse describeDiagnosisSQLInfo(const Models::DescribeDiagnosisSQLInfoRequest &request);
 
       /**
-       * @summary Get Document Details
+       * @summary Queries the information about a document.
        *
        * @param request DescribeDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +2022,7 @@ namespace Gpdb20160503
       Models::DescribeDocumentResponse describeDocumentWithOptions(const Models::DescribeDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Document Details
+       * @summary Queries the information about a document.
        *
        * @param request DescribeDocumentRequest
        * @return DescribeDocumentResponse
@@ -1897,6 +2068,23 @@ namespace Gpdb20160503
        * @return DescribeDownloadSQLLogsResponse
        */
       Models::DescribeDownloadSQLLogsResponse describeDownloadSQLLogs(const Models::DescribeDownloadSQLLogsRequest &request);
+
+      /**
+       * @summary 获取安装在某个数据库上的插件信息
+       *
+       * @param request DescribeExtensionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeExtensionResponse
+       */
+      Models::DescribeExtensionResponse describeExtensionWithOptions(const Models::DescribeExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安装在某个数据库上的插件信息
+       *
+       * @param request DescribeExtensionRequest
+       * @return DescribeExtensionResponse
+       */
+      Models::DescribeExtensionResponse describeExtension(const Models::DescribeExtensionRequest &request);
 
       /**
        * @summary Queries the information about an external data service.
@@ -2009,7 +2197,7 @@ namespace Gpdb20160503
       Models::DescribeIMVInfosResponse describeIMVInfos(const Models::DescribeIMVInfosRequest &request);
 
       /**
-       * @summary 获取索引详情
+       * @summary Retrieves the information about an index.
        *
        * @param request DescribeIndexRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2018,7 +2206,7 @@ namespace Gpdb20160503
       Models::DescribeIndexResponse describeIndexWithOptions(const Models::DescribeIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取索引详情
+       * @summary Retrieves the information about an index.
        *
        * @param request DescribeIndexRequest
        * @return DescribeIndexResponse
@@ -2060,7 +2248,12 @@ namespace Gpdb20160503
       Models::DescribeLogBackupsResponse describeLogBackups(const Models::DescribeLogBackupsRequest &request);
 
       /**
-       * @summary 查询模型服务
+       * @summary Queries the information about a model service.
+       *
+       * @description ## [](#)Usage notes
+       * This interface is used to view the details of a model service.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
        *
        * @param request DescribeModelServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2069,7 +2262,12 @@ namespace Gpdb20160503
       Models::DescribeModelServiceResponse describeModelServiceWithOptions(const Models::DescribeModelServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型服务
+       * @summary Queries the information about a model service.
+       *
+       * @description ## [](#)Usage notes
+       * This interface is used to view the details of a model service.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
        *
        * @param request DescribeModelServiceRequest
        * @return DescribeModelServiceResponse
@@ -2136,6 +2334,23 @@ namespace Gpdb20160503
       Models::DescribeParametersResponse describeParameters(const Models::DescribeParametersRequest &request);
 
       /**
+       * @summary 获取私有RAG服务详情
+       *
+       * @param request DescribePrivateRAGServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePrivateRAGServiceResponse
+       */
+      Models::DescribePrivateRAGServiceResponse describePrivateRAGServiceWithOptions(const Models::DescribePrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取私有RAG服务详情
+       *
+       * @param request DescribePrivateRAGServiceRequest
+       * @return DescribePrivateRAGServiceResponse
+       */
+      Models::DescribePrivateRAGServiceResponse describePrivateRAGService(const Models::DescribePrivateRAGServiceRequest &request);
+
+      /**
        * @summary Queries a list of vSwitches.
        *
        * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
@@ -2184,6 +2399,23 @@ namespace Gpdb20160503
        * @return DescribeRdsVpcsResponse
        */
       Models::DescribeRdsVpcsResponse describeRdsVpcs(const Models::DescribeRdsVpcsRequest &request);
+
+      /**
+       * @summary 描述一个实例是否处于平衡状态
+       *
+       * @param request DescribeRebalanceStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRebalanceStatusResponse
+       */
+      Models::DescribeRebalanceStatusResponse describeRebalanceStatusWithOptions(const Models::DescribeRebalanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 描述一个实例是否处于平衡状态
+       *
+       * @param request DescribeRebalanceStatusRequest
+       * @return DescribeRebalanceStatusResponse
+       */
+      Models::DescribeRebalanceStatusResponse describeRebalanceStatus(const Models::DescribeRebalanceStatusRequest &request);
 
       /**
        * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
@@ -2485,6 +2717,23 @@ namespace Gpdb20160503
       Models::DescribeWaitingSQLRecordsResponse describeWaitingSQLRecords(const Models::DescribeWaitingSQLRecordsRequest &request);
 
       /**
+       * @summary 获取私有RAG服务可部署可用区
+       *
+       * @param request DescribeZonesPrivateRAGServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeZonesPrivateRAGServiceResponse
+       */
+      Models::DescribeZonesPrivateRAGServiceResponse describeZonesPrivateRAGServiceWithOptions(const Models::DescribeZonesPrivateRAGServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取私有RAG服务可部署可用区
+       *
+       * @param request DescribeZonesPrivateRAGServiceRequest
+       * @return DescribeZonesPrivateRAGServiceResponse
+       */
+      Models::DescribeZonesPrivateRAGServiceResponse describeZonesPrivateRAGService(const Models::DescribeZonesPrivateRAGServiceRequest &request);
+
+      /**
        * @summary Disables resource group management for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode. After you disable resource group management, the resource management method of the instance switches from resource group management to resource queue management.
        *
        * @description *   You can call this operation only for AnalyticDB for PostgreSQL V6.0 instances in elastic storage mode whose minor version is V6.6.1.0 or later.
@@ -2554,7 +2803,24 @@ namespace Gpdb20160503
       Models::DownloadSQLLogsRecordsResponse downloadSQLLogsRecords(const Models::DownloadSQLLogsRecordsRequest &request);
 
       /**
-       * @summary 知识库开启构建知识图谱
+       * @summary Downloads slow SQL records.
+       *
+       * @param request DownloadSlowSQLRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadSlowSQLRecordsResponse
+       */
+      Models::DownloadSlowSQLRecordsResponse downloadSlowSQLRecordsWithOptions(const Models::DownloadSlowSQLRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Downloads slow SQL records.
+       *
+       * @param request DownloadSlowSQLRecordsRequest
+       * @return DownloadSlowSQLRecordsResponse
+       */
+      Models::DownloadSlowSQLRecordsResponse downloadSlowSQLRecords(const Models::DownloadSlowSQLRecordsRequest &request);
+
+      /**
+       * @summary Enables knowledge graph construction for the knowledge base.
        *
        * @param tmpReq EnableCollectionGraphRAGRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2563,7 +2829,7 @@ namespace Gpdb20160503
       Models::EnableCollectionGraphRAGResponse enableCollectionGraphRAGWithOptions(const Models::EnableCollectionGraphRAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 知识库开启构建知识图谱
+       * @summary Enables knowledge graph construction for the knowledge base.
        *
        * @param request EnableCollectionGraphRAGRequest
        * @return EnableCollectionGraphRAGResponse
@@ -2630,7 +2896,7 @@ namespace Gpdb20160503
       Models::GetAccountResponse getAccount(const Models::GetAccountRequest &request);
 
       /**
-       * @summary 获取构建知识图谱任务
+       * @summary Retrieves a task to build a knowledge graph.
        *
        * @param request GetGraphRAGJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2639,7 +2905,7 @@ namespace Gpdb20160503
       Models::GetGraphRAGJobResponse getGraphRAGJobWithOptions(const Models::GetGraphRAGJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取构建知识图谱任务
+       * @summary Retrieves a task to build a knowledge graph.
        *
        * @param request GetGraphRAGJobRequest
        * @return GetGraphRAGJobResponse
@@ -2681,7 +2947,9 @@ namespace Gpdb20160503
       Models::GetStatementResultResponse getStatementResult(const Models::GetStatementResultRequest &request);
 
       /**
-       * @summary 查询Supabase实例详情
+       * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+       *
+       * @description This interface is used to query the details of a Supabase instance.
        *
        * @param request GetSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2690,7 +2958,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectResponse getSupabaseProjectWithOptions(const Models::GetSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Supabase实例详情
+       * @summary Retrieves the detailed configuration and status information for a specific Supabase instance.
+       *
+       * @description This interface is used to query the details of a Supabase instance.
        *
        * @param request GetSupabaseProjectRequest
        * @return GetSupabaseProjectResponse
@@ -2698,7 +2968,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectResponse getSupabaseProject(const Models::GetSupabaseProjectRequest &request);
 
       /**
-       * @summary 查询Supabase实例 API Keys
+       * @summary Queries a list of API keys for a Supabase project.
+       *
+       * @description You can call this operation to query a list of API keys for a Supabase project.
        *
        * @param request GetSupabaseProjectApiKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2707,7 +2979,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectApiKeysResponse getSupabaseProjectApiKeysWithOptions(const Models::GetSupabaseProjectApiKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Supabase实例 API Keys
+       * @summary Queries a list of API keys for a Supabase project.
+       *
+       * @description You can call this operation to query a list of API keys for a Supabase project.
        *
        * @param request GetSupabaseProjectApiKeysRequest
        * @return GetSupabaseProjectApiKeysResponse
@@ -2715,7 +2989,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectApiKeysResponse getSupabaseProjectApiKeys(const Models::GetSupabaseProjectApiKeysRequest &request);
 
       /**
-       * @summary 查询Supabase项目dashboard账号信息
+       * @summary Retrieves the username and password for the dashboard of a specific Supabase project.
+       *
+       * @description Query Supabase Project Dashboard Account Information
        *
        * @param request GetSupabaseProjectDashboardAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2724,7 +3000,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectDashboardAccountResponse getSupabaseProjectDashboardAccountWithOptions(const Models::GetSupabaseProjectDashboardAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Supabase项目dashboard账号信息
+       * @summary Retrieves the username and password for the dashboard of a specific Supabase project.
+       *
+       * @description Query Supabase Project Dashboard Account Information
        *
        * @param request GetSupabaseProjectDashboardAccountRequest
        * @return GetSupabaseProjectDashboardAccountResponse
@@ -2734,9 +3012,9 @@ namespace Gpdb20160503
       /**
        * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
        *
-       * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-       * >  Suggestions:
-       * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+       * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+       * > Suggestions
+       * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
        *
        * @param request GetUploadDocumentJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2747,9 +3025,9 @@ namespace Gpdb20160503
       /**
        * @summary Queries the progress and result of an asynchronous document upload job based on the job ID.
        *
-       * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and obtain the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-       * >  Suggestions:
-       * *   Determine whether the document upload job times out based on the document complexity and the number of tokens after chunking. In most cases, a job that lasts more than 2 hours is considered timeout.
+       * @description This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
+       * > Suggestions
+       * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
        *
        * @param request GetUploadDocumentJobRequest
        * @return GetUploadDocumentJobResponse
@@ -2831,7 +3109,9 @@ namespace Gpdb20160503
       Models::InitVectorDatabaseResponse initVectorDatabase(const Models::InitVectorDatabaseRequest &request);
 
       /**
-       * @summary 列举AI节点池
+       * @summary Queries a list of AI nodes.
+       *
+       * @description *   This operation queries a list of AI nodes.
        *
        * @param request ListAINodePoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2840,7 +3120,9 @@ namespace Gpdb20160503
       Models::ListAINodePoolsResponse listAINodePoolsWithOptions(const Models::ListAINodePoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举AI节点池
+       * @summary Queries a list of AI nodes.
+       *
+       * @description *   This operation queries a list of AI nodes.
        *
        * @param request ListAINodePoolsRequest
        * @return ListAINodePoolsResponse
@@ -2848,7 +3130,7 @@ namespace Gpdb20160503
       Models::ListAINodePoolsResponse listAINodePools(const Models::ListAINodePoolsRequest &request);
 
       /**
-       * @summary 获取备份任务列表
+       * @summary Queries a list of backup jobs.
        *
        * @param request ListBackupJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2857,7 +3139,7 @@ namespace Gpdb20160503
       Models::ListBackupJobsResponse listBackupJobsWithOptions(const Models::ListBackupJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取备份任务列表
+       * @summary Queries a list of backup jobs.
        *
        * @param request ListBackupJobsRequest
        * @return ListBackupJobsResponse
@@ -2880,6 +3162,23 @@ namespace Gpdb20160503
        * @return ListCollectionsResponse
        */
       Models::ListCollectionsResponse listCollections(const Models::ListCollectionsRequest &request);
+
+      /**
+       * @summary 获取安装在某个数据库上的所有插件信息
+       *
+       * @param request ListDatabaseExtensionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatabaseExtensionsResponse
+       */
+      Models::ListDatabaseExtensionsResponse listDatabaseExtensionsWithOptions(const Models::ListDatabaseExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取安装在某个数据库上的所有插件信息
+       *
+       * @param request ListDatabaseExtensionsRequest
+       * @return ListDatabaseExtensionsResponse
+       */
+      Models::ListDatabaseExtensionsResponse listDatabaseExtensions(const Models::ListDatabaseExtensionsRequest &request);
 
       /**
        * @summary Queries a list of databases.
@@ -2967,7 +3266,7 @@ namespace Gpdb20160503
       Models::ListExternalDataSourcesResponse listExternalDataSources(const Models::ListExternalDataSourcesRequest &request);
 
       /**
-       * @summary 获取索引列表
+       * @summary Queries a list of indexes.
        *
        * @param request ListIndicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2976,12 +3275,29 @@ namespace Gpdb20160503
       Models::ListIndicesResponse listIndicesWithOptions(const Models::ListIndicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取索引列表
+       * @summary Queries a list of indexes.
        *
        * @param request ListIndicesRequest
        * @return ListIndicesResponse
        */
       Models::ListIndicesResponse listIndices(const Models::ListIndicesRequest &request);
+
+      /**
+       * @summary 列举数据库
+       *
+       * @param request ListInstanceDatabasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceDatabasesResponse
+       */
+      Models::ListInstanceDatabasesResponse listInstanceDatabasesWithOptions(const Models::ListInstanceDatabasesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举数据库
+       *
+       * @param request ListInstanceDatabasesRequest
+       * @return ListInstanceDatabasesResponse
+       */
+      Models::ListInstanceDatabasesResponse listInstanceDatabases(const Models::ListInstanceDatabasesRequest &request);
 
       /**
        * @summary Queries a list of extensions.
@@ -3001,7 +3317,12 @@ namespace Gpdb20160503
       Models::ListInstanceExtensionsResponse listInstanceExtensions(const Models::ListInstanceExtensionsRequest &request);
 
       /**
-       * @summary 查询模型服务
+       * @summary Queries all model services.
+       *
+       * @description ## [](#)Usage notes
+       * This interface is used to view all model service information.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
        *
        * @param request ListModelServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3010,7 +3331,12 @@ namespace Gpdb20160503
       Models::ListModelServicesResponse listModelServicesWithOptions(const Models::ListModelServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型服务
+       * @summary Queries all model services.
+       *
+       * @description ## [](#)Usage notes
+       * This interface is used to view all model service information.
+       * ## [](#qps-)QPS limit
+       * You can call this operation up to 1,000 times per second per account. Exceeding the limit will trigger API rate limiting, which may impact your business. Please call the API responsibly.
        *
        * @param request ListModelServicesRequest
        * @return ListModelServicesResponse
@@ -3086,6 +3412,23 @@ namespace Gpdb20160503
       Models::ListSecretsResponse listSecrets(const Models::ListSecretsRequest &request);
 
       /**
+       * @summary Queries slow SQL queries.
+       *
+       * @param request ListSlowSQLRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSlowSQLRecordsResponse
+       */
+      Models::ListSlowSQLRecordsResponse listSlowSQLRecordsWithOptions(const Models::ListSlowSQLRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries slow SQL queries.
+       *
+       * @param request ListSlowSQLRecordsRequest
+       * @return ListSlowSQLRecordsResponse
+       */
+      Models::ListSlowSQLRecordsResponse listSlowSQLRecords(const Models::ListSlowSQLRecordsRequest &request);
+
+      /**
        * @summary Create External Data Source Configuration
        *
        * @param request ListStreamingDataServicesRequest
@@ -3137,7 +3480,9 @@ namespace Gpdb20160503
       Models::ListStreamingJobsResponse listStreamingJobs(const Models::ListStreamingJobsRequest &request);
 
       /**
-       * @summary 查询Supabase实例列表
+       * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+       *
+       * @description *   You can call this operation to query Supabase instances.
        *
        * @param request ListSupabaseProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3146,7 +3491,9 @@ namespace Gpdb20160503
       Models::ListSupabaseProjectsResponse listSupabaseProjectsWithOptions(const Models::ListSupabaseProjectsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Supabase实例列表
+       * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
+       *
+       * @description *   You can call this operation to query Supabase instances.
        *
        * @param request ListSupabaseProjectsRequest
        * @return ListSupabaseProjectsResponse
@@ -3154,7 +3501,9 @@ namespace Gpdb20160503
       Models::ListSupabaseProjectsResponse listSupabaseProjects(const Models::ListSupabaseProjectsRequest &request);
 
       /**
-       * @summary 获取支持的模型列表
+       * @summary Get the list of supported models
+       *
+       * @description *   This API is used to query the list of supported models.
        *
        * @param request ListSupportModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3163,7 +3512,9 @@ namespace Gpdb20160503
       Models::ListSupportModelsResponse listSupportModelsWithOptions(const Models::ListSupportModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取支持的模型列表
+       * @summary Get the list of supported models
+       *
+       * @description *   This API is used to query the list of supported models.
        *
        * @param request ListSupportModelsRequest
        * @return ListSupportModelsResponse
@@ -3239,7 +3590,7 @@ namespace Gpdb20160503
       Models::ModifyBackupPolicyResponse modifyBackupPolicy(const Models::ModifyBackupPolicyRequest &request);
 
       /**
-       * @summary 更新Collection
+       * @summary Updates a collection.
        *
        * @param request ModifyCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3248,7 +3599,7 @@ namespace Gpdb20160503
       Models::ModifyCollectionResponse modifyCollectionWithOptions(const Models::ModifyCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Collection
+       * @summary Updates a collection.
        *
        * @param request ModifyCollectionRequest
        * @return ModifyCollectionResponse
@@ -3290,7 +3641,7 @@ namespace Gpdb20160503
       Models::ModifyDBInstanceConnectionStringResponse modifyDBInstanceConnectionString(const Models::ModifyDBInstanceConnectionStringRequest &request);
 
       /**
-       * @summary 修改实例部署模式
+       * @summary Changes the development mode of an instance.
        *
        * @param request ModifyDBInstanceDeploymentModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3299,7 +3650,7 @@ namespace Gpdb20160503
       Models::ModifyDBInstanceDeploymentModeResponse modifyDBInstanceDeploymentModeWithOptions(const Models::ModifyDBInstanceDeploymentModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例部署模式
+       * @summary Changes the development mode of an instance.
        *
        * @param request ModifyDBInstanceDeploymentModeRequest
        * @return ModifyDBInstanceDeploymentModeResponse
@@ -3671,7 +4022,9 @@ namespace Gpdb20160503
       Models::ModifyStreamingJobResponse modifyStreamingJob(const Models::ModifyStreamingJobRequest &request);
 
       /**
-       * @summary 修改supabase项目白名单
+       * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+       *
+       * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
        *
        * @param request ModifySupabaseProjectSecurityIpsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3680,7 +4033,9 @@ namespace Gpdb20160503
       Models::ModifySupabaseProjectSecurityIpsResponse modifySupabaseProjectSecurityIpsWithOptions(const Models::ModifySupabaseProjectSecurityIpsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改supabase项目白名单
+       * @summary Sets or replaces the IP address whitelist for a specified Supabase project.
+       *
+       * @description Before you can connect to a Supabase project, you must add your client\\"s IP address or CIDR block to the project\\"s whitelist.
        *
        * @param request ModifySupabaseProjectSecurityIpsRequest
        * @return ModifySupabaseProjectSecurityIpsResponse
@@ -3787,7 +4142,7 @@ namespace Gpdb20160503
       Models::QueryContentResponse queryContentAdvance(const Models::QueryContentAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 多知识库查询
+       * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
        *
        * @param tmpReq QueryKnowledgeBasesContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3796,7 +4151,7 @@ namespace Gpdb20160503
       Models::QueryKnowledgeBasesContentResponse queryKnowledgeBasesContentWithOptions(const Models::QueryKnowledgeBasesContentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 多知识库查询
+       * @summary Retrieves vectors and metadata from multiple specified document collections using natural language queries, then merge and return the results from all retrieval paths.
        *
        * @param request QueryKnowledgeBasesContentRequest
        * @return QueryKnowledgeBasesContentResponse
@@ -3889,7 +4244,9 @@ namespace Gpdb20160503
       Models::ResetIMVMonitorDataResponse resetIMVMonitorData(const Models::ResetIMVMonitorDataRequest &request);
 
       /**
-       * @summary 重置supabase数据库密码
+       * @summary Reset the password of a Supabase database
+       *
+       * @description Call this API to reset the password of the Supabase database.
        *
        * @param request ResetSupabaseProjectPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3898,7 +4255,9 @@ namespace Gpdb20160503
       Models::ResetSupabaseProjectPasswordResponse resetSupabaseProjectPasswordWithOptions(const Models::ResetSupabaseProjectPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置supabase数据库密码
+       * @summary Reset the password of a Supabase database
+       *
+       * @description Call this API to reset the password of the Supabase database.
        *
        * @param request ResetSupabaseProjectPasswordRequest
        * @return ResetSupabaseProjectPasswordResponse
@@ -4065,7 +4424,7 @@ namespace Gpdb20160503
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 通过模型对文本文档进行向量化
+       * @summary Generates text embeddings using an embedding model.
        *
        * @param tmpReq TextEmbeddingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4074,7 +4433,7 @@ namespace Gpdb20160503
       Models::TextEmbeddingResponse textEmbeddingWithOptions(const Models::TextEmbeddingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过模型对文本文档进行向量化
+       * @summary Generates text embeddings using an embedding model.
        *
        * @param request TextEmbeddingRequest
        * @return TextEmbeddingResponse
@@ -4277,9 +4636,9 @@ namespace Gpdb20160503
       Models::UploadDocumentAsyncResponse uploadDocumentAsyncAdvance(const Models::UploadDocumentAsyncAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upload split text
+       * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
        *
-       * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+       * @description The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
        *
        * @param tmpReq UpsertChunksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4288,9 +4647,9 @@ namespace Gpdb20160503
       Models::UpsertChunksResponse upsertChunksWithOptions(const Models::UpsertChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upload split text
+       * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
        *
-       * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
+       * @description The vector algorithm that is used for the document is specified when you call the CreateDocumentCollection operation.
        *
        * @param request UpsertChunksRequest
        * @return UpsertChunksResponse

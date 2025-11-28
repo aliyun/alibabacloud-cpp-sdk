@@ -130,22 +130,67 @@ namespace Models
 
 
   protected:
+    // The password of the initial account.
+    // 
+    // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+    // *   The password must be 8 to 32 characters in length.
+    // 
     // This parameter is required.
     std::shared_ptr<string> accountPassword_ = nullptr;
+    // The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
     std::shared_ptr<string> clientToken_ = nullptr;
+    // The performance level of Enterprise SSDs (ESSDs). Default value: PL0. Valid values:
+    // 
+    // *   PL0
+    // *   PL1
     std::shared_ptr<string> diskPerformanceLevel_ = nullptr;
+    // The name of the Supabase project. The name must meet the following requirements:
+    // 
+    // *   The name must be 1 to 128 characters in length.
+    // *   The name can contain only letters, digits, hyphens (-), and underscores (_).
+    // *   The name must start with a letter or an underscore (_).
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The specifications of the Supabase project. Default value: 1C1G.
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectSpec_ = nullptr;
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The IP address whitelist.
+    // 
+    // A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create a project.
+    // 
     // This parameter is required.
     std::shared_ptr<string> securityIPList_ = nullptr;
+    // The storage size. Unit: GB. Default value: 1.
     std::shared_ptr<int64_t> storageSize_ = nullptr;
+    // The vSwitch ID.
+    // 
+    // > 
+    // 
+    // *   **This parameter** must be specified.
+    // 
+    // *   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    // The virtual private cloud (VPC) ID.
+    // 
+    // > 
+    // 
+    // *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
+    // 
+    // *   This parameter must be specified.
+    // 
     // This parameter is required.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The zone ID.
+    // 
+    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+    // 
     // This parameter is required.
     std::shared_ptr<string> zoneId_ = nullptr;
   };

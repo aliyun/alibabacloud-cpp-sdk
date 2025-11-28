@@ -105,12 +105,22 @@ namespace Models
 
 
   protected:
+    // The details of the entity.
     std::shared_ptr<vector<string>> entities_ = nullptr;
+    // The retrieved items.
     std::shared_ptr<vector<Models::ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches>> matches_ = nullptr;
+    // The name of the file.
     std::shared_ptr<vector<string>> relations_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
+    // The number of tokens that are consumed.
     std::shared_ptr<int64_t> tokens_ = nullptr;
+    // The number of tokens that are consumed during document understanding or embedding.
     std::shared_ptr<Models::ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage> usage_ = nullptr;
   };
 

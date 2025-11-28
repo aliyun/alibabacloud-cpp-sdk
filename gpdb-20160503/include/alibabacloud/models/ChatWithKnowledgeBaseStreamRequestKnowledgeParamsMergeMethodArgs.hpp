@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The parameter to be configured when the MergeMethod parameter is set to RRF.
     std::shared_ptr<Models::ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsRrf> rrf_ = nullptr;
+    // The smoothing constant in the formula to calculate the score: 1/(k + rank_i). It must be a positive integer greater than 1.
     std::shared_ptr<Models::ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgsWeight> weight_ = nullptr;
   };
 

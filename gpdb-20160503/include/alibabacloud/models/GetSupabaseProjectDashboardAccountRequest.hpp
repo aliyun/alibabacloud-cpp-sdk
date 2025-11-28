@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The Supabase project ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The region ID of the instance.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

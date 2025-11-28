@@ -176,12 +176,14 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The method that is used to create sparse vector indexes.
     std::shared_ptr<string> sparseVectorMetrics_ = nullptr;
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **success**
     // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
+    // Indicates whether sparse vectors are supported.
     std::shared_ptr<bool> supportSparse_ = nullptr;
   };
 

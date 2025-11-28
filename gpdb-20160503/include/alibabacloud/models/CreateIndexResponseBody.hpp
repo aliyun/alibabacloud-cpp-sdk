@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The job ID. It can be used to query the job status or cancel the job.
     std::shared_ptr<string> jobId_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
   };
 

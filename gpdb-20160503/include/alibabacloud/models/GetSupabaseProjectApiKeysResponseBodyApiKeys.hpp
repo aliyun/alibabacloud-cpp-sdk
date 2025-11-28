@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The queried API key.
     std::shared_ptr<string> apiKey_ = nullptr;
+    // The name of the API key, including the Anon key and the service role key.
     std::shared_ptr<string> name_ = nullptr;
   };
 

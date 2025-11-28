@@ -75,18 +75,22 @@ namespace Models
 
 
   protected:
-    // Number of tokens used during vectorization.
+    // The number of tokens that are consumed during vectorization.
     // 
-    // > A token refers to the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
+    // > A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
     std::shared_ptr<string> embeddingTokens_ = nullptr;
+    // The job ID. You can use the `GetGraphRAGJob` to view the job status.
+    // 
+    // > This parameter is returned only when the knowledge base is enabled.
     std::shared_ptr<string> jobId_ = nullptr;
-    // Return message.
+    // The response message.
     std::shared_ptr<string> message_ = nullptr;
-    // Request ID.
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
-    // API execution status, with the following values:
-    // - **success**: Execution succeeded.
-    // - **fail**: Execution failed.
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
   };
 

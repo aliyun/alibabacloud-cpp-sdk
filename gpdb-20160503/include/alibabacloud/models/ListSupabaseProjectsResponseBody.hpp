@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // A list of objects, where each object represents a Supabase instance.
     std::shared_ptr<vector<ListSupabaseProjectsResponseBodyItems>> items_ = nullptr;
+    // The maximum amount of data to read this time. Default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token to use in the next request to get the next page. If this field is empty, there are no more results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The page number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageRecordCount_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of log entries returned.
     std::shared_ptr<int32_t> totalRecordCount_ = nullptr;
   };
 

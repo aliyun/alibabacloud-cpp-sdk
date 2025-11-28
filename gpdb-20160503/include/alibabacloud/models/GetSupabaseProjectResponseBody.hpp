@@ -204,24 +204,56 @@ namespace Models
 
 
   protected:
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The Supabase Dashboard password (Not Used)
     std::shared_ptr<string> dashboardPassword_ = nullptr;
+    // The Supabase Dashboard user name (Not Used)
     std::shared_ptr<string> dashboardUserName_ = nullptr;
+    // The Enterprise SSD (ESSD) performance level of the cluster. Valid values:
+    // 
+    // *   PL0
+    // *   PL1
     std::shared_ptr<string> diskPerformanceLevel_ = nullptr;
+    // The type of the database engine.
     std::shared_ptr<string> engine_ = nullptr;
+    // The version of the database engine.
     std::shared_ptr<string> engineVersion_ = nullptr;
+    // The private (VPC) connection URL for the Supabase Dashboard.
     std::shared_ptr<string> privateConnectUrl_ = nullptr;
+    // The Supabase instance ID.
     std::shared_ptr<string> projectId_ = nullptr;
+    // The name of the Supabase project.
     std::shared_ptr<string> projectName_ = nullptr;
+    // The performance level of the Supabase instance.
     std::shared_ptr<string> projectSpec_ = nullptr;
+    // The public connection URL for the Supabase Dashboard.
     std::shared_ptr<string> publicConnectUrl_ = nullptr;
+    // The region ID of the cluster.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // A comma-separated list of IP addresses and CIDR blocks allowed to connect.
     std::shared_ptr<string> securityIpList_ = nullptr;
+    // The status of the Supabase instance.
     std::shared_ptr<string> status_ = nullptr;
+    // The storage capacity of the instance. Unit: GB.
     std::shared_ptr<int64_t> storageSize_ = nullptr;
+    // The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    // The VPC ID.
+    // 
+    // > 
+    // 
+    // *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
+    // 
+    // *   This parameter is required.
     std::shared_ptr<string> vpcId_ = nullptr;
+    // The zone ID.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

@@ -78,10 +78,18 @@ namespace Models
 
 
   protected:
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The embedding results.
     std::shared_ptr<TextEmbeddingResponseBodyResults> results_ = nullptr;
+    // The status of the operation. Valid values:
+    // 
+    // *   **success**
+    // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
+    // The total number of tokens consumed.
     std::shared_ptr<int32_t> textTokens_ = nullptr;
   };
 

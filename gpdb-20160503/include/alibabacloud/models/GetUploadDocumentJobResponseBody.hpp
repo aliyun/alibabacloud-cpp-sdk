@@ -99,14 +99,14 @@ namespace Models
     std::shared_ptr<GetUploadDocumentJobResponseBodyJob> job_ = nullptr;
     // The returned message.
     std::shared_ptr<string> message_ = nullptr;
-    // The request ID.
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
     // The status of the operation. Valid values:
     // 
     // *   **success**
     // *   **fail**
     std::shared_ptr<string> status_ = nullptr;
-    // The number of tokens that are used for document understanding or embedding.
+    // The number of tokens that are consumed by document understanding or embedding.
     std::shared_ptr<GetUploadDocumentJobResponseBodyUsage> usage_ = nullptr;
   };
 
