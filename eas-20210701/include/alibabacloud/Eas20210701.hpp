@@ -1387,6 +1387,24 @@ namespace Eas20210701
       Models::ListVirtualResourceResponse listVirtualResource(const Models::ListVirtualResourceRequest &request);
 
       /**
+       * @summary Migrates resource group instances.
+       *
+       * @param request MigrateResourceInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MigrateResourceInstanceResponse
+       */
+      Models::MigrateResourceInstanceResponse migrateResourceInstanceWithOptions(const string &ClusterId, const string &ResourceId, const Models::MigrateResourceInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Migrates resource group instances.
+       *
+       * @param request MigrateResourceInstanceRequest
+       * @return MigrateResourceInstanceResponse
+       */
+      Models::MigrateResourceInstanceResponse migrateResourceInstance(const string &ClusterId, const string &ResourceId, const Models::MigrateResourceInstanceRequest &request);
+
+      /**
        * @summary Resets tenant configurations.
        *
        * @param headers map

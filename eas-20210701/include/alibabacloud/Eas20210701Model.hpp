@@ -223,6 +223,9 @@
 #include <alibabacloud/models/ListVirtualResourceRequest.hpp>
 #include <alibabacloud/models/ListVirtualResourceResponseBody.hpp>
 #include <alibabacloud/models/ListVirtualResourceResponse.hpp>
+#include <alibabacloud/models/MigrateResourceInstanceRequest.hpp>
+#include <alibabacloud/models/MigrateResourceInstanceResponseBody.hpp>
+#include <alibabacloud/models/MigrateResourceInstanceResponse.hpp>
 #include <alibabacloud/models/ReinstallTenantAddonResponseBody.hpp>
 #include <alibabacloud/models/ReinstallTenantAddonResponse.hpp>
 #include <alibabacloud/models/ReleaseServiceRequest.hpp>

@@ -2078,8 +2078,16 @@ DescribeMachineSpecResponse Client::describeMachineSpecWithOptions(const Describ
   }
 
   json query = {};
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.chargeType();
+  }
+
   if (!!request.hasInstanceTypesShrink()) {
     query["InstanceTypes"] = request.instanceTypesShrink();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4075,6 +4083,59 @@ ListVirtualResourceResponse Client::listVirtualResource(const ListVirtualResourc
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listVirtualResourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Migrates resource group instances.
+ *
+ * @param request MigrateResourceInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MigrateResourceInstanceResponse
+ */
+MigrateResourceInstanceResponse Client::migrateResourceInstanceWithOptions(const string &ClusterId, const string &ResourceId, const MigrateResourceInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDestResourceId()) {
+    body["DestResourceId"] = request.destResourceId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.instanceIds();
+  }
+
+  if (!!request.hasMigrateToHybrid()) {
+    body["MigrateToHybrid"] = request.migrateToHybrid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MigrateResourceInstance"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/resources/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ResourceId) , "/instances/migrate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MigrateResourceInstanceResponse>();
+}
+
+/**
+ * @summary Migrates resource group instances.
+ *
+ * @param request MigrateResourceInstanceRequest
+ * @return MigrateResourceInstanceResponse
+ */
+MigrateResourceInstanceResponse Client::migrateResourceInstance(const string &ClusterId, const string &ResourceId, const MigrateResourceInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return migrateResourceInstanceWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 /**
