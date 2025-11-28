@@ -75,6 +75,42 @@ namespace LingMou20250527
       Models::CreateBackgroundPicResponse createBackgroundPic(const Models::CreateBackgroundPicRequest &request);
 
       /**
+       * @summary 创建播报贴图
+       *
+       * @param request CreateBroadcastStickerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBroadcastStickerResponse
+       */
+      Models::CreateBroadcastStickerResponse createBroadcastStickerWithOptions(const Models::CreateBroadcastStickerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建播报贴图
+       *
+       * @param request CreateBroadcastStickerRequest
+       * @return CreateBroadcastStickerResponse
+       */
+      Models::CreateBroadcastStickerResponse createBroadcastSticker(const Models::CreateBroadcastStickerRequest &request);
+
+      /**
+       * @summary 基于模板创建播报视频
+       *
+       * @param request CreateBroadcastVideoFromTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBroadcastVideoFromTemplateResponse
+       */
+      Models::CreateBroadcastVideoFromTemplateResponse createBroadcastVideoFromTemplateWithOptions(const Models::CreateBroadcastVideoFromTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 基于模板创建播报视频
+       *
+       * @param request CreateBroadcastVideoFromTemplateRequest
+       * @return CreateBroadcastVideoFromTemplateResponse
+       */
+      Models::CreateBroadcastVideoFromTemplateResponse createBroadcastVideoFromTemplate(const Models::CreateBroadcastVideoFromTemplateRequest &request);
+
+      /**
        * @summary 背景配置
        *
        * @param request CreateChatConfigRequest
@@ -165,6 +201,24 @@ namespace LingMou20250527
       Models::CreateTrainPicAvatarResponse createTrainPicAvatar(const Models::CreateTrainPicAvatarRequest &request);
 
       /**
+       * @summary 查询播报模板详情
+       *
+       * @param request GetBroadcastTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetBroadcastTemplateResponse
+       */
+      Models::GetBroadcastTemplateResponse getBroadcastTemplateWithOptions(const Models::GetBroadcastTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询播报模板详情
+       *
+       * @param request GetBroadcastTemplateRequest
+       * @return GetBroadcastTemplateResponse
+       */
+      Models::GetBroadcastTemplateResponse getBroadcastTemplate(const Models::GetBroadcastTemplateRequest &request);
+
+      /**
        * @summary 查询图片训练数字人的状态
        *
        * @param request GetTrainPicAvatarStatusRequest
@@ -199,6 +253,42 @@ namespace LingMou20250527
        * @return GetUploadPolicyResponse
        */
       Models::GetUploadPolicyResponse getUploadPolicy(const Models::GetUploadPolicyRequest &request);
+
+      /**
+       * @summary 列举播报模板
+       *
+       * @param request ListBroadcastTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBroadcastTemplatesResponse
+       */
+      Models::ListBroadcastTemplatesResponse listBroadcastTemplatesWithOptions(const Models::ListBroadcastTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举播报模板
+       *
+       * @param request ListBroadcastTemplatesRequest
+       * @return ListBroadcastTemplatesResponse
+       */
+      Models::ListBroadcastTemplatesResponse listBroadcastTemplates(const Models::ListBroadcastTemplatesRequest &request);
+
+      /**
+       * @summary 根据视频id批量查询播报视频（最多查询100个）
+       *
+       * @param tmpReq ListBroadcastVideosByIdRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBroadcastVideosByIdResponse
+       */
+      Models::ListBroadcastVideosByIdResponse listBroadcastVideosByIdWithOptions(const Models::ListBroadcastVideosByIdRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据视频id批量查询播报视频（最多查询100个）
+       *
+       * @param request ListBroadcastVideosByIdRequest
+       * @return ListBroadcastVideosByIdResponse
+       */
+      Models::ListBroadcastVideosByIdResponse listBroadcastVideosById(const Models::ListBroadcastVideosByIdRequest &request);
 
       /**
        * @summary 列举私有TTS音色

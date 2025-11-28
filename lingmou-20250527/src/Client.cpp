@@ -186,6 +186,112 @@ CreateBackgroundPicResponse Client::createBackgroundPic(const CreateBackgroundPi
 }
 
 /**
+ * @summary 创建播报贴图
+ *
+ * @param request CreateBroadcastStickerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBroadcastStickerResponse
+ */
+CreateBroadcastStickerResponse Client::createBroadcastStickerWithOptions(const CreateBroadcastStickerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileName()) {
+    body["fileName"] = request.fileName();
+  }
+
+  if (!!request.hasOssKey()) {
+    body["ossKey"] = request.ossKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBroadcastSticker"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/material/sticker/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBroadcastStickerResponse>();
+}
+
+/**
+ * @summary 创建播报贴图
+ *
+ * @param request CreateBroadcastStickerRequest
+ * @return CreateBroadcastStickerResponse
+ */
+CreateBroadcastStickerResponse Client::createBroadcastSticker(const CreateBroadcastStickerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createBroadcastStickerWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 基于模板创建播报视频
+ *
+ * @param request CreateBroadcastVideoFromTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBroadcastVideoFromTemplateResponse
+ */
+CreateBroadcastVideoFromTemplateResponse Client::createBroadcastVideoFromTemplateWithOptions(const CreateBroadcastVideoFromTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasTemplateId()) {
+    body["templateId"] = request.templateId();
+  }
+
+  if (!!request.hasVariables()) {
+    body["variables"] = request.variables();
+  }
+
+  if (!!request.hasVideoOptions()) {
+    body["videoOptions"] = request.videoOptions();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBroadcastVideoFromTemplate"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/amp/customer/broadcast/video/createFromTemplate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBroadcastVideoFromTemplateResponse>();
+}
+
+/**
+ * @summary 基于模板创建播报视频
+ *
+ * @param request CreateBroadcastVideoFromTemplateRequest
+ * @return CreateBroadcastVideoFromTemplateResponse
+ */
+CreateBroadcastVideoFromTemplateResponse Client::createBroadcastVideoFromTemplate(const CreateBroadcastVideoFromTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createBroadcastVideoFromTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 背景配置
  *
  * @param request CreateChatConfigRequest
@@ -479,6 +585,51 @@ CreateTrainPicAvatarResponse Client::createTrainPicAvatar(const CreateTrainPicAv
 }
 
 /**
+ * @summary 查询播报模板详情
+ *
+ * @param request GetBroadcastTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetBroadcastTemplateResponse
+ */
+GetBroadcastTemplateResponse Client::getBroadcastTemplateWithOptions(const GetBroadcastTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTemplateId()) {
+    query["templateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetBroadcastTemplate"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/template/detail")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetBroadcastTemplateResponse>();
+}
+
+/**
+ * @summary 查询播报模板详情
+ *
+ * @param request GetBroadcastTemplateRequest
+ * @return GetBroadcastTemplateResponse
+ */
+GetBroadcastTemplateResponse Client::getBroadcastTemplate(const GetBroadcastTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getBroadcastTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询图片训练数字人的状态
  *
  * @param request GetTrainPicAvatarStatusRequest
@@ -570,6 +721,114 @@ GetUploadPolicyResponse Client::getUploadPolicy(const GetUploadPolicyRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getUploadPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列举播报模板
+ *
+ * @param request ListBroadcastTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBroadcastTemplatesResponse
+ */
+ListBroadcastTemplatesResponse Client::listBroadcastTemplatesWithOptions(const ListBroadcastTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.page();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.size();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBroadcastTemplates"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/customer/broadcast/template/list")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBroadcastTemplatesResponse>();
+}
+
+/**
+ * @summary 列举播报模板
+ *
+ * @param request ListBroadcastTemplatesRequest
+ * @return ListBroadcastTemplatesResponse
+ */
+ListBroadcastTemplatesResponse Client::listBroadcastTemplates(const ListBroadcastTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBroadcastTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 根据视频id批量查询播报视频（最多查询100个）
+ *
+ * @param tmpReq ListBroadcastVideosByIdRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBroadcastVideosByIdResponse
+ */
+ListBroadcastVideosByIdResponse Client::listBroadcastVideosByIdWithOptions(const ListBroadcastVideosByIdRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListBroadcastVideosByIdShrinkRequest request = ListBroadcastVideosByIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVideoIds()) {
+    request.setVideoIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoIds(), "videoIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasVideoIdsShrink()) {
+    query["videoIds"] = request.videoIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListBroadcastVideosById"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/amp/customer/broadcast/video/batchQuery")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBroadcastVideosByIdResponse>();
+}
+
+/**
+ * @summary 根据视频id批量查询播报视频（最多查询100个）
+ *
+ * @param request ListBroadcastVideosByIdRequest
+ * @return ListBroadcastVideosByIdResponse
+ */
+ListBroadcastVideosByIdResponse Client::listBroadcastVideosById(const ListBroadcastVideosByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listBroadcastVideosByIdWithOptions(request, headers, runtime);
 }
 
 /**
