@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_LINGMOU20250527MODEL_HPP_
 #define ALIBABACLOUD_LINGMOU20250527MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/TemplateVariable.hpp>
+#include <alibabacloud/models/BroadcastTemplate.hpp>
+#include <alibabacloud/models/BroadcastVideo.hpp>
 #include <alibabacloud/models/ChatSessionInfo.hpp>
 #include <alibabacloud/models/CloseChatInstanceSessionsRequest.hpp>
 #include <alibabacloud/models/CloseChatInstanceSessionsShrinkRequest.hpp>
