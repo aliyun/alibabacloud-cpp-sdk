@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/BatchGetMediaInfosResponseBodyMediaInfosFileInfoList.hpp>
 #include <alibabacloud/models/BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo.hpp>
+#include <alibabacloud/models/BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,11 +19,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const BatchGetMediaInfosResponseBodyMediaInfos& obj) { 
       DARABONBA_PTR_TO_JSON(FileInfoList, fileInfoList_);
       DARABONBA_PTR_TO_JSON(MediaBasicInfo, mediaBasicInfo_);
+      DARABONBA_PTR_TO_JSON(MediaDynamicInfo, mediaDynamicInfo_);
       DARABONBA_PTR_TO_JSON(MediaId, mediaId_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetMediaInfosResponseBodyMediaInfos& obj) { 
       DARABONBA_PTR_FROM_JSON(FileInfoList, fileInfoList_);
       DARABONBA_PTR_FROM_JSON(MediaBasicInfo, mediaBasicInfo_);
+      DARABONBA_PTR_FROM_JSON(MediaDynamicInfo, mediaDynamicInfo_);
       DARABONBA_PTR_FROM_JSON(MediaId, mediaId_);
     };
     BatchGetMediaInfosResponseBodyMediaInfos() = default ;
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileInfoList_ == nullptr
-        && return this->mediaBasicInfo_ == nullptr && return this->mediaId_ == nullptr; };
+        && return this->mediaBasicInfo_ == nullptr && return this->mediaDynamicInfo_ == nullptr && return this->mediaId_ == nullptr; };
     // fileInfoList Field Functions 
     bool hasFileInfoList() const { return this->fileInfoList_ != nullptr;};
     void deleteFileInfoList() { this->fileInfoList_ = nullptr;};
@@ -56,6 +59,15 @@ namespace Models
     inline BatchGetMediaInfosResponseBodyMediaInfos& setMediaBasicInfo(Models::BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo && mediaBasicInfo) { DARABONBA_PTR_SET_RVALUE(mediaBasicInfo_, mediaBasicInfo) };
 
 
+    // mediaDynamicInfo Field Functions 
+    bool hasMediaDynamicInfo() const { return this->mediaDynamicInfo_ != nullptr;};
+    void deleteMediaDynamicInfo() { this->mediaDynamicInfo_ = nullptr;};
+    inline const Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo & mediaDynamicInfo() const { DARABONBA_PTR_GET_CONST(mediaDynamicInfo_, Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo) };
+    inline Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo mediaDynamicInfo() { DARABONBA_PTR_GET(mediaDynamicInfo_, Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo) };
+    inline BatchGetMediaInfosResponseBodyMediaInfos& setMediaDynamicInfo(const Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo & mediaDynamicInfo) { DARABONBA_PTR_SET_VALUE(mediaDynamicInfo_, mediaDynamicInfo) };
+    inline BatchGetMediaInfosResponseBodyMediaInfos& setMediaDynamicInfo(Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo && mediaDynamicInfo) { DARABONBA_PTR_SET_RVALUE(mediaDynamicInfo_, mediaDynamicInfo) };
+
+
     // mediaId Field Functions 
     bool hasMediaId() const { return this->mediaId_ != nullptr;};
     void deleteMediaId() { this->mediaId_ = nullptr;};
@@ -68,6 +80,7 @@ namespace Models
     std::shared_ptr<vector<Models::BatchGetMediaInfosResponseBodyMediaInfosFileInfoList>> fileInfoList_ = nullptr;
     // The basic information of the media asset.
     std::shared_ptr<Models::BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo> mediaBasicInfo_ = nullptr;
+    std::shared_ptr<Models::BatchGetMediaInfosResponseBodyMediaInfosMediaDynamicInfo> mediaDynamicInfo_ = nullptr;
     // The ID of the media asset.
     std::shared_ptr<string> mediaId_ = nullptr;
   };

@@ -15,10 +15,12 @@ namespace Models
   class BatchGetMediaInfosResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BatchGetMediaInfosResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(IgnoredList, ignoredList_);
       DARABONBA_PTR_TO_JSON(MediaInfos, mediaInfos_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetMediaInfosResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(IgnoredList, ignoredList_);
       DARABONBA_PTR_FROM_JSON(MediaInfos, mediaInfos_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
@@ -33,8 +35,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->mediaInfos_ == nullptr
-        && return this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->ignoredList_ == nullptr
+        && return this->mediaInfos_ == nullptr && return this->requestId_ == nullptr; };
+    // ignoredList Field Functions 
+    bool hasIgnoredList() const { return this->ignoredList_ != nullptr;};
+    void deleteIgnoredList() { this->ignoredList_ = nullptr;};
+    inline const vector<string> & ignoredList() const { DARABONBA_PTR_GET_CONST(ignoredList_, vector<string>) };
+    inline vector<string> ignoredList() { DARABONBA_PTR_GET(ignoredList_, vector<string>) };
+    inline BatchGetMediaInfosResponseBody& setIgnoredList(const vector<string> & ignoredList) { DARABONBA_PTR_SET_VALUE(ignoredList_, ignoredList) };
+    inline BatchGetMediaInfosResponseBody& setIgnoredList(vector<string> && ignoredList) { DARABONBA_PTR_SET_RVALUE(ignoredList_, ignoredList) };
+
+
     // mediaInfos Field Functions 
     bool hasMediaInfos() const { return this->mediaInfos_ != nullptr;};
     void deleteMediaInfos() { this->mediaInfos_ = nullptr;};
@@ -52,6 +63,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<string>> ignoredList_ = nullptr;
     // The queried media assets.
     std::shared_ptr<vector<BatchGetMediaInfosResponseBodyMediaInfos>> mediaInfos_ = nullptr;
     // The request ID.
