@@ -1,3 +1,10 @@
+2025-12-01 Version: 1.0.3
+- Update API CreateServiceWorkOrder: add request parameters Priority.
+- Update API DisposeWorkTask: add request parameters WorkTaskAnalysisResults.
+- Update API GetDocumentDownloadUrl: add request parameters FileKey.
+- Update API SendCustomEvent: add request parameters EventMarkdown.
+
+
 2025-01-15 Version: 1.0.2
 - Generated cpp 2016-12-28 for mssp.
 
