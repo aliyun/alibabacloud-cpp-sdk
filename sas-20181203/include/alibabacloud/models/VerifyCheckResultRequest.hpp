@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const VerifyCheckResultRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(TaskSource, taskSource_);
     };
     friend void from_json(const Darabonba::Json& j, VerifyCheckResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckIds, checkIds_);
+      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(TaskSource, taskSource_);
     };
     VerifyCheckResultRequest() = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkIds_ == nullptr
-        && return this->taskSource_ == nullptr; };
+        && return this->instanceIds_ == nullptr && return this->taskSource_ == nullptr; };
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
@@ -41,6 +43,15 @@ namespace Models
     inline vector<int64_t> checkIds() { DARABONBA_PTR_GET(checkIds_, vector<int64_t>) };
     inline VerifyCheckResultRequest& setCheckIds(const vector<int64_t> & checkIds) { DARABONBA_PTR_SET_VALUE(checkIds_, checkIds) };
     inline VerifyCheckResultRequest& setCheckIds(vector<int64_t> && checkIds) { DARABONBA_PTR_SET_RVALUE(checkIds_, checkIds) };
+
+
+    // instanceIds Field Functions 
+    bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
+    void deleteInstanceIds() { this->instanceIds_ = nullptr;};
+    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline VerifyCheckResultRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+    inline VerifyCheckResultRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
 
     // taskSource Field Functions 
@@ -53,6 +64,7 @@ namespace Models
   protected:
     // The IDs of the check items.
     std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     // The source of task.
     std::shared_ptr<string> taskSource_ = nullptr;
   };

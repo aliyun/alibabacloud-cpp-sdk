@@ -416,6 +416,7 @@ namespace Models
     // *   **true**
     // *   **false**
     std::shared_ptr<bool> bind_ = nullptr;
+    // The container ID.
     std::shared_ptr<string> containerId_ = nullptr;
     // The extended information about the vulnerability.
     std::shared_ptr<Models::DescribeVulListResponseBodyVulRecordsExtendContentJson> extendContentJson_ = nullptr;

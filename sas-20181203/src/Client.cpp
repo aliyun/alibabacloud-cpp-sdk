@@ -264,6 +264,10 @@ AddCheckResultWhiteListResponse Client::addCheckResultWhiteListWithOptions(const
     query["CheckIds"] = request.checkIds();
   }
 
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
   if (!!request.hasRemark()) {
     query["Remark"] = request.remark();
   }
@@ -45225,6 +45229,10 @@ RemoveCheckResultWhiteListResponse Client::removeCheckResultWhiteListWithOptions
     query["CheckIds"] = request.checkIds();
   }
 
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
   if (!!request.hasRuleId()) {
     query["RuleId"] = request.ruleId();
   }
@@ -49443,6 +49451,10 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
     query["CheckId"] = request.checkId();
   }
 
+  if (!!request.hasCheckIds()) {
+    query["CheckIds"] = request.checkIds();
+  }
+
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.instanceIds();
   }
@@ -49491,6 +49503,10 @@ VerifyCheckResultResponse Client::verifyCheckResultWithOptions(const VerifyCheck
   json query = {};
   if (!!request.hasCheckIds()) {
     query["CheckIds"] = request.checkIds();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
   }
 
   if (!!request.hasTaskSource()) {
