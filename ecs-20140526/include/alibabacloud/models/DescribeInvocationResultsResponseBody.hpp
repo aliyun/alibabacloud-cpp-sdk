@@ -51,9 +51,38 @@ namespace Models
 
 
   protected:
-    // Details about the execution results.
+    // The execution status of the command task. Valid values:
+    // 
+    // *   Running:
+    // 
+    //     *   Scheduled task: Before you stop the scheduled execution of the command, the execution state is always Running.
+    //     *   One-time task: If the command is being run on instances, the execution state is Running.
+    // 
+    // *   Finished:
+    // 
+    //     *   Scheduled task: The execution state can never be Finished.
+    //     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
+    // 
+    // *   Success:
+    // 
+    //     *   One-time task: The execution is complete, and the exit code is 0.
+    //     *   Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
+    // 
+    // *   Failed:
+    // 
+    //     *   Scheduled task: The execution state can never be Failed.
+    //     *   One-time task: The execution fails on all instances.
+    // 
+    // *   PartialFailed:
+    // 
+    //     *   Scheduled task: The execution state can never be PartialFailed.
+    //     *   One-time task: The execution fails on some instances.
+    // 
+    // *   Stopped: The task is stopped.
+    // 
+    // *   Stopping: The task is being stopped.
     std::shared_ptr<DescribeInvocationResultsResponseBodyInvocation> invocation_ = nullptr;
-    // The ID of the request.
+    // The ID of the command.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -52,7 +52,7 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // The ID of the task for which the bandwidth weight is modified.
     // 
-    // You can use the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) interface to modify the bandwidth weight result.
+    // You can use the [DescribeTaskAttribute](https://help.aliyun.com/document_detail/2679968.html) interface to modify the bandwidth weight result.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

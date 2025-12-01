@@ -94,16 +94,11 @@ namespace Models
 
 
   protected:
-    // > This parameter is in invitational preview and is unavailable to general users.
     std::shared_ptr<string> choice_ = nullptr;
-    // The ID of the system event.
-    // 
     // This parameter is required.
     std::shared_ptr<string> eventId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The region ID of the system event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;

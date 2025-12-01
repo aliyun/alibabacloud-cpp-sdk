@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The key of tag N of the image creation task. Valid values of N: 1 to 20.
     std::shared_ptr<string> key_ = nullptr;
-    // The value of tag N of the image creation task. Valid values of N: 1 to 20.
+    // null
     std::shared_ptr<string> value_ = nullptr;
   };
 

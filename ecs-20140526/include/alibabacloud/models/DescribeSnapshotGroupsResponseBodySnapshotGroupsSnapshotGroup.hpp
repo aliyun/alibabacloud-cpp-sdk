@@ -127,7 +127,7 @@ namespace Models
 
 
   protected:
-    // The time when the snapshot-consistent group was created.
+    // The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> creationTime_ = nullptr;
     // The description of the snapshot-consistent group.
     std::shared_ptr<string> description_ = nullptr;

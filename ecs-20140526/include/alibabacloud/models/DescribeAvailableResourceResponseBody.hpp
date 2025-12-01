@@ -51,9 +51,8 @@ namespace Models
 
 
   protected:
-    // Details about the zones in which resources are available.
+    // The information about the availability of resources in the zones.
     std::shared_ptr<DescribeAvailableResourceResponseBodyAvailableZones> availableZones_ = nullptr;
-    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

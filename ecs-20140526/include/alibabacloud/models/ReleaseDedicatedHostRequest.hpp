@@ -106,6 +106,12 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The expiration time of the subscription dedicated host.
+    // 
+    // *   true
+    // *   false
+    // 
+    // Default value: false.
     std::shared_ptr<bool> terminateSubscription_ = nullptr;
   };
 

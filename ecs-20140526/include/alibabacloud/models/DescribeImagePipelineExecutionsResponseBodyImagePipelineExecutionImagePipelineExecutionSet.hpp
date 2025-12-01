@@ -115,20 +115,18 @@ namespace Models
 
 
   protected:
-    // The time when the image creation task was created.
+    // Details of the image creation tasks.
     std::shared_ptr<string> creationTime_ = nullptr;
-    // The ID of the image creation task.
-    std::shared_ptr<string> executionId_ = nullptr;
-    // The ID of the image.
-    std::shared_ptr<string> imageId_ = nullptr;
-    // The ID of the image template.
-    std::shared_ptr<string> imagePipelineId_ = nullptr;
     // The data returned.
-    std::shared_ptr<string> message_ = nullptr;
-    // The last modification time of the image creation task.
-    std::shared_ptr<string> modifiedTime_ = nullptr;
+    std::shared_ptr<string> executionId_ = nullptr;
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    std::shared_ptr<string> imageId_ = nullptr;
+    // Details of the image creation task.
+    std::shared_ptr<string> imagePipelineId_ = nullptr;
+    // The last modification time of the image creation task.
+    std::shared_ptr<string> message_ = nullptr;
+    // The ID of the image template.
+    std::shared_ptr<string> modifiedTime_ = nullptr;
     // The status of the image creation task. Valid values:
     // 
     // *   PREPARING: Resources, such as intermediate instances, are being created.
@@ -143,8 +141,10 @@ namespace Models
     // *   TEST_FAILED: The image is created, but the test fails.
     // *   CANCELLING: The image creation task is being canceled.
     // *   CANCELLED: The image creation task is canceled.
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The time when the image creation task was created.
     std::shared_ptr<string> status_ = nullptr;
-    // The tags of the image creation task.
+    // The ID of the image.
     std::shared_ptr<Models::DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionImagePipelineExecutionSetTags> tags_ = nullptr;
   };
 

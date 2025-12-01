@@ -138,7 +138,7 @@ namespace Models
   protected:
     // The IDs of image templates. Valid values of N: 1 to 20.
     std::shared_ptr<vector<string>> imagePipelineId_ = nullptr;
-    // The maximum number of entries per page. Valid values: 1 to 500.
+    // The maximum number of entries per page. Valid values: 1 to 500
     // 
     // Default value: 50.
     std::shared_ptr<int32_t> maxResults_ = nullptr;

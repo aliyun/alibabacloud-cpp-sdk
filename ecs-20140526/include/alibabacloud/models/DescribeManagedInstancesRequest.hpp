@@ -200,6 +200,18 @@ namespace Models
     std::shared_ptr<string> instanceIp_ = nullptr;
     // The name of the managed instance.
     std::shared_ptr<string> instanceName_ = nullptr;
+    // The value of the MachineId parameter that you specify when you register a managed instance. A maximum of 36 characters are allowed. Sample registration script:
+    // 
+    //     aliyun-service --register \\
+    //       --RegionId=cn-hangznou \\
+    //       --ActivationId=xxxxxxxxxxx \\
+    //       --ActivationCode=xxxxxxxxx \\
+    //     --MachineId=xxxxxx \\ # Optional. The unique identifier of the machine.
+    //       --ForceResue                 
+    // 
+    // *   If the MachineId and ForceResult parameters are specified during registration, the Cloud Assistant generates a fixed managed instance ID for this MachineId.
+    // *   If the MachineId parameter is not explicitly specified, the Cloud Assistant will automatically generate a MachineId value based on the hardware information of the machine.
+    // *   We recommend that you explicitly specify the MachineId and ForceResult parameters to mark the mapping between a managed instance and an on-premises machine.
     std::shared_ptr<string> machineId_ = nullptr;
     // The maximum number of entries per page.
     // 

@@ -213,117 +213,27 @@ namespace Models
 
 
   protected:
-    // The number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-    // 
-    // The Cores parameter takes effect only when the DestinationResource parameter is set to InstanceType.
     std::shared_ptr<int32_t> cores_ = nullptr;
-    // The category of the data disk. Valid values:
-    // 
-    // *   cloud: basic disk
-    // *   cloud_efficiency: ultra disk
-    // *   cloud_ssd: standard SSD
-    // *   ephemeral_ssd: local SSD
-    // *   cloud_essd: ESSD
-    // *   cloud_auto: ESSD AutoPL disk
     std::shared_ptr<string> dataDiskCategory_ = nullptr;
-    // The ID of the dedicated host.
     std::shared_ptr<string> dedicatedHostId_ = nullptr;
-    // The resource type to query. Valid values:
-    // 
-    // *   Zone: zone.
-    // *   IoOptimized: I/O optimized resource.
-    // *   InstanceType: instance type.
-    // *   SystemDisk: system disk.
-    // *   DataDisk: data disk.
-    // *   Network: network type.
-    // *   ddh: dedicated host.
-    // 
-    // For more information about how to configure the DestinationResource parameter, see the **Description** section of this topic.
-    // 
     // This parameter is required.
     std::shared_ptr<string> destinationResource_ = nullptr;
-    // The billing method of the resource. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
-    // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go.
-    // 
-    // Default value: PostPaid.
     std::shared_ptr<string> instanceChargeType_ = nullptr;
-    // The instance types. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
-    // 
-    // For more information about how to configure the InstanceType parameter, see the **Description** section of this topic.
     std::shared_ptr<string> instanceType_ = nullptr;
-    // Specifies whether the instance is an I/O optimized instance. Valid values:
-    // 
-    // *   none: The instance is a non-I/O optimized instance.
-    // *   optimized: The instance is an I/O optimized instance.
-    // 
-    // Default value: optimized.
     std::shared_ptr<string> ioOptimized_ = nullptr;
-    // The memory size of the instance type. Unit: GiB. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
-    // 
-    // The Memory parameter takes effect only when the DestinationResource parameter is set to InstanceType.
     std::shared_ptr<float> memory_ = nullptr;
-    // The network type of the cluster. Valid values:
-    // 
-    // *   vpc
-    // *   classic
     std::shared_ptr<string> networkCategory_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The ID of the region for which to query resources. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // The type of the resource. Valid values:
-    // 
-    // *   instance: ECS instance.
-    // *   disk: cloud disk.
-    // *   reservedinstance: reserved instance.
-    // *   ddh: dedicated host.
     std::shared_ptr<string> resourceType_ = nullptr;
-    // The scope of the reserved instance. Valid values:
-    // 
-    // *   Region: regional.
-    // *   Zone: zonal.
     std::shared_ptr<string> scope_ = nullptr;
-    // The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
-    // 
-    // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-    // *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-    // 
-    // Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
-    // 
-    // >  This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
     std::shared_ptr<int32_t> spotDuration_ = nullptr;
-    // The bidding policy for pay-as-you-go instances. Valid values:
-    // 
-    // *   NoSpot: The instance is a pay-as-you-go instance.
-    // *   SpotWithPriceLimit: The instance is a spot instance with a user-defined maximum hourly price.
-    // *   SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
-    // 
-    // Default value: NoSpot.
-    // 
-    // The SpotStrategy parameter takes effect only when the InstanceChargeType parameter is set to PostPaid.
     std::shared_ptr<string> spotStrategy_ = nullptr;
-    // The category of the system disk. Valid values:
-    // 
-    // *   cloud: basic disk
-    // *   cloud_efficiency: ultra disk
-    // *   cloud_ssd: standard SSD
-    // *   ephemeral_ssd: local SSD
-    // *   cloud_essd: Enterprise SSD (ESSD)
-    // *   cloud_auto: ESSD AutoPL disk
-    // 
-    // Default value: cloud_efficiency.
-    // 
-    // >  This parameter must be specified when ResourceType is set to instance and DestinationResource is set to DataDisk. If you do not specify this parameter, the default value takes effect.
     std::shared_ptr<string> systemDiskCategory_ = nullptr;
-    // The ID of the zone where the instance resides.
-    // 
-    // This parameter is empty by default. When this parameter is empty, the system returns resources that match the other criteria in all zones within the region specified by `RegionId`.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

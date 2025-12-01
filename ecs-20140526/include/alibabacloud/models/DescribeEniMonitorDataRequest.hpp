@@ -133,13 +133,13 @@ namespace Models
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The interval at which to retrieve the monitoring data. Unit: seconds. Valid values:
+    // The interval at which to retrieve the monitoring data. Unit: seconds. Default value: Month. Valid values:
     // 
     // *   60
     // *   600
     // *   3600
     // 
-    // Default value: 60.
+    // Default: 60.
     std::shared_ptr<int32_t> period_ = nullptr;
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 

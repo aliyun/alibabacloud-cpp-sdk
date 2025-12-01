@@ -48,9 +48,12 @@ namespace Models
 
 
   protected:
-    // The tag key of the command task.
+    // The command content.
+    // 
+    // *   If ContentEncoding is set to PlainText in the request, the original command content is returned.
+    // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command content is returned.
     std::shared_ptr<string> tagKey_ = nullptr;
-    // The tag value of the command task.
+    // The execution path of the command.
     std::shared_ptr<string> tagValue_ = nullptr;
   };
 

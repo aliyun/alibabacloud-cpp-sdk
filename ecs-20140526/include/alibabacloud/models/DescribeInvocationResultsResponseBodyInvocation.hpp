@@ -78,15 +78,29 @@ namespace Models
 
 
   protected:
-    // The execution results.
+    // The maximum number of entries per page.
+    // 
+    // Valid values: 1 to 50.
+    // 
+    // Default value: 10.
     std::shared_ptr<Models::DescribeInvocationResultsResponseBodyInvocationInvocationResults> invocationResults_ = nullptr;
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     std::shared_ptr<string> nextToken_ = nullptr;
-    // The page number.
+    // The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
+    // 
+    // *   PlainText: returns the original command content and command output.
+    // *   Base64: returns the Base64-encoded command content and command output.
+    // 
+    // Default value: Base64.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    // The number of entries per page.
+    // Specifies whether to return the results of historical scheduled executions. Valid values:
+    // 
+    // *   true: returns the results of historical scheduled executions. If you set this parameter to true, you must set InvokeId to the ID of a task that is run on a schedule (RepeatMode set to Period) or on each system startup (RepeatMode set to EveryReboot).
+    // *   false: does not return the results of historical scheduled executions.
+    // 
+    // Default value: false.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // The total number of the commands.
+    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

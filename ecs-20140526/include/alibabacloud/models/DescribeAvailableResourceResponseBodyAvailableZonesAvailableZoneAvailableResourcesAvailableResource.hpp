@@ -51,17 +51,7 @@ namespace Models
 
 
   protected:
-    // The information about the resources.
     std::shared_ptr<Models::DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResourcesAvailableResourceSupportedResources> supportedResources_ = nullptr;
-    // The resource type. Valid values:
-    // 
-    // *   Zone: zone
-    // *   IoOptimized: I/O optimized resource
-    // *   InstanceType: instance type
-    // *   SystemDisk: system disk
-    // *   DataDisk: data disk
-    // *   Network: network type
-    // *   ddh: dedicated host
     std::shared_ptr<string> type_ = nullptr;
   };
 

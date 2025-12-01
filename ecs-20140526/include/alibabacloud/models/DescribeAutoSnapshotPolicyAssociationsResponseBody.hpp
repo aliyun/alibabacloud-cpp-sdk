@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The association of automatic snapshot policies.
     std::shared_ptr<DescribeAutoSnapshotPolicyAssociationsResponseBodyAutoSnapshotPolicyAssociations> autoSnapshotPolicyAssociations_ = nullptr;
+    // The returned pagination token which can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

@@ -226,109 +226,43 @@ namespace Models
 
 
   protected:
-    // The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
+    // $.parameters[15].schema.items.description
     std::shared_ptr<string> commandId_ = nullptr;
-    // The command name. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
+    // $.parameters[15].schema.items.example
     std::shared_ptr<string> commandName_ = nullptr;
-    // The command type. Valid values:
-    // 
-    // *   RunBatScript: batch command, applicable to Windows instances.
-    // *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-    // *   RunShellScript: shell command, applicable to Linux instances.
+    // $.parameters[15].schema.items.enumValueTitles
     std::shared_ptr<string> commandType_ = nullptr;
-    // The encoding mode of the `CommandContent` and `Output` response parameters. Valid values:
-    // 
-    // *   PlainText: returns the original command content and command outputs.
-    // *   Base64: returns the Base64-encoded command content and command outputs.
-    // 
-    // Default value: Base64.
     std::shared_ptr<string> contentEncoding_ = nullptr;
-    // Specifies whether to return the command outputs in the response.
-    // 
-    // *   true: The command outputs are returned. When this parameter is set to true, you must specify `InvokeId`, `InstanceId`, or both.
-    // *   false: The command outputs are not returned.
-    // 
-    // Default value: false
     std::shared_ptr<bool> includeOutput_ = nullptr;
-    // The ID of instance N. When you specify this parameter, the system queries all the execution records of all the commands that run on the instance.
+    // $.parameters[15].schema.enumValueTitles
     std::shared_ptr<string> instanceId_ = nullptr;
-    // The command task ID.
+    // $.parameters[15].schema.items.properties.Value.enumValueTitles
     std::shared_ptr<string> invokeId_ = nullptr;
-    // The overall execution status of the command task. The value of this parameter depends on the execution states of the command task on all involved instances. Valid values:
-    // 
-    // *   Running:
-    // 
-    //     *   Scheduled task: Before you stop the scheduled execution of the command, the overall execution state is always Running.
-    //     *   One-time task: If the command is being run on instances, the overall execution state is Running.
-    // 
-    // *   Finished:
-    // 
-    //     *   Scheduled task: The overall execution state can never be Finished.
-    //     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
-    // 
-    // *   Success: If the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
-    // 
-    //     *   One-time task: The execution is complete, and the exit code is 0.
-    //     *   Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
-    // 
-    // *   Failed:
-    // 
-    //     *   Scheduled task: The overall execution state can never be Failed.
-    //     *   One-time task: The execution failed on all instances.
-    // 
-    // *   Stopped: The task is stopped.
-    // 
-    // *   Stopping: The task is being stopped.
-    // 
-    // *   PartialFailed: The task fails on some instances. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
-    // 
-    // *   Pending: The command is being verified or sent. If the execution state on at least one instance is Pending, the overall execution state is Pending.
-    // 
-    // *   Scheduled: The command that is set to run on a schedule is sent and waiting to be run. If the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
+    // $.parameters[15].schema.example
     std::shared_ptr<string> invokeStatus_ = nullptr;
-    // The maximum number of entries per page.
-    // 
-    // Valid values: 1 to 50.
-    // 
-    // Default value: 10.
+    // acs:ecs:{#regionId}:{#accountId}:instance/*
     std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // Instance
     std::shared_ptr<string> nextToken_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // acs:ecs:{#regionId}:{#accountId}:command/*
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // Command
     std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
+    // $.parameters[15].schema.items.properties.Value.description
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
-    // The execution mode of the command. If you specify both this parameter and `InstanceId`, this parameter does not take effect. Valid values:
-    // 
-    // *   Once: The command is immediately run.
-    // *   Period: The command is run on a schedule.
-    // *   NextRebootOnly: The command is run the next time the instances start.
-    // *   EveryReboot: The command is run every time the instances start.
-    // 
-    // This parameter is empty by default, which indicates that commands run in all modes are queried.
+    // FEATUREecsXZ3H4M
     std::shared_ptr<string> repeatMode_ = nullptr;
-    // The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
+    // $.parameters[15].schema.items.properties.Value.example
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    // The tags that are added to the command.
+    // dubbo
     std::shared_ptr<vector<DescribeInvocationsRequestTag>> tag_ = nullptr;
-    // Specifies whether the command is to be automatically run. Valid values:
-    // 
-    // *   true: The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Period`, `NextRebootOnly`, or `EveryReboot`.
-    // 
-    // *   false: The command meets one of the following requirements:
-    // 
-    //     *   The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Once`.
-    //     *   The command task is canceled, stopped, or completed.
-    // 
-    // Default value: false.
+    // $.parameters[15].schema.description
     std::shared_ptr<bool> timed_ = nullptr;
   };
 

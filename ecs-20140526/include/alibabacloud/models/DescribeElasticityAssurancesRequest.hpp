@@ -192,7 +192,7 @@ namespace Models
     std::shared_ptr<string> instanceType_ = nullptr;
     // The maximum number of entries per page.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100
     // 
     // Default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;

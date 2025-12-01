@@ -87,17 +87,60 @@ namespace Models
 
 
   protected:
-    // Details about the command executions.
+    // The ID of instance N. When you specify this parameter, the system queries all the execution records of all the commands that run on the instance.
     std::shared_ptr<DescribeInvocationsResponseBodyInvocations> invocations_ = nullptr;
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The overall execution status of the command task. The value of this parameter depends on the execution states of the command task on all involved instances. Valid values:
+    // 
+    // *   Running:
+    // 
+    //     *   Scheduled task: Before you stop the scheduled execution of the command, the overall execution state is always Running.
+    //     *   One-time task: If the command is being run on instances, the overall execution state is Running.
+    // 
+    // *   Finished:
+    // 
+    //     *   Scheduled task: The overall execution state can never be Finished.
+    //     *   One-time task: The execution is complete on all instances, or the execution is stopped on some instances and is complete on the other instances.
+    // 
+    // *   Success: If the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
+    // 
+    //     *   One-time task: The execution is complete, and the exit code is 0.
+    //     *   Scheduled task: The last execution is complete, the exit code is 0, and the specified period ends.
+    // 
+    // *   Failed:
+    // 
+    //     *   Scheduled task: The overall execution state can never be Failed.
+    //     *   One-time task: The execution failed on all instances.
+    // 
+    // *   Stopped: The task is stopped.
+    // 
+    // *   Stopping: The task is being stopped.
+    // 
+    // *   PartialFailed: The task fails on some instances. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
+    // 
+    // *   Pending: The command is being verified or sent. If the execution state on at least one instance is Pending, the overall execution state is Pending.
+    // 
+    // *   Scheduled: The command that is set to run on a schedule is sent and waiting to be run. If the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
     std::shared_ptr<string> nextToken_ = nullptr;
-    // The page number of the returned page.
+    // The command type. Valid values:
+    // 
+    // *   RunBatScript: batch command, applicable to Windows instances.
+    // *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+    // *   RunShellScript: shell command, applicable to Linux instances.
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
-    // The number of entries returned on each page.
+    // The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
-    // The request ID.
+    // The command name. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The total number of the commands.
+    // Specifies whether the command is to be automatically run. Valid values:
+    // 
+    // *   true: The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Period`, `NextRebootOnly`, or `EveryReboot`.
+    // 
+    // *   false: The command meets one of the following requirements:
+    // 
+    //     *   The command is run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Once`.
+    //     *   The command task is canceled, stopped, or completed.
+    // 
+    // Default value: false.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

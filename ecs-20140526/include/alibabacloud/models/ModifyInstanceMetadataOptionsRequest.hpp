@@ -136,7 +136,14 @@ namespace Models
     std::shared_ptr<string> httpTokens_ = nullptr;
     // The ID of the instance.
     std::shared_ptr<string> instanceId_ = nullptr;
-    // > This parameter is in invitational preview and is not publicly available.
+    // Specifies whether to enable the access channel for instance metadata. Valid values:
+    // 
+    // *   enabled
+    // *   disabled
+    // 
+    // Default value: disabled.
+    // 
+    // >  The tag key must be a combination of letters, digits, @, colons (:), underscores (_), hyphens (-), periods (.), equal signs (=), and commas (,). The tag key cannot be "." or "..". Otherwise, the tag key cannot be accessed in the metadata.
     std::shared_ptr<string> instanceMetadataTags_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.

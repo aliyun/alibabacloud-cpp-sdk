@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the automatic snapshot policy.
     std::shared_ptr<string> autoSnapshotPolicyId_ = nullptr;
+    // The ID of the cloud disk.
     std::shared_ptr<string> diskId_ = nullptr;
   };
 

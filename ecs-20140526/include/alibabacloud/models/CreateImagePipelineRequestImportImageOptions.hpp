@@ -166,7 +166,7 @@ namespace Models
     // 
     // Default value: x86_64.
     std::shared_ptr<string> architecture_ = nullptr;
-    // The boot mode of the image. Valid values:
+    // The new boot mode of the image. Valid values:
     // 
     // *   BIOS: BIOS mode
     // *   UEFI: Unified Extensible Firmware Interface (UEFI) mode
@@ -193,7 +193,7 @@ namespace Models
     // 
     // Default value: Auto.
     std::shared_ptr<string> licenseType_ = nullptr;
-    // The operating system type. Valid values:
+    // The operating system type. Valid value:
     // 
     // *   windows
     // *   linux

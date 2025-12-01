@@ -49,10 +49,10 @@ namespace Models
 
   protected:
     std::shared_ptr<string> imdsSupport_ = nullptr;
-    // Specifies whether the imported source image supports the Non-Volatile Memory Express (NVMe) protocol. Valid values:
+    // Specifies whether the imported source image supports the Non-Volatile Memory Express (NVMe) protocol. Valid value:
     // 
-    // *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
-    // *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
+    // *   supported Instances created from the image also support the NVMe protocol.
+    // *   unsupported Instances created from the image do not support the NVMe protocol.
     // 
     // Default value: unsupported.
     std::shared_ptr<string> nvmeSupport_ = nullptr;

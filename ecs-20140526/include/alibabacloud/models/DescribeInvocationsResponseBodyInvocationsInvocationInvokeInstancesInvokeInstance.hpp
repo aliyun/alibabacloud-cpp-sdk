@@ -186,125 +186,75 @@ namespace Models
 
 
   protected:
-    // The time when the command task was created.
+    // The command description.
     std::shared_ptr<string> creationTime_ = nullptr;
-    // The size of the Output text that was truncated and discarded because the Output value exceeded 24 KB in size.
+    // The value of tag N of the command. You can specify up to 20 tag values for the command. The tag value can be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`.
     std::shared_ptr<int32_t> dropped_ = nullptr;
-    // The error code for the failure to send or run the command. Valid values:
-    // 
-    // *   If this parameter is empty, the command was run as expected.
-    // *   InstanceNotExists: The specified instance did not exist or was released.
-    // *   InstanceReleased: The instance was released while the command was being run.
-    // *   InstanceNotRunning: The instance was not running when the command started to be run.
-    // *   CommandNotApplicable: The command was inapplicable to the specified instance.
-    // *   AccountNotExists: The username specified to run the command did not exist.
-    // *   DirectoryNotExists: The specified directory did not exist.
-    // *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
-    // *   ClientNotRunning: Cloud Assistant Agent was not running.
-    // *   ClientNotResponse: Cloud Assistant Agent did not respond.
-    // *   ClientIsUpgrading: Cloud Assistant Agent was being upgraded.
-    // *   ClientNeedUpgrade: Cloud Assistant Agent needed to be upgraded.
-    // *   DeliveryTimeout: The request to send the command timed out.
-    // *   ExecutionTimeout: The execution timed out.
-    // *   ExecutionException: An exception occurred while the command was being executed.
-    // *   ExecutionInterrupted: The command task was interrupted.
-    // *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
-    // *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
+    // The instances on which the command was run.
     std::shared_ptr<string> errorCode_ = nullptr;
-    // The error message returned when the command failed to be sent or run. Valid values:
-    // 
-    // *   If this parameter is empty, the command was run as expected.
-    // *   The security group rules denied access to the aliyun service.
-    // *   The specified instance does not exist.
-    // *   The specified instance was released during task execution.
-    // *   The specified instance was not running during task execution.
-    // *   The OS type of the instance does not support the specified command type.
-    // *   The specified account does not exist.
-    // *   The specified directory does not exist.
-    // *   The cron expression is invalid.
-    // *   The aliyun service is not running on the instance.
-    // *   The aliyun service in the instance does not response.
-    // *   The aliyun service in the instance is upgrading during task execution.
-    // *   The aliyun service in the instance need to be upgraded to at least version to support the feature. indicates the earliest version that supports the feature. indicates the name of the feature.
-    // *   The command delivery has been timeout.
-    // *   The command execution has been timeout.
-    // *   The command execution got an exception.
-    // *   The command execution exit code is not zero.
-    // *   The specified instance was released during task execution.
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> errorInfo_ = nullptr;
-    // The exit code of the execution. Valid values:
-    // 
-    // *   For Linux instances, the value is the exit code of the shell process.
-    // *   For Windows instances, the value is the exit code of the batch or PowerShell process.
+    // The total number of the commands.
     std::shared_ptr<int64_t> exitCode_ = nullptr;
-    // The time when the command process ended.
+    // The custom parameters in the command.
     std::shared_ptr<string> finishTime_ = nullptr;
-    // The instance ID.
+    // The number of entries returned on each page.
     std::shared_ptr<string> instanceId_ = nullptr;
-    // The execution status of the command on a single instance.
-    // 
-    // >  We recommend that you ignore this parameter and check the value of `InvocationStatus` in the response to obtain the execution status.
+    // The page number of the returned page.
     std::shared_ptr<string> instanceInvokeStatus_ = nullptr;
-    // The execution status on a single instance. Valid values:
+    // The key of tag N of the command. You can specify up to 20 tag keys for the command. The tag key cannot be an empty string.
     // 
-    // *   Pending: The command is being verified or sent.
+    // If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
     // 
-    // *   Invalid: The specified command type or parameter is invalid.
+    // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+    std::shared_ptr<string> invocationStatus_ = nullptr;
+    // The overall execution status of the command task. The value of this parameter depends on the execution status of the command task on all the involved instances. Valid values:
     // 
-    // *   Aborted: The command failed to be sent to the instance. To send a command to an instance, make sure that the instance is in the Running state and the command can be sent to the instance within 1 minute.
+    // *   Pending: The command is being verified or sent. When the execution state on at least one instance is Pending, the overall execution state is Pending.
     // 
-    // *   Running: The command is being run on the instance.
+    // *   Scheduled: The command that is set to run on a schedule was sent and waiting to be run. When the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
     // 
-    // *   Success:
+    // *   Running: The command is being run on the instances. When the execution state on at least one instance is Running, the overall execution state is Running.
+    // 
+    // *   Success: When the execution state on at least one instance is Success and the execution state on the other instances is Stopped or Success, the overall execution state is Success.
     // 
     //     *   One-time task: The execution was complete, and the exit code was 0.
     //     *   Scheduled task: The last execution was complete, the exit code was 0, and the specified period ended.
     // 
-    // *   Failed:
+    // *   Failed: When the execution state on all instances is Stopped or Failed, the overall execution state is Failed. When the execution state on an instance is one of the following values, Failed is returned as the overall execution state:
     // 
-    //     *   One-time task: The execution was complete, but the exit code was not 0.
-    //     *   Scheduled task: The last execution was complete, but the exit code was not 0. The specified period is about to end.
+    //     *   Invalid: The command is invalid.
+    //     *   Aborted: The command failed to be sent.
+    //     *   Failed: The execution was complete, but the exit code was not 0.
+    //     *   Timeout: The execution timed out.
+    //     *   Error: An error occurred while the command was being run.
     // 
-    // *   Error: The execution cannot proceed due to an exception.
+    // *   Stopping: The command task is being stopped. When the execution state on at least one instance is Stopping, the overall execution state is Stopping.
     // 
-    // *   Timeout: The execution timed out.
+    // *   Stopped: The task was stopped. When the execution state on all instances is Stopped, the overall execution state is Stopped. When the execution state on an instance is one of the following values, Stopped is returned as the overall execution state:
     // 
-    // *   Cancelled: The execution was canceled before it started.
+    //     *   Cancelled: The task was canceled.
+    //     *   Terminated: The task was terminated.
     // 
-    // *   Stopping: The command task is being stopped.
+    // *   PartialFailed: The execution was complete on some instances and failed on other instances. When the execution state is Success on some instances and is Failed or Stopped on the other instances, the overall execution state is PartialFailed.
     // 
-    // *   Terminated: The execution was terminated before completion.
-    // 
-    // *   Scheduled:
-    // 
-    //     *   One-time task: The execution state can never be Scheduled.
-    //     *   Scheduled task: The command is waiting to be run.
-    std::shared_ptr<string> invocationStatus_ = nullptr;
-    // The output delivery status of the command execution. Valid values:
-    // 
-    // *   InProgress: The delivery is in progress.
-    // *   Finished: The delivery is complete.
-    // *   Failed: The delivery failed.
+    // >  `InvokeStatus` in the response functions similarly to this parameter. We recommend that you check the value of this parameter.
     std::shared_ptr<string> ossOutputStatus_ = nullptr;
-    // The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
+    // Command to execute the Output OSS delivery configuration.
     std::shared_ptr<string> ossOutputUri_ = nullptr;
-    // The command output.
-    // 
-    // *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
-    // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
-    std::shared_ptr<string> output_ = nullptr;
-    // The number of times that the command was run on the instance.
-    // 
-    // *   If the command is set to run only once, the value is 0 or 1.
-    // *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
-    std::shared_ptr<int32_t> repeats_ = nullptr;
-    // The time when the command started to be run on the instance.
-    std::shared_ptr<string> startTime_ = nullptr;
-    // The time when the command task was stopped. If you call the `StopInvocation` operation to stop the command task, the value of this parameter is the time when the operation is called.
-    std::shared_ptr<string> stopTime_ = nullptr;
     // Indicates whether the command is to be automatically run.
+    std::shared_ptr<string> output_ = nullptr;
+    // The time when the command task was created.
+    std::shared_ptr<int32_t> repeats_ = nullptr;
+    // Details about the command executions.
+    std::shared_ptr<string> startTime_ = nullptr;
+    // The execution states of the command.
+    std::shared_ptr<string> stopTime_ = nullptr;
+    // The request ID.
     std::shared_ptr<bool> timed_ = nullptr;
-    // The time when the execution status was updated.
+    // The maximum timeout period for the command execution. Unit: seconds.
+    // 
+    // When a command cannot be run, the command execution times out. When a command execution times out, Cloud Assistant Agent forcefully terminates the command process by canceling the process ID (PID) of the command.
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

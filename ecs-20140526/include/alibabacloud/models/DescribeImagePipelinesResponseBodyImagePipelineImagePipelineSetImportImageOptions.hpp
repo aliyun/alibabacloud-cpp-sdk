@@ -174,7 +174,7 @@ namespace Models
     // *   When the value of N is 1, a custom image is created from the system disk.
     // *   When the value of N is an integer in the range of 2 to 17, a custom image is created from a data disk.
     std::shared_ptr<Models::DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsDiskDeviceMappings> diskDeviceMappings_ = nullptr;
-    // The feature attributes of the image.
+    // The attributes of the custom image.
     std::shared_ptr<Models::DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsFeatures> features_ = nullptr;
     std::shared_ptr<string> imageName_ = nullptr;
     std::shared_ptr<Models::DescribeImagePipelinesResponseBodyImagePipelineImagePipelineSetImportImageOptionsImportImageTags> importImageTags_ = nullptr;

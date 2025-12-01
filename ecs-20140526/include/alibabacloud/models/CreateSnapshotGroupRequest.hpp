@@ -188,18 +188,18 @@ namespace Models
     std::shared_ptr<string> clientToken_ = nullptr;
     // The description of the snapshot-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     std::shared_ptr<string> description_ = nullptr;
-    // The ID of cloud disk N for which you want to create snapshots. You can specify multiple cloud disk IDs across instances within the same zone. Valid values of N: 1 to 16. A single snapshot-consistent group can contain snapshots of up to 16 cloud disks whose total disk size does not exceed 32 TiB.
+    // The IDs of the cloud disks for which you want to create a snapshot-consistent group. You can specify the IDs of cloud disks that are attached to multiple instances within the same zone. Valid values of N: 1 to 16. A snapshot-consistent group can contain snapshots of up to 16 cloud disks whose total disk size does not exceed 32 TiB.
     // 
-    // Take note of the following items:
+    // Take note of the following:
     // 
-    // *   You cannot specify both DiskId.N and `ExcludeDiskId.N` in the same request.
-    // *   If `InstanceId` is set, you can use DiskId.N to specify only cloud disks attached to the instance specified by InstanceId, and you cannot use DiskId.N to specify cloud disks attached to multiple instances.
+    // *   You cannot specify both the DiskId.N and `ExcludeDiskId.N` parameters in the same request.
+    // *   If you specify `InstanceId`, you can specify the IDs of cloud disks that are attached only to the specified instance. You cannot specify the IDs of cloud disks that are attached to multiple instances.
     std::shared_ptr<vector<string>> diskId_ = nullptr;
-    // The ID of cloud disk N for which you do not want to create snapshots. If this parameter is specified, the created snapshot-consistent group does not contain snapshots of the cloud disk. Valid values of N: 1 to 16.
+    // The IDs of the cloud disks for which you do not want to create snapshots. After you specify the IDs of cloud disks, the snapshot-consistent group that you create does not contain the snapshots of the specified cloud disks. Valid values of N: 1 to 16.
     // 
-    // This parameter is empty by default, which indicates that snapshots are created for all the disks of the instance.
+    // This parameter is empty by default, which indicates that snapshots are created for all disks of the instance.
     // 
-    // > You cannot specify ExcludeDiskId.N and `DiskId.N` in the same request.
+    // >  This parameter cannot be set at the same time as the `DiskId.N`.
     std::shared_ptr<vector<string>> excludeDiskId_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;

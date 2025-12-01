@@ -10,6 +10,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -59,6 +60,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(SchedulerOptions, schedulerOptions_);
+      DARABONBA_PTR_TO_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_TO_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_TO_JSON(SpotInterruptionBehavior, spotInterruptionBehavior_);
     };
@@ -101,6 +103,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(SchedulerOptions, schedulerOptions_);
+      DARABONBA_PTR_FROM_JSON(SecurityOptions, securityOptions_);
       DARABONBA_PTR_FROM_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_FROM_JSON(SpotInterruptionBehavior, spotInterruptionBehavior_);
     };
@@ -123,7 +126,7 @@ namespace Models
         && return this->securityGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->systemDisk_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskDescription_ == nullptr
         && return this->systemDiskName_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr && return this->tag_ == nullptr && return this->userData_ == nullptr
         && return this->autoRenew_ == nullptr && return this->autoRenewPeriod_ == nullptr && return this->cpuOptions_ == nullptr && return this->imageOptions_ == nullptr && return this->period_ == nullptr
-        && return this->periodUnit_ == nullptr && return this->schedulerOptions_ == nullptr && return this->spotDuration_ == nullptr && return this->spotInterruptionBehavior_ == nullptr; };
+        && return this->periodUnit_ == nullptr && return this->schedulerOptions_ == nullptr && return this->securityOptions_ == nullptr && return this->spotDuration_ == nullptr && return this->spotInterruptionBehavior_ == nullptr; };
     // arn Field Functions 
     bool hasArn() const { return this->arn_ != nullptr;};
     void deleteArn() { this->arn_ = nullptr;};
@@ -408,6 +411,15 @@ namespace Models
     inline CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration& setSchedulerOptions(Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions && schedulerOptions) { DARABONBA_PTR_SET_RVALUE(schedulerOptions_, schedulerOptions) };
 
 
+    // securityOptions Field Functions 
+    bool hasSecurityOptions() const { return this->securityOptions_ != nullptr;};
+    void deleteSecurityOptions() { this->securityOptions_ = nullptr;};
+    inline const Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions & securityOptions() const { DARABONBA_PTR_GET_CONST(securityOptions_, Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions) };
+    inline Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions securityOptions() { DARABONBA_PTR_GET(securityOptions_, Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions) };
+    inline CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration& setSecurityOptions(const Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions & securityOptions) { DARABONBA_PTR_SET_VALUE(securityOptions_, securityOptions) };
+    inline CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration& setSecurityOptions(Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions && securityOptions) { DARABONBA_PTR_SET_RVALUE(securityOptions_, securityOptions) };
+
+
     // spotDuration Field Functions 
     bool hasSpotDuration() const { return this->spotDuration_ != nullptr;};
     void deleteSpotDuration() { this->spotDuration_ = nullptr;};
@@ -611,6 +623,7 @@ namespace Models
     // Month
     std::shared_ptr<string> periodUnit_ = nullptr;
     std::shared_ptr<Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions> schedulerOptions_ = nullptr;
+    std::shared_ptr<Models::CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions> securityOptions_ = nullptr;
     // The protection period of the spot instance. Unit: hours. Default value: 1. Valid values: Valid values:
     // 
     // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.

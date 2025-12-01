@@ -196,8 +196,9 @@ namespace Models
     std::shared_ptr<string> eventType_ = nullptr;
     // The health status of the instance. Valid values:
     // 
-    // *   OK
     // *   Impaired
+    // *   Warning: The instance performance may be degraded due to maintenance or technical issues.
+    // *   Maintaining
     // *   Initializing
     // *   InsufficientData
     // *   NotApplicable

@@ -960,6 +960,9 @@
 #include <alibabacloud/models/ModifyVpcAttributeRequest.hpp>
 #include <alibabacloud/models/ModifyVpcAttributeResponseBody.hpp>
 #include <alibabacloud/models/ModifyVpcAttributeResponse.hpp>
+#include <alibabacloud/models/OpenSnapshotServiceRequest.hpp>
+#include <alibabacloud/models/OpenSnapshotServiceResponseBody.hpp>
+#include <alibabacloud/models/OpenSnapshotServiceResponse.hpp>
 #include <alibabacloud/models/PurchaseElasticityAssuranceRequest.hpp>
 #include <alibabacloud/models/PurchaseElasticityAssuranceResponseBody.hpp>
 #include <alibabacloud/models/PurchaseElasticityAssuranceResponse.hpp>
@@ -1127,6 +1130,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSchedulerOptions.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfigurationSecurityOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchConfiguration.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestDataDiskConfig.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupRequestLaunchTemplateConfig.hpp>
@@ -1142,6 +1146,7 @@
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationCpuOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationImageOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSchedulerOptions.hpp>
+#include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfigurationSecurityOptions.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchConfiguration.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestDataDiskConfig.hpp>
 #include <alibabacloud/models/CreateAutoProvisioningGroupShrinkRequestLaunchTemplateConfig.hpp>

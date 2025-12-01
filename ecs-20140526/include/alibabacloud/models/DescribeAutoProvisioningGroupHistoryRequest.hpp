@@ -135,7 +135,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Valid values: 1 to 100.
     // 
-    // Default value: 10.
+    // and the default value is 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The region ID of the auto provisioning group.
     // 

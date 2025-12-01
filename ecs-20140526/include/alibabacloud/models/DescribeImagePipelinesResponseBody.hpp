@@ -78,7 +78,7 @@ namespace Models
 
 
   protected:
-    // Details about the image templates.
+    // Details of the image templates.
     std::shared_ptr<DescribeImagePipelinesResponseBodyImagePipeline> imagePipeline_ = nullptr;
     // The number of entries per page.
     std::shared_ptr<int32_t> maxResults_ = nullptr;

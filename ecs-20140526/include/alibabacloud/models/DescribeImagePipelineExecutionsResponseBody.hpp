@@ -78,15 +78,17 @@ namespace Models
 
 
   protected:
-    // Details of the image creation tasks.
-    std::shared_ptr<DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution> imagePipelineExecution_ = nullptr;
-    // The maximum number of entries per page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
     // The total number of returned image components.
+    std::shared_ptr<DescribeImagePipelineExecutionsResponseBodyImagePipelineExecution> imagePipelineExecution_ = nullptr;
+    // The request ID.
+    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    std::shared_ptr<string> nextToken_ = nullptr;
+    // The maximum number of entries per page. Valid values: 1 to 500
+    // 
+    // Default value: 50.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

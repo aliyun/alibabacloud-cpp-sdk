@@ -57,6 +57,17 @@ namespace Models
 
 
   protected:
+    // The bandwidth weight.
+    // 
+    // The supported values vary with instance types. You can query the bandwidth weights supported by the current instance type by using the DescribeInstanceTypes.
+    // 
+    // Valid values:
+    // 
+    // *   Vpc-L1.
+    // *   Vpc-L2.
+    // *   Ebs-L1.
+    // *   Ebs-L2.
+    // *   Default.
     std::shared_ptr<string> bandwidthWeighting_ = nullptr;
     std::shared_ptr<bool> enableJumboFrame_ = nullptr;
     std::shared_ptr<bool> enableNetworkEncryption_ = nullptr;

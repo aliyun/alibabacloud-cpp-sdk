@@ -134,24 +134,10 @@ namespace Models
 
 
   protected:
-    // The ID of the image creation task.
+    // null
     std::shared_ptr<string> executionId_ = nullptr;
-    // The ID of the image template.
+    // The value of tag N of the image creation task. Valid values of N: 1 to 20.
     std::shared_ptr<string> imagePipelineId_ = nullptr;
-    // The maximum number of entries per page. Valid values: 1 to 500.
-    // 
-    // Default value: 50.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // The status of the image creation task. You can specify multiple values. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
     // 
     // *   PREPARING: Resources, such as the intermediate instance, are being created.
@@ -168,6 +154,18 @@ namespace Models
     // *   CANCELLED: The image creation task is canceled.
     // 
     // >  If you leave this parameter empty, all image creation tasks are queried regardless of task status.
+    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The ID of the image creation task.
+    std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> ownerAccount_ = nullptr;
+    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
+    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The ID of the image template.
     std::shared_ptr<string> status_ = nullptr;
     // The tags of the image creation task.
     std::shared_ptr<vector<DescribeImagePipelineExecutionsRequestTag>> tag_ = nullptr;

@@ -48,9 +48,13 @@ namespace Models
 
 
   protected:
-    // The tag key of the command task.
+    // The output delivery status of the command execution. Valid values:
+    // 
+    // *   InProgress: The delivery is in progress.
+    // *   Finished: The delivery is complete.
+    // *   Failed: The delivery failed.
     std::shared_ptr<string> tagKey_ = nullptr;
-    // The tag value of the command task.
+    // The username used to run the command on the instance.
     std::shared_ptr<string> tagValue_ = nullptr;
   };
 

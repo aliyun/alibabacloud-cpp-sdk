@@ -98,11 +98,11 @@ namespace Models
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The page number. Pages start from page 1.
     // 
-    // Default value: 1.
+    // Default value: 1
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    // The number of entries per page. Valid values: 1 to 100.
+    // The number of entries per page. Maximum value: 1 to 100.
     // 
-    // Default value: 10.
+    // Default value: 10
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The ID of the request.
     // 

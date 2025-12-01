@@ -244,35 +244,6 @@ namespace Models
 
 
   protected:
-    // The command ID.
-    std::shared_ptr<string> commandId_ = nullptr;
-    // The container ID.
-    std::shared_ptr<string> containerId_ = nullptr;
-    // The container name.
-    std::shared_ptr<string> containerName_ = nullptr;
-    // The size of the Output text that was truncated and discarded because the `Output` value exceeded 24 KB in size.
-    std::shared_ptr<int32_t> dropped_ = nullptr;
-    // The error code returned when the command failed to be sent or run. Valid values:
-    // 
-    // *   If this parameter is empty, the command was run as expected.
-    // *   InstanceNotExists: The specified instance did not exist or was released.
-    // *   InstanceReleased: The instance was released while the command was being run.
-    // *   InstanceNotRunning: The instance was not running while the command was being run.
-    // *   CommandNotApplicable: The command was inapplicable to the specified instance.
-    // *   AccountNotExists: The username specified to run the command did not exist.
-    // *   DirectoryNotExists: The specified directory did not exist.
-    // *   BadCronExpression: The specified cron expression for the execution schedule was invalid.
-    // *   ClientNotRunning: Cloud Assistant Agent was not running.
-    // *   ClientNotResponse: Cloud Assistant Agent did not respond.
-    // *   ClientIsUpgrading: Cloud Assistant Agent was being upgraded.
-    // *   ClientNeedUpgrade: Cloud Assistant Agent needed to be upgraded.
-    // *   DeliveryTimeout: The request to send the command timed out.
-    // *   ExecutionTimeout: The execution timed out.
-    // *   ExecutionException: An exception occurred while the command was being run.
-    // *   ExecutionInterrupted: The execution was interrupted.
-    // *   ExitCodeNonzero: The execution was complete, but the exit code was not 0.
-    // *   SecurityGroupRuleDenied: Access to Cloud Assistant was denied by security group rules.
-    std::shared_ptr<string> errorCode_ = nullptr;
     // The error message returned when the command failed to be sent or run. Valid values:
     // 
     // *   If this parameter is empty, the command was run as expected.
@@ -293,16 +264,9 @@ namespace Models
     // *   The command execution got an exception.
     // *   The command execution exit code is not zero.
     // *   The specified instance was released during task execution.
-    std::shared_ptr<string> errorInfo_ = nullptr;
-    // The exit code of the command task.
-    // 
-    // *   For Linux instances, the value is the exit code of the shell command.
-    // *   For Windows instances, the value is the exit code of the batch or PowerShell command.
-    std::shared_ptr<int64_t> exitCode_ = nullptr;
-    // The time when the command task was completed. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
-    std::shared_ptr<string> finishedTime_ = nullptr;
-    // The instance ID.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> commandId_ = nullptr;
+    // Command to execute the Output OSS delivery configuration.
+    std::shared_ptr<string> containerId_ = nullptr;
     // The execution status on a single instance. Valid values:
     // 
     // *   Pending: The command is being verified or sent.
@@ -337,9 +301,55 @@ namespace Models
     // 
     //     *   One-time task: The execution state can never be Scheduled.
     //     *   Scheduled task: The command is waiting to be run.
+    std::shared_ptr<string> containerName_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    std::shared_ptr<int32_t> dropped_ = nullptr;
+    // The time when the command started to be run on the instance.
+    std::shared_ptr<string> errorCode_ = nullptr;
+    // The ID of the request.
+    std::shared_ptr<string> errorInfo_ = nullptr;
+    // The key of tag N of the command task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+    // 
+    // If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+    // 
+    // The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+    std::shared_ptr<int64_t> exitCode_ = nullptr;
+    // The total number of the commands.
+    std::shared_ptr<string> finishedTime_ = nullptr;
+    // The value of tag N of the command task. Valid values of N: 1 to 20. The tag value can be an empty string.
+    // 
+    // The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+    std::shared_ptr<string> instanceId_ = nullptr;
+    // The tag of the command task.
     std::shared_ptr<string> invocationStatus_ = nullptr;
-    // The command task ID.
+    // The number of times that the command was run on the instance.
+    // 
+    // *   If the command is set to run only once, the value is 0 or 1.
+    // *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
     std::shared_ptr<string> invokeId_ = nullptr;
+    // The page number.
+    std::shared_ptr<string> invokeRecordStatus_ = nullptr;
+    // The exit code of the command task.
+    // 
+    // *   For Linux instances, the value is the exit code of the shell command.
+    // *   For Windows instances, the value is the exit code of the batch or PowerShell command.
+    std::shared_ptr<string> launcher_ = nullptr;
+    // The tags of the command task.
+    std::shared_ptr<string> ossOutputDelivery_ = nullptr;
+    // The execution results.
+    std::shared_ptr<string> ossOutputStatus_ = nullptr;
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    std::shared_ptr<string> ossOutputUri_ = nullptr;
+    // The instance ID.
+    std::shared_ptr<string> output_ = nullptr;
+    // The number of entries per page.
+    std::shared_ptr<int32_t> repeats_ = nullptr;
+    // Details about the execution results.
+    std::shared_ptr<string> startTime_ = nullptr;
+    // root
+    std::shared_ptr<string> stopTime_ = nullptr;
+    // The time when the command task was completed. If the command task times out, the end time is equal to the start time of the command task specified by `StartTime` plus the timeout period specified by `Timeout`.
+    std::shared_ptr<Models::DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResultTags> tags_ = nullptr;
     // The execution status of the command. Valid values:
     // 
     // *   Running:
@@ -365,41 +375,8 @@ namespace Models
     // *   Stopped: The task was stopped.
     // 
     // *   Stopping: The task is being stopped.
-    std::shared_ptr<string> invokeRecordStatus_ = nullptr;
-    // The launcher for script execution. The value cannot exceed 1 KB in length.
-    std::shared_ptr<string> launcher_ = nullptr;
-    // Command to execute the Output OSS delivery configuration.
-    std::shared_ptr<string> ossOutputDelivery_ = nullptr;
-    // The output delivery status of the command execution. Valid values:
-    // 
-    // *   InProgress: The delivery is in progress.
-    // *   Finished: The delivery is complete.
-    // *   Failed: The delivery failed.
-    std::shared_ptr<string> ossOutputStatus_ = nullptr;
-    // The command execution Output delivers the object URI to OSS. This field is an empty string when the delivery fails or is in progress.
-    std::shared_ptr<string> ossOutputUri_ = nullptr;
-    // The command output.
-    // 
-    // *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
-    // *   If ContentEncoding is set to Base64 in the request, the Base64-encoded command output is returned.
-    std::shared_ptr<string> output_ = nullptr;
-    // The number of times that the command was run on the instance.
-    // 
-    // *   If the command is set to run only once, the value is 0 or 1.
-    // *   If the command is set to run on a schedule, the value is the number of times that the command has been run on the instance.
-    std::shared_ptr<int32_t> repeats_ = nullptr;
-    // The time when the command started to be run on the instance.
-    std::shared_ptr<string> startTime_ = nullptr;
-    // The time when the command task was stopped. If you call the `StopInvocation` operation to stop the command task, the value of this parameter is the time when the operation is called.
-    std::shared_ptr<string> stopTime_ = nullptr;
-    // The tags of the command task.
-    std::shared_ptr<Models::DescribeInvocationResultsResponseBodyInvocationInvocationResultsInvocationResultTags> tags_ = nullptr;
-    // Indicates how the command task is stopped when a command execution is manually stopped or times out. Valid values:
-    // 
-    // *   Process: The process of the command is stopped.
-    // *   ProcessTree: The process tree of the command is stopped. In this case, the process of the command and all subprocesses are stopped.
     std::shared_ptr<string> terminationMode_ = nullptr;
-    // The username used to run the command on the instance.
+    // The size of the Output text that was truncated and discarded because the `Output` value exceeded 24 KB in size.
     std::shared_ptr<string> username_ = nullptr;
   };
 

@@ -135,11 +135,12 @@ namespace Models
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // Cloud Assistant Session Manager configuration.
     std::shared_ptr<string> sessionManagerConfigShrink_ = nullptr;
-    // The Cloud Assistant feature. Valid values:
+    // The Cloud Assistant feature. Set SettingType to one of the following valid values:
     // 
     // *   SessionManagerDelivery: the Session Record Delivery configurations.
     // *   InvocationDelivery: the Operation Content and Result Delivery configurations.
     // *   AgentUpgradeConfig: the Cloud Assistant Agent Upgrade configurations.
+    // *   SessionManagerConfig: Cloud Assistant the SessionManager configuration.
     // 
     // This parameter is required.
     std::shared_ptr<string> settingType_ = nullptr;

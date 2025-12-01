@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The tag key of the image creation task.
+    // The tag of the image creation task.
     std::shared_ptr<string> tagKey_ = nullptr;
-    // The tag value of the image creation task.
+    // The tags of the image creation task.
     std::shared_ptr<string> tagValue_ = nullptr;
   };
 

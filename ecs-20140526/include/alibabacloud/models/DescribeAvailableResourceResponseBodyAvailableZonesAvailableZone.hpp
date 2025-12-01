@@ -78,23 +78,16 @@ namespace Models
 
 
   protected:
-    // The resources that are available in the zone.
     std::shared_ptr<Models::DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneAvailableResources> availableResources_ = nullptr;
-    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
-    // The status of resources in the zone. Valid values:
-    // 
-    // *   Available
-    // *   SoldOut
     std::shared_ptr<string> status_ = nullptr;
-    // The resource category based on the stock level in the zone. Valid values:
+    // The resource status based on the stock level in the zone. Valid value:
     // 
-    // *   WithStock: Resources are in sufficient stock.
-    // *   ClosedWithStock: Resources are in insufficient stock. We recommend that you use other resources that are in sufficient stock.
-    // *   WithoutStock: Resources are out of stock and will be replenished. We recommend that you use other resources that are in sufficient stock.
-    // *   ClosedWithoutStock: Resources are out of stock and will not be replenished. We recommend that you use other resources that are in sufficient stock.
+    // *   WithStock: The resources are available and can be continuously replenished.
+    // *   ClosedWithStock: Inventory is available, but resources will not be replenished. The ability to guarantee the supply of inventory is low. We recommend selecting a product specification in the WithStock state.
+    // *   WithoutStock: The resource is out of stock and will be replenished. We recommend using other resources that are in stock.
+    // *   ClosedWithoutStock: The resource is out of stock and will no longer be replenished. We recommend using other resources that are in stock.
     std::shared_ptr<string> statusCategory_ = nullptr;
-    // The zone ID.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

@@ -84,31 +84,11 @@ namespace Models
 
 
   protected:
-    // The maximum disk capacity.
-    // 
-    // This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
     std::shared_ptr<int32_t> max_ = nullptr;
-    // The minimum disk capacity.
-    // 
-    // This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
     std::shared_ptr<int32_t> min_ = nullptr;
-    // The status of the resource. Valid values:
-    // 
-    // *   Available
-    // *   SoldOut
     std::shared_ptr<string> status_ = nullptr;
-    // The resource category based on the stock level. Valid values:
-    // 
-    // *   WithStock: Resources are in sufficient stock.
-    // *   ClosedWithStock: Resources are in insufficient stock. We recommend that you use other resources that are in sufficient stock.
-    // *   WithoutStock: Resources are out of stock and will be replenished. We recommend that you use other resources that are in sufficient stock.
-    // *   ClosedWithoutStock: Resources are out of stock and will not be replenished. We recommend that you use other resources that are in sufficient stock.
     std::shared_ptr<string> statusCategory_ = nullptr;
-    // The unit of the disk capacity.
-    // 
-    // This parameter takes effect only if DestinationResource is set to SystemDisk or DataDisk.
     std::shared_ptr<string> unit_ = nullptr;
-    // The resource.
     std::shared_ptr<string> value_ = nullptr;
   };
 
