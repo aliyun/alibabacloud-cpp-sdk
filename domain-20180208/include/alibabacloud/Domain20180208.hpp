@@ -362,6 +362,23 @@ namespace Domain20180208
       Models::QueryBrokerDemandRecordResponse queryBrokerDemandRecord(const Models::QueryBrokerDemandRecordRequest &request);
 
       /**
+       * @summary 查询买家交易记录列表
+       *
+       * @param tmpReq QueryBuyerDomainTradeRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryBuyerDomainTradeRecordsResponse
+       */
+      Models::QueryBuyerDomainTradeRecordsResponse queryBuyerDomainTradeRecordsWithOptions(const Models::QueryBuyerDomainTradeRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询买家交易记录列表
+       *
+       * @param request QueryBuyerDomainTradeRecordsRequest
+       * @return QueryBuyerDomainTradeRecordsResponse
+       */
+      Models::QueryBuyerDomainTradeRecordsResponse queryBuyerDomainTradeRecords(const Models::QueryBuyerDomainTradeRecordsRequest &request);
+
+      /**
        * @param request QueryDomainTransferStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainTransferStatusResponse

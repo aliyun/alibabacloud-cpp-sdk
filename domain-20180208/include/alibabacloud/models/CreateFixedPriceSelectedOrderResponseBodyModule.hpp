@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEFIXEDPRICESELECTEDORDERRESPONSEBODYMODULE_HPP_
 #define ALIBABACLOUD_MODELS_CREATEFIXEDPRICESELECTEDORDERRESPONSEBODYMODULE_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -14,12 +15,14 @@ namespace Models
   class CreateFixedPriceSelectedOrderResponseBodyModule : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateFixedPriceSelectedOrderResponseBodyModule& obj) { 
+      DARABONBA_PTR_TO_JSON(BizIds, bizIds_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(DomainBlockTrade, domainBlockTrade_);
       DARABONBA_PTR_TO_JSON(OrderNo, orderNo_);
       DARABONBA_PTR_TO_JSON(Price, price_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFixedPriceSelectedOrderResponseBodyModule& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizIds, bizIds_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(DomainBlockTrade, domainBlockTrade_);
       DARABONBA_PTR_FROM_JSON(OrderNo, orderNo_);
@@ -36,8 +39,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->domain_ == nullptr
-        && return this->domainBlockTrade_ == nullptr && return this->orderNo_ == nullptr && return this->price_ == nullptr; };
+    virtual bool empty() const override { return this->bizIds_ == nullptr
+        && return this->domain_ == nullptr && return this->domainBlockTrade_ == nullptr && return this->orderNo_ == nullptr && return this->price_ == nullptr; };
+    // bizIds Field Functions 
+    bool hasBizIds() const { return this->bizIds_ != nullptr;};
+    void deleteBizIds() { this->bizIds_ = nullptr;};
+    inline const map<string, string> & bizIds() const { DARABONBA_PTR_GET_CONST(bizIds_, map<string, string>) };
+    inline map<string, string> bizIds() { DARABONBA_PTR_GET(bizIds_, map<string, string>) };
+    inline CreateFixedPriceSelectedOrderResponseBodyModule& setBizIds(const map<string, string> & bizIds) { DARABONBA_PTR_SET_VALUE(bizIds_, bizIds) };
+    inline CreateFixedPriceSelectedOrderResponseBodyModule& setBizIds(map<string, string> && bizIds) { DARABONBA_PTR_SET_RVALUE(bizIds_, bizIds) };
+
+
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
@@ -69,6 +81,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<map<string, string>> bizIds_ = nullptr;
     std::shared_ptr<string> domain_ = nullptr;
     std::shared_ptr<vector<string>> domainBlockTrade_ = nullptr;
     std::shared_ptr<string> orderNo_ = nullptr;

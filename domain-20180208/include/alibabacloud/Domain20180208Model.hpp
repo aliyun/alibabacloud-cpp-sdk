@@ -73,6 +73,10 @@
 #include <alibabacloud/models/QueryBrokerDemandRecordRequest.hpp>
 #include <alibabacloud/models/QueryBrokerDemandRecordResponseBody.hpp>
 #include <alibabacloud/models/QueryBrokerDemandRecordResponse.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsRequest.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsShrinkRequest.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBody.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponse.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusRequest.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusResponseBody.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusResponse.hpp>
@@ -139,6 +143,8 @@
 #include <alibabacloud/models/QueryBrokerDemandResponseBodyData.hpp>
 #include <alibabacloud/models/QueryBrokerDemandRecordResponseBodyDataBrokerDemandRecord.hpp>
 #include <alibabacloud/models/QueryBrokerDemandRecordResponseBodyData.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBodyModuleData.hpp>
+#include <alibabacloud/models/QueryBuyerDomainTradeRecordsResponseBodyModule.hpp>
 #include <alibabacloud/models/QueryDomainTransferStatusResponseBodyDomainTransferStatus.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsResponseBodyData.hpp>
 #include <alibabacloud/models/QueryPurchasedDomainsResponseBodyData.hpp>

@@ -1084,6 +1084,114 @@ QueryBrokerDemandRecordResponse Client::queryBrokerDemandRecord(const QueryBroke
 }
 
 /**
+ * @summary 查询买家交易记录列表
+ *
+ * @param tmpReq QueryBuyerDomainTradeRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryBuyerDomainTradeRecordsResponse
+ */
+QueryBuyerDomainTradeRecordsResponse Client::queryBuyerDomainTradeRecordsWithOptions(const QueryBuyerDomainTradeRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryBuyerDomainTradeRecordsShrinkRequest request = QueryBuyerDomainTradeRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBizIdList()) {
+    request.setBizIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.bizIdList(), "BizIdList", "json"));
+  }
+
+  if (!!tmpReq.hasDomainNameList()) {
+    request.setDomainNameListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.domainNameList(), "DomainNameList", "json"));
+  }
+
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.statusList(), "StatusList", "json"));
+  }
+
+  if (!!tmpReq.hasSuffixList()) {
+    request.setSuffixListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.suffixList(), "SuffixList", "json"));
+  }
+
+  if (!!tmpReq.hasTradeTypeList()) {
+    request.setTradeTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tradeTypeList(), "TradeTypeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizIdListShrink()) {
+    query["BizIdList"] = request.bizIdListShrink();
+  }
+
+  if (!!request.hasDomainNameListShrink()) {
+    query["DomainNameList"] = request.domainNameListShrink();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasEndPrice()) {
+    query["EndPrice"] = request.endPrice();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSorter()) {
+    query["Sorter"] = request.sorter();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasStartPrice()) {
+    query["StartPrice"] = request.startPrice();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.statusListShrink();
+  }
+
+  if (!!request.hasSuffixListShrink()) {
+    query["SuffixList"] = request.suffixListShrink();
+  }
+
+  if (!!request.hasTradeTypeListShrink()) {
+    query["TradeTypeList"] = request.tradeTypeListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryBuyerDomainTradeRecords"},
+    {"version" , "2018-02-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryBuyerDomainTradeRecordsResponse>();
+}
+
+/**
+ * @summary 查询买家交易记录列表
+ *
+ * @param request QueryBuyerDomainTradeRecordsRequest
+ * @return QueryBuyerDomainTradeRecordsResponse
+ */
+QueryBuyerDomainTradeRecordsResponse Client::queryBuyerDomainTradeRecords(const QueryBuyerDomainTradeRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryBuyerDomainTradeRecordsWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryDomainTransferStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDomainTransferStatusResponse
