@@ -191,6 +191,23 @@ namespace Xtee20210910
       Models::CompareCopyRuleVariableResponse compareCopyRuleVariable(const Models::CompareCopyRuleVariableRequest &request);
 
       /**
+       * @summary Policy Comparison.
+       *
+       * @param request CompareRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CompareRuleResponse
+       */
+      Models::CompareRuleResponse compareRuleWithOptions(const Models::CompareRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Policy Comparison.
+       *
+       * @param request CompareRuleRequest
+       * @return CompareRuleResponse
+       */
+      Models::CompareRuleResponse compareRule(const Models::CompareRuleRequest &request);
+
+      /**
        * @summary Add Query Conditions
        *
        * @param request CreateAnalysisConditionFavoriteRequest
@@ -1795,6 +1812,23 @@ namespace Xtee20210910
        * @return DescribeExpressionVariablePageResponse
        */
       Models::DescribeExpressionVariablePageResponse describeExpressionVariablePage(const Models::DescribeExpressionVariablePageRequest &request);
+
+      /**
+       * @summary Custom Variable Version Details.
+       *
+       * @param request DescribeExpressionVariableVersionDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeExpressionVariableVersionDetailResponse
+       */
+      Models::DescribeExpressionVariableVersionDetailResponse describeExpressionVariableVersionDetailWithOptions(const Models::DescribeExpressionVariableVersionDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Custom Variable Version Details.
+       *
+       * @param request DescribeExpressionVariableVersionDetailRequest
+       * @return DescribeExpressionVariableVersionDetailResponse
+       */
+      Models::DescribeExpressionVariableVersionDetailResponse describeExpressionVariableVersionDetail(const Models::DescribeExpressionVariableVersionDetailRequest &request);
 
       /**
        * @summary Get Field Details
@@ -3813,6 +3847,23 @@ namespace Xtee20210910
        * @return DescribeVariableSceneListResponse
        */
       Models::DescribeVariableSceneListResponse describeVariableSceneList(const Models::DescribeVariableSceneListRequest &request);
+
+      /**
+       * @summary Cumulative Variable Version Details.
+       *
+       * @param request DescribeVariableVersionDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVariableVersionDetailResponse
+       */
+      Models::DescribeVariableVersionDetailResponse describeVariableVersionDetailWithOptions(const Models::DescribeVariableVersionDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cumulative Variable Version Details.
+       *
+       * @param request DescribeVariableVersionDetailRequest
+       * @return DescribeVariableVersionDetailResponse
+       */
+      Models::DescribeVariableVersionDetailResponse describeVariableVersionDetail(const Models::DescribeVariableVersionDetailRequest &request);
 
       /**
        * @summary Variable Version List Query

@@ -32,6 +32,9 @@
 #include <alibabacloud/models/CompareCopyRuleVariableRequest.hpp>
 #include <alibabacloud/models/CompareCopyRuleVariableResponseBody.hpp>
 #include <alibabacloud/models/CompareCopyRuleVariableResponse.hpp>
+#include <alibabacloud/models/CompareRuleRequest.hpp>
+#include <alibabacloud/models/CompareRuleResponseBody.hpp>
+#include <alibabacloud/models/CompareRuleResponse.hpp>
 #include <alibabacloud/models/CreateAnalysisConditionFavoriteRequest.hpp>
 #include <alibabacloud/models/CreateAnalysisConditionFavoriteResponseBody.hpp>
 #include <alibabacloud/models/CreateAnalysisConditionFavoriteResponse.hpp>
@@ -314,6 +317,9 @@
 #include <alibabacloud/models/DescribeExpressionVariablePageRequest.hpp>
 #include <alibabacloud/models/DescribeExpressionVariablePageResponseBody.hpp>
 #include <alibabacloud/models/DescribeExpressionVariablePageResponse.hpp>
+#include <alibabacloud/models/DescribeExpressionVariableVersionDetailRequest.hpp>
+#include <alibabacloud/models/DescribeExpressionVariableVersionDetailResponseBody.hpp>
+#include <alibabacloud/models/DescribeExpressionVariableVersionDetailResponse.hpp>
 #include <alibabacloud/models/DescribeFieldByIdRequest.hpp>
 #include <alibabacloud/models/DescribeFieldByIdResponseBody.hpp>
 #include <alibabacloud/models/DescribeFieldByIdResponse.hpp>
@@ -668,6 +674,9 @@
 #include <alibabacloud/models/DescribeVariableSceneListRequest.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponseBody.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponse.hpp>
+#include <alibabacloud/models/DescribeVariableVersionDetailRequest.hpp>
+#include <alibabacloud/models/DescribeVariableVersionDetailResponseBody.hpp>
+#include <alibabacloud/models/DescribeVariableVersionDetailResponse.hpp>
 #include <alibabacloud/models/DescribeVersionPageListRequest.hpp>
 #include <alibabacloud/models/DescribeVersionPageListResponseBody.hpp>
 #include <alibabacloud/models/DescribeVersionPageListResponse.hpp>
@@ -836,6 +845,9 @@
 #include <alibabacloud/models/CompareCopyRuleVariableResponseBodyResultObjectQueryExpressionVariableList.hpp>
 #include <alibabacloud/models/CompareCopyRuleVariableResponseBodyResultObjectSystemVariableList.hpp>
 #include <alibabacloud/models/CompareCopyRuleVariableResponseBodyResultObject.hpp>
+#include <alibabacloud/models/CompareRuleResponseBodyResultObjectNewRule.hpp>
+#include <alibabacloud/models/CompareRuleResponseBodyResultObjectOldRule.hpp>
+#include <alibabacloud/models/CompareRuleResponseBodyResultObject.hpp>
 #include <alibabacloud/models/CreateAnalysisExportTaskResponseBodyResultObject.hpp>
 #include <alibabacloud/models/CreateSampleResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeepCopyRuleResponseBodyResultObject.hpp>
@@ -931,6 +943,7 @@
 #include <alibabacloud/models/DescribeEventVariableTemplateListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeExpressionVariableFunctionListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeExpressionVariablePageResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DescribeExpressionVariableVersionDetailResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeFieldListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeFieldPageResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeGroupConditionListResponseBodyResultObject.hpp>
@@ -1070,6 +1083,7 @@
 #include <alibabacloud/models/DescribeVariableDetailResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeVariableListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeVariableSceneListResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DescribeVariableVersionDetailResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeVersionPageListResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DownloadSmapleBatchResponseBodyResultObject.hpp>
 #include <alibabacloud/models/ImportFieldResponseBodyResultObject.hpp>

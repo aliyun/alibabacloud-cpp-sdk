@@ -620,6 +620,60 @@ CompareCopyRuleVariableResponse Client::compareCopyRuleVariable(const CompareCop
 }
 
 /**
+ * @summary Policy Comparison.
+ *
+ * @param request CompareRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CompareRuleResponse
+ */
+CompareRuleResponse Client::compareRuleWithOptions(const CompareRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasPreviousRuleVersionId()) {
+    query["previousRuleVersionId"] = request.previousRuleVersionId();
+  }
+
+  if (!!request.hasRegId()) {
+    query["regId"] = request.regId();
+  }
+
+  if (!!request.hasRuleVersionId()) {
+    query["ruleVersionId"] = request.ruleVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CompareRule"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CompareRuleResponse>();
+}
+
+/**
+ * @summary Policy Comparison.
+ *
+ * @param request CompareRuleRequest
+ * @return CompareRuleResponse
+ */
+CompareRuleResponse Client::compareRule(const CompareRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return compareRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Add Query Conditions
  *
  * @param request CreateAnalysisConditionFavoriteRequest
@@ -6233,6 +6287,68 @@ DescribeExpressionVariablePageResponse Client::describeExpressionVariablePageWit
 DescribeExpressionVariablePageResponse Client::describeExpressionVariablePage(const DescribeExpressionVariablePageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeExpressionVariablePageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Custom Variable Version Details.
+ *
+ * @param request DescribeExpressionVariableVersionDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeExpressionVariableVersionDetailResponse
+ */
+DescribeExpressionVariableVersionDetailResponse Client::describeExpressionVariableVersionDetailWithOptions(const DescribeExpressionVariableVersionDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasObjectCode()) {
+    query["objectCode"] = request.objectCode();
+  }
+
+  if (!!request.hasObjectId()) {
+    query["objectId"] = request.objectId();
+  }
+
+  if (!!request.hasRegId()) {
+    query["regId"] = request.regId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeExpressionVariableVersionDetail"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeExpressionVariableVersionDetailResponse>();
+}
+
+/**
+ * @summary Custom Variable Version Details.
+ *
+ * @param request DescribeExpressionVariableVersionDetailRequest
+ * @return DescribeExpressionVariableVersionDetailResponse
+ */
+DescribeExpressionVariableVersionDetailResponse Client::describeExpressionVariableVersionDetail(const DescribeExpressionVariableVersionDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeExpressionVariableVersionDetailWithOptions(request, runtime);
 }
 
 /**
@@ -12877,6 +12993,68 @@ DescribeVariableSceneListResponse Client::describeVariableSceneListWithOptions(c
 DescribeVariableSceneListResponse Client::describeVariableSceneList(const DescribeVariableSceneListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVariableSceneListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cumulative Variable Version Details.
+ *
+ * @param request DescribeVariableVersionDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVariableVersionDetailResponse
+ */
+DescribeVariableVersionDetailResponse Client::describeVariableVersionDetailWithOptions(const DescribeVariableVersionDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasObjectCode()) {
+    query["objectCode"] = request.objectCode();
+  }
+
+  if (!!request.hasObjectId()) {
+    query["objectId"] = request.objectId();
+  }
+
+  if (!!request.hasRegId()) {
+    query["regId"] = request.regId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.type();
+  }
+
+  if (!!request.hasVersion()) {
+    query["version"] = request.version();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVariableVersionDetail"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVariableVersionDetailResponse>();
+}
+
+/**
+ * @summary Cumulative Variable Version Details.
+ *
+ * @param request DescribeVariableVersionDetailRequest
+ * @return DescribeVariableVersionDetailResponse
+ */
+DescribeVariableVersionDetailResponse Client::describeVariableVersionDetail(const DescribeVariableVersionDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVariableVersionDetailWithOptions(request, runtime);
 }
 
 /**

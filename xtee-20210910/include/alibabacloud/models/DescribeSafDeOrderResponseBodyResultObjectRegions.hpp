@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // Expiration date (timestamp).
     std::shared_ptr<int64_t> expirationDate_ = nullptr;
+    // Region ID.
     std::shared_ptr<string> region_ = nullptr;
+    // Specification model:
+    // 
+    // 1: Basic Edition 
+    // 2: Advanced Edition 
+    // 3: Premium Edition 
+    // 4: Flagship Edition
     std::shared_ptr<int32_t> specification_ = nullptr;
   };
 

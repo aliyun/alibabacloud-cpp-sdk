@@ -69,6 +69,7 @@ namespace Models
     //      2. Old Customer (Subscription): Customers who have purchased the SAF product.
     //      3. Pay-As-You-Go: Customers who have purchased the SAF_BAG product or activated SAF_POS.
     std::shared_ptr<int32_t> openUserType_ = nullptr;
+    // Activated region permission addresses.
     std::shared_ptr<vector<Models::DescribeSafDeOrderResponseBodyResultObjectRegions>> regions_ = nullptr;
   };
 
