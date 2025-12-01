@@ -2455,6 +2455,10 @@ DescribeClusterAttachScriptsResponse Client::describeClusterAttachScriptsWithOpt
     body["nodepool_id"] = request.nodepoolId();
   }
 
+  if (!!request.hasOneTimeToken()) {
+    body["one_time_token"] = request.oneTimeToken();
+  }
+
   if (!!request.hasOptions()) {
     body["options"] = request.options();
   }

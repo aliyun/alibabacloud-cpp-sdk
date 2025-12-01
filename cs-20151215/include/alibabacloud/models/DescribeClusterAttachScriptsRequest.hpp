@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(format_disk, formatDisk_);
       DARABONBA_PTR_TO_JSON(keep_instance_name, keepInstanceName_);
       DARABONBA_PTR_TO_JSON(nodepool_id, nodepoolId_);
+      DARABONBA_PTR_TO_JSON(one_time_token, oneTimeToken_);
       DARABONBA_PTR_TO_JSON(options, options_);
       DARABONBA_PTR_TO_JSON(rds_instances, rdsInstances_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(format_disk, formatDisk_);
       DARABONBA_PTR_FROM_JSON(keep_instance_name, keepInstanceName_);
       DARABONBA_PTR_FROM_JSON(nodepool_id, nodepoolId_);
+      DARABONBA_PTR_FROM_JSON(one_time_token, oneTimeToken_);
       DARABONBA_PTR_FROM_JSON(options, options_);
       DARABONBA_PTR_FROM_JSON(rds_instances, rdsInstances_);
     };
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->arch_ == nullptr
-        && return this->expired_ == nullptr && return this->formatDisk_ == nullptr && return this->keepInstanceName_ == nullptr && return this->nodepoolId_ == nullptr && return this->options_ == nullptr
-        && return this->rdsInstances_ == nullptr; };
+        && return this->expired_ == nullptr && return this->formatDisk_ == nullptr && return this->keepInstanceName_ == nullptr && return this->nodepoolId_ == nullptr && return this->oneTimeToken_ == nullptr
+        && return this->options_ == nullptr && return this->rdsInstances_ == nullptr; };
     // arch Field Functions 
     bool hasArch() const { return this->arch_ != nullptr;};
     void deleteArch() { this->arch_ = nullptr;};
@@ -78,6 +80,13 @@ namespace Models
     void deleteNodepoolId() { this->nodepoolId_ = nullptr;};
     inline string nodepoolId() const { DARABONBA_PTR_GET_DEFAULT(nodepoolId_, "") };
     inline DescribeClusterAttachScriptsRequest& setNodepoolId(string nodepoolId) { DARABONBA_PTR_SET_VALUE(nodepoolId_, nodepoolId) };
+
+
+    // oneTimeToken Field Functions 
+    bool hasOneTimeToken() const { return this->oneTimeToken_ != nullptr;};
+    void deleteOneTimeToken() { this->oneTimeToken_ = nullptr;};
+    inline bool oneTimeToken() const { DARABONBA_PTR_GET_DEFAULT(oneTimeToken_, false) };
+    inline DescribeClusterAttachScriptsRequest& setOneTimeToken(bool oneTimeToken) { DARABONBA_PTR_SET_VALUE(oneTimeToken_, oneTimeToken) };
 
 
     // options Field Functions 
@@ -128,6 +137,7 @@ namespace Models
     // 
     // >  If you do not specify a node pool ID, the node is added to the default node pool.
     std::shared_ptr<string> nodepoolId_ = nullptr;
+    std::shared_ptr<bool> oneTimeToken_ = nullptr;
     // The node configurations for the node that you want to add.
     // 
     // >  This parameter is required if you want to add a node to an ACK Edge cluster.
