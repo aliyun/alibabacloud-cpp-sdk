@@ -202,6 +202,68 @@ BeginSessionResponse Client::beginSession(const BeginSessionRequest &request) {
 }
 
 /**
+ * @summary 取消对应对话
+ *
+ * @param request CancelChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelChatResponse
+ */
+CancelChatResponse Client::cancelChatWithOptions(const CancelChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentKey()) {
+    body["AgentKey"] = request.agentKey();
+  }
+
+  if (!!request.hasAnswer()) {
+    body["Answer"] = request.answer();
+  }
+
+  if (!!request.hasChatId()) {
+    body["ChatId"] = request.chatId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CancelChat"},
+    {"version" , "2022-04-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelChatResponse>();
+}
+
+/**
+ * @summary 取消对应对话
+ *
+ * @param request CancelChatRequest
+ * @return CancelChatResponse
+ */
+CancelChatResponse Client::cancelChat(const CancelChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelChatWithOptions(request, runtime);
+}
+
+/**
  * @summary 取消机器人发布
  *
  * @param request CancelInstancePublishTaskRequest

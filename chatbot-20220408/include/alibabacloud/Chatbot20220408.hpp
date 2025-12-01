@@ -72,6 +72,23 @@ namespace Chatbot20220408
       Models::BeginSessionResponse beginSession(const Models::BeginSessionRequest &request);
 
       /**
+       * @summary 取消对应对话
+       *
+       * @param request CancelChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelChatResponse
+       */
+      Models::CancelChatResponse cancelChatWithOptions(const Models::CancelChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消对应对话
+       *
+       * @param request CancelChatRequest
+       * @return CancelChatResponse
+       */
+      Models::CancelChatResponse cancelChat(const Models::CancelChatRequest &request);
+
+      /**
        * @summary 取消机器人发布
        *
        * @param request CancelInstancePublishTaskRequest

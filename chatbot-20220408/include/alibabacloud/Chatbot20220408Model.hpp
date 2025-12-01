@@ -12,6 +12,9 @@
 #include <alibabacloud/models/BeginSessionRequest.hpp>
 #include <alibabacloud/models/BeginSessionResponseBody.hpp>
 #include <alibabacloud/models/BeginSessionResponse.hpp>
+#include <alibabacloud/models/CancelChatRequest.hpp>
+#include <alibabacloud/models/CancelChatResponseBody.hpp>
+#include <alibabacloud/models/CancelChatResponse.hpp>
 #include <alibabacloud/models/CancelInstancePublishTaskRequest.hpp>
 #include <alibabacloud/models/CancelInstancePublishTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelInstancePublishTaskResponse.hpp>
