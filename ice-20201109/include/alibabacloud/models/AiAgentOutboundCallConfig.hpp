@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigAsrConfig.hpp>
+#include <alibabacloud/models/AIAgentOutboundCallConfigAutoSpeechConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigInterruptConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigLlmConfig.hpp>
 #include <alibabacloud/models/AIAgentOutboundCallConfigTtsConfig.hpp>
@@ -21,24 +22,28 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AIAgentOutboundCallConfig& obj) { 
       DARABONBA_PTR_TO_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_TO_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_TO_JSON(AutoSpeechConfig, autoSpeechConfig_);
       DARABONBA_PTR_TO_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_TO_JSON(ExperimentalConfig, experimentalConfig_);
       DARABONBA_PTR_TO_JSON(Greeting, greeting_);
       DARABONBA_PTR_TO_JSON(GreetingDelay, greetingDelay_);
       DARABONBA_PTR_TO_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_TO_JSON(LlmConfig, llmConfig_);
+      DARABONBA_PTR_TO_JSON(MaxIdleTime, maxIdleTime_);
       DARABONBA_PTR_TO_JSON(TtsConfig, ttsConfig_);
       DARABONBA_PTR_TO_JSON(TurnDetectionConfig, turnDetectionConfig_);
     };
     friend void from_json(const Darabonba::Json& j, AIAgentOutboundCallConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(AmbientSoundConfig, ambientSoundConfig_);
       DARABONBA_PTR_FROM_JSON(AsrConfig, asrConfig_);
+      DARABONBA_PTR_FROM_JSON(AutoSpeechConfig, autoSpeechConfig_);
       DARABONBA_PTR_FROM_JSON(EnableIntelligentSegment, enableIntelligentSegment_);
       DARABONBA_PTR_FROM_JSON(ExperimentalConfig, experimentalConfig_);
       DARABONBA_PTR_FROM_JSON(Greeting, greeting_);
       DARABONBA_PTR_FROM_JSON(GreetingDelay, greetingDelay_);
       DARABONBA_PTR_FROM_JSON(InterruptConfig, interruptConfig_);
       DARABONBA_PTR_FROM_JSON(LlmConfig, llmConfig_);
+      DARABONBA_PTR_FROM_JSON(MaxIdleTime, maxIdleTime_);
       DARABONBA_PTR_FROM_JSON(TtsConfig, ttsConfig_);
       DARABONBA_PTR_FROM_JSON(TurnDetectionConfig, turnDetectionConfig_);
     };
@@ -54,8 +59,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ambientSoundConfig_ == nullptr
-        && return this->asrConfig_ == nullptr && return this->enableIntelligentSegment_ == nullptr && return this->experimentalConfig_ == nullptr && return this->greeting_ == nullptr && return this->greetingDelay_ == nullptr
-        && return this->interruptConfig_ == nullptr && return this->llmConfig_ == nullptr && return this->ttsConfig_ == nullptr && return this->turnDetectionConfig_ == nullptr; };
+        && return this->asrConfig_ == nullptr && return this->autoSpeechConfig_ == nullptr && return this->enableIntelligentSegment_ == nullptr && return this->experimentalConfig_ == nullptr && return this->greeting_ == nullptr
+        && return this->greetingDelay_ == nullptr && return this->interruptConfig_ == nullptr && return this->llmConfig_ == nullptr && return this->maxIdleTime_ == nullptr && return this->ttsConfig_ == nullptr
+        && return this->turnDetectionConfig_ == nullptr; };
     // ambientSoundConfig Field Functions 
     bool hasAmbientSoundConfig() const { return this->ambientSoundConfig_ != nullptr;};
     void deleteAmbientSoundConfig() { this->ambientSoundConfig_ = nullptr;};
@@ -72,6 +78,15 @@ namespace Models
     inline AIAgentOutboundCallConfigAsrConfig asrConfig() { DARABONBA_PTR_GET(asrConfig_, AIAgentOutboundCallConfigAsrConfig) };
     inline AIAgentOutboundCallConfig& setAsrConfig(const AIAgentOutboundCallConfigAsrConfig & asrConfig) { DARABONBA_PTR_SET_VALUE(asrConfig_, asrConfig) };
     inline AIAgentOutboundCallConfig& setAsrConfig(AIAgentOutboundCallConfigAsrConfig && asrConfig) { DARABONBA_PTR_SET_RVALUE(asrConfig_, asrConfig) };
+
+
+    // autoSpeechConfig Field Functions 
+    bool hasAutoSpeechConfig() const { return this->autoSpeechConfig_ != nullptr;};
+    void deleteAutoSpeechConfig() { this->autoSpeechConfig_ = nullptr;};
+    inline const AIAgentOutboundCallConfigAutoSpeechConfig & autoSpeechConfig() const { DARABONBA_PTR_GET_CONST(autoSpeechConfig_, AIAgentOutboundCallConfigAutoSpeechConfig) };
+    inline AIAgentOutboundCallConfigAutoSpeechConfig autoSpeechConfig() { DARABONBA_PTR_GET(autoSpeechConfig_, AIAgentOutboundCallConfigAutoSpeechConfig) };
+    inline AIAgentOutboundCallConfig& setAutoSpeechConfig(const AIAgentOutboundCallConfigAutoSpeechConfig & autoSpeechConfig) { DARABONBA_PTR_SET_VALUE(autoSpeechConfig_, autoSpeechConfig) };
+    inline AIAgentOutboundCallConfig& setAutoSpeechConfig(AIAgentOutboundCallConfigAutoSpeechConfig && autoSpeechConfig) { DARABONBA_PTR_SET_RVALUE(autoSpeechConfig_, autoSpeechConfig) };
 
 
     // enableIntelligentSegment Field Functions 
@@ -120,6 +135,13 @@ namespace Models
     inline AIAgentOutboundCallConfig& setLlmConfig(AIAgentOutboundCallConfigLlmConfig && llmConfig) { DARABONBA_PTR_SET_RVALUE(llmConfig_, llmConfig) };
 
 
+    // maxIdleTime Field Functions 
+    bool hasMaxIdleTime() const { return this->maxIdleTime_ != nullptr;};
+    void deleteMaxIdleTime() { this->maxIdleTime_ = nullptr;};
+    inline int32_t maxIdleTime() const { DARABONBA_PTR_GET_DEFAULT(maxIdleTime_, 0) };
+    inline AIAgentOutboundCallConfig& setMaxIdleTime(int32_t maxIdleTime) { DARABONBA_PTR_SET_VALUE(maxIdleTime_, maxIdleTime) };
+
+
     // ttsConfig Field Functions 
     bool hasTtsConfig() const { return this->ttsConfig_ != nullptr;};
     void deleteTtsConfig() { this->ttsConfig_ = nullptr;};
@@ -141,12 +163,14 @@ namespace Models
   protected:
     std::shared_ptr<AIAgentOutboundCallConfigAmbientSoundConfig> ambientSoundConfig_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigAsrConfig> asrConfig_ = nullptr;
+    std::shared_ptr<AIAgentOutboundCallConfigAutoSpeechConfig> autoSpeechConfig_ = nullptr;
     std::shared_ptr<bool> enableIntelligentSegment_ = nullptr;
     std::shared_ptr<string> experimentalConfig_ = nullptr;
     std::shared_ptr<string> greeting_ = nullptr;
     std::shared_ptr<int32_t> greetingDelay_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigInterruptConfig> interruptConfig_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigLlmConfig> llmConfig_ = nullptr;
+    std::shared_ptr<int32_t> maxIdleTime_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigTtsConfig> ttsConfig_ = nullptr;
     std::shared_ptr<AIAgentOutboundCallConfigTurnDetectionConfig> turnDetectionConfig_ = nullptr;
   };

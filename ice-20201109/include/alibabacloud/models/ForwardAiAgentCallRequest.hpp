@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ForwardAIAgentCallRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
+      DARABONBA_PTR_TO_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_TO_JSON(ErrorPrompt, errorPrompt_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(TransferPrompt, transferPrompt_);
     };
     friend void from_json(const Darabonba::Json& j, ForwardAIAgentCallRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
+      DARABONBA_PTR_FROM_JSON(CallerNumber, callerNumber_);
       DARABONBA_PTR_FROM_JSON(ErrorPrompt, errorPrompt_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(TransferPrompt, transferPrompt_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && return this->errorPrompt_ == nullptr && return this->instanceId_ == nullptr && return this->transferPrompt_ == nullptr; };
+        && return this->callerNumber_ == nullptr && return this->errorPrompt_ == nullptr && return this->instanceId_ == nullptr && return this->transferPrompt_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
     inline string calledNumber() const { DARABONBA_PTR_GET_DEFAULT(calledNumber_, "") };
     inline ForwardAIAgentCallRequest& setCalledNumber(string calledNumber) { DARABONBA_PTR_SET_VALUE(calledNumber_, calledNumber) };
+
+
+    // callerNumber Field Functions 
+    bool hasCallerNumber() const { return this->callerNumber_ != nullptr;};
+    void deleteCallerNumber() { this->callerNumber_ = nullptr;};
+    inline string callerNumber() const { DARABONBA_PTR_GET_DEFAULT(callerNumber_, "") };
+    inline ForwardAIAgentCallRequest& setCallerNumber(string callerNumber) { DARABONBA_PTR_SET_VALUE(callerNumber_, callerNumber) };
 
 
     // errorPrompt Field Functions 
@@ -67,6 +76,7 @@ namespace Models
 
   protected:
     std::shared_ptr<string> calledNumber_ = nullptr;
+    std::shared_ptr<string> callerNumber_ = nullptr;
     std::shared_ptr<string> errorPrompt_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> transferPrompt_ = nullptr;

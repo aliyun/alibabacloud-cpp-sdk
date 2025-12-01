@@ -6141,6 +6141,10 @@ ForwardAIAgentCallResponse Client::forwardAIAgentCallWithOptions(const ForwardAI
     query["CalledNumber"] = request.calledNumber();
   }
 
+  if (!!request.hasCallerNumber()) {
+    query["CallerNumber"] = request.callerNumber();
+  }
+
   if (!!request.hasErrorPrompt()) {
     query["ErrorPrompt"] = request.errorPrompt();
   }

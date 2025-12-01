@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AIAgentConfigLlmConfig& obj) { 
       DARABONBA_PTR_TO_JSON(BailianAppParams, bailianAppParams_);
       DARABONBA_PTR_TO_JSON(FunctionMap, functionMap_);
+      DARABONBA_PTR_TO_JSON(HistorySyncWithTTS, historySyncWithTTS_);
       DARABONBA_PTR_TO_JSON(LlmCompleteReply, llmCompleteReply_);
       DARABONBA_PTR_TO_JSON(LlmHistory, llmHistory_);
       DARABONBA_PTR_TO_JSON(LlmHistoryLimit, llmHistoryLimit_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AIAgentConfigLlmConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(BailianAppParams, bailianAppParams_);
       DARABONBA_PTR_FROM_JSON(FunctionMap, functionMap_);
+      DARABONBA_PTR_FROM_JSON(HistorySyncWithTTS, historySyncWithTTS_);
       DARABONBA_PTR_FROM_JSON(LlmCompleteReply, llmCompleteReply_);
       DARABONBA_PTR_FROM_JSON(LlmHistory, llmHistory_);
       DARABONBA_PTR_FROM_JSON(LlmHistoryLimit, llmHistoryLimit_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bailianAppParams_ == nullptr
-        && return this->functionMap_ == nullptr && return this->llmCompleteReply_ == nullptr && return this->llmHistory_ == nullptr && return this->llmHistoryLimit_ == nullptr && return this->llmSystemPrompt_ == nullptr
-        && return this->openAIExtraQuery_ == nullptr && return this->outputMaxDelay_ == nullptr && return this->outputMinLength_ == nullptr; };
+        && return this->functionMap_ == nullptr && return this->historySyncWithTTS_ == nullptr && return this->llmCompleteReply_ == nullptr && return this->llmHistory_ == nullptr && return this->llmHistoryLimit_ == nullptr
+        && return this->llmSystemPrompt_ == nullptr && return this->openAIExtraQuery_ == nullptr && return this->outputMaxDelay_ == nullptr && return this->outputMinLength_ == nullptr; };
     // bailianAppParams Field Functions 
     bool hasBailianAppParams() const { return this->bailianAppParams_ != nullptr;};
     void deleteBailianAppParams() { this->bailianAppParams_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline vector<Models::AIAgentConfigLlmConfigFunctionMap> functionMap() { DARABONBA_PTR_GET(functionMap_, vector<Models::AIAgentConfigLlmConfigFunctionMap>) };
     inline AIAgentConfigLlmConfig& setFunctionMap(const vector<Models::AIAgentConfigLlmConfigFunctionMap> & functionMap) { DARABONBA_PTR_SET_VALUE(functionMap_, functionMap) };
     inline AIAgentConfigLlmConfig& setFunctionMap(vector<Models::AIAgentConfigLlmConfigFunctionMap> && functionMap) { DARABONBA_PTR_SET_RVALUE(functionMap_, functionMap) };
+
+
+    // historySyncWithTTS Field Functions 
+    bool hasHistorySyncWithTTS() const { return this->historySyncWithTTS_ != nullptr;};
+    void deleteHistorySyncWithTTS() { this->historySyncWithTTS_ = nullptr;};
+    inline bool historySyncWithTTS() const { DARABONBA_PTR_GET_DEFAULT(historySyncWithTTS_, false) };
+    inline AIAgentConfigLlmConfig& setHistorySyncWithTTS(bool historySyncWithTTS) { DARABONBA_PTR_SET_VALUE(historySyncWithTTS_, historySyncWithTTS) };
 
 
     // llmCompleteReply Field Functions 
@@ -121,6 +130,7 @@ namespace Models
   protected:
     std::shared_ptr<string> bailianAppParams_ = nullptr;
     std::shared_ptr<vector<Models::AIAgentConfigLlmConfigFunctionMap>> functionMap_ = nullptr;
+    std::shared_ptr<bool> historySyncWithTTS_ = nullptr;
     std::shared_ptr<bool> llmCompleteReply_ = nullptr;
     std::shared_ptr<vector<Models::AIAgentConfigLlmConfigLlmHistory>> llmHistory_ = nullptr;
     std::shared_ptr<int32_t> llmHistoryLimit_ = nullptr;

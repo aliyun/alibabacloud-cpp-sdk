@@ -1209,6 +1209,11 @@
 #include <alibabacloud/models/UploadStreamByUrlResponse.hpp>
 #include <alibabacloud/models/AiAgentConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AiAgentConfigAsrConfig.hpp>
+#include <alibabacloud/models/AiAgentConfigAutoSpeechConfigLlmPendingMessages.hpp>
+#include <alibabacloud/models/AiAgentConfigAutoSpeechConfigLlmPending.hpp>
+#include <alibabacloud/models/AiAgentConfigAutoSpeechConfigUserIdleMessages.hpp>
+#include <alibabacloud/models/AiAgentConfigAutoSpeechConfigUserIdle.hpp>
+#include <alibabacloud/models/AiAgentConfigAutoSpeechConfig.hpp>
 #include <alibabacloud/models/AiAgentConfigAvatarConfig.hpp>
 #include <alibabacloud/models/AiAgentConfigInterruptConfig.hpp>
 #include <alibabacloud/models/AiAgentConfigLlmConfigFunctionMap.hpp>
@@ -1227,6 +1232,11 @@
 #include <alibabacloud/models/AiAgentConfigVoiceprintConfig.hpp>
 #include <alibabacloud/models/AiAgentOutboundCallConfigAmbientSoundConfig.hpp>
 #include <alibabacloud/models/AiAgentOutboundCallConfigAsrConfig.hpp>
+#include <alibabacloud/models/AiAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages.hpp>
+#include <alibabacloud/models/AiAgentOutboundCallConfigAutoSpeechConfigLlmPending.hpp>
+#include <alibabacloud/models/AiAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages.hpp>
+#include <alibabacloud/models/AiAgentOutboundCallConfigAutoSpeechConfigUserIdle.hpp>
+#include <alibabacloud/models/AiAgentOutboundCallConfigAutoSpeechConfig.hpp>
 #include <alibabacloud/models/AiAgentOutboundCallConfigInterruptConfig.hpp>
 #include <alibabacloud/models/AiAgentOutboundCallConfigLlmConfigFunctionMap.hpp>
 #include <alibabacloud/models/AiAgentOutboundCallConfigLlmConfigLlmHistory.hpp>
