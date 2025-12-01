@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->autoScan_ != nullptr && this->canModifyUserName_ != nullptr && this->checkStatus_ != nullptr && this->datamaskStatus_ != nullptr && this->dbName_ != nullptr
-        && this->enable_ != nullptr && this->engineType_ != nullptr && this->errorMessage_ != nullptr && this->gmtCreate_ != nullptr && this->id_ != nullptr
-        && this->instanceDescription_ != nullptr && this->instanceId_ != nullptr && this->instanceSize_ != nullptr && this->lastModifyTime_ != nullptr && this->lastModifyUserId_ != nullptr
-        && this->logStoreDay_ != nullptr && this->passwordStatus_ != nullptr && this->productId_ != nullptr && this->regionId_ != nullptr && this->regionName_ != nullptr
-        && this->samplingSize_ != nullptr && this->tenantId_ != nullptr && this->tenantName_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->autoScan_ == nullptr && return this->canModifyUserName_ == nullptr && return this->checkStatus_ == nullptr && return this->datamaskStatus_ == nullptr && return this->dbName_ == nullptr
+        && return this->enable_ == nullptr && return this->engineType_ == nullptr && return this->errorMessage_ == nullptr && return this->gmtCreate_ == nullptr && return this->id_ == nullptr
+        && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->instanceSize_ == nullptr && return this->lastModifyTime_ == nullptr && return this->lastModifyUserId_ == nullptr
+        && return this->logStoreDay_ == nullptr && return this->passwordStatus_ == nullptr && return this->productId_ == nullptr && return this->regionId_ == nullptr && return this->regionName_ == nullptr
+        && return this->samplingSize_ == nullptr && return this->tenantId_ == nullptr && return this->tenantName_ == nullptr && return this->userName_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

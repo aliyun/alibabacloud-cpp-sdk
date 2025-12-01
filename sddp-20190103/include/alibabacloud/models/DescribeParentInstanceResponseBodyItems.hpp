@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->authStatus_ != nullptr && this->authTime_ != nullptr && this->clusterStatus_ != nullptr && this->connectNode_ != nullptr && this->dbNum_ != nullptr
-        && this->engineType_ != nullptr && this->instanceDescription_ != nullptr && this->instanceId_ != nullptr && this->instanceSize_ != nullptr && this->localName_ != nullptr
-        && this->memberAccount_ != nullptr && this->parentId_ != nullptr && this->regionId_ != nullptr && this->resourceType_ != nullptr && this->supportConnectNodes_ != nullptr
-        && this->tenantId_ != nullptr && this->tenantName_ != nullptr && this->unConnectDbCount_ != nullptr && this->unSupportOneClickAuthReason_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->authStatus_ == nullptr && return this->authTime_ == nullptr && return this->clusterStatus_ == nullptr && return this->connectNode_ == nullptr && return this->dbNum_ == nullptr
+        && return this->engineType_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->instanceSize_ == nullptr && return this->localName_ == nullptr
+        && return this->memberAccount_ == nullptr && return this->parentId_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->supportConnectNodes_ == nullptr
+        && return this->tenantId_ == nullptr && return this->tenantName_ == nullptr && return this->unConnectDbCount_ == nullptr && return this->unSupportOneClickAuthReason_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->dealUserId_ != nullptr && this->endTime_ != nullptr && this->id_ != nullptr && this->instanceName_ != nullptr && this->lang_ != nullptr
-        && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->subTypeCode_ != nullptr
-        && this->targetProductCode_ != nullptr && this->typeCode_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr && this->warnLevel_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && return this->dealUserId_ == nullptr && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->instanceName_ == nullptr && return this->lang_ == nullptr
+        && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->subTypeCode_ == nullptr
+        && return this->targetProductCode_ == nullptr && return this->typeCode_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->warnLevel_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};

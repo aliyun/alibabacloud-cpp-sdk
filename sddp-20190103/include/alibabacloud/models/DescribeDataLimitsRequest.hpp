@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->checkStatus_ != nullptr && this->currentPage_ != nullptr && this->datamaskStatus_ != nullptr && this->enable_ != nullptr && this->endTime_ != nullptr
-        && this->engineType_ != nullptr && this->featureType_ != nullptr && this->lang_ != nullptr && this->memberAccount_ != nullptr && this->pageSize_ != nullptr
-        && this->parentId_ != nullptr && this->resourceType_ != nullptr && this->serviceRegionId_ != nullptr && this->startTime_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->checkStatus_ == nullptr && return this->currentPage_ == nullptr && return this->datamaskStatus_ == nullptr && return this->enable_ == nullptr && return this->endTime_ == nullptr
+        && return this->engineType_ == nullptr && return this->featureType_ == nullptr && return this->lang_ == nullptr && return this->memberAccount_ == nullptr && return this->pageSize_ == nullptr
+        && return this->parentId_ == nullptr && return this->resourceType_ == nullptr && return this->serviceRegionId_ == nullptr && return this->startTime_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

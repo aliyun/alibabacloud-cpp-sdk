@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->categories_ != nullptr
-        && this->id_ != nullptr && this->instanceDescription_ != nullptr && this->instanceId_ != nullptr && this->lastModifiedTime_ != nullptr && this->lastScanTime_ != nullptr
-        && this->memberAccount_ != nullptr && this->modelTags_ != nullptr && this->name_ != nullptr && this->objectFileCategory_ != nullptr && this->objectType_ != nullptr
-        && this->path_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->regionId_ != nullptr && this->regionName_ != nullptr
-        && this->ruleList_ != nullptr && this->sensitiveCount_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->categories_ == nullptr
+        && return this->id_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->lastScanTime_ == nullptr
+        && return this->memberAccount_ == nullptr && return this->modelTags_ == nullptr && return this->name_ == nullptr && return this->objectFileCategory_ == nullptr && return this->objectType_ == nullptr
+        && return this->path_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr && return this->regionId_ == nullptr && return this->regionName_ == nullptr
+        && return this->ruleList_ == nullptr && return this->sensitiveCount_ == nullptr && return this->templateId_ == nullptr; };
     // categories Field Functions 
     bool hasCategories() const { return this->categories_ != nullptr;};
     void deleteCategories() { this->categories_ = nullptr;};

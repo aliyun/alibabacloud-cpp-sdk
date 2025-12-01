@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->autoScan_ != nullptr && this->certificatePermission_ != nullptr && this->enable_ != nullptr && this->engineType_ != nullptr && this->eventStatus_ != nullptr
-        && this->featureType_ != nullptr && this->instantlyScan_ != nullptr && this->lang_ != nullptr && this->logStoreDay_ != nullptr && this->ocrStatus_ != nullptr
-        && this->parentId_ != nullptr && this->password_ != nullptr && this->port_ != nullptr && this->resourceType_ != nullptr && this->samplingSize_ != nullptr
-        && this->serviceRegionId_ != nullptr && this->sourceIp_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->autoScan_ == nullptr && return this->certificatePermission_ == nullptr && return this->enable_ == nullptr && return this->engineType_ == nullptr && return this->eventStatus_ == nullptr
+        && return this->featureType_ == nullptr && return this->instantlyScan_ == nullptr && return this->lang_ == nullptr && return this->logStoreDay_ == nullptr && return this->ocrStatus_ == nullptr
+        && return this->parentId_ == nullptr && return this->password_ == nullptr && return this->port_ == nullptr && return this->resourceType_ == nullptr && return this->samplingSize_ == nullptr
+        && return this->serviceRegionId_ == nullptr && return this->sourceIp_ == nullptr && return this->userName_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

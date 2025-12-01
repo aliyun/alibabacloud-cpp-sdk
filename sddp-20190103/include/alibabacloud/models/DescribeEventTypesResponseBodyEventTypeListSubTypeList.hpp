@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->adaptedProduct_ != nullptr
-        && this->code_ != nullptr && this->configCode_ != nullptr && this->configContentType_ != nullptr && this->configDescription_ != nullptr && this->configValue_ != nullptr
-        && this->description_ != nullptr && this->eventHitCount_ != nullptr && this->id_ != nullptr && this->name_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->adaptedProduct_ == nullptr
+        && return this->code_ == nullptr && return this->configCode_ == nullptr && return this->configContentType_ == nullptr && return this->configDescription_ == nullptr && return this->configValue_ == nullptr
+        && return this->description_ == nullptr && return this->eventHitCount_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr && return this->status_ == nullptr; };
     // adaptedProduct Field Functions 
     bool hasAdaptedProduct() const { return this->adaptedProduct_ != nullptr;};
     void deleteAdaptedProduct() { this->adaptedProduct_ = nullptr;};

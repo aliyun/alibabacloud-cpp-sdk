@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->authStatus_ != nullptr
-        && this->checkStatus_ != nullptr && this->clusterStatus_ != nullptr && this->currentPage_ != nullptr && this->dbName_ != nullptr && this->engineType_ != nullptr
-        && this->instanceId_ != nullptr && this->lang_ != nullptr && this->memberAccount_ != nullptr && this->pageSize_ != nullptr && this->resourceType_ != nullptr
-        && this->serviceRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->authStatus_ == nullptr
+        && return this->checkStatus_ == nullptr && return this->clusterStatus_ == nullptr && return this->currentPage_ == nullptr && return this->dbName_ == nullptr && return this->engineType_ == nullptr
+        && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->memberAccount_ == nullptr && return this->pageSize_ == nullptr && return this->resourceType_ == nullptr
+        && return this->serviceRegionId_ == nullptr; };
     // authStatus Field Functions 
     bool hasAuthStatus() const { return this->authStatus_ != nullptr;};
     void deleteAuthStatus() { this->authStatus_ = nullptr;};

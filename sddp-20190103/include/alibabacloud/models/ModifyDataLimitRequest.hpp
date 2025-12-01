@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->autoScan_ != nullptr && this->engineType_ != nullptr && this->featureType_ != nullptr && this->id_ != nullptr && this->lang_ != nullptr
-        && this->logStoreDay_ != nullptr && this->modifyPassword_ != nullptr && this->password_ != nullptr && this->port_ != nullptr && this->resourceType_ != nullptr
-        && this->samplingSize_ != nullptr && this->securityGroupIdList_ != nullptr && this->serviceRegionId_ != nullptr && this->userName_ != nullptr && this->vSwitchIdList_ != nullptr
-        && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->autoScan_ == nullptr && return this->engineType_ == nullptr && return this->featureType_ == nullptr && return this->id_ == nullptr && return this->lang_ == nullptr
+        && return this->logStoreDay_ == nullptr && return this->modifyPassword_ == nullptr && return this->password_ == nullptr && return this->port_ == nullptr && return this->resourceType_ == nullptr
+        && return this->samplingSize_ == nullptr && return this->securityGroupIdList_ == nullptr && return this->serviceRegionId_ == nullptr && return this->userName_ == nullptr && return this->vSwitchIdList_ == nullptr
+        && return this->vpcId_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

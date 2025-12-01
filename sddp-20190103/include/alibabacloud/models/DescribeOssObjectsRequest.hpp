@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->currentPage_ != nullptr
-        && this->fileCategoryCode_ != nullptr && this->instanceId_ != nullptr && this->lang_ != nullptr && this->lastScanTimeEnd_ != nullptr && this->lastScanTimeStart_ != nullptr
-        && this->marker_ != nullptr && this->name_ != nullptr && this->pageSize_ != nullptr && this->riskLevelId_ != nullptr && this->ruleId_ != nullptr
-        && this->serviceRegionId_ != nullptr && this->templateId_ != nullptr; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && return this->fileCategoryCode_ == nullptr && return this->instanceId_ == nullptr && return this->lang_ == nullptr && return this->lastScanTimeEnd_ == nullptr && return this->lastScanTimeStart_ == nullptr
+        && return this->marker_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->riskLevelId_ == nullptr && return this->ruleId_ == nullptr
+        && return this->serviceRegionId_ == nullptr && return this->templateId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};

@@ -3229,6 +3229,72 @@ ManualTriggerMaskingProcessResponse Client::manualTriggerMaskingProcess(const Ma
 }
 
 /**
+ * @summary OSS图片脱敏
+ *
+ * @param request MaskOssImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MaskOssImageResponse
+ */
+MaskOssImageResponse Client::maskOssImageWithOptions(const MaskOssImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketName()) {
+    query["BucketName"] = request.bucketName();
+  }
+
+  if (!!request.hasIsAlwaysUpload()) {
+    query["IsAlwaysUpload"] = request.isAlwaysUpload();
+  }
+
+  if (!!request.hasIsSupportRestore()) {
+    query["IsSupportRestore"] = request.isSupportRestore();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasMaskRuleIdList()) {
+    query["MaskRuleIdList"] = request.maskRuleIdList();
+  }
+
+  if (!!request.hasObjectKey()) {
+    query["ObjectKey"] = request.objectKey();
+  }
+
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.serviceRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MaskOssImage"},
+    {"version" , "2019-01-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MaskOssImageResponse>();
+}
+
+/**
+ * @summary OSS图片脱敏
+ *
+ * @param request MaskOssImageRequest
+ * @return MaskOssImageResponse
+ */
+MaskOssImageResponse Client::maskOssImage(const MaskOssImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return maskOssImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
  *
  * @param request ModifyDataLimitRequest
@@ -3720,6 +3786,64 @@ ModifyRuleStatusResponse Client::modifyRuleStatusWithOptions(const ModifyRuleSta
 ModifyRuleStatusResponse Client::modifyRuleStatus(const ModifyRuleStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyRuleStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 图片复原
+ *
+ * @param request RestoreOssImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestoreOssImageResponse
+ */
+RestoreOssImageResponse Client::restoreOssImageWithOptions(const RestoreOssImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucket()) {
+    query["Bucket"] = request.bucket();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasObjectKey()) {
+    query["ObjectKey"] = request.objectKey();
+  }
+
+  if (!!request.hasServiceRegionId()) {
+    query["ServiceRegionId"] = request.serviceRegionId();
+  }
+
+  if (!!request.hasTargetObjectKey()) {
+    query["TargetObjectKey"] = request.targetObjectKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestoreOssImage"},
+    {"version" , "2019-01-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestoreOssImageResponse>();
+}
+
+/**
+ * @summary 图片复原
+ *
+ * @param request RestoreOssImageRequest
+ * @return RestoreOssImageResponse
+ */
+RestoreOssImageResponse Client::restoreOssImage(const RestoreOssImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restoreOssImageWithOptions(request, runtime);
 }
 
 /**

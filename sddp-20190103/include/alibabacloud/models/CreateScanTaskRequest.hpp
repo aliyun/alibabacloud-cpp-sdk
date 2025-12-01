@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataLimitId_ != nullptr
-        && this->featureType_ != nullptr && this->intervalDay_ != nullptr && this->lang_ != nullptr && this->ossScanPath_ != nullptr && this->resourceType_ != nullptr
-        && this->runHour_ != nullptr && this->runMinute_ != nullptr && this->scanRange_ != nullptr && this->scanRangeContent_ != nullptr && this->sourceIp_ != nullptr
-        && this->taskName_ != nullptr && this->taskUserName_ != nullptr; };
+    virtual bool empty() const override { return this->dataLimitId_ == nullptr
+        && return this->featureType_ == nullptr && return this->intervalDay_ == nullptr && return this->lang_ == nullptr && return this->ossScanPath_ == nullptr && return this->resourceType_ == nullptr
+        && return this->runHour_ == nullptr && return this->runMinute_ == nullptr && return this->scanRange_ == nullptr && return this->scanRangeContent_ == nullptr && return this->sourceIp_ == nullptr
+        && return this->taskName_ == nullptr && return this->taskUserName_ == nullptr; };
     // dataLimitId Field Functions 
     bool hasDataLimitId() const { return this->dataLimitId_ != nullptr;};
     void deleteDataLimitId() { this->dataLimitId_ = nullptr;};

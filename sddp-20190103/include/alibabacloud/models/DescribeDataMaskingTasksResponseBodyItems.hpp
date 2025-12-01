@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dstMemberAccount_ != nullptr
-        && this->dstPath_ != nullptr && this->dstType_ != nullptr && this->dstTypeCode_ != nullptr && this->gmtCreate_ != nullptr && this->hasUnfinishProcess_ != nullptr
-        && this->id_ != nullptr && this->originalTable_ != nullptr && this->owner_ != nullptr && this->runCount_ != nullptr && this->srcMemberAccount_ != nullptr
-        && this->srcPath_ != nullptr && this->srcType_ != nullptr && this->srcTypeCode_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr
-        && this->taskName_ != nullptr && this->triggerType_ != nullptr; };
+    virtual bool empty() const override { return this->dstMemberAccount_ == nullptr
+        && return this->dstPath_ == nullptr && return this->dstType_ == nullptr && return this->dstTypeCode_ == nullptr && return this->gmtCreate_ == nullptr && return this->hasUnfinishProcess_ == nullptr
+        && return this->id_ == nullptr && return this->originalTable_ == nullptr && return this->owner_ == nullptr && return this->runCount_ == nullptr && return this->srcMemberAccount_ == nullptr
+        && return this->srcPath_ == nullptr && return this->srcType_ == nullptr && return this->srcTypeCode_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr
+        && return this->taskName_ == nullptr && return this->triggerType_ == nullptr; };
     // dstMemberAccount Field Functions 
     bool hasDstMemberAccount() const { return this->dstMemberAccount_ != nullptr;};
     void deleteDstMemberAccount() { this->dstMemberAccount_ = nullptr;};

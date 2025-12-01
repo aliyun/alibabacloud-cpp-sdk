@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conflictCount_ != nullptr
-        && this->dstType_ != nullptr && this->dstTypeCode_ != nullptr && this->endTime_ != nullptr && this->failCode_ != nullptr && this->failMsg_ != nullptr
-        && this->hasDownloadFile_ != nullptr && this->hasSubProcess_ != nullptr && this->id_ != nullptr && this->maskingCount_ != nullptr && this->percentage_ != nullptr
-        && this->runIndex_ != nullptr && this->srcTableName_ != nullptr && this->srcType_ != nullptr && this->srcTypeCode_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->taskId_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->conflictCount_ == nullptr
+        && return this->dstType_ == nullptr && return this->dstTypeCode_ == nullptr && return this->endTime_ == nullptr && return this->failCode_ == nullptr && return this->failMsg_ == nullptr
+        && return this->hasDownloadFile_ == nullptr && return this->hasSubProcess_ == nullptr && return this->id_ == nullptr && return this->maskingCount_ == nullptr && return this->percentage_ == nullptr
+        && return this->runIndex_ == nullptr && return this->srcTableName_ == nullptr && return this->srcType_ == nullptr && return this->srcTypeCode_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->type_ == nullptr; };
     // conflictCount Field Functions 
     bool hasConflictCount() const { return this->conflictCount_ != nullptr;};
     void deleteConflictCount() { this->conflictCount_ = nullptr;};

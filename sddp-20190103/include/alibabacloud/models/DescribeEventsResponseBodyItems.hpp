@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alertTime_ != nullptr
-        && this->backed_ != nullptr && this->dealDisplayName_ != nullptr && this->dealLoginName_ != nullptr && this->dealTime_ != nullptr && this->dealUserId_ != nullptr
-        && this->displayName_ != nullptr && this->eventTime_ != nullptr && this->id_ != nullptr && this->loginName_ != nullptr && this->productCode_ != nullptr
-        && this->status_ != nullptr && this->statusName_ != nullptr && this->subTypeCode_ != nullptr && this->subTypeName_ != nullptr && this->targetProductCode_ != nullptr
-        && this->typeCode_ != nullptr && this->typeName_ != nullptr && this->userId_ != nullptr && this->warnLevel_ != nullptr; };
+    virtual bool empty() const override { return this->alertTime_ == nullptr
+        && return this->backed_ == nullptr && return this->dealDisplayName_ == nullptr && return this->dealLoginName_ == nullptr && return this->dealTime_ == nullptr && return this->dealUserId_ == nullptr
+        && return this->displayName_ == nullptr && return this->eventTime_ == nullptr && return this->id_ == nullptr && return this->loginName_ == nullptr && return this->productCode_ == nullptr
+        && return this->status_ == nullptr && return this->statusName_ == nullptr && return this->subTypeCode_ == nullptr && return this->subTypeName_ == nullptr && return this->targetProductCode_ == nullptr
+        && return this->typeCode_ == nullptr && return this->typeName_ == nullptr && return this->userId_ == nullptr && return this->warnLevel_ == nullptr; };
     // alertTime Field Functions 
     bool hasAlertTime() const { return this->alertTime_ != nullptr;};
     void deleteAlertTime() { this->alertTime_ = nullptr;};
@@ -194,8 +194,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline DescribeEventsResponseBodyItems& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline DescribeEventsResponseBodyItems& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // userId Field Functions 

@@ -97,14 +97,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientIp_ != nullptr
-        && this->clientPort_ != nullptr && this->clientUa_ != nullptr && this->columnName_ != nullptr && this->creationTime_ != nullptr && this->dataSet_ != nullptr
-        && this->databaseName_ != nullptr && this->dbType_ != nullptr && this->effectRow_ != nullptr && this->executeStatus_ != nullptr && this->executeTime_ != nullptr
-        && this->inWhiteList_ != nullptr && this->instanceAuditStatus_ != nullptr && this->instanceDescription_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr
-        && this->logSource_ != nullptr && this->logTime_ != nullptr && this->memberAccount_ != nullptr && this->message_ != nullptr && this->modelName_ != nullptr
-        && this->operateType_ != nullptr && this->ossObjectKey_ != nullptr && this->packageName_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr
-        && this->ruleCategory_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->tableName_ != nullptr
-        && this->userId_ != nullptr && this->userName_ != nullptr && this->warnLevel_ != nullptr && this->warnLevelName_ != nullptr; };
+    virtual bool empty() const override { return this->clientIp_ == nullptr
+        && return this->clientPort_ == nullptr && return this->clientUa_ == nullptr && return this->columnName_ == nullptr && return this->creationTime_ == nullptr && return this->dataSet_ == nullptr
+        && return this->databaseName_ == nullptr && return this->dbType_ == nullptr && return this->effectRow_ == nullptr && return this->executeStatus_ == nullptr && return this->executeTime_ == nullptr
+        && return this->inWhiteList_ == nullptr && return this->instanceAuditStatus_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceName_ == nullptr && return this->ipType_ == nullptr
+        && return this->logSource_ == nullptr && return this->logTime_ == nullptr && return this->memberAccount_ == nullptr && return this->message_ == nullptr && return this->modelName_ == nullptr
+        && return this->operateType_ == nullptr && return this->ossObjectKey_ == nullptr && return this->packageName_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr
+        && return this->ruleCategory_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->sqlText_ == nullptr && return this->tableName_ == nullptr
+        && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->warnLevel_ == nullptr && return this->warnLevelName_ == nullptr; };
     // clientIp Field Functions 
     bool hasClientIp() const { return this->clientIp_ != nullptr;};
     void deleteClientIp() { this->clientIp_ = nullptr;};

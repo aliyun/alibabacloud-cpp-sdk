@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->acl_ != nullptr
-        && this->creationTime_ != nullptr && this->dataType_ != nullptr && this->id_ != nullptr && this->labelsec_ != nullptr && this->name_ != nullptr
-        && this->objectKey_ != nullptr && this->odpsRiskLevelName_ != nullptr && this->owner_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr
-        && this->protection_ != nullptr && this->riskLevelId_ != nullptr && this->riskLevelName_ != nullptr && this->ruleName_ != nullptr && this->sensitive_ != nullptr
-        && this->sensitiveCount_ != nullptr && this->sensitiveRatio_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->acl_ == nullptr
+        && return this->creationTime_ == nullptr && return this->dataType_ == nullptr && return this->id_ == nullptr && return this->labelsec_ == nullptr && return this->name_ == nullptr
+        && return this->objectKey_ == nullptr && return this->odpsRiskLevelName_ == nullptr && return this->owner_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr
+        && return this->protection_ == nullptr && return this->riskLevelId_ == nullptr && return this->riskLevelName_ == nullptr && return this->ruleName_ == nullptr && return this->sensitive_ == nullptr
+        && return this->sensitiveCount_ == nullptr && return this->sensitiveRatio_ == nullptr && return this->totalCount_ == nullptr; };
     // acl Field Functions 
     bool hasAcl() const { return this->acl_ != nullptr;};
     void deleteAcl() { this->acl_ = nullptr;};

@@ -905,6 +905,23 @@ namespace Sddp20190103
       Models::ManualTriggerMaskingProcessResponse manualTriggerMaskingProcess(const Models::ManualTriggerMaskingProcessRequest &request);
 
       /**
+       * @summary OSS图片脱敏
+       *
+       * @param request MaskOssImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MaskOssImageResponse
+       */
+      Models::MaskOssImageResponse maskOssImageWithOptions(const Models::MaskOssImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary OSS图片脱敏
+       *
+       * @param request MaskOssImageRequest
+       * @return MaskOssImageResponse
+       */
+      Models::MaskOssImageResponse maskOssImage(const Models::MaskOssImageRequest &request);
+
+      /**
        * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
        *
        * @param request ModifyDataLimitRequest
@@ -1054,6 +1071,23 @@ namespace Sddp20190103
        * @return ModifyRuleStatusResponse
        */
       Models::ModifyRuleStatusResponse modifyRuleStatus(const Models::ModifyRuleStatusRequest &request);
+
+      /**
+       * @summary 图片复原
+       *
+       * @param request RestoreOssImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestoreOssImageResponse
+       */
+      Models::RestoreOssImageResponse restoreOssImageWithOptions(const Models::RestoreOssImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 图片复原
+       *
+       * @param request RestoreOssImageRequest
+       * @return RestoreOssImageResponse
+       */
+      Models::RestoreOssImageResponse restoreOssImage(const Models::RestoreOssImageRequest &request);
 
       /**
        * @summary Creates an identification task to scan sensitive data in Object Storage Service (OSS) objects.

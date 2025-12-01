@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->chatType_ != nullptr
-        && this->data_ != nullptr && this->label_ != nullptr && this->name_ != nullptr && this->type_ != nullptr && this->XLabel_ != nullptr
-        && this->YLabel_ != nullptr && this->ZLabel_ != nullptr; };
+    virtual bool empty() const override { return this->chatType_ == nullptr
+        && return this->data_ == nullptr && return this->label_ == nullptr && return this->name_ == nullptr && return this->type_ == nullptr && return this->XLabel_ == nullptr
+        && return this->YLabel_ == nullptr && return this->ZLabel_ == nullptr; };
     // chatType Field Functions 
     bool hasChatType() const { return this->chatType_ != nullptr;};
     void deleteChatType() { this->chatType_ = nullptr;};

@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessKeyId_ != nullptr
-        && this->auditClosable_ != nullptr && this->auditReleasable_ != nullptr && this->authed_ != nullptr && this->chargeType_ != nullptr && this->dataManagerRole_ != nullptr
-        && this->instanceId_ != nullptr && this->instanceNum_ != nullptr && this->instanceTotalCount_ != nullptr && this->labStatus_ != nullptr && this->ossTotalSize_ != nullptr
-        && this->protectionDays_ != nullptr && this->purchased_ != nullptr && this->releaseDays_ != nullptr && this->releaseTime_ != nullptr && this->remainDays_ != nullptr
-        && this->trail_ != nullptr && this->useAgentAudit_ != nullptr && this->useInstanceNum_ != nullptr && this->useOssSize_ != nullptr; };
+    virtual bool empty() const override { return this->accessKeyId_ == nullptr
+        && return this->auditClosable_ == nullptr && return this->auditReleasable_ == nullptr && return this->authed_ == nullptr && return this->chargeType_ == nullptr && return this->dataManagerRole_ == nullptr
+        && return this->instanceId_ == nullptr && return this->instanceNum_ == nullptr && return this->instanceTotalCount_ == nullptr && return this->labStatus_ == nullptr && return this->ossTotalSize_ == nullptr
+        && return this->protectionDays_ == nullptr && return this->purchased_ == nullptr && return this->releaseDays_ == nullptr && return this->releaseTime_ == nullptr && return this->remainDays_ == nullptr
+        && return this->trail_ == nullptr && return this->useAgentAudit_ == nullptr && return this->useInstanceNum_ == nullptr && return this->useOssSize_ == nullptr; };
     // accessKeyId Field Functions 
     bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
     void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};

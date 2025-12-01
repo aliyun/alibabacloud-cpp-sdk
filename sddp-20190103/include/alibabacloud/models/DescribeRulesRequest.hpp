@@ -67,11 +67,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->category_ != nullptr
-        && this->contentCategory_ != nullptr && this->cooperationChannel_ != nullptr && this->currentPage_ != nullptr && this->customType_ != nullptr && this->featureType_ != nullptr
-        && this->groupId_ != nullptr && this->keywordCompatible_ != nullptr && this->lang_ != nullptr && this->matchType_ != nullptr && this->name_ != nullptr
-        && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->riskLevelId_ != nullptr && this->ruleType_ != nullptr
-        && this->simplify_ != nullptr && this->status_ != nullptr && this->supportForm_ != nullptr && this->warnLevel_ != nullptr; };
+    virtual bool empty() const override { return this->category_ == nullptr
+        && return this->contentCategory_ == nullptr && return this->cooperationChannel_ == nullptr && return this->currentPage_ == nullptr && return this->customType_ == nullptr && return this->featureType_ == nullptr
+        && return this->groupId_ == nullptr && return this->keywordCompatible_ == nullptr && return this->lang_ == nullptr && return this->matchType_ == nullptr && return this->name_ == nullptr
+        && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr && return this->riskLevelId_ == nullptr && return this->ruleType_ == nullptr
+        && return this->simplify_ == nullptr && return this->status_ == nullptr && return this->supportForm_ == nullptr && return this->warnLevel_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};

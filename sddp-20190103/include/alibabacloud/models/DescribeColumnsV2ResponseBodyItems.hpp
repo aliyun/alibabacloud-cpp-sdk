@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->creationTime_ != nullptr
-        && this->dataType_ != nullptr && this->engineType_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->instanceName_ != nullptr
-        && this->maskingStatus_ != nullptr && this->modelTags_ != nullptr && this->name_ != nullptr && this->odpsRiskLevelName_ != nullptr && this->odpsRiskLevelValue_ != nullptr
-        && this->productCode_ != nullptr && this->productId_ != nullptr && this->regionId_ != nullptr && this->revisionId_ != nullptr && this->revisionStatus_ != nullptr
-        && this->riskLevelId_ != nullptr && this->riskLevelName_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->sensLevelName_ != nullptr
-        && this->sensitive_ != nullptr && this->tableId_ != nullptr && this->tableName_ != nullptr; };
+    virtual bool empty() const override { return this->creationTime_ == nullptr
+        && return this->dataType_ == nullptr && return this->engineType_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->maskingStatus_ == nullptr && return this->modelTags_ == nullptr && return this->name_ == nullptr && return this->odpsRiskLevelName_ == nullptr && return this->odpsRiskLevelValue_ == nullptr
+        && return this->productCode_ == nullptr && return this->productId_ == nullptr && return this->regionId_ == nullptr && return this->revisionId_ == nullptr && return this->revisionStatus_ == nullptr
+        && return this->riskLevelId_ == nullptr && return this->riskLevelName_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->sensLevelName_ == nullptr
+        && return this->sensitive_ == nullptr && return this->tableId_ == nullptr && return this->tableName_ == nullptr; };
     // creationTime Field Functions 
     bool hasCreationTime() const { return this->creationTime_ != nullptr;};
     void deleteCreationTime() { this->creationTime_ = nullptr;};

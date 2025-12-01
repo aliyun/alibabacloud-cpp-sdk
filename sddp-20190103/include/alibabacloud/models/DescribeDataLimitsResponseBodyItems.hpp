@@ -110,15 +110,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->auditStatus_ != nullptr
-        && this->autoScan_ != nullptr && this->checkStatus_ != nullptr && this->checkStatusName_ != nullptr && this->datamaskStatus_ != nullptr && this->dbVersion_ != nullptr
-        && this->enable_ != nullptr && this->engineType_ != nullptr && this->errorCode_ != nullptr && this->errorMessage_ != nullptr && this->eventStatus_ != nullptr
-        && this->gmtCreate_ != nullptr && this->id_ != nullptr && this->instanceDescription_ != nullptr && this->instanceId_ != nullptr && this->lastFinishedTime_ != nullptr
-        && this->lastStartTime_ != nullptr && this->localName_ != nullptr && this->logStoreDay_ != nullptr && this->memberAccount_ != nullptr && this->nextStartTime_ != nullptr
-        && this->ocrStatus_ != nullptr && this->parentId_ != nullptr && this->port_ != nullptr && this->processStatus_ != nullptr && this->processTotalCount_ != nullptr
-        && this->regionId_ != nullptr && this->resourceType_ != nullptr && this->resourceTypeCode_ != nullptr && this->samplingSize_ != nullptr && this->securityGroupIdList_ != nullptr
-        && this->supportAudit_ != nullptr && this->supportDatamask_ != nullptr && this->supportEvent_ != nullptr && this->supportOcr_ != nullptr && this->supportScan_ != nullptr
-        && this->tenantName_ != nullptr && this->totalCount_ != nullptr && this->userName_ != nullptr && this->vSwitchIdList_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && return this->autoScan_ == nullptr && return this->checkStatus_ == nullptr && return this->checkStatusName_ == nullptr && return this->datamaskStatus_ == nullptr && return this->dbVersion_ == nullptr
+        && return this->enable_ == nullptr && return this->engineType_ == nullptr && return this->errorCode_ == nullptr && return this->errorMessage_ == nullptr && return this->eventStatus_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->id_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->lastFinishedTime_ == nullptr
+        && return this->lastStartTime_ == nullptr && return this->localName_ == nullptr && return this->logStoreDay_ == nullptr && return this->memberAccount_ == nullptr && return this->nextStartTime_ == nullptr
+        && return this->ocrStatus_ == nullptr && return this->parentId_ == nullptr && return this->port_ == nullptr && return this->processStatus_ == nullptr && return this->processTotalCount_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceTypeCode_ == nullptr && return this->samplingSize_ == nullptr && return this->securityGroupIdList_ == nullptr
+        && return this->supportAudit_ == nullptr && return this->supportDatamask_ == nullptr && return this->supportEvent_ == nullptr && return this->supportOcr_ == nullptr && return this->supportScan_ == nullptr
+        && return this->tenantName_ == nullptr && return this->totalCount_ == nullptr && return this->userName_ == nullptr && return this->vSwitchIdList_ == nullptr && return this->vpcId_ == nullptr; };
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};

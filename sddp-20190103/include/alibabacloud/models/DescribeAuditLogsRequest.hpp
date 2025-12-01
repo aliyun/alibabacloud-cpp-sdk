@@ -81,13 +81,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asyncRequestId_ != nullptr
-        && this->clientIp_ != nullptr && this->clientUa_ != nullptr && this->currentPage_ != nullptr && this->databaseName_ != nullptr && this->effectRowRange_ != nullptr
-        && this->endTime_ != nullptr && this->executeTimeRange_ != nullptr && this->instanceName_ != nullptr && this->ipType_ != nullptr && this->lang_ != nullptr
-        && this->loadWhiteList_ != nullptr && this->logSource_ != nullptr && this->memberAccount_ != nullptr && this->message_ != nullptr && this->operateType_ != nullptr
-        && this->ossObjectKey_ != nullptr && this->pageSize_ != nullptr && this->productCode_ != nullptr && this->productId_ != nullptr && this->ruleAggQuery_ != nullptr
-        && this->ruleCategory_ != nullptr && this->ruleID_ != nullptr && this->ruleName_ != nullptr && this->sqlText_ != nullptr && this->startTime_ != nullptr
-        && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->asyncRequestId_ == nullptr
+        && return this->clientIp_ == nullptr && return this->clientUa_ == nullptr && return this->currentPage_ == nullptr && return this->databaseName_ == nullptr && return this->effectRowRange_ == nullptr
+        && return this->endTime_ == nullptr && return this->executeTimeRange_ == nullptr && return this->instanceName_ == nullptr && return this->ipType_ == nullptr && return this->lang_ == nullptr
+        && return this->loadWhiteList_ == nullptr && return this->logSource_ == nullptr && return this->memberAccount_ == nullptr && return this->message_ == nullptr && return this->operateType_ == nullptr
+        && return this->ossObjectKey_ == nullptr && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr && return this->ruleAggQuery_ == nullptr
+        && return this->ruleCategory_ == nullptr && return this->ruleID_ == nullptr && return this->ruleName_ == nullptr && return this->sqlText_ == nullptr && return this->startTime_ == nullptr
+        && return this->userName_ == nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};

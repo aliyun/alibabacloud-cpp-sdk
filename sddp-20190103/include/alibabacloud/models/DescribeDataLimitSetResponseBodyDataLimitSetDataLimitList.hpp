@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkStatus_ != nullptr
-        && this->checkStatusName_ != nullptr && this->connector_ != nullptr && this->gmtCreate_ != nullptr && this->id_ != nullptr && this->localName_ != nullptr
-        && this->parentId_ != nullptr && this->regionId_ != nullptr && this->resourceType_ != nullptr && this->resourceTypeCode_ != nullptr && this->userName_ != nullptr; };
+    virtual bool empty() const override { return this->checkStatus_ == nullptr
+        && return this->checkStatusName_ == nullptr && return this->connector_ == nullptr && return this->gmtCreate_ == nullptr && return this->id_ == nullptr && return this->localName_ == nullptr
+        && return this->parentId_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->resourceTypeCode_ == nullptr && return this->userName_ == nullptr; };
     // checkStatus Field Functions 
     bool hasCheckStatus() const { return this->checkStatus_ != nullptr;};
     void deleteCheckStatus() { this->checkStatus_ = nullptr;};

@@ -43,8 +43,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataLimitList_ != nullptr
-        && this->ossBucketList_ != nullptr && this->regionList_ != nullptr && this->resourceType_ != nullptr && this->resourceTypeCode_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->dataLimitList_ == nullptr
+        && return this->ossBucketList_ == nullptr && return this->regionList_ == nullptr && return this->resourceType_ == nullptr && return this->resourceTypeCode_ == nullptr && return this->totalCount_ == nullptr; };
     // dataLimitList Field Functions 
     bool hasDataLimitList() const { return this->dataLimitList_ != nullptr;};
     void deleteDataLimitList() { this->dataLimitList_ = nullptr;};
