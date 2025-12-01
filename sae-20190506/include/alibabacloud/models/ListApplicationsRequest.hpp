@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FieldValue, fieldValue_);
       DARABONBA_PTR_TO_JSON(IsStateful, isStateful_);
       DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
+      DARABONBA_PTR_TO_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Reverse, reverse_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FieldValue, fieldValue_);
       DARABONBA_PTR_FROM_JSON(IsStateful, isStateful_);
       DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
+      DARABONBA_PTR_FROM_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Reverse, reverse_);
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && return this->appSource_ == nullptr && return this->currentPage_ == nullptr && return this->fieldType_ == nullptr && return this->fieldValue_ == nullptr && return this->isStateful_ == nullptr
-        && return this->namespaceId_ == nullptr && return this->orderBy_ == nullptr && return this->pageSize_ == nullptr && return this->reverse_ == nullptr && return this->tags_ == nullptr; };
+        && return this->namespaceId_ == nullptr && return this->newSaeVersion_ == nullptr && return this->orderBy_ == nullptr && return this->pageSize_ == nullptr && return this->reverse_ == nullptr
+        && return this->tags_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -99,6 +102,13 @@ namespace Models
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
     inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline ListApplicationsRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
+
+
+    // newSaeVersion Field Functions 
+    bool hasNewSaeVersion() const { return this->newSaeVersion_ != nullptr;};
+    void deleteNewSaeVersion() { this->newSaeVersion_ = nullptr;};
+    inline string newSaeVersion() const { DARABONBA_PTR_GET_DEFAULT(newSaeVersion_, "") };
+    inline ListApplicationsRequest& setNewSaeVersion(string newSaeVersion) { DARABONBA_PTR_SET_VALUE(newSaeVersion_, newSaeVersion) };
 
 
     // orderBy Field Functions 
@@ -152,6 +162,7 @@ namespace Models
     std::shared_ptr<string> isStateful_ = nullptr;
     // The namespace ID.
     std::shared_ptr<string> namespaceId_ = nullptr;
+    std::shared_ptr<string> newSaeVersion_ = nullptr;
     // Specifies how applications are sorted. Valid values:
     // 
     // *   **running**: The applications are sorted based on the number of running instances.

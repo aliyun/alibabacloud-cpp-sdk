@@ -5814,6 +5814,10 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
     query["NamespaceId"] = request.namespaceId();
   }
 
+  if (!!request.hasNewSaeVersion()) {
+    query["NewSaeVersion"] = request.newSaeVersion();
+  }
+
   if (!!request.hasOrderBy()) {
     query["OrderBy"] = request.orderBy();
   }

@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PackageVersion, packageVersion_);
       DARABONBA_PTR_TO_JSON(SidecarContainersStatus, sidecarContainersStatus_);
       DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_TO_JSON(TrafficStatus, trafficStatus_);
       DARABONBA_PTR_TO_JSON(UnhealthyMessage, unhealthyMessage_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
     };
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PackageVersion, packageVersion_);
       DARABONBA_PTR_FROM_JSON(SidecarContainersStatus, sidecarContainersStatus_);
       DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
+      DARABONBA_PTR_FROM_JSON(TrafficStatus, trafficStatus_);
       DARABONBA_PTR_FROM_JSON(UnhealthyMessage, unhealthyMessage_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
     };
@@ -66,8 +68,8 @@ namespace Models
     virtual bool empty() const override { return this->createTimeStamp_ == nullptr
         && return this->debugStatus_ == nullptr && return this->eip_ == nullptr && return this->finishTimeStamp_ == nullptr && return this->groupId_ == nullptr && return this->imageUrl_ == nullptr
         && return this->instanceContainerIp_ == nullptr && return this->instanceContainerRestarts_ == nullptr && return this->instanceContainerStatus_ == nullptr && return this->instanceHealthStatus_ == nullptr && return this->instanceId_ == nullptr
-        && return this->mainContainerStatus_ == nullptr && return this->packageVersion_ == nullptr && return this->sidecarContainersStatus_ == nullptr && return this->timestamp_ == nullptr && return this->unhealthyMessage_ == nullptr
-        && return this->vSwitchId_ == nullptr; };
+        && return this->mainContainerStatus_ == nullptr && return this->packageVersion_ == nullptr && return this->sidecarContainersStatus_ == nullptr && return this->timestamp_ == nullptr && return this->trafficStatus_ == nullptr
+        && return this->unhealthyMessage_ == nullptr && return this->vSwitchId_ == nullptr; };
     // createTimeStamp Field Functions 
     bool hasCreateTimeStamp() const { return this->createTimeStamp_ != nullptr;};
     void deleteCreateTimeStamp() { this->createTimeStamp_ = nullptr;};
@@ -175,6 +177,13 @@ namespace Models
     inline DescribeApplicationInstancesResponseBodyDataInstances& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
 
 
+    // trafficStatus Field Functions 
+    bool hasTrafficStatus() const { return this->trafficStatus_ != nullptr;};
+    void deleteTrafficStatus() { this->trafficStatus_ = nullptr;};
+    inline string trafficStatus() const { DARABONBA_PTR_GET_DEFAULT(trafficStatus_, "") };
+    inline DescribeApplicationInstancesResponseBodyDataInstances& setTrafficStatus(string trafficStatus) { DARABONBA_PTR_SET_VALUE(trafficStatus_, trafficStatus) };
+
+
     // unhealthyMessage Field Functions 
     bool hasUnhealthyMessage() const { return this->unhealthyMessage_ != nullptr;};
     void deleteUnhealthyMessage() { this->unhealthyMessage_ = nullptr;};
@@ -241,6 +250,7 @@ namespace Models
     // The status of the sidecar container.
     std::shared_ptr<vector<Models::DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus>> sidecarContainersStatus_ = nullptr;
     std::shared_ptr<int64_t> timestamp_ = nullptr;
+    std::shared_ptr<string> trafficStatus_ = nullptr;
     // If the health check of an application instance fails, the detailed failure cause or error message is returned. If the health check of an application instance passes, no response is returned.
     std::shared_ptr<string> unhealthyMessage_ = nullptr;
     // The ID of the zone where the instance is deployed.
