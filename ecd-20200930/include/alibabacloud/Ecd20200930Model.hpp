@@ -54,6 +54,9 @@
 #include <alibabacloud/models/AttachEndUserRequest.hpp>
 #include <alibabacloud/models/AttachEndUserResponseBody.hpp>
 #include <alibabacloud/models/AttachEndUserResponse.hpp>
+#include <alibabacloud/models/BatchModifyEntitlementRequest.hpp>
+#include <alibabacloud/models/BatchModifyEntitlementResponseBody.hpp>
+#include <alibabacloud/models/BatchModifyEntitlementResponse.hpp>
 #include <alibabacloud/models/BindConfigGroupRequest.hpp>
 #include <alibabacloud/models/BindConfigGroupResponseBody.hpp>
 #include <alibabacloud/models/BindConfigGroupResponse.hpp>
@@ -824,6 +827,8 @@
 #include <alibabacloud/models/AddFilePermissionRequestMemberList.hpp>
 #include <alibabacloud/models/ApplyCoordinationForMonitoringRequestResourceCandidates.hpp>
 #include <alibabacloud/models/ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels.hpp>
+#include <alibabacloud/models/BatchModifyEntitlementResponseBodyEntitlementsAssignModels.hpp>
+#include <alibabacloud/models/BatchModifyEntitlementResponseBodyEntitlements.hpp>
 #include <alibabacloud/models/BindConfigGroupRequestResourceInfos.hpp>
 #include <alibabacloud/models/CopyCdsFileResponseBodyCopyCdsFileModel.hpp>
 #include <alibabacloud/models/CreateAdConnectorDirectoryResponseBodyAdConnectors.hpp>

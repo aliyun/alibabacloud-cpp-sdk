@@ -966,6 +966,68 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
 }
 
 /**
+ * @param request BatchModifyEntitlementRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchModifyEntitlementResponse
+ */
+BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const BatchModifyEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.desktopId();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.endUserId();
+  }
+
+  if (!!request.hasMaxDesktopPerUser()) {
+    query["MaxDesktopPerUser"] = request.maxDesktopPerUser();
+  }
+
+  if (!!request.hasMaxUserPerDesktop()) {
+    query["MaxUserPerDesktop"] = request.maxUserPerDesktop();
+  }
+
+  if (!!request.hasPreview()) {
+    query["Preview"] = request.preview();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStrategy()) {
+    query["Strategy"] = request.strategy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchModifyEntitlement"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchModifyEntitlementResponse>();
+}
+
+/**
+ * @param request BatchModifyEntitlementRequest
+ * @return BatchModifyEntitlementResponse
+ */
+BatchModifyEntitlementResponse Client::batchModifyEntitlement(const BatchModifyEntitlementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchModifyEntitlementWithOptions(request, runtime);
+}
+
+/**
  * @summary Binds a configuration group to resources.
  *
  * @param request BindConfigGroupRequest
@@ -2359,6 +2421,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["ClientControlMenu"] = request.clientControlMenu();
   }
 
+  if (!!request.hasClientCreateSnapshot()) {
+    query["ClientCreateSnapshot"] = request.clientCreateSnapshot();
+  }
+
   if (!!request.hasClientType()) {
     query["ClientType"] = request.clientType();
   }
@@ -2777,6 +2843,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasWatermarkSecurity()) {
     query["WatermarkSecurity"] = request.watermarkSecurity();
+  }
+
+  if (!!request.hasWatermarkShadow()) {
+    query["WatermarkShadow"] = request.watermarkShadow();
   }
 
   if (!!request.hasWatermarkTransparencyValue()) {
@@ -5034,6 +5104,10 @@ CreateSubnetResponse Client::createSubnet(const CreateSubnetRequest &request) {
 /**
  * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
  *
+ * @description When you call this operation, take note of the following item:
+ * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+ * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+ *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateTemplateResponse
@@ -5152,6 +5226,10 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 
 /**
  * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+ *
+ * @description When you call this operation, take note of the following item:
+ * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+ * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -12808,7 +12886,7 @@ ListFilePermissionResponse Client::listFilePermission(const ListFilePermissionRe
 }
 
 /**
- * @summary 查询桌面内安装的应用
+ * @summary Queries applications installed on a cloud computer.
  *
  * @param request ListInstalledAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12847,7 +12925,7 @@ ListInstalledAppsResponse Client::listInstalledAppsWithOptions(const ListInstall
 }
 
 /**
- * @summary 查询桌面内安装的应用
+ * @summary Queries applications installed on a cloud computer.
  *
  * @param request ListInstalledAppsRequest
  * @return ListInstalledAppsResponse
@@ -13909,6 +13987,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["ClientControlMenu"] = request.clientControlMenu();
   }
 
+  if (!!request.hasClientCreateSnapshot()) {
+    query["ClientCreateSnapshot"] = request.clientCreateSnapshot();
+  }
+
   if (!!request.hasClientType()) {
     query["ClientType"] = request.clientType();
   }
@@ -14339,6 +14421,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasWatermarkSecurity()) {
     query["WatermarkSecurity"] = request.watermarkSecurity();
+  }
+
+  if (!!request.hasWatermarkShadow()) {
+    query["WatermarkShadow"] = request.watermarkShadow();
   }
 
   if (!!request.hasWatermarkTransparencyValue()) {

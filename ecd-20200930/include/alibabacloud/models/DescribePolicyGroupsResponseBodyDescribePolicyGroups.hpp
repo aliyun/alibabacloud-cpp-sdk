@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoReconnect, autoReconnect_);
       DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
       DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
+      DARABONBA_PTR_TO_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
       DARABONBA_PTR_TO_JSON(ClientTypes, clientTypes_);
       DARABONBA_PTR_TO_JSON(Clipboard, clipboard_);
       DARABONBA_PTR_TO_JSON(ColorEnhancement, colorEnhancement_);
@@ -137,6 +138,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WatermarkPower, watermarkPower_);
       DARABONBA_PTR_TO_JSON(WatermarkRowAmount, watermarkRowAmount_);
       DARABONBA_PTR_TO_JSON(WatermarkSecurity, watermarkSecurity_);
+      DARABONBA_PTR_TO_JSON(WatermarkShadow, watermarkShadow_);
       DARABONBA_PTR_TO_JSON(WatermarkTransparency, watermarkTransparency_);
       DARABONBA_PTR_TO_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
       DARABONBA_PTR_TO_JSON(WatermarkType, watermarkType_);
@@ -151,6 +153,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoReconnect, autoReconnect_);
       DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
       DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
+      DARABONBA_PTR_FROM_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
       DARABONBA_PTR_FROM_JSON(ClientTypes, clientTypes_);
       DARABONBA_PTR_FROM_JSON(Clipboard, clipboard_);
       DARABONBA_PTR_FROM_JSON(ColorEnhancement, colorEnhancement_);
@@ -258,6 +261,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(WatermarkPower, watermarkPower_);
       DARABONBA_PTR_FROM_JSON(WatermarkRowAmount, watermarkRowAmount_);
       DARABONBA_PTR_FROM_JSON(WatermarkSecurity, watermarkSecurity_);
+      DARABONBA_PTR_FROM_JSON(WatermarkShadow, watermarkShadow_);
       DARABONBA_PTR_FROM_JSON(WatermarkTransparency, watermarkTransparency_);
       DARABONBA_PTR_FROM_JSON(WatermarkTransparencyValue, watermarkTransparencyValue_);
       DARABONBA_PTR_FROM_JSON(WatermarkType, watermarkType_);
@@ -277,29 +281,29 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminAccess_ == nullptr
         && return this->appContentProtection_ == nullptr && return this->authorizeAccessPolicyRules_ == nullptr && return this->authorizeSecurityPolicyRules_ == nullptr && return this->autoReconnect_ == nullptr && return this->cameraRedirect_ == nullptr
-        && return this->clientControlMenu_ == nullptr && return this->clientTypes_ == nullptr && return this->clipboard_ == nullptr && return this->colorEnhancement_ == nullptr && return this->cpdDriveClipboard_ == nullptr
-        && return this->cpuDownGradeDuration_ == nullptr && return this->cpuProcessors_ == nullptr && return this->cpuProtectedMode_ == nullptr && return this->cpuRateLimit_ == nullptr && return this->cpuSampleDuration_ == nullptr
-        && return this->cpuSingleRateLimit_ == nullptr && return this->desktopCount_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->deviceConnectHint_ == nullptr && return this->deviceRedirects_ == nullptr
-        && return this->deviceRules_ == nullptr && return this->displayMode_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr && return this->domainResolveRuleType_ == nullptr
-        && return this->edsCount_ == nullptr && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->externalDrive_ == nullptr && return this->fileMigrate_ == nullptr
-        && return this->fileTransfer_ == nullptr && return this->fileTransferAddress_ == nullptr && return this->fileTransferSpeed_ == nullptr && return this->fileTransferSpeedLocation_ == nullptr && return this->gpuAcceleration_ == nullptr
-        && return this->html5Access_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->internetPrinter_ == nullptr && return this->localDrive_ == nullptr
-        && return this->maxReconnectTime_ == nullptr && return this->memoryDownGradeDuration_ == nullptr && return this->memoryProcessors_ == nullptr && return this->memoryProtectedMode_ == nullptr && return this->memoryRateLimit_ == nullptr
-        && return this->memorySampleDuration_ == nullptr && return this->memorySingleRateLimit_ == nullptr && return this->mobileRestart_ == nullptr && return this->mobileSafeMenu_ == nullptr && return this->mobileShutdown_ == nullptr
-        && return this->mobileWuyingKeeper_ == nullptr && return this->mobileWyAssistant_ == nullptr && return this->name_ == nullptr && return this->netRedirect_ == nullptr && return this->netRedirectRule_ == nullptr
-        && return this->policyGroupId_ == nullptr && return this->policyGroupType_ == nullptr && return this->policyStatus_ == nullptr && return this->preemptLogin_ == nullptr && return this->preemptLoginUsers_ == nullptr
-        && return this->printerRedirection_ == nullptr && return this->qualityEnhancement_ == nullptr && return this->recordContent_ == nullptr && return this->recordContentExpires_ == nullptr && return this->recordEventDuration_ == nullptr
-        && return this->recordEventFileExts_ == nullptr && return this->recordEventFilePaths_ == nullptr && return this->recordEventLevels_ == nullptr && return this->recordEventRegisters_ == nullptr && return this->recording_ == nullptr
-        && return this->recordingAudio_ == nullptr && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr && return this->recordingExpires_ == nullptr && return this->recordingFps_ == nullptr
-        && return this->recordingStartTime_ == nullptr && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr && return this->remoteCoordinate_ == nullptr && return this->resetDesktop_ == nullptr
-        && return this->resolutionHeight_ == nullptr && return this->resolutionModel_ == nullptr && return this->resolutionWidth_ == nullptr && return this->resourceGroupCount_ == nullptr && return this->resourceRegionId_ == nullptr
-        && return this->safeMenu_ == nullptr && return this->scope_ == nullptr && return this->scopeValue_ == nullptr && return this->screenDisplayMode_ == nullptr && return this->smoothEnhancement_ == nullptr
-        && return this->statusMonitor_ == nullptr && return this->streamingMode_ == nullptr && return this->targetFps_ == nullptr && return this->usbRedirect_ == nullptr && return this->usbSupplyRedirectRule_ == nullptr
-        && return this->useTime_ == nullptr && return this->videoEncAvgKbps_ == nullptr && return this->videoEncMaxQP_ == nullptr && return this->videoEncMinQP_ == nullptr && return this->videoEncPeakKbps_ == nullptr
-        && return this->videoEncPolicy_ == nullptr && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr && return this->watermark_ == nullptr && return this->watermarkAntiCam_ == nullptr
-        && return this->watermarkColor_ == nullptr && return this->watermarkCustomText_ == nullptr && return this->watermarkDegree_ == nullptr && return this->watermarkFontSize_ == nullptr && return this->watermarkFontStyle_ == nullptr
-        && return this->watermarkPower_ == nullptr && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr
-        && return this->watermarkType_ == nullptr && return this->wuyingKeeper_ == nullptr && return this->wyAssistant_ == nullptr; };
+        && return this->clientControlMenu_ == nullptr && return this->clientCreateSnapshot_ == nullptr && return this->clientTypes_ == nullptr && return this->clipboard_ == nullptr && return this->colorEnhancement_ == nullptr
+        && return this->cpdDriveClipboard_ == nullptr && return this->cpuDownGradeDuration_ == nullptr && return this->cpuProcessors_ == nullptr && return this->cpuProtectedMode_ == nullptr && return this->cpuRateLimit_ == nullptr
+        && return this->cpuSampleDuration_ == nullptr && return this->cpuSingleRateLimit_ == nullptr && return this->desktopCount_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->deviceConnectHint_ == nullptr
+        && return this->deviceRedirects_ == nullptr && return this->deviceRules_ == nullptr && return this->displayMode_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr
+        && return this->domainResolveRuleType_ == nullptr && return this->edsCount_ == nullptr && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->externalDrive_ == nullptr
+        && return this->fileMigrate_ == nullptr && return this->fileTransfer_ == nullptr && return this->fileTransferAddress_ == nullptr && return this->fileTransferSpeed_ == nullptr && return this->fileTransferSpeedLocation_ == nullptr
+        && return this->gpuAcceleration_ == nullptr && return this->html5Access_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->internetPrinter_ == nullptr
+        && return this->localDrive_ == nullptr && return this->maxReconnectTime_ == nullptr && return this->memoryDownGradeDuration_ == nullptr && return this->memoryProcessors_ == nullptr && return this->memoryProtectedMode_ == nullptr
+        && return this->memoryRateLimit_ == nullptr && return this->memorySampleDuration_ == nullptr && return this->memorySingleRateLimit_ == nullptr && return this->mobileRestart_ == nullptr && return this->mobileSafeMenu_ == nullptr
+        && return this->mobileShutdown_ == nullptr && return this->mobileWuyingKeeper_ == nullptr && return this->mobileWyAssistant_ == nullptr && return this->name_ == nullptr && return this->netRedirect_ == nullptr
+        && return this->netRedirectRule_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupType_ == nullptr && return this->policyStatus_ == nullptr && return this->preemptLogin_ == nullptr
+        && return this->preemptLoginUsers_ == nullptr && return this->printerRedirection_ == nullptr && return this->qualityEnhancement_ == nullptr && return this->recordContent_ == nullptr && return this->recordContentExpires_ == nullptr
+        && return this->recordEventDuration_ == nullptr && return this->recordEventFileExts_ == nullptr && return this->recordEventFilePaths_ == nullptr && return this->recordEventLevels_ == nullptr && return this->recordEventRegisters_ == nullptr
+        && return this->recording_ == nullptr && return this->recordingAudio_ == nullptr && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr && return this->recordingExpires_ == nullptr
+        && return this->recordingFps_ == nullptr && return this->recordingStartTime_ == nullptr && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr && return this->remoteCoordinate_ == nullptr
+        && return this->resetDesktop_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionModel_ == nullptr && return this->resolutionWidth_ == nullptr && return this->resourceGroupCount_ == nullptr
+        && return this->resourceRegionId_ == nullptr && return this->safeMenu_ == nullptr && return this->scope_ == nullptr && return this->scopeValue_ == nullptr && return this->screenDisplayMode_ == nullptr
+        && return this->smoothEnhancement_ == nullptr && return this->statusMonitor_ == nullptr && return this->streamingMode_ == nullptr && return this->targetFps_ == nullptr && return this->usbRedirect_ == nullptr
+        && return this->usbSupplyRedirectRule_ == nullptr && return this->useTime_ == nullptr && return this->videoEncAvgKbps_ == nullptr && return this->videoEncMaxQP_ == nullptr && return this->videoEncMinQP_ == nullptr
+        && return this->videoEncPeakKbps_ == nullptr && return this->videoEncPolicy_ == nullptr && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr && return this->watermark_ == nullptr
+        && return this->watermarkAntiCam_ == nullptr && return this->watermarkColor_ == nullptr && return this->watermarkCustomText_ == nullptr && return this->watermarkDegree_ == nullptr && return this->watermarkFontSize_ == nullptr
+        && return this->watermarkFontStyle_ == nullptr && return this->watermarkPower_ == nullptr && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr && return this->watermarkShadow_ == nullptr
+        && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkType_ == nullptr && return this->wuyingKeeper_ == nullptr && return this->wyAssistant_ == nullptr; };
     // adminAccess Field Functions 
     bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
     void deleteAdminAccess() { this->adminAccess_ = nullptr;};
@@ -351,6 +355,13 @@ namespace Models
     void deleteClientControlMenu() { this->clientControlMenu_ = nullptr;};
     inline string clientControlMenu() const { DARABONBA_PTR_GET_DEFAULT(clientControlMenu_, "") };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setClientControlMenu(string clientControlMenu) { DARABONBA_PTR_SET_VALUE(clientControlMenu_, clientControlMenu) };
+
+
+    // clientCreateSnapshot Field Functions 
+    bool hasClientCreateSnapshot() const { return this->clientCreateSnapshot_ != nullptr;};
+    void deleteClientCreateSnapshot() { this->clientCreateSnapshot_ = nullptr;};
+    inline string clientCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(clientCreateSnapshot_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setClientCreateSnapshot(string clientCreateSnapshot) { DARABONBA_PTR_SET_VALUE(clientCreateSnapshot_, clientCreateSnapshot) };
 
 
     // clientTypes Field Functions 
@@ -1130,6 +1141,13 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setWatermarkSecurity(string watermarkSecurity) { DARABONBA_PTR_SET_VALUE(watermarkSecurity_, watermarkSecurity) };
 
 
+    // watermarkShadow Field Functions 
+    bool hasWatermarkShadow() const { return this->watermarkShadow_ != nullptr;};
+    void deleteWatermarkShadow() { this->watermarkShadow_ = nullptr;};
+    inline string watermarkShadow() const { DARABONBA_PTR_GET_DEFAULT(watermarkShadow_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setWatermarkShadow(string watermarkShadow) { DARABONBA_PTR_SET_VALUE(watermarkShadow_, watermarkShadow) };
+
+
     // watermarkTransparency Field Functions 
     bool hasWatermarkTransparency() const { return this->watermarkTransparency_ != nullptr;};
     void deleteWatermarkTransparency() { this->watermarkTransparency_ = nullptr;};
@@ -1191,6 +1209,7 @@ namespace Models
     // *   on (default)
     std::shared_ptr<string> cameraRedirect_ = nullptr;
     std::shared_ptr<string> clientControlMenu_ = nullptr;
+    std::shared_ptr<string> clientCreateSnapshot_ = nullptr;
     // The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes>> clientTypes_ = nullptr;
     // The permissions on the clipboard.
@@ -1632,6 +1651,7 @@ namespace Models
     // *   off
     // *   on
     std::shared_ptr<string> watermarkSecurity_ = nullptr;
+    std::shared_ptr<string> watermarkShadow_ = nullptr;
     // The watermark transparency.
     // 
     // Valid values:

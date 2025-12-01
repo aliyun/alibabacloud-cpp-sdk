@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The number of vCPUs.
     std::shared_ptr<int32_t> cpuCount_ = nullptr;
+    // The GPU memory information. This parameter is supported only by Graphics cloud computer types.
     std::shared_ptr<string> gpuSpec_ = nullptr;
+    // The memory size. Unit: MiB.
     std::shared_ptr<int64_t> memorySize_ = nullptr;
+    // The office network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the cloud computer type.
     std::shared_ptr<string> resourceInstanceType_ = nullptr;
+    // The snapshot policy ID.
     std::shared_ptr<string> snapshotPolicyId_ = nullptr;
+    // The subnet ID.
     std::shared_ptr<string> subnetId_ = nullptr;
+    // Indicates whether disk encryption is enabled.
     std::shared_ptr<bool> volumeEncryptionEnable_ = nullptr;
+    // The ID of the Key Management Service (KMS) key that is used to encrypt the disk.
     std::shared_ptr<string> volumeEncryptionKey_ = nullptr;
   };
 

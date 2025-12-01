@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The template ID.
     std::shared_ptr<string> data_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The creation result.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

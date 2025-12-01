@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The PL of the data disk. Default value: `AutoPL`.
     std::shared_ptr<string> performanceLevel_ = nullptr;
+    // The size of the data disk. Unit: GiB. Valid values: 40 to 2040. Increments: 10 GiB.
+    // 
+    // **
+    // 
+    // **Keep in mind** that the larger the ESSD disk capacity, the higher the available PL (for example, PL2 is available for disks larger than 460 GiB). A higher PL comes with a higher cost. Select an ESSD based on your specific needs.
     std::shared_ptr<int32_t> size_ = nullptr;
   };
 

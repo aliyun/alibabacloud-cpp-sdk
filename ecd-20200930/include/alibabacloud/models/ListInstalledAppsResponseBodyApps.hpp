@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the application.
     std::shared_ptr<string> appName_ = nullptr;
+    // The application version.
     std::shared_ptr<string> appVersion_ = nullptr;
   };
 

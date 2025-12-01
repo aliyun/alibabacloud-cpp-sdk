@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The cloud computer ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> desktopId_ = nullptr;
+    // The page number.\\
+    // Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.\\
+    // Default value: 20.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
   };
 

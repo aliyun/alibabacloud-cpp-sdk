@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
+      DARABONBA_PTR_TO_JSON(OfficeSiteType, officeSiteType_);
       DARABONBA_PTR_TO_JSON(OsType, osType_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
+      DARABONBA_PTR_FROM_JSON(OfficeSiteType, officeSiteType_);
       DARABONBA_PTR_FROM_JSON(OsType, osType_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
@@ -83,9 +85,9 @@ namespace Models
     virtual bool empty() const override { return this->connectionStatus_ == nullptr
         && return this->cpu_ == nullptr && return this->desktopGroupId_ == nullptr && return this->desktopGroupName_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr
         && return this->desktopStatus_ == nullptr && return this->endUserId_ == nullptr && return this->endUserIds_ == nullptr && return this->gpuSpec_ == nullptr && return this->latestConnectionTime_ == nullptr
-        && return this->memory_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->osType_ == nullptr && return this->platform_ == nullptr
-        && return this->protocolType_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroups_ == nullptr && return this->sessionIdleTime_ == nullptr && return this->sessions_ == nullptr
-        && return this->statusChangeTime_ == nullptr && return this->subPayType_ == nullptr && return this->totalConnectionTime_ == nullptr && return this->upTime_ == nullptr; };
+        && return this->memory_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteName_ == nullptr && return this->officeSiteType_ == nullptr && return this->osType_ == nullptr
+        && return this->platform_ == nullptr && return this->protocolType_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroups_ == nullptr && return this->sessionIdleTime_ == nullptr
+        && return this->sessions_ == nullptr && return this->statusChangeTime_ == nullptr && return this->subPayType_ == nullptr && return this->totalConnectionTime_ == nullptr && return this->upTime_ == nullptr; };
     // connectionStatus Field Functions 
     bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
     void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
@@ -184,6 +186,13 @@ namespace Models
     void deleteOfficeSiteName() { this->officeSiteName_ = nullptr;};
     inline string officeSiteName() const { DARABONBA_PTR_GET_DEFAULT(officeSiteName_, "") };
     inline DescribeGlobalDesktopRecordsResponseBodySessions& setOfficeSiteName(string officeSiteName) { DARABONBA_PTR_SET_VALUE(officeSiteName_, officeSiteName) };
+
+
+    // officeSiteType Field Functions 
+    bool hasOfficeSiteType() const { return this->officeSiteType_ != nullptr;};
+    void deleteOfficeSiteType() { this->officeSiteType_ = nullptr;};
+    inline string officeSiteType() const { DARABONBA_PTR_GET_DEFAULT(officeSiteType_, "") };
+    inline DescribeGlobalDesktopRecordsResponseBodySessions& setOfficeSiteType(string officeSiteType) { DARABONBA_PTR_SET_VALUE(officeSiteType_, officeSiteType) };
 
 
     // osType Field Functions 
@@ -296,6 +305,7 @@ namespace Models
     std::shared_ptr<string> officeSiteId_ = nullptr;
     // The office network name.
     std::shared_ptr<string> officeSiteName_ = nullptr;
+    std::shared_ptr<string> officeSiteType_ = nullptr;
     // The OS type. Valid values:
     // 
     // *   Windows

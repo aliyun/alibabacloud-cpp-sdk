@@ -325,6 +325,19 @@ namespace Ecd20200930
       Models::AttachEndUserResponse attachEndUser(const Models::AttachEndUserRequest &request);
 
       /**
+       * @param request BatchModifyEntitlementRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchModifyEntitlementResponse
+       */
+      Models::BatchModifyEntitlementResponse batchModifyEntitlementWithOptions(const Models::BatchModifyEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request BatchModifyEntitlementRequest
+       * @return BatchModifyEntitlementResponse
+       */
+      Models::BatchModifyEntitlementResponse batchModifyEntitlement(const Models::BatchModifyEntitlementRequest &request);
+
+      /**
        * @summary Binds a configuration group to resources.
        *
        * @param request BindConfigGroupRequest
@@ -1171,6 +1184,10 @@ namespace Ecd20200930
       /**
        * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
        *
+       * @description When you call this operation, take note of the following item:
+       * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+       * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+       *
        * @param request CreateTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateTemplateResponse
@@ -1179,6 +1196,10 @@ namespace Ecd20200930
 
       /**
        * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
+       *
+       * @description When you call this operation, take note of the following item:
+       * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+       * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -3359,7 +3380,7 @@ namespace Ecd20200930
       Models::ListFilePermissionResponse listFilePermission(const Models::ListFilePermissionRequest &request);
 
       /**
-       * @summary 查询桌面内安装的应用
+       * @summary Queries applications installed on a cloud computer.
        *
        * @param request ListInstalledAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3368,7 +3389,7 @@ namespace Ecd20200930
       Models::ListInstalledAppsResponse listInstalledAppsWithOptions(const Models::ListInstalledAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询桌面内安装的应用
+       * @summary Queries applications installed on a cloud computer.
        *
        * @param request ListInstalledAppsRequest
        * @return ListInstalledAppsResponse

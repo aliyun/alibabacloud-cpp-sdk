@@ -48,7 +48,15 @@ namespace Models
 
 
   protected:
+    // The PL of the data disk.
+    // 
+    // Valid values:
+    // 
+    // *   PL1: a PL1 ESSD.
+    // *   PL0: a PL0 ESSD.
+    // *   AutoPL: an AutoPL SSD.
     std::shared_ptr<string> performanceLevel_ = nullptr;
+    // The size of the data disk. Unit: GiB.
     std::shared_ptr<string> size_ = nullptr;
   };
 

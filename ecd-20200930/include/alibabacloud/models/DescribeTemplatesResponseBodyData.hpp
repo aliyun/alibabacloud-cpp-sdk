@@ -294,28 +294,77 @@ namespace Models
     std::shared_ptr<bool> autoPay_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
+    // The sizes of the data disks.
     std::shared_ptr<vector<Models::DescribeTemplatesResponseBodyDataDataDiskList>> dataDiskList_ = nullptr;
+    // The default language of the template.
+    // 
+    // Valid values:
+    // 
+    // *   en-US: English.
+    // *   zh-HK: Chinese, Traditional (Hong Kong, China).
+    // *   zh-CN: Simplified Chinese.
+    // *   ja-JP: Japanese.
     std::shared_ptr<string> defaultLanguage_ = nullptr;
+    // The template description.
     std::shared_ptr<string> description_ = nullptr;
+    // The time when the template was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
     std::shared_ptr<string> gmtCreate_ = nullptr;
+    // The time when the template was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
     std::shared_ptr<string> gmtModified_ = nullptr;
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The image type.
+    // 
+    // Valid values:
+    // 
+    // *   User: a custom image.
+    // *   Shared: a shared image.
+    // *   System: a system image.
+    // *   Community: a community image.
     std::shared_ptr<string> imageType_ = nullptr;
     std::shared_ptr<int32_t> period_ = nullptr;
     std::shared_ptr<string> periodUnit_ = nullptr;
+    // The policy ID.
     std::shared_ptr<string> policyGroupId_ = nullptr;
     std::shared_ptr<bool> postPaidAfterUsedUp_ = nullptr;
+    // The service type.
+    // 
+    // Valid value:
+    // 
+    // *   CloudDesktop: cloud computers.
     std::shared_ptr<string> productType_ = nullptr;
+    // The region-related settings.
     std::shared_ptr<vector<Models::DescribeTemplatesResponseBodyDataRegionConfigList>> regionConfigList_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The tags added to cloud computers. A tag is a key-value pair.
     std::shared_ptr<vector<Models::DescribeTemplatesResponseBodyDataResourceTagList>> resourceTagList_ = nullptr;
+    // 区域配置管理
     std::shared_ptr<vector<Models::DescribeTemplatesResponseBodyDataSiteConfigList>> siteConfigList_ = nullptr;
+    // The performance level (PL) of the system disk.
+    // 
+    // Valid value:
+    // 
+    // *   PL1: a PL1 Enterprise SSD (ESSD).
+    // *   PL0: a PL0 ESSD.
+    // *   AutoPL: an AutoPL SSD.
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
+    // The size of the system disk. Unit: GiB.
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    // The template ID.
     std::shared_ptr<string> templateId_ = nullptr;
+    // The template name.
     std::shared_ptr<string> templateName_ = nullptr;
+    // The template type.
+    // 
+    // Valid values:
+    // 
+    // *   USER_TEMPLATE: custom templates.
+    // *   SYSTEM_TEMPLATE: system templates.
     std::shared_ptr<string> templateType_ = nullptr;
+    // The ID of the scheduled task group.
     std::shared_ptr<string> timerGroupId_ = nullptr;
     std::shared_ptr<string> userDuration_ = nullptr;
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // 应用管控策略ID
     std::shared_ptr<string> appRuleId_ = nullptr;
+    // 站点ID。
     std::shared_ptr<string> siteId_ = nullptr;
   };
 

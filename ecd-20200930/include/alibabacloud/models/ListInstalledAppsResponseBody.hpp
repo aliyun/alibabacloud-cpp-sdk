@@ -61,8 +61,11 @@ namespace Models
 
 
   protected:
+    // The information about the application.
     std::shared_ptr<vector<ListInstalledAppsResponseBodyApps>> apps_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

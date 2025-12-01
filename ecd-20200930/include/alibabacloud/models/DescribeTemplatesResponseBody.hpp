@@ -116,15 +116,23 @@ namespace Models
 
 
   protected:
+    // The modification result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
     // The templates.
     std::shared_ptr<vector<DescribeTemplatesResponseBodyData>> data_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The error message returned. This parameter is not returned if the value of Code is `success`.
     std::shared_ptr<string> message_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
+    // The total number of templates.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

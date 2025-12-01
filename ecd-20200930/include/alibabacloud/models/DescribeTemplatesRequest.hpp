@@ -124,15 +124,34 @@ namespace Models
 
 
   protected:
+    // The region that you can use to filter templates.
+    // 
+    // >  If you specify this parameter, only templates that are created in the specified region are returned.
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    // >  This parameter is not publicly available.
     std::shared_ptr<string> bizType_ = nullptr;
+    // The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The keyword that you can use to search for the template. It can be the template ID or the template name. Fuzzy search is supported.
     std::shared_ptr<string> keyword_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The service type. Set the value to `CloudDesktop`.
+    // 
+    // *
     std::shared_ptr<string> productType_ = nullptr;
+    // The IDs of the templates that you want to query.
     std::shared_ptr<vector<string>> templateIds_ = nullptr;
+    // The name of the template. You can search for template by name.
     std::shared_ptr<string> templateName_ = nullptr;
+    // The type of the template that you want to query. If you leave this parameter empty, all types of templates are queried.
+    // 
+    // Valid values:
+    // 
+    // *   USER_TEMPLATE: custom templates.
+    // *   SYSTEM_TEMPLATE: system templates provided by Alibaba Cloud.
     std::shared_ptr<string> templateType_ = nullptr;
   };
 
