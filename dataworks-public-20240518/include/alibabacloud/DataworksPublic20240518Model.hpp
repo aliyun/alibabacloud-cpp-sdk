@@ -504,6 +504,7 @@
 #include <alibabacloud/models/ListDataQualityRulesResponseBody.hpp>
 #include <alibabacloud/models/ListDataQualityRulesResponse.hpp>
 #include <alibabacloud/models/ListDataQualityScanRunsRequest.hpp>
+#include <alibabacloud/models/ListDataQualityScanRunsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDataQualityScanRunsResponseBody.hpp>
 #include <alibabacloud/models/ListDataQualityScanRunsResponse.hpp>
 #include <alibabacloud/models/ListDataQualityScansRequest.hpp>

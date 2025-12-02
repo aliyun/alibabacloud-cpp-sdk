@@ -8344,12 +8344,18 @@ ListDataQualityRulesResponse Client::listDataQualityRules(const ListDataQualityR
  *
  * @description This API operation is available for all DataWorks editions.
  *
- * @param request ListDataQualityScanRunsRequest
+ * @param tmpReq ListDataQualityScanRunsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDataQualityScanRunsResponse
  */
-ListDataQualityScanRunsResponse Client::listDataQualityScanRunsWithOptions(const ListDataQualityScanRunsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListDataQualityScanRunsResponse Client::listDataQualityScanRunsWithOptions(const ListDataQualityScanRunsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDataQualityScanRunsShrinkRequest request = ListDataQualityScanRunsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+  }
+
   json query = {};
   if (!!request.hasCreateTimeFrom()) {
     query["CreateTimeFrom"] = request.createTimeFrom();
@@ -8361,6 +8367,10 @@ ListDataQualityScanRunsResponse Client::listDataQualityScanRunsWithOptions(const
 
   if (!!request.hasDataQualityScanId()) {
     query["DataQualityScanId"] = request.dataQualityScanId();
+  }
+
+  if (!!request.hasFilterShrink()) {
+    query["Filter"] = request.filterShrink();
   }
 
   if (!!request.hasPageNumber()) {

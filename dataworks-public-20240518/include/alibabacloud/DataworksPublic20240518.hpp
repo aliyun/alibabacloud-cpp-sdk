@@ -2939,11 +2939,11 @@ namespace DataworksPublic20240518
        *
        * @description This API operation is available for all DataWorks editions.
        *
-       * @param request ListDataQualityScanRunsRequest
+       * @param tmpReq ListDataQualityScanRunsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDataQualityScanRunsResponse
        */
-      Models::ListDataQualityScanRunsResponse listDataQualityScanRunsWithOptions(const Models::ListDataQualityScanRunsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListDataQualityScanRunsResponse listDataQualityScanRunsWithOptions(const Models::ListDataQualityScanRunsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the execution records of data quality scans in a project.
