@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_STARTRTCCLOUDRECORDINGSHRINKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_STARTRTCCLOUDRECORDINGSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MixLayoutParams, mixLayoutParamsShrink_);
       DARABONBA_PTR_TO_JSON(MixTranscodeParams, mixTranscodeParamsShrink_);
       DARABONBA_PTR_TO_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_TO_JSON(NotifyFileUploadedFormat, notifyFileUploadedFormat_);
       DARABONBA_PTR_TO_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_TO_JSON(RecordParams, recordParamsShrink_);
       DARABONBA_PTR_TO_JSON(StorageParams, storageParamsShrink_);
@@ -31,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MixLayoutParams, mixLayoutParamsShrink_);
       DARABONBA_PTR_FROM_JSON(MixTranscodeParams, mixTranscodeParamsShrink_);
       DARABONBA_PTR_FROM_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_FROM_JSON(NotifyFileUploadedFormat, notifyFileUploadedFormat_);
       DARABONBA_PTR_FROM_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_FROM_JSON(RecordParams, recordParamsShrink_);
       DARABONBA_PTR_FROM_JSON(StorageParams, storageParamsShrink_);
@@ -49,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->channelId_ == nullptr && return this->maxIdleTime_ == nullptr && return this->mixLayoutParamsShrink_ == nullptr && return this->mixTranscodeParamsShrink_ == nullptr && return this->notifyAuthKey_ == nullptr
-        && return this->notifyUrl_ == nullptr && return this->recordParamsShrink_ == nullptr && return this->storageParamsShrink_ == nullptr && return this->subscribeParamsShrink_ == nullptr; };
+        && return this->notifyFileUploadedFormat_ == nullptr && return this->notifyUrl_ == nullptr && return this->recordParamsShrink_ == nullptr && return this->storageParamsShrink_ == nullptr && return this->subscribeParamsShrink_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -92,6 +95,15 @@ namespace Models
     inline StartRtcCloudRecordingShrinkRequest& setNotifyAuthKey(string notifyAuthKey) { DARABONBA_PTR_SET_VALUE(notifyAuthKey_, notifyAuthKey) };
 
 
+    // notifyFileUploadedFormat Field Functions 
+    bool hasNotifyFileUploadedFormat() const { return this->notifyFileUploadedFormat_ != nullptr;};
+    void deleteNotifyFileUploadedFormat() { this->notifyFileUploadedFormat_ = nullptr;};
+    inline const vector<string> & notifyFileUploadedFormat() const { DARABONBA_PTR_GET_CONST(notifyFileUploadedFormat_, vector<string>) };
+    inline vector<string> notifyFileUploadedFormat() { DARABONBA_PTR_GET(notifyFileUploadedFormat_, vector<string>) };
+    inline StartRtcCloudRecordingShrinkRequest& setNotifyFileUploadedFormat(const vector<string> & notifyFileUploadedFormat) { DARABONBA_PTR_SET_VALUE(notifyFileUploadedFormat_, notifyFileUploadedFormat) };
+    inline StartRtcCloudRecordingShrinkRequest& setNotifyFileUploadedFormat(vector<string> && notifyFileUploadedFormat) { DARABONBA_PTR_SET_RVALUE(notifyFileUploadedFormat_, notifyFileUploadedFormat) };
+
+
     // notifyUrl Field Functions 
     bool hasNotifyUrl() const { return this->notifyUrl_ != nullptr;};
     void deleteNotifyUrl() { this->notifyUrl_ = nullptr;};
@@ -129,6 +141,7 @@ namespace Models
     std::shared_ptr<string> mixLayoutParamsShrink_ = nullptr;
     std::shared_ptr<string> mixTranscodeParamsShrink_ = nullptr;
     std::shared_ptr<string> notifyAuthKey_ = nullptr;
+    std::shared_ptr<vector<string>> notifyFileUploadedFormat_ = nullptr;
     std::shared_ptr<string> notifyUrl_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> recordParamsShrink_ = nullptr;

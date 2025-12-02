@@ -26710,6 +26710,10 @@ StartRtcCloudRecordingResponse Client::startRtcCloudRecordingWithOptions(const S
     query["NotifyAuthKey"] = request.notifyAuthKey();
   }
 
+  if (!!request.hasNotifyFileUploadedFormat()) {
+    query["NotifyFileUploadedFormat"] = request.notifyFileUploadedFormat();
+  }
+
   if (!!request.hasNotifyUrl()) {
     query["NotifyUrl"] = request.notifyUrl();
   }

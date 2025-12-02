@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/StartRtcCloudRecordingRequestMixLayoutParams.hpp>
 #include <alibabacloud/models/StartRtcCloudRecordingRequestMixTranscodeParams.hpp>
+#include <vector>
 #include <alibabacloud/models/StartRtcCloudRecordingRequestRecordParams.hpp>
 #include <alibabacloud/models/StartRtcCloudRecordingRequestStorageParams.hpp>
 #include <alibabacloud/models/StartRtcCloudRecordingRequestSubscribeParams.hpp>
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MixLayoutParams, mixLayoutParams_);
       DARABONBA_PTR_TO_JSON(MixTranscodeParams, mixTranscodeParams_);
       DARABONBA_PTR_TO_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_TO_JSON(NotifyFileUploadedFormat, notifyFileUploadedFormat_);
       DARABONBA_PTR_TO_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_TO_JSON(RecordParams, recordParams_);
       DARABONBA_PTR_TO_JSON(StorageParams, storageParams_);
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MixLayoutParams, mixLayoutParams_);
       DARABONBA_PTR_FROM_JSON(MixTranscodeParams, mixTranscodeParams_);
       DARABONBA_PTR_FROM_JSON(NotifyAuthKey, notifyAuthKey_);
+      DARABONBA_PTR_FROM_JSON(NotifyFileUploadedFormat, notifyFileUploadedFormat_);
       DARABONBA_PTR_FROM_JSON(NotifyUrl, notifyUrl_);
       DARABONBA_PTR_FROM_JSON(RecordParams, recordParams_);
       DARABONBA_PTR_FROM_JSON(StorageParams, storageParams_);
@@ -54,7 +57,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->channelId_ == nullptr && return this->maxIdleTime_ == nullptr && return this->mixLayoutParams_ == nullptr && return this->mixTranscodeParams_ == nullptr && return this->notifyAuthKey_ == nullptr
-        && return this->notifyUrl_ == nullptr && return this->recordParams_ == nullptr && return this->storageParams_ == nullptr && return this->subscribeParams_ == nullptr; };
+        && return this->notifyFileUploadedFormat_ == nullptr && return this->notifyUrl_ == nullptr && return this->recordParams_ == nullptr && return this->storageParams_ == nullptr && return this->subscribeParams_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -101,6 +104,15 @@ namespace Models
     inline StartRtcCloudRecordingRequest& setNotifyAuthKey(string notifyAuthKey) { DARABONBA_PTR_SET_VALUE(notifyAuthKey_, notifyAuthKey) };
 
 
+    // notifyFileUploadedFormat Field Functions 
+    bool hasNotifyFileUploadedFormat() const { return this->notifyFileUploadedFormat_ != nullptr;};
+    void deleteNotifyFileUploadedFormat() { this->notifyFileUploadedFormat_ = nullptr;};
+    inline const vector<string> & notifyFileUploadedFormat() const { DARABONBA_PTR_GET_CONST(notifyFileUploadedFormat_, vector<string>) };
+    inline vector<string> notifyFileUploadedFormat() { DARABONBA_PTR_GET(notifyFileUploadedFormat_, vector<string>) };
+    inline StartRtcCloudRecordingRequest& setNotifyFileUploadedFormat(const vector<string> & notifyFileUploadedFormat) { DARABONBA_PTR_SET_VALUE(notifyFileUploadedFormat_, notifyFileUploadedFormat) };
+    inline StartRtcCloudRecordingRequest& setNotifyFileUploadedFormat(vector<string> && notifyFileUploadedFormat) { DARABONBA_PTR_SET_RVALUE(notifyFileUploadedFormat_, notifyFileUploadedFormat) };
+
+
     // notifyUrl Field Functions 
     bool hasNotifyUrl() const { return this->notifyUrl_ != nullptr;};
     void deleteNotifyUrl() { this->notifyUrl_ = nullptr;};
@@ -144,6 +156,7 @@ namespace Models
     std::shared_ptr<StartRtcCloudRecordingRequestMixLayoutParams> mixLayoutParams_ = nullptr;
     std::shared_ptr<StartRtcCloudRecordingRequestMixTranscodeParams> mixTranscodeParams_ = nullptr;
     std::shared_ptr<string> notifyAuthKey_ = nullptr;
+    std::shared_ptr<vector<string>> notifyFileUploadedFormat_ = nullptr;
     std::shared_ptr<string> notifyUrl_ = nullptr;
     // This parameter is required.
     std::shared_ptr<StartRtcCloudRecordingRequestRecordParams> recordParams_ = nullptr;
