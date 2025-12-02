@@ -17,10 +17,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ChatWithDesensitizeSSERequest& obj) { 
       DARABONBA_PTR_TO_JSON(AudioJson, audioJson_);
       DARABONBA_PTR_TO_JSON(DesensitizationRule, desensitizationRule_);
+      DARABONBA_PTR_TO_JSON(Dimensions, dimensions_);
       DARABONBA_PTR_TO_JSON(EnableCodeInterpreter, enableCodeInterpreter_);
       DARABONBA_PTR_TO_JSON(EnableSearch, enableSearch_);
       DARABONBA_PTR_TO_JSON(EnableThinking, enableThinking_);
       DARABONBA_PTR_TO_JSON(IncludeUsage, includeUsage_);
+      DARABONBA_PTR_TO_JSON(Input, input_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Logprobs, logprobs_);
       DARABONBA_PTR_TO_JSON(MaxTokens, maxTokens_);
@@ -45,10 +47,12 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ChatWithDesensitizeSSERequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AudioJson, audioJson_);
       DARABONBA_PTR_FROM_JSON(DesensitizationRule, desensitizationRule_);
+      DARABONBA_PTR_FROM_JSON(Dimensions, dimensions_);
       DARABONBA_PTR_FROM_JSON(EnableCodeInterpreter, enableCodeInterpreter_);
       DARABONBA_PTR_FROM_JSON(EnableSearch, enableSearch_);
       DARABONBA_PTR_FROM_JSON(EnableThinking, enableThinking_);
       DARABONBA_PTR_FROM_JSON(IncludeUsage, includeUsage_);
+      DARABONBA_PTR_FROM_JSON(Input, input_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Logprobs, logprobs_);
       DARABONBA_PTR_FROM_JSON(MaxTokens, maxTokens_);
@@ -82,11 +86,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->audioJson_ == nullptr
-        && return this->desensitizationRule_ == nullptr && return this->enableCodeInterpreter_ == nullptr && return this->enableSearch_ == nullptr && return this->enableThinking_ == nullptr && return this->includeUsage_ == nullptr
-        && return this->instanceId_ == nullptr && return this->logprobs_ == nullptr && return this->maxTokens_ == nullptr && return this->messages_ == nullptr && return this->modalitiesList_ == nullptr
-        && return this->model_ == nullptr && return this->needDesensitization_ == nullptr && return this->presencePenalty_ == nullptr && return this->responseFormat_ == nullptr && return this->searchOptions_ == nullptr
-        && return this->seed_ == nullptr && return this->stop_ == nullptr && return this->stream_ == nullptr && return this->temperature_ == nullptr && return this->thinkingBudget_ == nullptr
-        && return this->topK_ == nullptr && return this->topLogprobs_ == nullptr && return this->topP_ == nullptr && return this->vlHighResolutionImages_ == nullptr && return this->XDashScopeDataInspection_ == nullptr; };
+        && return this->desensitizationRule_ == nullptr && return this->dimensions_ == nullptr && return this->enableCodeInterpreter_ == nullptr && return this->enableSearch_ == nullptr && return this->enableThinking_ == nullptr
+        && return this->includeUsage_ == nullptr && return this->input_ == nullptr && return this->instanceId_ == nullptr && return this->logprobs_ == nullptr && return this->maxTokens_ == nullptr
+        && return this->messages_ == nullptr && return this->modalitiesList_ == nullptr && return this->model_ == nullptr && return this->needDesensitization_ == nullptr && return this->presencePenalty_ == nullptr
+        && return this->responseFormat_ == nullptr && return this->searchOptions_ == nullptr && return this->seed_ == nullptr && return this->stop_ == nullptr && return this->stream_ == nullptr
+        && return this->temperature_ == nullptr && return this->thinkingBudget_ == nullptr && return this->topK_ == nullptr && return this->topLogprobs_ == nullptr && return this->topP_ == nullptr
+        && return this->vlHighResolutionImages_ == nullptr && return this->XDashScopeDataInspection_ == nullptr; };
     // audioJson Field Functions 
     bool hasAudioJson() const { return this->audioJson_ != nullptr;};
     void deleteAudioJson() { this->audioJson_ = nullptr;};
@@ -99,6 +104,13 @@ namespace Models
     void deleteDesensitizationRule() { this->desensitizationRule_ = nullptr;};
     inline string desensitizationRule() const { DARABONBA_PTR_GET_DEFAULT(desensitizationRule_, "") };
     inline ChatWithDesensitizeSSERequest& setDesensitizationRule(string desensitizationRule) { DARABONBA_PTR_SET_VALUE(desensitizationRule_, desensitizationRule) };
+
+
+    // dimensions Field Functions 
+    bool hasDimensions() const { return this->dimensions_ != nullptr;};
+    void deleteDimensions() { this->dimensions_ = nullptr;};
+    inline int32_t dimensions() const { DARABONBA_PTR_GET_DEFAULT(dimensions_, 0) };
+    inline ChatWithDesensitizeSSERequest& setDimensions(int32_t dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
 
 
     // enableCodeInterpreter Field Functions 
@@ -127,6 +139,13 @@ namespace Models
     void deleteIncludeUsage() { this->includeUsage_ = nullptr;};
     inline bool includeUsage() const { DARABONBA_PTR_GET_DEFAULT(includeUsage_, false) };
     inline ChatWithDesensitizeSSERequest& setIncludeUsage(bool includeUsage) { DARABONBA_PTR_SET_VALUE(includeUsage_, includeUsage) };
+
+
+    // input Field Functions 
+    bool hasInput() const { return this->input_ != nullptr;};
+    void deleteInput() { this->input_ = nullptr;};
+    inline string input() const { DARABONBA_PTR_GET_DEFAULT(input_, "") };
+    inline ChatWithDesensitizeSSERequest& setInput(string input) { DARABONBA_PTR_SET_VALUE(input_, input) };
 
 
     // instanceId Field Functions 
@@ -280,10 +299,12 @@ namespace Models
   protected:
     std::shared_ptr<string> audioJson_ = nullptr;
     std::shared_ptr<string> desensitizationRule_ = nullptr;
+    std::shared_ptr<int32_t> dimensions_ = nullptr;
     std::shared_ptr<bool> enableCodeInterpreter_ = nullptr;
     std::shared_ptr<bool> enableSearch_ = nullptr;
     std::shared_ptr<bool> enableThinking_ = nullptr;
     std::shared_ptr<bool> includeUsage_ = nullptr;
+    std::shared_ptr<string> input_ = nullptr;
     // This parameter is required.
     std::shared_ptr<int64_t> instanceId_ = nullptr;
     std::shared_ptr<bool> logprobs_ = nullptr;

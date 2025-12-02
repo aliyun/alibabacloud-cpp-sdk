@@ -43,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelId, modelId_);
       DARABONBA_PTR_TO_JSON(ModelOption, modelOption_);
       DARABONBA_PTR_TO_JSON(NatGatewayOption, natGatewayOption_);
+      DARABONBA_PTR_TO_JSON(OnlyIntranet, onlyIntranet_);
       DARABONBA_PTR_TO_JSON(OssPath, ossPath_);
       DARABONBA_PTR_TO_JSON(OssResourceId, ossResourceId_);
       DARABONBA_PTR_TO_JSON(PayPeriod, payPeriod_);
@@ -103,6 +104,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
       DARABONBA_PTR_FROM_JSON(ModelOption, modelOption_);
       DARABONBA_PTR_FROM_JSON(NatGatewayOption, natGatewayOption_);
+      DARABONBA_PTR_FROM_JSON(OnlyIntranet, onlyIntranet_);
       DARABONBA_PTR_FROM_JSON(OssPath, ossPath_);
       DARABONBA_PTR_FROM_JSON(OssResourceId, ossResourceId_);
       DARABONBA_PTR_FROM_JSON(PayPeriod, payPeriod_);
@@ -149,13 +151,13 @@ namespace Models
         && return this->dbResourceId_ == nullptr && return this->dbStorageSize_ == nullptr && return this->dbStorageType_ == nullptr && return this->dryRun_ == nullptr && return this->edition_ == nullptr
         && return this->enableExtraEndpoint_ == nullptr && return this->gpuNodeSpec_ == nullptr && return this->kvStoreAccount_ == nullptr && return this->kvStoreEngineVersion_ == nullptr && return this->kvStoreInstanceClass_ == nullptr
         && return this->kvStoreNodeType_ == nullptr && return this->kvStoreOption_ == nullptr && return this->kvStorePassword_ == nullptr && return this->kvStoreResourceId_ == nullptr && return this->kvStoreType_ == nullptr
-        && return this->majorVersion_ == nullptr && return this->modelId_ == nullptr && return this->modelOption_ == nullptr && return this->natGatewayOption_ == nullptr && return this->ossPath_ == nullptr
-        && return this->ossResourceId_ == nullptr && return this->payPeriod_ == nullptr && return this->payPeriodType_ == nullptr && return this->payType_ == nullptr && return this->replicas_ == nullptr
-        && return this->resourceQuota_ == nullptr && return this->securityGroupId_ == nullptr && return this->segDiskPerformanceLevel_ == nullptr && return this->segNodeNum_ == nullptr && return this->storageType_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->vectordbAccount_ == nullptr && return this->vectordbCategory_ == nullptr && return this->vectordbEngineVersion_ == nullptr && return this->vectordbInstanceSpec_ == nullptr
-        && return this->vectordbOption_ == nullptr && return this->vectordbPassword_ == nullptr && return this->vectordbResourceId_ == nullptr && return this->vectordbStorageSize_ == nullptr && return this->vectordbStorageType_ == nullptr
-        && return this->vectordbType_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceDescription_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr
-        && return this->workspaceOption_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->majorVersion_ == nullptr && return this->modelId_ == nullptr && return this->modelOption_ == nullptr && return this->natGatewayOption_ == nullptr && return this->onlyIntranet_ == nullptr
+        && return this->ossPath_ == nullptr && return this->ossResourceId_ == nullptr && return this->payPeriod_ == nullptr && return this->payPeriodType_ == nullptr && return this->payType_ == nullptr
+        && return this->replicas_ == nullptr && return this->resourceQuota_ == nullptr && return this->securityGroupId_ == nullptr && return this->segDiskPerformanceLevel_ == nullptr && return this->segNodeNum_ == nullptr
+        && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vectordbAccount_ == nullptr && return this->vectordbCategory_ == nullptr && return this->vectordbEngineVersion_ == nullptr
+        && return this->vectordbInstanceSpec_ == nullptr && return this->vectordbOption_ == nullptr && return this->vectordbPassword_ == nullptr && return this->vectordbResourceId_ == nullptr && return this->vectordbStorageSize_ == nullptr
+        && return this->vectordbStorageType_ == nullptr && return this->vectordbType_ == nullptr && return this->vpcId_ == nullptr && return this->workspaceDescription_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr && return this->workspaceOption_ == nullptr && return this->zoneId_ == nullptr; };
     // adbpgInstanceMode Field Functions 
     bool hasAdbpgInstanceMode() const { return this->adbpgInstanceMode_ != nullptr;};
     void deleteAdbpgInstanceMode() { this->adbpgInstanceMode_ = nullptr;};
@@ -364,6 +366,13 @@ namespace Models
     void deleteNatGatewayOption() { this->natGatewayOption_ = nullptr;};
     inline string natGatewayOption() const { DARABONBA_PTR_GET_DEFAULT(natGatewayOption_, "") };
     inline CreateDifyInstanceRequest& setNatGatewayOption(string natGatewayOption) { DARABONBA_PTR_SET_VALUE(natGatewayOption_, natGatewayOption) };
+
+
+    // onlyIntranet Field Functions 
+    bool hasOnlyIntranet() const { return this->onlyIntranet_ != nullptr;};
+    void deleteOnlyIntranet() { this->onlyIntranet_ = nullptr;};
+    inline bool onlyIntranet() const { DARABONBA_PTR_GET_DEFAULT(onlyIntranet_, false) };
+    inline CreateDifyInstanceRequest& setOnlyIntranet(bool onlyIntranet) { DARABONBA_PTR_SET_VALUE(onlyIntranet_, onlyIntranet) };
 
 
     // ossPath Field Functions 
@@ -594,6 +603,7 @@ namespace Models
     std::shared_ptr<string> modelId_ = nullptr;
     std::shared_ptr<string> modelOption_ = nullptr;
     std::shared_ptr<string> natGatewayOption_ = nullptr;
+    std::shared_ptr<bool> onlyIntranet_ = nullptr;
     std::shared_ptr<string> ossPath_ = nullptr;
     std::shared_ptr<int32_t> ossResourceId_ = nullptr;
     std::shared_ptr<int32_t> payPeriod_ = nullptr;

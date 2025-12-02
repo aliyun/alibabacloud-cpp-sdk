@@ -1518,6 +1518,10 @@ FutrueGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWi
     query["DesensitizationRule"] = request.desensitizationRule();
   }
 
+  if (!!request.hasDimensions()) {
+    query["Dimensions"] = request.dimensions();
+  }
+
   if (!!request.hasEnableCodeInterpreter()) {
     query["EnableCodeInterpreter"] = request.enableCodeInterpreter();
   }
@@ -1532,6 +1536,10 @@ FutrueGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWi
 
   if (!!request.hasIncludeUsage()) {
     query["IncludeUsage"] = request.includeUsage();
+  }
+
+  if (!!request.hasInput()) {
+    query["Input"] = request.input();
   }
 
   if (!!request.hasInstanceId()) {
@@ -1683,6 +1691,10 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const C
     query["DesensitizationRule"] = request.desensitizationRule();
   }
 
+  if (!!request.hasDimensions()) {
+    query["Dimensions"] = request.dimensions();
+  }
+
   if (!!request.hasEnableCodeInterpreter()) {
     query["EnableCodeInterpreter"] = request.enableCodeInterpreter();
   }
@@ -1697,6 +1709,10 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const C
 
   if (!!request.hasIncludeUsage()) {
     query["IncludeUsage"] = request.includeUsage();
+  }
+
+  if (!!request.hasInput()) {
+    query["Input"] = request.input();
   }
 
   if (!!request.hasInstanceId()) {
@@ -3048,6 +3064,10 @@ CreateDifyInstanceResponse Client::createDifyInstanceWithOptions(const CreateDif
 
   if (!!request.hasNatGatewayOption()) {
     query["NatGatewayOption"] = request.natGatewayOption();
+  }
+
+  if (!!request.hasOnlyIntranet()) {
+    query["OnlyIntranet"] = request.onlyIntranet();
   }
 
   if (!!request.hasOssPath()) {
