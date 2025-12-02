@@ -44,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(dns_server, dnsServer_);
       DARABONBA_PTR_TO_JSON(dns_type, dnsType_);
       DARABONBA_PTR_TO_JSON(empty_message, emptyMessage_);
+      DARABONBA_PTR_TO_JSON(enable_packet_capture, enablePacketCapture_);
       DARABONBA_PTR_TO_JSON(expect_exist_string, expectExistString_);
       DARABONBA_PTR_TO_JSON(expect_non_exist_string, expectNonExistString_);
       DARABONBA_PTR_TO_JSON(expect_value, expectValue_);
@@ -104,6 +105,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(dns_server, dnsServer_);
       DARABONBA_PTR_FROM_JSON(dns_type, dnsType_);
       DARABONBA_PTR_FROM_JSON(empty_message, emptyMessage_);
+      DARABONBA_PTR_FROM_JSON(enable_packet_capture, enablePacketCapture_);
       DARABONBA_PTR_FROM_JSON(expect_exist_string, expectExistString_);
       DARABONBA_PTR_FROM_JSON(expect_non_exist_string, expectNonExistString_);
       DARABONBA_PTR_FROM_JSON(expect_value, expectValue_);
@@ -160,15 +162,15 @@ namespace Models
         && return this->attempts_ == nullptr && return this->authInfo_ == nullptr && return this->blockedUrlList_ == nullptr && return this->browserHeaders_ == nullptr && return this->browserHosts_ == nullptr
         && return this->browserInfo_ == nullptr && return this->browserInsecure_ == nullptr && return this->browserTaskVersion_ == nullptr && return this->configVariables_ == nullptr && return this->cookie_ == nullptr
         && return this->diagnosisMtr_ == nullptr && return this->diagnosisPing_ == nullptr && return this->dnsHijackWhitelist_ == nullptr && return this->dnsMatchRule_ == nullptr && return this->dnsServer_ == nullptr
-        && return this->dnsType_ == nullptr && return this->emptyMessage_ == nullptr && return this->expectExistString_ == nullptr && return this->expectNonExistString_ == nullptr && return this->expectValue_ == nullptr
-        && return this->failureRate_ == nullptr && return this->header_ == nullptr && return this->hops_ == nullptr && return this->hostBinding_ == nullptr && return this->hostBindingType_ == nullptr
-        && return this->httpMethod_ == nullptr && return this->icmpTimeoutMillis_ == nullptr && return this->ipNetwork_ == nullptr && return this->isBase64Encode_ == nullptr && return this->matchRule_ == nullptr
-        && return this->minTlsVersion_ == nullptr && return this->password_ == nullptr && return this->pingNum_ == nullptr && return this->pingPort_ == nullptr && return this->pingType_ == nullptr
-        && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->quicEnabled_ == nullptr && return this->quicTarget_ == nullptr && return this->requestContent_ == nullptr
-        && return this->requestFormat_ == nullptr && return this->responseContent_ == nullptr && return this->responseFormat_ == nullptr && return this->retryDelay_ == nullptr && return this->safeLink_ == nullptr
-        && return this->screenShot_ == nullptr && return this->scrollEnd_ == nullptr && return this->steps_ == nullptr && return this->strictMode_ == nullptr && return this->timeOut_ == nullptr
-        && return this->traceRegion_ == nullptr && return this->traceType_ == nullptr && return this->trafficHijackElementBlacklist_ == nullptr && return this->trafficHijackElementCount_ == nullptr && return this->trafficHijackElementWhitelist_ == nullptr
-        && return this->username_ == nullptr && return this->waitTimeAfterCompletion_ == nullptr; };
+        && return this->dnsType_ == nullptr && return this->emptyMessage_ == nullptr && return this->enablePacketCapture_ == nullptr && return this->expectExistString_ == nullptr && return this->expectNonExistString_ == nullptr
+        && return this->expectValue_ == nullptr && return this->failureRate_ == nullptr && return this->header_ == nullptr && return this->hops_ == nullptr && return this->hostBinding_ == nullptr
+        && return this->hostBindingType_ == nullptr && return this->httpMethod_ == nullptr && return this->icmpTimeoutMillis_ == nullptr && return this->ipNetwork_ == nullptr && return this->isBase64Encode_ == nullptr
+        && return this->matchRule_ == nullptr && return this->minTlsVersion_ == nullptr && return this->password_ == nullptr && return this->pingNum_ == nullptr && return this->pingPort_ == nullptr
+        && return this->pingType_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->quicEnabled_ == nullptr && return this->quicTarget_ == nullptr
+        && return this->requestContent_ == nullptr && return this->requestFormat_ == nullptr && return this->responseContent_ == nullptr && return this->responseFormat_ == nullptr && return this->retryDelay_ == nullptr
+        && return this->safeLink_ == nullptr && return this->screenShot_ == nullptr && return this->scrollEnd_ == nullptr && return this->steps_ == nullptr && return this->strictMode_ == nullptr
+        && return this->timeOut_ == nullptr && return this->traceRegion_ == nullptr && return this->traceType_ == nullptr && return this->trafficHijackElementBlacklist_ == nullptr && return this->trafficHijackElementCount_ == nullptr
+        && return this->trafficHijackElementWhitelist_ == nullptr && return this->username_ == nullptr && return this->waitTimeAfterCompletion_ == nullptr; };
     // assertions Field Functions 
     bool hasAssertions() const { return this->assertions_ != nullptr;};
     void deleteAssertions() { this->assertions_ = nullptr;};
@@ -307,6 +309,13 @@ namespace Models
     void deleteEmptyMessage() { this->emptyMessage_ = nullptr;};
     inline bool emptyMessage() const { DARABONBA_PTR_GET_DEFAULT(emptyMessage_, false) };
     inline DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson& setEmptyMessage(bool emptyMessage) { DARABONBA_PTR_SET_VALUE(emptyMessage_, emptyMessage) };
+
+
+    // enablePacketCapture Field Functions 
+    bool hasEnablePacketCapture() const { return this->enablePacketCapture_ != nullptr;};
+    void deleteEnablePacketCapture() { this->enablePacketCapture_ = nullptr;};
+    inline bool enablePacketCapture() const { DARABONBA_PTR_GET_DEFAULT(enablePacketCapture_, false) };
+    inline DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson& setEnablePacketCapture(bool enablePacketCapture) { DARABONBA_PTR_SET_VALUE(enablePacketCapture_, enablePacketCapture) };
 
 
     // expectExistString Field Functions 
@@ -657,6 +666,7 @@ namespace Models
     std::shared_ptr<string> dnsType_ = nullptr;
     // Indicates whether the WebSocket task is allowed to return no response or return an empty response. Default value: false. Valid values: false and true.
     std::shared_ptr<bool> emptyMessage_ = nullptr;
+    std::shared_ptr<bool> enablePacketCapture_ = nullptr;
     // The string that is expected to exist on the page.
     std::shared_ptr<Models::DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString> expectExistString_ = nullptr;
     // The string that is not expected to exist on the page.
