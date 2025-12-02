@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // **JobType**\\
+    // Job type. SLS or OSS Export Task: ResultExport.
     std::shared_ptr<string> jobType_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

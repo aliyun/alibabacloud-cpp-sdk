@@ -87,11 +87,23 @@ namespace Models
 
 
   protected:
+    // API status or POP error code.
     std::shared_ptr<string> code_ = nullptr;
+    // The data returned.
     std::shared_ptr<DescribeResultExportConfigResponseBodyData> data_ = nullptr;
+    // The HTTP response status code. A value of 200 indicates that the request was successful.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message. Valid values:
+    // 
+    // *   The request succeeded, and the server returns **OK**.
+    // *   The request failed, and the server returns an error message.
     std::shared_ptr<string> message_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the call was successful. Valid values: Valid values:
+    // 
+    // *   **True: Succeeded.**
+    // *   **False: Failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the webhook to be deleted.
+    // 
     // This parameter is required.
     std::shared_ptr<string> webhookId_ = nullptr;
   };

@@ -75,13 +75,17 @@ namespace Models
 
 
   protected:
+    // Signed key.
     std::shared_ptr<string> key_ = nullptr;
+    // The name of the webhook.
     std::shared_ptr<string> name_ = nullptr;
+    // The URL of the request.
     std::shared_ptr<string> url_ = nullptr;
-    // Webhook ID。
+    // The ID of the webhook.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> webhookId_ = nullptr;
+    // The notification method. Valid values: dingtalk. lark.
     std::shared_ptr<string> webhookType_ = nullptr;
   };
 

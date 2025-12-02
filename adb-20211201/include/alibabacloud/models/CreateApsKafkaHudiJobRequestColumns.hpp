@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the partition column in the destination table.
     std::shared_ptr<string> mapName_ = nullptr;
+    // The desired format for the destination partition column.
     std::shared_ptr<string> mapType_ = nullptr;
+    // The name of the source column to use for partitioning.
     std::shared_ptr<string> name_ = nullptr;
+    // The format of the source field. See the table below for valid values.
     std::shared_ptr<string> type_ = nullptr;
   };
 

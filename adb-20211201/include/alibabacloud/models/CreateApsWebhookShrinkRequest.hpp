@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The type of the task. Valid value: Task type. SLS or OSS Export Task: ResultExport.
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobType_ = nullptr;
+    // The ID of the region in which to create the dedicated block storage cluster.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The array of webhooks.
     std::shared_ptr<string> webhookShrink_ = nullptr;
   };
 

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Same as HTTP status code.
     std::shared_ptr<string> code_ = nullptr;
+    // Returns the ID of the created task.
     std::shared_ptr<string> data_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. true: The request is successful. false: The message group failed to be unmuted.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

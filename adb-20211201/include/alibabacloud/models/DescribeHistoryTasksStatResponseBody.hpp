@@ -101,12 +101,25 @@ namespace Models
 
 
   protected:
+    // The queried information about the request denial.
     std::shared_ptr<DescribeHistoryTasksStatResponseBodyAccessDeniedDetail> accessDeniedDetail_ = nullptr;
+    // API status or POP error code.
     std::shared_ptr<string> code_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The tasks.
     std::shared_ptr<vector<DescribeHistoryTasksStatResponseBodyItems>> items_ = nullptr;
+    // The returned message. Valid values:
+    // 
+    // *   If the request was successful, an success message is returned.
+    // *   If the request failed, an error message is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> success_ = nullptr;
   };
 

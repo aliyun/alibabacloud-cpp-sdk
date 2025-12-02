@@ -149,20 +149,41 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The name of the database where the materialized view resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dbName_ = nullptr;
+    // Enable the refresh delay alert. Valid values:
+    // 
+    // *   true: Enables alert.
+    // *   false: Disables alert.
     std::shared_ptr<bool> enableDelayAlert_ = nullptr;
+    // Specifies whether to send alerts when the refresh task fails. Valid values:
+    // 
+    // *   true: Send alerts.
+    // *   false: Alerts disabled.
     std::shared_ptr<bool> enableFailureAlert_ = nullptr;
+    // The name of the resource group to which the materialized view is bound.
     std::shared_ptr<string> groupName_ = nullptr;
+    // Refresh delay tolerance (in minutes).
     std::shared_ptr<int32_t> latencyTolerance_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // Specifies whether to enable query rewrite. Valid values:
+    // 
+    // *   true: Enables query rewrite.
+    // *   false: Disables query rewrite.
     std::shared_ptr<bool> queryWrite_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The name of the materialized view.
+    // 
     // This parameter is required.
     std::shared_ptr<string> viewName_ = nullptr;
   };

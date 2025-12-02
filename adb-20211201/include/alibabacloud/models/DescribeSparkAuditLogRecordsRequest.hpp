@@ -222,29 +222,85 @@ namespace Models
 
 
   protected:
+    // The source IP address.
     std::shared_ptr<string> clientIp_ = nullptr;
+    // The cluster ID.
+    // 
+    // > 
+    // 
+    // *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query cluster IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // Query end time. The end time must be later than the start time, and the interval between them must be less than 1 day. Format: yyyy-MM-ddTHH:mmZ (UTC time).
     std::shared_ptr<string> endTime_ = nullptr;
+    // Sort the SQL statements based on specified fields. The format is a JSON array that preserves order, and composite sorting is performed according to the sequence of objects in the array. Each object contains two fields: `Field` and `Type`. For example:`[{"Field":"CreateTime", "Type": "desc" }]`. Where:
+    // 
+    // *   `Field` specifies the field that is used to sort the SQL statements. Valid values:
+    // 
+    //     *   `ResourceGroupName`: The name of the resource group.
+    //     *   `Status` :SQL execution status.
+    //     *   `User`: The username that is used to execute the SQL statement.
+    //     *   `ExecuteTime`: The start time of SQL execution.
+    //     *   `TotalTime`: The amount of time consumed to execute the SQL statement.
+    //     *   `ProcessId`: Query ID.
+    //     *   `ClientIp`: The source IP address.
+    //     *   `StatementSource`: The source from which the query was initiated.
+    // 
+    // *   `Type` specifies the sorting order. Valid values (case-insensitive):
+    // 
+    //     *   `Desc`: Descending order.
+    //     *   `Asc`: Ascending order.
     std::shared_ptr<string> order_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The page number.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries to return on each page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The query ID.
     std::shared_ptr<string> processId_ = nullptr;
+    // This parameter is deprecated.
     std::shared_ptr<string> proxyUser_ = nullptr;
+    // The region ID.
+    // 
+    // >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/612293.html) operation to query the available regions and zones, including region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The resource group name.
+    // 
+    // >  You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/612410.html) operation to query the resource group ID within a cluster.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The keyword in the SQL statement.
     std::shared_ptr<string> SQLText_ = nullptr;
+    // Query start time. Format: *yyyy-MM-ddTHH:mmZ* (UTC time).
+    // 
+    // >  We recommend that you set the query start time to any point in time within 30 days.
     std::shared_ptr<string> startTime_ = nullptr;
-    // Statement ID。
+    // The ID of the statement.
     std::shared_ptr<string> statementId_ = nullptr;
+    // The source from which the query was initiated.
+    // 
+    // Valid values:
+    // 
+    // *   SQL_EDITOR: SQL_EDITOR.
+    // *   JDBC: JDBC.
     std::shared_ptr<string> statementSource_ = nullptr;
+    // The execution status of the SQL statement.
+    // 
+    // Valid values:
+    // 
+    // *   cancel: The task is canceled .
+    // *   finished: The execution succeeds .
+    // *   error:The execution fails .
+    // *   timeout: The execution timed out .
     std::shared_ptr<string> status_ = nullptr;
+    // The duration of the SQL statement. Unit: milliseconds.
     std::shared_ptr<string> totalTime_ = nullptr;
+    // The username that is used to execute SQL statements.
     std::shared_ptr<string> user_ = nullptr;
   };
 

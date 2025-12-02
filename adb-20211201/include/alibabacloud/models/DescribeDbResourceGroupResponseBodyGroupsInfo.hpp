@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDBRESOURCEGROUPRESPONSEBODYGROUPSINFO_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDBRESOURCEGROUPRESPONSEBODYGROUPSINFO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan.hpp>
 #include <alibabacloud/models/DescribeDBResourceGroupResponseBodyGroupsInfoRayConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeDBResourceGroupResponseBodyGroupsInfoRules.hpp>
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableSpot, enableSpot_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_ANY_TO_JSON(EngineParams, engineParams_);
+      DARABONBA_PTR_TO_JSON(GpuElasticPlan, gpuElasticPlan_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
       DARABONBA_PTR_TO_JSON(GroupUsers, groupUsers_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableSpot, enableSpot_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_ANY_FROM_JSON(EngineParams, engineParams_);
+      DARABONBA_PTR_FROM_JSON(GpuElasticPlan, gpuElasticPlan_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
       DARABONBA_PTR_FROM_JSON(GroupUsers, groupUsers_);
@@ -82,10 +85,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoStopInterval_ == nullptr
         && return this->clusterMode_ == nullptr && return this->clusterSizeResource_ == nullptr && return this->createTime_ == nullptr && return this->elasticMinComputeResource_ == nullptr && return this->enableSpot_ == nullptr
-        && return this->engine_ == nullptr && return this->engineParams_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->groupUsers_ == nullptr
-        && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr && return this->maxGpuQuantity_ == nullptr && return this->message_ == nullptr && return this->minClusterCount_ == nullptr
-        && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr && return this->rayConfig_ == nullptr && return this->rules_ == nullptr && return this->runningClusterCount_ == nullptr
-        && return this->specName_ == nullptr && return this->status_ == nullptr && return this->targetResourceGroupName_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->engine_ == nullptr && return this->engineParams_ == nullptr && return this->gpuElasticPlan_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr
+        && return this->groupUsers_ == nullptr && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr && return this->maxGpuQuantity_ == nullptr && return this->message_ == nullptr
+        && return this->minClusterCount_ == nullptr && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr && return this->rayConfig_ == nullptr && return this->rules_ == nullptr
+        && return this->runningClusterCount_ == nullptr && return this->specName_ == nullptr && return this->status_ == nullptr && return this->targetResourceGroupName_ == nullptr && return this->updateTime_ == nullptr; };
     // autoStopInterval Field Functions 
     bool hasAutoStopInterval() const { return this->autoStopInterval_ != nullptr;};
     void deleteAutoStopInterval() { this->autoStopInterval_ = nullptr;};
@@ -142,6 +145,15 @@ namespace Models
     Darabonba::Json & engineParams() { DARABONBA_GET(engineParams_) };
     inline DescribeDBResourceGroupResponseBodyGroupsInfo& setEngineParams(const Darabonba::Json & engineParams) { DARABONBA_SET_VALUE(engineParams_, engineParams) };
     inline DescribeDBResourceGroupResponseBodyGroupsInfo& setEngineParams(Darabonba::Json & engineParams) { DARABONBA_SET_RVALUE(engineParams_, engineParams) };
+
+
+    // gpuElasticPlan Field Functions 
+    bool hasGpuElasticPlan() const { return this->gpuElasticPlan_ != nullptr;};
+    void deleteGpuElasticPlan() { this->gpuElasticPlan_ = nullptr;};
+    inline const Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan & gpuElasticPlan() const { DARABONBA_PTR_GET_CONST(gpuElasticPlan_, Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan) };
+    inline Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan gpuElasticPlan() { DARABONBA_PTR_GET(gpuElasticPlan_, Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan) };
+    inline DescribeDBResourceGroupResponseBodyGroupsInfo& setGpuElasticPlan(const Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan & gpuElasticPlan) { DARABONBA_PTR_SET_VALUE(gpuElasticPlan_, gpuElasticPlan) };
+    inline DescribeDBResourceGroupResponseBodyGroupsInfo& setGpuElasticPlan(Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan && gpuElasticPlan) { DARABONBA_PTR_SET_RVALUE(gpuElasticPlan_, gpuElasticPlan) };
 
 
     // groupName Field Functions 
@@ -286,6 +298,7 @@ namespace Models
     std::shared_ptr<string> enableSpot_ = nullptr;
     std::shared_ptr<string> engine_ = nullptr;
     Darabonba::Json engineParams_ = nullptr;
+    std::shared_ptr<Models::DescribeDBResourceGroupResponseBodyGroupsInfoGpuElasticPlan> gpuElasticPlan_ = nullptr;
     // The name of the resource group.
     std::shared_ptr<string> groupName_ = nullptr;
     // The type of the resource group. Valid values:

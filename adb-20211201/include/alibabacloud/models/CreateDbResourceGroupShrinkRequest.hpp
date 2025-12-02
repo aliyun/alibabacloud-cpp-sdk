@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableSpot, enableSpot_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineParams, engineParamsShrink_);
+      DARABONBA_PTR_TO_JSON(GpuElasticPlan, gpuElasticPlanShrink_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
       DARABONBA_PTR_TO_JSON(MaxClusterCount, maxClusterCount_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableSpot, enableSpot_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineParams, engineParamsShrink_);
+      DARABONBA_PTR_FROM_JSON(GpuElasticPlan, gpuElasticPlanShrink_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
       DARABONBA_PTR_FROM_JSON(MaxClusterCount, maxClusterCount_);
@@ -69,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoStopInterval_ == nullptr
         && return this->clusterMode_ == nullptr && return this->clusterSizeResource_ == nullptr && return this->DBClusterId_ == nullptr && return this->enableSpot_ == nullptr && return this->engine_ == nullptr
-        && return this->engineParamsShrink_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr
-        && return this->maxGpuQuantity_ == nullptr && return this->minClusterCount_ == nullptr && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr && return this->rayConfigShrink_ == nullptr
-        && return this->regionId_ == nullptr && return this->rulesShrink_ == nullptr && return this->specName_ == nullptr && return this->targetResourceGroupName_ == nullptr; };
+        && return this->engineParamsShrink_ == nullptr && return this->gpuElasticPlanShrink_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->maxClusterCount_ == nullptr
+        && return this->maxComputeResource_ == nullptr && return this->maxGpuQuantity_ == nullptr && return this->minClusterCount_ == nullptr && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr
+        && return this->rayConfigShrink_ == nullptr && return this->regionId_ == nullptr && return this->rulesShrink_ == nullptr && return this->specName_ == nullptr && return this->targetResourceGroupName_ == nullptr; };
     // autoStopInterval Field Functions 
     bool hasAutoStopInterval() const { return this->autoStopInterval_ != nullptr;};
     void deleteAutoStopInterval() { this->autoStopInterval_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
     void deleteEngineParamsShrink() { this->engineParamsShrink_ = nullptr;};
     inline string engineParamsShrink() const { DARABONBA_PTR_GET_DEFAULT(engineParamsShrink_, "") };
     inline CreateDBResourceGroupShrinkRequest& setEngineParamsShrink(string engineParamsShrink) { DARABONBA_PTR_SET_VALUE(engineParamsShrink_, engineParamsShrink) };
+
+
+    // gpuElasticPlanShrink Field Functions 
+    bool hasGpuElasticPlanShrink() const { return this->gpuElasticPlanShrink_ != nullptr;};
+    void deleteGpuElasticPlanShrink() { this->gpuElasticPlanShrink_ = nullptr;};
+    inline string gpuElasticPlanShrink() const { DARABONBA_PTR_GET_DEFAULT(gpuElasticPlanShrink_, "") };
+    inline CreateDBResourceGroupShrinkRequest& setGpuElasticPlanShrink(string gpuElasticPlanShrink) { DARABONBA_PTR_SET_VALUE(gpuElasticPlanShrink_, gpuElasticPlanShrink) };
 
 
     // groupName Field Functions 
@@ -229,6 +238,7 @@ namespace Models
     std::shared_ptr<bool> enableSpot_ = nullptr;
     std::shared_ptr<string> engine_ = nullptr;
     std::shared_ptr<string> engineParamsShrink_ = nullptr;
+    std::shared_ptr<string> gpuElasticPlanShrink_ = nullptr;
     // The name of the resource group.
     // 
     // *   The name can be up to 255 characters in length.

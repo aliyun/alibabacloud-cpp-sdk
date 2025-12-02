@@ -66,11 +66,20 @@ namespace Models
 
 
   protected:
+    // The private or public endpoint for which the server certificate needs to be created or updated.
     std::shared_ptr<string> connectionString_ = nullptr;
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // Specifies whether to enable SSL encryption. Valid values:
+    // 
+    // *   **true**: enabled
+    // *   **false**: disabled
+    // 
     // This parameter is required.
     std::shared_ptr<bool> enableSSL_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
   };
 

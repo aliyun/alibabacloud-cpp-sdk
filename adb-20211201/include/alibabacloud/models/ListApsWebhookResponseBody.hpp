@@ -88,11 +88,17 @@ namespace Models
 
 
   protected:
+    // API status or POP error code.
     std::shared_ptr<string> code_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
+    // The array of webhooks.
     std::shared_ptr<vector<ListApsWebhookResponseBodyWebhook>> webhook_ = nullptr;
   };
 

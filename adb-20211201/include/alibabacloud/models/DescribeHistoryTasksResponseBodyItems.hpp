@@ -213,25 +213,56 @@ namespace Models
 
 
   protected:
+    // Allowed operation information. When used specifically, matches operation Action based on currentStepName+status in this information. If no Action is matched, represents task current status does not support operations.
     std::shared_ptr<string> actionInfo_ = nullptr;
+    // null
     std::shared_ptr<string> callerSource_ = nullptr;
+    // null
+    // 
+    // *   **null**
+    // *   **null**
     std::shared_ptr<string> callerUid_ = nullptr;
+    // Current executing step name. If empty, represents task has not started.
     std::shared_ptr<string> currentStepName_ = nullptr;
+    // The database engine type.
     std::shared_ptr<string> dbType_ = nullptr;
+    // Task end time.
     std::shared_ptr<string> endTime_ = nullptr;
+    // Cluster ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // The instance ID.
     std::shared_ptr<string> instanceName_ = nullptr;
+    // Instance type.
     std::shared_ptr<string> instanceType_ = nullptr;
+    // The service name.
     std::shared_ptr<string> product_ = nullptr;
+    // Indicates the task progress.
     std::shared_ptr<float> progress_ = nullptr;
+    // The reason why the current task was initiated.
     std::shared_ptr<string> reasonCode_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Estimated remaining execution time, in seconds.
     std::shared_ptr<int32_t> remainTime_ = nullptr;
+    // Task start time.
     std::shared_ptr<string> startTime_ = nullptr;
+    // Task status. Valid values:
+    // 
+    // *   **Scheduled**
+    // *   **Running**
+    // *   **Succeed**
+    // *   **Failed**: The task failed.
+    // *   **Cancelling**
+    // *   **Canceled**
+    // *   **Waiting**
     std::shared_ptr<string> status_ = nullptr;
+    // The task details.
     std::shared_ptr<string> taskDetail_ = nullptr;
+    // Task ID.
     std::shared_ptr<string> taskId_ = nullptr;
+    // Task type.
     std::shared_ptr<string> taskType_ = nullptr;
+    // null
     std::shared_ptr<string> uid_ = nullptr;
   };
 

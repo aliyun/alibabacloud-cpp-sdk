@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The code returned for the request.
     std::shared_ptr<string> code_ = nullptr;
+    // The returned result.
     std::shared_ptr<string> data_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

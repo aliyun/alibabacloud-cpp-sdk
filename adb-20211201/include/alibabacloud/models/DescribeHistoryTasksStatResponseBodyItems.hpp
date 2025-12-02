@@ -48,7 +48,17 @@ namespace Models
 
 
   protected:
+    // The status of the APS job.
+    // 
+    // *   **Scheduled**
+    // *   **Running**
+    // *   **Succeed**
+    // *   **Failed**: The task failed.
+    // *   **Cancelling**
+    // *   **Canceled**
+    // *   **Waiting**
     std::shared_ptr<string> status_ = nullptr;
+    // The total number of tasks.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

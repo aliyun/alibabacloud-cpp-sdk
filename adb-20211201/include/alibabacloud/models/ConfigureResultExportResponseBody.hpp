@@ -87,11 +87,23 @@ namespace Models
 
 
   protected:
+    // The backend error code.
     std::shared_ptr<string> code_ = nullptr;
+    // The path where the result sets are stored.
     std::shared_ptr<ConfigureResultExportResponseBodyData> data_ = nullptr;
+    // The HTTP status code. A value of 200 indicates that the request is successful.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message. Valid values:
+    // 
+    // *   OK is returned if the request is normal.
+    // *   The specific error code is returned if the request is abnormal,
     std::shared_ptr<string> message_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // *   **true**: Succeeded.
+    // *   **false**: Failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

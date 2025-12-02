@@ -128,15 +128,31 @@ namespace Models
 
 
   protected:
+    // null
     std::shared_ptr<DescribeHistoryTasksResponseBodyAccessDeniedDetail> accessDeniedDetail_ = nullptr;
+    // The HTTP status code that is returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The task list.
     std::shared_ptr<vector<DescribeHistoryTasksResponseBodyItems>> items_ = nullptr;
+    // The returned message. null
+    // 
+    // *   null****
+    // *   null
     std::shared_ptr<string> message_ = nullptr;
+    // The page number of the returned page.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries returned per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> success_ = nullptr;
+    // Total record count.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

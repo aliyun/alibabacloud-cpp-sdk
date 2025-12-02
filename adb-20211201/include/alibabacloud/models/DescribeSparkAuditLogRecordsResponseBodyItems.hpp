@@ -167,21 +167,47 @@ namespace Models
 
 
   protected:
+    // The Spark application ID.
     std::shared_ptr<string> appId_ = nullptr;
+    // The source IP address.
     std::shared_ptr<string> clientIp_ = nullptr;
+    // The SQL execution error message.
     std::shared_ptr<string> errorMsg_ = nullptr;
+    // The SQL execution error stack trace.
     std::shared_ptr<string> errorTrace_ = nullptr;
+    // The start time of the SQL statement. The time is in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
     std::shared_ptr<string> executeTime_ = nullptr;
+    // The ID of the query executed within the Spark application.
     std::shared_ptr<string> innerQueryId_ = nullptr;
+    // Whether it can be diagnosed.
     std::shared_ptr<bool> isDiagnosable_ = nullptr;
+    // The query ID.
     std::shared_ptr<string> processId_ = nullptr;
+    // The resource group name.
     std::shared_ptr<string> resourceGroupName_ = nullptr;
+    // The SQL statement.
     std::shared_ptr<string> SQLText_ = nullptr;
-    // Statement ID。
+    // The ID of the statement.
     std::shared_ptr<string> statementId_ = nullptr;
+    // The source from which the query was initiated.
+    // 
+    // Valid values:
+    // 
+    // *   SQL_EDITOR: SQL_EDITOR.
+    // *   JDBC: JDBC.
     std::shared_ptr<string> statementSource_ = nullptr;
+    // The execution status of the SQL statement.
+    // 
+    // Valid values:
+    // 
+    // *   cancel: The task is canceled .
+    // *   finished: The execution succeeds .
+    // *   error: The execution fails .
+    // *   timeout: The execution of the command timed out.
     std::shared_ptr<string> status_ = nullptr;
+    // The duration of the SQL statement. Unit: milliseconds.
     std::shared_ptr<int64_t> totalTime_ = nullptr;
+    // The username that is used to execute SQL statements.
     std::shared_ptr<string> user_ = nullptr;
   };
 

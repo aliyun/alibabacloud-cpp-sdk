@@ -98,12 +98,19 @@ namespace Models
 
 
   protected:
+    // The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
     std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    // The cluster ID.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The list of SQL audit logs.
     std::shared_ptr<vector<DescribeSparkAuditLogRecordsResponseBodyItems>> items_ = nullptr;
+    // The page number.
     std::shared_ptr<string> pageNumber_ = nullptr;
+    // The number of entries to return per page.
     std::shared_ptr<string> pageSize_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries.
     std::shared_ptr<string> totalCount_ = nullptr;
   };
 

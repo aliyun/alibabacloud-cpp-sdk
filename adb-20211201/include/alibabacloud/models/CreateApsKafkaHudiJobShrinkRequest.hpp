@@ -287,41 +287,80 @@ namespace Models
 
 
   protected:
+    // The Resource Access Management (RAM) role that is created for the trusted Alibaba Cloud account. For more information, see Create a RAM role for a trusted Alibaba Cloud account. The ARN of the RAM role that grants AnalyticDB for MySQL permission to access resources in the source account. Required for cross-account data ingestion.
     std::shared_ptr<string> acrossRole_ = nullptr;
+    // The ID of the Alibaba Cloud account to which the source Kafka belongs.
     std::shared_ptr<string> acrossUid_ = nullptr;
+    // The advanced configurations.
     std::shared_ptr<string> advancedConfig_ = nullptr;
+    // The column information.
+    // 
     // This parameter is required.
     std::shared_ptr<string> columnsShrink_ = nullptr;
+    // The cluster ID.
+    // 
+    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all clusters in a region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // Enumeration value and description. Single: The source is a single-row JSON record. Multi: source is a JSON array. Output a single JSON record.
     std::shared_ptr<string> dataOutputFormat_ = nullptr;
+    // The data source ID.
     std::shared_ptr<int64_t> datasourceId_ = nullptr;
+    // The name of the user-defined database.
+    // 
     // This parameter is required.
     std::shared_ptr<string> dbName_ = nullptr;
+    // The full synchronization configuration.
     std::shared_ptr<string> fullComputeUnit_ = nullptr;
+    // The HUDI configuration of the destination.
     std::shared_ptr<string> hudiAdvancedConfig_ = nullptr;
+    // The incremental synchronization configuration.
+    // 
     // This parameter is required.
     std::shared_ptr<string> incrementalComputeUnit_ = nullptr;
+    // The number of layers that are parsed for nested JSON fields. Valid values: 0: Nested JSON fields are not parsed. 1: parses one layer. 2: Two layers are parsed. 3: Three layers are parsed. 4: Four layers are parsed. By default, one layer is parsed. For more information about how nested JSON fields are parsed, see the Examples of schema fields parsed with different numbers of layers section of this topic.
     std::shared_ptr<int32_t> jsonParseLevel_ = nullptr;
+    // The ID of the Apache Kafka instance. You can get it in the Kafka console.
     std::shared_ptr<string> kafkaClusterId_ = nullptr;
+    // Kafka Topic ID. You can get it in the Kafka console.
     std::shared_ptr<string> kafkaTopic_ = nullptr;
+    // The ID of the lakehouse.
     std::shared_ptr<int64_t> lakehouseId_ = nullptr;
+    // The maximum number of records to fetch in a single batch.
     std::shared_ptr<int64_t> maxOffsetsPerTrigger_ = nullptr;
+    // The path of the destination data lakehouse in an Object Storage Service (OSS) bucket.
     std::shared_ptr<string> ossLocation_ = nullptr;
+    // The format of the output data.
     std::shared_ptr<string> outputFormat_ = nullptr;
+    // The partition information.
     std::shared_ptr<string> partitionSpecsShrink_ = nullptr;
+    // The primary key settings. Contains the uuid policy and mapping policy. The explanation is as follows. Uuid policy: "Strategy": "uuid". Mapping policy: "Strategy": "mapping", "Values":[ "f1", "f2" ], "RecordVersionField","xxx" The meaning of the RecordVersionField is the HUDI record version.
     std::shared_ptr<string> primaryKeyDefinition_ = nullptr;
+    // The region ID of the cluster.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The resource group name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> resourceGroup_ = nullptr;
+    // 地域ID。
     std::shared_ptr<string> sourceRegionId_ = nullptr;
+    // Specifies the position from which to start consuming messages. Valid values: begin_cursor/end_cursor/timestamp Each corresponds to the earliest /latest /specified time respectively.
+    // 
     // This parameter is required.
     std::shared_ptr<string> startingOffsets_ = nullptr;
+    // The name of the user-defined table.
+    // 
     // This parameter is required.
     std::shared_ptr<string> tableName_ = nullptr;
+    // The rules for generating the destination database.
     std::shared_ptr<string> targetGenerateRule_ = nullptr;
+    // The destination type.
     std::shared_ptr<string> targetType_ = nullptr;
+    // The name of the workload.
+    // 
     // This parameter is required.
     std::shared_ptr<string> workloadName_ = nullptr;
   };

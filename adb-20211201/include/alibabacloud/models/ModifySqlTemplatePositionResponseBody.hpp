@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The returned message. Valid values:
+    // 
+    // *   If the request is successful, a **SUCCESS** message is returned.
+    // *   If the request is abnormal, the detailed error message is returned.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**: Succeeded.
+    // *   **false**: Failed.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

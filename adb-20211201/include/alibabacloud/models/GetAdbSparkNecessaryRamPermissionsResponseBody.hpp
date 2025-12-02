@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     std::shared_ptr<GetADBSparkNecessaryRAMPermissionsResponseBodyData> data_ = nullptr;
+    // The ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

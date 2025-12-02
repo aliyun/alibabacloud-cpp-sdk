@@ -150,6 +150,9 @@
 #include <alibabacloud/models/DeleteLakeStorageRequest.hpp>
 #include <alibabacloud/models/DeleteLakeStorageResponseBody.hpp>
 #include <alibabacloud/models/DeleteLakeStorageResponse.hpp>
+#include <alibabacloud/models/DeleteMaterializedViewRecommendRequest.hpp>
+#include <alibabacloud/models/DeleteMaterializedViewRecommendResponseBody.hpp>
+#include <alibabacloud/models/DeleteMaterializedViewRecommendResponse.hpp>
 #include <alibabacloud/models/DeletePerformanceViewRequest.hpp>
 #include <alibabacloud/models/DeletePerformanceViewResponseBody.hpp>
 #include <alibabacloud/models/DeletePerformanceViewResponse.hpp>
@@ -354,6 +357,15 @@
 #include <alibabacloud/models/DescribeLakeCacheSizeRequest.hpp>
 #include <alibabacloud/models/DescribeLakeCacheSizeResponseBody.hpp>
 #include <alibabacloud/models/DescribeLakeCacheSizeResponse.hpp>
+#include <alibabacloud/models/DescribeMvRecommendResultsRequest.hpp>
+#include <alibabacloud/models/DescribeMvRecommendResultsResponseBody.hpp>
+#include <alibabacloud/models/DescribeMvRecommendResultsResponse.hpp>
+#include <alibabacloud/models/DescribeMvRecommendSubTasksRequest.hpp>
+#include <alibabacloud/models/DescribeMvRecommendSubTasksResponseBody.hpp>
+#include <alibabacloud/models/DescribeMvRecommendSubTasksResponse.hpp>
+#include <alibabacloud/models/DescribeMvRecommendTasksRequest.hpp>
+#include <alibabacloud/models/DescribeMvRecommendTasksResponseBody.hpp>
+#include <alibabacloud/models/DescribeMvRecommendTasksResponse.hpp>
 #include <alibabacloud/models/DescribeOperatorPermissionRequest.hpp>
 #include <alibabacloud/models/DescribeOperatorPermissionResponseBody.hpp>
 #include <alibabacloud/models/DescribeOperatorPermissionResponse.hpp>
@@ -435,6 +447,9 @@
 #include <alibabacloud/models/DescribeUserQuotaRequest.hpp>
 #include <alibabacloud/models/DescribeUserQuotaResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserQuotaResponse.hpp>
+#include <alibabacloud/models/DescribeViewJobsRequest.hpp>
+#include <alibabacloud/models/DescribeViewJobsResponseBody.hpp>
+#include <alibabacloud/models/DescribeViewJobsResponse.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionRequest.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionResponseBody.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionResponse.hpp>
@@ -766,6 +781,8 @@
 #include <alibabacloud/models/CreateApsSlsAdbJobRequestUnixTimestampConvert.hpp>
 #include <alibabacloud/models/CreateApsWebhookRequestWebhook.hpp>
 #include <alibabacloud/models/CreateDbClusterRequestTag.hpp>
+#include <alibabacloud/models/CreateDbResourceGroupRequestGpuElasticPlanRules.hpp>
+#include <alibabacloud/models/CreateDbResourceGroupRequestGpuElasticPlan.hpp>
 #include <alibabacloud/models/CreateDbResourceGroupRequestRayConfigWorkerGroups.hpp>
 #include <alibabacloud/models/CreateDbResourceGroupRequestRayConfig.hpp>
 #include <alibabacloud/models/CreateDbResourceGroupRequestRules.hpp>
@@ -861,6 +878,8 @@
 #include <alibabacloud/models/DescribeDbClustersResponseBodyItemsDbClusterTaskInfo.hpp>
 #include <alibabacloud/models/DescribeDbClustersResponseBodyItemsDbCluster.hpp>
 #include <alibabacloud/models/DescribeDbClustersResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeDbResourceGroupResponseBodyGroupsInfoGpuElasticPlanRules.hpp>
+#include <alibabacloud/models/DescribeDbResourceGroupResponseBodyGroupsInfoGpuElasticPlan.hpp>
 #include <alibabacloud/models/DescribeDbResourceGroupResponseBodyGroupsInfoRayConfigAppConfigImageSelector.hpp>
 #include <alibabacloud/models/DescribeDbResourceGroupResponseBodyGroupsInfoRayConfigAppConfig.hpp>
 #include <alibabacloud/models/DescribeDbResourceGroupResponseBodyGroupsInfoRayConfigStorageMounts.hpp>
@@ -900,6 +919,9 @@
 #include <alibabacloud/models/DescribeKernelVersionResponseBodyAvailableKernelVersions.hpp>
 #include <alibabacloud/models/DescribeLlmSimilarQuestionsResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeLakeCacheSizeResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeMvRecommendResultsResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeMvRecommendSubTasksResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeMvRecommendTasksResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeOversizeNonPartitionTableInfosResponseBodyDetectionItems.hpp>
 #include <alibabacloud/models/DescribeOversizeNonPartitionTableInfosResponseBodyTables.hpp>
 #include <alibabacloud/models/DescribePatternPerformanceResponseBodyPerformancesSeries.hpp>
@@ -934,6 +956,7 @@
 #include <alibabacloud/models/DescribeTableStatisticsResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeTablesResponseBodyItemsTable.hpp>
 #include <alibabacloud/models/DescribeTablesResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeViewJobsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAggSearchResults.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorAgg.hpp>
 #include <alibabacloud/models/DescribeWorkerDetectionResponseBodyDetectionItemsResultsOperatorDetailsSearchResults.hpp>
@@ -989,6 +1012,8 @@
 #include <alibabacloud/models/ModifyApsDatasoureRequestRdsMysqlInfo.hpp>
 #include <alibabacloud/models/ModifyApsDatasoureRequestSlsInfo.hpp>
 #include <alibabacloud/models/ModifyApsSlsAdbJobRequestColumns.hpp>
+#include <alibabacloud/models/ModifyDbResourceGroupRequestGpuElasticPlanRules.hpp>
+#include <alibabacloud/models/ModifyDbResourceGroupRequestGpuElasticPlan.hpp>
 #include <alibabacloud/models/ModifyDbResourceGroupRequestRayConfigAppConfigImageSelector.hpp>
 #include <alibabacloud/models/ModifyDbResourceGroupRequestRayConfigAppConfig.hpp>
 #include <alibabacloud/models/ModifyDbResourceGroupRequestRayConfigStorageMounts.hpp>

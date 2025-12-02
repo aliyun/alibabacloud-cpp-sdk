@@ -15,6 +15,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const TableSummaryModel& obj) { 
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(CreatedBySource, createdBySource_);
+      DARABONBA_PTR_TO_JSON(CreatedByUser, createdByUser_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(MvDetailModel, mvDetailModel_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
@@ -27,6 +29,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, TableSummaryModel& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(CreatedBySource, createdBySource_);
+      DARABONBA_PTR_FROM_JSON(CreatedByUser, createdByUser_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(MvDetailModel, mvDetailModel_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
@@ -49,13 +53,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->description_ == nullptr && return this->mvDetailModel_ == nullptr && return this->owner_ == nullptr && return this->SQL_ == nullptr && return this->schemaName_ == nullptr
-        && return this->tableName_ == nullptr && return this->tableSize_ == nullptr && return this->tableType_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->createdBySource_ == nullptr && return this->createdByUser_ == nullptr && return this->description_ == nullptr && return this->mvDetailModel_ == nullptr && return this->owner_ == nullptr
+        && return this->SQL_ == nullptr && return this->schemaName_ == nullptr && return this->tableName_ == nullptr && return this->tableSize_ == nullptr && return this->tableType_ == nullptr
+        && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline TableSummaryModel& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // createdBySource Field Functions 
+    bool hasCreatedBySource() const { return this->createdBySource_ != nullptr;};
+    void deleteCreatedBySource() { this->createdBySource_ = nullptr;};
+    inline string createdBySource() const { DARABONBA_PTR_GET_DEFAULT(createdBySource_, "") };
+    inline TableSummaryModel& setCreatedBySource(string createdBySource) { DARABONBA_PTR_SET_VALUE(createdBySource_, createdBySource) };
+
+
+    // createdByUser Field Functions 
+    bool hasCreatedByUser() const { return this->createdByUser_ != nullptr;};
+    void deleteCreatedByUser() { this->createdByUser_ = nullptr;};
+    inline string createdByUser() const { DARABONBA_PTR_GET_DEFAULT(createdByUser_, "") };
+    inline TableSummaryModel& setCreatedByUser(string createdByUser) { DARABONBA_PTR_SET_VALUE(createdByUser_, createdByUser) };
 
 
     // description Field Functions 
@@ -125,6 +144,8 @@ namespace Models
 
   protected:
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<string> createdBySource_ = nullptr;
+    std::shared_ptr<string> createdByUser_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<OpenStructMvDetailModel> mvDetailModel_ = nullptr;
     std::shared_ptr<string> owner_ = nullptr;

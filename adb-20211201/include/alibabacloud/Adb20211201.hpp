@@ -215,7 +215,7 @@ namespace Adb20211201
       Models::CheckSampleDataSetResponse checkSampleDataSet(const Models::CheckSampleDataSetRequest &request);
 
       /**
-       * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+       * @summary Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
        *
        * @param tmpReq ConfigureResultExportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -224,7 +224,7 @@ namespace Adb20211201
       Models::ConfigureResultExportResponse configureResultExportWithOptions(const Models::ConfigureResultExportRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+       * @summary Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
        *
        * @param request ConfigureResultExportRequest
        * @return ConfigureResultExportResponse
@@ -333,7 +333,7 @@ namespace Adb20211201
       Models::CreateApsHiveJobResponse createApsHiveJob(const Models::CreateApsHiveJobRequest &request);
 
       /**
-       * @summary 创建Kafka到Huid的APS链路
+       * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
        *
        * @param tmpReq CreateApsKafkaHudiJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -342,7 +342,7 @@ namespace Adb20211201
       Models::CreateApsKafkaHudiJobResponse createApsKafkaHudiJobWithOptions(const Models::CreateApsKafkaHudiJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Kafka到Huid的APS链路
+       * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
        *
        * @param request CreateApsKafkaHudiJobRequest
        * @return CreateApsKafkaHudiJobResponse
@@ -367,7 +367,7 @@ namespace Adb20211201
       Models::CreateApsSlsADBJobResponse createApsSlsADBJob(const Models::CreateApsSlsADBJobRequest &request);
 
       /**
-       * @summary CreateApsWebhook
+       * @summary Creates a new webhook for the specified cluster or task type.
        *
        * @param tmpReq CreateApsWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -376,7 +376,7 @@ namespace Adb20211201
       Models::CreateApsWebhookResponse createApsWebhookWithOptions(const Models::CreateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateApsWebhook
+       * @summary Creates a new webhook for the specified cluster or task type.
        *
        * @param request CreateApsWebhookRequest
        * @return CreateApsWebhookResponse
@@ -384,7 +384,9 @@ namespace Adb20211201
       Models::CreateApsWebhookResponse createApsWebhook(const Models::CreateApsWebhookRequest &request);
 
       /**
-       * @summary 手动创建备份集
+       * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+       *
+       * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
        *
        * @param request CreateBackupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -393,7 +395,9 @@ namespace Adb20211201
       Models::CreateBackupResponse createBackupWithOptions(const Models::CreateBackupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 手动创建备份集
+       * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+       *
+       * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
        *
        * @param request CreateBackupRequest
        * @return CreateBackupResponse
@@ -481,7 +485,7 @@ namespace Adb20211201
       Models::CreateLakeStorageResponse createLakeStorage(const Models::CreateLakeStorageRequest &request);
 
       /**
-       * @summary 创建物化视图自动推荐任务
+       * @summary Creates a materialized view recommendation task.
        *
        * @param request CreateMaterializedViewRecommendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -490,7 +494,7 @@ namespace Adb20211201
       Models::CreateMaterializedViewRecommendResponse createMaterializedViewRecommendWithOptions(const Models::CreateMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建物化视图自动推荐任务
+       * @summary Creates a materialized view recommendation task.
        *
        * @param request CreateMaterializedViewRecommendRequest
        * @return CreateMaterializedViewRecommendResponse
@@ -632,7 +636,9 @@ namespace Adb20211201
       Models::DeleteApsJobResponse deleteApsJob(const Models::DeleteApsJobRequest &request);
 
       /**
-       * @summary DeleteApsWebhook
+       * @summary Deletes a specific webhook in a specified cluster.
+       *
+       * @description This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
        *
        * @param request DeleteApsWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -641,7 +647,9 @@ namespace Adb20211201
       Models::DeleteApsWebhookResponse deleteApsWebhookWithOptions(const Models::DeleteApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteApsWebhook
+       * @summary Deletes a specific webhook in a specified cluster.
+       *
+       * @description This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
        *
        * @param request DeleteApsWebhookRequest
        * @return DeleteApsWebhookResponse
@@ -760,6 +768,23 @@ namespace Adb20211201
        * @return DeleteLakeStorageResponse
        */
       Models::DeleteLakeStorageResponse deleteLakeStorage(const Models::DeleteLakeStorageRequest &request);
+
+      /**
+       * @summary Deletes a materialized view recommendation task.
+       *
+       * @param request DeleteMaterializedViewRecommendRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMaterializedViewRecommendResponse
+       */
+      Models::DeleteMaterializedViewRecommendResponse deleteMaterializedViewRecommendWithOptions(const Models::DeleteMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a materialized view recommendation task.
+       *
+       * @param request DeleteMaterializedViewRecommendRequest
+       * @return DeleteMaterializedViewRecommendResponse
+       */
+      Models::DeleteMaterializedViewRecommendResponse deleteMaterializedViewRecommend(const Models::DeleteMaterializedViewRecommendRequest &request);
 
       /**
        * @summary Deletes a monitoring view.
@@ -1602,7 +1627,7 @@ namespace Adb20211201
       Models::DescribeDBClusterPerformanceResponse describeDBClusterPerformance(const Models::DescribeDBClusterPerformanceRequest &request);
 
       /**
-       * @summary 获取SSL配置信息
+       * @summary Queries the SSL configurations of a cluster.
        *
        * @param request DescribeDBClusterSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1636,7 @@ namespace Adb20211201
       Models::DescribeDBClusterSSLResponse describeDBClusterSSLWithOptions(const Models::DescribeDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取SSL配置信息
+       * @summary Queries the SSL configurations of a cluster.
        *
        * @param request DescribeDBClusterSSLRequest
        * @return DescribeDBClusterSSLResponse
@@ -1939,7 +1964,9 @@ namespace Adb20211201
       Models::DescribeExecutorDetectionResponse describeExecutorDetection(const Models::DescribeExecutorDetectionRequest &request);
 
       /**
-       * @summary 任务中心任务列表
+       * @summary Retrieve historical task records.
+       *
+       * @description Only supports viewing tasks within the last 30 days.
        *
        * @param request DescribeHistoryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1948,7 +1975,9 @@ namespace Adb20211201
       Models::DescribeHistoryTasksResponse describeHistoryTasksWithOptions(const Models::DescribeHistoryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务中心任务列表
+       * @summary Retrieve historical task records.
+       *
+       * @description Only supports viewing tasks within the last 30 days.
        *
        * @param request DescribeHistoryTasksRequest
        * @return DescribeHistoryTasksResponse
@@ -1956,7 +1985,7 @@ namespace Adb20211201
       Models::DescribeHistoryTasksResponse describeHistoryTasks(const Models::DescribeHistoryTasksRequest &request);
 
       /**
-       * @summary 任务中心任务统计
+       * @summary Queries task statistics.
        *
        * @param request DescribeHistoryTasksStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1965,7 +1994,7 @@ namespace Adb20211201
       Models::DescribeHistoryTasksStatResponse describeHistoryTasksStatWithOptions(const Models::DescribeHistoryTasksStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务中心任务统计
+       * @summary Queries task statistics.
        *
        * @param request DescribeHistoryTasksStatRequest
        * @return DescribeHistoryTasksStatResponse
@@ -2109,6 +2138,61 @@ namespace Adb20211201
       Models::DescribeLakeCacheSizeResponse describeLakeCacheSize(const Models::DescribeLakeCacheSizeRequest &request);
 
       /**
+       * @summary Retrieves the result of a recommendation task for a materialized view.
+       *
+       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       *
+       * @param request DescribeMVRecommendResultsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMVRecommendResultsResponse
+       */
+      Models::DescribeMVRecommendResultsResponse describeMVRecommendResultsWithOptions(const Models::DescribeMVRecommendResultsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the result of a recommendation task for a materialized view.
+       *
+       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+       *
+       * @param request DescribeMVRecommendResultsRequest
+       * @return DescribeMVRecommendResultsResponse
+       */
+      Models::DescribeMVRecommendResultsResponse describeMVRecommendResults(const Models::DescribeMVRecommendResultsRequest &request);
+
+      /**
+       * @summary 查看物化视图子任务
+       *
+       * @param request DescribeMvRecommendSubTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMvRecommendSubTasksResponse
+       */
+      Models::DescribeMvRecommendSubTasksResponse describeMvRecommendSubTasksWithOptions(const Models::DescribeMvRecommendSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看物化视图子任务
+       *
+       * @param request DescribeMvRecommendSubTasksRequest
+       * @return DescribeMvRecommendSubTasksResponse
+       */
+      Models::DescribeMvRecommendSubTasksResponse describeMvRecommendSubTasks(const Models::DescribeMvRecommendSubTasksRequest &request);
+
+      /**
+       * @summary 查看物化视图推荐任务
+       *
+       * @param request DescribeMvRecommendTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMvRecommendTasksResponse
+       */
+      Models::DescribeMvRecommendTasksResponse describeMvRecommendTasksWithOptions(const Models::DescribeMvRecommendTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看物化视图推荐任务
+       *
+       * @param request DescribeMvRecommendTasksRequest
+       * @return DescribeMvRecommendTasksResponse
+       */
+      Models::DescribeMvRecommendTasksResponse describeMvRecommendTasks(const Models::DescribeMvRecommendTasksRequest &request);
+
+      /**
        * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeOperatorPermissionRequest
@@ -2246,7 +2330,7 @@ namespace Adb20211201
       Models::DescribeResourceGroupSpecResponse describeResourceGroupSpec(const Models::DescribeResourceGroupSpecRequest &request);
 
       /**
-       * @summary 获取用户配置的导出信息
+       * @summary Queries the user-configured result set export settings.
        *
        * @param request DescribeResultExportConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2255,7 +2339,7 @@ namespace Adb20211201
       Models::DescribeResultExportConfigResponse describeResultExportConfigWithOptions(const Models::DescribeResultExportConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户配置的导出信息
+       * @summary Queries the user-configured result set export settings.
        *
        * @param request DescribeResultExportConfigRequest
        * @return DescribeResultExportConfigResponse
@@ -2362,7 +2446,10 @@ namespace Adb20211201
       Models::DescribeSparkAppTypeResponse describeSparkAppType(const Models::DescribeSparkAppTypeRequest &request);
 
       /**
-       * @summary 查询Spark审计日志
+       * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+       *
+       * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+       * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
        *
        * @param request DescribeSparkAuditLogRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2371,7 +2458,10 @@ namespace Adb20211201
       Models::DescribeSparkAuditLogRecordsResponse describeSparkAuditLogRecordsWithOptions(const Models::DescribeSparkAuditLogRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Spark审计日志
+       * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+       *
+       * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+       * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
        *
        * @param request DescribeSparkAuditLogRecordsRequest
        * @return DescribeSparkAuditLogRecordsResponse
@@ -2640,6 +2730,23 @@ namespace Adb20211201
       Models::DescribeUserQuotaResponse describeUserQuota(const Models::DescribeUserQuotaRequest &request);
 
       /**
+       * @summary Retrieves materialized view refresh tasks.
+       *
+       * @param request DescribeViewJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeViewJobsResponse
+       */
+      Models::DescribeViewJobsResponse describeViewJobsWithOptions(const Models::DescribeViewJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves materialized view refresh tasks.
+       *
+       * @param request DescribeViewJobsRequest
+       * @return DescribeViewJobsResponse
+       */
+      Models::DescribeViewJobsResponse describeViewJobs(const Models::DescribeViewJobsRequest &request);
+
+      /**
        * @summary Queries the diagnostic results of the storage layer.
        *
        * @param request DescribeWorkerDetectionRequest
@@ -2855,7 +2962,9 @@ namespace Adb20211201
       Models::ExistRunningSQLEngineResponse existRunningSQLEngine(const Models::ExistRunningSQLEngineRequest &request);
 
       /**
-       * @summary 获取Spark权限说明,失败时给出配置权限的帮助信息
+       * @summary View the Spark basic permission diagnosis report of the current user.
+       *
+       * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
        *
        * @param request GetADBSparkNecessaryRAMPermissionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2864,7 +2973,9 @@ namespace Adb20211201
       Models::GetADBSparkNecessaryRAMPermissionsResponse getADBSparkNecessaryRAMPermissionsWithOptions(const Models::GetADBSparkNecessaryRAMPermissionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Spark权限说明,失败时给出配置权限的帮助信息
+       * @summary View the Spark basic permission diagnosis report of the current user.
+       *
+       * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
        *
        * @param request GetADBSparkNecessaryRAMPermissionsRequest
        * @return GetADBSparkNecessaryRAMPermissionsResponse
@@ -3597,7 +3708,10 @@ namespace Adb20211201
       Models::ListApsOptimizationTasksResponse listApsOptimizationTasks(const Models::ListApsOptimizationTasksRequest &request);
 
       /**
-       * @summary ListApsWebhook
+       * @summary Queries the Webhook configurations of a specified database cluster.
+       *
+       * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+       * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
        *
        * @param request ListApsWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3606,7 +3720,10 @@ namespace Adb20211201
       Models::ListApsWebhookResponse listApsWebhookWithOptions(const Models::ListApsWebhookRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListApsWebhook
+       * @summary Queries the Webhook configurations of a specified database cluster.
+       *
+       * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+       * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
        *
        * @param request ListApsWebhookRequest
        * @return ListApsWebhookResponse
@@ -4131,7 +4248,7 @@ namespace Adb20211201
       Models::ModifyDBClusterResourceGroupResponse modifyDBClusterResourceGroup(const Models::ModifyDBClusterResourceGroupRequest &request);
 
       /**
-       * @summary 配置SSL
+       * @summary Modifies the SSL link configuration of a cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4140,7 +4257,7 @@ namespace Adb20211201
       Models::ModifyDBClusterSSLResponse modifyDBClusterSSLWithOptions(const Models::ModifyDBClusterSSLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 配置SSL
+       * @summary Modifies the SSL link configuration of a cluster.
        *
        * @param request ModifyDBClusterSSLRequest
        * @return ModifyDBClusterSSLResponse
@@ -4241,7 +4358,7 @@ namespace Adb20211201
       Models::ModifyLakeCacheSizeResponse modifyLakeCacheSize(const Models::ModifyLakeCacheSizeRequest &request);
 
       /**
-       * @summary 修改物化视图
+       * @summary Modifies materialized views.
        *
        * @param request ModifyMaterializedViewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4250,7 +4367,7 @@ namespace Adb20211201
       Models::ModifyMaterializedViewResponse modifyMaterializedViewWithOptions(const Models::ModifyMaterializedViewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改物化视图
+       * @summary Modifies materialized views.
        *
        * @param request ModifyMaterializedViewRequest
        * @return ModifyMaterializedViewResponse
@@ -4258,7 +4375,7 @@ namespace Adb20211201
       Models::ModifyMaterializedViewResponse modifyMaterializedView(const Models::ModifyMaterializedViewRequest &request);
 
       /**
-       * @summary 修改物化视图自动推荐任务
+       * @summary Modifies a materialized view recommendation task.
        *
        * @param request ModifyMaterializedViewRecommendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4267,7 +4384,7 @@ namespace Adb20211201
       Models::ModifyMaterializedViewRecommendResponse modifyMaterializedViewRecommendWithOptions(const Models::ModifyMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改物化视图自动推荐任务
+       * @summary Modifies a materialized view recommendation task.
        *
        * @param request ModifyMaterializedViewRecommendRequest
        * @return ModifyMaterializedViewRecommendResponse
@@ -4292,7 +4409,9 @@ namespace Adb20211201
       Models::ModifyPerformanceViewResponse modifyPerformanceView(const Models::ModifyPerformanceViewRequest &request);
 
       /**
-       * @summary 修改SQL脚本模板位置
+       * @summary Modifies the directory location of SQL templates.
+       *
+       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifySqlTemplatePositionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4301,7 +4420,9 @@ namespace Adb20211201
       Models::ModifySqlTemplatePositionResponse modifySqlTemplatePositionWithOptions(const Models::ModifySqlTemplatePositionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改SQL脚本模板位置
+       * @summary Modifies the directory location of SQL templates.
+       *
+       * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
        *
        * @param request ModifySqlTemplatePositionRequest
        * @return ModifySqlTemplatePositionResponse
@@ -4624,7 +4745,7 @@ namespace Adb20211201
       Models::UnbindDBResourceGroupWithUserResponse unbindDBResourceGroupWithUser(const Models::UnbindDBResourceGroupWithUserRequest &request);
 
       /**
-       * @summary UpdateApsWebhook
+       * @summary Updates the webhook configuration of a specified cluster.
        *
        * @param tmpReq UpdateApsWebhookRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4633,7 +4754,7 @@ namespace Adb20211201
       Models::UpdateApsWebhookResponse updateApsWebhookWithOptions(const Models::UpdateApsWebhookRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary UpdateApsWebhook
+       * @summary Updates the webhook configuration of a specified cluster.
        *
        * @param request UpdateApsWebhookRequest
        * @return UpdateApsWebhookResponse

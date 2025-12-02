@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Signing key
     std::shared_ptr<string> key_ = nullptr;
+    // The name of the webhook.
     std::shared_ptr<string> name_ = nullptr;
+    // The request URL.
     std::shared_ptr<string> url_ = nullptr;
+    // The ID of the webhook that you want to delete.
     std::shared_ptr<string> webhookId_ = nullptr;
+    // Webhook type.
     std::shared_ptr<string> webhookType_ = nullptr;
   };
 

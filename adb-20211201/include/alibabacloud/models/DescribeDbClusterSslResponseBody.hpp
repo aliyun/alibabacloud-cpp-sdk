@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The endpoint that is protected by SSL encryption.
     std::shared_ptr<string> connectionString_ = nullptr;
+    // The validity period of the SSL certificate. Format: yyyy-MM-ddTHH:mm:ssZ(UTC time).
     std::shared_ptr<string> expireTime_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether SSL encryption is enabled. Default value: true. Valid values:
+    // 
+    // *   true: enabled
+    // *   false: disabled
     std::shared_ptr<bool> SSLEnabled_ = nullptr;
   };
 

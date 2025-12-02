@@ -158,21 +158,44 @@ namespace Models
 
 
   protected:
+    // Minimum task execution time, used to filter tasks with execution time greater than this value, in seconds. Default 0, meaning no limit
     std::shared_ptr<int32_t> fromExecTime_ = nullptr;
+    // Query start time.
+    // 
     // This parameter is required.
     std::shared_ptr<string> fromStartTime_ = nullptr;
+    // Cluster ID.
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The ID of the region where the instance resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     std::shared_ptr<string> securityToken_ = nullptr;
+    // The state of the task. Valid values:
+    // 
+    // *   **Scheduled**
+    // *   **Running**
+    // *   **Succeed**
+    // *   **Failed**: The task failed.
+    // *   **Cancelling**
+    // *   **Canceled**
+    // *   **Waiting**
+    // 
+    // Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
     std::shared_ptr<string> status_ = nullptr;
+    // Task ID.
     std::shared_ptr<string> taskId_ = nullptr;
+    // Task type.
     std::shared_ptr<string> taskType_ = nullptr;
+    // Maximum task execution time, used to filter tasks with execution time not less than this value, in seconds. Default 0, meaning no limit
     std::shared_ptr<int32_t> toExecTime_ = nullptr;
+    // Represents tasks whose start time is before this time.
+    // 
     // This parameter is required.
     std::shared_ptr<string> toStartTime_ = nullptr;
   };

@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the template group.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> targetTemplateGroupId_ = nullptr;
+    // The template ID.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> templateId_ = nullptr;
   };

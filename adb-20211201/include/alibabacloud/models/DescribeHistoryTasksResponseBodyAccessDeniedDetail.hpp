@@ -94,12 +94,28 @@ namespace Models
 
 
   protected:
+    // null
     std::shared_ptr<string> authAction_ = nullptr;
+    // null
     std::shared_ptr<string> authPrincipalDisplayName_ = nullptr;
+    // null
     std::shared_ptr<string> authPrincipalOwnerId_ = nullptr;
+    // null
     std::shared_ptr<string> authPrincipalType_ = nullptr;
+    // null
     std::shared_ptr<string> encodedDiagnosticMessage_ = nullptr;
+    // null
+    // 
+    // *   **null**
+    // *   **null**
     std::shared_ptr<string> noPermissionType_ = nullptr;
+    // null
+    // 
+    // *   **null**
+    // *   **null**
+    // *   **null**
+    // *   **null**
+    // *   **null**
     std::shared_ptr<string> policyType_ = nullptr;
   };
 

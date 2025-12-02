@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The OSS path where the result sets are stored.
     std::shared_ptr<string> exportBasePath_ = nullptr;
+    // The name of the resource group that runs the job.
     std::shared_ptr<string> resourceGroup_ = nullptr;
+    // The expiration time of the OSS file. Unit: days. Minimum: 1 day, maximum: 30 days.
     std::shared_ptr<int32_t> resultFileTtl_ = nullptr;
   };
 

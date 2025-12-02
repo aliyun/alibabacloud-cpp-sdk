@@ -167,23 +167,52 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The description of the recommendation task.
     std::shared_ptr<string> description_ = nullptr;
+    // Pattern匹配的最少慢查询个数
     std::shared_ptr<int32_t> minRewriteQueryCount_ = nullptr;
+    // 最小可加速的Pattern数量
     std::shared_ptr<int32_t> minRewriteQueryPattern_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    // The time range for scanning data. Unit: days. Default value: 3.
     std::shared_ptr<int32_t> scanQueriesRange_ = nullptr;
+    // This parameter is valid only when SchedulingPolicy is set to weekly. Valid values:
+    // 
+    // *   Monday
+    // *   Tuesday
+    // *   Wednesday
+    // *   Thursday
+    // *   Friday
+    // *   Saturday
+    // *   Sunday
+    // 
+    // Separate multiple days with commas (,).
     std::shared_ptr<string> schedulingDay_ = nullptr;
+    // The scheduling policy of the recommendation task. Valid values:
+    // 
+    // daily
+    // 
+    // weekly
+    // 
     // This parameter is required.
     std::shared_ptr<string> schedulingPolicy_ = nullptr;
+    // 慢查询阈值
     std::shared_ptr<int32_t> slowQueryThreshold_ = nullptr;
+    // The execution time of the recommendation task. Specify the time in the HH:MM:SS format.
+    // 
     // This parameter is required.
     std::shared_ptr<string> specifiedTime_ = nullptr;
+    // The name of the recommendation task.
+    // 
     // This parameter is required.
     std::shared_ptr<string> taskName_ = nullptr;
   };

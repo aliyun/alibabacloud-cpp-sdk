@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The path of the OSS bucket to which the result sets are exported.
     std::shared_ptr<string> exportBasePath_ = nullptr;
+    // The name of the resource group that runs the export SQL.
     std::shared_ptr<string> resourceGroup_ = nullptr;
+    // The expiration period (in days) for the OSS file. The returned value is between 1 and 30 days (inclusive).
     std::shared_ptr<int32_t> resultFileTtl_ = nullptr;
   };
 

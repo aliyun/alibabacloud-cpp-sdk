@@ -63,8 +63,14 @@ namespace Models
 
 
   protected:
+    // The export type. Valid values:
+    // 
+    // *   SLS: Indicates that the export destination is SLS.
+    // *   OSS: Indicates that the export destination is OSS.
     std::shared_ptr<string> exportType_ = nullptr;
+    // The OSS configuration if the destination is of the OSS type.
     std::shared_ptr<Models::ConfigureResultExportResponseBodyDataOssInfo> ossInfo_ = nullptr;
+    // The SLS configuration if the destination is of the SLS type.
     std::shared_ptr<Models::ConfigureResultExportResponseBodyDataSlsInfo> slsInfo_ = nullptr;
   };
 

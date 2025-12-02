@@ -84,11 +84,29 @@ namespace Models
 
 
   protected:
+    // The name of the RAM action that failed the authentication.
     std::shared_ptr<string> action_ = nullptr;
+    // The type of the policy denial. Valid values:
+    // 
+    // *   ImplicitDeny: Resource owner has not configured relevant permission policies for the current user, default denial of unauthorized operations.
+    // *   ExplicitDeny: RAM policies configured by the resource owner explicitly deny the current user access to corresponding resources
     std::shared_ptr<string> noPermissionType_ = nullptr;
+    // The type of the policy that causes the access denied error.
+    // 
+    // *   ControlPolicy: control policy
+    // *   SessionPolicy: Temporary Token additional permission policy
+    // *   AssumeRolePolicy: RAM role trust policy
+    // *   AccountLevelIdentityBasedPolicy: Principal policy within account authorization scope, including custom policies and system policies
+    // *   ResourceGroupLevelIdentityBasedPolicy: Principal policy within resource group authorization scope, including custom policies and system policies.
     std::shared_ptr<string> policyType_ = nullptr;
+    // The identity type of the current user. Valid values:
+    // 
+    // *   SubUser: a RAM user
+    // *   AssumedRoleUser: a RAM role
     std::shared_ptr<string> principalType_ = nullptr;
+    // Authentication object information, can be the current user\\"s RAM account ID, or the role information corresponding to the current visitor.
     std::shared_ptr<string> resourceAuthTargetInfo_ = nullptr;
+    // The ID of the resource owner.
     std::shared_ptr<string> resourceOwnerId_ = nullptr;
   };
 

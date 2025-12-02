@@ -94,12 +94,28 @@ namespace Models
 
 
   protected:
+    // Authorized action
     std::shared_ptr<string> authAction_ = nullptr;
+    // The display name of the requester.
     std::shared_ptr<string> authPrincipalDisplayName_ = nullptr;
+    // The ID of the Alibaba Cloud account to which the authentication principal belongs.
     std::shared_ptr<string> authPrincipalOwnerId_ = nullptr;
+    // The requester type.
     std::shared_ptr<string> authPrincipalType_ = nullptr;
+    // The encoded diagnostic message.
     std::shared_ptr<string> encodedDiagnosticMessage_ = nullptr;
+    // The type of the policy denial. Valid values:
+    // 
+    // *   **ImplicitDeny**: The resource holder has not configured a policy for the current user. By default, unauthorized operations are denied.
+    // *   **ExplicitDeny**: The RAM policy configured by the resource holder explicitly denies the current user access to the corresponding resources.
     std::shared_ptr<string> noPermissionType_ = nullptr;
+    // The type of the policy that causes the access denied error.
+    // 
+    // *   **ControlPolicy**: control policy
+    // *   **SessionPolicy**: an additional policy that is added to the temporary token.
+    // *   **AssumeRolePolicy**: the authorization policy of the RAM role.
+    // *   **AccountLevelIdentityBasedPolicy**: the principal policies of the account authorization scope, including custom policies and system policies.
+    // *   **ResourceGroupLevelIdentityBasedPolicy**: the principal policy of the resource group authorization scope, including custom policies and system policies.
     std::shared_ptr<string> policyType_ = nullptr;
   };
 

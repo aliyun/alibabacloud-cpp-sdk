@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYDBRESOURCEGROUPREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYDBRESOURCEGROUPREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ModifyDBResourceGroupRequestGpuElasticPlan.hpp>
 #include <alibabacloud/models/ModifyDBResourceGroupRequestRayConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/ModifyDBResourceGroupRequestRules.hpp>
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(EnableSpot, enableSpot_);
       DARABONBA_ANY_TO_JSON(EngineParams, engineParams_);
+      DARABONBA_PTR_TO_JSON(GpuElasticPlan, gpuElasticPlan_);
       DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       DARABONBA_PTR_TO_JSON(GroupType, groupType_);
       DARABONBA_PTR_TO_JSON(MaxClusterCount, maxClusterCount_);
@@ -44,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(EnableSpot, enableSpot_);
       DARABONBA_ANY_FROM_JSON(EngineParams, engineParams_);
+      DARABONBA_PTR_FROM_JSON(GpuElasticPlan, gpuElasticPlan_);
       DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
       DARABONBA_PTR_FROM_JSON(GroupType, groupType_);
       DARABONBA_PTR_FROM_JSON(MaxClusterCount, maxClusterCount_);
@@ -72,9 +75,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoStopInterval_ == nullptr
         && return this->clusterMode_ == nullptr && return this->clusterSizeResource_ == nullptr && return this->DBClusterId_ == nullptr && return this->enableSpot_ == nullptr && return this->engineParams_ == nullptr
-        && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr && return this->maxGpuQuantity_ == nullptr
-        && return this->minClusterCount_ == nullptr && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr && return this->rayConfig_ == nullptr && return this->regionId_ == nullptr
-        && return this->rules_ == nullptr && return this->specName_ == nullptr && return this->status_ == nullptr && return this->targetResourceGroupName_ == nullptr; };
+        && return this->gpuElasticPlan_ == nullptr && return this->groupName_ == nullptr && return this->groupType_ == nullptr && return this->maxClusterCount_ == nullptr && return this->maxComputeResource_ == nullptr
+        && return this->maxGpuQuantity_ == nullptr && return this->minClusterCount_ == nullptr && return this->minComputeResource_ == nullptr && return this->minGpuQuantity_ == nullptr && return this->rayConfig_ == nullptr
+        && return this->regionId_ == nullptr && return this->rules_ == nullptr && return this->specName_ == nullptr && return this->status_ == nullptr && return this->targetResourceGroupName_ == nullptr; };
     // autoStopInterval Field Functions 
     bool hasAutoStopInterval() const { return this->autoStopInterval_ != nullptr;};
     void deleteAutoStopInterval() { this->autoStopInterval_ = nullptr;};
@@ -117,6 +120,15 @@ namespace Models
     Darabonba::Json & engineParams() { DARABONBA_GET(engineParams_) };
     inline ModifyDBResourceGroupRequest& setEngineParams(const Darabonba::Json & engineParams) { DARABONBA_SET_VALUE(engineParams_, engineParams) };
     inline ModifyDBResourceGroupRequest& setEngineParams(Darabonba::Json & engineParams) { DARABONBA_SET_RVALUE(engineParams_, engineParams) };
+
+
+    // gpuElasticPlan Field Functions 
+    bool hasGpuElasticPlan() const { return this->gpuElasticPlan_ != nullptr;};
+    void deleteGpuElasticPlan() { this->gpuElasticPlan_ = nullptr;};
+    inline const ModifyDBResourceGroupRequestGpuElasticPlan & gpuElasticPlan() const { DARABONBA_PTR_GET_CONST(gpuElasticPlan_, ModifyDBResourceGroupRequestGpuElasticPlan) };
+    inline ModifyDBResourceGroupRequestGpuElasticPlan gpuElasticPlan() { DARABONBA_PTR_GET(gpuElasticPlan_, ModifyDBResourceGroupRequestGpuElasticPlan) };
+    inline ModifyDBResourceGroupRequest& setGpuElasticPlan(const ModifyDBResourceGroupRequestGpuElasticPlan & gpuElasticPlan) { DARABONBA_PTR_SET_VALUE(gpuElasticPlan_, gpuElasticPlan) };
+    inline ModifyDBResourceGroupRequest& setGpuElasticPlan(ModifyDBResourceGroupRequestGpuElasticPlan && gpuElasticPlan) { DARABONBA_PTR_SET_RVALUE(gpuElasticPlan_, gpuElasticPlan) };
 
 
     // groupName Field Functions 
@@ -237,6 +249,7 @@ namespace Models
     // *   **False**
     std::shared_ptr<bool> enableSpot_ = nullptr;
     Darabonba::Json engineParams_ = nullptr;
+    std::shared_ptr<ModifyDBResourceGroupRequestGpuElasticPlan> gpuElasticPlan_ = nullptr;
     // The name of the resource group.
     // 
     // > You can call the [DescribeDBResourceGroup](https://help.aliyun.com/document_detail/459446.html) operation to query the name of a resource group in a cluster.

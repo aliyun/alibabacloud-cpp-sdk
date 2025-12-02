@@ -26,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Comment, comment_);
       DARABONBA_PTR_TO_JSON(Compression, compression_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(CreatedBySource, createdBySource_);
+      DARABONBA_PTR_TO_JSON(CreatedByUser, createdByUser_);
       DARABONBA_PTR_TO_JSON(CurrentVersion, currentVersion_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
       DARABONBA_PTR_TO_JSON(DictEncode, dictEncode_);
@@ -76,6 +78,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Comment, comment_);
       DARABONBA_PTR_FROM_JSON(Compression, compression_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(CreatedBySource, createdBySource_);
+      DARABONBA_PTR_FROM_JSON(CreatedByUser, createdByUser_);
       DARABONBA_PTR_FROM_JSON(CurrentVersion, currentVersion_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
       DARABONBA_PTR_FROM_JSON(DictEncode, dictEncode_);
@@ -130,15 +134,15 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->archiveType_ == nullptr
         && return this->blockSize_ == nullptr && return this->bucket_ == nullptr && return this->bucketCount_ == nullptr && return this->cols_ == nullptr && return this->comment_ == nullptr
-        && return this->compression_ == nullptr && return this->createTime_ == nullptr && return this->currentVersion_ == nullptr && return this->dbName_ == nullptr && return this->dictEncode_ == nullptr
-        && return this->distributeColumns_ == nullptr && return this->distributeType_ == nullptr && return this->enableDfs_ == nullptr && return this->hotPartitionCount_ == nullptr && return this->indexes_ == nullptr
-        && return this->isAllIndex_ == nullptr && return this->isFulltextDict_ == nullptr && return this->maxColumnId_ == nullptr && return this->parameters_ == nullptr && return this->partitionColumn_ == nullptr
-        && return this->partitionCount_ == nullptr && return this->partitionKeys_ == nullptr && return this->partitionType_ == nullptr && return this->physicalDatabaseName_ == nullptr && return this->physicalTableName_ == nullptr
-        && return this->previousVersion_ == nullptr && return this->rawTableName_ == nullptr && return this->routeColumns_ == nullptr && return this->routeEffectiveColumn_ == nullptr && return this->routeType_ == nullptr
-        && return this->rtEngineType_ == nullptr && return this->rtIndexAll_ == nullptr && return this->rtModeType_ == nullptr && return this->sd_ == nullptr && return this->storagePolicy_ == nullptr
-        && return this->subpartitionColumn_ == nullptr && return this->subpartitionCount_ == nullptr && return this->subpartitionType_ == nullptr && return this->tableEngineName_ == nullptr && return this->tableName_ == nullptr
-        && return this->tableType_ == nullptr && return this->tblId_ == nullptr && return this->temporary_ == nullptr && return this->updateTime_ == nullptr && return this->viewExpandedText_ == nullptr
-        && return this->viewOriginalText_ == nullptr && return this->viewSecurityMode_ == nullptr; };
+        && return this->compression_ == nullptr && return this->createTime_ == nullptr && return this->createdBySource_ == nullptr && return this->createdByUser_ == nullptr && return this->currentVersion_ == nullptr
+        && return this->dbName_ == nullptr && return this->dictEncode_ == nullptr && return this->distributeColumns_ == nullptr && return this->distributeType_ == nullptr && return this->enableDfs_ == nullptr
+        && return this->hotPartitionCount_ == nullptr && return this->indexes_ == nullptr && return this->isAllIndex_ == nullptr && return this->isFulltextDict_ == nullptr && return this->maxColumnId_ == nullptr
+        && return this->parameters_ == nullptr && return this->partitionColumn_ == nullptr && return this->partitionCount_ == nullptr && return this->partitionKeys_ == nullptr && return this->partitionType_ == nullptr
+        && return this->physicalDatabaseName_ == nullptr && return this->physicalTableName_ == nullptr && return this->previousVersion_ == nullptr && return this->rawTableName_ == nullptr && return this->routeColumns_ == nullptr
+        && return this->routeEffectiveColumn_ == nullptr && return this->routeType_ == nullptr && return this->rtEngineType_ == nullptr && return this->rtIndexAll_ == nullptr && return this->rtModeType_ == nullptr
+        && return this->sd_ == nullptr && return this->storagePolicy_ == nullptr && return this->subpartitionColumn_ == nullptr && return this->subpartitionCount_ == nullptr && return this->subpartitionType_ == nullptr
+        && return this->tableEngineName_ == nullptr && return this->tableName_ == nullptr && return this->tableType_ == nullptr && return this->tblId_ == nullptr && return this->temporary_ == nullptr
+        && return this->updateTime_ == nullptr && return this->viewExpandedText_ == nullptr && return this->viewOriginalText_ == nullptr && return this->viewSecurityMode_ == nullptr; };
     // archiveType Field Functions 
     bool hasArchiveType() const { return this->archiveType_ != nullptr;};
     void deleteArchiveType() { this->archiveType_ = nullptr;};
@@ -195,6 +199,20 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline TableModel& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // createdBySource Field Functions 
+    bool hasCreatedBySource() const { return this->createdBySource_ != nullptr;};
+    void deleteCreatedBySource() { this->createdBySource_ = nullptr;};
+    inline string createdBySource() const { DARABONBA_PTR_GET_DEFAULT(createdBySource_, "") };
+    inline TableModel& setCreatedBySource(string createdBySource) { DARABONBA_PTR_SET_VALUE(createdBySource_, createdBySource) };
+
+
+    // createdByUser Field Functions 
+    bool hasCreatedByUser() const { return this->createdByUser_ != nullptr;};
+    void deleteCreatedByUser() { this->createdByUser_ = nullptr;};
+    inline string createdByUser() const { DARABONBA_PTR_GET_DEFAULT(createdByUser_, "") };
+    inline TableModel& setCreatedByUser(string createdByUser) { DARABONBA_PTR_SET_VALUE(createdByUser_, createdByUser) };
 
 
     // currentVersion Field Functions 
@@ -500,6 +518,8 @@ namespace Models
     std::shared_ptr<string> comment_ = nullptr;
     std::shared_ptr<string> compression_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<string> createdBySource_ = nullptr;
+    std::shared_ptr<string> createdByUser_ = nullptr;
     std::shared_ptr<int64_t> currentVersion_ = nullptr;
     std::shared_ptr<string> dbName_ = nullptr;
     std::shared_ptr<bool> dictEncode_ = nullptr;

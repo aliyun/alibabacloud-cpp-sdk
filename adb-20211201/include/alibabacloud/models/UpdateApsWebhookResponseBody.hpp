@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The code of the returned result.
     std::shared_ptr<string> code_ = nullptr;
+    // The cluster ID.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The returned data.
     std::shared_ptr<string> data_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The returned message.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The expiration time of the Logstore temporarily generated during the result set export. Unit: days. The Logstore is automatically deleted after it expires. Minimum value: 1 day, maximum: 30 days. Values outside this range will result in an error.
     std::shared_ptr<int32_t> logstoreTtl_ = nullptr;
+    // The name of the resource group that runs the job.
     std::shared_ptr<string> resourceGroup_ = nullptr;
+    // The name of the SLS project.
     std::shared_ptr<string> slsProject_ = nullptr;
   };
 

@@ -60,8 +60,14 @@ namespace Models
 
 
   protected:
+    // When permission check fails, returns diagnostic information related to permission check failure.
     std::shared_ptr<Models::GetADBSparkNecessaryRAMPermissionsResponseBodyDataDeniedDetail> deniedDetail_ = nullptr;
+    // Check whether the use has the basic permissions to use Analytic DB for Spark.
+    // 
+    // *   true: The check is passed and the basic permissions are granted.
+    // *   false: The check fails and some permissions are missing.
     std::shared_ptr<bool> passed_ = nullptr;
+    // Based on diagnostic information, recommends configurations for customers to perform in the RAM system.
     std::shared_ptr<string> suggestion_ = nullptr;
   };
 

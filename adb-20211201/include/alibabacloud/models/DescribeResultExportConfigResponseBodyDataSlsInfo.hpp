@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The expiration period (in days) for the temporary Logstore automatically created during result set export. The Logstore is automatically deleted after expiration. The returned value is between 1 and 30 days (inclusive).
     std::shared_ptr<int32_t> logstoreTtl_ = nullptr;
+    // The name of the resource group that runs the export SQL.
     std::shared_ptr<string> resourceGroup_ = nullptr;
+    // The name of the SLS project.
     std::shared_ptr<string> slsProject_ = nullptr;
   };
 

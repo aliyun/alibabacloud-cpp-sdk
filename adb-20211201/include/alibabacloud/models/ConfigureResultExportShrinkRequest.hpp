@@ -75,12 +75,24 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
+    // 
+    // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    // The export type. Valid values:
+    // 
+    // *   SLS: Specifies that the export destination is SLS.
+    // *   OSS: Specifies that the export destination is OSS.
     std::shared_ptr<string> exportType_ = nullptr;
+    // The OSS configuration details if the destination is of the OSS type.
     std::shared_ptr<string> ossInfoShrink_ = nullptr;
+    // The ID of the region where the instance resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The SLS configuration details if the destination is of the SLS type.
     std::shared_ptr<string> slsInfoShrink_ = nullptr;
   };
 

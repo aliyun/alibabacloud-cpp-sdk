@@ -611,7 +611,7 @@ CheckSampleDataSetResponse Client::checkSampleDataSet(const CheckSampleDataSetRe
 }
 
 /**
- * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+ * @summary Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
  *
  * @param tmpReq ConfigureResultExportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -668,7 +668,7 @@ ConfigureResultExportResponse Client::configureResultExportWithOptions(const Con
 }
 
 /**
- * @summary 配置导出的SLS 或者OSS 信息，实例级别唯一，遵循一次配置多次使用的原则
+ * @summary Configures the export destination (SLS or OSS) at the instance level. The configuration is unique per instance and follows the "configure once, use multiple times" principle.
  *
  * @param request ConfigureResultExportRequest
  * @return ConfigureResultExportResponse
@@ -1119,7 +1119,7 @@ CreateApsHiveJobResponse Client::createApsHiveJob(const CreateApsHiveJobRequest 
 }
 
 /**
- * @summary 创建Kafka到Huid的APS链路
+ * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
  *
  * @param tmpReq CreateApsKafkaHudiJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1268,7 +1268,7 @@ CreateApsKafkaHudiJobResponse Client::createApsKafkaHudiJobWithOptions(const Cre
 }
 
 /**
- * @summary 创建Kafka到Huid的APS链路
+ * @summary Creates a data ingestion task to load data from an Apache Kafka topic into an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
  *
  * @param request CreateApsKafkaHudiJobRequest
  * @return CreateApsKafkaHudiJobResponse
@@ -1459,7 +1459,7 @@ CreateApsSlsADBJobResponse Client::createApsSlsADBJob(const CreateApsSlsADBJobRe
 }
 
 /**
- * @summary CreateApsWebhook
+ * @summary Creates a new webhook for the specified cluster or task type.
  *
  * @param tmpReq CreateApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1508,7 +1508,7 @@ CreateApsWebhookResponse Client::createApsWebhookWithOptions(const CreateApsWebh
 }
 
 /**
- * @summary CreateApsWebhook
+ * @summary Creates a new webhook for the specified cluster or task type.
  *
  * @param request CreateApsWebhookRequest
  * @return CreateApsWebhookResponse
@@ -1519,7 +1519,9 @@ CreateApsWebhookResponse Client::createApsWebhook(const CreateApsWebhookRequest 
 }
 
 /**
- * @summary 手动创建备份集
+ * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+ *
+ * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1570,7 +1572,9 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary 手动创建备份集
+ * @summary Creates a data backup for an AnalyticDB for MySQL instance.
+ *
+ * @description **Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ads/detail/ads_pre) of AnalyticDB for MySQL.** Temporary backups are the same as regular backups in terms of price and retention period of backup sets.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -1755,6 +1759,10 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
     request.setEngineParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.engineParams(), "EngineParams", "json"));
   }
 
+  if (!!tmpReq.hasGpuElasticPlan()) {
+    request.setGpuElasticPlanShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.gpuElasticPlan(), "GpuElasticPlan", "json"));
+  }
+
   if (!!tmpReq.hasRayConfig()) {
     request.setRayConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rayConfig(), "RayConfig", "json"));
   }
@@ -1790,6 +1798,10 @@ CreateDBResourceGroupResponse Client::createDBResourceGroupWithOptions(const Cre
 
   if (!!request.hasEngineParamsShrink()) {
     query["EngineParams"] = request.engineParamsShrink();
+  }
+
+  if (!!request.hasGpuElasticPlanShrink()) {
+    query["GpuElasticPlan"] = request.gpuElasticPlanShrink();
   }
 
   if (!!request.hasGroupName()) {
@@ -2023,7 +2035,7 @@ CreateLakeStorageResponse Client::createLakeStorage(const CreateLakeStorageReque
 }
 
 /**
- * @summary 创建物化视图自动推荐任务
+ * @summary Creates a materialized view recommendation task.
  *
  * @param request CreateMaterializedViewRecommendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2110,7 +2122,7 @@ CreateMaterializedViewRecommendResponse Client::createMaterializedViewRecommendW
 }
 
 /**
- * @summary 创建物化视图自动推荐任务
+ * @summary Creates a materialized view recommendation task.
  *
  * @param request CreateMaterializedViewRecommendRequest
  * @return CreateMaterializedViewRecommendResponse
@@ -2487,7 +2499,9 @@ DeleteApsJobResponse Client::deleteApsJob(const DeleteApsJobRequest &request) {
 }
 
 /**
- * @summary DeleteApsWebhook
+ * @summary Deletes a specific webhook in a specified cluster.
+ *
+ * @description This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
  *
  * @param request DeleteApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2526,7 +2540,9 @@ DeleteApsWebhookResponse Client::deleteApsWebhookWithOptions(const DeleteApsWebh
 }
 
 /**
- * @summary DeleteApsWebhook
+ * @summary Deletes a specific webhook in a specified cluster.
+ *
+ * @description This API allows users to delete an existing webhook configuration by providing `RegionId`, `DBClusterId`, and `WebhookId`. Make sure that the provided parameter values are accurate to avoid deleting important settings by mistake.
  *
  * @param request DeleteApsWebhookRequest
  * @return DeleteApsWebhookResponse
@@ -2814,6 +2830,72 @@ DeleteLakeStorageResponse Client::deleteLakeStorageWithOptions(const DeleteLakeS
 DeleteLakeStorageResponse Client::deleteLakeStorage(const DeleteLakeStorageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteLakeStorageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a materialized view recommendation task.
+ *
+ * @param request DeleteMaterializedViewRecommendRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMaterializedViewRecommendResponse
+ */
+DeleteMaterializedViewRecommendResponse Client::deleteMaterializedViewRecommendWithOptions(const DeleteMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMaterializedViewRecommend"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMaterializedViewRecommendResponse>();
+}
+
+/**
+ * @summary Deletes a materialized view recommendation task.
+ *
+ * @param request DeleteMaterializedViewRecommendRequest
+ * @return DeleteMaterializedViewRecommendResponse
+ */
+DeleteMaterializedViewRecommendResponse Client::deleteMaterializedViewRecommend(const DeleteMaterializedViewRecommendRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMaterializedViewRecommendWithOptions(request, runtime);
 }
 
 /**
@@ -5403,7 +5485,7 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const 
 }
 
 /**
- * @summary 获取SSL配置信息
+ * @summary Queries the SSL configurations of a cluster.
  *
  * @param request DescribeDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5438,7 +5520,7 @@ DescribeDBClusterSSLResponse Client::describeDBClusterSSLWithOptions(const Descr
 }
 
 /**
- * @summary 获取SSL配置信息
+ * @summary Queries the SSL configurations of a cluster.
  *
  * @param request DescribeDBClusterSSLRequest
  * @return DescribeDBClusterSSLResponse
@@ -6497,7 +6579,9 @@ DescribeExecutorDetectionResponse Client::describeExecutorDetection(const Descri
 }
 
 /**
- * @summary 任务中心任务列表
+ * @summary Retrieve historical task records.
+ *
+ * @description Only supports viewing tasks within the last 30 days.
  *
  * @param request DescribeHistoryTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6584,7 +6668,9 @@ DescribeHistoryTasksResponse Client::describeHistoryTasksWithOptions(const Descr
 }
 
 /**
- * @summary 任务中心任务列表
+ * @summary Retrieve historical task records.
+ *
+ * @description Only supports viewing tasks within the last 30 days.
  *
  * @param request DescribeHistoryTasksRequest
  * @return DescribeHistoryTasksResponse
@@ -6595,7 +6681,7 @@ DescribeHistoryTasksResponse Client::describeHistoryTasks(const DescribeHistoryT
 }
 
 /**
- * @summary 任务中心任务统计
+ * @summary Queries task statistics.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6678,7 +6764,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStatWithOptions(con
 }
 
 /**
- * @summary 任务中心任务统计
+ * @summary Queries task statistics.
  *
  * @param request DescribeHistoryTasksStatRequest
  * @return DescribeHistoryTasksStatResponse
@@ -7190,6 +7276,228 @@ DescribeLakeCacheSizeResponse Client::describeLakeCacheSize(const DescribeLakeCa
 }
 
 /**
+ * @summary Retrieves the result of a recommendation task for a materialized view.
+ *
+ * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ *
+ * @param request DescribeMVRecommendResultsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMVRecommendResultsResponse
+ */
+DescribeMVRecommendResultsResponse Client::describeMVRecommendResultsWithOptions(const DescribeMVRecommendResultsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionInner()) {
+    query["ActionInner"] = request.actionInner();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFrom()) {
+    query["From"] = request.from();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSubQueryId()) {
+    query["SubQueryId"] = request.subQueryId();
+  }
+
+  if (!!request.hasSubtaskId()) {
+    query["SubtaskId"] = request.subtaskId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMVRecommendResults"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMVRecommendResultsResponse>();
+}
+
+/**
+ * @summary Retrieves the result of a recommendation task for a materialized view.
+ *
+ * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+ *
+ * @param request DescribeMVRecommendResultsRequest
+ * @return DescribeMVRecommendResultsResponse
+ */
+DescribeMVRecommendResultsResponse Client::describeMVRecommendResults(const DescribeMVRecommendResultsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMVRecommendResultsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看物化视图子任务
+ *
+ * @param request DescribeMvRecommendSubTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMvRecommendSubTasksResponse
+ */
+DescribeMvRecommendSubTasksResponse Client::describeMvRecommendSubTasksWithOptions(const DescribeMvRecommendSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionInner()) {
+    query["ActionInner"] = request.actionInner();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFrom()) {
+    query["From"] = request.from();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSubtaskId()) {
+    query["SubtaskId"] = request.subtaskId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMvRecommendSubTasks"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMvRecommendSubTasksResponse>();
+}
+
+/**
+ * @summary 查看物化视图子任务
+ *
+ * @param request DescribeMvRecommendSubTasksRequest
+ * @return DescribeMvRecommendSubTasksResponse
+ */
+DescribeMvRecommendSubTasksResponse Client::describeMvRecommendSubTasks(const DescribeMvRecommendSubTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMvRecommendSubTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看物化视图推荐任务
+ *
+ * @param request DescribeMvRecommendTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMvRecommendTasksResponse
+ */
+DescribeMvRecommendTasksResponse Client::describeMvRecommendTasksWithOptions(const DescribeMvRecommendTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionInner()) {
+    query["ActionInner"] = request.actionInner();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFrom()) {
+    query["From"] = request.from();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.taskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMvRecommendTasks"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMvRecommendTasksResponse>();
+}
+
+/**
+ * @summary 查看物化视图推荐任务
+ *
+ * @param request DescribeMvRecommendTasksRequest
+ * @return DescribeMvRecommendTasksResponse
+ */
+DescribeMvRecommendTasksResponse Client::describeMvRecommendTasks(const DescribeMvRecommendTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMvRecommendTasksWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the service account permissions of an AnalyticDB for MySQL cluster.
  *
  * @param request DescribeOperatorPermissionRequest
@@ -7650,7 +7958,7 @@ DescribeResourceGroupSpecResponse Client::describeResourceGroupSpec(const Descri
 }
 
 /**
- * @summary 获取用户配置的导出信息
+ * @summary Queries the user-configured result set export settings.
  *
  * @param request DescribeResultExportConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7689,7 +7997,7 @@ DescribeResultExportConfigResponse Client::describeResultExportConfigWithOptions
 }
 
 /**
- * @summary 获取用户配置的导出信息
+ * @summary Queries the user-configured result set export settings.
  *
  * @param request DescribeResultExportConfigRequest
  * @return DescribeResultExportConfigResponse
@@ -7992,7 +8300,10 @@ DescribeSparkAppTypeResponse Client::describeSparkAppType(const DescribeSparkApp
 }
 
 /**
- * @summary 查询Spark审计日志
+ * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+ *
+ * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+ * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
  *
  * @param request DescribeSparkAuditLogRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8103,7 +8414,10 @@ DescribeSparkAuditLogRecordsResponse Client::describeSparkAuditLogRecordsWithOpt
 }
 
 /**
- * @summary 查询Spark审计日志
+ * @summary Queries the SQL audit logs for a Spark Interactive resource group.
+ *
+ * @description SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
+ * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
  *
  * @param request DescribeSparkAuditLogRecordsRequest
  * @return DescribeSparkAuditLogRecordsResponse
@@ -8888,6 +9202,80 @@ DescribeUserQuotaResponse Client::describeUserQuota(const DescribeUserQuotaReque
 }
 
 /**
+ * @summary Retrieves materialized view refresh tasks.
+ *
+ * @param request DescribeViewJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeViewJobsResponse
+ */
+DescribeViewJobsResponse Client::describeViewJobsWithOptions(const DescribeViewJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasFilterOwner()) {
+    query["FilterOwner"] = request.filterOwner();
+  }
+
+  if (!!request.hasFilterViewName()) {
+    query["FilterViewName"] = request.filterViewName();
+  }
+
+  if (!!request.hasFilterViewType()) {
+    query["FilterViewType"] = request.filterViewType();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSchemaName()) {
+    query["SchemaName"] = request.schemaName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeViewJobs"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeViewJobsResponse>();
+}
+
+/**
+ * @summary Retrieves materialized view refresh tasks.
+ *
+ * @param request DescribeViewJobsRequest
+ * @return DescribeViewJobsResponse
+ */
+DescribeViewJobsResponse Client::describeViewJobs(const DescribeViewJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeViewJobsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the diagnostic results of the storage layer.
  *
  * @param request DescribeWorkerDetectionRequest
@@ -9538,7 +9926,9 @@ ExistRunningSQLEngineResponse Client::existRunningSQLEngine(const ExistRunningSQ
 }
 
 /**
- * @summary 获取Spark权限说明,失败时给出配置权限的帮助信息
+ * @summary View the Spark basic permission diagnosis report of the current user.
+ *
+ * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
  *
  * @param request GetADBSparkNecessaryRAMPermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9569,7 +9959,9 @@ GetADBSparkNecessaryRAMPermissionsResponse Client::getADBSparkNecessaryRAMPermis
 }
 
 /**
- * @summary 获取Spark权限说明,失败时给出配置权限的帮助信息
+ * @summary View the Spark basic permission diagnosis report of the current user.
+ *
+ * @description The API diagnosis report contains whether the current user has all permissions required by the AnalyticDB for Spark related features. The scope of the permissions may exceed the minimum requirements of the business. The diagnostic report of the current API is used to quickly initialize the environment of AnalyticDB for Spark. If fine-grained permission configuration is needed, see [Configure fine-grained permissions in AnalyDB for Spark.](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko)
  *
  * @param request GetADBSparkNecessaryRAMPermissionsRequest
  * @return GetADBSparkNecessaryRAMPermissionsResponse
@@ -11490,7 +11882,10 @@ ListApsOptimizationTasksResponse Client::listApsOptimizationTasks(const ListApsO
 }
 
 /**
- * @summary ListApsWebhook
+ * @summary Queries the Webhook configurations of a specified database cluster.
+ *
+ * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+ * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
  *
  * @param request ListApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11529,7 +11924,10 @@ ListApsWebhookResponse Client::listApsWebhookWithOptions(const ListApsWebhookReq
 }
 
 /**
- * @summary ListApsWebhook
+ * @summary Queries the Webhook configurations of a specified database cluster.
+ *
+ * @description This API allows you to obtain a list of configured webhooks based on `RegionId`, `DBClusterId`, and optional `JobType`. The `JobType` parameter specifies the task type, such as SLS/OSS export task. If the parameter is provided, webhooks related to the task type are returned. If the parameter is not provided, all types of webhooks are returned.
+ * Note: Make sure that the `RegionId` and `DBClusterId` you provided are correct. Otherwise, the webhook information may not be obtained correctly.
  *
  * @param request ListApsWebhookRequest
  * @return ListApsWebhookResponse
@@ -13134,7 +13532,7 @@ ModifyDBClusterResourceGroupResponse Client::modifyDBClusterResourceGroup(const 
 }
 
 /**
- * @summary 配置SSL
+ * @summary Modifies the SSL link configuration of a cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13177,7 +13575,7 @@ ModifyDBClusterSSLResponse Client::modifyDBClusterSSLWithOptions(const ModifyDBC
 }
 
 /**
- * @summary 配置SSL
+ * @summary Modifies the SSL link configuration of a cluster.
  *
  * @param request ModifyDBClusterSSLRequest
  * @return ModifyDBClusterSSLResponse
@@ -13258,6 +13656,10 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
     request.setEngineParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.engineParams(), "EngineParams", "json"));
   }
 
+  if (!!tmpReq.hasGpuElasticPlan()) {
+    request.setGpuElasticPlanShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.gpuElasticPlan(), "GpuElasticPlan", "json"));
+  }
+
   if (!!tmpReq.hasRayConfig()) {
     request.setRayConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rayConfig(), "RayConfig", "json"));
   }
@@ -13289,6 +13691,10 @@ ModifyDBResourceGroupResponse Client::modifyDBResourceGroupWithOptions(const Mod
 
   if (!!request.hasEngineParamsShrink()) {
     query["EngineParams"] = request.engineParamsShrink();
+  }
+
+  if (!!request.hasGpuElasticPlanShrink()) {
+    query["GpuElasticPlan"] = request.gpuElasticPlanShrink();
   }
 
   if (!!request.hasGroupName()) {
@@ -13544,7 +13950,7 @@ ModifyLakeCacheSizeResponse Client::modifyLakeCacheSize(const ModifyLakeCacheSiz
 }
 
 /**
- * @summary 修改物化视图
+ * @summary Modifies materialized views.
  *
  * @param request ModifyMaterializedViewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13623,7 +14029,7 @@ ModifyMaterializedViewResponse Client::modifyMaterializedViewWithOptions(const M
 }
 
 /**
- * @summary 修改物化视图
+ * @summary Modifies materialized views.
  *
  * @param request ModifyMaterializedViewRequest
  * @return ModifyMaterializedViewResponse
@@ -13634,7 +14040,7 @@ ModifyMaterializedViewResponse Client::modifyMaterializedView(const ModifyMateri
 }
 
 /**
- * @summary 修改物化视图自动推荐任务
+ * @summary Modifies a materialized view recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13721,7 +14127,7 @@ ModifyMaterializedViewRecommendResponse Client::modifyMaterializedViewRecommendW
 }
 
 /**
- * @summary 修改物化视图自动推荐任务
+ * @summary Modifies a materialized view recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @return ModifyMaterializedViewRecommendResponse
@@ -13808,7 +14214,9 @@ ModifyPerformanceViewResponse Client::modifyPerformanceView(const ModifyPerforma
 }
 
 /**
- * @summary 修改SQL脚本模板位置
+ * @summary Modifies the directory location of SQL templates.
+ *
+ * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifySqlTemplatePositionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13851,7 +14259,9 @@ ModifySqlTemplatePositionResponse Client::modifySqlTemplatePositionWithOptions(c
 }
 
 /**
- * @summary 修改SQL脚本模板位置
+ * @summary Modifies the directory location of SQL templates.
+ *
+ * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
  *
  * @param request ModifySqlTemplatePositionRequest
  * @return ModifySqlTemplatePositionResponse
@@ -14732,7 +15142,7 @@ UnbindDBResourceGroupWithUserResponse Client::unbindDBResourceGroupWithUser(cons
 }
 
 /**
- * @summary UpdateApsWebhook
+ * @summary Updates the webhook configuration of a specified cluster.
  *
  * @param tmpReq UpdateApsWebhookRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14777,7 +15187,7 @@ UpdateApsWebhookResponse Client::updateApsWebhookWithOptions(const UpdateApsWebh
 }
 
 /**
- * @summary UpdateApsWebhook
+ * @summary Updates the webhook configuration of a specified cluster.
  *
  * @param request UpdateApsWebhookRequest
  * @return UpdateApsWebhookResponse
