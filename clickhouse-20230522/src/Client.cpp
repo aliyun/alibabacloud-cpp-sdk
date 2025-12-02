@@ -343,6 +343,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["BackupSetId"] = request.backupSetId();
   }
 
+  if (!!request.hasCategory()) {
+    query["Category"] = request.category();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
