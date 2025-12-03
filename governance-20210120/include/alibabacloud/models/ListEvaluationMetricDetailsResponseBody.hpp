@@ -15,11 +15,13 @@ namespace Models
   class ListEvaluationMetricDetailsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListEvaluationMetricDetailsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Date, date_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Resources, resources_);
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationMetricDetailsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Date, date_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Resources, resources_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->resources_ == nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && return this->nextToken_ == nullptr && return this->requestId_ == nullptr && return this->resources_ == nullptr; };
+    // date Field Functions 
+    bool hasDate() const { return this->date_ != nullptr;};
+    void deleteDate() { this->date_ = nullptr;};
+    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline ListEvaluationMetricDetailsResponseBody& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -61,6 +70,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> date_ = nullptr;
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
     // The request ID.

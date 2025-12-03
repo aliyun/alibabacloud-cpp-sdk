@@ -607,6 +607,10 @@ ListEvaluationMetricDetailsResponse Client::listEvaluationMetricDetailsWithOptio
     query["AccountId"] = request.accountId();
   }
 
+  if (!!request.hasDate()) {
+    query["Date"] = request.date();
+  }
+
   if (!!request.hasId()) {
     query["Id"] = request.id();
   }

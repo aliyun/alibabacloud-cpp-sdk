@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListEvaluationMetricDetailsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+      DARABONBA_PTR_TO_JSON(Date, date_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListEvaluationMetricDetailsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+      DARABONBA_PTR_FROM_JSON(Date, date_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
-        && return this->id_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->scope_ == nullptr
-        && return this->snapshotId_ == nullptr; };
+        && return this->date_ == nullptr && return this->id_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
+        && return this->scope_ == nullptr && return this->snapshotId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
     inline int64_t accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
     inline ListEvaluationMetricDetailsRequest& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+    // date Field Functions 
+    bool hasDate() const { return this->date_ != nullptr;};
+    void deleteDate() { this->date_ = nullptr;};
+    inline string date() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+    inline ListEvaluationMetricDetailsRequest& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
 
 
     // id Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     // The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
     std::shared_ptr<int64_t> accountId_ = nullptr;
+    std::shared_ptr<string> date_ = nullptr;
     // The ID of the check item.
     // 
     // You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to query the ID of the check item.
