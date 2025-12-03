@@ -21,6 +21,49 @@ namespace RdsAi20250507
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 发送对话消息
+       *
+       * @param tmpReq ChatMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatMessagesResponse
+       */
+      FutrueGenerator<Models::ChatMessagesResponse> chatMessagesWithSSE(const Models::ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发送对话消息
+       *
+       * @param tmpReq ChatMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatMessagesResponse
+       */
+      Models::ChatMessagesResponse chatMessagesWithOptions(const Models::ChatMessagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发送对话消息
+       *
+       * @param request ChatMessagesRequest
+       * @return ChatMessagesResponse
+       */
+      Models::ChatMessagesResponse chatMessages(const Models::ChatMessagesRequest &request);
+
+      /**
+       * @summary 停止对话
+       *
+       * @param request ChatMessagesTaskStopRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatMessagesTaskStopResponse
+       */
+      Models::ChatMessagesTaskStopResponse chatMessagesTaskStopWithOptions(const Models::ChatMessagesTaskStopRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止对话
+       *
+       * @param request ChatMessagesTaskStopRequest
+       * @return ChatMessagesTaskStopResponse
+       */
+      Models::ChatMessagesTaskStopResponse chatMessagesTaskStop(const Models::ChatMessagesTaskStopRequest &request);
+
+      /**
        * @summary 创建应用服务实例
        *
        * @param tmpReq CreateAppInstanceRequest
@@ -38,6 +81,23 @@ namespace RdsAi20250507
       Models::CreateAppInstanceResponse createAppInstance(const Models::CreateAppInstanceRequest &request);
 
       /**
+       * @summary 创建自定义agent
+       *
+       * @param tmpReq CreateCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomAgentResponse
+       */
+      Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义agent
+       *
+       * @param request CreateCustomAgentRequest
+       * @return CreateCustomAgentResponse
+       */
+      Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
+
+      /**
        * @summary 删除应用服务实例
        *
        * @param request DeleteAppInstanceRequest
@@ -53,6 +113,23 @@ namespace RdsAi20250507
        * @return DeleteAppInstanceResponse
        */
       Models::DeleteAppInstanceResponse deleteAppInstance(const Models::DeleteAppInstanceRequest &request);
+
+      /**
+       * @summary 删除Custom Agent
+       *
+       * @param request DeleteCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomAgentResponse
+       */
+      Models::DeleteCustomAgentResponse deleteCustomAgentWithOptions(const Models::DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Custom Agent
+       *
+       * @param request DeleteCustomAgentRequest
+       * @return DeleteCustomAgentResponse
+       */
+      Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
        * @summary 查询应用服务详情
@@ -87,6 +164,23 @@ namespace RdsAi20250507
        * @return DescribeAppInstancesResponse
        */
       Models::DescribeAppInstancesResponse describeAppInstances(const Models::DescribeAppInstancesRequest &request);
+
+      /**
+       * @summary 查询事件信息列表
+       *
+       * @param request DescribeEventsListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEventsListResponse
+       */
+      Models::DescribeEventsListResponse describeEventsListWithOptions(const Models::DescribeEventsListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询事件信息列表
+       *
+       * @param request DescribeEventsListRequest
+       * @return DescribeEventsListResponse
+       */
+      Models::DescribeEventsListResponse describeEventsList(const Models::DescribeEventsListRequest &request);
 
       /**
        * @summary 查看实例认证信息
@@ -191,6 +285,91 @@ namespace RdsAi20250507
       Models::DescribeInstanceStorageConfigResponse describeInstanceStorageConfig(const Models::DescribeInstanceStorageConfigRequest &request);
 
       /**
+       * @summary 获取会话列表
+       *
+       * @param request GetConversationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConversationsResponse
+       */
+      Models::GetConversationsResponse getConversationsWithOptions(const Models::GetConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话列表
+       *
+       * @param request GetConversationsRequest
+       * @return GetConversationsResponse
+       */
+      Models::GetConversationsResponse getConversations(const Models::GetConversationsRequest &request);
+
+      /**
+       * @summary 查询CustomAgent
+       *
+       * @param request GetCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomAgentResponse
+       */
+      Models::GetCustomAgentResponse getCustomAgentWithOptions(const Models::GetCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询CustomAgent
+       *
+       * @param request GetCustomAgentRequest
+       * @return GetCustomAgentResponse
+       */
+      Models::GetCustomAgentResponse getCustomAgent(const Models::GetCustomAgentRequest &request);
+
+      /**
+       * @summary 获取会话历史消息
+       *
+       * @param request GetMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMessagesResponse
+       */
+      Models::GetMessagesResponse getMessagesWithOptions(const Models::GetMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话历史消息
+       *
+       * @param request GetMessagesRequest
+       * @return GetMessagesResponse
+       */
+      Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
+
+      /**
+       * @summary 获取Custom Agent列表
+       *
+       * @param request ListCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentResponse
+       */
+      Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Custom Agent列表
+       *
+       * @param request ListCustomAgentRequest
+       * @return ListCustomAgentResponse
+       */
+      Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
+
+      /**
+       * @summary 获取专属Agent可用工具
+       *
+       * @param request ListCustomAgentToolsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentToolsResponse
+       */
+      Models::ListCustomAgentToolsResponse listCustomAgentToolsWithOptions(const Models::ListCustomAgentToolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取专属Agent可用工具
+       *
+       * @param request ListCustomAgentToolsRequest
+       * @return ListCustomAgentToolsResponse
+       */
+      Models::ListCustomAgentToolsResponse listCustomAgentTools(const Models::ListCustomAgentToolsRequest &request);
+
+      /**
        * @summary 修改Supabase Auth相关配置
        *
        * @param tmpReq ModifyInstanceAuthConfigRequest
@@ -293,6 +472,23 @@ namespace RdsAi20250507
       Models::ModifyInstanceStorageConfigResponse modifyInstanceStorageConfig(const Models::ModifyInstanceStorageConfigRequest &request);
 
       /**
+       * @summary 消息终端用户反馈、点赞/点踩
+       *
+       * @param request ModifyMessagesFeedbacksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyMessagesFeedbacksResponse
+       */
+      Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacksWithOptions(const Models::ModifyMessagesFeedbacksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 消息终端用户反馈、点赞/点踩
+       *
+       * @param request ModifyMessagesFeedbacksRequest
+       * @return ModifyMessagesFeedbacksResponse
+       */
+      Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacks(const Models::ModifyMessagesFeedbacksRequest &request);
+
+      /**
        * @summary 重置实例密码
        *
        * @param request ResetInstancePasswordRequest
@@ -359,6 +555,23 @@ namespace RdsAi20250507
        * @return StopInstanceResponse
        */
       Models::StopInstanceResponse stopInstance(const Models::StopInstanceRequest &request);
+
+      /**
+       * @summary 更新Custom Agent
+       *
+       * @param tmpReq UpdateCustomAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomAgentResponse
+       */
+      Models::UpdateCustomAgentResponse updateCustomAgentWithOptions(const Models::UpdateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Custom Agent
+       *
+       * @param request UpdateCustomAgentRequest
+       * @return UpdateCustomAgentResponse
+       */
+      Models::UpdateCustomAgentResponse updateCustomAgent(const Models::UpdateCustomAgentRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace RdsAi20250507

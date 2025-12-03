@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETMESSAGESRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_GETMESSAGESRESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/GetMessagesResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace RdsAi20250507
+{
+namespace Models
+{
+  class GetMessagesResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetMessagesResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetMessagesResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    GetMessagesResponse() = default ;
+    GetMessagesResponse(const GetMessagesResponse &) = default ;
+    GetMessagesResponse(GetMessagesResponse &&) = default ;
+    GetMessagesResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetMessagesResponse() = default ;
+    GetMessagesResponse& operator=(const GetMessagesResponse &) = default ;
+    GetMessagesResponse& operator=(GetMessagesResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline GetMessagesResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline GetMessagesResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline GetMessagesResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const GetMessagesResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, GetMessagesResponseBody) };
+    inline GetMessagesResponseBody body() { DARABONBA_PTR_GET(body_, GetMessagesResponseBody) };
+    inline GetMessagesResponse& setBody(const GetMessagesResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetMessagesResponse& setBody(GetMessagesResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<GetMessagesResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace RdsAi20250507
+#endif
