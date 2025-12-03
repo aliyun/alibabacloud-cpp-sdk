@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ForbiddenMediaIds, forbiddenMediaIds_);
       DARABONBA_PTR_TO_JSON(MediaInfos, mediaInfos_);
       DARABONBA_PTR_TO_JSON(NonExistMediaIds, nonExistMediaIds_);
+      DARABONBA_PTR_TO_JSON(NonExistReferenceIds, nonExistReferenceIds_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetMediaInfosResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ForbiddenMediaIds, forbiddenMediaIds_);
       DARABONBA_PTR_FROM_JSON(MediaInfos, mediaInfos_);
       DARABONBA_PTR_FROM_JSON(NonExistMediaIds, nonExistMediaIds_);
+      DARABONBA_PTR_FROM_JSON(NonExistReferenceIds, nonExistReferenceIds_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     BatchGetMediaInfosResponseBody() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->forbiddenMediaIds_ == nullptr
-        && return this->mediaInfos_ == nullptr && return this->nonExistMediaIds_ == nullptr && return this->requestId_ == nullptr; };
+        && return this->mediaInfos_ == nullptr && return this->nonExistMediaIds_ == nullptr && return this->nonExistReferenceIds_ == nullptr && return this->requestId_ == nullptr; };
     // forbiddenMediaIds Field Functions 
     bool hasForbiddenMediaIds() const { return this->forbiddenMediaIds_ != nullptr;};
     void deleteForbiddenMediaIds() { this->forbiddenMediaIds_ = nullptr;};
@@ -66,6 +68,15 @@ namespace Models
     inline BatchGetMediaInfosResponseBody& setNonExistMediaIds(vector<string> && nonExistMediaIds) { DARABONBA_PTR_SET_RVALUE(nonExistMediaIds_, nonExistMediaIds) };
 
 
+    // nonExistReferenceIds Field Functions 
+    bool hasNonExistReferenceIds() const { return this->nonExistReferenceIds_ != nullptr;};
+    void deleteNonExistReferenceIds() { this->nonExistReferenceIds_ = nullptr;};
+    inline const vector<string> & nonExistReferenceIds() const { DARABONBA_PTR_GET_CONST(nonExistReferenceIds_, vector<string>) };
+    inline vector<string> nonExistReferenceIds() { DARABONBA_PTR_GET(nonExistReferenceIds_, vector<string>) };
+    inline BatchGetMediaInfosResponseBody& setNonExistReferenceIds(const vector<string> & nonExistReferenceIds) { DARABONBA_PTR_SET_VALUE(nonExistReferenceIds_, nonExistReferenceIds) };
+    inline BatchGetMediaInfosResponseBody& setNonExistReferenceIds(vector<string> && nonExistReferenceIds) { DARABONBA_PTR_SET_RVALUE(nonExistReferenceIds_, nonExistReferenceIds) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -80,6 +91,7 @@ namespace Models
     std::shared_ptr<vector<BatchGetMediaInfosResponseBodyMediaInfos>> mediaInfos_ = nullptr;
     // The IDs of the media assets that do not exist.
     std::shared_ptr<vector<string>> nonExistMediaIds_ = nullptr;
+    std::shared_ptr<vector<string>> nonExistReferenceIds_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };

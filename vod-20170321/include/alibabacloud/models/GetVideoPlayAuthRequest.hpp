@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetVideoPlayAuthRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiVersion, apiVersion_);
       DARABONBA_PTR_TO_JSON(AuthInfoTimeout, authInfoTimeout_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(VideoId, videoId_);
     };
     friend void from_json(const Darabonba::Json& j, GetVideoPlayAuthRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiVersion, apiVersion_);
       DARABONBA_PTR_FROM_JSON(AuthInfoTimeout, authInfoTimeout_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
     };
     GetVideoPlayAuthRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiVersion_ == nullptr
-        && return this->authInfoTimeout_ == nullptr && return this->videoId_ == nullptr; };
+        && return this->authInfoTimeout_ == nullptr && return this->referenceId_ == nullptr && return this->videoId_ == nullptr; };
     // apiVersion Field Functions 
     bool hasApiVersion() const { return this->apiVersion_ != nullptr;};
     void deleteApiVersion() { this->apiVersion_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteAuthInfoTimeout() { this->authInfoTimeout_ = nullptr;};
     inline int64_t authInfoTimeout() const { DARABONBA_PTR_GET_DEFAULT(authInfoTimeout_, 0L) };
     inline GetVideoPlayAuthRequest& setAuthInfoTimeout(int64_t authInfoTimeout) { DARABONBA_PTR_SET_VALUE(authInfoTimeout_, authInfoTimeout) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline GetVideoPlayAuthRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // videoId Field Functions 
@@ -64,13 +73,12 @@ namespace Models
     // *   Default value: **100**.
     // *   Valid values: `[100,3000]`.
     std::shared_ptr<int64_t> authInfoTimeout_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The ID of the media file. You can specify only one ID. You can use one of the following methods to obtain the ID of the file:
     // 
     // *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the media file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
     // *   Obtain the value of the VideoId parameter from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation.
     // *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> videoId_ = nullptr;
   };
 

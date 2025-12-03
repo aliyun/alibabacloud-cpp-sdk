@@ -13,9 +13,11 @@ namespace Models
   class GetVideoInfosRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetVideoInfosRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ReferenceIds, referenceIds_);
       DARABONBA_PTR_TO_JSON(VideoIds, videoIds_);
     };
     friend void from_json(const Darabonba::Json& j, GetVideoInfosRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ReferenceIds, referenceIds_);
       DARABONBA_PTR_FROM_JSON(VideoIds, videoIds_);
     };
     GetVideoInfosRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->videoIds_ == nullptr; };
+    virtual bool empty() const override { return this->referenceIds_ == nullptr
+        && return this->videoIds_ == nullptr; };
+    // referenceIds Field Functions 
+    bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
+    void deleteReferenceIds() { this->referenceIds_ = nullptr;};
+    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline GetVideoInfosRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
+
+
     // videoIds Field Functions 
     bool hasVideoIds() const { return this->videoIds_ != nullptr;};
     void deleteVideoIds() { this->videoIds_ = nullptr;};
@@ -38,9 +48,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> referenceIds_ = nullptr;
     // The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> videoIds_ = nullptr;
   };
 

@@ -746,6 +746,10 @@ BatchGetMediaInfosResponse Client::batchGetMediaInfosWithOptions(const BatchGetM
     query["MediaIds"] = request.mediaIds();
   }
 
+  if (!!request.hasReferenceIds()) {
+    query["ReferenceIds"] = request.referenceIds();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1383,6 +1387,10 @@ CreateUploadVideoResponse Client::createUploadVideoWithOptions(const CreateUploa
 
   if (!!request.hasFileSize()) {
     query["FileSize"] = request.fileSize();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasStorageLocation()) {
@@ -2051,6 +2059,10 @@ DeleteMezzaninesResponse Client::deleteMezzaninesWithOptions(const DeleteMezzani
     query["Force"] = request.force();
   }
 
+  if (!!request.hasReferenceIds()) {
+    query["ReferenceIds"] = request.referenceIds();
+  }
+
   if (!!request.hasVideoIds()) {
     query["VideoIds"] = request.videoIds();
   }
@@ -2157,6 +2169,10 @@ DeleteStreamResponse Client::deleteStreamWithOptions(const DeleteStreamRequest &
     query["JobIds"] = request.jobIds();
   }
 
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
+  }
+
   if (!!request.hasVideoId()) {
     query["VideoId"] = request.videoId();
   }
@@ -2259,6 +2275,10 @@ DeleteTranscodeTemplateGroupResponse Client::deleteTranscodeTemplateGroup(const 
 DeleteVideoResponse Client::deleteVideoWithOptions(const DeleteVideoRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasReferenceIds()) {
+    query["ReferenceIds"] = request.referenceIds();
+  }
+
   if (!!request.hasVideoIds()) {
     query["VideoIds"] = request.videoIds();
   }
@@ -6973,6 +6993,10 @@ GetMezzanineInfoResponse Client::getMezzanineInfoWithOptions(const GetMezzanineI
     query["OutputType"] = request.outputType();
   }
 
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
+  }
+
   if (!!request.hasVideoId()) {
     query["VideoId"] = request.videoId();
   }
@@ -7051,6 +7075,10 @@ GetPlayInfoResponse Client::getPlayInfoWithOptions(const GetPlayInfoRequest &req
 
   if (!!request.hasReAuthInfo()) {
     query["ReAuthInfo"] = request.reAuthInfo();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasResultType()) {
@@ -7379,6 +7407,10 @@ GetUploadDetailsResponse Client::getUploadDetails(const GetUploadDetailsRequest 
 GetVideoInfoResponse Client::getVideoInfoWithOptions(const GetVideoInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
+  }
+
   if (!!request.hasVideoId()) {
     query["VideoId"] = request.videoId();
   }
@@ -7426,6 +7458,10 @@ GetVideoInfoResponse Client::getVideoInfo(const GetVideoInfoRequest &request) {
 GetVideoInfosResponse Client::getVideoInfosWithOptions(const GetVideoInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasReferenceIds()) {
+    query["ReferenceIds"] = request.referenceIds();
+  }
+
   if (!!request.hasVideoIds()) {
     query["VideoIds"] = request.videoIds();
   }
@@ -7487,6 +7523,10 @@ GetVideoListResponse Client::getVideoListWithOptions(const GetVideoListRequest &
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasReferenceIds()) {
+    query["ReferenceIds"] = request.referenceIds();
   }
 
   if (!!request.hasSortBy()) {
@@ -7554,6 +7594,10 @@ GetVideoPlayAuthResponse Client::getVideoPlayAuthWithOptions(const GetVideoPlayA
 
   if (!!request.hasAuthInfoTimeout()) {
     query["AuthInfoTimeout"] = request.authInfoTimeout();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasVideoId()) {
@@ -8767,6 +8811,10 @@ RefreshUploadVideoResponse Client::refreshUploadVideoWithOptions(const RefreshUp
   json query = {};
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -10290,6 +10338,10 @@ SubmitSnapshotJobResponse Client::submitSnapshotJobWithOptions(const SubmitSnaps
     query["Interval"] = request.interval();
   }
 
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
+  }
+
   if (!!request.hasSnapshotTemplateId()) {
     query["SnapshotTemplateId"] = request.snapshotTemplateId();
   }
@@ -10381,6 +10433,10 @@ SubmitTranscodeJobsResponse Client::submitTranscodeJobsWithOptions(const SubmitT
 
   if (!!request.hasPriority()) {
     query["Priority"] = request.priority();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasSessionId()) {
@@ -10970,6 +11026,10 @@ UpdateVideoInfoResponse Client::updateVideoInfoWithOptions(const UpdateVideoInfo
 
   if (!!request.hasDescription()) {
     query["Description"] = request.description();
+  }
+
+  if (!!request.hasReferenceId()) {
+    query["ReferenceId"] = request.referenceId();
   }
 
   if (!!request.hasTags()) {

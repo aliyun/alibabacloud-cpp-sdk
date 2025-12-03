@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileSize, fileSize_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TemplateGroupId, templateGroupId_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileSize, fileSize_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TemplateGroupId, templateGroupId_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->cateId_ == nullptr && return this->coverURL_ == nullptr && return this->description_ == nullptr && return this->fileName_ == nullptr && return this->fileSize_ == nullptr
-        && return this->storageLocation_ == nullptr && return this->tags_ == nullptr && return this->templateGroupId_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr
-        && return this->workflowId_ == nullptr; };
+        && return this->referenceId_ == nullptr && return this->storageLocation_ == nullptr && return this->tags_ == nullptr && return this->templateGroupId_ == nullptr && return this->title_ == nullptr
+        && return this->userData_ == nullptr && return this->workflowId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     void deleteFileSize() { this->fileSize_ = nullptr;};
     inline int64_t fileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
     inline CreateUploadVideoRequest& setFileSize(int64_t fileSize) { DARABONBA_PTR_SET_VALUE(fileSize_, fileSize) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline CreateUploadVideoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // storageLocation Field Functions 
@@ -164,6 +173,7 @@ namespace Models
     std::shared_ptr<string> fileName_ = nullptr;
     // The size of the source file. Unit: bytes.
     std::shared_ptr<int64_t> fileSize_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The storage address. Perform the following operations to obtain the storage address: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
     // 
     // >  If you leave this parameter empty, audio and video files are uploaded to the default storage address. If you specify a storage address, audio and video files are uploaded to the specified address.

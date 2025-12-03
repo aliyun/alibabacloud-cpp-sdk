@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OutputType, outputType_);
       DARABONBA_PTR_TO_JSON(PlayConfig, playConfig_);
       DARABONBA_PTR_TO_JSON(ReAuthInfo, reAuthInfo_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(ResultType, resultType_);
       DARABONBA_PTR_TO_JSON(StreamType, streamType_);
       DARABONBA_PTR_TO_JSON(Trace, trace_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OutputType, outputType_);
       DARABONBA_PTR_FROM_JSON(PlayConfig, playConfig_);
       DARABONBA_PTR_FROM_JSON(ReAuthInfo, reAuthInfo_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(ResultType, resultType_);
       DARABONBA_PTR_FROM_JSON(StreamType, streamType_);
       DARABONBA_PTR_FROM_JSON(Trace, trace_);
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionType_ == nullptr
         && return this->authTimeout_ == nullptr && return this->definition_ == nullptr && return this->digitalWatermarkType_ == nullptr && return this->formats_ == nullptr && return this->outputType_ == nullptr
-        && return this->playConfig_ == nullptr && return this->reAuthInfo_ == nullptr && return this->resultType_ == nullptr && return this->streamType_ == nullptr && return this->trace_ == nullptr
-        && return this->videoId_ == nullptr; };
+        && return this->playConfig_ == nullptr && return this->reAuthInfo_ == nullptr && return this->referenceId_ == nullptr && return this->resultType_ == nullptr && return this->streamType_ == nullptr
+        && return this->trace_ == nullptr && return this->videoId_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
     void deleteReAuthInfo() { this->reAuthInfo_ = nullptr;};
     inline string reAuthInfo() const { DARABONBA_PTR_GET_DEFAULT(reAuthInfo_, "") };
     inline GetPlayInfoRequest& setReAuthInfo(string reAuthInfo) { DARABONBA_PTR_SET_VALUE(reAuthInfo_, reAuthInfo) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline GetPlayInfoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // resultType Field Functions 
@@ -204,6 +213,7 @@ namespace Models
     std::shared_ptr<string> playConfig_ = nullptr;
     // The CDN reauthentication configuration. The value must be a JSON string. If CDN reauthentication is enabled, you can use this parameter to specify the `UID` and `rand` fields for URL authentication. For more information, see [URL authentication](https://help.aliyun.com/document_detail/2249352.html).
     std::shared_ptr<string> reAuthInfo_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The type of the data to return. Default value: Single. Valid values:
     // 
     // *   **Single**: Only one latest transcoded stream is returned for each quality and format.
@@ -226,8 +236,6 @@ namespace Models
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the page that appears, view the media ID.
     // *   Obtain the value of the VideoId parameter in the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to upload the audio or video file.
     // *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> videoId_ = nullptr;
   };
 

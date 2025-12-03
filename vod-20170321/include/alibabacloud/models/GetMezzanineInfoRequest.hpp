@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AdditionType, additionType_);
       DARABONBA_PTR_TO_JSON(AuthTimeout, authTimeout_);
       DARABONBA_PTR_TO_JSON(OutputType, outputType_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(VideoId, videoId_);
     };
     friend void from_json(const Darabonba::Json& j, GetMezzanineInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AdditionType, additionType_);
       DARABONBA_PTR_FROM_JSON(AuthTimeout, authTimeout_);
       DARABONBA_PTR_FROM_JSON(OutputType, outputType_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
     };
     GetMezzanineInfoRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionType_ == nullptr
-        && return this->authTimeout_ == nullptr && return this->outputType_ == nullptr && return this->videoId_ == nullptr; };
+        && return this->authTimeout_ == nullptr && return this->outputType_ == nullptr && return this->referenceId_ == nullptr && return this->videoId_ == nullptr; };
     // additionType Field Functions 
     bool hasAdditionType() const { return this->additionType_ != nullptr;};
     void deleteAdditionType() { this->additionType_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteOutputType() { this->outputType_ = nullptr;};
     inline string outputType() const { DARABONBA_PTR_GET_DEFAULT(outputType_, "") };
     inline GetMezzanineInfoRequest& setOutputType(string outputType) { DARABONBA_PTR_SET_VALUE(outputType_, outputType) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline GetMezzanineInfoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // videoId Field Functions 
@@ -96,9 +105,8 @@ namespace Models
     // 
     // > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
     std::shared_ptr<string> outputType_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The ID of the video.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> videoId_ = nullptr;
   };
 

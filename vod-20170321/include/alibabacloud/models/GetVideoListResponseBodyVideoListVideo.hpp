@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(ModificationTime, modificationTime_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(RestoreExpiration, restoreExpiration_);
       DARABONBA_PTR_TO_JSON(RestoreStatus, restoreStatus_);
       DARABONBA_PTR_TO_JSON(Size, size_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(ModificationTime, modificationTime_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(RestoreExpiration, restoreExpiration_);
       DARABONBA_PTR_FROM_JSON(RestoreStatus, restoreStatus_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
@@ -68,9 +70,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->cateId_ == nullptr && return this->cateName_ == nullptr && return this->coverURL_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr
-        && return this->duration_ == nullptr && return this->modificationTime_ == nullptr && return this->restoreExpiration_ == nullptr && return this->restoreStatus_ == nullptr && return this->size_ == nullptr
-        && return this->snapshots_ == nullptr && return this->status_ == nullptr && return this->storageClass_ == nullptr && return this->storageLocation_ == nullptr && return this->tags_ == nullptr
-        && return this->title_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
+        && return this->duration_ == nullptr && return this->modificationTime_ == nullptr && return this->referenceId_ == nullptr && return this->restoreExpiration_ == nullptr && return this->restoreStatus_ == nullptr
+        && return this->size_ == nullptr && return this->snapshots_ == nullptr && return this->status_ == nullptr && return this->storageClass_ == nullptr && return this->storageLocation_ == nullptr
+        && return this->tags_ == nullptr && return this->title_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     void deleteModificationTime() { this->modificationTime_ = nullptr;};
     inline string modificationTime() const { DARABONBA_PTR_GET_DEFAULT(modificationTime_, "") };
     inline GetVideoListResponseBodyVideoListVideo& setModificationTime(string modificationTime) { DARABONBA_PTR_SET_VALUE(modificationTime_, modificationTime) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline GetVideoListResponseBodyVideoListVideo& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // restoreExpiration Field Functions 
@@ -223,6 +232,7 @@ namespace Models
     std::shared_ptr<float> duration_ = nullptr;
     // The time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
     std::shared_ptr<string> modificationTime_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The period of time in which the audio or video file remains in the restored state.
     std::shared_ptr<string> restoreExpiration_ = nullptr;
     // The restoration status of the audio or video file. Valid values:

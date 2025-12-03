@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(Height, height_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(SnapshotTemplateId, snapshotTemplateId_);
       DARABONBA_PTR_TO_JSON(SpecifiedOffsetTime, specifiedOffsetTime_);
       DARABONBA_PTR_TO_JSON(SpecifiedOffsetTimes, specifiedOffsetTimesShrink_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(Height, height_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(SnapshotTemplateId, snapshotTemplateId_);
       DARABONBA_PTR_FROM_JSON(SpecifiedOffsetTime, specifiedOffsetTime_);
       DARABONBA_PTR_FROM_JSON(SpecifiedOffsetTimes, specifiedOffsetTimesShrink_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->height_ == nullptr && return this->interval_ == nullptr && return this->snapshotTemplateId_ == nullptr && return this->specifiedOffsetTime_ == nullptr && return this->specifiedOffsetTimesShrink_ == nullptr
-        && return this->spriteSnapshotConfig_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr && return this->width_ == nullptr; };
+        && return this->height_ == nullptr && return this->interval_ == nullptr && return this->referenceId_ == nullptr && return this->snapshotTemplateId_ == nullptr && return this->specifiedOffsetTime_ == nullptr
+        && return this->specifiedOffsetTimesShrink_ == nullptr && return this->spriteSnapshotConfig_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr && return this->width_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
@@ -69,6 +71,13 @@ namespace Models
     void deleteInterval() { this->interval_ = nullptr;};
     inline int64_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0L) };
     inline SubmitSnapshotJobShrinkRequest& setInterval(int64_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline SubmitSnapshotJobShrinkRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // snapshotTemplateId Field Functions 
@@ -131,6 +140,7 @@ namespace Models
     // *   Default value: **1**.
     // *   If you set this parameter to **0**, snapshots are captured at even intervals based on the video duration divided by the value of the Count parameter.
     std::shared_ptr<int64_t> interval_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The ID of the snapshot template.
     // 
     // *   We recommend that you create a snapshot template before you specify the template ID. For more information about how to create a snapshot template, see [AddVodTemplate](https://help.aliyun.com/document_detail/99406.html).

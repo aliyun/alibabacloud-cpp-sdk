@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OverrideParams, overrideParams_);
       DARABONBA_PTR_TO_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(TemplateGroupId, templateGroupId_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OverrideParams, overrideParams_);
       DARABONBA_PTR_FROM_JSON(PipelineId, pipelineId_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(TemplateGroupId, templateGroupId_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptConfig_ == nullptr
-        && return this->overrideParams_ == nullptr && return this->pipelineId_ == nullptr && return this->priority_ == nullptr && return this->sessionId_ == nullptr && return this->templateGroupId_ == nullptr
-        && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
+        && return this->overrideParams_ == nullptr && return this->pipelineId_ == nullptr && return this->priority_ == nullptr && return this->referenceId_ == nullptr && return this->sessionId_ == nullptr
+        && return this->templateGroupId_ == nullptr && return this->userData_ == nullptr && return this->videoId_ == nullptr; };
     // encryptConfig Field Functions 
     bool hasEncryptConfig() const { return this->encryptConfig_ != nullptr;};
     void deleteEncryptConfig() { this->encryptConfig_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deletePriority() { this->priority_ = nullptr;};
     inline string priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, "") };
     inline SubmitTranscodeJobsRequest& setPriority(string priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline SubmitTranscodeJobsRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
 
 
     // sessionId Field Functions 
@@ -123,6 +132,7 @@ namespace Models
     // 
     // >  This parameter takes effect only on the queued transcoding jobs. The priorities of the in-progress transcoding jobs are not affected.
     std::shared_ptr<string> priority_ = nullptr;
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The custom identifier for deduplication. If you send a request, an error is returned if a request with the same identifier was sent in the last 7 days. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
     std::shared_ptr<string> sessionId_ = nullptr;
     // The ID of the transcoding template group that you want to use. To view the template group ID, perform the following operations: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**.

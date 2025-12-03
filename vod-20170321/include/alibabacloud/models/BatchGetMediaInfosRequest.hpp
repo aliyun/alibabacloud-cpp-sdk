@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BatchGetMediaInfosRequest& obj) { 
       DARABONBA_PTR_TO_JSON(MediaIds, mediaIds_);
+      DARABONBA_PTR_TO_JSON(ReferenceIds, referenceIds_);
     };
     friend void from_json(const Darabonba::Json& j, BatchGetMediaInfosRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MediaIds, mediaIds_);
+      DARABONBA_PTR_FROM_JSON(ReferenceIds, referenceIds_);
     };
     BatchGetMediaInfosRequest() = default ;
     BatchGetMediaInfosRequest(const BatchGetMediaInfosRequest &) = default ;
@@ -29,12 +31,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->mediaIds_ == nullptr; };
+    virtual bool empty() const override { return this->mediaIds_ == nullptr
+        && return this->referenceIds_ == nullptr; };
     // mediaIds Field Functions 
     bool hasMediaIds() const { return this->mediaIds_ != nullptr;};
     void deleteMediaIds() { this->mediaIds_ = nullptr;};
     inline string mediaIds() const { DARABONBA_PTR_GET_DEFAULT(mediaIds_, "") };
     inline BatchGetMediaInfosRequest& setMediaIds(string mediaIds) { DARABONBA_PTR_SET_VALUE(mediaIds_, mediaIds) };
+
+
+    // referenceIds Field Functions 
+    bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
+    void deleteReferenceIds() { this->referenceIds_ = nullptr;};
+    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline BatchGetMediaInfosRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
   protected:
@@ -46,6 +56,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> mediaIds_ = nullptr;
+    std::shared_ptr<string> referenceIds_ = nullptr;
   };
 
   } // namespace Models

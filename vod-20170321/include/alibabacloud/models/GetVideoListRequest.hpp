@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ReferenceIds, referenceIds_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ReferenceIds, referenceIds_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cateId_ == nullptr
-        && return this->endTime_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->sortBy_ == nullptr && return this->startTime_ == nullptr
-        && return this->status_ == nullptr && return this->storageLocation_ == nullptr; };
+        && return this->endTime_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->referenceIds_ == nullptr && return this->sortBy_ == nullptr
+        && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->storageLocation_ == nullptr; };
     // cateId Field Functions 
     bool hasCateId() const { return this->cateId_ != nullptr;};
     void deleteCateId() { this->cateId_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetVideoListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // referenceIds Field Functions 
+    bool hasReferenceIds() const { return this->referenceIds_ != nullptr;};
+    void deleteReferenceIds() { this->referenceIds_ = nullptr;};
+    inline string referenceIds() const { DARABONBA_PTR_GET_DEFAULT(referenceIds_, "") };
+    inline GetVideoListRequest& setReferenceIds(string referenceIds) { DARABONBA_PTR_SET_VALUE(referenceIds_, referenceIds) };
 
 
     // sortBy Field Functions 
@@ -115,6 +124,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNo_ = nullptr;
     // The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> referenceIds_ = nullptr;
     // The sorting method of the results. Valid values:
     // 
     // *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.

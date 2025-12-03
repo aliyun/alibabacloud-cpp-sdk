@@ -13,9 +13,11 @@ namespace Models
   class GetVideoInfoRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetVideoInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(VideoId, videoId_);
     };
     friend void from_json(const Darabonba::Json& j, GetVideoInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(VideoId, videoId_);
     };
     GetVideoInfoRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->videoId_ == nullptr; };
+    virtual bool empty() const override { return this->referenceId_ == nullptr
+        && return this->videoId_ == nullptr; };
+    // referenceId Field Functions 
+    bool hasReferenceId() const { return this->referenceId_ != nullptr;};
+    void deleteReferenceId() { this->referenceId_ = nullptr;};
+    inline string referenceId() const { DARABONBA_PTR_GET_DEFAULT(referenceId_, "") };
+    inline GetVideoInfoRequest& setReferenceId(string referenceId) { DARABONBA_PTR_SET_VALUE(referenceId_, referenceId) };
+
+
     // videoId Field Functions 
     bool hasVideoId() const { return this->videoId_ != nullptr;};
     void deleteVideoId() { this->videoId_ = nullptr;};
@@ -38,13 +48,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> referenceId_ = nullptr;
     // The ID of the audio or video file. You can specify only one ID in each call. You can use one of the following methods to obtain the ID:
     // 
     // *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
     // *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to obtain the upload URL and credential.
     // *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query the media ID after the media file is uploaded.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> videoId_ = nullptr;
   };
 
