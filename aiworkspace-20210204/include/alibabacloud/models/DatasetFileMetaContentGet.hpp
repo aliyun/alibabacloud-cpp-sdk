@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MetaAttributes, metaAttributes_);
       DARABONBA_PTR_TO_JSON(SemanticIndexJobId, semanticIndexJobId_);
       DARABONBA_PTR_TO_JSON(SemanticIndexUpdateTime, semanticIndexUpdateTime_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TagUpdateTime, tagUpdateTime_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MetaAttributes, metaAttributes_);
       DARABONBA_PTR_FROM_JSON(SemanticIndexJobId, semanticIndexJobId_);
       DARABONBA_PTR_FROM_JSON(SemanticIndexUpdateTime, semanticIndexUpdateTime_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TagUpdateTime, tagUpdateTime_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->comment_ == nullptr
         && return this->contentType_ == nullptr && return this->dataSize_ == nullptr && return this->datasetFileMetaId_ == nullptr && return this->fileCreateTime_ == nullptr && return this->fileDir_ == nullptr
         && return this->fileFingerPrint_ == nullptr && return this->fileName_ == nullptr && return this->fileType_ == nullptr && return this->fileUpdateTime_ == nullptr && return this->metaAttributes_ == nullptr
-        && return this->semanticIndexJobId_ == nullptr && return this->semanticIndexUpdateTime_ == nullptr && return this->tagUpdateTime_ == nullptr && return this->tags_ == nullptr && return this->uri_ == nullptr; };
+        && return this->semanticIndexJobId_ == nullptr && return this->semanticIndexUpdateTime_ == nullptr && return this->status_ == nullptr && return this->tagUpdateTime_ == nullptr && return this->tags_ == nullptr
+        && return this->uri_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -154,6 +157,13 @@ namespace Models
     inline DatasetFileMetaContentGet& setSemanticIndexUpdateTime(string semanticIndexUpdateTime) { DARABONBA_PTR_SET_VALUE(semanticIndexUpdateTime_, semanticIndexUpdateTime) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline DatasetFileMetaContentGet& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // tagUpdateTime Field Functions 
     bool hasTagUpdateTime() const { return this->tagUpdateTime_ != nullptr;};
     void deleteTagUpdateTime() { this->tagUpdateTime_ = nullptr;};
@@ -192,6 +202,7 @@ namespace Models
     std::shared_ptr<string> semanticIndexJobId_ = nullptr;
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     std::shared_ptr<string> semanticIndexUpdateTime_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     std::shared_ptr<string> tagUpdateTime_ = nullptr;
     std::shared_ptr<string> tags_ = nullptr;

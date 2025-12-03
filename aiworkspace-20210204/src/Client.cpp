@@ -3799,6 +3799,10 @@ ListDatasetFileMetasResponse Client::listDatasetFileMetasWithOptions(const strin
     query["StartTagUpdateTime"] = request.startTagUpdateTime();
   }
 
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
   if (!!request.hasThumbnailMode()) {
     query["ThumbnailMode"] = request.thumbnailMode();
   }

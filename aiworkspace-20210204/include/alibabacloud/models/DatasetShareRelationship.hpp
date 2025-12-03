@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DatasetShareRelationship& obj) { 
       DARABONBA_PTR_TO_JSON(AllowedMountAccessLevels, allowedMountAccessLevels_);
       DARABONBA_PTR_TO_JSON(ExpiresAt, expiresAt_);
+      DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(IsSecureMode, isSecureMode_);
       DARABONBA_PTR_TO_JSON(SharedAt, sharedAt_);
       DARABONBA_PTR_TO_JSON(SourceTenantId, sourceTenantId_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DatasetShareRelationship& obj) { 
       DARABONBA_PTR_FROM_JSON(AllowedMountAccessLevels, allowedMountAccessLevels_);
       DARABONBA_PTR_FROM_JSON(ExpiresAt, expiresAt_);
+      DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(IsSecureMode, isSecureMode_);
       DARABONBA_PTR_FROM_JSON(SharedAt, sharedAt_);
       DARABONBA_PTR_FROM_JSON(SourceTenantId, sourceTenantId_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowedMountAccessLevels_ == nullptr
-        && return this->expiresAt_ == nullptr && return this->isSecureMode_ == nullptr && return this->sharedAt_ == nullptr && return this->sourceTenantId_ == nullptr && return this->sourceWorkspaceId_ == nullptr
-        && return this->status_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->expiresAt_ == nullptr && return this->extra_ == nullptr && return this->isSecureMode_ == nullptr && return this->sharedAt_ == nullptr && return this->sourceTenantId_ == nullptr
+        && return this->sourceWorkspaceId_ == nullptr && return this->status_ == nullptr && return this->tenantId_ == nullptr && return this->workspaceId_ == nullptr; };
     // allowedMountAccessLevels Field Functions 
     bool hasAllowedMountAccessLevels() const { return this->allowedMountAccessLevels_ != nullptr;};
     void deleteAllowedMountAccessLevels() { this->allowedMountAccessLevels_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteExpiresAt() { this->expiresAt_ = nullptr;};
     inline string expiresAt() const { DARABONBA_PTR_GET_DEFAULT(expiresAt_, "") };
     inline DatasetShareRelationship& setExpiresAt(string expiresAt) { DARABONBA_PTR_SET_VALUE(expiresAt_, expiresAt) };
+
+
+    // extra Field Functions 
+    bool hasExtra() const { return this->extra_ != nullptr;};
+    void deleteExtra() { this->extra_ = nullptr;};
+    inline string extra() const { DARABONBA_PTR_GET_DEFAULT(extra_, "") };
+    inline DatasetShareRelationship& setExtra(string extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
 
 
     // isSecureMode Field Functions 
@@ -117,6 +126,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<string>> allowedMountAccessLevels_ = nullptr;
     std::shared_ptr<string> expiresAt_ = nullptr;
+    std::shared_ptr<string> extra_ = nullptr;
     std::shared_ptr<bool> isSecureMode_ = nullptr;
     std::shared_ptr<string> sharedAt_ = nullptr;
     std::shared_ptr<string> sourceTenantId_ = nullptr;

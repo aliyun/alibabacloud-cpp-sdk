@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
       DARABONBA_PTR_TO_JSON(StartFileUpdateTime, startFileUpdateTime_);
       DARABONBA_PTR_TO_JSON(StartTagUpdateTime, startTagUpdateTime_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(ThumbnailMode, thumbnailMode_);
       DARABONBA_PTR_TO_JSON(TopK, topK_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
       DARABONBA_PTR_FROM_JSON(StartFileUpdateTime, startFileUpdateTime_);
       DARABONBA_PTR_FROM_JSON(StartTagUpdateTime, startTagUpdateTime_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(ThumbnailMode, thumbnailMode_);
       DARABONBA_PTR_FROM_JSON(TopK, topK_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -82,7 +84,7 @@ namespace Models
         && return this->pageSize_ == nullptr && return this->queryContentTypeIncludeAnyShrink_ == nullptr && return this->queryExpression_ == nullptr && return this->queryFileDir_ == nullptr && return this->queryFileName_ == nullptr
         && return this->queryFileTypeIncludeAnyShrink_ == nullptr && return this->queryImage_ == nullptr && return this->queryTagsExcludeShrink_ == nullptr && return this->queryTagsIncludeAllShrink_ == nullptr && return this->queryTagsIncludeAnyShrink_ == nullptr
         && return this->queryText_ == nullptr && return this->queryType_ == nullptr && return this->scoreThreshold_ == nullptr && return this->sortBy_ == nullptr && return this->startFileUpdateTime_ == nullptr
-        && return this->startTagUpdateTime_ == nullptr && return this->thumbnailMode_ == nullptr && return this->topK_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->startTagUpdateTime_ == nullptr && return this->status_ == nullptr && return this->thumbnailMode_ == nullptr && return this->topK_ == nullptr && return this->workspaceId_ == nullptr; };
     // datasetVersion Field Functions 
     bool hasDatasetVersion() const { return this->datasetVersion_ != nullptr;};
     void deleteDatasetVersion() { this->datasetVersion_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
     inline ListDatasetFileMetasShrinkRequest& setStartTagUpdateTime(string startTagUpdateTime) { DARABONBA_PTR_SET_VALUE(startTagUpdateTime_, startTagUpdateTime) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListDatasetFileMetasShrinkRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
     // thumbnailMode Field Functions 
     bool hasThumbnailMode() const { return this->thumbnailMode_ != nullptr;};
     void deleteThumbnailMode() { this->thumbnailMode_ = nullptr;};
@@ -310,6 +319,7 @@ namespace Models
     std::shared_ptr<string> startFileUpdateTime_ = nullptr;
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
     std::shared_ptr<string> startTagUpdateTime_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> thumbnailMode_ = nullptr;
     // The number of search results to return. A maximum of Top K search results can be returned. This parameter is valid only when QueryType is set to VECTOR.
     std::shared_ptr<int32_t> topK_ = nullptr;
