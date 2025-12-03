@@ -21635,6 +21635,72 @@ DisableDiskEncryptionByDefaultResponse Client::disableDiskEncryptionByDefault(co
 }
 
 /**
+ * @summary 禁用弹性网卡QoS限速设置
+ *
+ * @param request DisableNetworkInterfaceQoSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableNetworkInterfaceQoSResponse
+ */
+DisableNetworkInterfaceQoSResponse Client::disableNetworkInterfaceQoSWithOptions(const DisableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkInterfaceId()) {
+    query["NetworkInterfaceId"] = request.networkInterfaceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableNetworkInterfaceQoS"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableNetworkInterfaceQoSResponse>();
+}
+
+/**
+ * @summary 禁用弹性网卡QoS限速设置
+ *
+ * @param request DisableNetworkInterfaceQoSRequest
+ * @return DisableNetworkInterfaceQoSResponse
+ */
+DisableNetworkInterfaceQoSResponse Client::disableNetworkInterfaceQoS(const DisableNetworkInterfaceQoSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableNetworkInterfaceQoSWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
  *
  * @description >  The Account-level EBS Default Encryption feature is available only in specific regions and to specific users. To use the feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
@@ -21716,6 +21782,76 @@ EnableDiskEncryptionByDefaultResponse Client::enableDiskEncryptionByDefaultWithO
 EnableDiskEncryptionByDefaultResponse Client::enableDiskEncryptionByDefault(const EnableDiskEncryptionByDefaultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableDiskEncryptionByDefaultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用或修改弹性网卡QoS限速设置
+ *
+ * @param request EnableNetworkInterfaceQoSRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableNetworkInterfaceQoSResponse
+ */
+EnableNetworkInterfaceQoSResponse Client::enableNetworkInterfaceQoSWithOptions(const EnableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNetworkInterfaceId()) {
+    query["NetworkInterfaceId"] = request.networkInterfaceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasQoS()) {
+    query["QoS"] = request.qoS();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableNetworkInterfaceQoS"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableNetworkInterfaceQoSResponse>();
+}
+
+/**
+ * @summary 启用或修改弹性网卡QoS限速设置
+ *
+ * @param request EnableNetworkInterfaceQoSRequest
+ * @return EnableNetworkInterfaceQoSResponse
+ */
+EnableNetworkInterfaceQoSResponse Client::enableNetworkInterfaceQoS(const EnableNetworkInterfaceQoSRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableNetworkInterfaceQoSWithOptions(request, runtime);
 }
 
 /**

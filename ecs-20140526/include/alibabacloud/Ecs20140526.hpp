@@ -5855,6 +5855,23 @@ namespace Ecs20140526
       Models::DisableDiskEncryptionByDefaultResponse disableDiskEncryptionByDefault(const Models::DisableDiskEncryptionByDefaultRequest &request);
 
       /**
+       * @summary 禁用弹性网卡QoS限速设置
+       *
+       * @param request DisableNetworkInterfaceQoSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableNetworkInterfaceQoSResponse
+       */
+      Models::DisableNetworkInterfaceQoSResponse disableNetworkInterfaceQoSWithOptions(const Models::DisableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用弹性网卡QoS限速设置
+       *
+       * @param request DisableNetworkInterfaceQoSRequest
+       * @return DisableNetworkInterfaceQoSResponse
+       */
+      Models::DisableNetworkInterfaceQoSResponse disableNetworkInterfaceQoS(const Models::DisableNetworkInterfaceQoSRequest &request);
+
+      /**
        * @summary Enables the Account-level Elastic Block Storage (EBS) Default Encryption feature in a region.
        *
        * @description >  The Account-level EBS Default Encryption feature is available only in specific regions and to specific users. To use the feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
@@ -5896,6 +5913,23 @@ namespace Ecs20140526
        * @return EnableDiskEncryptionByDefaultResponse
        */
       Models::EnableDiskEncryptionByDefaultResponse enableDiskEncryptionByDefault(const Models::EnableDiskEncryptionByDefaultRequest &request);
+
+      /**
+       * @summary 启用或修改弹性网卡QoS限速设置
+       *
+       * @param request EnableNetworkInterfaceQoSRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableNetworkInterfaceQoSResponse
+       */
+      Models::EnableNetworkInterfaceQoSResponse enableNetworkInterfaceQoSWithOptions(const Models::EnableNetworkInterfaceQoSRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用或修改弹性网卡QoS限速设置
+       *
+       * @param request EnableNetworkInterfaceQoSRequest
+       * @return EnableNetworkInterfaceQoSResponse
+       */
+      Models::EnableNetworkInterfaceQoSResponse enableNetworkInterfaceQoS(const Models::EnableNetworkInterfaceQoSRequest &request);
 
       /**
        * @deprecated OpenAPI EnablePhysicalConnection is deprecated, please use Vpc::2016-04-28::EnablePhysicalConnection instead.

@@ -12,6 +12,7 @@
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyIpv6Sets.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyNetworkInterfaceTrafficConfig.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets.hpp>
+#include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyQoSConfig.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyTags.hpp>
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_TO_JSON(PrivateIpSets, privateIpSets_);
+      DARABONBA_PTR_TO_JSON(QoSConfig, qoSConfig_);
       DARABONBA_PTR_TO_JSON(QueueNumber, queueNumber_);
       DARABONBA_PTR_TO_JSON(QueuePairNumber, queuePairNumber_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -84,6 +86,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PrivateIpAddress, privateIpAddress_);
       DARABONBA_PTR_FROM_JSON(PrivateIpSets, privateIpSets_);
+      DARABONBA_PTR_FROM_JSON(QoSConfig, qoSConfig_);
       DARABONBA_PTR_FROM_JSON(QueueNumber, queueNumber_);
       DARABONBA_PTR_FROM_JSON(QueuePairNumber, queuePairNumber_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -116,10 +119,11 @@ namespace Models
         && return this->attachment_ == nullptr && return this->bondInterfaceSpecification_ == nullptr && return this->connectionTrackingConfiguration_ == nullptr && return this->creationTime_ == nullptr && return this->deleteOnRelease_ == nullptr
         && return this->description_ == nullptr && return this->enhancedNetwork_ == nullptr && return this->instanceId_ == nullptr && return this->ipv4PrefixSets_ == nullptr && return this->ipv6PrefixSets_ == nullptr
         && return this->ipv6Sets_ == nullptr && return this->macAddress_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceName_ == nullptr && return this->networkInterfaceTrafficConfig_ == nullptr
-        && return this->networkInterfaceTrafficMode_ == nullptr && return this->ownerId_ == nullptr && return this->privateIpAddress_ == nullptr && return this->privateIpSets_ == nullptr && return this->queueNumber_ == nullptr
-        && return this->queuePairNumber_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->serviceID_ == nullptr
-        && return this->serviceManaged_ == nullptr && return this->slaveInterfaceSpecification_ == nullptr && return this->sourceDestCheck_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr
-        && return this->tcpOptionAddressEnabled_ == nullptr && return this->type_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->networkInterfaceTrafficMode_ == nullptr && return this->ownerId_ == nullptr && return this->privateIpAddress_ == nullptr && return this->privateIpSets_ == nullptr && return this->qoSConfig_ == nullptr
+        && return this->queueNumber_ == nullptr && return this->queuePairNumber_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->serviceID_ == nullptr && return this->serviceManaged_ == nullptr && return this->slaveInterfaceSpecification_ == nullptr && return this->sourceDestCheck_ == nullptr && return this->status_ == nullptr
+        && return this->tags_ == nullptr && return this->tcpOptionAddressEnabled_ == nullptr && return this->type_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // associatedPublicIp Field Functions 
     bool hasAssociatedPublicIp() const { return this->associatedPublicIp_ != nullptr;};
     void deleteAssociatedPublicIp() { this->associatedPublicIp_ = nullptr;};
@@ -278,6 +282,15 @@ namespace Models
     inline DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets privateIpSets() { DARABONBA_PTR_GET(privateIpSets_, DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets) };
     inline DescribeNetworkInterfaceAttributeResponseBody& setPrivateIpSets(const DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets & privateIpSets) { DARABONBA_PTR_SET_VALUE(privateIpSets_, privateIpSets) };
     inline DescribeNetworkInterfaceAttributeResponseBody& setPrivateIpSets(DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets && privateIpSets) { DARABONBA_PTR_SET_RVALUE(privateIpSets_, privateIpSets) };
+
+
+    // qoSConfig Field Functions 
+    bool hasQoSConfig() const { return this->qoSConfig_ != nullptr;};
+    void deleteQoSConfig() { this->qoSConfig_ = nullptr;};
+    inline const DescribeNetworkInterfaceAttributeResponseBodyQoSConfig & qoSConfig() const { DARABONBA_PTR_GET_CONST(qoSConfig_, DescribeNetworkInterfaceAttributeResponseBodyQoSConfig) };
+    inline DescribeNetworkInterfaceAttributeResponseBodyQoSConfig qoSConfig() { DARABONBA_PTR_GET(qoSConfig_, DescribeNetworkInterfaceAttributeResponseBodyQoSConfig) };
+    inline DescribeNetworkInterfaceAttributeResponseBody& setQoSConfig(const DescribeNetworkInterfaceAttributeResponseBodyQoSConfig & qoSConfig) { DARABONBA_PTR_SET_VALUE(qoSConfig_, qoSConfig) };
+    inline DescribeNetworkInterfaceAttributeResponseBody& setQoSConfig(DescribeNetworkInterfaceAttributeResponseBodyQoSConfig && qoSConfig) { DARABONBA_PTR_SET_RVALUE(qoSConfig_, qoSConfig) };
 
 
     // queueNumber Field Functions 
@@ -453,6 +466,7 @@ namespace Models
     std::shared_ptr<string> privateIpAddress_ = nullptr;
     // The private IP addresses of the ENI.
     std::shared_ptr<DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets> privateIpSets_ = nullptr;
+    std::shared_ptr<DescribeNetworkInterfaceAttributeResponseBodyQoSConfig> qoSConfig_ = nullptr;
     // The number of queues supported by the ENI.
     // 
     // *   For a primary ENI: The default number of queues that the instance type supports for the ENI is returned.

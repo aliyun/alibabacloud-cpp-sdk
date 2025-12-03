@@ -705,9 +705,15 @@
 #include <alibabacloud/models/DisableDiskEncryptionByDefaultRequest.hpp>
 #include <alibabacloud/models/DisableDiskEncryptionByDefaultResponseBody.hpp>
 #include <alibabacloud/models/DisableDiskEncryptionByDefaultResponse.hpp>
+#include <alibabacloud/models/DisableNetworkInterfaceQoSRequest.hpp>
+#include <alibabacloud/models/DisableNetworkInterfaceQoSResponseBody.hpp>
+#include <alibabacloud/models/DisableNetworkInterfaceQoSResponse.hpp>
 #include <alibabacloud/models/EnableDiskEncryptionByDefaultRequest.hpp>
 #include <alibabacloud/models/EnableDiskEncryptionByDefaultResponseBody.hpp>
 #include <alibabacloud/models/EnableDiskEncryptionByDefaultResponse.hpp>
+#include <alibabacloud/models/EnableNetworkInterfaceQoSRequest.hpp>
+#include <alibabacloud/models/EnableNetworkInterfaceQoSResponseBody.hpp>
+#include <alibabacloud/models/EnableNetworkInterfaceQoSResponse.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionRequest.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionResponseBody.hpp>
 #include <alibabacloud/models/EnablePhysicalConnectionResponse.hpp>
@@ -1665,6 +1671,8 @@
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSetAssociatedPublicIp.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSetsPrivateIpSet.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyPrivateIpSets.hpp>
+#include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyQoSConfigQoS.hpp>
+#include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyQoSConfig.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodySecurityGroupIds.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodySlaveInterfaceSpecification.hpp>
 #include <alibabacloud/models/DescribeNetworkInterfaceAttributeResponseBodyTagsTag.hpp>
@@ -1881,6 +1889,7 @@
 #include <alibabacloud/models/DetachKeyPairResponseBodyResultsResult.hpp>
 #include <alibabacloud/models/DetachKeyPairResponseBodyResults.hpp>
 #include <alibabacloud/models/DisableActivationResponseBodyActivation.hpp>
+#include <alibabacloud/models/EnableNetworkInterfaceQoSRequestQoS.hpp>
 #include <alibabacloud/models/ImportImageRequestDiskDeviceMapping.hpp>
 #include <alibabacloud/models/ImportImageRequestFeatures.hpp>
 #include <alibabacloud/models/ImportImageRequestTag.hpp>
