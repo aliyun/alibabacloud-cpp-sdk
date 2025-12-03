@@ -40,6 +40,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(chunkMode, chunkMode_);
       DARABONBA_PTR_TO_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_TO_JSON(metaExtractColumns, metaExtractColumns_);
+      DARABONBA_PTR_TO_JSON(pipelineCommercialCu, pipelineCommercialCu_);
+      DARABONBA_PTR_TO_JSON(pipelineCommercialType, pipelineCommercialType_);
+      DARABONBA_PTR_TO_JSON(pipelineRetrieveRateLimitStrategy, pipelineRetrieveRateLimitStrategy_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIndexRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CategoryIds, categoryIds_);
@@ -65,6 +68,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(chunkMode, chunkMode_);
       DARABONBA_PTR_FROM_JSON(enableHeaders, enableHeaders_);
       DARABONBA_PTR_FROM_JSON(metaExtractColumns, metaExtractColumns_);
+      DARABONBA_PTR_FROM_JSON(pipelineCommercialCu, pipelineCommercialCu_);
+      DARABONBA_PTR_FROM_JSON(pipelineCommercialType, pipelineCommercialType_);
+      DARABONBA_PTR_FROM_JSON(pipelineRetrieveRateLimitStrategy, pipelineRetrieveRateLimitStrategy_);
     };
     CreateIndexRequest() = default ;
     CreateIndexRequest(const CreateIndexRequest &) = default ;
@@ -82,7 +88,7 @@ namespace Models
         && return this->documentIds_ == nullptr && return this->embeddingModelName_ == nullptr && return this->enableRewrite_ == nullptr && return this->name_ == nullptr && return this->overlapSize_ == nullptr
         && return this->rerankMinScore_ == nullptr && return this->rerankModelName_ == nullptr && return this->separator_ == nullptr && return this->sinkInstanceId_ == nullptr && return this->sinkRegion_ == nullptr
         && return this->sinkType_ == nullptr && return this->sourceType_ == nullptr && return this->structureType_ == nullptr && return this->tableIds_ == nullptr && return this->chunkMode_ == nullptr
-        && return this->enableHeaders_ == nullptr && return this->metaExtractColumns_ == nullptr; };
+        && return this->enableHeaders_ == nullptr && return this->metaExtractColumns_ == nullptr && return this->pipelineCommercialCu_ == nullptr && return this->pipelineCommercialType_ == nullptr && return this->pipelineRetrieveRateLimitStrategy_ == nullptr; };
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
     void deleteCategoryIds() { this->categoryIds_ = nullptr;};
@@ -256,6 +262,27 @@ namespace Models
     inline CreateIndexRequest& setMetaExtractColumns(vector<CreateIndexRequestMetaExtractColumns> && metaExtractColumns) { DARABONBA_PTR_SET_RVALUE(metaExtractColumns_, metaExtractColumns) };
 
 
+    // pipelineCommercialCu Field Functions 
+    bool hasPipelineCommercialCu() const { return this->pipelineCommercialCu_ != nullptr;};
+    void deletePipelineCommercialCu() { this->pipelineCommercialCu_ = nullptr;};
+    inline int32_t pipelineCommercialCu() const { DARABONBA_PTR_GET_DEFAULT(pipelineCommercialCu_, 0) };
+    inline CreateIndexRequest& setPipelineCommercialCu(int32_t pipelineCommercialCu) { DARABONBA_PTR_SET_VALUE(pipelineCommercialCu_, pipelineCommercialCu) };
+
+
+    // pipelineCommercialType Field Functions 
+    bool hasPipelineCommercialType() const { return this->pipelineCommercialType_ != nullptr;};
+    void deletePipelineCommercialType() { this->pipelineCommercialType_ = nullptr;};
+    inline string pipelineCommercialType() const { DARABONBA_PTR_GET_DEFAULT(pipelineCommercialType_, "") };
+    inline CreateIndexRequest& setPipelineCommercialType(string pipelineCommercialType) { DARABONBA_PTR_SET_VALUE(pipelineCommercialType_, pipelineCommercialType) };
+
+
+    // pipelineRetrieveRateLimitStrategy Field Functions 
+    bool hasPipelineRetrieveRateLimitStrategy() const { return this->pipelineRetrieveRateLimitStrategy_ != nullptr;};
+    void deletePipelineRetrieveRateLimitStrategy() { this->pipelineRetrieveRateLimitStrategy_ = nullptr;};
+    inline string pipelineRetrieveRateLimitStrategy() const { DARABONBA_PTR_GET_DEFAULT(pipelineRetrieveRateLimitStrategy_, "") };
+    inline CreateIndexRequest& setPipelineRetrieveRateLimitStrategy(string pipelineRetrieveRateLimitStrategy) { DARABONBA_PTR_SET_VALUE(pipelineRetrieveRateLimitStrategy_, pipelineRetrieveRateLimitStrategy) };
+
+
   protected:
     // The files to imported to the knowledge base. Specify the category IDs. All files under the categories will be imported (up to 10,000 files). To add more files later, call **SubmitIndexAddDocumentsJob**.
     std::shared_ptr<vector<string>> categoryIds_ = nullptr;
@@ -361,6 +388,9 @@ namespace Models
     std::shared_ptr<bool> enableHeaders_ = nullptr;
     // The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
     std::shared_ptr<vector<CreateIndexRequestMetaExtractColumns>> metaExtractColumns_ = nullptr;
+    std::shared_ptr<int32_t> pipelineCommercialCu_ = nullptr;
+    std::shared_ptr<string> pipelineCommercialType_ = nullptr;
+    std::shared_ptr<string> pipelineRetrieveRateLimitStrategy_ = nullptr;
   };
 
   } // namespace Models

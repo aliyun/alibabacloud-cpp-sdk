@@ -643,6 +643,18 @@ CreateIndexResponse Client::createIndexWithOptions(const string &WorkspaceId, co
     query["metaExtractColumns"] = request.metaExtractColumnsShrink();
   }
 
+  if (!!request.hasPipelineCommercialCu()) {
+    query["pipelineCommercialCu"] = request.pipelineCommercialCu();
+  }
+
+  if (!!request.hasPipelineCommercialType()) {
+    query["pipelineCommercialType"] = request.pipelineCommercialType();
+  }
+
+  if (!!request.hasPipelineRetrieveRateLimitStrategy()) {
+    query["pipelineRetrieveRateLimitStrategy"] = request.pipelineRetrieveRateLimitStrategy();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
