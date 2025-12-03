@@ -696,6 +696,18 @@ CreatePrivateAccessPolicyResponse Client::createPrivateAccessPolicyWithOptions(c
     body["UserGroupMode"] = request.userGroupMode();
   }
 
+  if (!!request.hasValidFrom()) {
+    body["ValidFrom"] = request.validFrom();
+  }
+
+  if (!!request.hasValidTimeStatus()) {
+    body["ValidTimeStatus"] = request.validTimeStatus();
+  }
+
+  if (!!request.hasValidUntil()) {
+    body["ValidUntil"] = request.validUntil();
+  }
+
   body = Darabonba::Core::merge(body,
     Utils::Utils::query(bodyFlat)
   );
@@ -5317,6 +5329,18 @@ UpdatePrivateAccessPolicyResponse Client::updatePrivateAccessPolicyWithOptions(c
 
   if (!!request.hasUserGroupMode()) {
     body["UserGroupMode"] = request.userGroupMode();
+  }
+
+  if (!!request.hasValidFrom()) {
+    body["ValidFrom"] = request.validFrom();
+  }
+
+  if (!!request.hasValidTimeStatus()) {
+    body["ValidTimeStatus"] = request.validTimeStatus();
+  }
+
+  if (!!request.hasValidUntil()) {
+    body["ValidUntil"] = request.validUntil();
   }
 
   body = Darabonba::Core::merge(body,

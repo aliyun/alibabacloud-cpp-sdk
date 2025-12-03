@@ -150,6 +150,9 @@ namespace Models
 
 
   protected:
+    // Whether to enable global acceleration. Values: 
+    // - **Enabled**: Turn on. 
+    // - **Disabled**: Turn off.
     std::shared_ptr<string> accelerateStatus_ = nullptr;
     // Collection of associated internal network access applications.
     std::shared_ptr<vector<Models::ListConnectorsResponseBodyConnectorsApplications>> applications_ = nullptr;
@@ -159,9 +162,9 @@ namespace Models
     std::shared_ptr<string> clusterPort_ = nullptr;
     // Collection of deployed ConnectorClients.
     std::shared_ptr<vector<Models::ListConnectorsResponseBodyConnectorsConnectorClients>> connectorClients_ = nullptr;
-    // Connector ID.
+    // ConnectorID.
     std::shared_ptr<string> connectorId_ = nullptr;
-    // Creation time of the Connector.
+    // Connector creation time.
     std::shared_ptr<string> createTime_ = nullptr;
     // Connector name.
     std::shared_ptr<string> name_ = nullptr;
@@ -175,7 +178,7 @@ namespace Models
     // - **Enabled**: Enabled.
     // - **Disabled**: Disabled.
     std::shared_ptr<string> switchStatus_ = nullptr;
-    // Connector upgrade time.
+    // Connector升级时间。
     std::shared_ptr<Models::ListConnectorsResponseBodyConnectorsUpgradeTime> upgradeTime_ = nullptr;
   };
 

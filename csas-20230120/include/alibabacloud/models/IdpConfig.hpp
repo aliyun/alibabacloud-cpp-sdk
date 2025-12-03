@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LastSyncTimeUnix, lastSyncTimeUnix_);
       DARABONBA_PTR_TO_JSON(LdapConfig, ldapConfig_);
       DARABONBA_PTR_TO_JSON(LoginConfig, loginConfig_);
+      DARABONBA_PTR_TO_JSON(LogoDirectory, logoDirectory_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(SyncConfig, syncConfig_);
       DARABONBA_PTR_TO_JSON(SyncStatus, syncStatus_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LastSyncTimeUnix, lastSyncTimeUnix_);
       DARABONBA_PTR_FROM_JSON(LdapConfig, ldapConfig_);
       DARABONBA_PTR_FROM_JSON(LoginConfig, loginConfig_);
+      DARABONBA_PTR_FROM_JSON(LogoDirectory, logoDirectory_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(SyncConfig, syncConfig_);
       DARABONBA_PTR_FROM_JSON(SyncStatus, syncStatus_);
@@ -74,8 +76,8 @@ namespace Models
     virtual bool empty() const override { return this->attrMapConfig_ == nullptr
         && return this->connectConfig_ == nullptr && return this->description_ == nullptr && return this->dingtalkConfig_ == nullptr && return this->enabled_ == nullptr && return this->feishuConfig_ == nullptr
         && return this->idaasConfig_ == nullptr && return this->idpConfigId_ == nullptr && return this->lastSyncTimeUnix_ == nullptr && return this->ldapConfig_ == nullptr && return this->loginConfig_ == nullptr
-        && return this->name_ == nullptr && return this->syncConfig_ == nullptr && return this->syncStatus_ == nullptr && return this->type_ == nullptr && return this->weixinConfig_ == nullptr
-        && return this->wuyingConfig_ == nullptr; };
+        && return this->logoDirectory_ == nullptr && return this->name_ == nullptr && return this->syncConfig_ == nullptr && return this->syncStatus_ == nullptr && return this->type_ == nullptr
+        && return this->weixinConfig_ == nullptr && return this->wuyingConfig_ == nullptr; };
     // attrMapConfig Field Functions 
     bool hasAttrMapConfig() const { return this->attrMapConfig_ != nullptr;};
     void deleteAttrMapConfig() { this->attrMapConfig_ = nullptr;};
@@ -167,6 +169,13 @@ namespace Models
     inline IdpConfig& setLoginConfig(IdpLoginConfig && loginConfig) { DARABONBA_PTR_SET_RVALUE(loginConfig_, loginConfig) };
 
 
+    // logoDirectory Field Functions 
+    bool hasLogoDirectory() const { return this->logoDirectory_ != nullptr;};
+    void deleteLogoDirectory() { this->logoDirectory_ = nullptr;};
+    inline string logoDirectory() const { DARABONBA_PTR_GET_DEFAULT(logoDirectory_, "") };
+    inline IdpConfig& setLogoDirectory(string logoDirectory) { DARABONBA_PTR_SET_VALUE(logoDirectory_, logoDirectory) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -227,6 +236,7 @@ namespace Models
     std::shared_ptr<int64_t> lastSyncTimeUnix_ = nullptr;
     std::shared_ptr<IdpLdapSubConfig> ldapConfig_ = nullptr;
     std::shared_ptr<IdpLoginConfig> loginConfig_ = nullptr;
+    std::shared_ptr<string> logoDirectory_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<IdpSyncConfig> syncConfig_ = nullptr;
     std::shared_ptr<string> syncStatus_ = nullptr;

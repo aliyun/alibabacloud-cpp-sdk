@@ -34,6 +34,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TrustedSoftwareIds, trustedSoftwareIds_);
       DARABONBA_PTR_TO_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_TO_JSON(UserGroupMode, userGroupMode_);
+      DARABONBA_PTR_TO_JSON(ValidFrom, validFrom_);
+      DARABONBA_PTR_TO_JSON(ValidTimeStatus, validTimeStatus_);
+      DARABONBA_PTR_TO_JSON(ValidUntil, validUntil_);
     };
     friend void from_json(const Darabonba::Json& j, ListPrivateAccessPolicesResponseBodyPolices& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationIds, applicationIds_);
@@ -55,6 +58,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TrustedSoftwareIds, trustedSoftwareIds_);
       DARABONBA_PTR_FROM_JSON(UserGroupIds, userGroupIds_);
       DARABONBA_PTR_FROM_JSON(UserGroupMode, userGroupMode_);
+      DARABONBA_PTR_FROM_JSON(ValidFrom, validFrom_);
+      DARABONBA_PTR_FROM_JSON(ValidTimeStatus, validTimeStatus_);
+      DARABONBA_PTR_FROM_JSON(ValidUntil, validUntil_);
     };
     ListPrivateAccessPolicesResponseBodyPolices() = default ;
     ListPrivateAccessPolicesResponseBodyPolices(const ListPrivateAccessPolicesResponseBodyPolices &) = default ;
@@ -71,7 +77,8 @@ namespace Models
         && return this->applicationType_ == nullptr && return this->createTime_ == nullptr && return this->customUserAttributes_ == nullptr && return this->description_ == nullptr && return this->deviceAttributeAction_ == nullptr
         && return this->deviceAttributeId_ == nullptr && return this->name_ == nullptr && return this->policyAction_ == nullptr && return this->policyId_ == nullptr && return this->priority_ == nullptr
         && return this->status_ == nullptr && return this->tagIds_ == nullptr && return this->triggerTemplateId_ == nullptr && return this->trustedProcessGroupIds_ == nullptr && return this->trustedProcessStatus_ == nullptr
-        && return this->trustedSoftwareIds_ == nullptr && return this->userGroupIds_ == nullptr && return this->userGroupMode_ == nullptr; };
+        && return this->trustedSoftwareIds_ == nullptr && return this->userGroupIds_ == nullptr && return this->userGroupMode_ == nullptr && return this->validFrom_ == nullptr && return this->validTimeStatus_ == nullptr
+        && return this->validUntil_ == nullptr; };
     // applicationIds Field Functions 
     bool hasApplicationIds() const { return this->applicationIds_ != nullptr;};
     void deleteApplicationIds() { this->applicationIds_ = nullptr;};
@@ -217,6 +224,27 @@ namespace Models
     inline ListPrivateAccessPolicesResponseBodyPolices& setUserGroupMode(string userGroupMode) { DARABONBA_PTR_SET_VALUE(userGroupMode_, userGroupMode) };
 
 
+    // validFrom Field Functions 
+    bool hasValidFrom() const { return this->validFrom_ != nullptr;};
+    void deleteValidFrom() { this->validFrom_ = nullptr;};
+    inline int64_t validFrom() const { DARABONBA_PTR_GET_DEFAULT(validFrom_, 0L) };
+    inline ListPrivateAccessPolicesResponseBodyPolices& setValidFrom(int64_t validFrom) { DARABONBA_PTR_SET_VALUE(validFrom_, validFrom) };
+
+
+    // validTimeStatus Field Functions 
+    bool hasValidTimeStatus() const { return this->validTimeStatus_ != nullptr;};
+    void deleteValidTimeStatus() { this->validTimeStatus_ = nullptr;};
+    inline string validTimeStatus() const { DARABONBA_PTR_GET_DEFAULT(validTimeStatus_, "") };
+    inline ListPrivateAccessPolicesResponseBodyPolices& setValidTimeStatus(string validTimeStatus) { DARABONBA_PTR_SET_VALUE(validTimeStatus_, validTimeStatus) };
+
+
+    // validUntil Field Functions 
+    bool hasValidUntil() const { return this->validUntil_ != nullptr;};
+    void deleteValidUntil() { this->validUntil_ = nullptr;};
+    inline int64_t validUntil() const { DARABONBA_PTR_GET_DEFAULT(validUntil_, 0L) };
+    inline ListPrivateAccessPolicesResponseBodyPolices& setValidUntil(int64_t validUntil) { DARABONBA_PTR_SET_VALUE(validUntil_, validUntil) };
+
+
   protected:
     // The IDs of the applications that are specified in the private access policy. If the value of ApplicationType is **Application**, this parameter is returned.
     std::shared_ptr<vector<string>> applicationIds_ = nullptr;
@@ -273,6 +301,12 @@ namespace Models
     // *   **Normal**: regular user group.
     // *   **Custom**: custom user group.
     std::shared_ptr<string> userGroupMode_ = nullptr;
+    // The start time when the zero trust policy takes effect, represented as a timestamp in seconds.
+    std::shared_ptr<int64_t> validFrom_ = nullptr;
+    // Switch status for effective time. Values: - **Enabled**: On. - **Disabled**: Off.
+    std::shared_ptr<string> validTimeStatus_ = nullptr;
+    // The expiration time of the zero trust policy, in seconds timestamp.
+    std::shared_ptr<int64_t> validUntil_ = nullptr;
   };
 
   } // namespace Models

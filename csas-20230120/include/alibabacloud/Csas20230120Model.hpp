@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AuthReportInterval.hpp>
 #include <alibabacloud/models/CommonConfig.hpp>
+#include <alibabacloud/models/DeviceGroupDynamicRule.hpp>
 #include <alibabacloud/models/DisposalContent.hpp>
 #include <alibabacloud/models/IdpAttrMapConfigItem.hpp>
 #include <alibabacloud/models/IdpAttrMapConfig.hpp>
@@ -387,6 +388,7 @@
 #include <alibabacloud/models/CommonConfigIdpSaml.hpp>
 #include <alibabacloud/models/CommonConfigIdp.hpp>
 #include <alibabacloud/models/IdpSyncConfigIdpDepartmentInfos.hpp>
+#include <alibabacloud/models/OpenStructSaseUserUserTags.hpp>
 #include <alibabacloud/models/OpenStructSaseUserSimpleDepartments.hpp>
 #include <alibabacloud/models/Pal7ConfigBypassConfigUrlBypassRules.hpp>
 #include <alibabacloud/models/Pal7ConfigBypassConfig.hpp>

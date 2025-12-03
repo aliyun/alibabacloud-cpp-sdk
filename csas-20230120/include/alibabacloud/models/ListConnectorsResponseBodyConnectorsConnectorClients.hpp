@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // Connection status between ConnectorClient and ConnectorServer.
+    // Connection status between the ConnectorClient and ConnectorServer.
     std::shared_ptr<string> connectionStatus_ = nullptr;
     // Unique device identifier for the ConnectorClient.
     std::shared_ptr<string> devTag_ = nullptr;

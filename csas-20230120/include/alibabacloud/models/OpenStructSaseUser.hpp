@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/IdpCustomField.hpp>
 #include <alibabacloud/models/OpenStructSaseDepartment.hpp>
+#include <alibabacloud/models/OpenStructSaseUserUserTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Telephone, telephone_);
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(UpdateTimeUnix, updateTimeUnix_);
+      DARABONBA_PTR_TO_JSON(UserTags, userTags_);
       DARABONBA_PTR_TO_JSON(Username, username_);
       DARABONBA_PTR_TO_JSON(WorkStatus, workStatus_);
     };
@@ -48,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Telephone, telephone_);
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(UpdateTimeUnix, updateTimeUnix_);
+      DARABONBA_PTR_FROM_JSON(UserTags, userTags_);
       DARABONBA_PTR_FROM_JSON(Username, username_);
       DARABONBA_PTR_FROM_JSON(WorkStatus, workStatus_);
     };
@@ -65,7 +68,8 @@ namespace Models
     virtual bool empty() const override { return this->createTimeUnix_ == nullptr
         && return this->customFields_ == nullptr && return this->departments_ == nullptr && return this->description_ == nullptr && return this->email_ == nullptr && return this->idpConfigId_ == nullptr
         && return this->leaveTimeUnix_ == nullptr && return this->loginTimeUnix_ == nullptr && return this->saseUserId_ == nullptr && return this->saseUserStatus_ == nullptr && return this->syncTimeUnix_ == nullptr
-        && return this->telephone_ == nullptr && return this->title_ == nullptr && return this->updateTimeUnix_ == nullptr && return this->username_ == nullptr && return this->workStatus_ == nullptr; };
+        && return this->telephone_ == nullptr && return this->title_ == nullptr && return this->updateTimeUnix_ == nullptr && return this->userTags_ == nullptr && return this->username_ == nullptr
+        && return this->workStatus_ == nullptr; };
     // createTimeUnix Field Functions 
     bool hasCreateTimeUnix() const { return this->createTimeUnix_ != nullptr;};
     void deleteCreateTimeUnix() { this->createTimeUnix_ = nullptr;};
@@ -168,6 +172,15 @@ namespace Models
     inline OpenStructSaseUser& setUpdateTimeUnix(int64_t updateTimeUnix) { DARABONBA_PTR_SET_VALUE(updateTimeUnix_, updateTimeUnix) };
 
 
+    // userTags Field Functions 
+    bool hasUserTags() const { return this->userTags_ != nullptr;};
+    void deleteUserTags() { this->userTags_ = nullptr;};
+    inline const vector<OpenStructSaseUserUserTags> & userTags() const { DARABONBA_PTR_GET_CONST(userTags_, vector<OpenStructSaseUserUserTags>) };
+    inline vector<OpenStructSaseUserUserTags> userTags() { DARABONBA_PTR_GET(userTags_, vector<OpenStructSaseUserUserTags>) };
+    inline OpenStructSaseUser& setUserTags(const vector<OpenStructSaseUserUserTags> & userTags) { DARABONBA_PTR_SET_VALUE(userTags_, userTags) };
+    inline OpenStructSaseUser& setUserTags(vector<OpenStructSaseUserUserTags> && userTags) { DARABONBA_PTR_SET_RVALUE(userTags_, userTags) };
+
+
     // username Field Functions 
     bool hasUsername() const { return this->username_ != nullptr;};
     void deleteUsername() { this->username_ = nullptr;};
@@ -197,6 +210,7 @@ namespace Models
     std::shared_ptr<string> telephone_ = nullptr;
     std::shared_ptr<string> title_ = nullptr;
     std::shared_ptr<int64_t> updateTimeUnix_ = nullptr;
+    std::shared_ptr<vector<OpenStructSaseUserUserTags>> userTags_ = nullptr;
     std::shared_ptr<string> username_ = nullptr;
     std::shared_ptr<string> workStatus_ = nullptr;
   };
