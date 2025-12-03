@@ -17,7 +17,6 @@ namespace CioMarketPop20250709
 {
 
 AlibabaCloud::CioMarketPop20250709::Client::Client(Config &config): OpenApiClient(config){
-  this->_signatureAlgorithm = "v2";
   this->_endpointRule = "";
   checkConfig(config);
   this->_endpoint = getEndpoint("ciomarketpop", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -48,7 +47,7 @@ GetEveryOneSellsFormListResponse Client::getEveryOneSellsFormListWithOptions(con
   map<string, string> query = Utils::Utils::query(request.toMap());
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
-  }));
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetEveryOneSellsFormList"},
     {"version" , "2025-07-09"},
@@ -59,8 +58,8 @@ GetEveryOneSellsFormListResponse Client::getEveryOneSellsFormListWithOptions(con
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "array"}
-  }));
-  return json(callApi(params, req, runtime)).get<GetEveryOneSellsFormListResponse>();
+  }).get<map<string, string>>());
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<GetEveryOneSellsFormListResponse>();
 }
 
 /**
@@ -104,7 +103,7 @@ PushEveryOneSellMsgResponse Client::pushEveryOneSellMsgWithOptions(const PushEve
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "PushEveryOneSellMsg"},
     {"version" , "2025-07-09"},
@@ -115,8 +114,8 @@ PushEveryOneSellMsgResponse Client::pushEveryOneSellMsgWithOptions(const PushEve
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "string"}
-  }));
-  return json(callApi(params, req, runtime)).get<PushEveryOneSellMsgResponse>();
+  }).get<map<string, string>>());
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<PushEveryOneSellMsgResponse>();
 }
 
 /**
