@@ -473,6 +473,24 @@ namespace IaCService20210806
       Models::ExecuteTerraformPlanResponse executeTerraformPlan(const Models::ExecuteTerraformPlanRequest &request);
 
       /**
+       * @summary 生成模板
+       *
+       * @param request GenerateModuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateModuleResponse
+       */
+      Models::GenerateModuleResponse generateModuleWithOptions(const Models::GenerateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成模板
+       *
+       * @param request GenerateModuleRequest
+       * @return GenerateModuleResponse
+       */
+      Models::GenerateModuleResponse generateModule(const Models::GenerateModuleRequest &request);
+
+      /**
        * @summary 获取Terraform运行结果
        *
        * @param headers map

@@ -1440,6 +1440,75 @@ ExecuteTerraformPlanResponse Client::executeTerraformPlan(const ExecuteTerraform
 }
 
 /**
+ * @summary 生成模板
+ *
+ * @param request GenerateModuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateModuleResponse
+ */
+GenerateModuleResponse Client::generateModuleWithOptions(const GenerateModuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGenerateSource()) {
+    body["generateSource"] = request.generateSource();
+  }
+
+  if (!!request.hasParameters()) {
+    body["parameters"] = request.parameters();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["regionId"] = request.regionId();
+  }
+
+  if (!!request.hasSyntax()) {
+    body["syntax"] = request.syntax();
+  }
+
+  if (!!request.hasTemplate()) {
+    body["template"] = request._template();
+  }
+
+  if (!!request.hasTerraformProviderVersion()) {
+    body["terraformProviderVersion"] = request.terraformProviderVersion();
+  }
+
+  if (!!request.hasTerraformResourceType()) {
+    body["terraformResourceType"] = request.terraformResourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GenerateModule"},
+    {"version" , "2021-08-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/explorer/generate/module")},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.pathname(), params.bodyType(), req, runtime)).get<GenerateModuleResponse>();
+}
+
+/**
+ * @summary 生成模板
+ *
+ * @param request GenerateModuleRequest
+ * @return GenerateModuleResponse
+ */
+GenerateModuleResponse Client::generateModule(const GenerateModuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return generateModuleWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取Terraform运行结果
  *
  * @param headers map

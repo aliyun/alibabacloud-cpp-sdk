@@ -74,6 +74,9 @@
 #include <alibabacloud/models/ExecuteTerraformPlanRequest.hpp>
 #include <alibabacloud/models/ExecuteTerraformPlanResponseBody.hpp>
 #include <alibabacloud/models/ExecuteTerraformPlanResponse.hpp>
+#include <alibabacloud/models/GenerateModuleRequest.hpp>
+#include <alibabacloud/models/GenerateModuleResponseBody.hpp>
+#include <alibabacloud/models/GenerateModuleResponse.hpp>
 #include <alibabacloud/models/GetExecuteStateResponseBody.hpp>
 #include <alibabacloud/models/GetExecuteStateResponse.hpp>
 #include <alibabacloud/models/GetGroupResponseBody.hpp>
