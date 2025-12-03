@@ -11,6 +11,9 @@
 #include <alibabacloud/models/CreateAlertStrategyRequest.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponse.hpp>
+#include <alibabacloud/models/CreateVmcoreDiagnosisTaskRequest.hpp>
+#include <alibabacloud/models/CreateVmcoreDiagnosisTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateVmcoreDiagnosisTaskResponse.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyRequest.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlertStrategyResponse.hpp>
@@ -87,6 +90,9 @@
 #include <alibabacloud/models/GetServiceFuncStatusShrinkRequest.hpp>
 #include <alibabacloud/models/GetServiceFuncStatusResponseBody.hpp>
 #include <alibabacloud/models/GetServiceFuncStatusResponse.hpp>
+#include <alibabacloud/models/GetVmcoreDiagnosisTaskRequest.hpp>
+#include <alibabacloud/models/GetVmcoreDiagnosisTaskResponseBody.hpp>
+#include <alibabacloud/models/GetVmcoreDiagnosisTaskResponse.hpp>
 #include <alibabacloud/models/InitialSysomRequest.hpp>
 #include <alibabacloud/models/InitialSysomResponseBody.hpp>
 #include <alibabacloud/models/InitialSysomResponse.hpp>
@@ -152,6 +158,9 @@
 #include <alibabacloud/models/ListPodsOfInstanceResponse.hpp>
 #include <alibabacloud/models/ListRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListRegionsResponse.hpp>
+#include <alibabacloud/models/ListVmcoreDiagnosisTaskRequest.hpp>
+#include <alibabacloud/models/ListVmcoreDiagnosisTaskResponseBody.hpp>
+#include <alibabacloud/models/ListVmcoreDiagnosisTaskResponse.hpp>
 #include <alibabacloud/models/StartAiAnalysisRequest.hpp>
 #include <alibabacloud/models/StartAiAnalysisResponseBody.hpp>
 #include <alibabacloud/models/StartAiAnalysisResponse.hpp>
@@ -186,6 +195,7 @@
 #include <alibabacloud/models/AuthDiagnosisRequestInstances.hpp>
 #include <alibabacloud/models/CheckInstanceSupportResponseBodyData.hpp>
 #include <alibabacloud/models/CreateAlertStrategyRequestStrategy.hpp>
+#include <alibabacloud/models/CreateVmcoreDiagnosisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeMetricListResponseBodyData.hpp>
 #include <alibabacloud/models/GetAbnormalEventsCountResponseBodyData.hpp>
 #include <alibabacloud/models/GetAgentResponseBodyDataVersions.hpp>
@@ -216,6 +226,8 @@
 #include <alibabacloud/models/GetServiceFuncStatusRequestParams.hpp>
 #include <alibabacloud/models/GetServiceFuncStatusResponseBodyDataArgs.hpp>
 #include <alibabacloud/models/GetServiceFuncStatusResponseBodyData.hpp>
+#include <alibabacloud/models/GetVmcoreDiagnosisTaskResponseBodyDataUrls.hpp>
+#include <alibabacloud/models/GetVmcoreDiagnosisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/InitialSysomResponseBodyData.hpp>
 #include <alibabacloud/models/InstallAgentRequestInstances.hpp>
 #include <alibabacloud/models/InstallAgentResponseBodyData.hpp>
@@ -245,6 +257,7 @@
 #include <alibabacloud/models/ListPluginsInstancesResponseBodyDataInstanceTag.hpp>
 #include <alibabacloud/models/ListPluginsInstancesResponseBodyData.hpp>
 #include <alibabacloud/models/ListPodsOfInstanceResponseBodyData.hpp>
+#include <alibabacloud/models/ListVmcoreDiagnosisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/StartAiAnalysisResponseBodyData.hpp>
 #include <alibabacloud/models/StartAiDiffAnalysisRequestTask1.hpp>
 #include <alibabacloud/models/StartAiDiffAnalysisRequestTask2.hpp>

@@ -196,6 +196,67 @@ CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrateg
 }
 
 /**
+ * @summary 创建宕机诊断任务
+ *
+ * @param request CreateVmcoreDiagnosisTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVmcoreDiagnosisTaskResponse
+ */
+CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTaskWithOptions(const CreateVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDebuginfoCommonUrl()) {
+    body["debuginfoCommonUrl"] = request.debuginfoCommonUrl();
+  }
+
+  if (!!request.hasDebuginfoUrl()) {
+    body["debuginfoUrl"] = request.debuginfoUrl();
+  }
+
+  if (!!request.hasDmesgUrl()) {
+    body["dmesgUrl"] = request.dmesgUrl();
+  }
+
+  if (!!request.hasTaskType()) {
+    body["taskType"] = request.taskType();
+  }
+
+  if (!!request.hasVmcoreUrl()) {
+    body["vmcoreUrl"] = request.vmcoreUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateVmcoreDiagnosisTask"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crashAgent/diagnosis/createDiagnosisTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVmcoreDiagnosisTaskResponse>();
+}
+
+/**
+ * @summary 创建宕机诊断任务
+ *
+ * @param request CreateVmcoreDiagnosisTaskRequest
+ * @return CreateVmcoreDiagnosisTaskResponse
+ */
+CreateVmcoreDiagnosisTaskResponse Client::createVmcoreDiagnosisTask(const CreateVmcoreDiagnosisTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 用户删除推送告警的策略
  *
  * @param request DeleteAlertStrategyRequest
@@ -1604,6 +1665,51 @@ GetServiceFuncStatusResponse Client::getServiceFuncStatus(const GetServiceFuncSt
 }
 
 /**
+ * @summary 查询宕机诊断任务结果
+ *
+ * @param request GetVmcoreDiagnosisTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVmcoreDiagnosisTaskResponse
+ */
+GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTaskWithOptions(const GetVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["taskId"] = request.taskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetVmcoreDiagnosisTask"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crashAgent/diagnosis/queryTask")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVmcoreDiagnosisTaskResponse>();
+}
+
+/**
+ * @summary 查询宕机诊断任务结果
+ *
+ * @param request GetVmcoreDiagnosisTaskRequest
+ * @return GetVmcoreDiagnosisTaskResponse
+ */
+GetVmcoreDiagnosisTaskResponse Client::getVmcoreDiagnosisTask(const GetVmcoreDiagnosisTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 初始化SysOM，确保角色存在
  *
  * @param request InitialSysomRequest
@@ -2967,6 +3073,51 @@ ListRegionsResponse Client::listRegions() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listRegionsWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 查询历史宕机诊断任务
+ *
+ * @param request ListVmcoreDiagnosisTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVmcoreDiagnosisTaskResponse
+ */
+ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTaskWithOptions(const ListVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDays()) {
+    query["days"] = request.days();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListVmcoreDiagnosisTask"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/crashAgent/diagnosis/queryTaskList")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVmcoreDiagnosisTaskResponse>();
+}
+
+/**
+ * @summary 查询历史宕机诊断任务
+ *
+ * @param request ListVmcoreDiagnosisTaskRequest
+ * @return ListVmcoreDiagnosisTaskResponse
+ */
+ListVmcoreDiagnosisTaskResponse Client::listVmcoreDiagnosisTask(const ListVmcoreDiagnosisTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
 }
 
 /**

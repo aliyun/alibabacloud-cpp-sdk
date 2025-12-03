@@ -75,6 +75,24 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategy(const Models::CreateAlertStrategyRequest &request);
 
       /**
+       * @summary 创建宕机诊断任务
+       *
+       * @param request CreateVmcoreDiagnosisTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVmcoreDiagnosisTaskResponse
+       */
+      Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTaskWithOptions(const Models::CreateVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建宕机诊断任务
+       *
+       * @param request CreateVmcoreDiagnosisTaskRequest
+       * @return CreateVmcoreDiagnosisTaskResponse
+       */
+      Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTask(const Models::CreateVmcoreDiagnosisTaskRequest &request);
+
+      /**
        * @summary 用户删除推送告警的策略
        *
        * @param request DeleteAlertStrategyRequest
@@ -535,6 +553,24 @@ namespace SysOM20231230
       Models::GetServiceFuncStatusResponse getServiceFuncStatus(const Models::GetServiceFuncStatusRequest &request);
 
       /**
+       * @summary 查询宕机诊断任务结果
+       *
+       * @param request GetVmcoreDiagnosisTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVmcoreDiagnosisTaskResponse
+       */
+      Models::GetVmcoreDiagnosisTaskResponse getVmcoreDiagnosisTaskWithOptions(const Models::GetVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询宕机诊断任务结果
+       *
+       * @param request GetVmcoreDiagnosisTaskRequest
+       * @return GetVmcoreDiagnosisTaskResponse
+       */
+      Models::GetVmcoreDiagnosisTaskResponse getVmcoreDiagnosisTask(const Models::GetVmcoreDiagnosisTaskRequest &request);
+
+      /**
        * @summary 初始化SysOM，确保角色存在
        *
        * @param request InitialSysomRequest
@@ -925,6 +961,24 @@ namespace SysOM20231230
        * @return ListRegionsResponse
        */
       Models::ListRegionsResponse listRegions();
+
+      /**
+       * @summary 查询历史宕机诊断任务
+       *
+       * @param request ListVmcoreDiagnosisTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListVmcoreDiagnosisTaskResponse
+       */
+      Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTaskWithOptions(const Models::ListVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询历史宕机诊断任务
+       *
+       * @param request ListVmcoreDiagnosisTaskRequest
+       * @return ListVmcoreDiagnosisTaskResponse
+       */
+      Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTask(const Models::ListVmcoreDiagnosisTaskRequest &request);
 
       /**
        * @summary 启动AI作业分析
