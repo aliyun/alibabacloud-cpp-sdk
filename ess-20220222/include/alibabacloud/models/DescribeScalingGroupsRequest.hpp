@@ -164,11 +164,11 @@ namespace Models
     std::shared_ptr<string> groupType_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The page number. Pages start from page 1.
+    // The page number. Page starts from page 1.
     // 
     // Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
-    // The number of entries per page. Maximum value: 50.
+    // The number of entries to return on each page. Maximum value: 50.
     // 
     // Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;

@@ -523,6 +523,12 @@ namespace Models
     // 
     // Default value: priority.
     std::shared_ptr<string> allocationStrategy_ = nullptr;
+    // Whether to enable automatic rebalancing for the scaling group. This takes effect only when BalancedOnly is enabled for the scaling group. Valid values:
+    // 
+    // *   false: Auto rebalancing is disabled for the scaling group.
+    // *   true: If Auto rebalancing is enabled, the scaling group automatically detects the capacity of the zone. If the capacity of the zone is unbalanced, the scaling group actively scales out the zone and re-balances the capacity of the zone.
+    // 
+    // Default value: false.
     std::shared_ptr<bool> autoRebalance_ = nullptr;
     // Specifies whether to evenly distribute instances in the scaling group across multiple zones. This parameter takes effect only if you set `MultiAZPolicy` to `COMPOSABLE`. Valid values:
     // 
@@ -533,6 +539,12 @@ namespace Models
     // 
     // Default value: false.
     std::shared_ptr<bool> azBalance_ = nullptr;
+    // The zone balancing mode. This mode takes effect only when the zone balancing mode is enabled. Valid values:
+    // 
+    // *   BalancedBestEffort: If a resource fails to be created in a zone, it is downgraded to another zone to ensure best-effort delivery of the resource.
+    // *   BalancedOnly: If a resource fails to be created in a zone, it is not downgraded to another zone. The scale-out activity is partially successful to avoid excessive imbalance of resources in different zones.
+    // 
+    // Default value: BalancedBestEffort.
     std::shared_ptr<string> balanceMode_ = nullptr;
     // The capacity options.
     std::shared_ptr<CreateScalingGroupRequestCapacityOptions> capacityOptions_ = nullptr;
@@ -732,7 +744,7 @@ namespace Models
     std::shared_ptr<int32_t> stopInstanceTimeout_ = nullptr;
     // > This parameter is unavailable.
     std::shared_ptr<bool> syncAlarmRuleToCms_ = nullptr;
-    // The tags that you want to add to the scaling group.
+    // The information about the tags of the scaling group.
     std::shared_ptr<vector<CreateScalingGroupRequestTags>> tags_ = nullptr;
     // The backend vServer group that you want to associate with the scaling group.
     std::shared_ptr<vector<CreateScalingGroupRequestVServerGroups>> VServerGroups_ = nullptr;

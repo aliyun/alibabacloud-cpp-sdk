@@ -55,9 +55,10 @@ namespace Models
     // *   If you set MetricType to system, this parameter has the following valid values:
     // 
     //     *   user_id: the ID of your Alibaba Cloud account.
-    //     *   scaling_group: the scaling group that you want to monitor by using the event-triggered task.
+    //     *   scaling_group: the scaling group that is monitored by the event-triggered task.
     //     *   device: the NIC type.
     //     *   state: the status of the TCP connection.
+    //     *   rulePool: the specified server group for the ALB qps metric.
     std::shared_ptr<string> dimensionKey_ = nullptr;
     // The dimension value of the metric. The valid values of this parameter vary based on the value of Dimensions.DimensionKey.
     // 
@@ -69,15 +70,17 @@ namespace Models
     // 
     //     *   scaling_group: The system specifies the value.
     // 
-    //     *   device: You can set this parameter to eth0 or eth1.
+    //     *   device:
     // 
-    //         *   For instances of the classic network type, eth0 specifies the internal NIC. Only one eth0 NIC exists on each instance that resides in VPCs.
-    //         *   For instances of the classic network type, eth1 specifies the public NIC.
+    //         *   eth0: For classic network instances, eth0 indicates the internal network network interface controller. Only one eth0 NIC exists on each instance that resides in VPCs.
+    //         *   eth1: For classic network instances, eth1 represents the Internet network interface controller.
     // 
-    //     *   state: You can set this parameter to TCP_TOTAL or ESTABLISHED.
+    //     *   state:
     // 
     //         *   TCP_TOTAL specifies the total number of TCP connections.
-    //         *   ESTABLISHED specifies the number of TCP connections that are established.
+    //         *   ESTABLISHED indicates the number of TCP connections that are established.
+    // 
+    //     *   rulePool: the ID of the ALB server group. Example: sgp-xxxxx.
     std::shared_ptr<string> dimensionValue_ = nullptr;
   };
 

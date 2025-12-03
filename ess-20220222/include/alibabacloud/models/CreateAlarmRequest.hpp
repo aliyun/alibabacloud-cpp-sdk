@@ -215,7 +215,7 @@ namespace Models
   protected:
     // The list of unique identifiers of the scaling rules that are associated with the event-triggered task.
     std::shared_ptr<vector<string>> alarmActions_ = nullptr;
-    // The operator that you want to use to compare the metric value and the threshold. Valid values:
+    // The operator that you want to use to compare the metric value and the threshold. Valid Values:
     // 
     // *   If the metric value is greater than or equal to the threshold, set the value to >=.
     // *   If the metric value is less than or equal to the metric threshold, set the value to <=.
@@ -245,7 +245,7 @@ namespace Models
     std::shared_ptr<string> effective_ = nullptr;
     // The number of consecutive times that the threshold must be reached before a scaling rule is executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before the scaling rule is executed.
     // 
-    // Default value: 3.
+    // Default value: 3
     std::shared_ptr<int32_t> evaluationCount_ = nullptr;
     // The information about the multi-metric alert rules.
     std::shared_ptr<vector<CreateAlarmRequestExpressions>> expressions_ = nullptr;
@@ -292,7 +292,7 @@ namespace Models
     // 
     // For more information, see [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html).
     std::shared_ptr<string> metricName_ = nullptr;
-    // The metric type. Valid values:
+    // The metric type. Valid Values:
     // 
     // *   system: a system metric of CloudMonitor.
     // *   custom: a custom metric that is reported to CloudMonitor.
@@ -300,7 +300,7 @@ namespace Models
     // The name of the event-triggered task.
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The statistical period of the metric data. Unit: seconds. Valid values:
+    // The statistical period of the metric data. Unit: seconds. Valid Values:
     // 
     // *   15
     // *   60
@@ -308,7 +308,7 @@ namespace Models
     // *   300
     // *   900
     // 
-    // >  You can set this parameter to 15 seconds only for scaling groups of the ECS type.
+    // > You can set this parameter to 15 seconds only for scaling groups of the ECS type.
     // 
     // Default value: 300.
     std::shared_ptr<int32_t> period_ = nullptr;
@@ -321,7 +321,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> scalingGroupId_ = nullptr;
-    // The statistical method of the metric data. Valid values:
+    // The statistical method of the metric data. Valid Values:
     // 
     // *   Average: calculates the average value of the metric data.
     // *   Minimum: calculates the minimum value of the metric data.

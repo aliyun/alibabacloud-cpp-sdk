@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // >  This parameter is unavailable for use.
     std::shared_ptr<string> fieldRefFieldPath_ = nullptr;
+    // The name of the environment variable. It can be 1 to 128 characters in length. Format requirement:[0-9a-zA-Z], and underscores, cannot start with a number.
     std::shared_ptr<string> key_ = nullptr;
+    // The value of the environment variable. The value must be 0 to 256 bits in length.
     std::shared_ptr<string> value_ = nullptr;
   };
 

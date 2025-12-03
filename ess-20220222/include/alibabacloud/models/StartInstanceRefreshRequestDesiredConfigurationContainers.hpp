@@ -83,10 +83,15 @@ namespace Models
 
 
   protected:
+    // The argument that corresponds to the startup command of the container. You can specify up to 10 arguments.
     std::shared_ptr<vector<string>> args_ = nullptr;
+    // The container startup commands. You can specify up to 20 commands. Each command can contain up to 256 characters.
     std::shared_ptr<vector<string>> commands_ = nullptr;
+    // The environment variables.
     std::shared_ptr<vector<Models::StartInstanceRefreshRequestDesiredConfigurationContainersEnvironmentVars>> environmentVars_ = nullptr;
+    // The image in the container.
     std::shared_ptr<string> image_ = nullptr;
+    // The custom name of the container.
     std::shared_ptr<string> name_ = nullptr;
   };
 

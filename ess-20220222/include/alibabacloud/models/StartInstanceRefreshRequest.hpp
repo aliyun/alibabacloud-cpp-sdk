@@ -137,7 +137,13 @@ namespace Models
 
 
   protected:
+    // The duration of the pause when the refresh task checkpoint is entered.
+    // 
+    // *   Unit: minutes
+    // *   Valid values: 1 to 2880.
+    // *   Default: 60.
     std::shared_ptr<int32_t> checkpointPauseTime_ = nullptr;
+    // Refresh Task Checkpoint: specifies that the task is automatically suspended for CheckpointPauseTime minutes when the proportion of new instances reaches the specified value during instance refresh.
     std::shared_ptr<vector<StartInstanceRefreshRequestCheckpoints>> checkpoints_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
     std::shared_ptr<string> clientToken_ = nullptr;
@@ -145,9 +151,9 @@ namespace Models
     // 
     // > 
     // 
-    // *   When you call this operation, you must specify one of the following parameters: ScalingConfigurationId and ImageId.
+    // *   ScalingConfigurationId, ImageId, LaunchTemplateId, and Containers cannot be set at the same time. If you do not specify this parameter, the scaling group is refreshed based on the configurations that are in effect.
     // 
-    // *   Instances whose configurations match the desired configurations of the task are ignored during instance refresh.
+    // *   After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
     std::shared_ptr<StartInstanceRefreshRequestDesiredConfiguration> desiredConfiguration_ = nullptr;
     // The ratio of instances that can exceed the upper limit of the scaling group capacity to all instances in the scaling group during instance refresh. Valid values: 100 to 200. Default value: 120.
     // 

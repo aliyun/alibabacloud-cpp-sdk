@@ -57,16 +57,16 @@ namespace Models
 
 
   protected:
-    // The tag key that you want to add to the scaling group.
+    // The tag key of the scaling group.
     std::shared_ptr<string> key_ = nullptr;
-    // Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
+    // Identifies whether the tag is a propagatable tag. Valid values:
     // 
     // *   true: propagates the tag to only instances that are newly created.
     // *   false: does not propagate the tag to any instances.
     // 
     // Default value: false.
     std::shared_ptr<bool> propagate_ = nullptr;
-    // The tag value that you want to add to the scaling group.
+    // The tag value of the scaling group.
     std::shared_ptr<string> value_ = nullptr;
   };
 

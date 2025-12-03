@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The instance type specified by using this parameter overwrites the instance type of the launch template.
+    // 
+    // >  This parameter takes effect only if you specify LaunchTemplateId.
     std::shared_ptr<string> instanceType_ = nullptr;
   };
 

@@ -6072,6 +6072,10 @@ ModifyEciScalingConfigurationResponse Client::modifyEciScalingConfigurationWithO
     query["NtpServers"] = request.ntpServers();
   }
 
+  if (!!request.hasOverride()) {
+    query["Override"] = request.override();
+  }
+
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
   }

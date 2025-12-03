@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // The percentage of new instances in the scaling group to the total number of instances. When this percentage is reached, the task is automatically suspended. Valid values: 1 to 100 (%).
+    // 
+    // >  Requires a small to large setting, and the last progress percentage needs to be 100.
     std::shared_ptr<int32_t> percentage_ = nullptr;
   };
 

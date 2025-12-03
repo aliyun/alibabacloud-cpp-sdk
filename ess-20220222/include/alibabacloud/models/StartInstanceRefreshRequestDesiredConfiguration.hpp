@@ -91,6 +91,13 @@ namespace Models
 
 
   protected:
+    // The containers in the elastic container instance.
+    // 
+    // > 
+    // 
+    // *   This parameter supports only scaling groups of the ECI type.
+    // 
+    // *   Only the containers in the scaling configuration list that are the same as those in the `Container.Name` are refreshed.
     std::shared_ptr<vector<Models::StartInstanceRefreshRequestDesiredConfigurationContainers>> containers_ = nullptr;
     // The image ID.
     // 
@@ -100,12 +107,19 @@ namespace Models
     // 
     // *   If the instance configuration source of the scaling group is a launch template, you cannot specify this parameter.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The ID of the launch template that you want to enable in the scaling group.
     std::shared_ptr<string> launchTemplateId_ = nullptr;
+    // The information about the instance types that are extended in the launch template.
     std::shared_ptr<vector<Models::StartInstanceRefreshRequestDesiredConfigurationLaunchTemplateOverrides>> launchTemplateOverrides_ = nullptr;
+    // The version number of the launch template. Valid value:
+    // 
+    // *   A fixed template version number.
+    // *   Default: the default version of the template.
+    // *   Latest: the latest version of the template.
+    // 
+    // >  If you set the version to Default or Latest, the instance refresh task cannot be rolled back.
     std::shared_ptr<string> launchTemplateVersion_ = nullptr;
     // The ID of the scaling configuration.
-    // 
-    // >  After the instance refresh task is complete, the scaling group uses the scaling configuration specified by this parameter.
     std::shared_ptr<string> scalingConfigurationId_ = nullptr;
   };
 

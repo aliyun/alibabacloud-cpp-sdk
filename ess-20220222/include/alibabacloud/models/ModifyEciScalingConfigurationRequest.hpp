@@ -60,6 +60,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LoadBalancerWeight, loadBalancerWeight_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
       DARABONBA_PTR_TO_JSON(NtpServers, ntpServers_);
+      DARABONBA_PTR_TO_JSON(Override, override_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -113,6 +114,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LoadBalancerWeight, loadBalancerWeight_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
       DARABONBA_PTR_FROM_JSON(NtpServers, ntpServers_);
+      DARABONBA_PTR_FROM_JSON(Override, override_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RamRoleName, ramRoleName_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -147,9 +149,10 @@ namespace Models
         && return this->eipBandwidth_ == nullptr && return this->enableSls_ == nullptr && return this->ephemeralStorage_ == nullptr && return this->gpuDriverVersion_ == nullptr && return this->hostAliases_ == nullptr
         && return this->hostName_ == nullptr && return this->imageRegistryCredentials_ == nullptr && return this->imageSnapshotId_ == nullptr && return this->ingressBandwidth_ == nullptr && return this->initContainers_ == nullptr
         && return this->instanceFamilyLevel_ == nullptr && return this->instanceTypes_ == nullptr && return this->ipv6AddressCount_ == nullptr && return this->loadBalancerWeight_ == nullptr && return this->memory_ == nullptr
-        && return this->ntpServers_ == nullptr && return this->ownerId_ == nullptr && return this->ramRoleName_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->restartPolicy_ == nullptr && return this->scalingConfigurationId_ == nullptr && return this->scalingConfigurationName_ == nullptr && return this->securityContextSysCtls_ == nullptr && return this->securityGroupId_ == nullptr
-        && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->tags_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->volumes_ == nullptr; };
+        && return this->ntpServers_ == nullptr && return this->override_ == nullptr && return this->ownerId_ == nullptr && return this->ramRoleName_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->restartPolicy_ == nullptr && return this->scalingConfigurationId_ == nullptr && return this->scalingConfigurationName_ == nullptr && return this->securityContextSysCtls_ == nullptr
+        && return this->securityGroupId_ == nullptr && return this->spotPriceLimit_ == nullptr && return this->spotStrategy_ == nullptr && return this->tags_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr
+        && return this->volumes_ == nullptr; };
     // acrRegistryInfos Field Functions 
     bool hasAcrRegistryInfos() const { return this->acrRegistryInfos_ != nullptr;};
     void deleteAcrRegistryInfos() { this->acrRegistryInfos_ = nullptr;};
@@ -429,6 +432,13 @@ namespace Models
     inline ModifyEciScalingConfigurationRequest& setNtpServers(vector<string> && ntpServers) { DARABONBA_PTR_SET_RVALUE(ntpServers_, ntpServers) };
 
 
+    // override Field Functions 
+    bool hasOverride() const { return this->override_ != nullptr;};
+    void deleteOverride() { this->override_ = nullptr;};
+    inline bool override() const { DARABONBA_PTR_GET_DEFAULT(override_, false) };
+    inline ModifyEciScalingConfigurationRequest& setOverride(bool override) { DARABONBA_PTR_SET_VALUE(override_, override) };
+
+
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -655,6 +665,7 @@ namespace Models
     std::shared_ptr<float> memory_ = nullptr;
     // The endpoints of Network Time Protocol (NTP) servers.
     std::shared_ptr<vector<string>> ntpServers_ = nullptr;
+    std::shared_ptr<bool> override_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The name of the instance Resource Access Management (RAM) role. You can use the same RAM role to access elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
     std::shared_ptr<string> ramRoleName_ = nullptr;
