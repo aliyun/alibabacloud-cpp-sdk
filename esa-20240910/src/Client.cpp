@@ -1379,6 +1379,18 @@ CreateCacheRuleResponse Client::createCacheRuleWithOptions(const CreateCacheRule
     query["IncludeHeader"] = request.includeHeader();
   }
 
+  if (!!request.hasPostBodyCacheKey()) {
+    query["PostBodyCacheKey"] = request.postBodyCacheKey();
+  }
+
+  if (!!request.hasPostBodySizeLimit()) {
+    query["PostBodySizeLimit"] = request.postBodySizeLimit();
+  }
+
+  if (!!request.hasPostCache()) {
+    query["PostCache"] = request.postCache();
+  }
+
   if (!!request.hasQueryString()) {
     query["QueryString"] = request.queryString();
   }
@@ -15456,6 +15468,18 @@ UpdateCacheRuleResponse Client::updateCacheRuleWithOptions(const UpdateCacheRule
 
   if (!!request.hasIncludeHeader()) {
     query["IncludeHeader"] = request.includeHeader();
+  }
+
+  if (!!request.hasPostBodyCacheKey()) {
+    query["PostBodyCacheKey"] = request.postBodyCacheKey();
+  }
+
+  if (!!request.hasPostBodySizeLimit()) {
+    query["PostBodySizeLimit"] = request.postBodySizeLimit();
+  }
+
+  if (!!request.hasPostCache()) {
+    query["PostCache"] = request.postCache();
   }
 
   if (!!request.hasQueryString()) {

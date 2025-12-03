@@ -26,6 +26,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EdgeStatusCodeCacheTtl, edgeStatusCodeCacheTtl_);
       DARABONBA_PTR_TO_JSON(IncludeCookie, includeCookie_);
       DARABONBA_PTR_TO_JSON(IncludeHeader, includeHeader_);
+      DARABONBA_PTR_TO_JSON(PostBodyCacheKey, postBodyCacheKey_);
+      DARABONBA_PTR_TO_JSON(PostBodySizeLimit, postBodySizeLimit_);
+      DARABONBA_PTR_TO_JSON(PostCache, postCache_);
       DARABONBA_PTR_TO_JSON(QueryString, queryString_);
       DARABONBA_PTR_TO_JSON(QueryStringMode, queryStringMode_);
       DARABONBA_PTR_TO_JSON(Rule, rule_);
@@ -54,6 +57,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EdgeStatusCodeCacheTtl, edgeStatusCodeCacheTtl_);
       DARABONBA_PTR_FROM_JSON(IncludeCookie, includeCookie_);
       DARABONBA_PTR_FROM_JSON(IncludeHeader, includeHeader_);
+      DARABONBA_PTR_FROM_JSON(PostBodyCacheKey, postBodyCacheKey_);
+      DARABONBA_PTR_FROM_JSON(PostBodySizeLimit, postBodySizeLimit_);
+      DARABONBA_PTR_FROM_JSON(PostCache, postCache_);
       DARABONBA_PTR_FROM_JSON(QueryString, queryString_);
       DARABONBA_PTR_FROM_JSON(QueryStringMode, queryStringMode_);
       DARABONBA_PTR_FROM_JSON(Rule, rule_);
@@ -82,9 +88,10 @@ namespace Models
     virtual bool empty() const override { return this->additionalCacheablePorts_ == nullptr
         && return this->browserCacheMode_ == nullptr && return this->browserCacheTtl_ == nullptr && return this->bypassCache_ == nullptr && return this->cacheDeceptionArmor_ == nullptr && return this->cacheReserveEligibility_ == nullptr
         && return this->checkPresenceCookie_ == nullptr && return this->checkPresenceHeader_ == nullptr && return this->edgeCacheMode_ == nullptr && return this->edgeCacheTtl_ == nullptr && return this->edgeStatusCodeCacheTtl_ == nullptr
-        && return this->includeCookie_ == nullptr && return this->includeHeader_ == nullptr && return this->queryString_ == nullptr && return this->queryStringMode_ == nullptr && return this->rule_ == nullptr
-        && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr && return this->sequence_ == nullptr && return this->serveStale_ == nullptr && return this->siteId_ == nullptr
-        && return this->siteVersion_ == nullptr && return this->sortQueryStringForCache_ == nullptr && return this->userDeviceType_ == nullptr && return this->userGeo_ == nullptr && return this->userLanguage_ == nullptr; };
+        && return this->includeCookie_ == nullptr && return this->includeHeader_ == nullptr && return this->postBodyCacheKey_ == nullptr && return this->postBodySizeLimit_ == nullptr && return this->postCache_ == nullptr
+        && return this->queryString_ == nullptr && return this->queryStringMode_ == nullptr && return this->rule_ == nullptr && return this->ruleEnable_ == nullptr && return this->ruleName_ == nullptr
+        && return this->sequence_ == nullptr && return this->serveStale_ == nullptr && return this->siteId_ == nullptr && return this->siteVersion_ == nullptr && return this->sortQueryStringForCache_ == nullptr
+        && return this->userDeviceType_ == nullptr && return this->userGeo_ == nullptr && return this->userLanguage_ == nullptr; };
     // additionalCacheablePorts Field Functions 
     bool hasAdditionalCacheablePorts() const { return this->additionalCacheablePorts_ != nullptr;};
     void deleteAdditionalCacheablePorts() { this->additionalCacheablePorts_ = nullptr;};
@@ -174,6 +181,27 @@ namespace Models
     void deleteIncludeHeader() { this->includeHeader_ = nullptr;};
     inline string includeHeader() const { DARABONBA_PTR_GET_DEFAULT(includeHeader_, "") };
     inline CreateCacheRuleRequest& setIncludeHeader(string includeHeader) { DARABONBA_PTR_SET_VALUE(includeHeader_, includeHeader) };
+
+
+    // postBodyCacheKey Field Functions 
+    bool hasPostBodyCacheKey() const { return this->postBodyCacheKey_ != nullptr;};
+    void deletePostBodyCacheKey() { this->postBodyCacheKey_ = nullptr;};
+    inline string postBodyCacheKey() const { DARABONBA_PTR_GET_DEFAULT(postBodyCacheKey_, "") };
+    inline CreateCacheRuleRequest& setPostBodyCacheKey(string postBodyCacheKey) { DARABONBA_PTR_SET_VALUE(postBodyCacheKey_, postBodyCacheKey) };
+
+
+    // postBodySizeLimit Field Functions 
+    bool hasPostBodySizeLimit() const { return this->postBodySizeLimit_ != nullptr;};
+    void deletePostBodySizeLimit() { this->postBodySizeLimit_ = nullptr;};
+    inline string postBodySizeLimit() const { DARABONBA_PTR_GET_DEFAULT(postBodySizeLimit_, "") };
+    inline CreateCacheRuleRequest& setPostBodySizeLimit(string postBodySizeLimit) { DARABONBA_PTR_SET_VALUE(postBodySizeLimit_, postBodySizeLimit) };
+
+
+    // postCache Field Functions 
+    bool hasPostCache() const { return this->postCache_ != nullptr;};
+    void deletePostCache() { this->postCache_ = nullptr;};
+    inline string postCache() const { DARABONBA_PTR_GET_DEFAULT(postCache_, "") };
+    inline CreateCacheRuleRequest& setPostCache(string postCache) { DARABONBA_PTR_SET_VALUE(postCache_, postCache) };
 
 
     // queryString Field Functions 
@@ -307,6 +335,9 @@ namespace Models
     std::shared_ptr<string> includeCookie_ = nullptr;
     // When generating the cache key, add the specified header names and their values. Multiple values are supported, separated by spaces.
     std::shared_ptr<string> includeHeader_ = nullptr;
+    std::shared_ptr<string> postBodyCacheKey_ = nullptr;
+    std::shared_ptr<string> postBodySizeLimit_ = nullptr;
+    std::shared_ptr<string> postCache_ = nullptr;
     // Query strings to be reserved or excluded. Multiple values are supported, separated by spaces.
     std::shared_ptr<string> queryString_ = nullptr;
     // The processing mode for query strings when generating the cache key. Possible values:
