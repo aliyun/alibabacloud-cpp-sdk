@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEBACKENDINFOREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEBACKENDINFOREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace CloudAPI20160714
+{
+namespace Models
+{
+  class DescribeBackendInfoRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeBackendInfoRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BackendId, backendId_);
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeBackendInfoRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BackendId, backendId_);
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+    };
+    DescribeBackendInfoRequest() = default ;
+    DescribeBackendInfoRequest(const DescribeBackendInfoRequest &) = default ;
+    DescribeBackendInfoRequest(DescribeBackendInfoRequest &&) = default ;
+    DescribeBackendInfoRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeBackendInfoRequest() = default ;
+    DescribeBackendInfoRequest& operator=(const DescribeBackendInfoRequest &) = default ;
+    DescribeBackendInfoRequest& operator=(DescribeBackendInfoRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->backendId_ == nullptr
+        && return this->securityToken_ == nullptr; };
+    // backendId Field Functions 
+    bool hasBackendId() const { return this->backendId_ != nullptr;};
+    void deleteBackendId() { this->backendId_ = nullptr;};
+    inline string backendId() const { DARABONBA_PTR_GET_DEFAULT(backendId_, "") };
+    inline DescribeBackendInfoRequest& setBackendId(string backendId) { DARABONBA_PTR_SET_VALUE(backendId_, backendId) };
+
+
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline DescribeBackendInfoRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
+  protected:
+    // The ID of the backend service.
+    std::shared_ptr<string> backendId_ = nullptr;
+    std::shared_ptr<string> securityToken_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace CloudAPI20160714
+#endif

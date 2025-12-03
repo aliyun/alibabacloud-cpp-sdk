@@ -1,0 +1,47 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBESUMMARYDATAREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBESUMMARYDATAREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace CloudAPI20160714
+{
+namespace Models
+{
+  class DescribeSummaryDataRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeSummaryDataRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeSummaryDataRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+    };
+    DescribeSummaryDataRequest() = default ;
+    DescribeSummaryDataRequest(const DescribeSummaryDataRequest &) = default ;
+    DescribeSummaryDataRequest(DescribeSummaryDataRequest &&) = default ;
+    DescribeSummaryDataRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeSummaryDataRequest() = default ;
+    DescribeSummaryDataRequest& operator=(const DescribeSummaryDataRequest &) = default ;
+    DescribeSummaryDataRequest& operator=(DescribeSummaryDataRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->securityToken_ == nullptr; };
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline DescribeSummaryDataRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
+  protected:
+    std::shared_ptr<string> securityToken_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace CloudAPI20160714
+#endif
