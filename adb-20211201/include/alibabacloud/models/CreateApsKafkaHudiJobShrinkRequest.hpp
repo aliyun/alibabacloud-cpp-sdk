@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AdvancedConfig, advancedConfig_);
       DARABONBA_PTR_TO_JSON(Columns, columnsShrink_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(DataFormatType, dataFormatType_);
       DARABONBA_PTR_TO_JSON(DataOutputFormat, dataOutputFormat_);
       DARABONBA_PTR_TO_JSON(DatasourceId, datasourceId_);
       DARABONBA_PTR_TO_JSON(DbName, dbName_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AdvancedConfig, advancedConfig_);
       DARABONBA_PTR_FROM_JSON(Columns, columnsShrink_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(DataFormatType, dataFormatType_);
       DARABONBA_PTR_FROM_JSON(DataOutputFormat, dataOutputFormat_);
       DARABONBA_PTR_FROM_JSON(DatasourceId, datasourceId_);
       DARABONBA_PTR_FROM_JSON(DbName, dbName_);
@@ -84,12 +86,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acrossRole_ == nullptr
-        && return this->acrossUid_ == nullptr && return this->advancedConfig_ == nullptr && return this->columnsShrink_ == nullptr && return this->DBClusterId_ == nullptr && return this->dataOutputFormat_ == nullptr
-        && return this->datasourceId_ == nullptr && return this->dbName_ == nullptr && return this->fullComputeUnit_ == nullptr && return this->hudiAdvancedConfig_ == nullptr && return this->incrementalComputeUnit_ == nullptr
-        && return this->jsonParseLevel_ == nullptr && return this->kafkaClusterId_ == nullptr && return this->kafkaTopic_ == nullptr && return this->lakehouseId_ == nullptr && return this->maxOffsetsPerTrigger_ == nullptr
-        && return this->ossLocation_ == nullptr && return this->outputFormat_ == nullptr && return this->partitionSpecsShrink_ == nullptr && return this->primaryKeyDefinition_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroup_ == nullptr && return this->sourceRegionId_ == nullptr && return this->startingOffsets_ == nullptr && return this->tableName_ == nullptr && return this->targetGenerateRule_ == nullptr
-        && return this->targetType_ == nullptr && return this->workloadName_ == nullptr; };
+        && return this->acrossUid_ == nullptr && return this->advancedConfig_ == nullptr && return this->columnsShrink_ == nullptr && return this->DBClusterId_ == nullptr && return this->dataFormatType_ == nullptr
+        && return this->dataOutputFormat_ == nullptr && return this->datasourceId_ == nullptr && return this->dbName_ == nullptr && return this->fullComputeUnit_ == nullptr && return this->hudiAdvancedConfig_ == nullptr
+        && return this->incrementalComputeUnit_ == nullptr && return this->jsonParseLevel_ == nullptr && return this->kafkaClusterId_ == nullptr && return this->kafkaTopic_ == nullptr && return this->lakehouseId_ == nullptr
+        && return this->maxOffsetsPerTrigger_ == nullptr && return this->ossLocation_ == nullptr && return this->outputFormat_ == nullptr && return this->partitionSpecsShrink_ == nullptr && return this->primaryKeyDefinition_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroup_ == nullptr && return this->sourceRegionId_ == nullptr && return this->startingOffsets_ == nullptr && return this->tableName_ == nullptr
+        && return this->targetGenerateRule_ == nullptr && return this->targetType_ == nullptr && return this->workloadName_ == nullptr; };
     // acrossRole Field Functions 
     bool hasAcrossRole() const { return this->acrossRole_ != nullptr;};
     void deleteAcrossRole() { this->acrossRole_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline CreateApsKafkaHudiJobShrinkRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // dataFormatType Field Functions 
+    bool hasDataFormatType() const { return this->dataFormatType_ != nullptr;};
+    void deleteDataFormatType() { this->dataFormatType_ = nullptr;};
+    inline string dataFormatType() const { DARABONBA_PTR_GET_DEFAULT(dataFormatType_, "") };
+    inline CreateApsKafkaHudiJobShrinkRequest& setDataFormatType(string dataFormatType) { DARABONBA_PTR_SET_VALUE(dataFormatType_, dataFormatType) };
 
 
     // dataOutputFormat Field Functions 
@@ -303,6 +312,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
+    std::shared_ptr<string> dataFormatType_ = nullptr;
     // Enumeration value and description. Single: The source is a single-row JSON record. Multi: source is a JSON array. Output a single JSON record.
     std::shared_ptr<string> dataOutputFormat_ = nullptr;
     // The data source ID.

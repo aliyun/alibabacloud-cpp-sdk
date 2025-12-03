@@ -1158,6 +1158,10 @@ CreateApsKafkaHudiJobResponse Client::createApsKafkaHudiJobWithOptions(const Cre
     body["DBClusterId"] = request.DBClusterId();
   }
 
+  if (!!request.hasDataFormatType()) {
+    body["DataFormatType"] = request.dataFormatType();
+  }
+
   if (!!request.hasDataOutputFormat()) {
     body["DataOutputFormat"] = request.dataOutputFormat();
   }
