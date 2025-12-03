@@ -70,13 +70,9 @@ namespace Models
 
 
   protected:
-    // The timestamp of security score calculation.
     std::shared_ptr<int64_t> calTime_ = nullptr;
-    // The ID of the request, which is used to locate and troubleshoot issues.
     std::shared_ptr<string> requestId_ = nullptr;
-    // The suggestions on how to handle the risks.
     std::shared_ptr<vector<DescribeSecureSuggestionResponseBodySuggestions>> suggestions_ = nullptr;
-    // The total number of unhandled security risks.
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };
 

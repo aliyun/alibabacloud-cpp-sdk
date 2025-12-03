@@ -13866,6 +13866,10 @@ DescribeExportInfoResponse Client::describeExportInfoWithOptions(const DescribeE
     query["ExportId"] = request.exportId();
   }
 
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -18170,6 +18174,10 @@ DescribeNeedAsyncQueryResponse Client::describeNeedAsyncQuery(const DescribeNeed
 DescribeNoticeConfigResponse Client::describeNoticeConfigWithOptions(const DescribeNoticeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.bizType();
+  }
+
   if (!!request.hasSourceIp()) {
     query["SourceIp"] = request.sourceIp();
   }
@@ -20582,6 +20590,10 @@ DescribeSecureSuggestionResponse Client::describeSecureSuggestionWithOptions(con
 
   if (!!request.hasLang()) {
     query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
   }
 
   if (!!request.hasSource()) {
@@ -25820,6 +25832,10 @@ ExportRecordResponse Client::exportRecordWithOptions(const ExportRecordRequest &
 
   if (!!request.hasParams()) {
     query["Params"] = request.params();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -41265,6 +41281,10 @@ ModifyLoginSwitchConfigResponse Client::modifyLoginSwitchConfig(const ModifyLogi
 ModifyNoticeConfigResponse Client::modifyNoticeConfigWithOptions(const ModifyNoticeConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.bizType();
+  }
+
   if (!!request.hasProject()) {
     query["Project"] = request.project();
   }
@@ -47535,12 +47555,56 @@ UpdateCustomizeReportStatusResponse Client::updateCustomizeReportStatus(const Up
 UpdateFileProtectEventStatusResponse Client::updateFileProtectEventStatusWithOptions(const UpdateFileProtectEventStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlertLevels()) {
+    query["AlertLevels"] = request.alertLevels();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
   if (!!request.hasId()) {
     query["Id"] = request.id();
   }
 
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasInternetIp()) {
+    query["InternetIp"] = request.internetIp();
+  }
+
+  if (!!request.hasIntranetIp()) {
+    query["IntranetIp"] = request.intranetIp();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.operation();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSelectAllAcrossPages()) {
+    query["SelectAllAcrossPages"] = request.selectAllAcrossPages();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.status();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -47581,12 +47645,60 @@ UpdateFileProtectEventStatusResponse Client::updateFileProtectEventStatus(const 
 UpdateFileProtectRemarkResponse Client::updateFileProtectRemarkWithOptions(const UpdateFileProtectRemarkRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlertLevels()) {
+    query["AlertLevels"] = request.alertLevels();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
   if (!!request.hasId()) {
     query["Id"] = request.id();
   }
 
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.idList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasInternetIp()) {
+    query["InternetIp"] = request.internetIp();
+  }
+
+  if (!!request.hasIntranetIp()) {
+    query["IntranetIp"] = request.intranetIp();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.operation();
+  }
+
   if (!!request.hasRemark()) {
     query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.ruleName();
+  }
+
+  if (!!request.hasSelectAllAcrossPages()) {
+    query["SelectAllAcrossPages"] = request.selectAllAcrossPages();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

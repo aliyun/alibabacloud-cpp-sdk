@@ -75,6 +75,7 @@ namespace Models
     // 
     // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
     std::shared_ptr<int64_t> checkId_ = nullptr;
+    // List of item IDs to be checked.
     std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
     // The instance IDs of the assets on which risks are detected based on the check item.
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;

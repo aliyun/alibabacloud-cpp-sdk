@@ -84,6 +84,7 @@ namespace Models
     std::shared_ptr<string> checkGroupId_ = nullptr;
     // The IDs of the check items.
     std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    // A set of cloud product instance IDs that require validation.
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     // The ID of the whitelist rule.
     // 

@@ -125,7 +125,9 @@ namespace Models
     std::shared_ptr<string> criteria_ = nullptr;
     // The number of the page to return.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    // The public IP address of the server or the cloud asset.
     std::shared_ptr<string> exposureIp_ = nullptr;
+    // The instance ID of the asset.
     std::shared_ptr<string> instanceId_ = nullptr;
     // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 

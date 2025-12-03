@@ -75,6 +75,7 @@ namespace Models
     // 
     // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
     std::shared_ptr<vector<int64_t>> checkIds_ = nullptr;
+    // IDs of the cloud product instances that need to be whitelisted. Separate multiple IDs with a comma (,).
     std::shared_ptr<vector<string>> instanceIds_ = nullptr;
     // The description. The value of this parameter can be up to 65,535 bytes in length.
     std::shared_ptr<string> remark_ = nullptr;

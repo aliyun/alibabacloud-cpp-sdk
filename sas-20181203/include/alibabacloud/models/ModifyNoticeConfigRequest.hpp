@@ -13,12 +13,14 @@ namespace Models
   class ModifyNoticeConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNoticeConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(Project, project_);
       DARABONBA_PTR_TO_JSON(Route, route_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(TimeLimit, timeLimit_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNoticeConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(Project, project_);
       DARABONBA_PTR_FROM_JSON(Route, route_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->project_ == nullptr
-        && return this->route_ == nullptr && return this->sourceIp_ == nullptr && return this->timeLimit_ == nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->project_ == nullptr && return this->route_ == nullptr && return this->sourceIp_ == nullptr && return this->timeLimit_ == nullptr; };
+    // bizType Field Functions 
+    bool hasBizType() const { return this->bizType_ != nullptr;};
+    void deleteBizType() { this->bizType_ = nullptr;};
+    inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
+    inline ModifyNoticeConfigRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
     // project Field Functions 
     bool hasProject() const { return this->project_ != nullptr;};
     void deleteProject() { this->project_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> bizType_ = nullptr;
     // The identifier of the notification item. Valid values:
     // 
     // *   **yundun_security_Weekreport**: notification for vulnerabilities

@@ -14,12 +14,36 @@ namespace Models
   class UpdateFileProtectRemarkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateFileProtectRemarkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlertLevels, alertLevels_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(IdList, idList_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_TO_JSON(IntranetIp, intranetIp_);
+      DARABONBA_PTR_TO_JSON(Operation, operation_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(SelectAllAcrossPages, selectAllAcrossPages_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateFileProtectRemarkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlertLevels, alertLevels_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(IdList, idList_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
+      DARABONBA_PTR_FROM_JSON(IntranetIp, intranetIp_);
+      DARABONBA_PTR_FROM_JSON(Operation, operation_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(SelectAllAcrossPages, selectAllAcrossPages_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     UpdateFileProtectRemarkRequest() = default ;
     UpdateFileProtectRemarkRequest(const UpdateFileProtectRemarkRequest &) = default ;
@@ -32,13 +56,75 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->id_ == nullptr
-        && return this->remark_ == nullptr; };
+    virtual bool empty() const override { return this->alertLevels_ == nullptr
+        && return this->endTime_ == nullptr && return this->id_ == nullptr && return this->idList_ == nullptr && return this->instanceId_ == nullptr && return this->instanceName_ == nullptr
+        && return this->internetIp_ == nullptr && return this->intranetIp_ == nullptr && return this->operation_ == nullptr && return this->remark_ == nullptr && return this->ruleName_ == nullptr
+        && return this->selectAllAcrossPages_ == nullptr && return this->startTime_ == nullptr && return this->uuid_ == nullptr; };
+    // alertLevels Field Functions 
+    bool hasAlertLevels() const { return this->alertLevels_ != nullptr;};
+    void deleteAlertLevels() { this->alertLevels_ = nullptr;};
+    inline const vector<int32_t> & alertLevels() const { DARABONBA_PTR_GET_CONST(alertLevels_, vector<int32_t>) };
+    inline vector<int32_t> alertLevels() { DARABONBA_PTR_GET(alertLevels_, vector<int32_t>) };
+    inline UpdateFileProtectRemarkRequest& setAlertLevels(const vector<int32_t> & alertLevels) { DARABONBA_PTR_SET_VALUE(alertLevels_, alertLevels) };
+    inline UpdateFileProtectRemarkRequest& setAlertLevels(vector<int32_t> && alertLevels) { DARABONBA_PTR_SET_RVALUE(alertLevels_, alertLevels) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline UpdateFileProtectRemarkRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
     inline int64_t id() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
     inline UpdateFileProtectRemarkRequest& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // idList Field Functions 
+    bool hasIdList() const { return this->idList_ != nullptr;};
+    void deleteIdList() { this->idList_ = nullptr;};
+    inline const vector<int64_t> & idList() const { DARABONBA_PTR_GET_CONST(idList_, vector<int64_t>) };
+    inline vector<int64_t> idList() { DARABONBA_PTR_GET(idList_, vector<int64_t>) };
+    inline UpdateFileProtectRemarkRequest& setIdList(const vector<int64_t> & idList) { DARABONBA_PTR_SET_VALUE(idList_, idList) };
+    inline UpdateFileProtectRemarkRequest& setIdList(vector<int64_t> && idList) { DARABONBA_PTR_SET_RVALUE(idList_, idList) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline UpdateFileProtectRemarkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline UpdateFileProtectRemarkRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // internetIp Field Functions 
+    bool hasInternetIp() const { return this->internetIp_ != nullptr;};
+    void deleteInternetIp() { this->internetIp_ = nullptr;};
+    inline string internetIp() const { DARABONBA_PTR_GET_DEFAULT(internetIp_, "") };
+    inline UpdateFileProtectRemarkRequest& setInternetIp(string internetIp) { DARABONBA_PTR_SET_VALUE(internetIp_, internetIp) };
+
+
+    // intranetIp Field Functions 
+    bool hasIntranetIp() const { return this->intranetIp_ != nullptr;};
+    void deleteIntranetIp() { this->intranetIp_ = nullptr;};
+    inline string intranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
+    inline UpdateFileProtectRemarkRequest& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
+
+
+    // operation Field Functions 
+    bool hasOperation() const { return this->operation_ != nullptr;};
+    void deleteOperation() { this->operation_ = nullptr;};
+    inline string operation() const { DARABONBA_PTR_GET_DEFAULT(operation_, "") };
+    inline UpdateFileProtectRemarkRequest& setOperation(string operation) { DARABONBA_PTR_SET_VALUE(operation_, operation) };
 
 
     // remark Field Functions 
@@ -50,11 +136,51 @@ namespace Models
     inline UpdateFileProtectRemarkRequest& setRemark(vector<string> && remark) { DARABONBA_PTR_SET_RVALUE(remark_, remark) };
 
 
+    // ruleName Field Functions 
+    bool hasRuleName() const { return this->ruleName_ != nullptr;};
+    void deleteRuleName() { this->ruleName_ = nullptr;};
+    inline string ruleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline UpdateFileProtectRemarkRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+    // selectAllAcrossPages Field Functions 
+    bool hasSelectAllAcrossPages() const { return this->selectAllAcrossPages_ != nullptr;};
+    void deleteSelectAllAcrossPages() { this->selectAllAcrossPages_ = nullptr;};
+    inline bool selectAllAcrossPages() const { DARABONBA_PTR_GET_DEFAULT(selectAllAcrossPages_, false) };
+    inline UpdateFileProtectRemarkRequest& setSelectAllAcrossPages(bool selectAllAcrossPages) { DARABONBA_PTR_SET_VALUE(selectAllAcrossPages_, selectAllAcrossPages) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline UpdateFileProtectRemarkRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // uuid Field Functions 
+    bool hasUuid() const { return this->uuid_ != nullptr;};
+    void deleteUuid() { this->uuid_ = nullptr;};
+    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline UpdateFileProtectRemarkRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
+
+
   protected:
+    std::shared_ptr<vector<int32_t>> alertLevels_ = nullptr;
+    std::shared_ptr<int64_t> endTime_ = nullptr;
     // The ID of the event.
     std::shared_ptr<int64_t> id_ = nullptr;
+    std::shared_ptr<vector<int64_t>> idList_ = nullptr;
+    std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> instanceName_ = nullptr;
+    std::shared_ptr<string> internetIp_ = nullptr;
+    std::shared_ptr<string> intranetIp_ = nullptr;
+    std::shared_ptr<string> operation_ = nullptr;
     // The remarks.
     std::shared_ptr<vector<string>> remark_ = nullptr;
+    std::shared_ptr<string> ruleName_ = nullptr;
+    std::shared_ptr<bool> selectAllAcrossPages_ = nullptr;
+    std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<string> uuid_ = nullptr;
   };
 
   } // namespace Models

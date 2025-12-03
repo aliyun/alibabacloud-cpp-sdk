@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeSecureSuggestionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CalType, calType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSecureSuggestionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalType, calType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calType_ == nullptr
-        && return this->lang_ == nullptr && return this->source_ == nullptr && return this->sourceIp_ == nullptr; };
+        && return this->lang_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->source_ == nullptr && return this->sourceIp_ == nullptr; };
     // calType Field Functions 
     bool hasCalType() const { return this->calType_ != nullptr;};
     void deleteCalType() { this->calType_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline DescribeSecureSuggestionRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeSecureSuggestionRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // source Field Functions 
@@ -66,20 +75,13 @@ namespace Models
 
 
   protected:
-    // The old or new version of the security score rule. If you set this parameter to **home_security_score**, the new version of the security score rule is returned. Otherwise, the old version of the security score rule is returned.
     std::shared_ptr<string> calType_ = nullptr;
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
     std::shared_ptr<string> lang_ = nullptr;
-    // Source of security score, default is Cloud Security Center if left empty. Enum values: 
+    // The Alibaba Cloud account ID of the member in the resource directory.
     // 
-    // - 0:Cloud Security Center. 
-    // 
-    // - 1:Yaochi Console.
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     std::shared_ptr<int32_t> source_ = nullptr;
-    // The source IP address of the request.
     std::shared_ptr<string> sourceIp_ = nullptr;
   };
 

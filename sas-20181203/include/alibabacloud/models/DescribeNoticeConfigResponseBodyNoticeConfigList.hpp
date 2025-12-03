@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeNoticeConfigResponseBodyNoticeConfigList& obj) { 
       DARABONBA_PTR_TO_JSON(AliUid, aliUid_);
+      DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Project, project_);
       DARABONBA_PTR_TO_JSON(Route, route_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeNoticeConfigResponseBodyNoticeConfigList& obj) { 
       DARABONBA_PTR_FROM_JSON(AliUid, aliUid_);
+      DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Project, project_);
       DARABONBA_PTR_FROM_JSON(Route, route_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliUid_ == nullptr
-        && return this->currentPage_ == nullptr && return this->project_ == nullptr && return this->route_ == nullptr && return this->timeLimit_ == nullptr; };
+        && return this->category_ == nullptr && return this->currentPage_ == nullptr && return this->project_ == nullptr && return this->route_ == nullptr && return this->timeLimit_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
     inline int64_t aliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, 0L) };
     inline DescribeNoticeConfigResponseBodyNoticeConfigList& setAliUid(int64_t aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
+
+
+    // category Field Functions 
+    bool hasCategory() const { return this->category_ != nullptr;};
+    void deleteCategory() { this->category_ = nullptr;};
+    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline DescribeNoticeConfigResponseBodyNoticeConfigList& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // currentPage Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The ID of the user.
     std::shared_ptr<int64_t> aliUid_ = nullptr;
+    std::shared_ptr<string> category_ = nullptr;
     // The page number of the returned page.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
     // The identifier of the notification item. Valid values:

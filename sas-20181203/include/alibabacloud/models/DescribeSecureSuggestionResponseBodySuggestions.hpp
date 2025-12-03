@@ -61,19 +61,8 @@ namespace Models
 
 
   protected:
-    // The details of the suggestion.
     std::shared_ptr<vector<Models::DescribeSecureSuggestionResponseBodySuggestionsDetail>> detail_ = nullptr;
-    // The penalty point of a deduction item.
     std::shared_ptr<int32_t> points_ = nullptr;
-    // The type of the unhandled risk. Valid values:
-    // 
-    // *   **SS_REINFORCE**: missing configuration of key features, such as malicious behavior defense
-    // *   **SS_ALARM**: unhandled alerts
-    // *   **SS_VUL**: unfixed vulnerabilities
-    // *   **SS_HC**: baseline risks
-    // *   **SS_AK**: AccessKey pair leaks
-    // *   **SS_CLOUD_HC**: configuration risks of cloud services
-    // *   **OTHER**: others
     std::shared_ptr<string> suggestType_ = nullptr;
   };
 

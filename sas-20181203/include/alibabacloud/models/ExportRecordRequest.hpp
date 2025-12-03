@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExportType, exportType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Params, params_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, ExportRecordRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExportFileType, exportFileType_);
       DARABONBA_PTR_FROM_JSON(ExportType, exportType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Params, params_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
     };
     ExportRecordRequest() = default ;
     ExportRecordRequest(const ExportRecordRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportFileType_ == nullptr
-        && return this->exportType_ == nullptr && return this->lang_ == nullptr && return this->params_ == nullptr; };
+        && return this->exportType_ == nullptr && return this->lang_ == nullptr && return this->params_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr; };
     // exportFileType Field Functions 
     bool hasExportFileType() const { return this->exportFileType_ != nullptr;};
     void deleteExportFileType() { this->exportFileType_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteParams() { this->params_ = nullptr;};
     inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ExportRecordRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ExportRecordRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
   protected:
@@ -111,6 +120,7 @@ namespace Models
     // 
     // > This operation is a common export operation for multiple features of Security Center. The available configuration fields of this parameter vary based on the features. We recommend that you do not specify this parameter when you call the operation. You can export an information list without specifying this parameter, and then filter data in the exported Excel file.
     std::shared_ptr<string> params_ = nullptr;
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
   };
 
   } // namespace Models
