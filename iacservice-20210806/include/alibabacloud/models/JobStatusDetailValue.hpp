@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(comment, comment_);
       DARABONBA_PTR_TO_JSON(jobResult, jobResult_);
       DARABONBA_PTR_TO_JSON(timeStamps, timeStamps_);
+      DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
     };
     friend void from_json(const Darabonba::Json& j, JobStatusDetailValue& obj) { 
       DARABONBA_PTR_FROM_JSON(comment, comment_);
       DARABONBA_PTR_FROM_JSON(jobResult, jobResult_);
       DARABONBA_PTR_FROM_JSON(timeStamps, timeStamps_);
+      DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
     };
     JobStatusDetailValue() = default ;
     JobStatusDetailValue(const JobStatusDetailValue &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->comment_ == nullptr
-        && return this->jobResult_ == nullptr && return this->timeStamps_ == nullptr; };
+        && return this->jobResult_ == nullptr && return this->timeStamps_ == nullptr && return this->errorMessage_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};
@@ -56,10 +58,18 @@ namespace Models
     inline JobStatusDetailValue& setTimeStamps(string timeStamps) { DARABONBA_PTR_SET_VALUE(timeStamps_, timeStamps) };
 
 
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string errorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline JobStatusDetailValue& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
   protected:
     std::shared_ptr<string> comment_ = nullptr;
     std::shared_ptr<string> jobResult_ = nullptr;
     std::shared_ptr<string> timeStamps_ = nullptr;
+    std::shared_ptr<string> errorMessage_ = nullptr;
   };
 
   } // namespace Models
