@@ -14,6 +14,7 @@ namespace Models
   class UnifiedPageItem : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UnifiedPageItem& obj) { 
+      DARABONBA_PTR_TO_JSON(correlationTag, correlationTag_);
       DARABONBA_PTR_TO_JSON(hostAuthorityScore, hostAuthorityScore_);
       DARABONBA_PTR_TO_JSON(hostLogo, hostLogo_);
       DARABONBA_PTR_TO_JSON(hostname, hostname_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(websiteAuthorityScore, websiteAuthorityScore_);
     };
     friend void from_json(const Darabonba::Json& j, UnifiedPageItem& obj) { 
+      DARABONBA_PTR_FROM_JSON(correlationTag, correlationTag_);
       DARABONBA_PTR_FROM_JSON(hostAuthorityScore, hostAuthorityScore_);
       DARABONBA_PTR_FROM_JSON(hostLogo, hostLogo_);
       DARABONBA_PTR_FROM_JSON(hostname, hostname_);
@@ -56,10 +58,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->hostAuthorityScore_ == nullptr
-        && return this->hostLogo_ == nullptr && return this->hostname_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr && return this->mainText_ == nullptr
-        && return this->markdownText_ == nullptr && return this->publishedTime_ == nullptr && return this->rerankScore_ == nullptr && return this->richMainBody_ == nullptr && return this->snippet_ == nullptr
-        && return this->summary_ == nullptr && return this->title_ == nullptr && return this->websiteAuthorityScore_ == nullptr; };
+    virtual bool empty() const override { return this->correlationTag_ == nullptr
+        && return this->hostAuthorityScore_ == nullptr && return this->hostLogo_ == nullptr && return this->hostname_ == nullptr && return this->images_ == nullptr && return this->link_ == nullptr
+        && return this->mainText_ == nullptr && return this->markdownText_ == nullptr && return this->publishedTime_ == nullptr && return this->rerankScore_ == nullptr && return this->richMainBody_ == nullptr
+        && return this->snippet_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr && return this->websiteAuthorityScore_ == nullptr; };
+    // correlationTag Field Functions 
+    bool hasCorrelationTag() const { return this->correlationTag_ != nullptr;};
+    void deleteCorrelationTag() { this->correlationTag_ = nullptr;};
+    inline int32_t correlationTag() const { DARABONBA_PTR_GET_DEFAULT(correlationTag_, 0) };
+    inline UnifiedPageItem& setCorrelationTag(int32_t correlationTag) { DARABONBA_PTR_SET_VALUE(correlationTag_, correlationTag) };
+
+
     // hostAuthorityScore Field Functions 
     bool hasHostAuthorityScore() const { return this->hostAuthorityScore_ != nullptr;};
     void deleteHostAuthorityScore() { this->hostAuthorityScore_ = nullptr;};
@@ -161,6 +170,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> correlationTag_ = nullptr;
     std::shared_ptr<double> hostAuthorityScore_ = nullptr;
     std::shared_ptr<string> hostLogo_ = nullptr;
     std::shared_ptr<string> hostname_ = nullptr;
