@@ -830,11 +830,11 @@ namespace DmsEnterprise20181101
       /**
        * @summary Create Asset Category
        *
-       * @param request CreateMetaCategoryRequest
+       * @param tmpReq CreateMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateMetaCategoryResponse
        */
-      Models::CreateMetaCategoryResponse createMetaCategoryWithOptions(const Models::CreateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateMetaCategoryResponse createMetaCategoryWithOptions(const Models::CreateMetaCategoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Create Asset Category
@@ -5386,11 +5386,11 @@ namespace DmsEnterprise20181101
       /**
        * @summary Updates asset category information.
        *
-       * @param request UpdateMetaCategoryRequest
+       * @param tmpReq UpdateMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateMetaCategoryResponse
        */
-      Models::UpdateMetaCategoryResponse updateMetaCategoryWithOptions(const Models::UpdateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateMetaCategoryResponse updateMetaCategoryWithOptions(const Models::UpdateMetaCategoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates asset category information.

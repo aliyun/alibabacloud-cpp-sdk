@@ -174,6 +174,7 @@
 #include <alibabacloud/models/CreateLogicDatabaseResponseBody.hpp>
 #include <alibabacloud/models/CreateLogicDatabaseResponse.hpp>
 #include <alibabacloud/models/CreateMetaCategoryRequest.hpp>
+#include <alibabacloud/models/CreateMetaCategoryShrinkRequest.hpp>
 #include <alibabacloud/models/CreateMetaCategoryResponseBody.hpp>
 #include <alibabacloud/models/CreateMetaCategoryResponse.hpp>
 #include <alibabacloud/models/CreateOrderRequest.hpp>
@@ -933,6 +934,7 @@
 #include <alibabacloud/models/UpdateInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceResponse.hpp>
 #include <alibabacloud/models/UpdateMetaCategoryRequest.hpp>
+#include <alibabacloud/models/UpdateMetaCategoryShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateMetaCategoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateMetaCategoryResponse.hpp>
 #include <alibabacloud/models/UpdateSlaRulesRequest.hpp>

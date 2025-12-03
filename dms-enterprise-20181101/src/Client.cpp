@@ -3432,19 +3432,37 @@ CreateLogicDatabaseResponse Client::createLogicDatabase(const CreateLogicDatabas
 /**
  * @summary Create Asset Category
  *
- * @param request CreateMetaCategoryRequest
+ * @param tmpReq CreateMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateMetaCategoryResponse
  */
-CreateMetaCategoryResponse Client::createMetaCategoryWithOptions(const CreateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateMetaCategoryResponse Client::createMetaCategoryWithOptions(const CreateMetaCategoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMetaCategoryShrinkRequest request = CreateMetaCategoryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOwnerIds()) {
+    request.setOwnerIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ownerIds(), "OwnerIds", "json"));
+  }
+
   json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.name();
   }
 
+  if (!!request.hasOwnerIdsShrink()) {
+    query["OwnerIds"] = request.ownerIdsShrink();
+  }
+
   if (!!request.hasParentCategoryId()) {
     query["ParentCategoryId"] = request.parentCategoryId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
   }
 
   if (!!request.hasTid()) {
@@ -17562,19 +17580,37 @@ UpdateInstanceResponse Client::updateInstance(const UpdateInstanceRequest &reque
 /**
  * @summary Updates asset category information.
  *
- * @param request UpdateMetaCategoryRequest
+ * @param tmpReq UpdateMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateMetaCategoryResponse
  */
-UpdateMetaCategoryResponse Client::updateMetaCategoryWithOptions(const UpdateMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateMetaCategoryResponse Client::updateMetaCategoryWithOptions(const UpdateMetaCategoryRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMetaCategoryShrinkRequest request = UpdateMetaCategoryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOwnerIds()) {
+    request.setOwnerIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ownerIds(), "OwnerIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasCategoryId()) {
     query["CategoryId"] = request.categoryId();
   }
 
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.name();
+  }
+
+  if (!!request.hasOwnerIdsShrink()) {
+    query["OwnerIds"] = request.ownerIdsShrink();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.remark();
   }
 
   if (!!request.hasTid()) {
