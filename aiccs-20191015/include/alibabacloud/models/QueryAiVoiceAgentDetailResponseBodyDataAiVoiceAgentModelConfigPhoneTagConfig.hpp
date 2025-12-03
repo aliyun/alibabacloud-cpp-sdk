@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PhoneTagKey, phoneTagKey_);
       DARABONBA_PTR_TO_JSON(PhoneTagName, phoneTagName_);
       DARABONBA_PTR_TO_JSON(PhoneTagRequired, phoneTagRequired_);
+      DARABONBA_PTR_TO_JSON(PhoneTagSource, phoneTagSource_);
       DARABONBA_PTR_TO_JSON(PhoneTagType, phoneTagType_);
     };
     friend void from_json(const Darabonba::Json& j, QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PhoneTagKey, phoneTagKey_);
       DARABONBA_PTR_FROM_JSON(PhoneTagName, phoneTagName_);
       DARABONBA_PTR_FROM_JSON(PhoneTagRequired, phoneTagRequired_);
+      DARABONBA_PTR_FROM_JSON(PhoneTagSource, phoneTagSource_);
       DARABONBA_PTR_FROM_JSON(PhoneTagType, phoneTagType_);
     };
     QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
         && return this->phoneTagDescription_ == nullptr && return this->phoneTagEnum_ == nullptr && return this->phoneTagKey_ == nullptr && return this->phoneTagName_ == nullptr && return this->phoneTagRequired_ == nullptr
-        && return this->phoneTagType_ == nullptr; };
+        && return this->phoneTagSource_ == nullptr && return this->phoneTagType_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     inline QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig& setPhoneTagRequired(bool phoneTagRequired) { DARABONBA_PTR_SET_VALUE(phoneTagRequired_, phoneTagRequired) };
 
 
+    // phoneTagSource Field Functions 
+    bool hasPhoneTagSource() const { return this->phoneTagSource_ != nullptr;};
+    void deletePhoneTagSource() { this->phoneTagSource_ = nullptr;};
+    inline string phoneTagSource() const { DARABONBA_PTR_GET_DEFAULT(phoneTagSource_, "") };
+    inline QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig& setPhoneTagSource(string phoneTagSource) { DARABONBA_PTR_SET_VALUE(phoneTagSource_, phoneTagSource) };
+
+
     // phoneTagType Field Functions 
     bool hasPhoneTagType() const { return this->phoneTagType_ != nullptr;};
     void deletePhoneTagType() { this->phoneTagType_ = nullptr;};
@@ -104,6 +113,7 @@ namespace Models
     std::shared_ptr<string> phoneTagKey_ = nullptr;
     std::shared_ptr<string> phoneTagName_ = nullptr;
     std::shared_ptr<bool> phoneTagRequired_ = nullptr;
+    std::shared_ptr<string> phoneTagSource_ = nullptr;
     std::shared_ptr<string> phoneTagType_ = nullptr;
   };
 

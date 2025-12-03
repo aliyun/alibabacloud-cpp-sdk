@@ -38,6 +38,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OutputTagConfig, outputTagConfig_);
       DARABONBA_PTR_TO_JSON(PhoneTagConfig, phoneTagConfig_);
       DARABONBA_PTR_TO_JSON(Prologue, prologue_);
+      DARABONBA_PTR_TO_JSON(RecordingFile, recordingFile_);
+      DARABONBA_PTR_TO_JSON(StartWordType, startWordType_);
       DARABONBA_PTR_TO_JSON(SysRole, sysRole_);
       DARABONBA_PTR_TO_JSON(TaskType, taskType_);
       DARABONBA_PTR_TO_JSON(UserRole, userRole_);
@@ -62,6 +64,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OutputTagConfig, outputTagConfig_);
       DARABONBA_PTR_FROM_JSON(PhoneTagConfig, phoneTagConfig_);
       DARABONBA_PTR_FROM_JSON(Prologue, prologue_);
+      DARABONBA_PTR_FROM_JSON(RecordingFile, recordingFile_);
+      DARABONBA_PTR_FROM_JSON(StartWordType, startWordType_);
       DARABONBA_PTR_FROM_JSON(SysRole, sysRole_);
       DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
       DARABONBA_PTR_FROM_JSON(UserRole, userRole_);
@@ -81,8 +85,8 @@ namespace Models
         && return this->businessType_ == nullptr && return this->childTaskList_ == nullptr && return this->customExceptionEnable_ == nullptr && return this->customExceptionFileId_ == nullptr && return this->customExceptionFileName_ == nullptr
         && return this->customExceptionList_ == nullptr && return this->customExceptionUrlPath_ == nullptr && return this->customExceptionVoiceStyle_ == nullptr && return this->flowDesc_ == nullptr && return this->knowledgeDocIdList_ == nullptr
         && return this->knowledgeDocNameList_ == nullptr && return this->knowledgeDocOriginalNameList_ == nullptr && return this->knowledgeEnable_ == nullptr && return this->knowledgeId_ == nullptr && return this->mainPurpose_ == nullptr
-        && return this->outputTagConfig_ == nullptr && return this->phoneTagConfig_ == nullptr && return this->prologue_ == nullptr && return this->sysRole_ == nullptr && return this->taskType_ == nullptr
-        && return this->userRole_ == nullptr; };
+        && return this->outputTagConfig_ == nullptr && return this->phoneTagConfig_ == nullptr && return this->prologue_ == nullptr && return this->recordingFile_ == nullptr && return this->startWordType_ == nullptr
+        && return this->sysRole_ == nullptr && return this->taskType_ == nullptr && return this->userRole_ == nullptr; };
     // basicTaskDescription Field Functions 
     bool hasBasicTaskDescription() const { return this->basicTaskDescription_ != nullptr;};
     void deleteBasicTaskDescription() { this->basicTaskDescription_ = nullptr;};
@@ -232,6 +236,20 @@ namespace Models
     inline QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig& setPrologue(string prologue) { DARABONBA_PTR_SET_VALUE(prologue_, prologue) };
 
 
+    // recordingFile Field Functions 
+    bool hasRecordingFile() const { return this->recordingFile_ != nullptr;};
+    void deleteRecordingFile() { this->recordingFile_ = nullptr;};
+    inline string recordingFile() const { DARABONBA_PTR_GET_DEFAULT(recordingFile_, "") };
+    inline QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig& setRecordingFile(string recordingFile) { DARABONBA_PTR_SET_VALUE(recordingFile_, recordingFile) };
+
+
+    // startWordType Field Functions 
+    bool hasStartWordType() const { return this->startWordType_ != nullptr;};
+    void deleteStartWordType() { this->startWordType_ = nullptr;};
+    inline int64_t startWordType() const { DARABONBA_PTR_GET_DEFAULT(startWordType_, 0L) };
+    inline QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfig& setStartWordType(int64_t startWordType) { DARABONBA_PTR_SET_VALUE(startWordType_, startWordType) };
+
+
     // sysRole Field Functions 
     bool hasSysRole() const { return this->sysRole_ != nullptr;};
     void deleteSysRole() { this->sysRole_ = nullptr;};
@@ -273,6 +291,8 @@ namespace Models
     std::shared_ptr<vector<Models::QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigOutputTagConfig>> outputTagConfig_ = nullptr;
     std::shared_ptr<vector<Models::QueryAiVoiceAgentDetailResponseBodyDataAiVoiceAgentModelConfigPhoneTagConfig>> phoneTagConfig_ = nullptr;
     std::shared_ptr<string> prologue_ = nullptr;
+    std::shared_ptr<string> recordingFile_ = nullptr;
+    std::shared_ptr<int64_t> startWordType_ = nullptr;
     std::shared_ptr<string> sysRole_ = nullptr;
     std::shared_ptr<string> taskType_ = nullptr;
     std::shared_ptr<string> userRole_ = nullptr;

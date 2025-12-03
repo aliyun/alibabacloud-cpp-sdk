@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Key, key_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Required, required_);
+      DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(Value, value_);
     };
     friend void from_json(const Darabonba::Json& j, QueryConversationDetailInfoResponseBodyDataVariables& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Key, key_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Required, required_);
+      DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(Value, value_);
     };
     QueryConversationDetailInfoResponseBodyDataVariables() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->id_ == nullptr
-        && return this->key_ == nullptr && return this->name_ == nullptr && return this->required_ == nullptr && return this->value_ == nullptr; };
+        && return this->key_ == nullptr && return this->name_ == nullptr && return this->required_ == nullptr && return this->source_ == nullptr && return this->value_ == nullptr; };
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline QueryConversationDetailInfoResponseBodyDataVariables& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
 
 
+    // source Field Functions 
+    bool hasSource() const { return this->source_ != nullptr;};
+    void deleteSource() { this->source_ = nullptr;};
+    inline string source() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+    inline QueryConversationDetailInfoResponseBodyDataVariables& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
     // value Field Functions 
     bool hasValue() const { return this->value_ != nullptr;};
     void deleteValue() { this->value_ = nullptr;};
@@ -79,6 +88,7 @@ namespace Models
     std::shared_ptr<string> key_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<bool> required_ = nullptr;
+    std::shared_ptr<string> source_ = nullptr;
     std::shared_ptr<string> value_ = nullptr;
   };
 
