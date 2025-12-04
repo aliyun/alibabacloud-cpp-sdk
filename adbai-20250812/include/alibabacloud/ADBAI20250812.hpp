@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_ADBAI20250812_HPP_
+#define ALIBABACLOUD_ADBAI20250812_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/ADBAI20250812Model.hpp>
+#include <alibabacloud/Openapi.hpp>
+#include <alibabacloud/Utils.hpp>
+#include <map>
+#include <alibabacloud/ADBAI20250812.hpp>
+#include <darabonba/Runtime.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ADBAI20250812
+{
+  class Client : public AlibabaCloud::OpenApi::Client {
+    public:
+
+      Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
+      string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
+
+      /**
+       * @summary 创建具身智能平台
+       *
+       * @param tmpReq CreateEmbodiedAIPlatformRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEmbodiedAIPlatformResponse
+       */
+      Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatformWithOptions(const Models::CreateEmbodiedAIPlatformRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建具身智能平台
+       *
+       * @param request CreateEmbodiedAIPlatformRequest
+       * @return CreateEmbodiedAIPlatformResponse
+       */
+      Models::CreateEmbodiedAIPlatformResponse createEmbodiedAIPlatform(const Models::CreateEmbodiedAIPlatformRequest &request);
+
+      /**
+       * @summary 查询具身智能平台
+       *
+       * @param request DescribeEmbodiedAIPlatformsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEmbodiedAIPlatformsResponse
+       */
+      Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatformsWithOptions(const Models::DescribeEmbodiedAIPlatformsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询具身智能平台
+       *
+       * @param request DescribeEmbodiedAIPlatformsRequest
+       * @return DescribeEmbodiedAIPlatformsResponse
+       */
+      Models::DescribeEmbodiedAIPlatformsResponse describeEmbodiedAIPlatforms(const Models::DescribeEmbodiedAIPlatformsRequest &request);
+  };
+} // namespace AlibabaCloud
+} // namespace ADBAI20250812
+#endif
