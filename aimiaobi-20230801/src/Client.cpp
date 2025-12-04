@@ -855,6 +855,56 @@ CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request)
 }
 
 /**
+ * @summary 通用配置-创建
+ *
+ * @param request CreateGeneralConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGeneralConfigResponse
+ */
+CreateGeneralConfigResponse Client::createGeneralConfigWithOptions(const CreateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigKey()) {
+    body["ConfigKey"] = request.configKey();
+  }
+
+  if (!!request.hasConfigValue()) {
+    body["ConfigValue"] = request.configValue();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateGeneralConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGeneralConfigResponse>();
+}
+
+/**
+ * @summary 通用配置-创建
+ *
+ * @param request CreateGeneralConfigRequest
+ * @return CreateGeneralConfigResponse
+ */
+CreateGeneralConfigResponse Client::createGeneralConfig(const CreateGeneralConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGeneralConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 文档管理-创建
  *
  * @param tmpReq CreateGeneratedContentRequest
@@ -1424,6 +1474,52 @@ DeleteFactAuditUrlResponse Client::deleteFactAuditUrlWithOptions(const DeleteFac
 DeleteFactAuditUrlResponse Client::deleteFactAuditUrl(const DeleteFactAuditUrlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteFactAuditUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通用配置-删除
+ *
+ * @param request DeleteGeneralConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGeneralConfigResponse
+ */
+DeleteGeneralConfigResponse Client::deleteGeneralConfigWithOptions(const DeleteGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigKey()) {
+    body["ConfigKey"] = request.configKey();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteGeneralConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGeneralConfigResponse>();
+}
+
+/**
+ * @summary 通用配置-删除
+ *
+ * @param request DeleteGeneralConfigRequest
+ * @return DeleteGeneralConfigResponse
+ */
+DeleteGeneralConfigResponse Client::deleteGeneralConfig(const DeleteGeneralConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteGeneralConfigWithOptions(request, runtime);
 }
 
 /**
@@ -3765,6 +3861,52 @@ GetFileContentLengthResponse Client::getFileContentLength(const GetFileContentLe
 }
 
 /**
+ * @summary 通用配置-查询
+ *
+ * @param request GetGeneralConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGeneralConfigResponse
+ */
+GetGeneralConfigResponse Client::getGeneralConfigWithOptions(const GetGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigKey()) {
+    body["ConfigKey"] = request.configKey();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetGeneralConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGeneralConfigResponse>();
+}
+
+/**
+ * @summary 通用配置-查询
+ *
+ * @param request GetGeneralConfigRequest
+ * @return GetGeneralConfigResponse
+ */
+GetGeneralConfigResponse Client::getGeneralConfig(const GetGeneralConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getGeneralConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 文档管理-查询详情。
  *
  * @param request GetGeneratedContentRequest
@@ -5491,6 +5633,98 @@ ListDocsResponse Client::listDocs(const ListDocsRequest &request) {
 }
 
 /**
+ * @summary 公文检索
+ *
+ * @param request ListDocumentRetrieveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDocumentRetrieveResponse
+ */
+ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListDocumentRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContentType()) {
+    query["ContentType"] = request.contentType();
+  }
+
+  if (!!request.hasElementScope()) {
+    query["ElementScope"] = request.elementScope();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasOffice()) {
+    query["Office"] = request.office();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.region();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.source();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasSubContentType()) {
+    query["SubContentType"] = request.subContentType();
+  }
+
+  if (!!request.hasWordSize()) {
+    query["WordSize"] = request.wordSize();
+  }
+
+  json body = {};
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.query();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListDocumentRetrieve"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDocumentRetrieveResponse>();
+}
+
+/**
+ * @summary 公文检索
+ *
+ * @param request ListDocumentRetrieveRequest
+ * @return ListDocumentRetrieveResponse
+ */
+ListDocumentRetrieveResponse Client::listDocumentRetrieve(const ListDocumentRetrieveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDocumentRetrieveWithOptions(request, runtime);
+}
+
+/**
  * @summary 新颖视角列表
  *
  * @param request ListFreshViewPointsRequest
@@ -5548,6 +5782,56 @@ ListFreshViewPointsResponse Client::listFreshViewPointsWithOptions(const ListFre
 ListFreshViewPointsResponse Client::listFreshViewPoints(const ListFreshViewPointsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFreshViewPointsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通用配置-列表
+ *
+ * @param request ListGeneralConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGeneralConfigsResponse
+ */
+ListGeneralConfigsResponse Client::listGeneralConfigsWithOptions(const ListGeneralConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListGeneralConfigs"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGeneralConfigsResponse>();
+}
+
+/**
+ * @summary 通用配置-列表
+ *
+ * @param request ListGeneralConfigsRequest
+ * @return ListGeneralConfigsResponse
+ */
+ListGeneralConfigsResponse Client::listGeneralConfigs(const ListGeneralConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listGeneralConfigsWithOptions(request, runtime);
 }
 
 /**
@@ -9736,6 +10020,143 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroduction(const RunMultiDo
 }
 
 /**
+ * @summary 快速写作
+ *
+ * @param tmpReq RunQuickWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunQuickWritingResponse
+ */
+FutrueGenerator<RunQuickWritingResponse> Client::runQuickWritingWithSSE(const RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunQuickWritingShrinkRequest request = RunQuickWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasArticles()) {
+    request.setArticlesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.articles(), "Articles", "json"));
+  }
+
+  if (!!tmpReq.hasSearchSources()) {
+    request.setSearchSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchSources(), "SearchSources", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasArticlesShrink()) {
+    body["Articles"] = request.articlesShrink();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSearchSourcesShrink()) {
+    body["SearchSources"] = request.searchSourcesShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunQuickWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunQuickWritingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 快速写作
+ *
+ * @param tmpReq RunQuickWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunQuickWritingResponse
+ */
+RunQuickWritingResponse Client::runQuickWritingWithOptions(const RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunQuickWritingShrinkRequest request = RunQuickWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasArticles()) {
+    request.setArticlesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.articles(), "Articles", "json"));
+  }
+
+  if (!!tmpReq.hasSearchSources()) {
+    request.setSearchSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.searchSources(), "SearchSources", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasArticlesShrink()) {
+    body["Articles"] = request.articlesShrink();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasSearchSourcesShrink()) {
+    body["SearchSources"] = request.searchSourcesShrink();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunQuickWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunQuickWritingResponse>();
+}
+
+/**
+ * @summary 快速写作
+ *
+ * @param request RunQuickWritingRequest
+ * @return RunQuickWritingResponse
+ */
+RunQuickWritingResponse Client::runQuickWriting(const RunQuickWritingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runQuickWritingWithOptions(request, runtime);
+}
+
+/**
  * @summary AI妙搜-智能搜索生成
  *
  * @param tmpReq RunSearchGenerationRequest
@@ -10636,6 +11057,119 @@ RunTitleGenerationResponse Client::runTitleGenerationWithOptions(const RunTitleG
 RunTitleGenerationResponse Client::runTitleGeneration(const RunTitleGenerationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runTitleGenerationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 妙策选题策划聚合
+ *
+ * @param tmpReq RunTopicSelectionMergeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunTopicSelectionMergeResponse
+ */
+FutrueGenerator<RunTopicSelectionMergeResponse> Client::runTopicSelectionMergeWithSSE(const RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunTopicSelectionMergeShrinkRequest request = RunTopicSelectionMergeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTopics()) {
+    request.setTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.topics(), "Topics", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasTopicsShrink()) {
+    body["Topics"] = request.topicsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunTopicSelectionMerge"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunTopicSelectionMergeResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 妙策选题策划聚合
+ *
+ * @param tmpReq RunTopicSelectionMergeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunTopicSelectionMergeResponse
+ */
+RunTopicSelectionMergeResponse Client::runTopicSelectionMergeWithOptions(const RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunTopicSelectionMergeShrinkRequest request = RunTopicSelectionMergeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTopics()) {
+    request.setTopicsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.topics(), "Topics", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasTopicsShrink()) {
+    body["Topics"] = request.topicsShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunTopicSelectionMerge"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunTopicSelectionMergeResponse>();
+}
+
+/**
+ * @summary 妙策选题策划聚合
+ *
+ * @param request RunTopicSelectionMergeRequest
+ * @return RunTopicSelectionMergeResponse
+ */
+RunTopicSelectionMergeResponse Client::runTopicSelectionMerge(const RunTopicSelectionMergeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runTopicSelectionMergeWithOptions(request, runtime);
 }
 
 /**
@@ -13055,6 +13589,56 @@ UpdateDatasetDocumentResponse Client::updateDatasetDocumentWithOptions(const Upd
 UpdateDatasetDocumentResponse Client::updateDatasetDocument(const UpdateDatasetDocumentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDatasetDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通用配置-更新
+ *
+ * @param request UpdateGeneralConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGeneralConfigResponse
+ */
+UpdateGeneralConfigResponse Client::updateGeneralConfigWithOptions(const UpdateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfigKey()) {
+    body["ConfigKey"] = request.configKey();
+  }
+
+  if (!!request.hasConfigValue()) {
+    body["ConfigValue"] = request.configValue();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateGeneralConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGeneralConfigResponse>();
+}
+
+/**
+ * @summary 通用配置-更新
+ *
+ * @param request UpdateGeneralConfigRequest
+ * @return UpdateGeneralConfigResponse
+ */
+UpdateGeneralConfigResponse Client::updateGeneralConfig(const UpdateGeneralConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateGeneralConfigWithOptions(request, runtime);
 }
 
 /**

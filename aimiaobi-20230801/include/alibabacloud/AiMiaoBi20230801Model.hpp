@@ -57,6 +57,9 @@
 #include <alibabacloud/models/CreateDatasetShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDatasetResponseBody.hpp>
 #include <alibabacloud/models/CreateDatasetResponse.hpp>
+#include <alibabacloud/models/CreateGeneralConfigRequest.hpp>
+#include <alibabacloud/models/CreateGeneralConfigResponseBody.hpp>
+#include <alibabacloud/models/CreateGeneralConfigResponse.hpp>
 #include <alibabacloud/models/CreateGeneratedContentRequest.hpp>
 #include <alibabacloud/models/CreateGeneratedContentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateGeneratedContentResponseBody.hpp>
@@ -93,6 +96,9 @@
 #include <alibabacloud/models/DeleteFactAuditUrlRequest.hpp>
 #include <alibabacloud/models/DeleteFactAuditUrlResponseBody.hpp>
 #include <alibabacloud/models/DeleteFactAuditUrlResponse.hpp>
+#include <alibabacloud/models/DeleteGeneralConfigRequest.hpp>
+#include <alibabacloud/models/DeleteGeneralConfigResponseBody.hpp>
+#include <alibabacloud/models/DeleteGeneralConfigResponse.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentRequest.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentResponseBody.hpp>
 #include <alibabacloud/models/DeleteGeneratedContentResponse.hpp>
@@ -239,6 +245,9 @@
 #include <alibabacloud/models/GetFileContentLengthRequest.hpp>
 #include <alibabacloud/models/GetFileContentLengthResponseBody.hpp>
 #include <alibabacloud/models/GetFileContentLengthResponse.hpp>
+#include <alibabacloud/models/GetGeneralConfigRequest.hpp>
+#include <alibabacloud/models/GetGeneralConfigResponseBody.hpp>
+#include <alibabacloud/models/GetGeneralConfigResponse.hpp>
 #include <alibabacloud/models/GetGeneratedContentRequest.hpp>
 #include <alibabacloud/models/GetGeneratedContentResponseBody.hpp>
 #include <alibabacloud/models/GetGeneratedContentResponse.hpp>
@@ -334,9 +343,15 @@
 #include <alibabacloud/models/ListDocsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDocsResponseBody.hpp>
 #include <alibabacloud/models/ListDocsResponse.hpp>
+#include <alibabacloud/models/ListDocumentRetrieveRequest.hpp>
+#include <alibabacloud/models/ListDocumentRetrieveResponseBody.hpp>
+#include <alibabacloud/models/ListDocumentRetrieveResponse.hpp>
 #include <alibabacloud/models/ListFreshViewPointsRequest.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponseBody.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponse.hpp>
+#include <alibabacloud/models/ListGeneralConfigsRequest.hpp>
+#include <alibabacloud/models/ListGeneralConfigsResponseBody.hpp>
+#include <alibabacloud/models/ListGeneralConfigsResponse.hpp>
 #include <alibabacloud/models/ListGeneratedContentsRequest.hpp>
 #include <alibabacloud/models/ListGeneratedContentsResponseBody.hpp>
 #include <alibabacloud/models/ListGeneratedContentsResponse.hpp>
@@ -478,6 +493,10 @@
 #include <alibabacloud/models/RunMultiDocIntroductionShrinkRequest.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBody.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponse.hpp>
+#include <alibabacloud/models/RunQuickWritingRequest.hpp>
+#include <alibabacloud/models/RunQuickWritingShrinkRequest.hpp>
+#include <alibabacloud/models/RunQuickWritingResponseBody.hpp>
+#include <alibabacloud/models/RunQuickWritingResponse.hpp>
 #include <alibabacloud/models/RunSearchGenerationRequest.hpp>
 #include <alibabacloud/models/RunSearchGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunSearchGenerationResponseBody.hpp>
@@ -504,6 +523,10 @@
 #include <alibabacloud/models/RunTitleGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunTitleGenerationResponseBody.hpp>
 #include <alibabacloud/models/RunTitleGenerationResponse.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeRequest.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeShrinkRequest.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponseBody.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponse.hpp>
 #include <alibabacloud/models/RunTranslateGenerationRequest.hpp>
 #include <alibabacloud/models/RunTranslateGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBody.hpp>
@@ -610,6 +633,9 @@
 #include <alibabacloud/models/UpdateDatasetDocumentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDatasetDocumentResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasetDocumentResponse.hpp>
+#include <alibabacloud/models/UpdateGeneralConfigRequest.hpp>
+#include <alibabacloud/models/UpdateGeneralConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateGeneralConfigResponse.hpp>
 #include <alibabacloud/models/UpdateGeneratedContentRequest.hpp>
 #include <alibabacloud/models/UpdateGeneratedContentShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateGeneratedContentResponseBody.hpp>
@@ -663,6 +689,7 @@
 #include <alibabacloud/models/CreateDatasetRequestDatasetConfig.hpp>
 #include <alibabacloud/models/CreateDatasetRequestDocumentHandleConfig.hpp>
 #include <alibabacloud/models/CreateDatasetResponseBodyData.hpp>
+#include <alibabacloud/models/CreateGeneralConfigResponseBodyData.hpp>
 #include <alibabacloud/models/CreateTokenResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteInterveneRuleResponseBodyData.hpp>
 #include <alibabacloud/models/DocumentExtractionResponseBodyData.hpp>
@@ -730,6 +757,7 @@
 #include <alibabacloud/models/GetEnterpriseVocAnalysisTaskResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetEnterpriseVocAnalysisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetFileContentLengthResponseBodyData.hpp>
+#include <alibabacloud/models/GetGeneralConfigResponseBodyData.hpp>
 #include <alibabacloud/models/GetGeneratedContentResponseBodyData.hpp>
 #include <alibabacloud/models/GetHotTopicBroadcastRequestStepForCustomSummaryStyleConfig.hpp>
 #include <alibabacloud/models/GetHotTopicBroadcastRequestStepForNewsBroadcastContentConfigCustomHotValueWeights.hpp>
@@ -828,8 +856,10 @@
 #include <alibabacloud/models/ListDatasetsResponseBodyThirdSearchConfig.hpp>
 #include <alibabacloud/models/ListDialoguesResponseBodyData.hpp>
 #include <alibabacloud/models/ListDocsResponseBodyData.hpp>
+#include <alibabacloud/models/ListDocumentRetrieveResponseBodyData.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponseBodyDataOutlines.hpp>
 #include <alibabacloud/models/ListFreshViewPointsResponseBodyData.hpp>
+#include <alibabacloud/models/ListGeneralConfigsResponseBodyData.hpp>
 #include <alibabacloud/models/ListGeneratedContentsResponseBodyDataFileAttr.hpp>
 #include <alibabacloud/models/ListGeneratedContentsResponseBodyData.hpp>
 #include <alibabacloud/models/ListHotNewsWithTypeResponseBodyDataNews.hpp>
@@ -978,6 +1008,12 @@
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunQuickWritingRequestArticles.hpp>
+#include <alibabacloud/models/RunQuickWritingRequestSearchSources.hpp>
+#include <alibabacloud/models/RunQuickWritingResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunQuickWritingResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunQuickWritingResponseBodyPayloadUsage.hpp>
+#include <alibabacloud/models/RunQuickWritingResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResultSearchResult.hpp>
 #include <alibabacloud/models/RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResult.hpp>
 #include <alibabacloud/models/RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection.hpp>
@@ -1104,6 +1140,10 @@
 #include <alibabacloud/models/RunTitleGenerationResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunTitleGenerationResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunTitleGenerationResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponseBodyPayloadUsage.hpp>
+#include <alibabacloud/models/RunTopicSelectionMergeResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunTranslateGenerationRequestReferenceData.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBodyHeader.hpp>
 #include <alibabacloud/models/RunTranslateGenerationResponseBodyPayloadOutput.hpp>
@@ -1202,6 +1242,7 @@
 #include <alibabacloud/models/UpdateDatasetResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateDatasetDocumentRequestDocument.hpp>
 #include <alibabacloud/models/UpdateDatasetDocumentResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateGeneralConfigResponseBodyData.hpp>
 #include <alibabacloud/models/UploadBookRequestDocs.hpp>
 #include <alibabacloud/models/UploadBookResponseBodyData.hpp>
 #include <alibabacloud/models/UploadDocRequestDocs.hpp>

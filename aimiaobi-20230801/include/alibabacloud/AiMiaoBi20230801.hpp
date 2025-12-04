@@ -259,6 +259,23 @@ namespace AiMiaoBi20230801
       Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
 
       /**
+       * @summary 通用配置-创建
+       *
+       * @param request CreateGeneralConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGeneralConfigResponse
+       */
+      Models::CreateGeneralConfigResponse createGeneralConfigWithOptions(const Models::CreateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用配置-创建
+       *
+       * @param request CreateGeneralConfigRequest
+       * @return CreateGeneralConfigResponse
+       */
+      Models::CreateGeneralConfigResponse createGeneralConfig(const Models::CreateGeneralConfigRequest &request);
+
+      /**
        * @summary 文档管理-创建
        *
        * @param tmpReq CreateGeneratedContentRequest
@@ -444,6 +461,23 @@ namespace AiMiaoBi20230801
        * @return DeleteFactAuditUrlResponse
        */
       Models::DeleteFactAuditUrlResponse deleteFactAuditUrl(const Models::DeleteFactAuditUrlRequest &request);
+
+      /**
+       * @summary 通用配置-删除
+       *
+       * @param request DeleteGeneralConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGeneralConfigResponse
+       */
+      Models::DeleteGeneralConfigResponse deleteGeneralConfigWithOptions(const Models::DeleteGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用配置-删除
+       *
+       * @param request DeleteGeneralConfigRequest
+       * @return DeleteGeneralConfigResponse
+       */
+      Models::DeleteGeneralConfigResponse deleteGeneralConfig(const Models::DeleteGeneralConfigRequest &request);
 
       /**
        * @summary 文档管理-删除。
@@ -1228,6 +1262,23 @@ namespace AiMiaoBi20230801
       Models::GetFileContentLengthResponse getFileContentLength(const Models::GetFileContentLengthRequest &request);
 
       /**
+       * @summary 通用配置-查询
+       *
+       * @param request GetGeneralConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGeneralConfigResponse
+       */
+      Models::GetGeneralConfigResponse getGeneralConfigWithOptions(const Models::GetGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用配置-查询
+       *
+       * @param request GetGeneralConfigRequest
+       * @return GetGeneralConfigResponse
+       */
+      Models::GetGeneralConfigResponse getGeneralConfig(const Models::GetGeneralConfigRequest &request);
+
+      /**
        * @summary 文档管理-查询详情。
        *
        * @param request GetGeneratedContentRequest
@@ -1721,6 +1772,23 @@ namespace AiMiaoBi20230801
       Models::ListDocsResponse listDocs(const Models::ListDocsRequest &request);
 
       /**
+       * @summary 公文检索
+       *
+       * @param request ListDocumentRetrieveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDocumentRetrieveResponse
+       */
+      Models::ListDocumentRetrieveResponse listDocumentRetrieveWithOptions(const Models::ListDocumentRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 公文检索
+       *
+       * @param request ListDocumentRetrieveRequest
+       * @return ListDocumentRetrieveResponse
+       */
+      Models::ListDocumentRetrieveResponse listDocumentRetrieve(const Models::ListDocumentRetrieveRequest &request);
+
+      /**
        * @summary 新颖视角列表
        *
        * @param request ListFreshViewPointsRequest
@@ -1736,6 +1804,23 @@ namespace AiMiaoBi20230801
        * @return ListFreshViewPointsResponse
        */
       Models::ListFreshViewPointsResponse listFreshViewPoints(const Models::ListFreshViewPointsRequest &request);
+
+      /**
+       * @summary 通用配置-列表
+       *
+       * @param request ListGeneralConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGeneralConfigsResponse
+       */
+      Models::ListGeneralConfigsResponse listGeneralConfigsWithOptions(const Models::ListGeneralConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用配置-列表
+       *
+       * @param request ListGeneralConfigsRequest
+       * @return ListGeneralConfigsResponse
+       */
+      Models::ListGeneralConfigsResponse listGeneralConfigs(const Models::ListGeneralConfigsRequest &request);
 
       /**
        * @summary 文档管理-列表。
@@ -2675,6 +2760,32 @@ namespace AiMiaoBi20230801
       Models::RunMultiDocIntroductionResponse runMultiDocIntroduction(const Models::RunMultiDocIntroductionRequest &request);
 
       /**
+       * @summary 快速写作
+       *
+       * @param tmpReq RunQuickWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunQuickWritingResponse
+       */
+      FutrueGenerator<Models::RunQuickWritingResponse> runQuickWritingWithSSE(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 快速写作
+       *
+       * @param tmpReq RunQuickWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunQuickWritingResponse
+       */
+      Models::RunQuickWritingResponse runQuickWritingWithOptions(const Models::RunQuickWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 快速写作
+       *
+       * @param request RunQuickWritingRequest
+       * @return RunQuickWritingResponse
+       */
+      Models::RunQuickWritingResponse runQuickWriting(const Models::RunQuickWritingRequest &request);
+
+      /**
        * @summary AI妙搜-智能搜索生成
        *
        * @param tmpReq RunSearchGenerationRequest
@@ -2855,6 +2966,32 @@ namespace AiMiaoBi20230801
        * @return RunTitleGenerationResponse
        */
       Models::RunTitleGenerationResponse runTitleGeneration(const Models::RunTitleGenerationRequest &request);
+
+      /**
+       * @summary 妙策选题策划聚合
+       *
+       * @param tmpReq RunTopicSelectionMergeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunTopicSelectionMergeResponse
+       */
+      FutrueGenerator<Models::RunTopicSelectionMergeResponse> runTopicSelectionMergeWithSSE(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 妙策选题策划聚合
+       *
+       * @param tmpReq RunTopicSelectionMergeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunTopicSelectionMergeResponse
+       */
+      Models::RunTopicSelectionMergeResponse runTopicSelectionMergeWithOptions(const Models::RunTopicSelectionMergeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 妙策选题策划聚合
+       *
+       * @param request RunTopicSelectionMergeRequest
+       * @return RunTopicSelectionMergeResponse
+       */
+      Models::RunTopicSelectionMergeResponse runTopicSelectionMerge(const Models::RunTopicSelectionMergeRequest &request);
 
       /**
        * @summary AI妙笔-创作-中英文翻译
@@ -3393,6 +3530,23 @@ namespace AiMiaoBi20230801
        * @return UpdateDatasetDocumentResponse
        */
       Models::UpdateDatasetDocumentResponse updateDatasetDocument(const Models::UpdateDatasetDocumentRequest &request);
+
+      /**
+       * @summary 通用配置-更新
+       *
+       * @param request UpdateGeneralConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGeneralConfigResponse
+       */
+      Models::UpdateGeneralConfigResponse updateGeneralConfigWithOptions(const Models::UpdateGeneralConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通用配置-更新
+       *
+       * @param request UpdateGeneralConfigRequest
+       * @return UpdateGeneralConfigResponse
+       */
+      Models::UpdateGeneralConfigResponse updateGeneralConfig(const Models::UpdateGeneralConfigRequest &request);
 
       /**
        * @summary 文档管理-更新。
