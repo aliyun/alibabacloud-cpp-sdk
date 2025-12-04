@@ -2248,6 +2248,10 @@ ListGroupResponse Client::listGroup(const ListGroupRequest &request) {
 ListJobsResponse Client::listJobsWithOptions(const string &taskId, const ListJobsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasJobType()) {
+    query["jobType"] = request.jobType();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.pageNumber();
   }

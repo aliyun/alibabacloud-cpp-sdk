@@ -13,12 +13,14 @@ namespace Models
   class ListJobsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListJobsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(jobType, jobType_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(taskType, taskType_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(jobType, jobType_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->status_ == nullptr && return this->taskType_ == nullptr; };
+    virtual bool empty() const override { return this->jobType_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->status_ == nullptr && return this->taskType_ == nullptr; };
+    // jobType Field Functions 
+    bool hasJobType() const { return this->jobType_ != nullptr;};
+    void deleteJobType() { this->jobType_ = nullptr;};
+    inline string jobType() const { DARABONBA_PTR_GET_DEFAULT(jobType_, "") };
+    inline ListJobsRequest& setJobType(string jobType) { DARABONBA_PTR_SET_VALUE(jobType_, jobType) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> jobType_ = nullptr;
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
