@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERHOLDSTATUSOTERESPONSEBODYACCESSDENIEDDETAIL_HPP_
-#define ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERHOLDSTATUSOTERESPONSEBODYACCESSDENIEDDETAIL_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERPROHIBITSTATUSFORGATEWAYRESPONSEBODYACCESSDENIEDDETAIL_HPP_
+#define ALIBABACLOUD_MODELS_UPDATERSPDOMAINSERVERPROHIBITSTATUSFORGATEWAYRESPONSEBODYACCESSDENIEDDETAIL_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,9 +10,9 @@ namespace Alidns20150109
 {
 namespace Models
 {
-  class UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail : public Darabonba::Model {
+  class UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& obj) { 
+    friend void to_json(Darabonba::Json& j, const UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& obj) { 
       DARABONBA_PTR_TO_JSON(AuthAction, authAction_);
       DARABONBA_PTR_TO_JSON(AuthPrincipalDisplayName, authPrincipalDisplayName_);
       DARABONBA_PTR_TO_JSON(AuthPrincipalOwnerId, authPrincipalOwnerId_);
@@ -21,7 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NoPermissionType, noPermissionType_);
       DARABONBA_PTR_TO_JSON(PolicyType, policyType_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& obj) { 
+    friend void from_json(const Darabonba::Json& j, UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthAction, authAction_);
       DARABONBA_PTR_FROM_JSON(AuthPrincipalDisplayName, authPrincipalDisplayName_);
       DARABONBA_PTR_FROM_JSON(AuthPrincipalOwnerId, authPrincipalOwnerId_);
@@ -30,13 +30,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NoPermissionType, noPermissionType_);
       DARABONBA_PTR_FROM_JSON(PolicyType, policyType_);
     };
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail() = default ;
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail(const UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail &) = default ;
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail(UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail &&) = default ;
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail() = default ;
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& operator=(const UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail &) = default ;
-    UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& operator=(UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail &&) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail() = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail(const UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail &) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail(UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail &&) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail() = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& operator=(const UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail &) = default ;
+    UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& operator=(UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -48,49 +48,49 @@ namespace Models
     bool hasAuthAction() const { return this->authAction_ != nullptr;};
     void deleteAuthAction() { this->authAction_ = nullptr;};
     inline string authAction() const { DARABONBA_PTR_GET_DEFAULT(authAction_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setAuthAction(string authAction) { DARABONBA_PTR_SET_VALUE(authAction_, authAction) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setAuthAction(string authAction) { DARABONBA_PTR_SET_VALUE(authAction_, authAction) };
 
 
     // authPrincipalDisplayName Field Functions 
     bool hasAuthPrincipalDisplayName() const { return this->authPrincipalDisplayName_ != nullptr;};
     void deleteAuthPrincipalDisplayName() { this->authPrincipalDisplayName_ = nullptr;};
     inline string authPrincipalDisplayName() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalDisplayName_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setAuthPrincipalDisplayName(string authPrincipalDisplayName) { DARABONBA_PTR_SET_VALUE(authPrincipalDisplayName_, authPrincipalDisplayName) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setAuthPrincipalDisplayName(string authPrincipalDisplayName) { DARABONBA_PTR_SET_VALUE(authPrincipalDisplayName_, authPrincipalDisplayName) };
 
 
     // authPrincipalOwnerId Field Functions 
     bool hasAuthPrincipalOwnerId() const { return this->authPrincipalOwnerId_ != nullptr;};
     void deleteAuthPrincipalOwnerId() { this->authPrincipalOwnerId_ = nullptr;};
     inline string authPrincipalOwnerId() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalOwnerId_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setAuthPrincipalOwnerId(string authPrincipalOwnerId) { DARABONBA_PTR_SET_VALUE(authPrincipalOwnerId_, authPrincipalOwnerId) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setAuthPrincipalOwnerId(string authPrincipalOwnerId) { DARABONBA_PTR_SET_VALUE(authPrincipalOwnerId_, authPrincipalOwnerId) };
 
 
     // authPrincipalType Field Functions 
     bool hasAuthPrincipalType() const { return this->authPrincipalType_ != nullptr;};
     void deleteAuthPrincipalType() { this->authPrincipalType_ = nullptr;};
     inline string authPrincipalType() const { DARABONBA_PTR_GET_DEFAULT(authPrincipalType_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setAuthPrincipalType(string authPrincipalType) { DARABONBA_PTR_SET_VALUE(authPrincipalType_, authPrincipalType) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setAuthPrincipalType(string authPrincipalType) { DARABONBA_PTR_SET_VALUE(authPrincipalType_, authPrincipalType) };
 
 
     // encodedDiagnosticMessage Field Functions 
     bool hasEncodedDiagnosticMessage() const { return this->encodedDiagnosticMessage_ != nullptr;};
     void deleteEncodedDiagnosticMessage() { this->encodedDiagnosticMessage_ = nullptr;};
     inline string encodedDiagnosticMessage() const { DARABONBA_PTR_GET_DEFAULT(encodedDiagnosticMessage_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setEncodedDiagnosticMessage(string encodedDiagnosticMessage) { DARABONBA_PTR_SET_VALUE(encodedDiagnosticMessage_, encodedDiagnosticMessage) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setEncodedDiagnosticMessage(string encodedDiagnosticMessage) { DARABONBA_PTR_SET_VALUE(encodedDiagnosticMessage_, encodedDiagnosticMessage) };
 
 
     // noPermissionType Field Functions 
     bool hasNoPermissionType() const { return this->noPermissionType_ != nullptr;};
     void deleteNoPermissionType() { this->noPermissionType_ = nullptr;};
     inline string noPermissionType() const { DARABONBA_PTR_GET_DEFAULT(noPermissionType_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setNoPermissionType(string noPermissionType) { DARABONBA_PTR_SET_VALUE(noPermissionType_, noPermissionType) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setNoPermissionType(string noPermissionType) { DARABONBA_PTR_SET_VALUE(noPermissionType_, noPermissionType) };
 
 
     // policyType Field Functions 
     bool hasPolicyType() const { return this->policyType_ != nullptr;};
     void deletePolicyType() { this->policyType_ = nullptr;};
     inline string policyType() const { DARABONBA_PTR_GET_DEFAULT(policyType_, "") };
-    inline UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
+    inline UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail& setPolicyType(string policyType) { DARABONBA_PTR_SET_VALUE(policyType_, policyType) };
 
 
   protected:

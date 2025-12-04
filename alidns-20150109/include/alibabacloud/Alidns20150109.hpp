@@ -2725,6 +2725,37 @@ namespace Alidns20150109
       Models::RemovePdnsUdpIpSegmentResponse removePdnsUdpIpSegment(const Models::RemovePdnsUdpIpSegmentRequest &request);
 
       /**
+       * @summary 用于删除特定域名的serverHold状态信息。
+       *
+       * @description ## 请求说明
+       * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+       * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+       * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+       * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+       * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+       *
+       * @param request RemoveRspDomainServerHoldStatusForGatewayRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveRspDomainServerHoldStatusForGatewayResponse
+       */
+      Models::RemoveRspDomainServerHoldStatusForGatewayResponse removeRspDomainServerHoldStatusForGatewayWithOptions(const Models::RemoveRspDomainServerHoldStatusForGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于删除特定域名的serverHold状态信息。
+       *
+       * @description ## 请求说明
+       * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+       * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+       * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+       * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+       * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+       *
+       * @param request RemoveRspDomainServerHoldStatusForGatewayRequest
+       * @return RemoveRspDomainServerHoldStatusForGatewayResponse
+       */
+      Models::RemoveRspDomainServerHoldStatusForGatewayResponse removeRspDomainServerHoldStatusForGateway(const Models::RemoveRspDomainServerHoldStatusForGatewayRequest &request);
+
+      /**
        * @summary Replaces the addresses referenced by an address pool.
        *
        * @param tmpReq ReplaceCloudGtmAddressPoolAddressRequest
@@ -3912,7 +3943,7 @@ namespace Alidns20150109
       Models::UpdateRecursionZoneRemarkResponse updateRecursionZoneRemark(const Models::UpdateRecursionZoneRemarkRequest &request);
 
       /**
-       * @summary 用于更新域名的状态属性
+       * @summary 用于更新特定域名的状态信息。
        *
        * @description ## 请求说明
        * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
@@ -3921,14 +3952,14 @@ namespace Alidns20150109
        * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
        * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
        *
-       * @param request UpdateRspDomainServerHoldStatusOteRequest
+       * @param request UpdateRspDomainServerProhibitStatusForGatewayRequest
        * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateRspDomainServerHoldStatusOteResponse
+       * @return UpdateRspDomainServerProhibitStatusForGatewayResponse
        */
-      Models::UpdateRspDomainServerHoldStatusOteResponse updateRspDomainServerHoldStatusOteWithOptions(const Models::UpdateRspDomainServerHoldStatusOteRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateRspDomainServerProhibitStatusForGatewayResponse updateRspDomainServerProhibitStatusForGatewayWithOptions(const Models::UpdateRspDomainServerProhibitStatusForGatewayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于更新域名的状态属性
+       * @summary 用于更新特定域名的状态信息。
        *
        * @description ## 请求说明
        * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
@@ -3937,41 +3968,10 @@ namespace Alidns20150109
        * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
        * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
        *
-       * @param request UpdateRspDomainServerHoldStatusOteRequest
-       * @return UpdateRspDomainServerHoldStatusOteResponse
+       * @param request UpdateRspDomainServerProhibitStatusForGatewayRequest
+       * @return UpdateRspDomainServerProhibitStatusForGatewayResponse
        */
-      Models::UpdateRspDomainServerHoldStatusOteResponse updateRspDomainServerHoldStatusOte(const Models::UpdateRspDomainServerHoldStatusOteRequest &request);
-
-      /**
-       * @summary 用于更新域名的状态属性
-       *
-       * @description ## 请求说明
-       * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-       * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-       * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-       * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-       * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
-       *
-       * @param request UpdateRspDomainStatusOteRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateRspDomainStatusOteResponse
-       */
-      Models::UpdateRspDomainStatusOteResponse updateRspDomainStatusOteWithOptions(const Models::UpdateRspDomainStatusOteRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 用于更新域名的状态属性
-       *
-       * @description ## 请求说明
-       * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-       * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-       * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-       * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-       * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
-       *
-       * @param request UpdateRspDomainStatusOteRequest
-       * @return UpdateRspDomainStatusOteResponse
-       */
-      Models::UpdateRspDomainStatusOteResponse updateRspDomainStatusOte(const Models::UpdateRspDomainStatusOteRequest &request);
+      Models::UpdateRspDomainServerProhibitStatusForGatewayResponse updateRspDomainServerProhibitStatusForGateway(const Models::UpdateRspDomainServerProhibitStatusForGatewayRequest &request);
 
       /**
        * @summary 检查实例主机名是否可添加

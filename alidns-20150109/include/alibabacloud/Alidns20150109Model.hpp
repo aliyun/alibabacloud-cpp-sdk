@@ -474,6 +474,9 @@
 #include <alibabacloud/models/RemovePdnsUdpIpSegmentRequest.hpp>
 #include <alibabacloud/models/RemovePdnsUdpIpSegmentResponseBody.hpp>
 #include <alibabacloud/models/RemovePdnsUdpIpSegmentResponse.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayRequest.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponseBody.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponse.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressRequest.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressShrinkRequest.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressResponseBody.hpp>
@@ -689,12 +692,9 @@
 #include <alibabacloud/models/UpdateRecursionZoneRemarkRequest.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneRemarkResponseBody.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneRemarkResponse.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteRequest.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBody.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponse.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteRequest.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBody.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteResponse.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequest.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponseBody.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponse.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseRequest.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponseBody.hpp>
 #include <alibabacloud/models/ValidateDnsGtmCnameRrCanUseResponse.hpp>
@@ -959,6 +959,8 @@
 #include <alibabacloud/models/PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos.hpp>
 #include <alibabacloud/models/PreviewGtmRecoveryPlanResponseBodyPreviewsPreview.hpp>
 #include <alibabacloud/models/PreviewGtmRecoveryPlanResponseBodyPreviews.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponseBodyAccessDeniedDetail.hpp>
+#include <alibabacloud/models/RemoveRspDomainServerHoldStatusForGatewayResponseBodyData.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmAddressPoolAddressRequestAddresses.hpp>
 #include <alibabacloud/models/ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools.hpp>
 #include <alibabacloud/models/SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask.hpp>
@@ -1005,12 +1007,10 @@
 #include <alibabacloud/models/UpdateGtmAddressPoolRequestAddr.hpp>
 #include <alibabacloud/models/UpdateGtmMonitorRequestIspCityNode.hpp>
 #include <alibabacloud/models/UpdateRecursionZoneEffectiveScopeRequestEffectiveScopes.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBodyAccessDeniedDetail.hpp>
-#include <alibabacloud/models/UpdateRspDomainServerHoldStatusOteResponseBodyData.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteRequestAddStatusList.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteRequestDeleteStatusList.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyAccessDeniedDetail.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyDataStatusList.hpp>
-#include <alibabacloud/models/UpdateRspDomainStatusOteResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequestAddStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayRequestDeleteStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponseBodyAccessDeniedDetail.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponseBodyDataStatusList.hpp>
+#include <alibabacloud/models/UpdateRspDomainServerProhibitStatusForGatewayResponseBodyData.hpp>
 
 #endif

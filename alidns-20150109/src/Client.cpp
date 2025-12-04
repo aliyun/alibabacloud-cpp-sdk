@@ -8905,6 +8905,70 @@ RemovePdnsUdpIpSegmentResponse Client::removePdnsUdpIpSegment(const RemovePdnsUd
 }
 
 /**
+ * @summary 用于删除特定域名的serverHold状态信息。
+ *
+ * @description ## 请求说明
+ * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+ * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+ * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+ * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+ * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+ *
+ * @param request RemoveRspDomainServerHoldStatusForGatewayRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveRspDomainServerHoldStatusForGatewayResponse
+ */
+RemoveRspDomainServerHoldStatusForGatewayResponse Client::removeRspDomainServerHoldStatusForGatewayWithOptions(const RemoveRspDomainServerHoldStatusForGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasStatusMsg()) {
+    query["StatusMsg"] = request.statusMsg();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveRspDomainServerHoldStatusForGateway"},
+    {"version" , "2015-01-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveRspDomainServerHoldStatusForGatewayResponse>();
+}
+
+/**
+ * @summary 用于删除特定域名的serverHold状态信息。
+ *
+ * @description ## 请求说明
+ * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
+ * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
+ * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
+ * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
+ * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+ *
+ * @param request RemoveRspDomainServerHoldStatusForGatewayRequest
+ * @return RemoveRspDomainServerHoldStatusForGatewayResponse
+ */
+RemoveRspDomainServerHoldStatusForGatewayResponse Client::removeRspDomainServerHoldStatusForGateway(const RemoveRspDomainServerHoldStatusForGatewayRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeRspDomainServerHoldStatusForGatewayWithOptions(request, runtime);
+}
+
+/**
  * @summary Replaces the addresses referenced by an address pool.
  *
  * @param tmpReq ReplaceCloudGtmAddressPoolAddressRequest
@@ -13117,7 +13181,7 @@ UpdateRecursionZoneRemarkResponse Client::updateRecursionZoneRemark(const Update
 }
 
 /**
- * @summary 用于更新域名的状态属性
+ * @summary 用于更新特定域名的状态信息。
  *
  * @description ## 请求说明
  * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
@@ -13126,87 +13190,11 @@ UpdateRecursionZoneRemarkResponse Client::updateRecursionZoneRemark(const Update
  * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
  * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
  *
- * @param request UpdateRspDomainServerHoldStatusOteRequest
+ * @param request UpdateRspDomainServerProhibitStatusForGatewayRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateRspDomainServerHoldStatusOteResponse
+ * @return UpdateRspDomainServerProhibitStatusForGatewayResponse
  */
-UpdateRspDomainServerHoldStatusOteResponse Client::updateRspDomainServerHoldStatusOteWithOptions(const UpdateRspDomainServerHoldStatusOteRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
-  }
-
-  if (!!request.hasDomainName()) {
-    query["DomainName"] = request.domainName();
-  }
-
-  if (!!request.hasOperatorId()) {
-    query["OperatorId"] = request.operatorId();
-  }
-
-  if (!!request.hasOperatorType()) {
-    query["OperatorType"] = request.operatorType();
-  }
-
-  if (!!request.hasServerHoldStatus()) {
-    query["ServerHoldStatus"] = request.serverHoldStatus();
-  }
-
-  if (!!request.hasStatusMsg()) {
-    query["StatusMsg"] = request.statusMsg();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "UpdateRspDomainServerHoldStatusOte"},
-    {"version" , "2015-01-09"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateRspDomainServerHoldStatusOteResponse>();
-}
-
-/**
- * @summary 用于更新域名的状态属性
- *
- * @description ## 请求说明
- * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
- * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
- * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
- * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
- * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
- *
- * @param request UpdateRspDomainServerHoldStatusOteRequest
- * @return UpdateRspDomainServerHoldStatusOteResponse
- */
-UpdateRspDomainServerHoldStatusOteResponse Client::updateRspDomainServerHoldStatusOte(const UpdateRspDomainServerHoldStatusOteRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return updateRspDomainServerHoldStatusOteWithOptions(request, runtime);
-}
-
-/**
- * @summary 用于更新域名的状态属性
- *
- * @description ## 请求说明
- * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
- * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
- * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
- * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
- * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
- *
- * @param request UpdateRspDomainStatusOteRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateRspDomainStatusOteResponse
- */
-UpdateRspDomainStatusOteResponse Client::updateRspDomainStatusOteWithOptions(const UpdateRspDomainStatusOteRequest &request, const Darabonba::RuntimeOptions &runtime) {
+UpdateRspDomainServerProhibitStatusForGatewayResponse Client::updateRspDomainServerProhibitStatusForGatewayWithOptions(const UpdateRspDomainServerProhibitStatusForGatewayRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
   if (!!request.hasAddStatusList()) {
@@ -13225,19 +13213,11 @@ UpdateRspDomainStatusOteResponse Client::updateRspDomainStatusOteWithOptions(con
     query["DomainName"] = request.domainName();
   }
 
-  if (!!request.hasOperatorId()) {
-    query["OperatorId"] = request.operatorId();
-  }
-
-  if (!!request.hasOperatorType()) {
-    query["OperatorType"] = request.operatorType();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
-    {"action" , "UpdateRspDomainStatusOte"},
+    {"action" , "UpdateRspDomainServerProhibitStatusForGateway"},
     {"version" , "2015-01-09"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
@@ -13247,11 +13227,11 @@ UpdateRspDomainStatusOteResponse Client::updateRspDomainStatusOteWithOptions(con
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateRspDomainStatusOteResponse>();
+  return json(callApi(params, req, runtime)).get<UpdateRspDomainServerProhibitStatusForGatewayResponse>();
 }
 
 /**
- * @summary 用于更新域名的状态属性
+ * @summary 用于更新特定域名的状态信息。
  *
  * @description ## 请求说明
  * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
@@ -13260,12 +13240,12 @@ UpdateRspDomainStatusOteResponse Client::updateRspDomainStatusOteWithOptions(con
  * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
  * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
  *
- * @param request UpdateRspDomainStatusOteRequest
- * @return UpdateRspDomainStatusOteResponse
+ * @param request UpdateRspDomainServerProhibitStatusForGatewayRequest
+ * @return UpdateRspDomainServerProhibitStatusForGatewayResponse
  */
-UpdateRspDomainStatusOteResponse Client::updateRspDomainStatusOte(const UpdateRspDomainStatusOteRequest &request) {
+UpdateRspDomainServerProhibitStatusForGatewayResponse Client::updateRspDomainServerProhibitStatusForGateway(const UpdateRspDomainServerProhibitStatusForGatewayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return updateRspDomainStatusOteWithOptions(request, runtime);
+  return updateRspDomainServerProhibitStatusForGatewayWithOptions(request, runtime);
 }
 
 /**
