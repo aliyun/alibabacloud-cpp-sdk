@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->eventRW_ != nullptr
-        && this->isOrganizationTrail_ != nullptr && this->maxComputeProjectArn_ != nullptr && this->maxComputeWriteRoleArn_ != nullptr && this->name_ != nullptr && this->ossBucketName_ != nullptr
-        && this->ossKeyPrefix_ != nullptr && this->ossWriteRoleArn_ != nullptr && this->slsProjectArn_ != nullptr && this->slsWriteRoleArn_ != nullptr && this->trailRegion_ != nullptr; };
+    virtual bool empty() const override { return this->eventRW_ == nullptr
+        && return this->isOrganizationTrail_ == nullptr && return this->maxComputeProjectArn_ == nullptr && return this->maxComputeWriteRoleArn_ == nullptr && return this->name_ == nullptr && return this->ossBucketName_ == nullptr
+        && return this->ossKeyPrefix_ == nullptr && return this->ossWriteRoleArn_ == nullptr && return this->slsProjectArn_ == nullptr && return this->slsWriteRoleArn_ == nullptr && return this->trailRegion_ == nullptr; };
     // eventRW Field Functions 
     bool hasEventRW() const { return this->eventRW_ != nullptr;};
     void deleteEventRW() { this->eventRW_ = nullptr;};

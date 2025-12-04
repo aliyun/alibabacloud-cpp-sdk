@@ -167,6 +167,23 @@ namespace Actiontrail20200706
       Models::DeleteAdvancedQueryTemplateResponse deleteAdvancedQueryTemplate(const Models::DeleteAdvancedQueryTemplateRequest &request);
 
       /**
+       * @summary 删除数据事件选择器
+       *
+       * @param request DeleteDataEventSelectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataEventSelectorResponse
+       */
+      Models::DeleteDataEventSelectorResponse deleteDataEventSelectorWithOptions(const Models::DeleteDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据事件选择器
+       *
+       * @param request DeleteDataEventSelectorRequest
+       * @return DeleteDataEventSelectorResponse
+       */
+      Models::DeleteDataEventSelectorResponse deleteDataEventSelector(const Models::DeleteDataEventSelectorRequest &request);
+
+      /**
        * @summary Deletes a data backfill task.
        *
        * @description This topic describes how to delete a data backfill task whose ID is `16602`.
@@ -508,6 +525,23 @@ namespace Actiontrail20200706
       Models::GetAdvancedQueryTemplateResponse getAdvancedQueryTemplate(const Models::GetAdvancedQueryTemplateRequest &request);
 
       /**
+       * @summary 查询事件选择器
+       *
+       * @param request GetDataEventSelectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDataEventSelectorResponse
+       */
+      Models::GetDataEventSelectorResponse getDataEventSelectorWithOptions(const Models::GetDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询事件选择器
+       *
+       * @param request GetDataEventSelectorRequest
+       * @return GetDataEventSelectorResponse
+       */
+      Models::GetDataEventSelectorResponse getDataEventSelector(const Models::GetDataEventSelectorRequest &request);
+
+      /**
        * @summary Queries the details of a data backfill task.
        *
        * @description This topic provides an example on how to query the details of a data backfill task whose ID is `16602`. The return result shows that historical events for a trail named `trail-name` are delivered to Simple Log Service and the task is complete.
@@ -588,6 +622,23 @@ namespace Actiontrail20200706
       Models::GetTrailStatusResponse getTrailStatus(const Models::GetTrailStatusRequest &request);
 
       /**
+       * @summary 批量查询事件选择器
+       *
+       * @param request ListDataEventSelectorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDataEventSelectorsResponse
+       */
+      Models::ListDataEventSelectorsResponse listDataEventSelectorsWithOptions(const Models::ListDataEventSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询事件选择器
+       *
+       * @param request ListDataEventSelectorsRequest
+       * @return ListDataEventSelectorsResponse
+       */
+      Models::ListDataEventSelectorsResponse listDataEventSelectors(const Models::ListDataEventSelectorsRequest &request);
+
+      /**
        * @summary 查询数据事件支持的服务与事件名称
        *
        * @param request ListDataEventServicesRequest
@@ -647,6 +698,23 @@ namespace Actiontrail20200706
        * @return LookupEventsResponse
        */
       Models::LookupEventsResponse lookupEvents(const Models::LookupEventsRequest &request);
+
+      /**
+       * @summary 创建事件选择器
+       *
+       * @param request PutDataEventSelectorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PutDataEventSelectorResponse
+       */
+      Models::PutDataEventSelectorResponse putDataEventSelectorWithOptions(const Models::PutDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建事件选择器
+       *
+       * @param request PutDataEventSelectorRequest
+       * @return PutDataEventSelectorResponse
+       */
+      Models::PutDataEventSelectorResponse putDataEventSelector(const Models::PutDataEventSelectorRequest &request);
 
       /**
        * @summary Enables a trail to deliver events to an Object Storage Service (OSS) bucket or a Simple Log Service Logstore.

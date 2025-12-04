@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->isLogging_ != nullptr
-        && this->latestDeliveryError_ != nullptr && this->latestDeliveryLogServiceError_ != nullptr && this->latestDeliveryLogServiceTime_ != nullptr && this->latestDeliveryTime_ != nullptr && this->ossBucketStatus_ != nullptr
-        && this->requestId_ != nullptr && this->slsLogStoreStatus_ != nullptr && this->startLoggingTime_ != nullptr && this->stopLoggingTime_ != nullptr; };
+    virtual bool empty() const override { return this->isLogging_ == nullptr
+        && return this->latestDeliveryError_ == nullptr && return this->latestDeliveryLogServiceError_ == nullptr && return this->latestDeliveryLogServiceTime_ == nullptr && return this->latestDeliveryTime_ == nullptr && return this->ossBucketStatus_ == nullptr
+        && return this->requestId_ == nullptr && return this->slsLogStoreStatus_ == nullptr && return this->startLoggingTime_ == nullptr && return this->stopLoggingTime_ == nullptr; };
     // isLogging Field Functions 
     bool hasIsLogging() const { return this->isLogging_ != nullptr;};
     void deleteIsLogging() { this->isLogging_ = nullptr;};

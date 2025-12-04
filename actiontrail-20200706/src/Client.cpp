@@ -422,6 +422,48 @@ DeleteAdvancedQueryTemplateResponse Client::deleteAdvancedQueryTemplate(const De
 }
 
 /**
+ * @summary 删除数据事件选择器
+ *
+ * @param request DeleteDataEventSelectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataEventSelectorResponse
+ */
+DeleteDataEventSelectorResponse Client::deleteDataEventSelectorWithOptions(const DeleteDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTrailName()) {
+    query["TrailName"] = request.trailName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataEventSelector"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataEventSelectorResponse>();
+}
+
+/**
+ * @summary 删除数据事件选择器
+ *
+ * @param request DeleteDataEventSelectorRequest
+ * @return DeleteDataEventSelectorResponse
+ */
+DeleteDataEventSelectorResponse Client::deleteDataEventSelector(const DeleteDataEventSelectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataEventSelectorWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a data backfill task.
  *
  * @description This topic describes how to delete a data backfill task whose ID is `16602`.
@@ -1277,6 +1319,48 @@ GetAdvancedQueryTemplateResponse Client::getAdvancedQueryTemplate(const GetAdvan
 }
 
 /**
+ * @summary 查询事件选择器
+ *
+ * @param request GetDataEventSelectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDataEventSelectorResponse
+ */
+GetDataEventSelectorResponse Client::getDataEventSelectorWithOptions(const GetDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTrailName()) {
+    query["TrailName"] = request.trailName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataEventSelector"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDataEventSelectorResponse>();
+}
+
+/**
+ * @summary 查询事件选择器
+ *
+ * @param request GetDataEventSelectorRequest
+ * @return GetDataEventSelectorResponse
+ */
+GetDataEventSelectorResponse Client::getDataEventSelector(const GetDataEventSelectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDataEventSelectorWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a data backfill task.
  *
  * @description This topic provides an example on how to query the details of a data backfill task whose ID is `16602`. The return result shows that historical events for a trail named `trail-name` are delivered to Simple Log Service and the task is complete.
@@ -1445,6 +1529,52 @@ GetTrailStatusResponse Client::getTrailStatus(const GetTrailStatusRequest &reque
 }
 
 /**
+ * @summary 批量查询事件选择器
+ *
+ * @param request ListDataEventSelectorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDataEventSelectorsResponse
+ */
+ListDataEventSelectorsResponse Client::listDataEventSelectorsWithOptions(const ListDataEventSelectorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDataEventSelectors"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDataEventSelectorsResponse>();
+}
+
+/**
+ * @summary 批量查询事件选择器
+ *
+ * @param request ListDataEventSelectorsRequest
+ * @return ListDataEventSelectorsResponse
+ */
+ListDataEventSelectorsResponse Client::listDataEventSelectors(const ListDataEventSelectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDataEventSelectorsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询数据事件支持的服务与事件名称
  *
  * @param request ListDataEventServicesRequest
@@ -1606,6 +1736,60 @@ LookupEventsResponse Client::lookupEventsWithOptions(const LookupEventsRequest &
 LookupEventsResponse Client::lookupEvents(const LookupEventsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return lookupEventsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建事件选择器
+ *
+ * @param request PutDataEventSelectorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PutDataEventSelectorResponse
+ */
+PutDataEventSelectorResponse Client::putDataEventSelectorWithOptions(const PutDataEventSelectorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventSelectors()) {
+    query["EventSelectors"] = request.eventSelectors();
+  }
+
+  if (!!request.hasIsTrailAllRegion()) {
+    query["IsTrailAllRegion"] = request.isTrailAllRegion();
+  }
+
+  if (!!request.hasTrailName()) {
+    query["TrailName"] = request.trailName();
+  }
+
+  if (!!request.hasTrailRegionIds()) {
+    query["TrailRegionIds"] = request.trailRegionIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PutDataEventSelector"},
+    {"version" , "2020-07-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PutDataEventSelectorResponse>();
+}
+
+/**
+ * @summary 创建事件选择器
+ *
+ * @param request PutDataEventSelectorRequest
+ * @return PutDataEventSelectorResponse
+ */
+PutDataEventSelectorResponse Client::putDataEventSelector(const PutDataEventSelectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return putDataEventSelectorWithOptions(request, runtime);
 }
 
 /**

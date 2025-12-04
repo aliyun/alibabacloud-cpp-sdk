@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_actiontrail20200706Targets.cmake")
+check_required_components("alibabacloud_actiontrail20200706")

@@ -20,6 +20,9 @@
 #include <alibabacloud/models/DeleteAdvancedQueryTemplateRequest.hpp>
 #include <alibabacloud/models/DeleteAdvancedQueryTemplateResponseBody.hpp>
 #include <alibabacloud/models/DeleteAdvancedQueryTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteDataEventSelectorRequest.hpp>
+#include <alibabacloud/models/DeleteDataEventSelectorResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataEventSelectorResponse.hpp>
 #include <alibabacloud/models/DeleteDeliveryHistoryJobRequest.hpp>
 #include <alibabacloud/models/DeleteDeliveryHistoryJobResponseBody.hpp>
 #include <alibabacloud/models/DeleteDeliveryHistoryJobResponse.hpp>
@@ -73,6 +76,9 @@
 #include <alibabacloud/models/GetAdvancedQueryTemplateRequest.hpp>
 #include <alibabacloud/models/GetAdvancedQueryTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetAdvancedQueryTemplateResponse.hpp>
+#include <alibabacloud/models/GetDataEventSelectorRequest.hpp>
+#include <alibabacloud/models/GetDataEventSelectorResponseBody.hpp>
+#include <alibabacloud/models/GetDataEventSelectorResponse.hpp>
 #include <alibabacloud/models/GetDeliveryHistoryJobRequest.hpp>
 #include <alibabacloud/models/GetDeliveryHistoryJobResponseBody.hpp>
 #include <alibabacloud/models/GetDeliveryHistoryJobResponse.hpp>
@@ -83,6 +89,9 @@
 #include <alibabacloud/models/GetTrailStatusRequest.hpp>
 #include <alibabacloud/models/GetTrailStatusResponseBody.hpp>
 #include <alibabacloud/models/GetTrailStatusResponse.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsRequest.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsResponseBody.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsResponse.hpp>
 #include <alibabacloud/models/ListDataEventServicesRequest.hpp>
 #include <alibabacloud/models/ListDataEventServicesResponseBody.hpp>
 #include <alibabacloud/models/ListDataEventServicesResponse.hpp>
@@ -92,6 +101,9 @@
 #include <alibabacloud/models/LookupEventsRequest.hpp>
 #include <alibabacloud/models/LookupEventsResponseBody.hpp>
 #include <alibabacloud/models/LookupEventsResponse.hpp>
+#include <alibabacloud/models/PutDataEventSelectorRequest.hpp>
+#include <alibabacloud/models/PutDataEventSelectorResponseBody.hpp>
+#include <alibabacloud/models/PutDataEventSelectorResponse.hpp>
 #include <alibabacloud/models/StartLoggingRequest.hpp>
 #include <alibabacloud/models/StartLoggingResponseBody.hpp>
 #include <alibabacloud/models/StartLoggingResponse.hpp>
@@ -121,9 +133,13 @@
 #include <alibabacloud/models/GetAccessKeyLastUsedIpsResponseBodyIps.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedProductsResponseBodyProducts.hpp>
 #include <alibabacloud/models/GetAccessKeyLastUsedResourcesResponseBodyResources.hpp>
+#include <alibabacloud/models/GetDataEventSelectorResponseBodySlsDeliveryConfigs.hpp>
 #include <alibabacloud/models/GetDeliveryHistoryJobResponseBodyStatus.hpp>
 #include <alibabacloud/models/GetGovernanceMetricsResponseBodyDataGovernanceMetrics.hpp>
 #include <alibabacloud/models/GetGovernanceMetricsResponseBodyData.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsResponseBodyDataDataEventSelectorInfosSlsDeliveryConfigs.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsResponseBodyDataDataEventSelectorInfos.hpp>
+#include <alibabacloud/models/ListDataEventSelectorsResponseBodyData.hpp>
 #include <alibabacloud/models/ListDataEventServicesResponseBodyDataServiceInfos.hpp>
 #include <alibabacloud/models/ListDataEventServicesResponseBodyData.hpp>
 #include <alibabacloud/models/ListDeliveryHistoryJobsResponseBodyDeliveryHistoryJobs.hpp>

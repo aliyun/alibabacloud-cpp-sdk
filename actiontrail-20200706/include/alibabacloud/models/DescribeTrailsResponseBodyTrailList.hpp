@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->eventRW_ != nullptr && this->homeRegion_ != nullptr && this->isOrganizationTrail_ != nullptr && this->maxComputeProjectArn_ != nullptr && this->maxComputeWriteRoleArn_ != nullptr
-        && this->name_ != nullptr && this->organizationId_ != nullptr && this->ossBucketLocation_ != nullptr && this->ossBucketName_ != nullptr && this->ossKeyPrefix_ != nullptr
-        && this->ossWriteRoleArn_ != nullptr && this->region_ != nullptr && this->slsProjectArn_ != nullptr && this->slsWriteRoleArn_ != nullptr && this->startLoggingTime_ != nullptr
-        && this->status_ != nullptr && this->stopLoggingTime_ != nullptr && this->trailArn_ != nullptr && this->trailRegion_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->eventRW_ == nullptr && return this->homeRegion_ == nullptr && return this->isOrganizationTrail_ == nullptr && return this->maxComputeProjectArn_ == nullptr && return this->maxComputeWriteRoleArn_ == nullptr
+        && return this->name_ == nullptr && return this->organizationId_ == nullptr && return this->ossBucketLocation_ == nullptr && return this->ossBucketName_ == nullptr && return this->ossKeyPrefix_ == nullptr
+        && return this->ossWriteRoleArn_ == nullptr && return this->region_ == nullptr && return this->slsProjectArn_ == nullptr && return this->slsWriteRoleArn_ == nullptr && return this->startLoggingTime_ == nullptr
+        && return this->status_ == nullptr && return this->stopLoggingTime_ == nullptr && return this->trailArn_ == nullptr && return this->trailRegion_ == nullptr && return this->updateTime_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

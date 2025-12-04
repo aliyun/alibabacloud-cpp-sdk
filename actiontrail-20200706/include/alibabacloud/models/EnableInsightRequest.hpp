@@ -29,7 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->insightType_ != nullptr; };
+    virtual bool empty() const override { return this->insightType_ == nullptr; };
     // insightType Field Functions 
     bool hasInsightType() const { return this->insightType_ != nullptr;};
     void deleteInsightType() { this->insightType_ = nullptr;};

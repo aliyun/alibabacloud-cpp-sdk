@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->includeOrganizationTrail_ != nullptr
-        && this->includeShadowTrails_ != nullptr && this->nameList_ != nullptr; };
+    virtual bool empty() const override { return this->includeOrganizationTrail_ == nullptr
+        && return this->includeShadowTrails_ == nullptr && return this->nameList_ == nullptr; };
     // includeOrganizationTrail Field Functions 
     bool hasIncludeOrganizationTrail() const { return this->includeOrganizationTrail_ != nullptr;};
     void deleteIncludeOrganizationTrail() { this->includeOrganizationTrail_ = nullptr;};
