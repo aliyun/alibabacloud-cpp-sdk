@@ -19,6 +19,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
+      DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PrivateConnectUrl, privateConnectUrl_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
@@ -29,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIpList, securityIpList_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -40,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
+      DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PrivateConnectUrl, privateConnectUrl_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
@@ -50,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityIpList, securityIpList_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -67,9 +73,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
         && return this->dashboardPassword_ == nullptr && return this->dashboardUserName_ == nullptr && return this->diskPerformanceLevel_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->privateConnectUrl_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr && return this->projectSpec_ == nullptr && return this->publicConnectUrl_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr && return this->status_ == nullptr && return this->storageSize_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->instanceVersion_ == nullptr && return this->payType_ == nullptr && return this->privateConnectUrl_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr
+        && return this->projectSpec_ == nullptr && return this->publicConnectUrl_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr
+        && return this->status_ == nullptr && return this->storageSize_ == nullptr && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
+        && return this->zoneId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -110,6 +117,20 @@ namespace Models
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
     inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline GetSupabaseProjectResponseBody& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
+
+
+    // instanceVersion Field Functions 
+    bool hasInstanceVersion() const { return this->instanceVersion_ != nullptr;};
+    void deleteInstanceVersion() { this->instanceVersion_ = nullptr;};
+    inline string instanceVersion() const { DARABONBA_PTR_GET_DEFAULT(instanceVersion_, "") };
+    inline GetSupabaseProjectResponseBody& setInstanceVersion(string instanceVersion) { DARABONBA_PTR_SET_VALUE(instanceVersion_, instanceVersion) };
+
+
+    // payType Field Functions 
+    bool hasPayType() const { return this->payType_ != nullptr;};
+    void deletePayType() { this->payType_ = nullptr;};
+    inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
+    inline GetSupabaseProjectResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
     // privateConnectUrl Field Functions 
@@ -182,6 +203,13 @@ namespace Models
     inline GetSupabaseProjectResponseBody& setStorageSize(int64_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline GetSupabaseProjectResponseBody& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
     // vSwitchId Field Functions 
     bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
@@ -219,6 +247,8 @@ namespace Models
     std::shared_ptr<string> engine_ = nullptr;
     // The version of the database engine.
     std::shared_ptr<string> engineVersion_ = nullptr;
+    std::shared_ptr<string> instanceVersion_ = nullptr;
+    std::shared_ptr<string> payType_ = nullptr;
     // The private (VPC) connection URL for the Supabase Dashboard.
     std::shared_ptr<string> privateConnectUrl_ = nullptr;
     // The Supabase instance ID.
@@ -241,6 +271,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     // The storage capacity of the instance. Unit: GB.
     std::shared_ptr<int64_t> storageSize_ = nullptr;
+    std::shared_ptr<string> storageType_ = nullptr;
     // The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
     std::shared_ptr<string> vSwitchId_ = nullptr;
     // The VPC ID.

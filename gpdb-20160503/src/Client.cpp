@@ -11467,6 +11467,14 @@ ListSupabaseProjectsResponse Client::listSupabaseProjectsWithOptions(const ListS
     query["NextToken"] = request.nextToken();
   }
 
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.regionId();
   }
