@@ -17974,9 +17974,9 @@ DescribeSecretsResponse Client::describeSecrets(const DescribeSecretsRequest &re
  * @summary Queries ECS security groups to which an instance is added.
  *
  * @description ### [](#)Supported database engines
- * *   MySQL
- * *   PostgreSQL
- * *   SQL Server
+ * * MySQL
+ * * PostgreSQL
+ * * SQL Server
  * ### [](#)References
  * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
  * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
@@ -18027,9 +18027,9 @@ DescribeSecurityGroupConfigurationResponse Client::describeSecurityGroupConfigur
  * @summary Queries ECS security groups to which an instance is added.
  *
  * @description ### [](#)Supported database engines
- * *   MySQL
- * *   PostgreSQL
- * *   SQL Server
+ * * MySQL
+ * * PostgreSQL
+ * * SQL Server
  * ### [](#)References
  * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
  * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
@@ -27998,6 +27998,10 @@ ReleaseReadWriteSplittingConnectionResponse Client::releaseReadWriteSplittingCon
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRWAddressType()) {
+    query["RWAddressType"] = request.RWAddressType();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
