@@ -3206,6 +3206,10 @@ CreateMessageResponse Client::createMessageWithOptions(const CreateMessageReques
     body["assistantId"] = request.assistantId();
   }
 
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
+  }
+
   if (!!request.hasMessages()) {
     body["messages"] = request.messages();
   }
@@ -3760,6 +3764,10 @@ FutrueGenerator<CreateRunResponse> Client::createRunWithSSE(const CreateRunReque
     body["assistantId"] = request.assistantId();
   }
 
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
+  }
+
   if (!!request.hasOriginalAssistantId()) {
     body["originalAssistantId"] = request.originalAssistantId();
   }
@@ -3836,6 +3844,10 @@ CreateRunResponse Client::createRunWithOptions(const CreateRunRequest &request, 
 
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
@@ -4468,6 +4480,10 @@ CreateThreadResponse Client::createThreadWithOptions(const CreateThreadRequest &
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {
@@ -7460,6 +7476,10 @@ GetAssistantCapabilityResponse Client::getAssistantCapabilityWithOptions(const G
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasMessages()) {
@@ -12840,6 +12860,10 @@ FutrueGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
     body["assistantId"] = request.assistantId();
   }
 
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
+  }
+
   if (!!request.hasMessages()) {
     body["messages"] = request.messages();
   }
@@ -12916,6 +12940,10 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasMessages()) {
@@ -13718,6 +13746,10 @@ ListMessageResponse Client::listMessageWithOptions(const ListMessageRequest &req
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasLimit()) {
@@ -17242,6 +17274,10 @@ RetrieveRunResponse Client::retrieveRunWithOptions(const RetrieveRunRequest &req
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasExtLoginUser()) {
+    body["extLoginUser"] = request.extLoginUser();
   }
 
   if (!!request.hasOriginalAssistantId()) {

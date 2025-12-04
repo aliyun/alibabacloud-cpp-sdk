@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETASSISTANTCAPABILITYREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_GETASSISTANTCAPABILITYREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetAssistantCapabilityRequestExtLoginUser.hpp>
 #include <vector>
 #include <alibabacloud/models/GetAssistantCapabilityRequestMessages.hpp>
 using namespace std;
@@ -16,6 +17,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetAssistantCapabilityRequest& obj) { 
       DARABONBA_PTR_TO_JSON(assistantId, assistantId_);
+      DARABONBA_PTR_TO_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_TO_JSON(messages, messages_);
       DARABONBA_PTR_TO_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
@@ -26,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetAssistantCapabilityRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(assistantId, assistantId_);
+      DARABONBA_PTR_FROM_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_FROM_JSON(messages, messages_);
       DARABONBA_PTR_FROM_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
@@ -46,13 +49,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assistantId_ == nullptr
-        && return this->messages_ == nullptr && return this->originalAssistantId_ == nullptr && return this->protocol_ == nullptr && return this->sourceIdOfOriginalAssistantId_ == nullptr && return this->sourceTypeOfOriginalAssistantId_ == nullptr
-        && return this->threadId_ == nullptr && return this->timeout_ == nullptr; };
+        && return this->extLoginUser_ == nullptr && return this->messages_ == nullptr && return this->originalAssistantId_ == nullptr && return this->protocol_ == nullptr && return this->sourceIdOfOriginalAssistantId_ == nullptr
+        && return this->sourceTypeOfOriginalAssistantId_ == nullptr && return this->threadId_ == nullptr && return this->timeout_ == nullptr; };
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};
     inline string assistantId() const { DARABONBA_PTR_GET_DEFAULT(assistantId_, "") };
     inline GetAssistantCapabilityRequest& setAssistantId(string assistantId) { DARABONBA_PTR_SET_VALUE(assistantId_, assistantId) };
+
+
+    // extLoginUser Field Functions 
+    bool hasExtLoginUser() const { return this->extLoginUser_ != nullptr;};
+    void deleteExtLoginUser() { this->extLoginUser_ = nullptr;};
+    inline const GetAssistantCapabilityRequestExtLoginUser & extLoginUser() const { DARABONBA_PTR_GET_CONST(extLoginUser_, GetAssistantCapabilityRequestExtLoginUser) };
+    inline GetAssistantCapabilityRequestExtLoginUser extLoginUser() { DARABONBA_PTR_GET(extLoginUser_, GetAssistantCapabilityRequestExtLoginUser) };
+    inline GetAssistantCapabilityRequest& setExtLoginUser(const GetAssistantCapabilityRequestExtLoginUser & extLoginUser) { DARABONBA_PTR_SET_VALUE(extLoginUser_, extLoginUser) };
+    inline GetAssistantCapabilityRequest& setExtLoginUser(GetAssistantCapabilityRequestExtLoginUser && extLoginUser) { DARABONBA_PTR_SET_RVALUE(extLoginUser_, extLoginUser) };
 
 
     // messages Field Functions 
@@ -109,6 +121,7 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> assistantId_ = nullptr;
+    std::shared_ptr<GetAssistantCapabilityRequestExtLoginUser> extLoginUser_ = nullptr;
     // This parameter is required.
     std::shared_ptr<vector<GetAssistantCapabilityRequestMessages>> messages_ = nullptr;
     std::shared_ptr<string> originalAssistantId_ = nullptr;

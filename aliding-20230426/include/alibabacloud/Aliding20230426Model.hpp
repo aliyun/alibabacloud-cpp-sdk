@@ -1666,6 +1666,7 @@
 #include <alibabacloud/models/CreateMeetingRoomRequestTenantContext.hpp>
 #include <alibabacloud/models/CreateMeetingRoomGroupHeadersAccountContext.hpp>
 #include <alibabacloud/models/CreateMeetingRoomGroupRequestTenantContext.hpp>
+#include <alibabacloud/models/CreateMessageRequestExtLoginUser.hpp>
 #include <alibabacloud/models/CreateMessageRequestMessagesContentCardCallback.hpp>
 #include <alibabacloud/models/CreateMessageRequestMessagesContentDingCard.hpp>
 #include <alibabacloud/models/CreateMessageRequestMessagesContentDingNormalCardCardData.hpp>
@@ -1717,6 +1718,7 @@
 #include <alibabacloud/models/CreateReportHeadersAccountContext.hpp>
 #include <alibabacloud/models/CreateReportRequestContents.hpp>
 #include <alibabacloud/models/CreateReportRequestTenantContext.hpp>
+#include <alibabacloud/models/CreateRunRequestExtLoginUser.hpp>
 #include <alibabacloud/models/CreateRunResponseBodyMessagesContentCardCallback.hpp>
 #include <alibabacloud/models/CreateRunResponseBodyMessagesContentDingCard.hpp>
 #include <alibabacloud/models/CreateRunResponseBodyMessagesContentDingNormalCardCardData.hpp>
@@ -1762,6 +1764,7 @@
 #include <alibabacloud/models/CreateSheetRequestTenantContext.hpp>
 #include <alibabacloud/models/CreateSubscribedCalendarHeadersAccountContext.hpp>
 #include <alibabacloud/models/CreateSubscribedCalendarRequestSubscribeScope.hpp>
+#include <alibabacloud/models/CreateThreadRequestExtLoginUser.hpp>
 #include <alibabacloud/models/CreateThreadResponseBodyThread.hpp>
 #include <alibabacloud/models/CreateTicketHeadersAccountContext.hpp>
 #include <alibabacloud/models/CreateTicketRequestNotify.hpp>
@@ -1849,6 +1852,7 @@
 #include <alibabacloud/models/GetAllSheetsHeadersAccountContext.hpp>
 #include <alibabacloud/models/GetAllSheetsRequestTenantContext.hpp>
 #include <alibabacloud/models/GetAllSheetsResponseBodyValue.hpp>
+#include <alibabacloud/models/GetAssistantCapabilityRequestExtLoginUser.hpp>
 #include <alibabacloud/models/GetAssistantCapabilityRequestMessagesContentCardCallback.hpp>
 #include <alibabacloud/models/GetAssistantCapabilityRequestMessagesContentDingCard.hpp>
 #include <alibabacloud/models/GetAssistantCapabilityRequestMessagesContentDingNormalCardCardData.hpp>
@@ -2119,6 +2123,7 @@
 #include <alibabacloud/models/InviteUsersRequestInviteeList.hpp>
 #include <alibabacloud/models/InviteUsersRequestTenantContext.hpp>
 #include <alibabacloud/models/InviteUsersRequestPhoneInviteeList.hpp>
+#include <alibabacloud/models/InvokeAssistantRequestExtLoginUser.hpp>
 #include <alibabacloud/models/InvokeAssistantRequestMessagesContentCardCallback.hpp>
 #include <alibabacloud/models/InvokeAssistantRequestMessagesContentDingCard.hpp>
 #include <alibabacloud/models/InvokeAssistantRequestMessagesContentDingNormalCardCardData.hpp>
@@ -2209,6 +2214,7 @@
 #include <alibabacloud/models/ListEventsViewResponseBodyEventsStart.hpp>
 #include <alibabacloud/models/ListEventsViewResponseBodyEvents.hpp>
 #include <alibabacloud/models/ListFormRemarksHeadersAccountContext.hpp>
+#include <alibabacloud/models/ListMessageRequestExtLoginUser.hpp>
 #include <alibabacloud/models/ListMessageResponseBodyMessagesContentCardCallback.hpp>
 #include <alibabacloud/models/ListMessageResponseBodyMessagesContentDingCard.hpp>
 #include <alibabacloud/models/ListMessageResponseBodyMessagesContentDingNormalCardCardData.hpp>
@@ -2412,6 +2418,7 @@
 #include <alibabacloud/models/RemoveMeetingRoomsRequestMeetingRoomsToRemove.hpp>
 #include <alibabacloud/models/RespondEventHeadersAccountContext.hpp>
 #include <alibabacloud/models/RespondEventRequestTenantContext.hpp>
+#include <alibabacloud/models/RetrieveRunRequestExtLoginUser.hpp>
 #include <alibabacloud/models/RetrieveRunResponseBodyRun.hpp>
 #include <alibabacloud/models/SaveContentHeadersAccountContext.hpp>
 #include <alibabacloud/models/SaveContentRequestContents.hpp>

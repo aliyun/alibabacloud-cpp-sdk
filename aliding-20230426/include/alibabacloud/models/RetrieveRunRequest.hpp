@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RETRIEVERUNREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_RETRIEVERUNREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/RetrieveRunRequestExtLoginUser.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RetrieveRunRequest& obj) { 
       DARABONBA_PTR_TO_JSON(assistantId, assistantId_);
+      DARABONBA_PTR_TO_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_TO_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_TO_JSON(runId, runId_);
       DARABONBA_PTR_TO_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
@@ -21,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, RetrieveRunRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(assistantId, assistantId_);
+      DARABONBA_PTR_FROM_JSON(extLoginUser, extLoginUser_);
       DARABONBA_PTR_FROM_JSON(originalAssistantId, originalAssistantId_);
       DARABONBA_PTR_FROM_JSON(runId, runId_);
       DARABONBA_PTR_FROM_JSON(sourceIdOfOriginalAssistantId, sourceIdOfOriginalAssistantId_);
@@ -38,12 +41,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assistantId_ == nullptr
-        && return this->originalAssistantId_ == nullptr && return this->runId_ == nullptr && return this->sourceIdOfOriginalAssistantId_ == nullptr && return this->sourceTypeOfOriginalAssistantId_ == nullptr; };
+        && return this->extLoginUser_ == nullptr && return this->originalAssistantId_ == nullptr && return this->runId_ == nullptr && return this->sourceIdOfOriginalAssistantId_ == nullptr && return this->sourceTypeOfOriginalAssistantId_ == nullptr; };
     // assistantId Field Functions 
     bool hasAssistantId() const { return this->assistantId_ != nullptr;};
     void deleteAssistantId() { this->assistantId_ = nullptr;};
     inline string assistantId() const { DARABONBA_PTR_GET_DEFAULT(assistantId_, "") };
     inline RetrieveRunRequest& setAssistantId(string assistantId) { DARABONBA_PTR_SET_VALUE(assistantId_, assistantId) };
+
+
+    // extLoginUser Field Functions 
+    bool hasExtLoginUser() const { return this->extLoginUser_ != nullptr;};
+    void deleteExtLoginUser() { this->extLoginUser_ = nullptr;};
+    inline const RetrieveRunRequestExtLoginUser & extLoginUser() const { DARABONBA_PTR_GET_CONST(extLoginUser_, RetrieveRunRequestExtLoginUser) };
+    inline RetrieveRunRequestExtLoginUser extLoginUser() { DARABONBA_PTR_GET(extLoginUser_, RetrieveRunRequestExtLoginUser) };
+    inline RetrieveRunRequest& setExtLoginUser(const RetrieveRunRequestExtLoginUser & extLoginUser) { DARABONBA_PTR_SET_VALUE(extLoginUser_, extLoginUser) };
+    inline RetrieveRunRequest& setExtLoginUser(RetrieveRunRequestExtLoginUser && extLoginUser) { DARABONBA_PTR_SET_RVALUE(extLoginUser_, extLoginUser) };
 
 
     // originalAssistantId Field Functions 
@@ -77,6 +89,7 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> assistantId_ = nullptr;
+    std::shared_ptr<RetrieveRunRequestExtLoginUser> extLoginUser_ = nullptr;
     std::shared_ptr<string> originalAssistantId_ = nullptr;
     std::shared_ptr<string> runId_ = nullptr;
     std::shared_ptr<string> sourceIdOfOriginalAssistantId_ = nullptr;
