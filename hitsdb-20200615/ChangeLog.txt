@@ -1,3 +1,7 @@
+2025-12-04 Version: 5.7.0
+- Support API OpenLdpsColumnarIndex.
+
+
 2025-10-27 Version: 5.6.0
 - Support API GetLindormV2InstanceDetails.
 - Support API UpdateLindormInstanceAttribute.

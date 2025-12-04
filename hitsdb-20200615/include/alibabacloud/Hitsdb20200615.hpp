@@ -700,6 +700,8 @@ namespace Hitsdb20200615
       Models::ModifyLindormV2InstanceSecurityGroupsResponse modifyLindormV2InstanceSecurityGroups(const Models::ModifyLindormV2InstanceSecurityGroupsRequest &request);
 
       /**
+       * @summary 修改Lindorm新版实例白名单
+       *
        * @param request ModifyLindormV2WhiteIpListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyLindormV2WhiteIpListResponse
@@ -707,6 +709,8 @@ namespace Hitsdb20200615
       Models::ModifyLindormV2WhiteIpListResponse modifyLindormV2WhiteIpListWithOptions(const Models::ModifyLindormV2WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改Lindorm新版实例白名单
+       *
        * @param request ModifyLindormV2WhiteIpListRequest
        * @return ModifyLindormV2WhiteIpListResponse
        */
@@ -745,6 +749,23 @@ namespace Hitsdb20200615
        * @return OpenComputePreCheckResponse
        */
       Models::OpenComputePreCheckResponse openComputePreCheck(const Models::OpenComputePreCheckRequest &request);
+
+      /**
+       * @summary 开通列存索引
+       *
+       * @param request OpenLdpsColumnarIndexRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenLdpsColumnarIndexResponse
+       */
+      Models::OpenLdpsColumnarIndexResponse openLdpsColumnarIndexWithOptions(const Models::OpenLdpsColumnarIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开通列存索引
+       *
+       * @param request OpenLdpsColumnarIndexRequest
+       * @return OpenLdpsColumnarIndexResponse
+       */
+      Models::OpenLdpsColumnarIndexResponse openLdpsColumnarIndex(const Models::OpenLdpsColumnarIndexRequest &request);
 
       /**
        * @summary Releases a Lindorm instance.

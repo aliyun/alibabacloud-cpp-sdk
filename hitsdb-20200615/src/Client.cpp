@@ -3442,6 +3442,8 @@ ModifyLindormV2InstanceSecurityGroupsResponse Client::modifyLindormV2InstanceSec
 }
 
 /**
+ * @summary 修改Lindorm新版实例白名单
+ *
  * @param request ModifyLindormV2WhiteIpListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyLindormV2WhiteIpListResponse
@@ -3507,6 +3509,8 @@ ModifyLindormV2WhiteIpListResponse Client::modifyLindormV2WhiteIpListWithOptions
 }
 
 /**
+ * @summary 修改Lindorm新版实例白名单
+ *
  * @param request ModifyLindormV2WhiteIpListRequest
  * @return ModifyLindormV2WhiteIpListResponse
  */
@@ -3653,6 +3657,68 @@ OpenComputePreCheckResponse Client::openComputePreCheckWithOptions(const OpenCom
 OpenComputePreCheckResponse Client::openComputePreCheck(const OpenComputePreCheckRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return openComputePreCheckWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开通列存索引
+ *
+ * @param request OpenLdpsColumnarIndexRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenLdpsColumnarIndexResponse
+ */
+OpenLdpsColumnarIndexResponse Client::openLdpsColumnarIndexWithOptions(const OpenLdpsColumnarIndexRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OpenLdpsColumnarIndex"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenLdpsColumnarIndexResponse>();
+}
+
+/**
+ * @summary 开通列存索引
+ *
+ * @param request OpenLdpsColumnarIndexRequest
+ * @return OpenLdpsColumnarIndexResponse
+ */
+OpenLdpsColumnarIndexResponse Client::openLdpsColumnarIndex(const OpenLdpsColumnarIndexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return openLdpsColumnarIndexWithOptions(request, runtime);
 }
 
 /**

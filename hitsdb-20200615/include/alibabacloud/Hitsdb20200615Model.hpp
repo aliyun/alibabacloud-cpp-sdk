@@ -147,6 +147,9 @@
 #include <alibabacloud/models/OpenComputePreCheckRequest.hpp>
 #include <alibabacloud/models/OpenComputePreCheckResponseBody.hpp>
 #include <alibabacloud/models/OpenComputePreCheckResponse.hpp>
+#include <alibabacloud/models/OpenLdpsColumnarIndexRequest.hpp>
+#include <alibabacloud/models/OpenLdpsColumnarIndexResponseBody.hpp>
+#include <alibabacloud/models/OpenLdpsColumnarIndexResponse.hpp>
 #include <alibabacloud/models/ReleaseLindormInstanceRequest.hpp>
 #include <alibabacloud/models/ReleaseLindormInstanceResponseBody.hpp>
 #include <alibabacloud/models/ReleaseLindormInstanceResponse.hpp>
