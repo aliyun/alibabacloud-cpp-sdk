@@ -15,6 +15,9 @@
 #include <alibabacloud/models/ValidationErrorDetails.hpp>
 #include <alibabacloud/models/ValidateStatementResult.hpp>
 #include <alibabacloud/models/AsyncDraftDeployResult.hpp>
+#include <alibabacloud/models/DraftMetaInfoErrorDetail.hpp>
+#include <alibabacloud/models/DraftValidationDetail.hpp>
+#include <alibabacloud/models/AsyncDraftValidateResult.hpp>
 #include <alibabacloud/models/AsyncResourcePlanOperationResult.hpp>
 #include <alibabacloud/models/BasicResourceSettingSpec.hpp>
 #include <alibabacloud/models/BasicResourceSetting.hpp>
@@ -46,6 +49,7 @@
 #include <alibabacloud/models/DeploymentTarget.hpp>
 #include <alibabacloud/models/DraftDeployParams.hpp>
 #include <alibabacloud/models/DraftDeployResult.hpp>
+#include <alibabacloud/models/DraftValidateParams.hpp>
 #include <alibabacloud/models/Relation.hpp>
 #include <alibabacloud/models/Edge.hpp>
 #include <alibabacloud/models/EditableNamespace.hpp>

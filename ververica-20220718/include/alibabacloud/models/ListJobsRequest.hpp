@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(sortName, sortName_);
+      DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(deploymentId, deploymentId_);
       DARABONBA_PTR_FROM_JSON(pageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(sortName, sortName_);
+      DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
     };
     ListJobsRequest() = default ;
     ListJobsRequest(const ListJobsRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deploymentId_ == nullptr
-        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->sortName_ == nullptr; };
+        && return this->pageIndex_ == nullptr && return this->pageSize_ == nullptr && return this->sortName_ == nullptr && return this->sortOrder_ == nullptr; };
     // deploymentId Field Functions 
     bool hasDeploymentId() const { return this->deploymentId_ != nullptr;};
     void deleteDeploymentId() { this->deploymentId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     inline ListJobsRequest& setSortName(string sortName) { DARABONBA_PTR_SET_VALUE(sortName_, sortName) };
 
 
+    // sortOrder Field Functions 
+    bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
+    void deleteSortOrder() { this->sortOrder_ = nullptr;};
+    inline string sortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline ListJobsRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
+
+
   protected:
     // The deployment ID.
     // 
@@ -82,6 +91,7 @@ namespace Models
     // *   job_id
     // *   status
     std::shared_ptr<string> sortName_ = nullptr;
+    std::shared_ptr<string> sortOrder_ = nullptr;
   };
 
   } // namespace Models

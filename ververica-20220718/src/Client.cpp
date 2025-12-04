@@ -3048,6 +3048,10 @@ ListJobsResponse Client::listJobsWithOptions(const string &_namespace, const Lis
     query["sortName"] = request.sortName();
   }
 
+  if (!!request.hasSortOrder()) {
+    query["sortOrder"] = request.sortOrder();
+  }
+
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
     realHeaders = headers.commonHeaders();
