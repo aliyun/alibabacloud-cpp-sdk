@@ -541,6 +541,7 @@
 #include <alibabacloud/models/ModifyScalingRuleRequestHybridMetrics.hpp>
 #include <alibabacloud/models/ModifyScalingRuleRequestStepAdjustments.hpp>
 #include <alibabacloud/models/RemoveInstancesRequestLifecycleHookContext.hpp>
+#include <alibabacloud/models/RemoveInstancesResponseBodyIgnoredInstances.hpp>
 #include <alibabacloud/models/ScaleWithAdjustmentRequestLifecycleHookContext.hpp>
 #include <alibabacloud/models/ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars.hpp>
 #include <alibabacloud/models/ScaleWithAdjustmentRequestOverridesContainerOverrides.hpp>

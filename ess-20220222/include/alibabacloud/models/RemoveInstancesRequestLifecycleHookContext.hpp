@@ -16,10 +16,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const RemoveInstancesRequestLifecycleHookContext& obj) { 
       DARABONBA_PTR_TO_JSON(DisableLifecycleHook, disableLifecycleHook_);
       DARABONBA_PTR_TO_JSON(IgnoredLifecycleHookIds, ignoredLifecycleHookIds_);
+      DARABONBA_PTR_TO_JSON(LifecycleHookResult, lifecycleHookResult_);
     };
     friend void from_json(const Darabonba::Json& j, RemoveInstancesRequestLifecycleHookContext& obj) { 
       DARABONBA_PTR_FROM_JSON(DisableLifecycleHook, disableLifecycleHook_);
       DARABONBA_PTR_FROM_JSON(IgnoredLifecycleHookIds, ignoredLifecycleHookIds_);
+      DARABONBA_PTR_FROM_JSON(LifecycleHookResult, lifecycleHookResult_);
     };
     RemoveInstancesRequestLifecycleHookContext() = default ;
     RemoveInstancesRequestLifecycleHookContext(const RemoveInstancesRequestLifecycleHookContext &) = default ;
@@ -33,7 +35,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disableLifecycleHook_ == nullptr
-        && return this->ignoredLifecycleHookIds_ == nullptr; };
+        && return this->ignoredLifecycleHookIds_ == nullptr && return this->lifecycleHookResult_ == nullptr; };
     // disableLifecycleHook Field Functions 
     bool hasDisableLifecycleHook() const { return this->disableLifecycleHook_ != nullptr;};
     void deleteDisableLifecycleHook() { this->disableLifecycleHook_ = nullptr;};
@@ -50,6 +52,13 @@ namespace Models
     inline RemoveInstancesRequestLifecycleHookContext& setIgnoredLifecycleHookIds(vector<string> && ignoredLifecycleHookIds) { DARABONBA_PTR_SET_RVALUE(ignoredLifecycleHookIds_, ignoredLifecycleHookIds) };
 
 
+    // lifecycleHookResult Field Functions 
+    bool hasLifecycleHookResult() const { return this->lifecycleHookResult_ != nullptr;};
+    void deleteLifecycleHookResult() { this->lifecycleHookResult_ = nullptr;};
+    inline string lifecycleHookResult() const { DARABONBA_PTR_GET_DEFAULT(lifecycleHookResult_, "") };
+    inline RemoveInstancesRequestLifecycleHookContext& setLifecycleHookResult(string lifecycleHookResult) { DARABONBA_PTR_SET_VALUE(lifecycleHookResult_, lifecycleHookResult) };
+
+
   protected:
     // Specifies whether to disable the lifecycle hook. Valid Values:
     // 
@@ -58,6 +67,7 @@ namespace Models
     std::shared_ptr<bool> disableLifecycleHook_ = nullptr;
     // The IDs of the lifecycle hooks that you want to disable.
     std::shared_ptr<vector<string>> ignoredLifecycleHookIds_ = nullptr;
+    std::shared_ptr<string> lifecycleHookResult_ = nullptr;
   };
 
   } // namespace Models
