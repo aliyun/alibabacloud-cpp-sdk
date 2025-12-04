@@ -14881,6 +14881,64 @@ DescribeLiveRecordVodConfigsResponse Client::describeLiveRecordVodConfigs(const 
 }
 
 /**
+ * @summary 云端录制用量
+ *
+ * @param request DescribeLiveRtcRecordUsageDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeLiveRtcRecordUsageDataResponse
+ */
+DescribeLiveRtcRecordUsageDataResponse Client::describeLiveRtcRecordUsageDataWithOptions(const DescribeLiveRtcRecordUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.interval();
+  }
+
+  if (!!request.hasRecordMode()) {
+    query["RecordMode"] = request.recordMode();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeLiveRtcRecordUsageData"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeLiveRtcRecordUsageDataResponse>();
+}
+
+/**
+ * @summary 云端录制用量
+ *
+ * @param request DescribeLiveRtcRecordUsageDataRequest
+ * @return DescribeLiveRtcRecordUsageDataResponse
+ */
+DescribeLiveRtcRecordUsageDataResponse Client::describeLiveRtcRecordUsageData(const DescribeLiveRtcRecordUsageDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeLiveRtcRecordUsageDataWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the time shifting configurations under a domain name.
  *
  * @description This operation is applicable to the streaming domains.

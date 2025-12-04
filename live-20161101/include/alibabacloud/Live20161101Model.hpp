@@ -645,6 +645,9 @@
 #include <alibabacloud/models/DescribeLiveRecordVodConfigsRequest.hpp>
 #include <alibabacloud/models/DescribeLiveRecordVodConfigsResponseBody.hpp>
 #include <alibabacloud/models/DescribeLiveRecordVodConfigsResponse.hpp>
+#include <alibabacloud/models/DescribeLiveRtcRecordUsageDataRequest.hpp>
+#include <alibabacloud/models/DescribeLiveRtcRecordUsageDataResponseBody.hpp>
+#include <alibabacloud/models/DescribeLiveRtcRecordUsageDataResponse.hpp>
 #include <alibabacloud/models/DescribeLiveShiftConfigsRequest.hpp>
 #include <alibabacloud/models/DescribeLiveShiftConfigsResponseBody.hpp>
 #include <alibabacloud/models/DescribeLiveShiftConfigsResponse.hpp>
@@ -1557,6 +1560,7 @@
 #include <alibabacloud/models/DescribeLiveRecordNotifyRecordsResponseBodyCallbackList.hpp>
 #include <alibabacloud/models/DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfig.hpp>
 #include <alibabacloud/models/DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigs.hpp>
+#include <alibabacloud/models/DescribeLiveRtcRecordUsageDataResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeLiveShiftConfigsResponseBodyContentConfig.hpp>
 #include <alibabacloud/models/DescribeLiveShiftConfigsResponseBodyContent.hpp>
 #include <alibabacloud/models/DescribeLiveSnapshotConfigResponseBodyLiveStreamSnapshotConfigListLiveStreamSnapshotConfig.hpp>

@@ -5495,6 +5495,23 @@ namespace Live20161101
       Models::DescribeLiveRecordVodConfigsResponse describeLiveRecordVodConfigs(const Models::DescribeLiveRecordVodConfigsRequest &request);
 
       /**
+       * @summary 云端录制用量
+       *
+       * @param request DescribeLiveRtcRecordUsageDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeLiveRtcRecordUsageDataResponse
+       */
+      Models::DescribeLiveRtcRecordUsageDataResponse describeLiveRtcRecordUsageDataWithOptions(const Models::DescribeLiveRtcRecordUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 云端录制用量
+       *
+       * @param request DescribeLiveRtcRecordUsageDataRequest
+       * @return DescribeLiveRtcRecordUsageDataResponse
+       */
+      Models::DescribeLiveRtcRecordUsageDataResponse describeLiveRtcRecordUsageData(const Models::DescribeLiveRtcRecordUsageDataRequest &request);
+
+      /**
        * @summary Queries the time shifting configurations under a domain name.
        *
        * @description This operation is applicable to the streaming domains.
