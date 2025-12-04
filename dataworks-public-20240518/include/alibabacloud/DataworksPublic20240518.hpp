@@ -476,6 +476,40 @@ namespace DataworksPublic20240518
       Models::CreateDataSourceSharedRuleResponse createDataSourceSharedRule(const Models::CreateDataSourceSharedRuleRequest &request);
 
       /**
+       * @summary 创建数据集
+       *
+       * @param tmpReq CreateDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据集
+       *
+       * @param request CreateDatasetRequest
+       * @return CreateDatasetResponse
+       */
+      Models::CreateDatasetResponse createDataset(const Models::CreateDatasetRequest &request);
+
+      /**
+       * @summary 创建数据集版本
+       *
+       * @param tmpReq CreateDatasetVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDatasetVersionResponse
+       */
+      Models::CreateDatasetVersionResponse createDatasetVersionWithOptions(const Models::CreateDatasetVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建数据集版本
+       *
+       * @param request CreateDatasetVersionRequest
+       * @return CreateDatasetVersionResponse
+       */
+      Models::CreateDatasetVersionResponse createDatasetVersion(const Models::CreateDatasetVersionRequest &request);
+
+      /**
        * @param request CreateFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateFileResponse
@@ -1130,6 +1164,40 @@ namespace DataworksPublic20240518
        * @return DeleteDataSourceSharedRuleResponse
        */
       Models::DeleteDataSourceSharedRuleResponse deleteDataSourceSharedRule(const Models::DeleteDataSourceSharedRuleRequest &request);
+
+      /**
+       * @summary 删除数据集
+       *
+       * @param request DeleteDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDatasetWithOptions(const Models::DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据集
+       *
+       * @param request DeleteDatasetRequest
+       * @return DeleteDatasetResponse
+       */
+      Models::DeleteDatasetResponse deleteDataset(const Models::DeleteDatasetRequest &request);
+
+      /**
+       * @summary 删除数据集版本
+       *
+       * @param request DeleteDatasetVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDatasetVersionResponse
+       */
+      Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const Models::DeleteDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除数据集版本
+       *
+       * @param request DeleteDatasetVersionRequest
+       * @return DeleteDatasetVersionResponse
+       */
+      Models::DeleteDatasetVersionResponse deleteDatasetVersion(const Models::DeleteDatasetVersionRequest &request);
 
       /**
        * @param request DeleteFileRequest
@@ -1946,6 +2014,40 @@ namespace DataworksPublic20240518
        * @return GetDatabaseResponse
        */
       Models::GetDatabaseResponse getDatabase(const Models::GetDatabaseRequest &request);
+
+      /**
+       * @summary 获取数据集详情
+       *
+       * @param request GetDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDatasetWithOptions(const Models::GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据集详情
+       *
+       * @param request GetDatasetRequest
+       * @return GetDatasetResponse
+       */
+      Models::GetDatasetResponse getDataset(const Models::GetDatasetRequest &request);
+
+      /**
+       * @summary 获取数据集版本
+       *
+       * @param request GetDatasetVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDatasetVersionResponse
+       */
+      Models::GetDatasetVersionResponse getDatasetVersionWithOptions(const Models::GetDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据集版本
+       *
+       * @param request GetDatasetVersionRequest
+       * @return GetDatasetVersionResponse
+       */
+      Models::GetDatasetVersionResponse getDatasetVersion(const Models::GetDatasetVersionRequest &request);
 
       /**
        * @param request GetDeploymentPackageRequest
@@ -3065,6 +3167,40 @@ namespace DataworksPublic20240518
       Models::ListDatabasesResponse listDatabases(const Models::ListDatabasesRequest &request);
 
       /**
+       * @summary 获取数据集版本列表
+       *
+       * @param request ListDatasetVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasetVersionsResponse
+       */
+      Models::ListDatasetVersionsResponse listDatasetVersionsWithOptions(const Models::ListDatasetVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据集版本列表
+       *
+       * @param request ListDatasetVersionsRequest
+       * @return ListDatasetVersionsResponse
+       */
+      Models::ListDatasetVersionsResponse listDatasetVersions(const Models::ListDatasetVersionsRequest &request);
+
+      /**
+       * @summary 获取数据集列表
+       *
+       * @param tmpReq ListDatasetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasetsWithOptions(const Models::ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据集列表
+       *
+       * @param request ListDatasetsRequest
+       * @return ListDatasetsResponse
+       */
+      Models::ListDatasetsResponse listDatasets(const Models::ListDatasetsRequest &request);
+
+      /**
        * @summary Queries a list of versions of files to be deployed.
        *
        * @param tmpReq ListDeploymentPackageFilesRequest
@@ -3804,6 +3940,23 @@ namespace DataworksPublic20240518
       Models::MoveWorkflowDefinitionResponse moveWorkflowDefinition(const Models::MoveWorkflowDefinitionRequest &request);
 
       /**
+       * @summary 预览数据集版本内容
+       *
+       * @param request PreviewDatasetVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PreviewDatasetVersionResponse
+       */
+      Models::PreviewDatasetVersionResponse previewDatasetVersionWithOptions(const Models::PreviewDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预览数据集版本内容
+       *
+       * @param request PreviewDatasetVersionRequest
+       * @return PreviewDatasetVersionResponse
+       */
+      Models::PreviewDatasetVersionResponse previewDatasetVersion(const Models::PreviewDatasetVersionRequest &request);
+
+      /**
        * @summary 从集合中移除实体对象
        *
        * @param request RemoveEntityFromMetaCollectionRequest
@@ -4525,6 +4678,40 @@ namespace DataworksPublic20240518
        * @return UpdateDataSourceResponse
        */
       Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
+
+      /**
+       * @summary 更新数据集
+       *
+       * @param request UpdateDatasetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDatasetWithOptions(const Models::UpdateDatasetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据集
+       *
+       * @param request UpdateDatasetRequest
+       * @return UpdateDatasetResponse
+       */
+      Models::UpdateDatasetResponse updateDataset(const Models::UpdateDatasetRequest &request);
+
+      /**
+       * @summary 更新数据集版本信息
+       *
+       * @param request UpdateDatasetVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDatasetVersionResponse
+       */
+      Models::UpdateDatasetVersionResponse updateDatasetVersionWithOptions(const Models::UpdateDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新数据集版本信息
+       *
+       * @param request UpdateDatasetVersionRequest
+       * @return UpdateDatasetVersionResponse
+       */
+      Models::UpdateDatasetVersionResponse updateDatasetVersion(const Models::UpdateDatasetVersionRequest &request);
 
       /**
        * @param request UpdateFileRequest

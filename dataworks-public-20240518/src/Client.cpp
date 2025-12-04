@@ -1721,6 +1721,142 @@ CreateDataSourceSharedRuleResponse Client::createDataSourceSharedRule(const Crea
 }
 
 /**
+ * @summary 创建数据集
+ *
+ * @param tmpReq CreateDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDatasetShrinkRequest request = CreateDatasetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInitVersion()) {
+    request.setInitVersionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.initVersion(), "InitVersion", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.comment();
+  }
+
+  if (!!request.hasDataType()) {
+    body["DataType"] = request.dataType();
+  }
+
+  if (!!request.hasInitVersionShrink()) {
+    body["InitVersion"] = request.initVersionShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasOrigin()) {
+    body["Origin"] = request.origin();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.projectId();
+  }
+
+  if (!!request.hasStorageType()) {
+    body["StorageType"] = request.storageType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDataset"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetResponse>();
+}
+
+/**
+ * @summary 创建数据集
+ *
+ * @param request CreateDatasetRequest
+ * @return CreateDatasetResponse
+ */
+CreateDatasetResponse Client::createDataset(const CreateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建数据集版本
+ *
+ * @param tmpReq CreateDatasetVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatasetVersionResponse
+ */
+CreateDatasetVersionResponse Client::createDatasetVersionWithOptions(const CreateDatasetVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDatasetVersionShrinkRequest request = CreateDatasetVersionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasImportInfo()) {
+    request.setImportInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.importInfo(), "ImportInfo", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.comment();
+  }
+
+  if (!!request.hasDatasetId()) {
+    body["DatasetId"] = request.datasetId();
+  }
+
+  if (!!request.hasImportInfoShrink()) {
+    body["ImportInfo"] = request.importInfoShrink();
+  }
+
+  if (!!request.hasMountPath()) {
+    body["MountPath"] = request.mountPath();
+  }
+
+  if (!!request.hasUrl()) {
+    body["Url"] = request.url();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateDatasetVersion"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatasetVersionResponse>();
+}
+
+/**
+ * @summary 创建数据集版本
+ *
+ * @param request CreateDatasetVersionRequest
+ * @return CreateDatasetVersionResponse
+ */
+CreateDatasetVersionResponse Client::createDatasetVersion(const CreateDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDatasetVersionWithOptions(request, runtime);
+}
+
+/**
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateFileResponse
@@ -3927,6 +4063,90 @@ DeleteDataSourceSharedRuleResponse Client::deleteDataSourceSharedRule(const Dele
 }
 
 /**
+ * @summary 删除数据集
+ *
+ * @param request DeleteDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDatasetWithOptions(const DeleteDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataset"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasetResponse>();
+}
+
+/**
+ * @summary 删除数据集
+ *
+ * @param request DeleteDatasetRequest
+ * @return DeleteDatasetResponse
+ */
+DeleteDatasetResponse Client::deleteDataset(const DeleteDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除数据集版本
+ *
+ * @param request DeleteDatasetVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDatasetVersionResponse
+ */
+DeleteDatasetVersionResponse Client::deleteDatasetVersionWithOptions(const DeleteDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDatasetVersion"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDatasetVersionResponse>();
+}
+
+/**
+ * @summary 删除数据集版本
+ *
+ * @param request DeleteDatasetVersionRequest
+ * @return DeleteDatasetVersionResponse
+ */
+DeleteDatasetVersionResponse Client::deleteDatasetVersion(const DeleteDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDatasetVersionWithOptions(request, runtime);
+}
+
+/**
  * @param request DeleteFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteFileResponse
@@ -5894,6 +6114,90 @@ GetDatabaseResponse Client::getDatabaseWithOptions(const GetDatabaseRequest &req
 GetDatabaseResponse Client::getDatabase(const GetDatabaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据集详情
+ *
+ * @param request GetDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDatasetWithOptions(const GetDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDataset"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDatasetResponse>();
+}
+
+/**
+ * @summary 获取数据集详情
+ *
+ * @param request GetDatasetRequest
+ * @return GetDatasetResponse
+ */
+GetDatasetResponse Client::getDataset(const GetDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据集版本
+ *
+ * @param request GetDatasetVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDatasetVersionResponse
+ */
+GetDatasetVersionResponse Client::getDatasetVersionWithOptions(const GetDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDatasetVersion"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDatasetVersionResponse>();
+}
+
+/**
+ * @summary 获取数据集版本
+ *
+ * @param request GetDatasetVersionRequest
+ * @return GetDatasetVersionResponse
+ */
+GetDatasetVersionResponse Client::getDatasetVersion(const GetDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getDatasetVersionWithOptions(request, runtime);
 }
 
 /**
@@ -8688,6 +8992,156 @@ ListDatabasesResponse Client::listDatabases(const ListDatabasesRequest &request)
 }
 
 /**
+ * @summary 获取数据集版本列表
+ *
+ * @param request ListDatasetVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasetVersionsResponse
+ */
+ListDatasetVersionsResponse Client::listDatasetVersionsWithOptions(const ListDatasetVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCreatorId()) {
+    body["CreatorId"] = request.creatorId();
+  }
+
+  if (!!request.hasDatasetId()) {
+    body["DatasetId"] = request.datasetId();
+  }
+
+  if (!!request.hasOrder()) {
+    body["Order"] = request.order();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.sortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDatasetVersions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasetVersionsResponse>();
+}
+
+/**
+ * @summary 获取数据集版本列表
+ *
+ * @param request ListDatasetVersionsRequest
+ * @return ListDatasetVersionsResponse
+ */
+ListDatasetVersionsResponse Client::listDatasetVersions(const ListDatasetVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDatasetVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取数据集列表
+ *
+ * @param tmpReq ListDatasetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasetsWithOptions(const ListDatasetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListDatasetsShrinkRequest request = ListDatasetsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataTypeList()) {
+    request.setDataTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataTypeList(), "DataTypeList", "simple"));
+  }
+
+  if (!!tmpReq.hasStorageTypeList()) {
+    request.setStorageTypeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.storageTypeList(), "StorageTypeList", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasCreatorId()) {
+    body["CreatorId"] = request.creatorId();
+  }
+
+  if (!!request.hasDataTypeListShrink()) {
+    body["DataTypeList"] = request.dataTypeListShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasOrder()) {
+    body["Order"] = request.order();
+  }
+
+  if (!!request.hasOrigin()) {
+    body["Origin"] = request.origin();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProjectId()) {
+    body["ProjectId"] = request.projectId();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.sortBy();
+  }
+
+  if (!!request.hasStorageTypeListShrink()) {
+    body["StorageTypeList"] = request.storageTypeListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDatasets"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDatasetsResponse>();
+}
+
+/**
+ * @summary 获取数据集列表
+ *
+ * @param request ListDatasetsRequest
+ * @return ListDatasetsResponse
+ */
+ListDatasetsResponse Client::listDatasets(const ListDatasetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDatasetsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of versions of files to be deployed.
  *
  * @param tmpReq ListDeploymentPackageFilesRequest
@@ -10975,6 +11429,48 @@ MoveWorkflowDefinitionResponse Client::moveWorkflowDefinitionWithOptions(const M
 MoveWorkflowDefinitionResponse Client::moveWorkflowDefinition(const MoveWorkflowDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return moveWorkflowDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预览数据集版本内容
+ *
+ * @param request PreviewDatasetVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewDatasetVersionResponse
+ */
+PreviewDatasetVersionResponse Client::previewDatasetVersionWithOptions(const PreviewDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PreviewDatasetVersion"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewDatasetVersionResponse>();
+}
+
+/**
+ * @summary 预览数据集版本内容
+ *
+ * @param request PreviewDatasetVersionRequest
+ * @return PreviewDatasetVersionResponse
+ */
+PreviewDatasetVersionResponse Client::previewDatasetVersion(const PreviewDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return previewDatasetVersionWithOptions(request, runtime);
 }
 
 /**
@@ -13317,6 +13813,106 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据集
+ *
+ * @param request UpdateDatasetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDatasetWithOptions(const UpdateDatasetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.comment();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasReadme()) {
+    body["Readme"] = request.readme();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDataset"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDatasetResponse>();
+}
+
+/**
+ * @summary 更新数据集
+ *
+ * @param request UpdateDatasetRequest
+ * @return UpdateDatasetResponse
+ */
+UpdateDatasetResponse Client::updateDataset(const UpdateDatasetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDatasetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新数据集版本信息
+ *
+ * @param request UpdateDatasetVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDatasetVersionResponse
+ */
+UpdateDatasetVersionResponse Client::updateDatasetVersionWithOptions(const UpdateDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.comment();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDatasetVersion"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDatasetVersionResponse>();
+}
+
+/**
+ * @summary 更新数据集版本信息
+ *
+ * @param request UpdateDatasetVersionRequest
+ * @return UpdateDatasetVersionResponse
+ */
+UpdateDatasetVersionResponse Client::updateDatasetVersion(const UpdateDatasetVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDatasetVersionWithOptions(request, runtime);
 }
 
 /**
