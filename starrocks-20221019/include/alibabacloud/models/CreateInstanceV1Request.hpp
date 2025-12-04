@@ -26,18 +26,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(BackendNodeGroups, backendNodeGroups_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DlfCatalogName, dlfCatalogName_);
+      DARABONBA_PTR_TO_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_TO_JSON(FrontendNodeGroups, frontendNodeGroups_);
       DARABONBA_PTR_TO_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(KmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_TO_JSON(LinkedRamUserName, linkedRamUserName_);
       DARABONBA_PTR_TO_JSON(ObserverNodeGroups, observerNodeGroups_);
       DARABONBA_PTR_TO_JSON(OssAccessingRoleName, ossAccessingRoleName_);
       DARABONBA_PTR_TO_JSON(PackageType, packageType_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PricingCycle, pricingCycle_);
+      DARABONBA_PTR_TO_JSON(PrincipalType, principalType_);
       DARABONBA_PTR_TO_JSON(PromotionOptionNo, promotionOptionNo_);
+      DARABONBA_PTR_TO_JSON(RamUserId, ramUserId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(RunMode, runMode_);
@@ -54,18 +59,23 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(BackendNodeGroups, backendNodeGroups_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DlfCatalogName, dlfCatalogName_);
+      DARABONBA_PTR_FROM_JSON(DlfCatalogType, dlfCatalogType_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(Encrypted, encrypted_);
       DARABONBA_PTR_FROM_JSON(FrontendNodeGroups, frontendNodeGroups_);
       DARABONBA_PTR_FROM_JSON(GatewayType, gatewayType_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(KmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_FROM_JSON(LinkedRamUserName, linkedRamUserName_);
       DARABONBA_PTR_FROM_JSON(ObserverNodeGroups, observerNodeGroups_);
       DARABONBA_PTR_FROM_JSON(OssAccessingRoleName, ossAccessingRoleName_);
       DARABONBA_PTR_FROM_JSON(PackageType, packageType_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PricingCycle, pricingCycle_);
+      DARABONBA_PTR_FROM_JSON(PrincipalType, principalType_);
       DARABONBA_PTR_FROM_JSON(PromotionOptionNo, promotionOptionNo_);
+      DARABONBA_PTR_FROM_JSON(RamUserId, ramUserId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(RunMode, runMode_);
@@ -88,9 +98,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->adminPassword_ == nullptr
         && return this->agentNodeGroup_ == nullptr && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->backendNodeGroups_ == nullptr && return this->clientToken_ == nullptr
-        && return this->duration_ == nullptr && return this->encrypted_ == nullptr && return this->frontendNodeGroups_ == nullptr && return this->gatewayType_ == nullptr && return this->instanceName_ == nullptr
-        && return this->kmsKeyId_ == nullptr && return this->observerNodeGroups_ == nullptr && return this->ossAccessingRoleName_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr
-        && return this->pricingCycle_ == nullptr && return this->promotionOptionNo_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runMode_ == nullptr
+        && return this->dlfCatalogName_ == nullptr && return this->dlfCatalogType_ == nullptr && return this->duration_ == nullptr && return this->encrypted_ == nullptr && return this->frontendNodeGroups_ == nullptr
+        && return this->gatewayType_ == nullptr && return this->instanceName_ == nullptr && return this->kmsKeyId_ == nullptr && return this->linkedRamUserName_ == nullptr && return this->observerNodeGroups_ == nullptr
+        && return this->ossAccessingRoleName_ == nullptr && return this->packageType_ == nullptr && return this->payType_ == nullptr && return this->pricingCycle_ == nullptr && return this->principalType_ == nullptr
+        && return this->promotionOptionNo_ == nullptr && return this->ramUserId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->runMode_ == nullptr
         && return this->tags_ == nullptr && return this->vSwitches_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // adminPassword Field Functions 
     bool hasAdminPassword() const { return this->adminPassword_ != nullptr;};
@@ -138,6 +149,20 @@ namespace Models
     inline CreateInstanceV1Request& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
+    // dlfCatalogName Field Functions 
+    bool hasDlfCatalogName() const { return this->dlfCatalogName_ != nullptr;};
+    void deleteDlfCatalogName() { this->dlfCatalogName_ = nullptr;};
+    inline string dlfCatalogName() const { DARABONBA_PTR_GET_DEFAULT(dlfCatalogName_, "") };
+    inline CreateInstanceV1Request& setDlfCatalogName(string dlfCatalogName) { DARABONBA_PTR_SET_VALUE(dlfCatalogName_, dlfCatalogName) };
+
+
+    // dlfCatalogType Field Functions 
+    bool hasDlfCatalogType() const { return this->dlfCatalogType_ != nullptr;};
+    void deleteDlfCatalogType() { this->dlfCatalogType_ = nullptr;};
+    inline string dlfCatalogType() const { DARABONBA_PTR_GET_DEFAULT(dlfCatalogType_, "") };
+    inline CreateInstanceV1Request& setDlfCatalogType(string dlfCatalogType) { DARABONBA_PTR_SET_VALUE(dlfCatalogType_, dlfCatalogType) };
+
+
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
@@ -182,6 +207,13 @@ namespace Models
     inline CreateInstanceV1Request& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
 
 
+    // linkedRamUserName Field Functions 
+    bool hasLinkedRamUserName() const { return this->linkedRamUserName_ != nullptr;};
+    void deleteLinkedRamUserName() { this->linkedRamUserName_ = nullptr;};
+    inline string linkedRamUserName() const { DARABONBA_PTR_GET_DEFAULT(linkedRamUserName_, "") };
+    inline CreateInstanceV1Request& setLinkedRamUserName(string linkedRamUserName) { DARABONBA_PTR_SET_VALUE(linkedRamUserName_, linkedRamUserName) };
+
+
     // observerNodeGroups Field Functions 
     bool hasObserverNodeGroups() const { return this->observerNodeGroups_ != nullptr;};
     void deleteObserverNodeGroups() { this->observerNodeGroups_ = nullptr;};
@@ -219,11 +251,25 @@ namespace Models
     inline CreateInstanceV1Request& setPricingCycle(string pricingCycle) { DARABONBA_PTR_SET_VALUE(pricingCycle_, pricingCycle) };
 
 
+    // principalType Field Functions 
+    bool hasPrincipalType() const { return this->principalType_ != nullptr;};
+    void deletePrincipalType() { this->principalType_ = nullptr;};
+    inline string principalType() const { DARABONBA_PTR_GET_DEFAULT(principalType_, "") };
+    inline CreateInstanceV1Request& setPrincipalType(string principalType) { DARABONBA_PTR_SET_VALUE(principalType_, principalType) };
+
+
     // promotionOptionNo Field Functions 
     bool hasPromotionOptionNo() const { return this->promotionOptionNo_ != nullptr;};
     void deletePromotionOptionNo() { this->promotionOptionNo_ = nullptr;};
     inline string promotionOptionNo() const { DARABONBA_PTR_GET_DEFAULT(promotionOptionNo_, "") };
     inline CreateInstanceV1Request& setPromotionOptionNo(string promotionOptionNo) { DARABONBA_PTR_SET_VALUE(promotionOptionNo_, promotionOptionNo) };
+
+
+    // ramUserId Field Functions 
+    bool hasRamUserId() const { return this->ramUserId_ != nullptr;};
+    void deleteRamUserId() { this->ramUserId_ = nullptr;};
+    inline string ramUserId() const { DARABONBA_PTR_GET_DEFAULT(ramUserId_, "") };
+    inline CreateInstanceV1Request& setRamUserId(string ramUserId) { DARABONBA_PTR_SET_VALUE(ramUserId_, ramUserId) };
 
 
     // regionId Field Functions 
@@ -294,6 +340,8 @@ namespace Models
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<vector<CreateInstanceV1RequestBackendNodeGroups>> backendNodeGroups_ = nullptr;
     std::shared_ptr<string> clientToken_ = nullptr;
+    std::shared_ptr<string> dlfCatalogName_ = nullptr;
+    std::shared_ptr<string> dlfCatalogType_ = nullptr;
     std::shared_ptr<int32_t> duration_ = nullptr;
     std::shared_ptr<bool> encrypted_ = nullptr;
     std::shared_ptr<vector<CreateInstanceV1RequestFrontendNodeGroups>> frontendNodeGroups_ = nullptr;
@@ -301,6 +349,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<string> kmsKeyId_ = nullptr;
+    std::shared_ptr<string> linkedRamUserName_ = nullptr;
     std::shared_ptr<vector<CreateInstanceV1RequestObserverNodeGroups>> observerNodeGroups_ = nullptr;
     std::shared_ptr<string> ossAccessingRoleName_ = nullptr;
     // This parameter is required.
@@ -308,7 +357,9 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> payType_ = nullptr;
     std::shared_ptr<string> pricingCycle_ = nullptr;
+    std::shared_ptr<string> principalType_ = nullptr;
     std::shared_ptr<string> promotionOptionNo_ = nullptr;
+    std::shared_ptr<string> ramUserId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;

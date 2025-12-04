@@ -127,6 +127,14 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
     body["ClientToken"] = request.clientToken();
   }
 
+  if (!!request.hasDlfCatalogName()) {
+    body["DlfCatalogName"] = request.dlfCatalogName();
+  }
+
+  if (!!request.hasDlfCatalogType()) {
+    body["DlfCatalogType"] = request.dlfCatalogType();
+  }
+
   if (!!request.hasDuration()) {
     body["Duration"] = request.duration();
   }
@@ -151,6 +159,10 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
     body["KmsKeyId"] = request.kmsKeyId();
   }
 
+  if (!!request.hasLinkedRamUserName()) {
+    body["LinkedRamUserName"] = request.linkedRamUserName();
+  }
+
   if (!!request.hasObserverNodeGroups()) {
     body["ObserverNodeGroups"] = request.observerNodeGroups();
   }
@@ -171,8 +183,16 @@ CreateInstanceV1Response Client::createInstanceV1WithOptions(const CreateInstanc
     body["PricingCycle"] = request.pricingCycle();
   }
 
+  if (!!request.hasPrincipalType()) {
+    body["PrincipalType"] = request.principalType();
+  }
+
   if (!!request.hasPromotionOptionNo()) {
     body["PromotionOptionNo"] = request.promotionOptionNo();
+  }
+
+  if (!!request.hasRamUserId()) {
+    body["RamUserId"] = request.ramUserId();
   }
 
   if (!!request.hasRegionId()) {

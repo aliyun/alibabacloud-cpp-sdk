@@ -74,6 +74,7 @@
 #include <alibabacloud/models/DescribeInstancesResponseBodyDataVSwitches.hpp>
 #include <alibabacloud/models/DescribeInstancesResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeNodeGroupsResponseBodyDataNodeInfo.hpp>
+#include <alibabacloud/models/DescribeNodeGroupsResponseBodyDataTags.hpp>
 #include <alibabacloud/models/DescribeNodeGroupsResponseBodyData.hpp>
 #include <alibabacloud/models/ModifyCuPreCheckResponseBodyData.hpp>
 #include <alibabacloud/models/ModifyNodeNumberPreCheckResponseBodyData.hpp>

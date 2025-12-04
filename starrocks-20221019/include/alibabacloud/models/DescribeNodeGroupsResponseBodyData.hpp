@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/DescribeNodeGroupsResponseBodyDataNodeInfo.hpp>
+#include <alibabacloud/models/DescribeNodeGroupsResponseBodyDataTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(TargetElasticNodeNumber, targetElasticNodeNumber_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
@@ -79,6 +81,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(TargetElasticNodeNumber, targetElasticNodeNumber_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
@@ -99,8 +102,8 @@ namespace Models
         && return this->enablePublicNetwork_ == nullptr && return this->endpoint_ == nullptr && return this->expireTime_ == nullptr && return this->httpPort_ == nullptr && return this->instanceId_ == nullptr
         && return this->localStorageInstanceType_ == nullptr && return this->memoryCpuRatio_ == nullptr && return this->nodeGroupId_ == nullptr && return this->nodeGroupName_ == nullptr && return this->nodeInfo_ == nullptr
         && return this->payType_ == nullptr && return this->publicAddress_ == nullptr && return this->regionId_ == nullptr && return this->residentNodeNumber_ == nullptr && return this->runningTime_ == nullptr
-        && return this->specType_ == nullptr && return this->status_ == nullptr && return this->storagePerformanceLevel_ == nullptr && return this->storageSize_ == nullptr && return this->targetElasticNodeNumber_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->specType_ == nullptr && return this->status_ == nullptr && return this->storagePerformanceLevel_ == nullptr && return this->storageSize_ == nullptr && return this->tags_ == nullptr
+        && return this->targetElasticNodeNumber_ == nullptr && return this->zoneId_ == nullptr; };
     // accountStatus Field Functions 
     bool hasAccountStatus() const { return this->accountStatus_ != nullptr;};
     void deleteAccountStatus() { this->accountStatus_ = nullptr;};
@@ -313,6 +316,15 @@ namespace Models
     inline DescribeNodeGroupsResponseBodyData& setStorageSize(int32_t storageSize) { DARABONBA_PTR_SET_VALUE(storageSize_, storageSize) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<Models::DescribeNodeGroupsResponseBodyDataTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Models::DescribeNodeGroupsResponseBodyDataTags>) };
+    inline vector<Models::DescribeNodeGroupsResponseBodyDataTags> tags() { DARABONBA_PTR_GET(tags_, vector<Models::DescribeNodeGroupsResponseBodyDataTags>) };
+    inline DescribeNodeGroupsResponseBodyData& setTags(const vector<Models::DescribeNodeGroupsResponseBodyDataTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeNodeGroupsResponseBodyData& setTags(vector<Models::DescribeNodeGroupsResponseBodyDataTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // targetElasticNodeNumber Field Functions 
     bool hasTargetElasticNodeNumber() const { return this->targetElasticNodeNumber_ != nullptr;};
     void deleteTargetElasticNodeNumber() { this->targetElasticNodeNumber_ = nullptr;};
@@ -358,6 +370,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> storagePerformanceLevel_ = nullptr;
     std::shared_ptr<int32_t> storageSize_ = nullptr;
+    std::shared_ptr<vector<Models::DescribeNodeGroupsResponseBodyDataTags>> tags_ = nullptr;
     std::shared_ptr<int32_t> targetElasticNodeNumber_ = nullptr;
     std::shared_ptr<string> zoneId_ = nullptr;
   };
