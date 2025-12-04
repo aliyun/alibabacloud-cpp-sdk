@@ -77,6 +77,19 @@ namespace Dyvmsapi20170525
       Models::BatchRobotSmartCallResponse batchRobotSmartCall(const Models::BatchRobotSmartCallRequest &request);
 
       /**
+       * @param request CancelCallRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelCallResponse
+       */
+      Models::CancelCallResponse cancelCallWithOptions(const Models::CancelCallRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request CancelCallRequest
+       * @return CancelCallResponse
+       */
+      Models::CancelCallResponse cancelCall(const Models::CancelCallRequest &request);
+
+      /**
        * @summary Cancels a robocall task that has not been started.
        *
        * @description ### QPS limits
@@ -784,6 +797,40 @@ namespace Dyvmsapi20170525
        * @return QueryVirtualNumberRelationResponse
        */
       Models::QueryVirtualNumberRelationResponse queryVirtualNumberRelation(const Models::QueryVirtualNumberRelationRequest &request);
+
+      /**
+       * @summary 查询真实号接通率
+       *
+       * @param request QueryVmsRealNumberCallConnectionRateInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+       */
+      Models::QueryVmsRealNumberCallConnectionRateInfoResponse queryVmsRealNumberCallConnectionRateInfoWithOptions(const Models::QueryVmsRealNumberCallConnectionRateInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询真实号接通率
+       *
+       * @param request QueryVmsRealNumberCallConnectionRateInfoRequest
+       * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+       */
+      Models::QueryVmsRealNumberCallConnectionRateInfoResponse queryVmsRealNumberCallConnectionRateInfo(const Models::QueryVmsRealNumberCallConnectionRateInfoRequest &request);
+
+      /**
+       * @summary 查询虚拟号码与真实号码绑定关系列表
+       *
+       * @param request QueryVmsVirtualNumberRelationByPageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryVmsVirtualNumberRelationByPageResponse
+       */
+      Models::QueryVmsVirtualNumberRelationByPageResponse queryVmsVirtualNumberRelationByPageWithOptions(const Models::QueryVmsVirtualNumberRelationByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询虚拟号码与真实号码绑定关系列表
+       *
+       * @param request QueryVmsVirtualNumberRelationByPageRequest
+       * @return QueryVmsVirtualNumberRelationByPageResponse
+       */
+      Models::QueryVmsVirtualNumberRelationByPageResponse queryVmsVirtualNumberRelationByPage(const Models::QueryVmsVirtualNumberRelationByPageRequest &request);
 
       /**
        * @summary Queries the review state of a voice file.

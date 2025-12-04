@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agreement_ != nullptr
-        && this->hotlineNumber_ != nullptr && this->operatorIdentityCard_ != nullptr && this->operatorMail_ != nullptr && this->operatorMailVerifyCode_ != nullptr && this->operatorMobile_ != nullptr
-        && this->operatorMobileVerifyCode_ != nullptr && this->operatorName_ != nullptr && this->ownerId_ != nullptr && this->qualificationId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->transferPhoneNumberInfos_ != nullptr; };
+    virtual bool empty() const override { return this->agreement_ == nullptr
+        && return this->hotlineNumber_ == nullptr && return this->operatorIdentityCard_ == nullptr && return this->operatorMail_ == nullptr && return this->operatorMailVerifyCode_ == nullptr && return this->operatorMobile_ == nullptr
+        && return this->operatorMobileVerifyCode_ == nullptr && return this->operatorName_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->transferPhoneNumberInfos_ == nullptr; };
     // agreement Field Functions 
     bool hasAgreement() const { return this->agreement_ != nullptr;};
     void deleteAgreement() { this->agreement_ = nullptr;};

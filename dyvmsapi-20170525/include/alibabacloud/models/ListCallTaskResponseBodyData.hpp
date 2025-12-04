@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bizType_ != nullptr
-        && this->completeTime_ != nullptr && this->completedCount_ != nullptr && this->completedRate_ != nullptr && this->data_ != nullptr && this->dataType_ != nullptr
-        && this->fireTime_ != nullptr && this->id_ != nullptr && this->resource_ != nullptr && this->status_ != nullptr && this->stopTime_ != nullptr
-        && this->taskName_ != nullptr && this->templateCode_ != nullptr && this->templateName_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->bizType_ == nullptr
+        && return this->completeTime_ == nullptr && return this->completedCount_ == nullptr && return this->completedRate_ == nullptr && return this->data_ == nullptr && return this->dataType_ == nullptr
+        && return this->fireTime_ == nullptr && return this->id_ == nullptr && return this->resource_ == nullptr && return this->status_ == nullptr && return this->stopTime_ == nullptr
+        && return this->taskName_ == nullptr && return this->templateCode_ == nullptr && return this->templateName_ == nullptr && return this->totalCount_ == nullptr; };
     // bizType Field Functions 
     bool hasBizType() const { return this->bizType_ != nullptr;};
     void deleteBizType() { this->bizType_ = nullptr;};

@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agree_ != nullptr
-        && this->corpName_ != nullptr && this->hotlineNumber_ != nullptr && this->mngOpIdentityCard_ != nullptr && this->mngOpMail_ != nullptr && this->mngOpMobile_ != nullptr
-        && this->mngOpName_ != nullptr && this->qualificationId_ != nullptr && this->resUniqueCode_ != nullptr; };
+    virtual bool empty() const override { return this->agree_ == nullptr
+        && return this->corpName_ == nullptr && return this->hotlineNumber_ == nullptr && return this->mngOpIdentityCard_ == nullptr && return this->mngOpMail_ == nullptr && return this->mngOpMobile_ == nullptr
+        && return this->mngOpName_ == nullptr && return this->qualificationId_ == nullptr && return this->resUniqueCode_ == nullptr; };
     // agree Field Functions 
     bool hasAgree() const { return this->agree_ != nullptr;};
     void deleteAgree() { this->agree_ = nullptr;};

@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->identityCard_ != nullptr
-        && this->phoneNumber_ != nullptr && this->phoneNumberOwnerName_ != nullptr; };
+    virtual bool empty() const override { return this->identityCard_ == nullptr
+        && return this->phoneNumber_ == nullptr && return this->phoneNumberOwnerName_ == nullptr; };
     // identityCard Field Functions 
     bool hasIdentityCard() const { return this->identityCard_ != nullptr;};
     void deleteIdentityCard() { this->identityCard_ = nullptr;};

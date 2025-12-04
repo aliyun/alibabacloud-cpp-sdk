@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->calledNumber_ != nullptr
-        && this->calledShowNumber_ != nullptr && this->corpName_ != nullptr && this->dialogId_ != nullptr && this->earlyMediaAsr_ != nullptr && this->isSelfLine_ != nullptr
-        && this->ownerId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->scheduleCall_ != nullptr && this->scheduleTime_ != nullptr
-        && this->taskName_ != nullptr && this->ttsParam_ != nullptr && this->ttsParamHead_ != nullptr; };
+    virtual bool empty() const override { return this->calledNumber_ == nullptr
+        && return this->calledShowNumber_ == nullptr && return this->corpName_ == nullptr && return this->dialogId_ == nullptr && return this->earlyMediaAsr_ == nullptr && return this->isSelfLine_ == nullptr
+        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scheduleCall_ == nullptr && return this->scheduleTime_ == nullptr
+        && return this->taskName_ == nullptr && return this->ttsParam_ == nullptr && return this->ttsParamHead_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};

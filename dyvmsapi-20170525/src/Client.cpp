@@ -222,6 +222,56 @@ BatchRobotSmartCallResponse Client::batchRobotSmartCall(const BatchRobotSmartCal
 }
 
 /**
+ * @param request CancelCallRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelCallResponse
+ */
+CancelCallResponse Client::cancelCallWithOptions(const CancelCallRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallId()) {
+    query["CallId"] = request.callId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelCall"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelCallResponse>();
+}
+
+/**
+ * @param request CancelCallRequest
+ * @return CancelCallResponse
+ */
+CancelCallResponse Client::cancelCall(const CancelCallRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelCallWithOptions(request, runtime);
+}
+
+/**
  * @summary Cancels a robocall task that has not been started.
  *
  * @description ### QPS limits
@@ -2509,6 +2559,146 @@ QueryVirtualNumberRelationResponse Client::queryVirtualNumberRelationWithOptions
 QueryVirtualNumberRelationResponse Client::queryVirtualNumberRelation(const QueryVirtualNumberRelationRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryVirtualNumberRelationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询真实号接通率
+ *
+ * @param request QueryVmsRealNumberCallConnectionRateInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+ */
+QueryVmsRealNumberCallConnectionRateInfoResponse Client::queryVmsRealNumberCallConnectionRateInfoWithOptions(const QueryVmsRealNumberCallConnectionRateInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRealNumber()) {
+    query["RealNumber"] = request.realNumber();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasTimePeriod()) {
+    query["TimePeriod"] = request.timePeriod();
+  }
+
+  if (!!request.hasVirtualNumber()) {
+    query["VirtualNumber"] = request.virtualNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryVmsRealNumberCallConnectionRateInfo"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVmsRealNumberCallConnectionRateInfoResponse>();
+}
+
+/**
+ * @summary 查询真实号接通率
+ *
+ * @param request QueryVmsRealNumberCallConnectionRateInfoRequest
+ * @return QueryVmsRealNumberCallConnectionRateInfoResponse
+ */
+QueryVmsRealNumberCallConnectionRateInfoResponse Client::queryVmsRealNumberCallConnectionRateInfo(const QueryVmsRealNumberCallConnectionRateInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVmsRealNumberCallConnectionRateInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询虚拟号码与真实号码绑定关系列表
+ *
+ * @param request QueryVmsVirtualNumberRelationByPageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryVmsVirtualNumberRelationByPageResponse
+ */
+QueryVmsVirtualNumberRelationByPageResponse Client::queryVmsVirtualNumberRelationByPageWithOptions(const QueryVmsVirtualNumberRelationByPageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNumberCity()) {
+    query["NumberCity"] = request.numberCity();
+  }
+
+  if (!!request.hasNumberProvince()) {
+    query["NumberProvince"] = request.numberProvince();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRealNumber()) {
+    query["RealNumber"] = request.realNumber();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasState()) {
+    query["State"] = request.state();
+  }
+
+  if (!!request.hasVirtualNumber()) {
+    query["VirtualNumber"] = request.virtualNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryVmsVirtualNumberRelationByPage"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryVmsVirtualNumberRelationByPageResponse>();
+}
+
+/**
+ * @summary 查询虚拟号码与真实号码绑定关系列表
+ *
+ * @param request QueryVmsVirtualNumberRelationByPageRequest
+ * @return QueryVmsVirtualNumberRelationByPageResponse
+ */
+QueryVmsVirtualNumberRelationByPageResponse Client::queryVmsVirtualNumberRelationByPage(const QueryVmsVirtualNumberRelationByPageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryVmsVirtualNumberRelationByPageWithOptions(request, runtime);
 }
 
 /**

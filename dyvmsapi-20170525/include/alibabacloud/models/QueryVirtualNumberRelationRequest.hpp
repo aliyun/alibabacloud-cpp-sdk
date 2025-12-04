@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ownerId_ != nullptr
-        && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->phoneNum_ != nullptr && this->prodCode_ != nullptr && this->qualificationId_ != nullptr
-        && this->regionNameCity_ != nullptr && this->relatedNum_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->routeType_ != nullptr
-        && this->specId_ != nullptr; };
+    virtual bool empty() const override { return this->ownerId_ == nullptr
+        && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->phoneNum_ == nullptr && return this->prodCode_ == nullptr && return this->qualificationId_ == nullptr
+        && return this->regionNameCity_ == nullptr && return this->relatedNum_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->routeType_ == nullptr
+        && return this->specId_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};

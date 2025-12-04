@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actionCodeBreak_ != nullptr
-        && this->actionCodeTimeBreak_ != nullptr && this->asrBaseId_ != nullptr && this->asrModelId_ != nullptr && this->backgroundFileCode_ != nullptr && this->backgroundSpeed_ != nullptr
-        && this->backgroundVolume_ != nullptr && this->calledNumber_ != nullptr && this->calledShowNumber_ != nullptr && this->dynamicId_ != nullptr && this->earlyMediaAsr_ != nullptr
-        && this->enableITN_ != nullptr && this->muteTime_ != nullptr && this->noiseThreshold_ != nullptr && this->outId_ != nullptr && this->ownerId_ != nullptr
-        && this->pauseTime_ != nullptr && this->recordFlag_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->sessionTimeout_ != nullptr
-        && this->speed_ != nullptr && this->streamAsr_ != nullptr && this->ttsConf_ != nullptr && this->ttsSpeed_ != nullptr && this->ttsStyle_ != nullptr
-        && this->ttsVolume_ != nullptr && this->voiceCode_ != nullptr && this->voiceCodeParam_ != nullptr && this->volume_ != nullptr; };
+    virtual bool empty() const override { return this->actionCodeBreak_ == nullptr
+        && return this->actionCodeTimeBreak_ == nullptr && return this->asrBaseId_ == nullptr && return this->asrModelId_ == nullptr && return this->backgroundFileCode_ == nullptr && return this->backgroundSpeed_ == nullptr
+        && return this->backgroundVolume_ == nullptr && return this->calledNumber_ == nullptr && return this->calledShowNumber_ == nullptr && return this->dynamicId_ == nullptr && return this->earlyMediaAsr_ == nullptr
+        && return this->enableITN_ == nullptr && return this->muteTime_ == nullptr && return this->noiseThreshold_ == nullptr && return this->outId_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pauseTime_ == nullptr && return this->recordFlag_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sessionTimeout_ == nullptr
+        && return this->speed_ == nullptr && return this->streamAsr_ == nullptr && return this->ttsConf_ == nullptr && return this->ttsSpeed_ == nullptr && return this->ttsStyle_ == nullptr
+        && return this->ttsVolume_ == nullptr && return this->voiceCode_ == nullptr && return this->voiceCodeParam_ == nullptr && return this->volume_ == nullptr; };
     // actionCodeBreak Field Functions 
     bool hasActionCodeBreak() const { return this->actionCodeBreak_ != nullptr;};
     void deleteActionCodeBreak() { this->actionCodeBreak_ = nullptr;};

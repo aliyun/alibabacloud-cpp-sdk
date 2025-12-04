@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->byeCode_ != nullptr
-        && this->byeTtsParams_ != nullptr && this->calledNumber_ != nullptr && this->calledShowNumber_ != nullptr && this->menuKeyMap_ != nullptr && this->outId_ != nullptr
-        && this->ownerId_ != nullptr && this->playTimes_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->startCode_ != nullptr
-        && this->startTtsParams_ != nullptr && this->timeout_ != nullptr; };
+    virtual bool empty() const override { return this->byeCode_ == nullptr
+        && return this->byeTtsParams_ == nullptr && return this->calledNumber_ == nullptr && return this->calledShowNumber_ == nullptr && return this->menuKeyMap_ == nullptr && return this->outId_ == nullptr
+        && return this->ownerId_ == nullptr && return this->playTimes_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->startCode_ == nullptr
+        && return this->startTtsParams_ == nullptr && return this->timeout_ == nullptr; };
     // byeCode Field Functions 
     bool hasByeCode() const { return this->byeCode_ != nullptr;};
     void deleteByeCode() { this->byeCode_ = nullptr;};

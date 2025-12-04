@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->caller_ != nullptr
-        && this->corpName_ != nullptr && this->dialogId_ != nullptr && this->isSelfLine_ != nullptr && this->numberStatusIdent_ != nullptr && this->ownerId_ != nullptr
-        && this->recallInterval_ != nullptr && this->recallStateCodes_ != nullptr && this->recallTimes_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr
-        && this->retryType_ != nullptr && this->taskName_ != nullptr; };
+    virtual bool empty() const override { return this->caller_ == nullptr
+        && return this->corpName_ == nullptr && return this->dialogId_ == nullptr && return this->isSelfLine_ == nullptr && return this->numberStatusIdent_ == nullptr && return this->ownerId_ == nullptr
+        && return this->recallInterval_ == nullptr && return this->recallStateCodes_ == nullptr && return this->recallTimes_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->retryType_ == nullptr && return this->taskName_ == nullptr; };
     // caller Field Functions 
     bool hasCaller() const { return this->caller_ != nullptr;};
     void deleteCaller() { this->caller_ = nullptr;};

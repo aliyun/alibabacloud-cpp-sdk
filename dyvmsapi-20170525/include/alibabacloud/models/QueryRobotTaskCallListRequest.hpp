@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->callResult_ != nullptr
-        && this->called_ != nullptr && this->dialogCountFrom_ != nullptr && this->dialogCountTo_ != nullptr && this->durationFrom_ != nullptr && this->durationTo_ != nullptr
-        && this->hangupDirection_ != nullptr && this->ownerId_ != nullptr && this->pageNo_ != nullptr && this->pageSize_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->taskId_ != nullptr; };
+    virtual bool empty() const override { return this->callResult_ == nullptr
+        && return this->called_ == nullptr && return this->dialogCountFrom_ == nullptr && return this->dialogCountTo_ == nullptr && return this->durationFrom_ == nullptr && return this->durationTo_ == nullptr
+        && return this->hangupDirection_ == nullptr && return this->ownerId_ == nullptr && return this->pageNo_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->taskId_ == nullptr; };
     // callResult Field Functions 
     bool hasCallResult() const { return this->callResult_ != nullptr;};
     void deleteCallResult() { this->callResult_ = nullptr;};

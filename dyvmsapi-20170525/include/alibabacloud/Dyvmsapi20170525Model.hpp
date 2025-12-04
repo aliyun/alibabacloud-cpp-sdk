@@ -8,6 +8,9 @@
 #include <alibabacloud/models/BatchRobotSmartCallRequest.hpp>
 #include <alibabacloud/models/BatchRobotSmartCallResponseBody.hpp>
 #include <alibabacloud/models/BatchRobotSmartCallResponse.hpp>
+#include <alibabacloud/models/CancelCallRequest.hpp>
+#include <alibabacloud/models/CancelCallResponseBody.hpp>
+#include <alibabacloud/models/CancelCallResponse.hpp>
 #include <alibabacloud/models/CancelOrderRobotTaskRequest.hpp>
 #include <alibabacloud/models/CancelOrderRobotTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelOrderRobotTaskResponse.hpp>
@@ -95,9 +98,9 @@
 #include <alibabacloud/models/QueryRobotTaskListRequest.hpp>
 #include <alibabacloud/models/QueryRobotTaskListResponseBody.hpp>
 #include <alibabacloud/models/QueryRobotTaskListResponse.hpp>
-#include <alibabacloud/models/QueryRobotv2allListRequest.hpp>
-#include <alibabacloud/models/QueryRobotv2allListResponseBody.hpp>
-#include <alibabacloud/models/QueryRobotv2allListResponse.hpp>
+#include <alibabacloud/models/QueryRobotv2AllListRequest.hpp>
+#include <alibabacloud/models/QueryRobotv2AllListResponseBody.hpp>
+#include <alibabacloud/models/QueryRobotv2AllListResponse.hpp>
 #include <alibabacloud/models/QueryVideoPlayProgressRequest.hpp>
 #include <alibabacloud/models/QueryVideoPlayProgressResponseBody.hpp>
 #include <alibabacloud/models/QueryVideoPlayProgressResponse.hpp>
@@ -107,6 +110,12 @@
 #include <alibabacloud/models/QueryVirtualNumberRelationRequest.hpp>
 #include <alibabacloud/models/QueryVirtualNumberRelationResponseBody.hpp>
 #include <alibabacloud/models/QueryVirtualNumberRelationResponse.hpp>
+#include <alibabacloud/models/QueryVmsRealNumberCallConnectionRateInfoRequest.hpp>
+#include <alibabacloud/models/QueryVmsRealNumberCallConnectionRateInfoResponseBody.hpp>
+#include <alibabacloud/models/QueryVmsRealNumberCallConnectionRateInfoResponse.hpp>
+#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageRequest.hpp>
+#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponseBody.hpp>
+#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponse.hpp>
 #include <alibabacloud/models/QueryVoiceFileAuditInfoRequest.hpp>
 #include <alibabacloud/models/QueryVoiceFileAuditInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryVoiceFileAuditInfoResponse.hpp>
@@ -171,6 +180,9 @@
 #include <alibabacloud/models/QueryCallInPoolTransferConfigResponseBodyData.hpp>
 #include <alibabacloud/models/QueryCallInTransferRecordResponseBodyDataValues.hpp>
 #include <alibabacloud/models/QueryCallInTransferRecordResponseBodyData.hpp>
+#include <alibabacloud/models/QueryVmsRealNumberCallConnectionRateInfoResponseBodyModel.hpp>
+#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponseBodyModelData.hpp>
+#include <alibabacloud/models/QueryVmsVirtualNumberRelationByPageResponseBodyModel.hpp>
 #include <alibabacloud/models/QueryVoiceFileAuditInfoResponseBodyData.hpp>
 #include <alibabacloud/models/SetTransferCalleePoolConfigRequestDetails.hpp>
 #include <alibabacloud/models/SubmitHotlineTransferRegisterRequestTransferPhoneNumberInfos.hpp>
