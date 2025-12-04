@@ -4832,6 +4832,47 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRule(cons
 }
 
 /**
+ * @param request DisableArmsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableArmsResponse
+ */
+DisableArmsResponse Client::disableArmsWithOptions(const DisableArmsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableArms"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v1/arms/disableArms")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableArmsResponse>();
+}
+
+/**
+ * @param request DisableArmsRequest
+ * @return DisableArmsResponse
+ */
+DisableArmsResponse Client::disableArms(const DisableArmsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableArmsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Disable ARMS Advanced Edition monitoring.
  *
  * @param request DowngradeApplicationApmServiceRequest

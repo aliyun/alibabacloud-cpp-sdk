@@ -373,6 +373,9 @@
 #include <alibabacloud/models/DisableApplicationScalingRuleRequest.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponseBody.hpp>
 #include <alibabacloud/models/DisableApplicationScalingRuleResponse.hpp>
+#include <alibabacloud/models/DisableArmsRequest.hpp>
+#include <alibabacloud/models/DisableArmsResponseBody.hpp>
+#include <alibabacloud/models/DisableArmsResponse.hpp>
 #include <alibabacloud/models/DowngradeApplicationApmServiceRequest.hpp>
 #include <alibabacloud/models/DowngradeApplicationApmServiceResponseBody.hpp>
 #include <alibabacloud/models/DowngradeApplicationApmServiceResponse.hpp>
@@ -768,6 +771,7 @@
 #include <alibabacloud/models/DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes.hpp>
 #include <alibabacloud/models/DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule.hpp>
 #include <alibabacloud/models/DescribeSwimmingLaneResponseBodyData.hpp>
+#include <alibabacloud/models/DisableArmsResponseBodyData.hpp>
 #include <alibabacloud/models/DowngradeApplicationApmServiceResponseBodyData.hpp>
 #include <alibabacloud/models/ExecJobResponseBodyData.hpp>
 #include <alibabacloud/models/GetApplicationResponseBodyApplication.hpp>

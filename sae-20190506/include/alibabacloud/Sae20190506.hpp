@@ -1405,6 +1405,20 @@ namespace Sae20190506
       Models::DisableApplicationScalingRuleResponse disableApplicationScalingRule(const Models::DisableApplicationScalingRuleRequest &request);
 
       /**
+       * @param request DisableArmsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableArmsResponse
+       */
+      Models::DisableArmsResponse disableArmsWithOptions(const Models::DisableArmsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DisableArmsRequest
+       * @return DisableArmsResponse
+       */
+      Models::DisableArmsResponse disableArms(const Models::DisableArmsRequest &request);
+
+      /**
        * @summary Disable ARMS Advanced Edition monitoring.
        *
        * @param request DowngradeApplicationApmServiceRequest
