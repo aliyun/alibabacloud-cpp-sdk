@@ -13,11 +13,9 @@ namespace Models
   class ChatMessagesTaskStopRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChatMessagesTaskStopRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, ChatMessagesTaskStopRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     ChatMessagesTaskStopRequest() = default ;
@@ -31,15 +29,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->taskId_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline ChatMessagesTaskStopRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->taskId_ == nullptr; };
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -48,7 +38,6 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> taskId_ = nullptr;
   };

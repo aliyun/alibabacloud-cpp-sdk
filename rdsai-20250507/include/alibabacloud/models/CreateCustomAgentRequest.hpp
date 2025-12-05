@@ -14,14 +14,12 @@ namespace Models
   class CreateCustomAgentRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateCustomAgentRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(SystemPrompt, systemPrompt_);
       DARABONBA_PTR_TO_JSON(Tools, tools_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomAgentRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(SystemPrompt, systemPrompt_);
@@ -38,15 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->enableTools_ == nullptr && return this->name_ == nullptr && return this->systemPrompt_ == nullptr && return this->tools_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline CreateCustomAgentRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->enableTools_ == nullptr
+        && return this->name_ == nullptr && return this->systemPrompt_ == nullptr && return this->tools_ == nullptr; };
     // enableTools Field Functions 
     bool hasEnableTools() const { return this->enableTools_ != nullptr;};
     void deleteEnableTools() { this->enableTools_ = nullptr;};
@@ -78,7 +69,6 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<bool> enableTools_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     // This parameter is required.

@@ -13,14 +13,12 @@ namespace Models
   class GetConversationsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetConversationsRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(LastId, lastId_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
       DARABONBA_PTR_TO_JSON(Pinned, pinned_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
     friend void from_json(const Darabonba::Json& j, GetConversationsRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(LastId, lastId_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
       DARABONBA_PTR_FROM_JSON(Pinned, pinned_);
@@ -37,15 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->lastId_ == nullptr && return this->limit_ == nullptr && return this->pinned_ == nullptr && return this->sortBy_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline GetConversationsRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->lastId_ == nullptr
+        && return this->limit_ == nullptr && return this->pinned_ == nullptr && return this->sortBy_ == nullptr; };
     // lastId Field Functions 
     bool hasLastId() const { return this->lastId_ != nullptr;};
     void deleteLastId() { this->lastId_ = nullptr;};
@@ -75,7 +66,6 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<string> lastId_ = nullptr;
     std::shared_ptr<string> limit_ = nullptr;
     std::shared_ptr<string> pinned_ = nullptr;

@@ -13,14 +13,12 @@ namespace Models
   class ChatMessagesShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChatMessagesShrinkRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(Inputs, inputsShrink_);
       DARABONBA_PTR_TO_JSON(ParentMessageId, parentMessageId_);
       DARABONBA_PTR_TO_JSON(Query, query_);
     };
     friend void from_json(const Darabonba::Json& j, ChatMessagesShrinkRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(Inputs, inputsShrink_);
       DARABONBA_PTR_FROM_JSON(ParentMessageId, parentMessageId_);
@@ -37,15 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->conversationId_ == nullptr && return this->inputsShrink_ == nullptr && return this->parentMessageId_ == nullptr && return this->query_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline ChatMessagesShrinkRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->conversationId_ == nullptr
+        && return this->inputsShrink_ == nullptr && return this->parentMessageId_ == nullptr && return this->query_ == nullptr; };
     // conversationId Field Functions 
     bool hasConversationId() const { return this->conversationId_ != nullptr;};
     void deleteConversationId() { this->conversationId_ = nullptr;};
@@ -75,8 +66,6 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<string> conversationId_ = nullptr;
     std::shared_ptr<string> inputsShrink_ = nullptr;
     std::shared_ptr<string> parentMessageId_ = nullptr;

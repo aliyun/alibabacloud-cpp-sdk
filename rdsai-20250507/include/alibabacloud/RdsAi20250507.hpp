@@ -359,15 +359,14 @@ namespace RdsAi20250507
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCustomAgentToolsResponse
        */
-      Models::ListCustomAgentToolsResponse listCustomAgentToolsWithOptions(const Models::ListCustomAgentToolsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListCustomAgentToolsResponse listCustomAgentToolsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取专属Agent可用工具
        *
-       * @param request ListCustomAgentToolsRequest
        * @return ListCustomAgentToolsResponse
        */
-      Models::ListCustomAgentToolsResponse listCustomAgentTools(const Models::ListCustomAgentToolsRequest &request);
+      Models::ListCustomAgentToolsResponse listCustomAgentTools();
 
       /**
        * @summary 修改Supabase Auth相关配置

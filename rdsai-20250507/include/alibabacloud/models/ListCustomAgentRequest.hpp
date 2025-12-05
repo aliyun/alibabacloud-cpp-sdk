@@ -13,12 +13,10 @@ namespace Models
   class ListCustomAgentRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCustomAgentRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, ListCustomAgentRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
     };
@@ -33,15 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline ListCustomAgentRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -57,7 +48,6 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
     std::shared_ptr<int64_t> pageSize_ = nullptr;
   };

@@ -52,10 +52,6 @@ FutrueGenerator<ChatMessagesResponse> Client::chatMessagesWithSSE(const ChatMess
   }
 
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasConversationId()) {
     query["ConversationId"] = request.conversationId();
   }
@@ -117,10 +113,6 @@ ChatMessagesResponse Client::chatMessagesWithOptions(const ChatMessagesRequest &
   }
 
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasConversationId()) {
     query["ConversationId"] = request.conversationId();
   }
@@ -175,10 +167,6 @@ ChatMessagesResponse Client::chatMessages(const ChatMessagesRequest &request) {
 ChatMessagesTaskStopResponse Client::chatMessagesTaskStopWithOptions(const ChatMessagesTaskStopRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasTaskId()) {
     query["TaskId"] = request.taskId();
   }
@@ -327,10 +315,6 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
   }
 
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasEnableTools()) {
     query["EnableTools"] = request.enableTools();
   }
@@ -435,10 +419,6 @@ DeleteAppInstanceResponse Client::deleteAppInstance(const DeleteAppInstanceReque
 DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasCustomAgentId()) {
     query["CustomAgentId"] = request.customAgentId();
   }
@@ -923,10 +903,6 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 GetConversationsResponse Client::getConversationsWithOptions(const GetConversationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasLastId()) {
     query["LastId"] = request.lastId();
   }
@@ -981,10 +957,6 @@ GetConversationsResponse Client::getConversations(const GetConversationsRequest 
 GetCustomAgentResponse Client::getCustomAgentWithOptions(const GetCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasCustomAgentId()) {
     query["CustomAgentId"] = request.customAgentId();
   }
@@ -1027,10 +999,6 @@ GetCustomAgentResponse Client::getCustomAgent(const GetCustomAgentRequest &reque
 GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasConversationId()) {
     query["ConversationId"] = request.conversationId();
   }
@@ -1081,10 +1049,6 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.pageNumber();
   }
@@ -1128,16 +1092,8 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCustomAgentToolsResponse
  */
-ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const ListCustomAgentToolsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
   Params params = Params(json({
     {"action" , "ListCustomAgentTools"},
     {"version" , "2025-05-07"},
@@ -1155,12 +1111,11 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const ListC
 /**
  * @summary 获取专属Agent可用工具
  *
- * @param request ListCustomAgentToolsRequest
  * @return ListCustomAgentToolsResponse
  */
-ListCustomAgentToolsResponse Client::listCustomAgentTools(const ListCustomAgentToolsRequest &request) {
+ListCustomAgentToolsResponse Client::listCustomAgentTools() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return listCustomAgentToolsWithOptions(request, runtime);
+  return listCustomAgentToolsWithOptions(runtime);
 }
 
 /**
@@ -1535,10 +1490,6 @@ ModifyInstanceStorageConfigResponse Client::modifyInstanceStorageConfig(const Mo
 ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const ModifyMessagesFeedbacksRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasContent()) {
     query["Content"] = request.content();
   }
@@ -1787,10 +1738,6 @@ UpdateCustomAgentResponse Client::updateCustomAgentWithOptions(const UpdateCusto
   }
 
   json query = {};
-  if (!!request.hasApiId()) {
-    query["ApiId"] = request.apiId();
-  }
-
   if (!!request.hasCustomAgentId()) {
     query["CustomAgentId"] = request.customAgentId();
   }

@@ -62,7 +62,6 @@
 #include <alibabacloud/models/ListCustomAgentRequest.hpp>
 #include <alibabacloud/models/ListCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentResponse.hpp>
-#include <alibabacloud/models/ListCustomAgentToolsRequest.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigRequest.hpp>

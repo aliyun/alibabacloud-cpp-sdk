@@ -14,7 +14,6 @@ namespace Models
   class UpdateCustomAgentRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateCustomAgentRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_TO_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -22,7 +21,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tools, tools_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateCustomAgentRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
       DARABONBA_PTR_FROM_JSON(EnableTools, enableTools_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -40,15 +38,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->customAgentId_ == nullptr && return this->enableTools_ == nullptr && return this->name_ == nullptr && return this->systemPrompt_ == nullptr && return this->tools_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline UpdateCustomAgentRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->customAgentId_ == nullptr
+        && return this->enableTools_ == nullptr && return this->name_ == nullptr && return this->systemPrompt_ == nullptr && return this->tools_ == nullptr; };
     // customAgentId Field Functions 
     bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
     void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -87,8 +78,6 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
-    std::shared_ptr<string> apiId_ = nullptr;
     // AgentId。
     // 
     // This parameter is required.

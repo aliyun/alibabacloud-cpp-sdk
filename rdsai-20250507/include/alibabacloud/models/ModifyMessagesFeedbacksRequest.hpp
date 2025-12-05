@@ -13,13 +13,11 @@ namespace Models
   class ModifyMessagesFeedbacksRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyMessagesFeedbacksRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(Rating, rating_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyMessagesFeedbacksRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(Rating, rating_);
@@ -35,15 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiId_ == nullptr
-        && return this->content_ == nullptr && return this->messageId_ == nullptr && return this->rating_ == nullptr; };
-    // apiId Field Functions 
-    bool hasApiId() const { return this->apiId_ != nullptr;};
-    void deleteApiId() { this->apiId_ = nullptr;};
-    inline string apiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
-    inline ModifyMessagesFeedbacksRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
-
-
+    virtual bool empty() const override { return this->content_ == nullptr
+        && return this->messageId_ == nullptr && return this->rating_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -66,7 +57,6 @@ namespace Models
 
 
   protected:
-    std::shared_ptr<string> apiId_ = nullptr;
     std::shared_ptr<string> content_ = nullptr;
     std::shared_ptr<string> messageId_ = nullptr;
     std::shared_ptr<string> rating_ = nullptr;
