@@ -62,11 +62,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->displayName_ != nullptr && this->effectiveEndTime_ != nullptr && this->effectiveStartTime_ != nullptr && this->email_ != nullptr && this->language_ != nullptr
-        && this->languageStatus_ != nullptr && this->mobile_ != nullptr && this->mobileCountryCode_ != nullptr && this->needResetPassword_ != nullptr && this->source_ != nullptr
-        && this->sourceUserId_ != nullptr && this->twoFactorMethods_ != nullptr && this->twoFactorStatus_ != nullptr && this->userId_ != nullptr && this->userName_ != nullptr
-        && this->userState_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->displayName_ == nullptr && return this->effectiveEndTime_ == nullptr && return this->effectiveStartTime_ == nullptr && return this->email_ == nullptr && return this->language_ == nullptr
+        && return this->languageStatus_ == nullptr && return this->mobile_ == nullptr && return this->mobileCountryCode_ == nullptr && return this->needResetPassword_ == nullptr && return this->source_ == nullptr
+        && return this->sourceUserId_ == nullptr && return this->twoFactorMethods_ == nullptr && return this->twoFactorStatus_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr
+        && return this->userState_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};

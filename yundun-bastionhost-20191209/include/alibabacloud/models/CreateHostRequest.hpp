@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HostPrivateAddress, hostPrivateAddress_);
       DARABONBA_PTR_TO_JSON(HostPublicAddress, hostPublicAddress_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceMemberId, instanceMemberId_);
       DARABONBA_PTR_TO_JSON(InstanceRegionId, instanceRegionId_);
       DARABONBA_PTR_TO_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_TO_JSON(OSType, OSType_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HostPrivateAddress, hostPrivateAddress_);
       DARABONBA_PTR_FROM_JSON(HostPublicAddress, hostPublicAddress_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceMemberId, instanceMemberId_);
       DARABONBA_PTR_FROM_JSON(InstanceRegionId, instanceRegionId_);
       DARABONBA_PTR_FROM_JSON(NetworkDomainId, networkDomainId_);
       DARABONBA_PTR_FROM_JSON(OSType, OSType_);
@@ -51,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeAddressType_ != nullptr
-        && this->comment_ != nullptr && this->hostName_ != nullptr && this->hostPrivateAddress_ != nullptr && this->hostPublicAddress_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceRegionId_ != nullptr && this->networkDomainId_ != nullptr && this->OSType_ != nullptr && this->regionId_ != nullptr && this->source_ != nullptr
-        && this->sourceInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->activeAddressType_ == nullptr
+        && return this->comment_ == nullptr && return this->hostName_ == nullptr && return this->hostPrivateAddress_ == nullptr && return this->hostPublicAddress_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceMemberId_ == nullptr && return this->instanceRegionId_ == nullptr && return this->networkDomainId_ == nullptr && return this->OSType_ == nullptr && return this->regionId_ == nullptr
+        && return this->source_ == nullptr && return this->sourceInstanceId_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateHostRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceMemberId Field Functions 
+    bool hasInstanceMemberId() const { return this->instanceMemberId_ != nullptr;};
+    void deleteInstanceMemberId() { this->instanceMemberId_ = nullptr;};
+    inline int64_t instanceMemberId() const { DARABONBA_PTR_GET_DEFAULT(instanceMemberId_, 0L) };
+    inline CreateHostRequest& setInstanceMemberId(int64_t instanceMemberId) { DARABONBA_PTR_SET_VALUE(instanceMemberId_, instanceMemberId) };
 
 
     // instanceRegionId Field Functions 
@@ -167,6 +176,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<int64_t> instanceMemberId_ = nullptr;
     // The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
     // 
     // > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.

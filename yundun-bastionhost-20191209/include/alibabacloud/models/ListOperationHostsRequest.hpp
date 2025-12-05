@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hostAddress_ != nullptr
-        && this->hostName_ != nullptr && this->instanceId_ != nullptr && this->OSType_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr
-        && this->regionId_ != nullptr && this->source_ != nullptr && this->sourceInstanceId_ != nullptr && this->sourceInstanceState_ != nullptr; };
+    virtual bool empty() const override { return this->hostAddress_ == nullptr
+        && return this->hostName_ == nullptr && return this->instanceId_ == nullptr && return this->OSType_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr && return this->source_ == nullptr && return this->sourceInstanceId_ == nullptr && return this->sourceInstanceState_ == nullptr; };
     // hostAddress Field Functions 
     bool hasHostAddress() const { return this->hostAddress_ != nullptr;};
     void deleteHostAddress() { this->hostAddress_ = nullptr;};

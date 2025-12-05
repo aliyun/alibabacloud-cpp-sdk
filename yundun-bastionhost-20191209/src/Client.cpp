@@ -935,6 +935,10 @@ CreateDatabaseResponse Client::createDatabaseWithOptions(const CreateDatabaseReq
     query["InstanceId"] = request.instanceId();
   }
 
+  if (!!request.hasInstanceMemberId()) {
+    query["InstanceMemberId"] = request.instanceMemberId();
+  }
+
   if (!!request.hasNetworkDomainId()) {
     query["NetworkDomainId"] = request.networkDomainId();
   }
@@ -1127,6 +1131,10 @@ CreateHostResponse Client::createHostWithOptions(const CreateHostRequest &reques
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasInstanceMemberId()) {
+    query["InstanceMemberId"] = request.instanceMemberId();
   }
 
   if (!!request.hasInstanceRegionId()) {

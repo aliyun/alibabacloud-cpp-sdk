@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->applyUserId_ != nullptr
-        && this->applyUsername_ != nullptr && this->approveComment_ != nullptr && this->assetAccountId_ != nullptr && this->assetAccountName_ != nullptr && this->assetAddress_ != nullptr
-        && this->assetId_ != nullptr && this->assetName_ != nullptr && this->assetNetworkDomainId_ != nullptr && this->assetOs_ != nullptr && this->assetSource_ != nullptr
-        && this->assetSourceInstanceId_ != nullptr && this->createdTime_ != nullptr && this->effectCount_ != nullptr && this->effectEndTime_ != nullptr && this->effectStartTime_ != nullptr
-        && this->operationTicketId_ != nullptr && this->protocolName_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->applyUserId_ == nullptr
+        && return this->applyUsername_ == nullptr && return this->approveComment_ == nullptr && return this->assetAccountId_ == nullptr && return this->assetAccountName_ == nullptr && return this->assetAddress_ == nullptr
+        && return this->assetId_ == nullptr && return this->assetName_ == nullptr && return this->assetNetworkDomainId_ == nullptr && return this->assetOs_ == nullptr && return this->assetSource_ == nullptr
+        && return this->assetSourceInstanceId_ == nullptr && return this->createdTime_ == nullptr && return this->effectCount_ == nullptr && return this->effectEndTime_ == nullptr && return this->effectStartTime_ == nullptr
+        && return this->operationTicketId_ == nullptr && return this->protocolName_ == nullptr && return this->state_ == nullptr; };
     // applyUserId Field Functions 
     bool hasApplyUserId() const { return this->applyUserId_ != nullptr;};
     void deleteApplyUserId() { this->applyUserId_ = nullptr;};

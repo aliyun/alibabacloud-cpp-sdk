@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetAccountId_ != nullptr
-        && this->assetAccountName_ != nullptr && this->assetAccountPassword_ != nullptr && this->assetAccountProtocolName_ != nullptr && this->assetId_ != nullptr && this->assetType_ != nullptr
-        && this->databaseSchema_ != nullptr && this->instanceId_ != nullptr && this->loginAttribute_ != nullptr && this->operationMode_ != nullptr && this->operationNote_ != nullptr
-        && this->regionId_ != nullptr && this->ssoClient_ != nullptr; };
+    virtual bool empty() const override { return this->assetAccountId_ == nullptr
+        && return this->assetAccountName_ == nullptr && return this->assetAccountPassword_ == nullptr && return this->assetAccountProtocolName_ == nullptr && return this->assetId_ == nullptr && return this->assetType_ == nullptr
+        && return this->databaseSchema_ == nullptr && return this->instanceId_ == nullptr && return this->loginAttribute_ == nullptr && return this->operationMode_ == nullptr && return this->operationNote_ == nullptr
+        && return this->regionId_ == nullptr && return this->ssoClient_ == nullptr; };
     // assetAccountId Field Functions 
     bool hasAssetAccountId() const { return this->assetAccountId_ != nullptr;};
     void deleteAssetAccountId() { this->assetAccountId_ = nullptr;};

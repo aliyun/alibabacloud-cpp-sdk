@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->comment_ != nullptr
-        && this->hostId_ != nullptr && this->hostName_ != nullptr && this->hostPrivateAddress_ != nullptr && this->hostPublicAddress_ != nullptr && this->instanceId_ != nullptr
-        && this->networkDomainId_ != nullptr && this->OSType_ != nullptr && this->prefKex_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->comment_ == nullptr
+        && return this->hostId_ == nullptr && return this->hostName_ == nullptr && return this->hostPrivateAddress_ == nullptr && return this->hostPublicAddress_ == nullptr && return this->instanceId_ == nullptr
+        && return this->networkDomainId_ == nullptr && return this->OSType_ == nullptr && return this->prefKex_ == nullptr && return this->regionId_ == nullptr; };
     // comment Field Functions 
     bool hasComment() const { return this->comment_ != nullptr;};
     void deleteComment() { this->comment_ = nullptr;};

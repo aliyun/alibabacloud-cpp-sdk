@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approveCommandId_ != nullptr
-        && this->assetAccountName_ != nullptr && this->assetIp_ != nullptr && this->assetName_ != nullptr && this->clientIp_ != nullptr && this->clientUser_ != nullptr
-        && this->command_ != nullptr && this->createTime_ != nullptr && this->protocolName_ != nullptr && this->sessionId_ != nullptr && this->state_ != nullptr; };
+    virtual bool empty() const override { return this->approveCommandId_ == nullptr
+        && return this->assetAccountName_ == nullptr && return this->assetIp_ == nullptr && return this->assetName_ == nullptr && return this->clientIp_ == nullptr && return this->clientUser_ == nullptr
+        && return this->command_ == nullptr && return this->createTime_ == nullptr && return this->protocolName_ == nullptr && return this->sessionId_ == nullptr && return this->state_ == nullptr; };
     // approveCommandId Field Functions 
     bool hasApproveCommandId() const { return this->approveCommandId_ != nullptr;};
     void deleteApproveCommandId() { this->approveCommandId_ = nullptr;};

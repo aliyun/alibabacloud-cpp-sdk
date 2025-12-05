@@ -106,15 +106,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appOperationModule_ != nullptr
-        && this->authorizedSecurityGroups_ != nullptr && this->bandwidth_ != nullptr && this->bandwidthPackage_ != nullptr && this->dbOperationModule_ != nullptr && this->description_ != nullptr
-        && this->eniInstanceId_ != nullptr && this->expireTime_ != nullptr && this->HSMModule_ != nullptr && this->IDaaSModule_ != nullptr && this->instanceId_ != nullptr
-        && this->instanceStatus_ != nullptr && this->internetEndpoint_ != nullptr && this->intranetEndpoint_ != nullptr && this->kmsSecretModule_ != nullptr && this->licenseCode_ != nullptr
-        && this->modifyPasswordModule_ != nullptr && this->networkProxyModule_ != nullptr && this->ports_ != nullptr && this->privateExportIps_ != nullptr && this->privateWhiteList_ != nullptr
-        && this->publicExportIps_ != nullptr && this->publicIps_ != nullptr && this->publicNetworkAccess_ != nullptr && this->publicWhiteList_ != nullptr && this->RDModule_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->routerRules_ != nullptr && this->scriptDeliverModule_ != nullptr && this->securityGroupIds_ != nullptr
-        && this->slaveVswitchId_ != nullptr && this->startTime_ != nullptr && this->storage_ != nullptr && this->vpcId_ != nullptr && this->vswitchId_ != nullptr
-        && this->webTerminalModule_ != nullptr && this->whiteListPolicies_ != nullptr; };
+    virtual bool empty() const override { return this->appOperationModule_ == nullptr
+        && return this->authorizedSecurityGroups_ == nullptr && return this->bandwidth_ == nullptr && return this->bandwidthPackage_ == nullptr && return this->dbOperationModule_ == nullptr && return this->description_ == nullptr
+        && return this->eniInstanceId_ == nullptr && return this->expireTime_ == nullptr && return this->HSMModule_ == nullptr && return this->IDaaSModule_ == nullptr && return this->instanceId_ == nullptr
+        && return this->instanceStatus_ == nullptr && return this->internetEndpoint_ == nullptr && return this->intranetEndpoint_ == nullptr && return this->kmsSecretModule_ == nullptr && return this->licenseCode_ == nullptr
+        && return this->modifyPasswordModule_ == nullptr && return this->networkProxyModule_ == nullptr && return this->ports_ == nullptr && return this->privateExportIps_ == nullptr && return this->privateWhiteList_ == nullptr
+        && return this->publicExportIps_ == nullptr && return this->publicIps_ == nullptr && return this->publicNetworkAccess_ == nullptr && return this->publicWhiteList_ == nullptr && return this->RDModule_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->routerRules_ == nullptr && return this->scriptDeliverModule_ == nullptr && return this->securityGroupIds_ == nullptr
+        && return this->slaveVswitchId_ == nullptr && return this->startTime_ == nullptr && return this->storage_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr
+        && return this->webTerminalModule_ == nullptr && return this->whiteListPolicies_ == nullptr; };
     // appOperationModule Field Functions 
     bool hasAppOperationModule() const { return this->appOperationModule_ != nullptr;};
     void deleteAppOperationModule() { this->appOperationModule_ = nullptr;};

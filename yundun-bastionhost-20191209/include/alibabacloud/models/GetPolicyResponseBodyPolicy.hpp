@@ -50,9 +50,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessTimeRangeConfig_ != nullptr
-        && this->approvalConfig_ != nullptr && this->commandConfig_ != nullptr && this->comment_ != nullptr && this->IPAclConfig_ != nullptr && this->policyId_ != nullptr
-        && this->policyName_ != nullptr && this->priority_ != nullptr && this->protocolConfig_ != nullptr; };
+    virtual bool empty() const override { return this->accessTimeRangeConfig_ == nullptr
+        && return this->approvalConfig_ == nullptr && return this->commandConfig_ == nullptr && return this->comment_ == nullptr && return this->IPAclConfig_ == nullptr && return this->policyId_ == nullptr
+        && return this->policyName_ == nullptr && return this->priority_ == nullptr && return this->protocolConfig_ == nullptr; };
     // accessTimeRangeConfig Field Functions 
     bool hasAccessTimeRangeConfig() const { return this->accessTimeRangeConfig_ != nullptr;};
     void deleteAccessTimeRangeConfig() { this->accessTimeRangeConfig_ = nullptr;};

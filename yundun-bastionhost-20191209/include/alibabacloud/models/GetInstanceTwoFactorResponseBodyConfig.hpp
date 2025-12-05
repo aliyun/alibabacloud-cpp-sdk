@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableTwoFactor_ != nullptr
-        && this->skipTwoFactorTime_ != nullptr && this->twoFactorMethods_ != nullptr; };
+    virtual bool empty() const override { return this->enableTwoFactor_ == nullptr
+        && return this->skipTwoFactorTime_ == nullptr && return this->twoFactorMethods_ == nullptr; };
     // enableTwoFactor Field Functions 
     bool hasEnableTwoFactor() const { return this->enableTwoFactor_ != nullptr;};
     void deleteEnableTwoFactor() { this->enableTwoFactor_ = nullptr;};

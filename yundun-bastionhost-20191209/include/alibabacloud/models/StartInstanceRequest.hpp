@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientSecurityGroupIds_ != nullptr
-        && this->enablePortalPrivateAccess_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr && this->securityGroupIds_ != nullptr && this->slaveVswitchId_ != nullptr
-        && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->clientSecurityGroupIds_ == nullptr
+        && return this->enablePortalPrivateAccess_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr && return this->securityGroupIds_ == nullptr && return this->slaveVswitchId_ == nullptr
+        && return this->vswitchId_ == nullptr; };
     // clientSecurityGroupIds Field Functions 
     bool hasClientSecurityGroupIds() const { return this->clientSecurityGroupIds_ != nullptr;};
     void deleteClientSecurityGroupIds() { this->clientSecurityGroupIds_ = nullptr;};

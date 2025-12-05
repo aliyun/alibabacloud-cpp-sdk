@@ -32,8 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assetScope_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->assetScope_ == nullptr
+        && return this->requestId_ == nullptr; };
     // assetScope Field Functions 
     bool hasAssetScope() const { return this->assetScope_ != nullptr;};
     void deleteAssetScope() { this->assetScope_ = nullptr;};

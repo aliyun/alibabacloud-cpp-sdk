@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hostAccountCount_ != nullptr
-        && this->hostShareKeyId_ != nullptr && this->hostShareKeyName_ != nullptr && this->lastModifyKeyAt_ != nullptr && this->privateKeyFingerPrint_ != nullptr; };
+    virtual bool empty() const override { return this->hostAccountCount_ == nullptr
+        && return this->hostShareKeyId_ == nullptr && return this->hostShareKeyName_ == nullptr && return this->lastModifyKeyAt_ == nullptr && return this->privateKeyFingerPrint_ == nullptr; };
     // hostAccountCount Field Functions 
     bool hasHostAccountCount() const { return this->hostAccountCount_ != nullptr;};
     void deleteHostAccountCount() { this->hostAccountCount_ = nullptr;};

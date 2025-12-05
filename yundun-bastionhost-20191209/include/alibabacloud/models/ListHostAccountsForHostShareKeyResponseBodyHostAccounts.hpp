@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->hostAccountName_ != nullptr
-        && this->hostId_ != nullptr && this->hostsAccountId_ != nullptr && this->protocolName_ != nullptr; };
+    virtual bool empty() const override { return this->hostAccountName_ == nullptr
+        && return this->hostId_ == nullptr && return this->hostsAccountId_ == nullptr && return this->protocolName_ == nullptr; };
     // hostAccountName Field Functions 
     bool hasHostAccountName() const { return this->hostAccountName_ != nullptr;};
     void deleteHostAccountName() { this->hostAccountName_ = nullptr;};

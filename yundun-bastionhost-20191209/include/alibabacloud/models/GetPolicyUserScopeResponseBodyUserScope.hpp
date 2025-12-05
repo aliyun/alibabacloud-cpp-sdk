@@ -34,8 +34,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->scopeType_ != nullptr
-        && this->userGroupIds_ != nullptr && this->userIds_ != nullptr; };
+    virtual bool empty() const override { return this->scopeType_ == nullptr
+        && return this->userGroupIds_ == nullptr && return this->userIds_ == nullptr; };
     // scopeType Field Functions 
     bool hasScopeType() const { return this->scopeType_ != nullptr;};
     void deleteScopeType() { this->scopeType_ = nullptr;};

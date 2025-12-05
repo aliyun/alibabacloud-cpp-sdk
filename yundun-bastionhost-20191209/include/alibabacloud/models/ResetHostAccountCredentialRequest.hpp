@@ -35,8 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->credentialType_ != nullptr
-        && this->hostAccountId_ != nullptr && this->instanceId_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->credentialType_ == nullptr
+        && return this->hostAccountId_ == nullptr && return this->instanceId_ == nullptr && return this->regionId_ == nullptr; };
     // credentialType Field Functions 
     bool hasCredentialType() const { return this->credentialType_ != nullptr;};
     void deleteCredentialType() { this->credentialType_ = nullptr;};

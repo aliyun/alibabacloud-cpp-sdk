@@ -31,8 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->enableSFTPChannel_ != nullptr
-        && this->enableSSHChannel_ != nullptr; };
+    virtual bool empty() const override { return this->enableSFTPChannel_ == nullptr
+        && return this->enableSSHChannel_ == nullptr; };
     // enableSFTPChannel Field Functions 
     bool hasEnableSFTPChannel() const { return this->enableSFTPChannel_ != nullptr;};
     void deleteEnableSFTPChannel() { this->enableSFTPChannel_ = nullptr;};

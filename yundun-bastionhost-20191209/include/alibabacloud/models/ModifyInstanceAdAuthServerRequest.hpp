@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->account_ != nullptr
-        && this->baseDN_ != nullptr && this->domain_ != nullptr && this->emailMapping_ != nullptr && this->filter_ != nullptr && this->instanceId_ != nullptr
-        && this->isSSL_ != nullptr && this->mobileMapping_ != nullptr && this->nameMapping_ != nullptr && this->password_ != nullptr && this->port_ != nullptr
-        && this->regionId_ != nullptr && this->server_ != nullptr && this->standbyServer_ != nullptr; };
+    virtual bool empty() const override { return this->account_ == nullptr
+        && return this->baseDN_ == nullptr && return this->domain_ == nullptr && return this->emailMapping_ == nullptr && return this->filter_ == nullptr && return this->instanceId_ == nullptr
+        && return this->isSSL_ == nullptr && return this->mobileMapping_ == nullptr && return this->nameMapping_ == nullptr && return this->password_ == nullptr && return this->port_ == nullptr
+        && return this->regionId_ == nullptr && return this->server_ == nullptr && return this->standbyServer_ == nullptr; };
     // account Field Functions 
     bool hasAccount() const { return this->account_ != nullptr;};
     void deleteAccount() { this->account_ = nullptr;};

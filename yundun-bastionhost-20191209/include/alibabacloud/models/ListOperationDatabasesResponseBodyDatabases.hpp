@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activeAddressType_ != nullptr
-        && this->comment_ != nullptr && this->databaseId_ != nullptr && this->databaseName_ != nullptr && this->databasePort_ != nullptr && this->databasePrivateAddress_ != nullptr
-        && this->databasePublicAddress_ != nullptr && this->databaseType_ != nullptr && this->source_ != nullptr && this->sourceInstanceId_ != nullptr && this->sourceInstanceRegionId_ != nullptr
-        && this->sourceInstanceState_ != nullptr; };
+    virtual bool empty() const override { return this->activeAddressType_ == nullptr
+        && return this->comment_ == nullptr && return this->databaseId_ == nullptr && return this->databaseName_ == nullptr && return this->databasePort_ == nullptr && return this->databasePrivateAddress_ == nullptr
+        && return this->databasePublicAddress_ == nullptr && return this->databaseType_ == nullptr && return this->source_ == nullptr && return this->sourceInstanceId_ == nullptr && return this->sourceInstanceRegionId_ == nullptr
+        && return this->sourceInstanceState_ == nullptr; };
     // activeAddressType Field Functions 
     bool hasActiveAddressType() const { return this->activeAddressType_ != nullptr;};
     void deleteActiveAddressType() { this->activeAddressType_ = nullptr;};

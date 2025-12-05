@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->bandWidth_ != nullptr
-        && this->description_ != nullptr && this->expireTime_ != nullptr && this->imageVersion_ != nullptr && this->instanceId_ != nullptr && this->instanceStatus_ != nullptr
-        && this->internetEndpoint_ != nullptr && this->intranetEndpoint_ != nullptr && this->legacy_ != nullptr && this->licenseCode_ != nullptr && this->planCode_ != nullptr
-        && this->publicNetworkAccess_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->slaveVswitchId_ != nullptr && this->startTime_ != nullptr
-        && this->vpcId_ != nullptr && this->vswitchId_ != nullptr; };
+    virtual bool empty() const override { return this->bandWidth_ == nullptr
+        && return this->description_ == nullptr && return this->expireTime_ == nullptr && return this->imageVersion_ == nullptr && return this->instanceId_ == nullptr && return this->instanceStatus_ == nullptr
+        && return this->internetEndpoint_ == nullptr && return this->intranetEndpoint_ == nullptr && return this->legacy_ == nullptr && return this->licenseCode_ == nullptr && return this->planCode_ == nullptr
+        && return this->publicNetworkAccess_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->slaveVswitchId_ == nullptr && return this->startTime_ == nullptr
+        && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr; };
     // bandWidth Field Functions 
     bool hasBandWidth() const { return this->bandWidth_ != nullptr;};
     void deleteBandWidth() { this->bandWidth_ = nullptr;};

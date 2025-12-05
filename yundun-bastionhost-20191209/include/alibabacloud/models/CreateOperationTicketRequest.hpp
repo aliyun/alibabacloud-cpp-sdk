@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approveComment_ != nullptr
-        && this->assetAccountName_ != nullptr && this->assetId_ != nullptr && this->effectEndTime_ != nullptr && this->effectStartTime_ != nullptr && this->instanceId_ != nullptr
-        && this->isOneTimeEffect_ != nullptr && this->protocolName_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->approveComment_ == nullptr
+        && return this->assetAccountName_ == nullptr && return this->assetId_ == nullptr && return this->effectEndTime_ == nullptr && return this->effectStartTime_ == nullptr && return this->instanceId_ == nullptr
+        && return this->isOneTimeEffect_ == nullptr && return this->protocolName_ == nullptr && return this->regionId_ == nullptr; };
     // approveComment Field Functions 
     bool hasApproveComment() const { return this->approveComment_ != nullptr;};
     void deleteApproveComment() { this->approveComment_ = nullptr;};

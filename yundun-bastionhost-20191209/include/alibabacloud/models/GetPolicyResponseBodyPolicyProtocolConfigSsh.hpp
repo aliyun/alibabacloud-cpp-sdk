@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->execCommand_ != nullptr
-        && this->SFTPChannel_ != nullptr && this->SFTPDownloadFile_ != nullptr && this->SFTPMkdir_ != nullptr && this->SFTPRemoveFile_ != nullptr && this->SFTPRenameFile_ != nullptr
-        && this->SFTPRmdir_ != nullptr && this->SFTPUploadFile_ != nullptr && this->SSHChannel_ != nullptr && this->x11Forwarding_ != nullptr; };
+    virtual bool empty() const override { return this->execCommand_ == nullptr
+        && return this->SFTPChannel_ == nullptr && return this->SFTPDownloadFile_ == nullptr && return this->SFTPMkdir_ == nullptr && return this->SFTPRemoveFile_ == nullptr && return this->SFTPRenameFile_ == nullptr
+        && return this->SFTPRmdir_ == nullptr && return this->SFTPUploadFile_ == nullptr && return this->SSHChannel_ == nullptr && return this->x11Forwarding_ == nullptr; };
     // execCommand Field Functions 
     bool hasExecCommand() const { return this->execCommand_ != nullptr;};
     void deleteExecCommand() { this->execCommand_ = nullptr;};
