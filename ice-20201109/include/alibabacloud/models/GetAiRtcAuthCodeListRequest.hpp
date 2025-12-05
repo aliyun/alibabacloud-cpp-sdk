@@ -84,11 +84,23 @@ namespace Models
 
 
   protected:
+    // The ID of the batch.
     std::shared_ptr<string> licenseItemId_ = nullptr;
+    // Specifies whether to include the total count of records in the response. Defaults to `true`.
     std::shared_ptr<bool> needTotalCount_ = nullptr;
+    // The page number.
     std::shared_ptr<int64_t> pageNo_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // The status of the authorization code. Valid values:
+    // 
+    // *   `1`: Activated
+    // *   `2`: Inactive
     std::shared_ptr<int32_t> status_ = nullptr;
+    // The type of license. Valid values:
+    // 
+    // *   `1`: Audio call
+    // *   `2`: Vision call
     std::shared_ptr<int32_t> type_ = nullptr;
   };
 

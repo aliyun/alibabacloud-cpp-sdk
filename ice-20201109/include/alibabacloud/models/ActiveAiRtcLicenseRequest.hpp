@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The authorization code.
     std::shared_ptr<string> authCode_ = nullptr;
+    // The device ID.
     std::shared_ptr<string> deviceId_ = nullptr;
+    // The batch ID.
     std::shared_ptr<string> licenseItemId_ = nullptr;
   };
 

@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The error code returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The HTTP status code.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The license information.
     std::shared_ptr<string> license_ = nullptr;
+    // The error message.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the call was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

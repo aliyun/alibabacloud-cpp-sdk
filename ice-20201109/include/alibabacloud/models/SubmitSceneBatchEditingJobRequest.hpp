@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The output configuration. The structure is the same as the [OutputConfig](https://help.aliyun.com/zh/ims/use-cases/create-highlight-videos?spm=a2c4g.11186623.help-menu-193643.d_3_2_0_3.3af86997GreVu9\\&scm=20140722.H_2863940._.OR_help-T_cn~zh-V_1#4111a373d0xbz) for batch video generation, except that Count and GeneratePreviewOnly are not supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> outputConfig_ = nullptr;
+    // A comma-separated list of editing project IDs. The video is rendered based on the timeline from each project.
+    // 
     // This parameter is required.
     std::shared_ptr<string> projectIds_ = nullptr;
+    // Custom user data, including callback configurations. For more information, see [UserData](~~357745#section-urj-v3f-0s1~~).
     std::shared_ptr<string> userData_ = nullptr;
   };
 
