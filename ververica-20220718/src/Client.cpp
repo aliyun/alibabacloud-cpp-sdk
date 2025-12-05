@@ -1933,6 +1933,204 @@ GetDeploymentDraftLockResponse Client::getDeploymentDraftLock(const string &_nam
 }
 
 /**
+ * @summary 通过Ip获取已部署作业
+ *
+ * @param request GetDeploymentsByIpRequest
+ * @param headers GetDeploymentsByIpHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeploymentsByIpResponse
+ */
+GetDeploymentsByIpResponse Client::getDeploymentsByIpWithOptions(const string &_namespace, const GetDeploymentsByIpRequest &request, const GetDeploymentsByIpHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDstIp()) {
+    query["dstIp"] = request.dstIp();
+  }
+
+  if (!!request.hasDstPort()) {
+    query["dstPort"] = request.dstPort();
+  }
+
+  if (!!request.hasIgnoreJobSummary()) {
+    query["ignoreJobSummary"] = request.ignoreJobSummary();
+  }
+
+  if (!!request.hasIgnoreResourceSetting()) {
+    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+  }
+
+  if (!!request.hasSrcIp()) {
+    query["srcIp"] = request.srcIp();
+  }
+
+  if (!!request.hasSrcPort()) {
+    query["srcPort"] = request.srcPort();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeploymentsByIp"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/getDeployments/byIp")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeploymentsByIpResponse>();
+}
+
+/**
+ * @summary 通过Ip获取已部署作业
+ *
+ * @param request GetDeploymentsByIpRequest
+ * @return GetDeploymentsByIpResponse
+ */
+GetDeploymentsByIpResponse Client::getDeploymentsByIp(const string &_namespace, const GetDeploymentsByIpRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDeploymentsByIpHeaders headers = GetDeploymentsByIpHeaders();
+  return getDeploymentsByIpWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary 通过标签获取已部署作业
+ *
+ * @param request GetDeploymentsByLabelRequest
+ * @param headers GetDeploymentsByLabelHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeploymentsByLabelResponse
+ */
+GetDeploymentsByLabelResponse Client::getDeploymentsByLabelWithOptions(const string &_namespace, const GetDeploymentsByLabelRequest &request, const GetDeploymentsByLabelHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIgnoreJobSummary()) {
+    query["ignoreJobSummary"] = request.ignoreJobSummary();
+  }
+
+  if (!!request.hasIgnoreResourceSetting()) {
+    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+  }
+
+  if (!!request.hasLabelKey()) {
+    query["labelKey"] = request.labelKey();
+  }
+
+  if (!!request.hasLabelValue()) {
+    query["labelValue"] = request.labelValue();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeploymentsByLabel"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/getDeployments/byLabel")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeploymentsByLabelResponse>();
+}
+
+/**
+ * @summary 通过标签获取已部署作业
+ *
+ * @param request GetDeploymentsByLabelRequest
+ * @return GetDeploymentsByLabelResponse
+ */
+GetDeploymentsByLabelResponse Client::getDeploymentsByLabel(const string &_namespace, const GetDeploymentsByLabelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDeploymentsByLabelHeaders headers = GetDeploymentsByLabelHeaders();
+  return getDeploymentsByLabelWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary 通过名称获取已部署作业
+ *
+ * @param request GetDeploymentsByNameRequest
+ * @param headers GetDeploymentsByNameHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDeploymentsByNameResponse
+ */
+GetDeploymentsByNameResponse Client::getDeploymentsByNameWithOptions(const string &_namespace, const string &deploymentName, const GetDeploymentsByNameRequest &request, const GetDeploymentsByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIgnoreJobSummary()) {
+    query["ignoreJobSummary"] = request.ignoreJobSummary();
+  }
+
+  if (!!request.hasIgnoreResourceSetting()) {
+    query["ignoreResourceSetting"] = request.ignoreResourceSetting();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDeploymentsByName"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployments/name/" , Darabonba::Encode::Encoder::percentEncode(deploymentName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDeploymentsByNameResponse>();
+}
+
+/**
+ * @summary 通过名称获取已部署作业
+ *
+ * @param request GetDeploymentsByNameRequest
+ * @return GetDeploymentsByNameResponse
+ */
+GetDeploymentsByNameResponse Client::getDeploymentsByName(const string &_namespace, const string &deploymentName, const GetDeploymentsByNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetDeploymentsByNameHeaders headers = GetDeploymentsByNameHeaders();
+  return getDeploymentsByNameWithOptions(namespace, deploymentName, request, headers, runtime);
+}
+
+/**
  * @summary 获取运行事件
  *
  * @param request GetEventsRequest
@@ -2617,6 +2815,51 @@ GetUdfArtifactsResponse Client::getUdfArtifacts(const string &_namespace, const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   GetUdfArtifactsHeaders headers = GetUdfArtifactsHeaders();
   return getUdfArtifactsWithOptions(namespace, request, headers, runtime);
+}
+
+/**
+ * @summary Get validate DeploymentDraft result
+ *
+ * @param headers GetValidateDeploymentDraftResultHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetValidateDeploymentDraftResultResponse
+ */
+GetValidateDeploymentDraftResultResponse Client::getValidateDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const GetValidateDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetValidateDeploymentDraftResult"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployment-drafts/tickets/" , Darabonba::Encode::Encoder::percentEncode(ticketId) , "/async-validate")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetValidateDeploymentDraftResultResponse>();
+}
+
+/**
+ * @summary Get validate DeploymentDraft result
+ *
+ * @return GetValidateDeploymentDraftResultResponse
+ */
+GetValidateDeploymentDraftResultResponse Client::getValidateDeploymentDraftResult(const string &_namespace, const string &ticketId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetValidateDeploymentDraftResultHeaders headers = GetValidateDeploymentDraftResultHeaders();
+  return getValidateDeploymentDraftResultWithOptions(namespace, ticketId, headers, runtime);
 }
 
 /**
@@ -4383,6 +4626,55 @@ UpdateVariableResponse Client::updateVariable(const string &_namespace, const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   UpdateVariableHeaders headers = UpdateVariableHeaders();
   return updateVariableWithOptions(namespace, name, request, headers, runtime);
+}
+
+/**
+ * @summary validate DeploymentDraft async
+ *
+ * @param request ValidateDeploymentDraftAsyncRequest
+ * @param headers ValidateDeploymentDraftAsyncHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ValidateDeploymentDraftAsyncResponse
+ */
+ValidateDeploymentDraftAsyncResponse Client::validateDeploymentDraftAsyncWithOptions(const string &_namespace, const ValidateDeploymentDraftAsyncRequest &request, const ValidateDeploymentDraftAsyncHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasWorkspace()) {
+    realHeaders["workspace"] = Darabonba::Convert::stringVal(headers.workspace());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(request.body())}
+  }));
+  Params params = Params(json({
+    {"action" , "ValidateDeploymentDraftAsync"},
+    {"version" , "2022-07-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/namespaces/" , Darabonba::Encode::Encoder::percentEncode(namespace) , "/deployment-drafts/async-validate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ValidateDeploymentDraftAsyncResponse>();
+}
+
+/**
+ * @summary validate DeploymentDraft async
+ *
+ * @param request ValidateDeploymentDraftAsyncRequest
+ * @return ValidateDeploymentDraftAsyncResponse
+ */
+ValidateDeploymentDraftAsyncResponse Client::validateDeploymentDraftAsync(const string &_namespace, const ValidateDeploymentDraftAsyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ValidateDeploymentDraftAsyncHeaders headers = ValidateDeploymentDraftAsyncHeaders();
+  return validateDeploymentDraftAsyncWithOptions(namespace, request, headers, runtime);
 }
 
 /**

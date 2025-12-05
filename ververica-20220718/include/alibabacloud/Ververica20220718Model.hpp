@@ -252,6 +252,18 @@
 #include <alibabacloud/models/GetDeploymentDraftLockRequest.hpp>
 #include <alibabacloud/models/GetDeploymentDraftLockResponseBody.hpp>
 #include <alibabacloud/models/GetDeploymentDraftLockResponse.hpp>
+#include <alibabacloud/models/GetDeploymentsByIpHeaders.hpp>
+#include <alibabacloud/models/GetDeploymentsByIpRequest.hpp>
+#include <alibabacloud/models/GetDeploymentsByIpResponseBody.hpp>
+#include <alibabacloud/models/GetDeploymentsByIpResponse.hpp>
+#include <alibabacloud/models/GetDeploymentsByLabelHeaders.hpp>
+#include <alibabacloud/models/GetDeploymentsByLabelRequest.hpp>
+#include <alibabacloud/models/GetDeploymentsByLabelResponseBody.hpp>
+#include <alibabacloud/models/GetDeploymentsByLabelResponse.hpp>
+#include <alibabacloud/models/GetDeploymentsByNameHeaders.hpp>
+#include <alibabacloud/models/GetDeploymentsByNameRequest.hpp>
+#include <alibabacloud/models/GetDeploymentsByNameResponseBody.hpp>
+#include <alibabacloud/models/GetDeploymentsByNameResponse.hpp>
 #include <alibabacloud/models/GetEventsHeaders.hpp>
 #include <alibabacloud/models/GetEventsRequest.hpp>
 #include <alibabacloud/models/GetEventsResponseBody.hpp>
@@ -300,6 +312,9 @@
 #include <alibabacloud/models/GetUdfArtifactsRequest.hpp>
 #include <alibabacloud/models/GetUdfArtifactsResponseBody.hpp>
 #include <alibabacloud/models/GetUdfArtifactsResponse.hpp>
+#include <alibabacloud/models/GetValidateDeploymentDraftResultHeaders.hpp>
+#include <alibabacloud/models/GetValidateDeploymentDraftResultResponseBody.hpp>
+#include <alibabacloud/models/GetValidateDeploymentDraftResultResponse.hpp>
 #include <alibabacloud/models/HotUpdateJobHeaders.hpp>
 #include <alibabacloud/models/HotUpdateJobResponseBody.hpp>
 #include <alibabacloud/models/HotUpdateJobResponse.hpp>
@@ -424,6 +439,10 @@
 #include <alibabacloud/models/UpdateVariableRequest.hpp>
 #include <alibabacloud/models/UpdateVariableResponseBody.hpp>
 #include <alibabacloud/models/UpdateVariableResponse.hpp>
+#include <alibabacloud/models/ValidateDeploymentDraftAsyncHeaders.hpp>
+#include <alibabacloud/models/ValidateDeploymentDraftAsyncRequest.hpp>
+#include <alibabacloud/models/ValidateDeploymentDraftAsyncResponseBody.hpp>
+#include <alibabacloud/models/ValidateDeploymentDraftAsyncResponse.hpp>
 #include <alibabacloud/models/ValidateSqlStatementHeaders.hpp>
 #include <alibabacloud/models/ValidateSqlStatementRequest.hpp>
 #include <alibabacloud/models/ValidateSqlStatementResponseBody.hpp>
@@ -431,5 +450,6 @@
 #include <alibabacloud/models/DeployDeploymentDraftAsyncResponseBodyData.hpp>
 #include <alibabacloud/models/GenerateResourcePlanWithFlinkConfAsyncResponseBodyData.hpp>
 #include <alibabacloud/models/ListEditableNamespaceResponseBodyData.hpp>
+#include <alibabacloud/models/ValidateDeploymentDraftAsyncResponseBodyData.hpp>
 
 #endif

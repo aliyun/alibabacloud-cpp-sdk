@@ -673,6 +673,60 @@ namespace Ververica20220718
       Models::GetDeploymentDraftLockResponse getDeploymentDraftLock(const string &_namespace, const Models::GetDeploymentDraftLockRequest &request);
 
       /**
+       * @summary 通过Ip获取已部署作业
+       *
+       * @param request GetDeploymentsByIpRequest
+       * @param headers GetDeploymentsByIpHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeploymentsByIpResponse
+       */
+      Models::GetDeploymentsByIpResponse getDeploymentsByIpWithOptions(const string &_namespace, const Models::GetDeploymentsByIpRequest &request, const Models::GetDeploymentsByIpHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过Ip获取已部署作业
+       *
+       * @param request GetDeploymentsByIpRequest
+       * @return GetDeploymentsByIpResponse
+       */
+      Models::GetDeploymentsByIpResponse getDeploymentsByIp(const string &_namespace, const Models::GetDeploymentsByIpRequest &request);
+
+      /**
+       * @summary 通过标签获取已部署作业
+       *
+       * @param request GetDeploymentsByLabelRequest
+       * @param headers GetDeploymentsByLabelHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeploymentsByLabelResponse
+       */
+      Models::GetDeploymentsByLabelResponse getDeploymentsByLabelWithOptions(const string &_namespace, const Models::GetDeploymentsByLabelRequest &request, const Models::GetDeploymentsByLabelHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过标签获取已部署作业
+       *
+       * @param request GetDeploymentsByLabelRequest
+       * @return GetDeploymentsByLabelResponse
+       */
+      Models::GetDeploymentsByLabelResponse getDeploymentsByLabel(const string &_namespace, const Models::GetDeploymentsByLabelRequest &request);
+
+      /**
+       * @summary 通过名称获取已部署作业
+       *
+       * @param request GetDeploymentsByNameRequest
+       * @param headers GetDeploymentsByNameHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDeploymentsByNameResponse
+       */
+      Models::GetDeploymentsByNameResponse getDeploymentsByNameWithOptions(const string &_namespace, const string &deploymentName, const Models::GetDeploymentsByNameRequest &request, const Models::GetDeploymentsByNameHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过名称获取已部署作业
+       *
+       * @param request GetDeploymentsByNameRequest
+       * @return GetDeploymentsByNameResponse
+       */
+      Models::GetDeploymentsByNameResponse getDeploymentsByName(const string &_namespace, const string &deploymentName, const Models::GetDeploymentsByNameRequest &request);
+
+      /**
        * @summary 获取运行事件
        *
        * @param request GetEventsRequest
@@ -907,6 +961,22 @@ namespace Ververica20220718
        * @return GetUdfArtifactsResponse
        */
       Models::GetUdfArtifactsResponse getUdfArtifacts(const string &_namespace, const Models::GetUdfArtifactsRequest &request);
+
+      /**
+       * @summary Get validate DeploymentDraft result
+       *
+       * @param headers GetValidateDeploymentDraftResultHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetValidateDeploymentDraftResultResponse
+       */
+      Models::GetValidateDeploymentDraftResultResponse getValidateDeploymentDraftResultWithOptions(const string &_namespace, const string &ticketId, const Models::GetValidateDeploymentDraftResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Get validate DeploymentDraft result
+       *
+       * @return GetValidateDeploymentDraftResultResponse
+       */
+      Models::GetValidateDeploymentDraftResultResponse getValidateDeploymentDraftResult(const string &_namespace, const string &ticketId);
 
       /**
        * @summary Dynamically updates parameters or resources of a deployment that is running.
@@ -1491,6 +1561,24 @@ namespace Ververica20220718
        * @return UpdateVariableResponse
        */
       Models::UpdateVariableResponse updateVariable(const string &_namespace, const string &name, const Models::UpdateVariableRequest &request);
+
+      /**
+       * @summary validate DeploymentDraft async
+       *
+       * @param request ValidateDeploymentDraftAsyncRequest
+       * @param headers ValidateDeploymentDraftAsyncHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ValidateDeploymentDraftAsyncResponse
+       */
+      Models::ValidateDeploymentDraftAsyncResponse validateDeploymentDraftAsyncWithOptions(const string &_namespace, const Models::ValidateDeploymentDraftAsyncRequest &request, const Models::ValidateDeploymentDraftAsyncHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary validate DeploymentDraft async
+       *
+       * @param request ValidateDeploymentDraftAsyncRequest
+       * @return ValidateDeploymentDraftAsyncResponse
+       */
+      Models::ValidateDeploymentDraftAsyncResponse validateDeploymentDraftAsync(const string &_namespace, const Models::ValidateDeploymentDraftAsyncRequest &request);
 
       /**
        * @summary Verifies the code of an SQL deployment.
