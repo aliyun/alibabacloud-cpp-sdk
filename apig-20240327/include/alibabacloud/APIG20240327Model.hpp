@@ -109,6 +109,9 @@
 #include <alibabacloud/models/CreateServiceRequest.hpp>
 #include <alibabacloud/models/CreateServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceResponse.hpp>
+#include <alibabacloud/models/CreateServiceVersionRequest.hpp>
+#include <alibabacloud/models/CreateServiceVersionResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceVersionResponse.hpp>
 #include <alibabacloud/models/DeleteConsumerResponseBody.hpp>
 #include <alibabacloud/models/DeleteConsumerResponse.hpp>
 #include <alibabacloud/models/DeleteConsumerAuthorizationRuleResponseBody.hpp>
@@ -138,6 +141,8 @@
 #include <alibabacloud/models/DeletePolicyAttachmentResponse.hpp>
 #include <alibabacloud/models/DeleteServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
+#include <alibabacloud/models/DeleteServiceVersionResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceVersionResponse.hpp>
 #include <alibabacloud/models/DeployHttpApiRequest.hpp>
 #include <alibabacloud/models/DeployHttpApiResponseBody.hpp>
 #include <alibabacloud/models/DeployHttpApiResponse.hpp>
@@ -289,6 +294,9 @@
 #include <alibabacloud/models/UpdatePolicyRequest.hpp>
 #include <alibabacloud/models/UpdatePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdatePolicyResponse.hpp>
+#include <alibabacloud/models/UpdateServiceVersionRequest.hpp>
+#include <alibabacloud/models/UpdateServiceVersionResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceVersionResponse.hpp>
 #include <alibabacloud/models/UpgradeGatewayRequest.hpp>
 #include <alibabacloud/models/UpgradeGatewayResponseBody.hpp>
 #include <alibabacloud/models/UpgradeGatewayResponse.hpp>
@@ -382,6 +390,7 @@
 #include <alibabacloud/models/CreatePolicyAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/CreateServiceRequestServiceConfigs.hpp>
 #include <alibabacloud/models/CreateServiceResponseBodyData.hpp>
+#include <alibabacloud/models/CreateServiceVersionRequestLabels.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestHttpApiConfig.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestRestApiConfigEnvironment.hpp>
@@ -474,5 +483,6 @@
 #include <alibabacloud/models/UpdateMcpServerRequestAssembledSources.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestBackendConfigServices.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/UpdateServiceVersionRequestLabels.hpp>
 
 #endif

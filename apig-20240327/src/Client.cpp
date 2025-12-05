@@ -1251,6 +1251,55 @@ CreateServiceResponse Client::createService(const CreateServiceRequest &request)
 }
 
 /**
+ * @summary 创建服务版本
+ *
+ * @param request CreateServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateServiceVersionResponse
+ */
+CreateServiceVersionResponse Client::createServiceVersionWithOptions(const string &serviceId, const CreateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLabels()) {
+    body["labels"] = request.labels();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateServiceVersion"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/services/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/versions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateServiceVersionResponse>();
+}
+
+/**
+ * @summary 创建服务版本
+ *
+ * @param request CreateServiceVersionRequest
+ * @return CreateServiceVersionResponse
+ */
+CreateServiceVersionResponse Client::createServiceVersion(const string &serviceId, const CreateServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createServiceVersionWithOptions(serviceId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a consumer.
  *
  * @param headers map
@@ -1765,6 +1814,42 @@ DeleteServiceResponse Client::deleteService(const string &serviceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteServiceWithOptions(serviceId, headers, runtime);
+}
+
+/**
+ * @summary 删除服务版本
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteServiceVersionResponse
+ */
+DeleteServiceVersionResponse Client::deleteServiceVersionWithOptions(const string &serviceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteServiceVersion"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/services/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteServiceVersionResponse>();
+}
+
+/**
+ * @summary 删除服务版本
+ *
+ * @return DeleteServiceVersionResponse
+ */
+DeleteServiceVersionResponse Client::deleteServiceVersion(const string &serviceId, const string &name) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteServiceVersionWithOptions(serviceId, name, headers, runtime);
 }
 
 /**
@@ -4938,6 +5023,51 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updatePolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新服务版本
+ *
+ * @param request UpdateServiceVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateServiceVersionResponse
+ */
+UpdateServiceVersionResponse Client::updateServiceVersionWithOptions(const string &serviceId, const string &name, const UpdateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLabels()) {
+    body["labels"] = request.labels();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateServiceVersion"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/services/" , Darabonba::Encode::Encoder::percentEncode(serviceId) , "/versions/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateServiceVersionResponse>();
+}
+
+/**
+ * @summary 更新服务版本
+ *
+ * @param request UpdateServiceVersionRequest
+ * @return UpdateServiceVersionResponse
+ */
+UpdateServiceVersionResponse Client::updateServiceVersion(const string &serviceId, const string &name, const UpdateServiceVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateServiceVersionWithOptions(serviceId, name, request, headers, runtime);
 }
 
 /**

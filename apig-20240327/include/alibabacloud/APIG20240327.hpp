@@ -361,6 +361,24 @@ namespace APIG20240327
       Models::CreateServiceResponse createService(const Models::CreateServiceRequest &request);
 
       /**
+       * @summary 创建服务版本
+       *
+       * @param request CreateServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceVersionResponse
+       */
+      Models::CreateServiceVersionResponse createServiceVersionWithOptions(const string &serviceId, const Models::CreateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建服务版本
+       *
+       * @param request CreateServiceVersionRequest
+       * @return CreateServiceVersionResponse
+       */
+      Models::CreateServiceVersionResponse createServiceVersion(const string &serviceId, const Models::CreateServiceVersionRequest &request);
+
+      /**
        * @summary Deletes a consumer.
        *
        * @param headers map
@@ -589,6 +607,22 @@ namespace APIG20240327
        * @return DeleteServiceResponse
        */
       Models::DeleteServiceResponse deleteService(const string &serviceId);
+
+      /**
+       * @summary 删除服务版本
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceVersionResponse
+       */
+      Models::DeleteServiceVersionResponse deleteServiceVersionWithOptions(const string &serviceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除服务版本
+       *
+       * @return DeleteServiceVersionResponse
+       */
+      Models::DeleteServiceVersionResponse deleteServiceVersion(const string &serviceId, const string &name);
 
       /**
        * @summary Deploy HttpApi
@@ -1583,6 +1617,24 @@ namespace APIG20240327
        * @return UpdatePolicyResponse
        */
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
+
+      /**
+       * @summary 更新服务版本
+       *
+       * @param request UpdateServiceVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateServiceVersionResponse
+       */
+      Models::UpdateServiceVersionResponse updateServiceVersionWithOptions(const string &serviceId, const string &name, const Models::UpdateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新服务版本
+       *
+       * @param request UpdateServiceVersionRequest
+       * @return UpdateServiceVersionResponse
+       */
+      Models::UpdateServiceVersionResponse updateServiceVersion(const string &serviceId, const string &name, const Models::UpdateServiceVersionRequest &request);
 
       /**
        * @summary Upgrade the gateway version
