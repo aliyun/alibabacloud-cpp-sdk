@@ -3441,6 +3441,7 @@
 #include <alibabacloud/models/ListAgentlessMaliciousFilesResponseBodyListNotes.hpp>
 #include <alibabacloud/models/ListAgentlessMaliciousFilesResponseBodyList.hpp>
 #include <alibabacloud/models/ListAgentlessMaliciousFilesResponseBodyPageInfo.hpp>
+#include <alibabacloud/models/ListAgentlessRegionResponseBodyVendorRegionList.hpp>
 #include <alibabacloud/models/ListAgentlessRelateMaliciousResponseBodyListDetails.hpp>
 #include <alibabacloud/models/ListAgentlessRelateMaliciousResponseBodyList.hpp>
 #include <alibabacloud/models/ListAgentlessRelateMaliciousResponseBodyPageInfo.hpp>
