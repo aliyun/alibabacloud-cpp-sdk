@@ -1,3 +1,33 @@
+2025-12-05 Version: 1.3.0
+- Support API GetDefaultKmsInstance.
+- Support API GetKmsInstanceQuotaInfos.
+- Support API ReleaseKmsInstance.
+- Update API AsymmetricDecrypt: add request parameters DryRun.
+- Update API AsymmetricEncrypt: add request parameters DryRun.
+- Update API AsymmetricSign: add request parameters DryRun.
+- Update API AsymmetricVerify: add request parameters DryRun.
+- Update API CreateKey: add request parameters KeyStorageMechanism.
+- Update API Decrypt: add request parameters DryRun.
+- Update API DescribeSecret: add response parameters Body.OwingService.
+- Update API Encrypt: add request parameters DryRun.
+- Update API ExportDataKey: add request parameters DryRun.
+- Update API GenerateAndExportDataKey: add request parameters DryRun.
+- Update API GenerateDataKey: add request parameters DryRun.
+- Update API GenerateDataKeyWithoutPlaintext: add request parameters DryRun.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.ChargeType.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.Log.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.LogStorage.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.ProductType.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.ProductVersion.
+- Update API GetKmsInstance: add response parameters Body.KmsInstance.SaleStatus.
+- Update API GetPublicKey: add request parameters DryRun.
+- Update API GetSecretValue: add request parameters DryRun.
+- Update API ListKmsInstances: add request parameters Filters.
+- Update API ListSecrets: add response parameters Body.SecretList.$.OwingService.
+- Update API ReEncrypt: add request parameters DryRun.
+- Update API SetDeletionProtection: add request parameters KeyId.
+
+
 2024-05-08 Version: 1.2.0
 - Support API GetKeyPolicy.
 - Support API GetSecretPolicy.

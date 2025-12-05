@@ -1,0 +1,73 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEKEYVERSIONRESPONSEBODYKEYVERSION_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEKEYVERSIONRESPONSEBODYKEYVERSION_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Kms20160120
+{
+namespace Models
+{
+  class DescribeKeyVersionResponseBodyKeyVersion : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeKeyVersionResponseBodyKeyVersion& obj) { 
+      DARABONBA_PTR_TO_JSON(CreationDate, creationDate_);
+      DARABONBA_PTR_TO_JSON(KeyId, keyId_);
+      DARABONBA_PTR_TO_JSON(KeyVersionId, keyVersionId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeKeyVersionResponseBodyKeyVersion& obj) { 
+      DARABONBA_PTR_FROM_JSON(CreationDate, creationDate_);
+      DARABONBA_PTR_FROM_JSON(KeyId, keyId_);
+      DARABONBA_PTR_FROM_JSON(KeyVersionId, keyVersionId_);
+    };
+    DescribeKeyVersionResponseBodyKeyVersion() = default ;
+    DescribeKeyVersionResponseBodyKeyVersion(const DescribeKeyVersionResponseBodyKeyVersion &) = default ;
+    DescribeKeyVersionResponseBodyKeyVersion(DescribeKeyVersionResponseBodyKeyVersion &&) = default ;
+    DescribeKeyVersionResponseBodyKeyVersion(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeKeyVersionResponseBodyKeyVersion() = default ;
+    DescribeKeyVersionResponseBodyKeyVersion& operator=(const DescribeKeyVersionResponseBodyKeyVersion &) = default ;
+    DescribeKeyVersionResponseBodyKeyVersion& operator=(DescribeKeyVersionResponseBodyKeyVersion &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->creationDate_ == nullptr
+        && return this->keyId_ == nullptr && return this->keyVersionId_ == nullptr; };
+    // creationDate Field Functions 
+    bool hasCreationDate() const { return this->creationDate_ != nullptr;};
+    void deleteCreationDate() { this->creationDate_ = nullptr;};
+    inline string creationDate() const { DARABONBA_PTR_GET_DEFAULT(creationDate_, "") };
+    inline DescribeKeyVersionResponseBodyKeyVersion& setCreationDate(string creationDate) { DARABONBA_PTR_SET_VALUE(creationDate_, creationDate) };
+
+
+    // keyId Field Functions 
+    bool hasKeyId() const { return this->keyId_ != nullptr;};
+    void deleteKeyId() { this->keyId_ = nullptr;};
+    inline string keyId() const { DARABONBA_PTR_GET_DEFAULT(keyId_, "") };
+    inline DescribeKeyVersionResponseBodyKeyVersion& setKeyId(string keyId) { DARABONBA_PTR_SET_VALUE(keyId_, keyId) };
+
+
+    // keyVersionId Field Functions 
+    bool hasKeyVersionId() const { return this->keyVersionId_ != nullptr;};
+    void deleteKeyVersionId() { this->keyVersionId_ = nullptr;};
+    inline string keyVersionId() const { DARABONBA_PTR_GET_DEFAULT(keyVersionId_, "") };
+    inline DescribeKeyVersionResponseBodyKeyVersion& setKeyVersionId(string keyVersionId) { DARABONBA_PTR_SET_VALUE(keyVersionId_, keyVersionId) };
+
+
+  protected:
+    // The date and time when the CMK version was created. The time is displayed in UTC.
+    std::shared_ptr<string> creationDate_ = nullptr;
+    // The globally unique ID of the CMK.
+    // 
+    // >  If you set the KeyId parameter in the request to an alias of the CMK, the ID of the CMK to which the alias is bound is returned.
+    std::shared_ptr<string> keyId_ = nullptr;
+    // The globally unique ID of the CMK version.
+    std::shared_ptr<string> keyVersionId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Kms20160120
+#endif
