@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const Session& obj) { 
       DARABONBA_PTR_TO_JSON(containerId, containerId_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
+      DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, Session& obj) { 
       DARABONBA_PTR_FROM_JSON(containerId, containerId_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
+      DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
@@ -51,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerId_ == nullptr
-        && return this->createdTime_ == nullptr && return this->functionName_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->nasConfig_ == nullptr && return this->qualifier_ == nullptr
-        && return this->sessionAffinityType_ == nullptr && return this->sessionId_ == nullptr && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionStatus_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
+        && return this->createdTime_ == nullptr && return this->disableSessionIdReuse_ == nullptr && return this->functionName_ == nullptr && return this->lastModifiedTime_ == nullptr && return this->nasConfig_ == nullptr
+        && return this->qualifier_ == nullptr && return this->sessionAffinityType_ == nullptr && return this->sessionId_ == nullptr && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionStatus_ == nullptr
+        && return this->sessionTTLInSeconds_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
@@ -65,6 +68,13 @@ namespace Models
     void deleteCreatedTime() { this->createdTime_ = nullptr;};
     inline string createdTime() const { DARABONBA_PTR_GET_DEFAULT(createdTime_, "") };
     inline Session& setCreatedTime(string createdTime) { DARABONBA_PTR_SET_VALUE(createdTime_, createdTime) };
+
+
+    // disableSessionIdReuse Field Functions 
+    bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
+    void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
+    inline bool disableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
+    inline Session& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
 
 
     // functionName Field Functions 
@@ -135,6 +145,7 @@ namespace Models
   protected:
     std::shared_ptr<string> containerId_ = nullptr;
     std::shared_ptr<string> createdTime_ = nullptr;
+    std::shared_ptr<bool> disableSessionIdReuse_ = nullptr;
     std::shared_ptr<string> functionName_ = nullptr;
     std::shared_ptr<string> lastModifiedTime_ = nullptr;
     std::shared_ptr<NASConfig> nasConfig_ = nullptr;

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The function alias.
     std::shared_ptr<string> qualifier_ = nullptr;
   };
 

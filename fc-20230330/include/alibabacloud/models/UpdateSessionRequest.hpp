@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The session update configuration.
     std::shared_ptr<UpdateSessionInput> body_ = nullptr;
+    // The function alias or version associated with the session to be updated.
     std::shared_ptr<string> qualifier_ = nullptr;
   };
 

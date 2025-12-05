@@ -16,12 +16,14 @@ namespace Models
   class PutScalingConfigInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PutScalingConfigInput& obj) { 
+      DARABONBA_PTR_TO_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_TO_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_TO_JSON(minInstances, minInstances_);
       DARABONBA_PTR_TO_JSON(residentPoolId, residentPoolId_);
       DARABONBA_PTR_TO_JSON(scheduledPolicies, scheduledPolicies_);
     };
     friend void from_json(const Darabonba::Json& j, PutScalingConfigInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_FROM_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_FROM_JSON(minInstances, minInstances_);
       DARABONBA_PTR_FROM_JSON(residentPoolId, residentPoolId_);
@@ -38,8 +40,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->horizontalScalingPolicies_ == nullptr
-        && return this->minInstances_ == nullptr && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr; };
+    virtual bool empty() const override { return this->enableOnDemandScaling_ == nullptr
+        && return this->horizontalScalingPolicies_ == nullptr && return this->minInstances_ == nullptr && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr; };
+    // enableOnDemandScaling Field Functions 
+    bool hasEnableOnDemandScaling() const { return this->enableOnDemandScaling_ != nullptr;};
+    void deleteEnableOnDemandScaling() { this->enableOnDemandScaling_ = nullptr;};
+    inline bool enableOnDemandScaling() const { DARABONBA_PTR_GET_DEFAULT(enableOnDemandScaling_, false) };
+    inline PutScalingConfigInput& setEnableOnDemandScaling(bool enableOnDemandScaling) { DARABONBA_PTR_SET_VALUE(enableOnDemandScaling_, enableOnDemandScaling) };
+
+
     // horizontalScalingPolicies Field Functions 
     bool hasHorizontalScalingPolicies() const { return this->horizontalScalingPolicies_ != nullptr;};
     void deleteHorizontalScalingPolicies() { this->horizontalScalingPolicies_ = nullptr;};
@@ -73,6 +82,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> enableOnDemandScaling_ = nullptr;
     std::shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ = nullptr;
     std::shared_ptr<int64_t> minInstances_ = nullptr;
     std::shared_ptr<string> residentPoolId_ = nullptr;

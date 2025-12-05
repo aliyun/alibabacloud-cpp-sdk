@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Creates session configurations.
     std::shared_ptr<CreateSessionInput> body_ = nullptr;
+    // Specifies the version or alias to which the sesion belongs.
     std::shared_ptr<string> qualifier_ = nullptr;
   };
 

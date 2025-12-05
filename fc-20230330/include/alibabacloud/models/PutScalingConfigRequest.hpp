@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The function scalability configuration.
     std::shared_ptr<PutScalingConfigInput> body_ = nullptr;
+    // The function alias.
     std::shared_ptr<string> qualifier_ = nullptr;
   };
 

@@ -38,6 +38,13 @@ namespace Models
 
 
   protected:
+    // The language in which the list of regions is returned. For more information, see RFC 7231. Valid values:
+    // 
+    // *   zh-CN: Simplified Chinese.
+    // *   en-US: English.
+    // *   ja: Japanese
+    // 
+    // Default value: en-US
     std::shared_ptr<string> acceptLanguage_ = nullptr;
   };
 

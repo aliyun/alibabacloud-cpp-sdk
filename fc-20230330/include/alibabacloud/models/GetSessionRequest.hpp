@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The function alias or version associated with the queried session ID.
     std::shared_ptr<string> qualifier_ = nullptr;
   };
 

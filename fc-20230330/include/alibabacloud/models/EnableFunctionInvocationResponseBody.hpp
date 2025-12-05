@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

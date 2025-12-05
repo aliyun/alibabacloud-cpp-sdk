@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ScalingConfigStatus& obj) { 
       DARABONBA_PTR_TO_JSON(currentError, currentError_);
       DARABONBA_PTR_TO_JSON(currentInstances, currentInstances_);
+      DARABONBA_PTR_TO_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_TO_JSON(functionArn, functionArn_);
       DARABONBA_PTR_TO_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_TO_JSON(minInstances, minInstances_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ScalingConfigStatus& obj) { 
       DARABONBA_PTR_FROM_JSON(currentError, currentError_);
       DARABONBA_PTR_FROM_JSON(currentInstances, currentInstances_);
+      DARABONBA_PTR_FROM_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_FROM_JSON(functionArn, functionArn_);
       DARABONBA_PTR_FROM_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_FROM_JSON(minInstances, minInstances_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentError_ == nullptr
-        && return this->currentInstances_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr && return this->minInstances_ == nullptr && return this->residentPoolId_ == nullptr
-        && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
+        && return this->currentInstances_ == nullptr && return this->enableOnDemandScaling_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr && return this->minInstances_ == nullptr
+        && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     void deleteCurrentInstances() { this->currentInstances_ = nullptr;};
     inline int64_t currentInstances() const { DARABONBA_PTR_GET_DEFAULT(currentInstances_, 0L) };
     inline ScalingConfigStatus& setCurrentInstances(int64_t currentInstances) { DARABONBA_PTR_SET_VALUE(currentInstances_, currentInstances) };
+
+
+    // enableOnDemandScaling Field Functions 
+    bool hasEnableOnDemandScaling() const { return this->enableOnDemandScaling_ != nullptr;};
+    void deleteEnableOnDemandScaling() { this->enableOnDemandScaling_ = nullptr;};
+    inline bool enableOnDemandScaling() const { DARABONBA_PTR_GET_DEFAULT(enableOnDemandScaling_, false) };
+    inline ScalingConfigStatus& setEnableOnDemandScaling(bool enableOnDemandScaling) { DARABONBA_PTR_SET_VALUE(enableOnDemandScaling_, enableOnDemandScaling) };
 
 
     // functionArn Field Functions 
@@ -112,6 +121,7 @@ namespace Models
   protected:
     std::shared_ptr<string> currentError_ = nullptr;
     std::shared_ptr<int64_t> currentInstances_ = nullptr;
+    std::shared_ptr<bool> enableOnDemandScaling_ = nullptr;
     std::shared_ptr<string> functionArn_ = nullptr;
     std::shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ = nullptr;
     std::shared_ptr<int64_t> minInstances_ = nullptr;

@@ -21,7 +21,9 @@ namespace FC20230330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 修改实例所在资源组
+       * @summary Updates the resource group of a Function Compute resource.
+       *
+       * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @param headers map
@@ -31,7 +33,9 @@ namespace FC20230330
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改实例所在资源组
+       * @summary Updates the resource group of a Function Compute resource.
+       *
+       * @description To update the resource group of a Function Compute resource, you must grant the user the ChangeResourceGroup permission on both the current resource group and the target resource group.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -119,7 +123,7 @@ namespace FC20230330
       Models::CreateLayerVersionResponse createLayerVersion(const string &layerName, const Models::CreateLayerVersionRequest &request);
 
       /**
-       * @summary 创建会话资源
+       * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
        *
        * @param request CreateSessionRequest
        * @param headers map
@@ -129,7 +133,7 @@ namespace FC20230330
       Models::CreateSessionResponse createSessionWithOptions(const string &functionName, const Models::CreateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建会话资源
+       * @summary The CreateSession operation creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and associates it with the session. You can specify values for TTL and idle timeout. This method applies to the HEADER_FIELD and GENERATED_COOKIE affinity types. It handles session preload and configuration initialization. After you call the InvokeFunction API, the session information can be included in the InvokeFunction request to enable request routing.
        *
        * @param request CreateSessionRequest
        * @return CreateSessionResponse
@@ -305,7 +309,7 @@ namespace FC20230330
       Models::DeleteProvisionConfigResponse deleteProvisionConfig(const string &functionName, const Models::DeleteProvisionConfigRequest &request);
 
       /**
-       * @summary 删除弹性配置
+       * @summary Deletes the scaling settings of a function.
        *
        * @param request DeleteScalingConfigRequest
        * @param headers map
@@ -315,7 +319,7 @@ namespace FC20230330
       Models::DeleteScalingConfigResponse deleteScalingConfigWithOptions(const string &functionName, const Models::DeleteScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除弹性配置
+       * @summary Deletes the scaling settings of a function.
        *
        * @param request DeleteScalingConfigRequest
        * @return DeleteScalingConfigResponse
@@ -323,7 +327,7 @@ namespace FC20230330
       Models::DeleteScalingConfigResponse deleteScalingConfig(const string &functionName, const Models::DeleteScalingConfigRequest &request);
 
       /**
-       * @summary 删除会话资源
+       * @summary Deletes the specified session and prohibits new requests from being routed to it. Clears the session metadata from the database, so subsequent requests with the same session ID are treated as new sessions. Releases resources and performs session cleanup. In session isolation scenarios, terminates running requests and releases the instance bound to the session. In non-session isolation scenarios, allows running requests to continue and gracefully terminates them.
        *
        * @param request DeleteSessionRequest
        * @param headers map
@@ -333,7 +337,7 @@ namespace FC20230330
       Models::DeleteSessionResponse deleteSessionWithOptions(const string &functionName, const string &sessionId, const Models::DeleteSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除会话资源
+       * @summary Deletes the specified session and prohibits new requests from being routed to it. Clears the session metadata from the database, so subsequent requests with the same session ID are treated as new sessions. Releases resources and performs session cleanup. In session isolation scenarios, terminates running requests and releases the instance bound to the session. In non-session isolation scenarios, allows running requests to continue and gracefully terminates them.
        *
        * @param request DeleteSessionRequest
        * @return DeleteSessionResponse
@@ -373,7 +377,7 @@ namespace FC20230330
       Models::DeleteVpcBindingResponse deleteVpcBinding(const string &functionName, const string &vpcId);
 
       /**
-       * @summary 查询产品的地域信息列表
+       * @summary Queries the regions where Function Compute 3.0 is available.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -383,7 +387,7 @@ namespace FC20230330
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询产品的地域信息列表
+       * @summary Queries the regions where Function Compute 3.0 is available.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -413,7 +417,7 @@ namespace FC20230330
       Models::DisableFunctionInvocationResponse disableFunctionInvocation(const string &functionName, const Models::DisableFunctionInvocationRequest &request);
 
       /**
-       * @summary 允许函数调用
+       * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -422,7 +426,7 @@ namespace FC20230330
       Models::EnableFunctionInvocationResponse enableFunctionInvocationWithOptions(const string &functionName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 允许函数调用
+       * @summary The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
        *
        * @return EnableFunctionInvocationResponse
        */
@@ -599,7 +603,7 @@ namespace FC20230330
       Models::GetProvisionConfigResponse getProvisionConfig(const string &functionName, const Models::GetProvisionConfigRequest &request);
 
       /**
-       * @summary 获取弹性配置
+       * @summary Gets the scaling settings of a function.
        *
        * @param request GetScalingConfigRequest
        * @param headers map
@@ -609,7 +613,7 @@ namespace FC20230330
       Models::GetScalingConfigResponse getScalingConfigWithOptions(const string &functionName, const Models::GetScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取弹性配置
+       * @summary Gets the scaling settings of a function.
        *
        * @param request GetScalingConfigRequest
        * @return GetScalingConfigResponse
@@ -617,7 +621,7 @@ namespace FC20230330
       Models::GetScalingConfigResponse getScalingConfig(const string &functionName, const Models::GetScalingConfigRequest &request);
 
       /**
-       * @summary 获取函数会话信息。
+       * @summary You can use this operation to retrieve detailed information about a specific session, including its session ID, associated function, affinity type, lifecycle configuration, status, and instance details. This operation retrieves the current metadata for a session. You can identify the metadata precisely using either the function name or qualifier. This capability enables you to monitor and debug external systems with ease. Only sessions that are in the Active state can be queried.
        *
        * @param request GetSessionRequest
        * @param headers map
@@ -627,7 +631,7 @@ namespace FC20230330
       Models::GetSessionResponse getSessionWithOptions(const string &functionName, const string &sessionId, const Models::GetSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取函数会话信息。
+       * @summary You can use this operation to retrieve detailed information about a specific session, including its session ID, associated function, affinity type, lifecycle configuration, status, and instance details. This operation retrieves the current metadata for a session. You can identify the metadata precisely using either the function name or qualifier. This capability enables you to monitor and debug external systems with ease. Only sessions that are in the Active state can be queried.
        *
        * @param request GetSessionRequest
        * @return GetSessionResponse
@@ -871,7 +875,7 @@ namespace FC20230330
       Models::ListProvisionConfigsResponse listProvisionConfigs(const Models::ListProvisionConfigsRequest &request);
 
       /**
-       * @summary 获取弹性配置列表
+       * @summary Lists the scaling settings of a function.
        *
        * @param request ListScalingConfigsRequest
        * @param headers map
@@ -881,7 +885,7 @@ namespace FC20230330
       Models::ListScalingConfigsResponse listScalingConfigsWithOptions(const Models::ListScalingConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取弹性配置列表
+       * @summary Lists the scaling settings of a function.
        *
        * @param request ListScalingConfigsRequest
        * @return ListScalingConfigsResponse
@@ -889,7 +893,7 @@ namespace FC20230330
       Models::ListScalingConfigsResponse listScalingConfigs(const Models::ListScalingConfigsRequest &request);
 
       /**
-       * @summary 列出函数会话信息
+       * @summary Lists sessions in the Active and/or Expired state(s) under the specified function. Supports filtering by qualifier, status, and session ID, as well as paginated queries. Returns basic session attributes for batch viewing of session distribution and status, helping with operations monitoring and integration with external systems, and enhancing session visibility and management.
        *
        * @param request ListSessionsRequest
        * @param headers map
@@ -899,7 +903,7 @@ namespace FC20230330
       Models::ListSessionsResponse listSessionsWithOptions(const string &functionName, const Models::ListSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出函数会话信息
+       * @summary Lists sessions in the Active and/or Expired state(s) under the specified function. Supports filtering by qualifier, status, and session ID, as well as paginated queries. Returns basic session attributes for batch viewing of session distribution and status, helping with operations monitoring and integration with external systems, and enhancing session visibility and management.
        *
        * @param request ListSessionsRequest
        * @return ListSessionsResponse
@@ -1049,7 +1053,7 @@ namespace FC20230330
       Models::PutProvisionConfigResponse putProvisionConfig(const string &functionName, const Models::PutProvisionConfigRequest &request);
 
       /**
-       * @summary 设置弹性配置
+       * @summary Scaling settings
        *
        * @param request PutScalingConfigRequest
        * @param headers map
@@ -1059,7 +1063,7 @@ namespace FC20230330
       Models::PutScalingConfigResponse putScalingConfigWithOptions(const string &functionName, const Models::PutScalingConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置弹性配置
+       * @summary Scaling settings
        *
        * @param request PutScalingConfigRequest
        * @return PutScalingConfigResponse
@@ -1179,7 +1183,7 @@ namespace FC20230330
       Models::UpdateFunctionResponse updateFunction(const string &functionName, const Models::UpdateFunctionRequest &request);
 
       /**
-       * @summary 更新会话配置
+       * @summary Updates session configurations while the session is in the Active state, such as lifecycle parameters (e.g., SessionTTLInSeconds and SessionIdleTimeoutInSeconds). After the update takes effect, LastModifiedTime is automatically refreshed. These updates can be used to extend or shorten the validity period of a session and enable dynamic management without changing the execution environment bound to the session.
        *
        * @param request UpdateSessionRequest
        * @param headers map
@@ -1189,7 +1193,7 @@ namespace FC20230330
       Models::UpdateSessionResponse updateSessionWithOptions(const string &functionName, const string &sessionId, const Models::UpdateSessionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新会话配置
+       * @summary Updates session configurations while the session is in the Active state, such as lifecycle parameters (e.g., SessionTTLInSeconds and SessionIdleTimeoutInSeconds). After the update takes effect, LastModifiedTime is automatically refreshed. These updates can be used to extend or shorten the validity period of a session and enable dynamic management without changing the execution environment bound to the session.
        *
        * @param request UpdateSessionRequest
        * @return UpdateSessionResponse

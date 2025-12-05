@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the function.
     std::shared_ptr<string> functionName_ = nullptr;
+    // The number of scaling settings to return.
     std::shared_ptr<int32_t> limit_ = nullptr;
+    // The token for the next page.
     std::shared_ptr<string> nextToken_ = nullptr;
   };
 

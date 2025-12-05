@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The request details for updating the resource group.
     std::shared_ptr<ChangeResourceGroupInput> body_ = nullptr;
   };
 

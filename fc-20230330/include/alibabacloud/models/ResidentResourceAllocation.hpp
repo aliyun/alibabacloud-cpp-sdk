@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ResidentResourceAllocation& obj) { 
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(instanceCount, instanceCount_);
+      DARABONBA_PTR_TO_JSON(instanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
       DARABONBA_PTR_TO_JSON(totalCpuCores, totalCpuCores_);
       DARABONBA_PTR_TO_JSON(totalDiskSize, totalDiskSize_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ResidentResourceAllocation& obj) { 
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(instanceCount, instanceCount_);
+      DARABONBA_PTR_FROM_JSON(instanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
       DARABONBA_PTR_FROM_JSON(totalCpuCores, totalCpuCores_);
       DARABONBA_PTR_FROM_JSON(totalDiskSize, totalDiskSize_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->functionName_ == nullptr
-        && return this->instanceCount_ == nullptr && return this->qualifier_ == nullptr && return this->totalCpuCores_ == nullptr && return this->totalDiskSize_ == nullptr && return this->totalGpuMemorySize_ == nullptr
-        && return this->totalMemorySize_ == nullptr; };
+        && return this->instanceCount_ == nullptr && return this->instanceType_ == nullptr && return this->qualifier_ == nullptr && return this->totalCpuCores_ == nullptr && return this->totalDiskSize_ == nullptr
+        && return this->totalGpuMemorySize_ == nullptr && return this->totalMemorySize_ == nullptr; };
     // functionName Field Functions 
     bool hasFunctionName() const { return this->functionName_ != nullptr;};
     void deleteFunctionName() { this->functionName_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteInstanceCount() { this->instanceCount_ = nullptr;};
     inline int32_t instanceCount() const { DARABONBA_PTR_GET_DEFAULT(instanceCount_, 0) };
     inline ResidentResourceAllocation& setInstanceCount(int32_t instanceCount) { DARABONBA_PTR_SET_VALUE(instanceCount_, instanceCount) };
+
+
+    // instanceType Field Functions 
+    bool hasInstanceType() const { return this->instanceType_ != nullptr;};
+    void deleteInstanceType() { this->instanceType_ = nullptr;};
+    inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
+    inline ResidentResourceAllocation& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
 
 
     // qualifier Field Functions 
@@ -98,6 +107,7 @@ namespace Models
     std::shared_ptr<string> functionName_ = nullptr;
     // 实例数
     std::shared_ptr<int32_t> instanceCount_ = nullptr;
+    std::shared_ptr<string> instanceType_ = nullptr;
     // 函数的别名
     std::shared_ptr<string> qualifier_ = nullptr;
     // CPU 占用总核数

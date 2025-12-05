@@ -14,12 +14,16 @@ namespace Models
   class CreateSessionInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSessionInput& obj) { 
+      DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_TO_JSON(sessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSessionInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
+      DARABONBA_PTR_FROM_JSON(sessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(sessionIdleTimeoutInSeconds, sessionIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sessionTTLInSeconds, sessionTTLInSeconds_);
     };
@@ -34,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->nasConfig_ == nullptr
-        && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
+    virtual bool empty() const override { return this->disableSessionIdReuse_ == nullptr
+        && return this->nasConfig_ == nullptr && return this->sessionId_ == nullptr && return this->sessionIdleTimeoutInSeconds_ == nullptr && return this->sessionTTLInSeconds_ == nullptr; };
+    // disableSessionIdReuse Field Functions 
+    bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
+    void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
+    inline bool disableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
+    inline CreateSessionInput& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
+
+
     // nasConfig Field Functions 
     bool hasNasConfig() const { return this->nasConfig_ != nullptr;};
     void deleteNasConfig() { this->nasConfig_ = nullptr;};
@@ -43,6 +54,13 @@ namespace Models
     inline NASConfig nasConfig() { DARABONBA_PTR_GET(nasConfig_, NASConfig) };
     inline CreateSessionInput& setNasConfig(const NASConfig & nasConfig) { DARABONBA_PTR_SET_VALUE(nasConfig_, nasConfig) };
     inline CreateSessionInput& setNasConfig(NASConfig && nasConfig) { DARABONBA_PTR_SET_RVALUE(nasConfig_, nasConfig) };
+
+
+    // sessionId Field Functions 
+    bool hasSessionId() const { return this->sessionId_ != nullptr;};
+    void deleteSessionId() { this->sessionId_ = nullptr;};
+    inline string sessionId() const { DARABONBA_PTR_GET_DEFAULT(sessionId_, "") };
+    inline CreateSessionInput& setSessionId(string sessionId) { DARABONBA_PTR_SET_VALUE(sessionId_, sessionId) };
 
 
     // sessionIdleTimeoutInSeconds Field Functions 
@@ -60,7 +78,9 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> disableSessionIdReuse_ = nullptr;
     std::shared_ptr<NASConfig> nasConfig_ = nullptr;
+    std::shared_ptr<string> sessionId_ = nullptr;
     std::shared_ptr<int64_t> sessionIdleTimeoutInSeconds_ = nullptr;
     std::shared_ptr<int64_t> sessionTTLInSeconds_ = nullptr;
   };
