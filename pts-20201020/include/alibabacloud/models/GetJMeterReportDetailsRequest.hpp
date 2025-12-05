@@ -1,0 +1,50 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETJMETERREPORTDETAILSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETJMETERREPORTDETAILSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace PTS20201020
+{
+namespace Models
+{
+  class GetJMeterReportDetailsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetJMeterReportDetailsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ReportId, reportId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetJMeterReportDetailsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ReportId, reportId_);
+    };
+    GetJMeterReportDetailsRequest() = default ;
+    GetJMeterReportDetailsRequest(const GetJMeterReportDetailsRequest &) = default ;
+    GetJMeterReportDetailsRequest(GetJMeterReportDetailsRequest &&) = default ;
+    GetJMeterReportDetailsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetJMeterReportDetailsRequest() = default ;
+    GetJMeterReportDetailsRequest& operator=(const GetJMeterReportDetailsRequest &) = default ;
+    GetJMeterReportDetailsRequest& operator=(GetJMeterReportDetailsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->reportId_ == nullptr; };
+    // reportId Field Functions 
+    bool hasReportId() const { return this->reportId_ != nullptr;};
+    void deleteReportId() { this->reportId_ = nullptr;};
+    inline string reportId() const { DARABONBA_PTR_GET_DEFAULT(reportId_, "") };
+    inline GetJMeterReportDetailsRequest& setReportId(string reportId) { DARABONBA_PTR_SET_VALUE(reportId_, reportId) };
+
+
+  protected:
+    // The report ID.
+    // 
+    // This parameter is required.
+    std::shared_ptr<string> reportId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace PTS20201020
+#endif
