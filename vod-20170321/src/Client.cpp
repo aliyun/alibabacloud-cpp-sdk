@@ -5976,6 +5976,60 @@ GetAppInfosResponse Client::getAppInfos(const GetAppInfosRequest &request) {
 }
 
 /**
+ * @summary 获取应用播放密钥
+ *
+ * @param request GetAppPlayKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppPlayKeyResponse
+ */
+GetAppPlayKeyResponse Client::getAppPlayKeyWithOptions(const GetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppPlayKey"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppPlayKeyResponse>();
+}
+
+/**
+ * @summary 获取应用播放密钥
+ *
+ * @param request GetAppPlayKeyRequest
+ * @return GetAppPlayKeyResponse
+ */
+GetAppPlayKeyResponse Client::getAppPlayKey(const GetAppPlayKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppPlayKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
  *
  * @description You can query information about up to 20 auxiliary media assets in a request.
@@ -9213,6 +9267,64 @@ SearchMediaResponse Client::searchMediaWithOptions(const SearchMediaRequest &req
 SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchMediaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置应用播放密钥
+ *
+ * @param request SetAppPlayKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAppPlayKeyResponse
+ */
+SetAppPlayKeyResponse Client::setAppPlayKeyWithOptions(const SetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPlayKey()) {
+    query["PlayKey"] = request.playKey();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAppPlayKey"},
+    {"version" , "2017-03-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAppPlayKeyResponse>();
+}
+
+/**
+ * @summary 设置应用播放密钥
+ *
+ * @param request SetAppPlayKeyRequest
+ * @return SetAppPlayKeyResponse
+ */
+SetAppPlayKeyResponse Client::setAppPlayKey(const SetAppPlayKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAppPlayKeyWithOptions(request, runtime);
 }
 
 /**

@@ -2350,6 +2350,23 @@ namespace Vod20170321
       Models::GetAppInfosResponse getAppInfos(const Models::GetAppInfosRequest &request);
 
       /**
+       * @summary 获取应用播放密钥
+       *
+       * @param request GetAppPlayKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppPlayKeyResponse
+       */
+      Models::GetAppPlayKeyResponse getAppPlayKeyWithOptions(const Models::GetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用播放密钥
+       *
+       * @param request GetAppPlayKeyRequest
+       * @return GetAppPlayKeyResponse
+       */
+      Models::GetAppPlayKeyResponse getAppPlayKey(const Models::GetAppPlayKeyRequest &request);
+
+      /**
        * @summary Queries the URL and basic information about one or more auxiliary media assets such as watermark images, subtitle files, and materials based on IDs.
        *
        * @description You can query information about up to 20 auxiliary media assets in a request.
@@ -3593,6 +3610,23 @@ namespace Vod20170321
        * @return SearchMediaResponse
        */
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
+
+      /**
+       * @summary 设置应用播放密钥
+       *
+       * @param request SetAppPlayKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAppPlayKeyResponse
+       */
+      Models::SetAppPlayKeyResponse setAppPlayKeyWithOptions(const Models::SetAppPlayKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置应用播放密钥
+       *
+       * @param request SetAppPlayKeyRequest
+       * @return SetAppPlayKeyResponse
+       */
+      Models::SetAppPlayKeyResponse setAppPlayKey(const Models::SetAppPlayKeyRequest &request);
 
       /**
        * @summary Manages the IP addresses in review security groups.

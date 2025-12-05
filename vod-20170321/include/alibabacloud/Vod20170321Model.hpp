@@ -283,6 +283,9 @@
 #include <alibabacloud/models/GetAppInfosRequest.hpp>
 #include <alibabacloud/models/GetAppInfosResponseBody.hpp>
 #include <alibabacloud/models/GetAppInfosResponse.hpp>
+#include <alibabacloud/models/GetAppPlayKeyRequest.hpp>
+#include <alibabacloud/models/GetAppPlayKeyResponseBody.hpp>
+#include <alibabacloud/models/GetAppPlayKeyResponse.hpp>
 #include <alibabacloud/models/GetAttachedMediaInfoRequest.hpp>
 #include <alibabacloud/models/GetAttachedMediaInfoResponseBody.hpp>
 #include <alibabacloud/models/GetAttachedMediaInfoResponse.hpp>
@@ -448,6 +451,9 @@
 #include <alibabacloud/models/SearchMediaRequest.hpp>
 #include <alibabacloud/models/SearchMediaResponseBody.hpp>
 #include <alibabacloud/models/SearchMediaResponse.hpp>
+#include <alibabacloud/models/SetAppPlayKeyRequest.hpp>
+#include <alibabacloud/models/SetAppPlayKeyResponseBody.hpp>
+#include <alibabacloud/models/SetAppPlayKeyResponse.hpp>
 #include <alibabacloud/models/SetAuditSecurityIpRequest.hpp>
 #include <alibabacloud/models/SetAuditSecurityIpResponseBody.hpp>
 #include <alibabacloud/models/SetAuditSecurityIpResponse.hpp>
@@ -690,6 +696,7 @@
 #include <alibabacloud/models/GetAiVideoTagResultResponseBodyVideoTagResultTime.hpp>
 #include <alibabacloud/models/GetAiVideoTagResultResponseBodyVideoTagResult.hpp>
 #include <alibabacloud/models/GetAppInfosResponseBodyAppInfoList.hpp>
+#include <alibabacloud/models/GetAppPlayKeyResponseBodyAppPlayKey.hpp>
 #include <alibabacloud/models/GetAttachedMediaInfoResponseBodyAttachedMediaListCategories.hpp>
 #include <alibabacloud/models/GetAttachedMediaInfoResponseBodyAttachedMediaList.hpp>
 #include <alibabacloud/models/GetAuditHistoryResponseBodyHistories.hpp>
