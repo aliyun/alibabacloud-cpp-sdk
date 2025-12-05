@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_TO_JSON(ProgrammingLanguage, programmingLanguage_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(RunningInstances, runningInstances_);
       DARABONBA_PTR_TO_JSON(ScaleRuleEnabled, scaleRuleEnabled_);
       DARABONBA_PTR_TO_JSON(ScaleRuleType, scaleRuleType_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NewSaeVersion, newSaeVersion_);
       DARABONBA_PTR_FROM_JSON(ProgrammingLanguage, programmingLanguage_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(RunningInstances, runningInstances_);
       DARABONBA_PTR_FROM_JSON(ScaleRuleEnabled, scaleRuleEnabled_);
       DARABONBA_PTR_FROM_JSON(ScaleRuleType, scaleRuleType_);
@@ -73,7 +75,7 @@ namespace Models
         && return this->appDescription_ == nullptr && return this->appId_ == nullptr && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->baseAppId_ == nullptr
         && return this->cpu_ == nullptr && return this->instances_ == nullptr && return this->isStateful_ == nullptr && return this->mem_ == nullptr && return this->mseEnabled_ == nullptr
         && return this->namespaceId_ == nullptr && return this->namespaceName_ == nullptr && return this->newSaeVersion_ == nullptr && return this->programmingLanguage_ == nullptr && return this->regionId_ == nullptr
-        && return this->runningInstances_ == nullptr && return this->scaleRuleEnabled_ == nullptr && return this->scaleRuleType_ == nullptr && return this->tags_ == nullptr; };
+        && return this->resourceType_ == nullptr && return this->runningInstances_ == nullptr && return this->scaleRuleEnabled_ == nullptr && return this->scaleRuleType_ == nullptr && return this->tags_ == nullptr; };
     // appDeletingStatus Field Functions 
     bool hasAppDeletingStatus() const { return this->appDeletingStatus_ != nullptr;};
     void deleteAppDeletingStatus() { this->appDeletingStatus_ = nullptr;};
@@ -186,6 +188,13 @@ namespace Models
     inline ListApplicationsResponseBodyDataApplicationsChildren& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline ListApplicationsResponseBodyDataApplicationsChildren& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
     // runningInstances Field Functions 
     bool hasRunningInstances() const { return this->runningInstances_ != nullptr;};
     void deleteRunningInstances() { this->runningInstances_ = nullptr;};
@@ -252,6 +261,7 @@ namespace Models
     std::shared_ptr<string> programmingLanguage_ = nullptr;
     // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<string> resourceType_ = nullptr;
     // The number of instances in running state.
     std::shared_ptr<int32_t> runningInstances_ = nullptr;
     // If the scale rule is enabled.
