@@ -968,6 +968,23 @@ namespace EdsAic20230930
       Models::GetInstancePropertiesResponse getInstanceProperties(const Models::GetInstancePropertiesRequest &request);
 
       /**
+       * @summary 导入自定义镜像
+       *
+       * @param request ImportImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportImageResponse
+       */
+      Models::ImportImageResponse importImageWithOptions(const Models::ImportImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 导入自定义镜像
+       *
+       * @param request ImportImageRequest
+       * @return ImportImageResponse
+       */
+      Models::ImportImageResponse importImage(const Models::ImportImageRequest &request);
+
+      /**
        * @summary Imports the public key of an Android Debug Bridge (ADB) key pair.
        *
        * @description To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.

@@ -3254,6 +3254,56 @@ GetInstancePropertiesResponse Client::getInstanceProperties(const GetInstancePro
 }
 
 /**
+ * @summary 导入自定义镜像
+ *
+ * @param request ImportImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportImageResponse
+ */
+ImportImageResponse Client::importImageWithOptions(const ImportImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageDescription()) {
+    query["ImageDescription"] = request.imageDescription();
+  }
+
+  if (!!request.hasImageFileURL()) {
+    query["ImageFileURL"] = request.imageFileURL();
+  }
+
+  if (!!request.hasImageName()) {
+    query["ImageName"] = request.imageName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ImportImage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportImageResponse>();
+}
+
+/**
+ * @summary 导入自定义镜像
+ *
+ * @param request ImportImageRequest
+ * @return ImportImageResponse
+ */
+ImportImageResponse Client::importImage(const ImportImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importImageWithOptions(request, runtime);
+}
+
+/**
  * @summary Imports the public key of an Android Debug Bridge (ADB) key pair.
  *
  * @description To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.

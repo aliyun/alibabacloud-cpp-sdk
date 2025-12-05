@@ -156,6 +156,9 @@
 #include <alibabacloud/models/GetInstancePropertiesRequest.hpp>
 #include <alibabacloud/models/GetInstancePropertiesResponseBody.hpp>
 #include <alibabacloud/models/GetInstancePropertiesResponse.hpp>
+#include <alibabacloud/models/ImportImageRequest.hpp>
+#include <alibabacloud/models/ImportImageResponseBody.hpp>
+#include <alibabacloud/models/ImportImageResponse.hpp>
 #include <alibabacloud/models/ImportKeyPairRequest.hpp>
 #include <alibabacloud/models/ImportKeyPairResponseBody.hpp>
 #include <alibabacloud/models/ImportKeyPairResponse.hpp>

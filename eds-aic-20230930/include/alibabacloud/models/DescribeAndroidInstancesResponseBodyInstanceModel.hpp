@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_TO_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_TO_JSON(BindUserId, bindUserId_);
+      DARABONBA_PTR_TO_JSON(BizImageType, bizImageType_);
       DARABONBA_PTR_TO_JSON(BizTags, bizTags_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(Cpu, cpu_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BandwidthPackageId, bandwidthPackageId_);
       DARABONBA_PTR_FROM_JSON(BandwidthPackageType, bandwidthPackageType_);
       DARABONBA_PTR_FROM_JSON(BindUserId, bindUserId_);
+      DARABONBA_PTR_FROM_JSON(BizImageType, bizImageType_);
       DARABONBA_PTR_FROM_JSON(BizTags, bizTags_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
@@ -137,14 +139,14 @@ namespace Models
     virtual bool empty() const override { return this->androidInstanceGroupId_ == nullptr
         && return this->androidInstanceGroupName_ == nullptr && return this->androidInstanceId_ == nullptr && return this->androidInstanceName_ == nullptr && return this->androidInstanceStatus_ == nullptr && return this->appInstanceGroupId_ == nullptr
         && return this->appInstanceId_ == nullptr && return this->appManagePolicy_ == nullptr && return this->authorizedUserId_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageType_ == nullptr
-        && return this->bindUserId_ == nullptr && return this->bizTags_ == nullptr && return this->chargeType_ == nullptr && return this->cpu_ == nullptr && return this->disks_ == nullptr
-        && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->errorCode_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtExpired_ == nullptr
-        && return this->gmtModified_ == nullptr && return this->imageId_ == nullptr && return this->imageVersion_ == nullptr && return this->instanceType_ == nullptr && return this->internetStatus_ == nullptr
-        && return this->keyPairId_ == nullptr && return this->memory_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->networkInterfaceIpv6Address_ == nullptr && return this->networkType_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->persistentAppInstanceId_ == nullptr && return this->phoneDataInfo_ == nullptr && return this->policyGroupId_ == nullptr && return this->publicIpAddress_ == nullptr
-        && return this->publicIpv6Address_ == nullptr && return this->qosRuleId_ == nullptr && return this->rate_ == nullptr && return this->regionId_ == nullptr && return this->renderingType_ == nullptr
-        && return this->serverStatus_ == nullptr && return this->serverType_ == nullptr && return this->sessionStatus_ == nullptr && return this->streamMode_ == nullptr && return this->systemVersion_ == nullptr
-        && return this->tags_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->bindUserId_ == nullptr && return this->bizImageType_ == nullptr && return this->bizTags_ == nullptr && return this->chargeType_ == nullptr && return this->cpu_ == nullptr
+        && return this->disks_ == nullptr && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->errorCode_ == nullptr && return this->gmtCreate_ == nullptr
+        && return this->gmtExpired_ == nullptr && return this->gmtModified_ == nullptr && return this->imageId_ == nullptr && return this->imageVersion_ == nullptr && return this->instanceType_ == nullptr
+        && return this->internetStatus_ == nullptr && return this->keyPairId_ == nullptr && return this->memory_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->networkInterfaceIpv6Address_ == nullptr
+        && return this->networkType_ == nullptr && return this->officeSiteId_ == nullptr && return this->persistentAppInstanceId_ == nullptr && return this->phoneDataInfo_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->publicIpAddress_ == nullptr && return this->publicIpv6Address_ == nullptr && return this->qosRuleId_ == nullptr && return this->rate_ == nullptr && return this->regionId_ == nullptr
+        && return this->renderingType_ == nullptr && return this->serverStatus_ == nullptr && return this->serverType_ == nullptr && return this->sessionStatus_ == nullptr && return this->streamMode_ == nullptr
+        && return this->systemVersion_ == nullptr && return this->tags_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // androidInstanceGroupId Field Functions 
     bool hasAndroidInstanceGroupId() const { return this->androidInstanceGroupId_ != nullptr;};
     void deleteAndroidInstanceGroupId() { this->androidInstanceGroupId_ = nullptr;};
@@ -229,6 +231,13 @@ namespace Models
     void deleteBindUserId() { this->bindUserId_ = nullptr;};
     inline string bindUserId() const { DARABONBA_PTR_GET_DEFAULT(bindUserId_, "") };
     inline DescribeAndroidInstancesResponseBodyInstanceModel& setBindUserId(string bindUserId) { DARABONBA_PTR_SET_VALUE(bindUserId_, bindUserId) };
+
+
+    // bizImageType Field Functions 
+    bool hasBizImageType() const { return this->bizImageType_ != nullptr;};
+    void deleteBizImageType() { this->bizImageType_ = nullptr;};
+    inline string bizImageType() const { DARABONBA_PTR_GET_DEFAULT(bizImageType_, "") };
+    inline DescribeAndroidInstancesResponseBodyInstanceModel& setBizImageType(string bizImageType) { DARABONBA_PTR_SET_VALUE(bizImageType_, bizImageType) };
 
 
     // bizTags Field Functions 
@@ -529,6 +538,7 @@ namespace Models
     std::shared_ptr<string> bandwidthPackageType_ = nullptr;
     // The ID of the bound user.
     std::shared_ptr<string> bindUserId_ = nullptr;
+    std::shared_ptr<string> bizImageType_ = nullptr;
     std::shared_ptr<vector<Models::DescribeAndroidInstancesResponseBodyInstanceModelBizTags>> bizTags_ = nullptr;
     // The billing method of the instance.
     std::shared_ptr<string> chargeType_ = nullptr;
