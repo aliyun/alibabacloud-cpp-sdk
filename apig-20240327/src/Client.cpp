@@ -952,6 +952,10 @@ CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServer
     body["gatewayId"] = request.gatewayId();
   }
 
+  if (!!request.hasGrayMcpServerConfigs()) {
+    body["grayMcpServerConfigs"] = request.grayMcpServerConfigs();
+  }
+
   if (!!request.hasMatch()) {
     body["match"] = request.match();
   }
@@ -4869,6 +4873,10 @@ UpdateMcpServerResponse Client::updateMcpServerWithOptions(const string &mcpServ
 
   if (!!request.hasExposedUriPath()) {
     body["exposedUriPath"] = request.exposedUriPath();
+  }
+
+  if (!!request.hasGrayMcpServerConfigs()) {
+    body["grayMcpServerConfigs"] = request.grayMcpServerConfigs();
   }
 
   if (!!request.hasMatch()) {

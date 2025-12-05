@@ -6,6 +6,7 @@
 #include <alibabacloud/models/GetMcpServerResponseBodyDataAssembledSources.hpp>
 #include <alibabacloud/models/Backend.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyDataDomainInfos.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyDataNacosMcpSyncInfo.hpp>
 using namespace std;
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_TO_JSON(mcpServerConfigPluginAttachmentId, mcpServerConfigPluginAttachmentId_);
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpServerConfig, mcpServerConfig_);
       DARABONBA_PTR_FROM_JSON(mcpServerConfigPluginAttachmentId, mcpServerConfigPluginAttachmentId_);
@@ -77,9 +80,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && return this->backend_ == nullptr && return this->createFromType_ == nullptr && return this->deployStatus_ == nullptr && return this->description_ == nullptr && return this->domainIds_ == nullptr
-        && return this->domainInfos_ == nullptr && return this->environmentId_ == nullptr && return this->exposedUriPath_ == nullptr && return this->gatewayId_ == nullptr && return this->match_ == nullptr
-        && return this->mcpServerConfig_ == nullptr && return this->mcpServerConfigPluginAttachmentId_ == nullptr && return this->mcpServerId_ == nullptr && return this->mcpServerPath_ == nullptr && return this->mcpStatisticsEnable_ == nullptr
-        && return this->nacosMcpSyncInfo_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->routeId_ == nullptr && return this->type_ == nullptr; };
+        && return this->domainInfos_ == nullptr && return this->environmentId_ == nullptr && return this->exposedUriPath_ == nullptr && return this->gatewayId_ == nullptr && return this->grayMcpServerConfigs_ == nullptr
+        && return this->match_ == nullptr && return this->mcpServerConfig_ == nullptr && return this->mcpServerConfigPluginAttachmentId_ == nullptr && return this->mcpServerId_ == nullptr && return this->mcpServerPath_ == nullptr
+        && return this->mcpStatisticsEnable_ == nullptr && return this->nacosMcpSyncInfo_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr && return this->routeId_ == nullptr
+        && return this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -156,6 +160,15 @@ namespace Models
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
     inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline GetMcpServerResponseBodyData& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
+    // grayMcpServerConfigs Field Functions 
+    bool hasGrayMcpServerConfigs() const { return this->grayMcpServerConfigs_ != nullptr;};
+    void deleteGrayMcpServerConfigs() { this->grayMcpServerConfigs_ = nullptr;};
+    inline const vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs> & grayMcpServerConfigs() const { DARABONBA_PTR_GET_CONST(grayMcpServerConfigs_, vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs>) };
+    inline vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs> grayMcpServerConfigs() { DARABONBA_PTR_GET(grayMcpServerConfigs_, vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs>) };
+    inline GetMcpServerResponseBodyData& setGrayMcpServerConfigs(const vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs> & grayMcpServerConfigs) { DARABONBA_PTR_SET_VALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
+    inline GetMcpServerResponseBodyData& setGrayMcpServerConfigs(vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs> && grayMcpServerConfigs) { DARABONBA_PTR_SET_RVALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
 
 
     // match Field Functions 
@@ -266,6 +279,7 @@ namespace Models
     std::shared_ptr<string> exposedUriPath_ = nullptr;
     // The gateway instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    std::shared_ptr<vector<Models::GetMcpServerResponseBodyDataGrayMcpServerConfigs>> grayMcpServerConfigs_ = nullptr;
     // The route match rule.
     std::shared_ptr<Models::HttpRouteMatch> match_ = nullptr;
     // The HTTP-to-MCP configurations.

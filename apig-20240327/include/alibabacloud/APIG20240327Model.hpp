@@ -384,6 +384,9 @@
 #include <alibabacloud/models/CreateMcpServerRequestAssembledSources.hpp>
 #include <alibabacloud/models/CreateMcpServerRequestBackendConfigServices.hpp>
 #include <alibabacloud/models/CreateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestGrayMcpServerConfigsBackendConfigServices.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestGrayMcpServerConfigsBackendConfig.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/CreateMcpServerResponseBodyData.hpp>
 #include <alibabacloud/models/CreatePluginAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/CreatePolicyResponseBodyData.hpp>
@@ -416,6 +419,9 @@
 #include <alibabacloud/models/GetGatewayResponseBodyData.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyDataAssembledSources.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyDataDomainInfos.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServices.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBodyDataGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyDataNacosMcpSyncInfo.hpp>
 #include <alibabacloud/models/GetMcpServerResponseBodyData.hpp>
 #include <alibabacloud/models/GetPluginAttachmentResponseBodyData.hpp>
@@ -483,6 +489,9 @@
 #include <alibabacloud/models/UpdateMcpServerRequestAssembledSources.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestBackendConfigServices.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/UpdateServiceVersionRequestLabels.hpp>
 
 #endif

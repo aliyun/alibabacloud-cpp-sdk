@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/UpdateMcpServerRequestAssembledSources.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
+      DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
+      DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
@@ -53,7 +56,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && return this->backendConfig_ == nullptr && return this->createFromType_ == nullptr && return this->description_ == nullptr && return this->domainIds_ == nullptr && return this->exposedUriPath_ == nullptr
-        && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr && return this->type_ == nullptr; };
+        && return this->grayMcpServerConfigs_ == nullptr && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->protocol_ == nullptr && return this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -102,6 +105,15 @@ namespace Models
     inline UpdateMcpServerRequest& setExposedUriPath(string exposedUriPath) { DARABONBA_PTR_SET_VALUE(exposedUriPath_, exposedUriPath) };
 
 
+    // grayMcpServerConfigs Field Functions 
+    bool hasGrayMcpServerConfigs() const { return this->grayMcpServerConfigs_ != nullptr;};
+    void deleteGrayMcpServerConfigs() { this->grayMcpServerConfigs_ = nullptr;};
+    inline const vector<UpdateMcpServerRequestGrayMcpServerConfigs> & grayMcpServerConfigs() const { DARABONBA_PTR_GET_CONST(grayMcpServerConfigs_, vector<UpdateMcpServerRequestGrayMcpServerConfigs>) };
+    inline vector<UpdateMcpServerRequestGrayMcpServerConfigs> grayMcpServerConfigs() { DARABONBA_PTR_GET(grayMcpServerConfigs_, vector<UpdateMcpServerRequestGrayMcpServerConfigs>) };
+    inline UpdateMcpServerRequest& setGrayMcpServerConfigs(const vector<UpdateMcpServerRequestGrayMcpServerConfigs> & grayMcpServerConfigs) { DARABONBA_PTR_SET_VALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
+    inline UpdateMcpServerRequest& setGrayMcpServerConfigs(vector<UpdateMcpServerRequestGrayMcpServerConfigs> && grayMcpServerConfigs) { DARABONBA_PTR_SET_RVALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
+
+
     // match Field Functions 
     bool hasMatch() const { return this->match_ != nullptr;};
     void deleteMatch() { this->match_ = nullptr;};
@@ -145,6 +157,7 @@ namespace Models
     std::shared_ptr<vector<string>> domainIds_ = nullptr;
     // The exposed URI path. This parameter is required when the protocol parameter is set to SSE or StreamableHTTP and the type parameter is set to RealMCP.
     std::shared_ptr<string> exposedUriPath_ = nullptr;
+    std::shared_ptr<vector<UpdateMcpServerRequestGrayMcpServerConfigs>> grayMcpServerConfigs_ = nullptr;
     // The route match rule.
     std::shared_ptr<HttpRouteMatch> match_ = nullptr;
     // Specifies if MCP observability is enabled. Default value: false.

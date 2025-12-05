@@ -5,6 +5,7 @@
 #include <vector>
 #include <alibabacloud/models/CreateMcpServerRequestAssembledSources.hpp>
 #include <alibabacloud/models/CreateMcpServerRequestBackendConfig.hpp>
+#include <alibabacloud/models/CreateMcpServerRequestGrayMcpServerConfigs.hpp>
 #include <alibabacloud/models/HttpRouteMatch.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(domainIds, domainIds_);
       DARABONBA_PTR_TO_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_TO_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_TO_JSON(match, match_);
       DARABONBA_PTR_TO_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_TO_JSON(name, name_);
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(domainIds, domainIds_);
       DARABONBA_PTR_FROM_JSON(exposedUriPath, exposedUriPath_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
+      DARABONBA_PTR_FROM_JSON(grayMcpServerConfigs, grayMcpServerConfigs_);
       DARABONBA_PTR_FROM_JSON(match, match_);
       DARABONBA_PTR_FROM_JSON(mcpStatisticsEnable, mcpStatisticsEnable_);
       DARABONBA_PTR_FROM_JSON(name, name_);
@@ -57,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assembledSources_ == nullptr
         && return this->backendConfig_ == nullptr && return this->createFromType_ == nullptr && return this->description_ == nullptr && return this->domainIds_ == nullptr && return this->exposedUriPath_ == nullptr
-        && return this->gatewayId_ == nullptr && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->name_ == nullptr && return this->protocol_ == nullptr
-        && return this->type_ == nullptr; };
+        && return this->gatewayId_ == nullptr && return this->grayMcpServerConfigs_ == nullptr && return this->match_ == nullptr && return this->mcpStatisticsEnable_ == nullptr && return this->name_ == nullptr
+        && return this->protocol_ == nullptr && return this->type_ == nullptr; };
     // assembledSources Field Functions 
     bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
     void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -112,6 +115,15 @@ namespace Models
     void deleteGatewayId() { this->gatewayId_ = nullptr;};
     inline string gatewayId() const { DARABONBA_PTR_GET_DEFAULT(gatewayId_, "") };
     inline CreateMcpServerRequest& setGatewayId(string gatewayId) { DARABONBA_PTR_SET_VALUE(gatewayId_, gatewayId) };
+
+
+    // grayMcpServerConfigs Field Functions 
+    bool hasGrayMcpServerConfigs() const { return this->grayMcpServerConfigs_ != nullptr;};
+    void deleteGrayMcpServerConfigs() { this->grayMcpServerConfigs_ = nullptr;};
+    inline const vector<CreateMcpServerRequestGrayMcpServerConfigs> & grayMcpServerConfigs() const { DARABONBA_PTR_GET_CONST(grayMcpServerConfigs_, vector<CreateMcpServerRequestGrayMcpServerConfigs>) };
+    inline vector<CreateMcpServerRequestGrayMcpServerConfigs> grayMcpServerConfigs() { DARABONBA_PTR_GET(grayMcpServerConfigs_, vector<CreateMcpServerRequestGrayMcpServerConfigs>) };
+    inline CreateMcpServerRequest& setGrayMcpServerConfigs(const vector<CreateMcpServerRequestGrayMcpServerConfigs> & grayMcpServerConfigs) { DARABONBA_PTR_SET_VALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
+    inline CreateMcpServerRequest& setGrayMcpServerConfigs(vector<CreateMcpServerRequestGrayMcpServerConfigs> && grayMcpServerConfigs) { DARABONBA_PTR_SET_RVALUE(grayMcpServerConfigs_, grayMcpServerConfigs) };
 
 
     // match Field Functions 
@@ -168,6 +180,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    std::shared_ptr<vector<CreateMcpServerRequestGrayMcpServerConfigs>> grayMcpServerConfigs_ = nullptr;
     // The route match rule.
     std::shared_ptr<HttpRouteMatch> match_ = nullptr;
     // Specifies whether MCP observability is enabled. Default: false.
