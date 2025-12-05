@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InDebt, inDebt_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(ProcessStatus, processStatus_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InDebt, inDebt_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(ProcessStatus, processStatus_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->details_ == nullptr
         && return this->edition_ == nullptr && return this->endTime_ == nullptr && return this->inDebt_ == nullptr && return this->instanceId_ == nullptr && return this->payType_ == nullptr
-        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
+        && return this->processStatus_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
     // details Field Functions 
     bool hasDetails() const { return this->details_ != nullptr;};
     void deleteDetails() { this->details_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
     void deletePayType() { this->payType_ = nullptr;};
     inline string payType() const { DARABONBA_PTR_GET_DEFAULT(payType_, "") };
     inline DescribeInstanceResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
+
+
+    // processStatus Field Functions 
+    bool hasProcessStatus() const { return this->processStatus_ != nullptr;};
+    void deleteProcessStatus() { this->processStatus_ = nullptr;};
+    inline string processStatus() const { DARABONBA_PTR_GET_DEFAULT(processStatus_, "") };
+    inline DescribeInstanceResponseBody& setProcessStatus(string processStatus) { DARABONBA_PTR_SET_VALUE(processStatus_, processStatus) };
 
 
     // regionId Field Functions 
@@ -142,6 +151,7 @@ namespace Models
     // *   **POSTPAY:** The WAF instance uses the pay-as-you-go billing method.
     // *   **PREPAY:** The WAF instance uses the subscription billing method.
     std::shared_ptr<string> payType_ = nullptr;
+    std::shared_ptr<string> processStatus_ = nullptr;
     // The region where the WAF instance resides. Valid values:
     // 
     // *   **cn-hangzhou:** the Chinese mainland
