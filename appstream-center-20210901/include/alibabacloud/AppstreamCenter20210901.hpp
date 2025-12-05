@@ -931,6 +931,23 @@ namespace AppstreamCenter20210901
        * @return UpdateAppInstanceGroupImageResponse
        */
       Models::UpdateAppInstanceGroupImageResponse updateAppInstanceGroupImage(const Models::UpdateAppInstanceGroupImageRequest &request);
+
+      /**
+       * @summary 更新研发主机镜像
+       *
+       * @param request UpdateWuyingServerImageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWuyingServerImageResponse
+       */
+      Models::UpdateWuyingServerImageResponse updateWuyingServerImageWithOptions(const Models::UpdateWuyingServerImageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新研发主机镜像
+       *
+       * @param request UpdateWuyingServerImageRequest
+       * @return UpdateWuyingServerImageResponse
+       */
+      Models::UpdateWuyingServerImageResponse updateWuyingServerImage(const Models::UpdateWuyingServerImageRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AppstreamCenter20210901

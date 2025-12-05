@@ -3293,5 +3293,55 @@ UpdateAppInstanceGroupImageResponse Client::updateAppInstanceGroupImage(const Up
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAppInstanceGroupImageWithOptions(request, runtime);
 }
+
+/**
+ * @summary 更新研发主机镜像
+ *
+ * @param request UpdateWuyingServerImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWuyingServerImageResponse
+ */
+UpdateWuyingServerImageResponse Client::updateWuyingServerImageWithOptions(const UpdateWuyingServerImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasImageId()) {
+    body["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasProductType()) {
+    body["ProductType"] = request.productType();
+  }
+
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.wuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateWuyingServerImage"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWuyingServerImageResponse>();
+}
+
+/**
+ * @summary 更新研发主机镜像
+ *
+ * @param request UpdateWuyingServerImageRequest
+ * @return UpdateWuyingServerImageResponse
+ */
+UpdateWuyingServerImageResponse Client::updateWuyingServerImage(const UpdateWuyingServerImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWuyingServerImageWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace AppstreamCenter20210901

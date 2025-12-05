@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(MainEthPublicIp, mainEthPublicIp_);
+      DARABONBA_PTR_TO_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
       DARABONBA_PTR_TO_JSON(SessionStatus, sessionStatus_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(MainEthPublicIp, mainEthPublicIp_);
+      DARABONBA_PTR_FROM_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceIp, networkInterfaceIp_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
       DARABONBA_PTR_FROM_JSON(SessionStatus, sessionStatus_);
@@ -52,7 +54,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
         && return this->appInstanceId_ == nullptr && return this->bindInfo_ == nullptr && return this->chargeType_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr
-        && return this->mainEthPublicIp_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->nodeId_ == nullptr && return this->sessionStatus_ == nullptr && return this->status_ == nullptr; };
+        && return this->mainEthPublicIp_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->networkInterfaceIp_ == nullptr && return this->nodeId_ == nullptr && return this->sessionStatus_ == nullptr
+        && return this->status_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
@@ -104,6 +107,13 @@ namespace Models
     inline ListAppInstancesResponseBodyAppInstanceModels& setMainEthPublicIp(string mainEthPublicIp) { DARABONBA_PTR_SET_VALUE(mainEthPublicIp_, mainEthPublicIp) };
 
 
+    // networkInterfaceId Field Functions 
+    bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
+    void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
+    inline string networkInterfaceId() const { DARABONBA_PTR_GET_DEFAULT(networkInterfaceId_, "") };
+    inline ListAppInstancesResponseBodyAppInstanceModels& setNetworkInterfaceId(string networkInterfaceId) { DARABONBA_PTR_SET_VALUE(networkInterfaceId_, networkInterfaceId) };
+
+
     // networkInterfaceIp Field Functions 
     bool hasNetworkInterfaceIp() const { return this->networkInterfaceIp_ != nullptr;};
     void deleteNetworkInterfaceIp() { this->networkInterfaceIp_ = nullptr;};
@@ -152,6 +162,7 @@ namespace Models
     std::shared_ptr<string> gmtModified_ = nullptr;
     // The public IP address associated with the primary NIC. This value is returned only if `StrategyType` is set to `Mixed`.
     std::shared_ptr<string> mainEthPublicIp_ = nullptr;
+    std::shared_ptr<string> networkInterfaceId_ = nullptr;
     std::shared_ptr<string> networkInterfaceIp_ = nullptr;
     // The ID of the node on which the app instance runs.
     // 

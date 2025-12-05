@@ -156,6 +156,9 @@
 #include <alibabacloud/models/UpdateAppInstanceGroupImageRequest.hpp>
 #include <alibabacloud/models/UpdateAppInstanceGroupImageResponseBody.hpp>
 #include <alibabacloud/models/UpdateAppInstanceGroupImageResponse.hpp>
+#include <alibabacloud/models/UpdateWuyingServerImageRequest.hpp>
+#include <alibabacloud/models/UpdateWuyingServerImageResponseBody.hpp>
+#include <alibabacloud/models/UpdateWuyingServerImageResponse.hpp>
 #include <alibabacloud/models/AuthorizeInstanceGroupRequestUserMeta.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestNetworkDomainRules.hpp>
 #include <alibabacloud/models/CreateAppInstanceGroupRequestNetworkRoutes.hpp>
