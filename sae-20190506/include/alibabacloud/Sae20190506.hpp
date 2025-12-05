@@ -2233,6 +2233,24 @@ namespace Sae20190506
       Models::RestartInstancesResponse restartInstances(const Models::RestartInstancesRequest &request);
 
       /**
+       * @summary 恢复实例的流量
+       *
+       * @param request ResumeTrafficRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeTrafficResponse
+       */
+      Models::ResumeTrafficResponse resumeTrafficWithOptions(const Models::ResumeTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 恢复实例的流量
+       *
+       * @param request ResumeTrafficRequest
+       * @return ResumeTrafficResponse
+       */
+      Models::ResumeTrafficResponse resumeTraffic(const Models::ResumeTrafficRequest &request);
+
+      /**
        * @summary Rolls back an application.
        *
        * @param request RollbackApplicationRequest
@@ -2347,6 +2365,24 @@ namespace Sae20190506
        * @return SuspendJobResponse
        */
       Models::SuspendJobResponse suspendJob(const Models::SuspendJobRequest &request);
+
+      /**
+       * @summary 将流量从实例中摘除
+       *
+       * @param request SuspendTrafficRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SuspendTrafficResponse
+       */
+      Models::SuspendTrafficResponse suspendTrafficWithOptions(const Models::SuspendTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将流量从实例中摘除
+       *
+       * @param request SuspendTrafficRequest
+       * @return SuspendTrafficResponse
+       */
+      Models::SuspendTrafficResponse suspendTraffic(const Models::SuspendTrafficRequest &request);
 
       /**
        * @summary Adds tags to resources.

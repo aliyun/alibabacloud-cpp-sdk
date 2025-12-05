@@ -503,6 +503,9 @@
 #include <alibabacloud/models/RestartInstancesRequest.hpp>
 #include <alibabacloud/models/RestartInstancesResponseBody.hpp>
 #include <alibabacloud/models/RestartInstancesResponse.hpp>
+#include <alibabacloud/models/ResumeTrafficRequest.hpp>
+#include <alibabacloud/models/ResumeTrafficResponseBody.hpp>
+#include <alibabacloud/models/ResumeTrafficResponse.hpp>
 #include <alibabacloud/models/RollbackApplicationRequest.hpp>
 #include <alibabacloud/models/RollbackApplicationResponseBody.hpp>
 #include <alibabacloud/models/RollbackApplicationResponse.hpp>
@@ -519,6 +522,9 @@
 #include <alibabacloud/models/SuspendJobRequest.hpp>
 #include <alibabacloud/models/SuspendJobResponseBody.hpp>
 #include <alibabacloud/models/SuspendJobResponse.hpp>
+#include <alibabacloud/models/SuspendTrafficRequest.hpp>
+#include <alibabacloud/models/SuspendTrafficResponseBody.hpp>
+#include <alibabacloud/models/SuspendTrafficResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>
@@ -851,9 +857,11 @@
 #include <alibabacloud/models/RescaleApplicationVerticallyResponseBodyData.hpp>
 #include <alibabacloud/models/RestartApplicationResponseBodyData.hpp>
 #include <alibabacloud/models/RestartInstancesResponseBodyData.hpp>
+#include <alibabacloud/models/ResumeTrafficResponseBodyData.hpp>
 #include <alibabacloud/models/RollbackApplicationResponseBodyData.hpp>
 #include <alibabacloud/models/StartApplicationResponseBodyData.hpp>
 #include <alibabacloud/models/StopApplicationResponseBodyData.hpp>
+#include <alibabacloud/models/SuspendTrafficResponseBodyData.hpp>
 #include <alibabacloud/models/UnbindNlbResponseBodyData.hpp>
 #include <alibabacloud/models/UnbindSlbResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateApplicationScalingRuleResponseBodyDataMetricMetrics.hpp>

@@ -7423,6 +7423,55 @@ RestartInstancesResponse Client::restartInstances(const RestartInstancesRequest 
 }
 
 /**
+ * @summary 恢复实例的流量
+ *
+ * @param request ResumeTrafficRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeTrafficResponse
+ */
+ResumeTrafficResponse Client::resumeTrafficWithOptions(const ResumeTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeTraffic"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v1/sam/app/instanceTrafficResume")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeTrafficResponse>();
+}
+
+/**
+ * @summary 恢复实例的流量
+ *
+ * @param request ResumeTrafficRequest
+ * @return ResumeTrafficResponse
+ */
+ResumeTrafficResponse Client::resumeTraffic(const ResumeTrafficRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resumeTrafficWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Rolls back an application.
  *
  * @param request RollbackApplicationRequest
@@ -7726,6 +7775,55 @@ SuspendJobResponse Client::suspendJob(const SuspendJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return suspendJobWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 将流量从实例中摘除
+ *
+ * @param request SuspendTrafficRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SuspendTrafficResponse
+ */
+SuspendTrafficResponse Client::suspendTrafficWithOptions(const SuspendTrafficRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.instanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SuspendTraffic"},
+    {"version" , "2019-05-06"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v1/sam/app/instanceTrafficSuspend")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SuspendTrafficResponse>();
+}
+
+/**
+ * @summary 将流量从实例中摘除
+ *
+ * @param request SuspendTrafficRequest
+ * @return SuspendTrafficResponse
+ */
+SuspendTrafficResponse Client::suspendTraffic(const SuspendTrafficRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return suspendTrafficWithOptions(request, headers, runtime);
 }
 
 /**
