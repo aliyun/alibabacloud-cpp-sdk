@@ -5,9 +5,9 @@
 #include <alibabacloud/Imageenhan20190930Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Imageenhan20190930.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,7 +19,7 @@ namespace Imageenhan20190930
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
 
-      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form);
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -160,61 +160,6 @@ namespace Imageenhan20190930
       Models::GenerateCartoonizedImageResponse generateCartoonizedImage(const Models::GenerateCartoonizedImageRequest &request);
 
       Models::GenerateCartoonizedImageResponse generateCartoonizedImageAdvance(const Models::GenerateCartoonizedImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 图像微动
-       *
-       * @param request GenerateDynamicImageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GenerateDynamicImageResponse
-       */
-      Models::GenerateDynamicImageResponse generateDynamicImageWithOptions(const Models::GenerateDynamicImageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 图像微动
-       *
-       * @param request GenerateDynamicImageRequest
-       * @return GenerateDynamicImageResponse
-       */
-      Models::GenerateDynamicImageResponse generateDynamicImage(const Models::GenerateDynamicImageRequest &request);
-
-      Models::GenerateDynamicImageResponse generateDynamicImageAdvance(const Models::GenerateDynamicImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 文本到图像生成
-       *
-       * @param request GenerateImageWithTextRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GenerateImageWithTextResponse
-       */
-      Models::GenerateImageWithTextResponse generateImageWithTextWithOptions(const Models::GenerateImageWithTextRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 文本到图像生成
-       *
-       * @param request GenerateImageWithTextRequest
-       * @return GenerateImageWithTextResponse
-       */
-      Models::GenerateImageWithTextResponse generateImageWithText(const Models::GenerateImageWithTextRequest &request);
-
-      /**
-       * @summary 文本和参考图到图像生成
-       *
-       * @param request GenerateImageWithTextAndImageRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GenerateImageWithTextAndImageResponse
-       */
-      Models::GenerateImageWithTextAndImageResponse generateImageWithTextAndImageWithOptions(const Models::GenerateImageWithTextAndImageRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 文本和参考图到图像生成
-       *
-       * @param request GenerateImageWithTextAndImageRequest
-       * @return GenerateImageWithTextAndImageResponse
-       */
-      Models::GenerateImageWithTextAndImageResponse generateImageWithTextAndImage(const Models::GenerateImageWithTextAndImageRequest &request);
-
-      Models::GenerateImageWithTextAndImageResponse generateImageWithTextAndImageAdvance(const Models::GenerateImageWithTextAndImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 生成式图像超分

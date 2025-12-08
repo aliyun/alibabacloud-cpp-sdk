@@ -2,12 +2,14 @@
 #include <alibabacloud/Imageenhan20190930.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <darabonba/http/Form.hpp>
+#include <darabonba/Runtime.hpp>
+#include <darabonba/policy/Retry.hpp>
+#include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
+#include <darabonba/http/Form.hpp>
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <darabonba/Runtime.hpp>
 #include <alibabacloud/credential/Credential.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
@@ -32,43 +34,88 @@ AlibabaCloud::Imageenhan20190930::Client::Client(AlibabaCloud::OpenApi::Utils::M
 }
 
 
-Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form) {
-Darabonba::RuntimeOptions runtime_(json({}));
-
-  Darabonba::Http::Request request_ = Darabonba::Http::Request();
-  string boundary = Darabonba::Http::Form::getBoundary();
-  request_.setProtocol("HTTPS");
-  request_.setMethod("POST");
-  request_.setPathname(DARA_STRING_TEMPLATE("/"));
-  request_.setHeaders(json({
-    {"host" , Darabonba::Convert::stringVal(form["host"])},
-    {"date" , Utils::Utils::getDateUTCString()},
-    {"user-agent" , Utils::Utils::getUserAgent("")}
-  }).get<map<string, string>>());
-  request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
-  request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-  auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
-  shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-
-  json respMap = nullptr;
-  string bodyStr = Darabonba::Stream::readAsString(response_->body());
-  if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
-    respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-    json err = json(respMap["Error"]);
-    throw ClientException(json({
-      {"code" , Darabonba::Convert::stringVal(err["Code"])},
-      {"message" , Darabonba::Convert::stringVal(err["Message"])},
-      {"data" , json({
-        {"httpCode" , response_->statusCode()},
-        {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-        {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
-      })}
+Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime) {
+  Darabonba::RuntimeOptions runtime_(json({
+    {"key", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.key(), _key))},
+    {"cert", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.cert(), _cert))},
+    {"ca", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.ca(), _ca))},
+    {"readTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.readTimeout(), _readTimeout))},
+    {"connectTimeout", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.connectTimeout(), _connectTimeout))},
+    {"httpProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpProxy(), _httpProxy))},
+    {"httpsProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.httpsProxy(), _httpsProxy))},
+    {"noProxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.noProxy(), _noProxy))},
+    {"socks5Proxy", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5Proxy(), _socks5Proxy))},
+    {"socks5NetWork", Darabonba::Convert::stringVal(Darabonba::defaultVal(runtime.socks5NetWork(), _socks5NetWork))},
+    {"maxIdleConns", Darabonba::Convert::int64Val(Darabonba::defaultVal(runtime.maxIdleConns(), _maxIdleConns))},
+    {"retryOptions", _retryOptions},
+    {"ignoreSSL", Darabonba::Convert::boolVal(Darabonba::defaultVal(runtime.ignoreSSL(), false))},
+    {"tlsMinVersion", _tlsMinVersion}
     }));
+
+  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
+  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
+  Darabonba::Exception _lastException;
+  int _retriesAttempted = 0;
+  Darabonba::Policy::RetryPolicyContext _context = json({
+    {"retriesAttempted" , _retriesAttempted}
+  });
+  while (Darabonba::allowRetry(runtime_.retryOptions(), _context)) {
+    if (_retriesAttempted > 0) {
+      int _backoffTime = Darabonba::getBackoffTime(runtime_.retryOptions(), _context);
+      if (_backoffTime > 0) {
+        Darabonba::sleep(_backoffTime);
+      }
+    }
+    _retriesAttempted++;
+    try {
+      Darabonba::Http::Request request_ = Darabonba::Http::Request();
+      string boundary = Darabonba::Http::Form::getBoundary();
+      request_.setProtocol("HTTPS");
+      request_.setMethod("POST");
+      request_.setPathname(DARA_STRING_TEMPLATE("/"));
+      request_.setHeaders(json({
+        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"date" , Utils::Utils::getDateUTCString()},
+        {"user-agent" , Utils::Utils::getUserAgent("")}
+      }).get<map<string, string>>());
+      request_.addHeader("content-type", DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary));
+      request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
+      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
+      auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
+      shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
+      _lastResponse  = response_;
+
+      json respMap = nullptr;
+      string bodyStr = Darabonba::Stream::readAsString(response_->body());
+      if ((response_->statusCode() >= 400) && (response_->statusCode() < 600)) {
+        respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+        json err = json(respMap["Error"]);
+        throw ClientException(json({
+          {"code" , Darabonba::Convert::stringVal(err["Code"])},
+          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"data" , json({
+            {"httpCode" , response_->statusCode()},
+            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
+            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+          })}
+        }));
+      }
+
+      respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
+      return Darabonba::Core::merge(respMap
+      );
+    } catch (const Darabonba::Exception& ex) {
+      _context = Darabonba::Policy::RetryPolicyContext(json({
+        {"retriesAttempted" , _retriesAttempted},
+        {"lastRequest" , _lastRequest},
+        {"lastResponse" , _lastResponse},
+        {"exception" , ex},
+      }));
+      continue;
+    }
   }
 
-  respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-  return Darabonba::Core::merge(respMap
-  );
+  throw *_context.exception();
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -199,7 +246,7 @@ AssessCompositionResponse Client::assessCompositionAdvance(const AssessCompositi
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     assessCompositionReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -323,7 +370,7 @@ AssessExposureResponse Client::assessExposureAdvance(const AssessExposureAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     assessExposureReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -447,7 +494,7 @@ AssessSharpnessResponse Client::assessSharpnessAdvance(const AssessSharpnessAdva
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     assessSharpnessReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -579,7 +626,7 @@ ChangeImageSizeResponse Client::changeImageSizeAdvance(const ChangeImageSizeAdva
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     changeImageSizeReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -703,7 +750,7 @@ ColorizeImageResponse Client::colorizeImageAdvance(const ColorizeImageAdvanceReq
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     colorizeImageReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -835,7 +882,7 @@ EnhanceImageColorResponse Client::enhanceImageColorAdvance(const EnhanceImageCol
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     enhanceImageColorReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -963,7 +1010,7 @@ ErasePersonResponse Client::erasePersonAdvance(const ErasePersonAdvanceRequest &
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     erasePersonReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -986,7 +1033,7 @@ ErasePersonResponse Client::erasePersonAdvance(const ErasePersonAdvanceRequest &
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     erasePersonReq.setUserMask(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1114,7 +1161,7 @@ ExtendImageStyleResponse Client::extendImageStyleAdvance(const ExtendImageStyleA
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     extendImageStyleReq.setMajorUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1137,7 +1184,7 @@ ExtendImageStyleResponse Client::extendImageStyleAdvance(const ExtendImageStyleA
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     extendImageStyleReq.setStyleUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1273,342 +1320,12 @@ GenerateCartoonizedImageResponse Client::generateCartoonizedImageAdvance(const G
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     generateCartoonizedImageReq.setImageUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
   GenerateCartoonizedImageResponse generateCartoonizedImageResp = generateCartoonizedImageWithOptions(generateCartoonizedImageReq, runtime);
   return generateCartoonizedImageResp;
-}
-
-/**
- * @summary 图像微动
- *
- * @param request GenerateDynamicImageRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GenerateDynamicImageResponse
- */
-GenerateDynamicImageResponse Client::generateDynamicImageWithOptions(const GenerateDynamicImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasOperation()) {
-    body["Operation"] = request.operation();
-  }
-
-  if (!!request.hasUrl()) {
-    body["Url"] = request.url();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "GenerateDynamicImage"},
-    {"version" , "2019-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GenerateDynamicImageResponse>();
-}
-
-/**
- * @summary 图像微动
- *
- * @param request GenerateDynamicImageRequest
- * @return GenerateDynamicImageResponse
- */
-GenerateDynamicImageResponse Client::generateDynamicImage(const GenerateDynamicImageRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return generateDynamicImageWithOptions(request, runtime);
-}
-
-GenerateDynamicImageResponse Client::generateDynamicImageAdvance(const GenerateDynamicImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "imageenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  GenerateDynamicImageRequest generateDynamicImageReq = GenerateDynamicImageRequest();
-  Utils::Utils::convert(request, generateDynamicImageReq);
-  if (!!request.hasUrlObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.urlObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    generateDynamicImageReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  GenerateDynamicImageResponse generateDynamicImageResp = generateDynamicImageWithOptions(generateDynamicImageReq, runtime);
-  return generateDynamicImageResp;
-}
-
-/**
- * @summary 文本到图像生成
- *
- * @param request GenerateImageWithTextRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GenerateImageWithTextResponse
- */
-GenerateImageWithTextResponse Client::generateImageWithTextWithOptions(const GenerateImageWithTextRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasNumber()) {
-    body["Number"] = request.number();
-  }
-
-  if (!!request.hasResolution()) {
-    body["Resolution"] = request.resolution();
-  }
-
-  if (!!request.hasText()) {
-    body["Text"] = request.text();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "GenerateImageWithText"},
-    {"version" , "2019-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GenerateImageWithTextResponse>();
-}
-
-/**
- * @summary 文本到图像生成
- *
- * @param request GenerateImageWithTextRequest
- * @return GenerateImageWithTextResponse
- */
-GenerateImageWithTextResponse Client::generateImageWithText(const GenerateImageWithTextRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return generateImageWithTextWithOptions(request, runtime);
-}
-
-/**
- * @summary 文本和参考图到图像生成
- *
- * @param request GenerateImageWithTextAndImageRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GenerateImageWithTextAndImageResponse
- */
-GenerateImageWithTextAndImageResponse Client::generateImageWithTextAndImageWithOptions(const GenerateImageWithTextAndImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasAspectRatioMode()) {
-    body["AspectRatioMode"] = request.aspectRatioMode();
-  }
-
-  if (!!request.hasNumber()) {
-    body["Number"] = request.number();
-  }
-
-  if (!!request.hasRefImageUrl()) {
-    body["RefImageUrl"] = request.refImageUrl();
-  }
-
-  if (!!request.hasResolution()) {
-    body["Resolution"] = request.resolution();
-  }
-
-  if (!!request.hasSimilarity()) {
-    body["Similarity"] = request.similarity();
-  }
-
-  if (!!request.hasText()) {
-    body["Text"] = request.text();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "GenerateImageWithTextAndImage"},
-    {"version" , "2019-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GenerateImageWithTextAndImageResponse>();
-}
-
-/**
- * @summary 文本和参考图到图像生成
- *
- * @param request GenerateImageWithTextAndImageRequest
- * @return GenerateImageWithTextAndImageResponse
- */
-GenerateImageWithTextAndImageResponse Client::generateImageWithTextAndImage(const GenerateImageWithTextAndImageRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return generateImageWithTextAndImageWithOptions(request, runtime);
-}
-
-GenerateImageWithTextAndImageResponse Client::generateImageWithTextAndImageAdvance(const GenerateImageWithTextAndImageAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  // Step 0: init client
-  if (Darabonba::isNull(_credential)) {
-    throw ClientException(json({
-      {"code" , "InvalidCredentials"},
-      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
-    }).get<map<string, string>>());
-  }
-
-  CredentialModel credentialModel = _credential->getCredential();
-  string accessKeyId = credentialModel.accessKeyId();
-  string accessKeySecret = credentialModel.accessKeySecret();
-  string securityToken = credentialModel.securityToken();
-  string credentialType = credentialModel.type();
-  string openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
-    openPlatformEndpoint = "openplatform.aliyuncs.com";
-  }
-
-  if (Darabonba::isNull(credentialType)) {
-    credentialType = "access_key";
-  }
-
-  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
-    {"accessKeyId" , accessKeyId},
-    {"accessKeySecret" , accessKeySecret},
-    {"securityToken" , securityToken},
-    {"type" , credentialType},
-    {"endpoint" , openPlatformEndpoint},
-    {"protocol" , _protocol},
-    {"regionId" , _regionId}
-  }).get<map<string, string>>());
-  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
-  map<string, string> authRequest = json({
-    {"Product" , "imageenhan"},
-    {"RegionId" , _regionId}
-  }).get<map<string, string>>();
-  OpenApiRequest authReq = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(authRequest)}
-  }).get<map<string, map<string, string>>>());
-  Params authParams = Params(json({
-    {"action" , "AuthorizeFileUpload"},
-    {"version" , "2019-12-19"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "GET"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  json authResponse = {};
-  Darabonba::Http::FileField fileObj = FileField();
-  json ossHeader = {};
-  json tmpBody = {};
-  bool useAccelerate = false;
-  map<string, string> authResponseBody = {};
-  GenerateImageWithTextAndImageRequest generateImageWithTextAndImageReq = GenerateImageWithTextAndImageRequest();
-  Utils::Utils::convert(request, generateImageWithTextAndImageReq);
-  if (!!request.hasRefImageUrlObject()) {
-    authResponse = authClient->callApi(authParams, authReq, runtime);
-    tmpBody = json(authResponse.at("body"));
-    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
-    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
-    fileObj = FileField(json({
-      {"filename" , authResponseBody.at("ObjectKey")},
-      {"content" , request.refImageUrlObject()},
-      {"contentType" , ""}
-    }));
-    ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
-      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
-      {"policy" , authResponseBody.at("EncodedPolicy")},
-      {"Signature" , authResponseBody.at("Signature")},
-      {"key" , authResponseBody.at("ObjectKey")},
-      {"file" , fileObj},
-      {"success_action_status" , "201"}
-    });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
-    generateImageWithTextAndImageReq.setRefImageUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
-  }
-
-  GenerateImageWithTextAndImageResponse generateImageWithTextAndImageResp = generateImageWithTextAndImageWithOptions(generateImageWithTextAndImageReq, runtime);
-  return generateImageWithTextAndImageResp;
 }
 
 /**
@@ -1747,7 +1464,7 @@ GenerateSuperResolutionImageResponse Client::generateSuperResolutionImageAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     generateSuperResolutionImageReq.setImageUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1929,7 +1646,7 @@ ImageBlindCharacterWatermarkResponse Client::imageBlindCharacterWatermarkAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imageBlindCharacterWatermarkReq.setOriginImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -1952,7 +1669,7 @@ ImageBlindCharacterWatermarkResponse Client::imageBlindCharacterWatermarkAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imageBlindCharacterWatermarkReq.setWatermarkImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2096,7 +1813,7 @@ ImageBlindPicWatermarkResponse Client::imageBlindPicWatermarkAdvance(const Image
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imageBlindPicWatermarkReq.setLogoURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2119,7 +1836,7 @@ ImageBlindPicWatermarkResponse Client::imageBlindPicWatermarkAdvance(const Image
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imageBlindPicWatermarkReq.setOriginImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2142,7 +1859,7 @@ ImageBlindPicWatermarkResponse Client::imageBlindPicWatermarkAdvance(const Image
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imageBlindPicWatermarkReq.setWatermarkImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2270,7 +1987,7 @@ ImitatePhotoStyleResponse Client::imitatePhotoStyleAdvance(const ImitatePhotoSty
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imitatePhotoStyleReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2293,7 +2010,7 @@ ImitatePhotoStyleResponse Client::imitatePhotoStyleAdvance(const ImitatePhotoSty
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     imitatePhotoStyleReq.setStyleUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2421,7 +2138,7 @@ IntelligentCompositionResponse Client::intelligentCompositionAdvance(const Intel
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     intelligentCompositionReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2561,7 +2278,7 @@ MakeSuperResolutionImageResponse Client::makeSuperResolutionImageAdvance(const M
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     makeSuperResolutionImageReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2705,7 +2422,7 @@ RecolorHDImageResponse Client::recolorHDImageAdvance(const RecolorHDImageAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     recolorHDImageReq.setRefUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2728,7 +2445,7 @@ RecolorHDImageResponse Client::recolorHDImageAdvance(const RecolorHDImageAdvance
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     recolorHDImageReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2868,7 +2585,7 @@ RecolorImageResponse Client::recolorImageAdvance(const RecolorImageAdvanceReques
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     recolorImageReq.setRefUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -2891,7 +2608,7 @@ RecolorImageResponse Client::recolorImageAdvance(const RecolorImageAdvanceReques
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     recolorImageReq.setUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -3031,7 +2748,7 @@ RemoveImageSubtitlesResponse Client::removeImageSubtitlesAdvance(const RemoveIma
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     removeImageSubtitlesReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 
@@ -3155,7 +2872,7 @@ RemoveImageWatermarkResponse Client::removeImageWatermarkAdvance(const RemoveIma
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     removeImageWatermarkReq.setImageURL(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

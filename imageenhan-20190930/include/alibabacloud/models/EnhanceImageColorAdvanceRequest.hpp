@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->imageURLObject_ != nullptr
-        && this->mode_ != nullptr && this->outputFormat_ != nullptr; };
+    virtual bool empty() const override { return this->imageURLObject_ == nullptr
+        && return this->mode_ == nullptr && return this->outputFormat_ == nullptr; };
     // imageURLObject Field Functions 
     bool hasImageURLObject() const { return this->imageURLObject_ != nullptr;};
     void deleteImageURLObject() { this->imageURLObject_ = nullptr;};

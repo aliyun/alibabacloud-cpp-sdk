@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->colorCount_ != nullptr
-        && this->colorTemplate_ != nullptr && this->degree_ != nullptr && this->mode_ != nullptr && this->refUrlObject_ != nullptr && this->urlObject_ != nullptr; };
+    virtual bool empty() const override { return this->colorCount_ == nullptr
+        && return this->colorTemplate_ == nullptr && return this->degree_ == nullptr && return this->mode_ == nullptr && return this->refUrlObject_ == nullptr && return this->urlObject_ == nullptr; };
     // colorCount Field Functions 
     bool hasColorCount() const { return this->colorCount_ != nullptr;};
     void deleteColorCount() { this->colorCount_ = nullptr;};
