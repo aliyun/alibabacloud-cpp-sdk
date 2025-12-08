@@ -403,6 +403,18 @@ AddUserToDesktopOversoldUserGroupResponse Client::addUserToDesktopOversoldUserGr
 AllocateIpAddressResponse Client::allocateIpAddressWithOptions(const AllocateIpAddressRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBandwidth()) {
+    query["Bandwidth"] = request.bandwidth();
+  }
+
+  if (!!request.hasInternetChargeType()) {
+    query["InternetChargeType"] = request.internetChargeType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
   if (!!request.hasNetworkInterfaceId()) {
     query["NetworkInterfaceId"] = request.networkInterfaceId();
   }

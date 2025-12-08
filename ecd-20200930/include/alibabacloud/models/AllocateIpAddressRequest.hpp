@@ -13,11 +13,17 @@ namespace Models
   class AllocateIpAddressRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AllocateIpAddressRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
+      DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, AllocateIpAddressRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
+      DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NetworkInterfaceId, networkInterfaceId_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -33,8 +39,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->networkInterfaceId_ == nullptr
-        && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->bandwidth_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->name_ == nullptr && return this->networkInterfaceId_ == nullptr && return this->officeSiteId_ == nullptr && return this->regionId_ == nullptr; };
+    // bandwidth Field Functions 
+    bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
+    void deleteBandwidth() { this->bandwidth_ = nullptr;};
+    inline int32_t bandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0) };
+    inline AllocateIpAddressRequest& setBandwidth(int32_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
+
+
+    // internetChargeType Field Functions 
+    bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
+    void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
+    inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline AllocateIpAddressRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline AllocateIpAddressRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
     // networkInterfaceId Field Functions 
     bool hasNetworkInterfaceId() const { return this->networkInterfaceId_ != nullptr;};
     void deleteNetworkInterfaceId() { this->networkInterfaceId_ = nullptr;};
@@ -57,6 +84,9 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> bandwidth_ = nullptr;
+    std::shared_ptr<string> internetChargeType_ = nullptr;
+    std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> networkInterfaceId_ = nullptr;
     std::shared_ptr<string> officeSiteId_ = nullptr;
     // This parameter is required.
