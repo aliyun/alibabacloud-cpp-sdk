@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->creator_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->greyConfigInfo_ != nullptr && this->greyEndtime_ != nullptr
-        && this->greyNum_ != nullptr && this->historyForce_ != nullptr && this->id_ != nullptr && this->isEnterprise_ != nullptr && this->memo_ != nullptr
-        && this->modifier_ != nullptr && this->packageInfoId_ != nullptr && this->platform_ != nullptr && this->productId_ != nullptr && this->productVersion_ != nullptr
-        && this->publishMode_ != nullptr && this->publishType_ != nullptr && this->pushContent_ != nullptr && this->taskStatus_ != nullptr && this->upgradeContent_ != nullptr
-        && this->upgradeType_ != nullptr && this->whitelistIds_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->creator_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->greyConfigInfo_ == nullptr && return this->greyEndtime_ == nullptr
+        && return this->greyNum_ == nullptr && return this->historyForce_ == nullptr && return this->id_ == nullptr && return this->isEnterprise_ == nullptr && return this->memo_ == nullptr
+        && return this->modifier_ == nullptr && return this->packageInfoId_ == nullptr && return this->platform_ == nullptr && return this->productId_ == nullptr && return this->productVersion_ == nullptr
+        && return this->publishMode_ == nullptr && return this->publishType_ == nullptr && return this->pushContent_ == nullptr && return this->taskStatus_ == nullptr && return this->upgradeContent_ == nullptr
+        && return this->upgradeType_ == nullptr && return this->whitelistIds_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

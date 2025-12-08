@@ -65,11 +65,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allowCreateTask_ != nullptr
-        && this->appCode_ != nullptr && this->appstoreUrl_ != nullptr && this->changeLog_ != nullptr && this->creator_ != nullptr && this->downloadUrl_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->isEnterprise_ != nullptr && this->modifier_ != nullptr
-        && this->needCheck_ != nullptr && this->packageType_ != nullptr && this->platform_ != nullptr && this->productId_ != nullptr && this->productName_ != nullptr
-        && this->productVersion_ != nullptr && this->publishPeriod_ != nullptr && this->verificationCode_ != nullptr; };
+    virtual bool empty() const override { return this->allowCreateTask_ == nullptr
+        && return this->appCode_ == nullptr && return this->appstoreUrl_ == nullptr && return this->changeLog_ == nullptr && return this->creator_ == nullptr && return this->downloadUrl_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->isEnterprise_ == nullptr && return this->modifier_ == nullptr
+        && return this->needCheck_ == nullptr && return this->packageType_ == nullptr && return this->platform_ == nullptr && return this->productId_ == nullptr && return this->productName_ == nullptr
+        && return this->productVersion_ == nullptr && return this->publishPeriod_ == nullptr && return this->verificationCode_ == nullptr; };
     // allowCreateTask Field Functions 
     bool hasAllowCreateTask() const { return this->allowCreateTask_ != nullptr;};
     void deleteAllowCreateTask() { this->allowCreateTask_ = nullptr;};

@@ -85,13 +85,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityContentState_ != nullptr
-        && this->activityEvent_ != nullptr && this->appId_ != nullptr && this->channelId_ != nullptr && this->classification_ != nullptr && this->content_ != nullptr
-        && this->deliveryType_ != nullptr && this->dismissalDate_ != nullptr && this->expiredSeconds_ != nullptr && this->extendedParams_ != nullptr && this->iconUrls_ != nullptr
-        && this->imageUrls_ != nullptr && this->miChannelId_ != nullptr && this->notifyLevelShrink_ != nullptr && this->notifyType_ != nullptr && this->pushAction_ != nullptr
-        && this->pushStyle_ != nullptr && this->silent_ != nullptr && this->strategyContent_ != nullptr && this->strategyType_ != nullptr && this->targetMsgkey_ != nullptr
-        && this->taskName_ != nullptr && this->tenantId_ != nullptr && this->thirdChannelCategoryShrink_ != nullptr && this->title_ != nullptr && this->transparentMessagePayload_ != nullptr
-        && this->transparentMessageUrgency_ != nullptr && this->uri_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->activityContentState_ == nullptr
+        && return this->activityEvent_ == nullptr && return this->appId_ == nullptr && return this->channelId_ == nullptr && return this->classification_ == nullptr && return this->content_ == nullptr
+        && return this->deliveryType_ == nullptr && return this->dismissalDate_ == nullptr && return this->expiredSeconds_ == nullptr && return this->extendedParams_ == nullptr && return this->iconUrls_ == nullptr
+        && return this->imageUrls_ == nullptr && return this->miChannelId_ == nullptr && return this->notifyLevelShrink_ == nullptr && return this->notifyType_ == nullptr && return this->pushAction_ == nullptr
+        && return this->pushStyle_ == nullptr && return this->silent_ == nullptr && return this->strategyContent_ == nullptr && return this->strategyType_ == nullptr && return this->targetMsgkey_ == nullptr
+        && return this->taskName_ == nullptr && return this->tenantId_ == nullptr && return this->thirdChannelCategoryShrink_ == nullptr && return this->title_ == nullptr && return this->transparentMessagePayload_ == nullptr
+        && return this->transparentMessageUrgency_ == nullptr && return this->uri_ == nullptr && return this->workspaceId_ == nullptr; };
     // activityContentState Field Functions 
     bool hasActivityContentState() const { return this->activityContentState_ != nullptr;};
     void deleteActivityContentState() { this->activityContentState_ = nullptr;};

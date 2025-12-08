@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->appVersion_ != nullptr && this->appstoreUrl_ != nullptr && this->bundleId_ != nullptr && this->customDomainName_ != nullptr && this->desc_ != nullptr
-        && this->downloadUrl_ != nullptr && this->fileUrl_ != nullptr && this->iconFileUrl_ != nullptr && this->installAmount_ != nullptr && this->iosSymbolfileUrl_ != nullptr
-        && this->isEnterprise_ != nullptr && this->needCheck_ != nullptr && this->onexFlag_ != nullptr && this->platform_ != nullptr && this->tenantId_ != nullptr
-        && this->validDays_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->appVersion_ == nullptr && return this->appstoreUrl_ == nullptr && return this->bundleId_ == nullptr && return this->customDomainName_ == nullptr && return this->desc_ == nullptr
+        && return this->downloadUrl_ == nullptr && return this->fileUrl_ == nullptr && return this->iconFileUrl_ == nullptr && return this->installAmount_ == nullptr && return this->iosSymbolfileUrl_ == nullptr
+        && return this->isEnterprise_ == nullptr && return this->needCheck_ == nullptr && return this->onexFlag_ == nullptr && return this->platform_ == nullptr && return this->tenantId_ == nullptr
+        && return this->validDays_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

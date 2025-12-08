@@ -129,17 +129,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->appId_ != nullptr && this->atomic_ != nullptr && this->baseInfoId_ != nullptr && this->bizType_ != nullptr && this->creator_ != nullptr
-        && this->cronexpress_ != nullptr && this->downloadUrl_ != nullptr && this->extraData_ != nullptr && this->fileSize_ != nullptr && this->fullRepair_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->gmtModifiedStr_ != nullptr && this->greyConfigInfo_ != nullptr && this->greyEndtime_ != nullptr
-        && this->greyEndtimeData_ != nullptr && this->greyEndtimeStr_ != nullptr && this->greyNum_ != nullptr && this->greyUrl_ != nullptr && this->id_ != nullptr
-        && this->issueDesc_ != nullptr && this->memo_ != nullptr && this->modifier_ != nullptr && this->ossPath_ != nullptr && this->packageId_ != nullptr
-        && this->percent_ != nullptr && this->platform_ != nullptr && this->productId_ != nullptr && this->productVersion_ != nullptr && this->publishMode_ != nullptr
-        && this->publishPeriod_ != nullptr && this->publishType_ != nullptr && this->quickRollback_ != nullptr && this->releaseVersion_ != nullptr && this->ruleJsonList_ != nullptr
-        && this->sourceId_ != nullptr && this->sourceName_ != nullptr && this->sourceType_ != nullptr && this->status_ != nullptr && this->syncResult_ != nullptr
-        && this->syncType_ != nullptr && this->taskName_ != nullptr && this->taskStatus_ != nullptr && this->taskType_ != nullptr && this->taskVersion_ != nullptr
-        && this->upgradeNoticeNum_ != nullptr && this->upgradeProgress_ != nullptr && this->whitelistIds_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->appId_ == nullptr && return this->atomic_ == nullptr && return this->baseInfoId_ == nullptr && return this->bizType_ == nullptr && return this->creator_ == nullptr
+        && return this->cronexpress_ == nullptr && return this->downloadUrl_ == nullptr && return this->extraData_ == nullptr && return this->fileSize_ == nullptr && return this->fullRepair_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->gmtModifiedStr_ == nullptr && return this->greyConfigInfo_ == nullptr && return this->greyEndtime_ == nullptr
+        && return this->greyEndtimeData_ == nullptr && return this->greyEndtimeStr_ == nullptr && return this->greyNum_ == nullptr && return this->greyUrl_ == nullptr && return this->id_ == nullptr
+        && return this->issueDesc_ == nullptr && return this->memo_ == nullptr && return this->modifier_ == nullptr && return this->ossPath_ == nullptr && return this->packageId_ == nullptr
+        && return this->percent_ == nullptr && return this->platform_ == nullptr && return this->productId_ == nullptr && return this->productVersion_ == nullptr && return this->publishMode_ == nullptr
+        && return this->publishPeriod_ == nullptr && return this->publishType_ == nullptr && return this->quickRollback_ == nullptr && return this->releaseVersion_ == nullptr && return this->ruleJsonList_ == nullptr
+        && return this->sourceId_ == nullptr && return this->sourceName_ == nullptr && return this->sourceType_ == nullptr && return this->status_ == nullptr && return this->syncResult_ == nullptr
+        && return this->syncType_ == nullptr && return this->taskName_ == nullptr && return this->taskStatus_ == nullptr && return this->taskType_ == nullptr && return this->taskVersion_ == nullptr
+        && return this->upgradeNoticeNum_ == nullptr && return this->upgradeProgress_ == nullptr && return this->whitelistIds_ == nullptr && return this->workspaceId_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};

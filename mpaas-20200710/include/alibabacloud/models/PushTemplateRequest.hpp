@@ -77,12 +77,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityContentState_ != nullptr
-        && this->activityEvent_ != nullptr && this->appId_ != nullptr && this->channelId_ != nullptr && this->classification_ != nullptr && this->deliveryType_ != nullptr
-        && this->dismissalDate_ != nullptr && this->expiredSeconds_ != nullptr && this->extendedParams_ != nullptr && this->miChannelId_ != nullptr && this->notifyLevel_ != nullptr
-        && this->notifyType_ != nullptr && this->pushAction_ != nullptr && this->silent_ != nullptr && this->strategyContent_ != nullptr && this->strategyType_ != nullptr
-        && this->targetMsgkey_ != nullptr && this->taskName_ != nullptr && this->templateKeyValue_ != nullptr && this->templateName_ != nullptr && this->tenantId_ != nullptr
-        && this->thirdChannelCategory_ != nullptr && this->transparentMessagePayload_ != nullptr && this->transparentMessageUrgency_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->activityContentState_ == nullptr
+        && return this->activityEvent_ == nullptr && return this->appId_ == nullptr && return this->channelId_ == nullptr && return this->classification_ == nullptr && return this->deliveryType_ == nullptr
+        && return this->dismissalDate_ == nullptr && return this->expiredSeconds_ == nullptr && return this->extendedParams_ == nullptr && return this->miChannelId_ == nullptr && return this->notifyLevel_ == nullptr
+        && return this->notifyType_ == nullptr && return this->pushAction_ == nullptr && return this->silent_ == nullptr && return this->strategyContent_ == nullptr && return this->strategyType_ == nullptr
+        && return this->targetMsgkey_ == nullptr && return this->taskName_ == nullptr && return this->templateKeyValue_ == nullptr && return this->templateName_ == nullptr && return this->tenantId_ == nullptr
+        && return this->thirdChannelCategory_ == nullptr && return this->transparentMessagePayload_ == nullptr && return this->transparentMessageUrgency_ == nullptr && return this->workspaceId_ == nullptr; };
     // activityContentState Field Functions 
     bool hasActivityContentState() const { return this->activityContentState_ != nullptr;};
     void deleteActivityContentState() { this->activityContentState_ = nullptr;};

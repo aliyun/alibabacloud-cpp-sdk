@@ -87,13 +87,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->androidChannel_ != nullptr
-        && this->appId_ != nullptr && this->bindEndTime_ != nullptr && this->bindStartTime_ != nullptr && this->channelId_ != nullptr && this->classification_ != nullptr
-        && this->deliveryType_ != nullptr && this->expiredSeconds_ != nullptr && this->extendedParams_ != nullptr && this->miChannelId_ != nullptr && this->msgkey_ != nullptr
-        && this->notifyLevelShrink_ != nullptr && this->notifyType_ != nullptr && this->pushAction_ != nullptr && this->pushStatus_ != nullptr && this->silent_ != nullptr
-        && this->strategyContent_ != nullptr && this->strategyType_ != nullptr && this->taskName_ != nullptr && this->templateKeyValue_ != nullptr && this->templateName_ != nullptr
-        && this->tenantId_ != nullptr && this->thirdChannelCategoryShrink_ != nullptr && this->timeMode_ != nullptr && this->transparentMessagePayload_ != nullptr && this->transparentMessageUrgency_ != nullptr
-        && this->unBindEndTime_ != nullptr && this->unBindPeriod_ != nullptr && this->unBindStartTime_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->androidChannel_ == nullptr
+        && return this->appId_ == nullptr && return this->bindEndTime_ == nullptr && return this->bindStartTime_ == nullptr && return this->channelId_ == nullptr && return this->classification_ == nullptr
+        && return this->deliveryType_ == nullptr && return this->expiredSeconds_ == nullptr && return this->extendedParams_ == nullptr && return this->miChannelId_ == nullptr && return this->msgkey_ == nullptr
+        && return this->notifyLevelShrink_ == nullptr && return this->notifyType_ == nullptr && return this->pushAction_ == nullptr && return this->pushStatus_ == nullptr && return this->silent_ == nullptr
+        && return this->strategyContent_ == nullptr && return this->strategyType_ == nullptr && return this->taskName_ == nullptr && return this->templateKeyValue_ == nullptr && return this->templateName_ == nullptr
+        && return this->tenantId_ == nullptr && return this->thirdChannelCategoryShrink_ == nullptr && return this->timeMode_ == nullptr && return this->transparentMessagePayload_ == nullptr && return this->transparentMessageUrgency_ == nullptr
+        && return this->unBindEndTime_ == nullptr && return this->unBindPeriod_ == nullptr && return this->unBindStartTime_ == nullptr && return this->workspaceId_ == nullptr; };
     // androidChannel Field Functions 
     bool hasAndroidChannel() const { return this->androidChannel_ != nullptr;};
     void deleteAndroidChannel() { this->androidChannel_ = nullptr;};

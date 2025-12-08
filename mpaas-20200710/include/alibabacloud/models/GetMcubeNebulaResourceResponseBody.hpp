@@ -36,8 +36,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->getNebulaResourceResult_ != nullptr
-        && this->requestId_ != nullptr && this->resultCode_ != nullptr && this->resultMessage_ != nullptr; };
+    virtual bool empty() const override { return this->getNebulaResourceResult_ == nullptr
+        && return this->requestId_ == nullptr && return this->resultCode_ == nullptr && return this->resultMessage_ == nullptr; };
     // getNebulaResourceResult Field Functions 
     bool hasGetNebulaResourceResult() const { return this->getNebulaResourceResult_ != nullptr;};
     void deleteGetNebulaResourceResult() { this->getNebulaResourceResult_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appId_ != nullptr
-        && this->content_ != nullptr && this->descInfo_ != nullptr && this->iconUrls_ != nullptr && this->imageUrls_ != nullptr && this->jumpAction_ != nullptr
-        && this->pushStyle_ != nullptr && this->showStyle_ != nullptr && this->templateName_ != nullptr && this->tenantId_ != nullptr && this->title_ != nullptr
-        && this->uri_ != nullptr && this->variables_ != nullptr && this->workspaceId_ != nullptr; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && return this->content_ == nullptr && return this->descInfo_ == nullptr && return this->iconUrls_ == nullptr && return this->imageUrls_ == nullptr && return this->jumpAction_ == nullptr
+        && return this->pushStyle_ == nullptr && return this->showStyle_ == nullptr && return this->templateName_ == nullptr && return this->tenantId_ == nullptr && return this->title_ == nullptr
+        && return this->uri_ == nullptr && return this->variables_ == nullptr && return this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};

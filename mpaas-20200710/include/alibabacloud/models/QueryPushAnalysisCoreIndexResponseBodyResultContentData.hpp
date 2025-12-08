@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->arrivalNum_ != nullptr
-        && this->arrivalRate_ != nullptr && this->ignoreNum_ != nullptr && this->ignoreRate_ != nullptr && this->openNum_ != nullptr && this->openRate_ != nullptr
-        && this->pushNum_ != nullptr && this->pushTotalNum_ != nullptr; };
+    virtual bool empty() const override { return this->arrivalNum_ == nullptr
+        && return this->arrivalRate_ == nullptr && return this->ignoreNum_ == nullptr && return this->ignoreRate_ == nullptr && return this->openNum_ == nullptr && return this->openRate_ == nullptr
+        && return this->pushNum_ == nullptr && return this->pushTotalNum_ == nullptr; };
     // arrivalNum Field Functions 
     bool hasArrivalNum() const { return this->arrivalNum_ != nullptr;};
     void deleteArrivalNum() { this->arrivalNum_ = nullptr;};

@@ -61,11 +61,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appCode_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->greyConfigInfo_ != nullptr && this->greyEndtime_ != nullptr && this->greyEndtimeData_ != nullptr
-        && this->greyNum_ != nullptr && this->id_ != nullptr && this->memo_ != nullptr && this->packageId_ != nullptr && this->platform_ != nullptr
-        && this->productVersion_ != nullptr && this->publishMode_ != nullptr && this->publishType_ != nullptr && this->status_ != nullptr && this->taskStatus_ != nullptr
-        && this->whitelistIds_ != nullptr; };
+    virtual bool empty() const override { return this->appCode_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->greyConfigInfo_ == nullptr && return this->greyEndtime_ == nullptr && return this->greyEndtimeData_ == nullptr
+        && return this->greyNum_ == nullptr && return this->id_ == nullptr && return this->memo_ == nullptr && return this->packageId_ == nullptr && return this->platform_ == nullptr
+        && return this->productVersion_ == nullptr && return this->publishMode_ == nullptr && return this->publishType_ == nullptr && return this->status_ == nullptr && return this->taskStatus_ == nullptr
+        && return this->whitelistIds_ == nullptr; };
     // appCode Field Functions 
     bool hasAppCode() const { return this->appCode_ != nullptr;};
     void deleteAppCode() { this->appCode_ = nullptr;};
