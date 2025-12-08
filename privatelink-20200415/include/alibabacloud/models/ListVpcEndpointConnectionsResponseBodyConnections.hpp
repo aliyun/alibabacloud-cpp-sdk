@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_TO_JSON(TrafficControlMode, trafficControlMode_);
       DARABONBA_PTR_TO_JSON(Zones, zones_);
     };
     friend void from_json(const Darabonba::Json& j, ListVpcEndpointConnectionsResponseBodyConnections& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwner, resourceOwner_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_FROM_JSON(TrafficControlMode, trafficControlMode_);
       DARABONBA_PTR_FROM_JSON(Zones, zones_);
     };
     ListVpcEndpointConnectionsResponseBodyConnections() = default ;
@@ -51,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidth_ == nullptr
         && return this->connectionStatus_ == nullptr && return this->endpointId_ == nullptr && return this->endpointOwnerId_ == nullptr && return this->endpointVpcId_ == nullptr && return this->modifiedTime_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->resourceOwner_ == nullptr && return this->serviceId_ == nullptr && return this->zones_ == nullptr; };
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwner_ == nullptr && return this->serviceId_ == nullptr && return this->trafficControlMode_ == nullptr && return this->zones_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -115,6 +117,13 @@ namespace Models
     inline ListVpcEndpointConnectionsResponseBodyConnections& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+    // trafficControlMode Field Functions 
+    bool hasTrafficControlMode() const { return this->trafficControlMode_ != nullptr;};
+    void deleteTrafficControlMode() { this->trafficControlMode_ = nullptr;};
+    inline string trafficControlMode() const { DARABONBA_PTR_GET_DEFAULT(trafficControlMode_, "") };
+    inline ListVpcEndpointConnectionsResponseBodyConnections& setTrafficControlMode(string trafficControlMode) { DARABONBA_PTR_SET_VALUE(trafficControlMode_, trafficControlMode) };
+
+
     // zones Field Functions 
     bool hasZones() const { return this->zones_ != nullptr;};
     void deleteZones() { this->zones_ = nullptr;};
@@ -154,6 +163,7 @@ namespace Models
     std::shared_ptr<bool> resourceOwner_ = nullptr;
     // The endpoint service ID.
     std::shared_ptr<string> serviceId_ = nullptr;
+    std::shared_ptr<string> trafficControlMode_ = nullptr;
     // The zones.
     std::shared_ptr<vector<Models::ListVpcEndpointConnectionsResponseBodyConnectionsZones>> zones_ = nullptr;
   };

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_TO_JSON(TrafficControlMode, trafficControlMode_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateVpcEndpointConnectionAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
+      DARABONBA_PTR_FROM_JSON(TrafficControlMode, trafficControlMode_);
     };
     UpdateVpcEndpointConnectionAttributeRequest() = default ;
     UpdateVpcEndpointConnectionAttributeRequest(const UpdateVpcEndpointConnectionAttributeRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->endpointId_ == nullptr && return this->regionId_ == nullptr && return this->serviceId_ == nullptr; };
+        && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->endpointId_ == nullptr && return this->regionId_ == nullptr && return this->serviceId_ == nullptr
+        && return this->trafficControlMode_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -83,6 +86,13 @@ namespace Models
     inline UpdateVpcEndpointConnectionAttributeRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+    // trafficControlMode Field Functions 
+    bool hasTrafficControlMode() const { return this->trafficControlMode_ != nullptr;};
+    void deleteTrafficControlMode() { this->trafficControlMode_ = nullptr;};
+    inline string trafficControlMode() const { DARABONBA_PTR_GET_DEFAULT(trafficControlMode_, "") };
+    inline UpdateVpcEndpointConnectionAttributeRequest& setTrafficControlMode(string trafficControlMode) { DARABONBA_PTR_SET_VALUE(trafficControlMode_, trafficControlMode) };
+
+
   protected:
     // The bandwidth of the endpoint connection that you want to modify. Unit: Mbit/s. Valid values: **3072** to **10240**.
     // 
@@ -109,6 +119,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> serviceId_ = nullptr;
+    std::shared_ptr<string> trafficControlMode_ = nullptr;
   };
 
   } // namespace Models

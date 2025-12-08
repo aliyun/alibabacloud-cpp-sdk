@@ -1231,6 +1231,10 @@ EnableVpcEndpointConnectionResponse Client::enableVpcEndpointConnectionWithOptio
     query["ServiceId"] = request.serviceId();
   }
 
+  if (!!request.hasTrafficControlMode()) {
+    query["TrafficControlMode"] = request.trafficControlMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2556,6 +2560,10 @@ UpdateVpcEndpointConnectionAttributeResponse Client::updateVpcEndpointConnection
 
   if (!!request.hasServiceId()) {
     query["ServiceId"] = request.serviceId();
+  }
+
+  if (!!request.hasTrafficControlMode()) {
+    query["TrafficControlMode"] = request.trafficControlMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
