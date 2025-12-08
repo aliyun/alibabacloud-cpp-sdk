@@ -50,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceCategory, resourceInstanceCategory_);
+      DARABONBA_PTR_TO_JSON(Scene, scene_);
       DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(SupportedLanguageList, supportedLanguageList_);
@@ -94,6 +95,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceCategory, resourceInstanceCategory_);
+      DARABONBA_PTR_FROM_JSON(Scene, scene_);
       DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(SupportedLanguageList, supportedLanguageList_);
@@ -121,9 +123,9 @@ namespace Models
         && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imageRegionDistributeList_ == nullptr && return this->imageRegionList_ == nullptr && return this->imageType_ == nullptr
         && return this->language_ == nullptr && return this->latestVersionId_ == nullptr && return this->onlineVersion_ == nullptr && return this->onlineVersionId_ == nullptr && return this->osType_ == nullptr
         && return this->packageType_ == nullptr && return this->parentImageId_ == nullptr && return this->parentImageVersion_ == nullptr && return this->platform_ == nullptr && return this->platformName_ == nullptr
-        && return this->productType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceInstanceCategory_ == nullptr && return this->sessionType_ == nullptr && return this->status_ == nullptr
-        && return this->supportedLanguageList_ == nullptr && return this->systemDiskSize_ == nullptr && return this->versionId_ == nullptr && return this->versionName_ == nullptr && return this->volumeEncryptionEnabled_ == nullptr
-        && return this->volumeEncryptionKey_ == nullptr; };
+        && return this->productType_ == nullptr && return this->protocolType_ == nullptr && return this->resourceInstanceCategory_ == nullptr && return this->scene_ == nullptr && return this->sessionType_ == nullptr
+        && return this->status_ == nullptr && return this->supportedLanguageList_ == nullptr && return this->systemDiskSize_ == nullptr && return this->versionId_ == nullptr && return this->versionName_ == nullptr
+        && return this->volumeEncryptionEnabled_ == nullptr && return this->volumeEncryptionKey_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
@@ -372,6 +374,13 @@ namespace Models
     inline ListImageResponseBodyData& setResourceInstanceCategory(string resourceInstanceCategory) { DARABONBA_PTR_SET_VALUE(resourceInstanceCategory_, resourceInstanceCategory) };
 
 
+    // scene Field Functions 
+    bool hasScene() const { return this->scene_ != nullptr;};
+    void deleteScene() { this->scene_ = nullptr;};
+    inline string scene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
+    inline ListImageResponseBodyData& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
+
+
     // sessionType Field Functions 
     bool hasSessionType() const { return this->sessionType_ != nullptr;};
     void deleteSessionType() { this->sessionType_ = nullptr;};
@@ -508,6 +517,7 @@ namespace Models
     std::shared_ptr<string> protocolType_ = nullptr;
     // The types of resources that are supported by the images.
     std::shared_ptr<string> resourceInstanceCategory_ = nullptr;
+    std::shared_ptr<string> scene_ = nullptr;
     // The type of the session.
     // 
     // Valid values:
