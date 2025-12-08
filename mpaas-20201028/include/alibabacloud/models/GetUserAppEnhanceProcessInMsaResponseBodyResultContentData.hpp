@@ -130,10 +130,8 @@ namespace Models
     // classForest Field Functions 
     bool hasClassForest() const { return this->classForest_ != nullptr;};
     void deleteClassForest() { this->classForest_ = nullptr;};
-    inline const vector<string> & classForest() const { DARABONBA_PTR_GET_CONST(classForest_, vector<string>) };
-    inline vector<string> classForest() { DARABONBA_PTR_GET(classForest_, vector<string>) };
-    inline GetUserAppEnhanceProcessInMsaResponseBodyResultContentData& setClassForest(const vector<string> & classForest) { DARABONBA_PTR_SET_VALUE(classForest_, classForest) };
-    inline GetUserAppEnhanceProcessInMsaResponseBodyResultContentData& setClassForest(vector<string> && classForest) { DARABONBA_PTR_SET_RVALUE(classForest_, classForest) };
+    inline string classForest() const { DARABONBA_PTR_GET_DEFAULT(classForest_, "") };
+    inline GetUserAppEnhanceProcessInMsaResponseBodyResultContentData& setClassForest(string classForest) { DARABONBA_PTR_SET_VALUE(classForest_, classForest) };
 
 
     // enhanceMapping Field Functions 
@@ -247,7 +245,7 @@ namespace Models
     std::shared_ptr<vector<string>> assetsFileList_ = nullptr;
     std::shared_ptr<string> beforeMd5_ = nullptr;
     std::shared_ptr<int64_t> beforeSize_ = nullptr;
-    std::shared_ptr<vector<string>> classForest_ = nullptr;
+    std::shared_ptr<string> classForest_ = nullptr;
     std::shared_ptr<vector<Models::GetUserAppEnhanceProcessInMsaResponseBodyResultContentDataEnhanceMapping>> enhanceMapping_ = nullptr;
     std::shared_ptr<vector<string>> enhanceRules_ = nullptr;
     std::shared_ptr<vector<string>> enhancedAssetsFiles_ = nullptr;
