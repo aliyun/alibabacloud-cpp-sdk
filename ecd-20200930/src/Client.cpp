@@ -2401,6 +2401,10 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLink(const CreateCdsFil
 CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcademicProxy()) {
+    query["AcademicProxy"] = request.academicProxy();
+  }
+
   if (!!request.hasAdminAccess()) {
     query["AdminAccess"] = request.adminAccess();
   }
@@ -2419,6 +2423,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasAutoReconnect()) {
     query["AutoReconnect"] = request.autoReconnect();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.businessChannel();
   }
 
   if (!!request.hasBusinessType()) {
@@ -2465,6 +2473,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["CpuDownGradeDuration"] = request.cpuDownGradeDuration();
   }
 
+  if (!!request.hasCpuOverload()) {
+    query["CpuOverload"] = request.cpuOverload();
+  }
+
   if (!!request.hasCpuProcessors()) {
     query["CpuProcessors"] = request.cpuProcessors();
   }
@@ -2503,6 +2515,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasDisconnectKeepSessionTime()) {
     query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime();
+  }
+
+  if (!!request.hasDiskOverload()) {
+    query["DiskOverload"] = request.diskOverload();
   }
 
   if (!!request.hasDisplayMode()) {
@@ -2577,6 +2593,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration();
   }
 
+  if (!!request.hasMemoryOverload()) {
+    query["MemoryOverload"] = request.memoryOverload();
+  }
+
   if (!!request.hasMemoryProcessors()) {
     query["MemoryProcessors"] = request.memoryProcessors();
   }
@@ -2617,6 +2637,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
     query["MobileWyAssistant"] = request.mobileWyAssistant();
   }
 
+  if (!!request.hasModelLibrary()) {
+    query["ModelLibrary"] = request.modelLibrary();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.name();
   }
@@ -2635,6 +2659,10 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 
   if (!!request.hasNoOperationDisconnectTime()) {
     query["NoOperationDisconnectTime"] = request.noOperationDisconnectTime();
+  }
+
+  if (!!request.hasPortProxy()) {
+    query["PortProxy"] = request.portProxy();
   }
 
   if (!!request.hasPrinterRedirect()) {
@@ -6989,8 +7017,16 @@ DescribeCensResponse Client::describeCens(const DescribeCensRequest &request) {
 DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(const DescribeCenterPolicyListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcademicProxy()) {
+    query["AcademicProxy"] = request.academicProxy();
+  }
+
   if (!!request.hasBusinessType()) {
     query["BusinessType"] = request.businessType();
+  }
+
+  if (!!request.hasModelLibrary()) {
+    query["ModelLibrary"] = request.modelLibrary();
   }
 
   if (!!request.hasPageNumber()) {
@@ -7003,6 +7039,10 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(con
 
   if (!!request.hasPolicyGroupId()) {
     query["PolicyGroupId"] = request.policyGroupId();
+  }
+
+  if (!!request.hasPortProxy()) {
+    query["PortProxy"] = request.portProxy();
   }
 
   if (!!request.hasResourceType()) {
@@ -9963,6 +10003,10 @@ DescribeOfficeSitesResponse Client::describeOfficeSites(const DescribeOfficeSite
 DescribePolicyGroupsResponse Client::describePolicyGroupsWithOptions(const DescribePolicyGroupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.businessChannel();
+  }
+
   if (!!request.hasExternalPolicyGroupIds()) {
     query["ExternalPolicyGroupIds"] = request.externalPolicyGroupIds();
   }
@@ -13967,6 +14011,10 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLink(const ModifyCdsFil
 ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCenterPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcademicProxy()) {
+    query["AcademicProxy"] = request.academicProxy();
+  }
+
   if (!!request.hasAdminAccess()) {
     query["AdminAccess"] = request.adminAccess();
   }
@@ -13985,6 +14033,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasAutoReconnect()) {
     query["AutoReconnect"] = request.autoReconnect();
+  }
+
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.businessChannel();
   }
 
   if (!!request.hasBusinessType()) {
@@ -14031,6 +14083,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["CpuDownGradeDuration"] = request.cpuDownGradeDuration();
   }
 
+  if (!!request.hasCpuOverload()) {
+    query["CpuOverload"] = request.cpuOverload();
+  }
+
   if (!!request.hasCpuProcessors()) {
     query["CpuProcessors"] = request.cpuProcessors();
   }
@@ -14069,6 +14125,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasDisconnectKeepSessionTime()) {
     query["DisconnectKeepSessionTime"] = request.disconnectKeepSessionTime();
+  }
+
+  if (!!request.hasDiskOverload()) {
+    query["DiskOverload"] = request.diskOverload();
   }
 
   if (!!request.hasDisplayMode()) {
@@ -14143,6 +14203,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["MemoryDownGradeDuration"] = request.memoryDownGradeDuration();
   }
 
+  if (!!request.hasMemoryOverload()) {
+    query["MemoryOverload"] = request.memoryOverload();
+  }
+
   if (!!request.hasMemoryProcessors()) {
     query["MemoryProcessors"] = request.memoryProcessors();
   }
@@ -14183,6 +14247,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
     query["MobileWyAssistant"] = request.mobileWyAssistant();
   }
 
+  if (!!request.hasModelLibrary()) {
+    query["ModelLibrary"] = request.modelLibrary();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.name();
   }
@@ -14205,6 +14273,10 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 
   if (!!request.hasPolicyGroupId()) {
     query["PolicyGroupId"] = request.policyGroupId();
+  }
+
+  if (!!request.hasPortProxy()) {
+    query["PortProxy"] = request.portProxy();
   }
 
   if (!!request.hasPrinterRedirect()) {

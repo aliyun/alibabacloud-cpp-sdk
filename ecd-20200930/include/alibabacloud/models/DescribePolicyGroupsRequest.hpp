@@ -14,6 +14,7 @@ namespace Models
   class DescribePolicyGroupsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolicyGroupsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(ExternalPolicyGroupIds, externalPolicyGroupIds_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Scope, scope_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolicyGroupsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(ExternalPolicyGroupIds, externalPolicyGroupIds_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -44,9 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->externalPolicyGroupIds_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr
-        && return this->regionId_ == nullptr && return this->scope_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && return this->externalPolicyGroupIds_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
+        && return this->policyGroupId_ == nullptr && return this->regionId_ == nullptr && return this->scope_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string businessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribePolicyGroupsRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // externalPolicyGroupIds Field Functions 
     bool hasExternalPolicyGroupIds() const { return this->externalPolicyGroupIds_ != nullptr;};
     void deleteExternalPolicyGroupIds() { this->externalPolicyGroupIds_ = nullptr;};
@@ -108,6 +117,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> businessChannel_ = nullptr;
     // The array of cloud computer policy IDs to be excluded.
     std::shared_ptr<vector<string>> externalPolicyGroupIds_ = nullptr;
     // The number of entries per page.

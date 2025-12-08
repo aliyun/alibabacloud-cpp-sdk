@@ -23,6 +23,7 @@ namespace Models
   class DescribePolicyGroupsResponseBodyDescribePolicyGroups : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolicyGroupsResponseBodyDescribePolicyGroups& obj) { 
+      DARABONBA_PTR_TO_JSON(AcademicProxy, academicProxy_);
       DARABONBA_PTR_TO_JSON(AdminAccess, adminAccess_);
       DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
       DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ColorEnhancement, colorEnhancement_);
       DARABONBA_PTR_TO_JSON(CpdDriveClipboard, cpdDriveClipboard_);
       DARABONBA_PTR_TO_JSON(CpuDownGradeDuration, cpuDownGradeDuration_);
+      DARABONBA_PTR_TO_JSON(CpuOverload, cpuOverload_);
       DARABONBA_PTR_TO_JSON(CpuProcessors, cpuProcessors_);
       DARABONBA_PTR_TO_JSON(CpuProtectedMode, cpuProtectedMode_);
       DARABONBA_PTR_TO_JSON(CpuRateLimit, cpuRateLimit_);
@@ -46,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeviceConnectHint, deviceConnectHint_);
       DARABONBA_PTR_TO_JSON(DeviceRedirects, deviceRedirects_);
       DARABONBA_PTR_TO_JSON(DeviceRules, deviceRules_);
+      DARABONBA_PTR_TO_JSON(DiskOverload, diskOverload_);
       DARABONBA_PTR_TO_JSON(DisplayMode, displayMode_);
       DARABONBA_PTR_TO_JSON(DomainList, domainList_);
       DARABONBA_PTR_TO_JSON(DomainResolveRule, domainResolveRule_);
@@ -67,6 +70,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LocalDrive, localDrive_);
       DARABONBA_PTR_TO_JSON(MaxReconnectTime, maxReconnectTime_);
       DARABONBA_PTR_TO_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
+      DARABONBA_PTR_TO_JSON(MemoryOverload, memoryOverload_);
       DARABONBA_PTR_TO_JSON(MemoryProcessors, memoryProcessors_);
       DARABONBA_PTR_TO_JSON(MemoryProtectedMode, memoryProtectedMode_);
       DARABONBA_PTR_TO_JSON(MemoryRateLimit, memoryRateLimit_);
@@ -77,12 +81,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MobileShutdown, mobileShutdown_);
       DARABONBA_PTR_TO_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
       DARABONBA_PTR_TO_JSON(MobileWyAssistant, mobileWyAssistant_);
+      DARABONBA_PTR_TO_JSON(ModelLibrary, modelLibrary_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
       DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_TO_JSON(PolicyGroupType, policyGroupType_);
       DARABONBA_PTR_TO_JSON(PolicyStatus, policyStatus_);
+      DARABONBA_PTR_TO_JSON(PortProxy, portProxy_);
       DARABONBA_PTR_TO_JSON(PreemptLogin, preemptLogin_);
       DARABONBA_PTR_TO_JSON(PreemptLoginUsers, preemptLoginUsers_);
       DARABONBA_PTR_TO_JSON(PrinterRedirection, printerRedirection_);
@@ -146,6 +152,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WyAssistant, wyAssistant_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolicyGroupsResponseBodyDescribePolicyGroups& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcademicProxy, academicProxy_);
       DARABONBA_PTR_FROM_JSON(AdminAccess, adminAccess_);
       DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
       DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
@@ -159,6 +166,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ColorEnhancement, colorEnhancement_);
       DARABONBA_PTR_FROM_JSON(CpdDriveClipboard, cpdDriveClipboard_);
       DARABONBA_PTR_FROM_JSON(CpuDownGradeDuration, cpuDownGradeDuration_);
+      DARABONBA_PTR_FROM_JSON(CpuOverload, cpuOverload_);
       DARABONBA_PTR_FROM_JSON(CpuProcessors, cpuProcessors_);
       DARABONBA_PTR_FROM_JSON(CpuProtectedMode, cpuProtectedMode_);
       DARABONBA_PTR_FROM_JSON(CpuRateLimit, cpuRateLimit_);
@@ -169,6 +177,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeviceConnectHint, deviceConnectHint_);
       DARABONBA_PTR_FROM_JSON(DeviceRedirects, deviceRedirects_);
       DARABONBA_PTR_FROM_JSON(DeviceRules, deviceRules_);
+      DARABONBA_PTR_FROM_JSON(DiskOverload, diskOverload_);
       DARABONBA_PTR_FROM_JSON(DisplayMode, displayMode_);
       DARABONBA_PTR_FROM_JSON(DomainList, domainList_);
       DARABONBA_PTR_FROM_JSON(DomainResolveRule, domainResolveRule_);
@@ -190,6 +199,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LocalDrive, localDrive_);
       DARABONBA_PTR_FROM_JSON(MaxReconnectTime, maxReconnectTime_);
       DARABONBA_PTR_FROM_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
+      DARABONBA_PTR_FROM_JSON(MemoryOverload, memoryOverload_);
       DARABONBA_PTR_FROM_JSON(MemoryProcessors, memoryProcessors_);
       DARABONBA_PTR_FROM_JSON(MemoryProtectedMode, memoryProtectedMode_);
       DARABONBA_PTR_FROM_JSON(MemoryRateLimit, memoryRateLimit_);
@@ -200,12 +210,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MobileShutdown, mobileShutdown_);
       DARABONBA_PTR_FROM_JSON(MobileWuyingKeeper, mobileWuyingKeeper_);
       DARABONBA_PTR_FROM_JSON(MobileWyAssistant, mobileWyAssistant_);
+      DARABONBA_PTR_FROM_JSON(ModelLibrary, modelLibrary_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
       DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupType, policyGroupType_);
       DARABONBA_PTR_FROM_JSON(PolicyStatus, policyStatus_);
+      DARABONBA_PTR_FROM_JSON(PortProxy, portProxy_);
       DARABONBA_PTR_FROM_JSON(PreemptLogin, preemptLogin_);
       DARABONBA_PTR_FROM_JSON(PreemptLoginUsers, preemptLoginUsers_);
       DARABONBA_PTR_FROM_JSON(PrinterRedirection, printerRedirection_);
@@ -279,31 +291,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->adminAccess_ == nullptr
-        && return this->appContentProtection_ == nullptr && return this->authorizeAccessPolicyRules_ == nullptr && return this->authorizeSecurityPolicyRules_ == nullptr && return this->autoReconnect_ == nullptr && return this->cameraRedirect_ == nullptr
-        && return this->clientControlMenu_ == nullptr && return this->clientCreateSnapshot_ == nullptr && return this->clientTypes_ == nullptr && return this->clipboard_ == nullptr && return this->colorEnhancement_ == nullptr
-        && return this->cpdDriveClipboard_ == nullptr && return this->cpuDownGradeDuration_ == nullptr && return this->cpuProcessors_ == nullptr && return this->cpuProtectedMode_ == nullptr && return this->cpuRateLimit_ == nullptr
-        && return this->cpuSampleDuration_ == nullptr && return this->cpuSingleRateLimit_ == nullptr && return this->desktopCount_ == nullptr && return this->desktopGroupCount_ == nullptr && return this->deviceConnectHint_ == nullptr
-        && return this->deviceRedirects_ == nullptr && return this->deviceRules_ == nullptr && return this->displayMode_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr
-        && return this->domainResolveRuleType_ == nullptr && return this->edsCount_ == nullptr && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->externalDrive_ == nullptr
-        && return this->fileMigrate_ == nullptr && return this->fileTransfer_ == nullptr && return this->fileTransferAddress_ == nullptr && return this->fileTransferSpeed_ == nullptr && return this->fileTransferSpeedLocation_ == nullptr
-        && return this->gpuAcceleration_ == nullptr && return this->html5Access_ == nullptr && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->internetPrinter_ == nullptr
-        && return this->localDrive_ == nullptr && return this->maxReconnectTime_ == nullptr && return this->memoryDownGradeDuration_ == nullptr && return this->memoryProcessors_ == nullptr && return this->memoryProtectedMode_ == nullptr
-        && return this->memoryRateLimit_ == nullptr && return this->memorySampleDuration_ == nullptr && return this->memorySingleRateLimit_ == nullptr && return this->mobileRestart_ == nullptr && return this->mobileSafeMenu_ == nullptr
-        && return this->mobileShutdown_ == nullptr && return this->mobileWuyingKeeper_ == nullptr && return this->mobileWyAssistant_ == nullptr && return this->name_ == nullptr && return this->netRedirect_ == nullptr
-        && return this->netRedirectRule_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupType_ == nullptr && return this->policyStatus_ == nullptr && return this->preemptLogin_ == nullptr
-        && return this->preemptLoginUsers_ == nullptr && return this->printerRedirection_ == nullptr && return this->qualityEnhancement_ == nullptr && return this->recordContent_ == nullptr && return this->recordContentExpires_ == nullptr
-        && return this->recordEventDuration_ == nullptr && return this->recordEventFileExts_ == nullptr && return this->recordEventFilePaths_ == nullptr && return this->recordEventLevels_ == nullptr && return this->recordEventRegisters_ == nullptr
-        && return this->recording_ == nullptr && return this->recordingAudio_ == nullptr && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr && return this->recordingExpires_ == nullptr
-        && return this->recordingFps_ == nullptr && return this->recordingStartTime_ == nullptr && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr && return this->remoteCoordinate_ == nullptr
-        && return this->resetDesktop_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionModel_ == nullptr && return this->resolutionWidth_ == nullptr && return this->resourceGroupCount_ == nullptr
-        && return this->resourceRegionId_ == nullptr && return this->safeMenu_ == nullptr && return this->scope_ == nullptr && return this->scopeValue_ == nullptr && return this->screenDisplayMode_ == nullptr
-        && return this->smoothEnhancement_ == nullptr && return this->statusMonitor_ == nullptr && return this->streamingMode_ == nullptr && return this->targetFps_ == nullptr && return this->usbRedirect_ == nullptr
-        && return this->usbSupplyRedirectRule_ == nullptr && return this->useTime_ == nullptr && return this->videoEncAvgKbps_ == nullptr && return this->videoEncMaxQP_ == nullptr && return this->videoEncMinQP_ == nullptr
-        && return this->videoEncPeakKbps_ == nullptr && return this->videoEncPolicy_ == nullptr && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr && return this->watermark_ == nullptr
-        && return this->watermarkAntiCam_ == nullptr && return this->watermarkColor_ == nullptr && return this->watermarkCustomText_ == nullptr && return this->watermarkDegree_ == nullptr && return this->watermarkFontSize_ == nullptr
-        && return this->watermarkFontStyle_ == nullptr && return this->watermarkPower_ == nullptr && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr && return this->watermarkShadow_ == nullptr
-        && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkType_ == nullptr && return this->wuyingKeeper_ == nullptr && return this->wyAssistant_ == nullptr; };
+    virtual bool empty() const override { return this->academicProxy_ == nullptr
+        && return this->adminAccess_ == nullptr && return this->appContentProtection_ == nullptr && return this->authorizeAccessPolicyRules_ == nullptr && return this->authorizeSecurityPolicyRules_ == nullptr && return this->autoReconnect_ == nullptr
+        && return this->cameraRedirect_ == nullptr && return this->clientControlMenu_ == nullptr && return this->clientCreateSnapshot_ == nullptr && return this->clientTypes_ == nullptr && return this->clipboard_ == nullptr
+        && return this->colorEnhancement_ == nullptr && return this->cpdDriveClipboard_ == nullptr && return this->cpuDownGradeDuration_ == nullptr && return this->cpuOverload_ == nullptr && return this->cpuProcessors_ == nullptr
+        && return this->cpuProtectedMode_ == nullptr && return this->cpuRateLimit_ == nullptr && return this->cpuSampleDuration_ == nullptr && return this->cpuSingleRateLimit_ == nullptr && return this->desktopCount_ == nullptr
+        && return this->desktopGroupCount_ == nullptr && return this->deviceConnectHint_ == nullptr && return this->deviceRedirects_ == nullptr && return this->deviceRules_ == nullptr && return this->diskOverload_ == nullptr
+        && return this->displayMode_ == nullptr && return this->domainList_ == nullptr && return this->domainResolveRule_ == nullptr && return this->domainResolveRuleType_ == nullptr && return this->edsCount_ == nullptr
+        && return this->endUserApplyAdminCoordinate_ == nullptr && return this->endUserGroupCoordinate_ == nullptr && return this->externalDrive_ == nullptr && return this->fileMigrate_ == nullptr && return this->fileTransfer_ == nullptr
+        && return this->fileTransferAddress_ == nullptr && return this->fileTransferSpeed_ == nullptr && return this->fileTransferSpeedLocation_ == nullptr && return this->gpuAcceleration_ == nullptr && return this->html5Access_ == nullptr
+        && return this->html5FileTransfer_ == nullptr && return this->internetCommunicationProtocol_ == nullptr && return this->internetPrinter_ == nullptr && return this->localDrive_ == nullptr && return this->maxReconnectTime_ == nullptr
+        && return this->memoryDownGradeDuration_ == nullptr && return this->memoryOverload_ == nullptr && return this->memoryProcessors_ == nullptr && return this->memoryProtectedMode_ == nullptr && return this->memoryRateLimit_ == nullptr
+        && return this->memorySampleDuration_ == nullptr && return this->memorySingleRateLimit_ == nullptr && return this->mobileRestart_ == nullptr && return this->mobileSafeMenu_ == nullptr && return this->mobileShutdown_ == nullptr
+        && return this->mobileWuyingKeeper_ == nullptr && return this->mobileWyAssistant_ == nullptr && return this->modelLibrary_ == nullptr && return this->name_ == nullptr && return this->netRedirect_ == nullptr
+        && return this->netRedirectRule_ == nullptr && return this->policyGroupId_ == nullptr && return this->policyGroupType_ == nullptr && return this->policyStatus_ == nullptr && return this->portProxy_ == nullptr
+        && return this->preemptLogin_ == nullptr && return this->preemptLoginUsers_ == nullptr && return this->printerRedirection_ == nullptr && return this->qualityEnhancement_ == nullptr && return this->recordContent_ == nullptr
+        && return this->recordContentExpires_ == nullptr && return this->recordEventDuration_ == nullptr && return this->recordEventFileExts_ == nullptr && return this->recordEventFilePaths_ == nullptr && return this->recordEventLevels_ == nullptr
+        && return this->recordEventRegisters_ == nullptr && return this->recording_ == nullptr && return this->recordingAudio_ == nullptr && return this->recordingDuration_ == nullptr && return this->recordingEndTime_ == nullptr
+        && return this->recordingExpires_ == nullptr && return this->recordingFps_ == nullptr && return this->recordingStartTime_ == nullptr && return this->recordingUserNotify_ == nullptr && return this->recordingUserNotifyMessage_ == nullptr
+        && return this->remoteCoordinate_ == nullptr && return this->resetDesktop_ == nullptr && return this->resolutionHeight_ == nullptr && return this->resolutionModel_ == nullptr && return this->resolutionWidth_ == nullptr
+        && return this->resourceGroupCount_ == nullptr && return this->resourceRegionId_ == nullptr && return this->safeMenu_ == nullptr && return this->scope_ == nullptr && return this->scopeValue_ == nullptr
+        && return this->screenDisplayMode_ == nullptr && return this->smoothEnhancement_ == nullptr && return this->statusMonitor_ == nullptr && return this->streamingMode_ == nullptr && return this->targetFps_ == nullptr
+        && return this->usbRedirect_ == nullptr && return this->usbSupplyRedirectRule_ == nullptr && return this->useTime_ == nullptr && return this->videoEncAvgKbps_ == nullptr && return this->videoEncMaxQP_ == nullptr
+        && return this->videoEncMinQP_ == nullptr && return this->videoEncPeakKbps_ == nullptr && return this->videoEncPolicy_ == nullptr && return this->videoRedirect_ == nullptr && return this->visualQuality_ == nullptr
+        && return this->watermark_ == nullptr && return this->watermarkAntiCam_ == nullptr && return this->watermarkColor_ == nullptr && return this->watermarkCustomText_ == nullptr && return this->watermarkDegree_ == nullptr
+        && return this->watermarkFontSize_ == nullptr && return this->watermarkFontStyle_ == nullptr && return this->watermarkPower_ == nullptr && return this->watermarkRowAmount_ == nullptr && return this->watermarkSecurity_ == nullptr
+        && return this->watermarkShadow_ == nullptr && return this->watermarkTransparency_ == nullptr && return this->watermarkTransparencyValue_ == nullptr && return this->watermarkType_ == nullptr && return this->wuyingKeeper_ == nullptr
+        && return this->wyAssistant_ == nullptr; };
+    // academicProxy Field Functions 
+    bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
+    void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
+    inline string academicProxy() const { DARABONBA_PTR_GET_DEFAULT(academicProxy_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setAcademicProxy(string academicProxy) { DARABONBA_PTR_SET_VALUE(academicProxy_, academicProxy) };
+
+
     // adminAccess Field Functions 
     bool hasAdminAccess() const { return this->adminAccess_ != nullptr;};
     void deleteAdminAccess() { this->adminAccess_ = nullptr;};
@@ -401,6 +422,13 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setCpuDownGradeDuration(int32_t cpuDownGradeDuration) { DARABONBA_PTR_SET_VALUE(cpuDownGradeDuration_, cpuDownGradeDuration) };
 
 
+    // cpuOverload Field Functions 
+    bool hasCpuOverload() const { return this->cpuOverload_ != nullptr;};
+    void deleteCpuOverload() { this->cpuOverload_ = nullptr;};
+    inline string cpuOverload() const { DARABONBA_PTR_GET_DEFAULT(cpuOverload_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setCpuOverload(string cpuOverload) { DARABONBA_PTR_SET_VALUE(cpuOverload_, cpuOverload) };
+
+
     // cpuProcessors Field Functions 
     bool hasCpuProcessors() const { return this->cpuProcessors_ != nullptr;};
     void deleteCpuProcessors() { this->cpuProcessors_ = nullptr;};
@@ -475,6 +503,13 @@ namespace Models
     inline vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules> deviceRules() { DARABONBA_PTR_GET(deviceRules_, vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules>) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setDeviceRules(const vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules> & deviceRules) { DARABONBA_PTR_SET_VALUE(deviceRules_, deviceRules) };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setDeviceRules(vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules> && deviceRules) { DARABONBA_PTR_SET_RVALUE(deviceRules_, deviceRules) };
+
+
+    // diskOverload Field Functions 
+    bool hasDiskOverload() const { return this->diskOverload_ != nullptr;};
+    void deleteDiskOverload() { this->diskOverload_ = nullptr;};
+    inline string diskOverload() const { DARABONBA_PTR_GET_DEFAULT(diskOverload_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setDiskOverload(string diskOverload) { DARABONBA_PTR_SET_VALUE(diskOverload_, diskOverload) };
 
 
     // displayMode Field Functions 
@@ -626,6 +661,13 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMemoryDownGradeDuration(int32_t memoryDownGradeDuration) { DARABONBA_PTR_SET_VALUE(memoryDownGradeDuration_, memoryDownGradeDuration) };
 
 
+    // memoryOverload Field Functions 
+    bool hasMemoryOverload() const { return this->memoryOverload_ != nullptr;};
+    void deleteMemoryOverload() { this->memoryOverload_ = nullptr;};
+    inline string memoryOverload() const { DARABONBA_PTR_GET_DEFAULT(memoryOverload_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMemoryOverload(string memoryOverload) { DARABONBA_PTR_SET_VALUE(memoryOverload_, memoryOverload) };
+
+
     // memoryProcessors Field Functions 
     bool hasMemoryProcessors() const { return this->memoryProcessors_ != nullptr;};
     void deleteMemoryProcessors() { this->memoryProcessors_ = nullptr;};
@@ -698,6 +740,13 @@ namespace Models
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setMobileWyAssistant(string mobileWyAssistant) { DARABONBA_PTR_SET_VALUE(mobileWyAssistant_, mobileWyAssistant) };
 
 
+    // modelLibrary Field Functions 
+    bool hasModelLibrary() const { return this->modelLibrary_ != nullptr;};
+    void deleteModelLibrary() { this->modelLibrary_ = nullptr;};
+    inline string modelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setModelLibrary(string modelLibrary) { DARABONBA_PTR_SET_VALUE(modelLibrary_, modelLibrary) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -740,6 +789,13 @@ namespace Models
     void deletePolicyStatus() { this->policyStatus_ = nullptr;};
     inline string policyStatus() const { DARABONBA_PTR_GET_DEFAULT(policyStatus_, "") };
     inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setPolicyStatus(string policyStatus) { DARABONBA_PTR_SET_VALUE(policyStatus_, policyStatus) };
+
+
+    // portProxy Field Functions 
+    bool hasPortProxy() const { return this->portProxy_ != nullptr;};
+    void deletePortProxy() { this->portProxy_ = nullptr;};
+    inline string portProxy() const { DARABONBA_PTR_GET_DEFAULT(portProxy_, "") };
+    inline DescribePolicyGroupsResponseBodyDescribePolicyGroups& setPortProxy(string portProxy) { DARABONBA_PTR_SET_VALUE(portProxy_, portProxy) };
 
 
     // preemptLogin Field Functions 
@@ -1184,6 +1240,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> academicProxy_ = nullptr;
     // Indicates whether end users are granted the administrator permissions.
     // 
     // >  This parameter is in invitational preview for specific users and not available to the public.
@@ -1231,6 +1288,7 @@ namespace Models
     std::shared_ptr<string> cpdDriveClipboard_ = nullptr;
     // The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
     std::shared_ptr<int32_t> cpuDownGradeDuration_ = nullptr;
+    std::shared_ptr<string> cpuOverload_ = nullptr;
     // The process whitelist that is not restricted by the CPU usage limit.
     std::shared_ptr<vector<string>> cpuProcessors_ = nullptr;
     // Indicates whether the CPU spike protection switch is turned on.
@@ -1255,6 +1313,7 @@ namespace Models
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects>> deviceRedirects_ = nullptr;
     // The custom peripheral rules.
     std::shared_ptr<vector<Models::DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules>> deviceRules_ = nullptr;
+    std::shared_ptr<string> diskOverload_ = nullptr;
     // The display mode.
     // 
     // Valid values:
@@ -1346,6 +1405,7 @@ namespace Models
     std::shared_ptr<int32_t> maxReconnectTime_ = nullptr;
     // The memory underclocking duration for a single process. Valid values: 30 to 120. Unit: seconds.
     std::shared_ptr<int32_t> memoryDownGradeDuration_ = nullptr;
+    std::shared_ptr<string> memoryOverload_ = nullptr;
     // The whitelist of processes that are not restricted by the memory usage limit.
     std::shared_ptr<vector<string>> memoryProcessors_ = nullptr;
     // Indicates whether the memory spike protection switch is turned on.
@@ -1385,6 +1445,7 @@ namespace Models
     std::shared_ptr<string> mobileWuyingKeeper_ = nullptr;
     // Indicates whether the Xiaoying AI Assistant is enabled for mobile clients.
     std::shared_ptr<string> mobileWyAssistant_ = nullptr;
+    std::shared_ptr<string> modelLibrary_ = nullptr;
     // The name of the cloud computer policy.
     std::shared_ptr<string> name_ = nullptr;
     // Indicates whether the network redirection feature is enabled.
@@ -1416,6 +1477,7 @@ namespace Models
     // *   AVAILABLE
     // *   CREATING
     std::shared_ptr<string> policyStatus_ = nullptr;
+    std::shared_ptr<string> portProxy_ = nullptr;
     // The cloud computer preemption feature.
     // 
     // >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.

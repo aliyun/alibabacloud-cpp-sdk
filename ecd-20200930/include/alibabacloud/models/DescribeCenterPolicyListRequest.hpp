@@ -14,18 +14,24 @@ namespace Models
   class DescribeCenterPolicyListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCenterPolicyListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcademicProxy, academicProxy_);
       DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
+      DARABONBA_PTR_TO_JSON(ModelLibrary, modelLibrary_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
+      DARABONBA_PTR_TO_JSON(PortProxy, portProxy_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(Scope, scope_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCenterPolicyListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcademicProxy, academicProxy_);
       DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
+      DARABONBA_PTR_FROM_JSON(ModelLibrary, modelLibrary_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
+      DARABONBA_PTR_FROM_JSON(PortProxy, portProxy_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(Scope, scope_);
     };
@@ -40,13 +46,28 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->businessType_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr; };
+    virtual bool empty() const override { return this->academicProxy_ == nullptr
+        && return this->businessType_ == nullptr && return this->modelLibrary_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->policyGroupId_ == nullptr
+        && return this->portProxy_ == nullptr && return this->resourceType_ == nullptr && return this->scope_ == nullptr; };
+    // academicProxy Field Functions 
+    bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
+    void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
+    inline string academicProxy() const { DARABONBA_PTR_GET_DEFAULT(academicProxy_, "") };
+    inline DescribeCenterPolicyListRequest& setAcademicProxy(string academicProxy) { DARABONBA_PTR_SET_VALUE(academicProxy_, academicProxy) };
+
+
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
     inline int32_t businessType() const { DARABONBA_PTR_GET_DEFAULT(businessType_, 0) };
     inline DescribeCenterPolicyListRequest& setBusinessType(int32_t businessType) { DARABONBA_PTR_SET_VALUE(businessType_, businessType) };
+
+
+    // modelLibrary Field Functions 
+    bool hasModelLibrary() const { return this->modelLibrary_ != nullptr;};
+    void deleteModelLibrary() { this->modelLibrary_ = nullptr;};
+    inline string modelLibrary() const { DARABONBA_PTR_GET_DEFAULT(modelLibrary_, "") };
+    inline DescribeCenterPolicyListRequest& setModelLibrary(string modelLibrary) { DARABONBA_PTR_SET_VALUE(modelLibrary_, modelLibrary) };
 
 
     // pageNumber Field Functions 
@@ -72,6 +93,13 @@ namespace Models
     inline DescribeCenterPolicyListRequest& setPolicyGroupId(vector<string> && policyGroupId) { DARABONBA_PTR_SET_RVALUE(policyGroupId_, policyGroupId) };
 
 
+    // portProxy Field Functions 
+    bool hasPortProxy() const { return this->portProxy_ != nullptr;};
+    void deletePortProxy() { this->portProxy_ = nullptr;};
+    inline string portProxy() const { DARABONBA_PTR_GET_DEFAULT(portProxy_, "") };
+    inline DescribeCenterPolicyListRequest& setPortProxy(string portProxy) { DARABONBA_PTR_SET_VALUE(portProxy_, portProxy) };
+
+
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
@@ -87,6 +115,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> academicProxy_ = nullptr;
     // The business type.
     // 
     // Valid values:
@@ -96,6 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<int32_t> businessType_ = nullptr;
+    std::shared_ptr<string> modelLibrary_ = nullptr;
     // The page number.\\
     // Default value: 1.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
@@ -103,6 +133,7 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The IDs of the cloud computer policies.
     std::shared_ptr<vector<string>> policyGroupId_ = nullptr;
+    std::shared_ptr<string> portProxy_ = nullptr;
     // The resource type.
     // 
     // Valid values:
