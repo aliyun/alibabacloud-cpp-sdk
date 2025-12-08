@@ -33,6 +33,9 @@
 #include <alibabacloud/models/CreateServiceLinkedRoleForSelectDbRequest.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleForSelectDbResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceLinkedRoleForSelectDbResponse.hpp>
+#include <alibabacloud/models/CreateVirtualClusterRequest.hpp>
+#include <alibabacloud/models/CreateVirtualClusterResponseBody.hpp>
+#include <alibabacloud/models/CreateVirtualClusterResponse.hpp>
 #include <alibabacloud/models/DeleteDbClusterRequest.hpp>
 #include <alibabacloud/models/DeleteDbClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteDbClusterResponse.hpp>
@@ -45,6 +48,9 @@
 #include <alibabacloud/models/DeleteElasticRuleRequest.hpp>
 #include <alibabacloud/models/DeleteElasticRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteElasticRuleResponse.hpp>
+#include <alibabacloud/models/DeleteVirtualClusterRequest.hpp>
+#include <alibabacloud/models/DeleteVirtualClusterResponseBody.hpp>
+#include <alibabacloud/models/DeleteVirtualClusterResponse.hpp>
 #include <alibabacloud/models/DescribeAllDbInstanceClassRequest.hpp>
 #include <alibabacloud/models/DescribeAllDbInstanceClassResponseBody.hpp>
 #include <alibabacloud/models/DescribeAllDbInstanceClassResponse.hpp>
@@ -103,6 +109,9 @@
 #include <alibabacloud/models/ModifySecurityIpListRequest.hpp>
 #include <alibabacloud/models/ModifySecurityIpListResponseBody.hpp>
 #include <alibabacloud/models/ModifySecurityIpListResponse.hpp>
+#include <alibabacloud/models/ModifyVirtualClusterRequest.hpp>
+#include <alibabacloud/models/ModifyVirtualClusterResponseBody.hpp>
+#include <alibabacloud/models/ModifyVirtualClusterResponse.hpp>
 #include <alibabacloud/models/ReleaseInstancePublicConnectionRequest.hpp>
 #include <alibabacloud/models/ReleaseInstancePublicConnectionResponseBody.hpp>
 #include <alibabacloud/models/ReleaseInstancePublicConnectionResponse.hpp>
@@ -134,7 +143,9 @@
 #include <alibabacloud/models/CreateDbInstanceRequestTag.hpp>
 #include <alibabacloud/models/CreateDbInstanceResponseBodyData.hpp>
 #include <alibabacloud/models/CreateElasticRuleResponseBodyData.hpp>
+#include <alibabacloud/models/CreateVirtualClusterResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteDbClusterResponseBodyData.hpp>
+#include <alibabacloud/models/DeleteVirtualClusterResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeAllDbInstanceClassResponseBodyClassCodeList.hpp>
 #include <alibabacloud/models/DescribeDbClusterConfigResponseBodyDataParams.hpp>
 #include <alibabacloud/models/DescribeDbClusterConfigResponseBodyData.hpp>
@@ -167,6 +178,7 @@
 #include <alibabacloud/models/ModifyDbClusterResponseBodyData.hpp>
 #include <alibabacloud/models/ModifyDbClusterConfigResponseBodyData.hpp>
 #include <alibabacloud/models/ModifyElasticRuleResponseBodyData.hpp>
+#include <alibabacloud/models/ModifyVirtualClusterResponseBodyData.hpp>
 #include <alibabacloud/models/RestartDbClusterResponseBodyData.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
 

@@ -778,6 +778,64 @@ CreateServiceLinkedRoleForSelectDBResponse Client::createServiceLinkedRoleForSel
 }
 
 /**
+ * @summary 创建虚拟集群
+ *
+ * @param request CreateVirtualClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVirtualClusterResponse
+ */
+CreateVirtualClusterResponse Client::createVirtualClusterWithOptions(const CreateVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActiveClusterId()) {
+    query["ActiveClusterId"] = request.activeClusterId();
+  }
+
+  if (!!request.hasClusterName()) {
+    query["ClusterName"] = request.clusterName();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStandbyClusterId()) {
+    query["StandbyClusterId"] = request.standbyClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateVirtualCluster"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVirtualClusterResponse>();
+}
+
+/**
+ * @summary 创建虚拟集群
+ *
+ * @param request CreateVirtualClusterRequest
+ * @return CreateVirtualClusterResponse
+ */
+CreateVirtualClusterResponse Client::createVirtualCluster(const CreateVirtualClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVirtualClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a cluster from an instance.
  *
  * @param request DeleteDBClusterRequest
@@ -1003,6 +1061,56 @@ DeleteElasticRuleResponse Client::deleteElasticRuleWithOptions(const DeleteElast
 DeleteElasticRuleResponse Client::deleteElasticRule(const DeleteElasticRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteElasticRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除虚拟集群
+ *
+ * @param request DeleteVirtualClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVirtualClusterResponse
+ */
+DeleteVirtualClusterResponse Client::deleteVirtualClusterWithOptions(const DeleteVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVirtualCluster"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVirtualClusterResponse>();
+}
+
+/**
+ * @summary 删除虚拟集群
+ *
+ * @param request DeleteVirtualClusterRequest
+ * @return DeleteVirtualClusterResponse
+ */
+DeleteVirtualClusterResponse Client::deleteVirtualCluster(const DeleteVirtualClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVirtualClusterWithOptions(request, runtime);
 }
 
 /**
@@ -2063,6 +2171,64 @@ ModifySecurityIPListResponse Client::modifySecurityIPListWithOptions(const Modif
 ModifySecurityIPListResponse Client::modifySecurityIPList(const ModifySecurityIPListRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifySecurityIPListWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改虚拟集群
+ *
+ * @param request ModifyVirtualClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyVirtualClusterResponse
+ */
+ModifyVirtualClusterResponse Client::modifyVirtualClusterWithOptions(const ModifyVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActiveClusterId()) {
+    query["ActiveClusterId"] = request.activeClusterId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStandbyClusterId()) {
+    query["StandbyClusterId"] = request.standbyClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyVirtualCluster"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyVirtualClusterResponse>();
+}
+
+/**
+ * @summary 修改虚拟集群
+ *
+ * @param request ModifyVirtualClusterRequest
+ * @return ModifyVirtualClusterResponse
+ */
+ModifyVirtualClusterResponse Client::modifyVirtualCluster(const ModifyVirtualClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyVirtualClusterWithOptions(request, runtime);
 }
 
 /**

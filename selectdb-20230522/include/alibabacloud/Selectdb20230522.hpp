@@ -203,6 +203,23 @@ namespace Selectdb20230522
       Models::CreateServiceLinkedRoleForSelectDBResponse createServiceLinkedRoleForSelectDB(const Models::CreateServiceLinkedRoleForSelectDBRequest &request);
 
       /**
+       * @summary 创建虚拟集群
+       *
+       * @param request CreateVirtualClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVirtualClusterResponse
+       */
+      Models::CreateVirtualClusterResponse createVirtualClusterWithOptions(const Models::CreateVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建虚拟集群
+       *
+       * @param request CreateVirtualClusterRequest
+       * @return CreateVirtualClusterResponse
+       */
+      Models::CreateVirtualClusterResponse createVirtualCluster(const Models::CreateVirtualClusterRequest &request);
+
+      /**
        * @summary Deletes a cluster from an instance.
        *
        * @param request DeleteDBClusterRequest
@@ -269,6 +286,23 @@ namespace Selectdb20230522
        * @return DeleteElasticRuleResponse
        */
       Models::DeleteElasticRuleResponse deleteElasticRule(const Models::DeleteElasticRuleRequest &request);
+
+      /**
+       * @summary 删除虚拟集群
+       *
+       * @param request DeleteVirtualClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVirtualClusterResponse
+       */
+      Models::DeleteVirtualClusterResponse deleteVirtualClusterWithOptions(const Models::DeleteVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除虚拟集群
+       *
+       * @param request DeleteVirtualClusterRequest
+       * @return DeleteVirtualClusterResponse
+       */
+      Models::DeleteVirtualClusterResponse deleteVirtualCluster(const Models::DeleteVirtualClusterRequest &request);
 
       /**
        * @summary Queries the information about all instance specifications.
@@ -592,6 +626,23 @@ namespace Selectdb20230522
        * @return ModifySecurityIPListResponse
        */
       Models::ModifySecurityIPListResponse modifySecurityIPList(const Models::ModifySecurityIPListRequest &request);
+
+      /**
+       * @summary 修改虚拟集群
+       *
+       * @param request ModifyVirtualClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyVirtualClusterResponse
+       */
+      Models::ModifyVirtualClusterResponse modifyVirtualClusterWithOptions(const Models::ModifyVirtualClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改虚拟集群
+       *
+       * @param request ModifyVirtualClusterRequest
+       * @return ModifyVirtualClusterResponse
+       */
+      Models::ModifyVirtualClusterResponse modifyVirtualCluster(const Models::ModifyVirtualClusterRequest &request);
 
       /**
        * @summary Releases the public endpoint of an ApsaraDB for SelectDB instance.
