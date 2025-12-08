@@ -6928,7 +6928,39 @@ DescribeHybridCloudResourcesResponse Client::describeHybridCloudResources(const 
  */
 DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServersWithOptions(const DescribeHybridCloudSdkServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasClusterName()) {
+    query["ClusterName"] = request.clusterName();
+  }
+
+  if (!!request.hasHostName()) {
+    query["HostName"] = request.hostName();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasIp()) {
+    query["Ip"] = request.ip();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6937,7 +6969,7 @@ DescribeHybridCloudSdkServersResponse Client::describeHybridCloudSdkServersWithO
     {"version" , "2021-10-01"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
