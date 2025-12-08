@@ -36,6 +36,64 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 终端用户登出
+ *
+ * @param request ClientUserLogoutRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClientUserLogoutResponse
+ */
+ClientUserLogoutResponse Client::clientUserLogoutWithOptions(const ClientUserLogoutRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.clientId();
+  }
+
+  if (!!request.hasLoginToken()) {
+    query["LoginToken"] = request.loginToken();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.officeSiteId();
+  }
+
+  if (!!request.hasProfileRegion()) {
+    query["ProfileRegion"] = request.profileRegion();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClientUserLogout"},
+    {"version" , "2021-02-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doRPCRequest(params.action(), params.version(), params.protocol(), params.method(), params.authType(), params.bodyType(), req, runtime)).get<ClientUserLogoutResponse>();
+}
+
+/**
+ * @summary 终端用户登出
+ *
+ * @param request ClientUserLogoutRequest
+ * @return ClientUserLogoutResponse
+ */
+ClientUserLogoutResponse Client::clientUserLogout(const ClientUserLogoutRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clientUserLogoutWithOptions(request, runtime);
+}
+
+/**
  * @summary 身份认证查询接口
  *
  * @param tmpReq FindIdpListByLoginIdentifierRequest

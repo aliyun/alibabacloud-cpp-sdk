@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_APPSTREAMCENTER20210220MODEL_HPP_
 #define ALIBABACLOUD_APPSTREAMCENTER20210220MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ClientUserLogoutRequest.hpp>
+#include <alibabacloud/models/ClientUserLogoutResponseBody.hpp>
+#include <alibabacloud/models/ClientUserLogoutResponse.hpp>
 #include <alibabacloud/models/FindIdpListByLoginIdentifierRequest.hpp>
 #include <alibabacloud/models/FindIdpListByLoginIdentifierShrinkRequest.hpp>
 #include <alibabacloud/models/FindIdpListByLoginIdentifierResponseBody.hpp>

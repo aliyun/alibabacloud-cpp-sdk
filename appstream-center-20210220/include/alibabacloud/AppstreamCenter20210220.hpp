@@ -21,6 +21,23 @@ namespace AppstreamCenter20210220
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 终端用户登出
+       *
+       * @param request ClientUserLogoutRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClientUserLogoutResponse
+       */
+      Models::ClientUserLogoutResponse clientUserLogoutWithOptions(const Models::ClientUserLogoutRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 终端用户登出
+       *
+       * @param request ClientUserLogoutRequest
+       * @return ClientUserLogoutResponse
+       */
+      Models::ClientUserLogoutResponse clientUserLogout(const Models::ClientUserLogoutRequest &request);
+
+      /**
        * @summary 身份认证查询接口
        *
        * @param tmpReq FindIdpListByLoginIdentifierRequest
