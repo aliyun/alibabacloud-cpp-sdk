@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_CAS20200630MODEL_HPP_
 #define ALIBABACLOUD_CAS20200630MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AssignCertificateCountRequest.hpp>
+#include <alibabacloud/models/AssignCertificateCountResponseBody.hpp>
+#include <alibabacloud/models/AssignCertificateCountResponse.hpp>
 #include <alibabacloud/models/CreateClientCertificateRequest.hpp>
 #include <alibabacloud/models/CreateClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/CreateClientCertificateResponse.hpp>
@@ -53,6 +56,9 @@
 #include <alibabacloud/models/GetCaInstanceStatusRequest.hpp>
 #include <alibabacloud/models/GetCaInstanceStatusResponseBody.hpp>
 #include <alibabacloud/models/GetCaInstanceStatusResponse.hpp>
+#include <alibabacloud/models/ListAllEndEntityInstanceRequest.hpp>
+#include <alibabacloud/models/ListAllEndEntityInstanceResponseBody.hpp>
+#include <alibabacloud/models/ListAllEndEntityInstanceResponse.hpp>
 #include <alibabacloud/models/ListCertRequest.hpp>
 #include <alibabacloud/models/ListCertResponseBody.hpp>
 #include <alibabacloud/models/ListCertResponse.hpp>
@@ -68,6 +74,9 @@
 #include <alibabacloud/models/UpdateCaCertificateStatusRequest.hpp>
 #include <alibabacloud/models/UpdateCaCertificateStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateCaCertificateStatusResponse.hpp>
+#include <alibabacloud/models/UpdatePcaCertificateRequest.hpp>
+#include <alibabacloud/models/UpdatePcaCertificateResponseBody.hpp>
+#include <alibabacloud/models/UpdatePcaCertificateResponse.hpp>
 #include <alibabacloud/models/UploadPcaCertToCasRequest.hpp>
 #include <alibabacloud/models/UploadPcaCertToCasResponseBody.hpp>
 #include <alibabacloud/models/UploadPcaCertToCasResponse.hpp>
@@ -100,5 +109,7 @@
 #include <alibabacloud/models/ListClientCertificateResponseBodyCertificateList.hpp>
 #include <alibabacloud/models/ListPcaCaCertificateResponseBodyList.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponseBodyCertificateList.hpp>
+#include <alibabacloud/models/UpdatePcaCertificateRequestTags.hpp>
+#include <alibabacloud/models/UpdatePcaCertificateResponseBodyAccessDeniedDetail.hpp>
 
 #endif

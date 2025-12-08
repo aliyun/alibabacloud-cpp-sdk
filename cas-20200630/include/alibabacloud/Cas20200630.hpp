@@ -21,6 +21,23 @@ namespace Cas20200630
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 分配证书使用数量
+       *
+       * @param request AssignCertificateCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssignCertificateCountResponse
+       */
+      Models::AssignCertificateCountResponse assignCertificateCountWithOptions(const Models::AssignCertificateCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分配证书使用数量
+       *
+       * @param request AssignCertificateCountRequest
+       * @return AssignCertificateCountResponse
+       */
+      Models::AssignCertificateCountResponse assignCertificateCount(const Models::AssignCertificateCountRequest &request);
+
+      /**
        * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
        *
        * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
@@ -497,6 +514,23 @@ namespace Cas20200630
       Models::GetCAInstanceStatusResponse getCAInstanceStatus(const Models::GetCAInstanceStatusRequest &request);
 
       /**
+       * @summary 查询终端实例
+       *
+       * @param request ListAllEndEntityInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAllEndEntityInstanceResponse
+       */
+      Models::ListAllEndEntityInstanceResponse listAllEndEntityInstanceWithOptions(const Models::ListAllEndEntityInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询终端实例
+       *
+       * @param request ListAllEndEntityInstanceRequest
+       * @return ListAllEndEntityInstanceResponse
+       */
+      Models::ListAllEndEntityInstanceResponse listAllEndEntityInstance(const Models::ListAllEndEntityInstanceRequest &request);
+
+      /**
        * @summary 获取证书列表
        *
        * @param request ListCertRequest
@@ -606,6 +640,23 @@ namespace Cas20200630
        * @return UpdateCACertificateStatusResponse
        */
       Models::UpdateCACertificateStatusResponse updateCACertificateStatus(const Models::UpdateCACertificateStatusRequest &request);
+
+      /**
+       * @summary 更新证书属性
+       *
+       * @param request UpdatePcaCertificateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePcaCertificateResponse
+       */
+      Models::UpdatePcaCertificateResponse updatePcaCertificateWithOptions(const Models::UpdatePcaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新证书属性
+       *
+       * @param request UpdatePcaCertificateRequest
+       * @return UpdatePcaCertificateResponse
+       */
+      Models::UpdatePcaCertificateResponse updatePcaCertificate(const Models::UpdatePcaCertificateRequest &request);
 
       /**
        * @summary 上传pca证书到SSL上传证书

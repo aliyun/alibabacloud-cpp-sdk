@@ -89,6 +89,52 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 分配证书使用数量
+ *
+ * @param request AssignCertificateCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssignCertificateCountResponse
+ */
+AssignCertificateCountResponse Client::assignCertificateCountWithOptions(const AssignCertificateCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertTotalCount()) {
+    query["CertTotalCount"] = request.certTotalCount();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AssignCertificateCount"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssignCertificateCountResponse>();
+}
+
+/**
+ * @summary 分配证书使用数量
+ *
+ * @param request AssignCertificateCountRequest
+ * @return AssignCertificateCountResponse
+ */
+AssignCertificateCountResponse Client::assignCertificateCount(const AssignCertificateCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return assignCertificateCountWithOptions(request, runtime);
+}
+
+/**
  * @summary Issues a client certificate by using a system-generated certificate signing request (CSR) file.
  *
  * @description Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](~~CreateRootCACertificate~~) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](~~CreateRootCACertificate~~) operation. Only intermediate CA certificates can issue client certificates.
@@ -1462,6 +1508,68 @@ GetCAInstanceStatusResponse Client::getCAInstanceStatus(const GetCAInstanceStatu
 }
 
 /**
+ * @summary 查询终端实例
+ *
+ * @param request ListAllEndEntityInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAllEndEntityInstanceResponse
+ */
+ListAllEndEntityInstanceResponse Client::listAllEndEntityInstanceWithOptions(const ListAllEndEntityInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasParentId()) {
+    query["ParentId"] = request.parentId();
+  }
+
+  if (!!request.hasRecursiveChildren()) {
+    query["RecursiveChildren"] = request.recursiveChildren();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.showSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAllEndEntityInstance"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAllEndEntityInstanceResponse>();
+}
+
+/**
+ * @summary 查询终端实例
+ *
+ * @param request ListAllEndEntityInstanceRequest
+ * @return ListAllEndEntityInstanceResponse
+ */
+ListAllEndEntityInstanceResponse Client::listAllEndEntityInstance(const ListAllEndEntityInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAllEndEntityInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取证书列表
  *
  * @param request ListCertRequest
@@ -1755,6 +1863,66 @@ UpdateCACertificateStatusResponse Client::updateCACertificateStatusWithOptions(c
 UpdateCACertificateStatusResponse Client::updateCACertificateStatus(const UpdateCACertificateStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCACertificateStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新证书属性
+ *
+ * @param request UpdatePcaCertificateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePcaCertificateResponse
+ */
+UpdatePcaCertificateResponse Client::updatePcaCertificateWithOptions(const UpdatePcaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAliasName()) {
+    query["AliasName"] = request.aliasName();
+  }
+
+  if (!!request.hasIdentifier()) {
+    query["Identifier"] = request.identifier();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePcaCertificate"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePcaCertificateResponse>();
+}
+
+/**
+ * @summary 更新证书属性
+ *
+ * @param request UpdatePcaCertificateRequest
+ * @return UpdatePcaCertificateResponse
+ */
+UpdatePcaCertificateResponse Client::updatePcaCertificate(const UpdatePcaCertificateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePcaCertificateWithOptions(request, runtime);
 }
 
 /**
