@@ -21,8 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
-      DARABONBA_PTR_TO_JSON(modeServiceId, modeServiceId_);
       DARABONBA_PTR_TO_JSON(modelInfoConfigs, modelInfoConfigs_);
+      DARABONBA_PTR_TO_JSON(modelServiceId, modelServiceId_);
       DARABONBA_PTR_TO_JSON(modelServiceName, modelServiceName_);
       DARABONBA_PTR_TO_JSON(modelType, modelType_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
@@ -36,8 +36,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
-      DARABONBA_PTR_FROM_JSON(modeServiceId, modeServiceId_);
       DARABONBA_PTR_FROM_JSON(modelInfoConfigs, modelInfoConfigs_);
+      DARABONBA_PTR_FROM_JSON(modelServiceId, modelServiceId_);
       DARABONBA_PTR_FROM_JSON(modelServiceName, modelServiceName_);
       DARABONBA_PTR_FROM_JSON(modelType, modelType_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
@@ -58,7 +58,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
-        && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->modeServiceId_ == nullptr && return this->modelInfoConfigs_ == nullptr
+        && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->modelInfoConfigs_ == nullptr && return this->modelServiceId_ == nullptr
         && return this->modelServiceName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr && return this->provider_ == nullptr && return this->providerSettings_ == nullptr
         && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
     // createdAt Field Functions 
@@ -89,13 +89,6 @@ namespace Models
     inline ModelService& setLastUpdatedAt(string lastUpdatedAt) { DARABONBA_PTR_SET_VALUE(lastUpdatedAt_, lastUpdatedAt) };
 
 
-    // modeServiceId Field Functions 
-    bool hasModeServiceId() const { return this->modeServiceId_ != nullptr;};
-    void deleteModeServiceId() { this->modeServiceId_ = nullptr;};
-    inline string modeServiceId() const { DARABONBA_PTR_GET_DEFAULT(modeServiceId_, "") };
-    inline ModelService& setModeServiceId(string modeServiceId) { DARABONBA_PTR_SET_VALUE(modeServiceId_, modeServiceId) };
-
-
     // modelInfoConfigs Field Functions 
     bool hasModelInfoConfigs() const { return this->modelInfoConfigs_ != nullptr;};
     void deleteModelInfoConfigs() { this->modelInfoConfigs_ = nullptr;};
@@ -103,6 +96,13 @@ namespace Models
     inline vector<ModelInfoConfig> modelInfoConfigs() { DARABONBA_PTR_GET(modelInfoConfigs_, vector<ModelInfoConfig>) };
     inline ModelService& setModelInfoConfigs(const vector<ModelInfoConfig> & modelInfoConfigs) { DARABONBA_PTR_SET_VALUE(modelInfoConfigs_, modelInfoConfigs) };
     inline ModelService& setModelInfoConfigs(vector<ModelInfoConfig> && modelInfoConfigs) { DARABONBA_PTR_SET_RVALUE(modelInfoConfigs_, modelInfoConfigs) };
+
+
+    // modelServiceId Field Functions 
+    bool hasModelServiceId() const { return this->modelServiceId_ != nullptr;};
+    void deleteModelServiceId() { this->modelServiceId_ = nullptr;};
+    inline string modelServiceId() const { DARABONBA_PTR_GET_DEFAULT(modelServiceId_, "") };
+    inline ModelService& setModelServiceId(string modelServiceId) { DARABONBA_PTR_SET_VALUE(modelServiceId_, modelServiceId) };
 
 
     // modelServiceName Field Functions 
@@ -163,8 +163,8 @@ namespace Models
     std::shared_ptr<string> credentialName_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> lastUpdatedAt_ = nullptr;
-    std::shared_ptr<string> modeServiceId_ = nullptr;
     std::shared_ptr<vector<ModelInfoConfig>> modelInfoConfigs_ = nullptr;
+    std::shared_ptr<string> modelServiceId_ = nullptr;
     std::shared_ptr<string> modelServiceName_ = nullptr;
     std::shared_ptr<string> modelType_ = nullptr;
     std::shared_ptr<NetworkConfiguration> networkConfiguration_ = nullptr;

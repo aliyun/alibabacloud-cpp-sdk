@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ContainerConfiguration.hpp>
 #include <alibabacloud/models/CredentialConfiguration.hpp>
+#include <map>
 #include <alibabacloud/models/LogConfiguration.hpp>
 #include <alibabacloud/models/TemplateMcpOptions.hpp>
 #include <alibabacloud/models/TemplateMcpState.hpp>
@@ -42,7 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
       DARABONBA_PTR_TO_JSON(templateArn, templateArn_);
-      DARABONBA_PTR_TO_JSON(templateConfiguration, templateConfiguration_);
+      DARABONBA_ANY_TO_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_TO_JSON(templateId, templateId_);
       DARABONBA_PTR_TO_JSON(templateName, templateName_);
       DARABONBA_PTR_TO_JSON(templateType, templateType_);
@@ -70,7 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
       DARABONBA_PTR_FROM_JSON(templateArn, templateArn_);
-      DARABONBA_PTR_FROM_JSON(templateConfiguration, templateConfiguration_);
+      DARABONBA_ANY_FROM_JSON(templateConfiguration, templateConfiguration_);
       DARABONBA_PTR_FROM_JSON(templateId, templateId_);
       DARABONBA_PTR_FROM_JSON(templateName, templateName_);
       DARABONBA_PTR_FROM_JSON(templateType, templateType_);
@@ -142,8 +143,10 @@ namespace Models
     // environmentVariables Field Functions 
     bool hasEnvironmentVariables() const { return this->environmentVariables_ != nullptr;};
     void deleteEnvironmentVariables() { this->environmentVariables_ = nullptr;};
-    inline string environmentVariables() const { DARABONBA_PTR_GET_DEFAULT(environmentVariables_, "") };
-    inline Template& setEnvironmentVariables(string environmentVariables) { DARABONBA_PTR_SET_VALUE(environmentVariables_, environmentVariables) };
+    inline const map<string, string> & environmentVariables() const { DARABONBA_PTR_GET_CONST(environmentVariables_, map<string, string>) };
+    inline map<string, string> environmentVariables() { DARABONBA_PTR_GET(environmentVariables_, map<string, string>) };
+    inline Template& setEnvironmentVariables(const map<string, string> & environmentVariables) { DARABONBA_PTR_SET_VALUE(environmentVariables_, environmentVariables) };
+    inline Template& setEnvironmentVariables(map<string, string> && environmentVariables) { DARABONBA_PTR_SET_RVALUE(environmentVariables_, environmentVariables) };
 
 
     // executionRoleArn Field Functions 
@@ -257,8 +260,10 @@ namespace Models
     // templateConfiguration Field Functions 
     bool hasTemplateConfiguration() const { return this->templateConfiguration_ != nullptr;};
     void deleteTemplateConfiguration() { this->templateConfiguration_ = nullptr;};
-    inline string templateConfiguration() const { DARABONBA_PTR_GET_DEFAULT(templateConfiguration_, "") };
-    inline Template& setTemplateConfiguration(string templateConfiguration) { DARABONBA_PTR_SET_VALUE(templateConfiguration_, templateConfiguration) };
+    inline     const Darabonba::Json & templateConfiguration() const { DARABONBA_GET(templateConfiguration_) };
+    Darabonba::Json & templateConfiguration() { DARABONBA_GET(templateConfiguration_) };
+    inline Template& setTemplateConfiguration(const Darabonba::Json & templateConfiguration) { DARABONBA_SET_VALUE(templateConfiguration_, templateConfiguration) };
+    inline Template& setTemplateConfiguration(Darabonba::Json & templateConfiguration) { DARABONBA_SET_RVALUE(templateConfiguration_, templateConfiguration) };
 
 
     // templateId Field Functions 
@@ -297,7 +302,7 @@ namespace Models
     std::shared_ptr<CredentialConfiguration> credentialConfiguration_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<int32_t> diskSize_ = nullptr;
-    std::shared_ptr<string> environmentVariables_ = nullptr;
+    std::shared_ptr<map<string, string>> environmentVariables_ = nullptr;
     std::shared_ptr<string> executionRoleArn_ = nullptr;
     std::shared_ptr<string> lastUpdatedAt_ = nullptr;
     std::shared_ptr<LogConfiguration> logConfiguration_ = nullptr;
@@ -313,7 +318,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> statusReason_ = nullptr;
     std::shared_ptr<string> templateArn_ = nullptr;
-    std::shared_ptr<string> templateConfiguration_ = nullptr;
+    Darabonba::Json templateConfiguration_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> templateId_ = nullptr;
     // This parameter is required.
