@@ -430,6 +430,10 @@
 #include <alibabacloud/models/RebootRenderingInstanceRequest.hpp>
 #include <alibabacloud/models/RebootRenderingInstanceResponseBody.hpp>
 #include <alibabacloud/models/RebootRenderingInstanceResponse.hpp>
+#include <alibabacloud/models/RebootRenderingServerRequest.hpp>
+#include <alibabacloud/models/RebootRenderingServerShrinkRequest.hpp>
+#include <alibabacloud/models/RebootRenderingServerResponseBody.hpp>
+#include <alibabacloud/models/RebootRenderingServerResponse.hpp>
 #include <alibabacloud/models/RecoverRenderingDataPackageRequest.hpp>
 #include <alibabacloud/models/RecoverRenderingDataPackageResponseBody.hpp>
 #include <alibabacloud/models/RecoverRenderingDataPackageResponse.hpp>
@@ -696,6 +700,8 @@
 #include <alibabacloud/models/ListRenderingProjectsResponseBodyProjects.hpp>
 #include <alibabacloud/models/ListRenderingSessionsResponseBodySessions.hpp>
 #include <alibabacloud/models/ManageLoginResponseBodyLoginInfo.hpp>
+#include <alibabacloud/models/RebootRenderingServerResponseBodyFailedInstances.hpp>
+#include <alibabacloud/models/RebootRenderingServerResponseBodySuccessInstances.hpp>
 #include <alibabacloud/models/RefreshRenderingInstanceStreamingRequestClientInfo.hpp>
 #include <alibabacloud/models/StartRenderingSessionRequestClientParams.hpp>
 #include <alibabacloud/models/StartRenderingSessionResponseBodyLocation.hpp>

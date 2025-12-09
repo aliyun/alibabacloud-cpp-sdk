@@ -2024,6 +2024,23 @@ namespace Vs20181212
       Models::RebootRenderingInstanceResponse rebootRenderingInstance(const Models::RebootRenderingInstanceRequest &request);
 
       /**
+       * @summary 云应用服务实例主机重启
+       *
+       * @param tmpReq RebootRenderingServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RebootRenderingServerResponse
+       */
+      Models::RebootRenderingServerResponse rebootRenderingServerWithOptions(const Models::RebootRenderingServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 云应用服务实例主机重启
+       *
+       * @param request RebootRenderingServerRequest
+       * @return RebootRenderingServerResponse
+       */
+      Models::RebootRenderingServerResponse rebootRenderingServer(const Models::RebootRenderingServerRequest &request);
+
+      /**
        * @summary 恢复数据到云渲染实例
        *
        * @param request RecoverRenderingDataPackageRequest

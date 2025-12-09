@@ -7691,6 +7691,54 @@ RebootRenderingInstanceResponse Client::rebootRenderingInstance(const RebootRend
 }
 
 /**
+ * @summary 云应用服务实例主机重启
+ *
+ * @param tmpReq RebootRenderingServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RebootRenderingServerResponse
+ */
+RebootRenderingServerResponse Client::rebootRenderingServerWithOptions(const RebootRenderingServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RebootRenderingServerShrinkRequest request = RebootRenderingServerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRenderingInstanceIds()) {
+    request.setRenderingInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.renderingInstanceIds(), "RenderingInstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasRenderingInstanceIdsShrink()) {
+    query["RenderingInstanceIds"] = request.renderingInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RebootRenderingServer"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RebootRenderingServerResponse>();
+}
+
+/**
+ * @summary 云应用服务实例主机重启
+ *
+ * @param request RebootRenderingServerRequest
+ * @return RebootRenderingServerResponse
+ */
+RebootRenderingServerResponse Client::rebootRenderingServer(const RebootRenderingServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rebootRenderingServerWithOptions(request, runtime);
+}
+
+/**
  * @summary 恢复数据到云渲染实例
  *
  * @param request RecoverRenderingDataPackageRequest
