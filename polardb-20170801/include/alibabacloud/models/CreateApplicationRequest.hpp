@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
+      DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -46,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
+      DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -65,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->components_ == nullptr && return this->DBClusterId_ == nullptr && return this->description_ == nullptr
-        && return this->dryRun_ == nullptr && return this->endpoints_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->polarFSInstanceId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->usedTime_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->components_ == nullptr && return this->DBClusterId_ == nullptr
+        && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->endpoints_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr
+        && return this->polarFSInstanceId_ == nullptr && return this->promotionCode_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->usedTime_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -88,6 +92,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateApplicationRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // autoUseCoupon Field Functions 
+    bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
+    void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
+    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline CreateApplicationRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // components Field Functions 
@@ -150,6 +161,13 @@ namespace Models
     inline CreateApplicationRequest& setPolarFSInstanceId(string polarFSInstanceId) { DARABONBA_PTR_SET_VALUE(polarFSInstanceId_, polarFSInstanceId) };
 
 
+    // promotionCode Field Functions 
+    bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
+    void deletePromotionCode() { this->promotionCode_ = nullptr;};
+    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline CreateApplicationRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -198,6 +216,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> architecture_ = nullptr;
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
     std::shared_ptr<vector<CreateApplicationRequestComponents>> components_ = nullptr;
     std::shared_ptr<string> DBClusterId_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
@@ -206,6 +225,7 @@ namespace Models
     std::shared_ptr<string> payType_ = nullptr;
     std::shared_ptr<string> period_ = nullptr;
     std::shared_ptr<string> polarFSInstanceId_ = nullptr;
+    std::shared_ptr<string> promotionCode_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> usedTime_ = nullptr;

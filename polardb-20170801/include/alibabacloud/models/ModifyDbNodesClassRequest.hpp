@@ -15,6 +15,7 @@ namespace Models
   class ModifyDBNodesClassRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBNodesClassRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
@@ -25,11 +26,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PlannedEndTime, plannedEndTime_);
       DARABONBA_PTR_TO_JSON(PlannedFlashingOffTime, plannedFlashingOffTime_);
       DARABONBA_PTR_TO_JSON(PlannedStartTime, plannedStartTime_);
+      DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SubCategory, subCategory_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBNodesClassRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -40,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PlannedEndTime, plannedEndTime_);
       DARABONBA_PTR_FROM_JSON(PlannedFlashingOffTime, plannedFlashingOffTime_);
       DARABONBA_PTR_FROM_JSON(PlannedStartTime, plannedStartTime_);
+      DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SubCategory, subCategory_);
@@ -55,10 +59,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->cloudProvider_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBNode_ == nullptr && return this->modifyType_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->plannedEndTime_ == nullptr && return this->plannedFlashingOffTime_ == nullptr && return this->plannedStartTime_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->subCategory_ == nullptr; };
+    virtual bool empty() const override { return this->autoUseCoupon_ == nullptr
+        && return this->clientToken_ == nullptr && return this->cloudProvider_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBNode_ == nullptr && return this->modifyType_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->plannedEndTime_ == nullptr && return this->plannedFlashingOffTime_ == nullptr && return this->plannedStartTime_ == nullptr
+        && return this->promotionCode_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->subCategory_ == nullptr; };
+    // autoUseCoupon Field Functions 
+    bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
+    void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
+    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline ModifyDBNodesClassRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -131,6 +142,13 @@ namespace Models
     inline ModifyDBNodesClassRequest& setPlannedStartTime(string plannedStartTime) { DARABONBA_PTR_SET_VALUE(plannedStartTime_, plannedStartTime) };
 
 
+    // promotionCode Field Functions 
+    bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
+    void deletePromotionCode() { this->promotionCode_ = nullptr;};
+    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline ModifyDBNodesClassRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -153,6 +171,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
     std::shared_ptr<string> clientToken_ = nullptr;
     std::shared_ptr<string> cloudProvider_ = nullptr;
@@ -185,6 +204,7 @@ namespace Models
     // >*   The earliest start time of the task can be a point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a point in the time that ranges from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
     // >*   If this parameter is left empty, the upgrade task is immediately performed.
     std::shared_ptr<string> plannedStartTime_ = nullptr;
+    std::shared_ptr<string> promotionCode_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // The category of the cluster. Valid values:

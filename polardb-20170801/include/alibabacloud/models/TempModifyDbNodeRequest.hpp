@@ -15,6 +15,7 @@ namespace Models
   class TempModifyDBNodeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TempModifyDBNodeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBNode, DBNode_);
@@ -22,11 +23,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OperationType, operationType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(RestoreTime, restoreTime_);
     };
     friend void from_json(const Darabonba::Json& j, TempModifyDBNodeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBNode, DBNode_);
@@ -34,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(RestoreTime, restoreTime_);
@@ -49,9 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->DBNode_ == nullptr && return this->modifyType_ == nullptr && return this->operationType_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->restoreTime_ == nullptr; };
+    virtual bool empty() const override { return this->autoUseCoupon_ == nullptr
+        && return this->clientToken_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBNode_ == nullptr && return this->modifyType_ == nullptr && return this->operationType_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->promotionCode_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
+        && return this->restoreTime_ == nullptr; };
+    // autoUseCoupon Field Functions 
+    bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
+    void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
+    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline TempModifyDBNodeRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -103,6 +115,13 @@ namespace Models
     inline TempModifyDBNodeRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // promotionCode Field Functions 
+    bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
+    void deletePromotionCode() { this->promotionCode_ = nullptr;};
+    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline TempModifyDBNodeRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+
+
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
@@ -125,6 +144,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
     std::shared_ptr<string> clientToken_ = nullptr;
     // The cluster ID.
@@ -147,6 +167,7 @@ namespace Models
     std::shared_ptr<string> operationType_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
+    std::shared_ptr<string> promotionCode_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     // The rollback time of the configuration for the temporary upgrade. Specify the time in the ISO 8601 standard in the YYYY-MM-DD hh:mm:ss format.

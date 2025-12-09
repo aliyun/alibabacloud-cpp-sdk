@@ -1618,6 +1618,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["AutoRenew"] = request.autoRenew();
   }
 
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasComponentsShrink()) {
     query["Components"] = request.componentsShrink();
   }
@@ -1648,6 +1652,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasPolarFSInstanceId()) {
     query["PolarFSInstanceId"] = request.polarFSInstanceId();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasRegionId()) {
@@ -2034,6 +2042,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
     query["AutoRenew"] = request.autoRenew();
   }
 
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasBackupRetentionPolicyOnClusterDeletion()) {
     query["BackupRetentionPolicyOnClusterDeletion"] = request.backupRetentionPolicyOnClusterDeletion();
   }
@@ -2140,6 +2152,10 @@ CreateDBClusterResponse Client::createDBClusterWithOptions(const CreateDBCluster
 
   if (!!request.hasPeriod()) {
     query["Period"] = request.period();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasProvisionedIops()) {
@@ -2706,6 +2722,10 @@ CreateDBLinkResponse Client::createDBLink(const CreateDBLinkRequest &request) {
 CreateDBNodesResponse Client::createDBNodesWithOptions(const CreateDBNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -2748,6 +2768,10 @@ CreateDBNodesResponse Client::createDBNodesWithOptions(const CreateDBNodesReques
 
   if (!!request.hasPlannedStartTime()) {
     query["PlannedStartTime"] = request.plannedStartTime();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceGroupId()) {
@@ -3606,6 +3630,10 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRole(const CreateServ
 CreateStoragePlanResponse Client::createStoragePlanWithOptions(const CreateStoragePlanRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -3620,6 +3648,10 @@ CreateStoragePlanResponse Client::createStoragePlanWithOptions(const CreateStora
 
   if (!!request.hasPeriod()) {
     query["Period"] = request.period();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -15173,12 +15205,20 @@ ModifyDBClusterAndNodesParametersResponse Client::modifyDBClusterAndNodesParamet
 ModifyDBClusterArchResponse Client::modifyDBClusterArchWithOptions(const ModifyDBClusterArchRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }
 
   if (!!request.hasHotStandbyCluster()) {
     query["HotStandbyCluster"] = request.hotStandbyCluster();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasRegionId()) {
@@ -16409,6 +16449,10 @@ ModifyDBClusterServerlessConfResponse Client::modifyDBClusterServerlessConf(cons
 ModifyDBClusterStoragePerformanceResponse Client::modifyDBClusterStoragePerformanceWithOptions(const ModifyDBClusterStoragePerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasBurstingEnabled()) {
     query["BurstingEnabled"] = request.burstingEnabled();
   }
@@ -16423,6 +16467,10 @@ ModifyDBClusterStoragePerformanceResponse Client::modifyDBClusterStoragePerforma
 
   if (!!request.hasModifyType()) {
     query["ModifyType"] = request.modifyType();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasProvisionedIops()) {
@@ -16475,6 +16523,10 @@ ModifyDBClusterStoragePerformanceResponse Client::modifyDBClusterStoragePerforma
 ModifyDBClusterStorageSpaceResponse Client::modifyDBClusterStorageSpaceWithOptions(const ModifyDBClusterStorageSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -16501,6 +16553,10 @@ ModifyDBClusterStorageSpaceResponse Client::modifyDBClusterStorageSpaceWithOptio
 
   if (!!request.hasPlannedStartTime()) {
     query["PlannedStartTime"] = request.plannedStartTime();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -16929,6 +16985,10 @@ ModifyDBEndpointAddressResponse Client::modifyDBEndpointAddress(const ModifyDBEn
 ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNodeClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -16971,6 +17031,10 @@ ModifyDBNodeClassResponse Client::modifyDBNodeClassWithOptions(const ModifyDBNod
 
   if (!!request.hasPlannedStartTime()) {
     query["PlannedStartTime"] = request.plannedStartTime();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -17291,6 +17355,10 @@ ModifyDBNodeSccModeResponse Client::modifyDBNodeSccMode(const ModifyDBNodeSccMod
 ModifyDBNodesClassResponse Client::modifyDBNodesClassWithOptions(const ModifyDBNodesClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -17329,6 +17397,10 @@ ModifyDBNodesClassResponse Client::modifyDBNodesClassWithOptions(const ModifyDBN
 
   if (!!request.hasPlannedStartTime()) {
     query["PlannedStartTime"] = request.plannedStartTime();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -19511,6 +19583,10 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 TempModifyDBNodeResponse Client::tempModifyDBNodeWithOptions(const TempModifyDBNodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -19537,6 +19613,10 @@ TempModifyDBNodeResponse Client::tempModifyDBNodeWithOptions(const TempModifyDBN
 
   if (!!request.hasOwnerId()) {
     query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasResourceOwnerAccount()) {
@@ -19594,6 +19674,10 @@ TempModifyDBNodeResponse Client::tempModifyDBNode(const TempModifyDBNodeRequest 
 TransformDBClusterPayTypeResponse Client::transformDBClusterPayTypeWithOptions(const TransformDBClusterPayTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.clientToken();
   }
@@ -19616,6 +19700,10 @@ TransformDBClusterPayTypeResponse Client::transformDBClusterPayTypeWithOptions(c
 
   if (!!request.hasPeriod()) {
     query["Period"] = request.period();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
   }
 
   if (!!request.hasRegionId()) {

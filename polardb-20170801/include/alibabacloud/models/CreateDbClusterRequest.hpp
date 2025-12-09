@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllowShutDown, allowShutDown_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ParameterGroupId, parameterGroupId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(Period, period_);
+      DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_TO_JSON(ProxyClass, proxyClass_);
       DARABONBA_PTR_TO_JSON(ProxyType, proxyType_);
@@ -81,6 +83,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AllowShutDown, allowShutDown_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+      DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -108,6 +111,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ParameterGroupId, parameterGroupId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
+      DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_FROM_JSON(ProxyClass, proxyClass_);
       DARABONBA_PTR_FROM_JSON(ProxyType, proxyType_);
@@ -152,18 +156,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowShutDown_ == nullptr
-        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->backupRetentionPolicyOnClusterDeletion_ == nullptr && return this->burstingEnabled_ == nullptr && return this->clientToken_ == nullptr
-        && return this->cloneDataPoint_ == nullptr && return this->cloudProvider_ == nullptr && return this->clusterNetworkType_ == nullptr && return this->creationCategory_ == nullptr && return this->creationOption_ == nullptr
-        && return this->DBClusterDescription_ == nullptr && return this->DBMinorVersion_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeNum_ == nullptr && return this->DBType_ == nullptr
-        && return this->DBVersion_ == nullptr && return this->defaultTimeZone_ == nullptr && return this->ensRegionId_ == nullptr && return this->GDNId_ == nullptr && return this->hotStandbyCluster_ == nullptr
-        && return this->loosePolarLogBin_ == nullptr && return this->looseXEngine_ == nullptr && return this->looseXEngineUseMemoryPct_ == nullptr && return this->lowerCaseTableNames_ == nullptr && return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->parameterGroupId_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr && return this->provisionedIops_ == nullptr
-        && return this->proxyClass_ == nullptr && return this->proxyType_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr && return this->scaleRoNumMax_ == nullptr && return this->scaleRoNumMin_ == nullptr
-        && return this->securityIPList_ == nullptr && return this->serverlessType_ == nullptr && return this->sourceResourceId_ == nullptr && return this->sourceUid_ == nullptr && return this->standbyAZ_ == nullptr
-        && return this->storageAutoScale_ == nullptr && return this->storageEncryption_ == nullptr && return this->storageEncryptionKey_ == nullptr && return this->storagePayType_ == nullptr && return this->storageSpace_ == nullptr
-        && return this->storageType_ == nullptr && return this->storageUpperBound_ == nullptr && return this->strictConsistency_ == nullptr && return this->TDEStatus_ == nullptr && return this->tag_ == nullptr
-        && return this->targetMinorVersion_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->architecture_ == nullptr && return this->autoRenew_ == nullptr && return this->autoUseCoupon_ == nullptr && return this->backupRetentionPolicyOnClusterDeletion_ == nullptr && return this->burstingEnabled_ == nullptr
+        && return this->clientToken_ == nullptr && return this->cloneDataPoint_ == nullptr && return this->cloudProvider_ == nullptr && return this->clusterNetworkType_ == nullptr && return this->creationCategory_ == nullptr
+        && return this->creationOption_ == nullptr && return this->DBClusterDescription_ == nullptr && return this->DBMinorVersion_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeNum_ == nullptr
+        && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr && return this->defaultTimeZone_ == nullptr && return this->ensRegionId_ == nullptr && return this->GDNId_ == nullptr
+        && return this->hotStandbyCluster_ == nullptr && return this->loosePolarLogBin_ == nullptr && return this->looseXEngine_ == nullptr && return this->looseXEngineUseMemoryPct_ == nullptr && return this->lowerCaseTableNames_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->parameterGroupId_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr
+        && return this->promotionCode_ == nullptr && return this->provisionedIops_ == nullptr && return this->proxyClass_ == nullptr && return this->proxyType_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr
+        && return this->scaleRoNumMax_ == nullptr && return this->scaleRoNumMin_ == nullptr && return this->securityIPList_ == nullptr && return this->serverlessType_ == nullptr && return this->sourceResourceId_ == nullptr
+        && return this->sourceUid_ == nullptr && return this->standbyAZ_ == nullptr && return this->storageAutoScale_ == nullptr && return this->storageEncryption_ == nullptr && return this->storageEncryptionKey_ == nullptr
+        && return this->storagePayType_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUpperBound_ == nullptr && return this->strictConsistency_ == nullptr
+        && return this->TDEStatus_ == nullptr && return this->tag_ == nullptr && return this->targetMinorVersion_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // allowShutDown Field Functions 
     bool hasAllowShutDown() const { return this->allowShutDown_ != nullptr;};
     void deleteAllowShutDown() { this->allowShutDown_ = nullptr;};
@@ -183,6 +188,13 @@ namespace Models
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
     inline bool autoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
     inline CreateDBClusterRequest& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+    // autoUseCoupon Field Functions 
+    bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
+    void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
+    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline CreateDBClusterRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
 
 
     // backupRetentionPolicyOnClusterDeletion Field Functions 
@@ -372,6 +384,13 @@ namespace Models
     void deletePeriod() { this->period_ = nullptr;};
     inline string period() const { DARABONBA_PTR_GET_DEFAULT(period_, "") };
     inline CreateDBClusterRequest& setPeriod(string period) { DARABONBA_PTR_SET_VALUE(period_, period) };
+
+
+    // promotionCode Field Functions 
+    bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
+    void deletePromotionCode() { this->promotionCode_ = nullptr;};
+    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline CreateDBClusterRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
 
 
     // provisionedIops Field Functions 
@@ -615,6 +634,7 @@ namespace Models
     // 
     // > This parameter takes effect only when **PayType** is set to **Prepaid**.
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
     // Backup retention policy upon cluster deletion, with valid values as follows:
     // * **ALL**: Permanently retain all backups.
     // * **LATEST**: Permanently retain the latest backup (automatically backed up before deletion).
@@ -794,6 +814,7 @@ namespace Models
     // - **Year**: Yearly subscription.
     // - **Month**: Monthly subscription.
     std::shared_ptr<string> period_ = nullptr;
+    std::shared_ptr<string> promotionCode_ = nullptr;
     // <p id="p_wyg_t4a_glm">The provisioned read and write IOPS for ESSD AutoPL cloud disks. Possible values: 0 to min{50,000, 1000*capacity-Baseline Performance}.</p>
     // <p id="p_6de_jxy_k2g">Baseline Performance = min{1,800+50*capacity, 50000}.</p>
     // <note id="note_7kj_j0o_rgs">This parameter is supported only when StorageType is ESSDAUTOPL.</note>

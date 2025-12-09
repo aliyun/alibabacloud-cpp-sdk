@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(CustomBucketPath, customBucketPath_);
       DARABONBA_PTR_TO_JSON(DBType, DBType_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(ClientDownloadPath, clientDownloadPath_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(CustomBucketPath, customBucketPath_);
       DARABONBA_PTR_FROM_JSON(DBType, DBType_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
@@ -96,12 +98,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->acceleratedStorageSpace_ == nullptr
         && return this->acceleratingEnable_ == nullptr && return this->bandwidth_ == nullptr && return this->bandwidthBaseLine_ == nullptr && return this->bucketId_ == nullptr && return this->category_ == nullptr
-        && return this->clientDownloadPath_ == nullptr && return this->createTime_ == nullptr && return this->DBType_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->lockMode_ == nullptr && return this->metaUrl_ == nullptr && return this->minorVersion_ == nullptr && return this->mountInfo_ == nullptr
-        && return this->payType_ == nullptr && return this->polarFsInstanceDescription_ == nullptr && return this->polarFsInstanceId_ == nullptr && return this->polarFsStatus_ == nullptr && return this->polarFsType_ == nullptr
-        && return this->polarFsVersion_ == nullptr && return this->regionId_ == nullptr && return this->relativeDbClusterId_ == nullptr && return this->relativePfsClusterId_ == nullptr && return this->requestId_ == nullptr
-        && return this->securityGroupId_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr && return this->VPCId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->clientDownloadPath_ == nullptr && return this->createTime_ == nullptr && return this->customBucketPath_ == nullptr && return this->DBType_ == nullptr && return this->expireTime_ == nullptr
+        && return this->expired_ == nullptr && return this->fileSystemId_ == nullptr && return this->lockMode_ == nullptr && return this->metaUrl_ == nullptr && return this->minorVersion_ == nullptr
+        && return this->mountInfo_ == nullptr && return this->payType_ == nullptr && return this->polarFsInstanceDescription_ == nullptr && return this->polarFsInstanceId_ == nullptr && return this->polarFsStatus_ == nullptr
+        && return this->polarFsType_ == nullptr && return this->polarFsVersion_ == nullptr && return this->regionId_ == nullptr && return this->relativeDbClusterId_ == nullptr && return this->relativePfsClusterId_ == nullptr
+        && return this->requestId_ == nullptr && return this->securityGroupId_ == nullptr && return this->storageSpace_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr
+        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // acceleratedStorageSpace Field Functions 
     bool hasAcceleratedStorageSpace() const { return this->acceleratedStorageSpace_ != nullptr;};
     void deleteAcceleratedStorageSpace() { this->acceleratedStorageSpace_ = nullptr;};
@@ -156,6 +158,13 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribePolarFsAttributeResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // customBucketPath Field Functions 
+    bool hasCustomBucketPath() const { return this->customBucketPath_ != nullptr;};
+    void deleteCustomBucketPath() { this->customBucketPath_ = nullptr;};
+    inline string customBucketPath() const { DARABONBA_PTR_GET_DEFAULT(customBucketPath_, "") };
+    inline DescribePolarFsAttributeResponseBody& setCustomBucketPath(string customBucketPath) { DARABONBA_PTR_SET_VALUE(customBucketPath_, customBucketPath) };
 
 
     // DBType Field Functions 
@@ -344,6 +353,7 @@ namespace Models
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<string> clientDownloadPath_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<string> customBucketPath_ = nullptr;
     std::shared_ptr<string> DBType_ = nullptr;
     std::shared_ptr<string> expireTime_ = nullptr;
     std::shared_ptr<string> expired_ = nullptr;

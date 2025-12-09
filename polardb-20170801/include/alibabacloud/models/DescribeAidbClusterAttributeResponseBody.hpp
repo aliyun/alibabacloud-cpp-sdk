@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBClusterStatus, DBClusterStatus_);
       DARABONBA_PTR_TO_JSON(DBNodes, DBNodes_);
       DARABONBA_PTR_TO_JSON(DBVersion, DBVersion_);
+      DARABONBA_PTR_TO_JSON(EcsSecurityGroupId, ecsSecurityGroupId_);
       DARABONBA_PTR_TO_JSON(EndpointList, endpointList_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBClusterStatus, DBClusterStatus_);
       DARABONBA_PTR_FROM_JSON(DBNodes, DBNodes_);
       DARABONBA_PTR_FROM_JSON(DBVersion, DBVersion_);
+      DARABONBA_PTR_FROM_JSON(EcsSecurityGroupId, ecsSecurityGroupId_);
       DARABONBA_PTR_FROM_JSON(EndpointList, endpointList_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
@@ -87,11 +89,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aiNodeType_ == nullptr
         && return this->creationTime_ == nullptr && return this->DBClusterDescription_ == nullptr && return this->DBClusterId_ == nullptr && return this->DBClusterStatus_ == nullptr && return this->DBNodes_ == nullptr
-        && return this->DBVersion_ == nullptr && return this->endpointList_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr && return this->internalIp_ == nullptr
-        && return this->KVCacheInstanceId_ == nullptr && return this->kubeClusterId_ == nullptr && return this->lockMode_ == nullptr && return this->maxQPM_ == nullptr && return this->modelName_ == nullptr
-        && return this->payType_ == nullptr && return this->publicIp_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->runType_ == nullptr
-        && return this->storageType_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->volumes_ == nullptr && return this->zoneId_ == nullptr
-        && return this->zoneIds_ == nullptr; };
+        && return this->DBVersion_ == nullptr && return this->ecsSecurityGroupId_ == nullptr && return this->endpointList_ == nullptr && return this->expireTime_ == nullptr && return this->expired_ == nullptr
+        && return this->internalIp_ == nullptr && return this->KVCacheInstanceId_ == nullptr && return this->kubeClusterId_ == nullptr && return this->lockMode_ == nullptr && return this->maxQPM_ == nullptr
+        && return this->modelName_ == nullptr && return this->payType_ == nullptr && return this->publicIp_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr
+        && return this->runType_ == nullptr && return this->storageType_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->volumes_ == nullptr
+        && return this->zoneId_ == nullptr && return this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
     void deleteDBVersion() { this->DBVersion_ = nullptr;};
     inline string DBVersion() const { DARABONBA_PTR_GET_DEFAULT(DBVersion_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setDBVersion(string DBVersion) { DARABONBA_PTR_SET_VALUE(DBVersion_, DBVersion) };
+
+
+    // ecsSecurityGroupId Field Functions 
+    bool hasEcsSecurityGroupId() const { return this->ecsSecurityGroupId_ != nullptr;};
+    void deleteEcsSecurityGroupId() { this->ecsSecurityGroupId_ = nullptr;};
+    inline string ecsSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(ecsSecurityGroupId_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setEcsSecurityGroupId(string ecsSecurityGroupId) { DARABONBA_PTR_SET_VALUE(ecsSecurityGroupId_, ecsSecurityGroupId) };
 
 
     // endpointList Field Functions 
@@ -295,6 +304,7 @@ namespace Models
     std::shared_ptr<string> DBClusterStatus_ = nullptr;
     std::shared_ptr<vector<DescribeAIDBClusterAttributeResponseBodyDBNodes>> DBNodes_ = nullptr;
     std::shared_ptr<string> DBVersion_ = nullptr;
+    std::shared_ptr<string> ecsSecurityGroupId_ = nullptr;
     std::shared_ptr<vector<DescribeAIDBClusterAttributeResponseBodyEndpointList>> endpointList_ = nullptr;
     std::shared_ptr<string> expireTime_ = nullptr;
     std::shared_ptr<bool> expired_ = nullptr;

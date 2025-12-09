@@ -13,19 +13,23 @@ namespace Models
   class ModifyDBClusterStoragePerformanceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterStoragePerformanceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(ModifyType, modifyType_);
+      DARABONBA_PTR_TO_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_TO_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterStoragePerformanceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(BurstingEnabled, burstingEnabled_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(ModifyType, modifyType_);
+      DARABONBA_PTR_FROM_JSON(PromotionCode, promotionCode_);
       DARABONBA_PTR_FROM_JSON(ProvisionedIops, provisionedIops_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
@@ -41,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->burstingEnabled_ == nullptr
-        && return this->clientToken_ == nullptr && return this->DBClusterId_ == nullptr && return this->modifyType_ == nullptr && return this->provisionedIops_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->storageType_ == nullptr; };
+    virtual bool empty() const override { return this->autoUseCoupon_ == nullptr
+        && return this->burstingEnabled_ == nullptr && return this->clientToken_ == nullptr && return this->DBClusterId_ == nullptr && return this->modifyType_ == nullptr && return this->promotionCode_ == nullptr
+        && return this->provisionedIops_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->storageType_ == nullptr; };
+    // autoUseCoupon Field Functions 
+    bool hasAutoUseCoupon() const { return this->autoUseCoupon_ != nullptr;};
+    void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
+    inline bool autoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
+    inline ModifyDBClusterStoragePerformanceRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
     // burstingEnabled Field Functions 
     bool hasBurstingEnabled() const { return this->burstingEnabled_ != nullptr;};
     void deleteBurstingEnabled() { this->burstingEnabled_ = nullptr;};
@@ -72,6 +83,13 @@ namespace Models
     inline ModifyDBClusterStoragePerformanceRequest& setModifyType(string modifyType) { DARABONBA_PTR_SET_VALUE(modifyType_, modifyType) };
 
 
+    // promotionCode Field Functions 
+    bool hasPromotionCode() const { return this->promotionCode_ != nullptr;};
+    void deletePromotionCode() { this->promotionCode_ = nullptr;};
+    inline string promotionCode() const { DARABONBA_PTR_GET_DEFAULT(promotionCode_, "") };
+    inline ModifyDBClusterStoragePerformanceRequest& setPromotionCode(string promotionCode) { DARABONBA_PTR_SET_VALUE(promotionCode_, promotionCode) };
+
+
     // provisionedIops Field Functions 
     bool hasProvisionedIops() const { return this->provisionedIops_ != nullptr;};
     void deleteProvisionedIops() { this->provisionedIops_ = nullptr;};
@@ -94,6 +112,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> autoUseCoupon_ = nullptr;
     // Specifies whether to enable the I/O Burst feature for the ESSD AutoPL disk. Valid value:
     // 
     // *   **true**
@@ -105,6 +124,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> DBClusterId_ = nullptr;
     std::shared_ptr<string> modifyType_ = nullptr;
+    std::shared_ptr<string> promotionCode_ = nullptr;
     std::shared_ptr<int32_t> provisionedIops_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     std::shared_ptr<string> storageType_ = nullptr;
