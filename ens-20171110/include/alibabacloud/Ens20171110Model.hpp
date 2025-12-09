@@ -88,6 +88,7 @@
 #include <alibabacloud/models/CreateClassicNetworkResponseBody.hpp>
 #include <alibabacloud/models/CreateClassicNetworkResponse.hpp>
 #include <alibabacloud/models/CreateClusterRequest.hpp>
+#include <alibabacloud/models/CreateClusterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateClusterResponse.hpp>
 #include <alibabacloud/models/CreateDiskRequest.hpp>
@@ -1005,6 +1006,7 @@
 #include <alibabacloud/models/CopySnapshotResponseBodyAllocationId.hpp>
 #include <alibabacloud/models/CopySnapshotResponseBodyUnAllocationId.hpp>
 #include <alibabacloud/models/CreateArmServerInstancesRequestTag.hpp>
+#include <alibabacloud/models/CreateClusterRequestControlPlaneConfig.hpp>
 #include <alibabacloud/models/CreateDiskRequestTag.hpp>
 #include <alibabacloud/models/CreateEipInstanceRequestTag.hpp>
 #include <alibabacloud/models/CreateEnsSaleControlRequestSaleControlsConditionControls.hpp>

@@ -1323,19 +1323,81 @@ CreateClassicNetworkResponse Client::createClassicNetwork(const CreateClassicNet
  * @description *   You can call this operation up to 10 times per second per account.
  * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
  *
- * @param request CreateClusterRequest
+ * @param tmpReq CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateClusterResponse
  */
-CreateClusterResponse Client::createClusterWithOptions(const CreateClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateClusterResponse Client::createClusterWithOptions(const CreateClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateClusterShrinkRequest request = CreateClusterShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasControlPlaneConfig()) {
+    request.setControlPlaneConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.controlPlaneConfig(), "ControlPlaneConfig", "json"));
+  }
+
+  if (!!tmpReq.hasPodVswitchIds()) {
+    request.setPodVswitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.podVswitchIds(), "PodVswitchIds", "json"));
+  }
+
+  if (!!tmpReq.hasVswitchIds()) {
+    request.setVswitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.vswitchIds(), "VswitchIds", "json"));
+  }
+
   json query = {};
+  if (!!request.hasClusterType()) {
+    query["ClusterType"] = request.clusterType();
+  }
+
   if (!!request.hasClusterVersion()) {
     query["ClusterVersion"] = request.clusterVersion();
   }
 
+  if (!!request.hasContainerCidr()) {
+    query["ContainerCidr"] = request.containerCidr();
+  }
+
+  if (!!request.hasControlPlaneConfigShrink()) {
+    query["ControlPlaneConfig"] = request.controlPlaneConfigShrink();
+  }
+
+  if (!!request.hasEnsRegionId()) {
+    query["EnsRegionId"] = request.ensRegionId();
+  }
+
+  if (!!request.hasKubernetesVersion()) {
+    query["KubernetesVersion"] = request.kubernetesVersion();
+  }
+
+  if (!!request.hasLoadBalancerId()) {
+    query["LoadBalancerId"] = request.loadBalancerId();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.name();
+  }
+
+  if (!!request.hasPodVswitchIdsShrink()) {
+    query["PodVswitchIds"] = request.podVswitchIdsShrink();
+  }
+
+  if (!!request.hasProfile()) {
+    query["Profile"] = request.profile();
+  }
+
+  if (!!request.hasPublicAccess()) {
+    query["PublicAccess"] = request.publicAccess();
+  }
+
+  if (!!request.hasServiceCidr()) {
+    query["ServiceCidr"] = request.serviceCidr();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  if (!!request.hasVswitchIdsShrink()) {
+    query["VswitchIds"] = request.vswitchIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
