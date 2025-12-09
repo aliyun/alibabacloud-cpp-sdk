@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PlanNameEn, planNameEn_);
       DARABONBA_PTR_TO_JSON(PlanType, planType_);
       DARABONBA_PTR_TO_JSON(RemainingExpireDays, remainingExpireDays_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PlanNameEn, planNameEn_);
       DARABONBA_PTR_FROM_JSON(PlanType, planType_);
       DARABONBA_PTR_FROM_JSON(RemainingExpireDays, remainingExpireDays_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRemainingSiteQuota_ == nullptr
-        && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->planType_ == nullptr && return this->remainingExpireDays_ == nullptr
-        && return this->sortBy_ == nullptr && return this->sortOrder_ == nullptr && return this->status_ == nullptr && return this->subscribeType_ == nullptr; };
+        && return this->instanceId_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->planNameEn_ == nullptr && return this->planType_ == nullptr
+        && return this->remainingExpireDays_ == nullptr && return this->sortBy_ == nullptr && return this->sortOrder_ == nullptr && return this->status_ == nullptr && return this->subscribeType_ == nullptr; };
     // checkRemainingSiteQuota Field Functions 
     bool hasCheckRemainingSiteQuota() const { return this->checkRemainingSiteQuota_ != nullptr;};
     void deleteCheckRemainingSiteQuota() { this->checkRemainingSiteQuota_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListUserRatePlanInstancesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // planNameEn Field Functions 
+    bool hasPlanNameEn() const { return this->planNameEn_ != nullptr;};
+    void deletePlanNameEn() { this->planNameEn_ = nullptr;};
+    inline string planNameEn() const { DARABONBA_PTR_GET_DEFAULT(planNameEn_, "") };
+    inline ListUserRatePlanInstancesRequest& setPlanNameEn(string planNameEn) { DARABONBA_PTR_SET_VALUE(planNameEn_, planNameEn) };
 
 
     // planType Field Functions 
@@ -132,6 +141,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<string> planNameEn_ = nullptr;
     std::shared_ptr<string> planType_ = nullptr;
     std::shared_ptr<int32_t> remainingExpireDays_ = nullptr;
     // The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
