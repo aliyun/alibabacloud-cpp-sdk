@@ -17,7 +17,11 @@ namespace OpenAPIExplorer20241130
 {
 
 AlibabaCloud::OpenAPIExplorer20241130::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "central";
+  this->_endpointMap = json({
+    {"ap-southeast-1" , "openapi-mcp.ap-southeast-1.aliyuncs.com"},
+    {"cn-hangzhou" , "openapi-mcp.cn-hangzhou.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("openapiexplorer", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -119,6 +123,10 @@ CreateApiMcpServerResponse Client::createApiMcpServerWithOptions(const CreateApi
     body["enableAssumeRole"] = request.enableAssumeRole();
   }
 
+  if (!!request.hasEnableCustomVpcWhitelist()) {
+    body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist();
+  }
+
   if (!!request.hasInstructions()) {
     body["instructions"] = request.instructions();
   }
@@ -139,12 +147,20 @@ CreateApiMcpServerResponse Client::createApiMcpServerWithOptions(const CreateApi
     body["prompts"] = request.prompts();
   }
 
+  if (!!request.hasPublicAccess()) {
+    body["publicAccess"] = request.publicAccess();
+  }
+
   if (!!request.hasSystemTools()) {
     body["systemTools"] = request.systemTools();
   }
 
   if (!!request.hasTerraformTools()) {
     body["terraformTools"] = request.terraformTools();
+  }
+
+  if (!!request.hasVpcWhitelists()) {
+    body["vpcWhitelists"] = request.vpcWhitelists();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -253,6 +269,10 @@ GenerateCLICommandResponse Client::generateCLICommandWithOptions(const GenerateC
 
   if (!!request.hasApiVersion()) {
     body["apiVersion"] = request.apiVersion();
+  }
+
+  if (!!request.hasJsonApiParams()) {
+    body["jsonApiParams"] = request.jsonApiParams();
   }
 
   if (!!request.hasProduct()) {
@@ -389,6 +409,42 @@ GetApiMcpServerResponse Client::getApiMcpServer(const GetApiMcpServerRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getApiMcpServerWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询用户全局API MCP Server配置
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiMcpServerUserConfigResponse
+ */
+GetApiMcpServerUserConfigResponse Client::getApiMcpServerUserConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApiMcpServerUserConfig"},
+    {"version" , "2024-11-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/userconfig/get")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiMcpServerUserConfigResponse>();
+}
+
+/**
+ * @summary 查询用户全局API MCP Server配置
+ *
+ * @return GetApiMcpServerUserConfigResponse
+ */
+GetApiMcpServerUserConfigResponse Client::getApiMcpServerUserConfig() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getApiMcpServerUserConfigWithOptions(headers, runtime);
 }
 
 /**
@@ -822,6 +878,10 @@ UpdateApiMcpServerResponse Client::updateApiMcpServerWithOptions(const UpdateApi
     body["enableAssumeRole"] = request.enableAssumeRole();
   }
 
+  if (!!request.hasEnableCustomVpcWhitelist()) {
+    body["enableCustomVpcWhitelist"] = request.enableCustomVpcWhitelist();
+  }
+
   if (!!request.hasInstructions()) {
     body["instructions"] = request.instructions();
   }
@@ -838,12 +898,20 @@ UpdateApiMcpServerResponse Client::updateApiMcpServerWithOptions(const UpdateApi
     body["prompts"] = request.prompts();
   }
 
+  if (!!request.hasPublicAccess()) {
+    body["publicAccess"] = request.publicAccess();
+  }
+
   if (!!request.hasSystemTools()) {
     body["systemTools"] = request.systemTools();
   }
 
   if (!!request.hasTerraformTools()) {
     body["terraformTools"] = request.terraformTools();
+  }
+
+  if (!!request.hasVpcWhitelists()) {
+    body["vpcWhitelists"] = request.vpcWhitelists();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -875,6 +943,55 @@ UpdateApiMcpServerResponse Client::updateApiMcpServer(const UpdateApiMcpServerRe
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateApiMcpServerWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改用户全局API MCP Server配置
+ *
+ * @param request UpdateApiMcpServerUserConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApiMcpServerUserConfigResponse
+ */
+UpdateApiMcpServerUserConfigResponse Client::updateApiMcpServerUserConfigWithOptions(const UpdateApiMcpServerUserConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEnablePublicAccess()) {
+    body["enablePublicAccess"] = request.enablePublicAccess();
+  }
+
+  if (!!request.hasVpcWhitelists()) {
+    body["vpcWhitelists"] = request.vpcWhitelists();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateApiMcpServerUserConfig"},
+    {"version" , "2024-11-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/userconfig/update")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApiMcpServerUserConfigResponse>();
+}
+
+/**
+ * @summary 修改用户全局API MCP Server配置
+ *
+ * @param request UpdateApiMcpServerUserConfigRequest
+ * @return UpdateApiMcpServerUserConfigResponse
+ */
+UpdateApiMcpServerUserConfigResponse Client::updateApiMcpServerUserConfig(const UpdateApiMcpServerUserConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateApiMcpServerUserConfigWithOptions(request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace OpenAPIExplorer20241130

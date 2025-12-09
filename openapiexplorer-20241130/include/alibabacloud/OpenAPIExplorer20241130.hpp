@@ -129,6 +129,22 @@ namespace OpenAPIExplorer20241130
       Models::GetApiMcpServerResponse getApiMcpServer(const Models::GetApiMcpServerRequest &request);
 
       /**
+       * @summary 查询用户全局API MCP Server配置
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApiMcpServerUserConfigResponse
+       */
+      Models::GetApiMcpServerUserConfigResponse getApiMcpServerUserConfigWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用户全局API MCP Server配置
+       *
+       * @return GetApiMcpServerUserConfigResponse
+       */
+      Models::GetApiMcpServerUserConfigResponse getApiMcpServerUserConfig();
+
+      /**
        * @summary Queries an error solution by error code.
        *
        * @description You can call this API operation to query public information instead of special information, such as the account ownership. Permissions on this API operation cannot be granted to other members.
@@ -283,6 +299,24 @@ namespace OpenAPIExplorer20241130
        * @return UpdateApiMcpServerResponse
        */
       Models::UpdateApiMcpServerResponse updateApiMcpServer(const Models::UpdateApiMcpServerRequest &request);
+
+      /**
+       * @summary 修改用户全局API MCP Server配置
+       *
+       * @param request UpdateApiMcpServerUserConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApiMcpServerUserConfigResponse
+       */
+      Models::UpdateApiMcpServerUserConfigResponse updateApiMcpServerUserConfigWithOptions(const Models::UpdateApiMcpServerUserConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改用户全局API MCP Server配置
+       *
+       * @param request UpdateApiMcpServerUserConfigRequest
+       * @return UpdateApiMcpServerUserConfigResponse
+       */
+      Models::UpdateApiMcpServerUserConfigResponse updateApiMcpServerUserConfig(const Models::UpdateApiMcpServerUserConfigRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace OpenAPIExplorer20241130

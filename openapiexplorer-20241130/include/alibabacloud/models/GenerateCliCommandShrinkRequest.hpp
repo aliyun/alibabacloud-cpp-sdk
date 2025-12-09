@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(api, api_);
       DARABONBA_PTR_TO_JSON(apiParams, apiParamsShrink_);
       DARABONBA_PTR_TO_JSON(apiVersion, apiVersion_);
+      DARABONBA_PTR_TO_JSON(jsonApiParams, jsonApiParams_);
       DARABONBA_PTR_TO_JSON(product, product_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
     };
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(api, api_);
       DARABONBA_PTR_FROM_JSON(apiParams, apiParamsShrink_);
       DARABONBA_PTR_FROM_JSON(apiVersion, apiVersion_);
+      DARABONBA_PTR_FROM_JSON(jsonApiParams, jsonApiParams_);
       DARABONBA_PTR_FROM_JSON(product, product_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->api_ == nullptr
-        && return this->apiParamsShrink_ == nullptr && return this->apiVersion_ == nullptr && return this->product_ == nullptr && return this->regionId_ == nullptr; };
+        && return this->apiParamsShrink_ == nullptr && return this->apiVersion_ == nullptr && return this->jsonApiParams_ == nullptr && return this->product_ == nullptr && return this->regionId_ == nullptr; };
     // api Field Functions 
     bool hasApi() const { return this->api_ != nullptr;};
     void deleteApi() { this->api_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteApiVersion() { this->apiVersion_ = nullptr;};
     inline string apiVersion() const { DARABONBA_PTR_GET_DEFAULT(apiVersion_, "") };
     inline GenerateCLICommandShrinkRequest& setApiVersion(string apiVersion) { DARABONBA_PTR_SET_VALUE(apiVersion_, apiVersion) };
+
+
+    // jsonApiParams Field Functions 
+    bool hasJsonApiParams() const { return this->jsonApiParams_ != nullptr;};
+    void deleteJsonApiParams() { this->jsonApiParams_ = nullptr;};
+    inline string jsonApiParams() const { DARABONBA_PTR_GET_DEFAULT(jsonApiParams_, "") };
+    inline GenerateCLICommandShrinkRequest& setJsonApiParams(string jsonApiParams) { DARABONBA_PTR_SET_VALUE(jsonApiParams_, jsonApiParams) };
 
 
     // product Field Functions 
@@ -80,6 +89,7 @@ namespace Models
     std::shared_ptr<string> apiParamsShrink_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> apiVersion_ = nullptr;
+    std::shared_ptr<string> jsonApiParams_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> product_ = nullptr;
     std::shared_ptr<string> regionId_ = nullptr;

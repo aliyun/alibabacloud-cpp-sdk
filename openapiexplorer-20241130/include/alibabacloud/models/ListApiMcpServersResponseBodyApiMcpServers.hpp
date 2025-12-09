@@ -27,18 +27,21 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enableAssumeRole, enableAssumeRole_);
+      DARABONBA_PTR_TO_JSON(enableCustomVpcWhitelist, enableCustomVpcWhitelist_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(instructions, instructions_);
       DARABONBA_PTR_TO_JSON(language, language_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(oauthClientId, oauthClientId_);
       DARABONBA_PTR_TO_JSON(prompts, prompts_);
+      DARABONBA_PTR_TO_JSON(publicAccess, publicAccess_);
       DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(systemMcpServerInfo, systemMcpServerInfo_);
       DARABONBA_PTR_TO_JSON(systemTools, systemTools_);
       DARABONBA_PTR_TO_JSON(terraformTools, terraformTools_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(urls, urls_);
+      DARABONBA_PTR_TO_JSON(vpcWhitelists, vpcWhitelists_);
     };
     friend void from_json(const Darabonba::Json& j, ListApiMcpServersResponseBodyApiMcpServers& obj) { 
       DARABONBA_PTR_FROM_JSON(additionalApiDescriptions, additionalApiDescriptions_);
@@ -48,18 +51,21 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enableAssumeRole, enableAssumeRole_);
+      DARABONBA_PTR_FROM_JSON(enableCustomVpcWhitelist, enableCustomVpcWhitelist_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(instructions, instructions_);
       DARABONBA_PTR_FROM_JSON(language, language_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(oauthClientId, oauthClientId_);
       DARABONBA_PTR_FROM_JSON(prompts, prompts_);
+      DARABONBA_PTR_FROM_JSON(publicAccess, publicAccess_);
       DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(systemMcpServerInfo, systemMcpServerInfo_);
       DARABONBA_PTR_FROM_JSON(systemTools, systemTools_);
       DARABONBA_PTR_FROM_JSON(terraformTools, terraformTools_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(urls, urls_);
+      DARABONBA_PTR_FROM_JSON(vpcWhitelists, vpcWhitelists_);
     };
     ListApiMcpServersResponseBodyApiMcpServers() = default ;
     ListApiMcpServersResponseBodyApiMcpServers(const ListApiMcpServersResponseBodyApiMcpServers &) = default ;
@@ -74,9 +80,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalApiDescriptions_ == nullptr
         && return this->apis_ == nullptr && return this->assumeRoleExtraPolicy_ == nullptr && return this->assumeRoleName_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr
-        && return this->enableAssumeRole_ == nullptr && return this->id_ == nullptr && return this->instructions_ == nullptr && return this->language_ == nullptr && return this->name_ == nullptr
-        && return this->oauthClientId_ == nullptr && return this->prompts_ == nullptr && return this->sourceType_ == nullptr && return this->systemMcpServerInfo_ == nullptr && return this->systemTools_ == nullptr
-        && return this->terraformTools_ == nullptr && return this->updateTime_ == nullptr && return this->urls_ == nullptr; };
+        && return this->enableAssumeRole_ == nullptr && return this->enableCustomVpcWhitelist_ == nullptr && return this->id_ == nullptr && return this->instructions_ == nullptr && return this->language_ == nullptr
+        && return this->name_ == nullptr && return this->oauthClientId_ == nullptr && return this->prompts_ == nullptr && return this->publicAccess_ == nullptr && return this->sourceType_ == nullptr
+        && return this->systemMcpServerInfo_ == nullptr && return this->systemTools_ == nullptr && return this->terraformTools_ == nullptr && return this->updateTime_ == nullptr && return this->urls_ == nullptr
+        && return this->vpcWhitelists_ == nullptr; };
     // additionalApiDescriptions Field Functions 
     bool hasAdditionalApiDescriptions() const { return this->additionalApiDescriptions_ != nullptr;};
     void deleteAdditionalApiDescriptions() { this->additionalApiDescriptions_ = nullptr;};
@@ -130,6 +137,13 @@ namespace Models
     inline ListApiMcpServersResponseBodyApiMcpServers& setEnableAssumeRole(bool enableAssumeRole) { DARABONBA_PTR_SET_VALUE(enableAssumeRole_, enableAssumeRole) };
 
 
+    // enableCustomVpcWhitelist Field Functions 
+    bool hasEnableCustomVpcWhitelist() const { return this->enableCustomVpcWhitelist_ != nullptr;};
+    void deleteEnableCustomVpcWhitelist() { this->enableCustomVpcWhitelist_ = nullptr;};
+    inline bool enableCustomVpcWhitelist() const { DARABONBA_PTR_GET_DEFAULT(enableCustomVpcWhitelist_, false) };
+    inline ListApiMcpServersResponseBodyApiMcpServers& setEnableCustomVpcWhitelist(bool enableCustomVpcWhitelist) { DARABONBA_PTR_SET_VALUE(enableCustomVpcWhitelist_, enableCustomVpcWhitelist) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -172,6 +186,13 @@ namespace Models
     inline vector<Models::ListApiMcpServersResponseBodyApiMcpServersPrompts> prompts() { DARABONBA_PTR_GET(prompts_, vector<Models::ListApiMcpServersResponseBodyApiMcpServersPrompts>) };
     inline ListApiMcpServersResponseBodyApiMcpServers& setPrompts(const vector<Models::ListApiMcpServersResponseBodyApiMcpServersPrompts> & prompts) { DARABONBA_PTR_SET_VALUE(prompts_, prompts) };
     inline ListApiMcpServersResponseBodyApiMcpServers& setPrompts(vector<Models::ListApiMcpServersResponseBodyApiMcpServersPrompts> && prompts) { DARABONBA_PTR_SET_RVALUE(prompts_, prompts) };
+
+
+    // publicAccess Field Functions 
+    bool hasPublicAccess() const { return this->publicAccess_ != nullptr;};
+    void deletePublicAccess() { this->publicAccess_ = nullptr;};
+    inline string publicAccess() const { DARABONBA_PTR_GET_DEFAULT(publicAccess_, "") };
+    inline ListApiMcpServersResponseBodyApiMcpServers& setPublicAccess(string publicAccess) { DARABONBA_PTR_SET_VALUE(publicAccess_, publicAccess) };
 
 
     // sourceType Field Functions 
@@ -224,6 +245,15 @@ namespace Models
     inline ListApiMcpServersResponseBodyApiMcpServers& setUrls(Models::ListApiMcpServersResponseBodyApiMcpServersUrls && urls) { DARABONBA_PTR_SET_RVALUE(urls_, urls) };
 
 
+    // vpcWhitelists Field Functions 
+    bool hasVpcWhitelists() const { return this->vpcWhitelists_ != nullptr;};
+    void deleteVpcWhitelists() { this->vpcWhitelists_ = nullptr;};
+    inline const vector<string> & vpcWhitelists() const { DARABONBA_PTR_GET_CONST(vpcWhitelists_, vector<string>) };
+    inline vector<string> vpcWhitelists() { DARABONBA_PTR_GET(vpcWhitelists_, vector<string>) };
+    inline ListApiMcpServersResponseBodyApiMcpServers& setVpcWhitelists(const vector<string> & vpcWhitelists) { DARABONBA_PTR_SET_VALUE(vpcWhitelists_, vpcWhitelists) };
+    inline ListApiMcpServersResponseBodyApiMcpServers& setVpcWhitelists(vector<string> && vpcWhitelists) { DARABONBA_PTR_SET_RVALUE(vpcWhitelists_, vpcWhitelists) };
+
+
   protected:
     std::shared_ptr<vector<Models::ListApiMcpServersResponseBodyApiMcpServersAdditionalApiDescriptions>> additionalApiDescriptions_ = nullptr;
     std::shared_ptr<vector<Models::ListApiMcpServersResponseBodyApiMcpServersApis>> apis_ = nullptr;
@@ -232,18 +262,21 @@ namespace Models
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<bool> enableAssumeRole_ = nullptr;
+    std::shared_ptr<bool> enableCustomVpcWhitelist_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<string> instructions_ = nullptr;
     std::shared_ptr<string> language_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
     std::shared_ptr<string> oauthClientId_ = nullptr;
     std::shared_ptr<vector<Models::ListApiMcpServersResponseBodyApiMcpServersPrompts>> prompts_ = nullptr;
+    std::shared_ptr<string> publicAccess_ = nullptr;
     std::shared_ptr<string> sourceType_ = nullptr;
     std::shared_ptr<Models::ListApiMcpServersResponseBodyApiMcpServersSystemMcpServerInfo> systemMcpServerInfo_ = nullptr;
     std::shared_ptr<vector<string>> systemTools_ = nullptr;
     std::shared_ptr<vector<Models::ListApiMcpServersResponseBodyApiMcpServersTerraformTools>> terraformTools_ = nullptr;
     std::shared_ptr<string> updateTime_ = nullptr;
     std::shared_ptr<Models::ListApiMcpServersResponseBodyApiMcpServersUrls> urls_ = nullptr;
+    std::shared_ptr<vector<string>> vpcWhitelists_ = nullptr;
   };
 
   } // namespace Models

@@ -24,12 +24,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(assumeRoleName, assumeRoleName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enableAssumeRole, enableAssumeRole_);
+      DARABONBA_PTR_TO_JSON(enableCustomVpcWhitelist, enableCustomVpcWhitelist_);
       DARABONBA_PTR_TO_JSON(instructions, instructions_);
       DARABONBA_PTR_TO_JSON(language, language_);
       DARABONBA_PTR_TO_JSON(oauthClientId, oauthClientId_);
       DARABONBA_PTR_TO_JSON(prompts, prompts_);
+      DARABONBA_PTR_TO_JSON(publicAccess, publicAccess_);
       DARABONBA_PTR_TO_JSON(systemTools, systemTools_);
       DARABONBA_PTR_TO_JSON(terraformTools, terraformTools_);
+      DARABONBA_PTR_TO_JSON(vpcWhitelists, vpcWhitelists_);
       DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(id, id_);
     };
@@ -40,12 +43,15 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(assumeRoleName, assumeRoleName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enableAssumeRole, enableAssumeRole_);
+      DARABONBA_PTR_FROM_JSON(enableCustomVpcWhitelist, enableCustomVpcWhitelist_);
       DARABONBA_PTR_FROM_JSON(instructions, instructions_);
       DARABONBA_PTR_FROM_JSON(language, language_);
       DARABONBA_PTR_FROM_JSON(oauthClientId, oauthClientId_);
       DARABONBA_PTR_FROM_JSON(prompts, prompts_);
+      DARABONBA_PTR_FROM_JSON(publicAccess, publicAccess_);
       DARABONBA_PTR_FROM_JSON(systemTools, systemTools_);
       DARABONBA_PTR_FROM_JSON(terraformTools, terraformTools_);
+      DARABONBA_PTR_FROM_JSON(vpcWhitelists, vpcWhitelists_);
       DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(id, id_);
     };
@@ -62,8 +68,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->additionalApiDescriptions_ == nullptr
         && return this->apis_ == nullptr && return this->assumeRoleExtraPolicy_ == nullptr && return this->assumeRoleName_ == nullptr && return this->description_ == nullptr && return this->enableAssumeRole_ == nullptr
-        && return this->instructions_ == nullptr && return this->language_ == nullptr && return this->oauthClientId_ == nullptr && return this->prompts_ == nullptr && return this->systemTools_ == nullptr
-        && return this->terraformTools_ == nullptr && return this->clientToken_ == nullptr && return this->id_ == nullptr; };
+        && return this->enableCustomVpcWhitelist_ == nullptr && return this->instructions_ == nullptr && return this->language_ == nullptr && return this->oauthClientId_ == nullptr && return this->prompts_ == nullptr
+        && return this->publicAccess_ == nullptr && return this->systemTools_ == nullptr && return this->terraformTools_ == nullptr && return this->vpcWhitelists_ == nullptr && return this->clientToken_ == nullptr
+        && return this->id_ == nullptr; };
     // additionalApiDescriptions Field Functions 
     bool hasAdditionalApiDescriptions() const { return this->additionalApiDescriptions_ != nullptr;};
     void deleteAdditionalApiDescriptions() { this->additionalApiDescriptions_ = nullptr;};
@@ -110,6 +117,13 @@ namespace Models
     inline UpdateApiMcpServerRequest& setEnableAssumeRole(bool enableAssumeRole) { DARABONBA_PTR_SET_VALUE(enableAssumeRole_, enableAssumeRole) };
 
 
+    // enableCustomVpcWhitelist Field Functions 
+    bool hasEnableCustomVpcWhitelist() const { return this->enableCustomVpcWhitelist_ != nullptr;};
+    void deleteEnableCustomVpcWhitelist() { this->enableCustomVpcWhitelist_ = nullptr;};
+    inline bool enableCustomVpcWhitelist() const { DARABONBA_PTR_GET_DEFAULT(enableCustomVpcWhitelist_, false) };
+    inline UpdateApiMcpServerRequest& setEnableCustomVpcWhitelist(bool enableCustomVpcWhitelist) { DARABONBA_PTR_SET_VALUE(enableCustomVpcWhitelist_, enableCustomVpcWhitelist) };
+
+
     // instructions Field Functions 
     bool hasInstructions() const { return this->instructions_ != nullptr;};
     void deleteInstructions() { this->instructions_ = nullptr;};
@@ -140,6 +154,13 @@ namespace Models
     inline UpdateApiMcpServerRequest& setPrompts(vector<UpdateApiMcpServerRequestPrompts> && prompts) { DARABONBA_PTR_SET_RVALUE(prompts_, prompts) };
 
 
+    // publicAccess Field Functions 
+    bool hasPublicAccess() const { return this->publicAccess_ != nullptr;};
+    void deletePublicAccess() { this->publicAccess_ = nullptr;};
+    inline string publicAccess() const { DARABONBA_PTR_GET_DEFAULT(publicAccess_, "") };
+    inline UpdateApiMcpServerRequest& setPublicAccess(string publicAccess) { DARABONBA_PTR_SET_VALUE(publicAccess_, publicAccess) };
+
+
     // systemTools Field Functions 
     bool hasSystemTools() const { return this->systemTools_ != nullptr;};
     void deleteSystemTools() { this->systemTools_ = nullptr;};
@@ -156,6 +177,15 @@ namespace Models
     inline vector<UpdateApiMcpServerRequestTerraformTools> terraformTools() { DARABONBA_PTR_GET(terraformTools_, vector<UpdateApiMcpServerRequestTerraformTools>) };
     inline UpdateApiMcpServerRequest& setTerraformTools(const vector<UpdateApiMcpServerRequestTerraformTools> & terraformTools) { DARABONBA_PTR_SET_VALUE(terraformTools_, terraformTools) };
     inline UpdateApiMcpServerRequest& setTerraformTools(vector<UpdateApiMcpServerRequestTerraformTools> && terraformTools) { DARABONBA_PTR_SET_RVALUE(terraformTools_, terraformTools) };
+
+
+    // vpcWhitelists Field Functions 
+    bool hasVpcWhitelists() const { return this->vpcWhitelists_ != nullptr;};
+    void deleteVpcWhitelists() { this->vpcWhitelists_ = nullptr;};
+    inline const vector<string> & vpcWhitelists() const { DARABONBA_PTR_GET_CONST(vpcWhitelists_, vector<string>) };
+    inline vector<string> vpcWhitelists() { DARABONBA_PTR_GET(vpcWhitelists_, vector<string>) };
+    inline UpdateApiMcpServerRequest& setVpcWhitelists(const vector<string> & vpcWhitelists) { DARABONBA_PTR_SET_VALUE(vpcWhitelists_, vpcWhitelists) };
+    inline UpdateApiMcpServerRequest& setVpcWhitelists(vector<string> && vpcWhitelists) { DARABONBA_PTR_SET_RVALUE(vpcWhitelists_, vpcWhitelists) };
 
 
     // clientToken Field Functions 
@@ -179,12 +209,15 @@ namespace Models
     std::shared_ptr<string> assumeRoleName_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<bool> enableAssumeRole_ = nullptr;
+    std::shared_ptr<bool> enableCustomVpcWhitelist_ = nullptr;
     std::shared_ptr<string> instructions_ = nullptr;
     std::shared_ptr<string> language_ = nullptr;
     std::shared_ptr<string> oauthClientId_ = nullptr;
     std::shared_ptr<vector<UpdateApiMcpServerRequestPrompts>> prompts_ = nullptr;
+    std::shared_ptr<string> publicAccess_ = nullptr;
     std::shared_ptr<vector<string>> systemTools_ = nullptr;
     std::shared_ptr<vector<UpdateApiMcpServerRequestTerraformTools>> terraformTools_ = nullptr;
+    std::shared_ptr<vector<string>> vpcWhitelists_ = nullptr;
     std::shared_ptr<string> clientToken_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> id_ = nullptr;

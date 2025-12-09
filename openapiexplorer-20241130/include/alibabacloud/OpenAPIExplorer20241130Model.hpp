@@ -20,6 +20,8 @@
 #include <alibabacloud/models/GetApiMcpServerRequest.hpp>
 #include <alibabacloud/models/GetApiMcpServerResponseBody.hpp>
 #include <alibabacloud/models/GetApiMcpServerResponse.hpp>
+#include <alibabacloud/models/GetApiMcpServerUserConfigResponseBody.hpp>
+#include <alibabacloud/models/GetApiMcpServerUserConfigResponse.hpp>
 #include <alibabacloud/models/GetErrorCodeSolutionsRequest.hpp>
 #include <alibabacloud/models/GetErrorCodeSolutionsResponseBody.hpp>
 #include <alibabacloud/models/GetErrorCodeSolutionsResponse.hpp>
@@ -42,6 +44,9 @@
 #include <alibabacloud/models/UpdateApiMcpServerRequest.hpp>
 #include <alibabacloud/models/UpdateApiMcpServerResponseBody.hpp>
 #include <alibabacloud/models/UpdateApiMcpServerResponse.hpp>
+#include <alibabacloud/models/UpdateApiMcpServerUserConfigRequest.hpp>
+#include <alibabacloud/models/UpdateApiMcpServerUserConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateApiMcpServerUserConfigResponse.hpp>
 #include <alibabacloud/models/CreateApiMcpServerRequestAdditionalApiDescriptionsConstParameters.hpp>
 #include <alibabacloud/models/CreateApiMcpServerRequestAdditionalApiDescriptions.hpp>
 #include <alibabacloud/models/CreateApiMcpServerRequestApis.hpp>

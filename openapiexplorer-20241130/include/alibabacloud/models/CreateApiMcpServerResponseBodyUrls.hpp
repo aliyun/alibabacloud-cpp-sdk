@@ -15,10 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateApiMcpServerResponseBodyUrls& obj) { 
       DARABONBA_PTR_TO_JSON(mcp, mcp_);
       DARABONBA_PTR_TO_JSON(sse, sse_);
+      DARABONBA_PTR_TO_JSON(vpcMcp, vpcMcp_);
+      DARABONBA_PTR_TO_JSON(vpcSse, vpcSse_);
     };
     friend void from_json(const Darabonba::Json& j, CreateApiMcpServerResponseBodyUrls& obj) { 
       DARABONBA_PTR_FROM_JSON(mcp, mcp_);
       DARABONBA_PTR_FROM_JSON(sse, sse_);
+      DARABONBA_PTR_FROM_JSON(vpcMcp, vpcMcp_);
+      DARABONBA_PTR_FROM_JSON(vpcSse, vpcSse_);
     };
     CreateApiMcpServerResponseBodyUrls() = default ;
     CreateApiMcpServerResponseBodyUrls(const CreateApiMcpServerResponseBodyUrls &) = default ;
@@ -32,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mcp_ == nullptr
-        && return this->sse_ == nullptr; };
+        && return this->sse_ == nullptr && return this->vpcMcp_ == nullptr && return this->vpcSse_ == nullptr; };
     // mcp Field Functions 
     bool hasMcp() const { return this->mcp_ != nullptr;};
     void deleteMcp() { this->mcp_ = nullptr;};
@@ -47,9 +51,25 @@ namespace Models
     inline CreateApiMcpServerResponseBodyUrls& setSse(string sse) { DARABONBA_PTR_SET_VALUE(sse_, sse) };
 
 
+    // vpcMcp Field Functions 
+    bool hasVpcMcp() const { return this->vpcMcp_ != nullptr;};
+    void deleteVpcMcp() { this->vpcMcp_ = nullptr;};
+    inline string vpcMcp() const { DARABONBA_PTR_GET_DEFAULT(vpcMcp_, "") };
+    inline CreateApiMcpServerResponseBodyUrls& setVpcMcp(string vpcMcp) { DARABONBA_PTR_SET_VALUE(vpcMcp_, vpcMcp) };
+
+
+    // vpcSse Field Functions 
+    bool hasVpcSse() const { return this->vpcSse_ != nullptr;};
+    void deleteVpcSse() { this->vpcSse_ = nullptr;};
+    inline string vpcSse() const { DARABONBA_PTR_GET_DEFAULT(vpcSse_, "") };
+    inline CreateApiMcpServerResponseBodyUrls& setVpcSse(string vpcSse) { DARABONBA_PTR_SET_VALUE(vpcSse_, vpcSse) };
+
+
   protected:
     std::shared_ptr<string> mcp_ = nullptr;
     std::shared_ptr<string> sse_ = nullptr;
+    std::shared_ptr<string> vpcMcp_ = nullptr;
+    std::shared_ptr<string> vpcSse_ = nullptr;
   };
 
   } // namespace Models
