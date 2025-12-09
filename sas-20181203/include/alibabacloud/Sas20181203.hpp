@@ -3546,6 +3546,23 @@ namespace Sas20181203
       Models::DescribeCloudVendorAccountAKListResponse describeCloudVendorAccountAKList(const Models::DescribeCloudVendorAccountAKListRequest &request);
 
       /**
+       * @summary 获取厂商云产品接入模板
+       *
+       * @param request DescribeCloudVendorProductTemplateConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCloudVendorProductTemplateConfigResponse
+       */
+      Models::DescribeCloudVendorProductTemplateConfigResponse describeCloudVendorProductTemplateConfigWithOptions(const Models::DescribeCloudVendorProductTemplateConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取厂商云产品接入模板
+       *
+       * @param request DescribeCloudVendorProductTemplateConfigRequest
+       * @return DescribeCloudVendorProductTemplateConfigResponse
+       */
+      Models::DescribeCloudVendorProductTemplateConfigResponse describeCloudVendorProductTemplateConfig(const Models::DescribeCloudVendorProductTemplateConfigRequest &request);
+
+      /**
        * @summary Query the trail configuration attributes of the corresponding AK configuration
        *
        * @param request DescribeCloudVendorTrialConfigRequest

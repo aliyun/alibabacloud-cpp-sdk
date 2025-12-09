@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(RiskStatus, riskStatus_);
       DARABONBA_PTR_TO_JSON(ScanType, scanType_);
       DARABONBA_PTR_TO_JSON(VulName, vulName_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(RiskStatus, riskStatus_);
       DARABONBA_PTR_FROM_JSON(ScanType, scanType_);
       DARABONBA_PTR_FROM_JSON(VulName, vulName_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkType_ == nullptr
-        && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->riskStatus_ == nullptr && return this->scanType_ == nullptr
-        && return this->vulName_ == nullptr; };
+        && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->riskStatus_ == nullptr
+        && return this->scanType_ == nullptr && return this->vulName_ == nullptr; };
     // checkType Field Functions 
     bool hasCheckType() const { return this->checkType_ != nullptr;};
     void deleteCheckType() { this->checkType_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeEmgVulItemRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t resourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline DescribeEmgVulItemRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
     // riskStatus Field Functions 
@@ -107,6 +116,7 @@ namespace Models
     std::shared_ptr<string> lang_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // Specifies whether the vulnerability poses risks.\\
     // If you do not specify this parameter, all vulnerabilities are queried regardless of whether the vulnerabilities pose risks. Valid values:
     // 

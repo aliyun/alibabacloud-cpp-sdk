@@ -608,6 +608,9 @@
 #include <alibabacloud/models/DescribeCloudVendorAccountAkListRequest.hpp>
 #include <alibabacloud/models/DescribeCloudVendorAccountAkListResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudVendorAccountAkListResponse.hpp>
+#include <alibabacloud/models/DescribeCloudVendorProductTemplateConfigRequest.hpp>
+#include <alibabacloud/models/DescribeCloudVendorProductTemplateConfigResponseBody.hpp>
+#include <alibabacloud/models/DescribeCloudVendorProductTemplateConfigResponse.hpp>
 #include <alibabacloud/models/DescribeCloudVendorTrialConfigRequest.hpp>
 #include <alibabacloud/models/DescribeCloudVendorTrialConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudVendorTrialConfigResponse.hpp>

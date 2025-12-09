@@ -11188,6 +11188,52 @@ DescribeCloudVendorAccountAKListResponse Client::describeCloudVendorAccountAKLis
 }
 
 /**
+ * @summary 获取厂商云产品接入模板
+ *
+ * @param request DescribeCloudVendorProductTemplateConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCloudVendorProductTemplateConfigResponse
+ */
+DescribeCloudVendorProductTemplateConfigResponse Client::describeCloudVendorProductTemplateConfigWithOptions(const DescribeCloudVendorProductTemplateConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.lang();
+  }
+
+  if (!!request.hasVendor()) {
+    query["Vendor"] = request.vendor();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCloudVendorProductTemplateConfig"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCloudVendorProductTemplateConfigResponse>();
+}
+
+/**
+ * @summary 获取厂商云产品接入模板
+ *
+ * @param request DescribeCloudVendorProductTemplateConfigRequest
+ * @return DescribeCloudVendorProductTemplateConfigResponse
+ */
+DescribeCloudVendorProductTemplateConfigResponse Client::describeCloudVendorProductTemplateConfig(const DescribeCloudVendorProductTemplateConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCloudVendorProductTemplateConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Query the trail configuration attributes of the corresponding AK configuration
  *
  * @param request DescribeCloudVendorTrialConfigRequest
@@ -13656,6 +13702,10 @@ DescribeEmgVulItemResponse Client::describeEmgVulItemWithOptions(const DescribeE
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
   }
 
   if (!!request.hasRiskStatus()) {
@@ -40517,6 +40567,10 @@ ModifyEmgVulSubmitResponse Client::modifyEmgVulSubmitWithOptions(const ModifyEmg
 
   if (!!request.hasName()) {
     query["Name"] = request.name();
+  }
+
+  if (!!request.hasResourceDirectoryAccountId()) {
+    query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
   }
 
   if (!!request.hasUserAgreement()) {
