@@ -685,6 +685,24 @@ namespace PaiStudio20220112
       Models::ListResourceGroupsResponse listResourceGroups(const Models::ListResourceGroupsRequest &request);
 
       /**
+       * @summary 查标签接口
+       *
+       * @param tmpReq ListTagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查标签接口
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
        * @summary 获取指定TrainingJob的事件。
        *
        * @param request ListTrainingJobEventsRequest
@@ -841,6 +859,42 @@ namespace PaiStudio20220112
        * @return StopTrainingJobResponse
        */
       Models::StopTrainingJobResponse stopTrainingJob(const string &TrainingJobId);
+
+      /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 打标签接口
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary 删标签接口
+       *
+       * @param tmpReq UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删标签接口
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary 更新算法

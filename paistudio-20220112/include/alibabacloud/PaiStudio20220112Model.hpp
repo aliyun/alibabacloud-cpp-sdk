@@ -24,6 +24,7 @@
 #include <alibabacloud/models/DataSource.hpp>
 #include <alibabacloud/models/ClusterSpec.hpp>
 #include <alibabacloud/models/ComponentSpec.hpp>
+#include <alibabacloud/models/EcsSpec.hpp>
 #include <alibabacloud/models/EniCacheConfig.hpp>
 #include <alibabacloud/models/Features.hpp>
 #include <alibabacloud/models/GpuInfo.hpp>
@@ -186,6 +187,10 @@
 #include <alibabacloud/models/ListResourceGroupsRequest.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListTrainingJobEventsRequest.hpp>
 #include <alibabacloud/models/ListTrainingJobEventsResponseBody.hpp>
 #include <alibabacloud/models/ListTrainingJobEventsResponse.hpp>
@@ -212,6 +217,13 @@
 #include <alibabacloud/models/ScaleQuotaResponse.hpp>
 #include <alibabacloud/models/StopTrainingJobResponseBody.hpp>
 #include <alibabacloud/models/StopTrainingJobResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesShrinkRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateAlgorithmRequest.hpp>
 #include <alibabacloud/models/UpdateAlgorithmResponseBody.hpp>
 #include <alibabacloud/models/UpdateAlgorithmResponse.hpp>
@@ -273,6 +285,8 @@
 #include <alibabacloud/models/GetTrainingJobLatestMetricsResponseBodyMetrics.hpp>
 #include <alibabacloud/models/ListAlgorithmVersionsResponseBodyAlgorithmVersions.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponseBodyAlgorithms.hpp>
+#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics.hpp>
 #include <alibabacloud/models/ListTrainingJobInstanceMetricsResponseBodyInstanceMetrics.hpp>
 #include <alibabacloud/models/ListTrainingJobMetricsResponseBodyMetrics.hpp>
@@ -289,6 +303,7 @@
 #include <alibabacloud/models/ListTrainingJobsResponseBodyTrainingJobsStatusTransitions.hpp>
 #include <alibabacloud/models/ListTrainingJobsResponseBodyTrainingJobsUserVpc.hpp>
 #include <alibabacloud/models/ListTrainingJobsResponseBodyTrainingJobs.hpp>
+#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 #include <alibabacloud/models/UpdateTrainingJobLabelsRequestLabels.hpp>
 
 #endif
