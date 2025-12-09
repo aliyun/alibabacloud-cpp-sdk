@@ -2488,6 +2488,10 @@ UpdateVpcEndpointAttributeResponse Client::updateVpcEndpointAttributeWithOptions
     query["RegionId"] = request.regionId();
   }
 
+  if (!!request.hasResetPolicy()) {
+    query["ResetPolicy"] = request.resetPolicy();
+  }
+
   if (!!request.hasZoneAffinityEnabled()) {
     query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled();
   }

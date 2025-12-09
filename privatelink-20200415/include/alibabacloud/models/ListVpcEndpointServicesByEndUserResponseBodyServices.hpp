@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListVpcEndpointServicesByEndUserResponseBodyServices& obj) { 
       DARABONBA_PTR_TO_JSON(AddressIpVersion, addressIpVersion_);
+      DARABONBA_PTR_TO_JSON(AutoAcceptEnabled, autoAcceptEnabled_);
       DARABONBA_PTR_TO_JSON(Payer, payer_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ServiceDomain, serviceDomain_);
@@ -25,11 +26,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServiceSupportIPv6, serviceSupportIPv6_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(VpcEndpointPolicySupported, vpcEndpointPolicySupported_);
       DARABONBA_PTR_TO_JSON(ZoneAffinityEnabled, zoneAffinityEnabled_);
       DARABONBA_PTR_TO_JSON(Zones, zones_);
     };
     friend void from_json(const Darabonba::Json& j, ListVpcEndpointServicesByEndUserResponseBodyServices& obj) { 
       DARABONBA_PTR_FROM_JSON(AddressIpVersion, addressIpVersion_);
+      DARABONBA_PTR_FROM_JSON(AutoAcceptEnabled, autoAcceptEnabled_);
       DARABONBA_PTR_FROM_JSON(Payer, payer_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ServiceDomain, serviceDomain_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServiceSupportIPv6, serviceSupportIPv6_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(VpcEndpointPolicySupported, vpcEndpointPolicySupported_);
       DARABONBA_PTR_FROM_JSON(ZoneAffinityEnabled, zoneAffinityEnabled_);
       DARABONBA_PTR_FROM_JSON(Zones, zones_);
     };
@@ -54,14 +58,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressIpVersion_ == nullptr
-        && return this->payer_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceDomain_ == nullptr && return this->serviceId_ == nullptr && return this->serviceName_ == nullptr
-        && return this->serviceResourceType_ == nullptr && return this->serviceSupportIPv6_ == nullptr && return this->serviceType_ == nullptr && return this->tags_ == nullptr && return this->zoneAffinityEnabled_ == nullptr
-        && return this->zones_ == nullptr; };
+        && return this->autoAcceptEnabled_ == nullptr && return this->payer_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serviceDomain_ == nullptr && return this->serviceId_ == nullptr
+        && return this->serviceName_ == nullptr && return this->serviceResourceType_ == nullptr && return this->serviceSupportIPv6_ == nullptr && return this->serviceType_ == nullptr && return this->tags_ == nullptr
+        && return this->vpcEndpointPolicySupported_ == nullptr && return this->zoneAffinityEnabled_ == nullptr && return this->zones_ == nullptr; };
     // addressIpVersion Field Functions 
     bool hasAddressIpVersion() const { return this->addressIpVersion_ != nullptr;};
     void deleteAddressIpVersion() { this->addressIpVersion_ = nullptr;};
     inline string addressIpVersion() const { DARABONBA_PTR_GET_DEFAULT(addressIpVersion_, "") };
     inline ListVpcEndpointServicesByEndUserResponseBodyServices& setAddressIpVersion(string addressIpVersion) { DARABONBA_PTR_SET_VALUE(addressIpVersion_, addressIpVersion) };
+
+
+    // autoAcceptEnabled Field Functions 
+    bool hasAutoAcceptEnabled() const { return this->autoAcceptEnabled_ != nullptr;};
+    void deleteAutoAcceptEnabled() { this->autoAcceptEnabled_ = nullptr;};
+    inline bool autoAcceptEnabled() const { DARABONBA_PTR_GET_DEFAULT(autoAcceptEnabled_, false) };
+    inline ListVpcEndpointServicesByEndUserResponseBodyServices& setAutoAcceptEnabled(bool autoAcceptEnabled) { DARABONBA_PTR_SET_VALUE(autoAcceptEnabled_, autoAcceptEnabled) };
 
 
     // payer Field Functions 
@@ -129,6 +140,13 @@ namespace Models
     inline ListVpcEndpointServicesByEndUserResponseBodyServices& setTags(vector<Models::ListVpcEndpointServicesByEndUserResponseBodyServicesTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // vpcEndpointPolicySupported Field Functions 
+    bool hasVpcEndpointPolicySupported() const { return this->vpcEndpointPolicySupported_ != nullptr;};
+    void deleteVpcEndpointPolicySupported() { this->vpcEndpointPolicySupported_ = nullptr;};
+    inline bool vpcEndpointPolicySupported() const { DARABONBA_PTR_GET_DEFAULT(vpcEndpointPolicySupported_, false) };
+    inline ListVpcEndpointServicesByEndUserResponseBodyServices& setVpcEndpointPolicySupported(bool vpcEndpointPolicySupported) { DARABONBA_PTR_SET_VALUE(vpcEndpointPolicySupported_, vpcEndpointPolicySupported) };
+
+
     // zoneAffinityEnabled Field Functions 
     bool hasZoneAffinityEnabled() const { return this->zoneAffinityEnabled_ != nullptr;};
     void deleteZoneAffinityEnabled() { this->zoneAffinityEnabled_ = nullptr;};
@@ -151,6 +169,7 @@ namespace Models
     // *   **IPv4**
     // *   **DualStack**
     std::shared_ptr<string> addressIpVersion_ = nullptr;
+    std::shared_ptr<bool> autoAcceptEnabled_ = nullptr;
     // The payer. Valid values:
     // 
     // *   **Endpoint**: the service consumer
@@ -181,6 +200,7 @@ namespace Models
     std::shared_ptr<string> serviceType_ = nullptr;
     // The list of tags.
     std::shared_ptr<vector<Models::ListVpcEndpointServicesByEndUserResponseBodyServicesTags>> tags_ = nullptr;
+    std::shared_ptr<bool> vpcEndpointPolicySupported_ = nullptr;
     std::shared_ptr<bool> zoneAffinityEnabled_ = nullptr;
     // The zones of the endpoint service that can be associated with the endpoint.
     std::shared_ptr<vector<string>> zones_ = nullptr;

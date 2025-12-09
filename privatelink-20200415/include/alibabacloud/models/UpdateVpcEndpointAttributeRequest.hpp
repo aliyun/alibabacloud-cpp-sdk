@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndpointName, endpointName_);
       DARABONBA_PTR_TO_JSON(PolicyDocument, policyDocument_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResetPolicy, resetPolicy_);
       DARABONBA_PTR_TO_JSON(ZoneAffinityEnabled, zoneAffinityEnabled_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateVpcEndpointAttributeRequest& obj) { 
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndpointName, endpointName_);
       DARABONBA_PTR_FROM_JSON(PolicyDocument, policyDocument_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResetPolicy, resetPolicy_);
       DARABONBA_PTR_FROM_JSON(ZoneAffinityEnabled, zoneAffinityEnabled_);
     };
     UpdateVpcEndpointAttributeRequest() = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addressIpVersion_ == nullptr
         && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->endpointDescription_ == nullptr && return this->endpointId_ == nullptr && return this->endpointName_ == nullptr
-        && return this->policyDocument_ == nullptr && return this->regionId_ == nullptr && return this->zoneAffinityEnabled_ == nullptr; };
+        && return this->policyDocument_ == nullptr && return this->regionId_ == nullptr && return this->resetPolicy_ == nullptr && return this->zoneAffinityEnabled_ == nullptr; };
     // addressIpVersion Field Functions 
     bool hasAddressIpVersion() const { return this->addressIpVersion_ != nullptr;};
     void deleteAddressIpVersion() { this->addressIpVersion_ = nullptr;};
@@ -104,6 +106,13 @@ namespace Models
     inline UpdateVpcEndpointAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resetPolicy Field Functions 
+    bool hasResetPolicy() const { return this->resetPolicy_ != nullptr;};
+    void deleteResetPolicy() { this->resetPolicy_ = nullptr;};
+    inline bool resetPolicy() const { DARABONBA_PTR_GET_DEFAULT(resetPolicy_, false) };
+    inline UpdateVpcEndpointAttributeRequest& setResetPolicy(bool resetPolicy) { DARABONBA_PTR_SET_VALUE(resetPolicy_, resetPolicy) };
+
+
     // zoneAffinityEnabled Field Functions 
     bool hasZoneAffinityEnabled() const { return this->zoneAffinityEnabled_ != nullptr;};
     void deleteZoneAffinityEnabled() { this->zoneAffinityEnabled_ = nullptr;};
@@ -145,6 +154,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<bool> resetPolicy_ = nullptr;
     std::shared_ptr<bool> zoneAffinityEnabled_ = nullptr;
   };
 
