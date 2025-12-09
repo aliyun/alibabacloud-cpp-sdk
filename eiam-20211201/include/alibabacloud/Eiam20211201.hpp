@@ -3168,6 +3168,23 @@ namespace Eiam20211201
       Models::UpdateApplicationInfoResponse updateApplicationInfo(const Models::UpdateApplicationInfoRequest &request);
 
       /**
+       * @summary 更新模板应用的SSO参数
+       *
+       * @param request UpdateApplicationSsoFormParamsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApplicationSsoFormParamsResponse
+       */
+      Models::UpdateApplicationSsoFormParamsResponse updateApplicationSsoFormParamsWithOptions(const Models::UpdateApplicationSsoFormParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模板应用的SSO参数
+       *
+       * @param request UpdateApplicationSsoFormParamsRequest
+       * @return UpdateApplicationSsoFormParamsResponse
+       */
+      Models::UpdateApplicationSsoFormParamsResponse updateApplicationSsoFormParams(const Models::UpdateApplicationSsoFormParamsRequest &request);
+
+      /**
        * @summary 更新ApplicationToken过期时间
        *
        * @param request UpdateApplicationTokenExpirationTimeRequest

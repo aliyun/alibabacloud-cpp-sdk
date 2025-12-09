@@ -545,6 +545,9 @@
 #include <alibabacloud/models/UpdateApplicationInfoRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationInfoResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationInfoResponse.hpp>
+#include <alibabacloud/models/UpdateApplicationSsoFormParamsRequest.hpp>
+#include <alibabacloud/models/UpdateApplicationSsoFormParamsResponseBody.hpp>
+#include <alibabacloud/models/UpdateApplicationSsoFormParamsResponse.hpp>
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationTokenExpirationTimeResponse.hpp>
@@ -881,6 +884,7 @@
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig.hpp>
 #include <alibabacloud/models/SetPasswordComplexityConfigurationRequestPasswordComplexityRules.hpp>
 #include <alibabacloud/models/UpdateApplicationFederatedCredentialRequestAttributeMappings.hpp>
+#include <alibabacloud/models/UpdateApplicationSsoFormParamsRequestApplicationTemplateParams.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyRequestConditionsConfigApplications.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyRequestConditionsConfigNetworkZones.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyRequestConditionsConfigUsers.hpp>

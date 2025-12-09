@@ -9489,6 +9489,56 @@ UpdateApplicationInfoResponse Client::updateApplicationInfo(const UpdateApplicat
 }
 
 /**
+ * @summary 更新模板应用的SSO参数
+ *
+ * @param request UpdateApplicationSsoFormParamsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationSsoFormParamsResponse
+ */
+UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParamsWithOptions(const UpdateApplicationSsoFormParamsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasApplicationTemplateParams()) {
+    query["ApplicationTemplateParams"] = request.applicationTemplateParams();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationSsoFormParams"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationSsoFormParamsResponse>();
+}
+
+/**
+ * @summary 更新模板应用的SSO参数
+ *
+ * @param request UpdateApplicationSsoFormParamsRequest
+ * @return UpdateApplicationSsoFormParamsResponse
+ */
+UpdateApplicationSsoFormParamsResponse Client::updateApplicationSsoFormParams(const UpdateApplicationSsoFormParamsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationSsoFormParamsWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新ApplicationToken过期时间
  *
  * @param request UpdateApplicationTokenExpirationTimeRequest
