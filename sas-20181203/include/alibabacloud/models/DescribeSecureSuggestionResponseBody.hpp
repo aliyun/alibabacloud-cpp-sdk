@@ -17,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeSecureSuggestionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(CalTime, calTime_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Score, score_);
       DARABONBA_PTR_TO_JSON(Suggestions, suggestions_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSecureSuggestionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(CalTime, calTime_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Score, score_);
       DARABONBA_PTR_FROM_JSON(Suggestions, suggestions_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calTime_ == nullptr
-        && return this->requestId_ == nullptr && return this->suggestions_ == nullptr && return this->totalCount_ == nullptr; };
+        && return this->requestId_ == nullptr && return this->score_ == nullptr && return this->suggestions_ == nullptr && return this->totalCount_ == nullptr; };
     // calTime Field Functions 
     bool hasCalTime() const { return this->calTime_ != nullptr;};
     void deleteCalTime() { this->calTime_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeSecureSuggestionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // score Field Functions 
+    bool hasScore() const { return this->score_ != nullptr;};
+    void deleteScore() { this->score_ = nullptr;};
+    inline string score() const { DARABONBA_PTR_GET_DEFAULT(score_, "") };
+    inline DescribeSecureSuggestionResponseBody& setScore(string score) { DARABONBA_PTR_SET_VALUE(score_, score) };
 
 
     // suggestions Field Functions 
@@ -72,6 +81,7 @@ namespace Models
   protected:
     std::shared_ptr<int64_t> calTime_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<string> score_ = nullptr;
     std::shared_ptr<vector<DescribeSecureSuggestionResponseBodySuggestions>> suggestions_ = nullptr;
     std::shared_ptr<int32_t> totalCount_ = nullptr;
   };

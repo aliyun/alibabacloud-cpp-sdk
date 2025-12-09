@@ -34695,6 +34695,10 @@ ListClientUserDefineRulesResponse Client::listClientUserDefineRules(const ListCl
 ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const ListCloudAssetInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCloudAssetQueryData()) {
+    query["CloudAssetQueryData"] = request.cloudAssetQueryData();
+  }
+
   if (!!request.hasCloudAssetTypes()) {
     query["CloudAssetTypes"] = request.cloudAssetTypes();
   }

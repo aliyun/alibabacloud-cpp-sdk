@@ -3513,6 +3513,7 @@
 #include <alibabacloud/models/ListClientAlertModeResponseBodyData.hpp>
 #include <alibabacloud/models/ListClientUserDefineRulesResponseBodyPageInfo.hpp>
 #include <alibabacloud/models/ListClientUserDefineRulesResponseBodyUserDefineRuleList.hpp>
+#include <alibabacloud/models/ListCloudAssetInstancesRequestCloudAssetQueryData.hpp>
 #include <alibabacloud/models/ListCloudAssetInstancesRequestCloudAssetTypes.hpp>
 #include <alibabacloud/models/ListCloudAssetInstancesResponseBodyInstances.hpp>
 #include <alibabacloud/models/ListCloudAssetInstancesResponseBodyPageInfo.hpp>

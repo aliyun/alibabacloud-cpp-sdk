@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_LISTCLOUDASSETINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/ListCloudAssetInstancesRequestCloudAssetQueryData.hpp>
 #include <alibabacloud/models/ListCloudAssetInstancesRequestCloudAssetTypes.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class ListCloudAssetInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCloudAssetInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloudAssetQueryData, cloudAssetQueryData_);
       DARABONBA_PTR_TO_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudAssetInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloudAssetQueryData, cloudAssetQueryData_);
       DARABONBA_PTR_FROM_JSON(CloudAssetTypes, cloudAssetTypes_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
@@ -41,8 +44,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cloudAssetTypes_ == nullptr
-        && return this->criteria_ == nullptr && return this->currentPage_ == nullptr && return this->logicalExp_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->cloudAssetQueryData_ == nullptr
+        && return this->cloudAssetTypes_ == nullptr && return this->criteria_ == nullptr && return this->currentPage_ == nullptr && return this->logicalExp_ == nullptr && return this->pageSize_ == nullptr
+        && return this->regionId_ == nullptr; };
+    // cloudAssetQueryData Field Functions 
+    bool hasCloudAssetQueryData() const { return this->cloudAssetQueryData_ != nullptr;};
+    void deleteCloudAssetQueryData() { this->cloudAssetQueryData_ = nullptr;};
+    inline const vector<ListCloudAssetInstancesRequestCloudAssetQueryData> & cloudAssetQueryData() const { DARABONBA_PTR_GET_CONST(cloudAssetQueryData_, vector<ListCloudAssetInstancesRequestCloudAssetQueryData>) };
+    inline vector<ListCloudAssetInstancesRequestCloudAssetQueryData> cloudAssetQueryData() { DARABONBA_PTR_GET(cloudAssetQueryData_, vector<ListCloudAssetInstancesRequestCloudAssetQueryData>) };
+    inline ListCloudAssetInstancesRequest& setCloudAssetQueryData(const vector<ListCloudAssetInstancesRequestCloudAssetQueryData> & cloudAssetQueryData) { DARABONBA_PTR_SET_VALUE(cloudAssetQueryData_, cloudAssetQueryData) };
+    inline ListCloudAssetInstancesRequest& setCloudAssetQueryData(vector<ListCloudAssetInstancesRequestCloudAssetQueryData> && cloudAssetQueryData) { DARABONBA_PTR_SET_RVALUE(cloudAssetQueryData_, cloudAssetQueryData) };
+
+
     // cloudAssetTypes Field Functions 
     bool hasCloudAssetTypes() const { return this->cloudAssetTypes_ != nullptr;};
     void deleteCloudAssetTypes() { this->cloudAssetTypes_ = nullptr;};
@@ -88,6 +101,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<ListCloudAssetInstancesRequestCloudAssetQueryData>> cloudAssetQueryData_ = nullptr;
     // The details of the cloud asset.
     std::shared_ptr<vector<ListCloudAssetInstancesRequestCloudAssetTypes>> cloudAssetTypes_ = nullptr;
     // The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
