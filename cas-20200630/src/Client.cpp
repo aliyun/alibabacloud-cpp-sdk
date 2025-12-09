@@ -1806,6 +1806,234 @@ ListRevokeCertificateResponse Client::listRevokeCertificate(const ListRevokeCert
 }
 
 /**
+ * @summary 获取资源对应的标签
+ *
+ * @param request ListTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary 获取资源对应的标签
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 变更资源的资源组
+ *
+ * @param request MoveResourceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveResourceGroupResponse
+ */
+MoveResourceGroupResponse Client::moveResourceGroupWithOptions(const MoveResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MoveResourceGroup"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveResourceGroupResponse>();
+}
+
+/**
+ * @summary 变更资源的资源组
+ *
+ * @param request MoveResourceGroupRequest
+ * @return MoveResourceGroupResponse
+ */
+MoveResourceGroupResponse Client::moveResourceGroup(const MoveResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return moveResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 新增资源标签
+ *
+ * @param request TagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary 新增资源标签
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除标签
+ *
+ * @param request UntagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.all();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.tagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary 移除标签
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
  *
  * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.

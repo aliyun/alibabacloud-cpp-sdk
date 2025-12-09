@@ -615,6 +615,74 @@ namespace Cas20200630
       Models::ListRevokeCertificateResponse listRevokeCertificate(const Models::ListRevokeCertificateRequest &request);
 
       /**
+       * @summary 获取资源对应的标签
+       *
+       * @param request ListTagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取资源对应的标签
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary 变更资源的资源组
+       *
+       * @param request MoveResourceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MoveResourceGroupResponse
+       */
+      Models::MoveResourceGroupResponse moveResourceGroupWithOptions(const Models::MoveResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更资源的资源组
+       *
+       * @param request MoveResourceGroupRequest
+       * @return MoveResourceGroupResponse
+       */
+      Models::MoveResourceGroupResponse moveResourceGroup(const Models::MoveResourceGroupRequest &request);
+
+      /**
+       * @summary 新增资源标签
+       *
+       * @param request TagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增资源标签
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary 移除标签
+       *
+       * @param request UntagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除标签
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
        * @summary Changes the status of a root certificate authority (CA) certificate or an intermediate CA certificate from ISSUE to REVOKE.
        *
        * @description After a CA certificate is created, the CA certificate is in the ISSUE state by default. You can call the UpdateCACertificateStatus operation to change the status of a CA certificate from ISSUE to REVOKE. If a CA certificate is in the ISSUE state, the CA certificate can be used to issue certificates. If a CA certificate is in the REVOKE state, the CA certificate cannot be used to issue certificates, and the certificates that are issued from the CA certificate become invalid.

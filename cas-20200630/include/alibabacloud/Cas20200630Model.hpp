@@ -71,6 +71,18 @@
 #include <alibabacloud/models/ListRevokeCertificateRequest.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponseBody.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponse.hpp>
+#include <alibabacloud/models/ListTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/MoveResourceGroupRequest.hpp>
+#include <alibabacloud/models/MoveResourceGroupResponseBody.hpp>
+#include <alibabacloud/models/MoveResourceGroupResponse.hpp>
+#include <alibabacloud/models/TagResourcesRequest.hpp>
+#include <alibabacloud/models/TagResourcesResponseBody.hpp>
+#include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagResourcesRequest.hpp>
+#include <alibabacloud/models/UntagResourcesResponseBody.hpp>
+#include <alibabacloud/models/UntagResourcesResponse.hpp>
 #include <alibabacloud/models/UpdateCaCertificateStatusRequest.hpp>
 #include <alibabacloud/models/UpdateCaCertificateStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateCaCertificateStatusResponse.hpp>
@@ -109,6 +121,11 @@
 #include <alibabacloud/models/ListClientCertificateResponseBodyCertificateList.hpp>
 #include <alibabacloud/models/ListPcaCaCertificateResponseBodyList.hpp>
 #include <alibabacloud/models/ListRevokeCertificateResponseBodyCertificateList.hpp>
+#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBodyDataTagResourcesTagResources.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBodyDataTagResources.hpp>
+#include <alibabacloud/models/ListTagResourcesResponseBodyData.hpp>
+#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 #include <alibabacloud/models/UpdatePcaCertificateRequestTags.hpp>
 #include <alibabacloud/models/UpdatePcaCertificateResponseBodyAccessDeniedDetail.hpp>
 
