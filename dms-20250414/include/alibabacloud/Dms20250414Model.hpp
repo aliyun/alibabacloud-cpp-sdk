@@ -37,6 +37,10 @@
 #include <alibabacloud/models/CreateAirflowLoginTokenRequest.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenResponseBody.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenResponse.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionShrinkRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionResponse.hpp>
 #include <alibabacloud/models/CreateDataLakeDatabaseRequest.hpp>
 #include <alibabacloud/models/CreateDataLakeDatabaseShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDataLakeDatabaseResponseBody.hpp>
@@ -69,6 +73,9 @@
 #include <alibabacloud/models/DeleteDataLakeTableRequest.hpp>
 #include <alibabacloud/models/DeleteDataLakeTableResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataLakeTableResponse.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionRequest.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionResponse.hpp>
 #include <alibabacloud/models/GetAirflowRequest.hpp>
 #include <alibabacloud/models/GetAirflowResponseBody.hpp>
 #include <alibabacloud/models/GetAirflowResponse.hpp>
@@ -156,8 +163,14 @@
 #include <alibabacloud/models/UpdateDataLakeTableResponse.hpp>
 #include <alibabacloud/models/CreateAirflowResponseBodyRoot.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenResponseBodyData.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionRequestSessionConfig.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionResponseBodyDataSessionConfig.hpp>
+#include <alibabacloud/models/CreateDataAgentSessionResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteAirflowResponseBodyRootResponses.hpp>
 #include <alibabacloud/models/DeleteAirflowResponseBodyRoot.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyDataChatHistoryLocations.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyDataSessionConfig.hpp>
+#include <alibabacloud/models/DescribeDataAgentSessionResponseBodyData.hpp>
 #include <alibabacloud/models/GetAirflowResponseBodyRoot.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponseBodyData.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBodyRootList.hpp>

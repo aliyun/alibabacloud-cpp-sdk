@@ -395,6 +395,70 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginToken(const CreateAirf
 }
 
 /**
+ * @summary CreateDataAgentSession
+ *
+ * @param tmpReq CreateDataAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentSessionResponse
+ */
+CreateDataAgentSessionResponse Client::createDataAgentSessionWithOptions(const CreateDataAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateDataAgentSessionShrinkRequest request = CreateDataAgentSessionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSessionConfig()) {
+    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig(), "SessionConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.DMSUnit();
+  }
+
+  if (!!request.hasFile()) {
+    query["File"] = request.file();
+  }
+
+  if (!!request.hasSessionConfigShrink()) {
+    query["SessionConfig"] = request.sessionConfigShrink();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.title();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentSession"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentSessionResponse>();
+}
+
+/**
+ * @summary CreateDataAgentSession
+ *
+ * @param request CreateDataAgentSessionRequest
+ * @return CreateDataAgentSessionResponse
+ */
+CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentSessionWithOptions(request, runtime);
+}
+
+/**
  * @summary 新建湖仓数据库
  *
  * @param tmpReq CreateDataLakeDatabaseRequest
@@ -966,6 +1030,56 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTableWithOptions(const DeleteD
 DeleteDataLakeTableResponse Client::deleteDataLakeTable(const DeleteDataLakeTableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDataLakeTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeDataAgentSession
+ *
+ * @param request DescribeDataAgentSessionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDataAgentSessionResponse
+ */
+DescribeDataAgentSessionResponse Client::describeDataAgentSessionWithOptions(const DescribeDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.DMSUnit();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDataAgentSession"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDataAgentSessionResponse>();
+}
+
+/**
+ * @summary DescribeDataAgentSession
+ *
+ * @param request DescribeDataAgentSessionRequest
+ * @return DescribeDataAgentSessionResponse
+ */
+DescribeDataAgentSessionResponse Client::describeDataAgentSession(const DescribeDataAgentSessionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDataAgentSessionWithOptions(request, runtime);
 }
 
 /**

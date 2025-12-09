@@ -106,6 +106,23 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
+       * @summary CreateDataAgentSession
+       *
+       * @param tmpReq CreateDataAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentSessionResponse
+       */
+      Models::CreateDataAgentSessionResponse createDataAgentSessionWithOptions(const Models::CreateDataAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateDataAgentSession
+       *
+       * @param request CreateDataAgentSessionRequest
+       * @return CreateDataAgentSessionResponse
+       */
+      Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
+
+      /**
        * @summary 新建湖仓数据库
        *
        * @param tmpReq CreateDataLakeDatabaseRequest
@@ -257,6 +274,23 @@ namespace Dms20250414
        * @return DeleteDataLakeTableResponse
        */
       Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
+
+      /**
+       * @summary DescribeDataAgentSession
+       *
+       * @param request DescribeDataAgentSessionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDataAgentSessionResponse
+       */
+      Models::DescribeDataAgentSessionResponse describeDataAgentSessionWithOptions(const Models::DescribeDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeDataAgentSession
+       *
+       * @param request DescribeDataAgentSessionRequest
+       * @return DescribeDataAgentSessionResponse
+       */
+      Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
 
       /**
        * @summary 查询 Airflow
