@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Dms20250414::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -1014,6 +1015,115 @@ GetAirflowResponse Client::getAirflow(const GetAirflowRequest &request) {
 }
 
 /**
+ * @summary GetChatContent
+ *
+ * @param request GetChatContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetChatContentResponse
+ */
+FutrueGenerator<GetChatContentResponse> Client::getChatContentWithSSE(const GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasCheckpoint()) {
+    query["Checkpoint"] = request.checkpoint();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.DMSUnit();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetChatContent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<GetChatContentResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary GetChatContent
+ *
+ * @param request GetChatContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetChatContentResponse
+ */
+GetChatContentResponse Client::getChatContentWithOptions(const GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasCheckpoint()) {
+    query["Checkpoint"] = request.checkpoint();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.DMSUnit();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetChatContent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetChatContentResponse>();
+}
+
+/**
+ * @summary GetChatContent
+ *
+ * @param request GetChatContentRequest
+ * @return GetChatContentResponse
+ */
+GetChatContentResponse Client::getChatContent(const GetChatContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getChatContentWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取uc的数据库目录
  *
  * @param request GetDataLakeCatalogRequest
@@ -1359,6 +1469,56 @@ GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTaskWithOptions(con
 GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTask(const GetNotebookAndSubmitTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNotebookAndSubmitTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看Notebook任务运行结果
+ *
+ * @param request GetNotebookTaskStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetNotebookTaskStatusResponse
+ */
+GetNotebookTaskStatusResponse Client::getNotebookTaskStatusWithOptions(const GetNotebookTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetNotebookTaskStatus"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetNotebookTaskStatusResponse>();
+}
+
+/**
+ * @summary 查看Notebook任务运行结果
+ *
+ * @param request GetNotebookTaskStatusRequest
+ * @return GetNotebookTaskStatusResponse
+ */
+GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTaskStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getNotebookTaskStatusWithOptions(request, runtime);
 }
 
 /**
@@ -2083,6 +2243,94 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfoWithOptions(c
 ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfo(const ListDataLakeTablebaseInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDataLakeTablebaseInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary SendChatMessage
+ *
+ * @param tmpReq SendChatMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendChatMessageResponse
+ */
+SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SendChatMessageShrinkRequest request = SendChatMessageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataSource()) {
+    request.setDataSourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dataSource(), "DataSource", "json"));
+  }
+
+  if (!!tmpReq.hasSessionConfig()) {
+    request.setSessionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig(), "SessionConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.DMSUnit();
+  }
+
+  if (!!request.hasDataSourceShrink()) {
+    query["DataSource"] = request.dataSourceShrink();
+  }
+
+  if (!!request.hasMessage()) {
+    query["Message"] = request.message();
+  }
+
+  if (!!request.hasMessageType()) {
+    query["MessageType"] = request.messageType();
+  }
+
+  if (!!request.hasQuestion()) {
+    query["Question"] = request.question();
+  }
+
+  if (!!request.hasQuotedMessage()) {
+    query["QuotedMessage"] = request.quotedMessage();
+  }
+
+  if (!!request.hasReplyTo()) {
+    query["ReplyTo"] = request.replyTo();
+  }
+
+  if (!!request.hasSessionConfigShrink()) {
+    query["SessionConfig"] = request.sessionConfigShrink();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SendChatMessage"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SendChatMessageResponse>();
+}
+
+/**
+ * @summary SendChatMessage
+ *
+ * @param request SendChatMessageRequest
+ * @return SendChatMessageResponse
+ */
+SendChatMessageResponse Client::sendChatMessage(const SendChatMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return sendChatMessageWithOptions(request, runtime);
 }
 
 /**

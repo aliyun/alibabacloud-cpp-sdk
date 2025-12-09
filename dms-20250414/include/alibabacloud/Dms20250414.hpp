@@ -276,6 +276,32 @@ namespace Dms20250414
       Models::GetAirflowResponse getAirflow(const Models::GetAirflowRequest &request);
 
       /**
+       * @summary GetChatContent
+       *
+       * @param request GetChatContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetChatContentResponse
+       */
+      FutrueGenerator<Models::GetChatContentResponse> getChatContentWithSSE(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetChatContent
+       *
+       * @param request GetChatContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetChatContentResponse
+       */
+      Models::GetChatContentResponse getChatContentWithOptions(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetChatContent
+       *
+       * @param request GetChatContentRequest
+       * @return GetChatContentResponse
+       */
+      Models::GetChatContentResponse getChatContent(const Models::GetChatContentRequest &request);
+
+      /**
        * @summary 获取uc的数据库目录
        *
        * @param request GetDataLakeCatalogRequest
@@ -376,6 +402,23 @@ namespace Dms20250414
        * @return GetNotebookAndSubmitTaskResponse
        */
       Models::GetNotebookAndSubmitTaskResponse getNotebookAndSubmitTask(const Models::GetNotebookAndSubmitTaskRequest &request);
+
+      /**
+       * @summary 查看Notebook任务运行结果
+       *
+       * @param request GetNotebookTaskStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetNotebookTaskStatusResponse
+       */
+      Models::GetNotebookTaskStatusResponse getNotebookTaskStatusWithOptions(const Models::GetNotebookTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看Notebook任务运行结果
+       *
+       * @param request GetNotebookTaskStatusRequest
+       * @return GetNotebookTaskStatusResponse
+       */
+      Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
        * @summary 列出资源Airflow
@@ -563,6 +606,23 @@ namespace Dms20250414
        * @return ListDataLakeTablebaseInfoResponse
        */
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(const Models::ListDataLakeTablebaseInfoRequest &request);
+
+      /**
+       * @summary SendChatMessage
+       *
+       * @param tmpReq SendChatMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendChatMessageResponse
+       */
+      Models::SendChatMessageResponse sendChatMessageWithOptions(const Models::SendChatMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SendChatMessage
+       *
+       * @param request SendChatMessageRequest
+       * @return SendChatMessageResponse
+       */
+      Models::SendChatMessageResponse sendChatMessage(const Models::SendChatMessageRequest &request);
 
       /**
        * @summary 更新UpdateAirflow

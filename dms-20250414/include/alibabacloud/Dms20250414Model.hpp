@@ -72,6 +72,9 @@
 #include <alibabacloud/models/GetAirflowRequest.hpp>
 #include <alibabacloud/models/GetAirflowResponseBody.hpp>
 #include <alibabacloud/models/GetAirflowResponse.hpp>
+#include <alibabacloud/models/GetChatContentRequest.hpp>
+#include <alibabacloud/models/GetChatContentResponseBody.hpp>
+#include <alibabacloud/models/GetChatContentResponse.hpp>
 #include <alibabacloud/models/GetDataLakeCatalogRequest.hpp>
 #include <alibabacloud/models/GetDataLakeCatalogResponseBody.hpp>
 #include <alibabacloud/models/GetDataLakeCatalogResponse.hpp>
@@ -91,6 +94,9 @@
 #include <alibabacloud/models/GetNotebookAndSubmitTaskRequest.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookAndSubmitTaskResponse.hpp>
+#include <alibabacloud/models/GetNotebookTaskStatusRequest.hpp>
+#include <alibabacloud/models/GetNotebookTaskStatusResponseBody.hpp>
+#include <alibabacloud/models/GetNotebookTaskStatusResponse.hpp>
 #include <alibabacloud/models/ListAirflowsRequest.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBody.hpp>
 #include <alibabacloud/models/ListAirflowsResponse.hpp>
@@ -125,6 +131,10 @@
 #include <alibabacloud/models/ListDataLakeTablebaseInfoRequest.hpp>
 #include <alibabacloud/models/ListDataLakeTablebaseInfoResponseBody.hpp>
 #include <alibabacloud/models/ListDataLakeTablebaseInfoResponse.hpp>
+#include <alibabacloud/models/SendChatMessageRequest.hpp>
+#include <alibabacloud/models/SendChatMessageShrinkRequest.hpp>
+#include <alibabacloud/models/SendChatMessageResponseBody.hpp>
+#include <alibabacloud/models/SendChatMessageResponse.hpp>
 #include <alibabacloud/models/UpdateAirflowRequest.hpp>
 #include <alibabacloud/models/UpdateAirflowResponseBody.hpp>
 #include <alibabacloud/models/UpdateAirflowResponse.hpp>
@@ -149,8 +159,12 @@
 #include <alibabacloud/models/DeleteAirflowResponseBodyRootResponses.hpp>
 #include <alibabacloud/models/DeleteAirflowResponseBodyRoot.hpp>
 #include <alibabacloud/models/GetAirflowResponseBodyRoot.hpp>
+#include <alibabacloud/models/GetNotebookTaskStatusResponseBodyData.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBodyRootList.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBodyRoot.hpp>
+#include <alibabacloud/models/SendChatMessageRequestDataSource.hpp>
+#include <alibabacloud/models/SendChatMessageRequestSessionConfig.hpp>
+#include <alibabacloud/models/SendChatMessageResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateAirflowResponseBodyRoot.hpp>
 
 #endif
