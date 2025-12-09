@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_TO_JSON(ResourceProduct, resourceProduct_);
+      DARABONBA_PTR_TO_JSON(ResourceRegionId, resourceRegionId_);
       DARABONBA_PTR_TO_JSON(TLSVersion, TLSVersion_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCloudResourceRequestListen& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceProduct, resourceProduct_);
+      DARABONBA_PTR_FROM_JSON(ResourceRegionId, resourceRegionId_);
       DARABONBA_PTR_FROM_JSON(TLSVersion, TLSVersion_);
     };
     CreateCloudResourceRequestListen() = default ;
@@ -51,7 +53,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->certificates_ == nullptr
         && return this->cipherSuite_ == nullptr && return this->customCiphers_ == nullptr && return this->enableTLSv3_ == nullptr && return this->http2Enabled_ == nullptr && return this->port_ == nullptr
-        && return this->protocol_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceProduct_ == nullptr && return this->TLSVersion_ == nullptr; };
+        && return this->protocol_ == nullptr && return this->resourceInstanceId_ == nullptr && return this->resourceProduct_ == nullptr && return this->resourceRegionId_ == nullptr && return this->TLSVersion_ == nullptr; };
     // certificates Field Functions 
     bool hasCertificates() const { return this->certificates_ != nullptr;};
     void deleteCertificates() { this->certificates_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
     inline CreateCloudResourceRequestListen& setResourceProduct(string resourceProduct) { DARABONBA_PTR_SET_VALUE(resourceProduct_, resourceProduct) };
 
 
+    // resourceRegionId Field Functions 
+    bool hasResourceRegionId() const { return this->resourceRegionId_ != nullptr;};
+    void deleteResourceRegionId() { this->resourceRegionId_ = nullptr;};
+    inline string resourceRegionId() const { DARABONBA_PTR_GET_DEFAULT(resourceRegionId_, "") };
+    inline CreateCloudResourceRequestListen& setResourceRegionId(string resourceRegionId) { DARABONBA_PTR_SET_VALUE(resourceRegionId_, resourceRegionId) };
+
+
     // TLSVersion Field Functions 
     bool hasTLSVersion() const { return this->TLSVersion_ != nullptr;};
     void deleteTLSVersion() { this->TLSVersion_ = nullptr;};
@@ -171,6 +180,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> resourceProduct_ = nullptr;
+    std::shared_ptr<string> resourceRegionId_ = nullptr;
     // The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
     // 
     // *   **tlsv1**

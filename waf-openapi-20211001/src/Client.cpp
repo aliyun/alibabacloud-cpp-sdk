@@ -3874,6 +3874,72 @@ DescribeBaseSystemRulesResponse Client::describeBaseSystemRules(const DescribeBa
 }
 
 /**
+ * @summary 分页获取Bot管理规则标签信息
+ *
+ * @param request DescribeBotRuleLabelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBotRuleLabelsResponse
+ */
+DescribeBotRuleLabelsResponse Client::describeBotRuleLabelsWithOptions(const DescribeBotRuleLabelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasLabelType()) {
+    query["LabelType"] = request.labelType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasSubScene()) {
+    query["SubScene"] = request.subScene();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBotRuleLabels"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBotRuleLabelsResponse>();
+}
+
+/**
+ * @summary 分页获取Bot管理规则标签信息
+ *
+ * @param request DescribeBotRuleLabelsRequest
+ * @return DescribeBotRuleLabelsResponse
+ */
+DescribeBotRuleLabelsResponse Client::describeBotRuleLabels(const DescribeBotRuleLabelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBotRuleLabelsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
  *
  * @param request DescribeCertDetailRequest

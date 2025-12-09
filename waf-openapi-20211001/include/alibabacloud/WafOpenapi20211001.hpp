@@ -977,6 +977,23 @@ namespace WafOpenapi20211001
       Models::DescribeBaseSystemRulesResponse describeBaseSystemRules(const Models::DescribeBaseSystemRulesRequest &request);
 
       /**
+       * @summary 分页获取Bot管理规则标签信息
+       *
+       * @param request DescribeBotRuleLabelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBotRuleLabelsResponse
+       */
+      Models::DescribeBotRuleLabelsResponse describeBotRuleLabelsWithOptions(const Models::DescribeBotRuleLabelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页获取Bot管理规则标签信息
+       *
+       * @param request DescribeBotRuleLabelsRequest
+       * @return DescribeBotRuleLabelsResponse
+       */
+      Models::DescribeBotRuleLabelsResponse describeBotRuleLabels(const Models::DescribeBotRuleLabelsRequest &request);
+
+      /**
        * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
        *
        * @param request DescribeCertDetailRequest

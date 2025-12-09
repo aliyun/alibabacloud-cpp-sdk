@@ -173,6 +173,9 @@
 #include <alibabacloud/models/DescribeBaseSystemRulesRequest.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponse.hpp>
+#include <alibabacloud/models/DescribeBotRuleLabelsRequest.hpp>
+#include <alibabacloud/models/DescribeBotRuleLabelsResponseBody.hpp>
+#include <alibabacloud/models/DescribeBotRuleLabelsResponse.hpp>
 #include <alibabacloud/models/DescribeCertDetailRequest.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponseBody.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponse.hpp>
@@ -704,6 +707,7 @@
 #include <alibabacloud/models/DescribeApisecSuggestionsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecUserOperationsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponseBodyRules.hpp>
+#include <alibabacloud/models/DescribeBotRuleLabelsResponseBodyRuleLabels.hpp>
 #include <alibabacloud/models/DescribeCertDetailResponseBodyCertDetail.hpp>
 #include <alibabacloud/models/DescribeCertsResponseBodyCerts.hpp>
 #include <alibabacloud/models/DescribeChargeModuleResponseBodyChargeModules.hpp>
