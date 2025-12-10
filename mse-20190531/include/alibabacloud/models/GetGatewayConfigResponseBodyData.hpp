@@ -37,9 +37,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InitialConnectionWindowSize, initialConnectionWindowSize_);
       DARABONBA_PTR_TO_JSON(InitialStreamWindowSize, initialStreamWindowSize_);
       DARABONBA_PTR_TO_JSON(KeepaliveHeaderTimeout, keepaliveHeaderTimeout_);
+      DARABONBA_PTR_TO_JSON(LiteMetrics, liteMetrics_);
       DARABONBA_PTR_TO_JSON(LogFilterConfig, logFilterConfig_);
       DARABONBA_PTR_TO_JSON(NoSupportedConfigList, noSupportedConfigList_);
       DARABONBA_PTR_TO_JSON(PathWithEscapedSlashes, pathWithEscapedSlashes_);
+      DARABONBA_PTR_TO_JSON(PreserveExternalRequestID, preserveExternalRequestID_);
       DARABONBA_PTR_TO_JSON(PreserveHeaderFormat, preserveHeaderFormat_);
       DARABONBA_PTR_TO_JSON(SlsConfigDetails, slsConfigDetails_);
       DARABONBA_PTR_TO_JSON(SupportWaf, supportWaf_);
@@ -70,9 +72,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InitialConnectionWindowSize, initialConnectionWindowSize_);
       DARABONBA_PTR_FROM_JSON(InitialStreamWindowSize, initialStreamWindowSize_);
       DARABONBA_PTR_FROM_JSON(KeepaliveHeaderTimeout, keepaliveHeaderTimeout_);
+      DARABONBA_PTR_FROM_JSON(LiteMetrics, liteMetrics_);
       DARABONBA_PTR_FROM_JSON(LogFilterConfig, logFilterConfig_);
       DARABONBA_PTR_FROM_JSON(NoSupportedConfigList, noSupportedConfigList_);
       DARABONBA_PTR_FROM_JSON(PathWithEscapedSlashes, pathWithEscapedSlashes_);
+      DARABONBA_PTR_FROM_JSON(PreserveExternalRequestID, preserveExternalRequestID_);
       DARABONBA_PTR_FROM_JSON(PreserveHeaderFormat, preserveHeaderFormat_);
       DARABONBA_PTR_FROM_JSON(SlsConfigDetails, slsConfigDetails_);
       DARABONBA_PTR_FROM_JSON(SupportWaf, supportWaf_);
@@ -97,9 +101,10 @@ namespace Models
         && return this->downstreamConnectionBufferLimits_ == nullptr && return this->downstreamHttp2MaxConcurrentStream_ == nullptr && return this->downstreamIdleTime_ == nullptr && return this->enableCustomAuthConfigPush_ == nullptr && return this->enableGenerateRequestId_ == nullptr
         && return this->enableGzip_ == nullptr && return this->enableGzipHardwareAccelerate_ == nullptr && return this->enableHardwareAccelerate_ == nullptr && return this->enableHttp2_ == nullptr && return this->enableHttp3_ == nullptr
         && return this->enableK8sSourceWorkloadFilter_ == nullptr && return this->enableProxyProtocol_ == nullptr && return this->enableSlashMerge_ == nullptr && return this->enableWaf_ == nullptr && return this->enableXffTrustedCidrs_ == nullptr
-        && return this->gatewayUniqueId_ == nullptr && return this->initialConnectionWindowSize_ == nullptr && return this->initialStreamWindowSize_ == nullptr && return this->keepaliveHeaderTimeout_ == nullptr && return this->logFilterConfig_ == nullptr
-        && return this->noSupportedConfigList_ == nullptr && return this->pathWithEscapedSlashes_ == nullptr && return this->preserveHeaderFormat_ == nullptr && return this->slsConfigDetails_ == nullptr && return this->supportWaf_ == nullptr
-        && return this->upstreamIdleTimeout_ == nullptr && return this->websocketTermGracePeriod_ == nullptr && return this->xffTrustedNum_ == nullptr && return this->xtraceDetails_ == nullptr && return this->zipAlgorithm_ == nullptr; };
+        && return this->gatewayUniqueId_ == nullptr && return this->initialConnectionWindowSize_ == nullptr && return this->initialStreamWindowSize_ == nullptr && return this->keepaliveHeaderTimeout_ == nullptr && return this->liteMetrics_ == nullptr
+        && return this->logFilterConfig_ == nullptr && return this->noSupportedConfigList_ == nullptr && return this->pathWithEscapedSlashes_ == nullptr && return this->preserveExternalRequestID_ == nullptr && return this->preserveHeaderFormat_ == nullptr
+        && return this->slsConfigDetails_ == nullptr && return this->supportWaf_ == nullptr && return this->upstreamIdleTimeout_ == nullptr && return this->websocketTermGracePeriod_ == nullptr && return this->xffTrustedNum_ == nullptr
+        && return this->xtraceDetails_ == nullptr && return this->zipAlgorithm_ == nullptr; };
     // accessLogHeader Field Functions 
     bool hasAccessLogHeader() const { return this->accessLogHeader_ != nullptr;};
     void deleteAccessLogHeader() { this->accessLogHeader_ = nullptr;};
@@ -244,6 +249,13 @@ namespace Models
     inline GetGatewayConfigResponseBodyData& setKeepaliveHeaderTimeout(int32_t keepaliveHeaderTimeout) { DARABONBA_PTR_SET_VALUE(keepaliveHeaderTimeout_, keepaliveHeaderTimeout) };
 
 
+    // liteMetrics Field Functions 
+    bool hasLiteMetrics() const { return this->liteMetrics_ != nullptr;};
+    void deleteLiteMetrics() { this->liteMetrics_ = nullptr;};
+    inline bool liteMetrics() const { DARABONBA_PTR_GET_DEFAULT(liteMetrics_, false) };
+    inline GetGatewayConfigResponseBodyData& setLiteMetrics(bool liteMetrics) { DARABONBA_PTR_SET_VALUE(liteMetrics_, liteMetrics) };
+
+
     // logFilterConfig Field Functions 
     bool hasLogFilterConfig() const { return this->logFilterConfig_ != nullptr;};
     void deleteLogFilterConfig() { this->logFilterConfig_ = nullptr;};
@@ -263,6 +275,13 @@ namespace Models
     void deletePathWithEscapedSlashes() { this->pathWithEscapedSlashes_ = nullptr;};
     inline string pathWithEscapedSlashes() const { DARABONBA_PTR_GET_DEFAULT(pathWithEscapedSlashes_, "") };
     inline GetGatewayConfigResponseBodyData& setPathWithEscapedSlashes(string pathWithEscapedSlashes) { DARABONBA_PTR_SET_VALUE(pathWithEscapedSlashes_, pathWithEscapedSlashes) };
+
+
+    // preserveExternalRequestID Field Functions 
+    bool hasPreserveExternalRequestID() const { return this->preserveExternalRequestID_ != nullptr;};
+    void deletePreserveExternalRequestID() { this->preserveExternalRequestID_ = nullptr;};
+    inline bool preserveExternalRequestID() const { DARABONBA_PTR_GET_DEFAULT(preserveExternalRequestID_, false) };
+    inline GetGatewayConfigResponseBodyData& setPreserveExternalRequestID(bool preserveExternalRequestID) { DARABONBA_PTR_SET_VALUE(preserveExternalRequestID_, preserveExternalRequestID) };
 
 
     // preserveHeaderFormat Field Functions 
@@ -346,9 +365,11 @@ namespace Models
     std::shared_ptr<int32_t> initialConnectionWindowSize_ = nullptr;
     std::shared_ptr<int32_t> initialStreamWindowSize_ = nullptr;
     std::shared_ptr<int32_t> keepaliveHeaderTimeout_ = nullptr;
+    std::shared_ptr<bool> liteMetrics_ = nullptr;
     std::shared_ptr<string> logFilterConfig_ = nullptr;
     std::shared_ptr<string> noSupportedConfigList_ = nullptr;
     std::shared_ptr<string> pathWithEscapedSlashes_ = nullptr;
+    std::shared_ptr<bool> preserveExternalRequestID_ = nullptr;
     std::shared_ptr<bool> preserveHeaderFormat_ = nullptr;
     std::shared_ptr<Models::GetGatewayConfigResponseBodyDataSlsConfigDetails> slsConfigDetails_ = nullptr;
     std::shared_ptr<bool> supportWaf_ = nullptr;
