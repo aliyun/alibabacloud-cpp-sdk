@@ -1,0 +1,78 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTAUTHROLESRESPONSEBODYROLESTOKEN_HPP_
+#define ALIBABACLOUD_MODELS_LISTAUTHROLESRESPONSEBODYROLESTOKEN_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace PaiStudio20210202
+{
+namespace Models
+{
+  class ListAuthRolesResponseBodyRolesToken : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListAuthRolesResponseBodyRolesToken& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessKeyId, accessKeyId_);
+      DARABONBA_PTR_TO_JSON(AccessKeySecret, accessKeySecret_);
+      DARABONBA_PTR_TO_JSON(Expiration, expiration_);
+      DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListAuthRolesResponseBodyRolesToken& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessKeyId, accessKeyId_);
+      DARABONBA_PTR_FROM_JSON(AccessKeySecret, accessKeySecret_);
+      DARABONBA_PTR_FROM_JSON(Expiration, expiration_);
+      DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+    };
+    ListAuthRolesResponseBodyRolesToken() = default ;
+    ListAuthRolesResponseBodyRolesToken(const ListAuthRolesResponseBodyRolesToken &) = default ;
+    ListAuthRolesResponseBodyRolesToken(ListAuthRolesResponseBodyRolesToken &&) = default ;
+    ListAuthRolesResponseBodyRolesToken(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListAuthRolesResponseBodyRolesToken() = default ;
+    ListAuthRolesResponseBodyRolesToken& operator=(const ListAuthRolesResponseBodyRolesToken &) = default ;
+    ListAuthRolesResponseBodyRolesToken& operator=(ListAuthRolesResponseBodyRolesToken &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->accessKeyId_ == nullptr
+        && return this->accessKeySecret_ == nullptr && return this->expiration_ == nullptr && return this->securityToken_ == nullptr; };
+    // accessKeyId Field Functions 
+    bool hasAccessKeyId() const { return this->accessKeyId_ != nullptr;};
+    void deleteAccessKeyId() { this->accessKeyId_ = nullptr;};
+    inline string accessKeyId() const { DARABONBA_PTR_GET_DEFAULT(accessKeyId_, "") };
+    inline ListAuthRolesResponseBodyRolesToken& setAccessKeyId(string accessKeyId) { DARABONBA_PTR_SET_VALUE(accessKeyId_, accessKeyId) };
+
+
+    // accessKeySecret Field Functions 
+    bool hasAccessKeySecret() const { return this->accessKeySecret_ != nullptr;};
+    void deleteAccessKeySecret() { this->accessKeySecret_ = nullptr;};
+    inline string accessKeySecret() const { DARABONBA_PTR_GET_DEFAULT(accessKeySecret_, "") };
+    inline ListAuthRolesResponseBodyRolesToken& setAccessKeySecret(string accessKeySecret) { DARABONBA_PTR_SET_VALUE(accessKeySecret_, accessKeySecret) };
+
+
+    // expiration Field Functions 
+    bool hasExpiration() const { return this->expiration_ != nullptr;};
+    void deleteExpiration() { this->expiration_ = nullptr;};
+    inline string expiration() const { DARABONBA_PTR_GET_DEFAULT(expiration_, "") };
+    inline ListAuthRolesResponseBodyRolesToken& setExpiration(string expiration) { DARABONBA_PTR_SET_VALUE(expiration_, expiration) };
+
+
+    // securityToken Field Functions 
+    bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
+    void deleteSecurityToken() { this->securityToken_ = nullptr;};
+    inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
+    inline ListAuthRolesResponseBodyRolesToken& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+
+
+  protected:
+    std::shared_ptr<string> accessKeyId_ = nullptr;
+    std::shared_ptr<string> accessKeySecret_ = nullptr;
+    std::shared_ptr<string> expiration_ = nullptr;
+    std::shared_ptr<string> securityToken_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace PaiStudio20210202
+#endif

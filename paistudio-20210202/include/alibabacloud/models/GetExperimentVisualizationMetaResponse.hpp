@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETEXPERIMENTVISUALIZATIONMETARESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_GETEXPERIMENTVISUALIZATIONMETARESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/GetExperimentVisualizationMetaResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace PaiStudio20210202
+{
+namespace Models
+{
+  class GetExperimentVisualizationMetaResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetExperimentVisualizationMetaResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetExperimentVisualizationMetaResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    GetExperimentVisualizationMetaResponse() = default ;
+    GetExperimentVisualizationMetaResponse(const GetExperimentVisualizationMetaResponse &) = default ;
+    GetExperimentVisualizationMetaResponse(GetExperimentVisualizationMetaResponse &&) = default ;
+    GetExperimentVisualizationMetaResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetExperimentVisualizationMetaResponse() = default ;
+    GetExperimentVisualizationMetaResponse& operator=(const GetExperimentVisualizationMetaResponse &) = default ;
+    GetExperimentVisualizationMetaResponse& operator=(GetExperimentVisualizationMetaResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline GetExperimentVisualizationMetaResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline GetExperimentVisualizationMetaResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline GetExperimentVisualizationMetaResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const GetExperimentVisualizationMetaResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, GetExperimentVisualizationMetaResponseBody) };
+    inline GetExperimentVisualizationMetaResponseBody body() { DARABONBA_PTR_GET(body_, GetExperimentVisualizationMetaResponseBody) };
+    inline GetExperimentVisualizationMetaResponse& setBody(const GetExperimentVisualizationMetaResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline GetExperimentVisualizationMetaResponse& setBody(GetExperimentVisualizationMetaResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<GetExperimentVisualizationMetaResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace PaiStudio20210202
+#endif
