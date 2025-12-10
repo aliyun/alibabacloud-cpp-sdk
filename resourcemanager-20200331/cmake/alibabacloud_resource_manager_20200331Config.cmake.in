@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_resource_manager_20200331Targets.cmake")
-check_required_components("alibabacloud_resource_manager_20200331")
