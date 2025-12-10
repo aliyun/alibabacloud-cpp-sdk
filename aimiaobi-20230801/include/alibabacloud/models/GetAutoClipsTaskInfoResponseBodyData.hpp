@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataColorWords.hpp>
+#include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataStickers.hpp>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataTimelines.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -16,8 +17,13 @@ namespace Models
   class GetAutoClipsTaskInfoResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetAutoClipsTaskInfoResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(CloseMusic, closeMusic_);
+      DARABONBA_PTR_TO_JSON(CloseSubtitle, closeSubtitle_);
+      DARABONBA_PTR_TO_JSON(CloseVoice, closeVoice_);
       DARABONBA_PTR_TO_JSON(ColorWords, colorWords_);
       DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(CustomVoiceUrl, customVoiceUrl_);
+      DARABONBA_PTR_TO_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_TO_JSON(MediaCloudTimeline, mediaCloudTimeline_);
       DARABONBA_PTR_TO_JSON(MusicStyle, musicStyle_);
@@ -26,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OutputVideoUrl, outputVideoUrl_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Step, step_);
+      DARABONBA_PTR_TO_JSON(Stickers, stickers_);
       DARABONBA_PTR_TO_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(Timelines, timelines_);
@@ -33,8 +40,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VoiceVolume, voiceVolume_);
     };
     friend void from_json(const Darabonba::Json& j, GetAutoClipsTaskInfoResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloseMusic, closeMusic_);
+      DARABONBA_PTR_FROM_JSON(CloseSubtitle, closeSubtitle_);
+      DARABONBA_PTR_FROM_JSON(CloseVoice, closeVoice_);
       DARABONBA_PTR_FROM_JSON(ColorWords, colorWords_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(CustomVoiceUrl, customVoiceUrl_);
+      DARABONBA_PTR_FROM_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_FROM_JSON(MediaCloudTimeline, mediaCloudTimeline_);
       DARABONBA_PTR_FROM_JSON(MusicStyle, musicStyle_);
@@ -43,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OutputVideoUrl, outputVideoUrl_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Step, step_);
+      DARABONBA_PTR_FROM_JSON(Stickers, stickers_);
       DARABONBA_PTR_FROM_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(Timelines, timelines_);
@@ -60,10 +73,32 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->colorWords_ == nullptr
-        && return this->content_ == nullptr && return this->errorMessage_ == nullptr && return this->mediaCloudTimeline_ == nullptr && return this->musicStyle_ == nullptr && return this->musicUrl_ == nullptr
-        && return this->musicVolume_ == nullptr && return this->outputVideoUrl_ == nullptr && return this->status_ == nullptr && return this->step_ == nullptr && return this->subtitleFontSize_ == nullptr
-        && return this->taskId_ == nullptr && return this->timelines_ == nullptr && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr; };
+    virtual bool empty() const override { return this->closeMusic_ == nullptr
+        && return this->closeSubtitle_ == nullptr && return this->closeVoice_ == nullptr && return this->colorWords_ == nullptr && return this->content_ == nullptr && return this->customVoiceUrl_ == nullptr
+        && return this->customVoiceVolume_ == nullptr && return this->errorMessage_ == nullptr && return this->mediaCloudTimeline_ == nullptr && return this->musicStyle_ == nullptr && return this->musicUrl_ == nullptr
+        && return this->musicVolume_ == nullptr && return this->outputVideoUrl_ == nullptr && return this->status_ == nullptr && return this->step_ == nullptr && return this->stickers_ == nullptr
+        && return this->subtitleFontSize_ == nullptr && return this->taskId_ == nullptr && return this->timelines_ == nullptr && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr; };
+    // closeMusic Field Functions 
+    bool hasCloseMusic() const { return this->closeMusic_ != nullptr;};
+    void deleteCloseMusic() { this->closeMusic_ = nullptr;};
+    inline bool closeMusic() const { DARABONBA_PTR_GET_DEFAULT(closeMusic_, false) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setCloseMusic(bool closeMusic) { DARABONBA_PTR_SET_VALUE(closeMusic_, closeMusic) };
+
+
+    // closeSubtitle Field Functions 
+    bool hasCloseSubtitle() const { return this->closeSubtitle_ != nullptr;};
+    void deleteCloseSubtitle() { this->closeSubtitle_ = nullptr;};
+    inline bool closeSubtitle() const { DARABONBA_PTR_GET_DEFAULT(closeSubtitle_, false) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setCloseSubtitle(bool closeSubtitle) { DARABONBA_PTR_SET_VALUE(closeSubtitle_, closeSubtitle) };
+
+
+    // closeVoice Field Functions 
+    bool hasCloseVoice() const { return this->closeVoice_ != nullptr;};
+    void deleteCloseVoice() { this->closeVoice_ = nullptr;};
+    inline bool closeVoice() const { DARABONBA_PTR_GET_DEFAULT(closeVoice_, false) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setCloseVoice(bool closeVoice) { DARABONBA_PTR_SET_VALUE(closeVoice_, closeVoice) };
+
+
     // colorWords Field Functions 
     bool hasColorWords() const { return this->colorWords_ != nullptr;};
     void deleteColorWords() { this->colorWords_ = nullptr;};
@@ -78,6 +113,20 @@ namespace Models
     void deleteContent() { this->content_ = nullptr;};
     inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline GetAutoClipsTaskInfoResponseBodyData& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // customVoiceUrl Field Functions 
+    bool hasCustomVoiceUrl() const { return this->customVoiceUrl_ != nullptr;};
+    void deleteCustomVoiceUrl() { this->customVoiceUrl_ = nullptr;};
+    inline string customVoiceUrl() const { DARABONBA_PTR_GET_DEFAULT(customVoiceUrl_, "") };
+    inline GetAutoClipsTaskInfoResponseBodyData& setCustomVoiceUrl(string customVoiceUrl) { DARABONBA_PTR_SET_VALUE(customVoiceUrl_, customVoiceUrl) };
+
+
+    // customVoiceVolume Field Functions 
+    bool hasCustomVoiceVolume() const { return this->customVoiceVolume_ != nullptr;};
+    void deleteCustomVoiceVolume() { this->customVoiceVolume_ = nullptr;};
+    inline int32_t customVoiceVolume() const { DARABONBA_PTR_GET_DEFAULT(customVoiceVolume_, 0) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setCustomVoiceVolume(int32_t customVoiceVolume) { DARABONBA_PTR_SET_VALUE(customVoiceVolume_, customVoiceVolume) };
 
 
     // errorMessage Field Functions 
@@ -136,6 +185,15 @@ namespace Models
     inline GetAutoClipsTaskInfoResponseBodyData& setStep(string step) { DARABONBA_PTR_SET_VALUE(step_, step) };
 
 
+    // stickers Field Functions 
+    bool hasStickers() const { return this->stickers_ != nullptr;};
+    void deleteStickers() { this->stickers_ = nullptr;};
+    inline const vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers> & stickers() const { DARABONBA_PTR_GET_CONST(stickers_, vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers>) };
+    inline vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers> stickers() { DARABONBA_PTR_GET(stickers_, vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers>) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setStickers(const vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers> & stickers) { DARABONBA_PTR_SET_VALUE(stickers_, stickers) };
+    inline GetAutoClipsTaskInfoResponseBodyData& setStickers(vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers> && stickers) { DARABONBA_PTR_SET_RVALUE(stickers_, stickers) };
+
+
     // subtitleFontSize Field Functions 
     bool hasSubtitleFontSize() const { return this->subtitleFontSize_ != nullptr;};
     void deleteSubtitleFontSize() { this->subtitleFontSize_ = nullptr;};
@@ -174,8 +232,13 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> closeMusic_ = nullptr;
+    std::shared_ptr<bool> closeSubtitle_ = nullptr;
+    std::shared_ptr<bool> closeVoice_ = nullptr;
     std::shared_ptr<vector<Models::GetAutoClipsTaskInfoResponseBodyDataColorWords>> colorWords_ = nullptr;
     std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<string> customVoiceUrl_ = nullptr;
+    std::shared_ptr<int32_t> customVoiceVolume_ = nullptr;
     std::shared_ptr<string> errorMessage_ = nullptr;
     std::shared_ptr<string> mediaCloudTimeline_ = nullptr;
     std::shared_ptr<string> musicStyle_ = nullptr;
@@ -184,6 +247,7 @@ namespace Models
     std::shared_ptr<string> outputVideoUrl_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
     std::shared_ptr<string> step_ = nullptr;
+    std::shared_ptr<vector<Models::GetAutoClipsTaskInfoResponseBodyDataStickers>> stickers_ = nullptr;
     std::shared_ptr<int32_t> subtitleFontSize_ = nullptr;
     std::shared_ptr<string> taskId_ = nullptr;
     std::shared_ptr<vector<Models::GetAutoClipsTaskInfoResponseBodyDataTimelines>> timelines_ = nullptr;

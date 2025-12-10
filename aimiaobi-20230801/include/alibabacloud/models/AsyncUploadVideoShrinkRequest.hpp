@@ -14,16 +14,24 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AsyncUploadVideoShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AnlysisPrompt, anlysisPrompt_);
+      DARABONBA_PTR_TO_JSON(FaceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
       DARABONBA_PTR_TO_JSON(ReferenceVideo, referenceVideoShrink_);
+      DARABONBA_PTR_TO_JSON(RemoveSubtitle, removeSubtitle_);
       DARABONBA_PTR_TO_JSON(SourceVideos, sourceVideosShrink_);
       DARABONBA_PTR_TO_JSON(SplitInterval, splitInterval_);
+      DARABONBA_PTR_TO_JSON(VideoRoles, videoRolesShrink_);
+      DARABONBA_PTR_TO_JSON(VideoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AsyncUploadVideoShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AnlysisPrompt, anlysisPrompt_);
+      DARABONBA_PTR_FROM_JSON(FaceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
       DARABONBA_PTR_FROM_JSON(ReferenceVideo, referenceVideoShrink_);
+      DARABONBA_PTR_FROM_JSON(RemoveSubtitle, removeSubtitle_);
       DARABONBA_PTR_FROM_JSON(SourceVideos, sourceVideosShrink_);
       DARABONBA_PTR_FROM_JSON(SplitInterval, splitInterval_);
+      DARABONBA_PTR_FROM_JSON(VideoRoles, videoRolesShrink_);
+      DARABONBA_PTR_FROM_JSON(VideoShotFaceIdentityCount, videoShotFaceIdentityCount_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     AsyncUploadVideoShrinkRequest() = default ;
@@ -38,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->anlysisPrompt_ == nullptr
-        && return this->referenceVideoShrink_ == nullptr && return this->sourceVideosShrink_ == nullptr && return this->splitInterval_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->referenceVideoShrink_ == nullptr && return this->removeSubtitle_ == nullptr && return this->sourceVideosShrink_ == nullptr && return this->splitInterval_ == nullptr
+        && return this->videoRolesShrink_ == nullptr && return this->videoShotFaceIdentityCount_ == nullptr && return this->workspaceId_ == nullptr; };
     // anlysisPrompt Field Functions 
     bool hasAnlysisPrompt() const { return this->anlysisPrompt_ != nullptr;};
     void deleteAnlysisPrompt() { this->anlysisPrompt_ = nullptr;};
@@ -46,11 +55,25 @@ namespace Models
     inline AsyncUploadVideoShrinkRequest& setAnlysisPrompt(string anlysisPrompt) { DARABONBA_PTR_SET_VALUE(anlysisPrompt_, anlysisPrompt) };
 
 
+    // faceIdentitySimilarityMinScore Field Functions 
+    bool hasFaceIdentitySimilarityMinScore() const { return this->faceIdentitySimilarityMinScore_ != nullptr;};
+    void deleteFaceIdentitySimilarityMinScore() { this->faceIdentitySimilarityMinScore_ = nullptr;};
+    inline double faceIdentitySimilarityMinScore() const { DARABONBA_PTR_GET_DEFAULT(faceIdentitySimilarityMinScore_, 0.0) };
+    inline AsyncUploadVideoShrinkRequest& setFaceIdentitySimilarityMinScore(double faceIdentitySimilarityMinScore) { DARABONBA_PTR_SET_VALUE(faceIdentitySimilarityMinScore_, faceIdentitySimilarityMinScore) };
+
+
     // referenceVideoShrink Field Functions 
     bool hasReferenceVideoShrink() const { return this->referenceVideoShrink_ != nullptr;};
     void deleteReferenceVideoShrink() { this->referenceVideoShrink_ = nullptr;};
     inline string referenceVideoShrink() const { DARABONBA_PTR_GET_DEFAULT(referenceVideoShrink_, "") };
     inline AsyncUploadVideoShrinkRequest& setReferenceVideoShrink(string referenceVideoShrink) { DARABONBA_PTR_SET_VALUE(referenceVideoShrink_, referenceVideoShrink) };
+
+
+    // removeSubtitle Field Functions 
+    bool hasRemoveSubtitle() const { return this->removeSubtitle_ != nullptr;};
+    void deleteRemoveSubtitle() { this->removeSubtitle_ = nullptr;};
+    inline bool removeSubtitle() const { DARABONBA_PTR_GET_DEFAULT(removeSubtitle_, false) };
+    inline AsyncUploadVideoShrinkRequest& setRemoveSubtitle(bool removeSubtitle) { DARABONBA_PTR_SET_VALUE(removeSubtitle_, removeSubtitle) };
 
 
     // sourceVideosShrink Field Functions 
@@ -67,6 +90,20 @@ namespace Models
     inline AsyncUploadVideoShrinkRequest& setSplitInterval(int32_t splitInterval) { DARABONBA_PTR_SET_VALUE(splitInterval_, splitInterval) };
 
 
+    // videoRolesShrink Field Functions 
+    bool hasVideoRolesShrink() const { return this->videoRolesShrink_ != nullptr;};
+    void deleteVideoRolesShrink() { this->videoRolesShrink_ = nullptr;};
+    inline string videoRolesShrink() const { DARABONBA_PTR_GET_DEFAULT(videoRolesShrink_, "") };
+    inline AsyncUploadVideoShrinkRequest& setVideoRolesShrink(string videoRolesShrink) { DARABONBA_PTR_SET_VALUE(videoRolesShrink_, videoRolesShrink) };
+
+
+    // videoShotFaceIdentityCount Field Functions 
+    bool hasVideoShotFaceIdentityCount() const { return this->videoShotFaceIdentityCount_ != nullptr;};
+    void deleteVideoShotFaceIdentityCount() { this->videoShotFaceIdentityCount_ = nullptr;};
+    inline int32_t videoShotFaceIdentityCount() const { DARABONBA_PTR_GET_DEFAULT(videoShotFaceIdentityCount_, 0) };
+    inline AsyncUploadVideoShrinkRequest& setVideoShotFaceIdentityCount(int32_t videoShotFaceIdentityCount) { DARABONBA_PTR_SET_VALUE(videoShotFaceIdentityCount_, videoShotFaceIdentityCount) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -76,10 +113,14 @@ namespace Models
 
   protected:
     std::shared_ptr<string> anlysisPrompt_ = nullptr;
+    std::shared_ptr<double> faceIdentitySimilarityMinScore_ = nullptr;
     std::shared_ptr<string> referenceVideoShrink_ = nullptr;
+    std::shared_ptr<bool> removeSubtitle_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> sourceVideosShrink_ = nullptr;
     std::shared_ptr<int32_t> splitInterval_ = nullptr;
+    std::shared_ptr<string> videoRolesShrink_ = nullptr;
+    std::shared_ptr<int32_t> videoShotFaceIdentityCount_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
   };

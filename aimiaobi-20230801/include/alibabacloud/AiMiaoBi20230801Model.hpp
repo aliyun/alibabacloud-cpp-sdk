@@ -665,6 +665,7 @@
 #include <alibabacloud/models/AddDatasetDocumentRequestDocument.hpp>
 #include <alibabacloud/models/AddDatasetDocumentResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTaskRequestColorWords.hpp>
+#include <alibabacloud/models/AsyncCreateClipsTaskRequestStickers.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTaskResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncCreateClipsTimeLineResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncEditTimelineRequestTimelinesClips.hpp>
@@ -673,6 +674,8 @@
 #include <alibabacloud/models/AsyncUploadTenderDocResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncUploadVideoRequestReferenceVideo.hpp>
 #include <alibabacloud/models/AsyncUploadVideoRequestSourceVideos.hpp>
+#include <alibabacloud/models/AsyncUploadVideoRequestVideoRolesRoleUrls.hpp>
+#include <alibabacloud/models/AsyncUploadVideoRequestVideoRoles.hpp>
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyDataVideoInfos.hpp>
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncWritingBiddingDocResponseBodyData.hpp>
@@ -712,6 +715,7 @@
 #include <alibabacloud/models/GetAuditNotePostProcessingStatusResponseBodyData.hpp>
 #include <alibabacloud/models/GetAuditNoteProcessingStatusResponseBodyData.hpp>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataColorWords.hpp>
+#include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataStickers.hpp>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataTimelinesClips.hpp>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyDataTimelines.hpp>
 #include <alibabacloud/models/GetAutoClipsTaskInfoResponseBodyData.hpp>

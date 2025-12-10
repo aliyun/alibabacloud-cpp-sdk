@@ -179,9 +179,33 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
     request.setColorWordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.colorWords(), "ColorWords", "json"));
   }
 
+  if (!!tmpReq.hasStickers()) {
+    request.setStickersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.stickers(), "Stickers", "json"));
+  }
+
   json body = {};
+  if (!!request.hasCloseMusic()) {
+    body["CloseMusic"] = request.closeMusic();
+  }
+
+  if (!!request.hasCloseSubtitle()) {
+    body["CloseSubtitle"] = request.closeSubtitle();
+  }
+
+  if (!!request.hasCloseVoice()) {
+    body["CloseVoice"] = request.closeVoice();
+  }
+
   if (!!request.hasColorWordsShrink()) {
     body["ColorWords"] = request.colorWordsShrink();
+  }
+
+  if (!!request.hasCustomVoiceUrl()) {
+    body["CustomVoiceUrl"] = request.customVoiceUrl();
+  }
+
+  if (!!request.hasCustomVoiceVolume()) {
+    body["CustomVoiceVolume"] = request.customVoiceVolume();
   }
 
   if (!!request.hasHeight()) {
@@ -194,6 +218,10 @@ AsyncCreateClipsTaskResponse Client::asyncCreateClipsTaskWithOptions(const Async
 
   if (!!request.hasMusicVolume()) {
     body["MusicVolume"] = request.musicVolume();
+  }
+
+  if (!!request.hasStickersShrink()) {
+    body["Stickers"] = request.stickersShrink();
   }
 
   if (!!request.hasSubtitleFontSize()) {
@@ -439,13 +467,25 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
     request.setSourceVideosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sourceVideos(), "SourceVideos", "json"));
   }
 
+  if (!!tmpReq.hasVideoRoles()) {
+    request.setVideoRolesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.videoRoles(), "VideoRoles", "json"));
+  }
+
   json body = {};
   if (!!request.hasAnlysisPrompt()) {
     body["AnlysisPrompt"] = request.anlysisPrompt();
   }
 
+  if (!!request.hasFaceIdentitySimilarityMinScore()) {
+    body["FaceIdentitySimilarityMinScore"] = request.faceIdentitySimilarityMinScore();
+  }
+
   if (!!request.hasReferenceVideoShrink()) {
     body["ReferenceVideo"] = request.referenceVideoShrink();
+  }
+
+  if (!!request.hasRemoveSubtitle()) {
+    body["RemoveSubtitle"] = request.removeSubtitle();
   }
 
   if (!!request.hasSourceVideosShrink()) {
@@ -454,6 +494,14 @@ AsyncUploadVideoResponse Client::asyncUploadVideoWithOptions(const AsyncUploadVi
 
   if (!!request.hasSplitInterval()) {
     body["SplitInterval"] = request.splitInterval();
+  }
+
+  if (!!request.hasVideoRolesShrink()) {
+    body["VideoRoles"] = request.videoRolesShrink();
+  }
+
+  if (!!request.hasVideoShotFaceIdentityCount()) {
+    body["VideoShotFaceIdentityCount"] = request.videoShotFaceIdentityCount();
   }
 
   if (!!request.hasWorkspaceId()) {

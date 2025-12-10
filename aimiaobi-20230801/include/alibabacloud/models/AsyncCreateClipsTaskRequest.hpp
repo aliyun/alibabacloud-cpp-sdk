@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/AsyncCreateClipsTaskRequestColorWords.hpp>
+#include <alibabacloud/models/AsyncCreateClipsTaskRequestStickers.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,10 +16,16 @@ namespace Models
   class AsyncCreateClipsTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const AsyncCreateClipsTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CloseMusic, closeMusic_);
+      DARABONBA_PTR_TO_JSON(CloseSubtitle, closeSubtitle_);
+      DARABONBA_PTR_TO_JSON(CloseVoice, closeVoice_);
       DARABONBA_PTR_TO_JSON(ColorWords, colorWords_);
+      DARABONBA_PTR_TO_JSON(CustomVoiceUrl, customVoiceUrl_);
+      DARABONBA_PTR_TO_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_TO_JSON(Height, height_);
       DARABONBA_PTR_TO_JSON(MusicUrl, musicUrl_);
       DARABONBA_PTR_TO_JSON(MusicVolume, musicVolume_);
+      DARABONBA_PTR_TO_JSON(Stickers, stickers_);
       DARABONBA_PTR_TO_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(VoiceStyle, voiceStyle_);
@@ -27,10 +34,16 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, AsyncCreateClipsTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CloseMusic, closeMusic_);
+      DARABONBA_PTR_FROM_JSON(CloseSubtitle, closeSubtitle_);
+      DARABONBA_PTR_FROM_JSON(CloseVoice, closeVoice_);
       DARABONBA_PTR_FROM_JSON(ColorWords, colorWords_);
+      DARABONBA_PTR_FROM_JSON(CustomVoiceUrl, customVoiceUrl_);
+      DARABONBA_PTR_FROM_JSON(CustomVoiceVolume, customVoiceVolume_);
       DARABONBA_PTR_FROM_JSON(Height, height_);
       DARABONBA_PTR_FROM_JSON(MusicUrl, musicUrl_);
       DARABONBA_PTR_FROM_JSON(MusicVolume, musicVolume_);
+      DARABONBA_PTR_FROM_JSON(Stickers, stickers_);
       DARABONBA_PTR_FROM_JSON(SubtitleFontSize, subtitleFontSize_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(VoiceStyle, voiceStyle_);
@@ -49,9 +62,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->colorWords_ == nullptr
-        && return this->height_ == nullptr && return this->musicUrl_ == nullptr && return this->musicVolume_ == nullptr && return this->subtitleFontSize_ == nullptr && return this->taskId_ == nullptr
-        && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr && return this->width_ == nullptr && return this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->closeMusic_ == nullptr
+        && return this->closeSubtitle_ == nullptr && return this->closeVoice_ == nullptr && return this->colorWords_ == nullptr && return this->customVoiceUrl_ == nullptr && return this->customVoiceVolume_ == nullptr
+        && return this->height_ == nullptr && return this->musicUrl_ == nullptr && return this->musicVolume_ == nullptr && return this->stickers_ == nullptr && return this->subtitleFontSize_ == nullptr
+        && return this->taskId_ == nullptr && return this->voiceStyle_ == nullptr && return this->voiceVolume_ == nullptr && return this->width_ == nullptr && return this->workspaceId_ == nullptr; };
+    // closeMusic Field Functions 
+    bool hasCloseMusic() const { return this->closeMusic_ != nullptr;};
+    void deleteCloseMusic() { this->closeMusic_ = nullptr;};
+    inline bool closeMusic() const { DARABONBA_PTR_GET_DEFAULT(closeMusic_, false) };
+    inline AsyncCreateClipsTaskRequest& setCloseMusic(bool closeMusic) { DARABONBA_PTR_SET_VALUE(closeMusic_, closeMusic) };
+
+
+    // closeSubtitle Field Functions 
+    bool hasCloseSubtitle() const { return this->closeSubtitle_ != nullptr;};
+    void deleteCloseSubtitle() { this->closeSubtitle_ = nullptr;};
+    inline bool closeSubtitle() const { DARABONBA_PTR_GET_DEFAULT(closeSubtitle_, false) };
+    inline AsyncCreateClipsTaskRequest& setCloseSubtitle(bool closeSubtitle) { DARABONBA_PTR_SET_VALUE(closeSubtitle_, closeSubtitle) };
+
+
+    // closeVoice Field Functions 
+    bool hasCloseVoice() const { return this->closeVoice_ != nullptr;};
+    void deleteCloseVoice() { this->closeVoice_ = nullptr;};
+    inline bool closeVoice() const { DARABONBA_PTR_GET_DEFAULT(closeVoice_, false) };
+    inline AsyncCreateClipsTaskRequest& setCloseVoice(bool closeVoice) { DARABONBA_PTR_SET_VALUE(closeVoice_, closeVoice) };
+
+
     // colorWords Field Functions 
     bool hasColorWords() const { return this->colorWords_ != nullptr;};
     void deleteColorWords() { this->colorWords_ = nullptr;};
@@ -59,6 +94,20 @@ namespace Models
     inline vector<AsyncCreateClipsTaskRequestColorWords> colorWords() { DARABONBA_PTR_GET(colorWords_, vector<AsyncCreateClipsTaskRequestColorWords>) };
     inline AsyncCreateClipsTaskRequest& setColorWords(const vector<AsyncCreateClipsTaskRequestColorWords> & colorWords) { DARABONBA_PTR_SET_VALUE(colorWords_, colorWords) };
     inline AsyncCreateClipsTaskRequest& setColorWords(vector<AsyncCreateClipsTaskRequestColorWords> && colorWords) { DARABONBA_PTR_SET_RVALUE(colorWords_, colorWords) };
+
+
+    // customVoiceUrl Field Functions 
+    bool hasCustomVoiceUrl() const { return this->customVoiceUrl_ != nullptr;};
+    void deleteCustomVoiceUrl() { this->customVoiceUrl_ = nullptr;};
+    inline string customVoiceUrl() const { DARABONBA_PTR_GET_DEFAULT(customVoiceUrl_, "") };
+    inline AsyncCreateClipsTaskRequest& setCustomVoiceUrl(string customVoiceUrl) { DARABONBA_PTR_SET_VALUE(customVoiceUrl_, customVoiceUrl) };
+
+
+    // customVoiceVolume Field Functions 
+    bool hasCustomVoiceVolume() const { return this->customVoiceVolume_ != nullptr;};
+    void deleteCustomVoiceVolume() { this->customVoiceVolume_ = nullptr;};
+    inline int32_t customVoiceVolume() const { DARABONBA_PTR_GET_DEFAULT(customVoiceVolume_, 0) };
+    inline AsyncCreateClipsTaskRequest& setCustomVoiceVolume(int32_t customVoiceVolume) { DARABONBA_PTR_SET_VALUE(customVoiceVolume_, customVoiceVolume) };
 
 
     // height Field Functions 
@@ -80,6 +129,15 @@ namespace Models
     void deleteMusicVolume() { this->musicVolume_ = nullptr;};
     inline int32_t musicVolume() const { DARABONBA_PTR_GET_DEFAULT(musicVolume_, 0) };
     inline AsyncCreateClipsTaskRequest& setMusicVolume(int32_t musicVolume) { DARABONBA_PTR_SET_VALUE(musicVolume_, musicVolume) };
+
+
+    // stickers Field Functions 
+    bool hasStickers() const { return this->stickers_ != nullptr;};
+    void deleteStickers() { this->stickers_ = nullptr;};
+    inline const vector<AsyncCreateClipsTaskRequestStickers> & stickers() const { DARABONBA_PTR_GET_CONST(stickers_, vector<AsyncCreateClipsTaskRequestStickers>) };
+    inline vector<AsyncCreateClipsTaskRequestStickers> stickers() { DARABONBA_PTR_GET(stickers_, vector<AsyncCreateClipsTaskRequestStickers>) };
+    inline AsyncCreateClipsTaskRequest& setStickers(const vector<AsyncCreateClipsTaskRequestStickers> & stickers) { DARABONBA_PTR_SET_VALUE(stickers_, stickers) };
+    inline AsyncCreateClipsTaskRequest& setStickers(vector<AsyncCreateClipsTaskRequestStickers> && stickers) { DARABONBA_PTR_SET_RVALUE(stickers_, stickers) };
 
 
     // subtitleFontSize Field Functions 
@@ -125,10 +183,16 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<bool> closeMusic_ = nullptr;
+    std::shared_ptr<bool> closeSubtitle_ = nullptr;
+    std::shared_ptr<bool> closeVoice_ = nullptr;
     std::shared_ptr<vector<AsyncCreateClipsTaskRequestColorWords>> colorWords_ = nullptr;
+    std::shared_ptr<string> customVoiceUrl_ = nullptr;
+    std::shared_ptr<int32_t> customVoiceVolume_ = nullptr;
     std::shared_ptr<int32_t> height_ = nullptr;
     std::shared_ptr<string> musicUrl_ = nullptr;
     std::shared_ptr<int32_t> musicVolume_ = nullptr;
+    std::shared_ptr<vector<AsyncCreateClipsTaskRequestStickers>> stickers_ = nullptr;
     std::shared_ptr<int32_t> subtitleFontSize_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> taskId_ = nullptr;
