@@ -62,6 +62,9 @@
 #include <alibabacloud/models/ContinueDbClusterMigrationRequest.hpp>
 #include <alibabacloud/models/ContinueDbClusterMigrationResponseBody.hpp>
 #include <alibabacloud/models/ContinueDbClusterMigrationResponse.hpp>
+#include <alibabacloud/models/CreateAiNodesRequest.hpp>
+#include <alibabacloud/models/CreateAiNodesResponseBody.hpp>
+#include <alibabacloud/models/CreateAiNodesResponse.hpp>
 #include <alibabacloud/models/CreateAccountRequest.hpp>
 #include <alibabacloud/models/CreateAccountResponseBody.hpp>
 #include <alibabacloud/models/CreateAccountResponse.hpp>
@@ -141,6 +144,9 @@
 #include <alibabacloud/models/DeleteAidbClusterRequest.hpp>
 #include <alibabacloud/models/DeleteAidbClusterResponseBody.hpp>
 #include <alibabacloud/models/DeleteAidbClusterResponse.hpp>
+#include <alibabacloud/models/DeleteAiNodesRequest.hpp>
+#include <alibabacloud/models/DeleteAiNodesResponseBody.hpp>
+#include <alibabacloud/models/DeleteAiNodesResponse.hpp>
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
@@ -838,6 +844,7 @@
 #include <alibabacloud/models/UpgradeDbClusterVersionZonalResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDbClusterVersionZonalResponse.hpp>
 #include <alibabacloud/models/AddPolarFsQuotaRequestQuotas.hpp>
+#include <alibabacloud/models/CreateAiNodesRequestDbNodes.hpp>
 #include <alibabacloud/models/CreateApplicationRequestComponents.hpp>
 #include <alibabacloud/models/CreateApplicationRequestEndpoints.hpp>
 #include <alibabacloud/models/CreateApplicationResponseBodyComponents.hpp>

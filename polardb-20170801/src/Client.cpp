@@ -1325,6 +1325,52 @@ ContinueDBClusterMigrationResponse Client::continueDBClusterMigration(const Cont
 }
 
 /**
+ * @summary 创建AI节点
+ *
+ * @param request CreateAINodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAINodesResponse
+ */
+CreateAINodesResponse Client::createAINodesWithOptions(const CreateAINodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBNodes()) {
+    query["DBNodes"] = request.DBNodes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAINodes"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAINodesResponse>();
+}
+
+/**
+ * @summary 创建AI节点
+ *
+ * @param request CreateAINodesRequest
+ * @return CreateAINodesResponse
+ */
+CreateAINodesResponse Client::createAINodes(const CreateAINodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAINodesWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a database account for a PolarDB cluster.
  *
  * @param request CreateAccountRequest
@@ -3742,6 +3788,52 @@ DeleteAIDBClusterResponse Client::deleteAIDBClusterWithOptions(const DeleteAIDBC
 DeleteAIDBClusterResponse Client::deleteAIDBCluster(const DeleteAIDBClusterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAIDBClusterWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除ai实例子节点
+ *
+ * @param request DeleteAINodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAINodesResponse
+ */
+DeleteAINodesResponse Client::deleteAINodesWithOptions(const DeleteAINodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDBNodeId()) {
+    query["DBNodeId"] = request.DBNodeId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAINodes"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAINodesResponse>();
+}
+
+/**
+ * @summary 删除ai实例子节点
+ *
+ * @param request DeleteAINodesRequest
+ * @return DeleteAINodesResponse
+ */
+DeleteAINodesResponse Client::deleteAINodes(const DeleteAINodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAINodesWithOptions(request, runtime);
 }
 
 /**

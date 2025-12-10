@@ -361,6 +361,23 @@ namespace Polardb20170801
       Models::ContinueDBClusterMigrationResponse continueDBClusterMigration(const Models::ContinueDBClusterMigrationRequest &request);
 
       /**
+       * @summary 创建AI节点
+       *
+       * @param request CreateAINodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAINodesResponse
+       */
+      Models::CreateAINodesResponse createAINodesWithOptions(const Models::CreateAINodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建AI节点
+       *
+       * @param request CreateAINodesRequest
+       * @return CreateAINodesResponse
+       */
+      Models::CreateAINodesResponse createAINodes(const Models::CreateAINodesRequest &request);
+
+      /**
        * @summary Creates a database account for a PolarDB cluster.
        *
        * @param request CreateAccountRequest
@@ -843,6 +860,23 @@ namespace Polardb20170801
        * @return DeleteAIDBClusterResponse
        */
       Models::DeleteAIDBClusterResponse deleteAIDBCluster(const Models::DeleteAIDBClusterRequest &request);
+
+      /**
+       * @summary 删除ai实例子节点
+       *
+       * @param request DeleteAINodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAINodesResponse
+       */
+      Models::DeleteAINodesResponse deleteAINodesWithOptions(const Models::DeleteAINodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除ai实例子节点
+       *
+       * @param request DeleteAINodesRequest
+       * @return DeleteAINodesResponse
+       */
+      Models::DeleteAINodesResponse deleteAINodes(const Models::DeleteAINodesRequest &request);
 
       /**
        * @summary Deletes a database account for a PolarDB cluster.
