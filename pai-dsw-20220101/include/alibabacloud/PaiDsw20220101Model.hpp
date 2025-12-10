@@ -9,6 +9,7 @@
 #include <alibabacloud/models/DynamicMount.hpp>
 #include <alibabacloud/models/ForwardInfo.hpp>
 #include <alibabacloud/models/ForwardInfoResponse.hpp>
+#include <alibabacloud/models/PodIp.hpp>
 #include <alibabacloud/models/ServiceConfig.hpp>
 #include <alibabacloud/models/CreateDiagnosisRequest.hpp>
 #include <alibabacloud/models/CreateDiagnosisResponseBody.hpp>

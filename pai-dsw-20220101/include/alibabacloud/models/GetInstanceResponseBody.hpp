@@ -15,6 +15,7 @@
 #include <alibabacloud/models/GetInstanceResponseBodyLabels.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyLatestSnapshot.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyNodeErrorRecovery.hpp>
+#include <alibabacloud/models/PodIp.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyRequestedResource.hpp>
 #include <alibabacloud/models/ServiceConfig.hpp>
 #include <alibabacloud/models/GetInstanceResponseBodyTags.hpp>
@@ -61,6 +62,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(NodeErrorRecovery, nodeErrorRecovery_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_TO_JSON(PodIps, podIps_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ProxyPath, proxyPath_);
       DARABONBA_PTR_TO_JSON(ReasonCode, reasonCode_);
@@ -115,6 +117,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(NodeErrorRecovery, nodeErrorRecovery_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
+      DARABONBA_PTR_FROM_JSON(PodIps, podIps_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ProxyPath, proxyPath_);
       DARABONBA_PTR_FROM_JSON(ReasonCode, reasonCode_);
@@ -155,11 +158,11 @@ namespace Models
         && return this->imageAuth_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceId_ == nullptr
         && return this->instanceName_ == nullptr && return this->instanceShutdownTimer_ == nullptr && return this->instanceSnapshotList_ == nullptr && return this->instanceUrl_ == nullptr && return this->jupyterlabUrl_ == nullptr
         && return this->labels_ == nullptr && return this->latestSnapshot_ == nullptr && return this->message_ == nullptr && return this->nodeErrorRecovery_ == nullptr && return this->paymentType_ == nullptr
-        && return this->priority_ == nullptr && return this->proxyPath_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr
-        && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->serviceConfig_ == nullptr && return this->status_ == nullptr
-        && return this->success_ == nullptr && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userCommandId_ == nullptr && return this->userId_ == nullptr
-        && return this->userName_ == nullptr && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr
-        && return this->workspaceSource_ == nullptr; };
+        && return this->podIps_ == nullptr && return this->priority_ == nullptr && return this->proxyPath_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
+        && return this->requestId_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->serviceConfig_ == nullptr
+        && return this->status_ == nullptr && return this->success_ == nullptr && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userCommandId_ == nullptr
+        && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceName_ == nullptr && return this->workspaceSource_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -401,6 +404,15 @@ namespace Models
     inline GetInstanceResponseBody& setPaymentType(string paymentType) { DARABONBA_PTR_SET_VALUE(paymentType_, paymentType) };
 
 
+    // podIps Field Functions 
+    bool hasPodIps() const { return this->podIps_ != nullptr;};
+    void deletePodIps() { this->podIps_ = nullptr;};
+    inline const vector<PodIp> & podIps() const { DARABONBA_PTR_GET_CONST(podIps_, vector<PodIp>) };
+    inline vector<PodIp> podIps() { DARABONBA_PTR_GET(podIps_, vector<PodIp>) };
+    inline GetInstanceResponseBody& setPodIps(const vector<PodIp> & podIps) { DARABONBA_PTR_SET_VALUE(podIps_, podIps) };
+    inline GetInstanceResponseBody& setPodIps(vector<PodIp> && podIps) { DARABONBA_PTR_SET_RVALUE(podIps_, podIps) };
+
+
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
@@ -639,6 +651,7 @@ namespace Models
     // *   PayAsYouGo
     // *   Subscription
     std::shared_ptr<string> paymentType_ = nullptr;
+    std::shared_ptr<vector<PodIp>> podIps_ = nullptr;
     // The priority based on which resources are allocated to instances.
     std::shared_ptr<int64_t> priority_ = nullptr;
     // The proxy path.
