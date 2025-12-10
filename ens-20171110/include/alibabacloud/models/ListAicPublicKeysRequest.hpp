@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Public key grouping
     std::shared_ptr<string> keyGroup_ = nullptr;
+    // Public key name
     std::shared_ptr<string> keyName_ = nullptr;
+    // Public key type
     std::shared_ptr<string> keyType_ = nullptr;
+    // The page number of the page to return.
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
   };
 

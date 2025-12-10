@@ -52,8 +52,12 @@ namespace Models
 
 
   protected:
+    // The security group rules.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<DeleteSecurityGroupPermissionsRequestPermissions>> permissions_ = nullptr;
+    // The ID of the security group.
+    // 
     // This parameter is required.
     std::shared_ptr<string> securityGroupId_ = nullptr;
   };

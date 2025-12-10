@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateClusterRequestControlPlaneConfig& obj) { 
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceSpec, instanceSpec_);
+      DARABONBA_PTR_TO_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_TO_JSON(NodePortRange, nodePortRange_);
       DARABONBA_PTR_TO_JSON(Runtime, runtime_);
       DARABONBA_PTR_TO_JSON(Size, size_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateClusterRequestControlPlaneConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceSpec, instanceSpec_);
+      DARABONBA_PTR_FROM_JSON(LoginPassword, loginPassword_);
       DARABONBA_PTR_FROM_JSON(NodePortRange, nodePortRange_);
       DARABONBA_PTR_FROM_JSON(Runtime, runtime_);
       DARABONBA_PTR_FROM_JSON(Size, size_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->imageId_ == nullptr
-        && return this->instanceSpec_ == nullptr && return this->nodePortRange_ == nullptr && return this->runtime_ == nullptr && return this->size_ == nullptr && return this->systemDiskCategory_ == nullptr
-        && return this->systemDiskSize_ == nullptr; };
+        && return this->instanceSpec_ == nullptr && return this->loginPassword_ == nullptr && return this->nodePortRange_ == nullptr && return this->runtime_ == nullptr && return this->size_ == nullptr
+        && return this->systemDiskCategory_ == nullptr && return this->systemDiskSize_ == nullptr; };
     // imageId Field Functions 
     bool hasImageId() const { return this->imageId_ != nullptr;};
     void deleteImageId() { this->imageId_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteInstanceSpec() { this->instanceSpec_ = nullptr;};
     inline string instanceSpec() const { DARABONBA_PTR_GET_DEFAULT(instanceSpec_, "") };
     inline CreateClusterRequestControlPlaneConfig& setInstanceSpec(string instanceSpec) { DARABONBA_PTR_SET_VALUE(instanceSpec_, instanceSpec) };
+
+
+    // loginPassword Field Functions 
+    bool hasLoginPassword() const { return this->loginPassword_ != nullptr;};
+    void deleteLoginPassword() { this->loginPassword_ = nullptr;};
+    inline string loginPassword() const { DARABONBA_PTR_GET_DEFAULT(loginPassword_, "") };
+    inline CreateClusterRequestControlPlaneConfig& setLoginPassword(string loginPassword) { DARABONBA_PTR_SET_VALUE(loginPassword_, loginPassword) };
 
 
     // nodePortRange Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<string> instanceSpec_ = nullptr;
+    std::shared_ptr<string> loginPassword_ = nullptr;
     std::shared_ptr<string> nodePortRange_ = nullptr;
     std::shared_ptr<string> runtime_ = nullptr;
     std::shared_ptr<int32_t> size_ = nullptr;

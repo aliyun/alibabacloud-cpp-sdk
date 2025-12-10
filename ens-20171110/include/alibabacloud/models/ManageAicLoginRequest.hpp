@@ -66,11 +66,22 @@ namespace Models
 
 
   protected:
+    // Manage actions
+    // 
+    // Valid value:
+    // 
+    // *   open
+    // *   close
+    // 
     // This parameter is required.
     std::shared_ptr<string> actionName_ = nullptr;
+    // The instance ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Public Key Grouping
     std::shared_ptr<string> keyGroup_ = nullptr;
+    // Public Key Name
     std::shared_ptr<string> keyName_ = nullptr;
   };
 

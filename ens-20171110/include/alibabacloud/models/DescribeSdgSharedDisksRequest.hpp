@@ -75,10 +75,16 @@ namespace Models
 
 
   protected:
+    // The namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The page number, which is used for paged query
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // sdg ID
+    // 
     // This parameter is required.
     std::shared_ptr<string> sdgId_ = nullptr;
   };

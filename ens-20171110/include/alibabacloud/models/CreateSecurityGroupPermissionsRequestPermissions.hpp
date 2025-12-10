@@ -130,21 +130,63 @@ namespace Models
 
 
   protected:
+    // The description of the storage gateway. It must be 2 to 256 characters in length and cannot start with http:// or https://.
     std::shared_ptr<string> description_ = nullptr;
+    // The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
     std::shared_ptr<string> destCidrIp_ = nullptr;
+    // The direction in which the security group rule is applied.
+    // 
+    // *   egress
+    // *   ingress
+    // 
     // This parameter is required.
     std::shared_ptr<string> direction_ = nullptr;
+    // Protocol type. Valid values:
+    // 
+    // *   TCP
+    // *   UDP
+    // *   ICMP: the ICMP protocol
+    // *   ICMPv6: the ICMP protocol for IPv6.
+    // *   ALL: All protocols are supported.
+    // 
     // This parameter is required.
     std::shared_ptr<string> ipProtocol_ = nullptr;
+    // The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
+    // 
+    // >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
     std::shared_ptr<string> ipv6DestCidrIp_ = nullptr;
+    // The source IPv6 CIDR block of the security group rule. or IPv6 address.
+    // 
+    // >  This parameter and the `DestCidrIp` parameter cannot be set at the same time.
     std::shared_ptr<string> ipv6SourceCidrIp_ = nullptr;
+    // The action specified in the security group rule. Valid values:
+    // 
+    // *   Accept
+    // *   Drop
+    // 
     // This parameter is required.
     std::shared_ptr<string> policy_ = nullptr;
+    // The destination port range of the security group rule. Valid values:
+    // 
+    // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+    // *   If you set IpProtocol to ICMP, the port range is -1/-1.
+    // *   ICMPv6:-1/-1.
+    // *   If you set IpProtocol to ALL, the port number range is -1/-1.
+    // 
     // This parameter is required.
     std::shared_ptr<string> portRange_ = nullptr;
+    // The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> priority_ = nullptr;
+    // The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
     std::shared_ptr<string> sourceCidrIp_ = nullptr;
+    // The range of source port numbers for the protocols specified in the security group rule. Valid values:
+    // 
+    // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+    // *   If you set IpProtocol to ICMP, the port range is -1/-1.
+    // *   ICMPv6:-1/-1.
+    // *   If you set IpProtocol to ALL, the port range is -1/-1.
     std::shared_ptr<string> sourcePortRange_ = nullptr;
   };
 

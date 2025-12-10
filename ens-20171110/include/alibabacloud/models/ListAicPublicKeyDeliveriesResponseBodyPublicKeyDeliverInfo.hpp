@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The creation time.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    // Public Key Grouping
     std::shared_ptr<string> keyGroup_ = nullptr;
+    // Public Key Name
     std::shared_ptr<string> keyName_ = nullptr;
+    // Public key type
     std::shared_ptr<string> keyType_ = nullptr;
   };
 

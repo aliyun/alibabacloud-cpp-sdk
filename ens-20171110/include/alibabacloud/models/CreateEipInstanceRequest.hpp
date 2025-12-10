@@ -20,7 +20,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_TO_JSON(IpAddress, ipAddress_);
       DARABONBA_PTR_TO_JSON(Isp, isp_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
@@ -31,7 +33,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_FROM_JSON(IpAddress, ipAddress_);
       DARABONBA_PTR_FROM_JSON(Isp, isp_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
@@ -48,8 +52,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bandwidth_ == nullptr
-        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceChargeType_ == nullptr && return this->internetChargeType_ == nullptr
-        && return this->isp_ == nullptr && return this->name_ == nullptr && return this->tag_ == nullptr; };
+        && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->ensRegionId_ == nullptr && return this->instanceChargeType_ == nullptr && return this->instanceId_ == nullptr
+        && return this->internetChargeType_ == nullptr && return this->ipAddress_ == nullptr && return this->isp_ == nullptr && return this->name_ == nullptr && return this->tag_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -85,11 +89,25 @@ namespace Models
     inline CreateEipInstanceRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreateEipInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
     // internetChargeType Field Functions 
     bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
     void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
     inline string internetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
     inline CreateEipInstanceRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
+
+
+    // ipAddress Field Functions 
+    bool hasIpAddress() const { return this->ipAddress_ != nullptr;};
+    void deleteIpAddress() { this->ipAddress_ = nullptr;};
+    inline string ipAddress() const { DARABONBA_PTR_GET_DEFAULT(ipAddress_, "") };
+    inline CreateEipInstanceRequest& setIpAddress(string ipAddress) { DARABONBA_PTR_SET_VALUE(ipAddress_, ipAddress) };
 
 
     // isp Field Functions 
@@ -135,10 +153,12 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> instanceChargeType_ = nullptr;
+    std::shared_ptr<string> instanceId_ = nullptr;
     // The metering method of the EIP. Set the value to **95BandwidthByMonth**.
     // 
     // This parameter is required.
     std::shared_ptr<string> internetChargeType_ = nullptr;
+    std::shared_ptr<string> ipAddress_ = nullptr;
     // The Internet service provider. Valid values:
     // 
     // *   **cmcc**: China Mobile.

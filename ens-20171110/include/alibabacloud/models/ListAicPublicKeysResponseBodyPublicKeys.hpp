@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Public key content
     std::shared_ptr<string> content_ = nullptr;
+    // The creation time of the voiceprint.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // Public key description
     std::shared_ptr<string> description_ = nullptr;
+    // Public key grouping
     std::shared_ptr<string> keyGroup_ = nullptr;
+    // Public key name
     std::shared_ptr<string> keyName_ = nullptr;
+    // Public key type
     std::shared_ptr<string> keyType_ = nullptr;
   };
 

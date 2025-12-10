@@ -79,10 +79,15 @@ namespace Models
 
 
   protected:
+    // Current page number when paging
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    // The number of entries per page.
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    // Public Key List
     std::shared_ptr<vector<ListAICPublicKeyDeliveriesResponseBodyPublicKeyDeliverInfo>> publicKeyDeliverInfo_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The total number of entries returned.
     std::shared_ptr<int64_t> totalCount_ = nullptr;
   };
 

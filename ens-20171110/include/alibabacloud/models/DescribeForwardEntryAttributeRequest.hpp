@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the DNAT entry.
+    // 
     // This parameter is required.
     std::shared_ptr<string> forwardEntryId_ = nullptr;
   };

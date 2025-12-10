@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The image name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The user groups.
+    // 
     // This parameter is required.
     std::shared_ptr<string> usersShrink_ = nullptr;
   };

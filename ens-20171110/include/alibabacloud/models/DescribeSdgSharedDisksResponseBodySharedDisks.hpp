@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The time when the shared disk was created.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // shared disk id
     std::shared_ptr<string> diskId_ = nullptr;
+    // Shared disk type
     std::shared_ptr<string> diskType_ = nullptr;
+    // The namespace of the service.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The node ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // SdgId of the shared disk
     std::shared_ptr<string> sdgId_ = nullptr;
+    // Number of shared mounts
     std::shared_ptr<int32_t> sharedNum_ = nullptr;
+    // Shared disk status
     std::shared_ptr<string> status_ = nullptr;
   };
 

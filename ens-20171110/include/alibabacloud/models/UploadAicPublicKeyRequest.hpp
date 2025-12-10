@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // Public Key
+    // 
     // This parameter is required.
     std::shared_ptr<string> content_ = nullptr;
+    // The description of the document.
     std::shared_ptr<string> description_ = nullptr;
+    // Public Key Grouping
     std::shared_ptr<string> keyGroup_ = nullptr;
+    // Public Key Name
+    // 
     // This parameter is required.
     std::shared_ptr<string> keyName_ = nullptr;
+    // Public key type
+    // 
     // This parameter is required.
     std::shared_ptr<string> keyType_ = nullptr;
   };

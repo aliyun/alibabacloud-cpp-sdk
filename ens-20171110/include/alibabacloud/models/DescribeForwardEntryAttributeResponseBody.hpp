@@ -158,19 +158,52 @@ namespace Models
 
 
   protected:
+    // The creation time. The time is displayed in UTC.
     std::shared_ptr<string> creationTime_ = nullptr;
+    // The EIP in the DNAT entry. The public IP address is used to access the Internet.
     std::shared_ptr<string> externalIp_ = nullptr;
+    // The external port or port range that is used for port forwarding.
+    // 
+    // *   Valid values: 1 to 65535.
+    // *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
     std::shared_ptr<string> externalPort_ = nullptr;
+    // The ID of the DNAT entry.
     std::shared_ptr<string> forwardEntryId_ = nullptr;
+    // The name of the DNAT entry.
     std::shared_ptr<string> forwardEntryName_ = nullptr;
+    // The DNAT probe port. The port must be within the internal port range. By default, this parameter is empty.
     std::shared_ptr<string> healthCheckPort_ = nullptr;
+    // The private IP address of the instance that uses the DNAT entry for Internet communication.
     std::shared_ptr<string> internalIp_ = nullptr;
+    // The internal port or port range that is used for port forwarding.
+    // 
+    // *   Valid values: 1 to 65535.
+    // *   To specify a port range, separate the first port and the last port with a forward slash (/), such as 10/20.
     std::shared_ptr<string> internalPort_ = nullptr;
+    // The protocol. Valid values:
+    // 
+    // *   **TCP**: forwards TCP packets.
+    // *   **UDP**: forwards UDP packets.
+    // *   **Any**: forwards all packets.
     std::shared_ptr<string> ipProtocol_ = nullptr;
+    // The ID of the NAT gateway.
     std::shared_ptr<string> natGatewayId_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The secondary EIP that is used to access the Internet. You need to select a secondary EIP that is bound to NAT. After the DNAT entry is created, the secondary EIP takes effect.
     std::shared_ptr<string> standbyExternalIp_ = nullptr;
+    // The status of the secondary EIP.
+    // 
+    // *   Running
+    // *   Stopping
+    // *   Stopped
+    // *   Starting
     std::shared_ptr<string> standbyStatus_ = nullptr;
+    // The status of the DNAT entry.
+    // 
+    // *   Pending: The DNAT entry is being created or modified.
+    // *   Available: The DNAT entry is available.
+    // *   Deleting: The DNAT entry is being deleted.
     std::shared_ptr<string> status_ = nullptr;
   };
 

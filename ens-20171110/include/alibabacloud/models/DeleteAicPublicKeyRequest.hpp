@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Public Key Name
+    // 
     // This parameter is required.
     std::shared_ptr<string> keyName_ = nullptr;
   };
