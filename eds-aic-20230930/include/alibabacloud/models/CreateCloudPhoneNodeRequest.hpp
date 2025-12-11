@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DownBandwidthLimit, downBandwidthLimit_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(IsSingleImgDisk, isSingleImgDisk_);
       DARABONBA_PTR_TO_JSON(NetworkId, networkId_);
       DARABONBA_PTR_TO_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DownBandwidthLimit, downBandwidthLimit_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(IsSingleImgDisk, isSingleImgDisk_);
       DARABONBA_PTR_FROM_JSON(NetworkId, networkId_);
       DARABONBA_PTR_FROM_JSON(NetworkInfo, networkInfo_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
@@ -94,10 +96,10 @@ namespace Models
     virtual bool empty() const override { return this->autoPay_ == nullptr
         && return this->autoRenew_ == nullptr && return this->bandwidthPackageId_ == nullptr && return this->bandwidthPackageType_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
         && return this->count_ == nullptr && return this->displayConfig_ == nullptr && return this->downBandwidthLimit_ == nullptr && return this->imageId_ == nullptr && return this->instanceType_ == nullptr
-        && return this->networkId_ == nullptr && return this->networkInfo_ == nullptr && return this->networkType_ == nullptr && return this->nodeName_ == nullptr && return this->period_ == nullptr
-        && return this->periodUnit_ == nullptr && return this->phoneCount_ == nullptr && return this->phoneDataVolume_ == nullptr && return this->promotionId_ == nullptr && return this->resolutionHeight_ == nullptr
-        && return this->resolutionWidth_ == nullptr && return this->serverShareDataVolume_ == nullptr && return this->serverType_ == nullptr && return this->streamMode_ == nullptr && return this->swapSize_ == nullptr
-        && return this->tag_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->useTemplate_ == nullptr && return this->vSwitchId_ == nullptr; };
+        && return this->isSingleImgDisk_ == nullptr && return this->networkId_ == nullptr && return this->networkInfo_ == nullptr && return this->networkType_ == nullptr && return this->nodeName_ == nullptr
+        && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->phoneCount_ == nullptr && return this->phoneDataVolume_ == nullptr && return this->promotionId_ == nullptr
+        && return this->resolutionHeight_ == nullptr && return this->resolutionWidth_ == nullptr && return this->serverShareDataVolume_ == nullptr && return this->serverType_ == nullptr && return this->streamMode_ == nullptr
+        && return this->swapSize_ == nullptr && return this->tag_ == nullptr && return this->upBandwidthLimit_ == nullptr && return this->useTemplate_ == nullptr && return this->vSwitchId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -175,6 +177,13 @@ namespace Models
     void deleteInstanceType() { this->instanceType_ = nullptr;};
     inline string instanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline CreateCloudPhoneNodeRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // isSingleImgDisk Field Functions 
+    bool hasIsSingleImgDisk() const { return this->isSingleImgDisk_ != nullptr;};
+    void deleteIsSingleImgDisk() { this->isSingleImgDisk_ = nullptr;};
+    inline bool isSingleImgDisk() const { DARABONBA_PTR_GET_DEFAULT(isSingleImgDisk_, false) };
+    inline CreateCloudPhoneNodeRequest& setIsSingleImgDisk(bool isSingleImgDisk) { DARABONBA_PTR_SET_VALUE(isSingleImgDisk_, isSingleImgDisk) };
 
 
     // networkId Field Functions 
@@ -350,6 +359,7 @@ namespace Models
     // *   ac.max: By default, this specification allows up to 25 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
     // *   ac.plus: By default, this specification allows up to 40 instances. You can adjust this number by using PhoneCount (Value range: 4 to 40).
     std::shared_ptr<string> instanceType_ = nullptr;
+    std::shared_ptr<bool> isSingleImgDisk_ = nullptr;
     // The office network ID.
     std::shared_ptr<string> networkId_ = nullptr;
     std::shared_ptr<CreateCloudPhoneNodeRequestNetworkInfo> networkInfo_ = nullptr;

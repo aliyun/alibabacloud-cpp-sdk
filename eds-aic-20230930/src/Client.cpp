@@ -743,6 +743,10 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNodeWithOptions(const Creat
     query["InstanceType"] = request.instanceType();
   }
 
+  if (!!request.hasIsSingleImgDisk()) {
+    query["IsSingleImgDisk"] = request.isSingleImgDisk();
+  }
+
   if (!!request.hasNetworkId()) {
     query["NetworkId"] = request.networkId();
   }
