@@ -14,11 +14,13 @@ namespace Models
   class GetInstanceResponseBodyDataNetworkInfoEndpoints : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetInstanceResponseBodyDataNetworkInfoEndpoints& obj) { 
+      DARABONBA_PTR_TO_JSON(endpointId, endpointId_);
       DARABONBA_PTR_TO_JSON(endpointType, endpointType_);
       DARABONBA_PTR_TO_JSON(endpointUrl, endpointUrl_);
       DARABONBA_PTR_TO_JSON(ipWhitelist, ipWhitelist_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceResponseBodyDataNetworkInfoEndpoints& obj) { 
+      DARABONBA_PTR_FROM_JSON(endpointId, endpointId_);
       DARABONBA_PTR_FROM_JSON(endpointType, endpointType_);
       DARABONBA_PTR_FROM_JSON(endpointUrl, endpointUrl_);
       DARABONBA_PTR_FROM_JSON(ipWhitelist, ipWhitelist_);
@@ -34,8 +36,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endpointType_ == nullptr
-        && return this->endpointUrl_ == nullptr && return this->ipWhitelist_ == nullptr; };
+    virtual bool empty() const override { return this->endpointId_ == nullptr
+        && return this->endpointType_ == nullptr && return this->endpointUrl_ == nullptr && return this->ipWhitelist_ == nullptr; };
+    // endpointId Field Functions 
+    bool hasEndpointId() const { return this->endpointId_ != nullptr;};
+    void deleteEndpointId() { this->endpointId_ = nullptr;};
+    inline string endpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+    inline GetInstanceResponseBodyDataNetworkInfoEndpoints& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
+
+
     // endpointType Field Functions 
     bool hasEndpointType() const { return this->endpointType_ != nullptr;};
     void deleteEndpointType() { this->endpointType_ = nullptr;};
@@ -60,6 +69,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> endpointId_ = nullptr;
     // The type of the endpoint that is used to access the instance.
     // 
     // Valid values:
