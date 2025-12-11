@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(examples, examples_);
+      DARABONBA_PTR_TO_JSON(prefix, prefix_);
       DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
       DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
       DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(examples, examples_);
+      DARABONBA_PTR_FROM_JSON(prefix, prefix_);
       DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
       DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
       DARABONBA_PTR_FROM_JSON(textTransform, textTransform_);
@@ -47,8 +49,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agent_ == nullptr
-        && return this->config_ == nullptr && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr
-        && return this->textTransform_ == nullptr; };
+        && return this->config_ == nullptr && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->prefix_ == nullptr && return this->sensitives_ == nullptr
+        && return this->terminologies_ == nullptr && return this->textTransform_ == nullptr; };
     // agent Field Functions 
     bool hasAgent() const { return this->agent_ != nullptr;};
     void deleteAgent() { this->agent_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline vector<Models::TextTranslateRequestExtExamples> examples() { DARABONBA_PTR_GET(examples_, vector<Models::TextTranslateRequestExtExamples>) };
     inline TextTranslateRequestExt& setExamples(const vector<Models::TextTranslateRequestExtExamples> & examples) { DARABONBA_PTR_SET_VALUE(examples_, examples) };
     inline TextTranslateRequestExt& setExamples(vector<Models::TextTranslateRequestExtExamples> && examples) { DARABONBA_PTR_SET_RVALUE(examples_, examples) };
+
+
+    // prefix Field Functions 
+    bool hasPrefix() const { return this->prefix_ != nullptr;};
+    void deletePrefix() { this->prefix_ = nullptr;};
+    inline string prefix() const { DARABONBA_PTR_GET_DEFAULT(prefix_, "") };
+    inline TextTranslateRequestExt& setPrefix(string prefix) { DARABONBA_PTR_SET_VALUE(prefix_, prefix) };
 
 
     // sensitives Field Functions 
@@ -113,6 +122,7 @@ namespace Models
     std::shared_ptr<Models::TextTranslateRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::TextTranslateRequestExtExamples>> examples_ = nullptr;
+    std::shared_ptr<string> prefix_ = nullptr;
     std::shared_ptr<vector<string>> sensitives_ = nullptr;
     std::shared_ptr<vector<Models::TextTranslateRequestExtTerminologies>> terminologies_ = nullptr;
     std::shared_ptr<Models::TextTranslateRequestExtTextTransform> textTransform_ = nullptr;
