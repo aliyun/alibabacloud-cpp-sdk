@@ -16,6 +16,7 @@ namespace Models
   class GetSmsSignResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetSmsSignResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_TO_JSON(ApplyScene, applyScene_);
       DARABONBA_PTR_TO_JSON(AuditInfo, auditInfo_);
       DARABONBA_PTR_TO_JSON(AuthorizationLetterAuditPass, authorizationLetterAuditPass_);
@@ -36,8 +37,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SignTag, signTag_);
       DARABONBA_PTR_TO_JSON(SignUsage, signUsage_);
       DARABONBA_PTR_TO_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_TO_JSON(TrademarkId, trademarkId_);
     };
     friend void from_json(const Darabonba::Json& j, GetSmsSignResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_FROM_JSON(ApplyScene, applyScene_);
       DARABONBA_PTR_FROM_JSON(AuditInfo, auditInfo_);
       DARABONBA_PTR_FROM_JSON(AuthorizationLetterAuditPass, authorizationLetterAuditPass_);
@@ -58,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SignTag, signTag_);
       DARABONBA_PTR_FROM_JSON(SignUsage, signUsage_);
       DARABONBA_PTR_FROM_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_FROM_JSON(TrademarkId, trademarkId_);
     };
     GetSmsSignResponseBody() = default ;
     GetSmsSignResponseBody(const GetSmsSignResponseBody &) = default ;
@@ -70,11 +74,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applyScene_ == nullptr
-        && return this->auditInfo_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->code_ == nullptr && return this->createDate_ == nullptr
-        && return this->fileUrlList_ == nullptr && return this->message_ == nullptr && return this->orderId_ == nullptr && return this->qualificationId_ == nullptr && return this->registerResult_ == nullptr
-        && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->signCode_ == nullptr && return this->signIspRegisterDetailList_ == nullptr && return this->signName_ == nullptr
-        && return this->signStatus_ == nullptr && return this->signTag_ == nullptr && return this->signUsage_ == nullptr && return this->thirdParty_ == nullptr; };
+    virtual bool empty() const override { return this->appIcpRecordId_ == nullptr
+        && return this->applyScene_ == nullptr && return this->auditInfo_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->code_ == nullptr
+        && return this->createDate_ == nullptr && return this->fileUrlList_ == nullptr && return this->message_ == nullptr && return this->orderId_ == nullptr && return this->qualificationId_ == nullptr
+        && return this->registerResult_ == nullptr && return this->remark_ == nullptr && return this->requestId_ == nullptr && return this->signCode_ == nullptr && return this->signIspRegisterDetailList_ == nullptr
+        && return this->signName_ == nullptr && return this->signStatus_ == nullptr && return this->signTag_ == nullptr && return this->signUsage_ == nullptr && return this->thirdParty_ == nullptr
+        && return this->trademarkId_ == nullptr; };
+    // appIcpRecordId Field Functions 
+    bool hasAppIcpRecordId() const { return this->appIcpRecordId_ != nullptr;};
+    void deleteAppIcpRecordId() { this->appIcpRecordId_ = nullptr;};
+    inline int64_t appIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
+    inline GetSmsSignResponseBody& setAppIcpRecordId(int64_t appIcpRecordId) { DARABONBA_PTR_SET_VALUE(appIcpRecordId_, appIcpRecordId) };
+
+
     // applyScene Field Functions 
     bool hasApplyScene() const { return this->applyScene_ != nullptr;};
     void deleteApplyScene() { this->applyScene_ = nullptr;};
@@ -221,7 +233,15 @@ namespace Models
     inline GetSmsSignResponseBody& setThirdParty(bool thirdParty) { DARABONBA_PTR_SET_VALUE(thirdParty_, thirdParty) };
 
 
+    // trademarkId Field Functions 
+    bool hasTrademarkId() const { return this->trademarkId_ != nullptr;};
+    void deleteTrademarkId() { this->trademarkId_ = nullptr;};
+    inline int64_t trademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
+    inline GetSmsSignResponseBody& setTrademarkId(int64_t trademarkId) { DARABONBA_PTR_SET_VALUE(trademarkId_, trademarkId) };
+
+
   protected:
+    std::shared_ptr<int64_t> appIcpRecordId_ = nullptr;
     // Content of application scenarios.
     std::shared_ptr<string> applyScene_ = nullptr;
     // Audit information.
@@ -277,6 +297,7 @@ namespace Models
     // 
     // - true: Third-party use
     std::shared_ptr<bool> thirdParty_ = nullptr;
+    std::shared_ptr<int64_t> trademarkId_ = nullptr;
   };
 
   } // namespace Models

@@ -14,6 +14,7 @@ namespace Models
   class QuerySmsSignListResponseBodySmsSignList : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QuerySmsSignListResponseBodySmsSignList& obj) { 
+      DARABONBA_PTR_TO_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_TO_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_TO_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
@@ -21,9 +22,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(Reason, reason_);
       DARABONBA_PTR_TO_JSON(SignName, signName_);
+      DARABONBA_PTR_TO_JSON(TrademarkId, trademarkId_);
       DARABONBA_PTR_TO_JSON(authorizationLetterAuditPass, authorizationLetterAuditPass_);
     };
     friend void from_json(const Darabonba::Json& j, QuerySmsSignListResponseBodySmsSignList& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_FROM_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_FROM_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
@@ -31,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(Reason, reason_);
       DARABONBA_PTR_FROM_JSON(SignName, signName_);
+      DARABONBA_PTR_FROM_JSON(TrademarkId, trademarkId_);
       DARABONBA_PTR_FROM_JSON(authorizationLetterAuditPass, authorizationLetterAuditPass_);
     };
     QuerySmsSignListResponseBodySmsSignList() = default ;
@@ -44,9 +48,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->auditStatus_ == nullptr
-        && return this->authorizationLetterId_ == nullptr && return this->businessType_ == nullptr && return this->createDate_ == nullptr && return this->orderId_ == nullptr && return this->reason_ == nullptr
-        && return this->signName_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr; };
+    virtual bool empty() const override { return this->appIcpRecordId_ == nullptr
+        && return this->auditStatus_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->businessType_ == nullptr && return this->createDate_ == nullptr && return this->orderId_ == nullptr
+        && return this->reason_ == nullptr && return this->signName_ == nullptr && return this->trademarkId_ == nullptr && return this->authorizationLetterAuditPass_ == nullptr; };
+    // appIcpRecordId Field Functions 
+    bool hasAppIcpRecordId() const { return this->appIcpRecordId_ != nullptr;};
+    void deleteAppIcpRecordId() { this->appIcpRecordId_ = nullptr;};
+    inline int64_t appIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
+    inline QuerySmsSignListResponseBodySmsSignList& setAppIcpRecordId(int64_t appIcpRecordId) { DARABONBA_PTR_SET_VALUE(appIcpRecordId_, appIcpRecordId) };
+
+
     // auditStatus Field Functions 
     bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
     void deleteAuditStatus() { this->auditStatus_ = nullptr;};
@@ -98,6 +109,13 @@ namespace Models
     inline QuerySmsSignListResponseBodySmsSignList& setSignName(string signName) { DARABONBA_PTR_SET_VALUE(signName_, signName) };
 
 
+    // trademarkId Field Functions 
+    bool hasTrademarkId() const { return this->trademarkId_ != nullptr;};
+    void deleteTrademarkId() { this->trademarkId_ = nullptr;};
+    inline int64_t trademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
+    inline QuerySmsSignListResponseBodySmsSignList& setTrademarkId(int64_t trademarkId) { DARABONBA_PTR_SET_VALUE(trademarkId_, trademarkId) };
+
+
     // authorizationLetterAuditPass Field Functions 
     bool hasAuthorizationLetterAuditPass() const { return this->authorizationLetterAuditPass_ != nullptr;};
     void deleteAuthorizationLetterAuditPass() { this->authorizationLetterAuditPass_ = nullptr;};
@@ -106,6 +124,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> appIcpRecordId_ = nullptr;
     // The approval status of the signature. Valid values:
     // 
     // *   **AUDIT_STATE_INIT**: The signature is pending approval.
@@ -130,6 +149,7 @@ namespace Models
     std::shared_ptr<Models::QuerySmsSignListResponseBodySmsSignListReason> reason_ = nullptr;
     // The name of the signature.
     std::shared_ptr<string> signName_ = nullptr;
+    std::shared_ptr<int64_t> trademarkId_ = nullptr;
     std::shared_ptr<bool> authorizationLetterAuditPass_ = nullptr;
   };
 

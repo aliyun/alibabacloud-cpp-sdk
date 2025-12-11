@@ -13,6 +13,7 @@ namespace Models
   class CreateSmsSignShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSmsSignShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_TO_JSON(ApplySceneContent, applySceneContent_);
       DARABONBA_PTR_TO_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_TO_JSON(MoreData, moreDataShrink_);
@@ -25,8 +26,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SignSource, signSource_);
       DARABONBA_PTR_TO_JSON(SignType, signType_);
       DARABONBA_PTR_TO_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_TO_JSON(TrademarkId, trademarkId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSmsSignShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_FROM_JSON(ApplySceneContent, applySceneContent_);
       DARABONBA_PTR_FROM_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_FROM_JSON(MoreData, moreDataShrink_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SignSource, signSource_);
       DARABONBA_PTR_FROM_JSON(SignType, signType_);
       DARABONBA_PTR_FROM_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_FROM_JSON(TrademarkId, trademarkId_);
     };
     CreateSmsSignShrinkRequest() = default ;
     CreateSmsSignShrinkRequest(const CreateSmsSignShrinkRequest &) = default ;
@@ -51,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applySceneContent_ == nullptr
-        && return this->authorizationLetterId_ == nullptr && return this->moreDataShrink_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr && return this->remark_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->signSource_ == nullptr && return this->signType_ == nullptr
-        && return this->thirdParty_ == nullptr; };
+    virtual bool empty() const override { return this->appIcpRecordId_ == nullptr
+        && return this->applySceneContent_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->moreDataShrink_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr
+        && return this->remark_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->signSource_ == nullptr
+        && return this->signType_ == nullptr && return this->thirdParty_ == nullptr && return this->trademarkId_ == nullptr; };
+    // appIcpRecordId Field Functions 
+    bool hasAppIcpRecordId() const { return this->appIcpRecordId_ != nullptr;};
+    void deleteAppIcpRecordId() { this->appIcpRecordId_ = nullptr;};
+    inline int64_t appIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
+    inline CreateSmsSignShrinkRequest& setAppIcpRecordId(int64_t appIcpRecordId) { DARABONBA_PTR_SET_VALUE(appIcpRecordId_, appIcpRecordId) };
+
+
     // applySceneContent Field Functions 
     bool hasApplySceneContent() const { return this->applySceneContent_ != nullptr;};
     void deleteApplySceneContent() { this->applySceneContent_ = nullptr;};
@@ -139,7 +150,15 @@ namespace Models
     inline CreateSmsSignShrinkRequest& setThirdParty(bool thirdParty) { DARABONBA_PTR_SET_VALUE(thirdParty_, thirdParty) };
 
 
+    // trademarkId Field Functions 
+    bool hasTrademarkId() const { return this->trademarkId_ != nullptr;};
+    void deleteTrademarkId() { this->trademarkId_ = nullptr;};
+    inline int64_t trademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
+    inline CreateSmsSignShrinkRequest& setTrademarkId(int64_t trademarkId) { DARABONBA_PTR_SET_VALUE(trademarkId_, trademarkId) };
+
+
   protected:
+    std::shared_ptr<int64_t> appIcpRecordId_ = nullptr;
     // Application scenarios, instructions as follows:
     // - For registered websites, enter the domain name with HTTP or HTTPS that has been registered with the MIIT.
     // 
@@ -205,6 +224,7 @@ namespace Models
     // - true: Third-party use
     // >Notice: Please select self-use qualification ID when the signature is for self-use; choose third-party use qualification ID when it\\"s for third-party use.
     std::shared_ptr<bool> thirdParty_ = nullptr;
+    std::shared_ptr<int64_t> trademarkId_ = nullptr;
   };
 
   } // namespace Models

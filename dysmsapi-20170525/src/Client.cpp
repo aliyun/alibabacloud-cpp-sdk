@@ -770,6 +770,10 @@ CreateSmsSignResponse Client::createSmsSignWithOptions(const CreateSmsSignReques
   }
 
   json query = {};
+  if (!!request.hasAppIcpRecordId()) {
+    query["AppIcpRecordId"] = request.appIcpRecordId();
+  }
+
   if (!!request.hasApplySceneContent()) {
     query["ApplySceneContent"] = request.applySceneContent();
   }
@@ -816,6 +820,10 @@ CreateSmsSignResponse Client::createSmsSignWithOptions(const CreateSmsSignReques
 
   if (!!request.hasThirdParty()) {
     query["ThirdParty"] = request.thirdParty();
+  }
+
+  if (!!request.hasTrademarkId()) {
+    query["TrademarkId"] = request.trademarkId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4178,6 +4186,10 @@ UpdateSmsSignResponse Client::updateSmsSignWithOptions(const UpdateSmsSignReques
   }
 
   json query = {};
+  if (!!request.hasAppIcpRecordId()) {
+    query["AppIcpRecordId"] = request.appIcpRecordId();
+  }
+
   if (!!request.hasApplySceneContent()) {
     query["ApplySceneContent"] = request.applySceneContent();
   }
@@ -4224,6 +4236,10 @@ UpdateSmsSignResponse Client::updateSmsSignWithOptions(const UpdateSmsSignReques
 
   if (!!request.hasThirdParty()) {
     query["ThirdParty"] = request.thirdParty();
+  }
+
+  if (!!request.hasTrademarkId()) {
+    query["TrademarkId"] = request.trademarkId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

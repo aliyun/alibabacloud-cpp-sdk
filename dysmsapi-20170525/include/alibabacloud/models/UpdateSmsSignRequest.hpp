@@ -14,6 +14,7 @@ namespace Models
   class UpdateSmsSignRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSmsSignRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_TO_JSON(ApplySceneContent, applySceneContent_);
       DARABONBA_PTR_TO_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_TO_JSON(MoreData, moreData_);
@@ -26,8 +27,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SignSource, signSource_);
       DARABONBA_PTR_TO_JSON(SignType, signType_);
       DARABONBA_PTR_TO_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_TO_JSON(TrademarkId, trademarkId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSmsSignRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppIcpRecordId, appIcpRecordId_);
       DARABONBA_PTR_FROM_JSON(ApplySceneContent, applySceneContent_);
       DARABONBA_PTR_FROM_JSON(AuthorizationLetterId, authorizationLetterId_);
       DARABONBA_PTR_FROM_JSON(MoreData, moreData_);
@@ -40,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SignSource, signSource_);
       DARABONBA_PTR_FROM_JSON(SignType, signType_);
       DARABONBA_PTR_FROM_JSON(ThirdParty, thirdParty_);
+      DARABONBA_PTR_FROM_JSON(TrademarkId, trademarkId_);
     };
     UpdateSmsSignRequest() = default ;
     UpdateSmsSignRequest(const UpdateSmsSignRequest &) = default ;
@@ -52,10 +56,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->applySceneContent_ == nullptr
-        && return this->authorizationLetterId_ == nullptr && return this->moreData_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr && return this->remark_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->signSource_ == nullptr && return this->signType_ == nullptr
-        && return this->thirdParty_ == nullptr; };
+    virtual bool empty() const override { return this->appIcpRecordId_ == nullptr
+        && return this->applySceneContent_ == nullptr && return this->authorizationLetterId_ == nullptr && return this->moreData_ == nullptr && return this->ownerId_ == nullptr && return this->qualificationId_ == nullptr
+        && return this->remark_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->signName_ == nullptr && return this->signSource_ == nullptr
+        && return this->signType_ == nullptr && return this->thirdParty_ == nullptr && return this->trademarkId_ == nullptr; };
+    // appIcpRecordId Field Functions 
+    bool hasAppIcpRecordId() const { return this->appIcpRecordId_ != nullptr;};
+    void deleteAppIcpRecordId() { this->appIcpRecordId_ = nullptr;};
+    inline int64_t appIcpRecordId() const { DARABONBA_PTR_GET_DEFAULT(appIcpRecordId_, 0L) };
+    inline UpdateSmsSignRequest& setAppIcpRecordId(int64_t appIcpRecordId) { DARABONBA_PTR_SET_VALUE(appIcpRecordId_, appIcpRecordId) };
+
+
     // applySceneContent Field Functions 
     bool hasApplySceneContent() const { return this->applySceneContent_ != nullptr;};
     void deleteApplySceneContent() { this->applySceneContent_ = nullptr;};
@@ -142,7 +153,15 @@ namespace Models
     inline UpdateSmsSignRequest& setThirdParty(bool thirdParty) { DARABONBA_PTR_SET_VALUE(thirdParty_, thirdParty) };
 
 
+    // trademarkId Field Functions 
+    bool hasTrademarkId() const { return this->trademarkId_ != nullptr;};
+    void deleteTrademarkId() { this->trademarkId_ = nullptr;};
+    inline int64_t trademarkId() const { DARABONBA_PTR_GET_DEFAULT(trademarkId_, 0L) };
+    inline UpdateSmsSignRequest& setTrademarkId(int64_t trademarkId) { DARABONBA_PTR_SET_VALUE(trademarkId_, trademarkId) };
+
+
   protected:
+    std::shared_ptr<int64_t> appIcpRecordId_ = nullptr;
     // Application scenarios, instructions as follows:
     // - For registered websites, please enter the domain name registered with MIIT, including HTTP or HTTPS.
     // - For launched apps, provide the display link from the app store with HTTP or HTTPS, ensuring the app is online.
@@ -192,6 +211,7 @@ namespace Models
     // - true: Others
     // >Notice: When the signature is for self-use, select the self-use qualification ID; when it\\"s for others, choose the others\\" qualification ID.
     std::shared_ptr<bool> thirdParty_ = nullptr;
+    std::shared_ptr<int64_t> trademarkId_ = nullptr;
   };
 
   } // namespace Models
