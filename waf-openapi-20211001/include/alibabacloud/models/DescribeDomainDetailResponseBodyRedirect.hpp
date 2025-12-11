@@ -25,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_TO_JSON(ConnectTimeout, connectTimeout_);
       DARABONBA_PTR_TO_JSON(FocusHttpBackend, focusHttpBackend_);
+      DARABONBA_PTR_TO_JSON(Http2Origin, http2Origin_);
+      DARABONBA_PTR_TO_JSON(Http2OriginMaxConcurrency, http2OriginMaxConcurrency_);
       DARABONBA_PTR_TO_JSON(Keepalive, keepalive_);
       DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
@@ -50,6 +52,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BackupBackends, backupBackends_);
       DARABONBA_PTR_FROM_JSON(ConnectTimeout, connectTimeout_);
       DARABONBA_PTR_FROM_JSON(FocusHttpBackend, focusHttpBackend_);
+      DARABONBA_PTR_FROM_JSON(Http2Origin, http2Origin_);
+      DARABONBA_PTR_FROM_JSON(Http2OriginMaxConcurrency, http2OriginMaxConcurrency_);
       DARABONBA_PTR_FROM_JSON(Keepalive, keepalive_);
       DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
       DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
@@ -80,10 +84,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backUpBackendList_ == nullptr
         && return this->backendList_ == nullptr && return this->backendPorts_ == nullptr && return this->backends_ == nullptr && return this->backupBackends_ == nullptr && return this->connectTimeout_ == nullptr
-        && return this->focusHttpBackend_ == nullptr && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr && return this->keepaliveTimeout_ == nullptr && return this->loadbalance_ == nullptr
-        && return this->maxBodySize_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr && return this->retry_ == nullptr && return this->sniEnabled_ == nullptr
-        && return this->sniHost_ == nullptr && return this->WLProxyClientIp_ == nullptr && return this->webServerType_ == nullptr && return this->writeTimeout_ == nullptr && return this->XClientIp_ == nullptr
-        && return this->XTrueIp_ == nullptr && return this->xffProto_ == nullptr; };
+        && return this->focusHttpBackend_ == nullptr && return this->http2Origin_ == nullptr && return this->http2OriginMaxConcurrency_ == nullptr && return this->keepalive_ == nullptr && return this->keepaliveRequests_ == nullptr
+        && return this->keepaliveTimeout_ == nullptr && return this->loadbalance_ == nullptr && return this->maxBodySize_ == nullptr && return this->readTimeout_ == nullptr && return this->requestHeaders_ == nullptr
+        && return this->retry_ == nullptr && return this->sniEnabled_ == nullptr && return this->sniHost_ == nullptr && return this->WLProxyClientIp_ == nullptr && return this->webServerType_ == nullptr
+        && return this->writeTimeout_ == nullptr && return this->XClientIp_ == nullptr && return this->XTrueIp_ == nullptr && return this->xffProto_ == nullptr; };
     // backUpBackendList Field Functions 
     bool hasBackUpBackendList() const { return this->backUpBackendList_ != nullptr;};
     void deleteBackUpBackendList() { this->backUpBackendList_ = nullptr;};
@@ -141,6 +145,20 @@ namespace Models
     void deleteFocusHttpBackend() { this->focusHttpBackend_ = nullptr;};
     inline bool focusHttpBackend() const { DARABONBA_PTR_GET_DEFAULT(focusHttpBackend_, false) };
     inline DescribeDomainDetailResponseBodyRedirect& setFocusHttpBackend(bool focusHttpBackend) { DARABONBA_PTR_SET_VALUE(focusHttpBackend_, focusHttpBackend) };
+
+
+    // http2Origin Field Functions 
+    bool hasHttp2Origin() const { return this->http2Origin_ != nullptr;};
+    void deleteHttp2Origin() { this->http2Origin_ = nullptr;};
+    inline bool http2Origin() const { DARABONBA_PTR_GET_DEFAULT(http2Origin_, false) };
+    inline DescribeDomainDetailResponseBodyRedirect& setHttp2Origin(bool http2Origin) { DARABONBA_PTR_SET_VALUE(http2Origin_, http2Origin) };
+
+
+    // http2OriginMaxConcurrency Field Functions 
+    bool hasHttp2OriginMaxConcurrency() const { return this->http2OriginMaxConcurrency_ != nullptr;};
+    void deleteHttp2OriginMaxConcurrency() { this->http2OriginMaxConcurrency_ = nullptr;};
+    inline int32_t http2OriginMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(http2OriginMaxConcurrency_, 0) };
+    inline DescribeDomainDetailResponseBodyRedirect& setHttp2OriginMaxConcurrency(int32_t http2OriginMaxConcurrency) { DARABONBA_PTR_SET_VALUE(http2OriginMaxConcurrency_, http2OriginMaxConcurrency) };
 
 
     // keepalive Field Functions 
@@ -272,6 +290,8 @@ namespace Models
     // *   **true:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is enabled.
     // *   **false:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is disabled.
     std::shared_ptr<bool> focusHttpBackend_ = nullptr;
+    std::shared_ptr<bool> http2Origin_ = nullptr;
+    std::shared_ptr<int32_t> http2OriginMaxConcurrency_ = nullptr;
     // Indicates whether the persistent connection feature is enabled. Valid values:
     // 
     // *   **true:** The persistent connection feature is enabled. This is the default value.
