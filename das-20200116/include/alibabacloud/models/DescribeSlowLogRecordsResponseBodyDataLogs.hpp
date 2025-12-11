@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LogicalIOReads, logicalIOReads_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
       DARABONBA_PTR_TO_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_TO_JSON(OpType, opType_);
       DARABONBA_PTR_TO_JSON(OriginTime, originTime_);
       DARABONBA_PTR_TO_JSON(PhysicalIOReads, physicalIOReads_);
       DARABONBA_PTR_TO_JSON(Psql, psql_);
@@ -88,6 +89,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LogicalIOReads, logicalIOReads_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(NodeId, nodeId_);
+      DARABONBA_PTR_FROM_JSON(OpType, opType_);
       DARABONBA_PTR_FROM_JSON(OriginTime, originTime_);
       DARABONBA_PTR_FROM_JSON(PhysicalIOReads, physicalIOReads_);
       DARABONBA_PTR_FROM_JSON(Psql, psql_);
@@ -133,12 +135,12 @@ namespace Models
         && return this->command_ == nullptr && return this->DBName_ == nullptr && return this->dbId_ == nullptr && return this->dbInstanceName_ == nullptr && return this->docsExamined_ == nullptr
         && return this->frows_ == nullptr && return this->hostAddress_ == nullptr && return this->IOWrites_ == nullptr && return this->insName_ == nullptr && return this->keysExamined_ == nullptr
         && return this->lastRowsCountAffected_ == nullptr && return this->lockTime_ == nullptr && return this->lockTimeSeconds_ == nullptr && return this->logicalIOReads_ == nullptr && return this->namespace_ == nullptr
-        && return this->nodeId_ == nullptr && return this->originTime_ == nullptr && return this->physicalIOReads_ == nullptr && return this->psql_ == nullptr && return this->queryId_ == nullptr
-        && return this->queryStartTime_ == nullptr && return this->queryTime_ == nullptr && return this->queryTimeSeconds_ == nullptr && return this->requestSize_ == nullptr && return this->responseSize_ == nullptr
-        && return this->returnItemNumbers_ == nullptr && return this->returnNum_ == nullptr && return this->rows_ == nullptr && return this->rowsCountAffected_ == nullptr && return this->rowsExamined_ == nullptr
-        && return this->rowsSent_ == nullptr && return this->rt_ == nullptr && return this->SQLText_ == nullptr && return this->scheme_ == nullptr && return this->scnt_ == nullptr
-        && return this->sqlId_ == nullptr && return this->sqlTag_ == nullptr && return this->sqlType_ == nullptr && return this->subInstanceId_ == nullptr && return this->tableName_ == nullptr
-        && return this->templateId_ == nullptr && return this->threadId_ == nullptr && return this->timestamp_ == nullptr && return this->traceId_ == nullptr; };
+        && return this->nodeId_ == nullptr && return this->opType_ == nullptr && return this->originTime_ == nullptr && return this->physicalIOReads_ == nullptr && return this->psql_ == nullptr
+        && return this->queryId_ == nullptr && return this->queryStartTime_ == nullptr && return this->queryTime_ == nullptr && return this->queryTimeSeconds_ == nullptr && return this->requestSize_ == nullptr
+        && return this->responseSize_ == nullptr && return this->returnItemNumbers_ == nullptr && return this->returnNum_ == nullptr && return this->rows_ == nullptr && return this->rowsCountAffected_ == nullptr
+        && return this->rowsExamined_ == nullptr && return this->rowsSent_ == nullptr && return this->rt_ == nullptr && return this->SQLText_ == nullptr && return this->scheme_ == nullptr
+        && return this->scnt_ == nullptr && return this->sqlId_ == nullptr && return this->sqlTag_ == nullptr && return this->sqlType_ == nullptr && return this->subInstanceId_ == nullptr
+        && return this->tableName_ == nullptr && return this->templateId_ == nullptr && return this->threadId_ == nullptr && return this->timestamp_ == nullptr && return this->traceId_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -291,6 +293,13 @@ namespace Models
     void deleteNodeId() { this->nodeId_ = nullptr;};
     inline string nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, "") };
     inline DescribeSlowLogRecordsResponseBodyDataLogs& setNodeId(string nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
+
+
+    // opType Field Functions 
+    bool hasOpType() const { return this->opType_ != nullptr;};
+    void deleteOpType() { this->opType_ = nullptr;};
+    inline string opType() const { DARABONBA_PTR_GET_DEFAULT(opType_, "") };
+    inline DescribeSlowLogRecordsResponseBodyDataLogs& setOpType(string opType) { DARABONBA_PTR_SET_VALUE(opType_, opType) };
 
 
     // originTime Field Functions 
@@ -514,6 +523,7 @@ namespace Models
     std::shared_ptr<int64_t> logicalIOReads_ = nullptr;
     std::shared_ptr<string> namespace_ = nullptr;
     std::shared_ptr<string> nodeId_ = nullptr;
+    std::shared_ptr<string> opType_ = nullptr;
     std::shared_ptr<string> originTime_ = nullptr;
     std::shared_ptr<int64_t> physicalIOReads_ = nullptr;
     std::shared_ptr<string> psql_ = nullptr;
