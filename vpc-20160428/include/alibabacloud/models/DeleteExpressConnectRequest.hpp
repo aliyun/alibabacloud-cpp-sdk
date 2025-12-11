@@ -114,7 +114,7 @@ namespace Models
     std::shared_ptr<bool> force_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
-    // The ID of the region where the Express Connect instance is deployed. Call the [DescribeRegions](36063) operation to query the region list.
+    // The ID of the region where the Express Connect instance is deployed. Call the [DescribeRegion](https://www.alibabacloud.com/help/vpc/developer-reference/api-vpc-2016-04-28-describeregions?spm=a2c63.p38356.0.i2) operation to query the region list.
     // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;

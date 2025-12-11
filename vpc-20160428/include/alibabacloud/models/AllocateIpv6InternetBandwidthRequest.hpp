@@ -158,8 +158,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> ipv6AddressId_ = nullptr;
     // The ID of the IPv6 gateway.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> ipv6GatewayId_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
