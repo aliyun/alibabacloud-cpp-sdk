@@ -5689,44 +5689,19 @@ ListDocsResponse Client::listDocs(const ListDocsRequest &request) {
  */
 ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListDocumentRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasContentType()) {
-    query["ContentType"] = request.contentType();
+    body["ContentType"] = request.contentType();
   }
 
   if (!!request.hasElementScope()) {
-    query["ElementScope"] = request.elementScope();
+    body["ElementScope"] = request.elementScope();
   }
 
   if (!!request.hasEndDate()) {
-    query["EndDate"] = request.endDate();
+    body["EndDate"] = request.endDate();
   }
 
-  if (!!request.hasOffice()) {
-    query["Office"] = request.office();
-  }
-
-  if (!!request.hasRegion()) {
-    query["Region"] = request.region();
-  }
-
-  if (!!request.hasSource()) {
-    query["Source"] = request.source();
-  }
-
-  if (!!request.hasStartDate()) {
-    query["StartDate"] = request.startDate();
-  }
-
-  if (!!request.hasSubContentType()) {
-    query["SubContentType"] = request.subContentType();
-  }
-
-  if (!!request.hasWordSize()) {
-    query["WordSize"] = request.wordSize();
-  }
-
-  json body = {};
   if (!!request.hasMaxResults()) {
     body["MaxResults"] = request.maxResults();
   }
@@ -5735,8 +5710,36 @@ ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListD
     body["NextToken"] = request.nextToken();
   }
 
+  if (!!request.hasOffice()) {
+    body["Office"] = request.office();
+  }
+
   if (!!request.hasQuery()) {
     body["Query"] = request.query();
+  }
+
+  if (!!request.hasRegion()) {
+    body["Region"] = request.region();
+  }
+
+  if (!!request.hasSource()) {
+    body["Source"] = request.source();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasSubContentType()) {
+    body["SubContentType"] = request.subContentType();
+  }
+
+  if (!!request.hasSubjectClassify()) {
+    body["SubjectClassify"] = request.subjectClassify();
+  }
+
+  if (!!request.hasWordSize()) {
+    body["WordSize"] = request.wordSize();
   }
 
   if (!!request.hasWorkspaceId()) {
@@ -5744,9 +5747,8 @@ ListDocumentRetrieveResponse Client::listDocumentRetrieveWithOptions(const ListD
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ListDocumentRetrieve"},
     {"version" , "2023-08-01"},

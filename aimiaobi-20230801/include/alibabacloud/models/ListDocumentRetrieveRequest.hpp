@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Source, source_);
       DARABONBA_PTR_TO_JSON(StartDate, startDate_);
       DARABONBA_PTR_TO_JSON(SubContentType, subContentType_);
+      DARABONBA_PTR_TO_JSON(SubjectClassify, subjectClassify_);
       DARABONBA_PTR_TO_JSON(WordSize, wordSize_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Source, source_);
       DARABONBA_PTR_FROM_JSON(StartDate, startDate_);
       DARABONBA_PTR_FROM_JSON(SubContentType, subContentType_);
+      DARABONBA_PTR_FROM_JSON(SubjectClassify, subjectClassify_);
       DARABONBA_PTR_FROM_JSON(WordSize, wordSize_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->contentType_ == nullptr
         && return this->elementScope_ == nullptr && return this->endDate_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->office_ == nullptr
         && return this->query_ == nullptr && return this->region_ == nullptr && return this->source_ == nullptr && return this->startDate_ == nullptr && return this->subContentType_ == nullptr
-        && return this->wordSize_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->subjectClassify_ == nullptr && return this->wordSize_ == nullptr && return this->workspaceId_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
@@ -134,6 +136,13 @@ namespace Models
     inline ListDocumentRetrieveRequest& setSubContentType(string subContentType) { DARABONBA_PTR_SET_VALUE(subContentType_, subContentType) };
 
 
+    // subjectClassify Field Functions 
+    bool hasSubjectClassify() const { return this->subjectClassify_ != nullptr;};
+    void deleteSubjectClassify() { this->subjectClassify_ = nullptr;};
+    inline string subjectClassify() const { DARABONBA_PTR_GET_DEFAULT(subjectClassify_, "") };
+    inline ListDocumentRetrieveRequest& setSubjectClassify(string subjectClassify) { DARABONBA_PTR_SET_VALUE(subjectClassify_, subjectClassify) };
+
+
     // wordSize Field Functions 
     bool hasWordSize() const { return this->wordSize_ != nullptr;};
     void deleteWordSize() { this->wordSize_ = nullptr;};
@@ -160,6 +169,7 @@ namespace Models
     std::shared_ptr<string> source_ = nullptr;
     std::shared_ptr<string> startDate_ = nullptr;
     std::shared_ptr<string> subContentType_ = nullptr;
+    std::shared_ptr<string> subjectClassify_ = nullptr;
     std::shared_ptr<string> wordSize_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
