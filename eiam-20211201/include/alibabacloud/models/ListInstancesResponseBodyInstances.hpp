@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultEndpoint, defaultEndpoint_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ManagedServiceCode, managedServiceCode_);
+      DARABONBA_PTR_TO_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesResponseBodyInstances& obj) { 
@@ -25,6 +27,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultEndpoint, defaultEndpoint_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ManagedServiceCode, managedServiceCode_);
+      DARABONBA_PTR_FROM_JSON(ServiceManaged, serviceManaged_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListInstancesResponseBodyInstances() = default ;
@@ -39,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
-        && return this->defaultEndpoint_ == nullptr && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->status_ == nullptr; };
+        && return this->defaultEndpoint_ == nullptr && return this->description_ == nullptr && return this->instanceId_ == nullptr && return this->managedServiceCode_ == nullptr && return this->serviceManaged_ == nullptr
+        && return this->status_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -70,6 +75,20 @@ namespace Models
     inline ListInstancesResponseBodyInstances& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // managedServiceCode Field Functions 
+    bool hasManagedServiceCode() const { return this->managedServiceCode_ != nullptr;};
+    void deleteManagedServiceCode() { this->managedServiceCode_ = nullptr;};
+    inline string managedServiceCode() const { DARABONBA_PTR_GET_DEFAULT(managedServiceCode_, "") };
+    inline ListInstancesResponseBodyInstances& setManagedServiceCode(string managedServiceCode) { DARABONBA_PTR_SET_VALUE(managedServiceCode_, managedServiceCode) };
+
+
+    // serviceManaged Field Functions 
+    bool hasServiceManaged() const { return this->serviceManaged_ != nullptr;};
+    void deleteServiceManaged() { this->serviceManaged_ = nullptr;};
+    inline bool serviceManaged() const { DARABONBA_PTR_GET_DEFAULT(serviceManaged_, false) };
+    inline ListInstancesResponseBodyInstances& setServiceManaged(bool serviceManaged) { DARABONBA_PTR_SET_VALUE(serviceManaged_, serviceManaged) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -86,6 +105,8 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // The instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> managedServiceCode_ = nullptr;
+    std::shared_ptr<bool> serviceManaged_ = nullptr;
     // The status of the instance. Valid values:
     // 
     // *   creating
