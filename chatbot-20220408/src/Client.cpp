@@ -2779,33 +2779,35 @@ GenerateUserAccessTokenResponse Client::generateUserAccessTokenWithOptions(const
     query["AgentKey"] = request.agentKey();
   }
 
+  json body = {};
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    body["Email"] = request.email();
   }
 
   if (!!request.hasExpireTime()) {
-    query["ExpireTime"] = request.expireTime();
+    body["ExpireTime"] = request.expireTime();
   }
 
   if (!!request.hasExtraInfo()) {
-    query["ExtraInfo"] = request.extraInfo();
+    body["ExtraInfo"] = request.extraInfo();
   }
 
   if (!!request.hasForeignId()) {
-    query["ForeignId"] = request.foreignId();
+    body["ForeignId"] = request.foreignId();
   }
 
   if (!!request.hasNick()) {
-    query["Nick"] = request.nick();
+    body["Nick"] = request.nick();
   }
 
   if (!!request.hasTelephone()) {
-    query["Telephone"] = request.telephone();
+    body["Telephone"] = request.telephone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "GenerateUserAccessToken"},
     {"version" , "2022-04-08"},
@@ -3083,17 +3085,19 @@ InitIMConnectResponse Client::initIMConnectWithOptions(const InitIMConnectReques
     query["AgentKey"] = request.agentKey();
   }
 
+  json body = {};
   if (!!request.hasFrom()) {
-    query["From"] = request.from();
+    body["From"] = request.from();
   }
 
   if (!!request.hasUserAccessToken()) {
-    query["UserAccessToken"] = request.userAccessToken();
+    body["UserAccessToken"] = request.userAccessToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "InitIMConnect"},
     {"version" , "2022-04-08"},
