@@ -1255,7 +1255,7 @@ CreateServiceResponse Client::createService(const CreateServiceRequest &request)
 }
 
 /**
- * @summary 创建服务版本
+ * @summary Creates a service version.
  *
  * @param request CreateServiceVersionRequest
  * @param headers map
@@ -1292,7 +1292,7 @@ CreateServiceVersionResponse Client::createServiceVersionWithOptions(const strin
 }
 
 /**
- * @summary 创建服务版本
+ * @summary Creates a service version.
  *
  * @param request CreateServiceVersionRequest
  * @return CreateServiceVersionResponse
@@ -1301,6 +1301,67 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createServiceVersionWithOptions(serviceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建服务来源
+ *
+ * @param request CreateSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSourceResponse
+ */
+CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.gatewayId();
+  }
+
+  if (!!request.hasK8sSourceConfig()) {
+    body["k8sSourceConfig"] = request.k8sSourceConfig();
+  }
+
+  if (!!request.hasNacosSourceConfig()) {
+    body["nacosSourceConfig"] = request.nacosSourceConfig();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["resourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/sources")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSourceResponse>();
+}
+
+/**
+ * @summary 创建服务来源
+ *
+ * @param request CreateSourceRequest
+ * @return CreateSourceResponse
+ */
+CreateSourceResponse Client::createSource(const CreateSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSourceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1821,7 +1882,7 @@ DeleteServiceResponse Client::deleteService(const string &serviceId) {
 }
 
 /**
- * @summary 删除服务版本
+ * @summary Deletes a service version.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1846,7 +1907,7 @@ DeleteServiceVersionResponse Client::deleteServiceVersionWithOptions(const strin
 }
 
 /**
- * @summary 删除服务版本
+ * @summary Deletes a service version.
  *
  * @return DeleteServiceVersionResponse
  */
@@ -1854,6 +1915,42 @@ DeleteServiceVersionResponse Client::deleteServiceVersion(const string &serviceI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteServiceVersionWithOptions(serviceId, name, headers, runtime);
+}
+
+/**
+ * @summary 删除服务来源
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSourceResponse
+ */
+DeleteSourceResponse Client::deleteSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/sources/" , Darabonba::Encode::Encoder::percentEncode(sourceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSourceResponse>();
+}
+
+/**
+ * @summary 删除服务来源
+ *
+ * @return DeleteSourceResponse
+ */
+DeleteSourceResponse Client::deleteSource(const string &sourceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteSourceWithOptions(sourceId, headers, runtime);
 }
 
 /**
@@ -2605,6 +2702,42 @@ GetServiceResponse Client::getService(const string &serviceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getServiceWithOptions(serviceId, headers, runtime);
+}
+
+/**
+ * @summary 获取服务来源
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSourceResponse
+ */
+GetSourceResponse Client::getSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSource"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/sources/" , Darabonba::Encode::Encoder::percentEncode(sourceId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSourceResponse>();
+}
+
+/**
+ * @summary 获取服务来源
+ *
+ * @return GetSourceResponse
+ */
+GetSourceResponse Client::getSource(const string &sourceId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSourceWithOptions(sourceId, headers, runtime);
 }
 
 /**
@@ -5034,7 +5167,7 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
- * @summary 更新服务版本
+ * @summary Updates a service version.
  *
  * @param request UpdateServiceVersionRequest
  * @param headers map
@@ -5067,7 +5200,7 @@ UpdateServiceVersionResponse Client::updateServiceVersionWithOptions(const strin
 }
 
 /**
- * @summary 更新服务版本
+ * @summary Updates a service version.
  *
  * @param request UpdateServiceVersionRequest
  * @return UpdateServiceVersionResponse

@@ -112,6 +112,9 @@
 #include <alibabacloud/models/CreateServiceVersionRequest.hpp>
 #include <alibabacloud/models/CreateServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceVersionResponse.hpp>
+#include <alibabacloud/models/CreateSourceRequest.hpp>
+#include <alibabacloud/models/CreateSourceResponseBody.hpp>
+#include <alibabacloud/models/CreateSourceResponse.hpp>
 #include <alibabacloud/models/DeleteConsumerResponseBody.hpp>
 #include <alibabacloud/models/DeleteConsumerResponse.hpp>
 #include <alibabacloud/models/DeleteConsumerAuthorizationRuleResponseBody.hpp>
@@ -143,6 +146,8 @@
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
 #include <alibabacloud/models/DeleteServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceVersionResponse.hpp>
+#include <alibabacloud/models/DeleteSourceResponseBody.hpp>
+#include <alibabacloud/models/DeleteSourceResponse.hpp>
 #include <alibabacloud/models/DeployHttpApiRequest.hpp>
 #include <alibabacloud/models/DeployHttpApiResponseBody.hpp>
 #include <alibabacloud/models/DeployHttpApiResponse.hpp>
@@ -185,6 +190,8 @@
 #include <alibabacloud/models/GetResourceOverviewResponse.hpp>
 #include <alibabacloud/models/GetServiceResponseBody.hpp>
 #include <alibabacloud/models/GetServiceResponse.hpp>
+#include <alibabacloud/models/GetSourceResponseBody.hpp>
+#include <alibabacloud/models/GetSourceResponse.hpp>
 #include <alibabacloud/models/GetTraceConfigRequest.hpp>
 #include <alibabacloud/models/GetTraceConfigResponseBody.hpp>
 #include <alibabacloud/models/GetTraceConfigResponse.hpp>
@@ -394,6 +401,10 @@
 #include <alibabacloud/models/CreateServiceRequestServiceConfigs.hpp>
 #include <alibabacloud/models/CreateServiceResponseBodyData.hpp>
 #include <alibabacloud/models/CreateServiceVersionRequestLabels.hpp>
+#include <alibabacloud/models/CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules.hpp>
+#include <alibabacloud/models/CreateSourceRequestK8sSourceConfig.hpp>
+#include <alibabacloud/models/CreateSourceRequestNacosSourceConfig.hpp>
+#include <alibabacloud/models/CreateSourceResponseBodyData.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestHttpApiConfig.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs.hpp>
 #include <alibabacloud/models/DeployHttpApiRequestRestApiConfigEnvironment.hpp>
@@ -429,6 +440,9 @@
 #include <alibabacloud/models/GetResourceOverviewResponseBodyDataApi.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyDataGateway.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyData.hpp>
+#include <alibabacloud/models/GetSourceResponseBodyDataK8SSourceInfo.hpp>
+#include <alibabacloud/models/GetSourceResponseBodyDataNacosSourceInfo.hpp>
+#include <alibabacloud/models/GetSourceResponseBodyData.hpp>
 #include <alibabacloud/models/GetTraceConfigResponseBodyData.hpp>
 #include <alibabacloud/models/ImportHttpApiRequestSpecOssConfig.hpp>
 #include <alibabacloud/models/ImportHttpApiResponseBodyDataDryRunInfoFailureComponents.hpp>

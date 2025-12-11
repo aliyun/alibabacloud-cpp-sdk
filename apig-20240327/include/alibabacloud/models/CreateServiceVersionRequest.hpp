@@ -52,8 +52,12 @@ namespace Models
 
 
   protected:
+    // The service tags.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<CreateServiceVersionRequestLabels>> labels_ = nullptr;
+    // The version name.
+    // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
   };

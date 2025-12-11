@@ -42,6 +42,8 @@ namespace Models
 
 
   protected:
+    // The list of tags.
+    // 
     // This parameter is required.
     std::shared_ptr<vector<UpdateServiceVersionRequestLabels>> labels_ = nullptr;
   };

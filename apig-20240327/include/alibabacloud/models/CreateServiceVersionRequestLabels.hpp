@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The tag key.
+    // 
     // This parameter is required.
     std::shared_ptr<string> key_ = nullptr;
+    // The tag value.
     std::shared_ptr<string> value_ = nullptr;
   };
 

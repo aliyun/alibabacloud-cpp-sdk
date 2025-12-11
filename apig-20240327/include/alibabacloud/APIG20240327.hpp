@@ -361,7 +361,7 @@ namespace APIG20240327
       Models::CreateServiceResponse createService(const Models::CreateServiceRequest &request);
 
       /**
-       * @summary 创建服务版本
+       * @summary Creates a service version.
        *
        * @param request CreateServiceVersionRequest
        * @param headers map
@@ -371,12 +371,30 @@ namespace APIG20240327
       Models::CreateServiceVersionResponse createServiceVersionWithOptions(const string &serviceId, const Models::CreateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建服务版本
+       * @summary Creates a service version.
        *
        * @param request CreateServiceVersionRequest
        * @return CreateServiceVersionResponse
        */
       Models::CreateServiceVersionResponse createServiceVersion(const string &serviceId, const Models::CreateServiceVersionRequest &request);
+
+      /**
+       * @summary 创建服务来源
+       *
+       * @param request CreateSourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSourceResponse
+       */
+      Models::CreateSourceResponse createSourceWithOptions(const Models::CreateSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建服务来源
+       *
+       * @param request CreateSourceRequest
+       * @return CreateSourceResponse
+       */
+      Models::CreateSourceResponse createSource(const Models::CreateSourceRequest &request);
 
       /**
        * @summary Deletes a consumer.
@@ -609,7 +627,7 @@ namespace APIG20240327
       Models::DeleteServiceResponse deleteService(const string &serviceId);
 
       /**
-       * @summary 删除服务版本
+       * @summary Deletes a service version.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,11 +636,27 @@ namespace APIG20240327
       Models::DeleteServiceVersionResponse deleteServiceVersionWithOptions(const string &serviceId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除服务版本
+       * @summary Deletes a service version.
        *
        * @return DeleteServiceVersionResponse
        */
       Models::DeleteServiceVersionResponse deleteServiceVersion(const string &serviceId, const string &name);
+
+      /**
+       * @summary 删除服务来源
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSourceResponse
+       */
+      Models::DeleteSourceResponse deleteSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除服务来源
+       *
+       * @return DeleteSourceResponse
+       */
+      Models::DeleteSourceResponse deleteSource(const string &sourceId);
 
       /**
        * @summary Deploy HttpApi
@@ -929,6 +963,22 @@ namespace APIG20240327
        * @return GetServiceResponse
        */
       Models::GetServiceResponse getService(const string &serviceId);
+
+      /**
+       * @summary 获取服务来源
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSourceResponse
+       */
+      Models::GetSourceResponse getSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取服务来源
+       *
+       * @return GetSourceResponse
+       */
+      Models::GetSourceResponse getSource(const string &sourceId);
 
       /**
        * @summary Retrieve Tracing Configuration
@@ -1619,7 +1669,7 @@ namespace APIG20240327
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
 
       /**
-       * @summary 更新服务版本
+       * @summary Updates a service version.
        *
        * @param request UpdateServiceVersionRequest
        * @param headers map
@@ -1629,7 +1679,7 @@ namespace APIG20240327
       Models::UpdateServiceVersionResponse updateServiceVersionWithOptions(const string &serviceId, const string &name, const Models::UpdateServiceVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新服务版本
+       * @summary Updates a service version.
        *
        * @param request UpdateServiceVersionRequest
        * @return UpdateServiceVersionResponse
