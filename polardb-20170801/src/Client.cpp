@@ -4144,6 +4144,10 @@ DeleteDBClusterResponse Client::deleteDBClusterWithOptions(const DeleteDBCluster
     query["BackupRetentionPolicyOnClusterDeletion"] = request.backupRetentionPolicyOnClusterDeletion();
   }
 
+  if (!!request.hasCloudProvider()) {
+    query["CloudProvider"] = request.cloudProvider();
+  }
+
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.DBClusterId();
   }
@@ -18753,6 +18757,10 @@ RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDNWithOptions(const R
 
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasTargetDBClusterId()) {
+    query["TargetDBClusterId"] = request.targetDBClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

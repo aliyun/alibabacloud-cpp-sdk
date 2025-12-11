@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteDBClusterRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
+      DARABONBA_PTR_TO_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DeleteDBClusterRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BackupRetentionPolicyOnClusterDeletion, backupRetentionPolicyOnClusterDeletion_);
+      DARABONBA_PTR_FROM_JSON(CloudProvider, cloudProvider_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -40,12 +42,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->backupRetentionPolicyOnClusterDeletion_ == nullptr
-        && return this->DBClusterId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+        && return this->cloudProvider_ == nullptr && return this->DBClusterId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // backupRetentionPolicyOnClusterDeletion Field Functions 
     bool hasBackupRetentionPolicyOnClusterDeletion() const { return this->backupRetentionPolicyOnClusterDeletion_ != nullptr;};
     void deleteBackupRetentionPolicyOnClusterDeletion() { this->backupRetentionPolicyOnClusterDeletion_ = nullptr;};
     inline string backupRetentionPolicyOnClusterDeletion() const { DARABONBA_PTR_GET_DEFAULT(backupRetentionPolicyOnClusterDeletion_, "") };
     inline DeleteDBClusterRequest& setBackupRetentionPolicyOnClusterDeletion(string backupRetentionPolicyOnClusterDeletion) { DARABONBA_PTR_SET_VALUE(backupRetentionPolicyOnClusterDeletion_, backupRetentionPolicyOnClusterDeletion) };
+
+
+    // cloudProvider Field Functions 
+    bool hasCloudProvider() const { return this->cloudProvider_ != nullptr;};
+    void deleteCloudProvider() { this->cloudProvider_ = nullptr;};
+    inline string cloudProvider() const { DARABONBA_PTR_GET_DEFAULT(cloudProvider_, "") };
+    inline DeleteDBClusterRequest& setCloudProvider(string cloudProvider) { DARABONBA_PTR_SET_VALUE(cloudProvider_, cloudProvider) };
 
 
     // DBClusterId Field Functions 
@@ -90,6 +100,7 @@ namespace Models
     // *   **LATEST**: permanently retains the most recent backup set that is automatically created before the cluster is released.
     // *   **NONE**: does not retain backup sets.
     std::shared_ptr<string> backupRetentionPolicyOnClusterDeletion_ = nullptr;
+    std::shared_ptr<string> cloudProvider_ = nullptr;
     // The cluster ID.
     // 
     // This parameter is required.

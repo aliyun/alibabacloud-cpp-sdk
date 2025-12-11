@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_TO_JSON(TargetDBClusterId, targetDBClusterId_);
     };
     friend void from_json(const Darabonba::Json& j, RemoveDBClusterFromGDNRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
+      DARABONBA_PTR_FROM_JSON(TargetDBClusterId, targetDBClusterId_);
     };
     RemoveDBClusterFromGDNRequest() = default ;
     RemoveDBClusterFromGDNRequest(const RemoveDBClusterFromGDNRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
         && return this->force_ == nullptr && return this->GDNId_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr; };
+        && return this->resourceOwnerId_ == nullptr && return this->securityToken_ == nullptr && return this->targetDBClusterId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline RemoveDBClusterFromGDNRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
+    // targetDBClusterId Field Functions 
+    bool hasTargetDBClusterId() const { return this->targetDBClusterId_ != nullptr;};
+    void deleteTargetDBClusterId() { this->targetDBClusterId_ = nullptr;};
+    inline string targetDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetDBClusterId_, "") };
+    inline RemoveDBClusterFromGDNRequest& setTargetDBClusterId(string targetDBClusterId) { DARABONBA_PTR_SET_VALUE(targetDBClusterId_, targetDBClusterId) };
+
+
   protected:
     // The ID of the cluster in the GDN.
     // 
@@ -119,6 +128,7 @@ namespace Models
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
     std::shared_ptr<string> securityToken_ = nullptr;
+    std::shared_ptr<string> targetDBClusterId_ = nullptr;
   };
 
   } // namespace Models
