@@ -1004,6 +1004,62 @@ ListActionPlansResponse Client::listActionPlans(const ListActionPlansRequest &re
 }
 
 /**
+ * @summary 查询Executor的事件信息
+ *
+ * @param tmpReq ListExecutorEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListExecutorEventsResponse
+ */
+ListExecutorEventsResponse Client::listExecutorEventsWithOptions(const ListExecutorEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListExecutorEventsShrinkRequest request = ListExecutorEventsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterShrink()) {
+    query["Filter"] = request.filterShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListExecutorEvents"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListExecutorEventsResponse>();
+}
+
+/**
+ * @summary 查询Executor的事件信息
+ *
+ * @param request ListExecutorEventsRequest
+ * @return ListExecutorEventsResponse
+ */
+ListExecutorEventsResponse Client::listExecutorEvents(const ListExecutorEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listExecutorEventsWithOptions(request, runtime);
+}
+
+/**
  * @summary Querying Global Executor Information
  *
  * @param tmpReq ListExecutorsRequest

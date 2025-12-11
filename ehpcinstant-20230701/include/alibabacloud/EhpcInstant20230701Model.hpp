@@ -63,6 +63,10 @@
 #include <alibabacloud/models/ListActionPlansShrinkRequest.hpp>
 #include <alibabacloud/models/ListActionPlansResponseBody.hpp>
 #include <alibabacloud/models/ListActionPlansResponse.hpp>
+#include <alibabacloud/models/ListExecutorEventsRequest.hpp>
+#include <alibabacloud/models/ListExecutorEventsShrinkRequest.hpp>
+#include <alibabacloud/models/ListExecutorEventsResponseBody.hpp>
+#include <alibabacloud/models/ListExecutorEventsResponse.hpp>
 #include <alibabacloud/models/ListExecutorsRequest.hpp>
 #include <alibabacloud/models/ListExecutorsShrinkRequest.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBody.hpp>
@@ -165,6 +169,8 @@
 #include <alibabacloud/models/ListActionPlanActivitiesResponseBodyActionPlanActivitiesJobs.hpp>
 #include <alibabacloud/models/ListActionPlanActivitiesResponseBodyActionPlanActivities.hpp>
 #include <alibabacloud/models/ListActionPlansResponseBodyActionPlans.hpp>
+#include <alibabacloud/models/ListExecutorEventsRequestFilter.hpp>
+#include <alibabacloud/models/ListExecutorEventsResponseBodyExecutorEventList.hpp>
 #include <alibabacloud/models/ListExecutorsRequestFilter.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBodyExecutorsResourceDisks.hpp>
 #include <alibabacloud/models/ListExecutorsResponseBodyExecutorsResource.hpp>
