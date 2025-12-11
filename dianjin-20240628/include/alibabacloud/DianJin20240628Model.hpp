@@ -35,6 +35,9 @@
 #include <alibabacloud/models/DeleteLibraryRequest.hpp>
 #include <alibabacloud/models/DeleteLibraryResponseBody.hpp>
 #include <alibabacloud/models/DeleteLibraryResponse.hpp>
+#include <alibabacloud/models/EndToEndRealTimeDialogRequest.hpp>
+#include <alibabacloud/models/EndToEndRealTimeDialogResponseBody.hpp>
+#include <alibabacloud/models/EndToEndRealTimeDialogResponse.hpp>
 #include <alibabacloud/models/EvictTaskRequest.hpp>
 #include <alibabacloud/models/EvictTaskResponseBody.hpp>
 #include <alibabacloud/models/EvictTaskResponse.hpp>

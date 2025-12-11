@@ -567,6 +567,10 @@ CreateQualityCheckTaskResponse Client::createQualityCheckTaskWithOptions(const s
     body["requestId"] = request.requestId();
   }
 
+  if (!!request.hasSceneCode()) {
+    body["sceneCode"] = request.sceneCode();
+  }
+
   if (!!request.hasType()) {
     body["type"] = request.type();
   }
@@ -693,6 +697,83 @@ DeleteLibraryResponse Client::deleteLibrary(const string &workspaceId, const Del
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteLibraryWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 端到端实时对话
+ *
+ * @param request EndToEndRealTimeDialogRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EndToEndRealTimeDialogResponse
+ */
+EndToEndRealTimeDialogResponse Client::endToEndRealTimeDialogWithOptions(const string &workspaceId, const EndToEndRealTimeDialogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAsrModelId()) {
+    query["asrModelId"] = request.asrModelId();
+  }
+
+  if (!!request.hasInputFormat()) {
+    query["inputFormat"] = request.inputFormat();
+  }
+
+  if (!!request.hasOutputFormat()) {
+    query["outputFormat"] = request.outputFormat();
+  }
+
+  if (!!request.hasPitchRate()) {
+    query["pitchRate"] = request.pitchRate();
+  }
+
+  if (!!request.hasSampleRate()) {
+    query["sampleRate"] = request.sampleRate();
+  }
+
+  if (!!request.hasSpeechRate()) {
+    query["speechRate"] = request.speechRate();
+  }
+
+  if (!!request.hasTtsModelId()) {
+    query["ttsModelId"] = request.ttsModelId();
+  }
+
+  if (!!request.hasVoiceCode()) {
+    query["voiceCode"] = request.voiceCode();
+  }
+
+  if (!!request.hasVolume()) {
+    query["volume"] = request.volume();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EndToEndRealTimeDialog"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/ws/realtime/dialog")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EndToEndRealTimeDialogResponse>();
+}
+
+/**
+ * @summary 端到端实时对话
+ *
+ * @param request EndToEndRealTimeDialogRequest
+ * @return EndToEndRealTimeDialogResponse
+ */
+EndToEndRealTimeDialogResponse Client::endToEndRealTimeDialog(const string &workspaceId, const EndToEndRealTimeDialogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return endToEndRealTimeDialogWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -3234,7 +3315,7 @@ UploadDocumentResponse Client::uploadDocumentAdvance(const string &workspaceId, 
       {"file" , fileObj},
       {"success_action_status" , "201"}
     });
-    _postOSSObject(authResponseBody.at("Bucket"), ossHeader);
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
     uploadDocumentReq.setFileUrl(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
   }
 

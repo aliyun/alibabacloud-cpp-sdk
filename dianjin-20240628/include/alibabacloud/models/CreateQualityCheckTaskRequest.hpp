@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(metaData, metaData_);
       DARABONBA_PTR_TO_JSON(qualityGroup, qualityGroup_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(sceneCode, sceneCode_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateQualityCheckTaskRequest& obj) { 
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(metaData, metaData_);
       DARABONBA_PTR_FROM_JSON(qualityGroup, qualityGroup_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(sceneCode, sceneCode_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
     CreateQualityCheckTaskRequest() = default ;
@@ -43,7 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conversationList_ == nullptr
-        && return this->gmtService_ == nullptr && return this->metaData_ == nullptr && return this->qualityGroup_ == nullptr && return this->requestId_ == nullptr && return this->type_ == nullptr; };
+        && return this->gmtService_ == nullptr && return this->metaData_ == nullptr && return this->qualityGroup_ == nullptr && return this->requestId_ == nullptr && return this->sceneCode_ == nullptr
+        && return this->type_ == nullptr; };
     // conversationList Field Functions 
     bool hasConversationList() const { return this->conversationList_ != nullptr;};
     void deleteConversationList() { this->conversationList_ = nullptr;};
@@ -85,6 +88,13 @@ namespace Models
     inline CreateQualityCheckTaskRequest& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sceneCode Field Functions 
+    bool hasSceneCode() const { return this->sceneCode_ != nullptr;};
+    void deleteSceneCode() { this->sceneCode_ = nullptr;};
+    inline string sceneCode() const { DARABONBA_PTR_GET_DEFAULT(sceneCode_, "") };
+    inline CreateQualityCheckTaskRequest& setSceneCode(string sceneCode) { DARABONBA_PTR_SET_VALUE(sceneCode_, sceneCode) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -101,6 +111,7 @@ namespace Models
     std::shared_ptr<vector<string>> qualityGroup_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<string> sceneCode_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> type_ = nullptr;
   };

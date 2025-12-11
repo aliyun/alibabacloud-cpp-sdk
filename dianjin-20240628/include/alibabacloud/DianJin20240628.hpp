@@ -220,6 +220,24 @@ namespace DianJin20240628
       Models::DeleteLibraryResponse deleteLibrary(const string &workspaceId, const Models::DeleteLibraryRequest &request);
 
       /**
+       * @summary 端到端实时对话
+       *
+       * @param request EndToEndRealTimeDialogRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EndToEndRealTimeDialogResponse
+       */
+      Models::EndToEndRealTimeDialogResponse endToEndRealTimeDialogWithOptions(const string &workspaceId, const Models::EndToEndRealTimeDialogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 端到端实时对话
+       *
+       * @param request EndToEndRealTimeDialogRequest
+       * @return EndToEndRealTimeDialogResponse
+       */
+      Models::EndToEndRealTimeDialogResponse endToEndRealTimeDialog(const string &workspaceId, const Models::EndToEndRealTimeDialogRequest &request);
+
+      /**
        * @summary 中断任务
        *
        * @param request EvictTaskRequest
