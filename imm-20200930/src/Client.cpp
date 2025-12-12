@@ -7215,6 +7215,10 @@ SemanticQueryResponse Client::semanticQueryWithOptions(const SemanticQueryReques
     query["Query"] = request.query();
   }
 
+  if (!!request.hasSourceURI()) {
+    query["SourceURI"] = request.sourceURI();
+  }
+
   if (!!request.hasWithFieldsShrink()) {
     query["WithFields"] = request.withFieldsShrink();
   }

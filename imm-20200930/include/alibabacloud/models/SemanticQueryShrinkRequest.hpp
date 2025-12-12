@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(Query, query_);
+      DARABONBA_PTR_TO_JSON(SourceURI, sourceURI_);
       DARABONBA_PTR_TO_JSON(WithFields, withFieldsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, SemanticQueryShrinkRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
+      DARABONBA_PTR_FROM_JSON(SourceURI, sourceURI_);
       DARABONBA_PTR_FROM_JSON(WithFields, withFieldsShrink_);
     };
     SemanticQueryShrinkRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->datasetName_ == nullptr
         && return this->maxResults_ == nullptr && return this->mediaTypesShrink_ == nullptr && return this->nextToken_ == nullptr && return this->projectName_ == nullptr && return this->query_ == nullptr
-        && return this->withFieldsShrink_ == nullptr; };
+        && return this->sourceURI_ == nullptr && return this->withFieldsShrink_ == nullptr; };
     // datasetName Field Functions 
     bool hasDatasetName() const { return this->datasetName_ != nullptr;};
     void deleteDatasetName() { this->datasetName_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline SemanticQueryShrinkRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
+    // sourceURI Field Functions 
+    bool hasSourceURI() const { return this->sourceURI_ != nullptr;};
+    void deleteSourceURI() { this->sourceURI_ = nullptr;};
+    inline string sourceURI() const { DARABONBA_PTR_GET_DEFAULT(sourceURI_, "") };
+    inline SemanticQueryShrinkRequest& setSourceURI(string sourceURI) { DARABONBA_PTR_SET_VALUE(sourceURI_, sourceURI) };
+
+
     // withFieldsShrink Field Functions 
     bool hasWithFieldsShrink() const { return this->withFieldsShrink_ != nullptr;};
     void deleteWithFieldsShrink() { this->withFieldsShrink_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
     std::shared_ptr<string> projectName_ = nullptr;
     // The content of the query that you input.
     std::shared_ptr<string> query_ = nullptr;
+    std::shared_ptr<string> sourceURI_ = nullptr;
     // The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
     // 
     // If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
