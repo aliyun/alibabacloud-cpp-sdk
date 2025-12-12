@@ -1,8 +1,7 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_LISTAUTOSCALINGRECORDSREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_LISTAUTOSCALINGRECORDSREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_LISTAUTOSCALINGRECORDSSHRINKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTAUTOSCALINGRECORDSSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -11,9 +10,9 @@ namespace Hitsdb20200615
 {
 namespace Models
 {
-  class ListAutoScalingRecordsRequest : public Darabonba::Model {
+  class ListAutoScalingRecordsShrinkRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ListAutoScalingRecordsRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ListAutoScalingRecordsShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -21,10 +20,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
-      DARABONBA_PTR_TO_JSON(ScaleTypes, scaleTypes_);
+      DARABONBA_PTR_TO_JSON(ScaleTypes, scaleTypesShrink_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
     };
-    friend void from_json(const Darabonba::Json& j, ListAutoScalingRecordsRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ListAutoScalingRecordsShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -32,86 +31,84 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
-      DARABONBA_PTR_FROM_JSON(ScaleTypes, scaleTypes_);
+      DARABONBA_PTR_FROM_JSON(ScaleTypes, scaleTypesShrink_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
     };
-    ListAutoScalingRecordsRequest() = default ;
-    ListAutoScalingRecordsRequest(const ListAutoScalingRecordsRequest &) = default ;
-    ListAutoScalingRecordsRequest(ListAutoScalingRecordsRequest &&) = default ;
-    ListAutoScalingRecordsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ListAutoScalingRecordsRequest() = default ;
-    ListAutoScalingRecordsRequest& operator=(const ListAutoScalingRecordsRequest &) = default ;
-    ListAutoScalingRecordsRequest& operator=(ListAutoScalingRecordsRequest &&) = default ;
+    ListAutoScalingRecordsShrinkRequest() = default ;
+    ListAutoScalingRecordsShrinkRequest(const ListAutoScalingRecordsShrinkRequest &) = default ;
+    ListAutoScalingRecordsShrinkRequest(ListAutoScalingRecordsShrinkRequest &&) = default ;
+    ListAutoScalingRecordsShrinkRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListAutoScalingRecordsShrinkRequest() = default ;
+    ListAutoScalingRecordsShrinkRequest& operator=(const ListAutoScalingRecordsShrinkRequest &) = default ;
+    ListAutoScalingRecordsShrinkRequest& operator=(ListAutoScalingRecordsShrinkRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
         && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->scaleTypes_ == nullptr && return this->securityToken_ == nullptr; };
+        && return this->resourceOwnerId_ == nullptr && return this->scaleTypesShrink_ == nullptr && return this->securityToken_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline ListAutoScalingRecordsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+    inline ListAutoScalingRecordsShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
     inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
-    inline ListAutoScalingRecordsRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
+    inline ListAutoScalingRecordsShrinkRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
     inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
-    inline ListAutoScalingRecordsRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
+    inline ListAutoScalingRecordsShrinkRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
     inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
-    inline ListAutoScalingRecordsRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
+    inline ListAutoScalingRecordsShrinkRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
-    inline ListAutoScalingRecordsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+    inline ListAutoScalingRecordsShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
     inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
-    inline ListAutoScalingRecordsRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+    inline ListAutoScalingRecordsShrinkRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
     inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
-    inline ListAutoScalingRecordsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+    inline ListAutoScalingRecordsShrinkRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
-    // scaleTypes Field Functions 
-    bool hasScaleTypes() const { return this->scaleTypes_ != nullptr;};
-    void deleteScaleTypes() { this->scaleTypes_ = nullptr;};
-    inline const vector<string> & scaleTypes() const { DARABONBA_PTR_GET_CONST(scaleTypes_, vector<string>) };
-    inline vector<string> scaleTypes() { DARABONBA_PTR_GET(scaleTypes_, vector<string>) };
-    inline ListAutoScalingRecordsRequest& setScaleTypes(const vector<string> & scaleTypes) { DARABONBA_PTR_SET_VALUE(scaleTypes_, scaleTypes) };
-    inline ListAutoScalingRecordsRequest& setScaleTypes(vector<string> && scaleTypes) { DARABONBA_PTR_SET_RVALUE(scaleTypes_, scaleTypes) };
+    // scaleTypesShrink Field Functions 
+    bool hasScaleTypesShrink() const { return this->scaleTypesShrink_ != nullptr;};
+    void deleteScaleTypesShrink() { this->scaleTypesShrink_ = nullptr;};
+    inline string scaleTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(scaleTypesShrink_, "") };
+    inline ListAutoScalingRecordsShrinkRequest& setScaleTypesShrink(string scaleTypesShrink) { DARABONBA_PTR_SET_VALUE(scaleTypesShrink_, scaleTypesShrink) };
 
 
     // securityToken Field Functions 
     bool hasSecurityToken() const { return this->securityToken_ != nullptr;};
     void deleteSecurityToken() { this->securityToken_ = nullptr;};
     inline string securityToken() const { DARABONBA_PTR_GET_DEFAULT(securityToken_, "") };
-    inline ListAutoScalingRecordsRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
+    inline ListAutoScalingRecordsShrinkRequest& setSecurityToken(string securityToken) { DARABONBA_PTR_SET_VALUE(securityToken_, securityToken) };
 
 
   protected:
@@ -125,7 +122,7 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
     std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
-    std::shared_ptr<vector<string>> scaleTypes_ = nullptr;
+    std::shared_ptr<string> scaleTypesShrink_ = nullptr;
     std::shared_ptr<string> securityToken_ = nullptr;
   };
 

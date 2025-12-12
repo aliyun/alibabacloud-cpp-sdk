@@ -144,6 +144,8 @@ CheckLdpsColumnarIndexStatusResponse Client::checkLdpsColumnarIndexStatus(const 
 }
 
 /**
+ * @summary 创建弹性伸缩配置
+ *
  * @param tmpReq CreateAutoScalingConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAutoScalingConfigResponse
@@ -221,6 +223,10 @@ CreateAutoScalingConfigResponse Client::createAutoScalingConfigWithOptions(const
     query["SpecId"] = request.specId();
   }
 
+  if (!!request.hasStorageCapacityMax()) {
+    query["StorageCapacityMax"] = request.storageCapacityMax();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -239,6 +245,8 @@ CreateAutoScalingConfigResponse Client::createAutoScalingConfigWithOptions(const
 }
 
 /**
+ * @summary 创建弹性伸缩配置
+ *
  * @param request CreateAutoScalingConfigRequest
  * @return CreateAutoScalingConfigResponse
  */
@@ -248,6 +256,8 @@ CreateAutoScalingConfigResponse Client::createAutoScalingConfig(const CreateAuto
 }
 
 /**
+ * @summary 创建弹性伸缩规则
+ *
  * @param request CreateAutoScalingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAutoScalingRuleResponse
@@ -361,6 +371,8 @@ CreateAutoScalingRuleResponse Client::createAutoScalingRuleWithOptions(const Cre
 }
 
 /**
+ * @summary 创建弹性伸缩规则
+ *
  * @param request CreateAutoScalingRuleRequest
  * @return CreateAutoScalingRuleResponse
  */
@@ -2578,12 +2590,20 @@ GetLindormV2StreamEngineInfoResponse Client::getLindormV2StreamEngineInfo(const 
 }
 
 /**
- * @param request ListAutoScalingConfigsRequest
+ * @summary 查询弹性伸缩配置
+ *
+ * @param tmpReq ListAutoScalingConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAutoScalingConfigsResponse
  */
-ListAutoScalingConfigsResponse Client::listAutoScalingConfigsWithOptions(const ListAutoScalingConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListAutoScalingConfigsResponse Client::listAutoScalingConfigsWithOptions(const ListAutoScalingConfigsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAutoScalingConfigsShrinkRequest request = ListAutoScalingConfigsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasScaleTypes()) {
+    request.setScaleTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scaleTypes(), "ScaleTypes", "json"));
+  }
+
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
@@ -2603,6 +2623,10 @@ ListAutoScalingConfigsResponse Client::listAutoScalingConfigsWithOptions(const L
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScaleTypesShrink()) {
+    query["ScaleTypes"] = request.scaleTypesShrink();
   }
 
   if (!!request.hasSecurityToken()) {
@@ -2627,6 +2651,8 @@ ListAutoScalingConfigsResponse Client::listAutoScalingConfigsWithOptions(const L
 }
 
 /**
+ * @summary 查询弹性伸缩配置
+ *
  * @param request ListAutoScalingConfigsRequest
  * @return ListAutoScalingConfigsResponse
  */
@@ -2636,12 +2662,20 @@ ListAutoScalingConfigsResponse Client::listAutoScalingConfigs(const ListAutoScal
 }
 
 /**
- * @param request ListAutoScalingRecordsRequest
+ * @summary 查询伸缩记录
+ *
+ * @param tmpReq ListAutoScalingRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAutoScalingRecordsResponse
  */
-ListAutoScalingRecordsResponse Client::listAutoScalingRecordsWithOptions(const ListAutoScalingRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListAutoScalingRecordsResponse Client::listAutoScalingRecordsWithOptions(const ListAutoScalingRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAutoScalingRecordsShrinkRequest request = ListAutoScalingRecordsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasScaleTypes()) {
+    request.setScaleTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scaleTypes(), "ScaleTypes", "json"));
+  }
+
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
@@ -2671,6 +2705,10 @@ ListAutoScalingRecordsResponse Client::listAutoScalingRecordsWithOptions(const L
     query["ResourceOwnerId"] = request.resourceOwnerId();
   }
 
+  if (!!request.hasScaleTypesShrink()) {
+    query["ScaleTypes"] = request.scaleTypesShrink();
+  }
+
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.securityToken();
   }
@@ -2693,6 +2731,8 @@ ListAutoScalingRecordsResponse Client::listAutoScalingRecordsWithOptions(const L
 }
 
 /**
+ * @summary 查询伸缩记录
+ *
  * @param request ListAutoScalingRecordsRequest
  * @return ListAutoScalingRecordsResponse
  */
@@ -2986,12 +3026,20 @@ MigrateSingleZoneToMultiZoneResponse Client::migrateSingleZoneToMultiZone(const 
 }
 
 /**
- * @param request ModifyAutoScalingConfigRequest
+ * @summary 修改弹性伸缩配置
+ *
+ * @param tmpReq ModifyAutoScalingConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAutoScalingConfigResponse
  */
-ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const ModifyAutoScalingConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const ModifyAutoScalingConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyAutoScalingConfigShrinkRequest request = ModifyAutoScalingConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasScaleRuleList()) {
+    request.setScaleRuleListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.scaleRuleList(), "ScaleRuleList", "json"));
+  }
+
   json query = {};
   if (!!request.hasConfigId()) {
     query["ConfigId"] = request.configId();
@@ -3045,6 +3093,10 @@ ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const
     query["ResourceOwnerId"] = request.resourceOwnerId();
   }
 
+  if (!!request.hasScaleRuleListShrink()) {
+    query["ScaleRuleList"] = request.scaleRuleListShrink();
+  }
+
   if (!!request.hasScaleType()) {
     query["ScaleType"] = request.scaleType();
   }
@@ -3055,6 +3107,10 @@ ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const
 
   if (!!request.hasSpecId()) {
     query["SpecId"] = request.specId();
+  }
+
+  if (!!request.hasStorageCapacityMax()) {
+    query["StorageCapacityMax"] = request.storageCapacityMax();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3075,6 +3131,8 @@ ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfigWithOptions(const
 }
 
 /**
+ * @summary 修改弹性伸缩配置
+ *
  * @param request ModifyAutoScalingConfigRequest
  * @return ModifyAutoScalingConfigResponse
  */
@@ -3084,6 +3142,8 @@ ModifyAutoScalingConfigResponse Client::modifyAutoScalingConfig(const ModifyAuto
 }
 
 /**
+ * @summary 修改弹性伸缩规则
+ *
  * @param request ModifyAutoScalingRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAutoScalingRuleResponse
@@ -3201,6 +3261,8 @@ ModifyAutoScalingRuleResponse Client::modifyAutoScalingRuleWithOptions(const Mod
 }
 
 /**
+ * @summary 修改弹性伸缩规则
+ *
  * @param request ModifyAutoScalingRuleRequest
  * @return ModifyAutoScalingRuleResponse
  */
@@ -4727,6 +4789,76 @@ UpdateLindormV2InstanceParameterResponse Client::updateLindormV2InstanceParamete
 UpdateLindormV2InstanceParameterResponse Client::updateLindormV2InstanceParameter(const UpdateLindormV2InstanceParameterRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateLindormV2InstanceParameterWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改Lindorm新版实例白名单分组列表
+ *
+ * @param request UpdateLindormV2WhiteIpListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLindormV2WhiteIpListResponse
+ */
+UpdateLindormV2WhiteIpListResponse Client::updateLindormV2WhiteIpListWithOptions(const UpdateLindormV2WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasWhiteIpGroupList()) {
+    query["WhiteIpGroupList"] = request.whiteIpGroupList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateLindormV2WhiteIpList"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLindormV2WhiteIpListResponse>();
+}
+
+/**
+ * @summary 修改Lindorm新版实例白名单分组列表
+ *
+ * @param request UpdateLindormV2WhiteIpListRequest
+ * @return UpdateLindormV2WhiteIpListResponse
+ */
+UpdateLindormV2WhiteIpListResponse Client::updateLindormV2WhiteIpList(const UpdateLindormV2WhiteIpListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLindormV2WhiteIpListWithOptions(request, runtime);
 }
 
 /**

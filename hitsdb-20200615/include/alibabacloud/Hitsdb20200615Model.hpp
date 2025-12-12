@@ -106,9 +106,11 @@
 #include <alibabacloud/models/GetLindormV2StreamEngineInfoResponseBody.hpp>
 #include <alibabacloud/models/GetLindormV2StreamEngineInfoResponse.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsRequest.hpp>
+#include <alibabacloud/models/ListAutoScalingConfigsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListAutoScalingConfigsResponse.hpp>
 #include <alibabacloud/models/ListAutoScalingRecordsRequest.hpp>
+#include <alibabacloud/models/ListAutoScalingRecordsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAutoScalingRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListAutoScalingRecordsResponse.hpp>
 #include <alibabacloud/models/ListAutoScalingRulesRequest.hpp>
@@ -124,6 +126,7 @@
 #include <alibabacloud/models/MigrateSingleZoneToMultiZoneResponseBody.hpp>
 #include <alibabacloud/models/MigrateSingleZoneToMultiZoneResponse.hpp>
 #include <alibabacloud/models/ModifyAutoScalingConfigRequest.hpp>
+#include <alibabacloud/models/ModifyAutoScalingConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyAutoScalingConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyAutoScalingConfigResponse.hpp>
 #include <alibabacloud/models/ModifyAutoScalingRuleRequest.hpp>
@@ -192,6 +195,9 @@
 #include <alibabacloud/models/UpdateLindormV2InstanceParameterRequest.hpp>
 #include <alibabacloud/models/UpdateLindormV2InstanceParameterResponseBody.hpp>
 #include <alibabacloud/models/UpdateLindormV2InstanceParameterResponse.hpp>
+#include <alibabacloud/models/UpdateLindormV2WhiteIpListRequest.hpp>
+#include <alibabacloud/models/UpdateLindormV2WhiteIpListResponseBody.hpp>
+#include <alibabacloud/models/UpdateLindormV2WhiteIpListResponse.hpp>
 #include <alibabacloud/models/UpgradeLindormInstanceRequest.hpp>
 #include <alibabacloud/models/UpgradeLindormInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpgradeLindormInstanceResponse.hpp>
@@ -248,9 +254,11 @@
 #include <alibabacloud/models/ListLdpsComputeGroupsResponseBodyGroupList.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
+#include <alibabacloud/models/ModifyAutoScalingConfigRequestScaleRuleList.hpp>
 #include <alibabacloud/models/ModifyLindormV2InstanceRequestNodeGroupList.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
 #include <alibabacloud/models/UpdateLindormV2InstanceRequestEngineListNodeGroupList.hpp>
 #include <alibabacloud/models/UpdateLindormV2InstanceRequestEngineList.hpp>
+#include <alibabacloud/models/UpdateLindormV2WhiteIpListRequestWhiteIpGroupList.hpp>
 
 #endif

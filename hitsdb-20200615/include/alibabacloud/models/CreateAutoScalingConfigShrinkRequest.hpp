@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ScaleType, scaleType_);
       DARABONBA_PTR_TO_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_TO_JSON(SpecId, specId_);
+      DARABONBA_PTR_TO_JSON(StorageCapacityMax, storageCapacityMax_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAutoScalingConfigShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConfigName, configName_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ScaleType, scaleType_);
       DARABONBA_PTR_FROM_JSON(SecurityToken, securityToken_);
       DARABONBA_PTR_FROM_JSON(SpecId, specId_);
+      DARABONBA_PTR_FROM_JSON(StorageCapacityMax, storageCapacityMax_);
     };
     CreateAutoScalingConfigShrinkRequest() = default ;
     CreateAutoScalingConfigShrinkRequest(const CreateAutoScalingConfigShrinkRequest &) = default ;
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->configName_ == nullptr
         && return this->effectiveTimeEnd_ == nullptr && return this->effectiveTimeStart_ == nullptr && return this->enabled_ == nullptr && return this->engine_ == nullptr && return this->instanceId_ == nullptr
         && return this->nodesMax_ == nullptr && return this->nodesMin_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
-        && return this->resourceOwnerId_ == nullptr && return this->scaleRuleListShrink_ == nullptr && return this->scaleType_ == nullptr && return this->securityToken_ == nullptr && return this->specId_ == nullptr; };
+        && return this->resourceOwnerId_ == nullptr && return this->scaleRuleListShrink_ == nullptr && return this->scaleType_ == nullptr && return this->securityToken_ == nullptr && return this->specId_ == nullptr
+        && return this->storageCapacityMax_ == nullptr; };
     // configName Field Functions 
     bool hasConfigName() const { return this->configName_ != nullptr;};
     void deleteConfigName() { this->configName_ = nullptr;};
@@ -175,6 +178,13 @@ namespace Models
     inline CreateAutoScalingConfigShrinkRequest& setSpecId(string specId) { DARABONBA_PTR_SET_VALUE(specId_, specId) };
 
 
+    // storageCapacityMax Field Functions 
+    bool hasStorageCapacityMax() const { return this->storageCapacityMax_ != nullptr;};
+    void deleteStorageCapacityMax() { this->storageCapacityMax_ = nullptr;};
+    inline int64_t storageCapacityMax() const { DARABONBA_PTR_GET_DEFAULT(storageCapacityMax_, 0L) };
+    inline CreateAutoScalingConfigShrinkRequest& setStorageCapacityMax(int64_t storageCapacityMax) { DARABONBA_PTR_SET_VALUE(storageCapacityMax_, storageCapacityMax) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<string> configName_ = nullptr;
@@ -197,6 +207,7 @@ namespace Models
     std::shared_ptr<string> securityToken_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> specId_ = nullptr;
+    std::shared_ptr<int64_t> storageCapacityMax_ = nullptr;
   };
 
   } // namespace Models

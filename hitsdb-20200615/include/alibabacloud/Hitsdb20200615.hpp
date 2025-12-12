@@ -51,6 +51,8 @@ namespace Hitsdb20200615
       Models::CheckLdpsColumnarIndexStatusResponse checkLdpsColumnarIndexStatus(const Models::CheckLdpsColumnarIndexStatusRequest &request);
 
       /**
+       * @summary 创建弹性伸缩配置
+       *
        * @param tmpReq CreateAutoScalingConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAutoScalingConfigResponse
@@ -58,12 +60,16 @@ namespace Hitsdb20200615
       Models::CreateAutoScalingConfigResponse createAutoScalingConfigWithOptions(const Models::CreateAutoScalingConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建弹性伸缩配置
+       *
        * @param request CreateAutoScalingConfigRequest
        * @return CreateAutoScalingConfigResponse
        */
       Models::CreateAutoScalingConfigResponse createAutoScalingConfig(const Models::CreateAutoScalingConfigRequest &request);
 
       /**
+       * @summary 创建弹性伸缩规则
+       *
        * @param request CreateAutoScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAutoScalingRuleResponse
@@ -71,6 +77,8 @@ namespace Hitsdb20200615
       Models::CreateAutoScalingRuleResponse createAutoScalingRuleWithOptions(const Models::CreateAutoScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建弹性伸缩规则
+       *
        * @param request CreateAutoScalingRuleRequest
        * @return CreateAutoScalingRuleResponse
        */
@@ -531,26 +539,34 @@ namespace Hitsdb20200615
       Models::GetLindormV2StreamEngineInfoResponse getLindormV2StreamEngineInfo(const Models::GetLindormV2StreamEngineInfoRequest &request);
 
       /**
-       * @param request ListAutoScalingConfigsRequest
+       * @summary 查询弹性伸缩配置
+       *
+       * @param tmpReq ListAutoScalingConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAutoScalingConfigsResponse
        */
-      Models::ListAutoScalingConfigsResponse listAutoScalingConfigsWithOptions(const Models::ListAutoScalingConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListAutoScalingConfigsResponse listAutoScalingConfigsWithOptions(const Models::ListAutoScalingConfigsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询弹性伸缩配置
+       *
        * @param request ListAutoScalingConfigsRequest
        * @return ListAutoScalingConfigsResponse
        */
       Models::ListAutoScalingConfigsResponse listAutoScalingConfigs(const Models::ListAutoScalingConfigsRequest &request);
 
       /**
-       * @param request ListAutoScalingRecordsRequest
+       * @summary 查询伸缩记录
+       *
+       * @param tmpReq ListAutoScalingRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAutoScalingRecordsResponse
        */
-      Models::ListAutoScalingRecordsResponse listAutoScalingRecordsWithOptions(const Models::ListAutoScalingRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ListAutoScalingRecordsResponse listAutoScalingRecordsWithOptions(const Models::ListAutoScalingRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询伸缩记录
+       *
        * @param request ListAutoScalingRecordsRequest
        * @return ListAutoScalingRecordsResponse
        */
@@ -617,19 +633,25 @@ namespace Hitsdb20200615
       Models::MigrateSingleZoneToMultiZoneResponse migrateSingleZoneToMultiZone(const Models::MigrateSingleZoneToMultiZoneRequest &request);
 
       /**
-       * @param request ModifyAutoScalingConfigRequest
+       * @summary 修改弹性伸缩配置
+       *
+       * @param tmpReq ModifyAutoScalingConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAutoScalingConfigResponse
        */
-      Models::ModifyAutoScalingConfigResponse modifyAutoScalingConfigWithOptions(const Models::ModifyAutoScalingConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyAutoScalingConfigResponse modifyAutoScalingConfigWithOptions(const Models::ModifyAutoScalingConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改弹性伸缩配置
+       *
        * @param request ModifyAutoScalingConfigRequest
        * @return ModifyAutoScalingConfigResponse
        */
       Models::ModifyAutoScalingConfigResponse modifyAutoScalingConfig(const Models::ModifyAutoScalingConfigRequest &request);
 
       /**
+       * @summary 修改弹性伸缩规则
+       *
        * @param request ModifyAutoScalingRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAutoScalingRuleResponse
@@ -637,6 +659,8 @@ namespace Hitsdb20200615
       Models::ModifyAutoScalingRuleResponse modifyAutoScalingRuleWithOptions(const Models::ModifyAutoScalingRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改弹性伸缩规则
+       *
        * @param request ModifyAutoScalingRuleRequest
        * @return ModifyAutoScalingRuleResponse
        */
@@ -1004,6 +1028,23 @@ namespace Hitsdb20200615
        * @return UpdateLindormV2InstanceParameterResponse
        */
       Models::UpdateLindormV2InstanceParameterResponse updateLindormV2InstanceParameter(const Models::UpdateLindormV2InstanceParameterRequest &request);
+
+      /**
+       * @summary 修改Lindorm新版实例白名单分组列表
+       *
+       * @param request UpdateLindormV2WhiteIpListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLindormV2WhiteIpListResponse
+       */
+      Models::UpdateLindormV2WhiteIpListResponse updateLindormV2WhiteIpListWithOptions(const Models::UpdateLindormV2WhiteIpListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改Lindorm新版实例白名单分组列表
+       *
+       * @param request UpdateLindormV2WhiteIpListRequest
+       * @return UpdateLindormV2WhiteIpListResponse
+       */
+      Models::UpdateLindormV2WhiteIpListResponse updateLindormV2WhiteIpList(const Models::UpdateLindormV2WhiteIpListRequest &request);
 
       /**
        * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.

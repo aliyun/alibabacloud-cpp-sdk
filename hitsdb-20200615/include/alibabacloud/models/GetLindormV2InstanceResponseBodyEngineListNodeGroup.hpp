@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(CpuCoreCount, cpuCoreCount_);
       DARABONBA_PTR_TO_JSON(EnableAttachLocalDisk, enableAttachLocalDisk_);
+      DARABONBA_PTR_TO_JSON(IsScaleSpecGroup, isScaleSpecGroup_);
       DARABONBA_PTR_TO_JSON(LocalDiskCapacity, localDiskCapacity_);
       DARABONBA_PTR_TO_JSON(LocalDiskCategory, localDiskCategory_);
       DARABONBA_PTR_TO_JSON(MemorySizeGiB, memorySizeGiB_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(CpuCoreCount, cpuCoreCount_);
       DARABONBA_PTR_FROM_JSON(EnableAttachLocalDisk, enableAttachLocalDisk_);
+      DARABONBA_PTR_FROM_JSON(IsScaleSpecGroup, isScaleSpecGroup_);
       DARABONBA_PTR_FROM_JSON(LocalDiskCapacity, localDiskCapacity_);
       DARABONBA_PTR_FROM_JSON(LocalDiskCategory, localDiskCategory_);
       DARABONBA_PTR_FROM_JSON(MemorySizeGiB, memorySizeGiB_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->cpuCoreCount_ == nullptr && return this->enableAttachLocalDisk_ == nullptr && return this->localDiskCapacity_ == nullptr && return this->localDiskCategory_ == nullptr && return this->memorySizeGiB_ == nullptr
-        && return this->nodeSpec_ == nullptr && return this->quantity_ == nullptr && return this->resourceGroupName_ == nullptr && return this->specId_ == nullptr && return this->status_ == nullptr; };
+        && return this->cpuCoreCount_ == nullptr && return this->enableAttachLocalDisk_ == nullptr && return this->isScaleSpecGroup_ == nullptr && return this->localDiskCapacity_ == nullptr && return this->localDiskCategory_ == nullptr
+        && return this->memorySizeGiB_ == nullptr && return this->nodeSpec_ == nullptr && return this->quantity_ == nullptr && return this->resourceGroupName_ == nullptr && return this->specId_ == nullptr
+        && return this->status_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     void deleteEnableAttachLocalDisk() { this->enableAttachLocalDisk_ = nullptr;};
     inline bool enableAttachLocalDisk() const { DARABONBA_PTR_GET_DEFAULT(enableAttachLocalDisk_, false) };
     inline GetLindormV2InstanceResponseBodyEngineListNodeGroup& setEnableAttachLocalDisk(bool enableAttachLocalDisk) { DARABONBA_PTR_SET_VALUE(enableAttachLocalDisk_, enableAttachLocalDisk) };
+
+
+    // isScaleSpecGroup Field Functions 
+    bool hasIsScaleSpecGroup() const { return this->isScaleSpecGroup_ != nullptr;};
+    void deleteIsScaleSpecGroup() { this->isScaleSpecGroup_ = nullptr;};
+    inline bool isScaleSpecGroup() const { DARABONBA_PTR_GET_DEFAULT(isScaleSpecGroup_, false) };
+    inline GetLindormV2InstanceResponseBodyEngineListNodeGroup& setIsScaleSpecGroup(bool isScaleSpecGroup) { DARABONBA_PTR_SET_VALUE(isScaleSpecGroup_, isScaleSpecGroup) };
 
 
     // localDiskCapacity Field Functions 
@@ -133,6 +143,7 @@ namespace Models
     std::shared_ptr<string> category_ = nullptr;
     std::shared_ptr<int32_t> cpuCoreCount_ = nullptr;
     std::shared_ptr<bool> enableAttachLocalDisk_ = nullptr;
+    std::shared_ptr<bool> isScaleSpecGroup_ = nullptr;
     std::shared_ptr<int64_t> localDiskCapacity_ = nullptr;
     std::shared_ptr<string> localDiskCategory_ = nullptr;
     std::shared_ptr<int32_t> memorySizeGiB_ = nullptr;
