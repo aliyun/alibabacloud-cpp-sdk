@@ -38,6 +38,57 @@ namespace Clickhouse20191111
       Models::AllocateClusterPublicConnectionResponse allocateClusterPublicConnection(const Models::AllocateClusterPublicConnectionRequest &request);
 
       /**
+       * @summary 取消运维事件任务
+       *
+       * @param request CancelActiveOperationTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelActiveOperationTasksResponse
+       */
+      Models::CancelActiveOperationTasksResponse cancelActiveOperationTasksWithOptions(const Models::CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消运维事件任务
+       *
+       * @param request CancelActiveOperationTasksRequest
+       * @return CancelActiveOperationTasksResponse
+       */
+      Models::CancelActiveOperationTasksResponse cancelActiveOperationTasks(const Models::CancelActiveOperationTasksRequest &request);
+
+      /**
+       * @summary 取消预约Zookeeper切主
+       *
+       * @param request CancelAppointmentElectZookeeperLeaderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelAppointmentElectZookeeperLeaderResponse
+       */
+      Models::CancelAppointmentElectZookeeperLeaderResponse cancelAppointmentElectZookeeperLeaderWithOptions(const Models::CancelAppointmentElectZookeeperLeaderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消预约Zookeeper切主
+       *
+       * @param request CancelAppointmentElectZookeeperLeaderRequest
+       * @return CancelAppointmentElectZookeeperLeaderResponse
+       */
+      Models::CancelAppointmentElectZookeeperLeaderResponse cancelAppointmentElectZookeeperLeader(const Models::CancelAppointmentElectZookeeperLeaderRequest &request);
+
+      /**
+       * @summary 取消预约重启节点列表
+       *
+       * @param request CancelAppointmentRestartInstanceNodeListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelAppointmentRestartInstanceNodeListResponse
+       */
+      Models::CancelAppointmentRestartInstanceNodeListResponse cancelAppointmentRestartInstanceNodeListWithOptions(const Models::CancelAppointmentRestartInstanceNodeListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消预约重启节点列表
+       *
+       * @param request CancelAppointmentRestartInstanceNodeListRequest
+       * @return CancelAppointmentRestartInstanceNodeListResponse
+       */
+      Models::CancelAppointmentRestartInstanceNodeListResponse cancelAppointmentRestartInstanceNodeList(const Models::CancelAppointmentRestartInstanceNodeListRequest &request);
+
+      /**
        * @summary 取消预约重启
        *
        * @param request CancelRestartInstanceRequest
@@ -511,6 +562,36 @@ namespace Clickhouse20191111
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
+       * @summary 主动运维
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 主动运维
+       *
+       * @param request DescribeActiveOperationMaintainConfRequest
+       * @return DescribeActiveOperationMaintainConfResponse
+       */
+      Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConf(const Models::DescribeActiveOperationMaintainConfRequest &request);
+
+      /**
+       * @param request DescribeActiveOperationTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeActiveOperationTasksResponse
+       */
+      Models::DescribeActiveOperationTasksResponse describeActiveOperationTasksWithOptions(const Models::DescribeActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeActiveOperationTasksRequest
+       * @return DescribeActiveOperationTasksResponse
+       */
+      Models::DescribeActiveOperationTasksResponse describeActiveOperationTasks(const Models::DescribeActiveOperationTasksRequest &request);
+
+      /**
        * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
        *
        * @param request DescribeAllDataSourceRequest
@@ -748,6 +829,23 @@ namespace Clickhouse20191111
       Models::DescribeDBClusterNetInfoItemsResponse describeDBClusterNetInfoItems(const Models::DescribeDBClusterNetInfoItemsRequest &request);
 
       /**
+       * @summary 获取实例节点信息
+       *
+       * @param request DescribeDBClusterNodeInfosRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterNodeInfosResponse
+       */
+      Models::DescribeDBClusterNodeInfosResponse describeDBClusterNodeInfosWithOptions(const Models::DescribeDBClusterNodeInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例节点信息
+       *
+       * @param request DescribeDBClusterNodeInfosRequest
+       * @return DescribeDBClusterNodeInfosResponse
+       */
+      Models::DescribeDBClusterNodeInfosResponse describeDBClusterNodeInfos(const Models::DescribeDBClusterNodeInfosRequest &request);
+
+      /**
        * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
        *
        * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
@@ -769,6 +867,19 @@ namespace Clickhouse20191111
        * @return DescribeDBClusterPerformanceResponse
        */
       Models::DescribeDBClusterPerformanceResponse describeDBClusterPerformance(const Models::DescribeDBClusterPerformanceRequest &request);
+
+      /**
+       * @param request DescribeDBClusterStatusSetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBClusterStatusSetResponse
+       */
+      Models::DescribeDBClusterStatusSetResponse describeDBClusterStatusSetWithOptions(const Models::DescribeDBClusterStatusSetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeDBClusterStatusSetRequest
+       * @return DescribeDBClusterStatusSetResponse
+       */
+      Models::DescribeDBClusterStatusSetResponse describeDBClusterStatusSet(const Models::DescribeDBClusterStatusSetRequest &request);
 
       /**
        * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
@@ -803,6 +914,23 @@ namespace Clickhouse20191111
        * @return DescribeDBConfigResponse
        */
       Models::DescribeDBConfigResponse describeDBConfig(const Models::DescribeDBConfigRequest &request);
+
+      /**
+       * @summary DescribeEventMetaInfo
+       *
+       * @param request DescribeEventMetaInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeEventMetaInfoResponse
+       */
+      Models::DescribeEventMetaInfoResponse describeEventMetaInfoWithOptions(const Models::DescribeEventMetaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeEventMetaInfo
+       *
+       * @param request DescribeEventMetaInfoRequest
+       * @return DescribeEventMetaInfoResponse
+       */
+      Models::DescribeEventMetaInfoResponse describeEventMetaInfo(const Models::DescribeEventMetaInfoRequest &request);
 
       /**
        * @summary Queries the storage of cold data.
@@ -975,6 +1103,36 @@ namespace Clickhouse20191111
       Models::DescribeTransferHistoryResponse describeTransferHistory(const Models::DescribeTransferHistoryRequest &request);
 
       /**
+       * @param request DescribeUserEncryptionKeyListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserEncryptionKeyListResponse
+       */
+      Models::DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyListWithOptions(const Models::DescribeUserEncryptionKeyListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeUserEncryptionKeyListRequest
+       * @return DescribeUserEncryptionKeyListResponse
+       */
+      Models::DescribeUserEncryptionKeyListResponse describeUserEncryptionKeyList(const Models::DescribeUserEncryptionKeyListRequest &request);
+
+      /**
+       * @summary Zookeeper主动切主
+       *
+       * @param request ElectZookeeperLeaderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ElectZookeeperLeaderResponse
+       */
+      Models::ElectZookeeperLeaderResponse electZookeeperLeaderWithOptions(const Models::ElectZookeeperLeaderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Zookeeper主动切主
+       *
+       * @param request ElectZookeeperLeaderRequest
+       * @return ElectZookeeperLeaderResponse
+       */
+      Models::ElectZookeeperLeaderResponse electZookeeperLeader(const Models::ElectZookeeperLeaderRequest &request);
+
+      /**
        * @summary Terminates an ongoing task.
        *
        * @param request KillProcessRequest
@@ -990,6 +1148,23 @@ namespace Clickhouse20191111
        * @return KillProcessResponse
        */
       Models::KillProcessResponse killProcess(const Models::KillProcessRequest &request);
+
+      /**
+       * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+       *
+       * @param request ListTagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+       *
+       * @param request ListTagResourcesRequest
+       * @return ListTagResourcesResponse
+       */
+      Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
        * @summary Modifies the permissions of an account.
@@ -1024,6 +1199,36 @@ namespace Clickhouse20191111
        * @return ModifyAccountDescriptionResponse
        */
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
+
+      /**
+       * @summary 修改主动运维设置
+       *
+       * @param request ModifyActiveOperationMaintainConfRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyActiveOperationMaintainConfResponse
+       */
+      Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConfWithOptions(const Models::ModifyActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改主动运维设置
+       *
+       * @param request ModifyActiveOperationMaintainConfRequest
+       * @return ModifyActiveOperationMaintainConfResponse
+       */
+      Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConf(const Models::ModifyActiveOperationMaintainConfRequest &request);
+
+      /**
+       * @param request ModifyActiveOperationTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyActiveOperationTasksResponse
+       */
+      Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(const Models::ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request ModifyActiveOperationTasksRequest
+       * @return ModifyActiveOperationTasksResponse
+       */
+      Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasks(const Models::ModifyActiveOperationTasksRequest &request);
 
       /**
        * @param request ModifyAutoRenewAttributeRequest
@@ -1272,6 +1477,40 @@ namespace Clickhouse20191111
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
+       * @summary 批量重启实例节点
+       *
+       * @param tmpReq RestartInstanceNodeListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestartInstanceNodeListResponse
+       */
+      Models::RestartInstanceNodeListResponse restartInstanceNodeListWithOptions(const Models::RestartInstanceNodeListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量重启实例节点
+       *
+       * @param request RestartInstanceNodeListRequest
+       * @return RestartInstanceNodeListResponse
+       */
+      Models::RestartInstanceNodeListResponse restartInstanceNodeList(const Models::RestartInstanceNodeListRequest &request);
+
+      /**
+       * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+       *
+       * @param request TagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
        * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
        *
        * @description ## [](#)Prerequisites
@@ -1297,6 +1536,23 @@ namespace Clickhouse20191111
        * @return TransferVersionResponse
        */
       Models::TransferVersionResponse transferVersion(const Models::TransferVersionRequest &request);
+
+      /**
+       * @summary Removes tags from ApsaraDB for ClickHouse clusters.
+       *
+       * @param request UntagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Removes tags from ApsaraDB for ClickHouse clusters.
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
        * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.

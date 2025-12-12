@@ -144,6 +144,208 @@ AllocateClusterPublicConnectionResponse Client::allocateClusterPublicConnection(
 }
 
 /**
+ * @summary 取消运维事件任务
+ *
+ * @param request CancelActiveOperationTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelActiveOperationTasksResponse
+ */
+CancelActiveOperationTasksResponse Client::cancelActiveOperationTasksWithOptions(const CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIds()) {
+    query["Ids"] = request.ids();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelActiveOperationTasks"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelActiveOperationTasksResponse>();
+}
+
+/**
+ * @summary 取消运维事件任务
+ *
+ * @param request CancelActiveOperationTasksRequest
+ * @return CancelActiveOperationTasksResponse
+ */
+CancelActiveOperationTasksResponse Client::cancelActiveOperationTasks(const CancelActiveOperationTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消预约Zookeeper切主
+ *
+ * @param request CancelAppointmentElectZookeeperLeaderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelAppointmentElectZookeeperLeaderResponse
+ */
+CancelAppointmentElectZookeeperLeaderResponse Client::cancelAppointmentElectZookeeperLeaderWithOptions(const CancelAppointmentElectZookeeperLeaderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelAppointmentElectZookeeperLeader"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelAppointmentElectZookeeperLeaderResponse>();
+}
+
+/**
+ * @summary 取消预约Zookeeper切主
+ *
+ * @param request CancelAppointmentElectZookeeperLeaderRequest
+ * @return CancelAppointmentElectZookeeperLeaderResponse
+ */
+CancelAppointmentElectZookeeperLeaderResponse Client::cancelAppointmentElectZookeeperLeader(const CancelAppointmentElectZookeeperLeaderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelAppointmentElectZookeeperLeaderWithOptions(request, runtime);
+}
+
+/**
+ * @summary 取消预约重启节点列表
+ *
+ * @param request CancelAppointmentRestartInstanceNodeListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelAppointmentRestartInstanceNodeListResponse
+ */
+CancelAppointmentRestartInstanceNodeListResponse Client::cancelAppointmentRestartInstanceNodeListWithOptions(const CancelAppointmentRestartInstanceNodeListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelAppointmentRestartInstanceNodeList"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelAppointmentRestartInstanceNodeListResponse>();
+}
+
+/**
+ * @summary 取消预约重启节点列表
+ *
+ * @param request CancelAppointmentRestartInstanceNodeListRequest
+ * @return CancelAppointmentRestartInstanceNodeListResponse
+ */
+CancelAppointmentRestartInstanceNodeListResponse Client::cancelAppointmentRestartInstanceNodeList(const CancelAppointmentRestartInstanceNodeListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelAppointmentRestartInstanceNodeListWithOptions(request, runtime);
+}
+
+/**
  * @summary 取消预约重启
  *
  * @param request CancelRestartInstanceRequest
@@ -1938,6 +2140,162 @@ DescribeAccountsResponse Client::describeAccounts(const DescribeAccountsRequest 
 }
 
 /**
+ * @summary 主动运维
+ *
+ * @param request DescribeActiveOperationMaintainConfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeActiveOperationMaintainConfResponse
+ */
+DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaintainConfWithOptions(const DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeActiveOperationMaintainConf"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeActiveOperationMaintainConfResponse>();
+}
+
+/**
+ * @summary 主动运维
+ *
+ * @param request DescribeActiveOperationMaintainConfRequest
+ * @return DescribeActiveOperationMaintainConfResponse
+ */
+DescribeActiveOperationMaintainConfResponse Client::describeActiveOperationMaintainConf(const DescribeActiveOperationMaintainConfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeActiveOperationMaintainConfWithOptions(request, runtime);
+}
+
+/**
+ * @param request DescribeActiveOperationTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeActiveOperationTasksResponse
+ */
+DescribeActiveOperationTasksResponse Client::describeActiveOperationTasksWithOptions(const DescribeActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllowCancel()) {
+    query["AllowCancel"] = request.allowCancel();
+  }
+
+  if (!!request.hasAllowChange()) {
+    query["AllowChange"] = request.allowChange();
+  }
+
+  if (!!request.hasChangeLevel()) {
+    query["ChangeLevel"] = request.changeLevel();
+  }
+
+  if (!!request.hasDbType()) {
+    query["DbType"] = request.dbType();
+  }
+
+  if (!!request.hasInsName()) {
+    query["InsName"] = request.insName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasProductId()) {
+    query["ProductId"] = request.productId();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.region();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.taskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeActiveOperationTasks"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeActiveOperationTasksResponse>();
+}
+
+/**
+ * @param request DescribeActiveOperationTasksRequest
+ * @return DescribeActiveOperationTasksResponse
+ */
+DescribeActiveOperationTasksResponse Client::describeActiveOperationTasks(const DescribeActiveOperationTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeActiveOperationTasksWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
  *
  * @param request DescribeAllDataSourceRequest
@@ -2716,6 +3074,76 @@ DescribeDBClusterNetInfoItemsResponse Client::describeDBClusterNetInfoItems(cons
 }
 
 /**
+ * @summary 获取实例节点信息
+ *
+ * @param request DescribeDBClusterNodeInfosRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterNodeInfosResponse
+ */
+DescribeDBClusterNodeInfosResponse Client::describeDBClusterNodeInfosWithOptions(const DescribeDBClusterNodeInfosRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterNodeInfos"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterNodeInfosResponse>();
+}
+
+/**
+ * @summary 获取实例节点信息
+ *
+ * @param request DescribeDBClusterNodeInfosRequest
+ * @return DescribeDBClusterNodeInfosResponse
+ */
+DescribeDBClusterNodeInfosResponse Client::describeDBClusterNodeInfos(const DescribeDBClusterNodeInfosRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterNodeInfosWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
  *
  * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
@@ -2789,6 +3217,60 @@ DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformanceWithOpt
 DescribeDBClusterPerformanceResponse Client::describeDBClusterPerformance(const DescribeDBClusterPerformanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBClusterPerformanceWithOptions(request, runtime);
+}
+
+/**
+ * @param request DescribeDBClusterStatusSetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBClusterStatusSetResponse
+ */
+DescribeDBClusterStatusSetResponse Client::describeDBClusterStatusSetWithOptions(const DescribeDBClusterStatusSetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBClusterStatusSet"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBClusterStatusSetResponse>();
+}
+
+/**
+ * @param request DescribeDBClusterStatusSetRequest
+ * @return DescribeDBClusterStatusSetResponse
+ */
+DescribeDBClusterStatusSetResponse Client::describeDBClusterStatusSet(const DescribeDBClusterStatusSetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBClusterStatusSetWithOptions(request, runtime);
 }
 
 /**
@@ -2937,6 +3419,56 @@ DescribeDBConfigResponse Client::describeDBConfigWithOptions(const DescribeDBCon
 DescribeDBConfigResponse Client::describeDBConfig(const DescribeDBConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeEventMetaInfo
+ *
+ * @param request DescribeEventMetaInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeEventMetaInfoResponse
+ */
+DescribeEventMetaInfoResponse Client::describeEventMetaInfoWithOptions(const DescribeEventMetaInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasSourceCode()) {
+    query["SourceCode"] = request.sourceCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeEventMetaInfo"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeEventMetaInfoResponse>();
+}
+
+/**
+ * @summary DescribeEventMetaInfo
+ *
+ * @param request DescribeEventMetaInfoRequest
+ * @return DescribeEventMetaInfoResponse
+ */
+DescribeEventMetaInfoResponse Client::describeEventMetaInfo(const DescribeEventMetaInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeEventMetaInfoWithOptions(request, runtime);
 }
 
 /**
@@ -3608,6 +4140,130 @@ DescribeTransferHistoryResponse Client::describeTransferHistory(const DescribeTr
 }
 
 /**
+ * @param request DescribeUserEncryptionKeyListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserEncryptionKeyListResponse
+ */
+DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyListWithOptions(const DescribeUserEncryptionKeyListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserEncryptionKeyList"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserEncryptionKeyListResponse>();
+}
+
+/**
+ * @param request DescribeUserEncryptionKeyListRequest
+ * @return DescribeUserEncryptionKeyListResponse
+ */
+DescribeUserEncryptionKeyListResponse Client::describeUserEncryptionKeyList(const DescribeUserEncryptionKeyListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserEncryptionKeyListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Zookeeper主动切主
+ *
+ * @param request ElectZookeeperLeaderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ElectZookeeperLeaderResponse
+ */
+ElectZookeeperLeaderResponse Client::electZookeeperLeaderWithOptions(const ElectZookeeperLeaderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasDisableWrite()) {
+    query["DisableWrite"] = request.disableWrite();
+  }
+
+  if (!!request.hasElectTime()) {
+    query["ElectTime"] = request.electTime();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ElectZookeeperLeader"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ElectZookeeperLeaderResponse>();
+}
+
+/**
+ * @summary Zookeeper主动切主
+ *
+ * @param request ElectZookeeperLeaderRequest
+ * @return ElectZookeeperLeaderResponse
+ */
+ElectZookeeperLeaderResponse Client::electZookeeperLeader(const ElectZookeeperLeaderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return electZookeeperLeaderWithOptions(request, runtime);
+}
+
+/**
  * @summary Terminates an ongoing task.
  *
  * @param request KillProcessRequest
@@ -3671,6 +4327,80 @@ KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &req
 KillProcessResponse Client::killProcess(const KillProcessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return killProcessWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+ *
+ * @param request ListTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTagResources"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTagResourcesResponse>();
+}
+
+/**
+ * @summary Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+ *
+ * @param request ListTagResourcesRequest
+ * @return ListTagResourcesResponse
+ */
+ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTagResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -3827,6 +4557,150 @@ ModifyAccountDescriptionResponse Client::modifyAccountDescriptionWithOptions(con
 ModifyAccountDescriptionResponse Client::modifyAccountDescription(const ModifyAccountDescriptionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAccountDescriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改主动运维设置
+ *
+ * @param request ModifyActiveOperationMaintainConfRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyActiveOperationMaintainConfResponse
+ */
+ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainConfWithOptions(const ModifyActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCycleTime()) {
+    query["CycleTime"] = request.cycleTime();
+  }
+
+  if (!!request.hasCycleType()) {
+    query["CycleType"] = request.cycleType();
+  }
+
+  if (!!request.hasMaintainEndTime()) {
+    query["MaintainEndTime"] = request.maintainEndTime();
+  }
+
+  if (!!request.hasMaintainStartTime()) {
+    query["MaintainStartTime"] = request.maintainStartTime();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyActiveOperationMaintainConf"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyActiveOperationMaintainConfResponse>();
+}
+
+/**
+ * @summary 修改主动运维设置
+ *
+ * @param request ModifyActiveOperationMaintainConfRequest
+ * @return ModifyActiveOperationMaintainConfResponse
+ */
+ModifyActiveOperationMaintainConfResponse Client::modifyActiveOperationMaintainConf(const ModifyActiveOperationMaintainConfRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyActiveOperationMaintainConfWithOptions(request, runtime);
+}
+
+/**
+ * @param request ModifyActiveOperationTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyActiveOperationTasksResponse
+ */
+ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasksWithOptions(const ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIds()) {
+    query["Ids"] = request.ids();
+  }
+
+  if (!!request.hasImmediateStart()) {
+    query["ImmediateStart"] = request.immediateStart();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  if (!!request.hasSwitchTime()) {
+    query["SwitchTime"] = request.switchTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyActiveOperationTasks"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyActiveOperationTasksResponse>();
+}
+
+/**
+ * @param request ModifyActiveOperationTasksRequest
+ * @return ModifyActiveOperationTasksResponse
+ */
+ModifyActiveOperationTasksResponse Client::modifyActiveOperationTasks(const ModifyActiveOperationTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyActiveOperationTasksWithOptions(request, runtime);
 }
 
 /**
@@ -4818,6 +5692,160 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
+ * @summary 批量重启实例节点
+ *
+ * @param tmpReq RestartInstanceNodeListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestartInstanceNodeListResponse
+ */
+RestartInstanceNodeListResponse Client::restartInstanceNodeListWithOptions(const RestartInstanceNodeListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RestartInstanceNodeListShrinkRequest request = RestartInstanceNodeListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNodeList()) {
+    request.setNodeListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.nodeList(), "NodeList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasNodeListShrink()) {
+    query["NodeList"] = request.nodeListShrink();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasRestartTime()) {
+    query["RestartTime"] = request.restartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestartInstanceNodeList"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestartInstanceNodeListResponse>();
+}
+
+/**
+ * @summary 批量重启实例节点
+ *
+ * @param request RestartInstanceNodeListRequest
+ * @return RestartInstanceNodeListResponse
+ */
+RestartInstanceNodeListResponse Client::restartInstanceNodeList(const RestartInstanceNodeListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restartInstanceNodeListWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+ *
+ * @param request TagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
  *
  * @description ## [](#)Prerequisites
@@ -4927,6 +5955,80 @@ TransferVersionResponse Client::transferVersionWithOptions(const TransferVersion
 TransferVersionResponse Client::transferVersion(const TransferVersionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return transferVersionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Removes tags from ApsaraDB for ClickHouse clusters.
+ *
+ * @param request UntagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.all();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.tagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2019-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary Removes tags from ApsaraDB for ClickHouse clusters.
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagResourcesWithOptions(request, runtime);
 }
 
 /**
