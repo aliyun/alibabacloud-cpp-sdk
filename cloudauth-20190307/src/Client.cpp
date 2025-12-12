@@ -741,6 +741,14 @@ CreateAntCloudAuthSceneResponse Client::createAntCloudAuthSceneWithOptions(const
     query["Platform"] = request.platform();
   }
 
+  if (!!request.hasReturnPicCount()) {
+    query["ReturnPicCount"] = request.returnPicCount();
+  }
+
+  if (!!request.hasReturnVideoLength()) {
+    query["ReturnVideoLength"] = request.returnVideoLength();
+  }
+
   if (!!request.hasSceneName()) {
     query["SceneName"] = request.sceneName();
   }
@@ -6500,6 +6508,14 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
 
   if (!!request.hasPlatform()) {
     query["Platform"] = request.platform();
+  }
+
+  if (!!request.hasReturnPicCount()) {
+    query["ReturnPicCount"] = request.returnPicCount();
+  }
+
+  if (!!request.hasReturnVideoLength()) {
+    query["ReturnVideoLength"] = request.returnVideoLength();
   }
 
   if (!!request.hasSceneId()) {

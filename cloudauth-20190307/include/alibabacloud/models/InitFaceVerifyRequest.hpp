@@ -476,6 +476,10 @@ namespace Models
     // > - Choosing to output the device assistant will incur additional costs. For details, see [Paid Value-Added Services](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/face-guard?spm=a2c4g.11186623.0.0.443e5522rbHsR4).
     // > - If you do not need to output the device assistant label, you can either not pass the parameter or pass an empty value.
     std::shared_ptr<string> faceGuardOutput_ = nullptr;
+    // H5 Downgrade Confirmation Button Switch:
+    // 
+    // - **Y**: Enabled (On)
+    // - **N (default)**: Disabled (Off)
     std::shared_ptr<string> h5DegradeConfirmBtn_ = nullptr;
     // User\\"s IP address.
     std::shared_ptr<string> ip_ = nullptr;

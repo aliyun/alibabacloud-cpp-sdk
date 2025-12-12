@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
       DARABONBA_PTR_TO_JSON(Modifier, modifier_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
+      DARABONBA_PTR_TO_JSON(ReturnPicCount, returnPicCount_);
+      DARABONBA_PTR_TO_JSON(ReturnVideoLength, returnVideoLength_);
       DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -36,6 +38,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
       DARABONBA_PTR_FROM_JSON(Modifier, modifier_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
+      DARABONBA_PTR_FROM_JSON(ReturnPicCount, returnPicCount_);
+      DARABONBA_PTR_FROM_JSON(ReturnVideoLength, returnVideoLength_);
       DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -55,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
         && return this->bindMiniProgram_ == nullptr && return this->createTime_ == nullptr && return this->creator_ == nullptr && return this->domain_ == nullptr && return this->miniProgramName_ == nullptr
-        && return this->modifier_ == nullptr && return this->platform_ == nullptr && return this->sceneId_ == nullptr && return this->sceneName_ == nullptr && return this->status_ == nullptr
-        && return this->storeImage_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->modifier_ == nullptr && return this->platform_ == nullptr && return this->returnPicCount_ == nullptr && return this->returnVideoLength_ == nullptr && return this->sceneId_ == nullptr
+        && return this->sceneName_ == nullptr && return this->status_ == nullptr && return this->storeImage_ == nullptr && return this->updateTime_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -111,6 +115,20 @@ namespace Models
     void deletePlatform() { this->platform_ = nullptr;};
     inline string platform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
     inline DescribeListAntCloudAuthScenesResponseBodyScenes& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+    // returnPicCount Field Functions 
+    bool hasReturnPicCount() const { return this->returnPicCount_ != nullptr;};
+    void deleteReturnPicCount() { this->returnPicCount_ = nullptr;};
+    inline int64_t returnPicCount() const { DARABONBA_PTR_GET_DEFAULT(returnPicCount_, 0L) };
+    inline DescribeListAntCloudAuthScenesResponseBodyScenes& setReturnPicCount(int64_t returnPicCount) { DARABONBA_PTR_SET_VALUE(returnPicCount_, returnPicCount) };
+
+
+    // returnVideoLength Field Functions 
+    bool hasReturnVideoLength() const { return this->returnVideoLength_ != nullptr;};
+    void deleteReturnVideoLength() { this->returnVideoLength_ = nullptr;};
+    inline int64_t returnVideoLength() const { DARABONBA_PTR_GET_DEFAULT(returnVideoLength_, 0L) };
+    inline DescribeListAntCloudAuthScenesResponseBodyScenes& setReturnVideoLength(int64_t returnVideoLength) { DARABONBA_PTR_SET_VALUE(returnVideoLength_, returnVideoLength) };
 
 
     // sceneId Field Functions 
@@ -170,6 +188,8 @@ namespace Models
     // - **ALIPAY**: Alipay
     // - **TIKTOK**: TikTok
     std::shared_ptr<string> platform_ = nullptr;
+    std::shared_ptr<int64_t> returnPicCount_ = nullptr;
+    std::shared_ptr<int64_t> returnVideoLength_ = nullptr;
     // Scenario ID.
     std::shared_ptr<int64_t> sceneId_ = nullptr;
     // Scenario name.
