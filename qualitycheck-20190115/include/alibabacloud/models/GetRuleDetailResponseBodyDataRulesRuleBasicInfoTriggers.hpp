@@ -30,7 +30,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->trigger_ != nullptr; };
+    virtual bool empty() const override { return this->trigger_ == nullptr; };
     // trigger Field Functions 
     bool hasTrigger() const { return this->trigger_ != nullptr;};
     void deleteTrigger() { this->trigger_ = nullptr;};

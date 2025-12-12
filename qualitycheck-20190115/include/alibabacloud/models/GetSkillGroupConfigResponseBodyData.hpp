@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allContentQualityCheck_ != nullptr
-        && this->allRids_ != nullptr && this->allRuleList_ != nullptr && this->createTime_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr
-        && this->modelId_ != nullptr && this->modelName_ != nullptr && this->name_ != nullptr && this->qualityCheckType_ != nullptr && this->rid_ != nullptr
-        && this->ruleList_ != nullptr && this->skillGroupFrom_ != nullptr && this->skillGroupId_ != nullptr && this->skillGroupName_ != nullptr && this->status_ != nullptr
-        && this->type_ != nullptr && this->updateTime_ != nullptr && this->vocabId_ != nullptr && this->vocabName_ != nullptr; };
+    virtual bool empty() const override { return this->allContentQualityCheck_ == nullptr
+        && return this->allRids_ == nullptr && return this->allRuleList_ == nullptr && return this->createTime_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr
+        && return this->modelId_ == nullptr && return this->modelName_ == nullptr && return this->name_ == nullptr && return this->qualityCheckType_ == nullptr && return this->rid_ == nullptr
+        && return this->ruleList_ == nullptr && return this->skillGroupFrom_ == nullptr && return this->skillGroupId_ == nullptr && return this->skillGroupName_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->vocabId_ == nullptr && return this->vocabName_ == nullptr; };
     // allContentQualityCheck Field Functions 
     bool hasAllContentQualityCheck() const { return this->allContentQualityCheck_ != nullptr;};
     void deleteAllContentQualityCheck() { this->allContentQualityCheck_ = nullptr;};

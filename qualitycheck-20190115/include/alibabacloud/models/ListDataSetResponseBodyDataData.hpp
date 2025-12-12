@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoTranscoding_ != nullptr
-        && this->channelId0_ != nullptr && this->channelId1_ != nullptr && this->channelType_ != nullptr && this->createTime_ != nullptr && this->createType_ != nullptr
-        && this->dataSetType_ != nullptr && this->isDelete_ != nullptr && this->roleConfigProp_ != nullptr && this->roleConfigStatus_ != nullptr && this->roleConfigTask_ != nullptr
-        && this->setBucketName_ != nullptr && this->setDomain_ != nullptr && this->setFolderName_ != nullptr && this->setId_ != nullptr && this->setName_ != nullptr
-        && this->setNumber_ != nullptr && this->setRoleArn_ != nullptr && this->setType_ != nullptr && this->sourceDataType_ != nullptr && this->subDir_ != nullptr
-        && this->updateTime_ != nullptr && this->userGroup_ != nullptr; };
+    virtual bool empty() const override { return this->autoTranscoding_ == nullptr
+        && return this->channelId0_ == nullptr && return this->channelId1_ == nullptr && return this->channelType_ == nullptr && return this->createTime_ == nullptr && return this->createType_ == nullptr
+        && return this->dataSetType_ == nullptr && return this->isDelete_ == nullptr && return this->roleConfigProp_ == nullptr && return this->roleConfigStatus_ == nullptr && return this->roleConfigTask_ == nullptr
+        && return this->setBucketName_ == nullptr && return this->setDomain_ == nullptr && return this->setFolderName_ == nullptr && return this->setId_ == nullptr && return this->setName_ == nullptr
+        && return this->setNumber_ == nullptr && return this->setRoleArn_ == nullptr && return this->setType_ == nullptr && return this->sourceDataType_ == nullptr && return this->subDir_ == nullptr
+        && return this->updateTime_ == nullptr && return this->userGroup_ == nullptr; };
     // autoTranscoding Field Functions 
     bool hasAutoTranscoding() const { return this->autoTranscoding_ != nullptr;};
     void deleteAutoTranscoding() { this->autoTranscoding_ = nullptr;};

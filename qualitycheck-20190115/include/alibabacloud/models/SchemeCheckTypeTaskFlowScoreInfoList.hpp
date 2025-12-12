@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->schemeScoreInfoList_ != nullptr
-        && this->taskFlowId_ != nullptr && this->taskFlowName_ != nullptr && this->taskFlowType_ != nullptr; };
+    virtual bool empty() const override { return this->schemeScoreInfoList_ == nullptr
+        && return this->taskFlowId_ == nullptr && return this->taskFlowName_ == nullptr && return this->taskFlowType_ == nullptr; };
     // schemeScoreInfoList Field Functions 
     bool hasSchemeScoreInfoList() const { return this->schemeScoreInfoList_ != nullptr;};
     void deleteSchemeScoreInfoList() { this->schemeScoreInfoList_ = nullptr;};

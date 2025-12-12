@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_OPERATORBASICINFOPARAM_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/JudgeNodeMetaDesc.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -135,18 +136,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->answerThreshold_ != nullptr
-        && this->antModelInfo_ != nullptr && this->average_ != nullptr && this->beginType_ != nullptr && this->botId_ != nullptr && this->caseSensitive_ != nullptr
-        && this->categoryPathCode_ != nullptr && this->checkFirstSentence_ != nullptr && this->checkType_ != nullptr && this->compareOperator_ != nullptr && this->contextChatMatch_ != nullptr
-        && this->customerParam_ != nullptr && this->delayTime_ != nullptr && this->differentRole_ != nullptr && this->endType_ != nullptr && this->excludes_ != nullptr
-        && this->from_ != nullptr && this->fromEnd_ != nullptr && this->hitTime_ != nullptr && this->inSentence_ != nullptr && this->interval_ != nullptr
-        && this->intervalEnd_ != nullptr && this->keywordExtension_ != nullptr && this->keywordMatchSize_ != nullptr && this->keywords_ != nullptr && this->knowledgeInfo_ != nullptr
-        && this->knowledgeSentenceNum_ != nullptr && this->knowledgeTargetId_ != nullptr && this->knowledgeTargetName_ != nullptr && this->knowledgeTargetType_ != nullptr && this->lgfSentences_ != nullptr
-        && this->maxEmotionChangeValue_ != nullptr && this->minWordSize_ != nullptr && this->nearDialogue_ != nullptr && this->notRegex_ != nullptr && this->phrase_ != nullptr
-        && this->pkey_ != nullptr && this->poutputType_ != nullptr && this->pvalues_ != nullptr && this->questionThreshold_ != nullptr && this->references_ != nullptr
-        && this->regex_ != nullptr && this->roleId_ != nullptr && this->score_ != nullptr && this->similarityThreshold_ != nullptr && this->similarlySentences_ != nullptr
-        && this->synonyms_ != nullptr && this->target_ != nullptr && this->targetRole_ != nullptr && this->threshold_ != nullptr && this->useEasAlgorithm_ != nullptr
-        && this->velocity_ != nullptr && this->velocityInMint_ != nullptr; };
+    virtual bool empty() const override { return this->answerThreshold_ == nullptr
+        && return this->antModelInfo_ == nullptr && return this->average_ == nullptr && return this->beginType_ == nullptr && return this->botId_ == nullptr && return this->caseSensitive_ == nullptr
+        && return this->categoryPathCode_ == nullptr && return this->checkFirstSentence_ == nullptr && return this->checkType_ == nullptr && return this->compareOperator_ == nullptr && return this->contextChatMatch_ == nullptr
+        && return this->customerParam_ == nullptr && return this->delayTime_ == nullptr && return this->differentRole_ == nullptr && return this->endType_ == nullptr && return this->excludes_ == nullptr
+        && return this->from_ == nullptr && return this->fromEnd_ == nullptr && return this->hitTime_ == nullptr && return this->inSentence_ == nullptr && return this->interval_ == nullptr
+        && return this->intervalEnd_ == nullptr && return this->keywordExtension_ == nullptr && return this->keywordMatchSize_ == nullptr && return this->keywords_ == nullptr && return this->knowledgeInfo_ == nullptr
+        && return this->knowledgeSentenceNum_ == nullptr && return this->knowledgeTargetId_ == nullptr && return this->knowledgeTargetName_ == nullptr && return this->knowledgeTargetType_ == nullptr && return this->lgfSentences_ == nullptr
+        && return this->maxEmotionChangeValue_ == nullptr && return this->minWordSize_ == nullptr && return this->nearDialogue_ == nullptr && return this->notRegex_ == nullptr && return this->phrase_ == nullptr
+        && return this->pkey_ == nullptr && return this->poutputType_ == nullptr && return this->pvalues_ == nullptr && return this->questionThreshold_ == nullptr && return this->references_ == nullptr
+        && return this->regex_ == nullptr && return this->roleId_ == nullptr && return this->score_ == nullptr && return this->similarityThreshold_ == nullptr && return this->similarlySentences_ == nullptr
+        && return this->synonyms_ == nullptr && return this->target_ == nullptr && return this->targetRole_ == nullptr && return this->threshold_ == nullptr && return this->useEasAlgorithm_ == nullptr
+        && return this->velocity_ == nullptr && return this->velocityInMint_ == nullptr; };
     // answerThreshold Field Functions 
     bool hasAnswerThreshold() const { return this->answerThreshold_ != nullptr;};
     void deleteAnswerThreshold() { this->answerThreshold_ = nullptr;};

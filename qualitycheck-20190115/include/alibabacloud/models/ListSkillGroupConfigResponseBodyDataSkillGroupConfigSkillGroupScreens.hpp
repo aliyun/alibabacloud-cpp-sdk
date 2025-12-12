@@ -31,7 +31,7 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->skillGroupScreen_ != nullptr; };
+    virtual bool empty() const override { return this->skillGroupScreen_ == nullptr; };
     // skillGroupScreen Field Functions 
     bool hasSkillGroupScreen() const { return this->skillGroupScreen_ != nullptr;};
     void deleteSkillGroupScreen() { this->skillGroupScreen_ = nullptr;};

@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->anyNumberOfDraws_ != nullptr
-        && this->designated_ != nullptr && this->dimension_ != nullptr && this->limit_ != nullptr && this->numberOfDraws_ != nullptr && this->proportion_ != nullptr
-        && this->randomInspectionNumber_ != nullptr && this->samplingModeAgents_ != nullptr; };
+    virtual bool empty() const override { return this->anyNumberOfDraws_ == nullptr
+        && return this->designated_ == nullptr && return this->dimension_ == nullptr && return this->limit_ == nullptr && return this->numberOfDraws_ == nullptr && return this->proportion_ == nullptr
+        && return this->randomInspectionNumber_ == nullptr && return this->samplingModeAgents_ == nullptr; };
     // anyNumberOfDraws Field Functions 
     bool hasAnyNumberOfDraws() const { return this->anyNumberOfDraws_ != nullptr;};
     void deleteAnyNumberOfDraws() { this->anyNumberOfDraws_ = nullptr;};

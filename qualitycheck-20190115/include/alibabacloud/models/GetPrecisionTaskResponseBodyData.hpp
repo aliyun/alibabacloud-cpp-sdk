@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSetId_ != nullptr
-        && this->dataSetName_ != nullptr && this->duration_ != nullptr && this->incorrectWords_ != nullptr && this->name_ != nullptr && this->precisions_ != nullptr
-        && this->source_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->totalCount_ != nullptr && this->updateTime_ != nullptr
-        && this->verifiedCount_ != nullptr; };
+    virtual bool empty() const override { return this->dataSetId_ == nullptr
+        && return this->dataSetName_ == nullptr && return this->duration_ == nullptr && return this->incorrectWords_ == nullptr && return this->name_ == nullptr && return this->precisions_ == nullptr
+        && return this->source_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->totalCount_ == nullptr && return this->updateTime_ == nullptr
+        && return this->verifiedCount_ == nullptr; };
     // dataSetId Field Functions 
     bool hasDataSetId() const { return this->dataSetId_ != nullptr;};
     void deleteDataSetId() { this->dataSetId_ = nullptr;};

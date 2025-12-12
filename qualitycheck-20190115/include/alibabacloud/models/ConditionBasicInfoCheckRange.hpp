@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->absolute_ != nullptr
-        && this->allSentencesSatisfy_ != nullptr && this->anchor_ != nullptr && this->range_ != nullptr && this->role_ != nullptr && this->roleId_ != nullptr; };
+    virtual bool empty() const override { return this->absolute_ == nullptr
+        && return this->allSentencesSatisfy_ == nullptr && return this->anchor_ == nullptr && return this->range_ == nullptr && return this->role_ == nullptr && return this->roleId_ == nullptr; };
     // absolute Field Functions 
     bool hasAbsolute() const { return this->absolute_ != nullptr;};
     void deleteAbsolute() { this->absolute_ = nullptr;};

@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->audioScheme_ != nullptr
-        && this->audioURL_ != nullptr && this->dialogues_ != nullptr && this->duration_ != nullptr && this->fileId_ != nullptr && this->fileName_ != nullptr
-        && this->incorrectWords_ != nullptr && this->index_ != nullptr && this->precision_ != nullptr && this->status_ != nullptr && this->totalCount_ != nullptr
-        && this->updateTime_ != nullptr && this->verified_ != nullptr && this->verifiedCount_ != nullptr; };
+    virtual bool empty() const override { return this->audioScheme_ == nullptr
+        && return this->audioURL_ == nullptr && return this->dialogues_ == nullptr && return this->duration_ == nullptr && return this->fileId_ == nullptr && return this->fileName_ == nullptr
+        && return this->incorrectWords_ == nullptr && return this->index_ == nullptr && return this->precision_ == nullptr && return this->status_ == nullptr && return this->totalCount_ == nullptr
+        && return this->updateTime_ == nullptr && return this->verified_ == nullptr && return this->verifiedCount_ == nullptr; };
     // audioScheme Field Functions 
     bool hasAudioScheme() const { return this->audioScheme_ != nullptr;};
     void deleteAudioScheme() { this->audioScheme_ = nullptr;};

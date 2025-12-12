@@ -89,13 +89,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->average_ != nullptr
-        && this->beginType_ != nullptr && this->caseSensitive_ != nullptr && this->checkFirstSentence_ != nullptr && this->checkType_ != nullptr && this->compareOperator_ != nullptr
-        && this->contextChatMatch_ != nullptr && this->delayTime_ != nullptr && this->endType_ != nullptr && this->excludes_ != nullptr && this->flowNodePrerequisiteParam_ != nullptr
-        && this->from_ != nullptr && this->fromEnd_ != nullptr && this->hitTime_ != nullptr && this->inSentence_ != nullptr && this->intentModelCheckParm_ != nullptr
-        && this->interval_ != nullptr && this->intervalEnd_ != nullptr && this->keywordExtension_ != nullptr && this->keywordMatchSize_ != nullptr && this->keywords_ != nullptr
-        && this->maxEmotionChangeValue_ != nullptr && this->minWordSize_ != nullptr && this->nearDialogue_ != nullptr && this->notRegex_ != nullptr && this->phrase_ != nullptr
-        && this->regex_ != nullptr && this->target_ != nullptr && this->threshold_ != nullptr; };
+    virtual bool empty() const override { return this->average_ == nullptr
+        && return this->beginType_ == nullptr && return this->caseSensitive_ == nullptr && return this->checkFirstSentence_ == nullptr && return this->checkType_ == nullptr && return this->compareOperator_ == nullptr
+        && return this->contextChatMatch_ == nullptr && return this->delayTime_ == nullptr && return this->endType_ == nullptr && return this->excludes_ == nullptr && return this->flowNodePrerequisiteParam_ == nullptr
+        && return this->from_ == nullptr && return this->fromEnd_ == nullptr && return this->hitTime_ == nullptr && return this->inSentence_ == nullptr && return this->intentModelCheckParm_ == nullptr
+        && return this->interval_ == nullptr && return this->intervalEnd_ == nullptr && return this->keywordExtension_ == nullptr && return this->keywordMatchSize_ == nullptr && return this->keywords_ == nullptr
+        && return this->maxEmotionChangeValue_ == nullptr && return this->minWordSize_ == nullptr && return this->nearDialogue_ == nullptr && return this->notRegex_ == nullptr && return this->phrase_ == nullptr
+        && return this->regex_ == nullptr && return this->target_ == nullptr && return this->threshold_ == nullptr; };
     // average Field Functions 
     bool hasAverage() const { return this->average_ != nullptr;};
     void deleteAverage() { this->average_ = nullptr;};

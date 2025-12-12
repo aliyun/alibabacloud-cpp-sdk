@@ -4,7 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ConditionBasicInfoCheckRange.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/OperatorBasicInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -48,9 +48,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkRange_ != nullptr
-        && this->cid_ != nullptr && this->exclusion_ != nullptr && this->id_ != nullptr && this->lambda_ != nullptr && this->name_ != nullptr
-        && this->operators_ != nullptr && this->rid_ != nullptr && this->userGroup_ != nullptr; };
+    virtual bool empty() const override { return this->checkRange_ == nullptr
+        && return this->cid_ == nullptr && return this->exclusion_ == nullptr && return this->id_ == nullptr && return this->lambda_ == nullptr && return this->name_ == nullptr
+        && return this->operators_ == nullptr && return this->rid_ == nullptr && return this->userGroup_ == nullptr; };
     // checkRange Field Functions 
     bool hasCheckRange() const { return this->checkRange_ != nullptr;};
     void deleteCheckRange() { this->checkRange_ = nullptr;};

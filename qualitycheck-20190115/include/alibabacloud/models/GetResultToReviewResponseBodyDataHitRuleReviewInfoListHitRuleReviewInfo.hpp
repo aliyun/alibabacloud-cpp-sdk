@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReview_ != nullptr
-        && this->complainHistories_ != nullptr && this->complainable_ != nullptr && this->conditionHitInfoList_ != nullptr && this->machineHitResult_ != nullptr && this->reviewHitResult_ != nullptr
-        && this->reviewInfo_ != nullptr && this->rid_ != nullptr && this->ruleName_ != nullptr && this->scoreId_ != nullptr && this->scoreNum_ != nullptr
-        && this->scoreSubId_ != nullptr && this->scoreSubName_ != nullptr; };
+    virtual bool empty() const override { return this->autoReview_ == nullptr
+        && return this->complainHistories_ == nullptr && return this->complainable_ == nullptr && return this->conditionHitInfoList_ == nullptr && return this->machineHitResult_ == nullptr && return this->reviewHitResult_ == nullptr
+        && return this->reviewInfo_ == nullptr && return this->rid_ == nullptr && return this->ruleName_ == nullptr && return this->scoreId_ == nullptr && return this->scoreNum_ == nullptr
+        && return this->scoreSubId_ == nullptr && return this->scoreSubName_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};

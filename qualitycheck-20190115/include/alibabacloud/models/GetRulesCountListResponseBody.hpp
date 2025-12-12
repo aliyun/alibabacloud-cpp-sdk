@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessType_ != nullptr
-        && this->code_ != nullptr && this->count_ != nullptr && this->currentPage_ != nullptr && this->data_ != nullptr && this->httpStatusCode_ != nullptr
-        && this->message_ != nullptr && this->messages_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr && this->totalCount_ != nullptr; };
+    virtual bool empty() const override { return this->businessType_ == nullptr
+        && return this->code_ == nullptr && return this->count_ == nullptr && return this->currentPage_ == nullptr && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr
+        && return this->message_ == nullptr && return this->messages_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};

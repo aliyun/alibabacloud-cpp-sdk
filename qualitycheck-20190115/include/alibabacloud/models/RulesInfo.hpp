@@ -3,7 +3,9 @@
 #define ALIBABACLOUD_MODELS_RULESINFO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/ConditionBasicInfo.hpp>
+#include <alibabacloud/models/RuleTestDialogue.hpp>
+#include <alibabacloud/models/RuleInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,8 +43,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conditions_ != nullptr
-        && this->count_ != nullptr && this->dialogues_ != nullptr && this->pageNumber_ != nullptr && this->pageSize_ != nullptr && this->rules_ != nullptr; };
+    virtual bool empty() const override { return this->conditions_ == nullptr
+        && return this->count_ == nullptr && return this->dialogues_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->rules_ == nullptr; };
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};

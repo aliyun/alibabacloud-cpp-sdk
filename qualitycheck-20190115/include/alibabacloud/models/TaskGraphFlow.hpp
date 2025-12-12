@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_TASKGRAPHFLOW_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/GraphFlowNode.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->flowRuleScoreType_ != nullptr
-        && this->id_ != nullptr && this->nodes_ != nullptr && this->rid_ != nullptr && this->ruleName_ != nullptr && this->showProperties_ != nullptr
-        && this->skipWhenFirstSessionNodeMiss_ != nullptr; };
+    virtual bool empty() const override { return this->flowRuleScoreType_ == nullptr
+        && return this->id_ == nullptr && return this->nodes_ == nullptr && return this->rid_ == nullptr && return this->ruleName_ == nullptr && return this->showProperties_ == nullptr
+        && return this->skipWhenFirstSessionNodeMiss_ == nullptr; };
     // flowRuleScoreType Field Functions 
     bool hasFlowRuleScoreType() const { return this->flowRuleScoreType_ != nullptr;};
     void deleteFlowRuleScoreType() { this->flowRuleScoreType_ = nullptr;};

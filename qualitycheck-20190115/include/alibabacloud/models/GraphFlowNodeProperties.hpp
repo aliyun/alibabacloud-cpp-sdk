@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReview_ != nullptr
-        && this->branchJudge_ != nullptr && this->checkMoreSize_ != nullptr && this->checkType_ != nullptr && this->lambda_ != nullptr && this->role_ != nullptr
-        && this->ruleScoreType_ != nullptr && this->sayType_ != nullptr && this->scoreNum_ != nullptr && this->scoreNumType_ != nullptr && this->scoreRuleHitType_ != nullptr
-        && this->scoreType_ != nullptr && this->triggers_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->autoReview_ == nullptr
+        && return this->branchJudge_ == nullptr && return this->checkMoreSize_ == nullptr && return this->checkType_ == nullptr && return this->lambda_ == nullptr && return this->role_ == nullptr
+        && return this->ruleScoreType_ == nullptr && return this->sayType_ == nullptr && return this->scoreNum_ == nullptr && return this->scoreNumType_ == nullptr && return this->scoreRuleHitType_ == nullptr
+        && return this->scoreType_ == nullptr && return this->triggers_ == nullptr && return this->type_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};

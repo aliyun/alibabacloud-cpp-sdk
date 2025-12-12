@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrTaskPriority_ != nullptr
-        && this->assignType_ != nullptr && this->dataConfig_ != nullptr && this->id_ != nullptr && this->manualReview_ != nullptr && this->modeCustomizationId_ != nullptr
-        && this->modelName_ != nullptr && this->name_ != nullptr && this->schemeIdList_ != nullptr && this->schemeList_ != nullptr && this->schemeTaskConfigId_ != nullptr
-        && this->sourceDataType_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->asrTaskPriority_ == nullptr
+        && return this->assignType_ == nullptr && return this->dataConfig_ == nullptr && return this->id_ == nullptr && return this->manualReview_ == nullptr && return this->modeCustomizationId_ == nullptr
+        && return this->modelName_ == nullptr && return this->name_ == nullptr && return this->schemeIdList_ == nullptr && return this->schemeList_ == nullptr && return this->schemeTaskConfigId_ == nullptr
+        && return this->sourceDataType_ == nullptr && return this->status_ == nullptr; };
     // asrTaskPriority Field Functions 
     bool hasAsrTaskPriority() const { return this->asrTaskPriority_ != nullptr;};
     void deleteAsrTaskPriority() { this->asrTaskPriority_ = nullptr;};

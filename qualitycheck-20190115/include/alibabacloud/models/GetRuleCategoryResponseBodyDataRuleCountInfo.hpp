@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->select_ != nullptr
-        && this->type_ != nullptr && this->typeName_ != nullptr; };
+    virtual bool empty() const override { return this->select_ == nullptr
+        && return this->type_ == nullptr && return this->typeName_ == nullptr; };
     // select Field Functions 
     bool hasSelect() const { return this->select_ != nullptr;};
     void deleteSelect() { this->select_ = nullptr;};
@@ -52,8 +52,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline GetRuleCategoryResponseBodyDataRuleCountInfo& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline GetRuleCategoryResponseBodyDataRuleCountInfo& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
   protected:

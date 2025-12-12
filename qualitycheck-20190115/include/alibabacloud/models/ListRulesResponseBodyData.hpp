@@ -44,9 +44,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->businessCategoryNameList_ != nullptr
-        && this->comments_ != nullptr && this->createTime_ != nullptr && this->name_ != nullptr && this->rid_ != nullptr && this->ruleType_ != nullptr
-        && this->type_ != nullptr && this->typeName_ != nullptr; };
+    virtual bool empty() const override { return this->businessCategoryNameList_ == nullptr
+        && return this->comments_ == nullptr && return this->createTime_ == nullptr && return this->name_ == nullptr && return this->rid_ == nullptr && return this->ruleType_ == nullptr
+        && return this->type_ == nullptr && return this->typeName_ == nullptr; };
     // businessCategoryNameList Field Functions 
     bool hasBusinessCategoryNameList() const { return this->businessCategoryNameList_ != nullptr;};
     void deleteBusinessCategoryNameList() { this->businessCategoryNameList_ = nullptr;};
@@ -101,8 +101,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline ListRulesResponseBodyData& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline ListRulesResponseBodyData& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
   protected:

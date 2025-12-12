@@ -95,13 +95,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->antModelInfo_ != nullptr
-        && this->average_ != nullptr && this->beginType_ != nullptr && this->checkType_ != nullptr && this->compareOperator_ != nullptr && this->contextChatMatch_ != nullptr
-        && this->delayTime_ != nullptr && this->differentRole_ != nullptr && this->excludes_ != nullptr && this->from_ != nullptr && this->fromEnd_ != nullptr
-        && this->hitTime_ != nullptr && this->inSentence_ != nullptr && this->interval_ != nullptr && this->keywordExtension_ != nullptr && this->keywordMatchSize_ != nullptr
-        && this->maxEmotionChangeValue_ != nullptr && this->minWordSize_ != nullptr && this->notRegex_ != nullptr && this->operKeyWords_ != nullptr && this->phrase_ != nullptr
-        && this->pvalues_ != nullptr && this->references_ != nullptr && this->regex_ != nullptr && this->score_ != nullptr && this->similarityThreshold_ != nullptr
-        && this->similarlySentences_ != nullptr && this->target_ != nullptr && this->targetRole_ != nullptr && this->threshold_ != nullptr && this->velocityInMint_ != nullptr; };
+    virtual bool empty() const override { return this->antModelInfo_ == nullptr
+        && return this->average_ == nullptr && return this->beginType_ == nullptr && return this->checkType_ == nullptr && return this->compareOperator_ == nullptr && return this->contextChatMatch_ == nullptr
+        && return this->delayTime_ == nullptr && return this->differentRole_ == nullptr && return this->excludes_ == nullptr && return this->from_ == nullptr && return this->fromEnd_ == nullptr
+        && return this->hitTime_ == nullptr && return this->inSentence_ == nullptr && return this->interval_ == nullptr && return this->keywordExtension_ == nullptr && return this->keywordMatchSize_ == nullptr
+        && return this->maxEmotionChangeValue_ == nullptr && return this->minWordSize_ == nullptr && return this->notRegex_ == nullptr && return this->operKeyWords_ == nullptr && return this->phrase_ == nullptr
+        && return this->pvalues_ == nullptr && return this->references_ == nullptr && return this->regex_ == nullptr && return this->score_ == nullptr && return this->similarityThreshold_ == nullptr
+        && return this->similarlySentences_ == nullptr && return this->target_ == nullptr && return this->targetRole_ == nullptr && return this->threshold_ == nullptr && return this->velocityInMint_ == nullptr; };
     // antModelInfo Field Functions 
     bool hasAntModelInfo() const { return this->antModelInfo_ != nullptr;};
     void deleteAntModelInfo() { this->antModelInfo_ = nullptr;};

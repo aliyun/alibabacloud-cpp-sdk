@@ -3,7 +3,8 @@
 #define ALIBABACLOUD_MODELS_RULEINFO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/RuleTestDialogue.hpp>
+#include <alibabacloud/models/SchemeCheckType.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -139,18 +140,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReview_ != nullptr
-        && this->businessCategoryNameList_ != nullptr && this->checkType_ != nullptr && this->comments_ != nullptr && this->configType_ != nullptr && this->createEmpName_ != nullptr
-        && this->createEmpid_ != nullptr && this->createTime_ != nullptr && this->deny_ != nullptr && this->dialogues_ != nullptr && this->effective_ != nullptr
-        && this->effectiveEndTime_ != nullptr && this->effectiveStartTime_ != nullptr && this->endTime_ != nullptr && this->externalProperty_ != nullptr && this->fullCycle_ != nullptr
-        && this->graphFlow_ != nullptr && this->isDelete_ != nullptr && this->isOnline_ != nullptr && this->lambda_ != nullptr && this->lastUpdateEmpName_ != nullptr
-        && this->lastUpdateEmpid_ != nullptr && this->lastUpdateTime_ != nullptr && this->level_ != nullptr && this->meet_ != nullptr && this->modifyType_ != nullptr
-        && this->name_ != nullptr && this->operationMode_ != nullptr && this->qualityCheckType_ != nullptr && this->rid_ != nullptr && this->ruleCategoryName_ != nullptr
-        && this->ruleScoreType_ != nullptr && this->ruleType_ != nullptr && this->schemeCheckType_ != nullptr && this->schemeId_ != nullptr && this->schemeName_ != nullptr
-        && this->schemeRuleMappingId_ != nullptr && this->scoreDeleted_ != nullptr && this->scoreId_ != nullptr && this->scoreName_ != nullptr && this->scoreNum_ != nullptr
-        && this->scoreNumType_ != nullptr && this->scoreRuleHitType_ != nullptr && this->scoreSubId_ != nullptr && this->scoreSubName_ != nullptr && this->scoreType_ != nullptr
-        && this->sortIndex_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->targetType_ != nullptr && this->taskFlowId_ != nullptr
-        && this->taskFlowType_ != nullptr && this->triggers_ != nullptr && this->type_ != nullptr && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->autoReview_ == nullptr
+        && return this->businessCategoryNameList_ == nullptr && return this->checkType_ == nullptr && return this->comments_ == nullptr && return this->configType_ == nullptr && return this->createEmpName_ == nullptr
+        && return this->createEmpid_ == nullptr && return this->createTime_ == nullptr && return this->deny_ == nullptr && return this->dialogues_ == nullptr && return this->effective_ == nullptr
+        && return this->effectiveEndTime_ == nullptr && return this->effectiveStartTime_ == nullptr && return this->endTime_ == nullptr && return this->externalProperty_ == nullptr && return this->fullCycle_ == nullptr
+        && return this->graphFlow_ == nullptr && return this->isDelete_ == nullptr && return this->isOnline_ == nullptr && return this->lambda_ == nullptr && return this->lastUpdateEmpName_ == nullptr
+        && return this->lastUpdateEmpid_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->level_ == nullptr && return this->meet_ == nullptr && return this->modifyType_ == nullptr
+        && return this->name_ == nullptr && return this->operationMode_ == nullptr && return this->qualityCheckType_ == nullptr && return this->rid_ == nullptr && return this->ruleCategoryName_ == nullptr
+        && return this->ruleScoreType_ == nullptr && return this->ruleType_ == nullptr && return this->schemeCheckType_ == nullptr && return this->schemeId_ == nullptr && return this->schemeName_ == nullptr
+        && return this->schemeRuleMappingId_ == nullptr && return this->scoreDeleted_ == nullptr && return this->scoreId_ == nullptr && return this->scoreName_ == nullptr && return this->scoreNum_ == nullptr
+        && return this->scoreNumType_ == nullptr && return this->scoreRuleHitType_ == nullptr && return this->scoreSubId_ == nullptr && return this->scoreSubName_ == nullptr && return this->scoreType_ == nullptr
+        && return this->sortIndex_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->targetType_ == nullptr && return this->taskFlowId_ == nullptr
+        && return this->taskFlowType_ == nullptr && return this->triggers_ == nullptr && return this->type_ == nullptr && return this->weight_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};

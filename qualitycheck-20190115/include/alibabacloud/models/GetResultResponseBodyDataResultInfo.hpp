@@ -90,13 +90,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agent_ != nullptr
-        && this->asrResult_ != nullptr && this->assignmentTime_ != nullptr && this->comments_ != nullptr && this->createTime_ != nullptr && this->createTimeLong_ != nullptr
-        && this->errorMessage_ != nullptr && this->hitResult_ != nullptr && this->hitScore_ != nullptr && this->lastDataId_ != nullptr && this->recording_ != nullptr
-        && this->resolver_ != nullptr && this->reviewHistoryList_ != nullptr && this->reviewResult_ != nullptr && this->reviewStatus_ != nullptr && this->reviewTime_ != nullptr
-        && this->reviewTimeLong_ != nullptr && this->reviewType_ != nullptr && this->reviewTypeIdList_ != nullptr && this->reviewer_ != nullptr && this->schemeIdList_ != nullptr
-        && this->schemeNameList_ != nullptr && this->score_ != nullptr && this->status_ != nullptr && this->taskId_ != nullptr && this->taskName_ != nullptr
-        && this->vid_ != nullptr; };
+    virtual bool empty() const override { return this->agent_ == nullptr
+        && return this->asrResult_ == nullptr && return this->assignmentTime_ == nullptr && return this->comments_ == nullptr && return this->createTime_ == nullptr && return this->createTimeLong_ == nullptr
+        && return this->errorMessage_ == nullptr && return this->hitResult_ == nullptr && return this->hitScore_ == nullptr && return this->lastDataId_ == nullptr && return this->recording_ == nullptr
+        && return this->resolver_ == nullptr && return this->reviewHistoryList_ == nullptr && return this->reviewResult_ == nullptr && return this->reviewStatus_ == nullptr && return this->reviewTime_ == nullptr
+        && return this->reviewTimeLong_ == nullptr && return this->reviewType_ == nullptr && return this->reviewTypeIdList_ == nullptr && return this->reviewer_ == nullptr && return this->schemeIdList_ == nullptr
+        && return this->schemeNameList_ == nullptr && return this->score_ == nullptr && return this->status_ == nullptr && return this->taskId_ == nullptr && return this->taskName_ == nullptr
+        && return this->vid_ == nullptr; };
     // agent Field Functions 
     bool hasAgent() const { return this->agent_ != nullptr;};
     void deleteAgent() { this->agent_ = nullptr;};

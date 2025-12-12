@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_JUDGENODEMETADESC_HPP_
 #define ALIBABACLOUD_MODELS_JUDGENODEMETADESC_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/JudgeNodeMetaDescExpressionMetaDesc.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const JudgeNodeMetaDesc& obj) { 
       DARABONBA_PTR_TO_JSON(ActualValue, actualValue_);
       DARABONBA_PTR_TO_JSON(DataType, dataType_);
+      DARABONBA_PTR_TO_JSON(ExpressionMetaDesc, expressionMetaDesc_);
       DARABONBA_PTR_TO_JSON(Field, field_);
       DARABONBA_PTR_TO_JSON(FieldType, fieldType_);
       DARABONBA_PTR_TO_JSON(Symbol, symbol_);
@@ -23,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, JudgeNodeMetaDesc& obj) { 
       DARABONBA_PTR_FROM_JSON(ActualValue, actualValue_);
       DARABONBA_PTR_FROM_JSON(DataType, dataType_);
+      DARABONBA_PTR_FROM_JSON(ExpressionMetaDesc, expressionMetaDesc_);
       DARABONBA_PTR_FROM_JSON(Field, field_);
       DARABONBA_PTR_FROM_JSON(FieldType, fieldType_);
       DARABONBA_PTR_FROM_JSON(Symbol, symbol_);
@@ -39,8 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->actualValue_ != nullptr
-        && this->dataType_ != nullptr && this->field_ != nullptr && this->fieldType_ != nullptr && this->symbol_ != nullptr && this->value_ != nullptr; };
+    virtual bool empty() const override { return this->actualValue_ == nullptr
+        && return this->dataType_ == nullptr && return this->expressionMetaDesc_ == nullptr && return this->field_ == nullptr && return this->fieldType_ == nullptr && return this->symbol_ == nullptr
+        && return this->value_ == nullptr; };
     // actualValue Field Functions 
     bool hasActualValue() const { return this->actualValue_ != nullptr;};
     void deleteActualValue() { this->actualValue_ = nullptr;};
@@ -53,6 +57,15 @@ namespace Models
     void deleteDataType() { this->dataType_ = nullptr;};
     inline int32_t dataType() const { DARABONBA_PTR_GET_DEFAULT(dataType_, 0) };
     inline JudgeNodeMetaDesc& setDataType(int32_t dataType) { DARABONBA_PTR_SET_VALUE(dataType_, dataType) };
+
+
+    // expressionMetaDesc Field Functions 
+    bool hasExpressionMetaDesc() const { return this->expressionMetaDesc_ != nullptr;};
+    void deleteExpressionMetaDesc() { this->expressionMetaDesc_ = nullptr;};
+    inline const JudgeNodeMetaDescExpressionMetaDesc & expressionMetaDesc() const { DARABONBA_PTR_GET_CONST(expressionMetaDesc_, JudgeNodeMetaDescExpressionMetaDesc) };
+    inline JudgeNodeMetaDescExpressionMetaDesc expressionMetaDesc() { DARABONBA_PTR_GET(expressionMetaDesc_, JudgeNodeMetaDescExpressionMetaDesc) };
+    inline JudgeNodeMetaDesc& setExpressionMetaDesc(const JudgeNodeMetaDescExpressionMetaDesc & expressionMetaDesc) { DARABONBA_PTR_SET_VALUE(expressionMetaDesc_, expressionMetaDesc) };
+    inline JudgeNodeMetaDesc& setExpressionMetaDesc(JudgeNodeMetaDescExpressionMetaDesc && expressionMetaDesc) { DARABONBA_PTR_SET_RVALUE(expressionMetaDesc_, expressionMetaDesc) };
 
 
     // field Field Functions 
@@ -86,6 +99,7 @@ namespace Models
   protected:
     std::shared_ptr<string> actualValue_ = nullptr;
     std::shared_ptr<int32_t> dataType_ = nullptr;
+    std::shared_ptr<JudgeNodeMetaDescExpressionMetaDesc> expressionMetaDesc_ = nullptr;
     std::shared_ptr<string> field_ = nullptr;
     std::shared_ptr<int32_t> fieldType_ = nullptr;
     std::shared_ptr<int32_t> symbol_ = nullptr;

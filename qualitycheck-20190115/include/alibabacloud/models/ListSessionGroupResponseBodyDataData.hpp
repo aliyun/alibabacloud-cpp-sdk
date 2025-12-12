@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->assignStatus_ != nullptr
-        && this->callStartTime_ != nullptr && this->callerList_ != nullptr && this->customerIdList_ != nullptr && this->customerNameList_ != nullptr && this->customerServiceIdList_ != nullptr
-        && this->customerServiceNameList_ != nullptr && this->hitSessionCount_ != nullptr && this->lastDataId_ != nullptr && this->reviewStatus_ != nullptr && this->reviewerList_ != nullptr
-        && this->schemeTaskConfigId_ != nullptr && this->schemeTaskConfigName_ != nullptr && this->score_ != nullptr && this->sessionCount_ != nullptr && this->sessionGroupId_ != nullptr
-        && this->sessionGroupReviewedOrComplained_ != nullptr && this->skillGroupNameList_ != nullptr; };
+    virtual bool empty() const override { return this->assignStatus_ == nullptr
+        && return this->callStartTime_ == nullptr && return this->callerList_ == nullptr && return this->customerIdList_ == nullptr && return this->customerNameList_ == nullptr && return this->customerServiceIdList_ == nullptr
+        && return this->customerServiceNameList_ == nullptr && return this->hitSessionCount_ == nullptr && return this->lastDataId_ == nullptr && return this->reviewStatus_ == nullptr && return this->reviewerList_ == nullptr
+        && return this->schemeTaskConfigId_ == nullptr && return this->schemeTaskConfigName_ == nullptr && return this->score_ == nullptr && return this->sessionCount_ == nullptr && return this->sessionGroupId_ == nullptr
+        && return this->sessionGroupReviewedOrComplained_ == nullptr && return this->skillGroupNameList_ == nullptr; };
     // assignStatus Field Functions 
     bool hasAssignStatus() const { return this->assignStatus_ != nullptr;};
     void deleteAssignStatus() { this->assignStatus_ = nullptr;};

@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_GRAPHFLOWNODE_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/ConditionBasicInfo.hpp>
 #include <alibabacloud/models/GraphFlowNodeNextNodes.hpp>
 #include <alibabacloud/models/GraphFlowNodeProperties.hpp>
 using namespace std;
@@ -51,9 +51,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conditions_ != nullptr
-        && this->content_ != nullptr && this->id_ != nullptr && this->index_ != nullptr && this->name_ != nullptr && this->nextNodes_ != nullptr
-        && this->nodeType_ != nullptr && this->properties_ != nullptr && this->rid_ != nullptr && this->useConditions_ != nullptr; };
+    virtual bool empty() const override { return this->conditions_ == nullptr
+        && return this->content_ == nullptr && return this->id_ == nullptr && return this->index_ == nullptr && return this->name_ == nullptr && return this->nextNodes_ == nullptr
+        && return this->nodeType_ == nullptr && return this->properties_ == nullptr && return this->rid_ == nullptr && return this->useConditions_ == nullptr; };
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};

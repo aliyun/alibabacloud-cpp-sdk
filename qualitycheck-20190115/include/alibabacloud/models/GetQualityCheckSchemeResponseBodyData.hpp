@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETQUALITYCHECKSCHEMERESPONSEBODYDATA_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/RulesInfo.hpp>
 #include <alibabacloud/models/GetQualityCheckSchemeResponseBodyDataSchemeCheckTypeList.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -64,11 +64,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->createUserName_ != nullptr && this->dataType_ != nullptr && this->description_ != nullptr && this->initScore_ != nullptr && this->name_ != nullptr
-        && this->ruleIds_ != nullptr && this->ruleList_ != nullptr && this->schemeCheckTypeList_ != nullptr && this->schemeId_ != nullptr && this->schemeTemplateId_ != nullptr
-        && this->status_ != nullptr && this->templateType_ != nullptr && this->type_ != nullptr && this->updateTime_ != nullptr && this->updateUserName_ != nullptr
-        && this->version_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->createUserName_ == nullptr && return this->dataType_ == nullptr && return this->description_ == nullptr && return this->initScore_ == nullptr && return this->name_ == nullptr
+        && return this->ruleIds_ == nullptr && return this->ruleList_ == nullptr && return this->schemeCheckTypeList_ == nullptr && return this->schemeId_ == nullptr && return this->schemeTemplateId_ == nullptr
+        && return this->status_ == nullptr && return this->templateType_ == nullptr && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->updateUserName_ == nullptr
+        && return this->version_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

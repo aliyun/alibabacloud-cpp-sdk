@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->begin_ != nullptr
-        && this->beginTime_ != nullptr && this->deltas_ != nullptr && this->emotionValue_ != nullptr && this->end_ != nullptr && this->hourMinSec_ != nullptr
-        && this->identity_ != nullptr && this->incorrectWords_ != nullptr && this->role_ != nullptr && this->silenceDuration_ != nullptr && this->sourceRole_ != nullptr
-        && this->sourceWords_ != nullptr && this->speechRate_ != nullptr && this->words_ != nullptr; };
+    virtual bool empty() const override { return this->begin_ == nullptr
+        && return this->beginTime_ == nullptr && return this->deltas_ == nullptr && return this->emotionValue_ == nullptr && return this->end_ == nullptr && return this->hourMinSec_ == nullptr
+        && return this->identity_ == nullptr && return this->incorrectWords_ == nullptr && return this->role_ == nullptr && return this->silenceDuration_ == nullptr && return this->sourceRole_ == nullptr
+        && return this->sourceWords_ == nullptr && return this->speechRate_ == nullptr && return this->words_ == nullptr; };
     // begin Field Functions 
     bool hasBegin() const { return this->begin_ != nullptr;};
     void deleteBegin() { this->begin_ = nullptr;};

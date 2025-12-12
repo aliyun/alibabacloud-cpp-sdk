@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->business_ != nullptr
-        && this->callId_ != nullptr && this->callTime_ != nullptr && this->callType_ != nullptr && this->callee_ != nullptr && this->caller_ != nullptr
-        && this->dataSetName_ != nullptr && this->duration_ != nullptr && this->durationAudio_ != nullptr && this->id_ != nullptr && this->name_ != nullptr
-        && this->primaryId_ != nullptr && this->remark1_ != nullptr && this->remark2_ != nullptr && this->remark3_ != nullptr && this->url_ != nullptr; };
+    virtual bool empty() const override { return this->business_ == nullptr
+        && return this->callId_ == nullptr && return this->callTime_ == nullptr && return this->callType_ == nullptr && return this->callee_ == nullptr && return this->caller_ == nullptr
+        && return this->dataSetName_ == nullptr && return this->duration_ == nullptr && return this->durationAudio_ == nullptr && return this->id_ == nullptr && return this->name_ == nullptr
+        && return this->primaryId_ == nullptr && return this->remark1_ == nullptr && return this->remark2_ == nullptr && return this->remark3_ == nullptr && return this->url_ == nullptr; };
     // business Field Functions 
     bool hasBusiness() const { return this->business_ != nullptr;};
     void deleteBusiness() { this->business_ = nullptr;};

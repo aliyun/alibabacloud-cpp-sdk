@@ -80,12 +80,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->baseMeAgentId_ != nullptr
-        && this->businessName_ != nullptr && this->businessRange_ != nullptr && this->categoryName_ != nullptr && this->countTotal_ != nullptr && this->createEmpid_ != nullptr
-        && this->createUserId_ != nullptr && this->currentPage_ != nullptr && this->endTime_ != nullptr && this->lastUpdateEmpid_ != nullptr && this->pageNumber_ != nullptr
-        && this->pageSize_ != nullptr && this->requireInfos_ != nullptr && this->rid_ != nullptr && this->ruleIdOrRuleName_ != nullptr && this->ruleScoreSingleType_ != nullptr
-        && this->ruleType_ != nullptr && this->schemeId_ != nullptr && this->sourceType_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr
-        && this->type_ != nullptr && this->typeName_ != nullptr && this->updateEndTime_ != nullptr && this->updateStartTime_ != nullptr && this->updateUserId_ != nullptr; };
+    virtual bool empty() const override { return this->baseMeAgentId_ == nullptr
+        && return this->businessName_ == nullptr && return this->businessRange_ == nullptr && return this->categoryName_ == nullptr && return this->countTotal_ == nullptr && return this->createEmpid_ == nullptr
+        && return this->createUserId_ == nullptr && return this->currentPage_ == nullptr && return this->endTime_ == nullptr && return this->lastUpdateEmpid_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->requireInfos_ == nullptr && return this->rid_ == nullptr && return this->ruleIdOrRuleName_ == nullptr && return this->ruleScoreSingleType_ == nullptr
+        && return this->ruleType_ == nullptr && return this->schemeId_ == nullptr && return this->sourceType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr && return this->typeName_ == nullptr && return this->updateEndTime_ == nullptr && return this->updateStartTime_ == nullptr && return this->updateUserId_ == nullptr; };
     // baseMeAgentId Field Functions 
     bool hasBaseMeAgentId() const { return this->baseMeAgentId_ != nullptr;};
     void deleteBaseMeAgentId() { this->baseMeAgentId_ = nullptr;};
@@ -245,8 +245,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline GetRulesCountListRequest& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline GetRulesCountListRequest& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // updateEndTime Field Functions 

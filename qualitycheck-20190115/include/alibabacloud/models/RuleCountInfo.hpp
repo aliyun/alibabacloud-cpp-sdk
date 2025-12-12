@@ -3,7 +3,7 @@
 #define ALIBABACLOUD_MODELS_RULECOUNTINFO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/Qualitycheck20190115.hpp>
+#include <alibabacloud/models/BusinessCategoryBasicInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -123,17 +123,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReview_ != nullptr
-        && this->businessCategoryBasicInfoList_ != nullptr && this->businessCategoryNameList_ != nullptr && this->businessRange_ != nullptr && this->checkNumber_ != nullptr && this->comments_ != nullptr
-        && this->createEmpName_ != nullptr && this->createEmpid_ != nullptr && this->createTime_ != nullptr && this->deny_ != nullptr && this->effective_ != nullptr
-        && this->effectiveEndTime_ != nullptr && this->effectiveStartTime_ != nullptr && this->endTime_ != nullptr && this->fullCycle_ != nullptr && this->graphFlow_ != nullptr
-        && this->hitNumber_ != nullptr && this->hitRate_ != nullptr && this->hitRealViolationRate_ != nullptr && this->isDelete_ != nullptr && this->isSelect_ != nullptr
-        && this->jobName_ != nullptr && this->lastUpdateEmpName_ != nullptr && this->lastUpdateEmpid_ != nullptr && this->lastUpdateTime_ != nullptr && this->name_ != nullptr
-        && this->operationMode_ != nullptr && this->preReviewNumber_ != nullptr && this->problemNumber_ != nullptr && this->qualityCheckType_ != nullptr && this->realViolationNumber_ != nullptr
-        && this->reviewAccuracyRate_ != nullptr && this->reviewNumber_ != nullptr && this->reviewRate_ != nullptr && this->reviewStatusName_ != nullptr && this->rid_ != nullptr
-        && this->ruleScoreSingleType_ != nullptr && this->ruleScoreType_ != nullptr && this->ruleType_ != nullptr && this->scoreSubId_ != nullptr && this->startTime_ != nullptr
-        && this->status_ != nullptr && this->targetType_ != nullptr && this->type_ != nullptr && this->typeName_ != nullptr && this->unReviewNumber_ != nullptr
-        && this->userGroup_ != nullptr; };
+    virtual bool empty() const override { return this->autoReview_ == nullptr
+        && return this->businessCategoryBasicInfoList_ == nullptr && return this->businessCategoryNameList_ == nullptr && return this->businessRange_ == nullptr && return this->checkNumber_ == nullptr && return this->comments_ == nullptr
+        && return this->createEmpName_ == nullptr && return this->createEmpid_ == nullptr && return this->createTime_ == nullptr && return this->deny_ == nullptr && return this->effective_ == nullptr
+        && return this->effectiveEndTime_ == nullptr && return this->effectiveStartTime_ == nullptr && return this->endTime_ == nullptr && return this->fullCycle_ == nullptr && return this->graphFlow_ == nullptr
+        && return this->hitNumber_ == nullptr && return this->hitRate_ == nullptr && return this->hitRealViolationRate_ == nullptr && return this->isDelete_ == nullptr && return this->isSelect_ == nullptr
+        && return this->jobName_ == nullptr && return this->lastUpdateEmpName_ == nullptr && return this->lastUpdateEmpid_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->name_ == nullptr
+        && return this->operationMode_ == nullptr && return this->preReviewNumber_ == nullptr && return this->problemNumber_ == nullptr && return this->qualityCheckType_ == nullptr && return this->realViolationNumber_ == nullptr
+        && return this->reviewAccuracyRate_ == nullptr && return this->reviewNumber_ == nullptr && return this->reviewRate_ == nullptr && return this->reviewStatusName_ == nullptr && return this->rid_ == nullptr
+        && return this->ruleScoreSingleType_ == nullptr && return this->ruleScoreType_ == nullptr && return this->ruleType_ == nullptr && return this->scoreSubId_ == nullptr && return this->startTime_ == nullptr
+        && return this->status_ == nullptr && return this->targetType_ == nullptr && return this->type_ == nullptr && return this->typeName_ == nullptr && return this->unReviewNumber_ == nullptr
+        && return this->userGroup_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};
@@ -453,8 +453,8 @@ namespace Models
     // typeName Field Functions 
     bool hasTypeName() const { return this->typeName_ != nullptr;};
     void deleteTypeName() { this->typeName_ = nullptr;};
-    inline string _typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
-    inline RuleCountInfo& setTypeName(string _typeName) { DARABONBA_PTR_SET_VALUE(typeName_, _typeName) };
+    inline string typeName() const { DARABONBA_PTR_GET_DEFAULT(typeName_, "") };
+    inline RuleCountInfo& setTypeName(string typeName) { DARABONBA_PTR_SET_VALUE(typeName_, typeName) };
 
 
     // unReviewNumber Field Functions 

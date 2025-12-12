@@ -70,11 +70,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agents_ != nullptr
-        && this->agentsStr_ != nullptr && this->assignmentType_ != nullptr && this->callTimeEnd_ != nullptr && this->callTimeStart_ != nullptr && this->callType_ != nullptr
-        && this->createTime_ != nullptr && this->durationMax_ != nullptr && this->durationMin_ != nullptr && this->enabled_ != nullptr && this->priority_ != nullptr
-        && this->reviewers_ != nullptr && this->ruleId_ != nullptr && this->ruleName_ != nullptr && this->rules_ != nullptr && this->samplingMode_ != nullptr
-        && this->skillGroups_ != nullptr && this->skillGroupsStr_ != nullptr && this->updateTime_ != nullptr; };
+    virtual bool empty() const override { return this->agents_ == nullptr
+        && return this->agentsStr_ == nullptr && return this->assignmentType_ == nullptr && return this->callTimeEnd_ == nullptr && return this->callTimeStart_ == nullptr && return this->callType_ == nullptr
+        && return this->createTime_ == nullptr && return this->durationMax_ == nullptr && return this->durationMin_ == nullptr && return this->enabled_ == nullptr && return this->priority_ == nullptr
+        && return this->reviewers_ == nullptr && return this->ruleId_ == nullptr && return this->ruleName_ == nullptr && return this->rules_ == nullptr && return this->samplingMode_ == nullptr
+        && return this->skillGroups_ == nullptr && return this->skillGroupsStr_ == nullptr && return this->updateTime_ == nullptr; };
     // agents Field Functions 
     bool hasAgents() const { return this->agents_ != nullptr;};
     void deleteAgents() { this->agents_ = nullptr;};

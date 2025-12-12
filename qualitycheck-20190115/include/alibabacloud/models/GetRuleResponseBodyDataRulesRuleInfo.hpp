@@ -72,12 +72,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->autoReview_ != nullptr
-        && this->businessCategoryNameList_ != nullptr && this->comments_ != nullptr && this->createEmpid_ != nullptr && this->createTime_ != nullptr && this->endTime_ != nullptr
-        && this->isDelete_ != nullptr && this->isOnline_ != nullptr && this->lastUpdateEmpid_ != nullptr && this->lastUpdateTime_ != nullptr && this->name_ != nullptr
-        && this->rid_ != nullptr && this->ruleLambda_ != nullptr && this->ruleScoreType_ != nullptr && this->scoreId_ != nullptr && this->scoreName_ != nullptr
-        && this->scoreSubId_ != nullptr && this->scoreSubName_ != nullptr && this->startTime_ != nullptr && this->status_ != nullptr && this->type_ != nullptr
-        && this->weight_ != nullptr; };
+    virtual bool empty() const override { return this->autoReview_ == nullptr
+        && return this->businessCategoryNameList_ == nullptr && return this->comments_ == nullptr && return this->createEmpid_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr
+        && return this->isDelete_ == nullptr && return this->isOnline_ == nullptr && return this->lastUpdateEmpid_ == nullptr && return this->lastUpdateTime_ == nullptr && return this->name_ == nullptr
+        && return this->rid_ == nullptr && return this->ruleLambda_ == nullptr && return this->ruleScoreType_ == nullptr && return this->scoreId_ == nullptr && return this->scoreName_ == nullptr
+        && return this->scoreSubId_ == nullptr && return this->scoreSubName_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->type_ == nullptr
+        && return this->weight_ == nullptr; };
     // autoReview Field Functions 
     bool hasAutoReview() const { return this->autoReview_ != nullptr;};
     void deleteAutoReview() { this->autoReview_ = nullptr;};

@@ -84,13 +84,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrTaskPriority_ != nullptr
-        && this->asrVersion_ != nullptr && this->assignType_ != nullptr && this->createTime_ != nullptr && this->createUser_ != nullptr && this->dataConfig_ != nullptr
-        && this->finishRate_ != nullptr && this->id_ != nullptr && this->manualReview_ != nullptr && this->modeCustomizationId_ != nullptr && this->modelName_ != nullptr
-        && this->name_ != nullptr && this->numberExecuting_ != nullptr && this->numberFail_ != nullptr && this->numberSuccess_ != nullptr && this->numberSum_ != nullptr
-        && this->schemeIdList_ != nullptr && this->schemeList_ != nullptr && this->schemeTaskConfigId_ != nullptr && this->sourceDataType_ != nullptr && this->status_ != nullptr
-        && this->type_ != nullptr && this->updateTime_ != nullptr && this->updateUser_ != nullptr && this->userGroup_ != nullptr && this->vocabId_ != nullptr
-        && this->vocabName_ != nullptr; };
+    virtual bool empty() const override { return this->asrTaskPriority_ == nullptr
+        && return this->asrVersion_ == nullptr && return this->assignType_ == nullptr && return this->createTime_ == nullptr && return this->createUser_ == nullptr && return this->dataConfig_ == nullptr
+        && return this->finishRate_ == nullptr && return this->id_ == nullptr && return this->manualReview_ == nullptr && return this->modeCustomizationId_ == nullptr && return this->modelName_ == nullptr
+        && return this->name_ == nullptr && return this->numberExecuting_ == nullptr && return this->numberFail_ == nullptr && return this->numberSuccess_ == nullptr && return this->numberSum_ == nullptr
+        && return this->schemeIdList_ == nullptr && return this->schemeList_ == nullptr && return this->schemeTaskConfigId_ == nullptr && return this->sourceDataType_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr && return this->updateTime_ == nullptr && return this->updateUser_ == nullptr && return this->userGroup_ == nullptr && return this->vocabId_ == nullptr
+        && return this->vocabName_ == nullptr; };
     // asrTaskPriority Field Functions 
     bool hasAsrTaskPriority() const { return this->asrTaskPriority_ != nullptr;};
     void deleteAsrTaskPriority() { this->asrTaskPriority_ = nullptr;};

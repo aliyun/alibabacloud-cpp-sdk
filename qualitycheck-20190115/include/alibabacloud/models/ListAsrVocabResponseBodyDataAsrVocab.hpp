@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->asrVersion_ != nullptr
-        && this->createTime_ != nullptr && this->id_ != nullptr && this->modelCustomizationId_ != nullptr && this->name_ != nullptr && this->updateTime_ != nullptr
-        && this->vocabularyId_ != nullptr; };
+    virtual bool empty() const override { return this->asrVersion_ == nullptr
+        && return this->createTime_ == nullptr && return this->id_ == nullptr && return this->modelCustomizationId_ == nullptr && return this->name_ == nullptr && return this->updateTime_ == nullptr
+        && return this->vocabularyId_ == nullptr; };
     // asrVersion Field Functions 
     bool hasAsrVersion() const { return this->asrVersion_ != nullptr;};
     void deleteAsrVersion() { this->asrVersion_ = nullptr;};
