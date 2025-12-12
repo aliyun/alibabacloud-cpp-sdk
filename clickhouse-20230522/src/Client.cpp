@@ -82,6 +82,56 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 白名单模板关联实例
+ *
+ * @param request AttachWhitelistTemplateToInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AttachWhitelistTemplateToInstanceResponse
+ */
+AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInstanceWithOptions(const AttachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AttachWhitelistTemplateToInstance"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AttachWhitelistTemplateToInstanceResponse>();
+}
+
+/**
+ * @summary 白名单模板关联实例
+ *
+ * @param request AttachWhitelistTemplateToInstanceRequest
+ * @return AttachWhitelistTemplateToInstanceResponse
+ */
+AttachWhitelistTemplateToInstanceResponse Client::attachWhitelistTemplateToInstance(const AttachWhitelistTemplateToInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return attachWhitelistTemplateToInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 资源转组
  *
  * @param request ChangeResourceGroupRequest
@@ -765,6 +815,56 @@ DeleteEndpointResponse Client::deleteEndpointWithOptions(const DeleteEndpointReq
 DeleteEndpointResponse Client::deleteEndpoint(const DeleteEndpointRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEndpointWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除白名单模板
+ *
+ * @param request DeleteWhitelistTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWhitelistTemplateResponse
+ */
+DeleteWhitelistTemplateResponse Client::deleteWhitelistTemplateWithOptions(const DeleteWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.templateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWhitelistTemplate"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWhitelistTemplateResponse>();
+}
+
+/**
+ * @summary 删除白名单模板
+ *
+ * @param request DeleteWhitelistTemplateRequest
+ * @return DeleteWhitelistTemplateResponse
+ */
+DeleteWhitelistTemplateResponse Client::deleteWhitelistTemplate(const DeleteWhitelistTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWhitelistTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1536,6 +1636,102 @@ DescribeSlowLogTrendResponse Client::describeSlowLogTrend(const DescribeSlowLogT
 }
 
 /**
+ * @summary 取消白名单模板和实例关联关系
+ *
+ * @param request DetachWhitelistTemplateToInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DetachWhitelistTemplateToInstanceResponse
+ */
+DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInstanceWithOptions(const DetachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DetachWhitelistTemplateToInstance"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DetachWhitelistTemplateToInstanceResponse>();
+}
+
+/**
+ * @summary 取消白名单模板和实例关联关系
+ *
+ * @param request DetachWhitelistTemplateToInstanceRequest
+ * @return DetachWhitelistTemplateToInstanceResponse
+ */
+DetachWhitelistTemplateToInstanceResponse Client::detachWhitelistTemplateToInstance(const DetachWhitelistTemplateToInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return detachWhitelistTemplateToInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询白名单模板详情
+ *
+ * @param request GetWhitelistTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWhitelistTemplateResponse
+ */
+GetWhitelistTemplateResponse Client::getWhitelistTemplateWithOptions(const GetWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWhitelistTemplate"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWhitelistTemplateResponse>();
+}
+
+/**
+ * @summary 查询白名单模板详情
+ *
+ * @param request GetWhitelistTemplateRequest
+ * @return GetWhitelistTemplateResponse
+ */
+GetWhitelistTemplateResponse Client::getWhitelistTemplate(const GetWhitelistTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWhitelistTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Terminates an ongoing query.
  *
  * @param request KillProcessRequest
@@ -1587,6 +1783,106 @@ KillProcessResponse Client::killProcessWithOptions(const KillProcessRequest &req
 KillProcessResponse Client::killProcess(const KillProcessRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return killProcessWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例关联的白名单模板清单
+ *
+ * @param request ListInstanceLinkedWhitelistTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceLinkedWhitelistTemplatesResponse
+ */
+ListInstanceLinkedWhitelistTemplatesResponse Client::listInstanceLinkedWhitelistTemplatesWithOptions(const ListInstanceLinkedWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceLinkedWhitelistTemplates"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceLinkedWhitelistTemplatesResponse>();
+}
+
+/**
+ * @summary 查询实例关联的白名单模板清单
+ *
+ * @param request ListInstanceLinkedWhitelistTemplatesRequest
+ * @return ListInstanceLinkedWhitelistTemplatesResponse
+ */
+ListInstanceLinkedWhitelistTemplatesResponse Client::listInstanceLinkedWhitelistTemplates(const ListInstanceLinkedWhitelistTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstanceLinkedWhitelistTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询白名单模板清单
+ *
+ * @param request ListWhitelistTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWhitelistTemplatesResponse
+ */
+ListWhitelistTemplatesResponse Client::listWhitelistTemplatesWithOptions(const ListWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.templateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWhitelistTemplates"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWhitelistTemplatesResponse>();
+}
+
+/**
+ * @summary 查询白名单模板清单
+ *
+ * @param request ListWhitelistTemplatesRequest
+ * @return ListWhitelistTemplatesResponse
+ */
+ListWhitelistTemplatesResponse Client::listWhitelistTemplates(const ListWhitelistTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWhitelistTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -2265,6 +2561,60 @@ StopDBInstanceResponse Client::stopDBInstanceWithOptions(const StopDBInstanceReq
 StopDBInstanceResponse Client::stopDBInstance(const StopDBInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopDBInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新白名单模板
+ *
+ * @param request UpdateWhitelistTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWhitelistTemplateResponse
+ */
+UpdateWhitelistTemplateResponse Client::updateWhitelistTemplateWithOptions(const UpdateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSecurityIPList()) {
+    query["SecurityIPList"] = request.securityIPList();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.templateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.templateName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateWhitelistTemplate"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWhitelistTemplateResponse>();
+}
+
+/**
+ * @summary 更新白名单模板
+ *
+ * @param request UpdateWhitelistTemplateRequest
+ * @return UpdateWhitelistTemplateResponse
+ */
+UpdateWhitelistTemplateResponse Client::updateWhitelistTemplate(const UpdateWhitelistTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWhitelistTemplateWithOptions(request, runtime);
 }
 
 /**

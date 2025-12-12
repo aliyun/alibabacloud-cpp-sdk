@@ -21,6 +21,23 @@ namespace Clickhouse20230522
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 白名单模板关联实例
+       *
+       * @param request AttachWhitelistTemplateToInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AttachWhitelistTemplateToInstanceResponse
+       */
+      Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstanceWithOptions(const Models::AttachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 白名单模板关联实例
+       *
+       * @param request AttachWhitelistTemplateToInstanceRequest
+       * @return AttachWhitelistTemplateToInstanceResponse
+       */
+      Models::AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstance(const Models::AttachWhitelistTemplateToInstanceRequest &request);
+
+      /**
        * @summary 资源转组
        *
        * @param request ChangeResourceGroupRequest
@@ -206,6 +223,23 @@ namespace Clickhouse20230522
        * @return DeleteEndpointResponse
        */
       Models::DeleteEndpointResponse deleteEndpoint(const Models::DeleteEndpointRequest &request);
+
+      /**
+       * @summary 删除白名单模板
+       *
+       * @param request DeleteWhitelistTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWhitelistTemplateResponse
+       */
+      Models::DeleteWhitelistTemplateResponse deleteWhitelistTemplateWithOptions(const Models::DeleteWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除白名单模板
+       *
+       * @param request DeleteWhitelistTemplateRequest
+       * @return DeleteWhitelistTemplateResponse
+       */
+      Models::DeleteWhitelistTemplateResponse deleteWhitelistTemplate(const Models::DeleteWhitelistTemplateRequest &request);
 
       /**
        * @summary Queries the permissions of a database account.
@@ -446,6 +480,40 @@ namespace Clickhouse20230522
       Models::DescribeSlowLogTrendResponse describeSlowLogTrend(const Models::DescribeSlowLogTrendRequest &request);
 
       /**
+       * @summary 取消白名单模板和实例关联关系
+       *
+       * @param request DetachWhitelistTemplateToInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachWhitelistTemplateToInstanceResponse
+       */
+      Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstanceWithOptions(const Models::DetachWhitelistTemplateToInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消白名单模板和实例关联关系
+       *
+       * @param request DetachWhitelistTemplateToInstanceRequest
+       * @return DetachWhitelistTemplateToInstanceResponse
+       */
+      Models::DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstance(const Models::DetachWhitelistTemplateToInstanceRequest &request);
+
+      /**
+       * @summary 查询白名单模板详情
+       *
+       * @param request GetWhitelistTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWhitelistTemplateResponse
+       */
+      Models::GetWhitelistTemplateResponse getWhitelistTemplateWithOptions(const Models::GetWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询白名单模板详情
+       *
+       * @param request GetWhitelistTemplateRequest
+       * @return GetWhitelistTemplateResponse
+       */
+      Models::GetWhitelistTemplateResponse getWhitelistTemplate(const Models::GetWhitelistTemplateRequest &request);
+
+      /**
        * @summary Terminates an ongoing query.
        *
        * @param request KillProcessRequest
@@ -461,6 +529,40 @@ namespace Clickhouse20230522
        * @return KillProcessResponse
        */
       Models::KillProcessResponse killProcess(const Models::KillProcessRequest &request);
+
+      /**
+       * @summary 查询实例关联的白名单模板清单
+       *
+       * @param request ListInstanceLinkedWhitelistTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceLinkedWhitelistTemplatesResponse
+       */
+      Models::ListInstanceLinkedWhitelistTemplatesResponse listInstanceLinkedWhitelistTemplatesWithOptions(const Models::ListInstanceLinkedWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例关联的白名单模板清单
+       *
+       * @param request ListInstanceLinkedWhitelistTemplatesRequest
+       * @return ListInstanceLinkedWhitelistTemplatesResponse
+       */
+      Models::ListInstanceLinkedWhitelistTemplatesResponse listInstanceLinkedWhitelistTemplates(const Models::ListInstanceLinkedWhitelistTemplatesRequest &request);
+
+      /**
+       * @summary 查询白名单模板清单
+       *
+       * @param request ListWhitelistTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWhitelistTemplatesResponse
+       */
+      Models::ListWhitelistTemplatesResponse listWhitelistTemplatesWithOptions(const Models::ListWhitelistTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询白名单模板清单
+       *
+       * @param request ListWhitelistTemplatesRequest
+       * @return ListWhitelistTemplatesResponse
+       */
+      Models::ListWhitelistTemplatesResponse listWhitelistTemplates(const Models::ListWhitelistTemplatesRequest &request);
 
       /**
        * @summary Modifies the permissions of a database account.
@@ -665,6 +767,23 @@ namespace Clickhouse20230522
        * @return StopDBInstanceResponse
        */
       Models::StopDBInstanceResponse stopDBInstance(const Models::StopDBInstanceRequest &request);
+
+      /**
+       * @summary 更新白名单模板
+       *
+       * @param request UpdateWhitelistTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWhitelistTemplateResponse
+       */
+      Models::UpdateWhitelistTemplateResponse updateWhitelistTemplateWithOptions(const Models::UpdateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新白名单模板
+       *
+       * @param request UpdateWhitelistTemplateRequest
+       * @return UpdateWhitelistTemplateResponse
+       */
+      Models::UpdateWhitelistTemplateResponse updateWhitelistTemplate(const Models::UpdateWhitelistTemplateRequest &request);
 
       /**
        * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
