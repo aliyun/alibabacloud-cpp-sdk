@@ -75,6 +75,9 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> name_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
     std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // Specifies whether to scan for urgent vulnerabilities. Valid values:
     // 

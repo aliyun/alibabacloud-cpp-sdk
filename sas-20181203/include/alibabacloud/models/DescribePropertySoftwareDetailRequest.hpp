@@ -18,10 +18,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstallTimeEnd, installTimeEnd_);
       DARABONBA_PTR_TO_JSON(InstallTimeStart, installTimeStart_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(SoftwareVersion, softwareVersion_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePropertySoftwareDetailRequest& obj) { 
@@ -30,10 +32,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstallTimeEnd, installTimeEnd_);
       DARABONBA_PTR_FROM_JSON(InstallTimeStart, installTimeStart_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(SoftwareVersion, softwareVersion_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     DescribePropertySoftwareDetailRequest() = default ;
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->extend_ == nullptr && return this->installTimeEnd_ == nullptr && return this->installTimeStart_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr
-        && return this->path_ == nullptr && return this->remark_ == nullptr && return this->softwareVersion_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->extend_ == nullptr && return this->installTimeEnd_ == nullptr && return this->installTimeStart_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr
+        && return this->pageSize_ == nullptr && return this->path_ == nullptr && return this->remark_ == nullptr && return this->softwareVersion_ == nullptr && return this->useNextToken_ == nullptr
+        && return this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -85,6 +90,13 @@ namespace Models
     inline DescribePropertySoftwareDetailRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertySoftwareDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -113,6 +125,13 @@ namespace Models
     inline DescribePropertySoftwareDetailRequest& setSoftwareVersion(string softwareVersion) { DARABONBA_PTR_SET_VALUE(softwareVersion_, softwareVersion) };
 
 
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline DescribePropertySoftwareDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
+
+
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
@@ -131,6 +150,7 @@ namespace Models
     std::shared_ptr<int64_t> installTimeStart_ = nullptr;
     // The name of the software.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries per page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The installation path of the software.
@@ -139,6 +159,7 @@ namespace Models
     std::shared_ptr<string> remark_ = nullptr;
     // The version of the software.
     std::shared_ptr<string> softwareVersion_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The UUID of the server.
     std::shared_ptr<string> uuid_ = nullptr;
   };

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Pid, pid_);
       DARABONBA_PTR_TO_JSON(Port, port_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SearchInfoSub, searchInfoSub_);
       DARABONBA_PTR_TO_JSON(SearchItem, searchItem_);
       DARABONBA_PTR_TO_JSON(SearchItemSub, searchItemSub_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(User, user_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
@@ -40,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Pid, pid_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
@@ -53,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SearchInfoSub, searchInfoSub_);
       DARABONBA_PTR_FROM_JSON(SearchItem, searchItem_);
       DARABONBA_PTR_FROM_JSON(SearchItemSub, searchItemSub_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(User, user_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
@@ -68,10 +72,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->biz_ == nullptr
-        && return this->bizType_ == nullptr && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr
-        && return this->pid_ == nullptr && return this->port_ == nullptr && return this->processStartedEnd_ == nullptr && return this->processStartedStart_ == nullptr && return this->remark_ == nullptr
-        && return this->scaName_ == nullptr && return this->scaNamePattern_ == nullptr && return this->scaVersion_ == nullptr && return this->searchInfo_ == nullptr && return this->searchInfoSub_ == nullptr
-        && return this->searchItem_ == nullptr && return this->searchItemSub_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->bizType_ == nullptr && return this->currentPage_ == nullptr && return this->lang_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pid_ == nullptr && return this->port_ == nullptr && return this->processStartedEnd_ == nullptr && return this->processStartedStart_ == nullptr
+        && return this->remark_ == nullptr && return this->scaName_ == nullptr && return this->scaNamePattern_ == nullptr && return this->scaVersion_ == nullptr && return this->searchInfo_ == nullptr
+        && return this->searchInfoSub_ == nullptr && return this->searchItem_ == nullptr && return this->searchItemSub_ == nullptr && return this->useNextToken_ == nullptr && return this->user_ == nullptr
+        && return this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
@@ -105,6 +110,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline int64_t name() const { DARABONBA_PTR_GET_DEFAULT(name_, 0L) };
     inline DescribePropertyScaDetailRequest& setName(int64_t name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertyScaDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
@@ -198,6 +210,13 @@ namespace Models
     inline DescribePropertyScaDetailRequest& setSearchItemSub(string searchItemSub) { DARABONBA_PTR_SET_VALUE(searchItemSub_, searchItemSub) };
 
 
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline DescribePropertyScaDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
+
+
     // user Field Functions 
     bool hasUser() const { return this->user_ != nullptr;};
     void deleteUser() { this->user_ = nullptr;};
@@ -242,6 +261,7 @@ namespace Models
     // 
     // >  This parameter is deprecated. You can ignore it.
     std::shared_ptr<int64_t> name_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     // 
     // >  We recommend that you do not leave this parameter empty.
@@ -303,6 +323,7 @@ namespace Models
     // *   **version**
     // *   **user**
     std::shared_ptr<string> searchItemSub_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The user who runs the process.
     std::shared_ptr<string> user_ = nullptr;
     // The UUID of the server on which the middleware, database, or web service is run.

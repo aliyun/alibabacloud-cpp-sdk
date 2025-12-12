@@ -16,22 +16,26 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindIp, bindIp_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(ProcName, procName_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePropertyPortDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BindIp, bindIp_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(ProcName, procName_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     DescribePropertyPortDetailRequest() = default ;
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindIp_ == nullptr
-        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->pageSize_ == nullptr && return this->port_ == nullptr && return this->procName_ == nullptr
-        && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr && return this->port_ == nullptr
+        && return this->procName_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->useNextToken_ == nullptr && return this->uuid_ == nullptr; };
     // bindIp Field Functions 
     bool hasBindIp() const { return this->bindIp_ != nullptr;};
     void deleteBindIp() { this->bindIp_ = nullptr;};
@@ -67,6 +71,13 @@ namespace Models
     void deleteExtend() { this->extend_ = nullptr;};
     inline string extend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline DescribePropertyPortDetailRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertyPortDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
@@ -104,6 +115,13 @@ namespace Models
     inline DescribePropertyPortDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline DescribePropertyPortDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
+
+
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
@@ -118,6 +136,7 @@ namespace Models
     std::shared_ptr<int32_t> currentPage_ = nullptr;
     // Specifies whether fuzzy search by port number is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
     std::shared_ptr<string> extend_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The listening port of the server.
@@ -130,6 +149,7 @@ namespace Models
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
     std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The UUID of the server.
     std::shared_ptr<string> uuid_ = nullptr;
   };

@@ -18662,6 +18662,10 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
     query["Extend"] = request.extend();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -18672,6 +18676,10 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
 
   if (!!request.hasSource()) {
     query["Source"] = request.source();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUser()) {
@@ -18786,6 +18794,10 @@ DescribePropertyPortDetailResponse Client::describePropertyPortDetailWithOptions
     query["Extend"] = request.extend();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -18804,6 +18816,10 @@ DescribePropertyPortDetailResponse Client::describePropertyPortDetailWithOptions
 
   if (!!request.hasResourceDirectoryAccountId()) {
     query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUuid()) {
@@ -18918,6 +18934,10 @@ DescribePropertyProcDetailResponse Client::describePropertyProcDetailWithOptions
     query["Name"] = request.name();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -18936,6 +18956,10 @@ DescribePropertyProcDetailResponse Client::describePropertyProcDetailWithOptions
 
   if (!!request.hasResourceDirectoryAccountId()) {
     query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUser()) {
@@ -19058,6 +19082,10 @@ DescribePropertyScaDetailResponse Client::describePropertyScaDetailWithOptions(c
     query["Name"] = request.name();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -19108,6 +19136,10 @@ DescribePropertyScaDetailResponse Client::describePropertyScaDetailWithOptions(c
 
   if (!!request.hasSearchItemSub()) {
     query["SearchItemSub"] = request.searchItemSub();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUser()) {
@@ -19350,6 +19382,10 @@ DescribePropertySoftwareDetailResponse Client::describePropertySoftwareDetailWit
     query["Name"] = request.name();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -19364,6 +19400,10 @@ DescribePropertySoftwareDetailResponse Client::describePropertySoftwareDetailWit
 
   if (!!request.hasSoftwareVersion()) {
     query["SoftwareVersion"] = request.softwareVersion();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUuid()) {
@@ -19578,12 +19618,20 @@ DescribePropertyUserDetailResponse Client::describePropertyUserDetailWithOptions
     query["LastLoginTimeStart"] = request.lastLoginTimeStart();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
 
   if (!!request.hasRemark()) {
     query["Remark"] = request.remark();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUser()) {
@@ -27126,6 +27174,10 @@ GetAssetsPropertyDetailResponse Client::getAssetsPropertyDetailWithOptions(const
     query["Lang"] = request.lang();
   }
 
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.pageSize();
   }
@@ -27136,6 +27188,10 @@ GetAssetsPropertyDetailResponse Client::getAssetsPropertyDetailWithOptions(const
 
   if (!!request.hasSearchCriteriaList()) {
     query["SearchCriteriaList"] = request.searchCriteriaList();
+  }
+
+  if (!!request.hasUseNextToken()) {
+    query["UseNextToken"] = request.useNextToken();
   }
 
   if (!!request.hasUuid()) {
@@ -40556,7 +40612,7 @@ ModifyDingTalkStatusResponse Client::modifyDingTalkStatus(const ModifyDingTalkSt
 }
 
 /**
- * @summary Runs a scan task for urgent vulnerabilities.
+ * @summary Scans for urgent vulnerabilities.
  *
  * @param request ModifyEmgVulSubmitRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40599,7 +40655,7 @@ ModifyEmgVulSubmitResponse Client::modifyEmgVulSubmitWithOptions(const ModifyEmg
 }
 
 /**
- * @summary Runs a scan task for urgent vulnerabilities.
+ * @summary Scans for urgent vulnerabilities.
  *
  * @param request ModifyEmgVulSubmitRequest
  * @return ModifyEmgVulSubmitResponse

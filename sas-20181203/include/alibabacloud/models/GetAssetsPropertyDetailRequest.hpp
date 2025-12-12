@@ -19,9 +19,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(ItemName, itemName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(SearchCriteriaList, searchCriteriaList_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, GetAssetsPropertyDetailRequest& obj) { 
@@ -29,9 +31,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(ItemName, itemName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(SearchCriteriaList, searchCriteriaList_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     GetAssetsPropertyDetailRequest() = default ;
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->biz_ == nullptr
-        && return this->currentPage_ == nullptr && return this->itemName_ == nullptr && return this->lang_ == nullptr && return this->pageSize_ == nullptr && return this->remark_ == nullptr
-        && return this->searchCriteriaList_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->currentPage_ == nullptr && return this->itemName_ == nullptr && return this->lang_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr
+        && return this->remark_ == nullptr && return this->searchCriteriaList_ == nullptr && return this->useNextToken_ == nullptr && return this->uuid_ == nullptr; };
     // biz Field Functions 
     bool hasBiz() const { return this->biz_ != nullptr;};
     void deleteBiz() { this->biz_ = nullptr;};
@@ -76,6 +80,13 @@ namespace Models
     inline GetAssetsPropertyDetailRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline GetAssetsPropertyDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -97,6 +108,13 @@ namespace Models
     inline vector<GetAssetsPropertyDetailRequestSearchCriteriaList> searchCriteriaList() { DARABONBA_PTR_GET(searchCriteriaList_, vector<GetAssetsPropertyDetailRequestSearchCriteriaList>) };
     inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(const vector<GetAssetsPropertyDetailRequestSearchCriteriaList> & searchCriteriaList) { DARABONBA_PTR_SET_VALUE(searchCriteriaList_, searchCriteriaList) };
     inline GetAssetsPropertyDetailRequest& setSearchCriteriaList(vector<GetAssetsPropertyDetailRequestSearchCriteriaList> && searchCriteriaList) { DARABONBA_PTR_SET_RVALUE(searchCriteriaList_, searchCriteriaList) };
+
+
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline GetAssetsPropertyDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
 
 
     // uuid Field Functions 
@@ -126,6 +144,7 @@ namespace Models
     // *   **zh**: Chinese
     // *   **en**: English
     std::shared_ptr<string> lang_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
     // 
     // > We recommend that you do not leave this parameter empty.
@@ -134,6 +153,7 @@ namespace Models
     std::shared_ptr<string> remark_ = nullptr;
     // The conditions that are used to query the details about the asset fingerprint.
     std::shared_ptr<vector<GetAssetsPropertyDetailRequestSearchCriteriaList>> searchCriteriaList_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The UUID of the server.
     // 
     // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.

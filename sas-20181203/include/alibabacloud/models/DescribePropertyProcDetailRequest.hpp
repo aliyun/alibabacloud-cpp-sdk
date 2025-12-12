@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ProcTimeEnd, procTimeEnd_);
       DARABONBA_PTR_TO_JSON(ProcTimeStart, procTimeStart_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(User, user_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
@@ -30,11 +32,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ProcTimeEnd, procTimeEnd_);
       DARABONBA_PTR_FROM_JSON(ProcTimeStart, procTimeStart_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(User, user_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cmdline_ == nullptr
-        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->name_ == nullptr && return this->pageSize_ == nullptr && return this->procTimeEnd_ == nullptr
-        && return this->procTimeStart_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->currentPage_ == nullptr && return this->extend_ == nullptr && return this->name_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr
+        && return this->procTimeEnd_ == nullptr && return this->procTimeStart_ == nullptr && return this->remark_ == nullptr && return this->resourceDirectoryAccountId_ == nullptr && return this->useNextToken_ == nullptr
+        && return this->user_ == nullptr && return this->uuid_ == nullptr; };
     // cmdline Field Functions 
     bool hasCmdline() const { return this->cmdline_ != nullptr;};
     void deleteCmdline() { this->cmdline_ = nullptr;};
@@ -78,6 +83,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribePropertyProcDetailRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertyProcDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
@@ -115,6 +127,13 @@ namespace Models
     inline DescribePropertyProcDetailRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
 
 
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline DescribePropertyProcDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
+
+
     // user Field Functions 
     bool hasUser() const { return this->user_ != nullptr;};
     void deleteUser() { this->user_ = nullptr;};
@@ -138,6 +157,7 @@ namespace Models
     std::shared_ptr<string> extend_ = nullptr;
     // The name of the process.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The timestamp when the process ends. Unit: milliseconds.
@@ -150,6 +170,7 @@ namespace Models
     // 
     // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
     std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The user who runs the process.
     std::shared_ptr<string> user_ = nullptr;
     // The UUID of the server.

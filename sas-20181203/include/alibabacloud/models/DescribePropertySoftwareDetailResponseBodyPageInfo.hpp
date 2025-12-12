@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribePropertySoftwareDetailResponseBodyPageInfo& obj) { 
       DARABONBA_PTR_TO_JSON(Count, count_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePropertySoftwareDetailResponseBodyPageInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(Count, count_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->count_ == nullptr
-        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
+        && return this->currentPage_ == nullptr && return this->nextToken_ == nullptr && return this->pageSize_ == nullptr && return this->totalCount_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
     inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline DescribePropertySoftwareDetailResponseBodyPageInfo& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertySoftwareDetailResponseBodyPageInfo& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageSize Field Functions 
@@ -70,6 +79,7 @@ namespace Models
     std::shared_ptr<int32_t> count_ = nullptr;
     // The page number.
     std::shared_ptr<int32_t> currentPage_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries per page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The total number of entries returned.

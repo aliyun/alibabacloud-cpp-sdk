@@ -18,8 +18,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsRoot, isRoot_);
       DARABONBA_PTR_TO_JSON(LastLoginTimeEnd, lastLoginTimeEnd_);
       DARABONBA_PTR_TO_JSON(LastLoginTimeStart, lastLoginTimeStart_);
+      DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
+      DARABONBA_PTR_TO_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_TO_JSON(User, user_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
@@ -29,8 +31,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsRoot, isRoot_);
       DARABONBA_PTR_FROM_JSON(LastLoginTimeEnd, lastLoginTimeEnd_);
       DARABONBA_PTR_FROM_JSON(LastLoginTimeStart, lastLoginTimeStart_);
+      DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
+      DARABONBA_PTR_FROM_JSON(UseNextToken, useNextToken_);
       DARABONBA_PTR_FROM_JSON(User, user_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && return this->extend_ == nullptr && return this->isRoot_ == nullptr && return this->lastLoginTimeEnd_ == nullptr && return this->lastLoginTimeStart_ == nullptr && return this->pageSize_ == nullptr
-        && return this->remark_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
+        && return this->extend_ == nullptr && return this->isRoot_ == nullptr && return this->lastLoginTimeEnd_ == nullptr && return this->lastLoginTimeStart_ == nullptr && return this->nextToken_ == nullptr
+        && return this->pageSize_ == nullptr && return this->remark_ == nullptr && return this->useNextToken_ == nullptr && return this->user_ == nullptr && return this->uuid_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -83,6 +87,13 @@ namespace Models
     inline DescribePropertyUserDetailRequest& setLastLoginTimeStart(int64_t lastLoginTimeStart) { DARABONBA_PTR_SET_VALUE(lastLoginTimeStart_, lastLoginTimeStart) };
 
 
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribePropertyUserDetailRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
@@ -95,6 +106,13 @@ namespace Models
     void deleteRemark() { this->remark_ = nullptr;};
     inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline DescribePropertyUserDetailRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
+
+
+    // useNextToken Field Functions 
+    bool hasUseNextToken() const { return this->useNextToken_ != nullptr;};
+    void deleteUseNextToken() { this->useNextToken_ = nullptr;};
+    inline bool useNextToken() const { DARABONBA_PTR_GET_DEFAULT(useNextToken_, false) };
+    inline DescribePropertyUserDetailRequest& setUseNextToken(bool useNextToken) { DARABONBA_PTR_SET_VALUE(useNextToken_, useNextToken) };
 
 
     // user Field Functions 
@@ -125,10 +143,12 @@ namespace Models
     std::shared_ptr<int64_t> lastLoginTimeEnd_ = nullptr;
     // The timestamp of the last logon to the account. Unit: milliseconds.
     std::shared_ptr<int64_t> lastLoginTimeStart_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     // The name or IP address of the server.
     std::shared_ptr<string> remark_ = nullptr;
+    std::shared_ptr<bool> useNextToken_ = nullptr;
     // The name of the account to which the server belongs.
     std::shared_ptr<string> user_ = nullptr;
     // The UUID of the server.

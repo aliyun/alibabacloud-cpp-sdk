@@ -13157,7 +13157,7 @@ namespace Sas20181203
       Models::ModifyDingTalkStatusResponse modifyDingTalkStatus(const Models::ModifyDingTalkStatusRequest &request);
 
       /**
-       * @summary Runs a scan task for urgent vulnerabilities.
+       * @summary Scans for urgent vulnerabilities.
        *
        * @param request ModifyEmgVulSubmitRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13166,7 +13166,7 @@ namespace Sas20181203
       Models::ModifyEmgVulSubmitResponse modifyEmgVulSubmitWithOptions(const Models::ModifyEmgVulSubmitRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a scan task for urgent vulnerabilities.
+       * @summary Scans for urgent vulnerabilities.
        *
        * @param request ModifyEmgVulSubmitRequest
        * @return ModifyEmgVulSubmitResponse

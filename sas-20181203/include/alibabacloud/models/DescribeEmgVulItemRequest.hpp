@@ -116,6 +116,9 @@ namespace Models
     std::shared_ptr<string> lang_ = nullptr;
     // The number of entries to return on each page. Default value: **10**.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The Alibaba Cloud account ID of the member in the resource directory.
+    // 
+    // >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
     std::shared_ptr<int64_t> resourceDirectoryAccountId_ = nullptr;
     // Specifies whether the vulnerability poses risks.\\
     // If you do not specify this parameter, all vulnerabilities are queried regardless of whether the vulnerabilities pose risks. Valid values:
