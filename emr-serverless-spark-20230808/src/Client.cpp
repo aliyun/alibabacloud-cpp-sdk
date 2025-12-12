@@ -1501,6 +1501,51 @@ GetLivyComputeTokenResponse Client::getLivyComputeToken(const string &workspaceB
 }
 
 /**
+ * @summary 获取任务配置
+ *
+ * @param request GetRunConfigurationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRunConfigurationResponse
+ */
+GetRunConfigurationResponse Client::getRunConfigurationWithOptions(const string &workspaceId, const string &runId, const GetRunConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRunConfiguration"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/runs/" , Darabonba::Encode::Encoder::percentEncode(runId) , "/action/getRunConfiguration")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRunConfigurationResponse>();
+}
+
+/**
+ * @summary 获取任务配置
+ *
+ * @param request GetRunConfigurationRequest
+ * @return GetRunConfigurationResponse
+ */
+GetRunConfigurationResponse Client::getRunConfiguration(const string &workspaceId, const string &runId, const GetRunConfigurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRunConfigurationWithOptions(workspaceId, runId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the information about a session.
  *
  * @param request GetSessionClusterRequest

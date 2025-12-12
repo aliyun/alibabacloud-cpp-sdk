@@ -449,6 +449,24 @@ namespace EmrServerlessSpark20230808
       Models::GetLivyComputeTokenResponse getLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::GetLivyComputeTokenRequest &request);
 
       /**
+       * @summary 获取任务配置
+       *
+       * @param request GetRunConfigurationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRunConfigurationResponse
+       */
+      Models::GetRunConfigurationResponse getRunConfigurationWithOptions(const string &workspaceId, const string &runId, const Models::GetRunConfigurationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取任务配置
+       *
+       * @param request GetRunConfigurationRequest
+       * @return GetRunConfigurationResponse
+       */
+      Models::GetRunConfigurationResponse getRunConfiguration(const string &workspaceId, const string &runId, const Models::GetRunConfigurationRequest &request);
+
+      /**
        * @summary Queries the information about a session.
        *
        * @param request GetSessionClusterRequest

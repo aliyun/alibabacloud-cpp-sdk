@@ -91,6 +91,9 @@
 #include <alibabacloud/models/GetLivyComputeTokenRequest.hpp>
 #include <alibabacloud/models/GetLivyComputeTokenResponseBody.hpp>
 #include <alibabacloud/models/GetLivyComputeTokenResponse.hpp>
+#include <alibabacloud/models/GetRunConfigurationRequest.hpp>
+#include <alibabacloud/models/GetRunConfigurationResponseBody.hpp>
+#include <alibabacloud/models/GetRunConfigurationResponse.hpp>
 #include <alibabacloud/models/GetSessionClusterRequest.hpp>
 #include <alibabacloud/models/GetSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/GetSessionClusterResponse.hpp>
@@ -236,6 +239,9 @@
 #include <alibabacloud/models/GetLivyComputeResponseBodyData.hpp>
 #include <alibabacloud/models/GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration.hpp>
 #include <alibabacloud/models/GetLivyComputeTokenResponseBodyData.hpp>
+#include <alibabacloud/models/GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs.hpp>
+#include <alibabacloud/models/GetRunConfigurationResponseBodyRunConfigurationLogConfig.hpp>
+#include <alibabacloud/models/GetRunConfigurationResponseBodyRunConfiguration.hpp>
 #include <alibabacloud/models/GetSessionClusterResponseBodySessionClusterApplicationConfigs.hpp>
 #include <alibabacloud/models/GetSessionClusterResponseBodySessionClusterAutoStartConfiguration.hpp>
 #include <alibabacloud/models/GetSessionClusterResponseBodySessionClusterAutoStopConfiguration.hpp>
