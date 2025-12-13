@@ -42,6 +42,24 @@ namespace FaRui20240628
       Models::CreateTextFileResponse createTextFileAdvance(const string &WorkspaceId, const Models::CreateTextFileAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 合同抽取
+       *
+       * @param tmpReq RunContractExtractRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunContractExtractResponse
+       */
+      Models::RunContractExtractResponse runContractExtractWithOptions(const string &workspaceId, const Models::RunContractExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 合同抽取
+       *
+       * @param request RunContractExtractRequest
+       * @return RunContractExtractResponse
+       */
+      Models::RunContractExtractResponse runContractExtract(const string &workspaceId, const Models::RunContractExtractRequest &request);
+
+      /**
        * @summary 生成合同审查结果
        *
        * @param tmpReq RunContractResultGenerationRequest

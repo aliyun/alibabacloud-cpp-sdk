@@ -6,6 +6,10 @@
 #include <alibabacloud/models/CreateTextFileAdvanceRequest.hpp>
 #include <alibabacloud/models/CreateTextFileResponseBody.hpp>
 #include <alibabacloud/models/CreateTextFileResponse.hpp>
+#include <alibabacloud/models/RunContractExtractRequest.hpp>
+#include <alibabacloud/models/RunContractExtractShrinkRequest.hpp>
+#include <alibabacloud/models/RunContractExtractResponseBody.hpp>
+#include <alibabacloud/models/RunContractExtractResponse.hpp>
 #include <alibabacloud/models/RunContractResultGenerationRequest.hpp>
 #include <alibabacloud/models/RunContractResultGenerationShrinkRequest.hpp>
 #include <alibabacloud/models/RunContractResultGenerationResponseBody.hpp>
@@ -27,6 +31,10 @@
 #include <alibabacloud/models/RunSearchLawQueryResponseBody.hpp>
 #include <alibabacloud/models/RunSearchLawQueryResponse.hpp>
 #include <alibabacloud/models/CreateTextFileResponseBodyData.hpp>
+#include <alibabacloud/models/RunContractExtractRequestFieldsToExtract.hpp>
+#include <alibabacloud/models/RunContractExtractResponseBodyDataExtractResultValue.hpp>
+#include <alibabacloud/models/RunContractExtractResponseBodyDataExtractResult.hpp>
+#include <alibabacloud/models/RunContractExtractResponseBodyData.hpp>
 #include <alibabacloud/models/RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfigCustomRules.hpp>
 #include <alibabacloud/models/RunContractResultGenerationRequestAssistantMetaDataCustomRuleConfig.hpp>
 #include <alibabacloud/models/RunContractResultGenerationRequestAssistantMetaDataRules.hpp>

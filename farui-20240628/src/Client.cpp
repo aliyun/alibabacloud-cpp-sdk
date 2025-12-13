@@ -192,6 +192,71 @@ CreateTextFileResponse Client::createTextFileAdvance(const string &WorkspaceId, 
 }
 
 /**
+ * @summary 合同抽取
+ *
+ * @param tmpReq RunContractExtractRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunContractExtractResponse
+ */
+RunContractExtractResponse Client::runContractExtractWithOptions(const string &workspaceId, const RunContractExtractRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunContractExtractShrinkRequest request = RunContractExtractShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFieldsToExtract()) {
+    request.setFieldsToExtractShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.fieldsToExtract(), "fieldsToExtract", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.regionId();
+  }
+
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["appId"] = request.appId();
+  }
+
+  if (!!request.hasFieldsToExtractShrink()) {
+    body["fieldsToExtract"] = request.fieldsToExtractShrink();
+  }
+
+  if (!!request.hasFileOssUrl()) {
+    body["fileOssUrl"] = request.fileOssUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "RunContractExtract"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/pop/contract/extraction")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunContractExtractResponse>();
+}
+
+/**
+ * @summary 合同抽取
+ *
+ * @param request RunContractExtractRequest
+ * @return RunContractExtractResponse
+ */
+RunContractExtractResponse Client::runContractExtract(const string &workspaceId, const RunContractExtractRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return runContractExtractWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 生成合同审查结果
  *
  * @param tmpReq RunContractResultGenerationRequest
