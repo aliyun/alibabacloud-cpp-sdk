@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether enable the Use Creator as Administrator feature.
     std::shared_ptr<bool> creatorAsAdmin_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

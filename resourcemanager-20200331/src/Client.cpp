@@ -1872,7 +1872,7 @@ DisableControlPolicyResponse Client::disableControlPolicy() {
 }
 
 /**
- * @summary 关闭资源组通知
+ * @summary Disables group event notification.
  *
  * @param request DisableResourceGroupNotificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1895,7 +1895,7 @@ DisableResourceGroupNotificationResponse Client::disableResourceGroupNotificatio
 }
 
 /**
- * @summary 关闭资源组通知
+ * @summary Disables group event notification.
  *
  * @return DisableResourceGroupNotificationResponse
  */
@@ -2068,7 +2068,7 @@ EnableResourceDirectoryResponse Client::enableResourceDirectory(const EnableReso
 }
 
 /**
- * @summary 开通资源组通知
+ * @summary Enables group event notification.
  *
  * @param request EnableResourceGroupNotificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2091,7 +2091,7 @@ EnableResourceGroupNotificationResponse Client::enableResourceGroupNotificationW
 }
 
 /**
- * @summary 开通资源组通知
+ * @summary Enables group event notification.
  *
  * @return EnableResourceGroupNotificationResponse
  */
@@ -2704,7 +2704,7 @@ GetResourceGroupResponse Client::getResourceGroup(const GetResourceGroupRequest 
 }
 
 /**
- * @summary 查询资源组管理员配置
+ * @summary Queries the configurations of a resource group administrator.
  *
  * @param request GetResourceGroupAdminSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2727,7 +2727,7 @@ GetResourceGroupAdminSettingResponse Client::getResourceGroupAdminSettingWithOpt
 }
 
 /**
- * @summary 查询资源组管理员配置
+ * @summary Queries the configurations of a resource group administrator.
  *
  * @return GetResourceGroupAdminSettingResponse
  */
@@ -2737,7 +2737,7 @@ GetResourceGroupAdminSettingResponse Client::getResourceGroupAdminSetting() {
 }
 
 /**
- * @summary 查询资源组通知设置
+ * @summary Queries the notification settings of a resource group.
  *
  * @param request GetResourceGroupNotificationSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2760,7 +2760,7 @@ GetResourceGroupNotificationSettingResponse Client::getResourceGroupNotification
 }
 
 /**
- * @summary 查询资源组通知设置
+ * @summary Queries the notification settings of a resource group.
  *
  * @return GetResourceGroupNotificationSettingResponse
  */
@@ -3202,7 +3202,7 @@ ListAssociatedTransferSettingResponse Client::listAssociatedTransferSetting() {
 }
 
 /**
- * @summary 列出自动分组修正记录
+ * @summary Queries a list of automatic grouping remediation records.
  *
  * @param request ListAutoGroupingRemediationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3265,7 +3265,7 @@ ListAutoGroupingRemediationsResponse Client::listAutoGroupingRemediationsWithOpt
 }
 
 /**
- * @summary 列出自动分组修正记录
+ * @summary Queries a list of automatic grouping remediation records.
  *
  * @param request ListAutoGroupingRemediationsRequest
  * @return ListAutoGroupingRemediationsResponse
@@ -3868,6 +3868,56 @@ ListPolicyVersionsResponse Client::listPolicyVersions(const ListPolicyVersionsRe
 }
 
 /**
+ * @summary 列出资源组能力项
+ *
+ * @param request ListResourceGroupCapabilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourceGroupCapabilityResponse
+ */
+ListResourceGroupCapabilityResponse Client::listResourceGroupCapabilityWithOptions(const ListResourceGroupCapabilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasService()) {
+    query["Service"] = request.service();
+  }
+
+  if (!!request.hasSupportResourceGroupEvent()) {
+    query["SupportResourceGroupEvent"] = request.supportResourceGroupEvent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListResourceGroupCapability"},
+    {"version" , "2020-03-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourceGroupCapabilityResponse>();
+}
+
+/**
+ * @summary 列出资源组能力项
+ *
+ * @param request ListResourceGroupCapabilityRequest
+ * @return ListResourceGroupCapabilityResponse
+ */
+ListResourceGroupCapabilityResponse Client::listResourceGroupCapability(const ListResourceGroupCapabilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResourceGroupCapabilityWithOptions(request, runtime);
+}
+
+/**
  * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
  * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
  *
@@ -4433,6 +4483,76 @@ ListTrustedServiceStatusResponse Client::listTrustedServiceStatusWithOptions(con
 ListTrustedServiceStatusResponse Client::listTrustedServiceStatus(const ListTrustedServiceStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTrustedServiceStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询资源组事件
+ *
+ * @param request LookupResourceGroupEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LookupResourceGroupEventsResponse
+ */
+LookupResourceGroupEventsResponse Client::lookupResourceGroupEventsWithOptions(const LookupResourceGroupEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasEventCategory()) {
+    query["EventCategory"] = request.eventCategory();
+  }
+
+  if (!!request.hasLookupAttributes()) {
+    query["LookupAttributes"] = request.lookupAttributes();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasResourceGroupDisplayName()) {
+    query["ResourceGroupDisplayName"] = request.resourceGroupDisplayName();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LookupResourceGroupEvents"},
+    {"version" , "2020-03-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LookupResourceGroupEventsResponse>();
+}
+
+/**
+ * @summary 查询资源组事件
+ *
+ * @param request LookupResourceGroupEventsRequest
+ * @return LookupResourceGroupEventsResponse
+ */
+LookupResourceGroupEventsResponse Client::lookupResourceGroupEvents(const LookupResourceGroupEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return lookupResourceGroupEventsWithOptions(request, runtime);
 }
 
 /**
@@ -5482,7 +5602,7 @@ UpdateResourceGroupResponse Client::updateResourceGroup(const UpdateResourceGrou
 }
 
 /**
- * @summary 更新资源组管理员配置
+ * @summary Updates the configurations of a resource group administrator.
  *
  * @param request UpdateResourceGroupAdminSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5513,7 +5633,7 @@ UpdateResourceGroupAdminSettingResponse Client::updateResourceGroupAdminSettingW
 }
 
 /**
- * @summary 更新资源组管理员配置
+ * @summary Updates the configurations of a resource group administrator.
  *
  * @param request UpdateResourceGroupAdminSettingRequest
  * @return UpdateResourceGroupAdminSettingResponse

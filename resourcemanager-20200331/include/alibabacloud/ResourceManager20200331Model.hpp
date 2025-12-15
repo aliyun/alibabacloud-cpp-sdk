@@ -227,6 +227,9 @@
 #include <alibabacloud/models/ListPolicyVersionsRequest.hpp>
 #include <alibabacloud/models/ListPolicyVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListPolicyVersionsResponse.hpp>
+#include <alibabacloud/models/ListResourceGroupCapabilityRequest.hpp>
+#include <alibabacloud/models/ListResourceGroupCapabilityResponseBody.hpp>
+#include <alibabacloud/models/ListResourceGroupCapabilityResponse.hpp>
 #include <alibabacloud/models/ListResourceGroupsRequest.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBody.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponse.hpp>
@@ -254,6 +257,9 @@
 #include <alibabacloud/models/ListTrustedServiceStatusRequest.hpp>
 #include <alibabacloud/models/ListTrustedServiceStatusResponseBody.hpp>
 #include <alibabacloud/models/ListTrustedServiceStatusResponse.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsRequest.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsResponseBody.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsResponse.hpp>
 #include <alibabacloud/models/MoveAccountRequest.hpp>
 #include <alibabacloud/models/MoveAccountResponseBody.hpp>
 #include <alibabacloud/models/MoveAccountResponse.hpp>
@@ -413,6 +419,7 @@
 #include <alibabacloud/models/ListPolicyAttachmentsResponseBodyPolicyAttachments.hpp>
 #include <alibabacloud/models/ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion.hpp>
 #include <alibabacloud/models/ListPolicyVersionsResponseBodyPolicyVersions.hpp>
+#include <alibabacloud/models/ListResourceGroupCapabilityResponseBodyCapabilities.hpp>
 #include <alibabacloud/models/ListResourceGroupsRequestTag.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBodyResourceGroupsResourceGroupTagsTag.hpp>
 #include <alibabacloud/models/ListResourceGroupsResponseBodyResourceGroupsResourceGroupTags.hpp>
@@ -438,6 +445,10 @@
 #include <alibabacloud/models/ListTargetAttachmentsForControlPolicyResponseBodyTargetAttachments.hpp>
 #include <alibabacloud/models/ListTrustedServiceStatusResponseBodyEnabledServicePrincipalsEnabledServicePrincipal.hpp>
 #include <alibabacloud/models/ListTrustedServiceStatusResponseBodyEnabledServicePrincipals.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsRequestLookupAttributes.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsResponseBodyEventsSourceResourceGroupInfo.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsResponseBodyEventsTargetResourceGroupInfo.hpp>
+#include <alibabacloud/models/LookupResourceGroupEventsResponseBodyEvents.hpp>
 #include <alibabacloud/models/MoveResourcesRequestResources.hpp>
 #include <alibabacloud/models/MoveResourcesResponseBodyResponses.hpp>
 #include <alibabacloud/models/PromoteResourceAccountResponseBodyAccount.hpp>

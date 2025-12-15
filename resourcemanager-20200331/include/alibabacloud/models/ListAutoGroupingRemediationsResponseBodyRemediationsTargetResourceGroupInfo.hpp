@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The resource group name.
     std::shared_ptr<string> resourceGroupDisplayName_ = nullptr;
+    // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
   };
 

@@ -97,12 +97,23 @@ namespace Models
 
 
   protected:
+    // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The remediation record ID.
     std::shared_ptr<string> remediationId_ = nullptr;
+    // The remediation time.
     std::shared_ptr<string> remediationTime_ = nullptr;
+    // The resource ID.
     std::shared_ptr<string> resourceId_ = nullptr;
+    // The resource type.
+    // 
+    // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The ID of the Alibaba Cloud service.
+    // 
+    // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
     std::shared_ptr<string> service_ = nullptr;
+    // The information about the new resource group.
     std::shared_ptr<Models::ListAutoGroupingRemediationsResponseBodyRemediationsTargetResourceGroupInfo> targetResourceGroupInfo_ = nullptr;
   };
 

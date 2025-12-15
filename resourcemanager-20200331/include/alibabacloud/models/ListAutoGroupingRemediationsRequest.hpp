@@ -112,15 +112,29 @@ namespace Models
 
 
   protected:
+    // The earliest remediation time. This parameter is empty by default.
     std::shared_ptr<string> earliestRemediationTime_ = nullptr;
+    // The latest remediation time. This parameter is empty by default.
     std::shared_ptr<string> latestRemediationTime_ = nullptr;
+    // The maximum number of data entries to return.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The resource ID,
     std::shared_ptr<string> resourceId_ = nullptr;
+    // The resource type,
+    // 
+    // You can obtain the resource type from the **Resource type** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
     std::shared_ptr<string> resourceType_ = nullptr;
+    // The rule ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> ruleId_ = nullptr;
+    // The ID of the Alibaba Cloud service.
+    // 
+    // You can obtain the ID from the **Service code** column in [Services that work with Resource Group](https://help.aliyun.com/document_detail/94479.html).
     std::shared_ptr<string> service_ = nullptr;
+    // The ID of the new resource group.
     std::shared_ptr<string> targetResourceGroupId_ = nullptr;
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the Use Creator as Administrator feature.
+    // 
     // This parameter is required.
     std::shared_ptr<bool> creatorAsAdmin_ = nullptr;
   };

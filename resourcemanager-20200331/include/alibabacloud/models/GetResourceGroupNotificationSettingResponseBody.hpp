@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the group event notification is enabled.
     std::shared_ptr<bool> resourceGroupNotificationEnableStatus_ = nullptr;
   };
 

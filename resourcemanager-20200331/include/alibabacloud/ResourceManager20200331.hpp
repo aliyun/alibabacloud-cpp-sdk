@@ -758,7 +758,7 @@ namespace ResourceManager20200331
       Models::DisableControlPolicyResponse disableControlPolicy();
 
       /**
-       * @summary 关闭资源组通知
+       * @summary Disables group event notification.
        *
        * @param request DisableResourceGroupNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -767,7 +767,7 @@ namespace ResourceManager20200331
       Models::DisableResourceGroupNotificationResponse disableResourceGroupNotificationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭资源组通知
+       * @summary Disables group event notification.
        *
        * @return DisableResourceGroupNotificationResponse
        */
@@ -849,7 +849,7 @@ namespace ResourceManager20200331
       Models::EnableResourceDirectoryResponse enableResourceDirectory(const Models::EnableResourceDirectoryRequest &request);
 
       /**
-       * @summary 开通资源组通知
+       * @summary Enables group event notification.
        *
        * @param request EnableResourceGroupNotificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -858,7 +858,7 @@ namespace ResourceManager20200331
       Models::EnableResourceGroupNotificationResponse enableResourceGroupNotificationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通资源组通知
+       * @summary Enables group event notification.
        *
        * @return EnableResourceGroupNotificationResponse
        */
@@ -1114,7 +1114,7 @@ namespace ResourceManager20200331
       Models::GetResourceGroupResponse getResourceGroup(const Models::GetResourceGroupRequest &request);
 
       /**
-       * @summary 查询资源组管理员配置
+       * @summary Queries the configurations of a resource group administrator.
        *
        * @param request GetResourceGroupAdminSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,14 +1123,14 @@ namespace ResourceManager20200331
       Models::GetResourceGroupAdminSettingResponse getResourceGroupAdminSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资源组管理员配置
+       * @summary Queries the configurations of a resource group administrator.
        *
        * @return GetResourceGroupAdminSettingResponse
        */
       Models::GetResourceGroupAdminSettingResponse getResourceGroupAdminSetting();
 
       /**
-       * @summary 查询资源组通知设置
+       * @summary Queries the notification settings of a resource group.
        *
        * @param request GetResourceGroupNotificationSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1139,7 +1139,7 @@ namespace ResourceManager20200331
       Models::GetResourceGroupNotificationSettingResponse getResourceGroupNotificationSettingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资源组通知设置
+       * @summary Queries the notification settings of a resource group.
        *
        * @return GetResourceGroupNotificationSettingResponse
        */
@@ -1309,7 +1309,7 @@ namespace ResourceManager20200331
       Models::ListAssociatedTransferSettingResponse listAssociatedTransferSetting();
 
       /**
-       * @summary 列出自动分组修正记录
+       * @summary Queries a list of automatic grouping remediation records.
        *
        * @param request ListAutoGroupingRemediationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1318,7 +1318,7 @@ namespace ResourceManager20200331
       Models::ListAutoGroupingRemediationsResponse listAutoGroupingRemediationsWithOptions(const Models::ListAutoGroupingRemediationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出自动分组修正记录
+       * @summary Queries a list of automatic grouping remediation records.
        *
        * @param request ListAutoGroupingRemediationsRequest
        * @return ListAutoGroupingRemediationsResponse
@@ -1539,6 +1539,23 @@ namespace ResourceManager20200331
       Models::ListPolicyVersionsResponse listPolicyVersions(const Models::ListPolicyVersionsRequest &request);
 
       /**
+       * @summary 列出资源组能力项
+       *
+       * @param request ListResourceGroupCapabilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResourceGroupCapabilityResponse
+       */
+      Models::ListResourceGroupCapabilityResponse listResourceGroupCapabilityWithOptions(const Models::ListResourceGroupCapabilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出资源组能力项
+       *
+       * @param request ListResourceGroupCapabilityRequest
+       * @return ListResourceGroupCapabilityResponse
+       */
+      Models::ListResourceGroupCapabilityResponse listResourceGroupCapability(const Models::ListResourceGroupCapabilityRequest &request);
+
+      /**
        * @description You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
        * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
        *
@@ -1716,6 +1733,23 @@ namespace ResourceManager20200331
        * @return ListTrustedServiceStatusResponse
        */
       Models::ListTrustedServiceStatusResponse listTrustedServiceStatus(const Models::ListTrustedServiceStatusRequest &request);
+
+      /**
+       * @summary 查询资源组事件
+       *
+       * @param request LookupResourceGroupEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LookupResourceGroupEventsResponse
+       */
+      Models::LookupResourceGroupEventsResponse lookupResourceGroupEventsWithOptions(const Models::LookupResourceGroupEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询资源组事件
+       *
+       * @param request LookupResourceGroupEventsRequest
+       * @return LookupResourceGroupEventsResponse
+       */
+      Models::LookupResourceGroupEventsResponse lookupResourceGroupEvents(const Models::LookupResourceGroupEventsRequest &request);
 
       /**
        * @summary 移动账号
@@ -2119,7 +2153,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupResponse updateResourceGroup(const Models::UpdateResourceGroupRequest &request);
 
       /**
-       * @summary 更新资源组管理员配置
+       * @summary Updates the configurations of a resource group administrator.
        *
        * @param request UpdateResourceGroupAdminSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2128,7 +2162,7 @@ namespace ResourceManager20200331
       Models::UpdateResourceGroupAdminSettingResponse updateResourceGroupAdminSettingWithOptions(const Models::UpdateResourceGroupAdminSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新资源组管理员配置
+       * @summary Updates the configurations of a resource group administrator.
        *
        * @param request UpdateResourceGroupAdminSettingRequest
        * @return UpdateResourceGroupAdminSettingResponse

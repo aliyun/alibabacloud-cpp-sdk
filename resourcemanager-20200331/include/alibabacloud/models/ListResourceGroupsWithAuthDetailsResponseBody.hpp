@@ -94,6 +94,7 @@ namespace Models
     std::shared_ptr<vector<ListResourceGroupsWithAuthDetailsResponseBodyAuthDetails>> authDetails_ = nullptr;
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    // The response parameters.
     std::shared_ptr<string> requestId_ = nullptr;
     std::shared_ptr<vector<ListResourceGroupsWithAuthDetailsResponseBodyResourceGroups>> resourceGroups_ = nullptr;
     std::shared_ptr<int32_t> totalCount_ = nullptr;

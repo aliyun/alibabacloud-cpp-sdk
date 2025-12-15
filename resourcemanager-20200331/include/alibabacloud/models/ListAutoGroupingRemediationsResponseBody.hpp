@@ -70,9 +70,15 @@ namespace Models
 
 
   protected:
+    // The number of entries per page.
+    // 
+    // Valid values: 1 to 100. Default value: 10.
     std::shared_ptr<int32_t> maxResults_ = nullptr;
+    // The pagination token that is used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // The remediation records.
     std::shared_ptr<vector<ListAutoGroupingRemediationsResponseBodyRemediations>> remediations_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 
