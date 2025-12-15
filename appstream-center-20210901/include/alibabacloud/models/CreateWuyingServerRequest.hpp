@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(NetworkStrategyType, networkStrategyType_);
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(NetworkStrategyType, networkStrategyType_);
@@ -79,10 +81,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
         && return this->autoPay_ == nullptr && return this->autoRenew_ == nullptr && return this->bandwidth_ == nullptr && return this->bizRegionId_ == nullptr && return this->chargeType_ == nullptr
-        && return this->dataDisk_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr && return this->officeSiteId_ == nullptr
-        && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr && return this->savingPlanId_ == nullptr
-        && return this->serverInstanceType_ == nullptr && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr && return this->systemDiskSize_ == nullptr
-        && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
+        && return this->dataDisk_ == nullptr && return this->hostName_ == nullptr && return this->idempotenceToken_ == nullptr && return this->imageId_ == nullptr && return this->networkStrategyType_ == nullptr
+        && return this->officeSiteId_ == nullptr && return this->password_ == nullptr && return this->period_ == nullptr && return this->periodUnit_ == nullptr && return this->promotionId_ == nullptr
+        && return this->savingPlanId_ == nullptr && return this->serverInstanceType_ == nullptr && return this->serverPortRange_ == nullptr && return this->systemDiskCategory_ == nullptr && return this->systemDiskPerformanceLevel_ == nullptr
+        && return this->systemDiskSize_ == nullptr && return this->vSwitchIds_ == nullptr && return this->virtualNodePoolId_ == nullptr && return this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -132,6 +134,13 @@ namespace Models
     inline vector<CreateWuyingServerRequestDataDisk> dataDisk() { DARABONBA_PTR_GET(dataDisk_, vector<CreateWuyingServerRequestDataDisk>) };
     inline CreateWuyingServerRequest& setDataDisk(const vector<CreateWuyingServerRequestDataDisk> & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
     inline CreateWuyingServerRequest& setDataDisk(vector<CreateWuyingServerRequestDataDisk> && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
+
+
+    // hostName Field Functions 
+    bool hasHostName() const { return this->hostName_ != nullptr;};
+    void deleteHostName() { this->hostName_ = nullptr;};
+    inline string hostName() const { DARABONBA_PTR_GET_DEFAULT(hostName_, "") };
+    inline CreateWuyingServerRequest& setHostName(string hostName) { DARABONBA_PTR_SET_VALUE(hostName_, hostName) };
 
 
     // idempotenceToken Field Functions 
@@ -274,6 +283,7 @@ namespace Models
     std::shared_ptr<string> chargeType_ = nullptr;
     // The list of data disks.
     std::shared_ptr<vector<CreateWuyingServerRequestDataDisk>> dataDisk_ = nullptr;
+    std::shared_ptr<string> hostName_ = nullptr;
     // Idempotence token to ensure operation uniqueness
     std::shared_ptr<string> idempotenceToken_ = nullptr;
     // The ID of the image.

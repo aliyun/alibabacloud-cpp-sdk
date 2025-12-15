@@ -503,11 +503,6 @@ CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroup(
  */
 CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
-  if (!!request.hasSavingPlanId()) {
-    query["SavingPlanId"] = request.savingPlanId();
-  }
-
   json body = {};
   if (!!request.hasAmount()) {
     body["Amount"] = request.amount();
@@ -536,6 +531,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
   json bodyFlat = {};
   if (!!request.hasDataDisk()) {
     bodyFlat["DataDisk"] = request.dataDisk();
+  }
+
+  if (!!request.hasHostName()) {
+    body["HostName"] = request.hostName();
   }
 
   if (!!request.hasIdempotenceToken()) {
@@ -568,6 +567,10 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
 
   if (!!request.hasPromotionId()) {
     body["PromotionId"] = request.promotionId();
+  }
+
+  if (!!request.hasSavingPlanId()) {
+    body["SavingPlanId"] = request.savingPlanId();
   }
 
   if (!!request.hasServerInstanceType()) {
@@ -606,9 +609,8 @@ CreateWuyingServerResponse Client::createWuyingServerWithOptions(const CreateWuy
     Utils::Utils::query(bodyFlat)
   );
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateWuyingServer"},
     {"version" , "2021-09-01"},
