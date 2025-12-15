@@ -784,6 +784,48 @@ namespace ResourceDirectoryMaster20220419
       Models::ListAncestorsResponse listAncestors(const Models::ListAncestorsRequest &request);
 
       /**
+       * @summary Queries a list of members who have the permission to query member information in a resource directory.
+       *
+       * @description The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+       *
+       * @param request ListAuthorizedAccountsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizedAccountsResponse
+       */
+      Models::ListAuthorizedAccountsResponse listAuthorizedAccountsWithOptions(const Models::ListAuthorizedAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of members who have the permission to query member information in a resource directory.
+       *
+       * @description The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+       *
+       * @param request ListAuthorizedAccountsRequest
+       * @return ListAuthorizedAccountsResponse
+       */
+      Models::ListAuthorizedAccountsResponse listAuthorizedAccounts(const Models::ListAuthorizedAccountsRequest &request);
+
+      /**
+       * @summary Queries a list of folders that have permissions to query subfolder information in a resource directory.
+       *
+       * @description The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+       *
+       * @param request ListAuthorizedFoldersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAuthorizedFoldersResponse
+       */
+      Models::ListAuthorizedFoldersResponse listAuthorizedFoldersWithOptions(const Models::ListAuthorizedFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of folders that have permissions to query subfolder information in a resource directory.
+       *
+       * @description The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+       *
+       * @param request ListAuthorizedFoldersRequest
+       * @return ListAuthorizedFoldersResponse
+       */
+      Models::ListAuthorizedFoldersResponse listAuthorizedFolders(const Models::ListAuthorizedFoldersRequest &request);
+
+      /**
        * @summary Queries access control policies.
        *
        * @param request ListControlPoliciesRequest

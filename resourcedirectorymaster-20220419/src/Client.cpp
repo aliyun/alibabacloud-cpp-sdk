@@ -1961,6 +1961,106 @@ ListAncestorsResponse Client::listAncestors(const ListAncestorsRequest &request)
 }
 
 /**
+ * @summary Queries a list of members who have the permission to query member information in a resource directory.
+ *
+ * @description The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+ *
+ * @param request ListAuthorizedAccountsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizedAccountsResponse
+ */
+ListAuthorizedAccountsResponse Client::listAuthorizedAccountsWithOptions(const ListAuthorizedAccountsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizedAccounts"},
+    {"version" , "2022-04-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizedAccountsResponse>();
+}
+
+/**
+ * @summary Queries a list of members who have the permission to query member information in a resource directory.
+ *
+ * @description The permission to query member information refers to the permission to call the [GetAccount](~~GetAccount~~) API operation.
+ *
+ * @param request ListAuthorizedAccountsRequest
+ * @return ListAuthorizedAccountsResponse
+ */
+ListAuthorizedAccountsResponse Client::listAuthorizedAccounts(const ListAuthorizedAccountsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizedAccountsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of folders that have permissions to query subfolder information in a resource directory.
+ *
+ * @description The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+ *
+ * @param request ListAuthorizedFoldersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAuthorizedFoldersResponse
+ */
+ListAuthorizedFoldersResponse Client::listAuthorizedFoldersWithOptions(const ListAuthorizedFoldersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAuthorizedFolders"},
+    {"version" , "2022-04-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAuthorizedFoldersResponse>();
+}
+
+/**
+ * @summary Queries a list of folders that have permissions to query subfolder information in a resource directory.
+ *
+ * @description The permissions to query subfolder information refer to the permissions to call the [ListAccountsForParent](~~ListAccountsForParent~~) and [ListFoldersForParent](~~ListFoldersForParent~~) API operations.
+ *
+ * @param request ListAuthorizedFoldersRequest
+ * @return ListAuthorizedFoldersResponse
+ */
+ListAuthorizedFoldersResponse Client::listAuthorizedFolders(const ListAuthorizedFoldersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAuthorizedFoldersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries access control policies.
  *
  * @param request ListControlPoliciesRequest

@@ -118,6 +118,12 @@
 #include <alibabacloud/models/ListAncestorsRequest.hpp>
 #include <alibabacloud/models/ListAncestorsResponseBody.hpp>
 #include <alibabacloud/models/ListAncestorsResponse.hpp>
+#include <alibabacloud/models/ListAuthorizedAccountsRequest.hpp>
+#include <alibabacloud/models/ListAuthorizedAccountsResponseBody.hpp>
+#include <alibabacloud/models/ListAuthorizedAccountsResponse.hpp>
+#include <alibabacloud/models/ListAuthorizedFoldersRequest.hpp>
+#include <alibabacloud/models/ListAuthorizedFoldersResponseBody.hpp>
+#include <alibabacloud/models/ListAuthorizedFoldersResponse.hpp>
 #include <alibabacloud/models/ListControlPoliciesRequest.hpp>
 #include <alibabacloud/models/ListControlPoliciesResponseBody.hpp>
 #include <alibabacloud/models/ListControlPoliciesResponse.hpp>
@@ -255,6 +261,10 @@
 #include <alibabacloud/models/ListAccountsForParentResponseBodyAccounts.hpp>
 #include <alibabacloud/models/ListAncestorsResponseBodyFoldersFolder.hpp>
 #include <alibabacloud/models/ListAncestorsResponseBodyFolders.hpp>
+#include <alibabacloud/models/ListAuthorizedAccountsResponseBodyAccountsAccount.hpp>
+#include <alibabacloud/models/ListAuthorizedAccountsResponseBodyAccounts.hpp>
+#include <alibabacloud/models/ListAuthorizedFoldersResponseBodyFoldersFolder.hpp>
+#include <alibabacloud/models/ListAuthorizedFoldersResponseBodyFolders.hpp>
 #include <alibabacloud/models/ListControlPoliciesRequestTag.hpp>
 #include <alibabacloud/models/ListControlPoliciesResponseBodyControlPoliciesControlPolicyTagsTag.hpp>
 #include <alibabacloud/models/ListControlPoliciesResponseBodyControlPoliciesControlPolicyTags.hpp>
