@@ -60,6 +60,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(LatestSnapshot, latestSnapshot_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_ANY_TO_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_TO_JSON(NodeErrorRecovery, nodeErrorRecovery_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(PodIps, podIps_);
@@ -115,6 +116,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(LatestSnapshot, latestSnapshot_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_ANY_FROM_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_FROM_JSON(NodeErrorRecovery, nodeErrorRecovery_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(PodIps, podIps_);
@@ -157,12 +159,12 @@ namespace Models
         && return this->environmentVariables_ == nullptr && return this->gmtCreateTime_ == nullptr && return this->gmtModifiedTime_ == nullptr && return this->httpStatusCode_ == nullptr && return this->idleInstanceCuller_ == nullptr
         && return this->imageAuth_ == nullptr && return this->imageId_ == nullptr && return this->imageName_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceId_ == nullptr
         && return this->instanceName_ == nullptr && return this->instanceShutdownTimer_ == nullptr && return this->instanceSnapshotList_ == nullptr && return this->instanceUrl_ == nullptr && return this->jupyterlabUrl_ == nullptr
-        && return this->labels_ == nullptr && return this->latestSnapshot_ == nullptr && return this->message_ == nullptr && return this->nodeErrorRecovery_ == nullptr && return this->paymentType_ == nullptr
-        && return this->podIps_ == nullptr && return this->priority_ == nullptr && return this->proxyPath_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
-        && return this->requestId_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->serviceConfig_ == nullptr
-        && return this->status_ == nullptr && return this->success_ == nullptr && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr && return this->userCommandId_ == nullptr
-        && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr && return this->workspaceId_ == nullptr
-        && return this->workspaceName_ == nullptr && return this->workspaceSource_ == nullptr; };
+        && return this->labels_ == nullptr && return this->latestSnapshot_ == nullptr && return this->message_ == nullptr && return this->migrationOptions_ == nullptr && return this->nodeErrorRecovery_ == nullptr
+        && return this->paymentType_ == nullptr && return this->podIps_ == nullptr && return this->priority_ == nullptr && return this->proxyPath_ == nullptr && return this->reasonCode_ == nullptr
+        && return this->reasonMessage_ == nullptr && return this->requestId_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr
+        && return this->serviceConfig_ == nullptr && return this->status_ == nullptr && return this->success_ == nullptr && return this->tags_ == nullptr && return this->terminalUrl_ == nullptr
+        && return this->userCommandId_ == nullptr && return this->userId_ == nullptr && return this->userName_ == nullptr && return this->userVpc_ == nullptr && return this->webIDEUrl_ == nullptr
+        && return this->workspaceId_ == nullptr && return this->workspaceName_ == nullptr && return this->workspaceSource_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -386,6 +388,15 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline GetInstanceResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // migrationOptions Field Functions 
+    bool hasMigrationOptions() const { return this->migrationOptions_ != nullptr;};
+    void deleteMigrationOptions() { this->migrationOptions_ = nullptr;};
+    inline     const Darabonba::Json & migrationOptions() const { DARABONBA_GET(migrationOptions_) };
+    Darabonba::Json & migrationOptions() { DARABONBA_GET(migrationOptions_) };
+    inline GetInstanceResponseBody& setMigrationOptions(const Darabonba::Json & migrationOptions) { DARABONBA_SET_VALUE(migrationOptions_, migrationOptions) };
+    inline GetInstanceResponseBody& setMigrationOptions(Darabonba::Json & migrationOptions) { DARABONBA_SET_RVALUE(migrationOptions_, migrationOptions) };
 
 
     // nodeErrorRecovery Field Functions 
@@ -644,6 +655,7 @@ namespace Models
     // *   If the request is successful, null is returned.
     // *   If the request fails, the cause for the failure is returned.
     std::shared_ptr<string> message_ = nullptr;
+    Darabonba::Json migrationOptions_ = nullptr;
     // The error recovery configuration of the node.
     std::shared_ptr<GetInstanceResponseBodyNodeErrorRecovery> nodeErrorRecovery_ = nullptr;
     // The billing method. Valid values:

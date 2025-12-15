@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(Instances, instances_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_ANY_TO_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(Instances, instances_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_ANY_FROM_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
       DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->httpStatusCode_ == nullptr && return this->instances_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr
-        && return this->totalCount_ == nullptr; };
+        && return this->httpStatusCode_ == nullptr && return this->instances_ == nullptr && return this->message_ == nullptr && return this->migrationOptions_ == nullptr && return this->requestId_ == nullptr
+        && return this->success_ == nullptr && return this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -74,6 +76,15 @@ namespace Models
     void deleteMessage() { this->message_ = nullptr;};
     inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ListInstancesResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // migrationOptions Field Functions 
+    bool hasMigrationOptions() const { return this->migrationOptions_ != nullptr;};
+    void deleteMigrationOptions() { this->migrationOptions_ = nullptr;};
+    inline     const Darabonba::Json & migrationOptions() const { DARABONBA_GET(migrationOptions_) };
+    Darabonba::Json & migrationOptions() { DARABONBA_GET(migrationOptions_) };
+    inline ListInstancesResponseBody& setMigrationOptions(const Darabonba::Json & migrationOptions) { DARABONBA_SET_VALUE(migrationOptions_, migrationOptions) };
+    inline ListInstancesResponseBody& setMigrationOptions(Darabonba::Json & migrationOptions) { DARABONBA_SET_RVALUE(migrationOptions_, migrationOptions) };
 
 
     // requestId Field Functions 
@@ -112,6 +123,7 @@ namespace Models
     std::shared_ptr<vector<ListInstancesResponseBodyInstances>> instances_ = nullptr;
     // The response message.
     std::shared_ptr<string> message_ = nullptr;
+    Darabonba::Json migrationOptions_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
     // Indicates whether the request was successful.

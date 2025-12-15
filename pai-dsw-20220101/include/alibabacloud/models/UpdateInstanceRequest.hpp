@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DisassociateDriver, disassociateDriver_);
       DARABONBA_PTR_TO_JSON(DisassociateEnvironmentVariables, disassociateEnvironmentVariables_);
       DARABONBA_PTR_TO_JSON(DisassociateForwardInfos, disassociateForwardInfos_);
+      DARABONBA_PTR_TO_JSON(DisassociateMigrationOptions, disassociateMigrationOptions_);
       DARABONBA_PTR_TO_JSON(DisassociateSpot, disassociateSpot_);
       DARABONBA_PTR_TO_JSON(DisassociateUserCommand, disassociateUserCommand_);
       DARABONBA_PTR_TO_JSON(DisassociateVpc, disassociateVpc_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_ANY_TO_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
@@ -70,6 +72,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DisassociateDriver, disassociateDriver_);
       DARABONBA_PTR_FROM_JSON(DisassociateEnvironmentVariables, disassociateEnvironmentVariables_);
       DARABONBA_PTR_FROM_JSON(DisassociateForwardInfos, disassociateForwardInfos_);
+      DARABONBA_PTR_FROM_JSON(DisassociateMigrationOptions, disassociateMigrationOptions_);
       DARABONBA_PTR_FROM_JSON(DisassociateSpot, disassociateSpot_);
       DARABONBA_PTR_FROM_JSON(DisassociateUserCommand, disassociateUserCommand_);
       DARABONBA_PTR_FROM_JSON(DisassociateVpc, disassociateVpc_);
@@ -81,6 +84,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_ANY_FROM_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
@@ -105,11 +109,11 @@ namespace Models
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && return this->affinity_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->cloudDisks_ == nullptr && return this->credentialConfig_ == nullptr && return this->datasets_ == nullptr
         && return this->disassociateAssignNode_ == nullptr && return this->disassociateCredential_ == nullptr && return this->disassociateDatasets_ == nullptr && return this->disassociateDriver_ == nullptr && return this->disassociateEnvironmentVariables_ == nullptr
-        && return this->disassociateForwardInfos_ == nullptr && return this->disassociateSpot_ == nullptr && return this->disassociateUserCommand_ == nullptr && return this->disassociateVpc_ == nullptr && return this->driver_ == nullptr
-        && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr && return this->imageAuth_ == nullptr && return this->imageId_ == nullptr
-        && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->oversoldType_ == nullptr && return this->priority_ == nullptr && return this->requestedResource_ == nullptr
-        && return this->spotSpec_ == nullptr && return this->startInstance_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr
-        && return this->workspaceSource_ == nullptr; };
+        && return this->disassociateForwardInfos_ == nullptr && return this->disassociateMigrationOptions_ == nullptr && return this->disassociateSpot_ == nullptr && return this->disassociateUserCommand_ == nullptr && return this->disassociateVpc_ == nullptr
+        && return this->driver_ == nullptr && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr && return this->imageAuth_ == nullptr
+        && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->migrationOptions_ == nullptr && return this->oversoldType_ == nullptr
+        && return this->priority_ == nullptr && return this->requestedResource_ == nullptr && return this->spotSpec_ == nullptr && return this->startInstance_ == nullptr && return this->userCommand_ == nullptr
+        && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceSource_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -204,6 +208,13 @@ namespace Models
     inline UpdateInstanceRequest& setDisassociateForwardInfos(bool disassociateForwardInfos) { DARABONBA_PTR_SET_VALUE(disassociateForwardInfos_, disassociateForwardInfos) };
 
 
+    // disassociateMigrationOptions Field Functions 
+    bool hasDisassociateMigrationOptions() const { return this->disassociateMigrationOptions_ != nullptr;};
+    void deleteDisassociateMigrationOptions() { this->disassociateMigrationOptions_ = nullptr;};
+    inline bool disassociateMigrationOptions() const { DARABONBA_PTR_GET_DEFAULT(disassociateMigrationOptions_, false) };
+    inline UpdateInstanceRequest& setDisassociateMigrationOptions(bool disassociateMigrationOptions) { DARABONBA_PTR_SET_VALUE(disassociateMigrationOptions_, disassociateMigrationOptions) };
+
+
     // disassociateSpot Field Functions 
     bool hasDisassociateSpot() const { return this->disassociateSpot_ != nullptr;};
     void deleteDisassociateSpot() { this->disassociateSpot_ = nullptr;};
@@ -283,6 +294,15 @@ namespace Models
     void deleteInstanceName() { this->instanceName_ = nullptr;};
     inline string instanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
     inline UpdateInstanceRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // migrationOptions Field Functions 
+    bool hasMigrationOptions() const { return this->migrationOptions_ != nullptr;};
+    void deleteMigrationOptions() { this->migrationOptions_ = nullptr;};
+    inline     const Darabonba::Json & migrationOptions() const { DARABONBA_GET(migrationOptions_) };
+    Darabonba::Json & migrationOptions() { DARABONBA_GET(migrationOptions_) };
+    inline UpdateInstanceRequest& setMigrationOptions(const Darabonba::Json & migrationOptions) { DARABONBA_SET_VALUE(migrationOptions_, migrationOptions) };
+    inline UpdateInstanceRequest& setMigrationOptions(Darabonba::Json & migrationOptions) { DARABONBA_SET_RVALUE(migrationOptions_, migrationOptions) };
 
 
     // oversoldType Field Functions 
@@ -386,6 +406,7 @@ namespace Models
     std::shared_ptr<bool> disassociateEnvironmentVariables_ = nullptr;
     // Specifies whether to delete the associated forward information.
     std::shared_ptr<bool> disassociateForwardInfos_ = nullptr;
+    std::shared_ptr<bool> disassociateMigrationOptions_ = nullptr;
     std::shared_ptr<bool> disassociateSpot_ = nullptr;
     std::shared_ptr<bool> disassociateUserCommand_ = nullptr;
     // Specifies whether to delete the associated user VPC.
@@ -408,6 +429,7 @@ namespace Models
     // *   The name can contain only letters, digits, and underscores (_).
     // *   The name can be up to 27 characters in length.
     std::shared_ptr<string> instanceName_ = nullptr;
+    Darabonba::Json migrationOptions_ = nullptr;
     std::shared_ptr<string> oversoldType_ = nullptr;
     // The priority based on which resources are allocated to instances. Valid values: 1 to 9.
     // 

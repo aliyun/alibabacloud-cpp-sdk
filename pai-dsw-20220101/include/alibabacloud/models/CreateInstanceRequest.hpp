@@ -42,6 +42,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_ANY_TO_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_TO_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestedResource, requestedResource_);
@@ -70,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_ANY_FROM_JSON(MigrationOptions, migrationOptions_);
       DARABONBA_PTR_FROM_JSON(OversoldType, oversoldType_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestedResource, requestedResource_);
@@ -96,9 +98,10 @@ namespace Models
     virtual bool empty() const override { return this->accessibility_ == nullptr
         && return this->affinity_ == nullptr && return this->assignNodeSpec_ == nullptr && return this->cloudDisks_ == nullptr && return this->credentialConfig_ == nullptr && return this->datasets_ == nullptr
         && return this->driver_ == nullptr && return this->dynamicMount_ == nullptr && return this->ecsSpec_ == nullptr && return this->environmentVariables_ == nullptr && return this->imageAuth_ == nullptr
-        && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->labels_ == nullptr && return this->oversoldType_ == nullptr
-        && return this->priority_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->spotSpec_ == nullptr && return this->tag_ == nullptr
-        && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr && return this->workspaceSource_ == nullptr; };
+        && return this->imageId_ == nullptr && return this->imageUrl_ == nullptr && return this->instanceName_ == nullptr && return this->labels_ == nullptr && return this->migrationOptions_ == nullptr
+        && return this->oversoldType_ == nullptr && return this->priority_ == nullptr && return this->requestedResource_ == nullptr && return this->resourceId_ == nullptr && return this->spotSpec_ == nullptr
+        && return this->tag_ == nullptr && return this->userCommand_ == nullptr && return this->userId_ == nullptr && return this->userVpc_ == nullptr && return this->workspaceId_ == nullptr
+        && return this->workspaceSource_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -218,6 +221,15 @@ namespace Models
     inline vector<CreateInstanceRequestLabels> labels() { DARABONBA_PTR_GET(labels_, vector<CreateInstanceRequestLabels>) };
     inline CreateInstanceRequest& setLabels(const vector<CreateInstanceRequestLabels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
     inline CreateInstanceRequest& setLabels(vector<CreateInstanceRequestLabels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+    // migrationOptions Field Functions 
+    bool hasMigrationOptions() const { return this->migrationOptions_ != nullptr;};
+    void deleteMigrationOptions() { this->migrationOptions_ = nullptr;};
+    inline     const Darabonba::Json & migrationOptions() const { DARABONBA_GET(migrationOptions_) };
+    Darabonba::Json & migrationOptions() { DARABONBA_GET(migrationOptions_) };
+    inline CreateInstanceRequest& setMigrationOptions(const Darabonba::Json & migrationOptions) { DARABONBA_SET_VALUE(migrationOptions_, migrationOptions) };
+    inline CreateInstanceRequest& setMigrationOptions(Darabonba::Json & migrationOptions) { DARABONBA_SET_RVALUE(migrationOptions_, migrationOptions) };
 
 
     // oversoldType Field Functions 
@@ -345,6 +357,7 @@ namespace Models
     std::shared_ptr<string> instanceName_ = nullptr;
     // The custom labels.
     std::shared_ptr<vector<CreateInstanceRequestLabels>> labels_ = nullptr;
+    Darabonba::Json migrationOptions_ = nullptr;
     std::shared_ptr<string> oversoldType_ = nullptr;
     // The priority based on which resources are allocated to instances. Valid values: 1 to 9.
     // 

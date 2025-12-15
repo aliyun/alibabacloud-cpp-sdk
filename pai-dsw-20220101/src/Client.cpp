@@ -213,6 +213,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
     body["Labels"] = request.labels();
   }
 
+  if (!!request.hasMigrationOptions()) {
+    body["MigrationOptions"] = request.migrationOptions();
+  }
+
   if (!!request.hasOversoldType()) {
     body["OversoldType"] = request.oversoldType();
   }
@@ -1835,6 +1839,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
     body["DisassociateForwardInfos"] = request.disassociateForwardInfos();
   }
 
+  if (!!request.hasDisassociateMigrationOptions()) {
+    body["DisassociateMigrationOptions"] = request.disassociateMigrationOptions();
+  }
+
   if (!!request.hasDisassociateSpot()) {
     body["DisassociateSpot"] = request.disassociateSpot();
   }
@@ -1877,6 +1885,10 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const string &InstanceI
 
   if (!!request.hasInstanceName()) {
     body["InstanceName"] = request.instanceName();
+  }
+
+  if (!!request.hasMigrationOptions()) {
+    body["MigrationOptions"] = request.migrationOptions();
   }
 
   if (!!request.hasOversoldType()) {
