@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_TO_JSON(Eni, eni_);
       DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PrivateConnectUrl, privateConnectUrl_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DiskPerformanceLevel, diskPerformanceLevel_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
+      DARABONBA_PTR_FROM_JSON(Eni, eni_);
       DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PrivateConnectUrl, privateConnectUrl_);
@@ -73,10 +75,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTime_ == nullptr
         && return this->dashboardPassword_ == nullptr && return this->dashboardUserName_ == nullptr && return this->diskPerformanceLevel_ == nullptr && return this->engine_ == nullptr && return this->engineVersion_ == nullptr
-        && return this->instanceVersion_ == nullptr && return this->payType_ == nullptr && return this->privateConnectUrl_ == nullptr && return this->projectId_ == nullptr && return this->projectName_ == nullptr
-        && return this->projectSpec_ == nullptr && return this->publicConnectUrl_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->securityIpList_ == nullptr
-        && return this->status_ == nullptr && return this->storageSize_ == nullptr && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->eni_ == nullptr && return this->instanceVersion_ == nullptr && return this->payType_ == nullptr && return this->privateConnectUrl_ == nullptr && return this->projectId_ == nullptr
+        && return this->projectName_ == nullptr && return this->projectSpec_ == nullptr && return this->publicConnectUrl_ == nullptr && return this->regionId_ == nullptr && return this->requestId_ == nullptr
+        && return this->securityIpList_ == nullptr && return this->status_ == nullptr && return this->storageSize_ == nullptr && return this->storageType_ == nullptr && return this->vSwitchId_ == nullptr
+        && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -117,6 +119,13 @@ namespace Models
     void deleteEngineVersion() { this->engineVersion_ = nullptr;};
     inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
     inline GetSupabaseProjectResponseBody& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
+
+
+    // eni Field Functions 
+    bool hasEni() const { return this->eni_ != nullptr;};
+    void deleteEni() { this->eni_ = nullptr;};
+    inline string eni() const { DARABONBA_PTR_GET_DEFAULT(eni_, "") };
+    inline GetSupabaseProjectResponseBody& setEni(string eni) { DARABONBA_PTR_SET_VALUE(eni_, eni) };
 
 
     // instanceVersion Field Functions 
@@ -247,6 +256,7 @@ namespace Models
     std::shared_ptr<string> engine_ = nullptr;
     // The version of the database engine.
     std::shared_ptr<string> engineVersion_ = nullptr;
+    std::shared_ptr<string> eni_ = nullptr;
     std::shared_ptr<string> instanceVersion_ = nullptr;
     std::shared_ptr<string> payType_ = nullptr;
     // The private (VPC) connection URL for the Supabase Dashboard.
