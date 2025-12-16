@@ -2702,6 +2702,10 @@ FutrueGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const 
   tmpReq.validate();
   RunVideoAnalysisShrinkRequest request = RunVideoAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddDocumentParam()) {
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+  }
+
   if (!!tmpReq.hasExcludeGenerateOptions()) {
     request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
@@ -2727,6 +2731,10 @@ FutrueGenerator<RunVideoAnalysisResponse> Client::runVideoAnalysisWithSSE(const 
   }
 
   json body = {};
+  if (!!request.hasAddDocumentParamShrink()) {
+    body["addDocumentParam"] = request.addDocumentParamShrink();
+  }
+
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
     body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
   }
@@ -2857,6 +2865,10 @@ RunVideoAnalysisResponse Client::runVideoAnalysisWithOptions(const string &works
   tmpReq.validate();
   RunVideoAnalysisShrinkRequest request = RunVideoAnalysisShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddDocumentParam()) {
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+  }
+
   if (!!tmpReq.hasExcludeGenerateOptions()) {
     request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
@@ -2882,6 +2894,10 @@ RunVideoAnalysisResponse Client::runVideoAnalysisWithOptions(const string &works
   }
 
   json body = {};
+  if (!!request.hasAddDocumentParamShrink()) {
+    body["addDocumentParam"] = request.addDocumentParamShrink();
+  }
+
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
     body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
   }
@@ -3487,6 +3503,10 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTaskWithOptions(const
   tmpReq.validate();
   SubmitVideoAnalysisTaskShrinkRequest request = SubmitVideoAnalysisTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAddDocumentParam()) {
+    request.setAddDocumentParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.addDocumentParam(), "addDocumentParam", "json"));
+  }
+
   if (!!tmpReq.hasExcludeGenerateOptions()) {
     request.setExcludeGenerateOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.excludeGenerateOptions(), "excludeGenerateOptions", "json"));
   }
@@ -3512,6 +3532,10 @@ SubmitVideoAnalysisTaskResponse Client::submitVideoAnalysisTaskWithOptions(const
   }
 
   json body = {};
+  if (!!request.hasAddDocumentParamShrink()) {
+    body["addDocumentParam"] = request.addDocumentParamShrink();
+  }
+
   if (!!request.hasAutoRoleRecognitionVideoUrl()) {
     body["autoRoleRecognitionVideoUrl"] = request.autoRoleRecognitionVideoUrl();
   }

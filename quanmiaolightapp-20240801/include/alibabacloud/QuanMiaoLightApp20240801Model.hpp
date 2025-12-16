@@ -164,9 +164,12 @@
 #include <alibabacloud/models/GetTagMiningAnalysisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetVideoAnalysisConfigResponseBodyData.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataHeader.hpp>
+#include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputAddDatasetDocumentsResult.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultVideoShotAnalysisResults.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResult.hpp>
+#include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResultItems.hpp>
+#include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCalculatorResult.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResultVideoCaptions.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoCaptionResult.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoGenerateResultUsage.hpp>
@@ -277,6 +280,8 @@
 #include <alibabacloud/models/RunTagMiningAnalysisResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunTagMiningAnalysisResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunTagMiningAnalysisResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunVideoAnalysisRequestAddDocumentParamDocument.hpp>
+#include <alibabacloud/models/RunVideoAnalysisRequestAddDocumentParam.hpp>
 #include <alibabacloud/models/RunVideoAnalysisRequestFrameSampleMethod.hpp>
 #include <alibabacloud/models/RunVideoAnalysisRequestTextProcessTasks.hpp>
 #include <alibabacloud/models/RunVideoAnalysisRequestVideoCaptionInfoVideoCaptions.hpp>
@@ -284,9 +289,12 @@
 #include <alibabacloud/models/RunVideoAnalysisRequestVideoRolesTimeIntervals.hpp>
 #include <alibabacloud/models/RunVideoAnalysisRequestVideoRoles.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultUsage.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResultVideoShotAnalysisResults.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult.hpp>
+#include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResultItems.hpp>
+#include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResultVideoCaptions.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResultUsage.hpp>
@@ -323,6 +331,8 @@
 #include <alibabacloud/models/SubmitEssayCorrectionTaskResponseBodyData.hpp>
 #include <alibabacloud/models/SubmitTagMiningAnalysisTaskRequestTags.hpp>
 #include <alibabacloud/models/SubmitTagMiningAnalysisTaskResponseBodyData.hpp>
+#include <alibabacloud/models/SubmitVideoAnalysisTaskRequestAddDocumentParamDocument.hpp>
+#include <alibabacloud/models/SubmitVideoAnalysisTaskRequestAddDocumentParam.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestFrameSampleMethod.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestTextProcessTasks.hpp>
 #include <alibabacloud/models/SubmitVideoAnalysisTaskRequestVideoCaptionInfoVideoCaptions.hpp>

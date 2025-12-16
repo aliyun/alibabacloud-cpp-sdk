@@ -13,6 +13,7 @@ namespace Models
   class SubmitVideoAnalysisTaskShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitVideoAnalysisTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(addDocumentParam, addDocumentParamShrink_);
       DARABONBA_PTR_TO_JSON(autoRoleRecognitionVideoUrl, autoRoleRecognitionVideoUrl_);
       DARABONBA_PTR_TO_JSON(deduplicationId, deduplicationId_);
       DARABONBA_PTR_TO_JSON(excludeGenerateOptions, excludeGenerateOptionsShrink_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitVideoAnalysisTaskShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(addDocumentParam, addDocumentParamShrink_);
       DARABONBA_PTR_FROM_JSON(autoRoleRecognitionVideoUrl, autoRoleRecognitionVideoUrl_);
       DARABONBA_PTR_FROM_JSON(deduplicationId, deduplicationId_);
       DARABONBA_PTR_FROM_JSON(excludeGenerateOptions, excludeGenerateOptionsShrink_);
@@ -69,11 +71,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoRoleRecognitionVideoUrl_ == nullptr
-        && return this->deduplicationId_ == nullptr && return this->excludeGenerateOptionsShrink_ == nullptr && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->frameSampleMethodShrink_ == nullptr && return this->generateOptionsShrink_ == nullptr
-        && return this->language_ == nullptr && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr && return this->snapshotInterval_ == nullptr
-        && return this->splitInterval_ == nullptr && return this->splitType_ == nullptr && return this->textProcessTasksShrink_ == nullptr && return this->videoCaptionInfoShrink_ == nullptr && return this->videoExtraInfo_ == nullptr
-        && return this->videoModelCustomPromptTemplate_ == nullptr && return this->videoModelId_ == nullptr && return this->videoRolesShrink_ == nullptr && return this->videoShotFaceIdentityCount_ == nullptr && return this->videoUrl_ == nullptr; };
+    virtual bool empty() const override { return this->addDocumentParamShrink_ == nullptr
+        && return this->autoRoleRecognitionVideoUrl_ == nullptr && return this->deduplicationId_ == nullptr && return this->excludeGenerateOptionsShrink_ == nullptr && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->frameSampleMethodShrink_ == nullptr
+        && return this->generateOptionsShrink_ == nullptr && return this->language_ == nullptr && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr
+        && return this->snapshotInterval_ == nullptr && return this->splitInterval_ == nullptr && return this->splitType_ == nullptr && return this->textProcessTasksShrink_ == nullptr && return this->videoCaptionInfoShrink_ == nullptr
+        && return this->videoExtraInfo_ == nullptr && return this->videoModelCustomPromptTemplate_ == nullptr && return this->videoModelId_ == nullptr && return this->videoRolesShrink_ == nullptr && return this->videoShotFaceIdentityCount_ == nullptr
+        && return this->videoUrl_ == nullptr; };
+    // addDocumentParamShrink Field Functions 
+    bool hasAddDocumentParamShrink() const { return this->addDocumentParamShrink_ != nullptr;};
+    void deleteAddDocumentParamShrink() { this->addDocumentParamShrink_ = nullptr;};
+    inline string addDocumentParamShrink() const { DARABONBA_PTR_GET_DEFAULT(addDocumentParamShrink_, "") };
+    inline SubmitVideoAnalysisTaskShrinkRequest& setAddDocumentParamShrink(string addDocumentParamShrink) { DARABONBA_PTR_SET_VALUE(addDocumentParamShrink_, addDocumentParamShrink) };
+
+
     // autoRoleRecognitionVideoUrl Field Functions 
     bool hasAutoRoleRecognitionVideoUrl() const { return this->autoRoleRecognitionVideoUrl_ != nullptr;};
     void deleteAutoRoleRecognitionVideoUrl() { this->autoRoleRecognitionVideoUrl_ = nullptr;};
@@ -222,6 +232,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> addDocumentParamShrink_ = nullptr;
     std::shared_ptr<string> autoRoleRecognitionVideoUrl_ = nullptr;
     std::shared_ptr<string> deduplicationId_ = nullptr;
     std::shared_ptr<string> excludeGenerateOptionsShrink_ = nullptr;

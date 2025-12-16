@@ -13,11 +13,13 @@ namespace Models
   class GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage& obj) { 
+      DARABONBA_PTR_TO_JSON(imageTokens, imageTokens_);
       DARABONBA_PTR_TO_JSON(inputTokens, inputTokens_);
       DARABONBA_PTR_TO_JSON(outputTokens, outputTokens_);
       DARABONBA_PTR_TO_JSON(totalTokens, totalTokens_);
     };
     friend void from_json(const Darabonba::Json& j, GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage& obj) { 
+      DARABONBA_PTR_FROM_JSON(imageTokens, imageTokens_);
       DARABONBA_PTR_FROM_JSON(inputTokens, inputTokens_);
       DARABONBA_PTR_FROM_JSON(outputTokens, outputTokens_);
       DARABONBA_PTR_FROM_JSON(totalTokens, totalTokens_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->inputTokens_ == nullptr
-        && return this->outputTokens_ == nullptr && return this->totalTokens_ == nullptr; };
+    virtual bool empty() const override { return this->imageTokens_ == nullptr
+        && return this->inputTokens_ == nullptr && return this->outputTokens_ == nullptr && return this->totalTokens_ == nullptr; };
+    // imageTokens Field Functions 
+    bool hasImageTokens() const { return this->imageTokens_ != nullptr;};
+    void deleteImageTokens() { this->imageTokens_ = nullptr;};
+    inline int64_t imageTokens() const { DARABONBA_PTR_GET_DEFAULT(imageTokens_, 0L) };
+    inline GetVideoAnalysisTaskResponseBodyDataPayloadOutputVideoAnalysisResultUsage& setImageTokens(int64_t imageTokens) { DARABONBA_PTR_SET_VALUE(imageTokens_, imageTokens) };
+
+
     // inputTokens Field Functions 
     bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
     void deleteInputTokens() { this->inputTokens_ = nullptr;};
@@ -57,6 +66,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> imageTokens_ = nullptr;
     std::shared_ptr<int64_t> inputTokens_ = nullptr;
     std::shared_ptr<int64_t> outputTokens_ = nullptr;
     std::shared_ptr<int64_t> totalTokens_ = nullptr;

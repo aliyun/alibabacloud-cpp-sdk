@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RUNVIDEOANALYSISREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_RUNVIDEOANALYSISREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/RunVideoAnalysisRequestAddDocumentParam.hpp>
 #include <vector>
 #include <alibabacloud/models/RunVideoAnalysisRequestFrameSampleMethod.hpp>
 #include <alibabacloud/models/RunVideoAnalysisRequestTextProcessTasks.hpp>
@@ -18,6 +19,7 @@ namespace Models
   class RunVideoAnalysisRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunVideoAnalysisRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(addDocumentParam, addDocumentParam_);
       DARABONBA_PTR_TO_JSON(autoRoleRecognitionVideoUrl, autoRoleRecognitionVideoUrl_);
       DARABONBA_PTR_TO_JSON(excludeGenerateOptions, excludeGenerateOptions_);
       DARABONBA_PTR_TO_JSON(faceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
@@ -42,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(videoUrl, videoUrl_);
     };
     friend void from_json(const Darabonba::Json& j, RunVideoAnalysisRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(addDocumentParam, addDocumentParam_);
       DARABONBA_PTR_FROM_JSON(autoRoleRecognitionVideoUrl, autoRoleRecognitionVideoUrl_);
       DARABONBA_PTR_FROM_JSON(excludeGenerateOptions, excludeGenerateOptions_);
       DARABONBA_PTR_FROM_JSON(faceIdentitySimilarityMinScore, faceIdentitySimilarityMinScore_);
@@ -76,12 +79,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoRoleRecognitionVideoUrl_ == nullptr
-        && return this->excludeGenerateOptions_ == nullptr && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->frameSampleMethod_ == nullptr && return this->generateOptions_ == nullptr && return this->language_ == nullptr
-        && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr && return this->originalSessionId_ == nullptr && return this->snapshotInterval_ == nullptr
-        && return this->splitInterval_ == nullptr && return this->splitType_ == nullptr && return this->taskId_ == nullptr && return this->textProcessTasks_ == nullptr && return this->videoCaptionInfo_ == nullptr
-        && return this->videoExtraInfo_ == nullptr && return this->videoModelCustomPromptTemplate_ == nullptr && return this->videoModelId_ == nullptr && return this->videoRoles_ == nullptr && return this->videoShotFaceIdentityCount_ == nullptr
-        && return this->videoUrl_ == nullptr; };
+    virtual bool empty() const override { return this->addDocumentParam_ == nullptr
+        && return this->autoRoleRecognitionVideoUrl_ == nullptr && return this->excludeGenerateOptions_ == nullptr && return this->faceIdentitySimilarityMinScore_ == nullptr && return this->frameSampleMethod_ == nullptr && return this->generateOptions_ == nullptr
+        && return this->language_ == nullptr && return this->modelCustomPromptTemplate_ == nullptr && return this->modelCustomPromptTemplateId_ == nullptr && return this->modelId_ == nullptr && return this->originalSessionId_ == nullptr
+        && return this->snapshotInterval_ == nullptr && return this->splitInterval_ == nullptr && return this->splitType_ == nullptr && return this->taskId_ == nullptr && return this->textProcessTasks_ == nullptr
+        && return this->videoCaptionInfo_ == nullptr && return this->videoExtraInfo_ == nullptr && return this->videoModelCustomPromptTemplate_ == nullptr && return this->videoModelId_ == nullptr && return this->videoRoles_ == nullptr
+        && return this->videoShotFaceIdentityCount_ == nullptr && return this->videoUrl_ == nullptr; };
+    // addDocumentParam Field Functions 
+    bool hasAddDocumentParam() const { return this->addDocumentParam_ != nullptr;};
+    void deleteAddDocumentParam() { this->addDocumentParam_ = nullptr;};
+    inline const RunVideoAnalysisRequestAddDocumentParam & addDocumentParam() const { DARABONBA_PTR_GET_CONST(addDocumentParam_, RunVideoAnalysisRequestAddDocumentParam) };
+    inline RunVideoAnalysisRequestAddDocumentParam addDocumentParam() { DARABONBA_PTR_GET(addDocumentParam_, RunVideoAnalysisRequestAddDocumentParam) };
+    inline RunVideoAnalysisRequest& setAddDocumentParam(const RunVideoAnalysisRequestAddDocumentParam & addDocumentParam) { DARABONBA_PTR_SET_VALUE(addDocumentParam_, addDocumentParam) };
+    inline RunVideoAnalysisRequest& setAddDocumentParam(RunVideoAnalysisRequestAddDocumentParam && addDocumentParam) { DARABONBA_PTR_SET_RVALUE(addDocumentParam_, addDocumentParam) };
+
+
     // autoRoleRecognitionVideoUrl Field Functions 
     bool hasAutoRoleRecognitionVideoUrl() const { return this->autoRoleRecognitionVideoUrl_ != nullptr;};
     void deleteAutoRoleRecognitionVideoUrl() { this->autoRoleRecognitionVideoUrl_ = nullptr;};
@@ -249,6 +261,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<RunVideoAnalysisRequestAddDocumentParam> addDocumentParam_ = nullptr;
     std::shared_ptr<string> autoRoleRecognitionVideoUrl_ = nullptr;
     std::shared_ptr<vector<string>> excludeGenerateOptions_ = nullptr;
     std::shared_ptr<float> faceIdentitySimilarityMinScore_ = nullptr;

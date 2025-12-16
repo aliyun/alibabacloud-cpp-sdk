@@ -2,7 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_RUNVIDEOANALYSISRESPONSEBODYPAYLOADOUTPUT_HPP_
 #define ALIBABACLOUD_MODELS_RUNVIDEOANALYSISRESPONSEBODYPAYLOADOUTPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult.hpp>
+#include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult.hpp>
 #include <alibabacloud/models/RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult.hpp>
 #include <vector>
@@ -22,8 +24,10 @@ namespace Models
   class RunVideoAnalysisResponseBodyPayloadOutput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunVideoAnalysisResponseBodyPayloadOutput& obj) { 
+      DARABONBA_PTR_TO_JSON(addDatasetDocumentsResult, addDatasetDocumentsResult_);
       DARABONBA_PTR_TO_JSON(resultJsonFileUrl, resultJsonFileUrl_);
       DARABONBA_PTR_TO_JSON(videoAnalysisResult, videoAnalysisResult_);
+      DARABONBA_PTR_TO_JSON(videoCalculatorResult, videoCalculatorResult_);
       DARABONBA_PTR_TO_JSON(videoCaptionResult, videoCaptionResult_);
       DARABONBA_PTR_TO_JSON(videoGenerateResult, videoGenerateResult_);
       DARABONBA_PTR_TO_JSON(videoGenerateResults, videoGenerateResults_);
@@ -33,8 +37,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(videoTitleGenerateResult, videoTitleGenerateResult_);
     };
     friend void from_json(const Darabonba::Json& j, RunVideoAnalysisResponseBodyPayloadOutput& obj) { 
+      DARABONBA_PTR_FROM_JSON(addDatasetDocumentsResult, addDatasetDocumentsResult_);
       DARABONBA_PTR_FROM_JSON(resultJsonFileUrl, resultJsonFileUrl_);
       DARABONBA_PTR_FROM_JSON(videoAnalysisResult, videoAnalysisResult_);
+      DARABONBA_PTR_FROM_JSON(videoCalculatorResult, videoCalculatorResult_);
       DARABONBA_PTR_FROM_JSON(videoCaptionResult, videoCaptionResult_);
       DARABONBA_PTR_FROM_JSON(videoGenerateResult, videoGenerateResult_);
       DARABONBA_PTR_FROM_JSON(videoGenerateResults, videoGenerateResults_);
@@ -54,9 +60,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->resultJsonFileUrl_ == nullptr
-        && return this->videoAnalysisResult_ == nullptr && return this->videoCaptionResult_ == nullptr && return this->videoGenerateResult_ == nullptr && return this->videoGenerateResults_ == nullptr && return this->videoMindMappingGenerateResult_ == nullptr
-        && return this->videoRoleRecognitionResult_ == nullptr && return this->videoShotSnapshotResult_ == nullptr && return this->videoTitleGenerateResult_ == nullptr; };
+    virtual bool empty() const override { return this->addDatasetDocumentsResult_ == nullptr
+        && return this->resultJsonFileUrl_ == nullptr && return this->videoAnalysisResult_ == nullptr && return this->videoCalculatorResult_ == nullptr && return this->videoCaptionResult_ == nullptr && return this->videoGenerateResult_ == nullptr
+        && return this->videoGenerateResults_ == nullptr && return this->videoMindMappingGenerateResult_ == nullptr && return this->videoRoleRecognitionResult_ == nullptr && return this->videoShotSnapshotResult_ == nullptr && return this->videoTitleGenerateResult_ == nullptr; };
+    // addDatasetDocumentsResult Field Functions 
+    bool hasAddDatasetDocumentsResult() const { return this->addDatasetDocumentsResult_ != nullptr;};
+    void deleteAddDatasetDocumentsResult() { this->addDatasetDocumentsResult_ = nullptr;};
+    inline const Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult & addDatasetDocumentsResult() const { DARABONBA_PTR_GET_CONST(addDatasetDocumentsResult_, Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult) };
+    inline Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult addDatasetDocumentsResult() { DARABONBA_PTR_GET(addDatasetDocumentsResult_, Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult) };
+    inline RunVideoAnalysisResponseBodyPayloadOutput& setAddDatasetDocumentsResult(const Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult & addDatasetDocumentsResult) { DARABONBA_PTR_SET_VALUE(addDatasetDocumentsResult_, addDatasetDocumentsResult) };
+    inline RunVideoAnalysisResponseBodyPayloadOutput& setAddDatasetDocumentsResult(Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult && addDatasetDocumentsResult) { DARABONBA_PTR_SET_RVALUE(addDatasetDocumentsResult_, addDatasetDocumentsResult) };
+
+
     // resultJsonFileUrl Field Functions 
     bool hasResultJsonFileUrl() const { return this->resultJsonFileUrl_ != nullptr;};
     void deleteResultJsonFileUrl() { this->resultJsonFileUrl_ = nullptr;};
@@ -71,6 +86,15 @@ namespace Models
     inline Models::RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult videoAnalysisResult() { DARABONBA_PTR_GET(videoAnalysisResult_, Models::RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult) };
     inline RunVideoAnalysisResponseBodyPayloadOutput& setVideoAnalysisResult(const Models::RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult & videoAnalysisResult) { DARABONBA_PTR_SET_VALUE(videoAnalysisResult_, videoAnalysisResult) };
     inline RunVideoAnalysisResponseBodyPayloadOutput& setVideoAnalysisResult(Models::RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult && videoAnalysisResult) { DARABONBA_PTR_SET_RVALUE(videoAnalysisResult_, videoAnalysisResult) };
+
+
+    // videoCalculatorResult Field Functions 
+    bool hasVideoCalculatorResult() const { return this->videoCalculatorResult_ != nullptr;};
+    void deleteVideoCalculatorResult() { this->videoCalculatorResult_ = nullptr;};
+    inline const Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult & videoCalculatorResult() const { DARABONBA_PTR_GET_CONST(videoCalculatorResult_, Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult) };
+    inline Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult videoCalculatorResult() { DARABONBA_PTR_GET(videoCalculatorResult_, Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult) };
+    inline RunVideoAnalysisResponseBodyPayloadOutput& setVideoCalculatorResult(const Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult & videoCalculatorResult) { DARABONBA_PTR_SET_VALUE(videoCalculatorResult_, videoCalculatorResult) };
+    inline RunVideoAnalysisResponseBodyPayloadOutput& setVideoCalculatorResult(Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult && videoCalculatorResult) { DARABONBA_PTR_SET_RVALUE(videoCalculatorResult_, videoCalculatorResult) };
 
 
     // videoCaptionResult Field Functions 
@@ -137,8 +161,10 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::RunVideoAnalysisResponseBodyPayloadOutputAddDatasetDocumentsResult> addDatasetDocumentsResult_ = nullptr;
     std::shared_ptr<string> resultJsonFileUrl_ = nullptr;
     std::shared_ptr<Models::RunVideoAnalysisResponseBodyPayloadOutputVideoAnalysisResult> videoAnalysisResult_ = nullptr;
+    std::shared_ptr<Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCalculatorResult> videoCalculatorResult_ = nullptr;
     std::shared_ptr<Models::RunVideoAnalysisResponseBodyPayloadOutputVideoCaptionResult> videoCaptionResult_ = nullptr;
     std::shared_ptr<Models::RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResult> videoGenerateResult_ = nullptr;
     std::shared_ptr<vector<Models::RunVideoAnalysisResponseBodyPayloadOutputVideoGenerateResults>> videoGenerateResults_ = nullptr;
