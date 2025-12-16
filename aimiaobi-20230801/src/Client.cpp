@@ -3525,12 +3525,18 @@ GetDatasetResponse Client::getDataset(const GetDatasetRequest &request) {
 /**
  * @summary 获取数据集文档
  *
- * @param request GetDatasetDocumentRequest
+ * @param tmpReq GetDatasetDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDatasetDocumentResponse
  */
-GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatasetDocumentRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatasetDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetDatasetDocumentShrinkRequest request = GetDatasetDocumentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasIncludeFields()) {
+    request.setIncludeFieldsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.includeFields(), "IncludeFields", "json"));
+  }
+
   json body = {};
   if (!!request.hasDatasetId()) {
     body["DatasetId"] = request.datasetId();
@@ -3546,6 +3552,10 @@ GetDatasetDocumentResponse Client::getDatasetDocumentWithOptions(const GetDatase
 
   if (!!request.hasDocUuid()) {
     body["DocUuid"] = request.docUuid();
+  }
+
+  if (!!request.hasIncludeFieldsShrink()) {
+    body["IncludeFields"] = request.includeFieldsShrink();
   }
 
   if (!!request.hasWorkspaceId()) {

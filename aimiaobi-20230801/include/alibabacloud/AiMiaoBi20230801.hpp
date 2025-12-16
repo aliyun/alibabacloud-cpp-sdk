@@ -1128,11 +1128,11 @@ namespace AiMiaoBi20230801
       /**
        * @summary 获取数据集文档
        *
-       * @param request GetDatasetDocumentRequest
+       * @param tmpReq GetDatasetDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDatasetDocumentResponse
        */
-      Models::GetDatasetDocumentResponse getDatasetDocumentWithOptions(const Models::GetDatasetDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::GetDatasetDocumentResponse getDatasetDocumentWithOptions(const Models::GetDatasetDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取数据集文档

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ADDDATASETDOCUMENTREQUESTDOCUMENT_HPP_
 #define ALIBABACLOUD_MODELS_ADDDATASETDOCUMENTREQUESTDOCUMENT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddDatasetDocumentRequestDocumentMetadata.hpp>
 #include <vector>
 #include <alibabacloud/models/AddDatasetDocumentRequestDocumentMultimodalMedias.hpp>
 using namespace std;
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Extend1, extend1_);
       DARABONBA_PTR_TO_JSON(Extend2, extend2_);
       DARABONBA_PTR_TO_JSON(Extend3, extend3_);
+      DARABONBA_PTR_TO_JSON(Metadata, metadata_);
       DARABONBA_PTR_TO_JSON(MultimodalIndexName, multimodalIndexName_);
       DARABONBA_PTR_TO_JSON(MultimodalMedias, multimodalMedias_);
       DARABONBA_PTR_TO_JSON(PubTime, pubTime_);
@@ -40,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Extend1, extend1_);
       DARABONBA_PTR_FROM_JSON(Extend2, extend2_);
       DARABONBA_PTR_FROM_JSON(Extend3, extend3_);
+      DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(MultimodalIndexName, multimodalIndexName_);
       DARABONBA_PTR_FROM_JSON(MultimodalMedias, multimodalMedias_);
       DARABONBA_PTR_FROM_JSON(PubTime, pubTime_);
@@ -61,8 +64,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
         && return this->disableHandleMultimodalMedia_ == nullptr && return this->docId_ == nullptr && return this->docType_ == nullptr && return this->docUuid_ == nullptr && return this->extend1_ == nullptr
-        && return this->extend2_ == nullptr && return this->extend3_ == nullptr && return this->multimodalIndexName_ == nullptr && return this->multimodalMedias_ == nullptr && return this->pubTime_ == nullptr
-        && return this->sourceFrom_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr; };
+        && return this->extend2_ == nullptr && return this->extend3_ == nullptr && return this->metadata_ == nullptr && return this->multimodalIndexName_ == nullptr && return this->multimodalMedias_ == nullptr
+        && return this->pubTime_ == nullptr && return this->sourceFrom_ == nullptr && return this->summary_ == nullptr && return this->title_ == nullptr && return this->url_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -117,6 +120,15 @@ namespace Models
     void deleteExtend3() { this->extend3_ = nullptr;};
     inline string extend3() const { DARABONBA_PTR_GET_DEFAULT(extend3_, "") };
     inline AddDatasetDocumentRequestDocument& setExtend3(string extend3) { DARABONBA_PTR_SET_VALUE(extend3_, extend3) };
+
+
+    // metadata Field Functions 
+    bool hasMetadata() const { return this->metadata_ != nullptr;};
+    void deleteMetadata() { this->metadata_ = nullptr;};
+    inline const Models::AddDatasetDocumentRequestDocumentMetadata & metadata() const { DARABONBA_PTR_GET_CONST(metadata_, Models::AddDatasetDocumentRequestDocumentMetadata) };
+    inline Models::AddDatasetDocumentRequestDocumentMetadata metadata() { DARABONBA_PTR_GET(metadata_, Models::AddDatasetDocumentRequestDocumentMetadata) };
+    inline AddDatasetDocumentRequestDocument& setMetadata(const Models::AddDatasetDocumentRequestDocumentMetadata & metadata) { DARABONBA_PTR_SET_VALUE(metadata_, metadata) };
+    inline AddDatasetDocumentRequestDocument& setMetadata(Models::AddDatasetDocumentRequestDocumentMetadata && metadata) { DARABONBA_PTR_SET_RVALUE(metadata_, metadata) };
 
 
     // multimodalIndexName Field Functions 
@@ -179,6 +191,7 @@ namespace Models
     std::shared_ptr<string> extend1_ = nullptr;
     std::shared_ptr<string> extend2_ = nullptr;
     std::shared_ptr<string> extend3_ = nullptr;
+    std::shared_ptr<Models::AddDatasetDocumentRequestDocumentMetadata> metadata_ = nullptr;
     std::shared_ptr<string> multimodalIndexName_ = nullptr;
     std::shared_ptr<vector<Models::AddDatasetDocumentRequestDocumentMultimodalMedias>> multimodalMedias_ = nullptr;
     std::shared_ptr<string> pubTime_ = nullptr;

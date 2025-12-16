@@ -222,6 +222,7 @@
 #include <alibabacloud/models/GetDatasetResponseBody.hpp>
 #include <alibabacloud/models/GetDatasetResponse.hpp>
 #include <alibabacloud/models/GetDatasetDocumentRequest.hpp>
+#include <alibabacloud/models/GetDatasetDocumentShrinkRequest.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponseBody.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponse.hpp>
 #include <alibabacloud/models/GetDeepWriteTaskRequest.hpp>
@@ -661,6 +662,9 @@
 #include <alibabacloud/models/WritingStyleTemplateFieldEnums.hpp>
 #include <alibabacloud/models/WritingStyleTemplateFieldStyle.hpp>
 #include <alibabacloud/models/AddAuditTermsResponseBodyDataV1.hpp>
+#include <alibabacloud/models/AddDatasetDocumentRequestDocumentMetadataAsrSentences.hpp>
+#include <alibabacloud/models/AddDatasetDocumentRequestDocumentMetadataVideoShots.hpp>
+#include <alibabacloud/models/AddDatasetDocumentRequestDocumentMetadata.hpp>
 #include <alibabacloud/models/AddDatasetDocumentRequestDocumentMultimodalMedias.hpp>
 #include <alibabacloud/models/AddDatasetDocumentRequestDocument.hpp>
 #include <alibabacloud/models/AddDatasetDocumentResponseBodyData.hpp>
@@ -747,6 +751,9 @@
 #include <alibabacloud/models/GetDatasetResponseBodyDataDatasetConfig.hpp>
 #include <alibabacloud/models/GetDatasetResponseBodyDataDocumentHandleConfig.hpp>
 #include <alibabacloud/models/GetDatasetResponseBodyData.hpp>
+#include <alibabacloud/models/GetDatasetDocumentResponseBodyDataMetadataAsrSentences.hpp>
+#include <alibabacloud/models/GetDatasetDocumentResponseBodyDataMetadataVideoShots.hpp>
+#include <alibabacloud/models/GetDatasetDocumentResponseBodyDataMetadata.hpp>
 #include <alibabacloud/models/GetDatasetDocumentResponseBodyData.hpp>
 #include <alibabacloud/models/GetDeepWriteTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GetDeepWriteTaskResultResponseBodyData.hpp>
