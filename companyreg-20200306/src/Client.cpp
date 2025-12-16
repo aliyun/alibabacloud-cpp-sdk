@@ -94,6 +94,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 服务单授权
+ *
  * @param request BindProduceAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BindProduceAuthorizationResponse
@@ -131,6 +133,8 @@ BindProduceAuthorizationResponse Client::bindProduceAuthorizationWithOptions(con
 }
 
 /**
+ * @summary 服务单授权
+ *
  * @param request BindProduceAuthorizationRequest
  * @return BindProduceAuthorizationResponse
  */
@@ -1906,6 +1910,10 @@ TransferIntentionOwnerResponse Client::transferIntentionOwnerWithOptions(const T
     query["BizType"] = request.bizType();
   }
 
+  if (!!request.hasEmployeeCode()) {
+    query["EmployeeCode"] = request.employeeCode();
+  }
+
   if (!!request.hasPersonId()) {
     query["PersonId"] = request.personId();
   }
@@ -1958,6 +1966,10 @@ TransferProduceOwnerResponse Client::transferProduceOwnerWithOptions(const Trans
 
   if (!!request.hasBizType()) {
     query["BizType"] = request.bizType();
+  }
+
+  if (!!request.hasEmployeeCode()) {
+    query["EmployeeCode"] = request.employeeCode();
   }
 
   if (!!request.hasPersonId()) {

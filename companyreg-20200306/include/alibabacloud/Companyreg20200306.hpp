@@ -21,6 +21,8 @@ namespace Companyreg20200306
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 服务单授权
+       *
        * @param request BindProduceAuthorizationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BindProduceAuthorizationResponse
@@ -28,6 +30,8 @@ namespace Companyreg20200306
       Models::BindProduceAuthorizationResponse bindProduceAuthorizationWithOptions(const Models::BindProduceAuthorizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 服务单授权
+       *
        * @param request BindProduceAuthorizationRequest
        * @return BindProduceAuthorizationResponse
        */

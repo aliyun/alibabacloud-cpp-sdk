@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const TransferProduceOwnerRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
+      DARABONBA_PTR_TO_JSON(EmployeeCode, employeeCode_);
       DARABONBA_PTR_TO_JSON(PersonId, personId_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
     };
     friend void from_json(const Darabonba::Json& j, TransferProduceOwnerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
+      DARABONBA_PTR_FROM_JSON(EmployeeCode, employeeCode_);
       DARABONBA_PTR_FROM_JSON(PersonId, personId_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && return this->bizType_ == nullptr && return this->personId_ == nullptr && return this->remark_ == nullptr; };
+        && return this->bizType_ == nullptr && return this->employeeCode_ == nullptr && return this->personId_ == nullptr && return this->remark_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteBizType() { this->bizType_ = nullptr;};
     inline string bizType() const { DARABONBA_PTR_GET_DEFAULT(bizType_, "") };
     inline TransferProduceOwnerRequest& setBizType(string bizType) { DARABONBA_PTR_SET_VALUE(bizType_, bizType) };
+
+
+    // employeeCode Field Functions 
+    bool hasEmployeeCode() const { return this->employeeCode_ != nullptr;};
+    void deleteEmployeeCode() { this->employeeCode_ = nullptr;};
+    inline string employeeCode() const { DARABONBA_PTR_GET_DEFAULT(employeeCode_, "") };
+    inline TransferProduceOwnerRequest& setEmployeeCode(string employeeCode) { DARABONBA_PTR_SET_VALUE(employeeCode_, employeeCode) };
 
 
     // personId Field Functions 
@@ -70,7 +79,7 @@ namespace Models
     std::shared_ptr<string> bizId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> bizType_ = nullptr;
-    // This parameter is required.
+    std::shared_ptr<string> employeeCode_ = nullptr;
     std::shared_ptr<int32_t> personId_ = nullptr;
     std::shared_ptr<string> remark_ = nullptr;
   };
