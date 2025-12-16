@@ -8995,6 +8995,10 @@ ModifyNetworkRuleAttributeResponse Client::modifyNetworkRuleAttributeWithOptions
     query["InstanceId"] = request.instanceId();
   }
 
+  if (!!request.hasModule()) {
+    query["Module"] = request.module();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());

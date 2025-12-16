@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ForwardProtocol, forwardProtocol_);
       DARABONBA_PTR_TO_JSON(FrontendPort, frontendPort_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Module, module_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNetworkRuleAttributeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(ForwardProtocol, forwardProtocol_);
       DARABONBA_PTR_FROM_JSON(FrontendPort, frontendPort_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Module, module_);
     };
     ModifyNetworkRuleAttributeRequest() = default ;
     ModifyNetworkRuleAttributeRequest(const ModifyNetworkRuleAttributeRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->forwardProtocol_ == nullptr && return this->frontendPort_ == nullptr && return this->instanceId_ == nullptr; };
+        && return this->forwardProtocol_ == nullptr && return this->frontendPort_ == nullptr && return this->instanceId_ == nullptr && return this->module_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -63,6 +65,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ModifyNetworkRuleAttributeRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // module Field Functions 
+    bool hasModule() const { return this->module_ != nullptr;};
+    void deleteModule() { this->module_ = nullptr;};
+    inline string module() const { DARABONBA_PTR_GET_DEFAULT(module_, "") };
+    inline ModifyNetworkRuleAttributeRequest& setModule(string module) { DARABONBA_PTR_SET_VALUE(module_, module) };
 
 
   protected:
@@ -114,6 +123,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> instanceId_ = nullptr;
+    std::shared_ptr<string> module_ = nullptr;
   };
 
   } // namespace Models
