@@ -1469,6 +1469,10 @@ CreateVaultResponse Client::createVaultWithOptions(const CreateVaultRequest &req
     query["KmsKeyId"] = request.kmsKeyId();
   }
 
+  if (!!request.hasReplication()) {
+    query["Replication"] = request.replication();
+  }
+
   if (!!request.hasVaultName()) {
     query["VaultName"] = request.vaultName();
   }
@@ -1520,6 +1524,56 @@ CreateVaultResponse Client::createVaultWithOptions(const CreateVaultRequest &req
 CreateVaultResponse Client::createVault(const CreateVaultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createVaultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建备份库复制
+ *
+ * @param request CreateVaultReplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVaultReplicationResponse
+ */
+CreateVaultReplicationResponse Client::createVaultReplicationWithOptions(const CreateVaultReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasReplicationSourceRegionId()) {
+    query["ReplicationSourceRegionId"] = request.replicationSourceRegionId();
+  }
+
+  if (!!request.hasReplicationSourceVaultId()) {
+    query["ReplicationSourceVaultId"] = request.replicationSourceVaultId();
+  }
+
+  if (!!request.hasReplicationTargetVaultId()) {
+    query["ReplicationTargetVaultId"] = request.replicationTargetVaultId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateVaultReplication"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVaultReplicationResponse>();
+}
+
+/**
+ * @summary 创建备份库复制
+ *
+ * @param request CreateVaultReplicationRequest
+ * @return CreateVaultReplicationResponse
+ */
+CreateVaultReplicationResponse Client::createVaultReplication(const CreateVaultReplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVaultReplicationWithOptions(request, runtime);
 }
 
 /**
@@ -2210,6 +2264,56 @@ DeleteVaultResponse Client::deleteVaultWithOptions(const DeleteVaultRequest &req
 DeleteVaultResponse Client::deleteVault(const DeleteVaultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteVaultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 关闭备份库复制
+ *
+ * @param request DeleteVaultReplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVaultReplicationResponse
+ */
+DeleteVaultReplicationResponse Client::deleteVaultReplicationWithOptions(const DeleteVaultReplicationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasReplicationSourceRegionId()) {
+    query["ReplicationSourceRegionId"] = request.replicationSourceRegionId();
+  }
+
+  if (!!request.hasReplicationSourceVaultId()) {
+    query["ReplicationSourceVaultId"] = request.replicationSourceVaultId();
+  }
+
+  if (!!request.hasReplicationTargetVaultId()) {
+    query["ReplicationTargetVaultId"] = request.replicationTargetVaultId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVaultReplication"},
+    {"version" , "2017-09-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVaultReplicationResponse>();
+}
+
+/**
+ * @summary 关闭备份库复制
+ *
+ * @param request DeleteVaultReplicationRequest
+ * @return DeleteVaultReplicationResponse
+ */
+DeleteVaultReplicationResponse Client::deleteVaultReplication(const DeleteVaultReplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVaultReplicationWithOptions(request, runtime);
 }
 
 /**
@@ -3619,6 +3723,10 @@ DescribeVaultsResponse Client::describeVaultsWithOptions(const DescribeVaultsReq
     query["PageSize"] = request.pageSize();
   }
 
+  if (!!request.hasReplication()) {
+    query["Replication"] = request.replication();
+  }
+
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.resourceGroupId();
   }
@@ -3633,6 +3741,10 @@ DescribeVaultsResponse Client::describeVaultsWithOptions(const DescribeVaultsReq
 
   if (!!request.hasVaultName()) {
     query["VaultName"] = request.vaultName();
+  }
+
+  if (!!request.hasVaultOwnerId()) {
+    query["VaultOwnerId"] = request.vaultOwnerId();
   }
 
   if (!!request.hasVaultRegionId()) {

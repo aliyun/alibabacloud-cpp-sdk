@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_TO_JSON(KmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_TO_JSON(Replication, replication_);
       DARABONBA_PTR_TO_JSON(VaultName, vaultName_);
       DARABONBA_PTR_TO_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_TO_JSON(VaultStorageClass, vaultStorageClass_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_FROM_JSON(KmsKeyId, kmsKeyId_);
+      DARABONBA_PTR_FROM_JSON(Replication, replication_);
       DARABONBA_PTR_FROM_JSON(VaultName, vaultName_);
       DARABONBA_PTR_FROM_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_FROM_JSON(VaultStorageClass, vaultStorageClass_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->encryptType_ == nullptr && return this->kmsKeyId_ == nullptr && return this->vaultName_ == nullptr && return this->vaultRegionId_ == nullptr && return this->vaultStorageClass_ == nullptr
-        && return this->vaultType_ == nullptr && return this->wormEnabled_ == nullptr; };
+        && return this->encryptType_ == nullptr && return this->kmsKeyId_ == nullptr && return this->replication_ == nullptr && return this->vaultName_ == nullptr && return this->vaultRegionId_ == nullptr
+        && return this->vaultStorageClass_ == nullptr && return this->vaultType_ == nullptr && return this->wormEnabled_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteKmsKeyId() { this->kmsKeyId_ = nullptr;};
     inline string kmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
     inline CreateVaultRequest& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
+
+
+    // replication Field Functions 
+    bool hasReplication() const { return this->replication_ != nullptr;};
+    void deleteReplication() { this->replication_ = nullptr;};
+    inline bool replication() const { DARABONBA_PTR_GET_DEFAULT(replication_, false) };
+    inline CreateVaultRequest& setReplication(bool replication) { DARABONBA_PTR_SET_VALUE(replication_, replication) };
 
 
     // vaultName Field Functions 
@@ -112,6 +121,7 @@ namespace Models
     std::shared_ptr<string> encryptType_ = nullptr;
     // The customer master key (CMK) created in KMS or the alias of the key. This parameter is required only if you set the EncryptType parameter to KMS.
     std::shared_ptr<string> kmsKeyId_ = nullptr;
+    std::shared_ptr<bool> replication_ = nullptr;
     // The name of the backup vault. The name must be 1 to 64 characters in length.
     // 
     // This parameter is required.

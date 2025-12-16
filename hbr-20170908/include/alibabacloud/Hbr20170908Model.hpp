@@ -62,6 +62,9 @@
 #include <alibabacloud/models/CreateVaultRequest.hpp>
 #include <alibabacloud/models/CreateVaultResponseBody.hpp>
 #include <alibabacloud/models/CreateVaultResponse.hpp>
+#include <alibabacloud/models/CreateVaultReplicationRequest.hpp>
+#include <alibabacloud/models/CreateVaultReplicationResponseBody.hpp>
+#include <alibabacloud/models/CreateVaultReplicationResponse.hpp>
 #include <alibabacloud/models/DeleteAirEcsInstanceRequest.hpp>
 #include <alibabacloud/models/DeleteAirEcsInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteAirEcsInstanceResponseBody.hpp>
@@ -104,6 +107,9 @@
 #include <alibabacloud/models/DeleteVaultRequest.hpp>
 #include <alibabacloud/models/DeleteVaultResponseBody.hpp>
 #include <alibabacloud/models/DeleteVaultResponse.hpp>
+#include <alibabacloud/models/DeleteVaultReplicationRequest.hpp>
+#include <alibabacloud/models/DeleteVaultReplicationResponseBody.hpp>
+#include <alibabacloud/models/DeleteVaultReplicationResponse.hpp>
 #include <alibabacloud/models/DescribeBackupClientsRequest.hpp>
 #include <alibabacloud/models/DescribeBackupClientsShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeBackupClientsResponseBody.hpp>
@@ -360,6 +366,7 @@
 #include <alibabacloud/models/DescribeVaultsRequestTag.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultReplicationProgress.hpp>
+#include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultSourceTypes.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultTagsTag.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultTags.hpp>

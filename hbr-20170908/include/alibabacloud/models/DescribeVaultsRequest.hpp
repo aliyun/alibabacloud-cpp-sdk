@@ -17,22 +17,26 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeVaultsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(Replication, replication_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VaultId, vaultId_);
       DARABONBA_PTR_TO_JSON(VaultName, vaultName_);
+      DARABONBA_PTR_TO_JSON(VaultOwnerId, vaultOwnerId_);
       DARABONBA_PTR_TO_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_TO_JSON(VaultType, vaultType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVaultsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(Replication, replication_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VaultId, vaultId_);
       DARABONBA_PTR_FROM_JSON(VaultName, vaultName_);
+      DARABONBA_PTR_FROM_JSON(VaultOwnerId, vaultOwnerId_);
       DARABONBA_PTR_FROM_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_FROM_JSON(VaultType, vaultType_);
     };
@@ -48,8 +52,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr && return this->vaultId_ == nullptr
-        && return this->vaultName_ == nullptr && return this->vaultRegionId_ == nullptr && return this->vaultType_ == nullptr; };
+        && return this->pageSize_ == nullptr && return this->replication_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->tag_ == nullptr
+        && return this->vaultId_ == nullptr && return this->vaultName_ == nullptr && return this->vaultOwnerId_ == nullptr && return this->vaultRegionId_ == nullptr && return this->vaultType_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -62,6 +66,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline DescribeVaultsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // replication Field Functions 
+    bool hasReplication() const { return this->replication_ != nullptr;};
+    void deleteReplication() { this->replication_ = nullptr;};
+    inline bool replication() const { DARABONBA_PTR_GET_DEFAULT(replication_, false) };
+    inline DescribeVaultsRequest& setReplication(bool replication) { DARABONBA_PTR_SET_VALUE(replication_, replication) };
 
 
     // resourceGroupId Field Functions 
@@ -101,6 +112,13 @@ namespace Models
     inline DescribeVaultsRequest& setVaultName(string vaultName) { DARABONBA_PTR_SET_VALUE(vaultName_, vaultName) };
 
 
+    // vaultOwnerId Field Functions 
+    bool hasVaultOwnerId() const { return this->vaultOwnerId_ != nullptr;};
+    void deleteVaultOwnerId() { this->vaultOwnerId_ = nullptr;};
+    inline int64_t vaultOwnerId() const { DARABONBA_PTR_GET_DEFAULT(vaultOwnerId_, 0L) };
+    inline DescribeVaultsRequest& setVaultOwnerId(int64_t vaultOwnerId) { DARABONBA_PTR_SET_VALUE(vaultOwnerId_, vaultOwnerId) };
+
+
     // vaultRegionId Field Functions 
     bool hasVaultRegionId() const { return this->vaultRegionId_ != nullptr;};
     void deleteVaultRegionId() { this->vaultRegionId_ = nullptr;};
@@ -120,6 +138,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNumber_ = nullptr;
     // The number of entries per page. Valid values: 1 to 99. Default value: 10.
     std::shared_ptr<int32_t> pageSize_ = nullptr;
+    std::shared_ptr<bool> replication_ = nullptr;
     // Resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The status of the backup vault. Valid values:
@@ -135,6 +154,7 @@ namespace Models
     std::shared_ptr<string> vaultId_ = nullptr;
     // The name of the backup vault. The name must be 1 to 64 characters in length.
     std::shared_ptr<string> vaultName_ = nullptr;
+    std::shared_ptr<int64_t> vaultOwnerId_ = nullptr;
     // The region ID to which the backup vault belongs.
     std::shared_ptr<string> vaultRegionId_ = nullptr;
     // Backup repository type. The values are as follows: 

@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultReplicationProgress.hpp>
+#include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultSourceTypes.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultTags.hpp>
 #include <alibabacloud/models/DescribeVaultsResponseBodyVaultsVaultTrialInfo.hpp>
@@ -38,12 +39,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RedundancyType, redundancyType_);
       DARABONBA_PTR_TO_JSON(Replication, replication_);
       DARABONBA_PTR_TO_JSON(ReplicationProgress, replicationProgress_);
+      DARABONBA_PTR_TO_JSON(ReplicationSourceOwnerId, replicationSourceOwnerId_);
       DARABONBA_PTR_TO_JSON(ReplicationSourceRegionId, replicationSourceRegionId_);
       DARABONBA_PTR_TO_JSON(ReplicationSourceVault, replicationSourceVault_);
       DARABONBA_PTR_TO_JSON(ReplicationSourceVaultId, replicationSourceVaultId_);
+      DARABONBA_PTR_TO_JSON(ReplicationStatus, replicationStatus_);
+      DARABONBA_PTR_TO_JSON(ReplicationTargetOwnerId, replicationTargetOwnerId_);
       DARABONBA_PTR_TO_JSON(ReplicationTargetRegionId, replicationTargetRegionId_);
+      DARABONBA_PTR_TO_JSON(ReplicationTargetVaultId, replicationTargetVaultId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Retention, retention_);
+      DARABONBA_PTR_TO_JSON(RsTargetAccountIds, rsTargetAccountIds_);
       DARABONBA_PTR_TO_JSON(SearchEnabled, searchEnabled_);
       DARABONBA_PTR_TO_JSON(SnapshotCount, snapshotCount_);
       DARABONBA_PTR_TO_JSON(SourceTypes, sourceTypes_);
@@ -54,6 +60,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
       DARABONBA_PTR_TO_JSON(VaultId, vaultId_);
       DARABONBA_PTR_TO_JSON(VaultName, vaultName_);
+      DARABONBA_PTR_TO_JSON(VaultOwnerId, vaultOwnerId_);
       DARABONBA_PTR_TO_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_TO_JSON(VaultStatusMessage, vaultStatusMessage_);
       DARABONBA_PTR_TO_JSON(VaultStorageClass, vaultStorageClass_);
@@ -81,12 +88,17 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RedundancyType, redundancyType_);
       DARABONBA_PTR_FROM_JSON(Replication, replication_);
       DARABONBA_PTR_FROM_JSON(ReplicationProgress, replicationProgress_);
+      DARABONBA_PTR_FROM_JSON(ReplicationSourceOwnerId, replicationSourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(ReplicationSourceRegionId, replicationSourceRegionId_);
       DARABONBA_PTR_FROM_JSON(ReplicationSourceVault, replicationSourceVault_);
       DARABONBA_PTR_FROM_JSON(ReplicationSourceVaultId, replicationSourceVaultId_);
+      DARABONBA_PTR_FROM_JSON(ReplicationStatus, replicationStatus_);
+      DARABONBA_PTR_FROM_JSON(ReplicationTargetOwnerId, replicationTargetOwnerId_);
       DARABONBA_PTR_FROM_JSON(ReplicationTargetRegionId, replicationTargetRegionId_);
+      DARABONBA_PTR_FROM_JSON(ReplicationTargetVaultId, replicationTargetVaultId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Retention, retention_);
+      DARABONBA_PTR_FROM_JSON(RsTargetAccountIds, rsTargetAccountIds_);
       DARABONBA_PTR_FROM_JSON(SearchEnabled, searchEnabled_);
       DARABONBA_PTR_FROM_JSON(SnapshotCount, snapshotCount_);
       DARABONBA_PTR_FROM_JSON(SourceTypes, sourceTypes_);
@@ -97,6 +109,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UpdatedTime, updatedTime_);
       DARABONBA_PTR_FROM_JSON(VaultId, vaultId_);
       DARABONBA_PTR_FROM_JSON(VaultName, vaultName_);
+      DARABONBA_PTR_FROM_JSON(VaultOwnerId, vaultOwnerId_);
       DARABONBA_PTR_FROM_JSON(VaultRegionId, vaultRegionId_);
       DARABONBA_PTR_FROM_JSON(VaultStatusMessage, vaultStatusMessage_);
       DARABONBA_PTR_FROM_JSON(VaultStorageClass, vaultStorageClass_);
@@ -118,11 +131,13 @@ namespace Models
         && return this->archiveStorageSize_ == nullptr && return this->backupPlanStatistics_ == nullptr && return this->bucketName_ == nullptr && return this->bytesDone_ == nullptr && return this->chargeType_ == nullptr
         && return this->chargedStorageSize_ == nullptr && return this->compressionAlgorithm_ == nullptr && return this->createdTime_ == nullptr && return this->dedup_ == nullptr && return this->description_ == nullptr
         && return this->encryptType_ == nullptr && return this->indexAvailable_ == nullptr && return this->indexLevel_ == nullptr && return this->indexUpdateTime_ == nullptr && return this->kmsKeyId_ == nullptr
-        && return this->latestReplicationTime_ == nullptr && return this->redundancyType_ == nullptr && return this->replication_ == nullptr && return this->replicationProgress_ == nullptr && return this->replicationSourceRegionId_ == nullptr
-        && return this->replicationSourceVault_ == nullptr && return this->replicationSourceVaultId_ == nullptr && return this->replicationTargetRegionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->retention_ == nullptr
+        && return this->latestReplicationTime_ == nullptr && return this->redundancyType_ == nullptr && return this->replication_ == nullptr && return this->replicationProgress_ == nullptr && return this->replicationSourceOwnerId_ == nullptr
+        && return this->replicationSourceRegionId_ == nullptr && return this->replicationSourceVault_ == nullptr && return this->replicationSourceVaultId_ == nullptr && return this->replicationStatus_ == nullptr && return this->replicationTargetOwnerId_ == nullptr
+        && return this->replicationTargetRegionId_ == nullptr && return this->replicationTargetVaultId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->retention_ == nullptr && return this->rsTargetAccountIds_ == nullptr
         && return this->searchEnabled_ == nullptr && return this->snapshotCount_ == nullptr && return this->sourceTypes_ == nullptr && return this->status_ == nullptr && return this->storageSize_ == nullptr
         && return this->tags_ == nullptr && return this->trialInfo_ == nullptr && return this->updatedTime_ == nullptr && return this->vaultId_ == nullptr && return this->vaultName_ == nullptr
-        && return this->vaultRegionId_ == nullptr && return this->vaultStatusMessage_ == nullptr && return this->vaultStorageClass_ == nullptr && return this->vaultType_ == nullptr && return this->wormEnabled_ == nullptr; };
+        && return this->vaultOwnerId_ == nullptr && return this->vaultRegionId_ == nullptr && return this->vaultStatusMessage_ == nullptr && return this->vaultStorageClass_ == nullptr && return this->vaultType_ == nullptr
+        && return this->wormEnabled_ == nullptr; };
     // archiveBytesDone Field Functions 
     bool hasArchiveBytesDone() const { return this->archiveBytesDone_ != nullptr;};
     void deleteArchiveBytesDone() { this->archiveBytesDone_ = nullptr;};
@@ -267,6 +282,13 @@ namespace Models
     inline DescribeVaultsResponseBodyVaultsVault& setReplicationProgress(Models::DescribeVaultsResponseBodyVaultsVaultReplicationProgress && replicationProgress) { DARABONBA_PTR_SET_RVALUE(replicationProgress_, replicationProgress) };
 
 
+    // replicationSourceOwnerId Field Functions 
+    bool hasReplicationSourceOwnerId() const { return this->replicationSourceOwnerId_ != nullptr;};
+    void deleteReplicationSourceOwnerId() { this->replicationSourceOwnerId_ = nullptr;};
+    inline int64_t replicationSourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(replicationSourceOwnerId_, 0L) };
+    inline DescribeVaultsResponseBodyVaultsVault& setReplicationSourceOwnerId(int64_t replicationSourceOwnerId) { DARABONBA_PTR_SET_VALUE(replicationSourceOwnerId_, replicationSourceOwnerId) };
+
+
     // replicationSourceRegionId Field Functions 
     bool hasReplicationSourceRegionId() const { return this->replicationSourceRegionId_ != nullptr;};
     void deleteReplicationSourceRegionId() { this->replicationSourceRegionId_ = nullptr;};
@@ -288,11 +310,32 @@ namespace Models
     inline DescribeVaultsResponseBodyVaultsVault& setReplicationSourceVaultId(string replicationSourceVaultId) { DARABONBA_PTR_SET_VALUE(replicationSourceVaultId_, replicationSourceVaultId) };
 
 
+    // replicationStatus Field Functions 
+    bool hasReplicationStatus() const { return this->replicationStatus_ != nullptr;};
+    void deleteReplicationStatus() { this->replicationStatus_ = nullptr;};
+    inline string replicationStatus() const { DARABONBA_PTR_GET_DEFAULT(replicationStatus_, "") };
+    inline DescribeVaultsResponseBodyVaultsVault& setReplicationStatus(string replicationStatus) { DARABONBA_PTR_SET_VALUE(replicationStatus_, replicationStatus) };
+
+
+    // replicationTargetOwnerId Field Functions 
+    bool hasReplicationTargetOwnerId() const { return this->replicationTargetOwnerId_ != nullptr;};
+    void deleteReplicationTargetOwnerId() { this->replicationTargetOwnerId_ = nullptr;};
+    inline int64_t replicationTargetOwnerId() const { DARABONBA_PTR_GET_DEFAULT(replicationTargetOwnerId_, 0L) };
+    inline DescribeVaultsResponseBodyVaultsVault& setReplicationTargetOwnerId(int64_t replicationTargetOwnerId) { DARABONBA_PTR_SET_VALUE(replicationTargetOwnerId_, replicationTargetOwnerId) };
+
+
     // replicationTargetRegionId Field Functions 
     bool hasReplicationTargetRegionId() const { return this->replicationTargetRegionId_ != nullptr;};
     void deleteReplicationTargetRegionId() { this->replicationTargetRegionId_ = nullptr;};
     inline string replicationTargetRegionId() const { DARABONBA_PTR_GET_DEFAULT(replicationTargetRegionId_, "") };
     inline DescribeVaultsResponseBodyVaultsVault& setReplicationTargetRegionId(string replicationTargetRegionId) { DARABONBA_PTR_SET_VALUE(replicationTargetRegionId_, replicationTargetRegionId) };
+
+
+    // replicationTargetVaultId Field Functions 
+    bool hasReplicationTargetVaultId() const { return this->replicationTargetVaultId_ != nullptr;};
+    void deleteReplicationTargetVaultId() { this->replicationTargetVaultId_ = nullptr;};
+    inline string replicationTargetVaultId() const { DARABONBA_PTR_GET_DEFAULT(replicationTargetVaultId_, "") };
+    inline DescribeVaultsResponseBodyVaultsVault& setReplicationTargetVaultId(string replicationTargetVaultId) { DARABONBA_PTR_SET_VALUE(replicationTargetVaultId_, replicationTargetVaultId) };
 
 
     // resourceGroupId Field Functions 
@@ -307,6 +350,15 @@ namespace Models
     void deleteRetention() { this->retention_ = nullptr;};
     inline int64_t retention() const { DARABONBA_PTR_GET_DEFAULT(retention_, 0L) };
     inline DescribeVaultsResponseBodyVaultsVault& setRetention(int64_t retention) { DARABONBA_PTR_SET_VALUE(retention_, retention) };
+
+
+    // rsTargetAccountIds Field Functions 
+    bool hasRsTargetAccountIds() const { return this->rsTargetAccountIds_ != nullptr;};
+    void deleteRsTargetAccountIds() { this->rsTargetAccountIds_ = nullptr;};
+    inline const Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds & rsTargetAccountIds() const { DARABONBA_PTR_GET_CONST(rsTargetAccountIds_, Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds) };
+    inline Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds rsTargetAccountIds() { DARABONBA_PTR_GET(rsTargetAccountIds_, Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds) };
+    inline DescribeVaultsResponseBodyVaultsVault& setRsTargetAccountIds(const Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds & rsTargetAccountIds) { DARABONBA_PTR_SET_VALUE(rsTargetAccountIds_, rsTargetAccountIds) };
+    inline DescribeVaultsResponseBodyVaultsVault& setRsTargetAccountIds(Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds && rsTargetAccountIds) { DARABONBA_PTR_SET_RVALUE(rsTargetAccountIds_, rsTargetAccountIds) };
 
 
     // searchEnabled Field Functions 
@@ -383,6 +435,13 @@ namespace Models
     void deleteVaultName() { this->vaultName_ = nullptr;};
     inline string vaultName() const { DARABONBA_PTR_GET_DEFAULT(vaultName_, "") };
     inline DescribeVaultsResponseBodyVaultsVault& setVaultName(string vaultName) { DARABONBA_PTR_SET_VALUE(vaultName_, vaultName) };
+
+
+    // vaultOwnerId Field Functions 
+    bool hasVaultOwnerId() const { return this->vaultOwnerId_ != nullptr;};
+    void deleteVaultOwnerId() { this->vaultOwnerId_ = nullptr;};
+    inline int64_t vaultOwnerId() const { DARABONBA_PTR_GET_DEFAULT(vaultOwnerId_, 0L) };
+    inline DescribeVaultsResponseBodyVaultsVault& setVaultOwnerId(int64_t vaultOwnerId) { DARABONBA_PTR_SET_VALUE(vaultOwnerId_, vaultOwnerId) };
 
 
     // vaultRegionId Field Functions 
@@ -479,6 +538,7 @@ namespace Models
     std::shared_ptr<bool> replication_ = nullptr;
     // The progress of data synchronization from the backup vault to the mirror vault.
     std::shared_ptr<Models::DescribeVaultsResponseBodyVaultsVaultReplicationProgress> replicationProgress_ = nullptr;
+    std::shared_ptr<int64_t> replicationSourceOwnerId_ = nullptr;
     // The ID of the region in which the source vault resides. This parameter is valid only for remote backup vaults.
     std::shared_ptr<string> replicationSourceRegionId_ = nullptr;
     // Indicate whether the backup vault is the source vault that corresponds to the remote backup vault. Valid values:
@@ -488,12 +548,16 @@ namespace Models
     std::shared_ptr<bool> replicationSourceVault_ = nullptr;
     // The ID of the source vault that corresponds to the remote backup vault.
     std::shared_ptr<string> replicationSourceVaultId_ = nullptr;
+    std::shared_ptr<string> replicationStatus_ = nullptr;
+    std::shared_ptr<int64_t> replicationTargetOwnerId_ = nullptr;
     // Target region for remote backup repository.
     std::shared_ptr<string> replicationTargetRegionId_ = nullptr;
+    std::shared_ptr<string> replicationTargetVaultId_ = nullptr;
     // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     // The retention period of the backup vault. Unit: days.
     std::shared_ptr<int64_t> retention_ = nullptr;
+    std::shared_ptr<Models::DescribeVaultsResponseBodyVaultsVaultRsTargetAccountIds> rsTargetAccountIds_ = nullptr;
     // Indicates whether the backup search feature is enabled.
     std::shared_ptr<bool> searchEnabled_ = nullptr;
     // The number of snapshots in the backup vault.
@@ -519,6 +583,7 @@ namespace Models
     std::shared_ptr<string> vaultId_ = nullptr;
     // The name of the backup vault.
     std::shared_ptr<string> vaultName_ = nullptr;
+    std::shared_ptr<int64_t> vaultOwnerId_ = nullptr;
     // The ID of the region in which the backup vault resides.
     std::shared_ptr<string> vaultRegionId_ = nullptr;
     // The status message that is returned when the backup vault is in the ERROR state. This parameter is valid only for remote backup vaults. Valid values:

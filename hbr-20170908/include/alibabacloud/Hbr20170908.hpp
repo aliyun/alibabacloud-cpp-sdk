@@ -394,6 +394,23 @@ namespace Hbr20170908
       Models::CreateVaultResponse createVault(const Models::CreateVaultRequest &request);
 
       /**
+       * @summary 创建备份库复制
+       *
+       * @param request CreateVaultReplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVaultReplicationResponse
+       */
+      Models::CreateVaultReplicationResponse createVaultReplicationWithOptions(const Models::CreateVaultReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建备份库复制
+       *
+       * @param request CreateVaultReplicationRequest
+       * @return CreateVaultReplicationResponse
+       */
+      Models::CreateVaultReplicationResponse createVaultReplication(const Models::CreateVaultReplicationRequest &request);
+
+      /**
        * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
        *
        * @param tmpReq DeleteAirEcsInstanceRequest
@@ -645,6 +662,23 @@ namespace Hbr20170908
        * @return DeleteVaultResponse
        */
       Models::DeleteVaultResponse deleteVault(const Models::DeleteVaultRequest &request);
+
+      /**
+       * @summary 关闭备份库复制
+       *
+       * @param request DeleteVaultReplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVaultReplicationResponse
+       */
+      Models::DeleteVaultReplicationResponse deleteVaultReplicationWithOptions(const Models::DeleteVaultReplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭备份库复制
+       *
+       * @param request DeleteVaultReplicationRequest
+       * @return DeleteVaultReplicationResponse
+       */
+      Models::DeleteVaultReplicationResponse deleteVaultReplication(const Models::DeleteVaultReplicationRequest &request);
 
       /**
        * @summary Queries the information about one or more HBR clients that meet the specified conditions.
