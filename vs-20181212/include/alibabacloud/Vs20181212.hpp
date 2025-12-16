@@ -2614,11 +2614,11 @@ namespace Vs20181212
       /**
        * @summary 应用上架
        *
-       * @param request UploadCloudAppRequest
+       * @param tmpReq UploadCloudAppRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UploadCloudAppResponse
        */
-      Models::UploadCloudAppResponse uploadCloudAppWithOptions(const Models::UploadCloudAppRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UploadCloudAppResponse uploadCloudAppWithOptions(const Models::UploadCloudAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 应用上架

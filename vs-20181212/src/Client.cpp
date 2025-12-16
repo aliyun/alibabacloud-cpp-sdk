@@ -9411,6 +9411,10 @@ UpdateCloudAppInfoResponse Client::updateCloudAppInfoWithOptions(const UpdateClo
     request.setPatchShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.patch(), "Patch", "json"));
   }
 
+  if (!!tmpReq.hasPkgLabels()) {
+    request.setPkgLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pkgLabels(), "PkgLabels", "json"));
+  }
+
   json query = {};
   if (!!request.hasAppId()) {
     query["AppId"] = request.appId();
@@ -9420,17 +9424,23 @@ UpdateCloudAppInfoResponse Client::updateCloudAppInfoWithOptions(const UpdateClo
     query["Description"] = request.description();
   }
 
-  if (!!request.hasPatchShrink()) {
-    query["Patch"] = request.patchShrink();
+  if (!!request.hasPkgLabelsShrink()) {
+    query["PkgLabels"] = request.pkgLabelsShrink();
   }
 
   if (!!request.hasStablePatchId()) {
     query["StablePatchId"] = request.stablePatchId();
   }
 
+  json body = {};
+  if (!!request.hasPatchShrink()) {
+    body["Patch"] = request.patchShrink();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "UpdateCloudAppInfo"},
     {"version" , "2018-12-12"},
@@ -9737,12 +9747,18 @@ UpdateVsPullStreamInfoConfigResponse Client::updateVsPullStreamInfoConfig(const 
 /**
  * @summary 应用上架
  *
- * @param request UploadCloudAppRequest
+ * @param tmpReq UploadCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UploadCloudAppResponse
  */
-UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UploadCloudAppShrinkRequest request = UploadCloudAppShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasPkgLabels()) {
+    request.setPkgLabelsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.pkgLabels(), "PkgLabels", "json"));
+  }
+
   json query = {};
   if (!!request.hasAppName()) {
     query["AppName"] = request.appName();
@@ -9766,6 +9782,10 @@ UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppReq
 
   if (!!request.hasPkgFormat()) {
     query["PkgFormat"] = request.pkgFormat();
+  }
+
+  if (!!request.hasPkgLabelsShrink()) {
+    query["PkgLabels"] = request.pkgLabelsShrink();
   }
 
   if (!!request.hasPkgType()) {

@@ -17,20 +17,26 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(LatestVersionOnly, latestVersionOnly_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PkgLabel, pkgLabel_);
       DARABONBA_PTR_TO_JSON(PkgType, pkgType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListCloudAppsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(LatestVersionOnly, latestVersionOnly_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PkgLabel, pkgLabel_);
       DARABONBA_PTR_FROM_JSON(PkgType, pkgType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     ListCloudAppsRequest() = default ;
     ListCloudAppsRequest(const ListCloudAppsRequest &) = default ;
@@ -44,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->appName_ == nullptr && return this->appVersion_ == nullptr && return this->endTime_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr
-        && return this->pkgType_ == nullptr && return this->startTime_ == nullptr; };
+        && return this->appName_ == nullptr && return this->appVersion_ == nullptr && return this->endTime_ == nullptr && return this->latestVersionOnly_ == nullptr && return this->pageNumber_ == nullptr
+        && return this->pageSize_ == nullptr && return this->pkgLabel_ == nullptr && return this->pkgType_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -74,6 +80,13 @@ namespace Models
     inline ListCloudAppsRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
+    // latestVersionOnly Field Functions 
+    bool hasLatestVersionOnly() const { return this->latestVersionOnly_ != nullptr;};
+    void deleteLatestVersionOnly() { this->latestVersionOnly_ = nullptr;};
+    inline bool latestVersionOnly() const { DARABONBA_PTR_GET_DEFAULT(latestVersionOnly_, false) };
+    inline ListCloudAppsRequest& setLatestVersionOnly(bool latestVersionOnly) { DARABONBA_PTR_SET_VALUE(latestVersionOnly_, latestVersionOnly) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -86,6 +99,13 @@ namespace Models
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListCloudAppsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // pkgLabel Field Functions 
+    bool hasPkgLabel() const { return this->pkgLabel_ != nullptr;};
+    void deletePkgLabel() { this->pkgLabel_ = nullptr;};
+    inline string pkgLabel() const { DARABONBA_PTR_GET_DEFAULT(pkgLabel_, "") };
+    inline ListCloudAppsRequest& setPkgLabel(string pkgLabel) { DARABONBA_PTR_SET_VALUE(pkgLabel_, pkgLabel) };
 
 
     // pkgType Field Functions 
@@ -102,15 +122,25 @@ namespace Models
     inline ListCloudAppsRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListCloudAppsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
   protected:
     std::shared_ptr<string> appId_ = nullptr;
     std::shared_ptr<string> appName_ = nullptr;
     std::shared_ptr<string> appVersion_ = nullptr;
     std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<bool> latestVersionOnly_ = nullptr;
     std::shared_ptr<int64_t> pageNumber_ = nullptr;
     std::shared_ptr<int64_t> pageSize_ = nullptr;
+    std::shared_ptr<string> pkgLabel_ = nullptr;
     std::shared_ptr<string> pkgType_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
   };
 
   } // namespace Models

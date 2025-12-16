@@ -559,6 +559,7 @@
 #include <alibabacloud/models/UpdateVsPullStreamInfoConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateVsPullStreamInfoConfigResponse.hpp>
 #include <alibabacloud/models/UploadCloudAppRequest.hpp>
+#include <alibabacloud/models/UploadCloudAppShrinkRequest.hpp>
 #include <alibabacloud/models/UploadCloudAppResponseBody.hpp>
 #include <alibabacloud/models/UploadCloudAppResponse.hpp>
 #include <alibabacloud/models/UploadFileRequest.hpp>
