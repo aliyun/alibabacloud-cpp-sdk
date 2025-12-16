@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeCertificatePrivateKeyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EncryptedCode, encryptedCode_);
       DARABONBA_PTR_TO_JSON(Identifier, identifier_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCertificatePrivateKeyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EncryptedCode, encryptedCode_);
       DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
     };
     DescribeCertificatePrivateKeyRequest() = default ;
     DescribeCertificatePrivateKeyRequest(const DescribeCertificatePrivateKeyRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptedCode_ == nullptr
-        && return this->identifier_ == nullptr; };
+        && return this->identifier_ == nullptr && return this->resourceGroupId_ == nullptr; };
     // encryptedCode Field Functions 
     bool hasEncryptedCode() const { return this->encryptedCode_ != nullptr;};
     void deleteEncryptedCode() { this->encryptedCode_ = nullptr;};
@@ -45,6 +47,13 @@ namespace Models
     void deleteIdentifier() { this->identifier_ = nullptr;};
     inline string identifier() const { DARABONBA_PTR_GET_DEFAULT(identifier_, "") };
     inline DescribeCertificatePrivateKeyRequest& setIdentifier(string identifier) { DARABONBA_PTR_SET_VALUE(identifier_, identifier) };
+
+
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline DescribeCertificatePrivateKeyRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
@@ -60,6 +69,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> identifier_ = nullptr;
+    std::shared_ptr<string> resourceGroupId_ = nullptr;
   };
 
   } // namespace Models

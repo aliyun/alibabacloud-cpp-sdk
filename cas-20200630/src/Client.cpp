@@ -1299,6 +1299,10 @@ DescribeCertificatePrivateKeyResponse Client::describeCertificatePrivateKeyWithO
     query["Identifier"] = request.identifier();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1404,6 +1408,52 @@ DescribeClientCertificateResponse Client::describeClientCertificate(const Descri
 }
 
 /**
+ * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+ *
+ * @summary 获取客户端证书
+ *
+ * @param request DescribeClientCertificateForSerialNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClientCertificateForSerialNumberResponse
+ */
+DescribeClientCertificateForSerialNumberResponse Client::describeClientCertificateForSerialNumberWithOptions(const DescribeClientCertificateForSerialNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSerialNumber()) {
+    query["SerialNumber"] = request.serialNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClientCertificateForSerialNumber"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClientCertificateForSerialNumberResponse>();
+}
+
+/**
+ * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+ *
+ * @summary 获取客户端证书
+ *
+ * @param request DescribeClientCertificateForSerialNumberRequest
+ * @return DescribeClientCertificateForSerialNumberResponse
+ */
+DescribeClientCertificateForSerialNumberResponse Client::describeClientCertificateForSerialNumber(const DescribeClientCertificateForSerialNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClientCertificateForSerialNumberWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
  *
  * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
@@ -1451,6 +1501,98 @@ DescribeClientCertificateStatusResponse Client::describeClientCertificateStatusW
 DescribeClientCertificateStatusResponse Client::describeClientCertificateStatus(const DescribeClientCertificateStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeClientCertificateStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取客户端证书状态
+ *
+ * @param request DescribeClientCertificateStatusForSerialNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClientCertificateStatusForSerialNumberResponse
+ */
+DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCertificateStatusForSerialNumberWithOptions(const DescribeClientCertificateStatusForSerialNumberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSerialNumber()) {
+    query["SerialNumber"] = request.serialNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeClientCertificateStatusForSerialNumber"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClientCertificateStatusForSerialNumberResponse>();
+}
+
+/**
+ * @summary 获取客户端证书状态
+ *
+ * @param request DescribeClientCertificateStatusForSerialNumberRequest
+ * @return DescribeClientCertificateStatusForSerialNumberResponse
+ */
+DescribeClientCertificateStatusForSerialNumberResponse Client::describeClientCertificateStatusForSerialNumber(const DescribeClientCertificateStatusForSerialNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClientCertificateStatusForSerialNumberWithOptions(request, runtime);
+}
+
+/**
+ * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+ *
+ * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+ *
+ * @param request DescribePcaAndExternalCACertificateListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePcaAndExternalCACertificateListResponse
+ */
+DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCACertificateListWithOptions(const DescribePcaAndExternalCACertificateListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.currentPage();
+  }
+
+  if (!!request.hasShowSize()) {
+    query["ShowSize"] = request.showSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePcaAndExternalCACertificateList"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePcaAndExternalCACertificateListResponse>();
+}
+
+/**
+ * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+ *
+ * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+ *
+ * @param request DescribePcaAndExternalCACertificateListRequest
+ * @return DescribePcaAndExternalCACertificateListResponse
+ */
+DescribePcaAndExternalCACertificateListResponse Client::describePcaAndExternalCACertificateList(const DescribePcaAndExternalCACertificateListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePcaAndExternalCACertificateListWithOptions(request, runtime);
 }
 
 /**
@@ -1567,6 +1709,48 @@ ListAllEndEntityInstanceResponse Client::listAllEndEntityInstanceWithOptions(con
 ListAllEndEntityInstanceResponse Client::listAllEndEntityInstance(const ListAllEndEntityInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAllEndEntityInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取证书日志
+ *
+ * @param request ListCACertificateLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCACertificateLogResponse
+ */
+ListCACertificateLogResponse Client::listCACertificateLogWithOptions(const ListCACertificateLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentifier()) {
+    query["Identifier"] = request.identifier();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCACertificateLog"},
+    {"version" , "2020-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCACertificateLogResponse>();
+}
+
+/**
+ * @summary 获取证书日志
+ *
+ * @param request ListCACertificateLogRequest
+ * @return ListCACertificateLogResponse
+ */
+ListCACertificateLogResponse Client::listCACertificateLog(const ListCACertificateLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCACertificateLogWithOptions(request, runtime);
 }
 
 /**

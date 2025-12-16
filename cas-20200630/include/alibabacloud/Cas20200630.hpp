@@ -464,6 +464,27 @@ namespace Cas20200630
       Models::DescribeClientCertificateResponse describeClientCertificate(const Models::DescribeClientCertificateRequest &request);
 
       /**
+       * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+       *
+       * @summary 获取客户端证书
+       *
+       * @param request DescribeClientCertificateForSerialNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClientCertificateForSerialNumberResponse
+       */
+      Models::DescribeClientCertificateForSerialNumberResponse describeClientCertificateForSerialNumberWithOptions(const Models::DescribeClientCertificateForSerialNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
+       *
+       * @summary 获取客户端证书
+       *
+       * @param request DescribeClientCertificateForSerialNumberRequest
+       * @return DescribeClientCertificateForSerialNumberResponse
+       */
+      Models::DescribeClientCertificateForSerialNumberResponse describeClientCertificateForSerialNumber(const Models::DescribeClientCertificateForSerialNumberRequest &request);
+
+      /**
        * @summary Queries the status information about client certificates and server certificates by using the unique identifiers of the certificates.
        *
        * @description You can call the DescribeClientCertificateStatus operation to query the status information about multiple client certificates or server certificates at a time by using the unique identifiers of the certificates. For example, you can check whether a certificate is revoked.
@@ -487,6 +508,44 @@ namespace Cas20200630
        * @return DescribeClientCertificateStatusResponse
        */
       Models::DescribeClientCertificateStatusResponse describeClientCertificateStatus(const Models::DescribeClientCertificateStatusRequest &request);
+
+      /**
+       * @summary 获取客户端证书状态
+       *
+       * @param request DescribeClientCertificateStatusForSerialNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClientCertificateStatusForSerialNumberResponse
+       */
+      Models::DescribeClientCertificateStatusForSerialNumberResponse describeClientCertificateStatusForSerialNumberWithOptions(const Models::DescribeClientCertificateStatusForSerialNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取客户端证书状态
+       *
+       * @param request DescribeClientCertificateStatusForSerialNumberRequest
+       * @return DescribeClientCertificateStatusForSerialNumberResponse
+       */
+      Models::DescribeClientCertificateStatusForSerialNumberResponse describeClientCertificateStatusForSerialNumber(const Models::DescribeClientCertificateStatusForSerialNumberRequest &request);
+
+      /**
+       * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+       *
+       * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+       *
+       * @param request DescribePcaAndExternalCACertificateListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePcaAndExternalCACertificateListResponse
+       */
+      Models::DescribePcaAndExternalCACertificateListResponse describePcaAndExternalCACertificateListWithOptions(const Models::DescribePcaAndExternalCACertificateListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
+       *
+       * @summary 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
+       *
+       * @param request DescribePcaAndExternalCACertificateListRequest
+       * @return DescribePcaAndExternalCACertificateListResponse
+       */
+      Models::DescribePcaAndExternalCACertificateListResponse describePcaAndExternalCACertificateList(const Models::DescribePcaAndExternalCACertificateListRequest &request);
 
       /**
        * @summary Queries the status information about a private root certificate authority (CA) instance or a private intermediate CA instance that you purchase by using the Certificate Management Service console.
@@ -529,6 +588,23 @@ namespace Cas20200630
        * @return ListAllEndEntityInstanceResponse
        */
       Models::ListAllEndEntityInstanceResponse listAllEndEntityInstance(const Models::ListAllEndEntityInstanceRequest &request);
+
+      /**
+       * @summary 获取证书日志
+       *
+       * @param request ListCACertificateLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCACertificateLogResponse
+       */
+      Models::ListCACertificateLogResponse listCACertificateLogWithOptions(const Models::ListCACertificateLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取证书日志
+       *
+       * @param request ListCACertificateLogRequest
+       * @return ListCACertificateLogResponse
+       */
+      Models::ListCACertificateLogResponse listCACertificateLog(const Models::ListCACertificateLogRequest &request);
 
       /**
        * @summary 获取证书列表
