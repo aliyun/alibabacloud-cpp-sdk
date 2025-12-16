@@ -4601,6 +4601,86 @@ DescribeAuditLogRecordsResponse Client::describeAuditLogRecords(const DescribeAu
 }
 
 /**
+ * @summary 查询自动续费参数
+ *
+ * @param tmpReq DescribeAutoRenewalAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAutoRenewalAttributeResponse
+ */
+DescribeAutoRenewalAttributeResponse Client::describeAutoRenewalAttributeWithOptions(const DescribeAutoRenewalAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeAutoRenewalAttributeShrinkRequest request = DescribeAutoRenewalAttributeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDBClusterId()) {
+    request.setDBClusterIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.DBClusterId(), "DBClusterId", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBClusterIdShrink()) {
+    query["DBClusterId"] = request.DBClusterIdShrink();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAutoRenewalAttribute"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAutoRenewalAttributeResponse>();
+}
+
+/**
+ * @summary 查询自动续费参数
+ *
+ * @param request DescribeAutoRenewalAttributeRequest
+ * @return DescribeAutoRenewalAttributeResponse
+ */
+DescribeAutoRenewalAttributeResponse Client::describeAutoRenewalAttribute(const DescribeAutoRenewalAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAutoRenewalAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
  *
  * @param request DescribeAvailableAdvicesRequest
@@ -12983,6 +13063,80 @@ ModifyAuditLogConfigResponse Client::modifyAuditLogConfigWithOptions(const Modif
 ModifyAuditLogConfigResponse Client::modifyAuditLogConfig(const ModifyAuditLogConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyAuditLogConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改自动续费配置
+ *
+ * @param request ModifyAutoRenewalAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAutoRenewalAttributeResponse
+ */
+ModifyAutoRenewalAttributeResponse Client::modifyAutoRenewalAttributeWithOptions(const ModifyAutoRenewalAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenewalPeriod()) {
+    query["AutoRenewalPeriod"] = request.autoRenewalPeriod();
+  }
+
+  if (!!request.hasAutoRenewalPeriodUnit()) {
+    query["AutoRenewalPeriodUnit"] = request.autoRenewalPeriodUnit();
+  }
+
+  if (!!request.hasAutoRenewalStatus()) {
+    query["AutoRenewalStatus"] = request.autoRenewalStatus();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.DBClusterId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAutoRenewalAttribute"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAutoRenewalAttributeResponse>();
+}
+
+/**
+ * @summary 修改自动续费配置
+ *
+ * @param request ModifyAutoRenewalAttributeRequest
+ * @return ModifyAutoRenewalAttributeResponse
+ */
+ModifyAutoRenewalAttributeResponse Client::modifyAutoRenewalAttribute(const ModifyAutoRenewalAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAutoRenewalAttributeWithOptions(request, runtime);
 }
 
 /**

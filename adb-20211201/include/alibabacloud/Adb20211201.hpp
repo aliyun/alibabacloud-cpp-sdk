@@ -1326,6 +1326,23 @@ namespace Adb20211201
       Models::DescribeAuditLogRecordsResponse describeAuditLogRecords(const Models::DescribeAuditLogRecordsRequest &request);
 
       /**
+       * @summary 查询自动续费参数
+       *
+       * @param tmpReq DescribeAutoRenewalAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAutoRenewalAttributeResponse
+       */
+      Models::DescribeAutoRenewalAttributeResponse describeAutoRenewalAttributeWithOptions(const Models::DescribeAutoRenewalAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自动续费参数
+       *
+       * @param request DescribeAutoRenewalAttributeRequest
+       * @return DescribeAutoRenewalAttributeResponse
+       */
+      Models::DescribeAutoRenewalAttributeResponse describeAutoRenewalAttribute(const Models::DescribeAutoRenewalAttributeRequest &request);
+
+      /**
        * @summary Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeAvailableAdvicesRequest
@@ -4057,6 +4074,23 @@ namespace Adb20211201
        * @return ModifyAuditLogConfigResponse
        */
       Models::ModifyAuditLogConfigResponse modifyAuditLogConfig(const Models::ModifyAuditLogConfigRequest &request);
+
+      /**
+       * @summary 修改自动续费配置
+       *
+       * @param request ModifyAutoRenewalAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAutoRenewalAttributeResponse
+       */
+      Models::ModifyAutoRenewalAttributeResponse modifyAutoRenewalAttributeWithOptions(const Models::ModifyAutoRenewalAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改自动续费配置
+       *
+       * @param request ModifyAutoRenewalAttributeRequest
+       * @return ModifyAutoRenewalAttributeResponse
+       */
+      Models::ModifyAutoRenewalAttributeResponse modifyAutoRenewalAttribute(const Models::ModifyAutoRenewalAttributeRequest &request);
 
       /**
        * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.

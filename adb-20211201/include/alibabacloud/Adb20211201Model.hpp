@@ -234,6 +234,10 @@
 #include <alibabacloud/models/DescribeAuditLogRecordsRequest.hpp>
 #include <alibabacloud/models/DescribeAuditLogRecordsResponseBody.hpp>
 #include <alibabacloud/models/DescribeAuditLogRecordsResponse.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeRequest.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeResponseBody.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeResponse.hpp>
 #include <alibabacloud/models/DescribeAvailableAdvicesRequest.hpp>
 #include <alibabacloud/models/DescribeAvailableAdvicesResponseBody.hpp>
 #include <alibabacloud/models/DescribeAvailableAdvicesResponse.hpp>
@@ -640,6 +644,9 @@
 #include <alibabacloud/models/ModifyAuditLogConfigRequest.hpp>
 #include <alibabacloud/models/ModifyAuditLogConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyAuditLogConfigResponse.hpp>
+#include <alibabacloud/models/ModifyAutoRenewalAttributeRequest.hpp>
+#include <alibabacloud/models/ModifyAutoRenewalAttributeResponseBody.hpp>
+#include <alibabacloud/models/ModifyAutoRenewalAttributeResponse.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyBackupPolicyResponse.hpp>
@@ -832,6 +839,8 @@
 #include <alibabacloud/models/DescribeApsResourceGroupsResponseBodyDataResourceGroups.hpp>
 #include <alibabacloud/models/DescribeApsResourceGroupsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeAuditLogRecordsResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeResponseBodyItemsAutoRenewalAttribute.hpp>
+#include <alibabacloud/models/DescribeAutoRenewalAttributeResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeAvailableAdvicesResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeBackupsResponseBodyItemsBackup.hpp>
 #include <alibabacloud/models/DescribeBackupsResponseBodyItems.hpp>
