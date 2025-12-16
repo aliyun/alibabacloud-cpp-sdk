@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDATAAGENTSESSIONREQUESTSESSIONCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDATAAGENTSESSIONREQUESTSESSIONCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomAgentStage, customAgentStage_);
       DARABONBA_PTR_TO_JSON(EnableSearch, enableSearch_);
       DARABONBA_PTR_TO_JSON(Language, language_);
+      DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
       DARABONBA_PTR_TO_JSON(Mode, mode_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataAgentSessionRequestSessionConfig& obj) { 
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomAgentStage, customAgentStage_);
       DARABONBA_PTR_FROM_JSON(EnableSearch, enableSearch_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
+      DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
       DARABONBA_PTR_FROM_JSON(Mode, mode_);
     };
     CreateDataAgentSessionRequestSessionConfig() = default ;
@@ -38,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && return this->customAgentStage_ == nullptr && return this->enableSearch_ == nullptr && return this->language_ == nullptr && return this->mode_ == nullptr; };
+        && return this->customAgentStage_ == nullptr && return this->enableSearch_ == nullptr && return this->language_ == nullptr && return this->mcpServerIds_ == nullptr && return this->mode_ == nullptr; };
     // customAgentId Field Functions 
     bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
     void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -67,6 +70,15 @@ namespace Models
     inline CreateDataAgentSessionRequestSessionConfig& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
+    // mcpServerIds Field Functions 
+    bool hasMcpServerIds() const { return this->mcpServerIds_ != nullptr;};
+    void deleteMcpServerIds() { this->mcpServerIds_ = nullptr;};
+    inline const vector<string> & mcpServerIds() const { DARABONBA_PTR_GET_CONST(mcpServerIds_, vector<string>) };
+    inline vector<string> mcpServerIds() { DARABONBA_PTR_GET(mcpServerIds_, vector<string>) };
+    inline CreateDataAgentSessionRequestSessionConfig& setMcpServerIds(const vector<string> & mcpServerIds) { DARABONBA_PTR_SET_VALUE(mcpServerIds_, mcpServerIds) };
+    inline CreateDataAgentSessionRequestSessionConfig& setMcpServerIds(vector<string> && mcpServerIds) { DARABONBA_PTR_SET_RVALUE(mcpServerIds_, mcpServerIds) };
+
+
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
@@ -79,6 +91,7 @@ namespace Models
     std::shared_ptr<string> customAgentStage_ = nullptr;
     std::shared_ptr<bool> enableSearch_ = nullptr;
     std::shared_ptr<string> language_ = nullptr;
+    std::shared_ptr<vector<string>> mcpServerIds_ = nullptr;
     std::shared_ptr<string> mode_ = nullptr;
   };
 
