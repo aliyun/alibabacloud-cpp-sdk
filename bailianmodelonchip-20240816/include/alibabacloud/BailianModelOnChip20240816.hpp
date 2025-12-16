@@ -75,6 +75,24 @@ namespace BailianModelOnChip20240816
       Models::DeviceRegisterResponse deviceRegister(const Models::DeviceRegisterRequest &request);
 
       /**
+       * @summary 云端获取透传鉴权信息
+       *
+       * @param request GetPassThroughAuthInfoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPassThroughAuthInfoResponse
+       */
+      Models::GetPassThroughAuthInfoResponse getPassThroughAuthInfoWithOptions(const Models::GetPassThroughAuthInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 云端获取透传鉴权信息
+       *
+       * @param request GetPassThroughAuthInfoRequest
+       * @return GetPassThroughAuthInfoResponse
+       */
+      Models::GetPassThroughAuthInfoResponse getPassThroughAuthInfo(const Models::GetPassThroughAuthInfoRequest &request);
+
+      /**
        * @summary 获取网关校验Token
        *
        * @param request GetTokenRequest

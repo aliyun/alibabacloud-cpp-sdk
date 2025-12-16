@@ -183,6 +183,55 @@ DeviceRegisterResponse Client::deviceRegister(const DeviceRegisterRequest &reque
 }
 
 /**
+ * @summary 云端获取透传鉴权信息
+ *
+ * @param request GetPassThroughAuthInfoRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPassThroughAuthInfoResponse
+ */
+GetPassThroughAuthInfoResponse Client::getPassThroughAuthInfoWithOptions(const GetPassThroughAuthInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["appId"] = request.appId();
+  }
+
+  if (!!request.hasDeviceName()) {
+    body["deviceName"] = request.deviceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetPassThroughAuthInfo"},
+    {"version" , "2024-08-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/open/api/auth/v1/token/getPassThroughAuthInfo")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPassThroughAuthInfoResponse>();
+}
+
+/**
+ * @summary 云端获取透传鉴权信息
+ *
+ * @param request GetPassThroughAuthInfoRequest
+ * @return GetPassThroughAuthInfoResponse
+ */
+GetPassThroughAuthInfoResponse Client::getPassThroughAuthInfo(const GetPassThroughAuthInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPassThroughAuthInfoWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取网关校验Token
  *
  * @param request GetTokenRequest
