@@ -1345,6 +1345,23 @@ namespace Eiam20211201
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
+       * @summary 获取应用高阶配置
+       *
+       * @param request GetApplicationAdvancedConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApplicationAdvancedConfigResponse
+       */
+      Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfigWithOptions(const Models::GetApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用高阶配置
+       *
+       * @param request GetApplicationAdvancedConfigRequest
+       * @return GetApplicationAdvancedConfigResponse
+       */
+      Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfig(const Models::GetApplicationAdvancedConfigRequest &request);
+
+      /**
        * @summary 获取应用联邦凭证
        *
        * @param request GetApplicationFederatedCredentialRequest
@@ -3064,6 +3081,23 @@ namespace Eiam20211201
        * @return UnlockUserResponse
        */
       Models::UnlockUserResponse unlockUser(const Models::UnlockUserRequest &request);
+
+      /**
+       * @summary 修改应用高阶配置
+       *
+       * @param request UpdateApplicationAdvancedConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateApplicationAdvancedConfigResponse
+       */
+      Models::UpdateApplicationAdvancedConfigResponse updateApplicationAdvancedConfigWithOptions(const Models::UpdateApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改应用高阶配置
+       *
+       * @param request UpdateApplicationAdvancedConfigRequest
+       * @return UpdateApplicationAdvancedConfigResponse
+       */
+      Models::UpdateApplicationAdvancedConfigResponse updateApplicationAdvancedConfig(const Models::UpdateApplicationAdvancedConfigRequest &request);
 
       /**
        * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.

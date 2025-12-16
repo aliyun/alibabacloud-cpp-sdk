@@ -230,6 +230,9 @@
 #include <alibabacloud/models/GetApplicationRequest.hpp>
 #include <alibabacloud/models/GetApplicationResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationResponse.hpp>
+#include <alibabacloud/models/GetApplicationAdvancedConfigRequest.hpp>
+#include <alibabacloud/models/GetApplicationAdvancedConfigResponseBody.hpp>
+#include <alibabacloud/models/GetApplicationAdvancedConfigResponse.hpp>
 #include <alibabacloud/models/GetApplicationFederatedCredentialRequest.hpp>
 #include <alibabacloud/models/GetApplicationFederatedCredentialResponseBody.hpp>
 #include <alibabacloud/models/GetApplicationFederatedCredentialResponse.hpp>
@@ -527,6 +530,9 @@
 #include <alibabacloud/models/UnlockUserRequest.hpp>
 #include <alibabacloud/models/UnlockUserResponseBody.hpp>
 #include <alibabacloud/models/UnlockUserResponse.hpp>
+#include <alibabacloud/models/UpdateApplicationAdvancedConfigRequest.hpp>
+#include <alibabacloud/models/UpdateApplicationAdvancedConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateApplicationAdvancedConfigResponse.hpp>
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeRequest.hpp>
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeResponseBody.hpp>
 #include <alibabacloud/models/UpdateApplicationAuthorizationTypeResponse.hpp>
@@ -651,6 +657,8 @@
 #include <alibabacloud/models/CreateUserRequestCustomFields.hpp>
 #include <alibabacloud/models/CreateUserRequestPasswordInitializationConfig.hpp>
 #include <alibabacloud/models/GetApplicationResponseBodyApplication.hpp>
+#include <alibabacloud/models/GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig.hpp>
+#include <alibabacloud/models/GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig.hpp>
 #include <alibabacloud/models/GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredentialAttributeMappings.hpp>
 #include <alibabacloud/models/GetApplicationFederatedCredentialResponseBodyApplicationFederatedCredential.hpp>
 #include <alibabacloud/models/GetApplicationGrantScopeResponseBodyApplicationGrantScope.hpp>
@@ -883,6 +891,7 @@
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationRequestPullProtectedRule.hpp>
 #include <alibabacloud/models/SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig.hpp>
 #include <alibabacloud/models/SetPasswordComplexityConfigurationRequestPasswordComplexityRules.hpp>
+#include <alibabacloud/models/UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig.hpp>
 #include <alibabacloud/models/UpdateApplicationFederatedCredentialRequestAttributeMappings.hpp>
 #include <alibabacloud/models/UpdateApplicationSsoFormParamsRequestApplicationTemplateParams.hpp>
 #include <alibabacloud/models/UpdateConditionalAccessPolicyRequestConditionsConfigApplications.hpp>

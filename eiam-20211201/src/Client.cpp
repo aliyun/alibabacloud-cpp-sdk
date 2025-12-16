@@ -3948,6 +3948,52 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
+ * @summary 获取应用高阶配置
+ *
+ * @param request GetApplicationAdvancedConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApplicationAdvancedConfigResponse
+ */
+GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfigWithOptions(const GetApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApplicationAdvancedConfig"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApplicationAdvancedConfigResponse>();
+}
+
+/**
+ * @summary 获取应用高阶配置
+ *
+ * @param request GetApplicationAdvancedConfigRequest
+ * @return GetApplicationAdvancedConfigResponse
+ */
+GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const GetApplicationAdvancedConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApplicationAdvancedConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取应用联邦凭证
  *
  * @param request GetApplicationFederatedCredentialRequest
@@ -9158,6 +9204,56 @@ UnlockUserResponse Client::unlockUserWithOptions(const UnlockUserRequest &reques
 UnlockUserResponse Client::unlockUser(const UnlockUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unlockUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改应用高阶配置
+ *
+ * @param request UpdateApplicationAdvancedConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateApplicationAdvancedConfigResponse
+ */
+UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfigWithOptions(const UpdateApplicationAdvancedConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasScimServerAdvancedConfig()) {
+    query["ScimServerAdvancedConfig"] = request.scimServerAdvancedConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateApplicationAdvancedConfig"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateApplicationAdvancedConfigResponse>();
+}
+
+/**
+ * @summary 修改应用高阶配置
+ *
+ * @param request UpdateApplicationAdvancedConfigRequest
+ * @return UpdateApplicationAdvancedConfigResponse
+ */
+UpdateApplicationAdvancedConfigResponse Client::updateApplicationAdvancedConfig(const UpdateApplicationAdvancedConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateApplicationAdvancedConfigWithOptions(request, runtime);
 }
 
 /**
