@@ -81,6 +81,9 @@
 #include <alibabacloud/models/DeleteWhitelistSettingResponse.hpp>
 #include <alibabacloud/models/DescribeAntAndCloudAuthUserStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeAntAndCloudAuthUserStatusResponse.hpp>
+#include <alibabacloud/models/DescribeAuthVerifyRequest.hpp>
+#include <alibabacloud/models/DescribeAuthVerifyResponseBody.hpp>
+#include <alibabacloud/models/DescribeAuthVerifyResponse.hpp>
 #include <alibabacloud/models/DescribeCardVerifyRequest.hpp>
 #include <alibabacloud/models/DescribeCardVerifyResponseBody.hpp>
 #include <alibabacloud/models/DescribeCardVerifyResponse.hpp>
@@ -198,6 +201,9 @@
 #include <alibabacloud/models/Id3MetaVerifyWithOcrAdvanceRequest.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOcrResponseBody.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOcrResponse.hpp>
+#include <alibabacloud/models/InitAuthVerifyRequest.hpp>
+#include <alibabacloud/models/InitAuthVerifyResponseBody.hpp>
+#include <alibabacloud/models/InitAuthVerifyResponse.hpp>
 #include <alibabacloud/models/InitCardVerifyRequest.hpp>
 #include <alibabacloud/models/InitCardVerifyResponseBody.hpp>
 #include <alibabacloud/models/InitCardVerifyResponse.hpp>
@@ -316,6 +322,7 @@
 #include <alibabacloud/models/CredentialVerifyV2ResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeepfakeDetectResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DeleteFaceVerifyResultResponseBodyResultObject.hpp>
+#include <alibabacloud/models/DescribeAuthVerifyResponseBodyResult.hpp>
 #include <alibabacloud/models/DescribeCardVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/DescribeCloudauthstSceneListResponseBodyItems.hpp>
 #include <alibabacloud/models/DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo.hpp>
@@ -374,6 +381,7 @@
 #include <alibabacloud/models/Id2MetaVerifyWithOcrResponseBodyResultObject.hpp>
 #include <alibabacloud/models/Id3MetaVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOcrResponseBodyResultObject.hpp>
+#include <alibabacloud/models/InitAuthVerifyResponseBodyResult.hpp>
 #include <alibabacloud/models/InitCardVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/InitFaceVerifyResponseBodyResultObject.hpp>
 #include <alibabacloud/models/LivenessFaceVerifyResponseBodyResultObject.hpp>

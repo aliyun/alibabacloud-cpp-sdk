@@ -2144,6 +2144,52 @@ DescribeAntAndCloudAuthUserStatusResponse Client::describeAntAndCloudAuthUserSta
 }
 
 /**
+ * @summary 获取结果
+ *
+ * @param request DescribeAuthVerifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAuthVerifyResponse
+ */
+DescribeAuthVerifyResponse Client::describeAuthVerifyWithOptions(const DescribeAuthVerifyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCertifyId()) {
+    body["CertifyId"] = request.certifyId();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeAuthVerify"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAuthVerifyResponse>();
+}
+
+/**
+ * @summary 获取结果
+ *
+ * @param request DescribeAuthVerifyRequest
+ * @return DescribeAuthVerifyResponse
+ */
+DescribeAuthVerifyResponse Client::describeAuthVerify(const DescribeAuthVerifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAuthVerifyWithOptions(request, runtime);
+}
+
+/**
  * @summary Obtain Authentication Results from Image Element Verification
  *
  * @description After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
@@ -4826,6 +4872,84 @@ Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRAdvance(const Id3MetaVe
 
   Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRResp = id3MetaVerifyWithOCRWithOptions(id3MetaVerifyWithOCRReq, runtime);
   return id3MetaVerifyWithOCRResp;
+}
+
+/**
+ * @summary 服务端初始化
+ *
+ * @param request InitAuthVerifyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitAuthVerifyResponse
+ */
+InitAuthVerifyResponse Client::initAuthVerifyWithOptions(const InitAuthVerifyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCallbackToken()) {
+    body["CallbackToken"] = request.callbackToken();
+  }
+
+  if (!!request.hasCallbackUrl()) {
+    body["CallbackUrl"] = request.callbackUrl();
+  }
+
+  if (!!request.hasCardPageNumber()) {
+    body["CardPageNumber"] = request.cardPageNumber();
+  }
+
+  if (!!request.hasCardType()) {
+    body["CardType"] = request.cardType();
+  }
+
+  if (!!request.hasDocScanMode()) {
+    body["DocScanMode"] = request.docScanMode();
+  }
+
+  if (!!request.hasIdSpoof()) {
+    body["IdSpoof"] = request.idSpoof();
+  }
+
+  if (!!request.hasMetaInfo()) {
+    body["MetaInfo"] = request.metaInfo();
+  }
+
+  if (!!request.hasOuterOrderNo()) {
+    body["OuterOrderNo"] = request.outerOrderNo();
+  }
+
+  if (!!request.hasProductCode()) {
+    body["ProductCode"] = request.productCode();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.sceneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "InitAuthVerify"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitAuthVerifyResponse>();
+}
+
+/**
+ * @summary 服务端初始化
+ *
+ * @param request InitAuthVerifyRequest
+ * @return InitAuthVerifyResponse
+ */
+InitAuthVerifyResponse Client::initAuthVerify(const InitAuthVerifyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initAuthVerifyWithOptions(request, runtime);
 }
 
 /**

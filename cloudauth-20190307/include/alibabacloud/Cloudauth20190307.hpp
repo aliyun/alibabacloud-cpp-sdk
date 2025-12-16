@@ -651,6 +651,23 @@ namespace Cloudauth20190307
       Models::DescribeAntAndCloudAuthUserStatusResponse describeAntAndCloudAuthUserStatus();
 
       /**
+       * @summary 获取结果
+       *
+       * @param request DescribeAuthVerifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAuthVerifyResponse
+       */
+      Models::DescribeAuthVerifyResponse describeAuthVerifyWithOptions(const Models::DescribeAuthVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取结果
+       *
+       * @param request DescribeAuthVerifyRequest
+       * @return DescribeAuthVerifyResponse
+       */
+      Models::DescribeAuthVerifyResponse describeAuthVerify(const Models::DescribeAuthVerifyRequest &request);
+
+      /**
        * @summary Obtain Authentication Results from Image Element Verification
        *
        * @description After receiving the callback notification, you can use this interface on the server side to obtain the corresponding authentication status and information.
@@ -1517,6 +1534,23 @@ namespace Cloudauth20190307
       Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCR(const Models::Id3MetaVerifyWithOCRRequest &request);
 
       Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRAdvance(const Models::Id3MetaVerifyWithOCRAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 服务端初始化
+       *
+       * @param request InitAuthVerifyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitAuthVerifyResponse
+       */
+      Models::InitAuthVerifyResponse initAuthVerifyWithOptions(const Models::InitAuthVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 服务端初始化
+       *
+       * @param request InitAuthVerifyRequest
+       * @return InitAuthVerifyResponse
+       */
+      Models::InitAuthVerifyResponse initAuthVerify(const Models::InitAuthVerifyRequest &request);
 
       /**
        * @summary Initiate an authentication request for image verification
