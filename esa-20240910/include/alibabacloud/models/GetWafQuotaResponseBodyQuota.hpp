@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETWAFQUOTARESPONSEBODYQUOTA_HPP_
 #define ALIBABACLOUD_MODELS_GETWAFQUOTARESPONSEBODYQUOTA_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetWafQuotaResponseBodyQuotaCaptcha.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaList.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaManagedRulesGroup.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaPage.hpp>
@@ -17,12 +18,14 @@ namespace Models
   class GetWafQuotaResponseBodyQuota : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetWafQuotaResponseBodyQuota& obj) { 
+      DARABONBA_PTR_TO_JSON(Captcha, captcha_);
       DARABONBA_PTR_TO_JSON(List, list_);
       DARABONBA_PTR_TO_JSON(ManagedRulesGroup, managedRulesGroup_);
       DARABONBA_PTR_TO_JSON(Page, page_);
       DARABONBA_PTR_TO_JSON(ScenePolicy, scenePolicy_);
     };
     friend void from_json(const Darabonba::Json& j, GetWafQuotaResponseBodyQuota& obj) { 
+      DARABONBA_PTR_FROM_JSON(Captcha, captcha_);
       DARABONBA_PTR_FROM_JSON(List, list_);
       DARABONBA_PTR_FROM_JSON(ManagedRulesGroup, managedRulesGroup_);
       DARABONBA_PTR_FROM_JSON(Page, page_);
@@ -39,8 +42,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->list_ == nullptr
-        && return this->managedRulesGroup_ == nullptr && return this->page_ == nullptr && return this->scenePolicy_ == nullptr; };
+    virtual bool empty() const override { return this->captcha_ == nullptr
+        && return this->list_ == nullptr && return this->managedRulesGroup_ == nullptr && return this->page_ == nullptr && return this->scenePolicy_ == nullptr; };
+    // captcha Field Functions 
+    bool hasCaptcha() const { return this->captcha_ != nullptr;};
+    void deleteCaptcha() { this->captcha_ = nullptr;};
+    inline const Models::GetWafQuotaResponseBodyQuotaCaptcha & captcha() const { DARABONBA_PTR_GET_CONST(captcha_, Models::GetWafQuotaResponseBodyQuotaCaptcha) };
+    inline Models::GetWafQuotaResponseBodyQuotaCaptcha captcha() { DARABONBA_PTR_GET(captcha_, Models::GetWafQuotaResponseBodyQuotaCaptcha) };
+    inline GetWafQuotaResponseBodyQuota& setCaptcha(const Models::GetWafQuotaResponseBodyQuotaCaptcha & captcha) { DARABONBA_PTR_SET_VALUE(captcha_, captcha) };
+    inline GetWafQuotaResponseBodyQuota& setCaptcha(Models::GetWafQuotaResponseBodyQuotaCaptcha && captcha) { DARABONBA_PTR_SET_RVALUE(captcha_, captcha) };
+
+
     // list Field Functions 
     bool hasList() const { return this->list_ != nullptr;};
     void deleteList() { this->list_ = nullptr;};
@@ -78,6 +90,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<Models::GetWafQuotaResponseBodyQuotaCaptcha> captcha_ = nullptr;
     // Quota information related to custom lists.
     std::shared_ptr<Models::GetWafQuotaResponseBodyQuotaList> list_ = nullptr;
     // Quota information related to the WAF managed rules group.

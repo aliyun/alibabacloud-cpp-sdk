@@ -90,6 +90,9 @@
 #include <alibabacloud/models/CreateEdgeContainerAppRequest.hpp>
 #include <alibabacloud/models/CreateEdgeContainerAppResponseBody.hpp>
 #include <alibabacloud/models/CreateEdgeContainerAppResponse.hpp>
+#include <alibabacloud/models/CreateEdgeContainerAppImageSecretRequest.hpp>
+#include <alibabacloud/models/CreateEdgeContainerAppImageSecretResponseBody.hpp>
+#include <alibabacloud/models/CreateEdgeContainerAppImageSecretResponse.hpp>
 #include <alibabacloud/models/CreateEdgeContainerAppRecordRequest.hpp>
 #include <alibabacloud/models/CreateEdgeContainerAppRecordResponseBody.hpp>
 #include <alibabacloud/models/CreateEdgeContainerAppRecordResponse.hpp>
@@ -251,6 +254,9 @@
 #include <alibabacloud/models/DeleteEdgeContainerAppRequest.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppResponseBody.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppResponse.hpp>
+#include <alibabacloud/models/DeleteEdgeContainerAppImageSecretRequest.hpp>
+#include <alibabacloud/models/DeleteEdgeContainerAppImageSecretResponseBody.hpp>
+#include <alibabacloud/models/DeleteEdgeContainerAppImageSecretResponse.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppRecordRequest.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppRecordResponseBody.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppRecordResponse.hpp>
@@ -477,6 +483,9 @@
 #include <alibabacloud/models/GetEdgeContainerAppLogRiverRequest.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppLogRiverResponseBody.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppLogRiverResponse.hpp>
+#include <alibabacloud/models/GetEdgeContainerAppResourceCapacityRequest.hpp>
+#include <alibabacloud/models/GetEdgeContainerAppResourceCapacityResponseBody.hpp>
+#include <alibabacloud/models/GetEdgeContainerAppResourceCapacityResponse.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResourceReserveRequest.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResourceReserveResponseBody.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResourceReserveResponse.hpp>
@@ -692,6 +701,9 @@
 #include <alibabacloud/models/ListEsaipInfoRequest.hpp>
 #include <alibabacloud/models/ListEsaipInfoResponseBody.hpp>
 #include <alibabacloud/models/ListEsaipInfoResponse.hpp>
+#include <alibabacloud/models/ListEdgeContainerAppImageSecretsRequest.hpp>
+#include <alibabacloud/models/ListEdgeContainerAppImageSecretsResponseBody.hpp>
+#include <alibabacloud/models/ListEdgeContainerAppImageSecretsResponse.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppRecordsRequest.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppRecordsResponse.hpp>
@@ -1243,6 +1255,7 @@
 #include <alibabacloud/models/GetClientCertificateResponseBodyResult.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResponseBodyAppHealthCheck.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResponseBodyApp.hpp>
+#include <alibabacloud/models/GetEdgeContainerAppResourceCapacityResponseBodyRegions.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResourceReserveResponseBodyReserveSet.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppResourceStatusResponseBodyRegions.hpp>
 #include <alibabacloud/models/GetEdgeContainerAppStatusResponseBodyAppStatusRegions.hpp>
@@ -1310,6 +1323,7 @@
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsSelector.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFields.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilter.hpp>
+#include <alibabacloud/models/GetWafQuotaResponseBodyQuotaCaptcha.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaList.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaManagedRulesGroup.hpp>
 #include <alibabacloud/models/GetWafQuotaResponseBodyQuotaPage.hpp>
@@ -1325,6 +1339,7 @@
 #include <alibabacloud/models/ListClientCertificatesResponseBodyResult.hpp>
 #include <alibabacloud/models/ListCompressionRulesResponseBodyConfigs.hpp>
 #include <alibabacloud/models/ListEsaipInfoResponseBodyContent.hpp>
+#include <alibabacloud/models/ListEdgeContainerAppImageSecretsResponseBodyImageSecretList.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppRecordsResponseBodyRecords.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent.hpp>
 #include <alibabacloud/models/ListEdgeContainerAppVersionsResponseBodyVersionsContainers.hpp>

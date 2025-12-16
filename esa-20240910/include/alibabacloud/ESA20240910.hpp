@@ -566,6 +566,23 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerApp(const Models::CreateEdgeContainerAppRequest &request);
 
       /**
+       * @summary 创建边缘容器应用的镜像秘钥
+       *
+       * @param request CreateEdgeContainerAppImageSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateEdgeContainerAppImageSecretResponse
+       */
+      Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecretWithOptions(const Models::CreateEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建边缘容器应用的镜像秘钥
+       *
+       * @param request CreateEdgeContainerAppImageSecretRequest
+       * @return CreateEdgeContainerAppImageSecretResponse
+       */
+      Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecret(const Models::CreateEdgeContainerAppImageSecretRequest &request);
+
+      /**
        * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
        *
        * @param request CreateEdgeContainerAppRecordRequest
@@ -1433,6 +1450,23 @@ namespace ESA20240910
        * @return DeleteEdgeContainerAppResponse
        */
       Models::DeleteEdgeContainerAppResponse deleteEdgeContainerApp(const Models::DeleteEdgeContainerAppRequest &request);
+
+      /**
+       * @summary 删除边缘容器应用的镜像秘钥
+       *
+       * @param request DeleteEdgeContainerAppImageSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteEdgeContainerAppImageSecretResponse
+       */
+      Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecretWithOptions(const Models::DeleteEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除边缘容器应用的镜像秘钥
+       *
+       * @param request DeleteEdgeContainerAppImageSecretRequest
+       * @return DeleteEdgeContainerAppImageSecretResponse
+       */
+      Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecret(const Models::DeleteEdgeContainerAppImageSecretRequest &request);
 
       /**
        * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
@@ -2762,6 +2796,23 @@ namespace ESA20240910
       Models::GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiver(const Models::GetEdgeContainerAppLogRiverRequest &request);
 
       /**
+       * @summary 获取边缘容器应用的资源容量
+       *
+       * @param request GetEdgeContainerAppResourceCapacityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetEdgeContainerAppResourceCapacityResponse
+       */
+      Models::GetEdgeContainerAppResourceCapacityResponse getEdgeContainerAppResourceCapacityWithOptions(const Models::GetEdgeContainerAppResourceCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取边缘容器应用的资源容量
+       *
+       * @param request GetEdgeContainerAppResourceCapacityRequest
+       * @return GetEdgeContainerAppResourceCapacityResponse
+       */
+      Models::GetEdgeContainerAppResourceCapacityResponse getEdgeContainerAppResourceCapacity(const Models::GetEdgeContainerAppResourceCapacityRequest &request);
+
+      /**
        * @summary Obtain the resource reservation configuration of the edge container.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
@@ -4047,6 +4098,23 @@ namespace ESA20240910
        * @return ListESAIPInfoResponse
        */
       Models::ListESAIPInfoResponse listESAIPInfo(const Models::ListESAIPInfoRequest &request);
+
+      /**
+       * @summary 获取边缘容器应用的镜像秘钥列表
+       *
+       * @param request ListEdgeContainerAppImageSecretsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEdgeContainerAppImageSecretsResponse
+       */
+      Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecretsWithOptions(const Models::ListEdgeContainerAppImageSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取边缘容器应用的镜像秘钥列表
+       *
+       * @param request ListEdgeContainerAppImageSecretsRequest
+       * @return ListEdgeContainerAppImageSecretsResponse
+       */
+      Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecrets(const Models::ListEdgeContainerAppImageSecretsRequest &request);
 
       /**
        * @summary Lists domain names that are associated with a containerized application.

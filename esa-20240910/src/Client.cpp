@@ -1758,6 +1758,60 @@ CreateEdgeContainerAppResponse Client::createEdgeContainerApp(const CreateEdgeCo
 }
 
 /**
+ * @summary 创建边缘容器应用的镜像秘钥
+ *
+ * @param request CreateEdgeContainerAppImageSecretRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateEdgeContainerAppImageSecretResponse
+ */
+CreateEdgeContainerAppImageSecretResponse Client::createEdgeContainerAppImageSecretWithOptions(const CreateEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.password();
+  }
+
+  if (!!request.hasRegistry()) {
+    query["Registry"] = request.registry();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.username();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateEdgeContainerAppImageSecret"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateEdgeContainerAppImageSecretResponse>();
+}
+
+/**
+ * @summary 创建边缘容器应用的镜像秘钥
+ *
+ * @param request CreateEdgeContainerAppImageSecretRequest
+ * @return CreateEdgeContainerAppImageSecretResponse
+ */
+CreateEdgeContainerAppImageSecretResponse Client::createEdgeContainerAppImageSecret(const CreateEdgeContainerAppImageSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createEdgeContainerAppImageSecretWithOptions(request, runtime);
+}
+
+/**
  * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
  *
  * @param request CreateEdgeContainerAppRecordRequest
@@ -5066,6 +5120,52 @@ DeleteEdgeContainerAppResponse Client::deleteEdgeContainerAppWithOptions(const D
 DeleteEdgeContainerAppResponse Client::deleteEdgeContainerApp(const DeleteEdgeContainerAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteEdgeContainerAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除边缘容器应用的镜像秘钥
+ *
+ * @param request DeleteEdgeContainerAppImageSecretRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteEdgeContainerAppImageSecretResponse
+ */
+DeleteEdgeContainerAppImageSecretResponse Client::deleteEdgeContainerAppImageSecretWithOptions(const DeleteEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteEdgeContainerAppImageSecret"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteEdgeContainerAppImageSecretResponse>();
+}
+
+/**
+ * @summary 删除边缘容器应用的镜像秘钥
+ *
+ * @param request DeleteEdgeContainerAppImageSecretRequest
+ * @return DeleteEdgeContainerAppImageSecretResponse
+ */
+DeleteEdgeContainerAppImageSecretResponse Client::deleteEdgeContainerAppImageSecret(const DeleteEdgeContainerAppImageSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteEdgeContainerAppImageSecretWithOptions(request, runtime);
 }
 
 /**
@@ -8465,6 +8565,48 @@ GetEdgeContainerAppLogRiverResponse Client::getEdgeContainerAppLogRiver(const Ge
 }
 
 /**
+ * @summary 获取边缘容器应用的资源容量
+ *
+ * @param request GetEdgeContainerAppResourceCapacityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetEdgeContainerAppResourceCapacityResponse
+ */
+GetEdgeContainerAppResourceCapacityResponse Client::getEdgeContainerAppResourceCapacityWithOptions(const GetEdgeContainerAppResourceCapacityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetEdgeContainerAppResourceCapacity"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetEdgeContainerAppResourceCapacityResponse>();
+}
+
+/**
+ * @summary 获取边缘容器应用的资源容量
+ *
+ * @param request GetEdgeContainerAppResourceCapacityRequest
+ * @return GetEdgeContainerAppResourceCapacityResponse
+ */
+GetEdgeContainerAppResourceCapacityResponse Client::getEdgeContainerAppResourceCapacity(const GetEdgeContainerAppResourceCapacityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getEdgeContainerAppResourceCapacityWithOptions(request, runtime);
+}
+
+/**
  * @summary Obtain the resource reservation configuration of the edge container.
  *
  * @param request GetEdgeContainerAppResourceReserveRequest
@@ -11382,6 +11524,48 @@ ListESAIPInfoResponse Client::listESAIPInfoWithOptions(const ListESAIPInfoReques
 ListESAIPInfoResponse Client::listESAIPInfo(const ListESAIPInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listESAIPInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取边缘容器应用的镜像秘钥列表
+ *
+ * @param request ListEdgeContainerAppImageSecretsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEdgeContainerAppImageSecretsResponse
+ */
+ListEdgeContainerAppImageSecretsResponse Client::listEdgeContainerAppImageSecretsWithOptions(const ListEdgeContainerAppImageSecretsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.appId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEdgeContainerAppImageSecrets"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEdgeContainerAppImageSecretsResponse>();
+}
+
+/**
+ * @summary 获取边缘容器应用的镜像秘钥列表
+ *
+ * @param request ListEdgeContainerAppImageSecretsRequest
+ * @return ListEdgeContainerAppImageSecretsResponse
+ */
+ListEdgeContainerAppImageSecretsResponse Client::listEdgeContainerAppImageSecrets(const ListEdgeContainerAppImageSecretsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listEdgeContainerAppImageSecretsWithOptions(request, runtime);
 }
 
 /**
