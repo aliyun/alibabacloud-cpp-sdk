@@ -682,6 +682,114 @@ CreateRouteStrategyResponse Client::createRouteStrategy(const CreateRouteStrateg
 }
 
 /**
+ * @summary Creates a calendar.
+ *
+ * @param request CreateSchedulerxCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSchedulerxCalendarResponse
+ */
+CreateSchedulerxCalendarResponse Client::createSchedulerxCalendarWithOptions(const CreateSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasMonthDaysContent()) {
+    body["MonthDaysContent"] = request.monthDaysContent();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSchedulerxCalendar"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSchedulerxCalendarResponse>();
+}
+
+/**
+ * @summary Creates a calendar.
+ *
+ * @param request CreateSchedulerxCalendarRequest
+ * @return CreateSchedulerxCalendarResponse
+ */
+CreateSchedulerxCalendarResponse Client::createSchedulerxCalendar(const CreateSchedulerxCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSchedulerxCalendarWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a notification policy.
+ *
+ * @param request CreateSchedulerxNotificationPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSchedulerxNotificationPolicyResponse
+ */
+CreateSchedulerxNotificationPolicyResponse Client::createSchedulerxNotificationPolicyWithOptions(const CreateSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChannelTimeRange()) {
+    body["ChannelTimeRange"] = request.channelTimeRange();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasPolicyName()) {
+    body["PolicyName"] = request.policyName();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSchedulerxNotificationPolicy"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSchedulerxNotificationPolicyResponse>();
+}
+
+/**
+ * @summary Creates a notification policy.
+ *
+ * @param request CreateSchedulerxNotificationPolicyRequest
+ * @return CreateSchedulerxNotificationPolicyResponse
+ */
+CreateSchedulerxNotificationPolicyResponse Client::createSchedulerxNotificationPolicy(const CreateSchedulerxNotificationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSchedulerxNotificationPolicyWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
  *
  * @param request CreateWorkflowRequest
@@ -852,7 +960,7 @@ DeleteJobResponse Client::deleteJob(const DeleteJobRequest &request) {
 }
 
 /**
- * @summary 删除命名空间
+ * @summary Deletes a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -887,7 +995,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary 删除命名空间
+ * @summary Deletes a namespace.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -949,6 +1057,102 @@ DeleteRouteStrategyResponse Client::deleteRouteStrategyWithOptions(const DeleteR
 DeleteRouteStrategyResponse Client::deleteRouteStrategy(const DeleteRouteStrategyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteRouteStrategyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a calendar.
+ *
+ * @param request DeleteSchedulerxCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSchedulerxCalendarResponse
+ */
+DeleteSchedulerxCalendarResponse Client::deleteSchedulerxCalendarWithOptions(const DeleteSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSchedulerxCalendar"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSchedulerxCalendarResponse>();
+}
+
+/**
+ * @summary Deletes a calendar.
+ *
+ * @param request DeleteSchedulerxCalendarRequest
+ * @return DeleteSchedulerxCalendarResponse
+ */
+DeleteSchedulerxCalendarResponse Client::deleteSchedulerxCalendar(const DeleteSchedulerxCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSchedulerxCalendarWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a notification policy.
+ *
+ * @param request DeleteSchedulerxNotificationPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSchedulerxNotificationPolicyResponse
+ */
+DeleteSchedulerxNotificationPolicyResponse Client::deleteSchedulerxNotificationPolicyWithOptions(const DeleteSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPolicyName()) {
+    body["PolicyName"] = request.policyName();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSchedulerxNotificationPolicy"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSchedulerxNotificationPolicyResponse>();
+}
+
+/**
+ * @summary Deletes a notification policy.
+ *
+ * @param request DeleteSchedulerxNotificationPolicyRequest
+ * @return DeleteSchedulerxNotificationPolicyResponse
+ */
+DeleteSchedulerxNotificationPolicyResponse Client::deleteSchedulerxNotificationPolicy(const DeleteSchedulerxNotificationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSchedulerxNotificationPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -1504,7 +1708,7 @@ GetLogResponse Client::getLog(const GetLogRequest &request) {
 }
 
 /**
- * @summary 查询概览数据信息
+ * @summary Retrieves job scheduling data for Professional Edition applications.
  *
  * @param request GetOverviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1563,7 +1767,7 @@ GetOverviewResponse Client::getOverviewWithOptions(const GetOverviewRequest &req
 }
 
 /**
- * @summary 查询概览数据信息
+ * @summary Retrieves job scheduling data for Professional Edition applications.
  *
  * @param request GetOverviewRequest
  * @return GetOverviewResponse
@@ -1826,7 +2030,7 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary 获取任务脚本历史列表
+ * @summary Queries historical scripts of a job.
  *
  * @param request ListJobScriptHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1873,7 +2077,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistoryWithOptions(const ListJ
 }
 
 /**
- * @summary 获取任务脚本历史列表
+ * @summary Queries historical scripts of a job.
  *
  * @param request ListJobScriptHistoryRequest
  * @return ListJobScriptHistoryResponse
@@ -2000,6 +2204,76 @@ ListNamespacesResponse Client::listNamespaces(const ListNamespacesRequest &reque
 }
 
 /**
+ * @summary Queries the information of a workflow.
+ *
+ * @param request ListWorkFlowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkFlowsResponse
+ */
+ListWorkFlowsResponse Client::listWorkFlowsWithOptions(const ListWorkFlowsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request._namespace();
+  }
+
+  if (!!request.hasNamespaceSource()) {
+    query["NamespaceSource"] = request.namespaceSource();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkflowName()) {
+    query["WorkflowName"] = request.workflowName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkFlows"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkFlowsResponse>();
+}
+
+/**
+ * @summary Queries the information of a workflow.
+ *
+ * @param request ListWorkFlowsRequest
+ * @return ListWorkFlowsResponse
+ */
+ListWorkFlowsResponse Client::listWorkFlows(const ListWorkFlowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkFlowsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
  *
  * @param request ListWorkflowInstanceRequest
@@ -2038,7 +2312,65 @@ ListWorkflowInstanceResponse Client::listWorkflowInstance(const ListWorkflowInst
 }
 
 /**
- * @summary 同步任务
+ * @summary Updates a calendar.
+ *
+ * @param request ManageSchedulerxCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ManageSchedulerxCalendarResponse
+ */
+ManageSchedulerxCalendarResponse Client::manageSchedulerxCalendarWithOptions(const ManageSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasIncremental()) {
+    body["Incremental"] = request.incremental();
+  }
+
+  if (!!request.hasMonthDaysContent()) {
+    body["MonthDaysContent"] = request.monthDaysContent();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ManageSchedulerxCalendar"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ManageSchedulerxCalendarResponse>();
+}
+
+/**
+ * @summary Updates a calendar.
+ *
+ * @param request ManageSchedulerxCalendarRequest
+ * @return ManageSchedulerxCalendarResponse
+ */
+ManageSchedulerxCalendarResponse Client::manageSchedulerxCalendar(const ManageSchedulerxCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return manageSchedulerxCalendarWithOptions(request, runtime);
+}
+
+/**
+ * @summary Synchronizes tasks across namespaces.
  *
  * @param tmpReq ManageSchedulerxJobSyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2099,7 +2431,7 @@ ManageSchedulerxJobSyncResponse Client::manageSchedulerxJobSyncWithOptions(const
 }
 
 /**
- * @summary 同步任务
+ * @summary Synchronizes tasks across namespaces.
  *
  * @param request ManageSchedulerxJobSyncRequest
  * @return ManageSchedulerxJobSyncResponse
@@ -2110,7 +2442,127 @@ ManageSchedulerxJobSyncResponse Client::manageSchedulerxJobSync(const ManageSche
 }
 
 /**
- * @summary 获取机器详细信息
+ * @summary Updates a notification policy.
+ *
+ * @param request ManageSchedulerxNotificationPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ManageSchedulerxNotificationPolicyResponse
+ */
+ManageSchedulerxNotificationPolicyResponse Client::manageSchedulerxNotificationPolicyWithOptions(const ManageSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChannelTimeRange()) {
+    body["ChannelTimeRange"] = request.channelTimeRange();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasPolicyName()) {
+    body["PolicyName"] = request.policyName();
+  }
+
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ManageSchedulerxNotificationPolicy"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ManageSchedulerxNotificationPolicyResponse>();
+}
+
+/**
+ * @summary Updates a notification policy.
+ *
+ * @param request ManageSchedulerxNotificationPolicyRequest
+ * @return ManageSchedulerxNotificationPolicyResponse
+ */
+ManageSchedulerxNotificationPolicyResponse Client::manageSchedulerxNotificationPolicy(const ManageSchedulerxNotificationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return manageSchedulerxNotificationPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the information of a calendar.
+ *
+ * @param request ReadSchedulerxCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReadSchedulerxCalendarResponse
+ */
+ReadSchedulerxCalendarResponse Client::readSchedulerxCalendarWithOptions(const ReadSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCalendarName()) {
+    query["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasFetchCalendarDetail()) {
+    query["FetchCalendarDetail"] = request.fetchCalendarDetail();
+  }
+
+  if (!!request.hasFetchSystemCalendar()) {
+    query["FetchSystemCalendar"] = request.fetchSystemCalendar();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasYear()) {
+    query["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReadSchedulerxCalendar"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReadSchedulerxCalendarResponse>();
+}
+
+/**
+ * @summary Retrieves the information of a calendar.
+ *
+ * @param request ReadSchedulerxCalendarRequest
+ * @return ReadSchedulerxCalendarResponse
+ */
+ReadSchedulerxCalendarResponse Client::readSchedulerxCalendar(const ReadSchedulerxCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return readSchedulerxCalendarWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries detailed information of the workers specified by a job.
  *
  * @param request ReadSchedulerxDesignateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2161,7 +2613,7 @@ ReadSchedulerxDesignateDetailResponse Client::readSchedulerxDesignateDetailWithO
 }
 
 /**
- * @summary 获取机器详细信息
+ * @summary Queries detailed information of the workers specified by a job.
  *
  * @param request ReadSchedulerxDesignateDetailRequest
  * @return ReadSchedulerxDesignateDetailResponse
@@ -2172,7 +2624,7 @@ ReadSchedulerxDesignateDetailResponse Client::readSchedulerxDesignateDetail(cons
 }
 
 /**
- * @summary 获取指定机器基本信息
+ * @summary Queries the basic information of specified workers.
  *
  * @param request ReadSchedulerxDesignateInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2219,7 +2671,7 @@ ReadSchedulerxDesignateInfoResponse Client::readSchedulerxDesignateInfoWithOptio
 }
 
 /**
- * @summary 获取指定机器基本信息
+ * @summary Queries the basic information of specified workers.
  *
  * @param request ReadSchedulerxDesignateInfoRequest
  * @return ReadSchedulerxDesignateInfoResponse
@@ -2227,6 +2679,60 @@ ReadSchedulerxDesignateInfoResponse Client::readSchedulerxDesignateInfoWithOptio
 ReadSchedulerxDesignateInfoResponse Client::readSchedulerxDesignateInfo(const ReadSchedulerxDesignateInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return readSchedulerxDesignateInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries notification policies.
+ *
+ * @param request ReadSchedulerxNotificationPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReadSchedulerxNotificationPolicyResponse
+ */
+ReadSchedulerxNotificationPolicyResponse Client::readSchedulerxNotificationPolicyWithOptions(const ReadSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPolicyName()) {
+    query["PolicyName"] = request.policyName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReadSchedulerxNotificationPolicy"},
+    {"version" , "2019-04-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReadSchedulerxNotificationPolicyResponse>();
+}
+
+/**
+ * @summary Queries notification policies.
+ *
+ * @param request ReadSchedulerxNotificationPolicyRequest
+ * @return ReadSchedulerxNotificationPolicyResponse
+ */
+ReadSchedulerxNotificationPolicyResponse Client::readSchedulerxNotificationPolicy(const ReadSchedulerxNotificationPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return readSchedulerxNotificationPolicyWithOptions(request, runtime);
 }
 
 /**
@@ -2599,6 +3105,10 @@ UpdateAppGroupResponse Client::updateAppGroupWithOptions(const UpdateAppGroupReq
     query["Description"] = request.description();
   }
 
+  if (!!request.hasEnableLog()) {
+    query["EnableLog"] = request.enableLog();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.groupId();
   }
@@ -2848,7 +3358,7 @@ UpdateJobResponse Client::updateJob(const UpdateJobRequest &request) {
 }
 
 /**
- * @summary 更新任务执行脚本
+ * @summary Updates the execution script of a job.
  *
  * @param request UpdateJobScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2903,7 +3413,7 @@ UpdateJobScriptResponse Client::updateJobScriptWithOptions(const UpdateJobScript
 }
 
 /**
- * @summary 更新任务执行脚本
+ * @summary Updates the execution script of a job.
  *
  * @param request UpdateJobScriptRequest
  * @return UpdateJobScriptResponse
@@ -2914,7 +3424,7 @@ UpdateJobScriptResponse Client::updateJobScript(const UpdateJobScriptRequest &re
 }
 
 /**
- * @summary 更新命名空间
+ * @summary Updates a namespace.
  *
  * @param request UpdateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2957,7 +3467,7 @@ UpdateNamespaceResponse Client::updateNamespaceWithOptions(const UpdateNamespace
 }
 
 /**
- * @summary 更新命名空间
+ * @summary Updates a namespace.
  *
  * @param request UpdateNamespaceRequest
  * @return UpdateNamespaceResponse

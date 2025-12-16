@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // -
+    // The information about the job\\"s historical scripts.
     std::shared_ptr<vector<Models::ListJobScriptHistoryResponseBodyDataJobScriptHistoryInfos>> jobScriptHistoryInfos_ = nullptr;
   };
 

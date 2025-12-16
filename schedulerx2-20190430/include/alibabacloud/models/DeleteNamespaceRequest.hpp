@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The namespace ID. You can obtain the namespace ID on the Namespaces page in the SchedulerX console.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

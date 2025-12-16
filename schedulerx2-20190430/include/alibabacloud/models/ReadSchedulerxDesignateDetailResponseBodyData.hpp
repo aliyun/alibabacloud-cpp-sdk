@@ -42,7 +42,7 @@ namespace Models
 
 
   protected:
-    // -
+    // *
     std::shared_ptr<vector<Models::ReadSchedulerxDesignateDetailResponseBodyDataDesignateDetailVos>> designateDetailVos_ = nullptr;
   };
 

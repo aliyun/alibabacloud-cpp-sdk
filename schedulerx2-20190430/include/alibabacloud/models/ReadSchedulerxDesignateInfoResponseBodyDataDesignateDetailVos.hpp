@@ -106,13 +106,32 @@ namespace Models
 
 
   protected:
+    // The status of the workers. Valid values:
+    // 
+    // *   FREE: idle.
+    // *   LOAD5_BUSY: The average of the latest five values of CPU workload is too high.
+    // *   HEAP5_BUSY: The average of the latest five values of heap memory usage is too high.
+    // *   DISK_BUSY: The disk usage is too high.
     std::shared_ptr<string> busy_ = nullptr;
+    // Indicates whether the workers are specified.
+    // 
+    // *   true: The workers are specified.
+    // *   false: The workers are not specified.
     std::shared_ptr<bool> checked_ = nullptr;
+    // The information returned based on the value of the DesignateType parameter.
+    // 
+    // *   If you set the DesignateType parameter to 2, the tags of the workers are returned.
+    // *   If you set the DesignateType parameter to 1, the IP addresses of the workers are returned.
     std::shared_ptr<string> key_ = nullptr;
+    // The metric values.
     std::shared_ptr<Models::ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVosMetrics> metrics_ = nullptr;
+    // Indicates whether the workers are offline.
     std::shared_ptr<bool> offline_ = nullptr;
+    // The number of workers.
     std::shared_ptr<int32_t> size_ = nullptr;
+    // The startup method of the workers.
     std::shared_ptr<string> starter_ = nullptr;
+    // The version of the workers.
     std::shared_ptr<string> version_ = nullptr;
   };
 

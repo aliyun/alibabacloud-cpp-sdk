@@ -94,17 +94,30 @@ namespace Models
 
 
   protected:
+    // The list of task IDs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> jobIdListShrink_ = nullptr;
+    // The source of the namespace. Required only for specific third-party cases.
     std::shared_ptr<string> namespaceSource_ = nullptr;
+    // The source application group to which the task belongs.
+    // 
     // This parameter is required.
     std::shared_ptr<string> originalGroupId_ = nullptr;
+    // The source namespace where the task resides.
+    // 
     // This parameter is required.
     std::shared_ptr<string> originalNamespace_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the destination application group to which the task will be synchronized.
+    // 
     // This parameter is required.
     std::shared_ptr<string> targetGroupId_ = nullptr;
+    // The destination namespace to which the task will be synchronized.
+    // 
     // This parameter is required.
     std::shared_ptr<string> targetNamespace_ = nullptr;
   };

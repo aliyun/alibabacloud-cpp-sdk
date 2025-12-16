@@ -61,9 +61,21 @@ namespace Models
 
 
   protected:
-    // -
+    // *
     std::shared_ptr<vector<Models::ReadSchedulerxDesignateInfoResponseBodyDataDesignateDetailVos>> designateDetailVos_ = nullptr;
+    // The information type of the specified workers.
+    // 
+    // *   1: the IP address of the specified workers.
+    // *   2: the tags of the specified workers.
+    // 
+    // >  The default value of the DesignateType parameter is 1.
     std::shared_ptr<int32_t> designateType_ = nullptr;
+    // Indicates whether to enable failover for the workers. If you set this parameter to true, the job is scheduled to other workers when the specified workers go offline.
+    // 
+    // *   true: enables failover for the workers.
+    // *   false: disables failover for the workers.
+    // 
+    // >  The default value of the Transferable parameter is false.
     std::shared_ptr<bool> transferable_ = nullptr;
   };
 

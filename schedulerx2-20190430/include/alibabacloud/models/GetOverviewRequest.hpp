@@ -103,16 +103,34 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The value must be a UNIX timestamp (in seconds). If left empty, the current time is used.
     std::shared_ptr<int64_t> endTime_ = nullptr;
+    // The application group ID.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The metric type. Valid values:
+    // 
+    // *   0: the basic job data.
+    // *   1: the job running data.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> metricType_ = nullptr;
+    // The unique identifier (UID) of the namespace.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The source of the namespace. This parameter is required only for a special third party.
     std::shared_ptr<string> namespaceSource_ = nullptr;
+    // The query type. Valid values:
+    // 
+    // *   query: queries data in a time range.
+    // *   query_range: queries time series data in a time range.
+    // 
     // This parameter is required.
     std::shared_ptr<string> operate_ = nullptr;
+    // The region ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The beginning of the time range to query. The value must be a UNIX timestamp (in seconds).
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> startTime_ = nullptr;
   };

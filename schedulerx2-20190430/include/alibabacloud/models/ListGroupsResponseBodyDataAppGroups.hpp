@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableLog, enableLog_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(Namespace, namespace_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableLog, enableLog_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(Namespace, namespace_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appGroupId_ == nullptr
-        && return this->appKey_ == nullptr && return this->appName_ == nullptr && return this->appVersion_ == nullptr && return this->description_ == nullptr && return this->groupId_ == nullptr
-        && return this->namespace_ == nullptr; };
+        && return this->appKey_ == nullptr && return this->appName_ == nullptr && return this->appVersion_ == nullptr && return this->description_ == nullptr && return this->enableLog_ == nullptr
+        && return this->groupId_ == nullptr && return this->namespace_ == nullptr; };
     // appGroupId Field Functions 
     bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
     void deleteAppGroupId() { this->appGroupId_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline ListGroupsResponseBodyDataAppGroups& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // enableLog Field Functions 
+    bool hasEnableLog() const { return this->enableLog_ != nullptr;};
+    void deleteEnableLog() { this->enableLog_ = nullptr;};
+    inline bool enableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
+    inline ListGroupsResponseBodyDataAppGroups& setEnableLog(bool enableLog) { DARABONBA_PTR_SET_VALUE(enableLog_, enableLog) };
+
+
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -104,6 +113,7 @@ namespace Models
     std::shared_ptr<int32_t> appVersion_ = nullptr;
     // The description of the application.
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<bool> enableLog_ = nullptr;
     // The application ID.
     std::shared_ptr<string> groupId_ = nullptr;
     // The ID of the namespace.

@@ -211,6 +211,40 @@ namespace Schedulerx220190430
       Models::CreateRouteStrategyResponse createRouteStrategy(const Models::CreateRouteStrategyRequest &request);
 
       /**
+       * @summary Creates a calendar.
+       *
+       * @param request CreateSchedulerxCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSchedulerxCalendarResponse
+       */
+      Models::CreateSchedulerxCalendarResponse createSchedulerxCalendarWithOptions(const Models::CreateSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a calendar.
+       *
+       * @param request CreateSchedulerxCalendarRequest
+       * @return CreateSchedulerxCalendarResponse
+       */
+      Models::CreateSchedulerxCalendarResponse createSchedulerxCalendar(const Models::CreateSchedulerxCalendarRequest &request);
+
+      /**
+       * @summary Creates a notification policy.
+       *
+       * @param request CreateSchedulerxNotificationPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSchedulerxNotificationPolicyResponse
+       */
+      Models::CreateSchedulerxNotificationPolicyResponse createSchedulerxNotificationPolicyWithOptions(const Models::CreateSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a notification policy.
+       *
+       * @param request CreateSchedulerxNotificationPolicyRequest
+       * @return CreateSchedulerxNotificationPolicyResponse
+       */
+      Models::CreateSchedulerxNotificationPolicyResponse createSchedulerxNotificationPolicy(const Models::CreateSchedulerxNotificationPolicyRequest &request);
+
+      /**
        * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
        *
        * @param request CreateWorkflowRequest
@@ -262,7 +296,7 @@ namespace Schedulerx220190430
       Models::DeleteJobResponse deleteJob(const Models::DeleteJobRequest &request);
 
       /**
-       * @summary 删除命名空间
+       * @summary Deletes a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -271,7 +305,7 @@ namespace Schedulerx220190430
       Models::DeleteNamespaceResponse deleteNamespaceWithOptions(const Models::DeleteNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除命名空间
+       * @summary Deletes a namespace.
        *
        * @param request DeleteNamespaceRequest
        * @return DeleteNamespaceResponse
@@ -294,6 +328,40 @@ namespace Schedulerx220190430
        * @return DeleteRouteStrategyResponse
        */
       Models::DeleteRouteStrategyResponse deleteRouteStrategy(const Models::DeleteRouteStrategyRequest &request);
+
+      /**
+       * @summary Deletes a calendar.
+       *
+       * @param request DeleteSchedulerxCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSchedulerxCalendarResponse
+       */
+      Models::DeleteSchedulerxCalendarResponse deleteSchedulerxCalendarWithOptions(const Models::DeleteSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a calendar.
+       *
+       * @param request DeleteSchedulerxCalendarRequest
+       * @return DeleteSchedulerxCalendarResponse
+       */
+      Models::DeleteSchedulerxCalendarResponse deleteSchedulerxCalendar(const Models::DeleteSchedulerxCalendarRequest &request);
+
+      /**
+       * @summary Deletes a notification policy.
+       *
+       * @param request DeleteSchedulerxNotificationPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSchedulerxNotificationPolicyResponse
+       */
+      Models::DeleteSchedulerxNotificationPolicyResponse deleteSchedulerxNotificationPolicyWithOptions(const Models::DeleteSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a notification policy.
+       *
+       * @param request DeleteSchedulerxNotificationPolicyRequest
+       * @return DeleteSchedulerxNotificationPolicyResponse
+       */
+      Models::DeleteSchedulerxNotificationPolicyResponse deleteSchedulerxNotificationPolicy(const Models::DeleteSchedulerxNotificationPolicyRequest &request);
 
       /**
        * @summary Deletes a workflow.
@@ -538,7 +606,7 @@ namespace Schedulerx220190430
       Models::GetLogResponse getLog(const Models::GetLogRequest &request);
 
       /**
-       * @summary 查询概览数据信息
+       * @summary Retrieves job scheduling data for Professional Edition applications.
        *
        * @param request GetOverviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -547,7 +615,7 @@ namespace Schedulerx220190430
       Models::GetOverviewResponse getOverviewWithOptions(const Models::GetOverviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询概览数据信息
+       * @summary Retrieves job scheduling data for Professional Edition applications.
        *
        * @param request GetOverviewRequest
        * @return GetOverviewResponse
@@ -658,7 +726,7 @@ namespace Schedulerx220190430
       Models::ListGroupsResponse listGroups(const Models::ListGroupsRequest &request);
 
       /**
-       * @summary 获取任务脚本历史列表
+       * @summary Queries historical scripts of a job.
        *
        * @param request ListJobScriptHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +735,7 @@ namespace Schedulerx220190430
       Models::ListJobScriptHistoryResponse listJobScriptHistoryWithOptions(const Models::ListJobScriptHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务脚本历史列表
+       * @summary Queries historical scripts of a job.
        *
        * @param request ListJobScriptHistoryRequest
        * @return ListJobScriptHistoryResponse
@@ -737,6 +805,23 @@ namespace Schedulerx220190430
       Models::ListNamespacesResponse listNamespaces(const Models::ListNamespacesRequest &request);
 
       /**
+       * @summary Queries the information of a workflow.
+       *
+       * @param request ListWorkFlowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkFlowsResponse
+       */
+      Models::ListWorkFlowsResponse listWorkFlowsWithOptions(const Models::ListWorkFlowsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the information of a workflow.
+       *
+       * @param request ListWorkFlowsRequest
+       * @return ListWorkFlowsResponse
+       */
+      Models::ListWorkFlowsResponse listWorkFlows(const Models::ListWorkFlowsRequest &request);
+
+      /**
        * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
        *
        * @param request ListWorkflowInstanceRequest
@@ -754,7 +839,24 @@ namespace Schedulerx220190430
       Models::ListWorkflowInstanceResponse listWorkflowInstance(const Models::ListWorkflowInstanceRequest &request);
 
       /**
-       * @summary 同步任务
+       * @summary Updates a calendar.
+       *
+       * @param request ManageSchedulerxCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ManageSchedulerxCalendarResponse
+       */
+      Models::ManageSchedulerxCalendarResponse manageSchedulerxCalendarWithOptions(const Models::ManageSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a calendar.
+       *
+       * @param request ManageSchedulerxCalendarRequest
+       * @return ManageSchedulerxCalendarResponse
+       */
+      Models::ManageSchedulerxCalendarResponse manageSchedulerxCalendar(const Models::ManageSchedulerxCalendarRequest &request);
+
+      /**
+       * @summary Synchronizes tasks across namespaces.
        *
        * @param tmpReq ManageSchedulerxJobSyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,7 +865,7 @@ namespace Schedulerx220190430
       Models::ManageSchedulerxJobSyncResponse manageSchedulerxJobSyncWithOptions(const Models::ManageSchedulerxJobSyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步任务
+       * @summary Synchronizes tasks across namespaces.
        *
        * @param request ManageSchedulerxJobSyncRequest
        * @return ManageSchedulerxJobSyncResponse
@@ -771,7 +873,41 @@ namespace Schedulerx220190430
       Models::ManageSchedulerxJobSyncResponse manageSchedulerxJobSync(const Models::ManageSchedulerxJobSyncRequest &request);
 
       /**
-       * @summary 获取机器详细信息
+       * @summary Updates a notification policy.
+       *
+       * @param request ManageSchedulerxNotificationPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ManageSchedulerxNotificationPolicyResponse
+       */
+      Models::ManageSchedulerxNotificationPolicyResponse manageSchedulerxNotificationPolicyWithOptions(const Models::ManageSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a notification policy.
+       *
+       * @param request ManageSchedulerxNotificationPolicyRequest
+       * @return ManageSchedulerxNotificationPolicyResponse
+       */
+      Models::ManageSchedulerxNotificationPolicyResponse manageSchedulerxNotificationPolicy(const Models::ManageSchedulerxNotificationPolicyRequest &request);
+
+      /**
+       * @summary Retrieves the information of a calendar.
+       *
+       * @param request ReadSchedulerxCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReadSchedulerxCalendarResponse
+       */
+      Models::ReadSchedulerxCalendarResponse readSchedulerxCalendarWithOptions(const Models::ReadSchedulerxCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the information of a calendar.
+       *
+       * @param request ReadSchedulerxCalendarRequest
+       * @return ReadSchedulerxCalendarResponse
+       */
+      Models::ReadSchedulerxCalendarResponse readSchedulerxCalendar(const Models::ReadSchedulerxCalendarRequest &request);
+
+      /**
+       * @summary Queries detailed information of the workers specified by a job.
        *
        * @param request ReadSchedulerxDesignateDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -780,7 +916,7 @@ namespace Schedulerx220190430
       Models::ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetailWithOptions(const Models::ReadSchedulerxDesignateDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取机器详细信息
+       * @summary Queries detailed information of the workers specified by a job.
        *
        * @param request ReadSchedulerxDesignateDetailRequest
        * @return ReadSchedulerxDesignateDetailResponse
@@ -788,7 +924,7 @@ namespace Schedulerx220190430
       Models::ReadSchedulerxDesignateDetailResponse readSchedulerxDesignateDetail(const Models::ReadSchedulerxDesignateDetailRequest &request);
 
       /**
-       * @summary 获取指定机器基本信息
+       * @summary Queries the basic information of specified workers.
        *
        * @param request ReadSchedulerxDesignateInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -797,12 +933,29 @@ namespace Schedulerx220190430
       Models::ReadSchedulerxDesignateInfoResponse readSchedulerxDesignateInfoWithOptions(const Models::ReadSchedulerxDesignateInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定机器基本信息
+       * @summary Queries the basic information of specified workers.
        *
        * @param request ReadSchedulerxDesignateInfoRequest
        * @return ReadSchedulerxDesignateInfoResponse
        */
       Models::ReadSchedulerxDesignateInfoResponse readSchedulerxDesignateInfo(const Models::ReadSchedulerxDesignateInfoRequest &request);
+
+      /**
+       * @summary Queries notification policies.
+       *
+       * @param request ReadSchedulerxNotificationPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReadSchedulerxNotificationPolicyResponse
+       */
+      Models::ReadSchedulerxNotificationPolicyResponse readSchedulerxNotificationPolicyWithOptions(const Models::ReadSchedulerxNotificationPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries notification policies.
+       *
+       * @param request ReadSchedulerxNotificationPolicyRequest
+       * @return ReadSchedulerxNotificationPolicyResponse
+       */
+      Models::ReadSchedulerxNotificationPolicyResponse readSchedulerxNotificationPolicy(const Models::ReadSchedulerxNotificationPolicyRequest &request);
 
       /**
        * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
@@ -941,7 +1094,7 @@ namespace Schedulerx220190430
       Models::UpdateJobResponse updateJob(const Models::UpdateJobRequest &request);
 
       /**
-       * @summary 更新任务执行脚本
+       * @summary Updates the execution script of a job.
        *
        * @param request UpdateJobScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -950,7 +1103,7 @@ namespace Schedulerx220190430
       Models::UpdateJobScriptResponse updateJobScriptWithOptions(const Models::UpdateJobScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新任务执行脚本
+       * @summary Updates the execution script of a job.
        *
        * @param request UpdateJobScriptRequest
        * @return UpdateJobScriptResponse
@@ -958,7 +1111,7 @@ namespace Schedulerx220190430
       Models::UpdateJobScriptResponse updateJobScript(const Models::UpdateJobScriptRequest &request);
 
       /**
-       * @summary 更新命名空间
+       * @summary Updates a namespace.
        *
        * @param request UpdateNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -967,7 +1120,7 @@ namespace Schedulerx220190430
       Models::UpdateNamespaceResponse updateNamespaceWithOptions(const Models::UpdateNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新命名空间
+       * @summary Updates a namespace.
        *
        * @param request UpdateNamespaceRequest
        * @return UpdateNamespaceResponse

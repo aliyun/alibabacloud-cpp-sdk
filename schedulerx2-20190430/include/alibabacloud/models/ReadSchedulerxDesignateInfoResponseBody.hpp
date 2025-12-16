@@ -90,12 +90,17 @@ namespace Models
 
 
   protected:
+    // The access denial details.
     std::shared_ptr<ReadSchedulerxDesignateInfoResponseBodyAccessDeniedDetail> accessDeniedDetail_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> code_ = nullptr;
-    // -
+    // *
     std::shared_ptr<ReadSchedulerxDesignateInfoResponseBodyData> data_ = nullptr;
+    // The error message returned only if an error occurs.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

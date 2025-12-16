@@ -78,11 +78,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     std::shared_ptr<int32_t> code_ = nullptr;
-    // -
+    // The information about the jobs.
     std::shared_ptr<ListJobScriptHistoryResponseBodyData> data_ = nullptr;
+    // The additional information returned only if an error occurs.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // true
+    // 
+    // false
     std::shared_ptr<bool> success_ = nullptr;
   };
 

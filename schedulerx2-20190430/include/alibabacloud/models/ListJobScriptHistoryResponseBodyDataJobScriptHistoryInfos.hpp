@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The creation time.
     std::shared_ptr<string> createTime_ = nullptr;
+    // The creator.
     std::shared_ptr<string> creator_ = nullptr;
+    // The script content.
     std::shared_ptr<string> scriptContent_ = nullptr;
+    // The description of the script version.
     std::shared_ptr<string> versionesDescription_ = nullptr;
   };
 

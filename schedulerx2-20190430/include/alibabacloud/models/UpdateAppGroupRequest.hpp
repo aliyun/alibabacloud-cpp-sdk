@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateAppGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableLog, enableLog_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_TO_JSON(MonitorConfigJson, monitorConfigJson_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, UpdateAppGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppVersion, appVersion_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableLog, enableLog_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_FROM_JSON(MonitorConfigJson, monitorConfigJson_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appVersion_ == nullptr
-        && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->maxConcurrency_ == nullptr && return this->monitorConfigJson_ == nullptr && return this->monitorContactsJson_ == nullptr
-        && return this->namespace_ == nullptr && return this->notificationPolicyName_ == nullptr && return this->regionId_ == nullptr; };
+        && return this->description_ == nullptr && return this->enableLog_ == nullptr && return this->groupId_ == nullptr && return this->maxConcurrency_ == nullptr && return this->monitorConfigJson_ == nullptr
+        && return this->monitorContactsJson_ == nullptr && return this->namespace_ == nullptr && return this->notificationPolicyName_ == nullptr && return this->regionId_ == nullptr; };
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateAppGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // enableLog Field Functions 
+    bool hasEnableLog() const { return this->enableLog_ != nullptr;};
+    void deleteEnableLog() { this->enableLog_ = nullptr;};
+    inline bool enableLog() const { DARABONBA_PTR_GET_DEFAULT(enableLog_, false) };
+    inline UpdateAppGroupRequest& setEnableLog(bool enableLog) { DARABONBA_PTR_SET_VALUE(enableLog_, enableLog) };
 
 
     // groupId Field Functions 
@@ -116,6 +125,7 @@ namespace Models
     std::shared_ptr<int32_t> appVersion_ = nullptr;
     // The description of the application.
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<bool> enableLog_ = nullptr;
     // The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
     // 
     // This parameter is required.

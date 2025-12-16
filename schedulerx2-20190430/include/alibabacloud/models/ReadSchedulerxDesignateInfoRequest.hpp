@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // The ID of the application. You can obtain the application ID on the **Applications** page in the SchedulerX console.
+    // 
     // This parameter is required.
     std::shared_ptr<string> groupId_ = nullptr;
+    // The job ID. You can obtain the ID on the Tasks page in the SchedulerX console.
+    // 
     // This parameter is required.
     std::shared_ptr<int64_t> jobId_ = nullptr;
+    // The unique identifier (UID) of the namespace. You can obtain the namespace UID on the Namespaces page in the SchedulerX console.
+    // 
     // This parameter is required.
     std::shared_ptr<string> namespace_ = nullptr;
+    // The source of the namespace. This parameter is required only for a special third party.
     std::shared_ptr<string> namespaceSource_ = nullptr;
+    // The ID of the region.
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
   };

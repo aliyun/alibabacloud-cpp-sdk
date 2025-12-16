@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The return code.
     std::shared_ptr<int32_t> code_ = nullptr;
+    // The error message. Returned only when an error occurs.
     std::shared_ptr<string> message_ = nullptr;
+    // The unique ID of the request.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful.
     std::shared_ptr<bool> success_ = nullptr;
   };
 

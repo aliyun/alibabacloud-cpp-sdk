@@ -149,18 +149,31 @@ namespace Models
 
 
   protected:
+    // The most recent value of CPU workload.
     std::shared_ptr<double> cpuLoad1_ = nullptr;
+    // The average of the latest five values of CPU workload.
     std::shared_ptr<double> cpuLoad5_ = nullptr;
+    // The number of available CPU processors.
     std::shared_ptr<int32_t> cpuProcessors_ = nullptr;
+    // The total disk capacity in MB.
     std::shared_ptr<int32_t> diskMax_ = nullptr;
+    // The disk usage.
     std::shared_ptr<double> diskUsage_ = nullptr;
+    // The used disk space in MB.
     std::shared_ptr<int32_t> diskUsed_ = nullptr;
+    // The number of job executions.
     std::shared_ptr<int64_t> execCount_ = nullptr;
+    // The most recent value of heap memory usage.
     std::shared_ptr<double> heap1Usage_ = nullptr;
+    // The most recent value of used heap memory in MB.
     std::shared_ptr<double> heap1Used_ = nullptr;
+    // The average of the latest five values of heap memory usage.
     std::shared_ptr<double> heap5Usage_ = nullptr;
+    // The maximum heap memory in MB.
     std::shared_ptr<int32_t> heapMax_ = nullptr;
+    // The number of available resources in the shared pool.
     std::shared_ptr<int32_t> sharePoolAvailableSize_ = nullptr;
+    // The queue size in the shared pool.
     std::shared_ptr<int32_t> sharePoolQueueSize_ = nullptr;
   };
 

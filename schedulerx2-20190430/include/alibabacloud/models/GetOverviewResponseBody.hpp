@@ -75,11 +75,22 @@ namespace Models
 
 
   protected:
+    // The status code.
     std::shared_ptr<int32_t> code_ = nullptr;
+    // The data returned in JSON format. Valid data types:
+    // 
+    // *   Basic job data.
+    // *   Job running data.
+    // *   Time series data for job execution: includes triggering statistics, records of successful and failed executions, and their associated timestamps within a specific time range.
     std::shared_ptr<string> data_ = nullptr;
+    // Additional information. Returned only if an error occurs.
     std::shared_ptr<string> message_ = nullptr;
-    // Id of the request
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     std::shared_ptr<bool> success_ = nullptr;
   };
 

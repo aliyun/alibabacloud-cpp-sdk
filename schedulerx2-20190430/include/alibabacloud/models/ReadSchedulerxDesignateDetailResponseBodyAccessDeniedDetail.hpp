@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The authentication operation.
     std::shared_ptr<string> authAction_ = nullptr;
+    // The principal name.
     std::shared_ptr<string> authPrincipalDisplayName_ = nullptr;
+    // The account of the principal.
     std::shared_ptr<string> authPrincipalOwnerId_ = nullptr;
+    // The principal type.
     std::shared_ptr<string> authPrincipalType_ = nullptr;
+    // The encoded diagnostic message.
     std::shared_ptr<string> encodedDiagnosticMessage_ = nullptr;
+    // The permission denial type.
     std::shared_ptr<string> noPermissionType_ = nullptr;
+    // The policy type.
     std::shared_ptr<string> policyType_ = nullptr;
   };
 
