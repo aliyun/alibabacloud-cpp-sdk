@@ -301,6 +301,9 @@
 #include <alibabacloud/models/UpdatePolicyRequest.hpp>
 #include <alibabacloud/models/UpdatePolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdatePolicyResponse.hpp>
+#include <alibabacloud/models/UpdateServiceRequest.hpp>
+#include <alibabacloud/models/UpdateServiceResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceResponse.hpp>
 #include <alibabacloud/models/UpdateServiceVersionRequest.hpp>
 #include <alibabacloud/models/UpdateServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceVersionResponse.hpp>
@@ -506,6 +509,9 @@
 #include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigsBackendConfigServices.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigsBackendConfig.hpp>
 #include <alibabacloud/models/UpdateMcpServerRequestGrayMcpServerConfigs.hpp>
+#include <alibabacloud/models/UpdateServiceRequestHealthCheckConfig.hpp>
+#include <alibabacloud/models/UpdateServiceRequestOutlierDetectionConfig.hpp>
+#include <alibabacloud/models/UpdateServiceRequestPorts.hpp>
 #include <alibabacloud/models/UpdateServiceVersionRequestLabels.hpp>
 
 #endif

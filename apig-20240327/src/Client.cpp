@@ -5167,6 +5167,83 @@ UpdatePolicyResponse Client::updatePolicy(const string &policyId, const UpdatePo
 }
 
 /**
+ * @summary 更新服务
+ *
+ * @param request UpdateServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateServiceResponse
+ */
+UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, const UpdateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAddresses()) {
+    body["addresses"] = request.addresses();
+  }
+
+  if (!!request.hasAgentServiceConfig()) {
+    body["agentServiceConfig"] = request.agentServiceConfig();
+  }
+
+  if (!!request.hasAiServiceConfig()) {
+    body["aiServiceConfig"] = request.aiServiceConfig();
+  }
+
+  if (!!request.hasDnsServers()) {
+    body["dnsServers"] = request.dnsServers();
+  }
+
+  if (!!request.hasHealthCheckConfig()) {
+    body["healthCheckConfig"] = request.healthCheckConfig();
+  }
+
+  if (!!request.hasHealthyPanicThreshold()) {
+    body["healthyPanicThreshold"] = request.healthyPanicThreshold();
+  }
+
+  if (!!request.hasOutlierDetectionConfig()) {
+    body["outlierDetectionConfig"] = request.outlierDetectionConfig();
+  }
+
+  if (!!request.hasPorts()) {
+    body["ports"] = request.ports();
+  }
+
+  if (!!request.hasProtocol()) {
+    body["protocol"] = request.protocol();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateService"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/services/" , Darabonba::Encode::Encoder::percentEncode(serviceId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateServiceResponse>();
+}
+
+/**
+ * @summary 更新服务
+ *
+ * @param request UpdateServiceRequest
+ * @return UpdateServiceResponse
+ */
+UpdateServiceResponse Client::updateService(const string &serviceId, const UpdateServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateServiceWithOptions(serviceId, request, headers, runtime);
+}
+
+/**
  * @summary Updates a service version.
  *
  * @param request UpdateServiceVersionRequest

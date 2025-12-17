@@ -1669,6 +1669,24 @@ namespace APIG20240327
       Models::UpdatePolicyResponse updatePolicy(const string &policyId, const Models::UpdatePolicyRequest &request);
 
       /**
+       * @summary 更新服务
+       *
+       * @param request UpdateServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateServiceResponse
+       */
+      Models::UpdateServiceResponse updateServiceWithOptions(const string &serviceId, const Models::UpdateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新服务
+       *
+       * @param request UpdateServiceRequest
+       * @return UpdateServiceResponse
+       */
+      Models::UpdateServiceResponse updateService(const string &serviceId, const Models::UpdateServiceRequest &request);
+
+      /**
        * @summary Updates a service version.
        *
        * @param request UpdateServiceVersionRequest
