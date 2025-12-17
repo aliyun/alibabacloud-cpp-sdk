@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(litellmVersion, litellmVersion_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_TO_JSON(memory, memory_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(litellmVersion, litellmVersion_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
       DARABONBA_PTR_FROM_JSON(memory, memory_);
@@ -58,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->armsConfiguration_ == nullptr
-        && return this->cpu_ == nullptr && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->litellmVersion_ == nullptr && return this->logConfiguration_ == nullptr
-        && return this->memory_ == nullptr && return this->modelProxyName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr && return this->proxyConfig_ == nullptr
-        && return this->proxyMode_ == nullptr && return this->serviceRegionId_ == nullptr; };
+        && return this->cpu_ == nullptr && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->executionRoleArn_ == nullptr && return this->litellmVersion_ == nullptr
+        && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr && return this->modelProxyName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr
+        && return this->proxyConfig_ == nullptr && return this->proxyMode_ == nullptr && return this->serviceRegionId_ == nullptr; };
     // armsConfiguration Field Functions 
     bool hasArmsConfiguration() const { return this->armsConfiguration_ != nullptr;};
     void deleteArmsConfiguration() { this->armsConfiguration_ = nullptr;};
@@ -89,6 +91,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateModelProxyInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // executionRoleArn Field Functions 
+    bool hasExecutionRoleArn() const { return this->executionRoleArn_ != nullptr;};
+    void deleteExecutionRoleArn() { this->executionRoleArn_ = nullptr;};
+    inline string executionRoleArn() const { DARABONBA_PTR_GET_DEFAULT(executionRoleArn_, "") };
+    inline CreateModelProxyInput& setExecutionRoleArn(string executionRoleArn) { DARABONBA_PTR_SET_VALUE(executionRoleArn_, executionRoleArn) };
 
 
     // litellmVersion Field Functions 
@@ -166,6 +175,7 @@ namespace Models
     std::shared_ptr<float> cpu_ = nullptr;
     std::shared_ptr<string> credentialName_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
+    std::shared_ptr<string> executionRoleArn_ = nullptr;
     std::shared_ptr<string> litellmVersion_ = nullptr;
     std::shared_ptr<LogConfiguration> logConfiguration_ = nullptr;
     // This parameter is required.

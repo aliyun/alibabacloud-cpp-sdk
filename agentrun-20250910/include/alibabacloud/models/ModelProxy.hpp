@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(endpoint, endpoint_);
+      DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
       DARABONBA_PTR_TO_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_TO_JSON(litellmVersion, litellmVersion_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(endpoint, endpoint_);
+      DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
       DARABONBA_PTR_FROM_JSON(lastUpdatedAt, lastUpdatedAt_);
       DARABONBA_PTR_FROM_JSON(litellmVersion, litellmVersion_);
@@ -69,10 +71,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cpu_ == nullptr
-        && return this->createdAt_ == nullptr && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->endpoint_ == nullptr && return this->functionName_ == nullptr
-        && return this->lastUpdatedAt_ == nullptr && return this->litellmVersion_ == nullptr && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr && return this->modelProxyId_ == nullptr
-        && return this->modelProxyName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr && return this->proxyConfig_ == nullptr && return this->proxyMode_ == nullptr
-        && return this->serviceRegionId_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
+        && return this->createdAt_ == nullptr && return this->credentialName_ == nullptr && return this->description_ == nullptr && return this->endpoint_ == nullptr && return this->executionRoleArn_ == nullptr
+        && return this->functionName_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->litellmVersion_ == nullptr && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr
+        && return this->modelProxyId_ == nullptr && return this->modelProxyName_ == nullptr && return this->modelType_ == nullptr && return this->networkConfiguration_ == nullptr && return this->proxyConfig_ == nullptr
+        && return this->proxyMode_ == nullptr && return this->serviceRegionId_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
     // cpu Field Functions 
     bool hasCpu() const { return this->cpu_ != nullptr;};
     void deleteCpu() { this->cpu_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     void deleteEndpoint() { this->endpoint_ = nullptr;};
     inline string endpoint() const { DARABONBA_PTR_GET_DEFAULT(endpoint_, "") };
     inline ModelProxy& setEndpoint(string endpoint) { DARABONBA_PTR_SET_VALUE(endpoint_, endpoint) };
+
+
+    // executionRoleArn Field Functions 
+    bool hasExecutionRoleArn() const { return this->executionRoleArn_ != nullptr;};
+    void deleteExecutionRoleArn() { this->executionRoleArn_ = nullptr;};
+    inline string executionRoleArn() const { DARABONBA_PTR_GET_DEFAULT(executionRoleArn_, "") };
+    inline ModelProxy& setExecutionRoleArn(string executionRoleArn) { DARABONBA_PTR_SET_VALUE(executionRoleArn_, executionRoleArn) };
 
 
     // functionName Field Functions 
@@ -218,6 +227,7 @@ namespace Models
     std::shared_ptr<string> credentialName_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> endpoint_ = nullptr;
+    std::shared_ptr<string> executionRoleArn_ = nullptr;
     std::shared_ptr<string> functionName_ = nullptr;
     std::shared_ptr<string> lastUpdatedAt_ = nullptr;
     std::shared_ptr<string> litellmVersion_ = nullptr;

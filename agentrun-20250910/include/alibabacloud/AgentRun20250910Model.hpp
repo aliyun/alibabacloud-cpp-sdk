@@ -294,7 +294,9 @@
 #include <alibabacloud/models/CredentialPublicConfigRemoteConfig.hpp>
 #include <alibabacloud/models/CredentialPublicConfigUsers.hpp>
 #include <alibabacloud/models/ProxyConfigEndpoints.hpp>
+#include <alibabacloud/models/ProxyConfigPoliciesAiGuardrailConfig.hpp>
 #include <alibabacloud/models/ProxyConfigPoliciesFallbacks.hpp>
+#include <alibabacloud/models/ProxyConfigPoliciesTokenRateLimiter.hpp>
 #include <alibabacloud/models/ProxyConfigPolicies.hpp>
 #include <alibabacloud/models/TemplateMcpOptions.hpp>
 #include <alibabacloud/models/TemplateMcpState.hpp>
