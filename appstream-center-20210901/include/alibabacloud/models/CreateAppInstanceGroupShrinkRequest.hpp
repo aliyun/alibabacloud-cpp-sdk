@@ -292,43 +292,136 @@ namespace Models
 
 
   protected:
+    // The image ID of the application. To obtain the image ID, log on to the [App Streaming console](https://appstreaming.console.aliyun.com/). In the left-side navigation pane, choose **Maintenance** > **Custom Images** or Maintenance > **System Images**.
+    // 
     // This parameter is required.
     std::shared_ptr<string> appCenterImageId_ = nullptr;
+    // The name of the delivery group.
     std::shared_ptr<string> appInstanceGroupName_ = nullptr;
+    // Package type.
     std::shared_ptr<string> appPackageType_ = nullptr;
+    // Policy ID.
     std::shared_ptr<string> appPolicyId_ = nullptr;
     // The authentication mode of the delivery group.
     std::shared_ptr<string> authMode_ = nullptr;
+    // Specifies whether to enable automatic payment.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false: manual payment. This is the default value.
     std::shared_ptr<bool> autoPay_ = nullptr;
+    // Specifies whether to enable auto-renewal.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false: manual payment. This is the default value.
     std::shared_ptr<bool> autoRenew_ = nullptr;
+    // The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+    // 
+    // Valid values:
+    // 
+    // *   cn-shanghai: China (Shanghai)
+    // *   cn-hangzhou: China (Hangzhou)
+    // 
     // This parameter is required.
     std::shared_ptr<string> bizRegionId_ = nullptr;
+    // The sales mode.
+    // 
+    // Valid value:
+    // 
+    // *   Node: by resource
+    // 
     // This parameter is required.
     std::shared_ptr<string> chargeResourceMode_ = nullptr;
+    // The billing method.
+    // 
+    // Valid values:
+    // 
+    // *   PostPaid: pay-as-you-go
+    // *   PrePaid: subscription
+    // 
     // This parameter is required.
     std::shared_ptr<string> chargeType_ = nullptr;
+    // Cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // The network settings.
+    // 
+    // >  If you want to use this parameter, submit a ticket.
     std::shared_ptr<string> networkShrink_ = nullptr;
+    // The node pool object.
     std::shared_ptr<string> nodePoolShrink_ = nullptr;
+    // The subscription duration of resources. This parameter is required if you set `ChargeType` to `PrePaid`. The unit of this parameter is specified by `PeriodUnit`.
+    // 
+    // *   Valid value if you set `PeriodUnit` to `Week`:
+    // 
+    //     *   1
+    // 
+    // *   Valid values if you set `PeriodUnit` to `Month`:
+    // 
+    //     *   1
+    //     *   2
+    //     *   3
+    //     *   6
+    // 
+    // *   Valid values if you set `PeriodUnit` to `Year`:
+    // 
+    //     *   1
+    //     *   2
+    //     *   3
+    // 
+    // >  If you set `ChargeType` to `PostPaid`, set this parameter to 1.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> period_ = nullptr;
+    // The unit of the subscription duration. This parameter is available if you set `ChargeType` to `PrePaid`.
+    // 
+    // >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify an invalid value combination for Period and PeriodUnit, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+    // 
+    // >  If you set `ChargeType` to `PostPaid`, set this parameter to `Month`.
+    // 
+    // Valid values:
+    // 
+    // *   Month
+    // *   Year
+    // *   Week
+    // 
     // This parameter is required.
     std::shared_ptr<string> periodUnit_ = nullptr;
+    // The ID of the pre-open application.
     std::shared_ptr<string> preOpenAppId_ = nullptr;
+    // The product type.
+    // 
+    // Valid value:
+    // 
+    // *   CloudApp: App Streaming
+    // 
     // This parameter is required.
     std::shared_ptr<string> productType_ = nullptr;
+    // The promotion ID. You can call the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation to obtain the ID.
     std::shared_ptr<string> promotionId_ = nullptr;
     // The runtime policy.
     std::shared_ptr<string> runtimePolicyShrink_ = nullptr;
+    // The security policy.
     std::shared_ptr<string> securityPolicyShrink_ = nullptr;
+    // The period of time during which the application can be recycled. The recycling period is the period of time between the time when the end user disconnects from the application and the time when processes exit the application. If you do not want to recycle the application, set this parameter to `-1`. Valid values:-1 and 3 to 300. The value must be an integer. Default value: `15`. Unit: minutes.
+    // 
     // This parameter is required.
     std::shared_ptr<int32_t> sessionTimeout_ = nullptr;
+    // The storage policy.
     std::shared_ptr<string> storagePolicyShrink_ = nullptr;
+    // Payment method subtype.
     std::shared_ptr<string> subPayType_ = nullptr;
+    // The custom policy.
     std::shared_ptr<string> userDefinePolicyShrink_ = nullptr;
+    // List of authorized user group IDs.
     std::shared_ptr<vector<string>> userGroupIds_ = nullptr;
+    // The information about the user that you want to add to the assigned user list of the delivery group. This parameter is required if you configure `Users`.
     std::shared_ptr<string> userInfoShrink_ = nullptr;
+    // The users that you want to add to the assigned user list of the delivery group.
     std::shared_ptr<vector<string>> users_ = nullptr;
+    // Display policy.
     std::shared_ptr<string> videoPolicyShrink_ = nullptr;
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The content of the custom policy. The content must meet the specifications of image versions. To use this parameter, submit a ticket to apply to enable the whitelist feature.
     std::shared_ptr<string> customConfig_ = nullptr;
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the delivery group.
     std::shared_ptr<string> appInstanceGroupId_ = nullptr;
+    // The ID of the resource group. This parameter is returned if a resource group was created.
     std::shared_ptr<string> nodePoolId_ = nullptr;
+    // The order ID.
     std::shared_ptr<string> orderId_ = nullptr;
   };
 

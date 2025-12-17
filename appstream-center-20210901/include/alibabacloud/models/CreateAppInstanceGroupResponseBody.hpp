@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The delivery group.
     std::shared_ptr<CreateAppInstanceGroupResponseBodyAppInstanceGroupModel> appInstanceGroupModel_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

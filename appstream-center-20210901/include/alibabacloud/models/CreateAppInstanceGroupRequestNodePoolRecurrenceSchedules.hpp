@@ -63,8 +63,21 @@ namespace Models
 
 
   protected:
+    // The schedule type of the scaling policy. This parameter must be configured together with `RecurrenceValues`.``
+    // 
+    // Valid value:
+    // 
+    // *   Weekly: The scaling policy is executed on specific days each week.
     std::shared_ptr<string> recurrenceType_ = nullptr;
+    // The days of each week on which the scaling policy is executed.
     std::shared_ptr<vector<int32_t>> recurrenceValues_ = nullptr;
+    // The time periods during which the scaling policy can be executed. The time periods must meet the following requirements:
+    // 
+    // *   Up to three time periods can be added.
+    // *   Time periods cannot be overlapped.
+    // *   The interval between two consecutive time periods must be greater than or equal to 5 minutes.
+    // *   Each time period must be greater than or equal to 15 minutes.
+    // *   The total length of the time periods that you specify cannot be greater than a day.
     std::shared_ptr<vector<Models::CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriods>> timerPeriods_ = nullptr;
   };
 

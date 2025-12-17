@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The storage types.
     std::shared_ptr<vector<string>> storageTypeList_ = nullptr;
+    // User data roaming configuration.
     std::shared_ptr<Models::CreateAppInstanceGroupRequestStoragePolicyUserProfile> userProfile_ = nullptr;
   };
 

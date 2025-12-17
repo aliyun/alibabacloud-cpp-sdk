@@ -153,18 +153,68 @@ namespace Models
 
 
   protected:
+    // Maximum number of idle sessions. When this value is specified, auto-scaling is triggered only if the session utilization exceeds `ScalingUsageThreshold` and the current number of idle sessions in the delivery group is less than `MaxIdleAppInstanceAmount`. Otherwise, it is considered that sufficient idle sessions are available, and no auto-scaling will occur. This parameter allows flexible control over elastic scaling behavior and helps reduce usage costs.
     std::shared_ptr<int32_t> maxIdleAppInstanceAmount_ = nullptr;
+    // The maximum number of resources that can be created for scale-out. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> maxScalingAmount_ = nullptr;
+    // The number of resources that you want to purchase. Valid values: 1 to 100.
+    // 
+    // > 
+    // 
+    // *   This parameter is required if the resources are subscription resources.
+    // 
+    // *   If the resources are pay-as-you-go resources, this parameter is required only if you set `StrategyType` to `NODE_FIXED` or `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> nodeAmount_ = nullptr;
+    // The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, the user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+    // 
+    // *   appstreaming.general.4c8g: 1 to 2
+    // *   appstreaming.general.8c16g: 1 to 4
+    // *   appstreaming.vgpu.8c16g.4g: 1 to 4
+    // *   appstreaming.vgpu.8c31g.16g: 1 to 4
+    // *   appstreaming.vgpu.14c93g.12g: 1 to 6
     std::shared_ptr<int32_t> nodeCapacity_ = nullptr;
+    // The ID of the resource type that you want to purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) operation to obtain the ID.
+    // 
+    // Valid values:
+    // 
+    // *   appstreaming.vgpu.8c16g.4g: WUYING - Graphics_8 vCPUs, 16 GiB Memory, 4 GiB GPU Memory
+    // *   appstreaming.general.8c16g: WUYING - General_8 vCPUs, 16 GiB Memory
+    // *   appstreaming.general.4c8g: WUYING - General_4 vCPUs, 8 GiB Memory
+    // *   appstreaming.vgpu.14c93g.12g: WUYING - Graphics_14 vCPUs, 93 GiB Memory, 12 GiB GPU Memory.
+    // *   appstreaming.vgpu.8c31g.16g: WUYING - Graphics_8 vCPUs, 31 GiB Memory, 16 GiB GPU Memory
     std::shared_ptr<string> nodeInstanceType_ = nullptr;
+    // The schedules of the scaling policy. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<vector<Models::CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules>> recurrenceSchedules_ = nullptr;
+    // The maximum retention period of a resource to which no session is connected. If no session is connected to a resource, the resource is automatically scaled in after the specified retention period elapses. Valid values: 5 to 120. Default value: 5. Unit: minutes. If one of the following situations occurs, the resource is not scaled in.
+    // 
+    // *   If automatic scale-out is triggered after the resource is scaled in, the scale-in is not executed. This prevents repeated scale-in and scale-out.
+    // *   If automatic scale-out is triggered due to an increase in the number of sessions during the specified period of time, the resource is not scaled in and the countdown restarts.
     std::shared_ptr<int32_t> scalingDownAfterIdleMinutes_ = nullptr;
+    // The number of resources that are created each time resources are scaled out. Valid values: 1 to 10. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`.
     std::shared_ptr<int32_t> scalingStep_ = nullptr;
+    // The upper limit of session usage. If the session usage exceeds the specified upper limit, auto scaling is automatically triggered. The session usage is calculated by using the following formula: `Session usage = Number of current sessions/(Total number of resources × Number of concurrent sessions) × 100%`. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_USAGE`. Valid values: 0 to 100. Default value: 85.
     std::shared_ptr<string> scalingUsageThreshold_ = nullptr;
+    // The expiration date of the scaling policy. Format: yyyy-MM-dd. The interval between the expiration date and the effective date must be from 7 days to 1 year. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<string> strategyDisableDate_ = nullptr;
+    // The effective date of the scaling policy. Format: yyyy-MM-dd. The date must be the same as or later than the current date. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<string> strategyEnableDate_ = nullptr;
+    // The scaling policy of resources.
+    // 
+    // > 
+    // 
+    // *   `NODE_FIXED`: fixed number of resources. This value is applicable to pay-as-you-go resources and subscription resources.
+    // 
+    // *   `NODE_SCALING_BY_USAGE`: auto scaling. This value is applicable to pay-as-you-go resources and subscription resources.
+    // 
+    // *   `NODE_SCALING_BY_SCHEDULE`: scheduled scaling. This value is applicable only to pay-as-you-go resources.
+    // 
+    // Valid values:
+    // 
+    // *   NODE_FIXED: fixed number of resources
+    // *   NODE_SCALING_BY_SCHEDULE: scheduled scaling
+    // *   NODE_SCALING_BY_USAGE: auto scaling
     std::shared_ptr<string> strategyType_ = nullptr;
+    // Specifies whether to enable the warmup policy for resources. This parameter is required if you set `StrategyType` to `NODE_SCALING_BY_SCHEDULE`.
     std::shared_ptr<bool> warmUp_ = nullptr;
   };
 

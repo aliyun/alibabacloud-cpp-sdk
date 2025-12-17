@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // Remote storage path for user data roaming.
+    // 
+    // - If left empty, the default value is the delivery group ID.
+    // - For cross-delivery-group (within the same VPC) user data roaming, the same value must be configured for all participating delivery groups.
     std::shared_ptr<string> remoteStoragePath_ = nullptr;
+    // Remote storage type used for user data roaming.
     std::shared_ptr<string> remoteStorageType_ = nullptr;
+    // User data roaming toggle.
     std::shared_ptr<bool> userProfileSwitch_ = nullptr;
   };
 

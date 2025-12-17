@@ -93,11 +93,23 @@ namespace Models
 
 
   protected:
+    // The domain name rules.
     std::shared_ptr<vector<Models::CreateAppInstanceGroupRequestNetworkDomainRules>> domainRules_ = nullptr;
+    // The validity period of the public IP address. If the specified value is exceeded, the IP address is updated at next logon. Minimum value: 60. Unit: minutes.
     std::shared_ptr<int32_t> ipExpireMinutes_ = nullptr;
+    // Office Network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The route settings. This parameter is available only if you set `StrategyType` to `Mixed`.
     std::shared_ptr<vector<Models::CreateAppInstanceGroupRequestNetworkRoutes>> routes_ = nullptr;
+    // The type of the network policy.
+    // 
+    // Valid values:
+    // 
+    // *   Mixed: the hybrid mode. In this mode, a device is deployed in one virtual private cloud (VPC). Two NICs are provided and an independent public IP address is configured for the device.
+    // *   Shared: the shared mode. In this mode, a single NIC is provided for a device and the network is accessed by using NAT Gateway.
     std::shared_ptr<string> strategyType_ = nullptr;
+    // List of virtual switch IDs.
+    // - Valid only for custom office networks.
     std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
   };
 

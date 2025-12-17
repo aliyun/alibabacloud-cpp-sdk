@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // The ID of the update task.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

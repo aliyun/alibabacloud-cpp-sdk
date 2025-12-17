@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The destination. The value is a CIDR block.
     std::shared_ptr<string> destination_ = nullptr;
+    // The network egress mode.
+    // 
+    // Valid value:
+    // 
+    // *   Shared: accesses the network by using NAT Gateway.
     std::shared_ptr<string> mode_ = nullptr;
   };
 

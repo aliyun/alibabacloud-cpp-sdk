@@ -84,11 +84,29 @@ namespace Models
 
 
   protected:
+    // Frame rate (FPS).
     std::shared_ptr<int32_t> frameRate_ = nullptr;
+    // Resolution height, in pixels.
     std::shared_ptr<int32_t> sessionResolutionHeight_ = nullptr;
+    // Resolution width, in pixels.
     std::shared_ptr<int32_t> sessionResolutionWidth_ = nullptr;
+    // Streaming mode. Combined with the Webrtc parameter, it indicates the protocol type.
+    // 
+    // - When Webrtc=true and StreamingMode=video, it indicates a WebRTC stream.
+    // - When Webrtc=false and StreamingMode=video, it indicates a video stream.
+    // - When Webrtc=false and StreamingMode=mix, it indicates a mixed stream.
     std::shared_ptr<string> streamingMode_ = nullptr;
+    // Whether to use adaptive resolution.
+    // 
+    // - true: The session resolution follows changes in the terminal\\"s display area. In this case, SessionResolutionWidth and SessionResolutionHeight represent the maximum values for resolution adjustment.
+    // 
+    // - false: The session resolution does not follow changes in the terminal\\"s display area. In this case, the resolution is fixed to the values of SessionResolutionWidth and SessionResolutionHeight.
     std::shared_ptr<bool> terminalResolutionAdaptive_ = nullptr;
+    // Whether to enable WebRTC. Combined with the StreamingMode parameter, it indicates the protocol type.
+    // 
+    // - When Webrtc=true and StreamingMode=video, it indicates a WebRTC stream.
+    // - When Webrtc=false and StreamingMode=video, it indicates a video stream.
+    // - When Webrtc=false and StreamingMode=mix, it indicates a mixed stream.
     std::shared_ptr<bool> webrtc_ = nullptr;
   };
 

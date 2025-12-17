@@ -38,6 +38,11 @@ namespace Models
 
 
   protected:
+    // The account type of the user.
+    // 
+    // Valid value:
+    // 
+    // *   Simple: convenience account
     std::shared_ptr<string> type_ = nullptr;
   };
 

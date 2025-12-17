@@ -48,7 +48,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to reset after unbinding from a delivery group.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false
     std::shared_ptr<bool> resetAfterUnbind_ = nullptr;
+    // Specifies whether to skip user permission verification.
+    // 
+    // Valid values:
+    // 
+    // *   true
+    // *   false: This is the default value.
     std::shared_ptr<bool> skipUserAuthCheck_ = nullptr;
   };
 

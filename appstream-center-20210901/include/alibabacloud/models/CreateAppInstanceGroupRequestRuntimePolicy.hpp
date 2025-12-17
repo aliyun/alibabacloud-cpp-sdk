@@ -91,24 +91,15 @@ namespace Models
     // *   OFF
     // *   ON
     std::shared_ptr<string> debugMode_ = nullptr;
-    // Specifies whether only one app can be opened in a session.
+    // Only one application is allowed to be opened within a single session.
     // 
-    // *   After you enable this feature, the system assigns a session to each app if you open multiple apps in a delivery group. This consumes a larger number of sessions.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // - When enabled, launching multiple applications from the delivery group will allocate a separate session for each application, resulting in higher session consumption.
     std::shared_ptr<bool> perSessionPerApp_ = nullptr;
+    // Persistent session scheduling mode.
     std::shared_ptr<string> persistentAppInstanceScheduleMode_ = nullptr;
-    // Specifies whether to enable pre-open for sessions.
+    // Session pre-launch toggle.
     // 
-    // *   Default value: true
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // *   false
+    // - If not specified, the default value is true.
     std::shared_ptr<string> sessionPreOpen_ = nullptr;
     // The session type.
     // 
@@ -118,8 +109,7 @@ namespace Models
     // *   NORMAL: Remote Desktop Protocol (RDP)-based O\\&M session
     std::shared_ptr<string> sessionType_ = nullptr;
     // The generation mode of the session users. Valid value:
-    // 
-    // *   wyid. In this case, you must set sessionPreOpen to false.
+    // - wyid. In this case, you must set sessionPreOpen to false.
     std::shared_ptr<string> sessionUserGenerationMode_ = nullptr;
   };
 

@@ -57,6 +57,9 @@ namespace AppstreamCenter20210901
       /**
        * @summary Creates a delivery group.
        *
+       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
+       *
        * @param tmpReq CreateAppInstanceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAppInstanceGroupResponse
@@ -65,6 +68,9 @@ namespace AppstreamCenter20210901
 
       /**
        * @summary Creates a delivery group.
+       *
+       * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
+       * A delivery group is a logical group that is used to deliver cloud applications to end users, including the images, resource management policies, and user groups on which the cloud applications rely. For more information, see [Publish delivery groups](https://help.aliyun.com/document_detail/426046.html).
        *
        * @param request CreateAppInstanceGroupRequest
        * @return CreateAppInstanceGroupResponse
@@ -933,7 +939,7 @@ namespace AppstreamCenter20210901
       Models::UpdateAppInstanceGroupImageResponse updateAppInstanceGroupImage(const Models::UpdateAppInstanceGroupImageRequest &request);
 
       /**
-       * @summary 更新研发主机镜像
+       * @summary Updates the workstation image.
        *
        * @param request UpdateWuyingServerImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -942,7 +948,7 @@ namespace AppstreamCenter20210901
       Models::UpdateWuyingServerImageResponse updateWuyingServerImageWithOptions(const Models::UpdateWuyingServerImageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新研发主机镜像
+       * @summary Updates the workstation image.
        *
        * @param request UpdateWuyingServerImageRequest
        * @return UpdateWuyingServerImageResponse

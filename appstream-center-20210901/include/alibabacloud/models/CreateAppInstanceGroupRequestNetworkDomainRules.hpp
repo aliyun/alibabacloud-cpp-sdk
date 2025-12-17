@@ -48,7 +48,14 @@ namespace Models
 
 
   protected:
+    // The domain name.
     std::shared_ptr<string> domain_ = nullptr;
+    // The policy used for the domain name.
+    // 
+    // Valid values:
+    // 
+    // *   allow
+    // *   block
     std::shared_ptr<string> policy_ = nullptr;
   };
 

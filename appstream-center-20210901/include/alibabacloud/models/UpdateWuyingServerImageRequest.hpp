@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The image ID.
     std::shared_ptr<string> imageId_ = nullptr;
+    // The product type. Set this parameter to WuyingServer.
     std::shared_ptr<string> productType_ = nullptr;
+    // The ID of the workstation.
     std::shared_ptr<string> wuyingServerId_ = nullptr;
   };
 
