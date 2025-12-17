@@ -52,6 +52,7 @@ namespace Models
 
   protected:
     std::shared_ptr<BatchModifyEntitlementResponseBodyEntitlements> entitlements_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

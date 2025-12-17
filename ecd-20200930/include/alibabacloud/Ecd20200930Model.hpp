@@ -376,6 +376,12 @@
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsRequest.hpp>
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsResponseBody.hpp>
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsResponse.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerBatchesRequest.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerBatchesResponseBody.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerBatchesResponse.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerRecordsRequest.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerRecordsResponseBody.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerRecordsResponse.hpp>
 #include <alibabacloud/models/DescribeGuestApplicationsRequest.hpp>
 #include <alibabacloud/models/DescribeGuestApplicationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeGuestApplicationsResponse.hpp>
@@ -943,6 +949,8 @@
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups.hpp>
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsResponseBodySessionsSessions.hpp>
 #include <alibabacloud/models/DescribeGlobalDesktopRecordsResponseBodySessions.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerBatchesResponseBodyResults.hpp>
+#include <alibabacloud/models/DescribeGlobalTimerRecordsResponseBodyResults.hpp>
 #include <alibabacloud/models/DescribeGuestApplicationsResponseBodyApplicationsProcessData.hpp>
 #include <alibabacloud/models/DescribeGuestApplicationsResponseBodyApplications.hpp>
 #include <alibabacloud/models/DescribeImageModifiedRecordsResponseBodyImageModifiedRecords.hpp>

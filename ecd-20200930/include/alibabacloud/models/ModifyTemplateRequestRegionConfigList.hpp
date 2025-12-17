@@ -94,12 +94,24 @@ namespace Models
 
 
   protected:
+    // The office network ID.
     std::shared_ptr<string> officeSiteId_ = nullptr;
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     std::shared_ptr<string> regionId_ = nullptr;
+    // The ID of the cloud computer type.
     std::shared_ptr<string> resourceInstanceType_ = nullptr;
+    // The ID of the automatic snapshot policy.
     std::shared_ptr<string> snapshotPolicyId_ = nullptr;
+    // The subnet ID.
     std::shared_ptr<string> subnetId_ = nullptr;
+    // Specifies whether to enable disk encryption.
+    // 
+    // Valid values:
+    // 
+    // *   false (default): disables disk encryption.
+    // *   true: enables disk encryption.
     std::shared_ptr<bool> volumeEncryptionEnable_ = nullptr;
+    // The ID of the Key Management Service (KMS) key that you want to use to encrypt disks.
     std::shared_ptr<string> volumeEncryptionKey_ = nullptr;
   };
 

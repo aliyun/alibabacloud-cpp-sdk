@@ -978,6 +978,10 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
 }
 
 /**
+ * @description *   The cloud computers for which you want to change their policies must be in the Running state.
+ * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+ * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+ *
  * @param request BatchModifyEntitlementRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return BatchModifyEntitlementResponse
@@ -1031,6 +1035,10 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const B
 }
 
 /**
+ * @description *   The cloud computers for which you want to change their policies must be in the Running state.
+ * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+ * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+ *
  * @param request BatchModifyEntitlementRequest
  * @return BatchModifyEntitlementResponse
  */
@@ -9216,6 +9224,146 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecords(const 
 }
 
 /**
+ * @summary 查询全局定时任务Batch记录
+ *
+ * @param request DescribeGlobalTimerBatchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGlobalTimerBatchesResponse
+ */
+DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatchesWithOptions(const DescribeGlobalTimerBatchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.searchRegionId();
+  }
+
+  if (!!request.hasTimerType()) {
+    query["TimerType"] = request.timerType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGlobalTimerBatches"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGlobalTimerBatchesResponse>();
+}
+
+/**
+ * @summary 查询全局定时任务Batch记录
+ *
+ * @param request DescribeGlobalTimerBatchesRequest
+ * @return DescribeGlobalTimerBatchesResponse
+ */
+DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatches(const DescribeGlobalTimerBatchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGlobalTimerBatchesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the execution records of scheduled tasks on cloud computers.
+ *
+ * @param request DescribeGlobalTimerRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeGlobalTimerRecordsResponse
+ */
+DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions(const DescribeGlobalTimerRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBatchId()) {
+    query["BatchId"] = request.batchId();
+  }
+
+  if (!!request.hasDesktopIds()) {
+    query["DesktopIds"] = request.desktopIds();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResultCategory()) {
+    query["ResultCategory"] = request.resultCategory();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.searchRegionId();
+  }
+
+  if (!!request.hasTimerResult()) {
+    query["TimerResult"] = request.timerResult();
+  }
+
+  if (!!request.hasTimerTypes()) {
+    query["TimerTypes"] = request.timerTypes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeGlobalTimerRecords"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeGlobalTimerRecordsResponse>();
+}
+
+/**
+ * @summary Queries the execution records of scheduled tasks on cloud computers.
+ *
+ * @param request DescribeGlobalTimerRecordsRequest
+ * @return DescribeGlobalTimerRecordsResponse
+ */
+DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecords(const DescribeGlobalTimerRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeGlobalTimerRecordsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the applications and their processes of an end user.
  *
  * @param request DescribeGuestApplicationsRequest
@@ -16652,6 +16800,9 @@ ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttribute(const 
 /**
  * @summary Modifies a custom cloud computer template.
  *
+ * @description **
+ * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+ *
  * @param request ModifyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyTemplateResponse
@@ -16766,6 +16917,9 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 
 /**
  * @summary Modifies a custom cloud computer template.
+ *
+ * @description **
+ * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
  *
  * @param request ModifyTemplateRequest
  * @return ModifyTemplateResponse

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
     std::shared_ptr<string> code_ = nullptr;
+    // The HTTP status code returned.
     std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    // The error message returned. This parameter is not returned if the value of Code is `success`.
     std::shared_ptr<string> message_ = nullptr;
+    // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;
+    // Indicates whether the operation is successful. Valid values: true false
     std::shared_ptr<bool> success_ = nullptr;
   };
 

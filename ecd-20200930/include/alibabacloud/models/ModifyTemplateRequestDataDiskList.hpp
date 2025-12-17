@@ -49,14 +49,12 @@ namespace Models
 
   protected:
     // The PL of the data disk. Default value: `AutoPL`.
-    // 
     // Valid values:
-    // 
     // *   PL1: a PL1 ESSD
     // *   PL0: a PL0 ESSD
     // *   AutoPL: an AutoPL ESSD
     std::shared_ptr<string> performanceLevel_ = nullptr;
-    // The size of the data disk. Unit: GiB. Valid range: 40 to 2040 GiB with an increment of 10 GiB.
+    // The size of the data disk. Unit: GiB.Valid range: 40 to 2040 GiB with an increment of 10 GiB.
     std::shared_ptr<int32_t> size_ = nullptr;
   };
 

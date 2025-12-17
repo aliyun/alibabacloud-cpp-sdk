@@ -325,6 +325,10 @@ namespace Ecd20200930
       Models::AttachEndUserResponse attachEndUser(const Models::AttachEndUserRequest &request);
 
       /**
+       * @description *   The cloud computers for which you want to change their policies must be in the Running state.
+       * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+       * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+       *
        * @param request BatchModifyEntitlementRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return BatchModifyEntitlementResponse
@@ -332,6 +336,10 @@ namespace Ecd20200930
       Models::BatchModifyEntitlementResponse batchModifyEntitlementWithOptions(const Models::BatchModifyEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @description *   The cloud computers for which you want to change their policies must be in the Running state.
+       * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
+       * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+       *
        * @param request BatchModifyEntitlementRequest
        * @return BatchModifyEntitlementResponse
        */
@@ -2322,6 +2330,40 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecords(const Models::DescribeGlobalDesktopRecordsRequest &request);
 
       /**
+       * @summary 查询全局定时任务Batch记录
+       *
+       * @param request DescribeGlobalTimerBatchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGlobalTimerBatchesResponse
+       */
+      Models::DescribeGlobalTimerBatchesResponse describeGlobalTimerBatchesWithOptions(const Models::DescribeGlobalTimerBatchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询全局定时任务Batch记录
+       *
+       * @param request DescribeGlobalTimerBatchesRequest
+       * @return DescribeGlobalTimerBatchesResponse
+       */
+      Models::DescribeGlobalTimerBatchesResponse describeGlobalTimerBatches(const Models::DescribeGlobalTimerBatchesRequest &request);
+
+      /**
+       * @summary Queries the execution records of scheduled tasks on cloud computers.
+       *
+       * @param request DescribeGlobalTimerRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeGlobalTimerRecordsResponse
+       */
+      Models::DescribeGlobalTimerRecordsResponse describeGlobalTimerRecordsWithOptions(const Models::DescribeGlobalTimerRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the execution records of scheduled tasks on cloud computers.
+       *
+       * @param request DescribeGlobalTimerRecordsRequest
+       * @return DescribeGlobalTimerRecordsResponse
+       */
+      Models::DescribeGlobalTimerRecordsResponse describeGlobalTimerRecords(const Models::DescribeGlobalTimerRecordsRequest &request);
+
+      /**
        * @summary Queries the applications and their processes of an end user.
        *
        * @param request DescribeGuestApplicationsRequest
@@ -4280,6 +4322,9 @@ namespace Ecd20200930
       /**
        * @summary Modifies a custom cloud computer template.
        *
+       * @description **
+       * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+       *
        * @param request ModifyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyTemplateResponse
@@ -4288,6 +4333,9 @@ namespace Ecd20200930
 
       /**
        * @summary Modifies a custom cloud computer template.
+       *
+       * @description **
+       * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
        *
        * @param request ModifyTemplateRequest
        * @return ModifyTemplateResponse

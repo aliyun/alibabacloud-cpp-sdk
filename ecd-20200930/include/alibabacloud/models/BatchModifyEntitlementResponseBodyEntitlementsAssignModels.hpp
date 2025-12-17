@@ -60,8 +60,19 @@ namespace Models
 
 
   protected:
+    // The cloud computer ID.
     std::shared_ptr<string> desktopId_ = nullptr;
+    // The authorized user IDs for the cloud computer.
     std::shared_ptr<vector<string>> endUserIds_ = nullptr;
+    // The assign result for each cloud computer.
+    // 
+    // Valid values:
+    // 
+    // *   FAILED
+    // *   NOT_STARTED
+    // *   STARTED
+    // *   PROCESSING
+    // *   FINISHED
     std::shared_ptr<string> innerStatus_ = nullptr;
   };
 

@@ -62,7 +62,17 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<Models::BatchModifyEntitlementResponseBodyEntitlementsAssignModels>> assignModels_ = nullptr;
+    // The result.
+    // 
+    // Valid values:
+    // 
+    // *   FAILED
+    // *   NOT_STARTED
+    // *   STARTED
+    // *   PROCESSING
+    // *   FINISHED
     std::shared_ptr<string> status_ = nullptr;
+    // The task ID.
     std::shared_ptr<string> taskId_ = nullptr;
   };
 

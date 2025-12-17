@@ -239,22 +239,61 @@ namespace Models
     std::shared_ptr<bool> autoRenew_ = nullptr;
     std::shared_ptr<string> chargeType_ = nullptr;
     std::shared_ptr<vector<ModifyTemplateRequestDataDiskList>> dataDiskList_ = nullptr;
+    // The default language of the cloud computer during startup. This parameter takes effect only when the cloud computer is created from a system image.
+    // 
+    // Valid values:
+    // 
+    // *   en-US: English.
+    // *   zh-HK: Chinese, Traditional (Hong Kong, China).
+    // *   zh-CN: Simplified Chinese.
+    // *   ja-JP: Japanese.
     std::shared_ptr<string> defaultLanguage_ = nullptr;
+    // The template description. It must meet the following criteria:
+    // 
+    // *   It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // *   It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
     std::shared_ptr<string> description_ = nullptr;
+    // The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
     std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<int32_t> period_ = nullptr;
     std::shared_ptr<string> periodUnit_ = nullptr;
+    // The ID of the policy group.
     std::shared_ptr<string> policyGroupId_ = nullptr;
     std::shared_ptr<bool> postPaidAfterUsedUp_ = nullptr;
+    // The regions by which you can search for cloud computer templates. When this parameter takes effect, cloud computer templates are matched based on the specified regions.
+    // 
+    // >  You can specify up to 20 regions.
     std::shared_ptr<vector<ModifyTemplateRequestRegionConfigList>> regionConfigList_ = nullptr;
+    // The ID of the resource group.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The tags added to cloud computers. Specify tags in key-value pairs. You can specify up to 20 tags.
     std::shared_ptr<vector<ModifyTemplateRequestResourceTagList>> resourceTagList_ = nullptr;
     std::shared_ptr<vector<ModifyTemplateRequestSiteConfigList>> siteConfigList_ = nullptr;
+    // The performance level (PL) of the system disk.
+    // 
+    // >  Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
+    // 
+    // Valid values:
+    // 
+    // *   PL1: a PL1 ESSD.
+    // *   PL0: a PL0 ESSD.
+    // *   AutoPL: an AutoPL ESSD.
     std::shared_ptr<string> systemDiskPerformanceLevel_ = nullptr;
+    // The size of the system disk. Unit: GiB. Valid values: 40 to 500. Increments: 10 GiB.
+    // 
+    // >  The system disk size must be at least as large as the configured image size.
     std::shared_ptr<int32_t> systemDiskSize_ = nullptr;
+    // The template ID.
+    // 
     // This parameter is required.
     std::shared_ptr<string> templateId_ = nullptr;
+    // The template name. It must meet the following criteria:
+    // 
+    // *   It can be 2 to 126 characters in length.
+    // *   It must begin with a letter and cannot start with `http://` or `https://`.
+    // *   It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
     std::shared_ptr<string> templateName_ = nullptr;
+    // The ID of the scheduled task group.
     std::shared_ptr<string> timerGroupId_ = nullptr;
     std::shared_ptr<int32_t> userDuration_ = nullptr;
   };

@@ -222,6 +222,7 @@ namespace Models
     // 
     //     <!-- -->
     std::shared_ptr<string> status_ = nullptr;
+    // The ID of the virtual private cloud (VPC).
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 
