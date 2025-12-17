@@ -69,6 +69,9 @@
 #include <alibabacloud/models/DeleteAlarmRequest.hpp>
 #include <alibabacloud/models/DeleteAlarmResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlarmResponse.hpp>
+#include <alibabacloud/models/DeleteDiagnoseReportRequest.hpp>
+#include <alibabacloud/models/DeleteDiagnoseReportResponseBody.hpp>
+#include <alibabacloud/models/DeleteDiagnoseReportResponse.hpp>
 #include <alibabacloud/models/DeleteEciScalingConfigurationRequest.hpp>
 #include <alibabacloud/models/DeleteEciScalingConfigurationResponseBody.hpp>
 #include <alibabacloud/models/DeleteEciScalingConfigurationResponse.hpp>

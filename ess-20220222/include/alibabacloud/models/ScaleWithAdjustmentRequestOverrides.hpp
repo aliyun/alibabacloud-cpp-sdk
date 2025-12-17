@@ -76,6 +76,7 @@ namespace Models
     std::shared_ptr<float> cpu_ = nullptr;
     // The memory size that you want to allocate to the instance. Unit: GiB.
     std::shared_ptr<float> memory_ = nullptr;
+    // The user data of the Elastic Compute Service (ECS) instance. The user data must be encoded in Base64 format. The size of raw data before Base64 encoding cannot exceed 32 KB.
     std::shared_ptr<string> userData_ = nullptr;
   };
 

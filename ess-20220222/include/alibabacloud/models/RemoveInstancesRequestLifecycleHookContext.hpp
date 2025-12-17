@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to disable the lifecycle hook. Valid Values:
+    // Specifies whether to disable the lifecycle hook. Valid values:
     // 
     // *   true
     // *   false

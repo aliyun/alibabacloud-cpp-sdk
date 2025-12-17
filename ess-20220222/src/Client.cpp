@@ -2570,6 +2570,44 @@ DeleteAlarmResponse Client::deleteAlarm(const DeleteAlarmRequest &request) {
 }
 
 /**
+ * @summary DeleteDiagnoseReport
+ *
+ * @param request DeleteDiagnoseReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDiagnoseReportResponse
+ */
+DeleteDiagnoseReportResponse Client::deleteDiagnoseReportWithOptions(const DeleteDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDiagnoseReport"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDiagnoseReportResponse>();
+}
+
+/**
+ * @summary DeleteDiagnoseReport
+ *
+ * @param request DeleteDiagnoseReportRequest
+ * @return DeleteDiagnoseReportResponse
+ */
+DeleteDiagnoseReportResponse Client::deleteDiagnoseReport(const DeleteDiagnoseReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDiagnoseReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
  *
  * @description You cannot call this operation to delete a scaling configuration in the following scenarios:

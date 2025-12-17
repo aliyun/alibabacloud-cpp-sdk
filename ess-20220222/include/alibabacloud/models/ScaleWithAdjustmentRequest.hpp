@@ -186,7 +186,7 @@ namespace Models
     std::shared_ptr<ScaleWithAdjustmentRequestLifecycleHookContext> lifecycleHookContext_ = nullptr;
     // The minimum number of instances allowed in each adjustment. This parameter takes effect only if you set the `AdjustmentType` parameter to `PercentChangeInCapacity`.
     std::shared_ptr<int32_t> minAdjustmentMagnitude_ = nullptr;
-    // The overrides that allow you to adjust the scaling group of the Elastic Container Instance type during a scale-out event.
+    // The overrides that allow you to adjust the scaling group of the Elastic Container Instance (ECI) type during a scale-out event.
     std::shared_ptr<ScaleWithAdjustmentRequestOverrides> overrides_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // Whether the current scale-out task supports concurrency.

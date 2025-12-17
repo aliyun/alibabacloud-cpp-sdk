@@ -733,6 +733,23 @@ namespace Ess20220222
       Models::DeleteAlarmResponse deleteAlarm(const Models::DeleteAlarmRequest &request);
 
       /**
+       * @summary DeleteDiagnoseReport
+       *
+       * @param request DeleteDiagnoseReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDiagnoseReportResponse
+       */
+      Models::DeleteDiagnoseReportResponse deleteDiagnoseReportWithOptions(const Models::DeleteDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteDiagnoseReport
+       *
+       * @param request DeleteDiagnoseReportRequest
+       * @return DeleteDiagnoseReportResponse
+       */
+      Models::DeleteDiagnoseReportResponse deleteDiagnoseReport(const Models::DeleteDiagnoseReportRequest &request);
+
+      /**
        * @summary Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
        *
        * @description You cannot call this operation to delete a scaling configuration in the following scenarios:

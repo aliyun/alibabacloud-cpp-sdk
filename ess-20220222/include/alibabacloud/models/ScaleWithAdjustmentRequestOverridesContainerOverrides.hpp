@@ -102,7 +102,7 @@ namespace Models
     std::shared_ptr<vector<Models::ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars>> environmentVars_ = nullptr;
     // The memory size that you want to allocate to the container. Unit: GiB.
     std::shared_ptr<float> memory_ = nullptr;
-    // The name of container N. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
+    // The name of the container. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
     std::shared_ptr<string> name_ = nullptr;
   };
 
