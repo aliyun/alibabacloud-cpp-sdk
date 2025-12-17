@@ -167,6 +167,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable verification with an authoritative data source to enhance document anti-spoofing capabilities.
+    // 
+    // - **T**: Enable
+    // 
+    // - **F**: Disable (default)
+    // 
+    // > 
+    // > - **Applicable document types**: Chinese resident ID cards (CHN01001) and Chinese mainland driver\\"s licenses (CHN02001).
+    // > - **Data transfer declaration**: If you enable this parameter, you agree to transfer the user\\"s name and certificate number to an authoritative data source in the Chinese mainland for consistency verification.
+    // > - **Performance impact:** After you enable this feature, the response time of the API operation increases by 1 to 2 seconds. Adjust the timeout setting.
     std::shared_ptr<string> authorize_ = nullptr;
     // Page expected to be recognized
     // 
@@ -203,6 +213,11 @@ namespace Models
     // 0: General document mode.
     // 1: Custom mode.
     std::shared_ptr<string> ocrModel_ = nullptr;
+    // Specifies whether to return additional OCR fields in a standardized format:
+    // 
+    // - **0**: No (default)
+    // 
+    // - **1**: Yes
     std::shared_ptr<string> ocrValueStandard_ = nullptr;
     // The product solution to be integrated.
     // 

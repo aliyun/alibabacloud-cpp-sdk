@@ -147,15 +147,12 @@ namespace Models
     std::shared_ptr<string> productCode_ = nullptr;
     // Custom business scenario ID
     std::shared_ptr<string> sceneCode_ = nullptr;
-    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceAFacePicture_ = nullptr;
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceAFacePictureUrl_ = nullptr;
-    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceBFacePicture_ = nullptr;
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceBFacePictureUrl_ = nullptr;
-    // Base64 encoded portrait photo.
     std::shared_ptr<string> sourceCFacePicture_ = nullptr;
     // Portrait image URL, accessible via HTTP or HTTPS on the public network.
     std::shared_ptr<string> sourceCFacePictureUrl_ = nullptr;

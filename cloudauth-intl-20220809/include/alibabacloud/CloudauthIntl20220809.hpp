@@ -44,6 +44,8 @@ namespace CloudauthIntl20220809
       Models::AddressCompareIntlResponse addressCompareIntl(const Models::AddressCompareIntlRequest &request);
 
       /**
+       * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+       *
        * @summary Address Verification
        *
        * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
@@ -55,6 +57,8 @@ namespace CloudauthIntl20220809
       Models::AddressVerifyIntlResponse addressVerifyIntlWithOptions(const Models::AddressVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+       *
        * @summary Address Verification
        *
        * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
@@ -373,6 +377,23 @@ namespace CloudauthIntl20220809
       Models::DocOcrMaxResponse docOcrMax(const Models::DocOcrMaxRequest &request);
 
       /**
+       * @summary Console Export Records
+       *
+       * @param request DownloadVerifyRecordIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadVerifyRecordIntlResponse
+       */
+      Models::DownloadVerifyRecordIntlResponse downloadVerifyRecordIntlWithOptions(const Models::DownloadVerifyRecordIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Console Export Records
+       *
+       * @param request DownloadVerifyRecordIntlRequest
+       * @return DownloadVerifyRecordIntlResponse
+       */
+      Models::DownloadVerifyRecordIntlResponse downloadVerifyRecordIntl(const Models::DownloadVerifyRecordIntlRequest &request);
+
+      /**
        * @summary This topic describes how to integrate with ID Verification using only the server-side API.
        *
        * @param request EkycVerifyRequest
@@ -475,6 +496,8 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLiveness(const Models::FaceLivenessRequest &request);
 
       /**
+       * @deprecated OpenAPI FraudResultCallBack is deprecated
+       *
        * @summary Anti-Fraud Callback Interface
        *
        * @param request FraudResultCallBackRequest
@@ -484,6 +507,8 @@ namespace CloudauthIntl20220809
       Models::FraudResultCallBackResponse fraudResultCallBackWithOptions(const Models::FraudResultCallBackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @deprecated OpenAPI FraudResultCallBack is deprecated
+       *
        * @summary Anti-Fraud Callback Interface
        *
        * @param request FraudResultCallBackRequest

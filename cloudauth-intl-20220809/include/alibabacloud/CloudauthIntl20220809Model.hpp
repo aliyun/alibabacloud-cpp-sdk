@@ -58,6 +58,9 @@
 #include <alibabacloud/models/DocOcrMaxRequest.hpp>
 #include <alibabacloud/models/DocOcrMaxResponseBody.hpp>
 #include <alibabacloud/models/DocOcrMaxResponse.hpp>
+#include <alibabacloud/models/DownloadVerifyRecordIntlRequest.hpp>
+#include <alibabacloud/models/DownloadVerifyRecordIntlResponseBody.hpp>
+#include <alibabacloud/models/DownloadVerifyRecordIntlResponse.hpp>
 #include <alibabacloud/models/EkycVerifyRequest.hpp>
 #include <alibabacloud/models/EkycVerifyResponseBody.hpp>
 #include <alibabacloud/models/EkycVerifyResponse.hpp>
@@ -131,6 +134,7 @@
 #include <alibabacloud/models/DeleteVerifyResultResponseBodyResult.hpp>
 #include <alibabacloud/models/DocOcrResponseBodyResult.hpp>
 #include <alibabacloud/models/DocOcrMaxResponseBodyResult.hpp>
+#include <alibabacloud/models/DownloadVerifyRecordIntlResponseBodyData.hpp>
 #include <alibabacloud/models/EkycVerifyResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceCompareResponseBodyResult.hpp>
 #include <alibabacloud/models/FaceCrossCompareIntlResponseBodyResult.hpp>

@@ -189,6 +189,8 @@ AddressCompareIntlResponse Client::addressCompareIntl(const AddressCompareIntlRe
 }
 
 /**
+ * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+ *
  * @summary Address Verification
  *
  * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
@@ -262,6 +264,8 @@ AddressVerifyIntlResponse Client::addressVerifyIntlWithOptions(const AddressVeri
 }
 
 /**
+ * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
+ *
  * @summary Address Verification
  *
  * @description Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
@@ -1481,6 +1485,64 @@ DocOcrMaxResponse Client::docOcrMax(const DocOcrMaxRequest &request) {
 }
 
 /**
+ * @summary Console Export Records
+ *
+ * @param request DownloadVerifyRecordIntlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadVerifyRecordIntlResponse
+ */
+DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntlWithOptions(const DownloadVerifyRecordIntlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.bizType();
+  }
+
+  if (!!request.hasCode()) {
+    query["Code"] = request.code();
+  }
+
+  if (!!request.hasDownloadMode()) {
+    query["DownloadMode"] = request.downloadMode();
+  }
+
+  if (!!request.hasParam()) {
+    query["Param"] = request.param();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.productType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadVerifyRecordIntl"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadVerifyRecordIntlResponse>();
+}
+
+/**
+ * @summary Console Export Records
+ *
+ * @param request DownloadVerifyRecordIntlRequest
+ * @return DownloadVerifyRecordIntlResponse
+ */
+DownloadVerifyRecordIntlResponse Client::downloadVerifyRecordIntl(const DownloadVerifyRecordIntlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadVerifyRecordIntlWithOptions(request, runtime);
+}
+
+/**
  * @summary This topic describes how to integrate with ID Verification using only the server-side API.
  *
  * @param request EkycVerifyRequest
@@ -1666,33 +1728,35 @@ FaceCrossCompareIntlResponse Client::faceCrossCompareIntlWithOptions(const FaceC
     query["SceneCode"] = request.sceneCode();
   }
 
-  if (!!request.hasSourceAFacePicture()) {
-    query["SourceAFacePicture"] = request.sourceAFacePicture();
-  }
-
   if (!!request.hasSourceAFacePictureUrl()) {
     query["SourceAFacePictureUrl"] = request.sourceAFacePictureUrl();
-  }
-
-  if (!!request.hasSourceBFacePicture()) {
-    query["SourceBFacePicture"] = request.sourceBFacePicture();
   }
 
   if (!!request.hasSourceBFacePictureUrl()) {
     query["SourceBFacePictureUrl"] = request.sourceBFacePictureUrl();
   }
 
-  if (!!request.hasSourceCFacePicture()) {
-    query["SourceCFacePicture"] = request.sourceCFacePicture();
-  }
-
   if (!!request.hasSourceCFacePictureUrl()) {
     query["SourceCFacePictureUrl"] = request.sourceCFacePictureUrl();
   }
 
+  json body = {};
+  if (!!request.hasSourceAFacePicture()) {
+    body["SourceAFacePicture"] = request.sourceAFacePicture();
+  }
+
+  if (!!request.hasSourceBFacePicture()) {
+    body["SourceBFacePicture"] = request.sourceBFacePicture();
+  }
+
+  if (!!request.hasSourceCFacePicture()) {
+    body["SourceCFacePicture"] = request.sourceCFacePicture();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "FaceCrossCompareIntl"},
     {"version" , "2022-08-09"},
@@ -1949,6 +2013,8 @@ FaceLivenessResponse Client::faceLiveness(const FaceLivenessRequest &request) {
 }
 
 /**
+ * @deprecated OpenAPI FraudResultCallBack is deprecated
+ *
  * @summary Anti-Fraud Callback Interface
  *
  * @param request FraudResultCallBackRequest
@@ -1992,6 +2058,8 @@ FraudResultCallBackResponse Client::fraudResultCallBackWithOptions(const FraudRe
 }
 
 /**
+ * @deprecated OpenAPI FraudResultCallBack is deprecated
+ *
  * @summary Anti-Fraud Callback Interface
  *
  * @param request FraudResultCallBackRequest
