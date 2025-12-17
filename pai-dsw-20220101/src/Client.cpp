@@ -406,6 +406,51 @@ CreateInstanceSnapshotResponse Client::createInstanceSnapshot(const string &Inst
 }
 
 /**
+ * @summary 创建一个健康检查任务
+ *
+ * @param request CreateSanityCheckTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSanityCheckTaskResponse
+ */
+CreateSanityCheckTaskResponse Client::createSanityCheckTaskWithOptions(const string &CheckType, const CreateSanityCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSanityCheckTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/sanitychecks/" , Darabonba::Encode::Encoder::percentEncode(CheckType))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSanityCheckTaskResponse>();
+}
+
+/**
+ * @summary 创建一个健康检查任务
+ *
+ * @param request CreateSanityCheckTaskRequest
+ * @return CreateSanityCheckTaskResponse
+ */
+CreateSanityCheckTaskResponse Client::createSanityCheckTask(const string &CheckType, const CreateSanityCheckTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createSanityCheckTaskWithOptions(CheckType, request, headers, runtime);
+}
+
+/**
  * @summary Deletes the automatic stop policy of an instance.
  *
  * @param headers map
@@ -1107,6 +1152,51 @@ GetResourceGroupStatisticsResponse Client::getResourceGroupStatistics(const GetR
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getResourceGroupStatisticsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询健康检查任务结果
+ *
+ * @param request GetSanityCheckTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSanityCheckTaskResponse
+ */
+GetSanityCheckTaskResponse Client::getSanityCheckTaskWithOptions(const string &CheckType, const string &TaskId, const GetSanityCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVerbose()) {
+    query["Verbose"] = request.verbose();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSanityCheckTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/sanitychecks/" , Darabonba::Encode::Encoder::percentEncode(CheckType) , "/" , Darabonba::Encode::Encoder::percentEncode(TaskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSanityCheckTaskResponse>();
+}
+
+/**
+ * @summary 查询健康检查任务结果
+ *
+ * @param request GetSanityCheckTaskRequest
+ * @return GetSanityCheckTaskResponse
+ */
+GetSanityCheckTaskResponse Client::getSanityCheckTask(const string &CheckType, const string &TaskId, const GetSanityCheckTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getSanityCheckTaskWithOptions(CheckType, TaskId, request, headers, runtime);
 }
 
 /**

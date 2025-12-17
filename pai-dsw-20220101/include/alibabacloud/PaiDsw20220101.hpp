@@ -111,6 +111,24 @@ namespace PaiDsw20220101
       Models::CreateInstanceSnapshotResponse createInstanceSnapshot(const string &InstanceId, const Models::CreateInstanceSnapshotRequest &request);
 
       /**
+       * @summary 创建一个健康检查任务
+       *
+       * @param request CreateSanityCheckTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSanityCheckTaskResponse
+       */
+      Models::CreateSanityCheckTaskResponse createSanityCheckTaskWithOptions(const string &CheckType, const Models::CreateSanityCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个健康检查任务
+       *
+       * @param request CreateSanityCheckTaskRequest
+       * @return CreateSanityCheckTaskResponse
+       */
+      Models::CreateSanityCheckTaskResponse createSanityCheckTask(const string &CheckType, const Models::CreateSanityCheckTaskRequest &request);
+
+      /**
        * @summary Deletes the automatic stop policy of an instance.
        *
        * @param headers map
@@ -365,6 +383,24 @@ namespace PaiDsw20220101
        * @return GetResourceGroupStatisticsResponse
        */
       Models::GetResourceGroupStatisticsResponse getResourceGroupStatistics(const Models::GetResourceGroupStatisticsRequest &request);
+
+      /**
+       * @summary 查询健康检查任务结果
+       *
+       * @param request GetSanityCheckTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSanityCheckTaskResponse
+       */
+      Models::GetSanityCheckTaskResponse getSanityCheckTaskWithOptions(const string &CheckType, const string &TaskId, const Models::GetSanityCheckTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询健康检查任务结果
+       *
+       * @param request GetSanityCheckTaskRequest
+       * @return GetSanityCheckTaskResponse
+       */
+      Models::GetSanityCheckTaskResponse getSanityCheckTask(const string &CheckType, const string &TaskId, const Models::GetSanityCheckTaskRequest &request);
 
       /**
        * @summary Obtains the temporary authentication information of a DSW instance.

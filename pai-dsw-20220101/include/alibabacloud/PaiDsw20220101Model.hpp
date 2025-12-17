@@ -26,6 +26,9 @@
 #include <alibabacloud/models/CreateInstanceSnapshotRequest.hpp>
 #include <alibabacloud/models/CreateInstanceSnapshotResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceSnapshotResponse.hpp>
+#include <alibabacloud/models/CreateSanityCheckTaskRequest.hpp>
+#include <alibabacloud/models/CreateSanityCheckTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateSanityCheckTaskResponse.hpp>
 #include <alibabacloud/models/DeleteIdleInstanceCullerResponseBody.hpp>
 #include <alibabacloud/models/DeleteIdleInstanceCullerResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceResponseBody.hpp>
@@ -64,6 +67,9 @@
 #include <alibabacloud/models/GetResourceGroupStatisticsRequest.hpp>
 #include <alibabacloud/models/GetResourceGroupStatisticsResponseBody.hpp>
 #include <alibabacloud/models/GetResourceGroupStatisticsResponse.hpp>
+#include <alibabacloud/models/GetSanityCheckTaskRequest.hpp>
+#include <alibabacloud/models/GetSanityCheckTaskResponseBody.hpp>
+#include <alibabacloud/models/GetSanityCheckTaskResponse.hpp>
 #include <alibabacloud/models/GetTokenRequest.hpp>
 #include <alibabacloud/models/GetTokenResponseBody.hpp>
 #include <alibabacloud/models/GetTokenResponse.hpp>
@@ -140,6 +146,7 @@
 #include <alibabacloud/models/GetInstanceMetricsResponseBodyPodMetrics.hpp>
 #include <alibabacloud/models/GetInstanceSnapshotResponseBodyLabels.hpp>
 #include <alibabacloud/models/GetLifecycleResponseBodyLifecycle.hpp>
+#include <alibabacloud/models/GetSanityCheckTaskResponseBodyCheckDetails.hpp>
 #include <alibabacloud/models/GetUserCommandResponseBodyOnStart.hpp>
 #include <alibabacloud/models/GetUserConfigResponseBodyFreeTier.hpp>
 #include <alibabacloud/models/ListEcsSpecsResponseBodyEcsSpecsLabels.hpp>
