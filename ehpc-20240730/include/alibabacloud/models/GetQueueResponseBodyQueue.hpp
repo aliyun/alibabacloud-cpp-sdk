@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetQueueResponseBodyQueue& obj) { 
       DARABONBA_PTR_TO_JSON(AllocationStrategy, allocationStrategy_);
       DARABONBA_PTR_TO_JSON(ComputeNodes, computeNodes_);
+      DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(EnableScaleIn, enableScaleIn_);
       DARABONBA_PTR_TO_JSON(EnableScaleOut, enableScaleOut_);
       DARABONBA_PTR_TO_JSON(HostnamePrefix, hostnamePrefix_);
@@ -30,11 +31,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(QueueName, queueName_);
       DARABONBA_PTR_TO_JSON(RamRole, ramRole_);
       DARABONBA_PTR_TO_JSON(ReservedNodePoolId, reservedNodePoolId_);
+      DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
     };
     friend void from_json(const Darabonba::Json& j, GetQueueResponseBodyQueue& obj) { 
       DARABONBA_PTR_FROM_JSON(AllocationStrategy, allocationStrategy_);
       DARABONBA_PTR_FROM_JSON(ComputeNodes, computeNodes_);
+      DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(EnableScaleIn, enableScaleIn_);
       DARABONBA_PTR_FROM_JSON(EnableScaleOut, enableScaleOut_);
       DARABONBA_PTR_FROM_JSON(HostnamePrefix, hostnamePrefix_);
@@ -48,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(QueueName, queueName_);
       DARABONBA_PTR_FROM_JSON(RamRole, ramRole_);
       DARABONBA_PTR_FROM_JSON(ReservedNodePoolId, reservedNodePoolId_);
+      DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
     };
     GetQueueResponseBodyQueue() = default ;
@@ -62,9 +66,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocationStrategy_ == nullptr
-        && return this->computeNodes_ == nullptr && return this->enableScaleIn_ == nullptr && return this->enableScaleOut_ == nullptr && return this->hostnamePrefix_ == nullptr && return this->hostnameSuffix_ == nullptr
-        && return this->initialCount_ == nullptr && return this->interConnect_ == nullptr && return this->keepAliveNodes_ == nullptr && return this->maxCount_ == nullptr && return this->maxCountPerCycle_ == nullptr
-        && return this->minCount_ == nullptr && return this->queueName_ == nullptr && return this->ramRole_ == nullptr && return this->reservedNodePoolId_ == nullptr && return this->vSwitchIds_ == nullptr; };
+        && return this->computeNodes_ == nullptr && return this->createTime_ == nullptr && return this->enableScaleIn_ == nullptr && return this->enableScaleOut_ == nullptr && return this->hostnamePrefix_ == nullptr
+        && return this->hostnameSuffix_ == nullptr && return this->initialCount_ == nullptr && return this->interConnect_ == nullptr && return this->keepAliveNodes_ == nullptr && return this->maxCount_ == nullptr
+        && return this->maxCountPerCycle_ == nullptr && return this->minCount_ == nullptr && return this->queueName_ == nullptr && return this->ramRole_ == nullptr && return this->reservedNodePoolId_ == nullptr
+        && return this->updateTime_ == nullptr && return this->vSwitchIds_ == nullptr; };
     // allocationStrategy Field Functions 
     bool hasAllocationStrategy() const { return this->allocationStrategy_ != nullptr;};
     void deleteAllocationStrategy() { this->allocationStrategy_ = nullptr;};
@@ -79,6 +84,13 @@ namespace Models
     inline vector<Models::NodeTemplate> computeNodes() { DARABONBA_PTR_GET(computeNodes_, vector<Models::NodeTemplate>) };
     inline GetQueueResponseBodyQueue& setComputeNodes(const vector<Models::NodeTemplate> & computeNodes) { DARABONBA_PTR_SET_VALUE(computeNodes_, computeNodes) };
     inline GetQueueResponseBodyQueue& setComputeNodes(vector<Models::NodeTemplate> && computeNodes) { DARABONBA_PTR_SET_RVALUE(computeNodes_, computeNodes) };
+
+
+    // createTime Field Functions 
+    bool hasCreateTime() const { return this->createTime_ != nullptr;};
+    void deleteCreateTime() { this->createTime_ = nullptr;};
+    inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline GetQueueResponseBodyQueue& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // enableScaleIn Field Functions 
@@ -174,6 +186,13 @@ namespace Models
     inline GetQueueResponseBodyQueue& setReservedNodePoolId(string reservedNodePoolId) { DARABONBA_PTR_SET_VALUE(reservedNodePoolId_, reservedNodePoolId) };
 
 
+    // updateTime Field Functions 
+    bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+    void deleteUpdateTime() { this->updateTime_ = nullptr;};
+    inline string updateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+    inline GetQueueResponseBodyQueue& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
     // vSwitchIds Field Functions 
     bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
     void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
@@ -188,6 +207,7 @@ namespace Models
     std::shared_ptr<string> allocationStrategy_ = nullptr;
     // The hardware configurations of the compute nodes in the queue.
     std::shared_ptr<vector<Models::NodeTemplate>> computeNodes_ = nullptr;
+    std::shared_ptr<string> createTime_ = nullptr;
     // Indicates whether auto scale-in is enabled for the queue. Valid values:
     // 
     // *   true
@@ -225,6 +245,7 @@ namespace Models
     std::shared_ptr<string> ramRole_ = nullptr;
     // Preset node pool ID.
     std::shared_ptr<string> reservedNodePoolId_ = nullptr;
+    std::shared_ptr<string> updateTime_ = nullptr;
     // The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
     std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
   };
