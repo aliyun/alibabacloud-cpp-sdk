@@ -2360,6 +2360,76 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfo(const ListDa
 }
 
 /**
+ * @summary ListFileUpload
+ *
+ * @param request ListFileUploadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFileUploadResponse
+ */
+ListFileUploadResponse Client::listFileUploadWithOptions(const ListFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallFrom()) {
+    query["CallFrom"] = request.callFrom();
+  }
+
+  if (!!request.hasDmsUnit()) {
+    query["DmsUnit"] = request.dmsUnit();
+  }
+
+  if (!!request.hasFileCategory()) {
+    query["FileCategory"] = request.fileCategory();
+  }
+
+  if (!!request.hasFileFrom()) {
+    query["FileFrom"] = request.fileFrom();
+  }
+
+  if (!!request.hasFileId()) {
+    query["FileId"] = request.fileId();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.sessionId();
+  }
+
+  if (!!request.hasSortColumn()) {
+    query["SortColumn"] = request.sortColumn();
+  }
+
+  if (!!request.hasSortDirection()) {
+    query["SortDirection"] = request.sortDirection();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFileUpload"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFileUploadResponse>();
+}
+
+/**
+ * @summary ListFileUpload
+ *
+ * @param request ListFileUploadRequest
+ * @return ListFileUploadResponse
+ */
+ListFileUploadResponse Client::listFileUpload(const ListFileUploadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFileUploadWithOptions(request, runtime);
+}
+
+/**
  * @summary SendChatMessage
  *
  * @param tmpReq SendChatMessageRequest

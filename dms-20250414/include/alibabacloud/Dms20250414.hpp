@@ -642,6 +642,23 @@ namespace Dms20250414
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(const Models::ListDataLakeTablebaseInfoRequest &request);
 
       /**
+       * @summary ListFileUpload
+       *
+       * @param request ListFileUploadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileUploadResponse
+       */
+      Models::ListFileUploadResponse listFileUploadWithOptions(const Models::ListFileUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListFileUpload
+       *
+       * @param request ListFileUploadRequest
+       * @return ListFileUploadResponse
+       */
+      Models::ListFileUploadResponse listFileUpload(const Models::ListFileUploadRequest &request);
+
+      /**
        * @summary SendChatMessage
        *
        * @param tmpReq SendChatMessageRequest

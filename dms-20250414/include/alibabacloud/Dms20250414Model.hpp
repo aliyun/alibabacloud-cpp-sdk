@@ -138,6 +138,9 @@
 #include <alibabacloud/models/ListDataLakeTablebaseInfoRequest.hpp>
 #include <alibabacloud/models/ListDataLakeTablebaseInfoResponseBody.hpp>
 #include <alibabacloud/models/ListDataLakeTablebaseInfoResponse.hpp>
+#include <alibabacloud/models/ListFileUploadRequest.hpp>
+#include <alibabacloud/models/ListFileUploadResponseBody.hpp>
+#include <alibabacloud/models/ListFileUploadResponse.hpp>
 #include <alibabacloud/models/SendChatMessageRequest.hpp>
 #include <alibabacloud/models/SendChatMessageShrinkRequest.hpp>
 #include <alibabacloud/models/SendChatMessageResponseBody.hpp>
@@ -175,6 +178,7 @@
 #include <alibabacloud/models/GetNotebookTaskStatusResponseBodyData.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBodyRootList.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBodyRoot.hpp>
+#include <alibabacloud/models/ListFileUploadResponseBodyData.hpp>
 #include <alibabacloud/models/SendChatMessageRequestDataSource.hpp>
 #include <alibabacloud/models/SendChatMessageRequestSessionConfig.hpp>
 #include <alibabacloud/models/SendChatMessageResponseBodyData.hpp>
