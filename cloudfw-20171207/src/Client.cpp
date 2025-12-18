@@ -13478,6 +13478,52 @@ ModifyAddressBookResponse Client::modifyAddressBook(const ModifyAddressBookReque
 }
 
 /**
+ * @summary 更新用户版本信息
+ *
+ * @param request ModifyCfwInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyCfwInstanceResponse
+ */
+ModifyCfwInstanceResponse Client::modifyCfwInstanceWithOptions(const ModifyCfwInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUpdateList()) {
+    query["UpdateList"] = request.updateList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyCfwInstance"},
+    {"version" , "2017-12-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyCfwInstanceResponse>();
+}
+
+/**
+ * @summary 更新用户版本信息
+ *
+ * @param request ModifyCfwInstanceRequest
+ * @return ModifyCfwInstanceResponse
+ */
+ModifyCfwInstanceResponse Client::modifyCfwInstance(const ModifyCfwInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyCfwInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the configurations of an access control policy.
  *
  * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.

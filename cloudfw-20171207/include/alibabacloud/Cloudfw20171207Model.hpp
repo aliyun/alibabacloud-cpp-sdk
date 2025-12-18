@@ -644,6 +644,9 @@
 #include <alibabacloud/models/ModifyAddressBookRequest.hpp>
 #include <alibabacloud/models/ModifyAddressBookResponseBody.hpp>
 #include <alibabacloud/models/ModifyAddressBookResponse.hpp>
+#include <alibabacloud/models/ModifyCfwInstanceRequest.hpp>
+#include <alibabacloud/models/ModifyCfwInstanceResponseBody.hpp>
+#include <alibabacloud/models/ModifyCfwInstanceResponse.hpp>
 #include <alibabacloud/models/ModifyControlPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyControlPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyControlPolicyResponse.hpp>
@@ -1021,6 +1024,7 @@
 #include <alibabacloud/models/ListTlsInspectCaCertificatesResponseBodyCertificates.hpp>
 #include <alibabacloud/models/ModifyAddressBookRequestAckLabels.hpp>
 #include <alibabacloud/models/ModifyAddressBookRequestTagList.hpp>
+#include <alibabacloud/models/ModifyCfwInstanceRequestUpdateList.hpp>
 #include <alibabacloud/models/ModifyInstanceMemberAttributesRequestMembers.hpp>
 #include <alibabacloud/models/ModifyThreatIntelligenceSwitchRequestCategoryList.hpp>
 #include <alibabacloud/models/ModifyTrFirewallV2RoutePolicyScopeRequestDestCandidateList.hpp>

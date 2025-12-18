@@ -4009,6 +4009,23 @@ namespace Cloudfw20171207
       Models::ModifyAddressBookResponse modifyAddressBook(const Models::ModifyAddressBookRequest &request);
 
       /**
+       * @summary 更新用户版本信息
+       *
+       * @param request ModifyCfwInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyCfwInstanceResponse
+       */
+      Models::ModifyCfwInstanceResponse modifyCfwInstanceWithOptions(const Models::ModifyCfwInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新用户版本信息
+       *
+       * @param request ModifyCfwInstanceRequest
+       * @return ModifyCfwInstanceResponse
+       */
+      Models::ModifyCfwInstanceResponse modifyCfwInstance(const Models::ModifyCfwInstanceRequest &request);
+
+      /**
        * @summary Modifies the configurations of an access control policy.
        *
        * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
