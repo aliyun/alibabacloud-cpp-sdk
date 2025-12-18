@@ -50,6 +50,7 @@
 #include <alibabacloud/models/PolicyInfo.hpp>
 #include <alibabacloud/models/ResourceInfo.hpp>
 #include <alibabacloud/models/ResourceStatistic.hpp>
+#include <alibabacloud/models/RiskCheckResults.hpp>
 #include <alibabacloud/models/ServiceHealthCheck.hpp>
 #include <alibabacloud/models/Service.hpp>
 #include <alibabacloud/models/ServiceLinkedRole.hpp>
@@ -366,6 +367,8 @@
 #include <alibabacloud/models/HttpRouteMatchQueryParams.hpp>
 #include <alibabacloud/models/JwtIdentityConfigJwtPayloadConfig.hpp>
 #include <alibabacloud/models/JwtIdentityConfigJwtTokenConfig.hpp>
+#include <alibabacloud/models/RiskCheckResultsMetadata.hpp>
+#include <alibabacloud/models/RiskCheckResultsRiskDetails.hpp>
 #include <alibabacloud/models/ServicePorts.hpp>
 #include <alibabacloud/models/TlsCipherSuitesConfigTlsCipherSuite.hpp>
 #include <alibabacloud/models/CreateAndAttachPolicyResponseBodyData.hpp>
@@ -442,6 +445,8 @@
 #include <alibabacloud/models/GetPolicyAttachmentResponseBodyData.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyDataApi.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyDataGateway.hpp>
+#include <alibabacloud/models/GetResourceOverviewResponseBodyDataRiskOverviewRiskDetails.hpp>
+#include <alibabacloud/models/GetResourceOverviewResponseBodyDataRiskOverview.hpp>
 #include <alibabacloud/models/GetResourceOverviewResponseBodyData.hpp>
 #include <alibabacloud/models/GetSourceResponseBodyDataK8SSourceInfo.hpp>
 #include <alibabacloud/models/GetSourceResponseBodyDataNacosSourceInfo.hpp>
