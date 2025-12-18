@@ -2877,6 +2877,40 @@ namespace DataphinPublic20230630
       Models::SubmitBatchTaskResponse submitBatchTask(const Models::SubmitBatchTaskRequest &request);
 
       /**
+       * @summary 同步部门信息。
+       *
+       * @param tmpReq SyncDepartmentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncDepartmentResponse
+       */
+      Models::SyncDepartmentResponse syncDepartmentWithOptions(const Models::SyncDepartmentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步部门信息。
+       *
+       * @param request SyncDepartmentRequest
+       * @return SyncDepartmentResponse
+       */
+      Models::SyncDepartmentResponse syncDepartment(const Models::SyncDepartmentRequest &request);
+
+      /**
+       * @summary 同步部门成员信息
+       *
+       * @param tmpReq SyncDepartmentUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncDepartmentUserResponse
+       */
+      Models::SyncDepartmentUserResponse syncDepartmentUserWithOptions(const Models::SyncDepartmentUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步部门成员信息
+       *
+       * @param request SyncDepartmentUserRequest
+       * @return SyncDepartmentUserResponse
+       */
+      Models::SyncDepartmentUserResponse syncDepartmentUser(const Models::SyncDepartmentUserRequest &request);
+
+      /**
        * @summary 一键转交负责人
        *
        * @param tmpReq TransferOwnershipForAllObjectRequest

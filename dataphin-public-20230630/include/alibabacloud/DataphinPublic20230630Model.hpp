@@ -604,6 +604,14 @@
 #include <alibabacloud/models/SubmitBatchTaskShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponse.hpp>
+#include <alibabacloud/models/SyncDepartmentRequest.hpp>
+#include <alibabacloud/models/SyncDepartmentShrinkRequest.hpp>
+#include <alibabacloud/models/SyncDepartmentResponseBody.hpp>
+#include <alibabacloud/models/SyncDepartmentResponse.hpp>
+#include <alibabacloud/models/SyncDepartmentUserRequest.hpp>
+#include <alibabacloud/models/SyncDepartmentUserShrinkRequest.hpp>
+#include <alibabacloud/models/SyncDepartmentUserResponseBody.hpp>
+#include <alibabacloud/models/SyncDepartmentUserResponse.hpp>
 #include <alibabacloud/models/TransferOwnershipForAllObjectRequest.hpp>
 #include <alibabacloud/models/TransferOwnershipForAllObjectShrinkRequest.hpp>
 #include <alibabacloud/models/TransferOwnershipForAllObjectResponseBody.hpp>
@@ -1159,6 +1167,10 @@
 #include <alibabacloud/models/SubmitBatchTaskRequestSubmitCommandUpStreamList.hpp>
 #include <alibabacloud/models/SubmitBatchTaskRequestSubmitCommand.hpp>
 #include <alibabacloud/models/SubmitBatchTaskResponseBodySubmitResult.hpp>
+#include <alibabacloud/models/SyncDepartmentRequestSyncDepartmentCommandDepartmentList.hpp>
+#include <alibabacloud/models/SyncDepartmentRequestSyncDepartmentCommand.hpp>
+#include <alibabacloud/models/SyncDepartmentUserRequestSyncDepartmentUserCommandDeptUserMapping.hpp>
+#include <alibabacloud/models/SyncDepartmentUserRequestSyncDepartmentUserCommand.hpp>
 #include <alibabacloud/models/TransferOwnershipForAllObjectRequestPrivilegeTransferRecord.hpp>
 #include <alibabacloud/models/UpdateAdHocFileRequestUpdateCommand.hpp>
 #include <alibabacloud/models/UpdateBatchTaskRequestUpdateCommandCustomScheduleConfig.hpp>

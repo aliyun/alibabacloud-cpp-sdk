@@ -8996,6 +8996,114 @@ SubmitBatchTaskResponse Client::submitBatchTask(const SubmitBatchTaskRequest &re
 }
 
 /**
+ * @summary 同步部门信息。
+ *
+ * @param tmpReq SyncDepartmentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncDepartmentResponse
+ */
+SyncDepartmentResponse Client::syncDepartmentWithOptions(const SyncDepartmentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SyncDepartmentShrinkRequest request = SyncDepartmentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSyncDepartmentCommand()) {
+    request.setSyncDepartmentCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentCommand(), "SyncDepartmentCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSyncDepartmentCommandShrink()) {
+    body["SyncDepartmentCommand"] = request.syncDepartmentCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SyncDepartment"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncDepartmentResponse>();
+}
+
+/**
+ * @summary 同步部门信息。
+ *
+ * @param request SyncDepartmentRequest
+ * @return SyncDepartmentResponse
+ */
+SyncDepartmentResponse Client::syncDepartment(const SyncDepartmentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return syncDepartmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 同步部门成员信息
+ *
+ * @param tmpReq SyncDepartmentUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncDepartmentUserResponse
+ */
+SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepartmentUserRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SyncDepartmentUserShrinkRequest request = SyncDepartmentUserShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSyncDepartmentUserCommand()) {
+    request.setSyncDepartmentUserCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.syncDepartmentUserCommand(), "SyncDepartmentUserCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.opTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasSyncDepartmentUserCommandShrink()) {
+    body["SyncDepartmentUserCommand"] = request.syncDepartmentUserCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SyncDepartmentUser"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncDepartmentUserResponse>();
+}
+
+/**
+ * @summary 同步部门成员信息
+ *
+ * @param request SyncDepartmentUserRequest
+ * @return SyncDepartmentUserResponse
+ */
+SyncDepartmentUserResponse Client::syncDepartmentUser(const SyncDepartmentUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return syncDepartmentUserWithOptions(request, runtime);
+}
+
+/**
  * @summary 一键转交负责人
  *
  * @param tmpReq TransferOwnershipForAllObjectRequest
