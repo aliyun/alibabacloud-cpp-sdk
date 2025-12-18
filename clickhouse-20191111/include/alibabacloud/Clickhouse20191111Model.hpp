@@ -266,6 +266,7 @@
 #include <alibabacloud/models/UpgradeMinorVersionResponse.hpp>
 #include <alibabacloud/models/CheckScaleOutBalancedResponseBodyTableDetailsTableDetail.hpp>
 #include <alibabacloud/models/CheckScaleOutBalancedResponseBodyTableDetails.hpp>
+#include <alibabacloud/models/CreateDbInstanceRequestTags.hpp>
 #include <alibabacloud/models/DescribeAccountsResponseBodyAccountsAccount.hpp>
 #include <alibabacloud/models/DescribeAccountsResponseBodyAccounts.hpp>
 #include <alibabacloud/models/DescribeActiveOperationMaintainConfResponseBodyConfig.hpp>

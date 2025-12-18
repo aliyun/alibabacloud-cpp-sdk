@@ -1145,6 +1145,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["SourceDBClusterId"] = request.sourceDBClusterId();
   }
 
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
+  }
+
   if (!!request.hasUsedTime()) {
     query["UsedTime"] = request.usedTime();
   }

@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEDBINSTANCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEDBINSTANCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/CreateDBInstanceRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(SourceDBClusterId, sourceDBClusterId_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_TO_JSON(VPCId, VPCId_);
       DARABONBA_PTR_TO_JSON(VSwitchBak, vSwitchBak_);
@@ -67,6 +70,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(SourceDBClusterId, sourceDBClusterId_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
       DARABONBA_PTR_FROM_JSON(VPCId, VPCId_);
       DARABONBA_PTR_FROM_JSON(VSwitchBak, vSwitchBak_);
@@ -92,8 +96,8 @@ namespace Models
         && return this->DBClusterNetworkType_ == nullptr && return this->DBClusterVersion_ == nullptr && return this->DBNodeGroupCount_ == nullptr && return this->DBNodeStorage_ == nullptr && return this->dbNodeStorageType_ == nullptr
         && return this->encryptionKey_ == nullptr && return this->encryptionType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->payType_ == nullptr
         && return this->period_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->sourceDBClusterId_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchBak_ == nullptr && return this->vSwitchBak2_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zondIdBak2_ == nullptr && return this->zoneId_ == nullptr && return this->zoneIdBak_ == nullptr; };
+        && return this->sourceDBClusterId_ == nullptr && return this->tags_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchBak_ == nullptr
+        && return this->vSwitchBak2_ == nullptr && return this->vSwitchId_ == nullptr && return this->zondIdBak2_ == nullptr && return this->zoneId_ == nullptr && return this->zoneIdBak_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -246,6 +250,15 @@ namespace Models
     void deleteSourceDBClusterId() { this->sourceDBClusterId_ = nullptr;};
     inline string sourceDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(sourceDBClusterId_, "") };
     inline CreateDBInstanceRequest& setSourceDBClusterId(string sourceDBClusterId) { DARABONBA_PTR_SET_VALUE(sourceDBClusterId_, sourceDBClusterId) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateDBInstanceRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateDBInstanceRequestTags>) };
+    inline vector<CreateDBInstanceRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateDBInstanceRequestTags>) };
+    inline CreateDBInstanceRequest& setTags(const vector<CreateDBInstanceRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateDBInstanceRequest& setTags(vector<CreateDBInstanceRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // usedTime Field Functions 
@@ -415,6 +428,7 @@ namespace Models
     // 
     // >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
     std::shared_ptr<string> sourceDBClusterId_ = nullptr;
+    std::shared_ptr<vector<CreateDBInstanceRequestTags>> tags_ = nullptr;
     // The subscription duration of the subscription cluster.
     // 
     // >  This parameter is required only when PayType is set to Prepaid.
