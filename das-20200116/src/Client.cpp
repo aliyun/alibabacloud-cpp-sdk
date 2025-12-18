@@ -4913,6 +4913,104 @@ GetHDMLastAliyunResourceSyncResultResponse Client::getHDMLastAliyunResourceSyncR
 }
 
 /**
+ * @summary 获取实例组日报详情
+ *
+ * @param request GetInstanceGroupInspectReportDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceGroupInspectReportDetailResponse
+ */
+GetInstanceGroupInspectReportDetailResponse Client::getInstanceGroupInspectReportDetailWithOptions(const GetInstanceGroupInspectReportDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasReportId()) {
+    body["ReportId"] = request.reportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceGroupInspectReportDetail"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceGroupInspectReportDetailResponse>();
+}
+
+/**
+ * @summary 获取实例组日报详情
+ *
+ * @param request GetInstanceGroupInspectReportDetailRequest
+ * @return GetInstanceGroupInspectReportDetailResponse
+ */
+GetInstanceGroupInspectReportDetailResponse Client::getInstanceGroupInspectReportDetail(const GetInstanceGroupInspectReportDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceGroupInspectReportDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例组的报告信息
+ *
+ * @param request GetInstanceGroupInspectReportListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceGroupInspectReportListResponse
+ */
+GetInstanceGroupInspectReportListResponse Client::getInstanceGroupInspectReportListWithOptions(const GetInstanceGroupInspectReportListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.agentId();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetInstanceGroupInspectReportList"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceGroupInspectReportListResponse>();
+}
+
+/**
+ * @summary 查询实例组的报告信息
+ *
+ * @param request GetInstanceGroupInspectReportListRequest
+ * @return GetInstanceGroupInspectReportListResponse
+ */
+GetInstanceGroupInspectReportListResponse Client::getInstanceGroupInspectReportList(const GetInstanceGroupInspectReportListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceGroupInspectReportListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
  *
  * @description Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).

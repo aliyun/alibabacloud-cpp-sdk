@@ -225,6 +225,12 @@
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultRequest.hpp>
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultResponseBody.hpp>
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultResponse.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportDetailRequest.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportDetailResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportDetailResponse.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportListRequest.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportListResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportListResponse.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsRequest.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsResponse.hpp>
@@ -481,6 +487,8 @@
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultResponseBodyDataSubResultsResourceSyncSubResult.hpp>
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultResponseBodyDataSubResults.hpp>
 #include <alibabacloud/models/GetHdmLastAliyunResourceSyncResultResponseBodyData.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportDetailResponseBodyData.hpp>
+#include <alibabacloud/models/GetInstanceGroupInspectReportListResponseBodyData.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsResponseBodyDataListAutoFunction.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsResponseBodyDataListInstance.hpp>
 #include <alibabacloud/models/GetInstanceInspectionsResponseBodyDataList.hpp>

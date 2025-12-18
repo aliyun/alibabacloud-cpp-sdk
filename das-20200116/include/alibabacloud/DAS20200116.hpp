@@ -1803,6 +1803,40 @@ namespace DAS20200116
       Models::GetHDMLastAliyunResourceSyncResultResponse getHDMLastAliyunResourceSyncResult(const Models::GetHDMLastAliyunResourceSyncResultRequest &request);
 
       /**
+       * @summary 获取实例组日报详情
+       *
+       * @param request GetInstanceGroupInspectReportDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceGroupInspectReportDetailResponse
+       */
+      Models::GetInstanceGroupInspectReportDetailResponse getInstanceGroupInspectReportDetailWithOptions(const Models::GetInstanceGroupInspectReportDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取实例组日报详情
+       *
+       * @param request GetInstanceGroupInspectReportDetailRequest
+       * @return GetInstanceGroupInspectReportDetailResponse
+       */
+      Models::GetInstanceGroupInspectReportDetailResponse getInstanceGroupInspectReportDetail(const Models::GetInstanceGroupInspectReportDetailRequest &request);
+
+      /**
+       * @summary 查询实例组的报告信息
+       *
+       * @param request GetInstanceGroupInspectReportListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceGroupInspectReportListResponse
+       */
+      Models::GetInstanceGroupInspectReportListResponse getInstanceGroupInspectReportListWithOptions(const Models::GetInstanceGroupInspectReportListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例组的报告信息
+       *
+       * @param request GetInstanceGroupInspectReportListRequest
+       * @return GetInstanceGroupInspectReportListResponse
+       */
+      Models::GetInstanceGroupInspectReportListResponse getInstanceGroupInspectReportList(const Models::GetInstanceGroupInspectReportListRequest &request);
+
+      /**
        * @summary Queries the result of an inspection that is performed on a database instance by using the inspection and scoring feature.
        *
        * @description Database Autonomy Service (DAS) provides the inspection and scoring feature. This feature allows you to inspect and score the health status of your instance on a regular basis. This helps you obtain information about the status of your databases. For more information, see [Inspection and scoring](https://help.aliyun.com/document_detail/205659.html).
