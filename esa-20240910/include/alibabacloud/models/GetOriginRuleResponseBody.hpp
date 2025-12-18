@@ -250,65 +250,90 @@ namespace Models
 
 
   protected:
-    // Configuration ID.
+    // The configuration ID.
     std::shared_ptr<int64_t> configId_ = nullptr;
-    // Configuration type, which can be used to query global or rule configurations. Value range:
+    // The configuration type to query. Valid values:
     // 
-    // - global: Query global configuration.
-    // - rule: Query rule configuration.
+    // *   global: global configurations.
+    // *   rule: rule configurations.
     std::shared_ptr<string> configType_ = nullptr;
-    // Rewrite the DNS resolution record for the origin request.
+    // The hostname that overrides the resolved hostname of an incoming request.
     std::shared_ptr<string> dnsRecord_ = nullptr;
+    // 302 follow switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> follow302Enable_ = nullptr;
+    // The maximum number of 302 follow times. Valid values: 1 to 5.
     std::shared_ptr<string> follow302MaxTries_ = nullptr;
+    // Retains the original request parameters switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> follow302RetainArgs_ = nullptr;
+    // Retain the original request header switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> follow302RetainHeader_ = nullptr;
+    // Target Host
     std::shared_ptr<string> follow302TargetHost_ = nullptr;
-    // HOST carried in the origin request.
+    // The Host header in origin requests.
     std::shared_ptr<string> originHost_ = nullptr;
-    // Port of the origin server accessed when using the HTTP protocol for origin.
+    // The origin port that is accessed when the HTTP protocol is used to back to the origin.
     std::shared_ptr<string> originHttpPort_ = nullptr;
-    // Port of the origin server accessed when using the HTTPS protocol for origin.
+    // The origin port that is accessed when the HTTPS protocol is used to back to the origin.
     std::shared_ptr<string> originHttpsPort_ = nullptr;
-    // mTLS switch. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // The MTLS switch. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> originMtls_ = nullptr;
+    // The read timeout period (in seconds) on the origin.
     std::shared_ptr<string> originReadTimeout_ = nullptr;
-    // Protocol used for the origin request. Value range:
+    // The protocol used for origin requests. Valid values:
     // 
-    // - http: Use HTTP protocol for origin.
-    // - https: Use HTTPS protocol for origin.
-    // - follow: Follow the client\\"s protocol for origin.
+    // *   http: HTTP.
+    // *   https: HTTPS.
+    // *   follow: follows the protocol used by the client.
     std::shared_ptr<string> originScheme_ = nullptr;
-    // SNI carried in the origin request.
+    // The SNI in origin requests.
     std::shared_ptr<string> originSni_ = nullptr;
-    // Origin certificate verification switch. Value range: 
-    // - on: Enable. 
-    // - off: Disable.
-    std::shared_ptr<string> originVerify_ = nullptr;
-    // Use the range chunk method for origin file download. Value range:
+    // The origin certificate verification switch. Valid values:
     // 
-    // - on: Enable.
-    // - off: Disable.
-    // - force: Force.
+    // *   on
+    // *   off
+    std::shared_ptr<string> originVerify_ = nullptr;
+    // Use range requests to download an object from the source. Valid values:
+    // 
+    // *   on
+    // *   off
+    // *   force: enables range origin fetch by force.
     std::shared_ptr<string> range_ = nullptr;
+    // The size of the range part. Valid values:
+    // 
+    // *   512KB
+    // *   1MB
+    // *   2MB
+    // *   4MB
     std::shared_ptr<string> rangeChunkSize_ = nullptr;
     // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
-    // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
     std::shared_ptr<string> rule_ = nullptr;
-    // Rule switch. This parameter does not need to be set when adding a global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // 
+    // *   on
+    // *   off
     std::shared_ptr<string> ruleEnable_ = nullptr;
-    // Rule name. This parameter does not need to be set when adding a global configuration.
+    // The rule name. You do not need to set this parameter when you add global configurations.
     std::shared_ptr<string> ruleName_ = nullptr;
-    // Rule execution order. The smaller the value, the higher the priority.
+    // The rule execution order. The smaller the value, the higher the priority.
     std::shared_ptr<int32_t> sequence_ = nullptr;
-    // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, defaulting to version 0.
+    // The version number of the configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     std::shared_ptr<int32_t> siteVersion_ = nullptr;
   };
 

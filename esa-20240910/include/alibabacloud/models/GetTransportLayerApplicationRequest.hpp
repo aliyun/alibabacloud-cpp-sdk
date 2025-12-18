@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+    // Number of forwarding rules contained in the transport layer acceleration application.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> applicationId_ = nullptr;
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // Transport layer application ID.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;

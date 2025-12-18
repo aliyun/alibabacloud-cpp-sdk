@@ -15,6 +15,7 @@ namespace Models
   class ListListsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListListsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ItemsUsage, itemsUsage_);
       DARABONBA_PTR_TO_JSON(Lists, lists_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Usage, usage_);
     };
     friend void from_json(const Darabonba::Json& j, ListListsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ItemsUsage, itemsUsage_);
       DARABONBA_PTR_FROM_JSON(Lists, lists_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -41,8 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->lists_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr && return this->usage_ == nullptr; };
+    virtual bool empty() const override { return this->itemsUsage_ == nullptr
+        && return this->lists_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->requestId_ == nullptr && return this->totalCount_ == nullptr
+        && return this->usage_ == nullptr; };
+    // itemsUsage Field Functions 
+    bool hasItemsUsage() const { return this->itemsUsage_ != nullptr;};
+    void deleteItemsUsage() { this->itemsUsage_ = nullptr;};
+    inline int64_t itemsUsage() const { DARABONBA_PTR_GET_DEFAULT(itemsUsage_, 0L) };
+    inline ListListsResponseBody& setItemsUsage(int64_t itemsUsage) { DARABONBA_PTR_SET_VALUE(itemsUsage_, itemsUsage) };
+
+
     // lists Field Functions 
     bool hasLists() const { return this->lists_ != nullptr;};
     void deleteLists() { this->lists_ = nullptr;};
@@ -88,6 +98,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> itemsUsage_ = nullptr;
     // The array that contains list information, including list data after paging.
     std::shared_ptr<vector<ListListsResponseBodyLists>> lists_ = nullptr;
     // The page number returned.

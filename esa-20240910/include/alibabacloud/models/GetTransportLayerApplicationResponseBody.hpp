@@ -156,37 +156,36 @@ namespace Models
 
 
   protected:
-    // Transport layer application ID.
+    // Specific value of the origin, which needs to match the type of the origin.
     std::shared_ptr<int64_t> applicationId_ = nullptr;
-    // The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
-    std::shared_ptr<string> cname_ = nullptr;
     // Whether to enable China mainland network access optimization, default is off. Value range:
     // - on: Enabled.
     // - off: Disabled.
+    std::shared_ptr<string> cname_ = nullptr;
     std::shared_ptr<string> crossBorderOptimization_ = nullptr;
-    // Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
-    // 
-    // - on: Turned on.
-    // - off: Turned off.
+    // #/components/schemas/WafRuleMatch2
     std::shared_ptr<string> ipAccessRule_ = nullptr;
-    // IPv6 switch.
+    // Ipv6 switch
     std::shared_ptr<string> ipv6_ = nullptr;
-    // The domain name of the transport layer application.
+    // Query Transport Layer Acceleration Application
     std::shared_ptr<string> recordName_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
-    // List of forwarding rules.
+    // Edge port. Supports:
+    // 
+    // - A single port, such as 80.
+    // - Port range, such as 81-85, representing ports 81, 82, 83, 84, 85.
+    // - Combination of ports and port ranges, separated by commas, for example 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
     std::shared_ptr<vector<GetTransportLayerApplicationResponseBodyRules>> rules_ = nullptr;
-    // Number of forwarding rules contained in the transport layer acceleration application.
+    // Forwarding rule protocol, with values:
+    // 
+    // - TCP: TCP protocol.
+    // - UDP: UDP protocol.
     std::shared_ptr<int32_t> rulesCount_ = nullptr;
-    // Site ID.
+    // Details of the forwarding rule.
     std::shared_ptr<int64_t> siteId_ = nullptr;
     std::shared_ptr<string> staticIp_ = nullptr;
     std::shared_ptr<vector<GetTransportLayerApplicationResponseBodyStaticIpV4List>> staticIpV4List_ = nullptr;
-    // Status of the transport layer application
-    // 
-    // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-    // - **active**: Active.
     std::shared_ptr<string> status_ = nullptr;
   };
 

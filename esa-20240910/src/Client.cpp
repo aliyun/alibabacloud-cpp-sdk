@@ -9732,7 +9732,7 @@ GetOriginProtectionResponse Client::getOriginProtection(const GetOriginProtectio
 }
 
 /**
- * @summary Query a Single Origin Rule Configuration
+ * @summary Queries the configurations of a single origin rule.
  *
  * @param request GetOriginRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9759,7 +9759,7 @@ GetOriginRuleResponse Client::getOriginRuleWithOptions(const GetOriginRuleReques
 }
 
 /**
- * @summary Query a Single Origin Rule Configuration
+ * @summary Queries the configurations of a single origin rule.
  *
  * @param request GetOriginRuleRequest
  * @return GetOriginRuleResponse

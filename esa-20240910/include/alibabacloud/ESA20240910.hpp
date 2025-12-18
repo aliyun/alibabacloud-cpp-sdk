@@ -3309,7 +3309,7 @@ namespace ESA20240910
       Models::GetOriginProtectionResponse getOriginProtection(const Models::GetOriginProtectionRequest &request);
 
       /**
-       * @summary Query a Single Origin Rule Configuration
+       * @summary Queries the configurations of a single origin rule.
        *
        * @param request GetOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3318,7 +3318,7 @@ namespace ESA20240910
       Models::GetOriginRuleResponse getOriginRuleWithOptions(const Models::GetOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query a Single Origin Rule Configuration
+       * @summary Queries the configurations of a single origin rule.
        *
        * @param request GetOriginRuleRequest
        * @return GetOriginRuleResponse

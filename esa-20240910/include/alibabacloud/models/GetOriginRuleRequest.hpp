@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // ConfigId of the configuration, which can be obtained by calling the [ListOriginRules](https://help.aliyun.com/document_detail/2866989.html) interface.
+    // The ID of the configuration. You can call the [ListSiteRoutes](https://help.aliyun.com/document_detail/2866989.html) operation to obtain the ID.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> configId_ = nullptr;
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     std::shared_ptr<int64_t> siteId_ = nullptr;
