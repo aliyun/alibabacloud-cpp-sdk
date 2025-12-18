@@ -39,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DnNodeClassCode, dnNodeClassCode_);
       DARABONBA_PTR_TO_JSON(DnNodeCount, dnNodeCount_);
       DARABONBA_PTR_TO_JSON(Engine, engine_);
+      DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_TO_JSON(ExpireDate, expireDate_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
       DARABONBA_PTR_TO_JSON(GdnInstanceName, gdnInstanceName_);
@@ -98,6 +99,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DnNodeClassCode, dnNodeClassCode_);
       DARABONBA_PTR_FROM_JSON(DnNodeCount, dnNodeCount_);
       DARABONBA_PTR_FROM_JSON(Engine, engine_);
+      DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
       DARABONBA_PTR_FROM_JSON(ExpireDate, expireDate_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
       DARABONBA_PTR_FROM_JSON(GdnInstanceName, gdnInstanceName_);
@@ -151,14 +153,14 @@ namespace Models
         && return this->connAddrs_ == nullptr && return this->connectionString_ == nullptr && return this->cpuType_ == nullptr && return this->createTime_ == nullptr && return this->DBInstanceType_ == nullptr
         && return this->DBNodeClass_ == nullptr && return this->DBNodeCount_ == nullptr && return this->DBNodes_ == nullptr && return this->DBType_ == nullptr && return this->DBVersion_ == nullptr
         && return this->description_ == nullptr && return this->differentDNSpec_ == nullptr && return this->dnNodeClassCode_ == nullptr && return this->dnNodeCount_ == nullptr && return this->engine_ == nullptr
-        && return this->expireDate_ == nullptr && return this->expired_ == nullptr && return this->gdnInstanceName_ == nullptr && return this->gdnMemberList_ == nullptr && return this->gdnRole_ == nullptr
-        && return this->id_ == nullptr && return this->kindCode_ == nullptr && return this->LTSVersions_ == nullptr && return this->latestMinorVersion_ == nullptr && return this->lockMode_ == nullptr
-        && return this->maintainEndTime_ == nullptr && return this->maintainStartTime_ == nullptr && return this->minorVersion_ == nullptr && return this->network_ == nullptr && return this->payType_ == nullptr
-        && return this->port_ == nullptr && return this->primaryInstanceId_ == nullptr && return this->primaryZone_ == nullptr && return this->readDBInstances_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->rightsSeparationEnabled_ == nullptr && return this->rightsSeparationStatus_ == nullptr && return this->secondaryZone_ == nullptr && return this->series_ == nullptr
-        && return this->specCategory_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr && return this->tagSet_ == nullptr
-        && return this->tertiaryZone_ == nullptr && return this->topologyType_ == nullptr && return this->type_ == nullptr && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->engineVersion_ == nullptr && return this->expireDate_ == nullptr && return this->expired_ == nullptr && return this->gdnInstanceName_ == nullptr && return this->gdnMemberList_ == nullptr
+        && return this->gdnRole_ == nullptr && return this->id_ == nullptr && return this->kindCode_ == nullptr && return this->LTSVersions_ == nullptr && return this->latestMinorVersion_ == nullptr
+        && return this->lockMode_ == nullptr && return this->maintainEndTime_ == nullptr && return this->maintainStartTime_ == nullptr && return this->minorVersion_ == nullptr && return this->network_ == nullptr
+        && return this->payType_ == nullptr && return this->port_ == nullptr && return this->primaryInstanceId_ == nullptr && return this->primaryZone_ == nullptr && return this->readDBInstances_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->rightsSeparationEnabled_ == nullptr && return this->rightsSeparationStatus_ == nullptr && return this->secondaryZone_ == nullptr
+        && return this->series_ == nullptr && return this->specCategory_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->storageUsed_ == nullptr
+        && return this->tagSet_ == nullptr && return this->tertiaryZone_ == nullptr && return this->topologyType_ == nullptr && return this->type_ == nullptr && return this->VPCId_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // canNotCreateColumnar Field Functions 
     bool hasCanNotCreateColumnar() const { return this->canNotCreateColumnar_ != nullptr;};
     void deleteCanNotCreateColumnar() { this->canNotCreateColumnar_ = nullptr;};
@@ -310,6 +312,13 @@ namespace Models
     void deleteEngine() { this->engine_ = nullptr;};
     inline string engine() const { DARABONBA_PTR_GET_DEFAULT(engine_, "") };
     inline DescribeDBInstanceAttributeResponseBodyDBInstance& setEngine(string engine) { DARABONBA_PTR_SET_VALUE(engine_, engine) };
+
+
+    // engineVersion Field Functions 
+    bool hasEngineVersion() const { return this->engineVersion_ != nullptr;};
+    void deleteEngineVersion() { this->engineVersion_ = nullptr;};
+    inline string engineVersion() const { DARABONBA_PTR_GET_DEFAULT(engineVersion_, "") };
+    inline DescribeDBInstanceAttributeResponseBodyDBInstance& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
     // expireDate Field Functions 
@@ -594,6 +603,7 @@ namespace Models
     std::shared_ptr<string> dnNodeClassCode_ = nullptr;
     std::shared_ptr<int32_t> dnNodeCount_ = nullptr;
     std::shared_ptr<string> engine_ = nullptr;
+    std::shared_ptr<string> engineVersion_ = nullptr;
     std::shared_ptr<string> expireDate_ = nullptr;
     std::shared_ptr<string> expired_ = nullptr;
     std::shared_ptr<string> gdnInstanceName_ = nullptr;

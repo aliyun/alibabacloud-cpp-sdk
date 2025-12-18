@@ -419,6 +419,8 @@ namespace Polardbx20200202
       Models::DeleteDBResponse deleteDB(const Models::DeleteDBRequest &request);
 
       /**
+       * @summary 释放实例
+       *
        * @param request DeleteDBInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDBInstanceResponse
@@ -426,6 +428,8 @@ namespace Polardbx20200202
       Models::DeleteDBInstanceResponse deleteDBInstanceWithOptions(const Models::DeleteDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 释放实例
+       *
        * @param request DeleteDBInstanceRequest
        * @return DeleteDBInstanceResponse
        */

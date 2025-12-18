@@ -874,6 +874,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["DNNodeCount"] = request.DNNodeCount();
   }
 
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
   if (!!request.hasDnClass()) {
     query["DnClass"] = request.dnClass();
   }
@@ -1663,6 +1667,8 @@ DeleteDBResponse Client::deleteDB(const DeleteDBRequest &request) {
 }
 
 /**
+ * @summary 释放实例
+ *
  * @param request DeleteDBInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDBInstanceResponse
@@ -1696,6 +1702,8 @@ DeleteDBInstanceResponse Client::deleteDBInstanceWithOptions(const DeleteDBInsta
 }
 
 /**
+ * @summary 释放实例
+ *
  * @param request DeleteDBInstanceRequest
  * @return DeleteDBInstanceResponse
  */

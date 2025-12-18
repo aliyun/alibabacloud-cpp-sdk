@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_TO_JSON(DBNodeCount, DBNodeCount_);
       DARABONBA_PTR_TO_JSON(DNNodeCount, DNNodeCount_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DnClass, dnClass_);
       DARABONBA_PTR_TO_JSON(DnStorageSpace, dnStorageSpace_);
       DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBNodeClass, DBNodeClass_);
       DARABONBA_PTR_FROM_JSON(DBNodeCount, DBNodeCount_);
       DARABONBA_PTR_FROM_JSON(DNNodeCount, DNNodeCount_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DnClass, dnClass_);
       DARABONBA_PTR_FROM_JSON(DnStorageSpace, dnStorageSpace_);
       DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
@@ -85,11 +87,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoRenew_ == nullptr
         && return this->CNNodeCount_ == nullptr && return this->clientToken_ == nullptr && return this->cnClass_ == nullptr && return this->DBNodeClass_ == nullptr && return this->DBNodeCount_ == nullptr
-        && return this->DNNodeCount_ == nullptr && return this->dnClass_ == nullptr && return this->dnStorageSpace_ == nullptr && return this->engineVersion_ == nullptr && return this->extraParamsShrink_ == nullptr
-        && return this->isColumnarReadDBInstance_ == nullptr && return this->isReadDBInstance_ == nullptr && return this->networkType_ == nullptr && return this->payType_ == nullptr && return this->period_ == nullptr
-        && return this->primaryDBInstanceName_ == nullptr && return this->primaryZone_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->secondaryZone_ == nullptr
-        && return this->series_ == nullptr && return this->tertiaryZone_ == nullptr && return this->topologyType_ == nullptr && return this->usedTime_ == nullptr && return this->VPCId_ == nullptr
-        && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->DNNodeCount_ == nullptr && return this->description_ == nullptr && return this->dnClass_ == nullptr && return this->dnStorageSpace_ == nullptr && return this->engineVersion_ == nullptr
+        && return this->extraParamsShrink_ == nullptr && return this->isColumnarReadDBInstance_ == nullptr && return this->isReadDBInstance_ == nullptr && return this->networkType_ == nullptr && return this->payType_ == nullptr
+        && return this->period_ == nullptr && return this->primaryDBInstanceName_ == nullptr && return this->primaryZone_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->secondaryZone_ == nullptr && return this->series_ == nullptr && return this->tertiaryZone_ == nullptr && return this->topologyType_ == nullptr && return this->usedTime_ == nullptr
+        && return this->VPCId_ == nullptr && return this->vSwitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // autoRenew Field Functions 
     bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
     void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -137,6 +139,13 @@ namespace Models
     void deleteDNNodeCount() { this->DNNodeCount_ = nullptr;};
     inline int32_t DNNodeCount() const { DARABONBA_PTR_GET_DEFAULT(DNNodeCount_, 0) };
     inline CreateDBInstanceShrinkRequest& setDNNodeCount(int32_t DNNodeCount) { DARABONBA_PTR_SET_VALUE(DNNodeCount_, DNNodeCount) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateDBInstanceShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dnClass Field Functions 
@@ -294,6 +303,7 @@ namespace Models
     std::shared_ptr<string> DBNodeClass_ = nullptr;
     std::shared_ptr<int32_t> DBNodeCount_ = nullptr;
     std::shared_ptr<int32_t> DNNodeCount_ = nullptr;
+    std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> dnClass_ = nullptr;
     std::shared_ptr<string> dnStorageSpace_ = nullptr;
     // This parameter is required.
