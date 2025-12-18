@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_TO_JSON(cpu, cpu_);
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(containerConfiguration, containerConfiguration_);
       DARABONBA_PTR_FROM_JSON(cpu, cpu_);
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
+      DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
@@ -82,10 +84,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentRuntimeArn_ == nullptr
         && return this->agentRuntimeId_ == nullptr && return this->agentRuntimeName_ == nullptr && return this->agentRuntimeVersion_ == nullptr && return this->artifactType_ == nullptr && return this->codeConfiguration_ == nullptr
-        && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->createdAt_ == nullptr && return this->description_ == nullptr && return this->environmentVariables_ == nullptr
-        && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->logConfiguration_ == nullptr && return this->memory_ == nullptr
-        && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr && return this->sessionIdleTimeoutSeconds_ == nullptr
-        && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
+        && return this->containerConfiguration_ == nullptr && return this->cpu_ == nullptr && return this->createdAt_ == nullptr && return this->credentialName_ == nullptr && return this->description_ == nullptr
+        && return this->environmentVariables_ == nullptr && return this->executionRoleArn_ == nullptr && return this->healthCheckConfiguration_ == nullptr && return this->lastUpdatedAt_ == nullptr && return this->logConfiguration_ == nullptr
+        && return this->memory_ == nullptr && return this->networkConfiguration_ == nullptr && return this->port_ == nullptr && return this->protocolConfiguration_ == nullptr && return this->sessionConcurrencyLimitPerInstance_ == nullptr
+        && return this->sessionIdleTimeoutSeconds_ == nullptr && return this->status_ == nullptr && return this->statusReason_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -151,6 +153,13 @@ namespace Models
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
     inline string createdAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
     inline AgentRuntime& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+    // credentialName Field Functions 
+    bool hasCredentialName() const { return this->credentialName_ != nullptr;};
+    void deleteCredentialName() { this->credentialName_ = nullptr;};
+    inline string credentialName() const { DARABONBA_PTR_GET_DEFAULT(credentialName_, "") };
+    inline AgentRuntime& setCredentialName(string credentialName) { DARABONBA_PTR_SET_VALUE(credentialName_, credentialName) };
 
 
     // description Field Functions 
@@ -280,6 +289,8 @@ namespace Models
     std::shared_ptr<float> cpu_ = nullptr;
     // 智能体运行时的创建时间，采用ISO 8601格式
     std::shared_ptr<string> createdAt_ = nullptr;
+    // 用于访问智能体的凭证名称，访问智能体运行时将使用此凭证进行身份验证
+    std::shared_ptr<string> credentialName_ = nullptr;
     // 智能体运行时的描述信息，说明该运行时的用途和功能
     std::shared_ptr<string> description_ = nullptr;
     // 智能体运行时的环境变量配置
