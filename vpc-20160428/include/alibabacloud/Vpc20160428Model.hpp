@@ -1591,6 +1591,7 @@
 #include <alibabacloud/models/GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarysEntrySummarys.hpp>
 #include <alibabacloud/models/GetVpcRouteEntrySummaryResponseBodyRouteEntrySummarys.hpp>
 #include <alibabacloud/models/GetVpnGatewayDiagnoseResultResponseBodyDiagnoseResult.hpp>
+#include <alibabacloud/models/ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels.hpp>
 #include <alibabacloud/models/ListBusinessAccessPointsResponseBodyBusinessAccessPoints.hpp>
 #include <alibabacloud/models/ListBusinessRegionsResponseBodyGeographicSubRegions.hpp>
 #include <alibabacloud/models/ListDhcpOptionsSetsRequestTags.hpp>

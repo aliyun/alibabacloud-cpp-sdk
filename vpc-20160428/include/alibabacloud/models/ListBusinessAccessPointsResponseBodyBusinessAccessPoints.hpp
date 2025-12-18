@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_LISTBUSINESSACCESSPOINTSRESPONSEBODYBUSINESSACCESSPOINTS_HPP_
 #define ALIBABACLOUD_MODELS_LISTBUSINESSACCESSPOINTSRESPONSEBODYBUSINESSACCESSPOINTS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CloudBoxInstanceIds, cloudBoxInstanceIds_);
       DARABONBA_PTR_TO_JSON(Latitude, latitude_);
       DARABONBA_PTR_TO_JSON(Longitude, longitude_);
+      DARABONBA_PTR_TO_JSON(OpticalModuleModels, opticalModuleModels_);
       DARABONBA_PTR_TO_JSON(SupportLineOperator, supportLineOperator_);
       DARABONBA_PTR_TO_JSON(SupportPortTypes, supportPortTypes_);
     };
@@ -27,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CloudBoxInstanceIds, cloudBoxInstanceIds_);
       DARABONBA_PTR_FROM_JSON(Latitude, latitude_);
       DARABONBA_PTR_FROM_JSON(Longitude, longitude_);
+      DARABONBA_PTR_FROM_JSON(OpticalModuleModels, opticalModuleModels_);
       DARABONBA_PTR_FROM_JSON(SupportLineOperator, supportLineOperator_);
       DARABONBA_PTR_FROM_JSON(SupportPortTypes, supportPortTypes_);
     };
@@ -42,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessPointId_ == nullptr
-        && return this->accessPointName_ == nullptr && return this->cloudBoxInstanceIds_ == nullptr && return this->latitude_ == nullptr && return this->longitude_ == nullptr && return this->supportLineOperator_ == nullptr
-        && return this->supportPortTypes_ == nullptr; };
+        && return this->accessPointName_ == nullptr && return this->cloudBoxInstanceIds_ == nullptr && return this->latitude_ == nullptr && return this->longitude_ == nullptr && return this->opticalModuleModels_ == nullptr
+        && return this->supportLineOperator_ == nullptr && return this->supportPortTypes_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -79,6 +83,15 @@ namespace Models
     inline ListBusinessAccessPointsResponseBodyBusinessAccessPoints& setLongitude(double longitude) { DARABONBA_PTR_SET_VALUE(longitude_, longitude) };
 
 
+    // opticalModuleModels Field Functions 
+    bool hasOpticalModuleModels() const { return this->opticalModuleModels_ != nullptr;};
+    void deleteOpticalModuleModels() { this->opticalModuleModels_ = nullptr;};
+    inline const vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels> & opticalModuleModels() const { DARABONBA_PTR_GET_CONST(opticalModuleModels_, vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels>) };
+    inline vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels> opticalModuleModels() { DARABONBA_PTR_GET(opticalModuleModels_, vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels>) };
+    inline ListBusinessAccessPointsResponseBodyBusinessAccessPoints& setOpticalModuleModels(const vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels> & opticalModuleModels) { DARABONBA_PTR_SET_VALUE(opticalModuleModels_, opticalModuleModels) };
+    inline ListBusinessAccessPointsResponseBodyBusinessAccessPoints& setOpticalModuleModels(vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels> && opticalModuleModels) { DARABONBA_PTR_SET_RVALUE(opticalModuleModels_, opticalModuleModels) };
+
+
     // supportLineOperator Field Functions 
     bool hasSupportLineOperator() const { return this->supportLineOperator_ != nullptr;};
     void deleteSupportLineOperator() { this->supportLineOperator_ = nullptr;};
@@ -106,6 +119,7 @@ namespace Models
     std::shared_ptr<double> latitude_ = nullptr;
     // The longitude of the access point.
     std::shared_ptr<double> longitude_ = nullptr;
+    std::shared_ptr<vector<Models::ListBusinessAccessPointsResponseBodyBusinessAccessPointsOpticalModuleModels>> opticalModuleModels_ = nullptr;
     // The connectivity provider of the Express Connect circuit. Valid values:
     // 
     // *   **CT**: China Telecom.

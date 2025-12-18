@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeviceAdvancedCapacity, deviceAdvancedCapacity_);
       DARABONBA_PTR_TO_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PeerLocation, peerLocation_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeviceAdvancedCapacity, deviceAdvancedCapacity_);
       DARABONBA_PTR_FROM_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PeerLocation, peerLocation_);
@@ -69,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessPointId_ == nullptr
         && return this->circuitCode_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->deviceAdvancedCapacity_ == nullptr && return this->lineOperator_ == nullptr
-        && return this->name_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerLocation_ == nullptr && return this->portType_ == nullptr
-        && return this->redundantPhysicalConnectionId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->tag_ == nullptr && return this->type_ == nullptr && return this->bandwidth_ == nullptr; };
+        && return this->name_ == nullptr && return this->opticalModuleModel_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->peerLocation_ == nullptr
+        && return this->portType_ == nullptr && return this->redundantPhysicalConnectionId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->bandwidth_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreatePhysicalConnectionRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // opticalModuleModel Field Functions 
+    bool hasOpticalModuleModel() const { return this->opticalModuleModel_ != nullptr;};
+    void deleteOpticalModuleModel() { this->opticalModuleModel_ = nullptr;};
+    inline string opticalModuleModel() const { DARABONBA_PTR_GET_DEFAULT(opticalModuleModel_, "") };
+    inline CreatePhysicalConnectionRequest& setOpticalModuleModel(string opticalModuleModel) { DARABONBA_PTR_SET_VALUE(opticalModuleModel_, opticalModuleModel) };
 
 
     // ownerAccount Field Functions 
@@ -243,6 +252,7 @@ namespace Models
     // 
     // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> opticalModuleModel_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The geographical location of the data center.

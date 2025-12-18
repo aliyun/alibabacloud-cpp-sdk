@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_TO_JSON(LoaStatus, loaStatus_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_TO_JSON(OrderMode, orderMode_);
       DARABONBA_PTR_TO_JSON(ParentPhysicalConnectionAliUid, parentPhysicalConnectionAliUid_);
       DARABONBA_PTR_TO_JSON(ParentPhysicalConnectionId, parentPhysicalConnectionId_);
@@ -71,6 +72,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_FROM_JSON(LoaStatus, loaStatus_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_FROM_JSON(OrderMode, orderMode_);
       DARABONBA_PTR_FROM_JSON(ParentPhysicalConnectionAliUid, parentPhysicalConnectionAliUid_);
       DARABONBA_PTR_FROM_JSON(ParentPhysicalConnectionId, parentPhysicalConnectionId_);
@@ -108,11 +110,11 @@ namespace Models
         && return this->accessPointType_ == nullptr && return this->adDetailLocation_ == nullptr && return this->adLocation_ == nullptr && return this->bandwidth_ == nullptr && return this->businessStatus_ == nullptr
         && return this->chargeType_ == nullptr && return this->circuitCode_ == nullptr && return this->creationTime_ == nullptr && return this->description_ == nullptr && return this->enabledTime_ == nullptr
         && return this->endTime_ == nullptr && return this->expectSpec_ == nullptr && return this->hasReservationData_ == nullptr && return this->lineOperator_ == nullptr && return this->loaStatus_ == nullptr
-        && return this->name_ == nullptr && return this->orderMode_ == nullptr && return this->parentPhysicalConnectionAliUid_ == nullptr && return this->parentPhysicalConnectionId_ == nullptr && return this->peerLocation_ == nullptr
-        && return this->physicalConnectionId_ == nullptr && return this->portNumber_ == nullptr && return this->portType_ == nullptr && return this->productType_ == nullptr && return this->qosId_ == nullptr
-        && return this->redundantPhysicalConnectionId_ == nullptr && return this->reservationActiveTime_ == nullptr && return this->reservationInternetChargeType_ == nullptr && return this->reservationOrderType_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->spec_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr && return this->virtualPhysicalConnectionCount_ == nullptr
-        && return this->vlanId_ == nullptr && return this->vpconnStatus_ == nullptr; };
+        && return this->name_ == nullptr && return this->opticalModuleModel_ == nullptr && return this->orderMode_ == nullptr && return this->parentPhysicalConnectionAliUid_ == nullptr && return this->parentPhysicalConnectionId_ == nullptr
+        && return this->peerLocation_ == nullptr && return this->physicalConnectionId_ == nullptr && return this->portNumber_ == nullptr && return this->portType_ == nullptr && return this->productType_ == nullptr
+        && return this->qosId_ == nullptr && return this->redundantPhysicalConnectionId_ == nullptr && return this->reservationActiveTime_ == nullptr && return this->reservationInternetChargeType_ == nullptr && return this->reservationOrderType_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->spec_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr && return this->type_ == nullptr
+        && return this->virtualPhysicalConnectionCount_ == nullptr && return this->vlanId_ == nullptr && return this->vpconnStatus_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -230,6 +232,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // opticalModuleModel Field Functions 
+    bool hasOpticalModuleModel() const { return this->opticalModuleModel_ != nullptr;};
+    void deleteOpticalModuleModel() { this->opticalModuleModel_ = nullptr;};
+    inline string opticalModuleModel() const { DARABONBA_PTR_GET_DEFAULT(opticalModuleModel_, "") };
+    inline DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType& setOpticalModuleModel(string opticalModuleModel) { DARABONBA_PTR_SET_VALUE(opticalModuleModel_, opticalModuleModel) };
 
 
     // orderMode Field Functions 
@@ -444,6 +453,7 @@ namespace Models
     std::shared_ptr<string> loaStatus_ = nullptr;
     // The name of the Express Connect circuit.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> opticalModuleModel_ = nullptr;
     // The payer for the hosted connection. Valid values:
     // 
     // *   **PayByPhysicalConnectionOwner**: The partner pays for the shared Express Connect circuit.

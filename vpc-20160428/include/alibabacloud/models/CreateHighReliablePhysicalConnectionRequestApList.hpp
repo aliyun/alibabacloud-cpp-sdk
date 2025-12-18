@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_TO_JSON(PeerLocation, peerLocation_);
       DARABONBA_PTR_TO_JSON(PortNum, portNum_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(LineOperator, lineOperator_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(OpticalModuleModel, opticalModuleModel_);
       DARABONBA_PTR_FROM_JSON(PeerLocation, peerLocation_);
       DARABONBA_PTR_FROM_JSON(PortNum, portNum_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessPointId_ == nullptr
         && return this->bandwidth_ == nullptr && return this->circuitCode_ == nullptr && return this->description_ == nullptr && return this->lineOperator_ == nullptr && return this->name_ == nullptr
-        && return this->peerLocation_ == nullptr && return this->portNum_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr; };
+        && return this->opticalModuleModel_ == nullptr && return this->peerLocation_ == nullptr && return this->portNum_ == nullptr && return this->regionId_ == nullptr && return this->type_ == nullptr; };
     // accessPointId Field Functions 
     bool hasAccessPointId() const { return this->accessPointId_ != nullptr;};
     void deleteAccessPointId() { this->accessPointId_ = nullptr;};
@@ -90,6 +92,13 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateHighReliablePhysicalConnectionRequestApList& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // opticalModuleModel Field Functions 
+    bool hasOpticalModuleModel() const { return this->opticalModuleModel_ != nullptr;};
+    void deleteOpticalModuleModel() { this->opticalModuleModel_ = nullptr;};
+    inline string opticalModuleModel() const { DARABONBA_PTR_GET_DEFAULT(opticalModuleModel_, "") };
+    inline CreateHighReliablePhysicalConnectionRequestApList& setOpticalModuleModel(string opticalModuleModel) { DARABONBA_PTR_SET_VALUE(opticalModuleModel_, opticalModuleModel) };
 
 
     // peerLocation Field Functions 
@@ -152,6 +161,7 @@ namespace Models
     // 
     // The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or` https://`.
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<string> opticalModuleModel_ = nullptr;
     // The geographical location of the data center.
     std::shared_ptr<string> peerLocation_ = nullptr;
     // The number of ports. Valid values: 2 to 16. This parameter is required only when **HighReliableType** is set to **SingleApMultiConnection**.

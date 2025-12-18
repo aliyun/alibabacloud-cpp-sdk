@@ -6296,6 +6296,10 @@ CreatePhysicalConnectionResponse Client::createPhysicalConnectionWithOptions(con
     query["Name"] = request.name();
   }
 
+  if (!!request.hasOpticalModuleModel()) {
+    query["OpticalModuleModel"] = request.opticalModuleModel();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.ownerAccount();
   }
