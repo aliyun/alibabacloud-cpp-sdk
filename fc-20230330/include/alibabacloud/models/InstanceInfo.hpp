@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(destroyedTimeMs, destroyedTimeMs_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
+      DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(status, status_);
       DARABONBA_PTR_TO_JSON(versionId, versionId_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(destroyedTimeMs, destroyedTimeMs_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
+      DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(status, status_);
       DARABONBA_PTR_FROM_JSON(versionId, versionId_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdTimeMs_ == nullptr
-        && return this->destroyedTimeMs_ == nullptr && return this->instanceId_ == nullptr && return this->qualifier_ == nullptr && return this->status_ == nullptr && return this->versionId_ == nullptr; };
+        && return this->destroyedTimeMs_ == nullptr && return this->instanceId_ == nullptr && return this->qualifier_ == nullptr && return this->resourceType_ == nullptr && return this->status_ == nullptr
+        && return this->versionId_ == nullptr; };
     // createdTimeMs Field Functions 
     bool hasCreatedTimeMs() const { return this->createdTimeMs_ != nullptr;};
     void deleteCreatedTimeMs() { this->createdTimeMs_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline InstanceInfo& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline InstanceInfo& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -88,6 +98,7 @@ namespace Models
     std::shared_ptr<int64_t> destroyedTimeMs_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> qualifier_ = nullptr;
+    std::shared_ptr<string> resourceType_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
     std::shared_ptr<string> versionId_ = nullptr;
   };

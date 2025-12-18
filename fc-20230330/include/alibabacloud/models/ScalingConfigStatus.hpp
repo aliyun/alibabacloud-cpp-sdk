@@ -18,10 +18,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ScalingConfigStatus& obj) { 
       DARABONBA_PTR_TO_JSON(currentError, currentError_);
       DARABONBA_PTR_TO_JSON(currentInstances, currentInstances_);
+      DARABONBA_PTR_TO_JSON(enableMixMode, enableMixMode_);
       DARABONBA_PTR_TO_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_TO_JSON(functionArn, functionArn_);
       DARABONBA_PTR_TO_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_TO_JSON(minInstances, minInstances_);
+      DARABONBA_PTR_TO_JSON(requestDispatchPolicy, requestDispatchPolicy_);
       DARABONBA_PTR_TO_JSON(residentPoolId, residentPoolId_);
       DARABONBA_PTR_TO_JSON(scheduledPolicies, scheduledPolicies_);
       DARABONBA_PTR_TO_JSON(targetInstances, targetInstances_);
@@ -29,10 +31,12 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ScalingConfigStatus& obj) { 
       DARABONBA_PTR_FROM_JSON(currentError, currentError_);
       DARABONBA_PTR_FROM_JSON(currentInstances, currentInstances_);
+      DARABONBA_PTR_FROM_JSON(enableMixMode, enableMixMode_);
       DARABONBA_PTR_FROM_JSON(enableOnDemandScaling, enableOnDemandScaling_);
       DARABONBA_PTR_FROM_JSON(functionArn, functionArn_);
       DARABONBA_PTR_FROM_JSON(horizontalScalingPolicies, horizontalScalingPolicies_);
       DARABONBA_PTR_FROM_JSON(minInstances, minInstances_);
+      DARABONBA_PTR_FROM_JSON(requestDispatchPolicy, requestDispatchPolicy_);
       DARABONBA_PTR_FROM_JSON(residentPoolId, residentPoolId_);
       DARABONBA_PTR_FROM_JSON(scheduledPolicies, scheduledPolicies_);
       DARABONBA_PTR_FROM_JSON(targetInstances, targetInstances_);
@@ -49,8 +53,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentError_ == nullptr
-        && return this->currentInstances_ == nullptr && return this->enableOnDemandScaling_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr && return this->minInstances_ == nullptr
-        && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
+        && return this->currentInstances_ == nullptr && return this->enableMixMode_ == nullptr && return this->enableOnDemandScaling_ == nullptr && return this->functionArn_ == nullptr && return this->horizontalScalingPolicies_ == nullptr
+        && return this->minInstances_ == nullptr && return this->requestDispatchPolicy_ == nullptr && return this->residentPoolId_ == nullptr && return this->scheduledPolicies_ == nullptr && return this->targetInstances_ == nullptr; };
     // currentError Field Functions 
     bool hasCurrentError() const { return this->currentError_ != nullptr;};
     void deleteCurrentError() { this->currentError_ = nullptr;};
@@ -63,6 +67,13 @@ namespace Models
     void deleteCurrentInstances() { this->currentInstances_ = nullptr;};
     inline int64_t currentInstances() const { DARABONBA_PTR_GET_DEFAULT(currentInstances_, 0L) };
     inline ScalingConfigStatus& setCurrentInstances(int64_t currentInstances) { DARABONBA_PTR_SET_VALUE(currentInstances_, currentInstances) };
+
+
+    // enableMixMode Field Functions 
+    bool hasEnableMixMode() const { return this->enableMixMode_ != nullptr;};
+    void deleteEnableMixMode() { this->enableMixMode_ = nullptr;};
+    inline bool enableMixMode() const { DARABONBA_PTR_GET_DEFAULT(enableMixMode_, false) };
+    inline ScalingConfigStatus& setEnableMixMode(bool enableMixMode) { DARABONBA_PTR_SET_VALUE(enableMixMode_, enableMixMode) };
 
 
     // enableOnDemandScaling Field Functions 
@@ -95,6 +106,13 @@ namespace Models
     inline ScalingConfigStatus& setMinInstances(int64_t minInstances) { DARABONBA_PTR_SET_VALUE(minInstances_, minInstances) };
 
 
+    // requestDispatchPolicy Field Functions 
+    bool hasRequestDispatchPolicy() const { return this->requestDispatchPolicy_ != nullptr;};
+    void deleteRequestDispatchPolicy() { this->requestDispatchPolicy_ = nullptr;};
+    inline string requestDispatchPolicy() const { DARABONBA_PTR_GET_DEFAULT(requestDispatchPolicy_, "") };
+    inline ScalingConfigStatus& setRequestDispatchPolicy(string requestDispatchPolicy) { DARABONBA_PTR_SET_VALUE(requestDispatchPolicy_, requestDispatchPolicy) };
+
+
     // residentPoolId Field Functions 
     bool hasResidentPoolId() const { return this->residentPoolId_ != nullptr;};
     void deleteResidentPoolId() { this->residentPoolId_ = nullptr;};
@@ -121,10 +139,12 @@ namespace Models
   protected:
     std::shared_ptr<string> currentError_ = nullptr;
     std::shared_ptr<int64_t> currentInstances_ = nullptr;
+    std::shared_ptr<bool> enableMixMode_ = nullptr;
     std::shared_ptr<bool> enableOnDemandScaling_ = nullptr;
     std::shared_ptr<string> functionArn_ = nullptr;
     std::shared_ptr<vector<ScalingPolicy>> horizontalScalingPolicies_ = nullptr;
     std::shared_ptr<int64_t> minInstances_ = nullptr;
+    std::shared_ptr<string> requestDispatchPolicy_ = nullptr;
     std::shared_ptr<string> residentPoolId_ = nullptr;
     std::shared_ptr<vector<ScheduledPolicy>> scheduledPolicies_ = nullptr;
     std::shared_ptr<int64_t> targetInstances_ = nullptr;
