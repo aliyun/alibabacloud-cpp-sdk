@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_agent_identity20250901Targets.cmake")
+check_required_components("alibabacloud_agent_identity20250901")
