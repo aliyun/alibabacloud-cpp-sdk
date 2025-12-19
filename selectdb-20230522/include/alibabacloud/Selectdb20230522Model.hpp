@@ -82,6 +82,12 @@
 #include <alibabacloud/models/DescribeSecurityIpListRequest.hpp>
 #include <alibabacloud/models/DescribeSecurityIpListResponseBody.hpp>
 #include <alibabacloud/models/DescribeSecurityIpListResponse.hpp>
+#include <alibabacloud/models/DescribeVSwitchesRequest.hpp>
+#include <alibabacloud/models/DescribeVSwitchesResponseBody.hpp>
+#include <alibabacloud/models/DescribeVSwitchesResponse.hpp>
+#include <alibabacloud/models/DescribeZonesRequest.hpp>
+#include <alibabacloud/models/DescribeZonesResponseBody.hpp>
+#include <alibabacloud/models/DescribeZonesResponse.hpp>
 #include <alibabacloud/models/EnDisableScalingRulesRequest.hpp>
 #include <alibabacloud/models/EnDisableScalingRulesResponseBody.hpp>
 #include <alibabacloud/models/EnDisableScalingRulesResponse.hpp>
@@ -133,6 +139,10 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpgradeDbInstanceDeploySchemeRequest.hpp>
+#include <alibabacloud/models/UpgradeDbInstanceDeploySchemeShrinkRequest.hpp>
+#include <alibabacloud/models/UpgradeDbInstanceDeploySchemeResponseBody.hpp>
+#include <alibabacloud/models/UpgradeDbInstanceDeploySchemeResponse.hpp>
 #include <alibabacloud/models/UpgradeDbInstanceEngineVersionRequest.hpp>
 #include <alibabacloud/models/UpgradeDbInstanceEngineVersionResponseBody.hpp>
 #include <alibabacloud/models/UpgradeDbInstanceEngineVersionResponse.hpp>
@@ -170,6 +180,8 @@
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegionModelListZones.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegionModelList.hpp>
 #include <alibabacloud/models/DescribeSecurityIpListResponseBodyGroupItems.hpp>
+#include <alibabacloud/models/DescribeVSwitchesResponseBodyItems.hpp>
+#include <alibabacloud/models/DescribeZonesResponseBodyItems.hpp>
 #include <alibabacloud/models/EnDisableScalingRulesResponseBodyData.hpp>
 #include <alibabacloud/models/GetCreateBeClusterInquiryResponseBodyDataOptionalPromotions.hpp>
 #include <alibabacloud/models/GetCreateBeClusterInquiryResponseBodyData.hpp>
@@ -181,5 +193,6 @@
 #include <alibabacloud/models/ModifyVirtualClusterResponseBodyData.hpp>
 #include <alibabacloud/models/RestartDbClusterResponseBodyData.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
+#include <alibabacloud/models/UpgradeDbInstanceDeploySchemeRequestMultiZone.hpp>
 
 #endif

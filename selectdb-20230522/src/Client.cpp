@@ -1632,6 +1632,122 @@ DescribeSecurityIPListResponse Client::describeSecurityIPList(const DescribeSecu
 }
 
 /**
+ * @summary DescribeVSwitches
+ *
+ * @param request DescribeVSwitchesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVSwitchesResponse
+ */
+DescribeVSwitchesResponse Client::describeVSwitchesWithOptions(const DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.zoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVSwitches"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVSwitchesResponse>();
+}
+
+/**
+ * @summary DescribeVSwitches
+ *
+ * @param request DescribeVSwitchesRequest
+ * @return DescribeVSwitchesResponse
+ */
+DescribeVSwitchesResponse Client::describeVSwitches(const DescribeVSwitchesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVSwitchesWithOptions(request, runtime);
+}
+
+/**
+ * @summary DescribeZones
+ *
+ * @param request DescribeZonesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeZonesResponse
+ */
+DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeZones"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeZonesResponse>();
+}
+
+/**
+ * @summary DescribeZones
+ *
+ * @param request DescribeZonesRequest
+ * @return DescribeZonesResponse
+ */
+DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeZonesWithOptions(request, runtime);
+}
+
+/**
  * @summary Uses the scheduled scaling policy.
  *
  * @param request EnDisableScalingRulesRequest
@@ -2605,6 +2721,66 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary UpgradeDBInstanceDeployScheme
+ *
+ * @param tmpReq UpgradeDBInstanceDeploySchemeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeDBInstanceDeploySchemeResponse
+ */
+UpgradeDBInstanceDeploySchemeResponse Client::upgradeDBInstanceDeploySchemeWithOptions(const UpgradeDBInstanceDeploySchemeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpgradeDBInstanceDeploySchemeShrinkRequest request = UpgradeDBInstanceDeploySchemeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMultiZone()) {
+    request.setMultiZoneShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.multiZone(), "MultiZone", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.DBInstanceId();
+  }
+
+  if (!!request.hasMultiZoneShrink()) {
+    query["MultiZone"] = request.multiZoneShrink();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeDBInstanceDeployScheme"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeDBInstanceDeploySchemeResponse>();
+}
+
+/**
+ * @summary UpgradeDBInstanceDeployScheme
+ *
+ * @param request UpgradeDBInstanceDeploySchemeRequest
+ * @return UpgradeDBInstanceDeploySchemeResponse
+ */
+UpgradeDBInstanceDeploySchemeResponse Client::upgradeDBInstanceDeployScheme(const UpgradeDBInstanceDeploySchemeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeDBInstanceDeploySchemeWithOptions(request, runtime);
 }
 
 /**

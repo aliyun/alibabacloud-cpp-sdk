@@ -475,6 +475,40 @@ namespace Selectdb20230522
       Models::DescribeSecurityIPListResponse describeSecurityIPList(const Models::DescribeSecurityIPListRequest &request);
 
       /**
+       * @summary DescribeVSwitches
+       *
+       * @param request DescribeVSwitchesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVSwitchesResponse
+       */
+      Models::DescribeVSwitchesResponse describeVSwitchesWithOptions(const Models::DescribeVSwitchesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeVSwitches
+       *
+       * @param request DescribeVSwitchesRequest
+       * @return DescribeVSwitchesResponse
+       */
+      Models::DescribeVSwitchesResponse describeVSwitches(const Models::DescribeVSwitchesRequest &request);
+
+      /**
+       * @summary DescribeZones
+       *
+       * @param request DescribeZonesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeZonesResponse
+       */
+      Models::DescribeZonesResponse describeZonesWithOptions(const Models::DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeZones
+       *
+       * @param request DescribeZonesRequest
+       * @return DescribeZonesResponse
+       */
+      Models::DescribeZonesResponse describeZones(const Models::DescribeZonesRequest &request);
+
+      /**
        * @summary Uses the scheduled scaling policy.
        *
        * @param request EnDisableScalingRulesRequest
@@ -762,6 +796,23 @@ namespace Selectdb20230522
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary UpgradeDBInstanceDeployScheme
+       *
+       * @param tmpReq UpgradeDBInstanceDeploySchemeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeDBInstanceDeploySchemeResponse
+       */
+      Models::UpgradeDBInstanceDeploySchemeResponse upgradeDBInstanceDeploySchemeWithOptions(const Models::UpgradeDBInstanceDeploySchemeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpgradeDBInstanceDeployScheme
+       *
+       * @param request UpgradeDBInstanceDeploySchemeRequest
+       * @return UpgradeDBInstanceDeploySchemeResponse
+       */
+      Models::UpgradeDBInstanceDeploySchemeResponse upgradeDBInstanceDeployScheme(const Models::UpgradeDBInstanceDeploySchemeRequest &request);
 
       /**
        * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
