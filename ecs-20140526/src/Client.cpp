@@ -16492,6 +16492,10 @@ DescribeManagedInstancesResponse Client::describeManagedInstancesWithOptions(con
     query["ActivationId"] = request.activationId();
   }
 
+  if (!!request.hasConnected()) {
+    query["Connected"] = request.connected();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.instanceId();
   }

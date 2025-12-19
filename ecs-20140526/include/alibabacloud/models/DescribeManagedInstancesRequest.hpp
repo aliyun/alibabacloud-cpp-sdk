@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeManagedInstancesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ActivationId, activationId_);
+      DARABONBA_PTR_TO_JSON(Connected, connected_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
@@ -35,6 +36,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeManagedInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ActivationId, activationId_);
+      DARABONBA_PTR_FROM_JSON(Connected, connected_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceIp, instanceIp_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
@@ -64,15 +66,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->activationId_ == nullptr
-        && return this->instanceId_ == nullptr && return this->instanceIp_ == nullptr && return this->instanceName_ == nullptr && return this->machineId_ == nullptr && return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->osType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->tag_ == nullptr; };
+        && return this->connected_ == nullptr && return this->instanceId_ == nullptr && return this->instanceIp_ == nullptr && return this->instanceName_ == nullptr && return this->machineId_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->osType_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
+        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->tag_ == nullptr; };
     // activationId Field Functions 
     bool hasActivationId() const { return this->activationId_ != nullptr;};
     void deleteActivationId() { this->activationId_ = nullptr;};
     inline string activationId() const { DARABONBA_PTR_GET_DEFAULT(activationId_, "") };
     inline DescribeManagedInstancesRequest& setActivationId(string activationId) { DARABONBA_PTR_SET_VALUE(activationId_, activationId) };
+
+
+    // connected Field Functions 
+    bool hasConnected() const { return this->connected_ != nullptr;};
+    void deleteConnected() { this->connected_ = nullptr;};
+    inline string connected() const { DARABONBA_PTR_GET_DEFAULT(connected_, "") };
+    inline DescribeManagedInstancesRequest& setConnected(string connected) { DARABONBA_PTR_SET_VALUE(connected_, connected) };
 
 
     // instanceId Field Functions 
@@ -194,6 +203,7 @@ namespace Models
   protected:
     // The ID of the activation code.
     std::shared_ptr<string> activationId_ = nullptr;
+    std::shared_ptr<string> connected_ = nullptr;
     // The ID of managed instance N. Valid values of N: 1 to 50.
     std::shared_ptr<vector<string>> instanceId_ = nullptr;
     // The internal or public IP address of the managed instance.
