@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYINSTANCEPRICE4MODIFYRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_QUERYINSTANCEPRICE4MODIFYRESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/QueryInstancePrice4ModifyResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace BPStudio20210931
+{
+namespace Models
+{
+  class QueryInstancePrice4ModifyResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryInstancePrice4ModifyResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryInstancePrice4ModifyResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    QueryInstancePrice4ModifyResponse() = default ;
+    QueryInstancePrice4ModifyResponse(const QueryInstancePrice4ModifyResponse &) = default ;
+    QueryInstancePrice4ModifyResponse(QueryInstancePrice4ModifyResponse &&) = default ;
+    QueryInstancePrice4ModifyResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryInstancePrice4ModifyResponse() = default ;
+    QueryInstancePrice4ModifyResponse& operator=(const QueryInstancePrice4ModifyResponse &) = default ;
+    QueryInstancePrice4ModifyResponse& operator=(QueryInstancePrice4ModifyResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline QueryInstancePrice4ModifyResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline QueryInstancePrice4ModifyResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline QueryInstancePrice4ModifyResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const QueryInstancePrice4ModifyResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, QueryInstancePrice4ModifyResponseBody) };
+    inline QueryInstancePrice4ModifyResponseBody body() { DARABONBA_PTR_GET(body_, QueryInstancePrice4ModifyResponseBody) };
+    inline QueryInstancePrice4ModifyResponse& setBody(const QueryInstancePrice4ModifyResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline QueryInstancePrice4ModifyResponse& setBody(QueryInstancePrice4ModifyResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<QueryInstancePrice4ModifyResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace BPStudio20210931
+#endif

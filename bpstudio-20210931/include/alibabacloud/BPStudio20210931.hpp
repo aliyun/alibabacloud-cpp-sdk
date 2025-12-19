@@ -309,6 +309,23 @@ namespace BPStudio20210931
       Models::GetLinkageAttributesTemplateResponse getLinkageAttributesTemplate(const Models::GetLinkageAttributesTemplateRequest &request);
 
       /**
+       * @summary 查看某操作的输入参数
+       *
+       * @param request GetOperationParamsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOperationParamsResponse
+       */
+      Models::GetOperationParamsResponse getOperationParamsWithOptions(const Models::GetOperationParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看某操作的输入参数
+       *
+       * @param request GetOperationParamsRequest
+       * @return GetOperationParamsResponse
+       */
+      Models::GetOperationParamsResponse getOperationParams(const Models::GetOperationParamsRequest &request);
+
+      /**
        * @summary Queries the zones where the specified disaster recovery service can be switched.
        *
        * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
@@ -479,6 +496,39 @@ namespace BPStudio20210931
        * @return ListFoCreatedAppsResponse
        */
       Models::ListFoCreatedAppsResponse listFoCreatedApps();
+
+      /**
+       * @summary 查看某服务支持的操作
+       *
+       * @param request ListOperationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOperationsResponse
+       */
+      Models::ListOperationsResponse listOperationsWithOptions(const Models::ListOperationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看某服务支持的操作
+       *
+       * @param request ListOperationsRequest
+       * @return ListOperationsResponse
+       */
+      Models::ListOperationsResponse listOperations(const Models::ListOperationsRequest &request);
+
+      /**
+       * @summary 查看支持的服务列表
+       *
+       * @param request ListServicesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListServicesResponse
+       */
+      Models::ListServicesResponse listServicesWithOptions(const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看支持的服务列表
+       *
+       * @return ListServicesResponse
+       */
+      Models::ListServicesResponse listServices();
 
       /**
        * @summary Queries the tags of one or more applications or templates.

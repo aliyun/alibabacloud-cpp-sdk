@@ -41,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->areaId_ != nullptr
-        && this->clientToken_ != nullptr && this->instances_ != nullptr && this->resourceGroupId_ != nullptr && this->templateId_ != nullptr && this->variables_ != nullptr; };
+    virtual bool empty() const override { return this->areaId_ == nullptr
+        && return this->clientToken_ == nullptr && return this->instances_ == nullptr && return this->resourceGroupId_ == nullptr && return this->templateId_ == nullptr && return this->variables_ == nullptr; };
     // areaId Field Functions 
     bool hasAreaId() const { return this->areaId_ != nullptr;};
     void deleteAreaId() { this->areaId_ = nullptr;};

@@ -916,6 +916,52 @@ GetLinkageAttributesTemplateResponse Client::getLinkageAttributesTemplate(const 
 }
 
 /**
+ * @summary 查看某操作的输入参数
+ *
+ * @param request GetOperationParamsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOperationParamsResponse
+ */
+GetOperationParamsResponse Client::getOperationParamsWithOptions(const GetOperationParamsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOperation()) {
+    body["Operation"] = request.operation();
+  }
+
+  if (!!request.hasServiceType()) {
+    body["ServiceType"] = request.serviceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetOperationParams"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOperationParamsResponse>();
+}
+
+/**
+ * @summary 查看某操作的输入参数
+ *
+ * @param request GetOperationParamsRequest
+ * @return GetOperationParamsResponse
+ */
+GetOperationParamsResponse Client::getOperationParams(const GetOperationParamsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOperationParamsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the zones where the specified disaster recovery service can be switched.
  *
  * @description You can call this operation to query the zones where the specified disaster recovery service can be switched.
@@ -1358,6 +1404,81 @@ ListFoCreatedAppsResponse Client::listFoCreatedAppsWithOptions(const Darabonba::
 ListFoCreatedAppsResponse Client::listFoCreatedApps() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFoCreatedAppsWithOptions(runtime);
+}
+
+/**
+ * @summary 查看某服务支持的操作
+ *
+ * @param request ListOperationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOperationsResponse
+ */
+ListOperationsResponse Client::listOperationsWithOptions(const ListOperationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServiceType()) {
+    query["ServiceType"] = request.serviceType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListOperations"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOperationsResponse>();
+}
+
+/**
+ * @summary 查看某服务支持的操作
+ *
+ * @param request ListOperationsRequest
+ * @return ListOperationsResponse
+ */
+ListOperationsResponse Client::listOperations(const ListOperationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listOperationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看支持的服务列表
+ *
+ * @param request ListServicesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListServicesResponse
+ */
+ListServicesResponse Client::listServicesWithOptions(const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListServices"},
+    {"version" , "2021-09-31"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListServicesResponse>();
+}
+
+/**
+ * @summary 查看支持的服务列表
+ *
+ * @return ListServicesResponse
+ */
+ListServicesResponse Client::listServices() {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listServicesWithOptions(runtime);
 }
 
 /**
