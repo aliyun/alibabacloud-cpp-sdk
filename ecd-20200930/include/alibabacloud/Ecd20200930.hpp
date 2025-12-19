@@ -2673,6 +2673,23 @@ namespace Ecd20200930
       Models::DescribePriceForRenewDesktopOversoldGroupResponse describePriceForRenewDesktopOversoldGroup(const Models::DescribePriceForRenewDesktopOversoldGroupRequest &request);
 
       /**
+       * @summary 查询录屏文件列表
+       *
+       * @param request DescribeRecordFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRecordFileResponse
+       */
+      Models::DescribeRecordFileResponse describeRecordFileWithOptions(const Models::DescribeRecordFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询录屏文件列表
+       *
+       * @param request DescribeRecordFileRequest
+       * @return DescribeRecordFileResponse
+       */
+      Models::DescribeRecordFileResponse describeRecordFile(const Models::DescribeRecordFileRequest &request);
+
+      /**
        * @summary Queries the details of screen recording files.
        *
        * @param request DescribeRecordingsRequest

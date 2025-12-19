@@ -10510,6 +10510,92 @@ DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewD
 }
 
 /**
+ * @summary 查询录屏文件列表
+ *
+ * @param request DescribeRecordFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRecordFileResponse
+ */
+DescribeRecordFileResponse Client::describeRecordFileWithOptions(const DescribeRecordFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.desktopId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.endUserId();
+  }
+
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.fileName();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["OrderBy"] = request.orderBy();
+  }
+
+  if (!!request.hasOrderSort()) {
+    query["OrderSort"] = request.orderSort();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRecordType()) {
+    query["RecordType"] = request.recordType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRecordFile"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRecordFileResponse>();
+}
+
+/**
+ * @summary 查询录屏文件列表
+ *
+ * @param request DescribeRecordFileRequest
+ * @return DescribeRecordFileResponse
+ */
+DescribeRecordFileResponse Client::describeRecordFile(const DescribeRecordFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRecordFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of screen recording files.
  *
  * @param request DescribeRecordingsRequest

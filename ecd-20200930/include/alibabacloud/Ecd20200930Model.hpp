@@ -433,6 +433,9 @@
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupRequest.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponse.hpp>
+#include <alibabacloud/models/DescribeRecordFileRequest.hpp>
+#include <alibabacloud/models/DescribeRecordFileResponseBody.hpp>
+#include <alibabacloud/models/DescribeRecordFileResponse.hpp>
 #include <alibabacloud/models/DescribeRecordingsRequest.hpp>
 #include <alibabacloud/models/DescribeRecordingsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRecordingsResponse.hpp>
@@ -992,6 +995,8 @@
 #include <alibabacloud/models/DescribePriceForCreateDesktopOversoldGroupResponseBodyData.hpp>
 #include <alibabacloud/models/DescribePriceForModifyDesktopOversoldGroupSaleResponseBodyData.hpp>
 #include <alibabacloud/models/DescribePriceForRenewDesktopOversoldGroupResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeRecordFileResponseBodyRecordFilesEventDetails.hpp>
+#include <alibabacloud/models/DescribeRecordFileResponseBodyRecordFiles.hpp>
 #include <alibabacloud/models/DescribeRecordingsResponseBodyRecordings.hpp>
 #include <alibabacloud/models/DescribeRefundPriceResponseBodyPriceInfo.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
