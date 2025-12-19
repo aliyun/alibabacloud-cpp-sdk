@@ -247,6 +247,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
     query["DatabasePassword"] = request.databasePassword();
   }
 
+  if (!!request.hasInitializeWithExistingData()) {
+    query["InitializeWithExistingData"] = request.initializeWithExistingData();
+  }
+
   if (!!request.hasInstanceClass()) {
     query["InstanceClass"] = request.instanceClass();
   }
