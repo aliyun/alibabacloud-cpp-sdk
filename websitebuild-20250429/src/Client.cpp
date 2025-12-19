@@ -90,6 +90,130 @@ BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request)
 }
 
 /**
+ * @summary 创建建站实例
+ *
+ * @param request CreateAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppInstanceResponse
+ */
+CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.applicationType();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.autoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDeployArea()) {
+    query["DeployArea"] = request.deployArea();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.duration();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.extend();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.paymentType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    query["PricingCycle"] = request.pricingCycle();
+  }
+
+  if (!!request.hasQuantity()) {
+    query["Quantity"] = request.quantity();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.siteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppInstanceResponse>();
+}
+
+/**
+ * @summary 创建建站实例
+ *
+ * @param request CreateAppInstanceRequest
+ * @return CreateAppInstanceResponse
+ */
+CreateAppInstanceResponse Client::createAppInstance(const CreateAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 免登ticket
+ *
+ * @param request CreateAppInstanceTicketRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppInstanceTicketResponse
+ */
+CreateAppInstanceTicketResponse Client::createAppInstanceTicketWithOptions(const CreateAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasClientId()) {
+    query["ClientId"] = request.clientId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppInstanceTicket"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppInstanceTicketResponse>();
+}
+
+/**
+ * @summary 免登ticket
+ *
+ * @param request CreateAppInstanceTicketRequest
+ * @return CreateAppInstanceTicketResponse
+ */
+CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppInstanceTicketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppInstanceTicketWithOptions(request, runtime);
+}
+
+/**
  * @summary 提交创建Logo任务
  *
  * @param request CreateLogoTaskRequest
@@ -341,6 +465,48 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartnerWithOpt
 DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const DispatchConsoleAPIForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return dispatchConsoleAPIForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询应用实例详情
+ *
+ * @param request GetAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppInstanceResponse
+ */
+GetAppInstanceResponse Client::getAppInstanceWithOptions(const GetAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppInstanceResponse>();
+}
+
+/**
+ * @summary 查询应用实例详情
+ *
+ * @param request GetAppInstanceRequest
+ * @return GetAppInstanceResponse
+ */
+GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -702,6 +868,164 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomains(const ListAppInsta
 }
 
 /**
+ * @summary 建站实例列表查询
+ *
+ * @param tmpReq ListAppInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppInstancesResponse
+ */
+ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListAppInstancesShrinkRequest request = ListAppInstancesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.statusList(), "StatusList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasEndTimeBegin()) {
+    query["EndTimeBegin"] = request.endTimeBegin();
+  }
+
+  if (!!request.hasEndTimeEnd()) {
+    query["EndTimeEnd"] = request.endTimeEnd();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.extend();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOrderColumn()) {
+    query["OrderColumn"] = request.orderColumn();
+  }
+
+  if (!!request.hasOrderType()) {
+    query["OrderType"] = request.orderType();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.query();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.statusListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppInstances"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppInstancesResponse>();
+}
+
+/**
+ * @summary 建站实例列表查询
+ *
+ * @param request ListAppInstancesRequest
+ * @return ListAppInstancesResponse
+ */
+ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 建站实例变配
+ *
+ * @param request ModifyAppInstanceSpecRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppInstanceSpecResponse
+ */
+ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpecWithOptions(const ModifyAppInstanceSpecRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.applicationType();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDeployArea()) {
+    query["DeployArea"] = request.deployArea();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.extend();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.paymentType();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.siteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppInstanceSpec"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppInstanceSpecResponse>();
+}
+
+/**
+ * @summary 建站实例变配
+ *
+ * @param request ModifyAppInstanceSpecRequest
+ * @return ModifyAppInstanceSpecResponse
+ */
+ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpec(const ModifyAppInstanceSpecRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppInstanceSpecWithOptions(request, runtime);
+}
+
+/**
  * @summary 合作伙伴操作应用
  *
  * @param request OperateAppInstanceForPartnerRequest
@@ -799,6 +1123,118 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartnerWithOptio
 OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const OperateAppServiceForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateAppServiceForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 刷新ticket
+ *
+ * @param request RefreshAppInstanceTicketRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RefreshAppInstanceTicketResponse
+ */
+RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicketWithOptions(const RefreshAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.token();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.uuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RefreshAppInstanceTicket"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RefreshAppInstanceTicketResponse>();
+}
+
+/**
+ * @summary 刷新ticket
+ *
+ * @param request RefreshAppInstanceTicketRequest
+ * @return RefreshAppInstanceTicketResponse
+ */
+RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicket(const RefreshAppInstanceTicketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return refreshAppInstanceTicketWithOptions(request, runtime);
+}
+
+/**
+ * @summary 建站实例续费
+ *
+ * @param request RenewAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenewAppInstanceResponse
+ */
+RenewAppInstanceResponse Client::renewAppInstanceWithOptions(const RenewAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.bizId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.duration();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.extend();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.paymentType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    query["PricingCycle"] = request.pricingCycle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenewAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenewAppInstanceResponse>();
+}
+
+/**
+ * @summary 建站实例续费
+ *
+ * @param request RenewAppInstanceRequest
+ * @return RenewAppInstanceResponse
+ */
+RenewAppInstanceResponse Client::renewAppInstance(const RenewAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renewAppInstanceWithOptions(request, runtime);
 }
 
 /**

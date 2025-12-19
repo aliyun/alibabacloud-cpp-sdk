@@ -38,6 +38,40 @@ namespace WebsiteBuild20250429
       Models::BindAppDomainResponse bindAppDomain(const Models::BindAppDomainRequest &request);
 
       /**
+       * @summary 创建建站实例
+       *
+       * @param request CreateAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppInstanceResponse
+       */
+      Models::CreateAppInstanceResponse createAppInstanceWithOptions(const Models::CreateAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建建站实例
+       *
+       * @param request CreateAppInstanceRequest
+       * @return CreateAppInstanceResponse
+       */
+      Models::CreateAppInstanceResponse createAppInstance(const Models::CreateAppInstanceRequest &request);
+
+      /**
+       * @summary 免登ticket
+       *
+       * @param request CreateAppInstanceTicketRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppInstanceTicketResponse
+       */
+      Models::CreateAppInstanceTicketResponse createAppInstanceTicketWithOptions(const Models::CreateAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 免登ticket
+       *
+       * @param request CreateAppInstanceTicketRequest
+       * @return CreateAppInstanceTicketResponse
+       */
+      Models::CreateAppInstanceTicketResponse createAppInstanceTicket(const Models::CreateAppInstanceTicketRequest &request);
+
+      /**
        * @summary 提交创建Logo任务
        *
        * @param request CreateLogoTaskRequest
@@ -121,6 +155,23 @@ namespace WebsiteBuild20250429
        * @return DispatchConsoleAPIForPartnerResponse
        */
       Models::DispatchConsoleAPIForPartnerResponse dispatchConsoleAPIForPartner(const Models::DispatchConsoleAPIForPartnerRequest &request);
+
+      /**
+       * @summary 查询应用实例详情
+       *
+       * @param request GetAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppInstanceResponse
+       */
+      Models::GetAppInstanceResponse getAppInstanceWithOptions(const Models::GetAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询应用实例详情
+       *
+       * @param request GetAppInstanceRequest
+       * @return GetAppInstanceResponse
+       */
+      Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
 
       /**
        * @summary 查询Logo创建任务
@@ -242,6 +293,40 @@ namespace WebsiteBuild20250429
       Models::ListAppInstanceDomainsResponse listAppInstanceDomains(const Models::ListAppInstanceDomainsRequest &request);
 
       /**
+       * @summary 建站实例列表查询
+       *
+       * @param tmpReq ListAppInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppInstancesResponse
+       */
+      Models::ListAppInstancesResponse listAppInstancesWithOptions(const Models::ListAppInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 建站实例列表查询
+       *
+       * @param request ListAppInstancesRequest
+       * @return ListAppInstancesResponse
+       */
+      Models::ListAppInstancesResponse listAppInstances(const Models::ListAppInstancesRequest &request);
+
+      /**
+       * @summary 建站实例变配
+       *
+       * @param request ModifyAppInstanceSpecRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppInstanceSpecResponse
+       */
+      Models::ModifyAppInstanceSpecResponse modifyAppInstanceSpecWithOptions(const Models::ModifyAppInstanceSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 建站实例变配
+       *
+       * @param request ModifyAppInstanceSpecRequest
+       * @return ModifyAppInstanceSpecResponse
+       */
+      Models::ModifyAppInstanceSpecResponse modifyAppInstanceSpec(const Models::ModifyAppInstanceSpecRequest &request);
+
+      /**
        * @summary 合作伙伴操作应用
        *
        * @param request OperateAppInstanceForPartnerRequest
@@ -274,6 +359,40 @@ namespace WebsiteBuild20250429
        * @return OperateAppServiceForPartnerResponse
        */
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
+
+      /**
+       * @summary 刷新ticket
+       *
+       * @param request RefreshAppInstanceTicketRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RefreshAppInstanceTicketResponse
+       */
+      Models::RefreshAppInstanceTicketResponse refreshAppInstanceTicketWithOptions(const Models::RefreshAppInstanceTicketRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 刷新ticket
+       *
+       * @param request RefreshAppInstanceTicketRequest
+       * @return RefreshAppInstanceTicketResponse
+       */
+      Models::RefreshAppInstanceTicketResponse refreshAppInstanceTicket(const Models::RefreshAppInstanceTicketRequest &request);
+
+      /**
+       * @summary 建站实例续费
+       *
+       * @param request RenewAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewAppInstanceResponse
+       */
+      Models::RenewAppInstanceResponse renewAppInstanceWithOptions(const Models::RenewAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 建站实例续费
+       *
+       * @param request RenewAppInstanceRequest
+       * @return RenewAppInstanceResponse
+       */
+      Models::RenewAppInstanceResponse renewAppInstance(const Models::RenewAppInstanceRequest &request);
 
       /**
        * @summary 图片检索
