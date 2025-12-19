@@ -173,6 +173,7 @@
 #include <alibabacloud/models/ListAlgorithmsResponseBody.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponse.hpp>
 #include <alibabacloud/models/ListNodesRequest.hpp>
+#include <alibabacloud/models/ListNodesShrinkRequest.hpp>
 #include <alibabacloud/models/ListNodesResponseBody.hpp>
 #include <alibabacloud/models/ListNodesResponse.hpp>
 #include <alibabacloud/models/ListQuotaWorkloadsRequest.hpp>
@@ -285,6 +286,8 @@
 #include <alibabacloud/models/GetTrainingJobLatestMetricsResponseBodyMetrics.hpp>
 #include <alibabacloud/models/ListAlgorithmVersionsResponseBodyAlgorithmVersions.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponseBodyAlgorithms.hpp>
+#include <alibabacloud/models/ListNodesRequestHealthCount.hpp>
+#include <alibabacloud/models/ListNodesRequestHealthRate.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ListTrainingJobInstanceMetricsResponseBodyInstanceMetricsMetrics.hpp>

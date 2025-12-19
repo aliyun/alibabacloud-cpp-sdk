@@ -597,12 +597,12 @@ namespace PaiStudio20220112
       /**
        * @summary 获取资源节点列表
        *
-       * @param request ListNodesRequest
+       * @param tmpReq ListNodesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListNodesResponse
        */
-      Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 获取资源节点列表

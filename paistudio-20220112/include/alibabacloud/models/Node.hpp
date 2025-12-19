@@ -53,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
       DARABONBA_PTR_TO_JSON(SelfQuotaWorkloadNum, selfQuotaWorkloadNum_);
+      DARABONBA_PTR_TO_JSON(SubNodes, subNodes_);
       DARABONBA_PTR_TO_JSON(SystemReservedCPU, systemReservedCPU_);
       DARABONBA_PTR_TO_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_TO_JSON(Users, users_);
@@ -96,6 +97,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
       DARABONBA_PTR_FROM_JSON(SelfQuotaWorkloadNum, selfQuotaWorkloadNum_);
+      DARABONBA_PTR_FROM_JSON(SubNodes, subNodes_);
       DARABONBA_PTR_FROM_JSON(SystemReservedCPU, systemReservedCPU_);
       DARABONBA_PTR_FROM_JSON(SystemReservedMemory, systemReservedMemory_);
       DARABONBA_PTR_FROM_JSON(Users, users_);
@@ -120,7 +122,8 @@ namespace Models
         && return this->limitMemory_ == nullptr && return this->machineGroupId_ == nullptr && return this->memory_ == nullptr && return this->nodeName_ == nullptr && return this->nodeStatus_ == nullptr
         && return this->nodeType_ == nullptr && return this->orderStatus_ == nullptr && return this->podNum_ == nullptr && return this->reasonCode_ == nullptr && return this->reasonMessage_ == nullptr
         && return this->requestCPU_ == nullptr && return this->requestGPU_ == nullptr && return this->requestMemory_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceGroupName_ == nullptr
-        && return this->selfQuotaWorkloadNum_ == nullptr && return this->systemReservedCPU_ == nullptr && return this->systemReservedMemory_ == nullptr && return this->users_ == nullptr && return this->workloadNum_ == nullptr; };
+        && return this->selfQuotaWorkloadNum_ == nullptr && return this->subNodes_ == nullptr && return this->systemReservedCPU_ == nullptr && return this->systemReservedMemory_ == nullptr && return this->users_ == nullptr
+        && return this->workloadNum_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -382,6 +385,15 @@ namespace Models
     inline Node& setSelfQuotaWorkloadNum(int64_t selfQuotaWorkloadNum) { DARABONBA_PTR_SET_VALUE(selfQuotaWorkloadNum_, selfQuotaWorkloadNum) };
 
 
+    // subNodes Field Functions 
+    bool hasSubNodes() const { return this->subNodes_ != nullptr;};
+    void deleteSubNodes() { this->subNodes_ = nullptr;};
+    inline const vector<string> & subNodes() const { DARABONBA_PTR_GET_CONST(subNodes_, vector<string>) };
+    inline vector<string> subNodes() { DARABONBA_PTR_GET(subNodes_, vector<string>) };
+    inline Node& setSubNodes(const vector<string> & subNodes) { DARABONBA_PTR_SET_VALUE(subNodes_, subNodes) };
+    inline Node& setSubNodes(vector<string> && subNodes) { DARABONBA_PTR_SET_RVALUE(subNodes_, subNodes) };
+
+
     // systemReservedCPU Field Functions 
     bool hasSystemReservedCPU() const { return this->systemReservedCPU_ != nullptr;};
     void deleteSystemReservedCPU() { this->systemReservedCPU_ = nullptr;};
@@ -450,6 +462,7 @@ namespace Models
     std::shared_ptr<string> resourceGroupId_ = nullptr;
     std::shared_ptr<string> resourceGroupName_ = nullptr;
     std::shared_ptr<int64_t> selfQuotaWorkloadNum_ = nullptr;
+    std::shared_ptr<vector<string>> subNodes_ = nullptr;
     std::shared_ptr<string> systemReservedCPU_ = nullptr;
     std::shared_ptr<string> systemReservedMemory_ = nullptr;
     std::shared_ptr<vector<UserInfo>> users_ = nullptr;

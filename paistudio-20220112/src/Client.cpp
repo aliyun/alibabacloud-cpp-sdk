@@ -1689,13 +1689,23 @@ ListAlgorithmsResponse Client::listAlgorithms(const ListAlgorithmsRequest &reque
 /**
  * @summary 获取资源节点列表
  *
- * @param request ListNodesRequest
+ * @param tmpReq ListNodesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListNodesResponse
  */
-ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListNodesShrinkRequest request = ListNodesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHealthCount()) {
+    request.setHealthCountShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.healthCount(), "HealthCount", "json"));
+  }
+
+  if (!!tmpReq.hasHealthRate()) {
+    request.setHealthRateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.healthRate(), "HealthRate", "json"));
+  }
+
   json query = {};
   if (!!request.hasAcceleratorType()) {
     query["AcceleratorType"] = request.acceleratorType();
@@ -1721,12 +1731,24 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
     query["GPUType"] = request.GPUType();
   }
 
+  if (!!request.hasHealthCountShrink()) {
+    query["HealthCount"] = request.healthCountShrink();
+  }
+
+  if (!!request.hasHealthRateShrink()) {
+    query["HealthRate"] = request.healthRateShrink();
+  }
+
   if (!!request.hasHyperNode()) {
     query["HyperNode"] = request.hyperNode();
   }
 
   if (!!request.hasHyperZone()) {
     query["HyperZone"] = request.hyperZone();
+  }
+
+  if (!!request.hasLayoutMode()) {
+    query["LayoutMode"] = request.layoutMode();
   }
 
   if (!!request.hasMachineGroupIds()) {
