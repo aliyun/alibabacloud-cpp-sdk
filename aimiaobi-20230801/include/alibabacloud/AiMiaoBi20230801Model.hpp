@@ -38,6 +38,9 @@
 #include <alibabacloud/models/AsyncWritingBiddingDocRequest.hpp>
 #include <alibabacloud/models/AsyncWritingBiddingDocResponseBody.hpp>
 #include <alibabacloud/models/AsyncWritingBiddingDocResponse.hpp>
+#include <alibabacloud/models/BindPptArtifactRequest.hpp>
+#include <alibabacloud/models/BindPptArtifactResponseBody.hpp>
+#include <alibabacloud/models/BindPptArtifactResponse.hpp>
 #include <alibabacloud/models/CancelAsyncTaskRequest.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponse.hpp>
@@ -271,6 +274,9 @@
 #include <alibabacloud/models/GetMaterialByIdRequest.hpp>
 #include <alibabacloud/models/GetMaterialByIdResponseBody.hpp>
 #include <alibabacloud/models/GetMaterialByIdResponse.hpp>
+#include <alibabacloud/models/GetPptConfigRequest.hpp>
+#include <alibabacloud/models/GetPptConfigResponseBody.hpp>
+#include <alibabacloud/models/GetPptConfigResponse.hpp>
 #include <alibabacloud/models/GetPropertiesRequest.hpp>
 #include <alibabacloud/models/GetPropertiesResponseBody.hpp>
 #include <alibabacloud/models/GetPropertiesResponse.hpp>
@@ -295,6 +301,9 @@
 #include <alibabacloud/models/ImportInterveneFileAsyncRequest.hpp>
 #include <alibabacloud/models/ImportInterveneFileAsyncResponseBody.hpp>
 #include <alibabacloud/models/ImportInterveneFileAsyncResponse.hpp>
+#include <alibabacloud/models/InitiatePptCreationRequest.hpp>
+#include <alibabacloud/models/InitiatePptCreationResponseBody.hpp>
+#include <alibabacloud/models/InitiatePptCreationResponse.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyRequest.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyShrinkRequest.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyResponseBody.hpp>
@@ -430,6 +439,10 @@
 #include <alibabacloud/models/RunAbbreviationContentRequest.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponseBody.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponse.hpp>
+#include <alibabacloud/models/RunAiHelperWritingRequest.hpp>
+#include <alibabacloud/models/RunAiHelperWritingShrinkRequest.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponseBody.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponse.hpp>
 #include <alibabacloud/models/RunBookBrainmapRequest.hpp>
 #include <alibabacloud/models/RunBookBrainmapResponseBody.hpp>
 #include <alibabacloud/models/RunBookBrainmapResponse.hpp>
@@ -494,6 +507,9 @@
 #include <alibabacloud/models/RunMultiDocIntroductionShrinkRequest.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBody.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponse.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationRequest.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationResponseBody.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationResponse.hpp>
 #include <alibabacloud/models/RunQuickWritingRequest.hpp>
 #include <alibabacloud/models/RunQuickWritingShrinkRequest.hpp>
 #include <alibabacloud/models/RunQuickWritingResponseBody.hpp>
@@ -683,6 +699,7 @@
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyDataVideoInfos.hpp>
 #include <alibabacloud/models/AsyncUploadVideoResponseBodyData.hpp>
 #include <alibabacloud/models/AsyncWritingBiddingDocResponseBodyData.hpp>
+#include <alibabacloud/models/BindPptArtifactResponseBodyData.hpp>
 #include <alibabacloud/models/CancelDeepWriteTaskResponseBodyData.hpp>
 #include <alibabacloud/models/ClearIntervenesResponseBodyData.hpp>
 #include <alibabacloud/models/CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders.hpp>
@@ -791,6 +808,7 @@
 #include <alibabacloud/models/GetInterveneRuleDetailResponseBodyData.hpp>
 #include <alibabacloud/models/GetInterveneTemplateFileUrlResponseBodyData.hpp>
 #include <alibabacloud/models/GetMaterialByIdResponseBodyData.hpp>
+#include <alibabacloud/models/GetPptConfigResponseBodyData.hpp>
 #include <alibabacloud/models/GetPropertiesResponseBodyDataConsoleConfig.hpp>
 #include <alibabacloud/models/GetPropertiesResponseBodyDataIntelligentSearchConfigCopilotPreciseSearchSources.hpp>
 #include <alibabacloud/models/GetPropertiesResponseBodyDataIntelligentSearchConfigSearchSamplesArticles.hpp>
@@ -840,6 +858,7 @@
 #include <alibabacloud/models/GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData.hpp>
 #include <alibabacloud/models/ImportInterveneFileResponseBodyData.hpp>
 #include <alibabacloud/models/ImportInterveneFileAsyncResponseBodyData.hpp>
+#include <alibabacloud/models/InitiatePptCreationResponseBodyData.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyRequestReplyMessagList.hpp>
 #include <alibabacloud/models/InsertInterveneGlobalReplyResponseBodyData.hpp>
 #include <alibabacloud/models/InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig.hpp>
@@ -926,6 +945,10 @@
 #include <alibabacloud/models/RunAbbreviationContentResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunAbbreviationContentResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponseBodyPayloadUsage.hpp>
+#include <alibabacloud/models/RunAiHelperWritingResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunBookBrainmapResponseBodyHeader.hpp>
 #include <alibabacloud/models/RunBookBrainmapResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunBookBrainmapResponseBodyPayloadUsage.hpp>
@@ -1019,6 +1042,9 @@
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayloadOutput.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayloadUsage.hpp>
 #include <alibabacloud/models/RunMultiDocIntroductionResponseBodyPayload.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationResponseBodyHeader.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationResponseBodyPayloadOutput.hpp>
+#include <alibabacloud/models/RunPptOutlineGenerationResponseBodyPayload.hpp>
 #include <alibabacloud/models/RunQuickWritingRequestArticles.hpp>
 #include <alibabacloud/models/RunQuickWritingRequestSearchSources.hpp>
 #include <alibabacloud/models/RunQuickWritingResponseBodyHeader.hpp>

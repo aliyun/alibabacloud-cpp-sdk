@@ -591,6 +591,56 @@ AsyncWritingBiddingDocResponse Client::asyncWritingBiddingDoc(const AsyncWriting
 }
 
 /**
+ * @summary 绑定PPT作品信息
+ *
+ * @param request BindPptArtifactRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindPptArtifactResponse
+ */
+BindPptArtifactResponse Client::bindPptArtifactWithOptions(const BindPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasArtifactId()) {
+    body["ArtifactId"] = request.artifactId();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BindPptArtifact"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindPptArtifactResponse>();
+}
+
+/**
+ * @summary 绑定PPT作品信息
+ *
+ * @param request BindPptArtifactRequest
+ * @return BindPptArtifactResponse
+ */
+BindPptArtifactResponse Client::bindPptArtifact(const BindPptArtifactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return bindPptArtifactWithOptions(request, runtime);
+}
+
+/**
  * @summary 取消异步任务
  *
  * @param request CancelAsyncTaskRequest
@@ -4345,6 +4395,48 @@ GetMaterialByIdResponse Client::getMaterialById(const GetMaterialByIdRequest &re
 }
 
 /**
+ * @summary 获取PPT组件的配置
+ *
+ * @param request GetPptConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPptConfigResponse
+ */
+GetPptConfigResponse Client::getPptConfigWithOptions(const GetPptConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetPptConfig"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPptConfigResponse>();
+}
+
+/**
+ * @summary 获取PPT组件的配置
+ *
+ * @param request GetPptConfigRequest
+ * @return GetPptConfigResponse
+ */
+GetPptConfigResponse Client::getPptConfig(const GetPptConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPptConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取当前用户的配置
  *
  * @param request GetPropertiesRequest
@@ -4732,6 +4824,56 @@ ImportInterveneFileAsyncResponse Client::importInterveneFileAsyncWithOptions(con
 ImportInterveneFileAsyncResponse Client::importInterveneFileAsync(const ImportInterveneFileAsyncRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importInterveneFileAsyncWithOptions(request, runtime);
+}
+
+/**
+ * @summary 初始化PPT创建操作
+ *
+ * @param request InitiatePptCreationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InitiatePptCreationResponse
+ */
+InitiatePptCreationResponse Client::initiatePptCreationWithOptions(const InitiatePptCreationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOutline()) {
+    body["Outline"] = request.outline();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.taskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "InitiatePptCreation"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InitiatePptCreationResponse>();
+}
+
+/**
+ * @summary 初始化PPT创建操作
+ *
+ * @param request InitiatePptCreationRequest
+ * @return InitiatePptCreationResponse
+ */
+InitiatePptCreationResponse Client::initiatePptCreation(const InitiatePptCreationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return initiatePptCreationWithOptions(request, runtime);
 }
 
 /**
@@ -7436,6 +7578,151 @@ RunAbbreviationContentResponse Client::runAbbreviationContent(const RunAbbreviat
 }
 
 /**
+ * @summary 妙笔：AI助手写作
+ *
+ * @param tmpReq RunAiHelperWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunAiHelperWritingResponse
+ */
+FutrueGenerator<RunAiHelperWritingResponse> Client::runAiHelperWritingWithSSE(const RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunAiHelperWritingShrinkRequest request = RunAiHelperWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWritingParams()) {
+    request.setWritingParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.writingParams(), "WritingParams", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDistributeWriting()) {
+    body["DistributeWriting"] = request.distributeWriting();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasPromptMode()) {
+    body["PromptMode"] = request.promptMode();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingParamsShrink()) {
+    body["WritingParams"] = request.writingParamsShrink();
+  }
+
+  if (!!request.hasWritingScene()) {
+    body["WritingScene"] = request.writingScene();
+  }
+
+  if (!!request.hasWritingStyle()) {
+    body["WritingStyle"] = request.writingStyle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunAiHelperWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunAiHelperWritingResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 妙笔：AI助手写作
+ *
+ * @param tmpReq RunAiHelperWritingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunAiHelperWritingResponse
+ */
+RunAiHelperWritingResponse Client::runAiHelperWritingWithOptions(const RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunAiHelperWritingShrinkRequest request = RunAiHelperWritingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWritingParams()) {
+    request.setWritingParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.writingParams(), "WritingParams", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDistributeWriting()) {
+    body["DistributeWriting"] = request.distributeWriting();
+  }
+
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasPromptMode()) {
+    body["PromptMode"] = request.promptMode();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  if (!!request.hasWritingParamsShrink()) {
+    body["WritingParams"] = request.writingParamsShrink();
+  }
+
+  if (!!request.hasWritingScene()) {
+    body["WritingScene"] = request.writingScene();
+  }
+
+  if (!!request.hasWritingStyle()) {
+    body["WritingStyle"] = request.writingStyle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunAiHelperWriting"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunAiHelperWritingResponse>();
+}
+
+/**
+ * @summary 妙笔：AI助手写作
+ *
+ * @param request RunAiHelperWritingRequest
+ * @return RunAiHelperWritingResponse
+ */
+RunAiHelperWritingResponse Client::runAiHelperWriting(const RunAiHelperWritingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runAiHelperWritingWithOptions(request, runtime);
+}
+
+/**
  * @summary 妙读生成书籍脑图
  *
  * @param request RunBookBrainmapRequest
@@ -10077,6 +10364,99 @@ RunMultiDocIntroductionResponse Client::runMultiDocIntroductionWithOptions(const
 RunMultiDocIntroductionResponse Client::runMultiDocIntroduction(const RunMultiDocIntroductionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return runMultiDocIntroductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 流式输出PPT大纲
+ *
+ * @param request RunPptOutlineGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunPptOutlineGenerationResponse
+ */
+FutrueGenerator<RunPptOutlineGenerationResponse> Client::runPptOutlineGenerationWithSSE(const RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunPptOutlineGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<RunPptOutlineGenerationResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 流式输出PPT大纲
+ *
+ * @param request RunPptOutlineGenerationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunPptOutlineGenerationResponse
+ */
+RunPptOutlineGenerationResponse Client::runPptOutlineGenerationWithOptions(const RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPrompt()) {
+    body["Prompt"] = request.prompt();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.workspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunPptOutlineGeneration"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunPptOutlineGenerationResponse>();
+}
+
+/**
+ * @summary 流式输出PPT大纲
+ *
+ * @param request RunPptOutlineGenerationRequest
+ * @return RunPptOutlineGenerationResponse
+ */
+RunPptOutlineGenerationResponse Client::runPptOutlineGeneration(const RunPptOutlineGenerationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runPptOutlineGenerationWithOptions(request, runtime);
 }
 
 /**

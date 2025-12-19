@@ -157,6 +157,23 @@ namespace AiMiaoBi20230801
       Models::AsyncWritingBiddingDocResponse asyncWritingBiddingDoc(const Models::AsyncWritingBiddingDocRequest &request);
 
       /**
+       * @summary 绑定PPT作品信息
+       *
+       * @param request BindPptArtifactRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindPptArtifactResponse
+       */
+      Models::BindPptArtifactResponse bindPptArtifactWithOptions(const Models::BindPptArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定PPT作品信息
+       *
+       * @param request BindPptArtifactRequest
+       * @return BindPptArtifactResponse
+       */
+      Models::BindPptArtifactResponse bindPptArtifact(const Models::BindPptArtifactRequest &request);
+
+      /**
        * @summary 取消异步任务
        *
        * @param request CancelAsyncTaskRequest
@@ -1398,6 +1415,23 @@ namespace AiMiaoBi20230801
       Models::GetMaterialByIdResponse getMaterialById(const Models::GetMaterialByIdRequest &request);
 
       /**
+       * @summary 获取PPT组件的配置
+       *
+       * @param request GetPptConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPptConfigResponse
+       */
+      Models::GetPptConfigResponse getPptConfigWithOptions(const Models::GetPptConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取PPT组件的配置
+       *
+       * @param request GetPptConfigRequest
+       * @return GetPptConfigResponse
+       */
+      Models::GetPptConfigResponse getPptConfig(const Models::GetPptConfigRequest &request);
+
+      /**
        * @summary 获取当前用户的配置
        *
        * @param request GetPropertiesRequest
@@ -1532,6 +1566,23 @@ namespace AiMiaoBi20230801
        * @return ImportInterveneFileAsyncResponse
        */
       Models::ImportInterveneFileAsyncResponse importInterveneFileAsync(const Models::ImportInterveneFileAsyncRequest &request);
+
+      /**
+       * @summary 初始化PPT创建操作
+       *
+       * @param request InitiatePptCreationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InitiatePptCreationResponse
+       */
+      Models::InitiatePptCreationResponse initiatePptCreationWithOptions(const Models::InitiatePptCreationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 初始化PPT创建操作
+       *
+       * @param request InitiatePptCreationRequest
+       * @return InitiatePptCreationResponse
+       */
+      Models::InitiatePptCreationResponse initiatePptCreation(const Models::InitiatePptCreationRequest &request);
 
       /**
        * @summary 设置干预全局回复
@@ -2240,6 +2291,32 @@ namespace AiMiaoBi20230801
       Models::RunAbbreviationContentResponse runAbbreviationContent(const Models::RunAbbreviationContentRequest &request);
 
       /**
+       * @summary 妙笔：AI助手写作
+       *
+       * @param tmpReq RunAiHelperWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunAiHelperWritingResponse
+       */
+      FutrueGenerator<Models::RunAiHelperWritingResponse> runAiHelperWritingWithSSE(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 妙笔：AI助手写作
+       *
+       * @param tmpReq RunAiHelperWritingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunAiHelperWritingResponse
+       */
+      Models::RunAiHelperWritingResponse runAiHelperWritingWithOptions(const Models::RunAiHelperWritingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 妙笔：AI助手写作
+       *
+       * @param request RunAiHelperWritingRequest
+       * @return RunAiHelperWritingResponse
+       */
+      Models::RunAiHelperWritingResponse runAiHelperWriting(const Models::RunAiHelperWritingRequest &request);
+
+      /**
        * @summary 妙读生成书籍脑图
        *
        * @param request RunBookBrainmapRequest
@@ -2758,6 +2835,32 @@ namespace AiMiaoBi20230801
        * @return RunMultiDocIntroductionResponse
        */
       Models::RunMultiDocIntroductionResponse runMultiDocIntroduction(const Models::RunMultiDocIntroductionRequest &request);
+
+      /**
+       * @summary 流式输出PPT大纲
+       *
+       * @param request RunPptOutlineGenerationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunPptOutlineGenerationResponse
+       */
+      FutrueGenerator<Models::RunPptOutlineGenerationResponse> runPptOutlineGenerationWithSSE(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式输出PPT大纲
+       *
+       * @param request RunPptOutlineGenerationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunPptOutlineGenerationResponse
+       */
+      Models::RunPptOutlineGenerationResponse runPptOutlineGenerationWithOptions(const Models::RunPptOutlineGenerationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流式输出PPT大纲
+       *
+       * @param request RunPptOutlineGenerationRequest
+       * @return RunPptOutlineGenerationResponse
+       */
+      Models::RunPptOutlineGenerationResponse runPptOutlineGeneration(const Models::RunPptOutlineGenerationRequest &request);
 
       /**
        * @summary 快速写作
