@@ -465,6 +465,10 @@ CreateDBInstanceResponse Client::createDBInstanceWithOptions(const CreateDBInsta
     query["StorageType"] = request.storageType();
   }
 
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
+  }
+
   if (!!request.hasVpcId()) {
     query["VpcId"] = request.vpcId();
   }
@@ -1299,6 +1303,10 @@ DescribeDBInstancesResponse Client::describeDBInstancesWithOptions(const Describ
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.tags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

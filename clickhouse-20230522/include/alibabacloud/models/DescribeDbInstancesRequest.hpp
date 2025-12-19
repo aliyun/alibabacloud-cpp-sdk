@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEDBINSTANCESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEDBINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DescribeDBInstancesRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDBInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceIds, DBInstanceIds_);
@@ -29,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     DescribeDBInstancesRequest() = default ;
     DescribeDBInstancesRequest(const DescribeDBInstancesRequest &) = default ;
@@ -43,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceIds_ == nullptr
         && return this->DBInstanceStatus_ == nullptr && return this->description_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr; };
+        && return this->resourceGroupId_ == nullptr && return this->tags_ == nullptr; };
     // DBInstanceIds Field Functions 
     bool hasDBInstanceIds() const { return this->DBInstanceIds_ != nullptr;};
     void deleteDBInstanceIds() { this->DBInstanceIds_ = nullptr;};
@@ -93,6 +97,15 @@ namespace Models
     inline DescribeDBInstancesRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<DescribeDBInstancesRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<DescribeDBInstancesRequestTags>) };
+    inline vector<DescribeDBInstancesRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<DescribeDBInstancesRequestTags>) };
+    inline DescribeDBInstancesRequest& setTags(const vector<DescribeDBInstancesRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline DescribeDBInstancesRequest& setTags(vector<DescribeDBInstancesRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
   protected:
     // The cluster IDs. Separate multiple cluster IDs with commas (,).
     std::shared_ptr<string> DBInstanceIds_ = nullptr;
@@ -108,6 +121,7 @@ namespace Models
     std::shared_ptr<string> regionId_ = nullptr;
     // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    std::shared_ptr<vector<DescribeDBInstancesRequestTags>> tags_ = nullptr;
   };
 
   } // namespace Models

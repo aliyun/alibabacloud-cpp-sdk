@@ -152,6 +152,8 @@
 #include <alibabacloud/models/CreateAccountResponseBodyData.hpp>
 #include <alibabacloud/models/CreateDbResponseBodyData.hpp>
 #include <alibabacloud/models/CreateDbInstanceRequestMultiZone.hpp>
+#include <alibabacloud/models/CreateDbInstanceRequestTags.hpp>
+#include <alibabacloud/models/CreateDbInstanceShrinkRequestTags.hpp>
 #include <alibabacloud/models/CreateDbInstanceResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteDbResponseBodyData.hpp>
@@ -173,6 +175,7 @@
 #include <alibabacloud/models/DescribeDbInstanceConfigChangeLogResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeDbInstanceDataSourcesResponseBodyDataColumns.hpp>
 #include <alibabacloud/models/DescribeDbInstanceDataSourcesResponseBodyData.hpp>
+#include <alibabacloud/models/DescribeDbInstancesRequestTags.hpp>
 #include <alibabacloud/models/DescribeDbInstancesResponseBodyDataDbInstancesTags.hpp>
 #include <alibabacloud/models/DescribeDbInstancesResponseBodyDataDbInstances.hpp>
 #include <alibabacloud/models/DescribeDbInstancesResponseBodyData.hpp>

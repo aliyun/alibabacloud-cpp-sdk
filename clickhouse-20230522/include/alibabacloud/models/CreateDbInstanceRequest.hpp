@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/CreateDBInstanceRequestMultiZone.hpp>
+#include <alibabacloud/models/CreateDBInstanceRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceDBInstanceId, sourceDBInstanceId_);
       DARABONBA_PTR_TO_JSON(StorageQuota, storageQuota_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(VswitchId, vswitchId_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -58,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceDBInstanceId, sourceDBInstanceId_);
       DARABONBA_PTR_FROM_JSON(StorageQuota, storageQuota_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(VswitchId, vswitchId_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -77,8 +80,8 @@ namespace Models
         && return this->category_ == nullptr && return this->clientToken_ == nullptr && return this->DBInstanceDescription_ == nullptr && return this->DBTimeZone_ == nullptr && return this->deploySchema_ == nullptr
         && return this->engine_ == nullptr && return this->engineVersion_ == nullptr && return this->multiZone_ == nullptr && return this->nodeCount_ == nullptr && return this->nodeScaleMax_ == nullptr
         && return this->nodeScaleMin_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scaleMax_ == nullptr && return this->scaleMin_ == nullptr
-        && return this->sourceDBInstanceId_ == nullptr && return this->storageQuota_ == nullptr && return this->storageType_ == nullptr && return this->vpcId_ == nullptr && return this->vswitchId_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->sourceDBInstanceId_ == nullptr && return this->storageQuota_ == nullptr && return this->storageType_ == nullptr && return this->tags_ == nullptr && return this->vpcId_ == nullptr
+        && return this->vswitchId_ == nullptr && return this->zoneId_ == nullptr; };
     // backupSetId Field Functions 
     bool hasBackupSetId() const { return this->backupSetId_ != nullptr;};
     void deleteBackupSetId() { this->backupSetId_ = nullptr;};
@@ -214,6 +217,15 @@ namespace Models
     inline CreateDBInstanceRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CreateDBInstanceRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateDBInstanceRequestTags>) };
+    inline vector<CreateDBInstanceRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateDBInstanceRequestTags>) };
+    inline CreateDBInstanceRequest& setTags(const vector<CreateDBInstanceRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateDBInstanceRequest& setTags(vector<CreateDBInstanceRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -268,6 +280,7 @@ namespace Models
     std::shared_ptr<string> sourceDBInstanceId_ = nullptr;
     std::shared_ptr<int64_t> storageQuota_ = nullptr;
     std::shared_ptr<string> storageType_ = nullptr;
+    std::shared_ptr<vector<CreateDBInstanceRequestTags>> tags_ = nullptr;
     // The virtual private cloud (VPC) ID.
     std::shared_ptr<string> vpcId_ = nullptr;
     // The vSwitch ID.

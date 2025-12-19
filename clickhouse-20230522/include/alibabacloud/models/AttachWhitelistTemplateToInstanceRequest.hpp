@@ -59,6 +59,8 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> DBInstanceId_ = nullptr;
+    // RegionId
+    // 
     // This parameter is required.
     std::shared_ptr<string> regionId_ = nullptr;
     // This parameter is required.

@@ -52,6 +52,7 @@ namespace Models
 
   protected:
     std::shared_ptr<AttachWhitelistTemplateToInstanceResponseBodyData> data_ = nullptr;
+    // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;
   };
 
