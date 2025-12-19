@@ -887,6 +887,23 @@ namespace Dm20151123
       Models::ListUserSuppressionResponse listUserSuppression(const Models::ListUserSuppressionRequest &request);
 
       /**
+       * @summary 获取上传的校验文件的列表
+       *
+       * @param request ListValidateFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListValidateFileResponse
+       */
+      Models::ListValidateFileResponse listValidateFileWithOptions(const Models::ListValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取上传的校验文件的列表
+       *
+       * @param request ListValidateFileRequest
+       * @return ListValidateFileResponse
+       */
+      Models::ListValidateFileResponse listValidateFile(const Models::ListValidateFileRequest &request);
+
+      /**
        * @summary Modify the sending address
        *
        * @param request ModifyMailAddressRequest

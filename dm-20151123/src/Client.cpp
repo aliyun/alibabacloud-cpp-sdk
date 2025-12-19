@@ -2898,6 +2898,64 @@ ListUserSuppressionResponse Client::listUserSuppression(const ListUserSuppressio
 }
 
 /**
+ * @summary 获取上传的校验文件的列表
+ *
+ * @param request ListValidateFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListValidateFileResponse
+ */
+ListValidateFileResponse Client::listValidateFileWithOptions(const ListValidateFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasFileKeyword()) {
+    query["FileKeyword"] = request.fileKeyword();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.page();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListValidateFile"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListValidateFileResponse>();
+}
+
+/**
+ * @summary 获取上传的校验文件的列表
+ *
+ * @param request ListValidateFileRequest
+ * @return ListValidateFileResponse
+ */
+ListValidateFileResponse Client::listValidateFile(const ListValidateFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listValidateFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Modify the sending address
  *
  * @param request ModifyMailAddressRequest

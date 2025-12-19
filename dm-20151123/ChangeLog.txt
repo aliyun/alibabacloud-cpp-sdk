@@ -1,3 +1,8 @@
+2025-12-19 Version: 1.6.0
+- Support API ListValidateFile.
+- Update API GetValidateFileStatus: add response parameters Body.FileId.
+
+
 2025-11-20 Version: 1.5.2
 - Update API ValidateEmail: add request parameters CheckGraylist.
 

@@ -152,6 +152,9 @@
 #include <alibabacloud/models/ListUserSuppressionRequest.hpp>
 #include <alibabacloud/models/ListUserSuppressionResponseBody.hpp>
 #include <alibabacloud/models/ListUserSuppressionResponse.hpp>
+#include <alibabacloud/models/ListValidateFileRequest.hpp>
+#include <alibabacloud/models/ListValidateFileResponseBody.hpp>
+#include <alibabacloud/models/ListValidateFileResponse.hpp>
 #include <alibabacloud/models/ModifyMailAddressRequest.hpp>
 #include <alibabacloud/models/ModifyMailAddressResponseBody.hpp>
 #include <alibabacloud/models/ModifyMailAddressResponse.hpp>
@@ -246,6 +249,7 @@
 #include <alibabacloud/models/ListBlockSendingResponseBodyData.hpp>
 #include <alibabacloud/models/ListUserSuppressionResponseBodyDataUserSuppressions.hpp>
 #include <alibabacloud/models/ListUserSuppressionResponseBodyData.hpp>
+#include <alibabacloud/models/ListValidateFileResponseBodyFiles.hpp>
 #include <alibabacloud/models/QueryDomainByParamResponseBodyDataDomain.hpp>
 #include <alibabacloud/models/QueryDomainByParamResponseBodyData.hpp>
 #include <alibabacloud/models/QueryInvalidAddressResponseBodyDataMailDetail.hpp>
