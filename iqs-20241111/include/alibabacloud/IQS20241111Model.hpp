@@ -16,6 +16,7 @@
 #include <alibabacloud/models/GlobalSceneItem.hpp>
 #include <alibabacloud/models/GlobalSearchInformation.hpp>
 #include <alibabacloud/models/GlobalSearchResult.hpp>
+#include <alibabacloud/models/LocationInfo.hpp>
 #include <alibabacloud/models/ReadPageBody.hpp>
 #include <alibabacloud/models/ReadPageItem.hpp>
 #include <alibabacloud/models/ReadPageScrapeBody.hpp>

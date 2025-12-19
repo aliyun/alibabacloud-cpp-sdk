@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UNIFIEDSEARCHINPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/RequestContents.hpp>
+#include <alibabacloud/models/LocationInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contents, contents_);
       DARABONBA_PTR_TO_JSON(engineType, engineType_);
       DARABONBA_PTR_TO_JSON(location, location_);
+      DARABONBA_PTR_TO_JSON(locationInfo, locationInfo_);
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(timeRange, timeRange_);
     };
@@ -28,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(contents, contents_);
       DARABONBA_PTR_FROM_JSON(engineType, engineType_);
       DARABONBA_PTR_FROM_JSON(location, location_);
+      DARABONBA_PTR_FROM_JSON(locationInfo, locationInfo_);
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(timeRange, timeRange_);
     };
@@ -43,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->advancedParams_ == nullptr
-        && return this->category_ == nullptr && return this->contents_ == nullptr && return this->engineType_ == nullptr && return this->location_ == nullptr && return this->query_ == nullptr
-        && return this->timeRange_ == nullptr; };
+        && return this->category_ == nullptr && return this->contents_ == nullptr && return this->engineType_ == nullptr && return this->location_ == nullptr && return this->locationInfo_ == nullptr
+        && return this->query_ == nullptr && return this->timeRange_ == nullptr; };
     // advancedParams Field Functions 
     bool hasAdvancedParams() const { return this->advancedParams_ != nullptr;};
     void deleteAdvancedParams() { this->advancedParams_ = nullptr;};
@@ -84,6 +87,15 @@ namespace Models
     inline UnifiedSearchInput& setLocation(string location) { DARABONBA_PTR_SET_VALUE(location_, location) };
 
 
+    // locationInfo Field Functions 
+    bool hasLocationInfo() const { return this->locationInfo_ != nullptr;};
+    void deleteLocationInfo() { this->locationInfo_ = nullptr;};
+    inline const LocationInfo & locationInfo() const { DARABONBA_PTR_GET_CONST(locationInfo_, LocationInfo) };
+    inline LocationInfo locationInfo() { DARABONBA_PTR_GET(locationInfo_, LocationInfo) };
+    inline UnifiedSearchInput& setLocationInfo(const LocationInfo & locationInfo) { DARABONBA_PTR_SET_VALUE(locationInfo_, locationInfo) };
+    inline UnifiedSearchInput& setLocationInfo(LocationInfo && locationInfo) { DARABONBA_PTR_SET_RVALUE(locationInfo_, locationInfo) };
+
+
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
@@ -104,6 +116,7 @@ namespace Models
     std::shared_ptr<RequestContents> contents_ = nullptr;
     std::shared_ptr<string> engineType_ = nullptr;
     std::shared_ptr<string> location_ = nullptr;
+    std::shared_ptr<LocationInfo> locationInfo_ = nullptr;
     std::shared_ptr<string> query_ = nullptr;
     std::shared_ptr<string> timeRange_ = nullptr;
   };
