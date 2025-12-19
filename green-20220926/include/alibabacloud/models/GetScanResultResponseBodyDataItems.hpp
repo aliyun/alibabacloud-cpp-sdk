@@ -15,6 +15,7 @@ namespace Models
   class GetScanResultResponseBodyDataItems : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetScanResultResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(ApiLabels, apiLabels_);
       DARABONBA_PTR_TO_JSON(ApiRequestTime, apiRequestTime_);
       DARABONBA_PTR_TO_JSON(ApiRiskLevel, apiRiskLevel_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ImageService, imageService_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(Labels, labels_);
+      DARABONBA_PTR_TO_JSON(LiveId, liveId_);
       DARABONBA_PTR_TO_JSON(MaliciousFileLevel, maliciousFileLevel_);
       DARABONBA_PTR_TO_JSON(MaliciousUrlLevel, maliciousUrlLevel_);
       DARABONBA_PTR_TO_JSON(ManualOnly, manualOnly_);
@@ -69,6 +71,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VoiceService, voiceService_);
     };
     friend void from_json(const Darabonba::Json& j, GetScanResultResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(ApiLabels, apiLabels_);
       DARABONBA_PTR_FROM_JSON(ApiRequestTime, apiRequestTime_);
       DARABONBA_PTR_FROM_JSON(ApiRiskLevel, apiRiskLevel_);
@@ -88,6 +91,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ImageService, imageService_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(Labels, labels_);
+      DARABONBA_PTR_FROM_JSON(LiveId, liveId_);
       DARABONBA_PTR_FROM_JSON(MaliciousFileLevel, maliciousFileLevel_);
       DARABONBA_PTR_FROM_JSON(MaliciousUrlLevel, maliciousUrlLevel_);
       DARABONBA_PTR_FROM_JSON(ManualOnly, manualOnly_);
@@ -133,18 +137,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->apiLabels_ == nullptr
-        && return this->apiRequestTime_ == nullptr && return this->apiRiskLevel_ == nullptr && return this->apiService_ == nullptr && return this->apiTaskId_ == nullptr && return this->attackLevel_ == nullptr
-        && return this->content_ == nullptr && return this->dataId_ == nullptr && return this->endTime_ == nullptr && return this->extFeedback_ == nullptr && return this->extra_ == nullptr
-        && return this->frameCount_ == nullptr && return this->gmtCreate_ == nullptr && return this->guardFileUrls_ == nullptr && return this->guardImageUrls_ == nullptr && return this->imageLabels_ == nullptr
-        && return this->imageService_ == nullptr && return this->imageUrl_ == nullptr && return this->labels_ == nullptr && return this->maliciousFileLevel_ == nullptr && return this->maliciousUrlLevel_ == nullptr
-        && return this->manualOnly_ == nullptr && return this->noLabels_ == nullptr && return this->offset_ == nullptr && return this->pageNum_ == nullptr && return this->requestFrom_ == nullptr
-        && return this->requestId_ == nullptr && return this->requestTime_ == nullptr && return this->resourceType_ == nullptr && return this->result_ == nullptr && return this->reviewLabels_ == nullptr
-        && return this->reviewRiskLevel_ == nullptr && return this->reviewTime_ == nullptr && return this->reviewUid_ == nullptr && return this->reviewed_ == nullptr && return this->riskLevel_ == nullptr
-        && return this->riskTips_ == nullptr && return this->riskWords_ == nullptr && return this->scanResult_ == nullptr && return this->score_ == nullptr && return this->sensitiveLevel_ == nullptr
-        && return this->serviceCode_ == nullptr && return this->startTime_ == nullptr && return this->suggestion_ == nullptr && return this->taskId_ == nullptr && return this->textLabels_ == nullptr
-        && return this->thumbnail_ == nullptr && return this->timeStamp_ == nullptr && return this->url_ == nullptr && return this->voiceLabels_ == nullptr && return this->voiceScanOpened_ == nullptr
-        && return this->voiceService_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->apiLabels_ == nullptr && return this->apiRequestTime_ == nullptr && return this->apiRiskLevel_ == nullptr && return this->apiService_ == nullptr && return this->apiTaskId_ == nullptr
+        && return this->attackLevel_ == nullptr && return this->content_ == nullptr && return this->dataId_ == nullptr && return this->endTime_ == nullptr && return this->extFeedback_ == nullptr
+        && return this->extra_ == nullptr && return this->frameCount_ == nullptr && return this->gmtCreate_ == nullptr && return this->guardFileUrls_ == nullptr && return this->guardImageUrls_ == nullptr
+        && return this->imageLabels_ == nullptr && return this->imageService_ == nullptr && return this->imageUrl_ == nullptr && return this->labels_ == nullptr && return this->liveId_ == nullptr
+        && return this->maliciousFileLevel_ == nullptr && return this->maliciousUrlLevel_ == nullptr && return this->manualOnly_ == nullptr && return this->noLabels_ == nullptr && return this->offset_ == nullptr
+        && return this->pageNum_ == nullptr && return this->requestFrom_ == nullptr && return this->requestId_ == nullptr && return this->requestTime_ == nullptr && return this->resourceType_ == nullptr
+        && return this->result_ == nullptr && return this->reviewLabels_ == nullptr && return this->reviewRiskLevel_ == nullptr && return this->reviewTime_ == nullptr && return this->reviewUid_ == nullptr
+        && return this->reviewed_ == nullptr && return this->riskLevel_ == nullptr && return this->riskTips_ == nullptr && return this->riskWords_ == nullptr && return this->scanResult_ == nullptr
+        && return this->score_ == nullptr && return this->sensitiveLevel_ == nullptr && return this->serviceCode_ == nullptr && return this->startTime_ == nullptr && return this->suggestion_ == nullptr
+        && return this->taskId_ == nullptr && return this->textLabels_ == nullptr && return this->thumbnail_ == nullptr && return this->timeStamp_ == nullptr && return this->url_ == nullptr
+        && return this->voiceLabels_ == nullptr && return this->voiceScanOpened_ == nullptr && return this->voiceService_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline GetScanResultResponseBodyDataItems& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
     // apiLabels Field Functions 
     bool hasApiLabels() const { return this->apiLabels_ != nullptr;};
     void deleteApiLabels() { this->apiLabels_ = nullptr;};
@@ -284,6 +295,13 @@ namespace Models
     void deleteLabels() { this->labels_ = nullptr;};
     inline string labels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
     inline GetScanResultResponseBodyDataItems& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+
+
+    // liveId Field Functions 
+    bool hasLiveId() const { return this->liveId_ != nullptr;};
+    void deleteLiveId() { this->liveId_ = nullptr;};
+    inline string liveId() const { DARABONBA_PTR_GET_DEFAULT(liveId_, "") };
+    inline GetScanResultResponseBodyDataItems& setLiveId(string liveId) { DARABONBA_PTR_SET_VALUE(liveId_, liveId) };
 
 
     // maliciousFileLevel Field Functions 
@@ -526,6 +544,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountId_ = nullptr;
     // Automated review labels.
     std::shared_ptr<string> apiLabels_ = nullptr;
     // Machine review time.
@@ -572,6 +591,7 @@ namespace Models
     std::shared_ptr<string> imageUrl_ = nullptr;
     // Labels.
     std::shared_ptr<string> labels_ = nullptr;
+    std::shared_ptr<string> liveId_ = nullptr;
     // Malicious file risk level.
     std::shared_ptr<string> maliciousFileLevel_ = nullptr;
     // Malicious URL risk level.
