@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccountName, accountName_);
       DARABONBA_PTR_TO_JSON(AddressType, addressType_);
       DARABONBA_PTR_TO_JSON(Attachments, attachments_);
+      DARABONBA_PTR_TO_JSON(BccAddress, bccAddress_);
       DARABONBA_PTR_TO_JSON(ClickTrace, clickTrace_);
       DARABONBA_PTR_TO_JSON(FromAlias, fromAlias_);
       DARABONBA_PTR_TO_JSON(Headers, headers_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
       DARABONBA_PTR_FROM_JSON(AddressType, addressType_);
       DARABONBA_PTR_FROM_JSON(Attachments, attachments_);
+      DARABONBA_PTR_FROM_JSON(BccAddress, bccAddress_);
       DARABONBA_PTR_FROM_JSON(ClickTrace, clickTrace_);
       DARABONBA_PTR_FROM_JSON(FromAlias, fromAlias_);
       DARABONBA_PTR_FROM_JSON(Headers, headers_);
@@ -73,10 +75,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountName_ == nullptr
-        && return this->addressType_ == nullptr && return this->attachments_ == nullptr && return this->clickTrace_ == nullptr && return this->fromAlias_ == nullptr && return this->headers_ == nullptr
-        && return this->htmlBody_ == nullptr && return this->ipPoolId_ == nullptr && return this->ownerId_ == nullptr && return this->replyAddress_ == nullptr && return this->replyAddressAlias_ == nullptr
-        && return this->replyToAddress_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->subject_ == nullptr && return this->tagName_ == nullptr
-        && return this->template_ == nullptr && return this->textBody_ == nullptr && return this->toAddress_ == nullptr && return this->unSubscribeFilterLevel_ == nullptr && return this->unSubscribeLinkType_ == nullptr; };
+        && return this->addressType_ == nullptr && return this->attachments_ == nullptr && return this->bccAddress_ == nullptr && return this->clickTrace_ == nullptr && return this->fromAlias_ == nullptr
+        && return this->headers_ == nullptr && return this->htmlBody_ == nullptr && return this->ipPoolId_ == nullptr && return this->ownerId_ == nullptr && return this->replyAddress_ == nullptr
+        && return this->replyAddressAlias_ == nullptr && return this->replyToAddress_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->subject_ == nullptr
+        && return this->tagName_ == nullptr && return this->template_ == nullptr && return this->textBody_ == nullptr && return this->toAddress_ == nullptr && return this->unSubscribeFilterLevel_ == nullptr
+        && return this->unSubscribeLinkType_ == nullptr; };
     // accountName Field Functions 
     bool hasAccountName() const { return this->accountName_ != nullptr;};
     void deleteAccountName() { this->accountName_ = nullptr;};
@@ -98,6 +101,13 @@ namespace Models
     inline vector<SingleSendMailAdvanceRequestAttachments> attachments() { DARABONBA_PTR_GET(attachments_, vector<SingleSendMailAdvanceRequestAttachments>) };
     inline SingleSendMailAdvanceRequest& setAttachments(const vector<SingleSendMailAdvanceRequestAttachments> & attachments) { DARABONBA_PTR_SET_VALUE(attachments_, attachments) };
     inline SingleSendMailAdvanceRequest& setAttachments(vector<SingleSendMailAdvanceRequestAttachments> && attachments) { DARABONBA_PTR_SET_RVALUE(attachments_, attachments) };
+
+
+    // bccAddress Field Functions 
+    bool hasBccAddress() const { return this->bccAddress_ != nullptr;};
+    void deleteBccAddress() { this->bccAddress_ = nullptr;};
+    inline string bccAddress() const { DARABONBA_PTR_GET_DEFAULT(bccAddress_, "") };
+    inline SingleSendMailAdvanceRequest& setBccAddress(string bccAddress) { DARABONBA_PTR_SET_VALUE(bccAddress_, bccAddress) };
 
 
     // clickTrace Field Functions 
@@ -234,6 +244,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<int32_t> addressType_ = nullptr;
     std::shared_ptr<vector<SingleSendMailAdvanceRequestAttachments>> attachments_ = nullptr;
+    std::shared_ptr<string> bccAddress_ = nullptr;
     std::shared_ptr<string> clickTrace_ = nullptr;
     std::shared_ptr<string> fromAlias_ = nullptr;
     std::shared_ptr<string> headers_ = nullptr;

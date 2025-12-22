@@ -4282,6 +4282,10 @@ SingleSendMailResponse Client::singleSendMailWithOptions(const SingleSendMailReq
     body["Attachments"] = request.attachments();
   }
 
+  if (!!request.hasBccAddress()) {
+    body["BccAddress"] = request.bccAddress();
+  }
+
   if (!!request.hasClickTrace()) {
     body["ClickTrace"] = request.clickTrace();
   }
