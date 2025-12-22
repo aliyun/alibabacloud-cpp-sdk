@@ -53,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Jdk, jdk_);
       DARABONBA_PTR_TO_JSON(KafkaConfigs, kafkaConfigs_);
       DARABONBA_PTR_TO_JSON(Liveness, liveness_);
+      DARABONBA_PTR_TO_JSON(LokiConfigs, lokiConfigs_);
       DARABONBA_PTR_TO_JSON(MaxSurgeInstanceRatio, maxSurgeInstanceRatio_);
       DARABONBA_PTR_TO_JSON(MaxSurgeInstances, maxSurgeInstances_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
@@ -138,6 +139,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Jdk, jdk_);
       DARABONBA_PTR_FROM_JSON(KafkaConfigs, kafkaConfigs_);
       DARABONBA_PTR_FROM_JSON(Liveness, liveness_);
+      DARABONBA_PTR_FROM_JSON(LokiConfigs, lokiConfigs_);
       DARABONBA_PTR_FROM_JSON(MaxSurgeInstanceRatio, maxSurgeInstanceRatio_);
       DARABONBA_PTR_FROM_JSON(MaxSurgeInstances, maxSurgeInstances_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
@@ -204,16 +206,16 @@ namespace Models
         && return this->enableGreyTagRoute_ == nullptr && return this->enableNamespaceAgentVersion_ == nullptr && return this->enableNewArms_ == nullptr && return this->enablePrometheus_ == nullptr && return this->enableSidecarResourceIsolated_ == nullptr
         && return this->envs_ == nullptr && return this->gpuConfig_ == nullptr && return this->html_ == nullptr && return this->imagePullSecrets_ == nullptr && return this->imageUrl_ == nullptr
         && return this->initContainersConfig_ == nullptr && return this->jarStartArgs_ == nullptr && return this->jarStartOptions_ == nullptr && return this->jdk_ == nullptr && return this->kafkaConfigs_ == nullptr
-        && return this->liveness_ == nullptr && return this->maxSurgeInstanceRatio_ == nullptr && return this->maxSurgeInstances_ == nullptr && return this->memory_ == nullptr && return this->microRegistration_ == nullptr
-        && return this->microRegistrationConfig_ == nullptr && return this->microserviceEngineConfig_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr && return this->mountDesc_ == nullptr
-        && return this->mountHost_ == nullptr && return this->nasConfigs_ == nullptr && return this->nasId_ == nullptr && return this->newSaeVersion_ == nullptr && return this->oidcRoleName_ == nullptr
-        && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr && return this->packageType_ == nullptr && return this->packageUrl_ == nullptr
-        && return this->packageVersion_ == nullptr && return this->php_ == nullptr && return this->phpArmsConfigLocation_ == nullptr && return this->phpConfig_ == nullptr && return this->phpConfigLocation_ == nullptr
-        && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->pvtzDiscoverySvc_ == nullptr && return this->python_ == nullptr && return this->pythonModules_ == nullptr
-        && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr && return this->serviceTags_ == nullptr
-        && return this->sidecarContainersConfig_ == nullptr && return this->slsConfigs_ == nullptr && return this->slsLogEnvTags_ == nullptr && return this->startupProbe_ == nullptr && return this->swimlanePvtzDiscoverySvc_ == nullptr
-        && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->updateStrategy_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
+        && return this->liveness_ == nullptr && return this->lokiConfigs_ == nullptr && return this->maxSurgeInstanceRatio_ == nullptr && return this->maxSurgeInstances_ == nullptr && return this->memory_ == nullptr
+        && return this->microRegistration_ == nullptr && return this->microRegistrationConfig_ == nullptr && return this->microserviceEngineConfig_ == nullptr && return this->minReadyInstanceRatio_ == nullptr && return this->minReadyInstances_ == nullptr
+        && return this->mountDesc_ == nullptr && return this->mountHost_ == nullptr && return this->nasConfigs_ == nullptr && return this->nasId_ == nullptr && return this->newSaeVersion_ == nullptr
+        && return this->oidcRoleName_ == nullptr && return this->ossAkId_ == nullptr && return this->ossAkSecret_ == nullptr && return this->ossMountDescs_ == nullptr && return this->packageType_ == nullptr
+        && return this->packageUrl_ == nullptr && return this->packageVersion_ == nullptr && return this->php_ == nullptr && return this->phpArmsConfigLocation_ == nullptr && return this->phpConfig_ == nullptr
+        && return this->phpConfigLocation_ == nullptr && return this->postStart_ == nullptr && return this->preStop_ == nullptr && return this->pvtzDiscoverySvc_ == nullptr && return this->python_ == nullptr
+        && return this->pythonModules_ == nullptr && return this->readiness_ == nullptr && return this->replicas_ == nullptr && return this->secretMountDesc_ == nullptr && return this->securityGroupId_ == nullptr
+        && return this->serviceTags_ == nullptr && return this->sidecarContainersConfig_ == nullptr && return this->slsConfigs_ == nullptr && return this->slsLogEnvTags_ == nullptr && return this->startupProbe_ == nullptr
+        && return this->swimlanePvtzDiscoverySvc_ == nullptr && return this->terminationGracePeriodSeconds_ == nullptr && return this->timezone_ == nullptr && return this->tomcatConfig_ == nullptr && return this->updateStrategy_ == nullptr
+        && return this->vSwitchId_ == nullptr && return this->warStartOptions_ == nullptr && return this->webContainer_ == nullptr; };
     // acrAssumeRoleArn Field Functions 
     bool hasAcrAssumeRoleArn() const { return this->acrAssumeRoleArn_ != nullptr;};
     void deleteAcrAssumeRoleArn() { this->acrAssumeRoleArn_ = nullptr;};
@@ -473,6 +475,13 @@ namespace Models
     void deleteLiveness() { this->liveness_ = nullptr;};
     inline string liveness() const { DARABONBA_PTR_GET_DEFAULT(liveness_, "") };
     inline DeployApplicationRequest& setLiveness(string liveness) { DARABONBA_PTR_SET_VALUE(liveness_, liveness) };
+
+
+    // lokiConfigs Field Functions 
+    bool hasLokiConfigs() const { return this->lokiConfigs_ != nullptr;};
+    void deleteLokiConfigs() { this->lokiConfigs_ = nullptr;};
+    inline string lokiConfigs() const { DARABONBA_PTR_GET_DEFAULT(lokiConfigs_, "") };
+    inline DeployApplicationRequest& setLokiConfigs(string lokiConfigs) { DARABONBA_PTR_SET_VALUE(lokiConfigs_, lokiConfigs) };
 
 
     // maxSurgeInstanceRatio Field Functions 
@@ -987,6 +996,7 @@ namespace Models
     // *   **periodSeconds**: the interval at which health checks are performed. Default value: 30. Unit: seconds.
     // *   **timeoutSeconds**: the timeout period of the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or leave this parameter empty, the timeout period is automatically set to 1 second.
     std::shared_ptr<string> liveness_ = nullptr;
+    std::shared_ptr<string> lokiConfigs_ = nullptr;
     std::shared_ptr<int32_t> maxSurgeInstanceRatio_ = nullptr;
     std::shared_ptr<int32_t> maxSurgeInstances_ = nullptr;
     // The memory size that is required by each instance. Unit: MB. This parameter cannot be set to 0. The values of this parameter correspond to the values of the Cpu parameter:

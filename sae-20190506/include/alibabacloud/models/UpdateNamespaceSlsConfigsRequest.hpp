@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NameSpaceShortId, nameSpaceShortId_);
       DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
       DARABONBA_PTR_TO_JSON(SlsConfigs, slsConfigs_);
+      DARABONBA_PTR_TO_JSON(SlsLogEnvTags, slsLogEnvTags_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateNamespaceSlsConfigsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(NameSpaceShortId, nameSpaceShortId_);
       DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
       DARABONBA_PTR_FROM_JSON(SlsConfigs, slsConfigs_);
+      DARABONBA_PTR_FROM_JSON(SlsLogEnvTags, slsLogEnvTags_);
     };
     UpdateNamespaceSlsConfigsRequest() = default ;
     UpdateNamespaceSlsConfigsRequest(const UpdateNamespaceSlsConfigsRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->nameSpaceShortId_ == nullptr
-        && return this->namespaceId_ == nullptr && return this->slsConfigs_ == nullptr; };
+        && return this->namespaceId_ == nullptr && return this->slsConfigs_ == nullptr && return this->slsLogEnvTags_ == nullptr; };
     // nameSpaceShortId Field Functions 
     bool hasNameSpaceShortId() const { return this->nameSpaceShortId_ != nullptr;};
     void deleteNameSpaceShortId() { this->nameSpaceShortId_ = nullptr;};
@@ -54,6 +56,13 @@ namespace Models
     void deleteSlsConfigs() { this->slsConfigs_ = nullptr;};
     inline string slsConfigs() const { DARABONBA_PTR_GET_DEFAULT(slsConfigs_, "") };
     inline UpdateNamespaceSlsConfigsRequest& setSlsConfigs(string slsConfigs) { DARABONBA_PTR_SET_VALUE(slsConfigs_, slsConfigs) };
+
+
+    // slsLogEnvTags Field Functions 
+    bool hasSlsLogEnvTags() const { return this->slsLogEnvTags_ != nullptr;};
+    void deleteSlsLogEnvTags() { this->slsLogEnvTags_ = nullptr;};
+    inline string slsLogEnvTags() const { DARABONBA_PTR_GET_DEFAULT(slsLogEnvTags_, "") };
+    inline UpdateNamespaceSlsConfigsRequest& setSlsLogEnvTags(string slsLogEnvTags) { DARABONBA_PTR_SET_VALUE(slsLogEnvTags_, slsLogEnvTags) };
 
 
   protected:
@@ -78,6 +87,7 @@ namespace Models
     // 
     // > Projects automatically created by SAE for job templates are deleted when their corresponding job templates are deleted. Therefore, you should not select an existing SAE-created project for log collection.
     std::shared_ptr<string> slsConfigs_ = nullptr;
+    std::shared_ptr<string> slsLogEnvTags_ = nullptr;
   };
 
   } // namespace Models

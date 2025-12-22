@@ -613,6 +613,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["Liveness"] = request.liveness();
   }
 
+  if (!!request.hasLokiConfigs()) {
+    query["LokiConfigs"] = request.lokiConfigs();
+  }
+
   if (!!request.hasMemory()) {
     query["Memory"] = request.memory();
   }
@@ -2669,6 +2673,10 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
 
   if (!!request.hasLiveness()) {
     query["Liveness"] = request.liveness();
+  }
+
+  if (!!request.hasLokiConfigs()) {
+    query["LokiConfigs"] = request.lokiConfigs();
   }
 
   if (!!request.hasMaxSurgeInstanceRatio()) {
@@ -8885,6 +8893,10 @@ UpdateNamespaceSlsConfigsResponse Client::updateNamespaceSlsConfigsWithOptions(c
 
   if (!!request.hasSlsConfigs()) {
     query["SlsConfigs"] = request.slsConfigs();
+  }
+
+  if (!!request.hasSlsLogEnvTags()) {
+    query["SlsLogEnvTags"] = request.slsLogEnvTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
