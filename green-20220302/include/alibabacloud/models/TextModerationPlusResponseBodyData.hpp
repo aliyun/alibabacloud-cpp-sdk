@@ -18,6 +18,7 @@ namespace Models
   class TextModerationPlusResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TextModerationPlusResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(Advice, advice_);
       DARABONBA_PTR_TO_JSON(AttackLevel, attackLevel_);
       DARABONBA_PTR_TO_JSON(AttackResult, attackResult_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TranslatedContent, translatedContent_);
     };
     friend void from_json(const Darabonba::Json& j, TextModerationPlusResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(Advice, advice_);
       DARABONBA_PTR_FROM_JSON(AttackLevel, attackLevel_);
       DARABONBA_PTR_FROM_JSON(AttackResult, attackResult_);
@@ -56,10 +58,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->advice_ == nullptr
-        && return this->attackLevel_ == nullptr && return this->attackResult_ == nullptr && return this->dataId_ == nullptr && return this->detectedLanguage_ == nullptr && return this->manualTaskId_ == nullptr
-        && return this->result_ == nullptr && return this->riskLevel_ == nullptr && return this->score_ == nullptr && return this->sensitiveLevel_ == nullptr && return this->sensitiveResult_ == nullptr
-        && return this->translatedContent_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->advice_ == nullptr && return this->attackLevel_ == nullptr && return this->attackResult_ == nullptr && return this->dataId_ == nullptr && return this->detectedLanguage_ == nullptr
+        && return this->manualTaskId_ == nullptr && return this->result_ == nullptr && return this->riskLevel_ == nullptr && return this->score_ == nullptr && return this->sensitiveLevel_ == nullptr
+        && return this->sensitiveResult_ == nullptr && return this->translatedContent_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline TextModerationPlusResponseBodyData& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
     // advice Field Functions 
     bool hasAdvice() const { return this->advice_ != nullptr;};
     void deleteAdvice() { this->advice_ = nullptr;};
@@ -153,6 +162,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountId_ = nullptr;
     // The suggestion.
     std::shared_ptr<vector<Models::TextModerationPlusResponseBodyDataAdvice>> advice_ = nullptr;
     // The level of prompt attack

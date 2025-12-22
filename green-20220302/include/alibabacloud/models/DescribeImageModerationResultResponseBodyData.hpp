@@ -15,6 +15,7 @@ namespace Models
   class DescribeImageModerationResultResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeImageModerationResultResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(DataId, dataId_);
       DARABONBA_PTR_TO_JSON(Frame, frame_);
       DARABONBA_PTR_TO_JSON(FrameNum, frameNum_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImageModerationResultResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(DataId, dataId_);
       DARABONBA_PTR_FROM_JSON(Frame, frame_);
       DARABONBA_PTR_FROM_JSON(FrameNum, frameNum_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dataId_ == nullptr
-        && return this->frame_ == nullptr && return this->frameNum_ == nullptr && return this->manualTaskId_ == nullptr && return this->reqId_ == nullptr && return this->result_ == nullptr
-        && return this->riskLevel_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->dataId_ == nullptr && return this->frame_ == nullptr && return this->frameNum_ == nullptr && return this->manualTaskId_ == nullptr && return this->reqId_ == nullptr
+        && return this->result_ == nullptr && return this->riskLevel_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline DescribeImageModerationResultResponseBodyData& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
@@ -98,6 +107,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountId_ = nullptr;
     // The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
     std::shared_ptr<string> dataId_ = nullptr;
     // The information about the captured frames.

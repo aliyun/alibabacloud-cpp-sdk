@@ -293,6 +293,23 @@ namespace Green20220302
       Models::MultiModalGuardResponse multiModalGuard(const Models::MultiModalGuardRequest &request);
 
       /**
+       * @summary 多模态同步检测接口，支持图片base64字符串
+       *
+       * @param request MultiModalGuardForBase64Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalGuardForBase64Response
+       */
+      Models::MultiModalGuardForBase64Response multiModalGuardForBase64WithOptions(const Models::MultiModalGuardForBase64Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 多模态同步检测接口，支持图片base64字符串
+       *
+       * @param request MultiModalGuardForBase64Request
+       * @return MultiModalGuardForBase64Response
+       */
+      Models::MultiModalGuardForBase64Response multiModalGuardForBase64(const Models::MultiModalGuardForBase64Request &request);
+
+      /**
        * @summary 多模态-异步检测
        *
        * @param request MultimodalAsyncModerationRequest

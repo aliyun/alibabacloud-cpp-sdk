@@ -751,6 +751,58 @@ MultiModalGuardResponse Client::multiModalGuard(const MultiModalGuardRequest &re
 }
 
 /**
+ * @summary 多模态同步检测接口，支持图片base64字符串
+ *
+ * @param request MultiModalGuardForBase64Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalGuardForBase64Response
+ */
+MultiModalGuardForBase64Response Client::multiModalGuardForBase64WithOptions(const MultiModalGuardForBase64Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasService()) {
+    query["Service"] = request.service();
+  }
+
+  json body = {};
+  if (!!request.hasImageBase64Str()) {
+    body["ImageBase64Str"] = request.imageBase64Str();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.serviceParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MultiModalGuardForBase64"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultiModalGuardForBase64Response>();
+}
+
+/**
+ * @summary 多模态同步检测接口，支持图片base64字符串
+ *
+ * @param request MultiModalGuardForBase64Request
+ * @return MultiModalGuardForBase64Response
+ */
+MultiModalGuardForBase64Response Client::multiModalGuardForBase64(const MultiModalGuardForBase64Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalGuardForBase64WithOptions(request, runtime);
+}
+
+/**
  * @summary 多模态-异步检测
  *
  * @param request MultimodalAsyncModerationRequest

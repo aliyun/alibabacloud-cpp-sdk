@@ -16,6 +16,7 @@ namespace Models
   class ImageModerationResponseBodyData : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImageModerationResponseBodyData& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(DataId, dataId_);
       DARABONBA_PTR_TO_JSON(Ext, ext_);
       DARABONBA_PTR_TO_JSON(ManualTaskId, manualTaskId_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
     };
     friend void from_json(const Darabonba::Json& j, ImageModerationResponseBodyData& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(DataId, dataId_);
       DARABONBA_PTR_FROM_JSON(Ext, ext_);
       DARABONBA_PTR_FROM_JSON(ManualTaskId, manualTaskId_);
@@ -40,8 +42,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dataId_ == nullptr
-        && return this->ext_ == nullptr && return this->manualTaskId_ == nullptr && return this->result_ == nullptr && return this->riskLevel_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->dataId_ == nullptr && return this->ext_ == nullptr && return this->manualTaskId_ == nullptr && return this->result_ == nullptr && return this->riskLevel_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline ImageModerationResponseBodyData& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
     // dataId Field Functions 
     bool hasDataId() const { return this->dataId_ != nullptr;};
     void deleteDataId() { this->dataId_ = nullptr;};
@@ -82,6 +91,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountId_ = nullptr;
     // The ID of the moderated object.
     // 
     // >  If you specify the dataId parameter in the request, the value of the dataId parameter is returned in the response.

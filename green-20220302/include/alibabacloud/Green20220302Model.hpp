@@ -46,6 +46,9 @@
 #include <alibabacloud/models/MultiModalGuardRequest.hpp>
 #include <alibabacloud/models/MultiModalGuardResponseBody.hpp>
 #include <alibabacloud/models/MultiModalGuardResponse.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64Request.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64ResponseBody.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64Response.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationRequest.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationResponseBody.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationResponse.hpp>
@@ -158,6 +161,9 @@
 #include <alibabacloud/models/MultiModalGuardResponseBodyDataDetailResult.hpp>
 #include <alibabacloud/models/MultiModalGuardResponseBodyDataDetail.hpp>
 #include <alibabacloud/models/MultiModalGuardResponseBodyData.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64ResponseBodyDataDetailResult.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64ResponseBodyDataDetail.hpp>
+#include <alibabacloud/models/MultiModalGuardForBase64ResponseBodyData.hpp>
 #include <alibabacloud/models/MultimodalAsyncModerationResponseBodyData.hpp>
 #include <alibabacloud/models/TextModerationResponseBodyData.hpp>
 #include <alibabacloud/models/TextModerationPlusResponseBodyDataAdvice.hpp>
