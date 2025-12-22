@@ -1972,6 +1972,23 @@ namespace CCC20200701
       Models::ListDocumentsResponse listDocuments(const Models::ListDocumentsRequest &request);
 
       /**
+       * @summary 查询反馈记录
+       *
+       * @param request ListFeedbacksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFeedbacksResponse
+       */
+      Models::ListFeedbacksResponse listFeedbacksWithOptions(const Models::ListFeedbacksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询反馈记录
+       *
+       * @param request ListFeedbacksRequest
+       * @return ListFeedbacksResponse
+       */
+      Models::ListFeedbacksResponse listFeedbacks(const Models::ListFeedbacksRequest &request);
+
+      /**
        * @param request ListFlashSmsApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFlashSmsApplicationsResponse
@@ -3261,6 +3278,23 @@ namespace CCC20200701
        * @return SendDtmfSignalingResponse
        */
       Models::SendDtmfSignalingResponse sendDtmfSignaling(const Models::SendDtmfSignalingRequest &request);
+
+      /**
+       * @summary 推送消息
+       *
+       * @param request SendNotificationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SendNotificationResponse
+       */
+      Models::SendNotificationResponse sendNotificationWithOptions(const Models::SendNotificationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 推送消息
+       *
+       * @param request SendNotificationRequest
+       * @return SendNotificationResponse
+       */
+      Models::SendNotificationResponse sendNotification(const Models::SendNotificationRequest &request);
 
       /**
        * @param request SignInGroupRequest

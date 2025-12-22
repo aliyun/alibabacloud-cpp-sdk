@@ -7084,6 +7084,52 @@ ListDocumentsResponse Client::listDocuments(const ListDocumentsRequest &request)
 }
 
 /**
+ * @summary 查询反馈记录
+ *
+ * @param request ListFeedbacksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFeedbacksResponse
+ */
+ListFeedbacksResponse Client::listFeedbacksWithOptions(const ListFeedbacksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasTaskIdList()) {
+    query["TaskIdList"] = request.taskIdList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFeedbacks"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFeedbacksResponse>();
+}
+
+/**
+ * @summary 查询反馈记录
+ *
+ * @param request ListFeedbacksRequest
+ * @return ListFeedbacksResponse
+ */
+ListFeedbacksResponse Client::listFeedbacks(const ListFeedbacksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFeedbacksWithOptions(request, runtime);
+}
+
+/**
  * @param request ListFlashSmsApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFlashSmsApplicationsResponse
@@ -11971,6 +12017,64 @@ SendDtmfSignalingResponse Client::sendDtmfSignalingWithOptions(const SendDtmfSig
 SendDtmfSignalingResponse Client::sendDtmfSignaling(const SendDtmfSignalingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return sendDtmfSignalingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 推送消息
+ *
+ * @param request SendNotificationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SendNotificationResponse
+ */
+SendNotificationResponse Client::sendNotificationWithOptions(const SendNotificationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMessageBody()) {
+    query["MessageBody"] = request.messageBody();
+  }
+
+  if (!!request.hasNotificationTarget()) {
+    query["NotificationTarget"] = request.notificationTarget();
+  }
+
+  if (!!request.hasNotificationType()) {
+    query["NotificationType"] = request.notificationType();
+  }
+
+  if (!!request.hasShardingKey()) {
+    query["ShardingKey"] = request.shardingKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SendNotification"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SendNotificationResponse>();
+}
+
+/**
+ * @summary 推送消息
+ *
+ * @param request SendNotificationRequest
+ * @return SendNotificationResponse
+ */
+SendNotificationResponse Client::sendNotification(const SendNotificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return sendNotificationWithOptions(request, runtime);
 }
 
 /**

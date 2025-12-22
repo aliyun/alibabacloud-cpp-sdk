@@ -417,6 +417,9 @@
 #include <alibabacloud/models/ListDocumentsShrinkRequest.hpp>
 #include <alibabacloud/models/ListDocumentsResponseBody.hpp>
 #include <alibabacloud/models/ListDocumentsResponse.hpp>
+#include <alibabacloud/models/ListFeedbacksRequest.hpp>
+#include <alibabacloud/models/ListFeedbacksResponseBody.hpp>
+#include <alibabacloud/models/ListFeedbacksResponse.hpp>
 #include <alibabacloud/models/ListFlashSmsApplicationsRequest.hpp>
 #include <alibabacloud/models/ListFlashSmsApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListFlashSmsApplicationsResponse.hpp>
@@ -692,6 +695,9 @@
 #include <alibabacloud/models/SendDtmfSignalingRequest.hpp>
 #include <alibabacloud/models/SendDtmfSignalingResponseBody.hpp>
 #include <alibabacloud/models/SendDtmfSignalingResponse.hpp>
+#include <alibabacloud/models/SendNotificationRequest.hpp>
+#include <alibabacloud/models/SendNotificationResponseBody.hpp>
+#include <alibabacloud/models/SendNotificationResponse.hpp>
 #include <alibabacloud/models/SignInGroupRequest.hpp>
 #include <alibabacloud/models/SignInGroupResponseBody.hpp>
 #include <alibabacloud/models/SignInGroupResponse.hpp>
@@ -937,6 +943,7 @@
 #include <alibabacloud/models/ListDocumentsRequestSorts.hpp>
 #include <alibabacloud/models/ListDocumentsResponseBodyDataSchema.hpp>
 #include <alibabacloud/models/ListDocumentsResponseBodyData.hpp>
+#include <alibabacloud/models/ListFeedbacksResponseBodyData.hpp>
 #include <alibabacloud/models/ListFlashSmsApplicationsResponseBodyDataList.hpp>
 #include <alibabacloud/models/ListFlashSmsApplicationsResponseBodyData.hpp>
 #include <alibabacloud/models/ListFlashSmsSettingsResponseBodyDataList.hpp>
