@@ -49,9 +49,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->birthDate_ != nullptr && this->cardAreas_ != nullptr && this->faceRectVertices_ != nullptr && this->faceRectangle_ != nullptr && this->gender_ != nullptr
-        && this->IDNumber_ != nullptr && this->name_ != nullptr && this->nationality_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->birthDate_ == nullptr && return this->cardAreas_ == nullptr && return this->faceRectVertices_ == nullptr && return this->faceRectangle_ == nullptr && return this->gender_ == nullptr
+        && return this->IDNumber_ == nullptr && return this->name_ == nullptr && return this->nationality_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};

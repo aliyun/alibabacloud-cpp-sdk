@@ -43,9 +43,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->date_ != nullptr
-        && this->departureStation_ != nullptr && this->destination_ != nullptr && this->level_ != nullptr && this->name_ != nullptr && this->number_ != nullptr
-        && this->price_ != nullptr && this->seat_ != nullptr; };
+    virtual bool empty() const override { return this->date_ == nullptr
+        && return this->departureStation_ == nullptr && return this->destination_ == nullptr && return this->level_ == nullptr && return this->name_ == nullptr && return this->number_ == nullptr
+        && return this->price_ == nullptr && return this->seat_ == nullptr; };
     // date Field Functions 
     bool hasDate() const { return this->date_ != nullptr;};
     void deleteDate() { this->date_ = nullptr;};

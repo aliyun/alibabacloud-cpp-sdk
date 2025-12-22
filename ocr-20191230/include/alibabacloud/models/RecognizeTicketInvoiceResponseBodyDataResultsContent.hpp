@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->antiFakeCode_ != nullptr
-        && this->invoiceCode_ != nullptr && this->invoiceDate_ != nullptr && this->invoiceNumber_ != nullptr && this->payeeName_ != nullptr && this->payeeRegisterNo_ != nullptr
-        && this->payerName_ != nullptr && this->payerRegisterNo_ != nullptr && this->sumAmount_ != nullptr; };
+    virtual bool empty() const override { return this->antiFakeCode_ == nullptr
+        && return this->invoiceCode_ == nullptr && return this->invoiceDate_ == nullptr && return this->invoiceNumber_ == nullptr && return this->payeeName_ == nullptr && return this->payeeRegisterNo_ == nullptr
+        && return this->payerName_ == nullptr && return this->payerRegisterNo_ == nullptr && return this->sumAmount_ == nullptr; };
     // antiFakeCode Field Functions 
     bool hasAntiFakeCode() const { return this->antiFakeCode_ != nullptr;};
     void deleteAntiFakeCode() { this->antiFakeCode_ = nullptr;};

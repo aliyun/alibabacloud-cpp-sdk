@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->angle_ != nullptr
-        && this->height_ != nullptr && this->left_ != nullptr && this->top_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->angle_ == nullptr
+        && return this->height_ == nullptr && return this->left_ == nullptr && return this->top_ == nullptr && return this->width_ == nullptr; };
     // angle Field Functions 
     bool hasAngle() const { return this->angle_ != nullptr;};
     void deleteAngle() { this->angle_ = nullptr;};

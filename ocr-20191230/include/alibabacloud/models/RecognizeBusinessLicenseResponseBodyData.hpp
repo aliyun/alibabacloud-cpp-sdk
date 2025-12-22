@@ -59,10 +59,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->address_ != nullptr
-        && this->angle_ != nullptr && this->business_ != nullptr && this->capital_ != nullptr && this->emblem_ != nullptr && this->establishDate_ != nullptr
-        && this->legalPerson_ != nullptr && this->name_ != nullptr && this->QRCode_ != nullptr && this->registerNumber_ != nullptr && this->stamp_ != nullptr
-        && this->title_ != nullptr && this->type_ != nullptr && this->validPeriod_ != nullptr; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && return this->angle_ == nullptr && return this->business_ == nullptr && return this->capital_ == nullptr && return this->emblem_ == nullptr && return this->establishDate_ == nullptr
+        && return this->legalPerson_ == nullptr && return this->name_ == nullptr && return this->QRCode_ == nullptr && return this->registerNumber_ == nullptr && return this->stamp_ == nullptr
+        && return this->title_ == nullptr && return this->type_ == nullptr && return this->validPeriod_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};

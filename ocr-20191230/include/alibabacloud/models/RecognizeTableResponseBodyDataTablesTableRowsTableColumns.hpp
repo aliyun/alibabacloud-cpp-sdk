@@ -42,9 +42,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endColumn_ != nullptr
-        && this->endRow_ != nullptr && this->height_ != nullptr && this->startColumn_ != nullptr && this->startRow_ != nullptr && this->texts_ != nullptr
-        && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->endColumn_ == nullptr
+        && return this->endRow_ == nullptr && return this->height_ == nullptr && return this->startColumn_ == nullptr && return this->startRow_ == nullptr && return this->texts_ == nullptr
+        && return this->width_ == nullptr; };
     // endColumn Field Functions 
     bool hasEndColumn() const { return this->endColumn_ != nullptr;};
     void deleteEndColumn() { this->endColumn_ = nullptr;};

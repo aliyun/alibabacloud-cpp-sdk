@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkers_ != nullptr
-        && this->clerks_ != nullptr && this->invoiceAmounts_ != nullptr && this->invoiceCodes_ != nullptr && this->invoiceDates_ != nullptr && this->invoiceFakeCodes_ != nullptr
-        && this->invoiceNoes_ != nullptr && this->itemNames_ != nullptr && this->payeeAddresses_ != nullptr && this->payeeBankNames_ != nullptr && this->payeeNames_ != nullptr
-        && this->payeeRegisterNoes_ != nullptr && this->payees_ != nullptr && this->payerAddresses_ != nullptr && this->payerBankNames_ != nullptr && this->payerNames_ != nullptr
-        && this->payerRegisterNoes_ != nullptr && this->sumAmounts_ != nullptr && this->taxAmounts_ != nullptr && this->withoutTaxAmounts_ != nullptr; };
+    virtual bool empty() const override { return this->checkers_ == nullptr
+        && return this->clerks_ == nullptr && return this->invoiceAmounts_ == nullptr && return this->invoiceCodes_ == nullptr && return this->invoiceDates_ == nullptr && return this->invoiceFakeCodes_ == nullptr
+        && return this->invoiceNoes_ == nullptr && return this->itemNames_ == nullptr && return this->payeeAddresses_ == nullptr && return this->payeeBankNames_ == nullptr && return this->payeeNames_ == nullptr
+        && return this->payeeRegisterNoes_ == nullptr && return this->payees_ == nullptr && return this->payerAddresses_ == nullptr && return this->payerBankNames_ == nullptr && return this->payerNames_ == nullptr
+        && return this->payerRegisterNoes_ == nullptr && return this->sumAmounts_ == nullptr && return this->taxAmounts_ == nullptr && return this->withoutTaxAmounts_ == nullptr; };
     // checkers Field Functions 
     bool hasCheckers() const { return this->checkers_ != nullptr;};
     void deleteCheckers() { this->checkers_ = nullptr;};

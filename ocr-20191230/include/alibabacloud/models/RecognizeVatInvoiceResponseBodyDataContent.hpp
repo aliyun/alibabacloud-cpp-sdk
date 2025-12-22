@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->antiFakeCode_ != nullptr
-        && this->checker_ != nullptr && this->clerk_ != nullptr && this->invoiceAmount_ != nullptr && this->invoiceCode_ != nullptr && this->invoiceDate_ != nullptr
-        && this->invoiceNo_ != nullptr && this->itemName_ != nullptr && this->payee_ != nullptr && this->payeeAddress_ != nullptr && this->payeeBankName_ != nullptr
-        && this->payeeName_ != nullptr && this->payeeRegisterNo_ != nullptr && this->payerAddress_ != nullptr && this->payerBankName_ != nullptr && this->payerName_ != nullptr
-        && this->payerRegisterNo_ != nullptr && this->sumAmount_ != nullptr && this->taxAmount_ != nullptr && this->withoutTaxAmount_ != nullptr; };
+    virtual bool empty() const override { return this->antiFakeCode_ == nullptr
+        && return this->checker_ == nullptr && return this->clerk_ == nullptr && return this->invoiceAmount_ == nullptr && return this->invoiceCode_ == nullptr && return this->invoiceDate_ == nullptr
+        && return this->invoiceNo_ == nullptr && return this->itemName_ == nullptr && return this->payee_ == nullptr && return this->payeeAddress_ == nullptr && return this->payeeBankName_ == nullptr
+        && return this->payeeName_ == nullptr && return this->payeeRegisterNo_ == nullptr && return this->payerAddress_ == nullptr && return this->payerBankName_ == nullptr && return this->payerName_ == nullptr
+        && return this->payerRegisterNo_ == nullptr && return this->sumAmount_ == nullptr && return this->taxAmount_ == nullptr && return this->withoutTaxAmount_ == nullptr; };
     // antiFakeCode Field Functions 
     bool hasAntiFakeCode() const { return this->antiFakeCode_ != nullptr;};
     void deleteAntiFakeCode() { this->antiFakeCode_ = nullptr;};

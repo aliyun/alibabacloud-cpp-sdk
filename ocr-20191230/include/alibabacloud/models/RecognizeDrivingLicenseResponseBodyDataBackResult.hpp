@@ -47,9 +47,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->approvedLoad_ != nullptr
-        && this->approvedPassengerCapacity_ != nullptr && this->energyType_ != nullptr && this->fileNumber_ != nullptr && this->grossMass_ != nullptr && this->inspectionRecord_ != nullptr
-        && this->overallDimension_ != nullptr && this->plateNumber_ != nullptr && this->tractionMass_ != nullptr && this->unladenMass_ != nullptr; };
+    virtual bool empty() const override { return this->approvedLoad_ == nullptr
+        && return this->approvedPassengerCapacity_ == nullptr && return this->energyType_ == nullptr && return this->fileNumber_ == nullptr && return this->grossMass_ == nullptr && return this->inspectionRecord_ == nullptr
+        && return this->overallDimension_ == nullptr && return this->plateNumber_ == nullptr && return this->tractionMass_ == nullptr && return this->unladenMass_ == nullptr; };
     // approvedLoad Field Functions 
     bool hasApprovedLoad() const { return this->approvedLoad_ != nullptr;};
     void deleteApprovedLoad() { this->approvedLoad_ = nullptr;};

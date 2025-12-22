@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_RECOGNIZECHARACTERRESPONSEBODYDATARESULTSTEXTRECTANGLES_HPP_
 #define ALIBABACLOUD_MODELS_RECOGNIZECHARACTERRESPONSEBODYDATARESULTSTEXTRECTANGLES_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/RecognizeCharacterResponseBodyDataResultsTextRectanglesPos.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Angle, angle_);
       DARABONBA_PTR_TO_JSON(Height, height_);
       DARABONBA_PTR_TO_JSON(Left, left_);
+      DARABONBA_PTR_TO_JSON(Pos, pos_);
       DARABONBA_PTR_TO_JSON(Top, top_);
       DARABONBA_PTR_TO_JSON(Width, width_);
     };
@@ -23,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Angle, angle_);
       DARABONBA_PTR_FROM_JSON(Height, height_);
       DARABONBA_PTR_FROM_JSON(Left, left_);
+      DARABONBA_PTR_FROM_JSON(Pos, pos_);
       DARABONBA_PTR_FROM_JSON(Top, top_);
       DARABONBA_PTR_FROM_JSON(Width, width_);
     };
@@ -37,8 +41,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->angle_ != nullptr
-        && this->height_ != nullptr && this->left_ != nullptr && this->top_ != nullptr && this->width_ != nullptr; };
+    virtual bool empty() const override { return this->angle_ == nullptr
+        && return this->height_ == nullptr && return this->left_ == nullptr && return this->pos_ == nullptr && return this->top_ == nullptr && return this->width_ == nullptr; };
     // angle Field Functions 
     bool hasAngle() const { return this->angle_ != nullptr;};
     void deleteAngle() { this->angle_ = nullptr;};
@@ -60,6 +64,15 @@ namespace Models
     inline RecognizeCharacterResponseBodyDataResultsTextRectangles& setLeft(int32_t left) { DARABONBA_PTR_SET_VALUE(left_, left) };
 
 
+    // pos Field Functions 
+    bool hasPos() const { return this->pos_ != nullptr;};
+    void deletePos() { this->pos_ = nullptr;};
+    inline const vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos> & pos() const { DARABONBA_PTR_GET_CONST(pos_, vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos>) };
+    inline vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos> pos() { DARABONBA_PTR_GET(pos_, vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos>) };
+    inline RecognizeCharacterResponseBodyDataResultsTextRectangles& setPos(const vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos> & pos) { DARABONBA_PTR_SET_VALUE(pos_, pos) };
+    inline RecognizeCharacterResponseBodyDataResultsTextRectangles& setPos(vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos> && pos) { DARABONBA_PTR_SET_RVALUE(pos_, pos) };
+
+
     // top Field Functions 
     bool hasTop() const { return this->top_ != nullptr;};
     void deleteTop() { this->top_ = nullptr;};
@@ -78,6 +91,7 @@ namespace Models
     std::shared_ptr<int32_t> angle_ = nullptr;
     std::shared_ptr<int32_t> height_ = nullptr;
     std::shared_ptr<int32_t> left_ = nullptr;
+    std::shared_ptr<vector<Models::RecognizeCharacterResponseBodyDataResultsTextRectanglesPos>> pos_ = nullptr;
     std::shared_ptr<int32_t> top_ = nullptr;
     std::shared_ptr<int32_t> width_ = nullptr;
   };
