@@ -795,6 +795,24 @@ namespace DlfNext20250310
       Models::ListDatabasesResponse listDatabases(const string &catalogId, const Models::ListDatabasesRequest &request);
 
       /**
+       * @summary 查看函数列表
+       *
+       * @param request ListFunctionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFunctionsResponse
+       */
+      Models::ListFunctionsResponse listFunctionsWithOptions(const string &catalogId, const string &database, const Models::ListFunctionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看函数列表
+       *
+       * @param request ListFunctionsRequest
+       * @return ListFunctionsResponse
+       */
+      Models::ListFunctionsResponse listFunctions(const string &catalogId, const string &database, const Models::ListFunctionsRequest &request);
+
+      /**
        * @summary 查看iceberg数据库列表
        *
        * @param request ListIcebergNamespaceDetailsRequest
@@ -1117,6 +1135,42 @@ namespace DlfNext20250310
        * @return ListUsersResponse
        */
       Models::ListUsersResponse listUsers(const Models::ListUsersRequest &request);
+
+      /**
+       * @summary 查看视图详情列表
+       *
+       * @param request ListViewDetailsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListViewDetailsResponse
+       */
+      Models::ListViewDetailsResponse listViewDetailsWithOptions(const string &catalogId, const string &database, const Models::ListViewDetailsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看视图详情列表
+       *
+       * @param request ListViewDetailsRequest
+       * @return ListViewDetailsResponse
+       */
+      Models::ListViewDetailsResponse listViewDetails(const string &catalogId, const string &database, const Models::ListViewDetailsRequest &request);
+
+      /**
+       * @summary 查看视图详情列表
+       *
+       * @param request ListViewsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListViewsResponse
+       */
+      Models::ListViewsResponse listViewsWithOptions(const string &catalogId, const string &database, const Models::ListViewsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看视图详情列表
+       *
+       * @param request ListViewsRequest
+       * @return ListViewsResponse
+       */
+      Models::ListViewsResponse listViews(const string &catalogId, const string &database, const Models::ListViewsRequest &request);
 
       /**
        * @summary 刷新用户同步

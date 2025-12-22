@@ -133,6 +133,9 @@
 #include <alibabacloud/models/ListDatabasesRequest.hpp>
 #include <alibabacloud/models/ListDatabasesResponseBody.hpp>
 #include <alibabacloud/models/ListDatabasesResponse.hpp>
+#include <alibabacloud/models/ListFunctionsRequest.hpp>
+#include <alibabacloud/models/ListFunctionsResponseBody.hpp>
+#include <alibabacloud/models/ListFunctionsResponse.hpp>
 #include <alibabacloud/models/ListIcebergNamespaceDetailsRequest.hpp>
 #include <alibabacloud/models/ListIcebergNamespaceDetailsResponseBody.hpp>
 #include <alibabacloud/models/ListIcebergNamespaceDetailsResponse.hpp>
@@ -186,6 +189,12 @@
 #include <alibabacloud/models/ListUsersRequest.hpp>
 #include <alibabacloud/models/ListUsersResponseBody.hpp>
 #include <alibabacloud/models/ListUsersResponse.hpp>
+#include <alibabacloud/models/ListViewDetailsRequest.hpp>
+#include <alibabacloud/models/ListViewDetailsResponseBody.hpp>
+#include <alibabacloud/models/ListViewDetailsResponse.hpp>
+#include <alibabacloud/models/ListViewsRequest.hpp>
+#include <alibabacloud/models/ListViewsResponseBody.hpp>
+#include <alibabacloud/models/ListViewsResponse.hpp>
 #include <alibabacloud/models/RefreshUserSyncResponse.hpp>
 #include <alibabacloud/models/RevokeRoleFromUsersRequest.hpp>
 #include <alibabacloud/models/RevokeRoleFromUsersResponse.hpp>
