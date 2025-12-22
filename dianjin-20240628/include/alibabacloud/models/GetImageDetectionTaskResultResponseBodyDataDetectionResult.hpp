@@ -15,11 +15,15 @@ namespace Models
   class GetImageDetectionTaskResultResponseBodyDataDetectionResult : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetImageDetectionTaskResultResponseBodyDataDetectionResult& obj) { 
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(detectionDetails, detectionDetails_);
+      DARABONBA_PTR_TO_JSON(portraitType, portraitType_);
       DARABONBA_PTR_TO_JSON(suggestions, suggestions_);
     };
     friend void from_json(const Darabonba::Json& j, GetImageDetectionTaskResultResponseBodyDataDetectionResult& obj) { 
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(detectionDetails, detectionDetails_);
+      DARABONBA_PTR_FROM_JSON(portraitType, portraitType_);
       DARABONBA_PTR_FROM_JSON(suggestions, suggestions_);
     };
     GetImageDetectionTaskResultResponseBodyDataDetectionResult() = default ;
@@ -33,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->detectionDetails_ == nullptr
-        && return this->suggestions_ == nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && return this->detectionDetails_ == nullptr && return this->portraitType_ == nullptr && return this->suggestions_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline GetImageDetectionTaskResultResponseBodyDataDetectionResult& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // detectionDetails Field Functions 
     bool hasDetectionDetails() const { return this->detectionDetails_ != nullptr;};
     void deleteDetectionDetails() { this->detectionDetails_ = nullptr;};
@@ -42,6 +53,13 @@ namespace Models
     inline vector<Models::GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails> detectionDetails() { DARABONBA_PTR_GET(detectionDetails_, vector<Models::GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails>) };
     inline GetImageDetectionTaskResultResponseBodyDataDetectionResult& setDetectionDetails(const vector<Models::GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails> & detectionDetails) { DARABONBA_PTR_SET_VALUE(detectionDetails_, detectionDetails) };
     inline GetImageDetectionTaskResultResponseBodyDataDetectionResult& setDetectionDetails(vector<Models::GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails> && detectionDetails) { DARABONBA_PTR_SET_RVALUE(detectionDetails_, detectionDetails) };
+
+
+    // portraitType Field Functions 
+    bool hasPortraitType() const { return this->portraitType_ != nullptr;};
+    void deletePortraitType() { this->portraitType_ = nullptr;};
+    inline string portraitType() const { DARABONBA_PTR_GET_DEFAULT(portraitType_, "") };
+    inline GetImageDetectionTaskResultResponseBodyDataDetectionResult& setPortraitType(string portraitType) { DARABONBA_PTR_SET_VALUE(portraitType_, portraitType) };
 
 
     // suggestions Field Functions 
@@ -54,7 +72,9 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<vector<Models::GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails>> detectionDetails_ = nullptr;
+    std::shared_ptr<string> portraitType_ = nullptr;
     std::shared_ptr<vector<string>> suggestions_ = nullptr;
   };
 
