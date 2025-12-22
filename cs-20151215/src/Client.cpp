@@ -4705,6 +4705,42 @@ ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
 }
 
 /**
+ * @summary 获取集群组件实例的资源列表
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListClusterAddonInstanceResourcesResponse
+ */
+ListClusterAddonInstanceResourcesResponse Client::listClusterAddonInstanceResourcesWithOptions(const string &clusterId, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListClusterAddonInstanceResources"},
+    {"version" , "2015-12-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/clusters/" , Darabonba::Encode::Encoder::percentEncode(clusterId) , "/addon_instances/" , Darabonba::Encode::Encoder::percentEncode(instanceName) , "/resources")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListClusterAddonInstanceResourcesResponse>();
+}
+
+/**
+ * @summary 获取集群组件实例的资源列表
+ *
+ * @return ListClusterAddonInstanceResourcesResponse
+ */
+ListClusterAddonInstanceResourcesResponse Client::listClusterAddonInstanceResources(const string &clusterId, const string &instanceName) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listClusterAddonInstanceResourcesWithOptions(clusterId, instanceName, headers, runtime);
+}
+
+/**
  * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
  *
  * @param headers map

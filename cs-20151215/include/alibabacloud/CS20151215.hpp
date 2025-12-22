@@ -1615,6 +1615,22 @@ namespace CS20151215
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
+       * @summary 获取集群组件实例的资源列表
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListClusterAddonInstanceResourcesResponse
+       */
+      Models::ListClusterAddonInstanceResourcesResponse listClusterAddonInstanceResourcesWithOptions(const string &clusterId, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取集群组件实例的资源列表
+       *
+       * @return ListClusterAddonInstanceResourcesResponse
+       */
+      Models::ListClusterAddonInstanceResourcesResponse listClusterAddonInstanceResources(const string &clusterId, const string &instanceName);
+
+      /**
        * @summary Queries the component instances that are running in the specified cluster and the information about the component instances. The information includes the component version and status.
        *
        * @param headers map

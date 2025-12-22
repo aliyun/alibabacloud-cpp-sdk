@@ -215,6 +215,8 @@
 #include <alibabacloud/models/ListAddonsRequest.hpp>
 #include <alibabacloud/models/ListAddonsResponseBody.hpp>
 #include <alibabacloud/models/ListAddonsResponse.hpp>
+#include <alibabacloud/models/ListClusterAddonInstanceResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListClusterAddonInstanceResourcesResponse.hpp>
 #include <alibabacloud/models/ListClusterAddonInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListClusterAddonInstancesResponse.hpp>
 #include <alibabacloud/models/ListClusterChecksRequest.hpp>
@@ -511,6 +513,8 @@
 #include <alibabacloud/models/GrantPermissionsRequestBody.hpp>
 #include <alibabacloud/models/InstallClusterAddonsRequestBody.hpp>
 #include <alibabacloud/models/ListAddonsResponseBodyAddons.hpp>
+#include <alibabacloud/models/ListClusterAddonInstanceResourcesResponseBodyHelmRelease.hpp>
+#include <alibabacloud/models/ListClusterAddonInstanceResourcesResponseBodyKubernetesObjects.hpp>
 #include <alibabacloud/models/ListClusterAddonInstancesResponseBodyAddons.hpp>
 #include <alibabacloud/models/ListClusterChecksResponseBodyChecks.hpp>
 #include <alibabacloud/models/ListClusterInspectReportsResponseBodyReportsSummary.hpp>
