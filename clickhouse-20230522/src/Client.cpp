@@ -568,6 +568,58 @@ CreateEndpointResponse Client::createEndpoint(const CreateEndpointRequest &reque
 }
 
 /**
+ * @summary 新增白名单模板
+ *
+ * @param request CreateWhitelistTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWhitelistTemplateResponse
+ */
+CreateWhitelistTemplateResponse Client::createWhitelistTemplateWithOptions(const CreateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.templateName();
+  }
+
+  json body = {};
+  if (!!request.hasSecurityIPList()) {
+    body["SecurityIPList"] = request.securityIPList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWhitelistTemplate"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWhitelistTemplateResponse>();
+}
+
+/**
+ * @summary 新增白名单模板
+ *
+ * @param request CreateWhitelistTemplateRequest
+ * @return CreateWhitelistTemplateResponse
+ */
+CreateWhitelistTemplateResponse Client::createWhitelistTemplate(const CreateWhitelistTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWhitelistTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
  *
  * @param request DeleteAccountRequest

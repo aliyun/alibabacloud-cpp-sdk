@@ -140,6 +140,23 @@ namespace Clickhouse20230522
       Models::CreateEndpointResponse createEndpoint(const Models::CreateEndpointRequest &request);
 
       /**
+       * @summary 新增白名单模板
+       *
+       * @param request CreateWhitelistTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWhitelistTemplateResponse
+       */
+      Models::CreateWhitelistTemplateResponse createWhitelistTemplateWithOptions(const Models::CreateWhitelistTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增白名单模板
+       *
+       * @param request CreateWhitelistTemplateRequest
+       * @return CreateWhitelistTemplateResponse
+       */
+      Models::CreateWhitelistTemplateResponse createWhitelistTemplate(const Models::CreateWhitelistTemplateRequest &request);
+
+      /**
        * @summary Deletes a database account from an ApsaraDB for ClickHouse cluster.
        *
        * @param request DeleteAccountRequest

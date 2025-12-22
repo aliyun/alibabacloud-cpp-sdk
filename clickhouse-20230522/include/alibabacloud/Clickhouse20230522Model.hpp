@@ -25,6 +25,9 @@
 #include <alibabacloud/models/CreateEndpointRequest.hpp>
 #include <alibabacloud/models/CreateEndpointResponseBody.hpp>
 #include <alibabacloud/models/CreateEndpointResponse.hpp>
+#include <alibabacloud/models/CreateWhitelistTemplateRequest.hpp>
+#include <alibabacloud/models/CreateWhitelistTemplateResponseBody.hpp>
+#include <alibabacloud/models/CreateWhitelistTemplateResponse.hpp>
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
@@ -155,6 +158,8 @@
 #include <alibabacloud/models/CreateDbInstanceRequestTags.hpp>
 #include <alibabacloud/models/CreateDbInstanceShrinkRequestTags.hpp>
 #include <alibabacloud/models/CreateDbInstanceResponseBodyData.hpp>
+#include <alibabacloud/models/CreateWhitelistTemplateResponseBodyDataTemplates.hpp>
+#include <alibabacloud/models/CreateWhitelistTemplateResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteDbResponseBodyData.hpp>
 #include <alibabacloud/models/DeleteDbInstanceResponseBodyData.hpp>
