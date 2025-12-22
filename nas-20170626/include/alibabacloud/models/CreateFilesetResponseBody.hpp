@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The fileset ID.
     std::shared_ptr<string> fsetId_ = nullptr;
-    // The request ID.
+    // Request ID.
     std::shared_ptr<string> requestId_ = nullptr;
   };
 

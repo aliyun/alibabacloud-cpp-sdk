@@ -73,13 +73,11 @@ namespace Models
     // The ID of the file system.
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-    // *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
-    // 
-    // >  CPFS file systems are available only on the China site (aliyun.com).
+    // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;
-    // The filter that is used to query data flows.
+    // The filter that is used to query dataflows.
     std::shared_ptr<vector<DescribeDataFlowsRequestFilters>> filters_ = nullptr;
     // The number of results for each query.
     // 

@@ -48,17 +48,16 @@ namespace Models
 
 
   protected:
-    // The number of files of the quota. Valid values:
+    // The file quantity quota. Valid values:
     // 
     // *   Minimum value: 100000.
     // *   Maximum value: 10000000000.
     std::shared_ptr<int64_t> fileCountLimit_ = nullptr;
-    // The total capacity of the quota. Unit: bytes.
+    // The total quota capacity limit. Unit: bytes.
     // 
     // Valid values:
     // 
-    // *   Minimum value: 10737418240 (10 GiB).
-    // *   Maximum value: 1073741824000 (1024000 GiB).
+    // *   Minimum value: 10,737,418,240 (10 GiB).
     // *   Step size: 1073741824 (1 GiB).
     std::shared_ptr<int64_t> sizeLimit_ = nullptr;
   };

@@ -162,12 +162,8 @@ namespace Models
     // Unit: MB/s.
     std::shared_ptr<int32_t> throughput_ = nullptr;
     // The vSwitch ID of the protocol service.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> vSwitchId_ = nullptr;
     // The virtual private cloud (VPC) ID of the protocol service. The VPC ID of the protocol service must be the same as the VPC ID of the file system.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

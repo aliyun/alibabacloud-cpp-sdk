@@ -54,7 +54,7 @@ namespace Models
     // 
     //     TotalFilesReport: task reports.
     // 
-    // *   CPFS for LINGJUN:
+    // *   CPFS for Lingjun:
     // 
     //     *   FailedFilesReport: failed file reports.
     //     *   SkippedFilesReport: skipped file reports.

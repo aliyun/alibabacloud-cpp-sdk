@@ -137,12 +137,12 @@ namespace Models
     // 
     // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
     std::shared_ptr<string> createTime_ = nullptr;
-    // Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation. Valid values:
+    // Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
     // 
-    // *   true
-    // *   false
+    // *   true: enables release protection.
+    // *   false: disables release protection.
     // 
-    // >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+    // > This parameter can protect filesets only against manual releases, but not against automatic releases.
     std::shared_ptr<bool> deletionProtection_ = nullptr;
     // The fileset description.
     std::shared_ptr<string> description_ = nullptr;
@@ -154,8 +154,6 @@ namespace Models
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
     // *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
-    // 
-    // >  CPFS is not supported on the international site.
     std::shared_ptr<string> fileSystemId_ = nullptr;
     // The fileset path.
     std::shared_ptr<string> fileSystemPath_ = nullptr;

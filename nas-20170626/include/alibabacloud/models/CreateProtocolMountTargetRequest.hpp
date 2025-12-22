@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEPROTOCOLMOUNTTARGETREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEPROTOCOLMOUNTTARGETREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Path, path_);
       DARABONBA_PTR_TO_JSON(ProtocolServiceId, protocolServiceId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateProtocolMountTargetRequest& obj) { 
@@ -34,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Path, path_);
       DARABONBA_PTR_FROM_JSON(ProtocolServiceId, protocolServiceId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     CreateProtocolMountTargetRequest() = default ;
@@ -49,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupName_ == nullptr
         && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->fileSystemId_ == nullptr && return this->fsetId_ == nullptr
-        && return this->path_ == nullptr && return this->protocolServiceId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
+        && return this->path_ == nullptr && return this->protocolServiceId_ == nullptr && return this->vSwitchId_ == nullptr && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
@@ -111,6 +114,15 @@ namespace Models
     void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
     inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
     inline CreateProtocolMountTargetRequest& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+    // vSwitchIds Field Functions 
+    bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
+    void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
+    inline const vector<string> & vSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
+    inline vector<string> vSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
+    inline CreateProtocolMountTargetRequest& setVSwitchIds(const vector<string> & vSwitchIds) { DARABONBA_PTR_SET_VALUE(vSwitchIds_, vSwitchIds) };
+    inline CreateProtocolMountTargetRequest& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
 
 
     // vpcId Field Functions 
@@ -177,12 +189,9 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> protocolServiceId_ = nullptr;
     // The vSwitch ID of the export directory for the protocol service.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
     // The VPC ID of the export directory for the protocol service.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> vpcId_ = nullptr;
   };
 

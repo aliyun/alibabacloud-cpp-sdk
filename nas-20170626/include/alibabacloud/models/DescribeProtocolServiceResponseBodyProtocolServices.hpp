@@ -26,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProtocolThroughput, protocolThroughput_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProtocolServiceResponseBodyProtocolServices& obj) { 
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
@@ -41,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProtocolThroughput, protocolThroughput_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     DescribeProtocolServiceResponseBodyProtocolServices() = default ;
     DescribeProtocolServiceResponseBodyProtocolServices(const DescribeProtocolServiceResponseBodyProtocolServices &) = default ;
@@ -56,7 +60,7 @@ namespace Models
     virtual bool empty() const override { return this->createTime_ == nullptr
         && return this->description_ == nullptr && return this->fileSystemId_ == nullptr && return this->instanceBaseThroughput_ == nullptr && return this->instanceBurstThroughput_ == nullptr && return this->instanceRAM_ == nullptr
         && return this->modifyTime_ == nullptr && return this->mountTargetCount_ == nullptr && return this->protocolServiceId_ == nullptr && return this->protocolSpec_ == nullptr && return this->protocolThroughput_ == nullptr
-        && return this->protocolType_ == nullptr && return this->status_ == nullptr; };
+        && return this->protocolType_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -148,6 +152,20 @@ namespace Models
     inline DescribeProtocolServiceResponseBodyProtocolServices& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // vSwitchId Field Functions 
+    bool hasVSwitchId() const { return this->vSwitchId_ != nullptr;};
+    void deleteVSwitchId() { this->vSwitchId_ = nullptr;};
+    inline string vSwitchId() const { DARABONBA_PTR_GET_DEFAULT(vSwitchId_, "") };
+    inline DescribeProtocolServiceResponseBodyProtocolServices& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
+
+
+    // vpcId Field Functions 
+    bool hasVpcId() const { return this->vpcId_ != nullptr;};
+    void deleteVpcId() { this->vpcId_ = nullptr;};
+    inline string vpcId() const { DARABONBA_PTR_GET_DEFAULT(vpcId_, "") };
+    inline DescribeProtocolServiceResponseBodyProtocolServices& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
+
+
   protected:
     // The time when the protocol service was created. The time is displayed in UTC.
     std::shared_ptr<string> createTime_ = nullptr;
@@ -198,6 +216,8 @@ namespace Models
     // *   Stopping: The protocol service is being stopped.
     // *   Stopped: The protocol service is stopped.
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> vSwitchId_ = nullptr;
+    std::shared_ptr<string> vpcId_ = nullptr;
   };
 
   } // namespace Models

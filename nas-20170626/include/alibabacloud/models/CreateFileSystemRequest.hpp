@@ -26,6 +26,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileSystemType, fileSystemType_);
       DARABONBA_PTR_TO_JSON(KmsKeyId, kmsKeyId_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_TO_JSON(RedundancyType, redundancyType_);
+      DARABONBA_PTR_TO_JSON(RedundancyVSwitchIds, redundancyVSwitchIds_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
@@ -46,6 +48,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileSystemType, fileSystemType_);
       DARABONBA_PTR_FROM_JSON(KmsKeyId, kmsKeyId_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+      DARABONBA_PTR_FROM_JSON(RedundancyType, redundancyType_);
+      DARABONBA_PTR_FROM_JSON(RedundancyVSwitchIds, redundancyVSwitchIds_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SnapshotId, snapshotId_);
       DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
@@ -68,8 +72,8 @@ namespace Models
     virtual bool empty() const override { return this->bandwidth_ == nullptr
         && return this->capacity_ == nullptr && return this->chargeType_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr
         && return this->duration_ == nullptr && return this->encryptType_ == nullptr && return this->fileSystemType_ == nullptr && return this->kmsKeyId_ == nullptr && return this->protocolType_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->snapshotId_ == nullptr && return this->storageType_ == nullptr && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
+        && return this->redundancyType_ == nullptr && return this->redundancyVSwitchIds_ == nullptr && return this->resourceGroupId_ == nullptr && return this->snapshotId_ == nullptr && return this->storageType_ == nullptr
+        && return this->tag_ == nullptr && return this->vSwitchId_ == nullptr && return this->vpcId_ == nullptr && return this->zoneId_ == nullptr; };
     // bandwidth Field Functions 
     bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
     void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -147,6 +151,22 @@ namespace Models
     inline CreateFileSystemRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+    // redundancyType Field Functions 
+    bool hasRedundancyType() const { return this->redundancyType_ != nullptr;};
+    void deleteRedundancyType() { this->redundancyType_ = nullptr;};
+    inline string redundancyType() const { DARABONBA_PTR_GET_DEFAULT(redundancyType_, "") };
+    inline CreateFileSystemRequest& setRedundancyType(string redundancyType) { DARABONBA_PTR_SET_VALUE(redundancyType_, redundancyType) };
+
+
+    // redundancyVSwitchIds Field Functions 
+    bool hasRedundancyVSwitchIds() const { return this->redundancyVSwitchIds_ != nullptr;};
+    void deleteRedundancyVSwitchIds() { this->redundancyVSwitchIds_ = nullptr;};
+    inline const vector<string> & redundancyVSwitchIds() const { DARABONBA_PTR_GET_CONST(redundancyVSwitchIds_, vector<string>) };
+    inline vector<string> redundancyVSwitchIds() { DARABONBA_PTR_GET(redundancyVSwitchIds_, vector<string>) };
+    inline CreateFileSystemRequest& setRedundancyVSwitchIds(const vector<string> & redundancyVSwitchIds) { DARABONBA_PTR_SET_VALUE(redundancyVSwitchIds_, redundancyVSwitchIds) };
+    inline CreateFileSystemRequest& setRedundancyVSwitchIds(vector<string> && redundancyVSwitchIds) { DARABONBA_PTR_SET_RVALUE(redundancyVSwitchIds_, redundancyVSwitchIds) };
+
+
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
@@ -204,21 +224,22 @@ namespace Models
     // Unit: MB/s.
     // 
     // Specify a value based on the specifications on the buy page.
-    std::shared_ptr<int64_t> bandwidth_ = nullptr;
-    // The capacity of the file system. Unit: GiB.
     // 
-    // This parameter is valid and required if the FileSystemType parameter is set to extreme.
+    // [CPFS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui\\&commodityCode=nas_cpfspost_public_intl#/buy)
+    std::shared_ptr<int64_t> bandwidth_ = nullptr;
+    // Specify the capacity of the file system. Unit: GiB. Specify the Capacity parameter when the FileSystemType parameter is set to extreme or cpfs.
     // 
     // Specify a value based on the specifications on the following buy page:
     // 
-    // [Extreme NAS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
+    // *   [Extreme NAS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?commodityCode=nas_extpost_public_intl#/buy)
+    // *   [CPFS file system (Pay-as-you-go)](https://common-buy-intl.alibabacloud.com/?spm=5176.nas_overview.0.0.7ea01dbft0dTui\\&commodityCode=nas_cpfspost_public_intl#/buy)
     std::shared_ptr<int64_t> capacity_ = nullptr;
     // The billing method.
     // 
     // Valid values:
     // 
     // *   PayAsYouGo (default): pay-as-you-go
-    // *   Subscription: subscription
+    // *   Subscription
     std::shared_ptr<string> chargeType_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
     // 
@@ -264,23 +285,24 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system
-    // *   extreme: Extreme NAS file system
-    // *   cpfs: Cloud Parallel File Storage (CPFS) file system
-    // 
-    // > CPFS file systems are available only on the China site (aliyun.com).
+    // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+    // *   extreme: Extreme NAS file system.
+    // *   cpfs: CPFS file system
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The ID of the KMS key.
     // 
     // This parameter is required only if the EncryptType parameter is set to 2.
     std::shared_ptr<string> kmsKeyId_ = nullptr;
-    // The protocol type.
+    // Specify the protocol type.
     // 
-    // *   If the FileSystemType parameter is set to standard, you can set the ProtocolType parameter to NFS or SMB.
-    // *   If the FileSystemType parameter is set to extreme, you can set the ProtocolType parameter to NFS.
+    // *   If the FileSystemType parameter is set to standard, set the ProtocolType parameter to NFS or SMB.
+    // *   If the FileSystemType parameter is set to extreme, set the ProtocolType parameter to NFS.
+    // *   If the FileSystemType parameter is set to cpfs, set the ProtocolType parameter to cpfs.
     // 
     // This parameter is required.
     std::shared_ptr<string> protocolType_ = nullptr;
+    std::shared_ptr<string> redundancyType_ = nullptr;
+    std::shared_ptr<vector<string>> redundancyVSwitchIds_ = nullptr;
     // The resource group ID.
     // 
     // You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups?) to view resource group IDs.
@@ -291,10 +313,11 @@ namespace Models
     // 
     // >  You can create a file system from a snapshot. In this case, the version of the file system is the same as that of the source file system. For example, the source file system of the snapshot uses version 1. To create a file system of version 2, you can create File System A from the snapshot and create File System B of version 2. You can then copy the data and migrate your business from File System A to File System B.
     std::shared_ptr<string> snapshotId_ = nullptr;
-    // The storage class.
+    // The storage type.
     // 
-    // *   If the FileSystemType parameter is set to standard, you can set the StorageType parameter to Performance, Capacity, or Premium.
-    // *   If the FileSystemType parameter is set to extreme, you can set the StorageType parameter to standard or advance.
+    // *   If the FileSystemType parameter is set to standard, set the StorageType parameter to Performance, Capacity, or Premium.
+    // *   If the FileSystemType parameter is set to extreme, set the StorageType parameter to standard or advance.
+    // *   If the FileSystemType parameter is set to cpfs, set the StorageType parameter to advance_100 (100 MB/s/TiB baseline) or advance_200 (200 MB/s/TiB baseline).
     // 
     // This parameter is required.
     std::shared_ptr<string> storageType_ = nullptr;
@@ -302,24 +325,29 @@ namespace Models
     // 
     // You can specify up to 20 tags. If you specify multiple tags, each tag key must be unique.
     std::shared_ptr<vector<CreateFileSystemRequestTag>> tag_ = nullptr;
-    // The vSwitch ID.
+    // The vSwitch ID of the cluster.
     // 
-    // This parameter is reserved and does not take effect. You do not need to configure this parameter.
+    // *   This parameter is required only if you set the FileSystemType parameter to cpfs.
+    // *   This parameter is reserved and not required if you set the FileSystemType parameter to standard or extreme.
     std::shared_ptr<string> vSwitchId_ = nullptr;
     // The ID of the virtual private cloud (VPC).
     // 
-    // This parameter is reserved and does not take effect. You do not need to configure this parameter.
+    // *   This parameter is required only if you set the FileSystemType parameter to cpfs.
+    // *   This parameter is reserved and not required if you set the FileSystemType parameter to standard or extreme.
     std::shared_ptr<string> vpcId_ = nullptr;
-    // The zone ID.
+    // The ID of the zone.
     // 
-    // Each region has multiple isolated locations known as zones. Each zone has its own independent power supply and networks.
+    // Each region has multiple isolated locations known as zones. Each zone has its own independent power supply and network.
     // 
     // This parameter is not required if the FileSystemType parameter is set to standard. By default, a random zone is selected based on the protocol type and storage type.
     // 
-    // This parameter is required if the FileSystemType parameter is set to extreme.
+    // This parameter is required if the FileSystemType parameter is set to extreme or cpfs.
     // 
-    // > *   An Elastic Compute Service (ECS) instance and a NAS file system that reside in different zones of the same region can access each other.
-    // >*   We recommend that you select the zone where the ECS instance resides. This prevents cross-zone latency between the file system and the ECS instance.
+    // > 
+    // 
+    // *   An Elastic Compute Service (ECS) instance and a NAS file system that reside in different zones of the same region can access each other.
+    // 
+    // *   We recommend that you select the zone where the ECS instance resides. This prevents cross-zone latency between the file system and the ECS instance.
     std::shared_ptr<string> zoneId_ = nullptr;
   };
 

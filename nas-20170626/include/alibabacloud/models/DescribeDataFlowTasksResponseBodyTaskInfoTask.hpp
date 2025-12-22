@@ -255,21 +255,21 @@ namespace Models
     std::shared_ptr<string> conflictPolicy_ = nullptr;
     // The time when the task was created.
     std::shared_ptr<string> createTime_ = nullptr;
-    // The ID of the data flow.
+    // The ID of the dataflow.
     std::shared_ptr<string> dataFlowId_ = nullptr;
-    // The type of data on which operations are performed by the data flow task. Valid values:
+    // The type of data on which operations are performed by the dataflow task. The following information is displayed:
     // 
     // *   Metadata: the metadata of a file, including the timestamp, ownership, and permission information of the file. If you select Metadata, only the metadata of the file is imported. You can only query the file. When you access the file data, the file is loaded from the source storage as required.
     // *   Data: the data blocks of the file.
     // *   MetaAndData: the metadata and data blocks of the file.
     // 
-    // >  CPFS for LINGJUN supports only the MetaAndData type.
+    // >  CPFS for Lingjun supports only the MetaAndData type.
     std::shared_ptr<string> dataType_ = nullptr;
-    // The directory in which the data flow task is executed.
+    // The directory in which the dataflow task is executed.
     std::shared_ptr<string> directory_ = nullptr;
-    // The directory mapped to the data flow task.
+    // The directory mapped to the dataflow task.
     std::shared_ptr<string> dstDirectory_ = nullptr;
-    // The time when the task ended.
+    // The end time of the task.
     std::shared_ptr<string> endTime_ = nullptr;
     // The cause of the task exception.
     // 
@@ -290,31 +290,39 @@ namespace Models
     std::shared_ptr<string> filesystemId_ = nullptr;
     // The path of the smart directory.
     std::shared_ptr<string> fsPath_ = nullptr;
-    // Filter the directories under directory and transfer the folder contents contained in the filtered directory.
+    // Filters subdirectories and transfers their contents.
+    // 
+    // >  Only CPFS for Lingjun supports this operation.
     std::shared_ptr<string> includes_ = nullptr;
-    // The initiator of the data flow task. Valid values:
+    // The initiator of the dataflow task. The following information is displayed:
     // 
     // *   User: The task is initiated by a user.
     // *   System: The task is automatically initiated by CPFS based on the automatic update interval.
     // 
     // >  Only CPFS supports this parameter.
     std::shared_ptr<string> originator_ = nullptr;
-    // The progress of the data flow task. The number of operations that have been performed by the data flow task.
+    // The progress of the dataflow task. The number of operations that have been performed by the dataflow task.
     std::shared_ptr<int64_t> progress_ = nullptr;
-    // The progress of the data flow task.
+    // The progress of the dataflow task.
     std::shared_ptr<Models::DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats> progressStats_ = nullptr;
-    // The save path of data flow task reports in the CPFS file system.
+    // The save path of dataflow task reports in the CPFS file system.
     // 
     // *   The task reports for a CPFS file system are generated in the `.dataflow_report` directory of the CPFS file system.
-    // *   CPFS for LINGJUN returns an OSS download link for you to download the task reports.
+    // *   CPFS for Lingjun returns an OSS download link for you to download the task reports.
     std::shared_ptr<string> reportPath_ = nullptr;
     // The reports.
     // 
-    // >  Streaming tasks do not support reports.
+    // > 
+    // 
+    // *   Streaming tasks do not support reports.
+    // 
+    // *   If the WithReport parameter is set to True, the CPFS for Lingjun report data is returned.
+    // 
+    // *   Only CPFS for Lingjun supports the WithReport parameter.
     std::shared_ptr<Models::DescribeDataFlowTasksResponseBodyTaskInfoTaskReports> reports_ = nullptr;
     // The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
     // 
-    // Parameters:
+    // Among them:
     // 
     // *   storage type: Only Object Storage Service (OSS) is supported.
     // 
@@ -330,32 +338,35 @@ namespace Models
     // 
     // *   The OSS bucket must be an existing bucket in the region.
     // 
-    // *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
+    // *   Only CPFS for Lingjun V2.6.0 and later support the account id parameter.
     std::shared_ptr<string> sourceStorage_ = nullptr;
-    // The time when the task started.
+    // The start time of the task.
     std::shared_ptr<string> startTime_ = nullptr;
-    // The status of the data flow task. Valid values:
+    // The status of the dataflow task. The following information is displayed:
     // 
-    // *   Pending: The data flow task has been created and has not started.
-    // *   Executing: The data flow task is being executed.
-    // *   Failed: The data flow task failed to be executed. You can view the cause of the failure in the data flow task report.
-    // *   Completed: The data flow task is completed. You can check that all the files have been correctly transferred in the data flow task report.
-    // *   Canceled: The data flow task is canceled and is not completed.
-    // *   Canceling: The data flow task is being canceled.
+    // *   Pending: The dataflow task has been created and has not started.
+    // *   Executing: The dataflow task is being executed.
+    // *   Failed: The dataflow task failed to be executed. You can view the cause of the failure in the dataflow task report.
+    // *   Completed: The dataflow task is completed. You can check that all the files have been correctly transferred in the dataflow task report.
+    // *   Canceled: The dataflow task is canceled and is not completed.
+    // *   Canceling: The dataflow task is being canceled.
     std::shared_ptr<string> status_ = nullptr;
-    // The type of the data flow task. Valid values:
+    // The type of the dataflow task. The following information is displayed:
     // 
     // *   Import: imports data stored in the source storage to a CPFS file system.
     // *   Export: exports specified data from a CPFS file system to the source storage.
     // *   StreamImport: imports the specified data from the source storage to a CPFS file system in streaming mode.
     // *   StreamExport: exports specified data from a CPFS file system to the source storage in streaming mode.
     // *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
-    // *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
+    // *   Inventory: obtains the inventory list managed by a dataflow from the CPFS file system, providing the cache status of inventories in the dataflow.
     // 
-    // >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
+    // >  Only CPFS for Lingjun V2.6.0 and later support StreamImport and StreamExport.
     std::shared_ptr<string> taskAction_ = nullptr;
-    // The ID of the data flow task.
+    // The ID of the dataflow task.
     std::shared_ptr<string> taskId_ = nullptr;
+    // Specify the OSS directory and synchronize data based on the content of the CSV file in the OSS directory.
+    // 
+    // >  Only CPFS for Lingjun supports this operation.
     std::shared_ptr<string> transferFileListPath_ = nullptr;
   };
 

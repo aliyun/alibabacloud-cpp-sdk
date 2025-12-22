@@ -90,7 +90,7 @@ namespace Models
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
     std::shared_ptr<string> clientToken_ = nullptr;
-    // The dataflow ID.
+    // The ID of the dataflow.
     // 
     // This parameter is required.
     std::shared_ptr<string> dataFlowId_ = nullptr;
@@ -114,9 +114,7 @@ namespace Models
     // The ID of the file system.
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
-    // *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
-    // 
-    // >  CPFS is not supported on the international site.
+    // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;

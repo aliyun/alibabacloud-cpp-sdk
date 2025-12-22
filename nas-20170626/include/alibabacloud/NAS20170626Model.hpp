@@ -411,6 +411,7 @@
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemPackagesPackage.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages.hpp>
+#include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemTagsTag.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemTags.hpp>

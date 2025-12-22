@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The actual amount of data for which the data flow task is complete. Unit: bytes.
+    // The actual amount of data for which the dataflow task is complete. Unit: bytes.
     std::shared_ptr<int64_t> actualBytes_ = nullptr;
-    // The actual number of files for which the data flow task is complete.
+    // The actual number of files for which the dataflow task is complete.
     std::shared_ptr<int64_t> actualFiles_ = nullptr;
     // The average flow velocity. Unit: bytes/s.
     std::shared_ptr<int64_t> averageSpeed_ = nullptr;
-    // The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+    // The amount of data (including skipped data) for which the dataflow task is complete. Unit: bytes.
     std::shared_ptr<int64_t> bytesDone_ = nullptr;
     // The amount of data scanned on the source. Unit: bytes.
     std::shared_ptr<int64_t> bytesTotal_ = nullptr;
-    // The number of files (including skipped files) for which the data flow task is complete.
+    // The number of files (including skipped files) for which the dataflow task is complete.
     std::shared_ptr<int64_t> filesDone_ = nullptr;
     // The number of files scanned on the source.
     std::shared_ptr<int64_t> filesTotal_ = nullptr;

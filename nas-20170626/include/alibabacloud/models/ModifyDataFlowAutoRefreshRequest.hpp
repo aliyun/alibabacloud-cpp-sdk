@@ -84,33 +84,33 @@ namespace Models
 
 
   protected:
-    // The automatic update interval. CPFS checks whether data is updated in the directory at the interval. If data is updated, CPFS runs an AutoRefresh task. Unit: minutes.
+    // The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minute.
     // 
     // Valid values: 5 to 526600. Default value: 10.
     std::shared_ptr<int64_t> autoRefreshInterval_ = nullptr;
-    // The automatic update policy. CPFS imports data updates in the Object Storage Service (OSS) bucket to the CPFS file system based on this policy. Valid values:
+    // The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. The following information is displayed:
     // 
-    // *   None: CPFS does not automatically import data updates in the OSS bucket to the CPFS file system. You can import the data updates by using a dataflow task.
-    // *   ImportChanged: CPFS automatically imports data updates in the OSS bucket to the CPFS file system.
+    // *   None: Updated data in the source storage is not automatically imported into the CPFS file system. You can run a dataflow task to import the updated data from the source storage.
+    // *   ImportChanged: Updated data in the source storage is automatically imported into the CPFS file system.
     std::shared_ptr<string> autoRefreshPolicy_ = nullptr;
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
-    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+    // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
+    // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
     std::shared_ptr<string> clientToken_ = nullptr;
-    // The dataflow ID.
+    // The ID of the dataflow.
     // 
     // This parameter is required.
     std::shared_ptr<string> dataFlowId_ = nullptr;
     // Specifies whether to perform a dry run.
     // 
-    // During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no file system is created and no fee is incurred.
+    // During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no fileset quota is canceled and no fee is incurred.
     // 
-    // Valid values:
+    // Valid value:
     // 
-    // *   true: performs a dry run. The system checks the required parameters, request syntax, limits, and available NAS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
-    // *   false (default): performs a dry run and sends the request. If the request passes the dry run, a file system is created.
+    // *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. Otherwise, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
+    // *   false (default): performs a dry run and sends the request. If the request passes the dry run, a fileset is created.
     std::shared_ptr<bool> dryRun_ = nullptr;
     // The ID of the file system.
     // 

@@ -98,9 +98,9 @@ namespace Models
 
 
   protected:
-    // The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minutes.
+    // The automatic update interval. CPFS checks whether data is updated in the directory at the interval specified by this parameter. If data is updated, CPFS starts an automatic update task. Unit: minute.
     // 
-    // Valid values: 5 to 526600. Default value: 10.
+    // Valid values: 10 to 525600. Default value: 10.
     std::shared_ptr<int64_t> autoRefreshInterval_ = nullptr;
     // The automatic update policy. The updated data in the source storage is imported into the CPFS file system based on the policy. Valid values:
     // 
@@ -117,7 +117,7 @@ namespace Models
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
     std::shared_ptr<string> clientToken_ = nullptr;
-    // The dataflow ID.
+    // The ID of the dataflow.
     // 
     // This parameter is required.
     std::shared_ptr<string> dataFlowId_ = nullptr;

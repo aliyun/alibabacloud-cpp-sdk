@@ -82,9 +82,7 @@ namespace Models
     // The ID of the file system.
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
-    // *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
-    // 
-    // >  CPFS is not supported on the international site.
+    // *   The IDs of CPFS for Lingjun file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*. .
     // 
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;
@@ -98,6 +96,16 @@ namespace Models
     std::shared_ptr<int64_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     std::shared_ptr<string> nextToken_ = nullptr;
+    // Whether to query report information.
+    // 
+    // *   True (default)
+    // *   False
+    // 
+    // > 
+    // 
+    // *   Set it to False to speed up the query.
+    // 
+    // *   Only CPFS for Lingjun supports this parameter.
     std::shared_ptr<bool> withReports_ = nullptr;
   };
 

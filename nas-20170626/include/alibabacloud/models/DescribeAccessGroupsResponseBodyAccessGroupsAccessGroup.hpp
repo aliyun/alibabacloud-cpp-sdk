@@ -115,11 +115,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard: General-purpose File Storage NAS (NAS) file system
-    // *   extreme: Extreme NAS file system
-    // *   cpfs: Cloud Parallel File Storage (CPFS) file system
-    // 
-    // >  CPFS file systems are available only on the China site (aliyun.com).
+    // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+    // *   extreme: Extreme NAS file system.
+    // *   cpfs: CPFS file system.
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The number of mount targets to which the permission group is attached.
     std::shared_ptr<int32_t> mountTargetCount_ = nullptr;

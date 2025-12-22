@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The details about data flows.
+    // The dataflow details.
     std::shared_ptr<DescribeDataFlowsResponseBodyDataFlowInfo> dataFlowInfo_ = nullptr;
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     std::shared_ptr<string> nextToken_ = nullptr;

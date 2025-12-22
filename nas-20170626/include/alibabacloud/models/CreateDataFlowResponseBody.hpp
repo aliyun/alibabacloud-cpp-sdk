@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The dataflow ID.
+    // The ID of the dataflow.
     std::shared_ptr<string> dataFlowId_ = nullptr;
     // The request ID.
     std::shared_ptr<string> requestId_ = nullptr;

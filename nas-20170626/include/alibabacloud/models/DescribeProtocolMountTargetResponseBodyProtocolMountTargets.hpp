@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEPROTOCOLMOUNTTARGETRESPONSEBODYPROTOCOLMOUNTTARGETS_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEPROTOCOLMOUNTTARGETRESPONSEBODYPROTOCOLMOUNTTARGETS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProtocolMountTargetResponseBodyProtocolMountTargets& obj) { 
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
+      DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
     };
     DescribeProtocolMountTargetResponseBodyProtocolMountTargets() = default ;
@@ -54,7 +57,7 @@ namespace Models
     virtual bool empty() const override { return this->accessGroupName_ == nullptr
         && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->exportId_ == nullptr && return this->fsetId_ == nullptr && return this->path_ == nullptr
         && return this->protocolMountTargetDomain_ == nullptr && return this->protocolServiceId_ == nullptr && return this->protocolType_ == nullptr && return this->status_ == nullptr && return this->vSwitchId_ == nullptr
-        && return this->vpcId_ == nullptr; };
+        && return this->vSwitchIds_ == nullptr && return this->vpcId_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
@@ -132,6 +135,15 @@ namespace Models
     inline DescribeProtocolMountTargetResponseBodyProtocolMountTargets& setVSwitchId(string vSwitchId) { DARABONBA_PTR_SET_VALUE(vSwitchId_, vSwitchId) };
 
 
+    // vSwitchIds Field Functions 
+    bool hasVSwitchIds() const { return this->vSwitchIds_ != nullptr;};
+    void deleteVSwitchIds() { this->vSwitchIds_ = nullptr;};
+    inline const vector<string> & vSwitchIds() const { DARABONBA_PTR_GET_CONST(vSwitchIds_, vector<string>) };
+    inline vector<string> vSwitchIds() { DARABONBA_PTR_GET(vSwitchIds_, vector<string>) };
+    inline DescribeProtocolMountTargetResponseBodyProtocolMountTargets& setVSwitchIds(const vector<string> & vSwitchIds) { DARABONBA_PTR_SET_VALUE(vSwitchIds_, vSwitchIds) };
+    inline DescribeProtocolMountTargetResponseBodyProtocolMountTargets& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
+
+
     // vpcId Field Functions 
     bool hasVpcId() const { return this->vpcId_ != nullptr;};
     void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -162,6 +174,7 @@ namespace Models
     std::shared_ptr<string> status_ = nullptr;
     // The vSwitch ID of the export directory for the protocol service.
     std::shared_ptr<string> vSwitchId_ = nullptr;
+    std::shared_ptr<vector<string>> vSwitchIds_ = nullptr;
     // The VPC ID of the export directory for the protocol service.
     std::shared_ptr<string> vpcId_ = nullptr;
   };

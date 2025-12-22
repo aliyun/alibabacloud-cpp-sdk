@@ -6,6 +6,7 @@
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages.hpp>
+#include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemTags.hpp>
 #include <alibabacloud/models/DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds.hpp>
@@ -41,6 +42,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Packages, packages_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(QuorumVswId, quorumVswId_);
+      DARABONBA_PTR_TO_JSON(RedundancyType, redundancyType_);
+      DARABONBA_PTR_TO_JSON(RedundancyVSwitchIds, redundancyVSwitchIds_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -75,6 +78,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Packages, packages_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(QuorumVswId, quorumVswId_);
+      DARABONBA_PTR_FROM_JSON(RedundancyType, redundancyType_);
+      DARABONBA_PTR_FROM_JSON(RedundancyVSwitchIds, redundancyVSwitchIds_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -103,9 +108,9 @@ namespace Models
         && return this->description_ == nullptr && return this->encryptType_ == nullptr && return this->expiredTime_ == nullptr && return this->fileSystemId_ == nullptr && return this->fileSystemType_ == nullptr
         && return this->KMSKeyId_ == nullptr && return this->ldap_ == nullptr && return this->meteredArchiveSize_ == nullptr && return this->meteredIASize_ == nullptr && return this->meteredSize_ == nullptr
         && return this->mountTargets_ == nullptr && return this->options_ == nullptr && return this->packages_ == nullptr && return this->protocolType_ == nullptr && return this->quorumVswId_ == nullptr
-        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr && return this->storageType_ == nullptr && return this->supportedFeatures_ == nullptr
-        && return this->tags_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr && return this->vscTarget_ == nullptr && return this->vswIds_ == nullptr
-        && return this->zoneId_ == nullptr; };
+        && return this->redundancyType_ == nullptr && return this->redundancyVSwitchIds_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->status_ == nullptr
+        && return this->storageType_ == nullptr && return this->supportedFeatures_ == nullptr && return this->tags_ == nullptr && return this->version_ == nullptr && return this->vpcId_ == nullptr
+        && return this->vscTarget_ == nullptr && return this->vswIds_ == nullptr && return this->zoneId_ == nullptr; };
     // accessPointCount Field Functions 
     bool hasAccessPointCount() const { return this->accessPointCount_ != nullptr;};
     void deleteAccessPointCount() { this->accessPointCount_ = nullptr;};
@@ -261,6 +266,22 @@ namespace Models
     inline DescribeFileSystemsResponseBodyFileSystemsFileSystem& setQuorumVswId(string quorumVswId) { DARABONBA_PTR_SET_VALUE(quorumVswId_, quorumVswId) };
 
 
+    // redundancyType Field Functions 
+    bool hasRedundancyType() const { return this->redundancyType_ != nullptr;};
+    void deleteRedundancyType() { this->redundancyType_ = nullptr;};
+    inline string redundancyType() const { DARABONBA_PTR_GET_DEFAULT(redundancyType_, "") };
+    inline DescribeFileSystemsResponseBodyFileSystemsFileSystem& setRedundancyType(string redundancyType) { DARABONBA_PTR_SET_VALUE(redundancyType_, redundancyType) };
+
+
+    // redundancyVSwitchIds Field Functions 
+    bool hasRedundancyVSwitchIds() const { return this->redundancyVSwitchIds_ != nullptr;};
+    void deleteRedundancyVSwitchIds() { this->redundancyVSwitchIds_ = nullptr;};
+    inline const Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds & redundancyVSwitchIds() const { DARABONBA_PTR_GET_CONST(redundancyVSwitchIds_, Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds) };
+    inline Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds redundancyVSwitchIds() { DARABONBA_PTR_GET(redundancyVSwitchIds_, Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds) };
+    inline DescribeFileSystemsResponseBodyFileSystemsFileSystem& setRedundancyVSwitchIds(const Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds & redundancyVSwitchIds) { DARABONBA_PTR_SET_VALUE(redundancyVSwitchIds_, redundancyVSwitchIds) };
+    inline DescribeFileSystemsResponseBodyFileSystemsFileSystem& setRedundancyVSwitchIds(Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds && redundancyVSwitchIds) { DARABONBA_PTR_SET_RVALUE(redundancyVSwitchIds_, redundancyVSwitchIds) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -383,13 +404,11 @@ namespace Models
     std::shared_ptr<string> fileSystemId_ = nullptr;
     // The file system type.
     // 
-    // Valid values:
+    // The following information is displayed:
     // 
     // *   standard: General-purpose NAS file system.
     // *   extreme: Extreme NAS file system.
     // *   cpfs: CPFS file system.
-    // 
-    // >  CPFS file systems are available only on the China site (aliyun.com).
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The ID of the key that is managed by Key Management Service (KMS).
     std::shared_ptr<string> KMSKeyId_ = nullptr;
@@ -417,16 +436,16 @@ namespace Models
     std::shared_ptr<Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemPackages> packages_ = nullptr;
     // The protocol type of the file system.
     // 
-    // Valid values:
+    // The following information is displayed:
     // 
     // *   NFS: Network File System.
     // *   SMB: Server Message Block.
     // *   cpfs: The protocol type supported by the CPFS file system.
-    // 
-    // >  CPFS file systems are available only on the China site (aliyun.com).
     std::shared_ptr<string> protocolType_ = nullptr;
     // The vSwitch ID.
     std::shared_ptr<string> quorumVswId_ = nullptr;
+    std::shared_ptr<string> redundancyType_ = nullptr;
+    std::shared_ptr<Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemRedundancyVSwitchIds> redundancyVSwitchIds_ = nullptr;
     // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
     // The resource group ID.
@@ -439,13 +458,13 @@ namespace Models
     // - Stopping: The file system is being stopped.
     // - Deleting: The file system is being deleted.
     std::shared_ptr<string> status_ = nullptr;
-    // The storage type.
+    // The type of the storage.
     // 
-    // Valid values:
-    // - Valid values for General-purpose NAS file systems: Capacity,Premium and Performance.
-    // - Valid values for Extreme NAS file systems: standard and advance.
-    // - Valid values for CPFS file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline).
-    //  > CPFS file systems are available only on the China site (aliyun.com).
+    // The following information is displayed:
+    // 
+    // *   Valid values for General-purpose NAS file systems: Capacity, Performance, and Premium
+    // *   Valid values for Extreme NAS file systems: standard and advance
+    // *   Valid values for Cloud Parallel File Storage (CPFS) file systems: advance_100 (100 MB/s/TiB baseline) and advance_200 (200 MB/s/TiB baseline)
     std::shared_ptr<string> storageType_ = nullptr;
     // The features that are supported by the file system.
     std::shared_ptr<Models::DescribeFileSystemsResponseBodyFileSystemsFileSystemSupportedFeatures> supportedFeatures_ = nullptr;

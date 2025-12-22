@@ -90,9 +90,7 @@ namespace Models
     // The ID of the file system.
     // 
     // *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
-    // *   The IDs of CPFS file systems must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
-    // 
-    // > CPFS file systems are available only on the China site (aliyun.com).
+    // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;

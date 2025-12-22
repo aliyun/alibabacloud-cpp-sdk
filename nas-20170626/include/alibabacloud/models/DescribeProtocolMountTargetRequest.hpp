@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Filters, filters_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(ProtocolServiceIds, protocolServiceIds_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeProtocolMountTargetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Filters, filters_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(ProtocolServiceIds, protocolServiceIds_);
     };
     DescribeProtocolMountTargetRequest() = default ;
     DescribeProtocolMountTargetRequest(const DescribeProtocolMountTargetRequest &) = default ;
@@ -40,7 +42,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->filters_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr; };
+        && return this->fileSystemId_ == nullptr && return this->filters_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->protocolServiceIds_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -78,6 +80,13 @@ namespace Models
     inline DescribeProtocolMountTargetRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // protocolServiceIds Field Functions 
+    bool hasProtocolServiceIds() const { return this->protocolServiceIds_ != nullptr;};
+    void deleteProtocolServiceIds() { this->protocolServiceIds_ = nullptr;};
+    inline string protocolServiceIds() const { DARABONBA_PTR_GET_DEFAULT(protocolServiceIds_, "") };
+    inline DescribeProtocolMountTargetRequest& setProtocolServiceIds(string protocolServiceIds) { DARABONBA_PTR_SET_VALUE(protocolServiceIds_, protocolServiceIds) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
     // 
@@ -98,6 +107,7 @@ namespace Models
     std::shared_ptr<int64_t> maxResults_ = nullptr;
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> protocolServiceIds_ = nullptr;
   };
 
   } // namespace Models

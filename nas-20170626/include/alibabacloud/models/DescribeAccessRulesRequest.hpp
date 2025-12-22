@@ -85,8 +85,8 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system
-    // *   extreme: Extreme NAS file system
+    // *   standard (default): General-purpose NAS file system.
+    // *   extreme: Extreme NAS file system.
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The page number.
     // 

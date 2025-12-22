@@ -90,12 +90,12 @@ namespace Models
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
     std::shared_ptr<string> clientToken_ = nullptr;
-    // Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
+    // Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
     // 
     // *   true: enables release protection.
     // *   false: disables release protection.
     // 
-    // >  This parameter can protect filesets only against manual releases, but not against automatic releases.
+    // > This parameter can protect filesets only against manual releases, but not against automatic releases.
     std::shared_ptr<bool> deletionProtection_ = nullptr;
     // The fileset description.
     std::shared_ptr<string> description_ = nullptr;
@@ -112,8 +112,6 @@ namespace Models
     // 
     // *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
     // *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
-    // 
-    // >  CPFS is not supported on the international site.
     // 
     // This parameter is required.
     std::shared_ptr<string> fileSystemId_ = nullptr;

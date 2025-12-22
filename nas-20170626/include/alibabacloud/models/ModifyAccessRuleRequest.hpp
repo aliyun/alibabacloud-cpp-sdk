@@ -115,8 +115,8 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system
-    // *   extreme: Extreme NAS file system
+    // *   standard (default): General-purpose NAS file system.
+    // *   extreme: Extreme NAS file system.
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The IPv6 address or CIDR block of the authorized object.
     // 
@@ -136,8 +136,8 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   RDWR (default): the read and write permissions
-    // *   RDONLY: the read-only permissions
+    // *   RDWR (default): the read and write permissions.
+    // *   RDONLY: the read-only permissions.
     std::shared_ptr<string> RWAccessType_ = nullptr;
     // The IP address or CIDR block of the authorized object.
     // 

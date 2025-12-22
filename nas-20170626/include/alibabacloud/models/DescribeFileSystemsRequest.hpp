@@ -100,10 +100,9 @@ namespace Models
   protected:
     // The ID of the file system.
     // 
-    // - Sample ID of a General-purpose NAS file system: 31a8e4****.
-    // - The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015****.
-    // - The IDs of Cloud Parallel File Storage (CPFS) file systems must start with cpfs-, for example, cpfs-125487****.
-    // > CPFS file systems are available only on the China site (aliyun.com).
+    // *   Sample ID of a General-purpose NAS file system: 31a8e4\\*\\*\\*\\*.
+    // *   The IDs of Extreme NAS file systems must start with extreme-, for example, extreme-0015\\*\\*\\*\\*.
+    // *   The IDs of CPFS file systems must start with cpfs-. Example: cpfs-125487\\*\\*\\*\\*.
     std::shared_ptr<string> fileSystemId_ = nullptr;
     // The type of the file system.
     // 
@@ -112,10 +111,9 @@ namespace Models
     // *   all (default): All types.
     // *   standard: General-purpose NAS file system.
     // *   extreme: Extreme NAS file system.
-    // *   cpfs: Cloud Parallel File Storage (CPFS) file system.
+    // *   cpfs: CPFS file system.
     // 
-    // > *   CPFS file systems are available only on the China site (aliyun.com).
-    // > *   Separate multiple file types with commas (,).
+    // >  Separate multiple data types with commas (,).
     std::shared_ptr<string> fileSystemType_ = nullptr;
     // The page number.
     // 
