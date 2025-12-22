@@ -168,6 +168,10 @@ CreateClientCertificateResponse Client::createClientCertificateWithOptions(const
     query["Country"] = request.country();
   }
 
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
+  }
+
   if (!!request.hasDays()) {
     query["Days"] = request.days();
   }
@@ -292,6 +296,10 @@ CreateClientCertificateWithCsrResponse Client::createClientCertificateWithCsrWit
 
   if (!!request.hasCsr()) {
     query["Csr"] = request.csr();
+  }
+
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
   }
 
   if (!!request.hasDays()) {
@@ -438,6 +446,10 @@ CreateCustomCertificateResponse Client::createCustomCertificateWithOptions(const
 
   if (!!request.hasValidity()) {
     query["Validity"] = request.validity();
+  }
+
+  if (!!request.hasCustomIdentifier()) {
+    query["customIdentifier"] = request.customIdentifier();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -730,6 +742,10 @@ CreateServerCertificateResponse Client::createServerCertificateWithOptions(const
     query["Country"] = request.country();
   }
 
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
+  }
+
   if (!!request.hasDays()) {
     query["Days"] = request.days();
   }
@@ -849,6 +865,10 @@ CreateServerCertificateWithCsrResponse Client::createServerCertificateWithCsrWit
 
   if (!!request.hasCsr()) {
     query["Csr"] = request.csr();
+  }
+
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
   }
 
   if (!!request.hasDays()) {

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(Country, country_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Days, days_);
       DARABONBA_PTR_TO_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_TO_JSON(Immediately, immediately_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Days, days_);
       DARABONBA_PTR_FROM_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_FROM_JSON(Immediately, immediately_);
@@ -68,10 +70,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterTime_ == nullptr
-        && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->days_ == nullptr
-        && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr && return this->months_ == nullptr && return this->organization_ == nullptr
-        && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sanType_ == nullptr && return this->sanValue_ == nullptr
-        && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
+        && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->customIdentifier_ == nullptr
+        && return this->days_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr && return this->months_ == nullptr
+        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sanType_ == nullptr
+        && return this->sanValue_ == nullptr && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -105,6 +107,13 @@ namespace Models
     void deleteCountry() { this->country_ = nullptr;};
     inline string country() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
     inline CreateClientCertificateRequest& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline CreateClientCertificateRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // days Field Functions 
@@ -234,6 +243,7 @@ namespace Models
     std::shared_ptr<string> commonName_ = nullptr;
     // The country in which the organization is located. Default value: CN.
     std::shared_ptr<string> country_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The validity period of the client certificate. Unit: day. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
     // 
     // *   If you specify the **Days** parameter, you can specify both the **BeforeTime** and **AfterTime** parameters or leave them both empty.

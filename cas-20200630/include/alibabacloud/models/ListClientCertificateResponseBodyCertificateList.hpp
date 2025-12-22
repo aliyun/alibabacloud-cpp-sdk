@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Days, days_);
       DARABONBA_PTR_TO_JSON(Identifier, identifier_);
       DARABONBA_PTR_TO_JSON(KeySize, keySize_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Days, days_);
       DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
       DARABONBA_PTR_FROM_JSON(KeySize, keySize_);
@@ -75,10 +77,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterDate_ == nullptr
         && return this->algorithm_ == nullptr && return this->beforeDate_ == nullptr && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->countryCode_ == nullptr
-        && return this->days_ == nullptr && return this->identifier_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->md5_ == nullptr
-        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr
-        && return this->serialNumber_ == nullptr && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr && return this->status_ == nullptr
-        && return this->subjectDN_ == nullptr && return this->x509Certificate_ == nullptr; };
+        && return this->customIdentifier_ == nullptr && return this->days_ == nullptr && return this->identifier_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr
+        && return this->md5_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->sans_ == nullptr && return this->serialNumber_ == nullptr && return this->sha2_ == nullptr && return this->signAlgorithm_ == nullptr && return this->state_ == nullptr
+        && return this->status_ == nullptr && return this->subjectDN_ == nullptr && return this->x509Certificate_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -119,6 +121,13 @@ namespace Models
     void deleteCountryCode() { this->countryCode_ = nullptr;};
     inline string countryCode() const { DARABONBA_PTR_GET_DEFAULT(countryCode_, "") };
     inline ListClientCertificateResponseBodyCertificateList& setCountryCode(string countryCode) { DARABONBA_PTR_SET_VALUE(countryCode_, countryCode) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline ListClientCertificateResponseBodyCertificateList& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // days Field Functions 
@@ -262,6 +271,7 @@ namespace Models
     // 
     // For more information about country codes, see the **"Country codes"** section of the [Manage company profiles](https://help.aliyun.com/document_detail/198289.html) topic.
     std::shared_ptr<string> countryCode_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The validity period of the certificate. Unit: days.
     std::shared_ptr<int32_t> days_ = nullptr;
     // The unique identifier of the certificate.

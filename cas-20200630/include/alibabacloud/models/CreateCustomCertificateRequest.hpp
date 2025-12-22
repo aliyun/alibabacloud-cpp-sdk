@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(Validity, validity_);
+      DARABONBA_PTR_TO_JSON(customIdentifier, customIdentifier_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCustomCertificateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiPassthrough, apiPassthrough_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(Validity, validity_);
+      DARABONBA_PTR_FROM_JSON(customIdentifier, customIdentifier_);
     };
     CreateCustomCertificateRequest() = default ;
     CreateCustomCertificateRequest(const CreateCustomCertificateRequest &) = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiPassthrough_ == nullptr
         && return this->csr_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->tags_ == nullptr && return this->validity_ == nullptr; };
+        && return this->tags_ == nullptr && return this->validity_ == nullptr && return this->customIdentifier_ == nullptr; };
     // apiPassthrough Field Functions 
     bool hasApiPassthrough() const { return this->apiPassthrough_ != nullptr;};
     void deleteApiPassthrough() { this->apiPassthrough_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
     inline CreateCustomCertificateRequest& setValidity(string validity) { DARABONBA_PTR_SET_VALUE(validity_, validity) };
 
 
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline CreateCustomCertificateRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
+
+
   protected:
     // The passthrough parameters.
     std::shared_ptr<CreateCustomCertificateRequestApiPassthrough> apiPassthrough_ = nullptr;
@@ -148,6 +157,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> validity_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
   };
 
   } // namespace Models

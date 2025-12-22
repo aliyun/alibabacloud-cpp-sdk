@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(Country, country_);
       DARABONBA_PTR_TO_JSON(Csr, csr_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Days, days_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(EnableCrl, enableCrl_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
       DARABONBA_PTR_FROM_JSON(Csr, csr_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Days, days_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(EnableCrl, enableCrl_);
@@ -69,9 +71,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterTime_ == nullptr
         && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->csr_ == nullptr
-        && return this->days_ == nullptr && return this->domain_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr
-        && return this->months_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
+        && return this->customIdentifier_ == nullptr && return this->days_ == nullptr && return this->domain_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr
+        && return this->locality_ == nullptr && return this->months_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -112,6 +114,13 @@ namespace Models
     void deleteCsr() { this->csr_ = nullptr;};
     inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline CreateServerCertificateWithCsrRequest& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline CreateServerCertificateWithCsrRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // days Field Functions 
@@ -240,6 +249,7 @@ namespace Models
     // 
     // This parameter is required.
     std::shared_ptr<string> csr_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The validity period of the server certificate. Unit: days.
     // 
     // You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:

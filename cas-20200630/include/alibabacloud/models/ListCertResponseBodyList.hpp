@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_TO_JSON(CertificateType, certificateType_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Identifier, identifier_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BeforeTime, beforeTime_);
       DARABONBA_PTR_FROM_JSON(CertificateType, certificateType_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Identifier, identifier_);
@@ -66,9 +68,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterDate_ == nullptr
         && return this->afterTime_ == nullptr && return this->algorithm_ == nullptr && return this->aliasName_ == nullptr && return this->beforeDate_ == nullptr && return this->beforeTime_ == nullptr
-        && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->extra_ == nullptr && return this->id_ == nullptr && return this->identifier_ == nullptr
-        && return this->keyExportable_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->serialNumber_ == nullptr && return this->status_ == nullptr
-        && return this->subjectDn_ == nullptr && return this->tags_ == nullptr; };
+        && return this->certificateType_ == nullptr && return this->commonName_ == nullptr && return this->customIdentifier_ == nullptr && return this->extra_ == nullptr && return this->id_ == nullptr
+        && return this->identifier_ == nullptr && return this->keyExportable_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->serialNumber_ == nullptr
+        && return this->status_ == nullptr && return this->subjectDn_ == nullptr && return this->tags_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};
@@ -123,6 +125,13 @@ namespace Models
     void deleteCommonName() { this->commonName_ = nullptr;};
     inline string commonName() const { DARABONBA_PTR_GET_DEFAULT(commonName_, "") };
     inline ListCertResponseBodyList& setCommonName(string commonName) { DARABONBA_PTR_SET_VALUE(commonName_, commonName) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline ListCertResponseBodyList& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // extra Field Functions 
@@ -206,6 +215,7 @@ namespace Models
     std::shared_ptr<int64_t> beforeTime_ = nullptr;
     std::shared_ptr<string> certificateType_ = nullptr;
     std::shared_ptr<string> commonName_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     std::shared_ptr<string> extra_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<string> identifier_ = nullptr;

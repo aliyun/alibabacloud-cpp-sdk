@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(Country, country_);
       DARABONBA_PTR_TO_JSON(Csr, csr_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Days, days_);
       DARABONBA_PTR_TO_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_TO_JSON(Immediately, immediately_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
       DARABONBA_PTR_FROM_JSON(Csr, csr_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Days, days_);
       DARABONBA_PTR_FROM_JSON(EnableCrl, enableCrl_);
       DARABONBA_PTR_FROM_JSON(Immediately, immediately_);
@@ -71,9 +73,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->afterTime_ == nullptr
         && return this->algorithm_ == nullptr && return this->beforeTime_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->csr_ == nullptr
-        && return this->days_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr && return this->months_ == nullptr
-        && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sanType_ == nullptr
-        && return this->sanValue_ == nullptr && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
+        && return this->customIdentifier_ == nullptr && return this->days_ == nullptr && return this->enableCrl_ == nullptr && return this->immediately_ == nullptr && return this->locality_ == nullptr
+        && return this->months_ == nullptr && return this->organization_ == nullptr && return this->organizationUnit_ == nullptr && return this->parentIdentifier_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->sanType_ == nullptr && return this->sanValue_ == nullptr && return this->state_ == nullptr && return this->tags_ == nullptr && return this->years_ == nullptr; };
     // afterTime Field Functions 
     bool hasAfterTime() const { return this->afterTime_ != nullptr;};
     void deleteAfterTime() { this->afterTime_ = nullptr;};
@@ -114,6 +116,13 @@ namespace Models
     void deleteCsr() { this->csr_ = nullptr;};
     inline string csr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline CreateClientCertificateWithCsrRequest& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline CreateClientCertificateWithCsrRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // days Field Functions 
@@ -247,6 +256,7 @@ namespace Models
     std::shared_ptr<string> country_ = nullptr;
     // The content of the CSR file. You can generate a CSR file by using the OpenSSL tool or Keytool. For more information, see [How do I create a CSR file?](https://help.aliyun.com/document_detail/42218.html) You can also create a CSR file in the Certificate Management Service console. For more information, see [Create a CSR](https://help.aliyun.com/document_detail/313297.html).
     std::shared_ptr<string> csr_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The validity period of the client certificate. Unit: days. You must specify at least one of the **Days**, **BeforeTime**, and **AfterTime** parameters. The **BeforeTime** and **AfterTime** parameters must be both empty or both specified. The following list describes how to specify these parameters:
     // 
     // *   If you specify the **Days** parameter, you can specify both the **BeforeTime** and **AfterTime** parameters or leave them both empty.********
