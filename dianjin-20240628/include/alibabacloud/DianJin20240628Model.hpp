@@ -17,6 +17,10 @@
 #include <alibabacloud/models/CreateFinReportSummaryTaskRequest.hpp>
 #include <alibabacloud/models/CreateFinReportSummaryTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateFinReportSummaryTaskResponse.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskHeaders.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskRequest.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskResponse.hpp>
 #include <alibabacloud/models/CreateLibraryRequest.hpp>
 #include <alibabacloud/models/CreateLibraryResponseBody.hpp>
 #include <alibabacloud/models/CreateLibraryResponse.hpp>
@@ -29,6 +33,10 @@
 #include <alibabacloud/models/CreateQualityCheckTaskRequest.hpp>
 #include <alibabacloud/models/CreateQualityCheckTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateQualityCheckTaskResponse.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskHeaders.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskRequest.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskResponse.hpp>
 #include <alibabacloud/models/DeleteDocumentRequest.hpp>
 #include <alibabacloud/models/DeleteDocumentResponseBody.hpp>
 #include <alibabacloud/models/DeleteDocumentResponse.hpp>
@@ -73,6 +81,10 @@
 #include <alibabacloud/models/GetHistoryListByBizTypeRequest.hpp>
 #include <alibabacloud/models/GetHistoryListByBizTypeResponseBody.hpp>
 #include <alibabacloud/models/GetHistoryListByBizTypeResponse.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultHeaders.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultRequest.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponseBody.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponse.hpp>
 #include <alibabacloud/models/GetLibraryRequest.hpp>
 #include <alibabacloud/models/GetLibraryResponseBody.hpp>
 #include <alibabacloud/models/GetLibraryResponse.hpp>
@@ -94,6 +106,10 @@
 #include <alibabacloud/models/GetTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultHeaders.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultRequest.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBody.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponse.hpp>
 #include <alibabacloud/models/InvokePluginRequest.hpp>
 #include <alibabacloud/models/InvokePluginResponseBody.hpp>
 #include <alibabacloud/models/InvokePluginResponse.hpp>
@@ -154,6 +170,9 @@
 #include <alibabacloud/models/CreateDialogAnalysisTaskRequestConversationListDialogueList.hpp>
 #include <alibabacloud/models/CreateDialogAnalysisTaskRequestConversationList.hpp>
 #include <alibabacloud/models/CreateDocsSummaryTaskRequestDocInfos.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskRequestFileInfo.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskResponseBodyDataFileInfo.hpp>
+#include <alibabacloud/models/CreateImageDetectionTaskResponseBodyData.hpp>
 #include <alibabacloud/models/CreateLibraryRequestIndexSettingChunkStrategy.hpp>
 #include <alibabacloud/models/CreateLibraryRequestIndexSettingModelConfig.hpp>
 #include <alibabacloud/models/CreateLibraryRequestIndexSettingQueryEnhancer.hpp>
@@ -165,6 +184,9 @@
 #include <alibabacloud/models/CreateQualityCheckTaskRequestConversationListDialogueList.hpp>
 #include <alibabacloud/models/CreateQualityCheckTaskRequestConversationList.hpp>
 #include <alibabacloud/models/CreateQualityCheckTaskResponseBodyData.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskRequestCreationInstruction.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskRequestFileInfo.hpp>
+#include <alibabacloud/models/CreateVideoCreationTaskResponseBodyData.hpp>
 #include <alibabacloud/models/GenDocQaResultResponseBodyDataParseQaResults.hpp>
 #include <alibabacloud/models/GenDocQaResultResponseBodyData.hpp>
 #include <alibabacloud/models/GetAppConfigResponseBodyData.hpp>
@@ -190,6 +212,10 @@
 #include <alibabacloud/models/GetFilterDocumentListResponseBodyData.hpp>
 #include <alibabacloud/models/GetHistoryListByBizTypeResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/GetHistoryListByBizTypeResponseBodyData.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponseBodyDataDetectionResultDetectionDetails.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponseBodyDataDetectionResult.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponseBodyDataFileInfo.hpp>
+#include <alibabacloud/models/GetImageDetectionTaskResultResponseBodyData.hpp>
 #include <alibabacloud/models/GetLibraryResponseBodyDataIndexSettingChunkStrategy.hpp>
 #include <alibabacloud/models/GetLibraryResponseBodyDataIndexSettingModelConfig.hpp>
 #include <alibabacloud/models/GetLibraryResponseBodyDataIndexSettingQueryEnhancer.hpp>
@@ -217,6 +243,12 @@
 #include <alibabacloud/models/GetSummaryTaskResultResponseBodyDataChoices.hpp>
 #include <alibabacloud/models/GetSummaryTaskResultResponseBodyDataUsage.hpp>
 #include <alibabacloud/models/GetSummaryTaskResultResponseBodyData.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyDataFileInfo.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyDataMediaDetectionTaskResultDetectionResultDetectionDetails.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyDataMediaDetectionTaskResultDetectionResult.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyDataMediaDetectionTaskResultFileInfo.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyDataMediaDetectionTaskResult.hpp>
+#include <alibabacloud/models/GetVideoCreationTaskResultResponseBodyData.hpp>
 #include <alibabacloud/models/PreviewDocumentResponseBodyData.hpp>
 #include <alibabacloud/models/RealTimeDialogRequestConversationModel.hpp>
 #include <alibabacloud/models/RealTimeDialogResponseBodyChoicesDelta.hpp>

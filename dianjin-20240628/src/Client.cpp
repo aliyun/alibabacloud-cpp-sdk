@@ -366,6 +366,72 @@ CreateFinReportSummaryTaskResponse Client::createFinReportSummaryTask(const stri
 }
 
 /**
+ * @summary 创建图片检测任务
+ *
+ * @param request CreateImageDetectionTaskRequest
+ * @param headers CreateImageDetectionTaskHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImageDetectionTaskResponse
+ */
+CreateImageDetectionTaskResponse Client::createImageDetectionTaskWithOptions(const string &workspaceId, const CreateImageDetectionTaskRequest &request, const CreateImageDetectionTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFileInfo()) {
+    body["fileInfo"] = request.fileInfo();
+  }
+
+  if (!!request.hasFileUrl()) {
+    body["fileUrl"] = request.fileUrl();
+  }
+
+  if (!!request.hasRequestId()) {
+    body["requestId"] = request.requestId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.userId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.xLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateImageDetectionTask"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/imageDetect/task/submit")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImageDetectionTaskResponse>();
+}
+
+/**
+ * @summary 创建图片检测任务
+ *
+ * @param request CreateImageDetectionTaskRequest
+ * @return CreateImageDetectionTaskResponse
+ */
+CreateImageDetectionTaskResponse Client::createImageDetectionTask(const string &workspaceId, const CreateImageDetectionTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  CreateImageDetectionTaskHeaders headers = CreateImageDetectionTaskHeaders();
+  return createImageDetectionTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 创建文档库
  *
  * @param request CreateLibraryRequest
@@ -603,6 +669,76 @@ CreateQualityCheckTaskResponse Client::createQualityCheckTask(const string &work
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createQualityCheckTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建视频生成任务
+ *
+ * @param request CreateVideoCreationTaskRequest
+ * @param headers CreateVideoCreationTaskHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVideoCreationTaskResponse
+ */
+CreateVideoCreationTaskResponse Client::createVideoCreationTaskWithOptions(const string &workspaceId, const CreateVideoCreationTaskRequest &request, const CreateVideoCreationTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCreationInstruction()) {
+    body["creationInstruction"] = request.creationInstruction();
+  }
+
+  if (!!request.hasFileInfo()) {
+    body["fileInfo"] = request.fileInfo();
+  }
+
+  if (!!request.hasImageDetectionTaskId()) {
+    body["imageDetectionTaskId"] = request.imageDetectionTaskId();
+  }
+
+  if (!!request.hasRequestId()) {
+    body["requestId"] = request.requestId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.userId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.xLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateVideoCreationTask"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/videoCreation/task/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVideoCreationTaskResponse>();
+}
+
+/**
+ * @summary 创建视频生成任务
+ *
+ * @param request CreateVideoCreationTaskRequest
+ * @return CreateVideoCreationTaskResponse
+ */
+CreateVideoCreationTaskResponse Client::createVideoCreationTask(const string &workspaceId, const CreateVideoCreationTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  CreateVideoCreationTaskHeaders headers = CreateVideoCreationTaskHeaders();
+  return createVideoCreationTaskWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -1416,6 +1552,64 @@ GetHistoryListByBizTypeResponse Client::getHistoryListByBizType(const string &wo
 }
 
 /**
+ * @summary 获取检测结果
+ *
+ * @param request GetImageDetectionTaskResultRequest
+ * @param headers GetImageDetectionTaskResultHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetImageDetectionTaskResultResponse
+ */
+GetImageDetectionTaskResultResponse Client::getImageDetectionTaskResultWithOptions(const string &workspaceId, const GetImageDetectionTaskResultRequest &request, const GetImageDetectionTaskResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.userId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.xLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetImageDetectionTaskResult"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/imageDetect/task/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetImageDetectionTaskResultResponse>();
+}
+
+/**
+ * @summary 获取检测结果
+ *
+ * @param request GetImageDetectionTaskResultRequest
+ * @return GetImageDetectionTaskResultResponse
+ */
+GetImageDetectionTaskResultResponse Client::getImageDetectionTaskResult(const string &workspaceId, const GetImageDetectionTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetImageDetectionTaskResultHeaders headers = GetImageDetectionTaskResultHeaders();
+  return getImageDetectionTaskResultWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 获取文档库配置详情
  *
  * @param request GetLibraryRequest
@@ -1744,6 +1938,64 @@ GetTaskStatusResponse Client::getTaskStatus(const string &workspaceId, const Get
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getTaskStatusWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取视频生成任务结果
+ *
+ * @param request GetVideoCreationTaskResultRequest
+ * @param headers GetVideoCreationTaskResultHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVideoCreationTaskResultResponse
+ */
+GetVideoCreationTaskResultResponse Client::getVideoCreationTaskResultWithOptions(const string &workspaceId, const GetVideoCreationTaskResultRequest &request, const GetVideoCreationTaskResultHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["taskId"] = request.taskId();
+  }
+
+  if (!!request.hasUserId()) {
+    body["userId"] = request.userId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.commonHeaders();
+  }
+
+  if (!!headers.hasXLoadTest()) {
+    realHeaders["X-Load-Test"] = json(headers.xLoadTest()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetVideoCreationTaskResult"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/videoCreation/task/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVideoCreationTaskResultResponse>();
+}
+
+/**
+ * @summary 获取视频生成任务结果
+ *
+ * @param request GetVideoCreationTaskResultRequest
+ * @return GetVideoCreationTaskResultResponse
+ */
+GetVideoCreationTaskResultResponse Client::getVideoCreationTaskResult(const string &workspaceId, const GetVideoCreationTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetVideoCreationTaskResultHeaders headers = GetVideoCreationTaskResultHeaders();
+  return getVideoCreationTaskResultWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

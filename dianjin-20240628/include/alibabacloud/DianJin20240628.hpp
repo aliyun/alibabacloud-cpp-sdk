@@ -112,6 +112,24 @@ namespace DianJin20240628
       Models::CreateFinReportSummaryTaskResponse createFinReportSummaryTask(const string &workspaceId, const Models::CreateFinReportSummaryTaskRequest &request);
 
       /**
+       * @summary 创建图片检测任务
+       *
+       * @param request CreateImageDetectionTaskRequest
+       * @param headers CreateImageDetectionTaskHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImageDetectionTaskResponse
+       */
+      Models::CreateImageDetectionTaskResponse createImageDetectionTaskWithOptions(const string &workspaceId, const Models::CreateImageDetectionTaskRequest &request, const Models::CreateImageDetectionTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建图片检测任务
+       *
+       * @param request CreateImageDetectionTaskRequest
+       * @return CreateImageDetectionTaskResponse
+       */
+      Models::CreateImageDetectionTaskResponse createImageDetectionTask(const string &workspaceId, const Models::CreateImageDetectionTaskRequest &request);
+
+      /**
        * @summary 创建文档库
        *
        * @param request CreateLibraryRequest
@@ -182,6 +200,24 @@ namespace DianJin20240628
        * @return CreateQualityCheckTaskResponse
        */
       Models::CreateQualityCheckTaskResponse createQualityCheckTask(const string &workspaceId, const Models::CreateQualityCheckTaskRequest &request);
+
+      /**
+       * @summary 创建视频生成任务
+       *
+       * @param request CreateVideoCreationTaskRequest
+       * @param headers CreateVideoCreationTaskHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVideoCreationTaskResponse
+       */
+      Models::CreateVideoCreationTaskResponse createVideoCreationTaskWithOptions(const string &workspaceId, const Models::CreateVideoCreationTaskRequest &request, const Models::CreateVideoCreationTaskHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建视频生成任务
+       *
+       * @param request CreateVideoCreationTaskRequest
+       * @return CreateVideoCreationTaskResponse
+       */
+      Models::CreateVideoCreationTaskResponse createVideoCreationTask(const string &workspaceId, const Models::CreateVideoCreationTaskRequest &request);
 
       /**
        * @summary 删除文档
@@ -452,6 +488,24 @@ namespace DianJin20240628
       Models::GetHistoryListByBizTypeResponse getHistoryListByBizType(const string &workspaceId, const Models::GetHistoryListByBizTypeRequest &request);
 
       /**
+       * @summary 获取检测结果
+       *
+       * @param request GetImageDetectionTaskResultRequest
+       * @param headers GetImageDetectionTaskResultHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetImageDetectionTaskResultResponse
+       */
+      Models::GetImageDetectionTaskResultResponse getImageDetectionTaskResultWithOptions(const string &workspaceId, const Models::GetImageDetectionTaskResultRequest &request, const Models::GetImageDetectionTaskResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取检测结果
+       *
+       * @param request GetImageDetectionTaskResultRequest
+       * @return GetImageDetectionTaskResultResponse
+       */
+      Models::GetImageDetectionTaskResultResponse getImageDetectionTaskResult(const string &workspaceId, const Models::GetImageDetectionTaskResultRequest &request);
+
+      /**
        * @summary 获取文档库配置详情
        *
        * @param request GetLibraryRequest
@@ -576,6 +630,24 @@ namespace DianJin20240628
        * @return GetTaskStatusResponse
        */
       Models::GetTaskStatusResponse getTaskStatus(const string &workspaceId, const Models::GetTaskStatusRequest &request);
+
+      /**
+       * @summary 获取视频生成任务结果
+       *
+       * @param request GetVideoCreationTaskResultRequest
+       * @param headers GetVideoCreationTaskResultHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetVideoCreationTaskResultResponse
+       */
+      Models::GetVideoCreationTaskResultResponse getVideoCreationTaskResultWithOptions(const string &workspaceId, const Models::GetVideoCreationTaskResultRequest &request, const Models::GetVideoCreationTaskResultHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取视频生成任务结果
+       *
+       * @param request GetVideoCreationTaskResultRequest
+       * @return GetVideoCreationTaskResultResponse
+       */
+      Models::GetVideoCreationTaskResultResponse getVideoCreationTaskResult(const string &workspaceId, const Models::GetVideoCreationTaskResultRequest &request);
 
       /**
        * @summary 插件调试接口
