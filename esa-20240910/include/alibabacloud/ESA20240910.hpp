@@ -1503,6 +1503,23 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
 
       /**
+       * @summary 删除深度学习和防护下发的规则
+       *
+       * @param request DeleteHttpDDoSIntelligentRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHttpDDoSIntelligentRuleResponse
+       */
+      Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRuleWithOptions(const Models::DeleteHttpDDoSIntelligentRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除深度学习和防护下发的规则
+       *
+       * @param request DeleteHttpDDoSIntelligentRuleRequest
+       * @return DeleteHttpDDoSIntelligentRuleResponse
+       */
+      Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRule(const Models::DeleteHttpDDoSIntelligentRuleRequest &request);
+
+      /**
        * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
        *
        * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
@@ -5488,6 +5505,40 @@ namespace ESA20240910
        * @return SetHttpDDoSAttackProtectionResponse
        */
       Models::SetHttpDDoSAttackProtectionResponse setHttpDDoSAttackProtection(const Models::SetHttpDDoSAttackProtectionRequest &request);
+
+      /**
+       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       *
+       * @param request SetHttpDDoSAttackRuleActionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetHttpDDoSAttackRuleActionResponse
+       */
+      Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleActionWithOptions(const Models::SetHttpDDoSAttackRuleActionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       *
+       * @param request SetHttpDDoSAttackRuleActionRequest
+       * @return SetHttpDDoSAttackRuleActionResponse
+       */
+      Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleAction(const Models::SetHttpDDoSAttackRuleActionRequest &request);
+
+      /**
+       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       *
+       * @param request SetHttpDDoSAttackRuleStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetHttpDDoSAttackRuleStatusResponse
+       */
+      Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatusWithOptions(const Models::SetHttpDDoSAttackRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       *
+       * @param request SetHttpDDoSAttackRuleStatusRequest
+       * @return SetHttpDDoSAttackRuleStatusResponse
+       */
+      Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatus(const Models::SetHttpDDoSAttackRuleStatusRequest &request);
 
       /**
        * @summary 为域名回源客户端证书绑定域名

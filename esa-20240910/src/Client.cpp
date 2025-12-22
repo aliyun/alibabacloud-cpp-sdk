@@ -5265,6 +5265,56 @@ DeleteEdgeContainerAppVersionResponse Client::deleteEdgeContainerAppVersion(cons
 }
 
 /**
+ * @summary 删除深度学习和防护下发的规则
+ *
+ * @param request DeleteHttpDDoSIntelligentRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHttpDDoSIntelligentRuleResponse
+ */
+DeleteHttpDDoSIntelligentRuleResponse Client::deleteHttpDDoSIntelligentRuleWithOptions(const DeleteHttpDDoSIntelligentRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRecordName()) {
+    query["RecordName"] = request.recordName();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.ruleId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteHttpDDoSIntelligentRule"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHttpDDoSIntelligentRuleResponse>();
+}
+
+/**
+ * @summary 删除深度学习和防护下发的规则
+ *
+ * @param request DeleteHttpDDoSIntelligentRuleRequest
+ * @return DeleteHttpDDoSIntelligentRuleResponse
+ */
+DeleteHttpDDoSIntelligentRuleResponse Client::deleteHttpDDoSIntelligentRule(const DeleteHttpDDoSIntelligentRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHttpDDoSIntelligentRuleWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
  *
  * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
@@ -15264,6 +15314,106 @@ SetHttpDDoSAttackProtectionResponse Client::setHttpDDoSAttackProtectionWithOptio
 SetHttpDDoSAttackProtectionResponse Client::setHttpDDoSAttackProtection(const SetHttpDDoSAttackProtectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setHttpDDoSAttackProtectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+ *
+ * @param request SetHttpDDoSAttackRuleActionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetHttpDDoSAttackRuleActionResponse
+ */
+SetHttpDDoSAttackRuleActionResponse Client::setHttpDDoSAttackRuleActionWithOptions(const SetHttpDDoSAttackRuleActionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.ruleAction();
+  }
+
+  if (!!request.hasRuleIds()) {
+    query["RuleIds"] = request.ruleIds();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetHttpDDoSAttackRuleAction"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetHttpDDoSAttackRuleActionResponse>();
+}
+
+/**
+ * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+ *
+ * @param request SetHttpDDoSAttackRuleActionRequest
+ * @return SetHttpDDoSAttackRuleActionResponse
+ */
+SetHttpDDoSAttackRuleActionResponse Client::setHttpDDoSAttackRuleAction(const SetHttpDDoSAttackRuleActionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setHttpDDoSAttackRuleActionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+ *
+ * @param request SetHttpDDoSAttackRuleStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetHttpDDoSAttackRuleStatusResponse
+ */
+SetHttpDDoSAttackRuleStatusResponse Client::setHttpDDoSAttackRuleStatusWithOptions(const SetHttpDDoSAttackRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRuleIds()) {
+    query["RuleIds"] = request.ruleIds();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.siteId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetHttpDDoSAttackRuleStatus"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetHttpDDoSAttackRuleStatusResponse>();
+}
+
+/**
+ * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+ *
+ * @param request SetHttpDDoSAttackRuleStatusRequest
+ * @return SetHttpDDoSAttackRuleStatusResponse
+ */
+SetHttpDDoSAttackRuleStatusResponse Client::setHttpDDoSAttackRuleStatus(const SetHttpDDoSAttackRuleStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setHttpDDoSAttackRuleStatusWithOptions(request, runtime);
 }
 
 /**

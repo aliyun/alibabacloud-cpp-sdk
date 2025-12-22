@@ -263,6 +263,9 @@
 #include <alibabacloud/models/DeleteEdgeContainerAppVersionRequest.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppVersionResponseBody.hpp>
 #include <alibabacloud/models/DeleteEdgeContainerAppVersionResponse.hpp>
+#include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleRequest.hpp>
+#include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteHttpDDoSIntelligentRuleResponse.hpp>
 #include <alibabacloud/models/DeleteHttpIncomingRequestHeaderModificationRuleRequest.hpp>
 #include <alibabacloud/models/DeleteHttpIncomingRequestHeaderModificationRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteHttpIncomingRequestHeaderModificationRuleResponse.hpp>
@@ -933,6 +936,12 @@
 #include <alibabacloud/models/SetHttpDDoSAttackProtectionRequest.hpp>
 #include <alibabacloud/models/SetHttpDDoSAttackProtectionResponseBody.hpp>
 #include <alibabacloud/models/SetHttpDDoSAttackProtectionResponse.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleActionRequest.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleActionResponseBody.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleActionResponse.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleStatusRequest.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleStatusResponseBody.hpp>
+#include <alibabacloud/models/SetHttpDDoSAttackRuleStatusResponse.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesRequest.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesShrinkRequest.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesResponseBody.hpp>
