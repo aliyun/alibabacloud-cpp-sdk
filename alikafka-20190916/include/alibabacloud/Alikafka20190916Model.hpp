@@ -2,6 +2,10 @@
 #ifndef ALIBABACLOUD_ALIKAFKA20190916MODEL_HPP_
 #define ALIBABACLOUD_ALIKAFKA20190916MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddUserDefinedSgRequest.hpp>
+#include <alibabacloud/models/AddUserDefinedSgShrinkRequest.hpp>
+#include <alibabacloud/models/AddUserDefinedSgResponseBody.hpp>
+#include <alibabacloud/models/AddUserDefinedSgResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
@@ -58,6 +62,10 @@
 #include <alibabacloud/models/DeleteTopicRequest.hpp>
 #include <alibabacloud/models/DeleteTopicResponseBody.hpp>
 #include <alibabacloud/models/DeleteTopicResponse.hpp>
+#include <alibabacloud/models/DeleteUserDefinedSgRequest.hpp>
+#include <alibabacloud/models/DeleteUserDefinedSgShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteUserDefinedSgResponseBody.hpp>
+#include <alibabacloud/models/DeleteUserDefinedSgResponse.hpp>
 #include <alibabacloud/models/DescribeAclResourceNameRequest.hpp>
 #include <alibabacloud/models/DescribeAclResourceNameResponseBody.hpp>
 #include <alibabacloud/models/DescribeAclResourceNameResponse.hpp>
@@ -138,6 +146,10 @@
 #include <alibabacloud/models/ModifyTopicRemarkRequest.hpp>
 #include <alibabacloud/models/ModifyTopicRemarkResponseBody.hpp>
 #include <alibabacloud/models/ModifyTopicRemarkResponse.hpp>
+#include <alibabacloud/models/ModifyUserDefinedSgRequest.hpp>
+#include <alibabacloud/models/ModifyUserDefinedSgShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyUserDefinedSgResponseBody.hpp>
+#include <alibabacloud/models/ModifyUserDefinedSgResponse.hpp>
 #include <alibabacloud/models/QueryMessageRequest.hpp>
 #include <alibabacloud/models/QueryMessageResponseBody.hpp>
 #include <alibabacloud/models/QueryMessageResponse.hpp>

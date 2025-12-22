@@ -21,6 +21,23 @@ namespace Alikafka20190916
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary AddUserDefinedSg
+       *
+       * @param tmpReq AddUserDefinedSgRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddUserDefinedSgResponse
+       */
+      Models::AddUserDefinedSgResponse addUserDefinedSgWithOptions(const Models::AddUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AddUserDefinedSg
+       *
+       * @param request AddUserDefinedSgRequest
+       * @return AddUserDefinedSgResponse
+       */
+      Models::AddUserDefinedSgResponse addUserDefinedSg(const Models::AddUserDefinedSgRequest &request);
+
+      /**
        * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
        *
        * @param request ChangeResourceGroupRequest
@@ -332,6 +349,23 @@ namespace Alikafka20190916
        * @return DeleteTopicResponse
        */
       Models::DeleteTopicResponse deleteTopic(const Models::DeleteTopicRequest &request);
+
+      /**
+       * @summary DeleteUserDefinedSg
+       *
+       * @param tmpReq DeleteUserDefinedSgRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUserDefinedSgResponse
+       */
+      Models::DeleteUserDefinedSgResponse deleteUserDefinedSgWithOptions(const Models::DeleteUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteUserDefinedSg
+       *
+       * @param request DeleteUserDefinedSgRequest
+       * @return DeleteUserDefinedSgResponse
+       */
+      Models::DeleteUserDefinedSgResponse deleteUserDefinedSg(const Models::DeleteUserDefinedSgRequest &request);
 
       /**
        * @summary 查询acl资源名
@@ -790,6 +824,23 @@ namespace Alikafka20190916
        * @return ModifyTopicRemarkResponse
        */
       Models::ModifyTopicRemarkResponse modifyTopicRemark(const Models::ModifyTopicRemarkRequest &request);
+
+      /**
+       * @summary ModifyUserDefinedSg
+       *
+       * @param tmpReq ModifyUserDefinedSgRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyUserDefinedSgResponse
+       */
+      Models::ModifyUserDefinedSgResponse modifyUserDefinedSgWithOptions(const Models::ModifyUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ModifyUserDefinedSg
+       *
+       * @param request ModifyUserDefinedSgRequest
+       * @return ModifyUserDefinedSgResponse
+       */
+      Models::ModifyUserDefinedSgResponse modifyUserDefinedSg(const Models::ModifyUserDefinedSgRequest &request);
 
       /**
        * @summary Queries messages stored in a topic. You can query messages by creation time or offset.

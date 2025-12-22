@@ -36,6 +36,62 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary AddUserDefinedSg
+ *
+ * @param tmpReq AddUserDefinedSgRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddUserDefinedSgResponse
+ */
+AddUserDefinedSgResponse Client::addUserDefinedSgWithOptions(const AddUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddUserDefinedSgShrinkRequest request = AddUserDefinedSgShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSgIdList()) {
+    request.setSgIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sgIdList(), "SgIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSgIdListShrink()) {
+    query["SgIdList"] = request.sgIdListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddUserDefinedSg"},
+    {"version" , "2019-09-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddUserDefinedSgResponse>();
+}
+
+/**
+ * @summary AddUserDefinedSg
+ *
+ * @param request AddUserDefinedSgRequest
+ * @return AddUserDefinedSgResponse
+ */
+AddUserDefinedSgResponse Client::addUserDefinedSg(const AddUserDefinedSgRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addUserDefinedSgWithOptions(request, runtime);
+}
+
+/**
  * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
  *
  * @param request ChangeResourceGroupRequest
@@ -1257,6 +1313,62 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &req
 DeleteTopicResponse Client::deleteTopic(const DeleteTopicRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteTopicWithOptions(request, runtime);
+}
+
+/**
+ * @summary DeleteUserDefinedSg
+ *
+ * @param tmpReq DeleteUserDefinedSgRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUserDefinedSgResponse
+ */
+DeleteUserDefinedSgResponse Client::deleteUserDefinedSgWithOptions(const DeleteUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteUserDefinedSgShrinkRequest request = DeleteUserDefinedSgShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSgIdList()) {
+    request.setSgIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sgIdList(), "SgIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSgIdListShrink()) {
+    query["SgIdList"] = request.sgIdListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteUserDefinedSg"},
+    {"version" , "2019-09-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUserDefinedSgResponse>();
+}
+
+/**
+ * @summary DeleteUserDefinedSg
+ *
+ * @param request DeleteUserDefinedSgRequest
+ * @return DeleteUserDefinedSgResponse
+ */
+DeleteUserDefinedSgResponse Client::deleteUserDefinedSg(const DeleteUserDefinedSgRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteUserDefinedSgWithOptions(request, runtime);
 }
 
 /**
@@ -2757,6 +2869,62 @@ ModifyTopicRemarkResponse Client::modifyTopicRemarkWithOptions(const ModifyTopic
 ModifyTopicRemarkResponse Client::modifyTopicRemark(const ModifyTopicRemarkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyTopicRemarkWithOptions(request, runtime);
+}
+
+/**
+ * @summary ModifyUserDefinedSg
+ *
+ * @param tmpReq ModifyUserDefinedSgRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyUserDefinedSgResponse
+ */
+ModifyUserDefinedSgResponse Client::modifyUserDefinedSgWithOptions(const ModifyUserDefinedSgRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyUserDefinedSgShrinkRequest request = ModifyUserDefinedSgShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSgIdList()) {
+    request.setSgIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.sgIdList(), "SgIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSgIdListShrink()) {
+    query["SgIdList"] = request.sgIdListShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyUserDefinedSg"},
+    {"version" , "2019-09-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyUserDefinedSgResponse>();
+}
+
+/**
+ * @summary ModifyUserDefinedSg
+ *
+ * @param request ModifyUserDefinedSgRequest
+ * @return ModifyUserDefinedSgResponse
+ */
+ModifyUserDefinedSgResponse Client::modifyUserDefinedSg(const ModifyUserDefinedSgRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyUserDefinedSgWithOptions(request, runtime);
 }
 
 /**
