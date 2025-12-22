@@ -3017,13 +3017,19 @@ ListBenchmarkTaskResponse Client::listBenchmarkTask(const ListBenchmarkTaskReque
 /**
  * @summary Queries a list of private gateways.
  *
- * @param request ListGatewayRequest
+ * @param tmpReq ListGatewayRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGatewayResponse
  */
-ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListGatewayShrinkRequest request = ListGatewayShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabel()) {
+    request.setLabelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.label(), "Label", "json"));
+  }
+
   json query = {};
   if (!!request.hasChargeType()) {
     query["ChargeType"] = request.chargeType();
@@ -3043,6 +3049,10 @@ ListGatewayResponse Client::listGatewayWithOptions(const ListGatewayRequest &req
 
   if (!!request.hasInternetEnabled()) {
     query["InternetEnabled"] = request.internetEnabled();
+  }
+
+  if (!!request.hasLabelShrink()) {
+    query["Label"] = request.labelShrink();
   }
 
   if (!!request.hasOrder()) {

@@ -177,6 +177,7 @@
 #include <alibabacloud/models/ListBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/ListBenchmarkTaskResponse.hpp>
 #include <alibabacloud/models/ListGatewayRequest.hpp>
+#include <alibabacloud/models/ListGatewayShrinkRequest.hpp>
 #include <alibabacloud/models/ListGatewayResponseBody.hpp>
 #include <alibabacloud/models/ListGatewayResponse.hpp>
 #include <alibabacloud/models/ListGatewayDomainsResponseBody.hpp>
@@ -310,6 +311,7 @@
 #include <alibabacloud/models/CreateVirtualResourceRequestResources.hpp>
 #include <alibabacloud/models/DeleteAclPolicyRequestAclPolicyList.hpp>
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs.hpp>
+#include <alibabacloud/models/DescribeGatewayResponseBodyLabels.hpp>
 #include <alibabacloud/models/DescribeGroupEndpointsResponseBodyEndpoints.hpp>
 #include <alibabacloud/models/DescribeMachineSpecResponseBodyInstanceMetas.hpp>
 #include <alibabacloud/models/DescribeMachineSpecResponseBodyTypes.hpp>
@@ -329,6 +331,7 @@
 #include <alibabacloud/models/ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList.hpp>
 #include <alibabacloud/models/ListAclPolicyResponseBodyIntranetVpcAclPolicyList.hpp>
 #include <alibabacloud/models/ListBenchmarkTaskResponseBodyTasks.hpp>
+#include <alibabacloud/models/ListGatewayResponseBodyGatewaysLabels.hpp>
 #include <alibabacloud/models/ListGatewayResponseBodyGateways.hpp>
 #include <alibabacloud/models/ListGatewayDomainsResponseBodyCustomDomains.hpp>
 #include <alibabacloud/models/ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList.hpp>

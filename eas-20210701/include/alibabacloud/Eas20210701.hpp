@@ -1091,12 +1091,12 @@ namespace Eas20210701
       /**
        * @summary Queries a list of private gateways.
        *
-       * @param request ListGatewayRequest
+       * @param tmpReq ListGatewayRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGatewayResponse
        */
-      Models::ListGatewayResponse listGatewayWithOptions(const Models::ListGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListGatewayResponse listGatewayWithOptions(const Models::ListGatewayRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries a list of private gateways.

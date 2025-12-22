@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_LISTGATEWAYRESPONSEBODYGATEWAYS_HPP_
 #define ALIBABACLOUD_MODELS_LISTGATEWAYRESPONSEBODYGATEWAYS_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ListGatewayResponseBodyGatewaysLabels.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IntranetDomain, intranetDomain_);
       DARABONBA_PTR_TO_JSON(IntranetEnabled, intranetEnabled_);
       DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_TO_JSON(Labels, labels_);
       DARABONBA_PTR_TO_JSON(Replicas, replicas_);
       DARABONBA_PTR_TO_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IntranetDomain, intranetDomain_);
       DARABONBA_PTR_FROM_JSON(IntranetEnabled, intranetEnabled_);
       DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
+      DARABONBA_PTR_FROM_JSON(Labels, labels_);
       DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
       DARABONBA_PTR_FROM_JSON(SSLRedirectionEnabled, SSLRedirectionEnabled_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -57,8 +61,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chargeType_ == nullptr
         && return this->createTime_ == nullptr && return this->gatewayId_ == nullptr && return this->gatewayName_ == nullptr && return this->instanceType_ == nullptr && return this->internetDomain_ == nullptr
-        && return this->internetEnabled_ == nullptr && return this->intranetDomain_ == nullptr && return this->intranetEnabled_ == nullptr && return this->isDefault_ == nullptr && return this->replicas_ == nullptr
-        && return this->SSLRedirectionEnabled_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->internetEnabled_ == nullptr && return this->intranetDomain_ == nullptr && return this->intranetEnabled_ == nullptr && return this->isDefault_ == nullptr && return this->labels_ == nullptr
+        && return this->replicas_ == nullptr && return this->SSLRedirectionEnabled_ == nullptr && return this->status_ == nullptr && return this->updateTime_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -129,6 +133,15 @@ namespace Models
     inline ListGatewayResponseBodyGateways& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
+    // labels Field Functions 
+    bool hasLabels() const { return this->labels_ != nullptr;};
+    void deleteLabels() { this->labels_ = nullptr;};
+    inline const vector<Models::ListGatewayResponseBodyGatewaysLabels> & labels() const { DARABONBA_PTR_GET_CONST(labels_, vector<Models::ListGatewayResponseBodyGatewaysLabels>) };
+    inline vector<Models::ListGatewayResponseBodyGatewaysLabels> labels() { DARABONBA_PTR_GET(labels_, vector<Models::ListGatewayResponseBodyGatewaysLabels>) };
+    inline ListGatewayResponseBodyGateways& setLabels(const vector<Models::ListGatewayResponseBodyGatewaysLabels> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
+    inline ListGatewayResponseBodyGateways& setLabels(vector<Models::ListGatewayResponseBodyGatewaysLabels> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
     // replicas Field Functions 
     bool hasReplicas() const { return this->replicas_ != nullptr;};
     void deleteReplicas() { this->replicas_ = nullptr;};
@@ -180,6 +193,7 @@ namespace Models
     std::shared_ptr<bool> intranetEnabled_ = nullptr;
     // Indicates whether it is the default private gateway.
     std::shared_ptr<bool> isDefault_ = nullptr;
+    std::shared_ptr<vector<Models::ListGatewayResponseBodyGatewaysLabels>> labels_ = nullptr;
     // The number of nodes in the private gateway.
     std::shared_ptr<int32_t> replicas_ = nullptr;
     // Specifies whether to enable HTTP to HTTPS redirection.
