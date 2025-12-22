@@ -7684,6 +7684,60 @@ PreCheckCreateGadOrderResponse Client::preCheckCreateGadOrder(const PreCheckCrea
 }
 
 /**
+ * @param request PromoteToMasterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PromoteToMasterResponse
+ */
+PromoteToMasterResponse Client::promoteToMasterWithOptions(const PromoteToMasterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasMasterDbInstanceId()) {
+    query["MasterDbInstanceId"] = request.masterDbInstanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasSlaveDbInstanceId()) {
+    query["SlaveDbInstanceId"] = request.slaveDbInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PromoteToMaster"},
+    {"version" , "2020-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PromoteToMasterResponse>();
+}
+
+/**
+ * @param request PromoteToMasterRequest
+ * @return PromoteToMasterResponse
+ */
+PromoteToMasterResponse Client::promoteToMaster(const PromoteToMasterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return promoteToMasterWithOptions(request, runtime);
+}
+
+/**
  * @summary Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
  *
  * @param request RenewInstanceRequest

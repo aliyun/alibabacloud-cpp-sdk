@@ -1768,6 +1768,19 @@ namespace Dts20200101
       Models::PreCheckCreateGadOrderResponse preCheckCreateGadOrder(const Models::PreCheckCreateGadOrderRequest &request);
 
       /**
+       * @param request PromoteToMasterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PromoteToMasterResponse
+       */
+      Models::PromoteToMasterResponse promoteToMasterWithOptions(const Models::PromoteToMasterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request PromoteToMasterRequest
+       * @return PromoteToMasterResponse
+       */
+      Models::PromoteToMasterResponse promoteToMaster(const Models::PromoteToMasterRequest &request);
+
+      /**
        * @summary Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
        *
        * @param request RenewInstanceRequest

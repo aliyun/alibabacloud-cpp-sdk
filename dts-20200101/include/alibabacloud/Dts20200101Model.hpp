@@ -298,6 +298,9 @@
 #include <alibabacloud/models/PreCheckCreateGadOrderRequest.hpp>
 #include <alibabacloud/models/PreCheckCreateGadOrderResponseBody.hpp>
 #include <alibabacloud/models/PreCheckCreateGadOrderResponse.hpp>
+#include <alibabacloud/models/PromoteToMasterRequest.hpp>
+#include <alibabacloud/models/PromoteToMasterResponseBody.hpp>
+#include <alibabacloud/models/PromoteToMasterResponse.hpp>
 #include <alibabacloud/models/RenewInstanceRequest.hpp>
 #include <alibabacloud/models/RenewInstanceResponseBody.hpp>
 #include <alibabacloud/models/RenewInstanceResponse.hpp>
