@@ -13,14 +13,14 @@ namespace Models
   class ChangeResourceGroupOutput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChangeResourceGroupOutput& obj) { 
-      DARABONBA_PTR_TO_JSON(newResourceGroupId, newResourceGroupId_);
-      DARABONBA_PTR_TO_JSON(oldResourceGroupId, oldResourceGroupId_);
-      DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(NewResourceGroupId, newResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(OldResourceGroupId, oldResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeResourceGroupOutput& obj) { 
-      DARABONBA_PTR_FROM_JSON(newResourceGroupId, newResourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(oldResourceGroupId, oldResourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(NewResourceGroupId, newResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(OldResourceGroupId, oldResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
     };
     ChangeResourceGroupOutput() = default ;
     ChangeResourceGroupOutput(const ChangeResourceGroupOutput &) = default ;

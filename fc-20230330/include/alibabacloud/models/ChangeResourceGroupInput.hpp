@@ -13,14 +13,14 @@ namespace Models
   class ChangeResourceGroupInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ChangeResourceGroupInput& obj) { 
-      DARABONBA_PTR_TO_JSON(newResourceGroupId, newResourceGroupId_);
-      DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
-      DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
+      DARABONBA_PTR_TO_JSON(NewResourceGroupId, newResourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeResourceGroupInput& obj) { 
-      DARABONBA_PTR_FROM_JSON(newResourceGroupId, newResourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
-      DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
+      DARABONBA_PTR_FROM_JSON(NewResourceGroupId, newResourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
     };
     ChangeResourceGroupInput() = default ;
     ChangeResourceGroupInput(const ChangeResourceGroupInput &) = default ;
