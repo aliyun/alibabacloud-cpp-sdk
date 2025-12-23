@@ -1,0 +1,120 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTTASKINSTANCESREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTTASKINSTANCESREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EmrStudio20240430
+{
+namespace Models
+{
+  class ListTaskInstancesRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListTaskInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(endTime, endTime_);
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(searchVal, searchVal_);
+      DARABONBA_PTR_TO_JSON(startTime, startTime_);
+      DARABONBA_PTR_TO_JSON(status, status_);
+      DARABONBA_PTR_TO_JSON(workflowInstanceId, workflowInstanceId_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListTaskInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(endTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(searchVal, searchVal_);
+      DARABONBA_PTR_FROM_JSON(startTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(status, status_);
+      DARABONBA_PTR_FROM_JSON(workflowInstanceId, workflowInstanceId_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+    };
+    ListTaskInstancesRequest() = default ;
+    ListTaskInstancesRequest(const ListTaskInstancesRequest &) = default ;
+    ListTaskInstancesRequest(ListTaskInstancesRequest &&) = default ;
+    ListTaskInstancesRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListTaskInstancesRequest() = default ;
+    ListTaskInstancesRequest& operator=(const ListTaskInstancesRequest &) = default ;
+    ListTaskInstancesRequest& operator=(ListTaskInstancesRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->searchVal_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr
+        && return this->workflowInstanceId_ == nullptr && return this->workspaceId_ == nullptr; };
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline ListTaskInstancesRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline ListTaskInstancesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListTaskInstancesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // searchVal Field Functions 
+    bool hasSearchVal() const { return this->searchVal_ != nullptr;};
+    void deleteSearchVal() { this->searchVal_ = nullptr;};
+    inline string searchVal() const { DARABONBA_PTR_GET_DEFAULT(searchVal_, "") };
+    inline ListTaskInstancesRequest& setSearchVal(string searchVal) { DARABONBA_PTR_SET_VALUE(searchVal_, searchVal) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline ListTaskInstancesRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // status Field Functions 
+    bool hasStatus() const { return this->status_ != nullptr;};
+    void deleteStatus() { this->status_ = nullptr;};
+    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline ListTaskInstancesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    // workflowInstanceId Field Functions 
+    bool hasWorkflowInstanceId() const { return this->workflowInstanceId_ != nullptr;};
+    void deleteWorkflowInstanceId() { this->workflowInstanceId_ = nullptr;};
+    inline string workflowInstanceId() const { DARABONBA_PTR_GET_DEFAULT(workflowInstanceId_, "") };
+    inline ListTaskInstancesRequest& setWorkflowInstanceId(string workflowInstanceId) { DARABONBA_PTR_SET_VALUE(workflowInstanceId_, workflowInstanceId) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListTaskInstancesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    std::shared_ptr<string> endTime_ = nullptr;
+    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> searchVal_ = nullptr;
+    std::shared_ptr<string> startTime_ = nullptr;
+    std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<string> workflowInstanceId_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> workspaceId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EmrStudio20240430
+#endif

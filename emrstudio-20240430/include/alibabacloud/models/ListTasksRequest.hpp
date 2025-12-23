@@ -1,0 +1,99 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTTASKSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTTASKSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EmrStudio20240430
+{
+namespace Models
+{
+  class ListTasksRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(searchVal, searchVal_);
+      DARABONBA_PTR_TO_JSON(taskType, taskType_);
+      DARABONBA_PTR_TO_JSON(workflowId, workflowId_);
+      DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(searchVal, searchVal_);
+      DARABONBA_PTR_FROM_JSON(taskType, taskType_);
+      DARABONBA_PTR_FROM_JSON(workflowId, workflowId_);
+      DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+    };
+    ListTasksRequest() = default ;
+    ListTasksRequest(const ListTasksRequest &) = default ;
+    ListTasksRequest(ListTasksRequest &&) = default ;
+    ListTasksRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListTasksRequest() = default ;
+    ListTasksRequest& operator=(const ListTasksRequest &) = default ;
+    ListTasksRequest& operator=(ListTasksRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && return this->nextToken_ == nullptr && return this->searchVal_ == nullptr && return this->taskType_ == nullptr && return this->workflowId_ == nullptr && return this->workspaceId_ == nullptr; };
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline string maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline ListTasksRequest& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListTasksRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
+    // searchVal Field Functions 
+    bool hasSearchVal() const { return this->searchVal_ != nullptr;};
+    void deleteSearchVal() { this->searchVal_ = nullptr;};
+    inline string searchVal() const { DARABONBA_PTR_GET_DEFAULT(searchVal_, "") };
+    inline ListTasksRequest& setSearchVal(string searchVal) { DARABONBA_PTR_SET_VALUE(searchVal_, searchVal) };
+
+
+    // taskType Field Functions 
+    bool hasTaskType() const { return this->taskType_ != nullptr;};
+    void deleteTaskType() { this->taskType_ = nullptr;};
+    inline string taskType() const { DARABONBA_PTR_GET_DEFAULT(taskType_, "") };
+    inline ListTasksRequest& setTaskType(string taskType) { DARABONBA_PTR_SET_VALUE(taskType_, taskType) };
+
+
+    // workflowId Field Functions 
+    bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+    void deleteWorkflowId() { this->workflowId_ = nullptr;};
+    inline string workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, "") };
+    inline ListTasksRequest& setWorkflowId(string workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string workspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListTasksRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    std::shared_ptr<string> maxResults_ = nullptr;
+    std::shared_ptr<string> nextToken_ = nullptr;
+    std::shared_ptr<string> searchVal_ = nullptr;
+    std::shared_ptr<string> taskType_ = nullptr;
+    std::shared_ptr<string> workflowId_ = nullptr;
+    // This parameter is required.
+    std::shared_ptr<string> workspaceId_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EmrStudio20240430
+#endif
