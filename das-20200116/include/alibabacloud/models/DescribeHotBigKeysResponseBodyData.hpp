@@ -5,6 +5,7 @@
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataBigKeys.hpp>
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataHighTrafficKeys.hpp>
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataHotKeys.hpp>
+#include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataLargeKeys.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,6 +23,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(HighTrafficKeys, highTrafficKeys_);
       DARABONBA_PTR_TO_JSON(HotKeyMsg, hotKeyMsg_);
       DARABONBA_PTR_TO_JSON(HotKeys, hotKeys_);
+      DARABONBA_PTR_TO_JSON(LargeKeyMsg, largeKeyMsg_);
+      DARABONBA_PTR_TO_JSON(LargeKeys, largeKeys_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeHotBigKeysResponseBodyData& obj) { 
       DARABONBA_PTR_FROM_JSON(BigKeyMsg, bigKeyMsg_);
@@ -30,6 +33,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(HighTrafficKeys, highTrafficKeys_);
       DARABONBA_PTR_FROM_JSON(HotKeyMsg, hotKeyMsg_);
       DARABONBA_PTR_FROM_JSON(HotKeys, hotKeys_);
+      DARABONBA_PTR_FROM_JSON(LargeKeyMsg, largeKeyMsg_);
+      DARABONBA_PTR_FROM_JSON(LargeKeys, largeKeys_);
     };
     DescribeHotBigKeysResponseBodyData() = default ;
     DescribeHotBigKeysResponseBodyData(const DescribeHotBigKeysResponseBodyData &) = default ;
@@ -43,7 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bigKeyMsg_ == nullptr
-        && return this->bigKeys_ == nullptr && return this->highTrafficKeyMsg_ == nullptr && return this->highTrafficKeys_ == nullptr && return this->hotKeyMsg_ == nullptr && return this->hotKeys_ == nullptr; };
+        && return this->bigKeys_ == nullptr && return this->highTrafficKeyMsg_ == nullptr && return this->highTrafficKeys_ == nullptr && return this->hotKeyMsg_ == nullptr && return this->hotKeys_ == nullptr
+        && return this->largeKeyMsg_ == nullptr && return this->largeKeys_ == nullptr; };
     // bigKeyMsg Field Functions 
     bool hasBigKeyMsg() const { return this->bigKeyMsg_ != nullptr;};
     void deleteBigKeyMsg() { this->bigKeyMsg_ = nullptr;};
@@ -92,6 +98,22 @@ namespace Models
     inline DescribeHotBigKeysResponseBodyData& setHotKeys(Models::DescribeHotBigKeysResponseBodyDataHotKeys && hotKeys) { DARABONBA_PTR_SET_RVALUE(hotKeys_, hotKeys) };
 
 
+    // largeKeyMsg Field Functions 
+    bool hasLargeKeyMsg() const { return this->largeKeyMsg_ != nullptr;};
+    void deleteLargeKeyMsg() { this->largeKeyMsg_ = nullptr;};
+    inline string largeKeyMsg() const { DARABONBA_PTR_GET_DEFAULT(largeKeyMsg_, "") };
+    inline DescribeHotBigKeysResponseBodyData& setLargeKeyMsg(string largeKeyMsg) { DARABONBA_PTR_SET_VALUE(largeKeyMsg_, largeKeyMsg) };
+
+
+    // largeKeys Field Functions 
+    bool hasLargeKeys() const { return this->largeKeys_ != nullptr;};
+    void deleteLargeKeys() { this->largeKeys_ = nullptr;};
+    inline const Models::DescribeHotBigKeysResponseBodyDataLargeKeys & largeKeys() const { DARABONBA_PTR_GET_CONST(largeKeys_, Models::DescribeHotBigKeysResponseBodyDataLargeKeys) };
+    inline Models::DescribeHotBigKeysResponseBodyDataLargeKeys largeKeys() { DARABONBA_PTR_GET(largeKeys_, Models::DescribeHotBigKeysResponseBodyDataLargeKeys) };
+    inline DescribeHotBigKeysResponseBodyData& setLargeKeys(const Models::DescribeHotBigKeysResponseBodyDataLargeKeys & largeKeys) { DARABONBA_PTR_SET_VALUE(largeKeys_, largeKeys) };
+    inline DescribeHotBigKeysResponseBodyData& setLargeKeys(Models::DescribeHotBigKeysResponseBodyDataLargeKeys && largeKeys) { DARABONBA_PTR_SET_RVALUE(largeKeys_, largeKeys) };
+
+
   protected:
     // The reason why the large key failed to be queried.
     std::shared_ptr<string> bigKeyMsg_ = nullptr;
@@ -103,6 +125,8 @@ namespace Models
     std::shared_ptr<string> hotKeyMsg_ = nullptr;
     // The list of hot keys.
     std::shared_ptr<Models::DescribeHotBigKeysResponseBodyDataHotKeys> hotKeys_ = nullptr;
+    std::shared_ptr<string> largeKeyMsg_ = nullptr;
+    std::shared_ptr<Models::DescribeHotBigKeysResponseBodyDataLargeKeys> largeKeys_ = nullptr;
   };
 
   } // namespace Models

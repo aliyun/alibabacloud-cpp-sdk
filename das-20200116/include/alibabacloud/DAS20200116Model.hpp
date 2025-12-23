@@ -394,6 +394,8 @@
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataHighTrafficKeys.hpp>
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataHotKeysHotKey.hpp>
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataHotKeys.hpp>
+#include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataLargeKeysLargeKey.hpp>
+#include <alibabacloud/models/DescribeHotBigKeysResponseBodyDataLargeKeys.hpp>
 #include <alibabacloud/models/DescribeHotBigKeysResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeHotKeysResponseBodyDataHotKey.hpp>
 #include <alibabacloud/models/DescribeHotKeysResponseBodyData.hpp>
