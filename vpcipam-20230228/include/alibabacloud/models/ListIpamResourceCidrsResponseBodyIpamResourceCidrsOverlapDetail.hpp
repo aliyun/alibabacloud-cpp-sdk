@@ -33,8 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->overlapResourceCidr_ != nullptr
-        && this->overlapResourceId_ != nullptr && this->overlapResourceRegion_ != nullptr; };
+    virtual bool empty() const override { return this->overlapResourceCidr_ == nullptr
+        && return this->overlapResourceId_ == nullptr && return this->overlapResourceRegion_ == nullptr; };
     // overlapResourceCidr Field Functions 
     bool hasOverlapResourceCidr() const { return this->overlapResourceCidr_ != nullptr;};
     void deleteOverlapResourceCidr() { this->overlapResourceCidr_ = nullptr;};

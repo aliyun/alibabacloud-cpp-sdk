@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->cidr_ != nullptr
-        && this->creationTime_ != nullptr && this->ipamPoolAllocationDescription_ != nullptr && this->ipamPoolAllocationId_ != nullptr && this->ipamPoolAllocationName_ != nullptr && this->ipamPoolId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceId_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceRegionId_ != nullptr && this->resourceType_ != nullptr
-        && this->sourceCidr_ != nullptr && this->status_ != nullptr; };
+    virtual bool empty() const override { return this->cidr_ == nullptr
+        && return this->creationTime_ == nullptr && return this->ipamPoolAllocationDescription_ == nullptr && return this->ipamPoolAllocationId_ == nullptr && return this->ipamPoolAllocationName_ == nullptr && return this->ipamPoolId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceRegionId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->sourceCidr_ == nullptr && return this->status_ == nullptr; };
     // cidr Field Functions 
     bool hasCidr() const { return this->cidr_ != nullptr;};
     void deleteCidr() { this->cidr_ = nullptr;};

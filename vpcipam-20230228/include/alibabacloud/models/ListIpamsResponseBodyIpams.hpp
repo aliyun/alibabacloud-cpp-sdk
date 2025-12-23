@@ -61,10 +61,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->defaultResourceDiscoveryAssociationId_ != nullptr && this->defaultResourceDiscoveryId_ != nullptr && this->ipamDescription_ != nullptr && this->ipamId_ != nullptr && this->ipamName_ != nullptr
-        && this->ipamStatus_ != nullptr && this->operatingRegionList_ != nullptr && this->ownerId_ != nullptr && this->privateDefaultScopeId_ != nullptr && this->publicDefaultScopeId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceDiscoveryAssociationCount_ != nullptr && this->resourceGroupId_ != nullptr && this->scopeCount_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->defaultResourceDiscoveryAssociationId_ == nullptr && return this->defaultResourceDiscoveryId_ == nullptr && return this->ipamDescription_ == nullptr && return this->ipamId_ == nullptr && return this->ipamName_ == nullptr
+        && return this->ipamStatus_ == nullptr && return this->operatingRegionList_ == nullptr && return this->ownerId_ == nullptr && return this->privateDefaultScopeId_ == nullptr && return this->publicDefaultScopeId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceDiscoveryAssociationCount_ == nullptr && return this->resourceGroupId_ == nullptr && return this->scopeCount_ == nullptr && return this->tags_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

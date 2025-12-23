@@ -41,9 +41,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->defaultResourceDiscoveryAssociationId_ != nullptr
-        && this->defaultResourceDiscoveryId_ != nullptr && this->ipamId_ != nullptr && this->privateDefaultScopeId_ != nullptr && this->publicDefaultScopeId_ != nullptr && this->requestId_ != nullptr
-        && this->resourceDiscoveryAssociationCount_ != nullptr; };
+    virtual bool empty() const override { return this->defaultResourceDiscoveryAssociationId_ == nullptr
+        && return this->defaultResourceDiscoveryId_ == nullptr && return this->ipamId_ == nullptr && return this->privateDefaultScopeId_ == nullptr && return this->publicDefaultScopeId_ == nullptr && return this->requestId_ == nullptr
+        && return this->resourceDiscoveryAssociationCount_ == nullptr; };
     // defaultResourceDiscoveryAssociationId Field Functions 
     bool hasDefaultResourceDiscoveryAssociationId() const { return this->defaultResourceDiscoveryAssociationId_ != nullptr;};
     void deleteDefaultResourceDiscoveryAssociationId() { this->defaultResourceDiscoveryAssociationId_ = nullptr;};

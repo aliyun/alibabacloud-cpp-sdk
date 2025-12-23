@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_VPCIPAM20230228MODEL_HPP_
 #define ALIBABACLOUD_VPCIPAM20230228MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddIpamMembersRequest.hpp>
+#include <alibabacloud/models/AddIpamMembersResponseBody.hpp>
+#include <alibabacloud/models/AddIpamMembersResponse.hpp>
 #include <alibabacloud/models/AddIpamPoolCidrRequest.hpp>
 #include <alibabacloud/models/AddIpamPoolCidrResponseBody.hpp>
 #include <alibabacloud/models/AddIpamPoolCidrResponse.hpp>
@@ -59,6 +62,9 @@
 #include <alibabacloud/models/ListIpamDiscoveredResourceRequest.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponseBody.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponse.hpp>
+#include <alibabacloud/models/ListIpamMembersRequest.hpp>
+#include <alibabacloud/models/ListIpamMembersResponseBody.hpp>
+#include <alibabacloud/models/ListIpamMembersResponse.hpp>
 #include <alibabacloud/models/ListIpamPoolAllocationsRequest.hpp>
 #include <alibabacloud/models/ListIpamPoolAllocationsResponseBody.hpp>
 #include <alibabacloud/models/ListIpamPoolAllocationsResponse.hpp>
@@ -89,6 +95,9 @@
 #include <alibabacloud/models/OpenVpcIpamServiceRequest.hpp>
 #include <alibabacloud/models/OpenVpcIpamServiceResponseBody.hpp>
 #include <alibabacloud/models/OpenVpcIpamServiceResponse.hpp>
+#include <alibabacloud/models/RemoveIpamMembersRequest.hpp>
+#include <alibabacloud/models/RemoveIpamMembersResponseBody.hpp>
+#include <alibabacloud/models/RemoveIpamMembersResponse.hpp>
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>
@@ -110,12 +119,14 @@
 #include <alibabacloud/models/UpdateIpamScopeRequest.hpp>
 #include <alibabacloud/models/UpdateIpamScopeResponseBody.hpp>
 #include <alibabacloud/models/UpdateIpamScopeResponse.hpp>
+#include <alibabacloud/models/AddIpamMembersRequestMembers.hpp>
 #include <alibabacloud/models/CreateIpamRequestTag.hpp>
 #include <alibabacloud/models/CreateIpamPoolRequestTag.hpp>
 #include <alibabacloud/models/CreateIpamResourceDiscoveryRequestTag.hpp>
 #include <alibabacloud/models/CreateIpamScopeRequestTag.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail.hpp>
 #include <alibabacloud/models/ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources.hpp>
+#include <alibabacloud/models/ListIpamMembersResponseBodyMemberInfos.hpp>
 #include <alibabacloud/models/ListIpamPoolAllocationsResponseBodyIpamPoolAllocations.hpp>
 #include <alibabacloud/models/ListIpamPoolCidrsResponseBodyIpamPoolCidrs.hpp>
 #include <alibabacloud/models/ListIpamPoolsRequestTags.hpp>
@@ -136,6 +147,7 @@
 #include <alibabacloud/models/ListIpamsResponseBodyIpams.hpp>
 #include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
+#include <alibabacloud/models/RemoveIpamMembersRequestMembers.hpp>
 #include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif

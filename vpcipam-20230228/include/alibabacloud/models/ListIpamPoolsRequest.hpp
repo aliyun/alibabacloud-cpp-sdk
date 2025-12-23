@@ -63,11 +63,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipVersion_ != nullptr
-        && this->ipamPoolIds_ != nullptr && this->ipamPoolName_ != nullptr && this->ipamScopeId_ != nullptr && this->ipv6Isp_ != nullptr && this->isShared_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->poolRegionId_ != nullptr
-        && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->sourceIpamPoolId_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->ipVersion_ == nullptr
+        && return this->ipamPoolIds_ == nullptr && return this->ipamPoolName_ == nullptr && return this->ipamScopeId_ == nullptr && return this->ipv6Isp_ == nullptr && return this->isShared_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->poolRegionId_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceIpamPoolId_ == nullptr
+        && return this->tags_ == nullptr; };
     // ipVersion Field Functions 
     bool hasIpVersion() const { return this->ipVersion_ != nullptr;};
     void deleteIpVersion() { this->ipVersion_ = nullptr;};

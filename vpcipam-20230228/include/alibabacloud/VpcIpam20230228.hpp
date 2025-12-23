@@ -21,6 +21,23 @@ namespace VpcIpam20230228
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加ipam可信服务纳管成员
+       *
+       * @param request AddIpamMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddIpamMembersResponse
+       */
+      Models::AddIpamMembersResponse addIpamMembersWithOptions(const Models::AddIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加ipam可信服务纳管成员
+       *
+       * @param request AddIpamMembersRequest
+       * @return AddIpamMembersResponse
+       */
+      Models::AddIpamMembersResponse addIpamMembers(const Models::AddIpamMembersRequest &request);
+
+      /**
        * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
        *
        * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
@@ -436,6 +453,23 @@ namespace VpcIpam20230228
       Models::ListIpamDiscoveredResourceResponse listIpamDiscoveredResource(const Models::ListIpamDiscoveredResourceRequest &request);
 
       /**
+       * @summary 查询ipam可信服务纳管成员
+       *
+       * @param request ListIpamMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIpamMembersResponse
+       */
+      Models::ListIpamMembersResponse listIpamMembersWithOptions(const Models::ListIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询ipam可信服务纳管成员
+       *
+       * @param request ListIpamMembersRequest
+       * @return ListIpamMembersResponse
+       */
+      Models::ListIpamMembersResponse listIpamMembers(const Models::ListIpamMembersRequest &request);
+
+      /**
        * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
        *
        * @param request ListIpamPoolAllocationsRequest
@@ -616,6 +650,23 @@ namespace VpcIpam20230228
        * @return OpenVpcIpamServiceResponse
        */
       Models::OpenVpcIpamServiceResponse openVpcIpamService(const Models::OpenVpcIpamServiceRequest &request);
+
+      /**
+       * @summary 移除ipam可信服务纳管成员
+       *
+       * @param request RemoveIpamMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveIpamMembersResponse
+       */
+      Models::RemoveIpamMembersResponse removeIpamMembersWithOptions(const Models::RemoveIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除ipam可信服务纳管成员
+       *
+       * @param request RemoveIpamMembersRequest
+       * @return RemoveIpamMembersResponse
+       */
+      Models::RemoveIpamMembersResponse removeIpamMembers(const Models::RemoveIpamMembersRequest &request);
 
       /**
        * @summary Adds a tag to a resource.

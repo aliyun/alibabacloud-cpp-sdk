@@ -45,9 +45,9 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipamPoolId_ != nullptr
-        && this->ipamScopeId_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->resourceId_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->resourceType_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->ipamPoolId_ == nullptr
+        && return this->ipamScopeId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr && return this->resourceId_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->resourceType_ == nullptr && return this->vpcId_ == nullptr; };
     // ipamPoolId Field Functions 
     bool hasIpamPoolId() const { return this->ipamPoolId_ != nullptr;};
     void deleteIpamPoolId() { this->ipamPoolId_ = nullptr;};

@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationDefaultCidrMask_ != nullptr
-        && this->allocationMaxCidrMask_ != nullptr && this->allocationMinCidrMask_ != nullptr && this->autoImport_ != nullptr && this->clientToken_ != nullptr && this->dryRun_ != nullptr
-        && this->ipVersion_ != nullptr && this->ipamPoolDescription_ != nullptr && this->ipamPoolName_ != nullptr && this->ipamScopeId_ != nullptr && this->ipv6Isp_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->poolRegionId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->resourceOwnerAccount_ != nullptr && this->resourceOwnerId_ != nullptr && this->sourceIpamPoolId_ != nullptr && this->tag_ != nullptr; };
+    virtual bool empty() const override { return this->allocationDefaultCidrMask_ == nullptr
+        && return this->allocationMaxCidrMask_ == nullptr && return this->allocationMinCidrMask_ == nullptr && return this->autoImport_ == nullptr && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr
+        && return this->ipVersion_ == nullptr && return this->ipamPoolDescription_ == nullptr && return this->ipamPoolName_ == nullptr && return this->ipamScopeId_ == nullptr && return this->ipv6Isp_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->poolRegionId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->sourceIpamPoolId_ == nullptr && return this->tag_ == nullptr; };
     // allocationDefaultCidrMask Field Functions 
     bool hasAllocationDefaultCidrMask() const { return this->allocationDefaultCidrMask_ != nullptr;};
     void deleteAllocationDefaultCidrMask() { this->allocationDefaultCidrMask_ = nullptr;};

@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->createTime_ != nullptr
-        && this->ipamId_ != nullptr && this->ipamScopeDescription_ != nullptr && this->ipamScopeId_ != nullptr && this->ipamScopeName_ != nullptr && this->ipamScopeType_ != nullptr
-        && this->isDefault_ != nullptr && this->ownerId_ != nullptr && this->poolCount_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && return this->ipamId_ == nullptr && return this->ipamScopeDescription_ == nullptr && return this->ipamScopeId_ == nullptr && return this->ipamScopeName_ == nullptr && return this->ipamScopeType_ == nullptr
+        && return this->isDefault_ == nullptr && return this->ownerId_ == nullptr && return this->poolCount_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};

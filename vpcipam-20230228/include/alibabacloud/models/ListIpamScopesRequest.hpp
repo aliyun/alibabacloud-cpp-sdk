@@ -55,10 +55,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->ipamId_ != nullptr
-        && this->ipamScopeIds_ != nullptr && this->ipamScopeName_ != nullptr && this->ipamScopeType_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->ipamId_ == nullptr
+        && return this->ipamScopeIds_ == nullptr && return this->ipamScopeName_ == nullptr && return this->ipamScopeType_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr && return this->tags_ == nullptr; };
     // ipamId Field Functions 
     bool hasIpamId() const { return this->ipamId_ != nullptr;};
     void deleteIpamId() { this->ipamId_ = nullptr;};

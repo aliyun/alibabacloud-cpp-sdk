@@ -36,6 +36,76 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 添加ipam可信服务纳管成员
+ *
+ * @param request AddIpamMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddIpamMembersResponse
+ */
+AddIpamMembersResponse Client::addIpamMembersWithOptions(const AddIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasMembers()) {
+    query["Members"] = request.members();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddIpamMembers"},
+    {"version" , "2023-02-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddIpamMembersResponse>();
+}
+
+/**
+ * @summary 添加ipam可信服务纳管成员
+ *
+ * @param request AddIpamMembersRequest
+ * @return AddIpamMembersResponse
+ */
+AddIpamMembersResponse Client::addIpamMembers(const AddIpamMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addIpamMembersWithOptions(request, runtime);
+}
+
+/**
  * @summary Provisions a CIDR block to an IP Address Manager (IPAM) pool.
  *
  * @description *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
@@ -1450,6 +1520,76 @@ ListIpamDiscoveredResourceResponse Client::listIpamDiscoveredResource(const List
 }
 
 /**
+ * @summary 查询ipam可信服务纳管成员
+ *
+ * @param request ListIpamMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIpamMembersResponse
+ */
+ListIpamMembersResponse Client::listIpamMembersWithOptions(const ListIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasMemberIds()) {
+    query["MemberIds"] = request.memberIds();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIpamMembers"},
+    {"version" , "2023-02-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIpamMembersResponse>();
+}
+
+/**
+ * @summary 查询ipam可信服务纳管成员
+ *
+ * @param request ListIpamMembersRequest
+ * @return ListIpamMembersResponse
+ */
+ListIpamMembersResponse Client::listIpamMembers(const ListIpamMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listIpamMembersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
  *
  * @param request ListIpamPoolAllocationsRequest
@@ -2239,6 +2379,76 @@ OpenVpcIpamServiceResponse Client::openVpcIpamServiceWithOptions(const OpenVpcIp
 OpenVpcIpamServiceResponse Client::openVpcIpamService(const OpenVpcIpamServiceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return openVpcIpamServiceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除ipam可信服务纳管成员
+ *
+ * @param request RemoveIpamMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveIpamMembersResponse
+ */
+RemoveIpamMembersResponse Client::removeIpamMembersWithOptions(const RemoveIpamMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.dryRun();
+  }
+
+  if (!!request.hasMembers()) {
+    query["Members"] = request.members();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveIpamMembers"},
+    {"version" , "2023-02-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveIpamMembersResponse>();
+}
+
+/**
+ * @summary 移除ipam可信服务纳管成员
+ *
+ * @param request RemoveIpamMembersRequest
+ * @return RemoveIpamMembersResponse
+ */
+RemoveIpamMembersResponse Client::removeIpamMembers(const RemoveIpamMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeIpamMembersWithOptions(request, runtime);
 }
 
 /**

@@ -68,11 +68,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->cidr_ != nullptr && this->complianceStatus_ != nullptr && this->ipCountDetail_ != nullptr && this->ipUsage_ != nullptr && this->ipamAllocationId_ != nullptr
-        && this->ipamId_ != nullptr && this->ipamPoolId_ != nullptr && this->ipamScopeId_ != nullptr && this->managementStatus_ != nullptr && this->overlapDetail_ != nullptr
-        && this->overlapStatus_ != nullptr && this->resourceId_ != nullptr && this->resourceOwnerId_ != nullptr && this->resourceRegionId_ != nullptr && this->resourceType_ != nullptr
-        && this->sourceCidr_ != nullptr && this->status_ != nullptr && this->vpcId_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && return this->cidr_ == nullptr && return this->complianceStatus_ == nullptr && return this->ipCountDetail_ == nullptr && return this->ipUsage_ == nullptr && return this->ipamAllocationId_ == nullptr
+        && return this->ipamId_ == nullptr && return this->ipamPoolId_ == nullptr && return this->ipamScopeId_ == nullptr && return this->managementStatus_ == nullptr && return this->overlapDetail_ == nullptr
+        && return this->overlapStatus_ == nullptr && return this->resourceId_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourceRegionId_ == nullptr && return this->resourceType_ == nullptr
+        && return this->sourceCidr_ == nullptr && return this->status_ == nullptr && return this->vpcId_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};

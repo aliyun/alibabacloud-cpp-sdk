@@ -52,10 +52,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->addOperatingRegion_ != nullptr
-        && this->clientToken_ != nullptr && this->dryRun_ != nullptr && this->ipamDescription_ != nullptr && this->ipamId_ != nullptr && this->ipamName_ != nullptr
-        && this->ownerAccount_ != nullptr && this->ownerId_ != nullptr && this->regionId_ != nullptr && this->removeOperatingRegion_ != nullptr && this->resourceOwnerAccount_ != nullptr
-        && this->resourceOwnerId_ != nullptr; };
+    virtual bool empty() const override { return this->addOperatingRegion_ == nullptr
+        && return this->clientToken_ == nullptr && return this->dryRun_ == nullptr && return this->ipamDescription_ == nullptr && return this->ipamId_ == nullptr && return this->ipamName_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->removeOperatingRegion_ == nullptr && return this->resourceOwnerAccount_ == nullptr
+        && return this->resourceOwnerId_ == nullptr; };
     // addOperatingRegion Field Functions 
     bool hasAddOperatingRegion() const { return this->addOperatingRegion_ != nullptr;};
     void deleteAddOperatingRegion() { this->addOperatingRegion_ = nullptr;};

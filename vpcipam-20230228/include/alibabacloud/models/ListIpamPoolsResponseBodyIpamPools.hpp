@@ -79,12 +79,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->allocationDefaultCidrMask_ != nullptr
-        && this->allocationMaxCidrMask_ != nullptr && this->allocationMinCidrMask_ != nullptr && this->autoImport_ != nullptr && this->cidrs_ != nullptr && this->createTime_ != nullptr
-        && this->hasSubPool_ != nullptr && this->ipVersion_ != nullptr && this->ipamId_ != nullptr && this->ipamPoolDescription_ != nullptr && this->ipamPoolId_ != nullptr
-        && this->ipamPoolName_ != nullptr && this->ipamRegionId_ != nullptr && this->ipamScopeId_ != nullptr && this->ipamScopeType_ != nullptr && this->ipv6Isp_ != nullptr
-        && this->isShared_ != nullptr && this->ownerId_ != nullptr && this->poolDepth_ != nullptr && this->poolRegionId_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->sourceIpamPoolId_ != nullptr && this->status_ != nullptr && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->allocationDefaultCidrMask_ == nullptr
+        && return this->allocationMaxCidrMask_ == nullptr && return this->allocationMinCidrMask_ == nullptr && return this->autoImport_ == nullptr && return this->cidrs_ == nullptr && return this->createTime_ == nullptr
+        && return this->hasSubPool_ == nullptr && return this->ipVersion_ == nullptr && return this->ipamId_ == nullptr && return this->ipamPoolDescription_ == nullptr && return this->ipamPoolId_ == nullptr
+        && return this->ipamPoolName_ == nullptr && return this->ipamRegionId_ == nullptr && return this->ipamScopeId_ == nullptr && return this->ipamScopeType_ == nullptr && return this->ipv6Isp_ == nullptr
+        && return this->isShared_ == nullptr && return this->ownerId_ == nullptr && return this->poolDepth_ == nullptr && return this->poolRegionId_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->sourceIpamPoolId_ == nullptr && return this->status_ == nullptr && return this->tags_ == nullptr; };
     // allocationDefaultCidrMask Field Functions 
     bool hasAllocationDefaultCidrMask() const { return this->allocationDefaultCidrMask_ != nullptr;};
     void deleteAllocationDefaultCidrMask() { this->allocationDefaultCidrMask_ = nullptr;};
