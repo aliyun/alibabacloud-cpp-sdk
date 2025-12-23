@@ -1708,6 +1708,56 @@ CreateHotwordLibraryResponse Client::createHotwordLibrary(const CreateHotwordLib
 }
 
 /**
+ * @summary IPC下单
+ *
+ * @param request CreateIpcOrderRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIpcOrderResponse
+ */
+CreateIpcOrderResponse Client::createIpcOrderWithOptions(const CreateIpcOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCapability()) {
+    query["Capability"] = request.capability();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.deviceId();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.period();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateIpcOrder"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIpcOrderResponse>();
+}
+
+/**
+ * @summary IPC下单
+ *
+ * @param request CreateIpcOrderRequest
+ * @return CreateIpcOrderResponse
+ */
+CreateIpcOrderResponse Client::createIpcOrder(const CreateIpcOrderRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createIpcOrderWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a live package channel.
  *
  * @description ## [](#)Usage notes
@@ -7341,6 +7391,68 @@ GetHotwordLibraryResponse Client::getHotwordLibraryWithOptions(const GetHotwordL
 GetHotwordLibraryResponse Client::getHotwordLibrary(const GetHotwordLibraryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getHotwordLibraryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询IPC设备信息
+ *
+ * @param request GetIpcDeviceInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIpcDeviceInfoResponse
+ */
+GetIpcDeviceInfoResponse Client::getIpcDeviceInfoWithOptions(const GetIpcDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCapability()) {
+    query["Capability"] = request.capability();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.deviceId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetIpcDeviceInfo"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIpcDeviceInfoResponse>();
+}
+
+/**
+ * @summary 查询IPC设备信息
+ *
+ * @param request GetIpcDeviceInfoRequest
+ * @return GetIpcDeviceInfoResponse
+ */
+GetIpcDeviceInfoResponse Client::getIpcDeviceInfo(const GetIpcDeviceInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getIpcDeviceInfoWithOptions(request, runtime);
 }
 
 /**
@@ -13626,6 +13738,64 @@ QueryIProductionJobResponse Client::queryIProductionJobWithOptions(const QueryIP
 QueryIProductionJobResponse Client::queryIProductionJob(const QueryIProductionJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryIProductionJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询IPC用量
+ *
+ * @param request QueryIpcQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryIpcQuotaResponse
+ */
+QueryIpcQuotaResponse Client::queryIpcQuotaWithOptions(const QueryIpcQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCapability()) {
+    query["Capability"] = request.capability();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.pageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryIpcQuota"},
+    {"version" , "2020-11-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryIpcQuotaResponse>();
+}
+
+/**
+ * @summary 查询IPC用量
+ *
+ * @param request QueryIpcQuotaRequest
+ * @return QueryIpcQuotaResponse
+ */
+QueryIpcQuotaResponse Client::queryIpcQuota(const QueryIpcQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryIpcQuotaWithOptions(request, runtime);
 }
 
 /**

@@ -560,6 +560,23 @@ namespace ICE20201109
       Models::CreateHotwordLibraryResponse createHotwordLibrary(const Models::CreateHotwordLibraryRequest &request);
 
       /**
+       * @summary IPC下单
+       *
+       * @param request CreateIpcOrderRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIpcOrderResponse
+       */
+      Models::CreateIpcOrderResponse createIpcOrderWithOptions(const Models::CreateIpcOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary IPC下单
+       *
+       * @param request CreateIpcOrderRequest
+       * @return CreateIpcOrderResponse
+       */
+      Models::CreateIpcOrderResponse createIpcOrder(const Models::CreateIpcOrderRequest &request);
+
+      /**
        * @summary Creates a live package channel.
        *
        * @description ## [](#)Usage notes
@@ -2678,6 +2695,23 @@ namespace ICE20201109
        * @return GetHotwordLibraryResponse
        */
       Models::GetHotwordLibraryResponse getHotwordLibrary(const Models::GetHotwordLibraryRequest &request);
+
+      /**
+       * @summary 查询IPC设备信息
+       *
+       * @param request GetIpcDeviceInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIpcDeviceInfoResponse
+       */
+      Models::GetIpcDeviceInfoResponse getIpcDeviceInfoWithOptions(const Models::GetIpcDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询IPC设备信息
+       *
+       * @param request GetIpcDeviceInfoRequest
+       * @return GetIpcDeviceInfoResponse
+       */
+      Models::GetIpcDeviceInfoResponse getIpcDeviceInfo(const Models::GetIpcDeviceInfoRequest &request);
 
       /**
        * @summary Queries the index file of a live stream. The index file is used to preview an editing project in the console.
@@ -4872,6 +4906,23 @@ namespace ICE20201109
        * @return QueryIProductionJobResponse
        */
       Models::QueryIProductionJobResponse queryIProductionJob(const Models::QueryIProductionJobRequest &request);
+
+      /**
+       * @summary 查询IPC用量
+       *
+       * @param request QueryIpcQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryIpcQuotaResponse
+       */
+      Models::QueryIpcQuotaResponse queryIpcQuotaWithOptions(const Models::QueryIpcQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询IPC用量
+       *
+       * @param request QueryIpcQuotaRequest
+       * @return QueryIpcQuotaResponse
+       */
+      Models::QueryIpcQuotaResponse queryIpcQuota(const Models::QueryIpcQuotaRequest &request);
 
       /**
        * @summary Queries the information about a content moderation job.

@@ -132,6 +132,9 @@
 #include <alibabacloud/models/CreateHotwordLibraryShrinkRequest.hpp>
 #include <alibabacloud/models/CreateHotwordLibraryResponseBody.hpp>
 #include <alibabacloud/models/CreateHotwordLibraryResponse.hpp>
+#include <alibabacloud/models/CreateIpcOrderRequest.hpp>
+#include <alibabacloud/models/CreateIpcOrderResponseBody.hpp>
+#include <alibabacloud/models/CreateIpcOrderResponse.hpp>
 #include <alibabacloud/models/CreateLivePackageChannelRequest.hpp>
 #include <alibabacloud/models/CreateLivePackageChannelResponseBody.hpp>
 #include <alibabacloud/models/CreateLivePackageChannelResponse.hpp>
@@ -456,6 +459,9 @@
 #include <alibabacloud/models/GetHotwordLibraryRequest.hpp>
 #include <alibabacloud/models/GetHotwordLibraryResponseBody.hpp>
 #include <alibabacloud/models/GetHotwordLibraryResponse.hpp>
+#include <alibabacloud/models/GetIpcDeviceInfoRequest.hpp>
+#include <alibabacloud/models/GetIpcDeviceInfoResponseBody.hpp>
+#include <alibabacloud/models/GetIpcDeviceInfoResponse.hpp>
 #include <alibabacloud/models/GetLiveEditingIndexFileRequest.hpp>
 #include <alibabacloud/models/GetLiveEditingIndexFileResponseBody.hpp>
 #include <alibabacloud/models/GetLiveEditingIndexFileResponse.hpp>
@@ -800,6 +806,9 @@
 #include <alibabacloud/models/QueryIProductionJobRequest.hpp>
 #include <alibabacloud/models/QueryIProductionJobResponseBody.hpp>
 #include <alibabacloud/models/QueryIProductionJobResponse.hpp>
+#include <alibabacloud/models/QueryIpcQuotaRequest.hpp>
+#include <alibabacloud/models/QueryIpcQuotaResponseBody.hpp>
+#include <alibabacloud/models/QueryIpcQuotaResponse.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailRequest.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailResponseBody.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailResponse.hpp>
@@ -1393,6 +1402,7 @@
 #include <alibabacloud/models/GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList.hpp>
 #include <alibabacloud/models/GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo.hpp>
 #include <alibabacloud/models/GetEditingProjectMaterialsResponseBodyMediaInfos.hpp>
+#include <alibabacloud/models/GetIpcDeviceInfoResponseBodyDeviceInfos.hpp>
 #include <alibabacloud/models/GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig.hpp>
 #include <alibabacloud/models/GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig.hpp>
 #include <alibabacloud/models/GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig.hpp>
@@ -1708,6 +1718,7 @@
 #include <alibabacloud/models/QueryIProductionJobResponseBodyInput.hpp>
 #include <alibabacloud/models/QueryIProductionJobResponseBodyOutput.hpp>
 #include <alibabacloud/models/QueryIProductionJobResponseBodyScheduleConfig.hpp>
+#include <alibabacloud/models/QueryIpcQuotaResponseBodyIpcQuotaInfos.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResultsResult.hpp>
 #include <alibabacloud/models/QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResults.hpp>
@@ -1750,6 +1761,8 @@
 #include <alibabacloud/models/QuerySearchLibResponseBodyIndexInfo.hpp>
 #include <alibabacloud/models/QuerySmarttagJobResponseBodyResultsResult.hpp>
 #include <alibabacloud/models/QuerySmarttagJobResponseBodyResults.hpp>
+#include <alibabacloud/models/QuerySmarttagJobResponseBodyUsagesUsage.hpp>
+#include <alibabacloud/models/QuerySmarttagJobResponseBodyUsages.hpp>
 #include <alibabacloud/models/QueryTraceAbJobListResponseBodyDataInput.hpp>
 #include <alibabacloud/models/QueryTraceAbJobListResponseBodyDataOutput.hpp>
 #include <alibabacloud/models/QueryTraceAbJobListResponseBodyData.hpp>

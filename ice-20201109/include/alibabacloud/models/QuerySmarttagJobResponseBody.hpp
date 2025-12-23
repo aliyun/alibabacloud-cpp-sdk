@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYSMARTTAGJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/QuerySmarttagJobResponseBodyResults.hpp>
+#include <alibabacloud/models/QuerySmarttagJobResponseBodyUsages.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobStatus, jobStatus_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Results, results_);
+      DARABONBA_PTR_TO_JSON(Usages, usages_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, QuerySmarttagJobResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(JobStatus, jobStatus_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Results, results_);
+      DARABONBA_PTR_FROM_JSON(Usages, usages_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     QuerySmarttagJobResponseBody() = default ;
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->jobStatus_ == nullptr
-        && return this->requestId_ == nullptr && return this->results_ == nullptr && return this->userData_ == nullptr; };
+        && return this->requestId_ == nullptr && return this->results_ == nullptr && return this->usages_ == nullptr && return this->userData_ == nullptr; };
     // jobStatus Field Functions 
     bool hasJobStatus() const { return this->jobStatus_ != nullptr;};
     void deleteJobStatus() { this->jobStatus_ = nullptr;};
@@ -61,6 +64,15 @@ namespace Models
     inline QuerySmarttagJobResponseBody& setResults(QuerySmarttagJobResponseBodyResults && results) { DARABONBA_PTR_SET_RVALUE(results_, results) };
 
 
+    // usages Field Functions 
+    bool hasUsages() const { return this->usages_ != nullptr;};
+    void deleteUsages() { this->usages_ = nullptr;};
+    inline const QuerySmarttagJobResponseBodyUsages & usages() const { DARABONBA_PTR_GET_CONST(usages_, QuerySmarttagJobResponseBodyUsages) };
+    inline QuerySmarttagJobResponseBodyUsages usages() { DARABONBA_PTR_GET(usages_, QuerySmarttagJobResponseBodyUsages) };
+    inline QuerySmarttagJobResponseBody& setUsages(const QuerySmarttagJobResponseBodyUsages & usages) { DARABONBA_PTR_SET_VALUE(usages_, usages) };
+    inline QuerySmarttagJobResponseBody& setUsages(QuerySmarttagJobResponseBodyUsages && usages) { DARABONBA_PTR_SET_RVALUE(usages_, usages) };
+
+
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
@@ -80,6 +92,7 @@ namespace Models
     std::shared_ptr<string> requestId_ = nullptr;
     // The analysis results of the smart tagging job. The value is an array.
     std::shared_ptr<QuerySmarttagJobResponseBodyResults> results_ = nullptr;
+    std::shared_ptr<QuerySmarttagJobResponseBodyUsages> usages_ = nullptr;
     // The content of callback messages that are sent to Simple Message Queue (SMQ) when the information of the smart tagging job changes. For more information about the parameters contained in the callback message, see the "Callback parameters" section of this topic.
     std::shared_ptr<string> userData_ = nullptr;
   };
