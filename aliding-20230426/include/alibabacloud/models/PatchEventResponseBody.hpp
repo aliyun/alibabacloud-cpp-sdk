@@ -4,12 +4,17 @@
 #include <darabonba/Core.hpp>
 #include <vector>
 #include <alibabacloud/models/PatchEventResponseBodyAttendees.hpp>
+#include <alibabacloud/models/PatchEventResponseBodyCardInstances.hpp>
+#include <alibabacloud/models/PatchEventResponseBodyCategories.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyEnd.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyLocation.hpp>
+#include <alibabacloud/models/PatchEventResponseBodyOnlineMeetingInfo.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyOrganizer.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyRecurrence.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyReminders.hpp>
+#include <alibabacloud/models/PatchEventResponseBodyRichTextDescription.hpp>
 #include <alibabacloud/models/PatchEventResponseBodyStart.hpp>
+#include <alibabacloud/models/PatchEventResponseBodyUiConfigs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -22,34 +27,46 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PatchEventResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(attendees, attendees_);
+      DARABONBA_PTR_TO_JSON(cardInstances, cardInstances_);
+      DARABONBA_PTR_TO_JSON(categories, categories_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(end, end_);
+      DARABONBA_PTR_TO_JSON(freeBusyStatus, freeBusyStatus_);
       DARABONBA_PTR_TO_JSON(id, id_);
       DARABONBA_PTR_TO_JSON(isAllDay, isAllDay_);
       DARABONBA_PTR_TO_JSON(location, location_);
+      DARABONBA_PTR_TO_JSON(onlineMeetingInfo, onlineMeetingInfo_);
       DARABONBA_PTR_TO_JSON(organizer, organizer_);
       DARABONBA_PTR_TO_JSON(recurrence, recurrence_);
       DARABONBA_PTR_TO_JSON(reminders, reminders_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(richTextDescription, richTextDescription_);
       DARABONBA_PTR_TO_JSON(start, start_);
       DARABONBA_PTR_TO_JSON(summary, summary_);
+      DARABONBA_PTR_TO_JSON(uiConfigs, uiConfigs_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, PatchEventResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(attendees, attendees_);
+      DARABONBA_PTR_FROM_JSON(cardInstances, cardInstances_);
+      DARABONBA_PTR_FROM_JSON(categories, categories_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(end, end_);
+      DARABONBA_PTR_FROM_JSON(freeBusyStatus, freeBusyStatus_);
       DARABONBA_PTR_FROM_JSON(id, id_);
       DARABONBA_PTR_FROM_JSON(isAllDay, isAllDay_);
       DARABONBA_PTR_FROM_JSON(location, location_);
+      DARABONBA_PTR_FROM_JSON(onlineMeetingInfo, onlineMeetingInfo_);
       DARABONBA_PTR_FROM_JSON(organizer, organizer_);
       DARABONBA_PTR_FROM_JSON(recurrence, recurrence_);
       DARABONBA_PTR_FROM_JSON(reminders, reminders_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(richTextDescription, richTextDescription_);
       DARABONBA_PTR_FROM_JSON(start, start_);
       DARABONBA_PTR_FROM_JSON(summary, summary_);
+      DARABONBA_PTR_FROM_JSON(uiConfigs, uiConfigs_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
     };
     PatchEventResponseBody() = default ;
@@ -64,9 +81,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attendees_ == nullptr
-        && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->end_ == nullptr && return this->id_ == nullptr && return this->isAllDay_ == nullptr
-        && return this->location_ == nullptr && return this->organizer_ == nullptr && return this->recurrence_ == nullptr && return this->reminders_ == nullptr && return this->requestId_ == nullptr
-        && return this->start_ == nullptr && return this->summary_ == nullptr && return this->updateTime_ == nullptr; };
+        && return this->cardInstances_ == nullptr && return this->categories_ == nullptr && return this->createTime_ == nullptr && return this->description_ == nullptr && return this->end_ == nullptr
+        && return this->freeBusyStatus_ == nullptr && return this->id_ == nullptr && return this->isAllDay_ == nullptr && return this->location_ == nullptr && return this->onlineMeetingInfo_ == nullptr
+        && return this->organizer_ == nullptr && return this->recurrence_ == nullptr && return this->reminders_ == nullptr && return this->requestId_ == nullptr && return this->richTextDescription_ == nullptr
+        && return this->start_ == nullptr && return this->summary_ == nullptr && return this->uiConfigs_ == nullptr && return this->updateTime_ == nullptr; };
     // attendees Field Functions 
     bool hasAttendees() const { return this->attendees_ != nullptr;};
     void deleteAttendees() { this->attendees_ = nullptr;};
@@ -74,6 +92,24 @@ namespace Models
     inline vector<PatchEventResponseBodyAttendees> attendees() { DARABONBA_PTR_GET(attendees_, vector<PatchEventResponseBodyAttendees>) };
     inline PatchEventResponseBody& setAttendees(const vector<PatchEventResponseBodyAttendees> & attendees) { DARABONBA_PTR_SET_VALUE(attendees_, attendees) };
     inline PatchEventResponseBody& setAttendees(vector<PatchEventResponseBodyAttendees> && attendees) { DARABONBA_PTR_SET_RVALUE(attendees_, attendees) };
+
+
+    // cardInstances Field Functions 
+    bool hasCardInstances() const { return this->cardInstances_ != nullptr;};
+    void deleteCardInstances() { this->cardInstances_ = nullptr;};
+    inline const vector<PatchEventResponseBodyCardInstances> & cardInstances() const { DARABONBA_PTR_GET_CONST(cardInstances_, vector<PatchEventResponseBodyCardInstances>) };
+    inline vector<PatchEventResponseBodyCardInstances> cardInstances() { DARABONBA_PTR_GET(cardInstances_, vector<PatchEventResponseBodyCardInstances>) };
+    inline PatchEventResponseBody& setCardInstances(const vector<PatchEventResponseBodyCardInstances> & cardInstances) { DARABONBA_PTR_SET_VALUE(cardInstances_, cardInstances) };
+    inline PatchEventResponseBody& setCardInstances(vector<PatchEventResponseBodyCardInstances> && cardInstances) { DARABONBA_PTR_SET_RVALUE(cardInstances_, cardInstances) };
+
+
+    // categories Field Functions 
+    bool hasCategories() const { return this->categories_ != nullptr;};
+    void deleteCategories() { this->categories_ = nullptr;};
+    inline const vector<PatchEventResponseBodyCategories> & categories() const { DARABONBA_PTR_GET_CONST(categories_, vector<PatchEventResponseBodyCategories>) };
+    inline vector<PatchEventResponseBodyCategories> categories() { DARABONBA_PTR_GET(categories_, vector<PatchEventResponseBodyCategories>) };
+    inline PatchEventResponseBody& setCategories(const vector<PatchEventResponseBodyCategories> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
+    inline PatchEventResponseBody& setCategories(vector<PatchEventResponseBodyCategories> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
 
 
     // createTime Field Functions 
@@ -99,6 +135,13 @@ namespace Models
     inline PatchEventResponseBody& setEnd(PatchEventResponseBodyEnd && end) { DARABONBA_PTR_SET_RVALUE(end_, end) };
 
 
+    // freeBusyStatus Field Functions 
+    bool hasFreeBusyStatus() const { return this->freeBusyStatus_ != nullptr;};
+    void deleteFreeBusyStatus() { this->freeBusyStatus_ = nullptr;};
+    inline string freeBusyStatus() const { DARABONBA_PTR_GET_DEFAULT(freeBusyStatus_, "") };
+    inline PatchEventResponseBody& setFreeBusyStatus(string freeBusyStatus) { DARABONBA_PTR_SET_VALUE(freeBusyStatus_, freeBusyStatus) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -120,6 +163,15 @@ namespace Models
     inline PatchEventResponseBodyLocation location() { DARABONBA_PTR_GET(location_, PatchEventResponseBodyLocation) };
     inline PatchEventResponseBody& setLocation(const PatchEventResponseBodyLocation & location) { DARABONBA_PTR_SET_VALUE(location_, location) };
     inline PatchEventResponseBody& setLocation(PatchEventResponseBodyLocation && location) { DARABONBA_PTR_SET_RVALUE(location_, location) };
+
+
+    // onlineMeetingInfo Field Functions 
+    bool hasOnlineMeetingInfo() const { return this->onlineMeetingInfo_ != nullptr;};
+    void deleteOnlineMeetingInfo() { this->onlineMeetingInfo_ = nullptr;};
+    inline const PatchEventResponseBodyOnlineMeetingInfo & onlineMeetingInfo() const { DARABONBA_PTR_GET_CONST(onlineMeetingInfo_, PatchEventResponseBodyOnlineMeetingInfo) };
+    inline PatchEventResponseBodyOnlineMeetingInfo onlineMeetingInfo() { DARABONBA_PTR_GET(onlineMeetingInfo_, PatchEventResponseBodyOnlineMeetingInfo) };
+    inline PatchEventResponseBody& setOnlineMeetingInfo(const PatchEventResponseBodyOnlineMeetingInfo & onlineMeetingInfo) { DARABONBA_PTR_SET_VALUE(onlineMeetingInfo_, onlineMeetingInfo) };
+    inline PatchEventResponseBody& setOnlineMeetingInfo(PatchEventResponseBodyOnlineMeetingInfo && onlineMeetingInfo) { DARABONBA_PTR_SET_RVALUE(onlineMeetingInfo_, onlineMeetingInfo) };
 
 
     // organizer Field Functions 
@@ -156,6 +208,15 @@ namespace Models
     inline PatchEventResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // richTextDescription Field Functions 
+    bool hasRichTextDescription() const { return this->richTextDescription_ != nullptr;};
+    void deleteRichTextDescription() { this->richTextDescription_ = nullptr;};
+    inline const PatchEventResponseBodyRichTextDescription & richTextDescription() const { DARABONBA_PTR_GET_CONST(richTextDescription_, PatchEventResponseBodyRichTextDescription) };
+    inline PatchEventResponseBodyRichTextDescription richTextDescription() { DARABONBA_PTR_GET(richTextDescription_, PatchEventResponseBodyRichTextDescription) };
+    inline PatchEventResponseBody& setRichTextDescription(const PatchEventResponseBodyRichTextDescription & richTextDescription) { DARABONBA_PTR_SET_VALUE(richTextDescription_, richTextDescription) };
+    inline PatchEventResponseBody& setRichTextDescription(PatchEventResponseBodyRichTextDescription && richTextDescription) { DARABONBA_PTR_SET_RVALUE(richTextDescription_, richTextDescription) };
+
+
     // start Field Functions 
     bool hasStart() const { return this->start_ != nullptr;};
     void deleteStart() { this->start_ = nullptr;};
@@ -172,6 +233,15 @@ namespace Models
     inline PatchEventResponseBody& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
+    // uiConfigs Field Functions 
+    bool hasUiConfigs() const { return this->uiConfigs_ != nullptr;};
+    void deleteUiConfigs() { this->uiConfigs_ = nullptr;};
+    inline const vector<PatchEventResponseBodyUiConfigs> & uiConfigs() const { DARABONBA_PTR_GET_CONST(uiConfigs_, vector<PatchEventResponseBodyUiConfigs>) };
+    inline vector<PatchEventResponseBodyUiConfigs> uiConfigs() { DARABONBA_PTR_GET(uiConfigs_, vector<PatchEventResponseBodyUiConfigs>) };
+    inline PatchEventResponseBody& setUiConfigs(const vector<PatchEventResponseBodyUiConfigs> & uiConfigs) { DARABONBA_PTR_SET_VALUE(uiConfigs_, uiConfigs) };
+    inline PatchEventResponseBody& setUiConfigs(vector<PatchEventResponseBodyUiConfigs> && uiConfigs) { DARABONBA_PTR_SET_RVALUE(uiConfigs_, uiConfigs) };
+
+
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -181,19 +251,25 @@ namespace Models
 
   protected:
     std::shared_ptr<vector<PatchEventResponseBodyAttendees>> attendees_ = nullptr;
+    std::shared_ptr<vector<PatchEventResponseBodyCardInstances>> cardInstances_ = nullptr;
+    std::shared_ptr<vector<PatchEventResponseBodyCategories>> categories_ = nullptr;
     std::shared_ptr<string> createTime_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<PatchEventResponseBodyEnd> end_ = nullptr;
+    std::shared_ptr<string> freeBusyStatus_ = nullptr;
     std::shared_ptr<string> id_ = nullptr;
     std::shared_ptr<bool> isAllDay_ = nullptr;
     std::shared_ptr<PatchEventResponseBodyLocation> location_ = nullptr;
+    std::shared_ptr<PatchEventResponseBodyOnlineMeetingInfo> onlineMeetingInfo_ = nullptr;
     std::shared_ptr<PatchEventResponseBodyOrganizer> organizer_ = nullptr;
     std::shared_ptr<PatchEventResponseBodyRecurrence> recurrence_ = nullptr;
     std::shared_ptr<vector<PatchEventResponseBodyReminders>> reminders_ = nullptr;
     // requestId
     std::shared_ptr<string> requestId_ = nullptr;
+    std::shared_ptr<PatchEventResponseBodyRichTextDescription> richTextDescription_ = nullptr;
     std::shared_ptr<PatchEventResponseBodyStart> start_ = nullptr;
     std::shared_ptr<string> summary_ = nullptr;
+    std::shared_ptr<vector<PatchEventResponseBodyUiConfigs>> uiConfigs_ = nullptr;
     std::shared_ptr<string> updateTime_ = nullptr;
   };
 

@@ -26,6 +26,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Reminders, remindersShrink_);
       DARABONBA_PTR_TO_JSON(Start, startShrink_);
       DARABONBA_PTR_TO_JSON(Summary, summary_);
+      DARABONBA_PTR_TO_JSON(categories, categoriesShrink_);
+      DARABONBA_PTR_TO_JSON(freeBusyStatus, freeBusyStatus_);
+      DARABONBA_PTR_TO_JSON(onlineMeetingInfo, onlineMeetingInfoShrink_);
+      DARABONBA_PTR_TO_JSON(richTextDescription, richTextDescriptionShrink_);
+      DARABONBA_PTR_TO_JSON(uiConfigs, uiConfigsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, PatchEventShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Attendees, attendeesShrink_);
@@ -41,6 +46,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Reminders, remindersShrink_);
       DARABONBA_PTR_FROM_JSON(Start, startShrink_);
       DARABONBA_PTR_FROM_JSON(Summary, summary_);
+      DARABONBA_PTR_FROM_JSON(categories, categoriesShrink_);
+      DARABONBA_PTR_FROM_JSON(freeBusyStatus, freeBusyStatus_);
+      DARABONBA_PTR_FROM_JSON(onlineMeetingInfo, onlineMeetingInfoShrink_);
+      DARABONBA_PTR_FROM_JSON(richTextDescription, richTextDescriptionShrink_);
+      DARABONBA_PTR_FROM_JSON(uiConfigs, uiConfigsShrink_);
     };
     PatchEventShrinkRequest() = default ;
     PatchEventShrinkRequest(const PatchEventShrinkRequest &) = default ;
@@ -56,7 +66,8 @@ namespace Models
     virtual bool empty() const override { return this->attendeesShrink_ == nullptr
         && return this->calendarId_ == nullptr && return this->cardInstancesShrink_ == nullptr && return this->description_ == nullptr && return this->endShrink_ == nullptr && return this->eventId_ == nullptr
         && return this->extraShrink_ == nullptr && return this->isAllDay_ == nullptr && return this->locationShrink_ == nullptr && return this->recurrenceShrink_ == nullptr && return this->remindersShrink_ == nullptr
-        && return this->startShrink_ == nullptr && return this->summary_ == nullptr; };
+        && return this->startShrink_ == nullptr && return this->summary_ == nullptr && return this->categoriesShrink_ == nullptr && return this->freeBusyStatus_ == nullptr && return this->onlineMeetingInfoShrink_ == nullptr
+        && return this->richTextDescriptionShrink_ == nullptr && return this->uiConfigsShrink_ == nullptr; };
     // attendeesShrink Field Functions 
     bool hasAttendeesShrink() const { return this->attendeesShrink_ != nullptr;};
     void deleteAttendeesShrink() { this->attendeesShrink_ = nullptr;};
@@ -148,6 +159,41 @@ namespace Models
     inline PatchEventShrinkRequest& setSummary(string summary) { DARABONBA_PTR_SET_VALUE(summary_, summary) };
 
 
+    // categoriesShrink Field Functions 
+    bool hasCategoriesShrink() const { return this->categoriesShrink_ != nullptr;};
+    void deleteCategoriesShrink() { this->categoriesShrink_ = nullptr;};
+    inline string categoriesShrink() const { DARABONBA_PTR_GET_DEFAULT(categoriesShrink_, "") };
+    inline PatchEventShrinkRequest& setCategoriesShrink(string categoriesShrink) { DARABONBA_PTR_SET_VALUE(categoriesShrink_, categoriesShrink) };
+
+
+    // freeBusyStatus Field Functions 
+    bool hasFreeBusyStatus() const { return this->freeBusyStatus_ != nullptr;};
+    void deleteFreeBusyStatus() { this->freeBusyStatus_ = nullptr;};
+    inline string freeBusyStatus() const { DARABONBA_PTR_GET_DEFAULT(freeBusyStatus_, "") };
+    inline PatchEventShrinkRequest& setFreeBusyStatus(string freeBusyStatus) { DARABONBA_PTR_SET_VALUE(freeBusyStatus_, freeBusyStatus) };
+
+
+    // onlineMeetingInfoShrink Field Functions 
+    bool hasOnlineMeetingInfoShrink() const { return this->onlineMeetingInfoShrink_ != nullptr;};
+    void deleteOnlineMeetingInfoShrink() { this->onlineMeetingInfoShrink_ = nullptr;};
+    inline string onlineMeetingInfoShrink() const { DARABONBA_PTR_GET_DEFAULT(onlineMeetingInfoShrink_, "") };
+    inline PatchEventShrinkRequest& setOnlineMeetingInfoShrink(string onlineMeetingInfoShrink) { DARABONBA_PTR_SET_VALUE(onlineMeetingInfoShrink_, onlineMeetingInfoShrink) };
+
+
+    // richTextDescriptionShrink Field Functions 
+    bool hasRichTextDescriptionShrink() const { return this->richTextDescriptionShrink_ != nullptr;};
+    void deleteRichTextDescriptionShrink() { this->richTextDescriptionShrink_ = nullptr;};
+    inline string richTextDescriptionShrink() const { DARABONBA_PTR_GET_DEFAULT(richTextDescriptionShrink_, "") };
+    inline PatchEventShrinkRequest& setRichTextDescriptionShrink(string richTextDescriptionShrink) { DARABONBA_PTR_SET_VALUE(richTextDescriptionShrink_, richTextDescriptionShrink) };
+
+
+    // uiConfigsShrink Field Functions 
+    bool hasUiConfigsShrink() const { return this->uiConfigsShrink_ != nullptr;};
+    void deleteUiConfigsShrink() { this->uiConfigsShrink_ = nullptr;};
+    inline string uiConfigsShrink() const { DARABONBA_PTR_GET_DEFAULT(uiConfigsShrink_, "") };
+    inline PatchEventShrinkRequest& setUiConfigsShrink(string uiConfigsShrink) { DARABONBA_PTR_SET_VALUE(uiConfigsShrink_, uiConfigsShrink) };
+
+
   protected:
     std::shared_ptr<string> attendeesShrink_ = nullptr;
     // This parameter is required.
@@ -164,6 +210,11 @@ namespace Models
     std::shared_ptr<string> remindersShrink_ = nullptr;
     std::shared_ptr<string> startShrink_ = nullptr;
     std::shared_ptr<string> summary_ = nullptr;
+    std::shared_ptr<string> categoriesShrink_ = nullptr;
+    std::shared_ptr<string> freeBusyStatus_ = nullptr;
+    std::shared_ptr<string> onlineMeetingInfoShrink_ = nullptr;
+    std::shared_ptr<string> richTextDescriptionShrink_ = nullptr;
+    std::shared_ptr<string> uiConfigsShrink_ = nullptr;
   };
 
   } // namespace Models

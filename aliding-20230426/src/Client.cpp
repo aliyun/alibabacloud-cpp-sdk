@@ -4482,6 +4482,10 @@ CreateThreadResponse Client::createThreadWithOptions(const CreateThreadRequest &
     body["assistantId"] = request.assistantId();
   }
 
+  if (!!request.hasClientEnum()) {
+    body["clientEnum"] = request.clientEnum();
+  }
+
   if (!!request.hasExtLoginUser()) {
     body["extLoginUser"] = request.extLoginUser();
   }
@@ -12860,6 +12864,10 @@ FutrueGenerator<InvokeAssistantResponse> Client::invokeAssistantWithSSE(const In
     body["assistantId"] = request.assistantId();
   }
 
+  if (!!request.hasClientEnum()) {
+    body["clientEnum"] = request.clientEnum();
+  }
+
   if (!!request.hasExtLoginUser()) {
     body["extLoginUser"] = request.extLoginUser();
   }
@@ -12940,6 +12948,10 @@ InvokeAssistantResponse Client::invokeAssistantWithOptions(const InvokeAssistant
   json body = {};
   if (!!request.hasAssistantId()) {
     body["assistantId"] = request.assistantId();
+  }
+
+  if (!!request.hasClientEnum()) {
+    body["clientEnum"] = request.clientEnum();
   }
 
   if (!!request.hasExtLoginUser()) {
@@ -14745,6 +14757,43 @@ PatchEventResponse Client::patchEventWithOptions(const PatchEventRequest &tmpReq
     request.setStartShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.start(), "Start", "json"));
   }
 
+  if (!!tmpReq.hasCategories()) {
+    request.setCategoriesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.categories(), "categories", "json"));
+  }
+
+  if (!!tmpReq.hasOnlineMeetingInfo()) {
+    request.setOnlineMeetingInfoShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.onlineMeetingInfo(), "onlineMeetingInfo", "json"));
+  }
+
+  if (!!tmpReq.hasRichTextDescription()) {
+    request.setRichTextDescriptionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.richTextDescription(), "richTextDescription", "json"));
+  }
+
+  if (!!tmpReq.hasUiConfigs()) {
+    request.setUiConfigsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.uiConfigs(), "uiConfigs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCategoriesShrink()) {
+    query["categories"] = request.categoriesShrink();
+  }
+
+  if (!!request.hasFreeBusyStatus()) {
+    query["freeBusyStatus"] = request.freeBusyStatus();
+  }
+
+  if (!!request.hasOnlineMeetingInfoShrink()) {
+    query["onlineMeetingInfo"] = request.onlineMeetingInfoShrink();
+  }
+
+  if (!!request.hasRichTextDescriptionShrink()) {
+    query["richTextDescription"] = request.richTextDescriptionShrink();
+  }
+
+  if (!!request.hasUiConfigsShrink()) {
+    query["uiConfigs"] = request.uiConfigsShrink();
+  }
+
   json body = {};
   if (!!request.hasAttendeesShrink()) {
     body["Attendees"] = request.attendeesShrink();
@@ -14809,6 +14858,7 @@ PatchEventResponse Client::patchEventWithOptions(const PatchEventRequest &tmpReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , realHeaders},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -15328,10 +15378,6 @@ QueryDentriesInfoResponse Client::queryDentriesInfoWithOptions(const QueryDentri
 
   if (!!request.hasTenantContextShrink()) {
     body["TenantContext"] = request.tenantContextShrink();
-  }
-
-  if (!!request.hasUnionId()) {
-    body["UnionId"] = request.unionId();
   }
 
   if (!!request.hasWithThumbnail()) {

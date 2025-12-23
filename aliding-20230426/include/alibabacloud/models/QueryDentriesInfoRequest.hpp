@@ -19,7 +19,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DentryId, dentryId_);
       DARABONBA_PTR_TO_JSON(SpaceId, spaceId_);
       DARABONBA_PTR_TO_JSON(TenantContext, tenantContext_);
-      DARABONBA_PTR_TO_JSON(UnionId, unionId_);
       DARABONBA_PTR_TO_JSON(WithThumbnail, withThumbnail_);
     };
     friend void from_json(const Darabonba::Json& j, QueryDentriesInfoRequest& obj) { 
@@ -27,7 +26,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DentryId, dentryId_);
       DARABONBA_PTR_FROM_JSON(SpaceId, spaceId_);
       DARABONBA_PTR_FROM_JSON(TenantContext, tenantContext_);
-      DARABONBA_PTR_FROM_JSON(UnionId, unionId_);
       DARABONBA_PTR_FROM_JSON(WithThumbnail, withThumbnail_);
     };
     QueryDentriesInfoRequest() = default ;
@@ -42,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIdsForAppProperties_ == nullptr
-        && return this->dentryId_ == nullptr && return this->spaceId_ == nullptr && return this->tenantContext_ == nullptr && return this->unionId_ == nullptr && return this->withThumbnail_ == nullptr; };
+        && return this->dentryId_ == nullptr && return this->spaceId_ == nullptr && return this->tenantContext_ == nullptr && return this->withThumbnail_ == nullptr; };
     // appIdsForAppProperties Field Functions 
     bool hasAppIdsForAppProperties() const { return this->appIdsForAppProperties_ != nullptr;};
     void deleteAppIdsForAppProperties() { this->appIdsForAppProperties_ = nullptr;};
@@ -75,13 +73,6 @@ namespace Models
     inline QueryDentriesInfoRequest& setTenantContext(QueryDentriesInfoRequestTenantContext && tenantContext) { DARABONBA_PTR_SET_RVALUE(tenantContext_, tenantContext) };
 
 
-    // unionId Field Functions 
-    bool hasUnionId() const { return this->unionId_ != nullptr;};
-    void deleteUnionId() { this->unionId_ = nullptr;};
-    inline string unionId() const { DARABONBA_PTR_GET_DEFAULT(unionId_, "") };
-    inline QueryDentriesInfoRequest& setUnionId(string unionId) { DARABONBA_PTR_SET_VALUE(unionId_, unionId) };
-
-
     // withThumbnail Field Functions 
     bool hasWithThumbnail() const { return this->withThumbnail_ != nullptr;};
     void deleteWithThumbnail() { this->withThumbnail_ = nullptr;};
@@ -96,8 +87,6 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> spaceId_ = nullptr;
     std::shared_ptr<QueryDentriesInfoRequestTenantContext> tenantContext_ = nullptr;
-    // This parameter is required.
-    std::shared_ptr<string> unionId_ = nullptr;
     std::shared_ptr<bool> withThumbnail_ = nullptr;
   };
 
