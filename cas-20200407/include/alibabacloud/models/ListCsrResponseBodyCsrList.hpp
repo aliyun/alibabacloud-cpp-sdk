@@ -53,10 +53,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->commonName_ != nullptr && this->corpName_ != nullptr && this->countryCode_ != nullptr && this->csrId_ != nullptr && this->department_ != nullptr
-        && this->hasPrivateKey_ != nullptr && this->keySha2_ != nullptr && this->keySize_ != nullptr && this->locality_ != nullptr && this->name_ != nullptr
-        && this->province_ != nullptr && this->sans_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->commonName_ == nullptr && return this->corpName_ == nullptr && return this->countryCode_ == nullptr && return this->csrId_ == nullptr && return this->department_ == nullptr
+        && return this->hasPrivateKey_ == nullptr && return this->keySha2_ == nullptr && return this->keySize_ == nullptr && return this->locality_ == nullptr && return this->name_ == nullptr
+        && return this->province_ == nullptr && return this->sans_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

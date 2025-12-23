@@ -56,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->certId_ != nullptr && this->certInstanceId_ != nullptr && this->certName_ != nullptr && this->certOrderType_ != nullptr && this->certType_ != nullptr
-        && this->commonName_ != nullptr && this->isTrustee_ != nullptr && this->month_ != nullptr && this->notAfterTime_ != nullptr && this->notBeforeTime_ != nullptr
-        && this->orderId_ != nullptr && this->sans_ != nullptr && this->statusCode_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->certId_ == nullptr && return this->certInstanceId_ == nullptr && return this->certName_ == nullptr && return this->certOrderType_ == nullptr && return this->certType_ == nullptr
+        && return this->commonName_ == nullptr && return this->isTrustee_ == nullptr && return this->month_ == nullptr && return this->notAfterTime_ == nullptr && return this->notBeforeTime_ == nullptr
+        && return this->orderId_ == nullptr && return this->sans_ == nullptr && return this->statusCode_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const EncryptRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
       DARABONBA_PTR_TO_JSON(Plaintext, plaintext_);
     };
     friend void from_json(const Darabonba::Json& j, EncryptRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
       DARABONBA_PTR_FROM_JSON(Plaintext, plaintext_);
     };
@@ -35,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->certIdentifier_ != nullptr && this->messageType_ != nullptr && this->plaintext_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->certIdentifier_ == nullptr && return this->customIdentifier_ == nullptr && return this->messageType_ == nullptr && return this->plaintext_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
     inline string certIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline EncryptRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline EncryptRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // messageType Field Functions 
@@ -78,9 +87,8 @@ namespace Models
     // 
     // *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
     // *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> certIdentifier_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The value type of the Message parameter. Valid values:
     // 
     // *   RAW: The value of the Plaintext parameter is directly encrypted. This is the default value.

@@ -51,10 +51,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->afterDate_ != nullptr
-        && this->beforeDate_ != nullptr && this->certType_ != nullptr && this->commonName_ != nullptr && this->existPrivateKey_ != nullptr && this->identifier_ != nullptr
-        && this->issuer_ != nullptr && this->sans_ != nullptr && this->sourceType_ != nullptr && this->status_ != nullptr && this->whId_ != nullptr
-        && this->whInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->afterDate_ == nullptr
+        && return this->beforeDate_ == nullptr && return this->certType_ == nullptr && return this->commonName_ == nullptr && return this->existPrivateKey_ == nullptr && return this->identifier_ == nullptr
+        && return this->issuer_ == nullptr && return this->sans_ == nullptr && return this->sourceType_ == nullptr && return this->status_ == nullptr && return this->whId_ == nullptr
+        && return this->whInstanceId_ == nullptr; };
     // afterDate Field Functions 
     bool hasAfterDate() const { return this->afterDate_ != nullptr;};
     void deleteAfterDate() { this->afterDate_ = nullptr;};

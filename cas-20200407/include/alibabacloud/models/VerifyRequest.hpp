@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const VerifyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
       DARABONBA_PTR_TO_JSON(SignatureValue, signatureValue_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, VerifyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
       DARABONBA_PTR_FROM_JSON(SignatureValue, signatureValue_);
@@ -37,13 +39,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certIdentifier_ != nullptr
-        && this->message_ != nullptr && this->messageType_ != nullptr && this->signatureValue_ != nullptr && this->signingAlgorithm_ != nullptr; };
+    virtual bool empty() const override { return this->certIdentifier_ == nullptr
+        && return this->customIdentifier_ == nullptr && return this->message_ == nullptr && return this->messageType_ == nullptr && return this->signatureValue_ == nullptr && return this->signingAlgorithm_ == nullptr; };
     // certIdentifier Field Functions 
     bool hasCertIdentifier() const { return this->certIdentifier_ != nullptr;};
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
     inline string certIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline VerifyRequest& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline VerifyRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // message Field Functions 
@@ -79,9 +88,8 @@ namespace Models
     // 
     // *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
     // *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> certIdentifier_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The data for which you want to verify the signature. The value must be encoded in Base64.\\
     // For example, if the hexadecimal data that you want to verify is [0x31, 0x32, 0x33, 0x34], set the parameter to the Base64-encoded value MTIzNA==. If you set MessageType to RAW, the size of the data must be less than 4 KB. If the size of the data is greater than 4 KB, you can set MessageType to DIGEST and set Message to the digest of the data. The digest is also called hash value. You can compute the digest of the data on an on-premises machine. The certificate repository uses your certificate application system to compute the message digest. The message digest algorithm that is used must meet the requirements of the specified signature algorithm. The following signature algorithms require different message digest algorithms:
     // 

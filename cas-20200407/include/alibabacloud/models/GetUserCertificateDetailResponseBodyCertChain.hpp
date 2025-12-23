@@ -37,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonName_ != nullptr
-        && this->issuerCommonName_ != nullptr && this->notAfter_ != nullptr && this->notBefore_ != nullptr && this->remainDay_ != nullptr; };
+    virtual bool empty() const override { return this->commonName_ == nullptr
+        && return this->issuerCommonName_ == nullptr && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->remainDay_ == nullptr; };
     // commonName Field Functions 
     bool hasCommonName() const { return this->commonName_ != nullptr;};
     void deleteCommonName() { this->commonName_ = nullptr;};

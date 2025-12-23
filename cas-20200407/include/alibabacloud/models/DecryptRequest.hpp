@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
       DARABONBA_PTR_TO_JSON(CiphertextBlob, ciphertextBlob_);
+      DARABONBA_PTR_TO_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_TO_JSON(MessageType, messageType_);
     };
     friend void from_json(const Darabonba::Json& j, DecryptRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
       DARABONBA_PTR_FROM_JSON(CiphertextBlob, ciphertextBlob_);
+      DARABONBA_PTR_FROM_JSON(CustomIdentifier, customIdentifier_);
       DARABONBA_PTR_FROM_JSON(MessageType, messageType_);
     };
     DecryptRequest() = default ;
@@ -35,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->certIdentifier_ != nullptr && this->ciphertextBlob_ != nullptr && this->messageType_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->certIdentifier_ == nullptr && return this->ciphertextBlob_ == nullptr && return this->customIdentifier_ == nullptr && return this->messageType_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteCiphertextBlob() { this->ciphertextBlob_ = nullptr;};
     inline string ciphertextBlob() const { DARABONBA_PTR_GET_DEFAULT(ciphertextBlob_, "") };
     inline DecryptRequest& setCiphertextBlob(string ciphertextBlob) { DARABONBA_PTR_SET_VALUE(ciphertextBlob_, ciphertextBlob) };
+
+
+    // customIdentifier Field Functions 
+    bool hasCustomIdentifier() const { return this->customIdentifier_ != nullptr;};
+    void deleteCustomIdentifier() { this->customIdentifier_ = nullptr;};
+    inline string customIdentifier() const { DARABONBA_PTR_GET_DEFAULT(customIdentifier_, "") };
+    inline DecryptRequest& setCustomIdentifier(string customIdentifier) { DARABONBA_PTR_SET_VALUE(customIdentifier_, customIdentifier) };
 
 
     // messageType Field Functions 
@@ -78,13 +87,12 @@ namespace Models
     // 
     // *   If the certificate is an SSL certificate, the value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
     // *   If the certificate is a private certificate, the value of this parameter must be the value of the Identifier field for the private certificate.
-    // 
-    // This parameter is required.
     std::shared_ptr<string> certIdentifier_ = nullptr;
     // The data that you want to decrypt. The value is encoded in Base64.
     // 
     // This parameter is required.
     std::shared_ptr<string> ciphertextBlob_ = nullptr;
+    std::shared_ptr<string> customIdentifier_ = nullptr;
     // The value type of the Message parameter. Valid values:
     // 
     // *   RAW: The returned result is raw data encoded in UTF-8.

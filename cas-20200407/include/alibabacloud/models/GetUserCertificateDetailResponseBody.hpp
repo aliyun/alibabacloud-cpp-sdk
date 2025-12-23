@@ -94,14 +94,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->buyInAliyun_ != nullptr && this->cert_ != nullptr && this->certChain_ != nullptr && this->certIdentifier_ != nullptr && this->city_ != nullptr
-        && this->common_ != nullptr && this->country_ != nullptr && this->encryptCert_ != nullptr && this->encryptPrivateKey_ != nullptr && this->endDate_ != nullptr
-        && this->expired_ != nullptr && this->fingerprint_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->issuer_ != nullptr
-        && this->key_ != nullptr && this->name_ != nullptr && this->notAfter_ != nullptr && this->notBefore_ != nullptr && this->orderId_ != nullptr
-        && this->orgName_ != nullptr && this->province_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->sans_ != nullptr
-        && this->serialNo_ != nullptr && this->sha2_ != nullptr && this->signCert_ != nullptr && this->signPrivateKey_ != nullptr && this->startDate_ != nullptr
-        && this->tags_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->buyInAliyun_ == nullptr && return this->cert_ == nullptr && return this->certChain_ == nullptr && return this->certIdentifier_ == nullptr && return this->city_ == nullptr
+        && return this->common_ == nullptr && return this->country_ == nullptr && return this->encryptCert_ == nullptr && return this->encryptPrivateKey_ == nullptr && return this->endDate_ == nullptr
+        && return this->expired_ == nullptr && return this->fingerprint_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->issuer_ == nullptr
+        && return this->key_ == nullptr && return this->name_ == nullptr && return this->notAfter_ == nullptr && return this->notBefore_ == nullptr && return this->orderId_ == nullptr
+        && return this->orgName_ == nullptr && return this->province_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->sans_ == nullptr
+        && return this->serialNo_ == nullptr && return this->sha2_ == nullptr && return this->signCert_ == nullptr && return this->signPrivateKey_ == nullptr && return this->startDate_ == nullptr
+        && return this->tags_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

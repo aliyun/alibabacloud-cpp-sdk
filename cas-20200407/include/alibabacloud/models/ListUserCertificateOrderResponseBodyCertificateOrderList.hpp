@@ -99,14 +99,14 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->algorithm_ != nullptr
-        && this->aliyunOrderId_ != nullptr && this->buyDate_ != nullptr && this->certEndTime_ != nullptr && this->certStartTime_ != nullptr && this->certType_ != nullptr
-        && this->certificateId_ != nullptr && this->city_ != nullptr && this->commonName_ != nullptr && this->country_ != nullptr && this->domain_ != nullptr
-        && this->domainCount_ != nullptr && this->domainType_ != nullptr && this->endDate_ != nullptr && this->expired_ != nullptr && this->fingerprint_ != nullptr
-        && this->instanceId_ != nullptr && this->issuer_ != nullptr && this->name_ != nullptr && this->orderId_ != nullptr && this->orgName_ != nullptr
-        && this->partnerOrderId_ != nullptr && this->productCode_ != nullptr && this->productName_ != nullptr && this->province_ != nullptr && this->resourceGroupId_ != nullptr
-        && this->rootBrand_ != nullptr && this->sans_ != nullptr && this->serialNo_ != nullptr && this->sha2_ != nullptr && this->sourceType_ != nullptr
-        && this->startDate_ != nullptr && this->status_ != nullptr && this->trusteeStatus_ != nullptr && this->upload_ != nullptr && this->wildDomainCount_ != nullptr; };
+    virtual bool empty() const override { return this->algorithm_ == nullptr
+        && return this->aliyunOrderId_ == nullptr && return this->buyDate_ == nullptr && return this->certEndTime_ == nullptr && return this->certStartTime_ == nullptr && return this->certType_ == nullptr
+        && return this->certificateId_ == nullptr && return this->city_ == nullptr && return this->commonName_ == nullptr && return this->country_ == nullptr && return this->domain_ == nullptr
+        && return this->domainCount_ == nullptr && return this->domainType_ == nullptr && return this->endDate_ == nullptr && return this->expired_ == nullptr && return this->fingerprint_ == nullptr
+        && return this->instanceId_ == nullptr && return this->issuer_ == nullptr && return this->name_ == nullptr && return this->orderId_ == nullptr && return this->orgName_ == nullptr
+        && return this->partnerOrderId_ == nullptr && return this->productCode_ == nullptr && return this->productName_ == nullptr && return this->province_ == nullptr && return this->resourceGroupId_ == nullptr
+        && return this->rootBrand_ == nullptr && return this->sans_ == nullptr && return this->serialNo_ == nullptr && return this->sha2_ == nullptr && return this->sourceType_ == nullptr
+        && return this->startDate_ == nullptr && return this->status_ == nullptr && return this->trusteeStatus_ == nullptr && return this->upload_ == nullptr && return this->wildDomainCount_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};

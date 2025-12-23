@@ -69,11 +69,11 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certEndTime_ != nullptr
-        && this->certId_ != nullptr && this->certName_ != nullptr && this->certStartTime_ != nullptr && this->cloudAccessId_ != nullptr && this->cloudName_ != nullptr
-        && this->cloudProduct_ != nullptr && this->cloudRegion_ != nullptr && this->defaultResource_ != nullptr && this->domain_ != nullptr && this->enableHttps_ != nullptr
-        && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr && this->instanceId_ != nullptr && this->listenerId_ != nullptr
-        && this->listenerPort_ != nullptr && this->regionId_ != nullptr && this->status_ != nullptr && this->useSsl_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->certEndTime_ == nullptr
+        && return this->certId_ == nullptr && return this->certName_ == nullptr && return this->certStartTime_ == nullptr && return this->cloudAccessId_ == nullptr && return this->cloudName_ == nullptr
+        && return this->cloudProduct_ == nullptr && return this->cloudRegion_ == nullptr && return this->defaultResource_ == nullptr && return this->domain_ == nullptr && return this->enableHttps_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr && return this->instanceId_ == nullptr && return this->listenerId_ == nullptr
+        && return this->listenerPort_ == nullptr && return this->regionId_ == nullptr && return this->status_ == nullptr && return this->useSsl_ == nullptr && return this->userId_ == nullptr; };
     // certEndTime Field Functions 
     bool hasCertEndTime() const { return this->certEndTime_ != nullptr;};
     void deleteCertEndTime() { this->certEndTime_ = nullptr;};

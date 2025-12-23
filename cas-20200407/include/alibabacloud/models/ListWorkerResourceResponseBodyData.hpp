@@ -73,12 +73,12 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->certDomain_ != nullptr
-        && this->certId_ != nullptr && this->certInstanceId_ != nullptr && this->certName_ != nullptr && this->cloudName_ != nullptr && this->cloudProduct_ != nullptr
-        && this->cloudRegion_ != nullptr && this->defaultResource_ != nullptr && this->gmtCreate_ != nullptr && this->gmtModified_ != nullptr && this->id_ != nullptr
-        && this->instanceId_ != nullptr && this->jobId_ != nullptr && this->listenerId_ != nullptr && this->namespaceId_ != nullptr && this->orderId_ != nullptr
-        && this->port_ != nullptr && this->regionId_ != nullptr && this->resourceCertId_ != nullptr && this->resourceDomain_ != nullptr && this->resourceId_ != nullptr
-        && this->status_ != nullptr && this->userId_ != nullptr; };
+    virtual bool empty() const override { return this->certDomain_ == nullptr
+        && return this->certId_ == nullptr && return this->certInstanceId_ == nullptr && return this->certName_ == nullptr && return this->cloudName_ == nullptr && return this->cloudProduct_ == nullptr
+        && return this->cloudRegion_ == nullptr && return this->defaultResource_ == nullptr && return this->gmtCreate_ == nullptr && return this->gmtModified_ == nullptr && return this->id_ == nullptr
+        && return this->instanceId_ == nullptr && return this->jobId_ == nullptr && return this->listenerId_ == nullptr && return this->namespaceId_ == nullptr && return this->orderId_ == nullptr
+        && return this->port_ == nullptr && return this->regionId_ == nullptr && return this->resourceCertId_ == nullptr && return this->resourceDomain_ == nullptr && return this->resourceId_ == nullptr
+        && return this->status_ == nullptr && return this->userId_ == nullptr; };
     // certDomain Field Functions 
     bool hasCertDomain() const { return this->certDomain_ != nullptr;};
     void deleteCertDomain() { this->certDomain_ = nullptr;};

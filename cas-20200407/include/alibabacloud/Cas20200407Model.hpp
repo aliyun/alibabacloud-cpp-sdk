@@ -35,9 +35,9 @@
 #include <alibabacloud/models/DeleteDeploymentJobRequest.hpp>
 #include <alibabacloud/models/DeleteDeploymentJobResponseBody.hpp>
 #include <alibabacloud/models/DeleteDeploymentJobResponse.hpp>
-#include <alibabacloud/models/DeletePcacertRequest.hpp>
-#include <alibabacloud/models/DeletePcacertResponseBody.hpp>
-#include <alibabacloud/models/DeletePcacertResponse.hpp>
+#include <alibabacloud/models/DeletePcaCertRequest.hpp>
+#include <alibabacloud/models/DeletePcaCertResponseBody.hpp>
+#include <alibabacloud/models/DeletePcaCertResponse.hpp>
 #include <alibabacloud/models/DeleteUserCertificateRequest.hpp>
 #include <alibabacloud/models/DeleteUserCertificateResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserCertificateResponse.hpp>

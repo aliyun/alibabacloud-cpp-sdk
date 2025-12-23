@@ -57,10 +57,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buyCount_ != nullptr
-        && this->certCount_ != nullptr && this->costCount_ != nullptr && this->failedCount_ != nullptr && this->matchWorkerCount_ != nullptr && this->productWorkerCount_ != nullptr
-        && this->requestId_ != nullptr && this->resourceCount_ != nullptr && this->rollbackCount_ != nullptr && this->rollbackFailedCount_ != nullptr && this->rollbackSuccessCount_ != nullptr
-        && this->successCount_ != nullptr && this->useCount_ != nullptr && this->workerCount_ != nullptr; };
+    virtual bool empty() const override { return this->buyCount_ == nullptr
+        && return this->certCount_ == nullptr && return this->costCount_ == nullptr && return this->failedCount_ == nullptr && return this->matchWorkerCount_ == nullptr && return this->productWorkerCount_ == nullptr
+        && return this->requestId_ == nullptr && return this->resourceCount_ == nullptr && return this->rollbackCount_ == nullptr && return this->rollbackFailedCount_ == nullptr && return this->rollbackSuccessCount_ == nullptr
+        && return this->successCount_ == nullptr && return this->useCount_ == nullptr && return this->workerCount_ == nullptr; };
     // buyCount Field Functions 
     bool hasBuyCount() const { return this->buyCount_ != nullptr;};
     void deleteBuyCount() { this->buyCount_ = nullptr;};

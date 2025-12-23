@@ -582,6 +582,10 @@ DecryptResponse Client::decryptWithOptions(const DecryptRequest &request, const 
     query["CiphertextBlob"] = request.ciphertextBlob();
   }
 
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
+  }
+
   if (!!request.hasMessageType()) {
     query["MessageType"] = request.messageType();
   }
@@ -1126,6 +1130,10 @@ EncryptResponse Client::encryptWithOptions(const EncryptRequest &request, const 
 
   if (!!request.hasCertIdentifier()) {
     query["CertIdentifier"] = request.certIdentifier();
+  }
+
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
   }
 
   if (!!request.hasMessageType()) {
@@ -2055,6 +2063,10 @@ SignResponse Client::signWithOptions(const SignRequest &request, const Darabonba
     query["CertIdentifier"] = request.certIdentifier();
   }
 
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
+  }
+
   if (!!request.hasMessage()) {
     query["Message"] = request.message();
   }
@@ -2447,6 +2459,10 @@ VerifyResponse Client::verifyWithOptions(const VerifyRequest &request, const Dar
   json query = {};
   if (!!request.hasCertIdentifier()) {
     query["CertIdentifier"] = request.certIdentifier();
+  }
+
+  if (!!request.hasCustomIdentifier()) {
+    query["CustomIdentifier"] = request.customIdentifier();
   }
 
   if (!!request.hasMessage()) {
