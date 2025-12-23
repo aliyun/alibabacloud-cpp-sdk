@@ -14,6 +14,7 @@ namespace Models
   class DescribeOfficeSitesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeOfficeSitesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeOfficeSitesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
@@ -44,9 +46,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->maxResults_ == nullptr
-        && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->regionId_ == nullptr && return this->securityProtection_ == nullptr
-        && return this->status_ == nullptr && return this->vpcId_ == nullptr; };
+    virtual bool empty() const override { return this->accountType_ == nullptr
+        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->officeSiteId_ == nullptr && return this->officeSiteType_ == nullptr && return this->regionId_ == nullptr
+        && return this->securityProtection_ == nullptr && return this->status_ == nullptr && return this->vpcId_ == nullptr; };
+    // accountType Field Functions 
+    bool hasAccountType() const { return this->accountType_ != nullptr;};
+    void deleteAccountType() { this->accountType_ = nullptr;};
+    inline string accountType() const { DARABONBA_PTR_GET_DEFAULT(accountType_, "") };
+    inline DescribeOfficeSitesRequest& setAccountType(string accountType) { DARABONBA_PTR_SET_VALUE(accountType_, accountType) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -106,6 +115,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountType_ = nullptr;
     // The number of entries to return on each page.
     // 
     // *   Maximum value: 100.

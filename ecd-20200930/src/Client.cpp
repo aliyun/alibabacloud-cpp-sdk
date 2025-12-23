@@ -10171,6 +10171,10 @@ DescribeNetworkPackagesResponse Client::describeNetworkPackages(const DescribeNe
 DescribeOfficeSitesResponse Client::describeOfficeSitesWithOptions(const DescribeOfficeSitesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccountType()) {
+    query["AccountType"] = request.accountType();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.maxResults();
   }

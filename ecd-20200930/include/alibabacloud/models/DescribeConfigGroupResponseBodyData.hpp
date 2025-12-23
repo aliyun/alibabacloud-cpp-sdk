@@ -18,6 +18,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindCountMap, bindCountMap_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
+      DARABONBA_PTR_TO_JSON(InnerTimerDesc, innerTimerDesc_);
+      DARABONBA_PTR_TO_JSON(InnerTimerName, innerTimerName_);
+      DARABONBA_PTR_TO_JSON(IsBind, isBind_);
+      DARABONBA_PTR_TO_JSON(IsUpdate, isUpdate_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -28,6 +32,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BindCountMap, bindCountMap_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
+      DARABONBA_PTR_FROM_JSON(InnerTimerDesc, innerTimerDesc_);
+      DARABONBA_PTR_FROM_JSON(InnerTimerName, innerTimerName_);
+      DARABONBA_PTR_FROM_JSON(IsBind, isBind_);
+      DARABONBA_PTR_FROM_JSON(IsUpdate, isUpdate_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -45,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindCount_ == nullptr
-        && return this->bindCountMap_ == nullptr && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->name_ == nullptr && return this->productType_ == nullptr
-        && return this->status_ == nullptr && return this->type_ == nullptr; };
+        && return this->bindCountMap_ == nullptr && return this->description_ == nullptr && return this->groupId_ == nullptr && return this->innerTimerDesc_ == nullptr && return this->innerTimerName_ == nullptr
+        && return this->isBind_ == nullptr && return this->isUpdate_ == nullptr && return this->name_ == nullptr && return this->productType_ == nullptr && return this->status_ == nullptr
+        && return this->type_ == nullptr; };
     // bindCount Field Functions 
     bool hasBindCount() const { return this->bindCount_ != nullptr;};
     void deleteBindCount() { this->bindCount_ = nullptr;};
@@ -75,6 +84,34 @@ namespace Models
     void deleteGroupId() { this->groupId_ = nullptr;};
     inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline DescribeConfigGroupResponseBodyData& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+
+
+    // innerTimerDesc Field Functions 
+    bool hasInnerTimerDesc() const { return this->innerTimerDesc_ != nullptr;};
+    void deleteInnerTimerDesc() { this->innerTimerDesc_ = nullptr;};
+    inline string innerTimerDesc() const { DARABONBA_PTR_GET_DEFAULT(innerTimerDesc_, "") };
+    inline DescribeConfigGroupResponseBodyData& setInnerTimerDesc(string innerTimerDesc) { DARABONBA_PTR_SET_VALUE(innerTimerDesc_, innerTimerDesc) };
+
+
+    // innerTimerName Field Functions 
+    bool hasInnerTimerName() const { return this->innerTimerName_ != nullptr;};
+    void deleteInnerTimerName() { this->innerTimerName_ = nullptr;};
+    inline string innerTimerName() const { DARABONBA_PTR_GET_DEFAULT(innerTimerName_, "") };
+    inline DescribeConfigGroupResponseBodyData& setInnerTimerName(string innerTimerName) { DARABONBA_PTR_SET_VALUE(innerTimerName_, innerTimerName) };
+
+
+    // isBind Field Functions 
+    bool hasIsBind() const { return this->isBind_ != nullptr;};
+    void deleteIsBind() { this->isBind_ = nullptr;};
+    inline bool isBind() const { DARABONBA_PTR_GET_DEFAULT(isBind_, false) };
+    inline DescribeConfigGroupResponseBodyData& setIsBind(bool isBind) { DARABONBA_PTR_SET_VALUE(isBind_, isBind) };
+
+
+    // isUpdate Field Functions 
+    bool hasIsUpdate() const { return this->isUpdate_ != nullptr;};
+    void deleteIsUpdate() { this->isUpdate_ = nullptr;};
+    inline bool isUpdate() const { DARABONBA_PTR_GET_DEFAULT(isUpdate_, false) };
+    inline DescribeConfigGroupResponseBodyData& setIsUpdate(bool isUpdate) { DARABONBA_PTR_SET_VALUE(isUpdate_, isUpdate) };
 
 
     // name Field Functions 
@@ -114,6 +151,10 @@ namespace Models
     std::shared_ptr<string> description_ = nullptr;
     // The ID of the configuration group.
     std::shared_ptr<string> groupId_ = nullptr;
+    std::shared_ptr<string> innerTimerDesc_ = nullptr;
+    std::shared_ptr<string> innerTimerName_ = nullptr;
+    std::shared_ptr<bool> isBind_ = nullptr;
+    std::shared_ptr<bool> isUpdate_ = nullptr;
     // The name of the configuration group.
     std::shared_ptr<string> name_ = nullptr;
     // The service type of the configuration group.

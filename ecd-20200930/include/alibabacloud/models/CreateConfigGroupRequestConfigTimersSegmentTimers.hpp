@@ -14,9 +14,12 @@ namespace Models
   class CreateConfigGroupRequestConfigTimersSegmentTimers : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateConfigGroupRequestConfigTimersSegmentTimers& obj) { 
+      DARABONBA_PTR_TO_JSON(AppointmentTimer, appointmentTimer_);
       DARABONBA_PTR_TO_JSON(EndCronExpression, endCronExpression_);
       DARABONBA_PTR_TO_JSON(Enforce, enforce_);
+      DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(Interval, interval_);
+      DARABONBA_PTR_TO_JSON(LockScreenTime, lockScreenTime_);
       DARABONBA_PTR_TO_JSON(NotificationTime, notificationTime_);
       DARABONBA_PTR_TO_JSON(OperationType, operationType_);
       DARABONBA_PTR_TO_JSON(ProcessWhitelist, processWhitelist_);
@@ -27,9 +30,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateConfigGroupRequestConfigTimersSegmentTimers& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppointmentTimer, appointmentTimer_);
       DARABONBA_PTR_FROM_JSON(EndCronExpression, endCronExpression_);
       DARABONBA_PTR_FROM_JSON(Enforce, enforce_);
+      DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(Interval, interval_);
+      DARABONBA_PTR_FROM_JSON(LockScreenTime, lockScreenTime_);
       DARABONBA_PTR_FROM_JSON(NotificationTime, notificationTime_);
       DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
       DARABONBA_PTR_FROM_JSON(ProcessWhitelist, processWhitelist_);
@@ -50,9 +56,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endCronExpression_ == nullptr
-        && return this->enforce_ == nullptr && return this->interval_ == nullptr && return this->notificationTime_ == nullptr && return this->operationType_ == nullptr && return this->processWhitelist_ == nullptr
-        && return this->resetType_ == nullptr && return this->startCronExpression_ == nullptr && return this->timerOrder_ == nullptr && return this->timezone_ == nullptr && return this->triggerType_ == nullptr; };
+    virtual bool empty() const override { return this->appointmentTimer_ == nullptr
+        && return this->endCronExpression_ == nullptr && return this->enforce_ == nullptr && return this->imageId_ == nullptr && return this->interval_ == nullptr && return this->lockScreenTime_ == nullptr
+        && return this->notificationTime_ == nullptr && return this->operationType_ == nullptr && return this->processWhitelist_ == nullptr && return this->resetType_ == nullptr && return this->startCronExpression_ == nullptr
+        && return this->timerOrder_ == nullptr && return this->timezone_ == nullptr && return this->triggerType_ == nullptr; };
+    // appointmentTimer Field Functions 
+    bool hasAppointmentTimer() const { return this->appointmentTimer_ != nullptr;};
+    void deleteAppointmentTimer() { this->appointmentTimer_ = nullptr;};
+    inline int64_t appointmentTimer() const { DARABONBA_PTR_GET_DEFAULT(appointmentTimer_, 0L) };
+    inline CreateConfigGroupRequestConfigTimersSegmentTimers& setAppointmentTimer(int64_t appointmentTimer) { DARABONBA_PTR_SET_VALUE(appointmentTimer_, appointmentTimer) };
+
+
     // endCronExpression Field Functions 
     bool hasEndCronExpression() const { return this->endCronExpression_ != nullptr;};
     void deleteEndCronExpression() { this->endCronExpression_ = nullptr;};
@@ -67,11 +81,25 @@ namespace Models
     inline CreateConfigGroupRequestConfigTimersSegmentTimers& setEnforce(bool enforce) { DARABONBA_PTR_SET_VALUE(enforce_, enforce) };
 
 
+    // imageId Field Functions 
+    bool hasImageId() const { return this->imageId_ != nullptr;};
+    void deleteImageId() { this->imageId_ = nullptr;};
+    inline string imageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline CreateConfigGroupRequestConfigTimersSegmentTimers& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
     // interval Field Functions 
     bool hasInterval() const { return this->interval_ != nullptr;};
     void deleteInterval() { this->interval_ = nullptr;};
     inline int32_t interval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
     inline CreateConfigGroupRequestConfigTimersSegmentTimers& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+    // lockScreenTime Field Functions 
+    bool hasLockScreenTime() const { return this->lockScreenTime_ != nullptr;};
+    void deleteLockScreenTime() { this->lockScreenTime_ = nullptr;};
+    inline int32_t lockScreenTime() const { DARABONBA_PTR_GET_DEFAULT(lockScreenTime_, 0) };
+    inline CreateConfigGroupRequestConfigTimersSegmentTimers& setLockScreenTime(int32_t lockScreenTime) { DARABONBA_PTR_SET_VALUE(lockScreenTime_, lockScreenTime) };
 
 
     // notificationTime Field Functions 
@@ -133,9 +161,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int64_t> appointmentTimer_ = nullptr;
     std::shared_ptr<string> endCronExpression_ = nullptr;
     std::shared_ptr<bool> enforce_ = nullptr;
+    std::shared_ptr<string> imageId_ = nullptr;
     std::shared_ptr<int32_t> interval_ = nullptr;
+    std::shared_ptr<int32_t> lockScreenTime_ = nullptr;
     std::shared_ptr<int32_t> notificationTime_ = nullptr;
     std::shared_ptr<string> operationType_ = nullptr;
     std::shared_ptr<vector<string>> processWhitelist_ = nullptr;
