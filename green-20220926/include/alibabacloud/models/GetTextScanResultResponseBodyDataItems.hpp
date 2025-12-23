@@ -15,8 +15,10 @@ namespace Models
   class GetTextScanResultResponseBodyDataItems : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetTextScanResultResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(BailianRequestId, bailianRequestId_);
       DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(DataId, dataId_);
       DARABONBA_PTR_TO_JSON(ExtFeedback, extFeedback_);
       DARABONBA_ANY_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
@@ -32,8 +34,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, GetTextScanResultResponseBodyDataItems& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(BailianRequestId, bailianRequestId_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(DataId, dataId_);
       DARABONBA_PTR_FROM_JSON(ExtFeedback, extFeedback_);
       DARABONBA_ANY_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
@@ -59,10 +63,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->bailianRequestId_ == nullptr
-        && return this->content_ == nullptr && return this->extFeedback_ == nullptr && return this->extra_ == nullptr && return this->gmtCreate_ == nullptr && return this->labels_ == nullptr
-        && return this->requestId_ == nullptr && return this->requestTime_ == nullptr && return this->result_ == nullptr && return this->riskLevel_ == nullptr && return this->scanResult_ == nullptr
-        && return this->score_ == nullptr && return this->serviceCode_ == nullptr && return this->suggestion_ == nullptr && return this->taskId_ == nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->bailianRequestId_ == nullptr && return this->content_ == nullptr && return this->dataId_ == nullptr && return this->extFeedback_ == nullptr && return this->extra_ == nullptr
+        && return this->gmtCreate_ == nullptr && return this->labels_ == nullptr && return this->requestId_ == nullptr && return this->requestTime_ == nullptr && return this->result_ == nullptr
+        && return this->riskLevel_ == nullptr && return this->scanResult_ == nullptr && return this->score_ == nullptr && return this->serviceCode_ == nullptr && return this->suggestion_ == nullptr
+        && return this->taskId_ == nullptr; };
+    // accountId Field Functions 
+    bool hasAccountId() const { return this->accountId_ != nullptr;};
+    void deleteAccountId() { this->accountId_ = nullptr;};
+    inline string accountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+    inline GetTextScanResultResponseBodyDataItems& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
     // bailianRequestId Field Functions 
     bool hasBailianRequestId() const { return this->bailianRequestId_ != nullptr;};
     void deleteBailianRequestId() { this->bailianRequestId_ = nullptr;};
@@ -75,6 +87,13 @@ namespace Models
     void deleteContent() { this->content_ = nullptr;};
     inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline GetTextScanResultResponseBodyDataItems& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // dataId Field Functions 
+    bool hasDataId() const { return this->dataId_ != nullptr;};
+    void deleteDataId() { this->dataId_ = nullptr;};
+    inline string dataId() const { DARABONBA_PTR_GET_DEFAULT(dataId_, "") };
+    inline GetTextScanResultResponseBodyDataItems& setDataId(string dataId) { DARABONBA_PTR_SET_VALUE(dataId_, dataId) };
 
 
     // extFeedback Field Functions 
@@ -173,10 +192,12 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> accountId_ = nullptr;
     // Bailian Request ID
     std::shared_ptr<string> bailianRequestId_ = nullptr;
     // Content.
     std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<string> dataId_ = nullptr;
     // Feedback information.
     std::shared_ptr<string> extFeedback_ = nullptr;
     // Spare parameters.
