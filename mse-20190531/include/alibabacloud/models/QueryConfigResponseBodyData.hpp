@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NamingCreateServiceSupported, namingCreateServiceSupported_);
       DARABONBA_PTR_TO_JSON(OpenSuperAcl, openSuperAcl_);
       DARABONBA_PTR_TO_JSON(PassWord, passWord_);
+      DARABONBA_PTR_TO_JSON(PrometheusSdProtocolEnabled, prometheusSdProtocolEnabled_);
       DARABONBA_PTR_TO_JSON(RestartFlag, restartFlag_);
       DARABONBA_PTR_TO_JSON(SnapshotCount, snapshotCount_);
       DARABONBA_PTR_TO_JSON(SyncLimit, syncLimit_);
@@ -76,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NamingCreateServiceSupported, namingCreateServiceSupported_);
       DARABONBA_PTR_FROM_JSON(OpenSuperAcl, openSuperAcl_);
       DARABONBA_PTR_FROM_JSON(PassWord, passWord_);
+      DARABONBA_PTR_FROM_JSON(PrometheusSdProtocolEnabled, prometheusSdProtocolEnabled_);
       DARABONBA_PTR_FROM_JSON(RestartFlag, restartFlag_);
       DARABONBA_PTR_FROM_JSON(SnapshotCount, snapshotCount_);
       DARABONBA_PTR_FROM_JSON(SyncLimit, syncLimit_);
@@ -100,8 +102,8 @@ namespace Models
         && return this->eurekaSupported_ == nullptr && return this->extendedTypesEnable_ == nullptr && return this->initLimit_ == nullptr && return this->juteMaxbuffer_ == nullptr && return this->jvmFlagsCustom_ == nullptr
         && return this->MCPEnabled_ == nullptr && return this->MCPSupported_ == nullptr && return this->maxClientCnxns_ == nullptr && return this->maxSessionTimeout_ == nullptr && return this->minSessionTimeout_ == nullptr
         && return this->nacosRunningEnv_ == nullptr && return this->namingAuthEnabled_ == nullptr && return this->namingAuthSupported_ == nullptr && return this->namingCreateServiceSupported_ == nullptr && return this->openSuperAcl_ == nullptr
-        && return this->passWord_ == nullptr && return this->restartFlag_ == nullptr && return this->snapshotCount_ == nullptr && return this->syncLimit_ == nullptr && return this->TLSEnabled_ == nullptr
-        && return this->tickTime_ == nullptr && return this->userName_ == nullptr; };
+        && return this->passWord_ == nullptr && return this->prometheusSdProtocolEnabled_ == nullptr && return this->restartFlag_ == nullptr && return this->snapshotCount_ == nullptr && return this->syncLimit_ == nullptr
+        && return this->TLSEnabled_ == nullptr && return this->tickTime_ == nullptr && return this->userName_ == nullptr; };
     // authEnabled Field Functions 
     bool hasAuthEnabled() const { return this->authEnabled_ != nullptr;};
     void deleteAuthEnabled() { this->authEnabled_ = nullptr;};
@@ -293,6 +295,13 @@ namespace Models
     inline QueryConfigResponseBodyData& setPassWord(string passWord) { DARABONBA_PTR_SET_VALUE(passWord_, passWord) };
 
 
+    // prometheusSdProtocolEnabled Field Functions 
+    bool hasPrometheusSdProtocolEnabled() const { return this->prometheusSdProtocolEnabled_ != nullptr;};
+    void deletePrometheusSdProtocolEnabled() { this->prometheusSdProtocolEnabled_ = nullptr;};
+    inline string prometheusSdProtocolEnabled() const { DARABONBA_PTR_GET_DEFAULT(prometheusSdProtocolEnabled_, "") };
+    inline QueryConfigResponseBodyData& setPrometheusSdProtocolEnabled(string prometheusSdProtocolEnabled) { DARABONBA_PTR_SET_VALUE(prometheusSdProtocolEnabled_, prometheusSdProtocolEnabled) };
+
+
     // restartFlag Field Functions 
     bool hasRestartFlag() const { return this->restartFlag_ != nullptr;};
     void deleteRestartFlag() { this->restartFlag_ = nullptr;};
@@ -420,6 +429,7 @@ namespace Models
     std::shared_ptr<bool> openSuperAcl_ = nullptr;
     // The password that corresponds to the username. This parameter is valid only if OpenSuperAcl is set to true.
     std::shared_ptr<string> passWord_ = nullptr;
+    std::shared_ptr<string> prometheusSdProtocolEnabled_ = nullptr;
     // Indicates whether the instance was restarted and new configurations have taken effect. Valid values:
     // 
     // *   `true`: The restart was successful.

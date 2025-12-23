@@ -1098,6 +1098,7 @@
 #include <alibabacloud/models/QueryClusterInfoResponseBodyDataMaintenancePeriod.hpp>
 #include <alibabacloud/models/QueryClusterInfoResponseBodyData.hpp>
 #include <alibabacloud/models/QueryClusterSpecificationResponseBodyData.hpp>
+#include <alibabacloud/models/QueryConfigResponseBodyDataNacosRunningEnvFencePolicy.hpp>
 #include <alibabacloud/models/QueryConfigResponseBodyDataNacosRunningEnv.hpp>
 #include <alibabacloud/models/QueryConfigResponseBodyData.hpp>
 #include <alibabacloud/models/QueryGovernanceKubernetesClusterResponseBodyDataResult.hpp>
