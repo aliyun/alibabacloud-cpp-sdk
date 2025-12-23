@@ -1,0 +1,77 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTINTERVENTIONDICTIONARIESRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_LISTINTERVENTIONDICTIONARIESRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/ListInterventionDictionariesResponseBodyResult.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace OpenSearch20171225
+{
+namespace Models
+{
+  class ListInterventionDictionariesResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListInterventionDictionariesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(result, result_);
+      DARABONBA_PTR_TO_JSON(totalCount, totalCount_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListInterventionDictionariesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(result, result_);
+      DARABONBA_PTR_FROM_JSON(totalCount, totalCount_);
+    };
+    ListInterventionDictionariesResponseBody() = default ;
+    ListInterventionDictionariesResponseBody(const ListInterventionDictionariesResponseBody &) = default ;
+    ListInterventionDictionariesResponseBody(ListInterventionDictionariesResponseBody &&) = default ;
+    ListInterventionDictionariesResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListInterventionDictionariesResponseBody() = default ;
+    ListInterventionDictionariesResponseBody& operator=(const ListInterventionDictionariesResponseBody &) = default ;
+    ListInterventionDictionariesResponseBody& operator=(ListInterventionDictionariesResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && return this->result_ == nullptr && return this->totalCount_ == nullptr; };
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ListInterventionDictionariesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // result Field Functions 
+    bool hasResult() const { return this->result_ != nullptr;};
+    void deleteResult() { this->result_ = nullptr;};
+    inline const vector<ListInterventionDictionariesResponseBodyResult> & result() const { DARABONBA_PTR_GET_CONST(result_, vector<ListInterventionDictionariesResponseBodyResult>) };
+    inline vector<ListInterventionDictionariesResponseBodyResult> result() { DARABONBA_PTR_GET(result_, vector<ListInterventionDictionariesResponseBodyResult>) };
+    inline ListInterventionDictionariesResponseBody& setResult(const vector<ListInterventionDictionariesResponseBodyResult> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListInterventionDictionariesResponseBody& setResult(vector<ListInterventionDictionariesResponseBodyResult> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+
+
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline ListInterventionDictionariesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
+  protected:
+    // The ID of the request.
+    std::shared_ptr<string> requestId_ = nullptr;
+    // The information about each intervention dictionary.
+    // 
+    // For more information, see [InterventionDictionary](https://help.aliyun.com/document_detail/173608.html).
+    std::shared_ptr<vector<ListInterventionDictionariesResponseBodyResult>> result_ = nullptr;
+    // The total number of entries returned.
+    std::shared_ptr<int32_t> totalCount_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace OpenSearch20171225
+#endif
