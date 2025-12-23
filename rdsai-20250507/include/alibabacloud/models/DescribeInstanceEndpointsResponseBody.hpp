@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEINSTANCEENDPOINTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,11 +16,13 @@ namespace Models
   class DescribeInstanceEndpointsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeInstanceEndpointsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(DBInstanceEndpoints, DBInstanceEndpoints_);
       DARABONBA_PTR_TO_JSON(InstanceEndpoints, instanceEndpoints_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceEndpointsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(DBInstanceEndpoints, DBInstanceEndpoints_);
       DARABONBA_PTR_FROM_JSON(InstanceEndpoints, instanceEndpoints_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -35,8 +38,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceEndpoints_ == nullptr
-        && return this->instanceName_ == nullptr && return this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->DBInstanceEndpoints_ == nullptr
+        && return this->instanceEndpoints_ == nullptr && return this->instanceName_ == nullptr && return this->requestId_ == nullptr; };
+    // DBInstanceEndpoints Field Functions 
+    bool hasDBInstanceEndpoints() const { return this->DBInstanceEndpoints_ != nullptr;};
+    void deleteDBInstanceEndpoints() { this->DBInstanceEndpoints_ = nullptr;};
+    inline const vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints> & DBInstanceEndpoints() const { DARABONBA_PTR_GET_CONST(DBInstanceEndpoints_, vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints>) };
+    inline vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints> DBInstanceEndpoints() { DARABONBA_PTR_GET(DBInstanceEndpoints_, vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints>) };
+    inline DescribeInstanceEndpointsResponseBody& setDBInstanceEndpoints(const vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints> & DBInstanceEndpoints) { DARABONBA_PTR_SET_VALUE(DBInstanceEndpoints_, DBInstanceEndpoints) };
+    inline DescribeInstanceEndpointsResponseBody& setDBInstanceEndpoints(vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints> && DBInstanceEndpoints) { DARABONBA_PTR_SET_RVALUE(DBInstanceEndpoints_, DBInstanceEndpoints) };
+
+
     // instanceEndpoints Field Functions 
     bool hasInstanceEndpoints() const { return this->instanceEndpoints_ != nullptr;};
     void deleteInstanceEndpoints() { this->instanceEndpoints_ = nullptr;};
@@ -61,6 +73,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<vector<DescribeInstanceEndpointsResponseBodyDBInstanceEndpoints>> DBInstanceEndpoints_ = nullptr;
     std::shared_ptr<vector<DescribeInstanceEndpointsResponseBodyInstanceEndpoints>> instanceEndpoints_ = nullptr;
     std::shared_ptr<string> instanceName_ = nullptr;
     std::shared_ptr<string> requestId_ = nullptr;

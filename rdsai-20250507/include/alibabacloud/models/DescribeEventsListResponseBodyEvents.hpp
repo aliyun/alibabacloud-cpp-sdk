@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceDescription, instanceDescription_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RecoveryTime, recoveryTime_);
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEventsListResponseBodyEvents& obj) { 
       DARABONBA_PTR_FROM_JSON(EventCode, eventCode_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceDescription, instanceDescription_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RecoveryTime, recoveryTime_);
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DescribeEventsListResponseBodyEvents() = default ;
     DescribeEventsListResponseBodyEvents(const DescribeEventsListResponseBodyEvents &) = default ;
@@ -41,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventCode_ == nullptr
-        && return this->eventStatus_ == nullptr && return this->eventTimeList_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->recoveryTime_ == nullptr; };
+        && return this->eventStatus_ == nullptr && return this->eventTimeList_ == nullptr && return this->instanceDescription_ == nullptr && return this->instanceId_ == nullptr && return this->recoveryTime_ == nullptr
+        && return this->regionId_ == nullptr; };
     // eventCode Field Functions 
     bool hasEventCode() const { return this->eventCode_ != nullptr;};
     void deleteEventCode() { this->eventCode_ = nullptr;};
@@ -86,6 +89,13 @@ namespace Models
     inline DescribeEventsListResponseBodyEvents& setRecoveryTime(string recoveryTime) { DARABONBA_PTR_SET_VALUE(recoveryTime_, recoveryTime) };
 
 
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline DescribeEventsListResponseBodyEvents& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
   protected:
     std::shared_ptr<string> eventCode_ = nullptr;
     std::shared_ptr<string> eventStatus_ = nullptr;
@@ -93,6 +103,7 @@ namespace Models
     std::shared_ptr<string> instanceDescription_ = nullptr;
     std::shared_ptr<string> instanceId_ = nullptr;
     std::shared_ptr<string> recoveryTime_ = nullptr;
+    std::shared_ptr<string> regionId_ = nullptr;
   };
 
   } // namespace Models

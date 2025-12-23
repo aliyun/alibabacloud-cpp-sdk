@@ -110,6 +110,7 @@
 #include <alibabacloud/models/DescribeEventsListResponseBodyEvents.hpp>
 #include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyApiKeys.hpp>
 #include <alibabacloud/models/DescribeInstanceAuthInfoResponseBodyConfigList.hpp>
+#include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyDbInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceEndpointsResponseBodyInstanceEndpoints.hpp>
 #include <alibabacloud/models/DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups.hpp>
 #include <alibabacloud/models/DescribeInstanceRagConfigResponseBodyConfigList.hpp>
