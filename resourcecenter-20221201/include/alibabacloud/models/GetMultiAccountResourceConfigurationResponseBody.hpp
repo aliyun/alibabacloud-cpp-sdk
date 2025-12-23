@@ -58,10 +58,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->configuration_ != nullptr && this->createTime_ != nullptr && this->expireTime_ != nullptr && this->ipAddressAttributes_ != nullptr && this->ipAddresses_ != nullptr
-        && this->regionId_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr
-        && this->resourceType_ != nullptr && this->tags_ != nullptr && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->configuration_ == nullptr && return this->createTime_ == nullptr && return this->expireTime_ == nullptr && return this->ipAddressAttributes_ == nullptr && return this->ipAddresses_ == nullptr
+        && return this->regionId_ == nullptr && return this->requestId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr
+        && return this->resourceType_ == nullptr && return this->tags_ == nullptr && return this->zoneId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};

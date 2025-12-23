@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SearchResourcesResponseBodyResources& obj) { 
       DARABONBA_PTR_TO_JSON(AccountId, accountId_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(Deleted, deleted_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(IpAddressAttributes, ipAddressAttributes_);
       DARABONBA_PTR_TO_JSON(IpAddresses, ipAddresses_);
@@ -32,6 +33,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SearchResourcesResponseBodyResources& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(Deleted, deleted_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(IpAddressAttributes, ipAddressAttributes_);
       DARABONBA_PTR_FROM_JSON(IpAddresses, ipAddresses_);
@@ -54,10 +56,10 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accountId_ != nullptr
-        && this->createTime_ != nullptr && this->expireTime_ != nullptr && this->ipAddressAttributes_ != nullptr && this->ipAddresses_ != nullptr && this->regionId_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->resourceId_ != nullptr && this->resourceName_ != nullptr && this->resourceType_ != nullptr && this->tags_ != nullptr
-        && this->zoneId_ != nullptr; };
+    virtual bool empty() const override { return this->accountId_ == nullptr
+        && return this->createTime_ == nullptr && return this->deleted_ == nullptr && return this->expireTime_ == nullptr && return this->ipAddressAttributes_ == nullptr && return this->ipAddresses_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceId_ == nullptr && return this->resourceName_ == nullptr && return this->resourceType_ == nullptr
+        && return this->tags_ == nullptr && return this->zoneId_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -70,6 +72,13 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline SearchResourcesResponseBodyResources& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // deleted Field Functions 
+    bool hasDeleted() const { return this->deleted_ != nullptr;};
+    void deleteDeleted() { this->deleted_ = nullptr;};
+    inline bool deleted() const { DARABONBA_PTR_GET_DEFAULT(deleted_, false) };
+    inline SearchResourcesResponseBodyResources& setDeleted(bool deleted) { DARABONBA_PTR_SET_VALUE(deleted_, deleted) };
 
 
     // expireTime Field Functions 
@@ -155,6 +164,7 @@ namespace Models
     // 
     // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
     std::shared_ptr<string> createTime_ = nullptr;
+    std::shared_ptr<bool> deleted_ = nullptr;
     // The time when the resource expires.
     std::shared_ptr<string> expireTime_ = nullptr;
     // The attributes of the IP address.

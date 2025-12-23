@@ -1202,6 +1202,14 @@ GetResourceCountsResponse Client::getResourceCountsWithOptions(const GetResource
     query["GroupByKey"] = request.groupByKey();
   }
 
+  if (!!request.hasIncludeDeletedResources()) {
+    query["IncludeDeletedResources"] = request.includeDeletedResources();
+  }
+
+  if (!!request.hasSearchExpression()) {
+    query["SearchExpression"] = request.searchExpression();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2065,6 +2073,10 @@ SearchResourcesResponse Client::searchResourcesWithOptions(const SearchResources
     query["Filter"] = request.filter();
   }
 
+  if (!!request.hasIncludeDeletedResources()) {
+    query["IncludeDeletedResources"] = request.includeDeletedResources();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.maxResults();
   }
@@ -2075,6 +2087,10 @@ SearchResourcesResponse Client::searchResourcesWithOptions(const SearchResources
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.resourceGroupId();
+  }
+
+  if (!!request.hasSearchExpression()) {
+    query["SearchExpression"] = request.searchExpression();
   }
 
   if (!!request.hasSortCriterion()) {

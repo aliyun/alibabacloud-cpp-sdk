@@ -17,10 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetResourceCountsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(GroupByKey, groupByKey_);
+      DARABONBA_PTR_TO_JSON(IncludeDeletedResources, includeDeletedResources_);
+      DARABONBA_PTR_TO_JSON(SearchExpression, searchExpression_);
     };
     friend void from_json(const Darabonba::Json& j, GetResourceCountsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(GroupByKey, groupByKey_);
+      DARABONBA_PTR_FROM_JSON(IncludeDeletedResources, includeDeletedResources_);
+      DARABONBA_PTR_FROM_JSON(SearchExpression, searchExpression_);
     };
     GetResourceCountsRequest() = default ;
     GetResourceCountsRequest(const GetResourceCountsRequest &) = default ;
@@ -33,8 +37,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->groupByKey_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && return this->groupByKey_ == nullptr && return this->includeDeletedResources_ == nullptr && return this->searchExpression_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -51,6 +55,20 @@ namespace Models
     inline GetResourceCountsRequest& setGroupByKey(string groupByKey) { DARABONBA_PTR_SET_VALUE(groupByKey_, groupByKey) };
 
 
+    // includeDeletedResources Field Functions 
+    bool hasIncludeDeletedResources() const { return this->includeDeletedResources_ != nullptr;};
+    void deleteIncludeDeletedResources() { this->includeDeletedResources_ = nullptr;};
+    inline bool includeDeletedResources() const { DARABONBA_PTR_GET_DEFAULT(includeDeletedResources_, false) };
+    inline GetResourceCountsRequest& setIncludeDeletedResources(bool includeDeletedResources) { DARABONBA_PTR_SET_VALUE(includeDeletedResources_, includeDeletedResources) };
+
+
+    // searchExpression Field Functions 
+    bool hasSearchExpression() const { return this->searchExpression_ != nullptr;};
+    void deleteSearchExpression() { this->searchExpression_ = nullptr;};
+    inline string searchExpression() const { DARABONBA_PTR_GET_DEFAULT(searchExpression_, "") };
+    inline GetResourceCountsRequest& setSearchExpression(string searchExpression) { DARABONBA_PTR_SET_VALUE(searchExpression_, searchExpression) };
+
+
   protected:
     // The filter conditions.
     std::shared_ptr<vector<GetResourceCountsRequestFilter>> filter_ = nullptr;
@@ -62,6 +80,8 @@ namespace Models
     // *   TagKey
     // *   TagValue
     std::shared_ptr<string> groupByKey_ = nullptr;
+    std::shared_ptr<bool> includeDeletedResources_ = nullptr;
+    std::shared_ptr<string> searchExpression_ = nullptr;
   };
 
   } // namespace Models
