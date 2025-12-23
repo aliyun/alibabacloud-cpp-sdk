@@ -2019,6 +2019,23 @@ namespace Ecd20200930
       Models::DescribeDesktopInfoResponse describeDesktopInfo(const Models::DescribeDesktopInfoRequest &request);
 
       /**
+       * @summary 查询云电脑基础元数据
+       *
+       * @param request DescribeDesktopMetadataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDesktopMetadataResponse
+       */
+      Models::DescribeDesktopMetadataResponse describeDesktopMetadataWithOptions(const Models::DescribeDesktopMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云电脑基础元数据
+       *
+       * @param request DescribeDesktopMetadataRequest
+       * @return DescribeDesktopMetadataResponse
+       */
+      Models::DescribeDesktopMetadataResponse describeDesktopMetadata(const Models::DescribeDesktopMetadataRequest &request);
+
+      /**
        * @summary 查询超卖组
        *
        * @param request DescribeDesktopOversoldGroupRequest

@@ -7876,6 +7876,96 @@ DescribeDesktopInfoResponse Client::describeDesktopInfo(const DescribeDesktopInf
 }
 
 /**
+ * @summary 查询云电脑基础元数据
+ *
+ * @param request DescribeDesktopMetadataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDesktopMetadataResponse
+ */
+DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const DescribeDesktopMetadataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreationTimeStart()) {
+    query["CreationTimeStart"] = request.creationTimeStart();
+  }
+
+  if (!!request.hasDesktopIds()) {
+    query["DesktopIds"] = request.desktopIds();
+  }
+
+  if (!!request.hasGroupId()) {
+    query["GroupId"] = request.groupId();
+  }
+
+  if (!!request.hasHostName()) {
+    query["HostName"] = request.hostName();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.imageId();
+  }
+
+  if (!!request.hasIncludeDesktopGroup()) {
+    query["IncludeDesktopGroup"] = request.includeDesktopGroup();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.keyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.officeSiteId();
+  }
+
+  if (!!request.hasOperationTimeStart()) {
+    query["OperationTimeStart"] = request.operationTimeStart();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.searchRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDesktopMetadata"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDesktopMetadataResponse>();
+}
+
+/**
+ * @summary 查询云电脑基础元数据
+ *
+ * @param request DescribeDesktopMetadataRequest
+ * @return DescribeDesktopMetadataResponse
+ */
+DescribeDesktopMetadataResponse Client::describeDesktopMetadata(const DescribeDesktopMetadataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDesktopMetadataWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询超卖组
  *
  * @param request DescribeDesktopOversoldGroupRequest

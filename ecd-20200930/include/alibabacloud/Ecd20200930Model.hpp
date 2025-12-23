@@ -325,6 +325,9 @@
 #include <alibabacloud/models/DescribeDesktopInfoRequest.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoResponse.hpp>
+#include <alibabacloud/models/DescribeDesktopMetadataRequest.hpp>
+#include <alibabacloud/models/DescribeDesktopMetadataResponseBody.hpp>
+#include <alibabacloud/models/DescribeDesktopMetadataResponse.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldGroupRequest.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldGroupResponseBody.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldGroupResponse.hpp>
@@ -917,6 +920,7 @@
 #include <alibabacloud/models/DescribeDesktopGroupsResponseBodyDesktopGroupsTags.hpp>
 #include <alibabacloud/models/DescribeDesktopGroupsResponseBodyDesktopGroups.hpp>
 #include <alibabacloud/models/DescribeDesktopInfoResponseBodyDesktops.hpp>
+#include <alibabacloud/models/DescribeDesktopMetadataResponseBodyDesktops.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldGroupResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldUserResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeDesktopOversoldUserGroupResponseBodyData.hpp>
