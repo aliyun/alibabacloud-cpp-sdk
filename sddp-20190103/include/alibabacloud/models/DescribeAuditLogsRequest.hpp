@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IpType, ipType_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_TO_JSON(LogQueryOpJson, logQueryOpJson_);
       DARABONBA_PTR_TO_JSON(LogSource, logSource_);
       DARABONBA_PTR_TO_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_TO_JSON(Message, message_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IpType, ipType_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_FROM_JSON(LogQueryOpJson, logQueryOpJson_);
       DARABONBA_PTR_FROM_JSON(LogSource, logSource_);
       DARABONBA_PTR_FROM_JSON(MemberAccount, memberAccount_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
@@ -84,10 +86,10 @@ namespace Models
     virtual bool empty() const override { return this->asyncRequestId_ == nullptr
         && return this->clientIp_ == nullptr && return this->clientUa_ == nullptr && return this->currentPage_ == nullptr && return this->databaseName_ == nullptr && return this->effectRowRange_ == nullptr
         && return this->endTime_ == nullptr && return this->executeTimeRange_ == nullptr && return this->instanceName_ == nullptr && return this->ipType_ == nullptr && return this->lang_ == nullptr
-        && return this->loadWhiteList_ == nullptr && return this->logSource_ == nullptr && return this->memberAccount_ == nullptr && return this->message_ == nullptr && return this->operateType_ == nullptr
-        && return this->ossObjectKey_ == nullptr && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr && return this->ruleAggQuery_ == nullptr
-        && return this->ruleCategory_ == nullptr && return this->ruleID_ == nullptr && return this->ruleName_ == nullptr && return this->sqlText_ == nullptr && return this->startTime_ == nullptr
-        && return this->userName_ == nullptr; };
+        && return this->loadWhiteList_ == nullptr && return this->logQueryOpJson_ == nullptr && return this->logSource_ == nullptr && return this->memberAccount_ == nullptr && return this->message_ == nullptr
+        && return this->operateType_ == nullptr && return this->ossObjectKey_ == nullptr && return this->pageSize_ == nullptr && return this->productCode_ == nullptr && return this->productId_ == nullptr
+        && return this->ruleAggQuery_ == nullptr && return this->ruleCategory_ == nullptr && return this->ruleID_ == nullptr && return this->ruleName_ == nullptr && return this->sqlText_ == nullptr
+        && return this->startTime_ == nullptr && return this->userName_ == nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
@@ -170,6 +172,13 @@ namespace Models
     void deleteLoadWhiteList() { this->loadWhiteList_ = nullptr;};
     inline bool loadWhiteList() const { DARABONBA_PTR_GET_DEFAULT(loadWhiteList_, false) };
     inline DescribeAuditLogsRequest& setLoadWhiteList(bool loadWhiteList) { DARABONBA_PTR_SET_VALUE(loadWhiteList_, loadWhiteList) };
+
+
+    // logQueryOpJson Field Functions 
+    bool hasLogQueryOpJson() const { return this->logQueryOpJson_ != nullptr;};
+    void deleteLogQueryOpJson() { this->logQueryOpJson_ = nullptr;};
+    inline string logQueryOpJson() const { DARABONBA_PTR_GET_DEFAULT(logQueryOpJson_, "") };
+    inline DescribeAuditLogsRequest& setLogQueryOpJson(string logQueryOpJson) { DARABONBA_PTR_SET_VALUE(logQueryOpJson_, logQueryOpJson) };
 
 
     // logSource Field Functions 
@@ -290,6 +299,7 @@ namespace Models
     std::shared_ptr<string> ipType_ = nullptr;
     std::shared_ptr<string> lang_ = nullptr;
     std::shared_ptr<bool> loadWhiteList_ = nullptr;
+    std::shared_ptr<string> logQueryOpJson_ = nullptr;
     std::shared_ptr<string> logSource_ = nullptr;
     std::shared_ptr<string> memberAccount_ = nullptr;
     std::shared_ptr<string> message_ = nullptr;

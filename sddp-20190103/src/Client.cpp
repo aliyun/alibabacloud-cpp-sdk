@@ -670,6 +670,10 @@ DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAud
     query["LoadWhiteList"] = request.loadWhiteList();
   }
 
+  if (!!request.hasLogQueryOpJson()) {
+    query["LogQueryOpJson"] = request.logQueryOpJson();
+  }
+
   if (!!request.hasLogSource()) {
     query["LogSource"] = request.logSource();
   }
