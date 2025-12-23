@@ -13,9 +13,11 @@ namespace Models
   class DescribeApplicationSlbsResponseBodyDataIntranet : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeApplicationSlbsResponseBodyDataIntranet& obj) { 
+      DARABONBA_PTR_TO_JSON(ConnectionDrainTimeout, connectionDrainTimeout_);
       DARABONBA_PTR_TO_JSON(Cookie, cookie_);
       DARABONBA_PTR_TO_JSON(CookieTimeout, cookieTimeout_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(EnableConnectionDrain, enableConnectionDrain_);
       DARABONBA_PTR_TO_JSON(HttpsCaCertId, httpsCaCertId_);
       DARABONBA_PTR_TO_JSON(HttpsCertId, httpsCertId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
@@ -23,11 +25,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StickySession, stickySession_);
       DARABONBA_PTR_TO_JSON(StickySessionType, stickySessionType_);
       DARABONBA_PTR_TO_JSON(TargetPort, targetPort_);
+      DARABONBA_PTR_TO_JSON(VServerGroupId, VServerGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeApplicationSlbsResponseBodyDataIntranet& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConnectionDrainTimeout, connectionDrainTimeout_);
       DARABONBA_PTR_FROM_JSON(Cookie, cookie_);
       DARABONBA_PTR_FROM_JSON(CookieTimeout, cookieTimeout_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(EnableConnectionDrain, enableConnectionDrain_);
       DARABONBA_PTR_FROM_JSON(HttpsCaCertId, httpsCaCertId_);
       DARABONBA_PTR_FROM_JSON(HttpsCertId, httpsCertId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
@@ -35,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(StickySession, stickySession_);
       DARABONBA_PTR_FROM_JSON(StickySessionType, stickySessionType_);
       DARABONBA_PTR_FROM_JSON(TargetPort, targetPort_);
+      DARABONBA_PTR_FROM_JSON(VServerGroupId, VServerGroupId_);
     };
     DescribeApplicationSlbsResponseBodyDataIntranet() = default ;
     DescribeApplicationSlbsResponseBodyDataIntranet(const DescribeApplicationSlbsResponseBodyDataIntranet &) = default ;
@@ -47,9 +53,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cookie_ == nullptr
-        && return this->cookieTimeout_ == nullptr && return this->createTime_ == nullptr && return this->httpsCaCertId_ == nullptr && return this->httpsCertId_ == nullptr && return this->port_ == nullptr
-        && return this->protocol_ == nullptr && return this->stickySession_ == nullptr && return this->stickySessionType_ == nullptr && return this->targetPort_ == nullptr; };
+    virtual bool empty() const override { return this->connectionDrainTimeout_ == nullptr
+        && return this->cookie_ == nullptr && return this->cookieTimeout_ == nullptr && return this->createTime_ == nullptr && return this->enableConnectionDrain_ == nullptr && return this->httpsCaCertId_ == nullptr
+        && return this->httpsCertId_ == nullptr && return this->port_ == nullptr && return this->protocol_ == nullptr && return this->stickySession_ == nullptr && return this->stickySessionType_ == nullptr
+        && return this->targetPort_ == nullptr && return this->VServerGroupId_ == nullptr; };
+    // connectionDrainTimeout Field Functions 
+    bool hasConnectionDrainTimeout() const { return this->connectionDrainTimeout_ != nullptr;};
+    void deleteConnectionDrainTimeout() { this->connectionDrainTimeout_ = nullptr;};
+    inline int32_t connectionDrainTimeout() const { DARABONBA_PTR_GET_DEFAULT(connectionDrainTimeout_, 0) };
+    inline DescribeApplicationSlbsResponseBodyDataIntranet& setConnectionDrainTimeout(int32_t connectionDrainTimeout) { DARABONBA_PTR_SET_VALUE(connectionDrainTimeout_, connectionDrainTimeout) };
+
+
     // cookie Field Functions 
     bool hasCookie() const { return this->cookie_ != nullptr;};
     void deleteCookie() { this->cookie_ = nullptr;};
@@ -69,6 +83,13 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline int64_t createTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
     inline DescribeApplicationSlbsResponseBodyDataIntranet& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // enableConnectionDrain Field Functions 
+    bool hasEnableConnectionDrain() const { return this->enableConnectionDrain_ != nullptr;};
+    void deleteEnableConnectionDrain() { this->enableConnectionDrain_ = nullptr;};
+    inline bool enableConnectionDrain() const { DARABONBA_PTR_GET_DEFAULT(enableConnectionDrain_, false) };
+    inline DescribeApplicationSlbsResponseBodyDataIntranet& setEnableConnectionDrain(bool enableConnectionDrain) { DARABONBA_PTR_SET_VALUE(enableConnectionDrain_, enableConnectionDrain) };
 
 
     // httpsCaCertId Field Functions 
@@ -120,11 +141,20 @@ namespace Models
     inline DescribeApplicationSlbsResponseBodyDataIntranet& setTargetPort(int32_t targetPort) { DARABONBA_PTR_SET_VALUE(targetPort_, targetPort) };
 
 
+    // VServerGroupId Field Functions 
+    bool hasVServerGroupId() const { return this->VServerGroupId_ != nullptr;};
+    void deleteVServerGroupId() { this->VServerGroupId_ = nullptr;};
+    inline string VServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
+    inline DescribeApplicationSlbsResponseBodyDataIntranet& setVServerGroupId(string VServerGroupId) { DARABONBA_PTR_SET_VALUE(VServerGroupId_, VServerGroupId) };
+
+
   protected:
+    std::shared_ptr<int32_t> connectionDrainTimeout_ = nullptr;
     std::shared_ptr<string> cookie_ = nullptr;
     std::shared_ptr<int32_t> cookieTimeout_ = nullptr;
     // The timestamp when the canary release rule was created.
     std::shared_ptr<int64_t> createTime_ = nullptr;
+    std::shared_ptr<bool> enableConnectionDrain_ = nullptr;
     std::shared_ptr<string> httpsCaCertId_ = nullptr;
     // The supported protocol.
     std::shared_ptr<string> httpsCertId_ = nullptr;
@@ -136,6 +166,7 @@ namespace Models
     std::shared_ptr<string> stickySessionType_ = nullptr;
     // The port specified for the SLB listener.
     std::shared_ptr<int32_t> targetPort_ = nullptr;
+    std::shared_ptr<string> VServerGroupId_ = nullptr;
   };
 
   } // namespace Models
