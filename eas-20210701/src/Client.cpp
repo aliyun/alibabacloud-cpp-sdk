@@ -1349,6 +1349,57 @@ DeleteGatewayIntranetLinkedVpcPeerResponse Client::deleteGatewayIntranetLinkedVp
 }
 
 /**
+ * @summary 删除网关标签
+ *
+ * @param tmpReq DeleteGatewayLabelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayLabelResponse
+ */
+DeleteGatewayLabelResponse Client::deleteGatewayLabelWithOptions(const string &ClusterId, const string &GatewayId, const DeleteGatewayLabelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteGatewayLabelShrinkRequest request = DeleteGatewayLabelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLabelKeys()) {
+    request.setLabelKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.labelKeys(), "LabelKeys", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasLabelKeysShrink()) {
+    query["LabelKeys"] = request.labelKeysShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGatewayLabel"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/gateways/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(GatewayId) , "/label")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayLabelResponse>();
+}
+
+/**
+ * @summary 删除网关标签
+ *
+ * @param request DeleteGatewayLabelRequest
+ * @return DeleteGatewayLabelResponse
+ */
+DeleteGatewayLabelResponse Client::deleteGatewayLabel(const string &ClusterId, const string &GatewayId, const DeleteGatewayLabelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteGatewayLabelWithOptions(ClusterId, GatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a resource group that contains no resources or instances.
  *
  * @param headers map
@@ -4599,6 +4650,51 @@ UpdateGatewayResponse Client::updateGateway(const string &GatewayId, const strin
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改网关标签
+ *
+ * @param request UpdateGatewayLabelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayLabelResponse
+ */
+UpdateGatewayLabelResponse Client::updateGatewayLabelWithOptions(const string &ClusterId, const string &GatewayId, const UpdateGatewayLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLabels()) {
+    body["Labels"] = request.labels();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayLabel"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/gateways/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(GatewayId) , "/label")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayLabelResponse>();
+}
+
+/**
+ * @summary 修改网关标签
+ *
+ * @param request UpdateGatewayLabelRequest
+ * @return UpdateGatewayLabelResponse
+ */
+UpdateGatewayLabelResponse Client::updateGatewayLabel(const string &ClusterId, const string &GatewayId, const UpdateGatewayLabelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayLabelWithOptions(ClusterId, GatewayId, request, headers, runtime);
 }
 
 /**

@@ -84,6 +84,10 @@
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcPeerShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcPeerResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewayIntranetLinkedVpcPeerResponse.hpp>
+#include <alibabacloud/models/DeleteGatewayLabelRequest.hpp>
+#include <alibabacloud/models/DeleteGatewayLabelShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteGatewayLabelResponseBody.hpp>
+#include <alibabacloud/models/DeleteGatewayLabelResponse.hpp>
 #include <alibabacloud/models/DeleteResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceResponse.hpp>
 #include <alibabacloud/models/DeleteResourceDLinkResponseBody.hpp>
@@ -251,6 +255,9 @@
 #include <alibabacloud/models/UpdateGatewayRequest.hpp>
 #include <alibabacloud/models/UpdateGatewayResponseBody.hpp>
 #include <alibabacloud/models/UpdateGatewayResponse.hpp>
+#include <alibabacloud/models/UpdateGatewayLabelRequest.hpp>
+#include <alibabacloud/models/UpdateGatewayLabelResponseBody.hpp>
+#include <alibabacloud/models/UpdateGatewayLabelResponse.hpp>
 #include <alibabacloud/models/UpdateGroupRequest.hpp>
 #include <alibabacloud/models/UpdateGroupResponseBody.hpp>
 #include <alibabacloud/models/UpdateGroupResponse.hpp>

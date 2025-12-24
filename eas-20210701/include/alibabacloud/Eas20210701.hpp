@@ -453,6 +453,24 @@ namespace Eas20210701
       Models::DeleteGatewayIntranetLinkedVpcPeerResponse deleteGatewayIntranetLinkedVpcPeer(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayIntranetLinkedVpcPeerRequest &request);
 
       /**
+       * @summary 删除网关标签
+       *
+       * @param tmpReq DeleteGatewayLabelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayLabelResponse
+       */
+      Models::DeleteGatewayLabelResponse deleteGatewayLabelWithOptions(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayLabelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关标签
+       *
+       * @param request DeleteGatewayLabelRequest
+       * @return DeleteGatewayLabelResponse
+       */
+      Models::DeleteGatewayLabelResponse deleteGatewayLabel(const string &ClusterId, const string &GatewayId, const Models::DeleteGatewayLabelRequest &request);
+
+      /**
        * @summary Deletes a resource group that contains no resources or instances.
        *
        * @param headers map
@@ -1571,6 +1589,24 @@ namespace Eas20210701
        * @return UpdateGatewayResponse
        */
       Models::UpdateGatewayResponse updateGateway(const string &GatewayId, const string &ClusterId, const Models::UpdateGatewayRequest &request);
+
+      /**
+       * @summary 修改网关标签
+       *
+       * @param request UpdateGatewayLabelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayLabelResponse
+       */
+      Models::UpdateGatewayLabelResponse updateGatewayLabelWithOptions(const string &ClusterId, const string &GatewayId, const Models::UpdateGatewayLabelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改网关标签
+       *
+       * @param request UpdateGatewayLabelRequest
+       * @return UpdateGatewayLabelResponse
+       */
+      Models::UpdateGatewayLabelResponse updateGatewayLabel(const string &ClusterId, const string &GatewayId, const Models::UpdateGatewayLabelRequest &request);
 
       /**
        * @summary Updates the specific fields of a service group.
