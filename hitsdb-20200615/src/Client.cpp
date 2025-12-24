@@ -1596,6 +1596,64 @@ GetInstanceSecurityGroupsResponse Client::getInstanceSecurityGroups(const GetIns
 }
 
 /**
+ * @param request GetInstanceSummaryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceSummaryResponse
+ */
+GetInstanceSummaryResponse Client::getInstanceSummaryWithOptions(const GetInstanceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.ownerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.securityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceSummary"},
+    {"version" , "2020-06-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceSummaryResponse>();
+}
+
+/**
+ * @param request GetInstanceSummaryRequest
+ * @return GetInstanceSummaryResponse
+ */
+GetInstanceSummaryResponse Client::getInstanceSummary(const GetInstanceSummaryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getInstanceSummaryWithOptions(request, runtime);
+}
+
+/**
  * @param request GetLdpsComputeGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLdpsComputeGroupResponse

@@ -300,6 +300,19 @@ namespace Hitsdb20200615
       Models::GetInstanceSecurityGroupsResponse getInstanceSecurityGroups(const Models::GetInstanceSecurityGroupsRequest &request);
 
       /**
+       * @param request GetInstanceSummaryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetInstanceSummaryResponse
+       */
+      Models::GetInstanceSummaryResponse getInstanceSummaryWithOptions(const Models::GetInstanceSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request GetInstanceSummaryRequest
+       * @return GetInstanceSummaryResponse
+       */
+      Models::GetInstanceSummaryResponse getInstanceSummary(const Models::GetInstanceSummaryRequest &request);
+
+      /**
        * @param request GetLdpsComputeGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetLdpsComputeGroupResponse

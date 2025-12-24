@@ -60,6 +60,9 @@
 #include <alibabacloud/models/GetInstanceSecurityGroupsRequest.hpp>
 #include <alibabacloud/models/GetInstanceSecurityGroupsResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceSecurityGroupsResponse.hpp>
+#include <alibabacloud/models/GetInstanceSummaryRequest.hpp>
+#include <alibabacloud/models/GetInstanceSummaryResponseBody.hpp>
+#include <alibabacloud/models/GetInstanceSummaryResponse.hpp>
 #include <alibabacloud/models/GetLdpsComputeGroupRequest.hpp>
 #include <alibabacloud/models/GetLdpsComputeGroupResponseBody.hpp>
 #include <alibabacloud/models/GetLdpsComputeGroupResponse.hpp>
@@ -214,6 +217,7 @@
 #include <alibabacloud/models/GetAutoScalingRuleResponseBodyData.hpp>
 #include <alibabacloud/models/GetEngineDefaultAuthResponseBodyAuthInfos.hpp>
 #include <alibabacloud/models/GetInstanceIpWhiteListResponseBodyGroupList.hpp>
+#include <alibabacloud/models/GetInstanceSummaryResponseBodyRegionalSummary.hpp>
 #include <alibabacloud/models/GetLdpsNamespacedQuotaResponseBodyNamespacedQuotas.hpp>
 #include <alibabacloud/models/GetLindormEngineConfigResponseBodyEngineConfigsConfigFilesConfigItems.hpp>
 #include <alibabacloud/models/GetLindormEngineConfigResponseBodyEngineConfigsConfigFiles.hpp>
