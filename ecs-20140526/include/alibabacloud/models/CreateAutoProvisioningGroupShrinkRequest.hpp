@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultTargetCapacityType, defaultTargetCapacityType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ExcessCapacityTerminationPolicy, excessCapacityTerminationPolicy_);
+      DARABONBA_PTR_TO_JSON(ExecutionMode, executionMode_);
       DARABONBA_PTR_TO_JSON(HibernationOptionsConfigured, hibernationOptionsConfigured_);
       DARABONBA_PTR_TO_JSON(LaunchTemplateConfig, launchTemplateConfig_);
       DARABONBA_PTR_TO_JSON(LaunchTemplateId, launchTemplateId_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultTargetCapacityType, defaultTargetCapacityType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ExcessCapacityTerminationPolicy, excessCapacityTerminationPolicy_);
+      DARABONBA_PTR_FROM_JSON(ExecutionMode, executionMode_);
       DARABONBA_PTR_FROM_JSON(HibernationOptionsConfigured, hibernationOptionsConfigured_);
       DARABONBA_PTR_FROM_JSON(LaunchTemplateConfig, launchTemplateConfig_);
       DARABONBA_PTR_FROM_JSON(LaunchTemplateId, launchTemplateId_);
@@ -106,12 +108,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->launchConfiguration_ == nullptr
         && return this->autoProvisioningGroupName_ == nullptr && return this->autoProvisioningGroupType_ == nullptr && return this->clientToken_ == nullptr && return this->dataDiskConfig_ == nullptr && return this->defaultTargetCapacityType_ == nullptr
-        && return this->description_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->hibernationOptionsConfigured_ == nullptr && return this->launchTemplateConfig_ == nullptr && return this->launchTemplateId_ == nullptr
-        && return this->launchTemplateVersion_ == nullptr && return this->maxSpotPrice_ == nullptr && return this->minTargetCapacity_ == nullptr && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr
-        && return this->payAsYouGoAllocationStrategy_ == nullptr && return this->payAsYouGoTargetCapacity_ == nullptr && return this->prePaidOptions_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourcePoolOptionsShrink_ == nullptr && return this->spotAllocationStrategy_ == nullptr && return this->spotInstanceInterruptionBehavior_ == nullptr
-        && return this->spotInstancePoolsToUseCount_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->systemDiskConfig_ == nullptr && return this->tag_ == nullptr && return this->terminateInstances_ == nullptr
-        && return this->terminateInstancesWithExpiration_ == nullptr && return this->totalTargetCapacity_ == nullptr && return this->validFrom_ == nullptr && return this->validUntil_ == nullptr; };
+        && return this->description_ == nullptr && return this->excessCapacityTerminationPolicy_ == nullptr && return this->executionMode_ == nullptr && return this->hibernationOptionsConfigured_ == nullptr && return this->launchTemplateConfig_ == nullptr
+        && return this->launchTemplateId_ == nullptr && return this->launchTemplateVersion_ == nullptr && return this->maxSpotPrice_ == nullptr && return this->minTargetCapacity_ == nullptr && return this->ownerAccount_ == nullptr
+        && return this->ownerId_ == nullptr && return this->payAsYouGoAllocationStrategy_ == nullptr && return this->payAsYouGoTargetCapacity_ == nullptr && return this->prePaidOptions_ == nullptr && return this->regionId_ == nullptr
+        && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr && return this->resourcePoolOptionsShrink_ == nullptr && return this->spotAllocationStrategy_ == nullptr
+        && return this->spotInstanceInterruptionBehavior_ == nullptr && return this->spotInstancePoolsToUseCount_ == nullptr && return this->spotTargetCapacity_ == nullptr && return this->systemDiskConfig_ == nullptr && return this->tag_ == nullptr
+        && return this->terminateInstances_ == nullptr && return this->terminateInstancesWithExpiration_ == nullptr && return this->totalTargetCapacity_ == nullptr && return this->validFrom_ == nullptr && return this->validUntil_ == nullptr; };
     // launchConfiguration Field Functions 
     bool hasLaunchConfiguration() const { return this->launchConfiguration_ != nullptr;};
     void deleteLaunchConfiguration() { this->launchConfiguration_ = nullptr;};
@@ -170,6 +172,13 @@ namespace Models
     void deleteExcessCapacityTerminationPolicy() { this->excessCapacityTerminationPolicy_ = nullptr;};
     inline string excessCapacityTerminationPolicy() const { DARABONBA_PTR_GET_DEFAULT(excessCapacityTerminationPolicy_, "") };
     inline CreateAutoProvisioningGroupShrinkRequest& setExcessCapacityTerminationPolicy(string excessCapacityTerminationPolicy) { DARABONBA_PTR_SET_VALUE(excessCapacityTerminationPolicy_, excessCapacityTerminationPolicy) };
+
+
+    // executionMode Field Functions 
+    bool hasExecutionMode() const { return this->executionMode_ != nullptr;};
+    void deleteExecutionMode() { this->executionMode_ = nullptr;};
+    inline string executionMode() const { DARABONBA_PTR_GET_DEFAULT(executionMode_, "") };
+    inline CreateAutoProvisioningGroupShrinkRequest& setExecutionMode(string executionMode) { DARABONBA_PTR_SET_VALUE(executionMode_, executionMode) };
 
 
     // hibernationOptionsConfigured Field Functions 
@@ -401,6 +410,7 @@ namespace Models
     // 
     // Default value: no-termination.
     std::shared_ptr<string> excessCapacityTerminationPolicy_ = nullptr;
+    std::shared_ptr<string> executionMode_ = nullptr;
     // >This parameter is in invitational preview and is not publicly available.
     std::shared_ptr<bool> hibernationOptionsConfigured_ = nullptr;
     // The extended configurations of the launch template.

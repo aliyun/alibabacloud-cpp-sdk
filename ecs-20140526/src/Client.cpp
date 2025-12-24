@@ -2968,6 +2968,10 @@ CreateAutoProvisioningGroupResponse Client::createAutoProvisioningGroupWithOptio
     query["ExcessCapacityTerminationPolicy"] = request.excessCapacityTerminationPolicy();
   }
 
+  if (!!request.hasExecutionMode()) {
+    query["ExecutionMode"] = request.executionMode();
+  }
+
   if (!!request.hasHibernationOptionsConfigured()) {
     query["HibernationOptionsConfigured"] = request.hibernationOptionsConfigured();
   }
