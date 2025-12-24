@@ -17,7 +17,7 @@ namespace AgentIdentityData20251127
 {
 
 AlibabaCloud::AgentIdentityData20251127::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("agentidentitydata", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
