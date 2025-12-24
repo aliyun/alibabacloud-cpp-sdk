@@ -10507,6 +10507,8 @@ DescribeLiveAudioAuditNotifyConfigResponse Client::describeLiveAudioAuditNotifyC
 }
 
 /**
+ * @summary 查询直播CDN诊断信息
+ *
  * @param request DescribeLiveCdnDiagnoseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLiveCdnDiagnoseInfoResponse
@@ -10572,6 +10574,8 @@ DescribeLiveCdnDiagnoseInfoResponse Client::describeLiveCdnDiagnoseInfoWithOptio
 }
 
 /**
+ * @summary 查询直播CDN诊断信息
+ *
  * @param request DescribeLiveCdnDiagnoseInfoRequest
  * @return DescribeLiveCdnDiagnoseInfoResponse
  */
@@ -13161,6 +13165,8 @@ DescribeLiveDomainTrafficDataResponse Client::describeLiveDomainTrafficData(cons
 }
 
 /**
+ * @summary 查询直播域名转码参数
+ *
  * @param request DescribeLiveDomainTranscodeParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLiveDomainTranscodeParamsResponse
@@ -13202,6 +13208,8 @@ DescribeLiveDomainTranscodeParamsResponse Client::describeLiveDomainTranscodePar
 }
 
 /**
+ * @summary 查询直播域名转码参数
+ *
  * @param request DescribeLiveDomainTranscodeParamsRequest
  * @return DescribeLiveDomainTranscodeParamsResponse
  */
@@ -13211,6 +13219,8 @@ DescribeLiveDomainTranscodeParamsResponse Client::describeLiveDomainTranscodePar
 }
 
 /**
+ * @summary 获取直播DRM用量数据
+ *
  * @description ### [](#)Usage notes
  * *   You can query data in the previous 90 days.
  * *   The maximum time range to query is 31 days.
@@ -13270,6 +13280,8 @@ DescribeLiveDrmUsageDataResponse Client::describeLiveDrmUsageDataWithOptions(con
 }
 
 /**
+ * @summary 获取直播DRM用量数据
+ *
  * @description ### [](#)Usage notes
  * *   You can query data in the previous 90 days.
  * *   The maximum time range to query is 31 days.
@@ -17703,6 +17715,8 @@ DescribeLiveUserStreamMetricDataResponse Client::describeLiveUserStreamMetricDat
 }
 
 /**
+ * @summary 获取直播用户标签
+ *
  * @param request DescribeLiveUserTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLiveUserTagsResponse
@@ -17736,6 +17750,8 @@ DescribeLiveUserTagsResponse Client::describeLiveUserTagsWithOptions(const Descr
 }
 
 /**
+ * @summary 获取直播用户标签
+ *
  * @param request DescribeLiveUserTagsRequest
  * @return DescribeLiveUserTagsResponse
  */
@@ -20033,6 +20049,8 @@ GetMessageTokenResponse Client::getMessageToken(const GetMessageTokenRequest &re
 }
 
 /**
+ * @summary 获取转码任务状态
+ *
  * @param request GetTranscodeTaskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTranscodeTaskStatusResponse
@@ -20078,6 +20096,8 @@ GetTranscodeTaskStatusResponse Client::getTranscodeTaskStatusWithOptions(const G
 }
 
 /**
+ * @summary 获取转码任务状态
+ *
  * @param request GetTranscodeTaskStatusRequest
  * @return GetTranscodeTaskStatusResponse
  */
@@ -21218,6 +21238,76 @@ ListLiveRealtimeLogDeliveryInfosResponse Client::listLiveRealtimeLogDeliveryInfo
 ListLiveRealtimeLogDeliveryInfosResponse Client::listLiveRealtimeLogDeliveryInfos(const ListLiveRealtimeLogDeliveryInfosRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listLiveRealtimeLogDeliveryInfosWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询符合条件的资源和标签
+ *
+ * @param request ListLiveTagResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLiveTagResourcesResponse
+ */
+ListLiveTagResourcesResponse Client::listLiveTagResourcesWithOptions(const ListLiveTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.resourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.tag();
+  }
+
+  if (!!request.hasTagOwnerBid()) {
+    query["TagOwnerBid"] = request.tagOwnerBid();
+  }
+
+  if (!!request.hasTagOwnerUid()) {
+    query["TagOwnerUid"] = request.tagOwnerUid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLiveTagResources"},
+    {"version" , "2016-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLiveTagResourcesResponse>();
+}
+
+/**
+ * @summary 查询符合条件的资源和标签
+ *
+ * @param request ListLiveTagResourcesRequest
+ * @return ListLiveTagResourcesResponse
+ */
+ListLiveTagResourcesResponse Client::listLiveTagResources(const ListLiveTagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLiveTagResourcesWithOptions(request, runtime);
 }
 
 /**
@@ -24379,6 +24469,8 @@ RestartLivePullToPushResponse Client::restartLivePullToPush(const RestartLivePul
 }
 
 /**
+ * @summary 重启转码任务
+ *
  * @param request RestartTranscodeTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RestartTranscodeTaskResponse
@@ -24424,6 +24516,8 @@ RestartTranscodeTaskResponse Client::restartTranscodeTaskWithOptions(const Resta
 }
 
 /**
+ * @summary 重启转码任务
+ *
  * @param request RestartTranscodeTaskRequest
  * @return RestartTranscodeTaskResponse
  */

@@ -935,6 +935,9 @@
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryInfosRequest.hpp>
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryInfosResponseBody.hpp>
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryInfosResponse.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesRequest.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesResponse.hpp>
 #include <alibabacloud/models/ListMessageRequest.hpp>
 #include <alibabacloud/models/ListMessageResponseBody.hpp>
 #include <alibabacloud/models/ListMessageResponse.hpp>
@@ -1731,6 +1734,9 @@
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryDomainsResponseBodyContent.hpp>
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryInfosResponseBodyContentRealtimeLogDeliveryInfos.hpp>
 #include <alibabacloud/models/ListLiveRealtimeLogDeliveryInfosResponseBodyContent.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesRequestTag.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesResponseBodyTagResourcesTagResource.hpp>
+#include <alibabacloud/models/ListLiveTagResourcesResponseBodyTagResources.hpp>
 #include <alibabacloud/models/ListMessageResponseBodyResultMessageList.hpp>
 #include <alibabacloud/models/ListMessageResponseBodyResult.hpp>
 #include <alibabacloud/models/ListMessageAppResponseBodyResultAppList.hpp>

@@ -3813,6 +3813,8 @@ namespace Live20161101
       Models::DescribeLiveAudioAuditNotifyConfigResponse describeLiveAudioAuditNotifyConfig(const Models::DescribeLiveAudioAuditNotifyConfigRequest &request);
 
       /**
+       * @summary 查询直播CDN诊断信息
+       *
        * @param request DescribeLiveCdnDiagnoseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLiveCdnDiagnoseInfoResponse
@@ -3820,6 +3822,8 @@ namespace Live20161101
       Models::DescribeLiveCdnDiagnoseInfoResponse describeLiveCdnDiagnoseInfoWithOptions(const Models::DescribeLiveCdnDiagnoseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询直播CDN诊断信息
+       *
        * @param request DescribeLiveCdnDiagnoseInfoRequest
        * @return DescribeLiveCdnDiagnoseInfoResponse
        */
@@ -4841,6 +4845,8 @@ namespace Live20161101
       Models::DescribeLiveDomainTrafficDataResponse describeLiveDomainTrafficData(const Models::DescribeLiveDomainTrafficDataRequest &request);
 
       /**
+       * @summary 查询直播域名转码参数
+       *
        * @param request DescribeLiveDomainTranscodeParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLiveDomainTranscodeParamsResponse
@@ -4848,12 +4854,16 @@ namespace Live20161101
       Models::DescribeLiveDomainTranscodeParamsResponse describeLiveDomainTranscodeParamsWithOptions(const Models::DescribeLiveDomainTranscodeParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询直播域名转码参数
+       *
        * @param request DescribeLiveDomainTranscodeParamsRequest
        * @return DescribeLiveDomainTranscodeParamsResponse
        */
       Models::DescribeLiveDomainTranscodeParamsResponse describeLiveDomainTranscodeParams(const Models::DescribeLiveDomainTranscodeParamsRequest &request);
 
       /**
+       * @summary 获取直播DRM用量数据
+       *
        * @description ### [](#)Usage notes
        * *   You can query data in the previous 90 days.
        * *   The maximum time range to query is 31 days.
@@ -4867,6 +4877,8 @@ namespace Live20161101
       Models::DescribeLiveDrmUsageDataResponse describeLiveDrmUsageDataWithOptions(const Models::DescribeLiveDrmUsageDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取直播DRM用量数据
+       *
        * @description ### [](#)Usage notes
        * *   You can query data in the previous 90 days.
        * *   The maximum time range to query is 31 days.
@@ -6502,6 +6514,8 @@ namespace Live20161101
       Models::DescribeLiveUserStreamMetricDataResponse describeLiveUserStreamMetricData(const Models::DescribeLiveUserStreamMetricDataRequest &request);
 
       /**
+       * @summary 获取直播用户标签
+       *
        * @param request DescribeLiveUserTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLiveUserTagsResponse
@@ -6509,6 +6523,8 @@ namespace Live20161101
       Models::DescribeLiveUserTagsResponse describeLiveUserTagsWithOptions(const Models::DescribeLiveUserTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取直播用户标签
+       *
        * @param request DescribeLiveUserTagsRequest
        * @return DescribeLiveUserTagsResponse
        */
@@ -7397,6 +7413,8 @@ namespace Live20161101
       Models::GetMessageTokenResponse getMessageToken(const Models::GetMessageTokenRequest &request);
 
       /**
+       * @summary 获取转码任务状态
+       *
        * @param request GetTranscodeTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetTranscodeTaskStatusResponse
@@ -7404,6 +7422,8 @@ namespace Live20161101
       Models::GetTranscodeTaskStatusResponse getTranscodeTaskStatusWithOptions(const Models::GetTranscodeTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取转码任务状态
+       *
        * @param request GetTranscodeTaskStatusRequest
        * @return GetTranscodeTaskStatusResponse
        */
@@ -7852,6 +7872,23 @@ namespace Live20161101
        * @return ListLiveRealtimeLogDeliveryInfosResponse
        */
       Models::ListLiveRealtimeLogDeliveryInfosResponse listLiveRealtimeLogDeliveryInfos(const Models::ListLiveRealtimeLogDeliveryInfosRequest &request);
+
+      /**
+       * @summary 查询符合条件的资源和标签
+       *
+       * @param request ListLiveTagResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLiveTagResourcesResponse
+       */
+      Models::ListLiveTagResourcesResponse listLiveTagResourcesWithOptions(const Models::ListLiveTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询符合条件的资源和标签
+       *
+       * @param request ListLiveTagResourcesRequest
+       * @return ListLiveTagResourcesResponse
+       */
+      Models::ListLiveTagResourcesResponse listLiveTagResources(const Models::ListLiveTagResourcesRequest &request);
 
       /**
        * @summary Queries messages.
@@ -8973,6 +9010,8 @@ namespace Live20161101
       Models::RestartLivePullToPushResponse restartLivePullToPush(const Models::RestartLivePullToPushRequest &request);
 
       /**
+       * @summary 重启转码任务
+       *
        * @param request RestartTranscodeTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RestartTranscodeTaskResponse
@@ -8980,6 +9019,8 @@ namespace Live20161101
       Models::RestartTranscodeTaskResponse restartTranscodeTaskWithOptions(const Models::RestartTranscodeTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 重启转码任务
+       *
        * @param request RestartTranscodeTaskRequest
        * @return RestartTranscodeTaskResponse
        */
