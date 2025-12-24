@@ -3412,6 +3412,68 @@ DescribeElasticStrengthResponse Client::describeElasticStrength(const DescribeEl
 }
 
 /**
+ * @param request DescribeInstanceCreateAndDeleteStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+ */
+DescribeInstanceCreateAndDeleteStatisticsResponse Client::describeInstanceCreateAndDeleteStatisticsWithOptions(const DescribeInstanceCreateAndDeleteStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingGroupId()) {
+    query["ScalingGroupId"] = request.scalingGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeInstanceCreateAndDeleteStatistics"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeInstanceCreateAndDeleteStatisticsResponse>();
+}
+
+/**
+ * @param request DescribeInstanceCreateAndDeleteStatisticsRequest
+ * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+ */
+DescribeInstanceCreateAndDeleteStatisticsResponse Client::describeInstanceCreateAndDeleteStatistics(const DescribeInstanceCreateAndDeleteStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeInstanceCreateAndDeleteStatisticsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
  *
  * @param request DescribeInstanceRefreshesRequest
@@ -4027,6 +4089,72 @@ DescribeScalingActivityDetailResponse Client::describeScalingActivityDetailWithO
 DescribeScalingActivityDetailResponse Client::describeScalingActivityDetail(const DescribeScalingActivityDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeScalingActivityDetailWithOptions(request, runtime);
+}
+
+/**
+ * @param request DescribeScalingActivityStatisticsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeScalingActivityStatisticsResponse
+ */
+DescribeScalingActivityStatisticsResponse Client::describeScalingActivityStatisticsWithOptions(const DescribeScalingActivityStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMetricType()) {
+    query["MetricType"] = request.metricType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingGroupId()) {
+    query["ScalingGroupId"] = request.scalingGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeScalingActivityStatistics"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeScalingActivityStatisticsResponse>();
+}
+
+/**
+ * @param request DescribeScalingActivityStatisticsRequest
+ * @return DescribeScalingActivityStatisticsResponse
+ */
+DescribeScalingActivityStatisticsResponse Client::describeScalingActivityStatistics(const DescribeScalingActivityStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeScalingActivityStatisticsWithOptions(request, runtime);
 }
 
 /**
@@ -7203,6 +7331,270 @@ ModifyScheduledTaskResponse Client::modifyScheduledTaskWithOptions(const ModifyS
 ModifyScheduledTaskResponse Client::modifyScheduledTask(const ModifyScheduledTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyScheduledTaskWithOptions(request, runtime);
+}
+
+/**
+ * @param request QueryHistoricalMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoricalMetricResponse
+ */
+QueryHistoricalMetricResponse Client::queryHistoricalMetricWithOptions(const QueryHistoricalMetricRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.metricName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingGroupId()) {
+    query["ScalingGroupId"] = request.scalingGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoricalMetric"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoricalMetricResponse>();
+}
+
+/**
+ * @param request QueryHistoricalMetricRequest
+ * @return QueryHistoricalMetricResponse
+ */
+QueryHistoricalMetricResponse Client::queryHistoricalMetric(const QueryHistoricalMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoricalMetricWithOptions(request, runtime);
+}
+
+/**
+ * @param request QueryPredictiveMetricRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPredictiveMetricResponse
+ */
+QueryPredictiveMetricResponse Client::queryPredictiveMetricWithOptions(const QueryPredictiveMetricRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.metricName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingGroupId()) {
+    query["ScalingGroupId"] = request.scalingGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPredictiveMetric"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPredictiveMetricResponse>();
+}
+
+/**
+ * @param request QueryPredictiveMetricRequest
+ * @return QueryPredictiveMetricResponse
+ */
+QueryPredictiveMetricResponse Client::queryPredictiveMetric(const QueryPredictiveMetricRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPredictiveMetricWithOptions(request, runtime);
+}
+
+/**
+ * @param request QueryPredictiveTaskInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPredictiveTaskInfoResponse
+ */
+QueryPredictiveTaskInfoResponse Client::queryPredictiveTaskInfoWithOptions(const QueryPredictiveTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingRuleId()) {
+    query["ScalingRuleId"] = request.scalingRuleId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPredictiveTaskInfo"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPredictiveTaskInfoResponse>();
+}
+
+/**
+ * @param request QueryPredictiveTaskInfoRequest
+ * @return QueryPredictiveTaskInfoResponse
+ */
+QueryPredictiveTaskInfoResponse Client::queryPredictiveTaskInfo(const QueryPredictiveTaskInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPredictiveTaskInfoWithOptions(request, runtime);
+}
+
+/**
+ * @param request QueryPredictiveValueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryPredictiveValueResponse
+ */
+QueryPredictiveValueResponse Client::queryPredictiveValueWithOptions(const QueryPredictiveValueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.metricName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.ownerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.resourceOwnerId();
+  }
+
+  if (!!request.hasScalingGroupId()) {
+    query["ScalingGroupId"] = request.scalingGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasTargetValue()) {
+    query["TargetValue"] = request.targetValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryPredictiveValue"},
+    {"version" , "2022-02-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryPredictiveValueResponse>();
+}
+
+/**
+ * @param request QueryPredictiveValueRequest
+ * @return QueryPredictiveValueResponse
+ */
+QueryPredictiveValueResponse Client::queryPredictiveValue(const QueryPredictiveValueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryPredictiveValueWithOptions(request, runtime);
 }
 
 /**

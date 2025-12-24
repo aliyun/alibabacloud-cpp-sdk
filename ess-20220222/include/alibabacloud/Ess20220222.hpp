@@ -1017,6 +1017,19 @@ namespace Ess20220222
       Models::DescribeElasticStrengthResponse describeElasticStrength(const Models::DescribeElasticStrengthRequest &request);
 
       /**
+       * @param request DescribeInstanceCreateAndDeleteStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+       */
+      Models::DescribeInstanceCreateAndDeleteStatisticsResponse describeInstanceCreateAndDeleteStatisticsWithOptions(const Models::DescribeInstanceCreateAndDeleteStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeInstanceCreateAndDeleteStatisticsRequest
+       * @return DescribeInstanceCreateAndDeleteStatisticsResponse
+       */
+      Models::DescribeInstanceCreateAndDeleteStatisticsResponse describeInstanceCreateAndDeleteStatistics(const Models::DescribeInstanceCreateAndDeleteStatisticsRequest &request);
+
+      /**
        * @summary Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
        *
        * @param request DescribeInstanceRefreshesRequest
@@ -1215,6 +1228,19 @@ namespace Ess20220222
        * @return DescribeScalingActivityDetailResponse
        */
       Models::DescribeScalingActivityDetailResponse describeScalingActivityDetail(const Models::DescribeScalingActivityDetailRequest &request);
+
+      /**
+       * @param request DescribeScalingActivityStatisticsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeScalingActivityStatisticsResponse
+       */
+      Models::DescribeScalingActivityStatisticsResponse describeScalingActivityStatisticsWithOptions(const Models::DescribeScalingActivityStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeScalingActivityStatisticsRequest
+       * @return DescribeScalingActivityStatisticsResponse
+       */
+      Models::DescribeScalingActivityStatisticsResponse describeScalingActivityStatistics(const Models::DescribeScalingActivityStatisticsRequest &request);
 
       /**
        * @summary Queries scaling configurations.
@@ -1968,6 +1994,58 @@ namespace Ess20220222
        * @return ModifyScheduledTaskResponse
        */
       Models::ModifyScheduledTaskResponse modifyScheduledTask(const Models::ModifyScheduledTaskRequest &request);
+
+      /**
+       * @param request QueryHistoricalMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoricalMetricResponse
+       */
+      Models::QueryHistoricalMetricResponse queryHistoricalMetricWithOptions(const Models::QueryHistoricalMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryHistoricalMetricRequest
+       * @return QueryHistoricalMetricResponse
+       */
+      Models::QueryHistoricalMetricResponse queryHistoricalMetric(const Models::QueryHistoricalMetricRequest &request);
+
+      /**
+       * @param request QueryPredictiveMetricRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPredictiveMetricResponse
+       */
+      Models::QueryPredictiveMetricResponse queryPredictiveMetricWithOptions(const Models::QueryPredictiveMetricRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryPredictiveMetricRequest
+       * @return QueryPredictiveMetricResponse
+       */
+      Models::QueryPredictiveMetricResponse queryPredictiveMetric(const Models::QueryPredictiveMetricRequest &request);
+
+      /**
+       * @param request QueryPredictiveTaskInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPredictiveTaskInfoResponse
+       */
+      Models::QueryPredictiveTaskInfoResponse queryPredictiveTaskInfoWithOptions(const Models::QueryPredictiveTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryPredictiveTaskInfoRequest
+       * @return QueryPredictiveTaskInfoResponse
+       */
+      Models::QueryPredictiveTaskInfoResponse queryPredictiveTaskInfo(const Models::QueryPredictiveTaskInfoRequest &request);
+
+      /**
+       * @param request QueryPredictiveValueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryPredictiveValueResponse
+       */
+      Models::QueryPredictiveValueResponse queryPredictiveValueWithOptions(const Models::QueryPredictiveValueRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request QueryPredictiveValueRequest
+       * @return QueryPredictiveValueResponse
+       */
+      Models::QueryPredictiveValueResponse queryPredictiveValue(const Models::QueryPredictiveValueRequest &request);
 
       /**
        * @summary Rebalances the distribution of Elastic Compute Service (ECS) instances across zones. If ECS instances are unevenly distributed across multiple zones, you can call the RebalanceInstances operation to rebalance the distribution of the ECS instances across the zones.
