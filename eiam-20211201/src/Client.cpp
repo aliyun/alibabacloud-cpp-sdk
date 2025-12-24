@@ -1208,6 +1208,52 @@ CreateIdentityProviderResponse Client::createIdentityProvider(const CreateIdenti
 }
 
 /**
+ * @summary 创建IdP状态检查任务
+ *
+ * @param request CreateIdentityProviderStatusCheckJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIdentityProviderStatusCheckJobResponse
+ */
+CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatusCheckJobWithOptions(const CreateIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateIdentityProviderStatusCheckJob"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIdentityProviderStatusCheckJobResponse>();
+}
+
+/**
+ * @summary 创建IdP状态检查任务
+ *
+ * @param request CreateIdentityProviderStatusCheckJobRequest
+ * @return CreateIdentityProviderStatusCheckJobResponse
+ */
+CreateIdentityProviderStatusCheckJobResponse Client::createIdentityProviderStatusCheckJob(const CreateIdentityProviderStatusCheckJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createIdentityProviderStatusCheckJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
  *
  * @param request CreateInstanceRequest
@@ -2394,6 +2440,102 @@ DeleteUserResponse Client::deleteUser(const DeleteUserRequest &request) {
 }
 
 /**
+ * @summary 批量删除账号
+ *
+ * @param request DeleteUsersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUsersResponse
+ */
+DeleteUsersResponse Client::deleteUsersWithOptions(const DeleteUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserIds()) {
+    query["UserIds"] = request.userIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteUsers"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUsersResponse>();
+}
+
+/**
+ * @summary 批量删除账号
+ *
+ * @param request DeleteUsersRequest
+ * @return DeleteUsersResponse
+ */
+DeleteUsersResponse Client::deleteUsers(const DeleteUsersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteUsersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除指定WebAuthn认证器名称
+ *
+ * @param request DeleteWebAuthnAuthenticatorRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWebAuthnAuthenticatorResponse
+ */
+DeleteWebAuthnAuthenticatorResponse Client::deleteWebAuthnAuthenticatorWithOptions(const DeleteWebAuthnAuthenticatorRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthenticatorId()) {
+    query["AuthenticatorId"] = request.authenticatorId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.userId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWebAuthnAuthenticator"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWebAuthnAuthenticatorResponse>();
+}
+
+/**
+ * @summary 删除指定WebAuthn认证器名称
+ *
+ * @param request DeleteWebAuthnAuthenticatorRequest
+ * @return DeleteWebAuthnAuthenticatorResponse
+ */
+DeleteWebAuthnAuthenticatorResponse Client::deleteWebAuthnAuthenticator(const DeleteWebAuthnAuthenticatorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWebAuthnAuthenticatorWithOptions(request, runtime);
+}
+
+/**
  * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
  *
  * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
@@ -2970,6 +3112,52 @@ DisableFederatedCredentialProviderResponse Client::disableFederatedCredentialPro
 }
 
 /**
+ * @summary 禁用高级配置
+ *
+ * @param request DisableIdentityProviderAdvancedAbilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableIdentityProviderAdvancedAbilityResponse
+ */
+DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAdvancedAbilityWithOptions(const DisableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableIdentityProviderAdvancedAbility"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableIdentityProviderAdvancedAbilityResponse>();
+}
+
+/**
+ * @summary 禁用高级配置
+ *
+ * @param request DisableIdentityProviderAdvancedAbilityRequest
+ * @return DisableIdentityProviderAdvancedAbilityResponse
+ */
+DisableIdentityProviderAdvancedAbilityResponse Client::disableIdentityProviderAdvancedAbility(const DisableIdentityProviderAdvancedAbilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableIdentityProviderAdvancedAbilityWithOptions(request, runtime);
+}
+
+/**
  * @summary 禁用认证
  *
  * @param request DisableIdentityProviderAuthnRequest
@@ -3101,6 +3289,52 @@ DisableInitDomainAutoRedirectResponse Client::disableInitDomainAutoRedirectWithO
 DisableInitDomainAutoRedirectResponse Client::disableInitDomainAutoRedirect(const DisableInitDomainAutoRedirectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return disableInitDomainAutoRedirectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用内部认证源
+ *
+ * @param request DisableInternalAuthenticationSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableInternalAuthenticationSourceResponse
+ */
+DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticationSourceWithOptions(const DisableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthenticationSourceId()) {
+    query["AuthenticationSourceId"] = request.authenticationSourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableInternalAuthenticationSource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableInternalAuthenticationSourceResponse>();
+}
+
+/**
+ * @summary 禁用内部认证源
+ *
+ * @param request DisableInternalAuthenticationSourceRequest
+ * @return DisableInternalAuthenticationSourceResponse
+ */
+DisableInternalAuthenticationSourceResponse Client::disableInternalAuthenticationSource(const DisableInternalAuthenticationSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableInternalAuthenticationSourceWithOptions(request, runtime);
 }
 
 /**
@@ -3722,6 +3956,52 @@ EnableFederatedCredentialProviderResponse Client::enableFederatedCredentialProvi
 }
 
 /**
+ * @summary 启用高级配置
+ *
+ * @param request EnableIdentityProviderAdvancedAbilityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableIdentityProviderAdvancedAbilityResponse
+ */
+EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdvancedAbilityWithOptions(const EnableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIdentityProviderId()) {
+    query["IdentityProviderId"] = request.identityProviderId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableIdentityProviderAdvancedAbility"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableIdentityProviderAdvancedAbilityResponse>();
+}
+
+/**
+ * @summary 启用高级配置
+ *
+ * @param request EnableIdentityProviderAdvancedAbilityRequest
+ * @return EnableIdentityProviderAdvancedAbilityResponse
+ */
+EnableIdentityProviderAdvancedAbilityResponse Client::enableIdentityProviderAdvancedAbility(const EnableIdentityProviderAdvancedAbilityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableIdentityProviderAdvancedAbilityWithOptions(request, runtime);
+}
+
+/**
  * @summary 启用认证
  *
  * @param request EnableIdentityProviderAuthnRequest
@@ -3856,6 +4136,52 @@ EnableInitDomainAutoRedirectResponse Client::enableInitDomainAutoRedirect(const 
 }
 
 /**
+ * @summary 启用内部认证源
+ *
+ * @param request EnableInternalAuthenticationSourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableInternalAuthenticationSourceResponse
+ */
+EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationSourceWithOptions(const EnableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthenticationSourceId()) {
+    query["AuthenticationSourceId"] = request.authenticationSourceId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableInternalAuthenticationSource"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableInternalAuthenticationSourceResponse>();
+}
+
+/**
+ * @summary 启用内部认证源
+ *
+ * @param request EnableInternalAuthenticationSourceRequest
+ * @return EnableInternalAuthenticationSourceResponse
+ */
+EnableInternalAuthenticationSourceResponse Client::enableInternalAuthenticationSource(const EnableInternalAuthenticationSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableInternalAuthenticationSourceWithOptions(request, runtime);
+}
+
+/**
  * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
  *
  * @param request EnableUserRequest
@@ -3899,6 +4225,148 @@ EnableUserResponse Client::enableUserWithOptions(const EnableUserRequest &reques
 EnableUserResponse Client::enableUser(const EnableUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return enableUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 生成文件导入结果下载地址
+ *
+ * @param request GenerateDownloadUrlForSynchronizationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateDownloadUrlForSynchronizationJobResponse
+ */
+GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForSynchronizationJobWithOptions(const GenerateDownloadUrlForSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasSynchronizationJobId()) {
+    query["SynchronizationJobId"] = request.synchronizationJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateDownloadUrlForSynchronizationJob"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateDownloadUrlForSynchronizationJobResponse>();
+}
+
+/**
+ * @summary 生成文件导入结果下载地址
+ *
+ * @param request GenerateDownloadUrlForSynchronizationJobRequest
+ * @return GenerateDownloadUrlForSynchronizationJobResponse
+ */
+GenerateDownloadUrlForSynchronizationJobResponse Client::generateDownloadUrlForSynchronizationJob(const GenerateDownloadUrlForSynchronizationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateDownloadUrlForSynchronizationJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 生成文件导入模板
+ *
+ * @param request GenerateFileImportTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateFileImportTemplateResponse
+ */
+GenerateFileImportTemplateResponse Client::generateFileImportTemplateWithOptions(const GenerateFileImportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.targetType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateFileImportTemplate"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateFileImportTemplateResponse>();
+}
+
+/**
+ * @summary 生成文件导入模板
+ *
+ * @param request GenerateFileImportTemplateRequest
+ * @return GenerateFileImportTemplateResponse
+ */
+GenerateFileImportTemplateResponse Client::generateFileImportTemplate(const GenerateFileImportTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateFileImportTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取上传认证
+ *
+ * @param request GenerateUploadAuthRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateUploadAuthResponse
+ */
+GenerateUploadAuthResponse Client::generateUploadAuthWithOptions(const GenerateUploadAuthRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPurpose()) {
+    query["Purpose"] = request.purpose();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.type();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateUploadAuth"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateUploadAuthResponse>();
+}
+
+/**
+ * @summary 获取上传认证
+ *
+ * @param request GenerateUploadAuthRequest
+ * @return GenerateUploadAuthResponse
+ */
+GenerateUploadAuthResponse Client::generateUploadAuth(const GenerateUploadAuthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateUploadAuthWithOptions(request, runtime);
 }
 
 /**
@@ -8532,6 +9000,56 @@ SetApplicationProvisioningScopeResponse Client::setApplicationProvisioningScopeW
 SetApplicationProvisioningScopeResponse Client::setApplicationProvisioningScope(const SetApplicationProvisioningScopeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setApplicationProvisioningScopeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置应用同步用户主组织
+ *
+ * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+ */
+SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.applicationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasUserPrimaryOrganizationalUnitId()) {
+    query["UserPrimaryOrganizationalUnitId"] = request.userPrimaryOrganizationalUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetApplicationProvisioningUserPrimaryOrganizationalUnit"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse>();
+}
+
+/**
+ * @summary 配置应用同步用户主组织
+ *
+ * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+ * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+ */
+SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse Client::setApplicationProvisioningUserPrimaryOrganizationalUnit(const SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(request, runtime);
 }
 
 /**

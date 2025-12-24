@@ -369,6 +369,23 @@ namespace Eiam20211201
       Models::CreateIdentityProviderResponse createIdentityProvider(const Models::CreateIdentityProviderRequest &request);
 
       /**
+       * @summary 创建IdP状态检查任务
+       *
+       * @param request CreateIdentityProviderStatusCheckJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIdentityProviderStatusCheckJobResponse
+       */
+      Models::CreateIdentityProviderStatusCheckJobResponse createIdentityProviderStatusCheckJobWithOptions(const Models::CreateIdentityProviderStatusCheckJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建IdP状态检查任务
+       *
+       * @param request CreateIdentityProviderStatusCheckJobRequest
+       * @return CreateIdentityProviderStatusCheckJobResponse
+       */
+      Models::CreateIdentityProviderStatusCheckJobResponse createIdentityProviderStatusCheckJob(const Models::CreateIdentityProviderStatusCheckJobRequest &request);
+
+      /**
        * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
        *
        * @param request CreateInstanceRequest
@@ -772,6 +789,40 @@ namespace Eiam20211201
       Models::DeleteUserResponse deleteUser(const Models::DeleteUserRequest &request);
 
       /**
+       * @summary 批量删除账号
+       *
+       * @param request DeleteUsersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUsersResponse
+       */
+      Models::DeleteUsersResponse deleteUsersWithOptions(const Models::DeleteUsersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除账号
+       *
+       * @param request DeleteUsersRequest
+       * @return DeleteUsersResponse
+       */
+      Models::DeleteUsersResponse deleteUsers(const Models::DeleteUsersRequest &request);
+
+      /**
+       * @summary 删除指定WebAuthn认证器名称
+       *
+       * @param request DeleteWebAuthnAuthenticatorRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWebAuthnAuthenticatorResponse
+       */
+      Models::DeleteWebAuthnAuthenticatorResponse deleteWebAuthnAuthenticatorWithOptions(const Models::DeleteWebAuthnAuthenticatorRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除指定WebAuthn认证器名称
+       *
+       * @param request DeleteWebAuthnAuthenticatorRequest
+       * @return DeleteWebAuthnAuthenticatorResponse
+       */
+      Models::DeleteWebAuthnAuthenticatorResponse deleteWebAuthnAuthenticator(const Models::DeleteWebAuthnAuthenticatorRequest &request);
+
+      /**
        * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
        *
        * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
@@ -984,6 +1035,23 @@ namespace Eiam20211201
       Models::DisableFederatedCredentialProviderResponse disableFederatedCredentialProvider(const Models::DisableFederatedCredentialProviderRequest &request);
 
       /**
+       * @summary 禁用高级配置
+       *
+       * @param request DisableIdentityProviderAdvancedAbilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableIdentityProviderAdvancedAbilityResponse
+       */
+      Models::DisableIdentityProviderAdvancedAbilityResponse disableIdentityProviderAdvancedAbilityWithOptions(const Models::DisableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用高级配置
+       *
+       * @param request DisableIdentityProviderAdvancedAbilityRequest
+       * @return DisableIdentityProviderAdvancedAbilityResponse
+       */
+      Models::DisableIdentityProviderAdvancedAbilityResponse disableIdentityProviderAdvancedAbility(const Models::DisableIdentityProviderAdvancedAbilityRequest &request);
+
+      /**
        * @summary 禁用认证
        *
        * @param request DisableIdentityProviderAuthnRequest
@@ -1033,6 +1101,23 @@ namespace Eiam20211201
        * @return DisableInitDomainAutoRedirectResponse
        */
       Models::DisableInitDomainAutoRedirectResponse disableInitDomainAutoRedirect(const Models::DisableInitDomainAutoRedirectRequest &request);
+
+      /**
+       * @summary 禁用内部认证源
+       *
+       * @param request DisableInternalAuthenticationSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableInternalAuthenticationSourceResponse
+       */
+      Models::DisableInternalAuthenticationSourceResponse disableInternalAuthenticationSourceWithOptions(const Models::DisableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用内部认证源
+       *
+       * @param request DisableInternalAuthenticationSourceRequest
+       * @return DisableInternalAuthenticationSourceResponse
+       */
+      Models::DisableInternalAuthenticationSourceResponse disableInternalAuthenticationSource(const Models::DisableInternalAuthenticationSourceRequest &request);
 
       /**
        * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
@@ -1260,6 +1345,23 @@ namespace Eiam20211201
       Models::EnableFederatedCredentialProviderResponse enableFederatedCredentialProvider(const Models::EnableFederatedCredentialProviderRequest &request);
 
       /**
+       * @summary 启用高级配置
+       *
+       * @param request EnableIdentityProviderAdvancedAbilityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableIdentityProviderAdvancedAbilityResponse
+       */
+      Models::EnableIdentityProviderAdvancedAbilityResponse enableIdentityProviderAdvancedAbilityWithOptions(const Models::EnableIdentityProviderAdvancedAbilityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用高级配置
+       *
+       * @param request EnableIdentityProviderAdvancedAbilityRequest
+       * @return EnableIdentityProviderAdvancedAbilityResponse
+       */
+      Models::EnableIdentityProviderAdvancedAbilityResponse enableIdentityProviderAdvancedAbility(const Models::EnableIdentityProviderAdvancedAbilityRequest &request);
+
+      /**
        * @summary 启用认证
        *
        * @param request EnableIdentityProviderAuthnRequest
@@ -1311,6 +1413,23 @@ namespace Eiam20211201
       Models::EnableInitDomainAutoRedirectResponse enableInitDomainAutoRedirect(const Models::EnableInitDomainAutoRedirectRequest &request);
 
       /**
+       * @summary 启用内部认证源
+       *
+       * @param request EnableInternalAuthenticationSourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableInternalAuthenticationSourceResponse
+       */
+      Models::EnableInternalAuthenticationSourceResponse enableInternalAuthenticationSourceWithOptions(const Models::EnableInternalAuthenticationSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用内部认证源
+       *
+       * @param request EnableInternalAuthenticationSourceRequest
+       * @return EnableInternalAuthenticationSourceResponse
+       */
+      Models::EnableInternalAuthenticationSourceResponse enableInternalAuthenticationSource(const Models::EnableInternalAuthenticationSourceRequest &request);
+
+      /**
        * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
        *
        * @param request EnableUserRequest
@@ -1326,6 +1445,57 @@ namespace Eiam20211201
        * @return EnableUserResponse
        */
       Models::EnableUserResponse enableUser(const Models::EnableUserRequest &request);
+
+      /**
+       * @summary 生成文件导入结果下载地址
+       *
+       * @param request GenerateDownloadUrlForSynchronizationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateDownloadUrlForSynchronizationJobResponse
+       */
+      Models::GenerateDownloadUrlForSynchronizationJobResponse generateDownloadUrlForSynchronizationJobWithOptions(const Models::GenerateDownloadUrlForSynchronizationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成文件导入结果下载地址
+       *
+       * @param request GenerateDownloadUrlForSynchronizationJobRequest
+       * @return GenerateDownloadUrlForSynchronizationJobResponse
+       */
+      Models::GenerateDownloadUrlForSynchronizationJobResponse generateDownloadUrlForSynchronizationJob(const Models::GenerateDownloadUrlForSynchronizationJobRequest &request);
+
+      /**
+       * @summary 生成文件导入模板
+       *
+       * @param request GenerateFileImportTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateFileImportTemplateResponse
+       */
+      Models::GenerateFileImportTemplateResponse generateFileImportTemplateWithOptions(const Models::GenerateFileImportTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成文件导入模板
+       *
+       * @param request GenerateFileImportTemplateRequest
+       * @return GenerateFileImportTemplateResponse
+       */
+      Models::GenerateFileImportTemplateResponse generateFileImportTemplate(const Models::GenerateFileImportTemplateRequest &request);
+
+      /**
+       * @summary 获取上传认证
+       *
+       * @param request GenerateUploadAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateUploadAuthResponse
+       */
+      Models::GenerateUploadAuthResponse generateUploadAuthWithOptions(const Models::GenerateUploadAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取上传认证
+       *
+       * @param request GenerateUploadAuthRequest
+       * @return GenerateUploadAuthResponse
+       */
+      Models::GenerateUploadAuthResponse generateUploadAuth(const Models::GenerateUploadAuthRequest &request);
 
       /**
        * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
@@ -2873,6 +3043,23 @@ namespace Eiam20211201
        * @return SetApplicationProvisioningScopeResponse
        */
       Models::SetApplicationProvisioningScopeResponse setApplicationProvisioningScope(const Models::SetApplicationProvisioningScopeRequest &request);
+
+      /**
+       * @summary 配置应用同步用户主组织
+       *
+       * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse setApplicationProvisioningUserPrimaryOrganizationalUnitWithOptions(const Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置应用同步用户主组织
+       *
+       * @param request SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest
+       * @return SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse
+       */
+      Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitResponse setApplicationProvisioningUserPrimaryOrganizationalUnit(const Models::SetApplicationProvisioningUserPrimaryOrganizationalUnitRequest &request);
 
       /**
        * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
