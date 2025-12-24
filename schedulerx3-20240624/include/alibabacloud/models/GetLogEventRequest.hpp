@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Event, event_);
+      DARABONBA_PTR_TO_JSON(EventType, eventType_);
       DARABONBA_PTR_TO_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
@@ -24,12 +25,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Reverse, reverse_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_TO_JSON(WorkflowName, workflowName_);
     };
     friend void from_json(const Darabonba::Json& j, GetLogEventRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Event, event_);
+      DARABONBA_PTR_FROM_JSON(EventType, eventType_);
       DARABONBA_PTR_FROM_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
@@ -37,6 +41,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Reverse, reverse_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_FROM_JSON(WorkflowName, workflowName_);
     };
     GetLogEventRequest() = default ;
     GetLogEventRequest(const GetLogEventRequest &) = default ;
@@ -50,8 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->event_ == nullptr && return this->jobExecutionId_ == nullptr && return this->jobName_ == nullptr
-        && return this->keyword_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->reverse_ == nullptr && return this->startTime_ == nullptr; };
+        && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->event_ == nullptr && return this->eventType_ == nullptr && return this->jobExecutionId_ == nullptr
+        && return this->jobName_ == nullptr && return this->keyword_ == nullptr && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->reverse_ == nullptr
+        && return this->startTime_ == nullptr && return this->workflowExecutionId_ == nullptr && return this->workflowName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -78,6 +85,13 @@ namespace Models
     void deleteEvent() { this->event_ = nullptr;};
     inline string event() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
     inline GetLogEventRequest& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+
+
+    // eventType Field Functions 
+    bool hasEventType() const { return this->eventType_ != nullptr;};
+    void deleteEventType() { this->eventType_ = nullptr;};
+    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline GetLogEventRequest& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // jobExecutionId Field Functions 
@@ -129,12 +143,27 @@ namespace Models
     inline GetLogEventRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // workflowExecutionId Field Functions 
+    bool hasWorkflowExecutionId() const { return this->workflowExecutionId_ != nullptr;};
+    void deleteWorkflowExecutionId() { this->workflowExecutionId_ = nullptr;};
+    inline int64_t workflowExecutionId() const { DARABONBA_PTR_GET_DEFAULT(workflowExecutionId_, 0L) };
+    inline GetLogEventRequest& setWorkflowExecutionId(int64_t workflowExecutionId) { DARABONBA_PTR_SET_VALUE(workflowExecutionId_, workflowExecutionId) };
+
+
+    // workflowName Field Functions 
+    bool hasWorkflowName() const { return this->workflowName_ != nullptr;};
+    void deleteWorkflowName() { this->workflowName_ = nullptr;};
+    inline string workflowName() const { DARABONBA_PTR_GET_DEFAULT(workflowName_, "") };
+    inline GetLogEventRequest& setWorkflowName(string workflowName) { DARABONBA_PTR_SET_VALUE(workflowName_, workflowName) };
+
+
   protected:
     std::shared_ptr<string> appName_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> clusterId_ = nullptr;
     std::shared_ptr<int64_t> endTime_ = nullptr;
     std::shared_ptr<string> event_ = nullptr;
+    std::shared_ptr<string> eventType_ = nullptr;
     std::shared_ptr<int64_t> jobExecutionId_ = nullptr;
     std::shared_ptr<string> jobName_ = nullptr;
     std::shared_ptr<string> keyword_ = nullptr;
@@ -142,6 +171,8 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<bool> reverse_ = nullptr;
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<int64_t> workflowExecutionId_ = nullptr;
+    std::shared_ptr<string> workflowName_ = nullptr;
   };
 
   } // namespace Models

@@ -9,6 +9,9 @@
 #include <alibabacloud/models/CreateClusterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateClusterResponseBody.hpp>
 #include <alibabacloud/models/CreateClusterResponse.hpp>
+#include <alibabacloud/models/CreateExecutorsRequest.hpp>
+#include <alibabacloud/models/CreateExecutorsResponseBody.hpp>
+#include <alibabacloud/models/CreateExecutorsResponse.hpp>
 #include <alibabacloud/models/CreateJobRequest.hpp>
 #include <alibabacloud/models/CreateJobShrinkRequest.hpp>
 #include <alibabacloud/models/CreateJobResponseBody.hpp>
@@ -35,6 +38,9 @@
 #include <alibabacloud/models/GetDesigateInfoRequest.hpp>
 #include <alibabacloud/models/GetDesigateInfoResponseBody.hpp>
 #include <alibabacloud/models/GetDesigateInfoResponse.hpp>
+#include <alibabacloud/models/GetExecutorConfigRequest.hpp>
+#include <alibabacloud/models/GetExecutorConfigResponseBody.hpp>
+#include <alibabacloud/models/GetExecutorConfigResponse.hpp>
 #include <alibabacloud/models/GetJobExecutionRequest.hpp>
 #include <alibabacloud/models/GetJobExecutionResponseBody.hpp>
 #include <alibabacloud/models/GetJobExecutionResponse.hpp>
@@ -83,6 +89,9 @@
 #include <alibabacloud/models/ListJobsRequest.hpp>
 #include <alibabacloud/models/ListJobsResponseBody.hpp>
 #include <alibabacloud/models/ListJobsResponse.hpp>
+#include <alibabacloud/models/ListK8sResourceRequest.hpp>
+#include <alibabacloud/models/ListK8sResourceResponseBody.hpp>
+#include <alibabacloud/models/ListK8sResourceResponse.hpp>
 #include <alibabacloud/models/ListLablesRequest.hpp>
 #include <alibabacloud/models/ListLablesResponseBody.hpp>
 #include <alibabacloud/models/ListLablesResponse.hpp>
@@ -122,12 +131,19 @@
 #include <alibabacloud/models/OperateStopJobExecutionShrinkRequest.hpp>
 #include <alibabacloud/models/OperateStopJobExecutionResponseBody.hpp>
 #include <alibabacloud/models/OperateStopJobExecutionResponse.hpp>
+#include <alibabacloud/models/SyncJobsRequest.hpp>
+#include <alibabacloud/models/SyncJobsShrinkRequest.hpp>
+#include <alibabacloud/models/SyncJobsResponseBody.hpp>
+#include <alibabacloud/models/SyncJobsResponse.hpp>
 #include <alibabacloud/models/UpdateAppRequest.hpp>
 #include <alibabacloud/models/UpdateAppResponseBody.hpp>
 #include <alibabacloud/models/UpdateAppResponse.hpp>
 #include <alibabacloud/models/UpdateClusterRequest.hpp>
 #include <alibabacloud/models/UpdateClusterResponseBody.hpp>
 #include <alibabacloud/models/UpdateClusterResponse.hpp>
+#include <alibabacloud/models/UpdateExecutorsRequest.hpp>
+#include <alibabacloud/models/UpdateExecutorsResponseBody.hpp>
+#include <alibabacloud/models/UpdateExecutorsResponse.hpp>
 #include <alibabacloud/models/UpdateJobRequest.hpp>
 #include <alibabacloud/models/UpdateJobShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateJobResponseBody.hpp>
@@ -140,6 +156,8 @@
 #include <alibabacloud/models/CreateClusterRequestVSwitches.hpp>
 #include <alibabacloud/models/CreateClusterShrinkRequestTag.hpp>
 #include <alibabacloud/models/CreateClusterResponseBodyData.hpp>
+#include <alibabacloud/models/CreateExecutorsResponseBodyData.hpp>
+#include <alibabacloud/models/CreateJobRequestCoordinate.hpp>
 #include <alibabacloud/models/CreateJobRequestNoticeConfig.hpp>
 #include <alibabacloud/models/CreateJobRequestNoticeContacts.hpp>
 #include <alibabacloud/models/CreateJobResponseBodyData.hpp>
@@ -147,6 +165,7 @@
 #include <alibabacloud/models/GetClusterResponseBodyDataVSwitches.hpp>
 #include <alibabacloud/models/GetClusterResponseBodyData.hpp>
 #include <alibabacloud/models/GetDesigateInfoResponseBodyData.hpp>
+#include <alibabacloud/models/GetExecutorConfigResponseBodyData.hpp>
 #include <alibabacloud/models/GetJobExecutionResponseBodyData.hpp>
 #include <alibabacloud/models/GetJobExecutionProgressResponseBodyDataRootProgress.hpp>
 #include <alibabacloud/models/GetJobExecutionProgressResponseBodyDataShardingProgressStatusType.hpp>
@@ -174,12 +193,14 @@
 #include <alibabacloud/models/ListJobScriptHistoryResponseBodyData.hpp>
 #include <alibabacloud/models/ListJobsResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/ListJobsResponseBodyData.hpp>
+#include <alibabacloud/models/ListK8sResourceResponseBodyData.hpp>
 #include <alibabacloud/models/ListLablesResponseBodyData.hpp>
 #include <alibabacloud/models/ListRegionZoneResponseBodyData.hpp>
 #include <alibabacloud/models/ListRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/ListScheduleEventResponseBodyDataRecords.hpp>
 #include <alibabacloud/models/ListScheduleEventResponseBodyData.hpp>
 #include <alibabacloud/models/OperateExecuteJobResponseBodyData.hpp>
+#include <alibabacloud/models/UpdateExecutorsResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateJobRequestNoticeConfig.hpp>
 #include <alibabacloud/models/UpdateJobRequestNoticeContacts.hpp>
 

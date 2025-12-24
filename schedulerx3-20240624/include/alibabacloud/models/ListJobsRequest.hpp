@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
     };
     ListJobsRequest() = default ;
     ListJobsRequest(const ListJobsRequest &) = default ;
@@ -47,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && return this->clusterId_ == nullptr && return this->description_ == nullptr && return this->jobHandler_ == nullptr && return this->jobId_ == nullptr && return this->jobName_ == nullptr
-        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->status_ == nullptr; };
+        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->status_ == nullptr && return this->workflowId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     inline ListJobsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // workflowId Field Functions 
+    bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+    void deleteWorkflowId() { this->workflowId_ = nullptr;};
+    inline int64_t workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
+    inline ListJobsRequest& setWorkflowId(int64_t workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
   protected:
     std::shared_ptr<string> appName_ = nullptr;
     // This parameter is required.
@@ -122,6 +131,7 @@ namespace Models
     std::shared_ptr<int32_t> pageNum_ = nullptr;
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> status_ = nullptr;
+    std::shared_ptr<int64_t> workflowId_ = nullptr;
   };
 
   } // namespace Models

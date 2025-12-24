@@ -18,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_TO_JSON(TaskList, taskList_);
+      DARABONBA_PTR_TO_JSON(TriggerChild, triggerChild_);
     };
     friend void from_json(const Darabonba::Json& j, OperateRetryJobExecutionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_FROM_JSON(TaskList, taskList_);
+      DARABONBA_PTR_FROM_JSON(TriggerChild, triggerChild_);
     };
     OperateRetryJobExecutionRequest() = default ;
     OperateRetryJobExecutionRequest(const OperateRetryJobExecutionRequest &) = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->clusterId_ == nullptr && return this->jobExecutionId_ == nullptr && return this->taskList_ == nullptr; };
+        && return this->clusterId_ == nullptr && return this->jobExecutionId_ == nullptr && return this->taskList_ == nullptr && return this->triggerChild_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     inline OperateRetryJobExecutionRequest& setTaskList(vector<string> && taskList) { DARABONBA_PTR_SET_RVALUE(taskList_, taskList) };
 
 
+    // triggerChild Field Functions 
+    bool hasTriggerChild() const { return this->triggerChild_ != nullptr;};
+    void deleteTriggerChild() { this->triggerChild_ = nullptr;};
+    inline bool triggerChild() const { DARABONBA_PTR_GET_DEFAULT(triggerChild_, false) };
+    inline OperateRetryJobExecutionRequest& setTriggerChild(bool triggerChild) { DARABONBA_PTR_SET_VALUE(triggerChild_, triggerChild) };
+
+
   protected:
     // This parameter is required.
     std::shared_ptr<string> appName_ = nullptr;
@@ -76,6 +85,7 @@ namespace Models
     // This parameter is required.
     std::shared_ptr<string> jobExecutionId_ = nullptr;
     std::shared_ptr<vector<string>> taskList_ = nullptr;
+    std::shared_ptr<bool> triggerChild_ = nullptr;
   };
 
   } // namespace Models

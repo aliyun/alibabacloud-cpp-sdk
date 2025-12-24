@@ -188,6 +188,60 @@ CreateClusterResponse Client::createCluster(const CreateClusterRequest &request)
 }
 
 /**
+ * @summary 添加执行器
+ *
+ * @param request CreateExecutorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExecutorsResponse
+ */
+CreateExecutorsResponse Client::createExecutorsWithOptions(const CreateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkerType()) {
+    body["WorkerType"] = request.workerType();
+  }
+
+  if (!!request.hasWorkers()) {
+    body["Workers"] = request.workers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateExecutors"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExecutorsResponse>();
+}
+
+/**
+ * @summary 添加执行器
+ *
+ * @param request CreateExecutorsRequest
+ * @return CreateExecutorsResponse
+ */
+CreateExecutorsResponse Client::createExecutors(const CreateExecutorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createExecutorsWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建任务
  *
  * @param tmpReq CreateJobRequest
@@ -198,6 +252,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
   tmpReq.validate();
   CreateJobShrinkRequest request = CreateJobShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCoordinate()) {
+    request.setCoordinateShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.coordinate(), "Coordinate", "json"));
+  }
+
   if (!!tmpReq.hasNoticeConfig()) {
     request.setNoticeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.noticeConfig(), "NoticeConfig", "json"));
   }
@@ -225,6 +283,14 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 
   if (!!request.hasClusterId()) {
     body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasCoordinateShrink()) {
+    body["Coordinate"] = request.coordinateShrink();
+  }
+
+  if (!!request.hasDependentStrategy()) {
+    body["DependentStrategy"] = request.dependentStrategy();
   }
 
   if (!!request.hasDescription()) {
@@ -281,6 +347,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &tmpReq, c
 
   if (!!request.hasStartTime()) {
     body["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStartTimeType()) {
+    body["StartTimeType"] = request.startTimeType();
   }
 
   if (!!request.hasStatus()) {
@@ -655,6 +725,52 @@ GetDesigateInfoResponse Client::getDesigateInfoWithOptions(const GetDesigateInfo
 GetDesigateInfoResponse Client::getDesigateInfo(const GetDesigateInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDesigateInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询执行器配置信息
+ *
+ * @param request GetExecutorConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetExecutorConfigResponse
+ */
+GetExecutorConfigResponse Client::getExecutorConfigWithOptions(const GetExecutorConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetExecutorConfig"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetExecutorConfigResponse>();
+}
+
+/**
+ * @summary 查询执行器配置信息
+ *
+ * @param request GetExecutorConfigRequest
+ * @return GetExecutorConfigResponse
+ */
+GetExecutorConfigResponse Client::getExecutorConfig(const GetExecutorConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getExecutorConfigWithOptions(request, runtime);
 }
 
 /**
@@ -1208,7 +1324,51 @@ ListExecutorsResponse Client::listExecutors(const ListExecutorsRequest &request)
  */
 ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.jobId();
+  }
+
+  if (!!request.hasJobName()) {
+    query["JobName"] = request.jobName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    query["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1217,7 +1377,7 @@ ListJobExecutionsResponse Client::listJobExecutionsWithOptions(const ListJobExec
     {"version" , "2024-06-24"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -1304,7 +1464,47 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
  */
 ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasJobHandler()) {
+    query["JobHandler"] = request.jobHandler();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.jobId();
+  }
+
+  if (!!request.hasJobName()) {
+    query["JobName"] = request.jobName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1313,7 +1513,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
     {"version" , "2024-06-24"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -1331,6 +1531,64 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取k8s资源列表
+ *
+ * @param request ListK8sResourceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListK8sResourceResponse
+ */
+ListK8sResourceResponse Client::listK8sResourceWithOptions(const ListK8sResourceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasK8sClusterId()) {
+    query["K8sClusterId"] = request.k8sClusterId();
+  }
+
+  if (!!request.hasK8sNamespace()) {
+    query["K8sNamespace"] = request.k8sNamespace();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.resourceType();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.vpcId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListK8sResource"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListK8sResourceResponse>();
+}
+
+/**
+ * @summary 获取k8s资源列表
+ *
+ * @param request ListK8sResourceRequest
+ * @return ListK8sResourceResponse
+ */
+ListK8sResourceResponse Client::listK8sResource(const ListK8sResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listK8sResourceWithOptions(request, runtime);
 }
 
 /**
@@ -1849,6 +2107,10 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecutionWithOptions(con
     query["TaskList"] = request.taskListShrink();
   }
 
+  if (!!request.hasTriggerChild()) {
+    query["TriggerChild"] = request.triggerChild();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1878,7 +2140,7 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecution(const OperateR
 }
 
 /**
- * @summary 停止正在运行的任务实例
+ * @summary 停止运行中的任务实例
  *
  * @param tmpReq OperateStopJobExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +2189,7 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 }
 
 /**
- * @summary 停止正在运行的任务实例
+ * @summary 停止运行中的任务实例
  *
  * @param request OperateStopJobExecutionRequest
  * @return OperateStopJobExecutionResponse
@@ -1935,6 +2197,70 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 OperateStopJobExecutionResponse Client::operateStopJobExecution(const OperateStopJobExecutionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateStopJobExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 同步任务
+ *
+ * @param tmpReq SyncJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncJobsResponse
+ */
+SyncJobsResponse Client::syncJobsWithOptions(const SyncJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SyncJobsShrinkRequest request = SyncJobsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasJobIds()) {
+    request.setJobIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.jobIds(), "JobIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasJobIdsShrink()) {
+    body["JobIds"] = request.jobIdsShrink();
+  }
+
+  if (!!request.hasOriginalAppName()) {
+    body["OriginalAppName"] = request.originalAppName();
+  }
+
+  if (!!request.hasOriginalClusterId()) {
+    body["OriginalClusterId"] = request.originalClusterId();
+  }
+
+  if (!!request.hasTargetAppName()) {
+    body["TargetAppName"] = request.targetAppName();
+  }
+
+  if (!!request.hasTargetClusterId()) {
+    body["TargetClusterId"] = request.targetClusterId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SyncJobs"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncJobsResponse>();
+}
+
+/**
+ * @summary 同步任务
+ *
+ * @param request SyncJobsRequest
+ * @return SyncJobsResponse
+ */
+SyncJobsResponse Client::syncJobs(const SyncJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return syncJobsWithOptions(request, runtime);
 }
 
 /**
@@ -2050,6 +2376,60 @@ UpdateClusterResponse Client::updateCluster(const UpdateClusterRequest &request)
 }
 
 /**
+ * @summary 更新执行器
+ *
+ * @param request UpdateExecutorsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateExecutorsResponse
+ */
+UpdateExecutorsResponse Client::updateExecutorsWithOptions(const UpdateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkerType()) {
+    body["WorkerType"] = request.workerType();
+  }
+
+  if (!!request.hasWorkers()) {
+    body["Workers"] = request.workers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateExecutors"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateExecutorsResponse>();
+}
+
+/**
+ * @summary 更新执行器
+ *
+ * @param request UpdateExecutorsRequest
+ * @return UpdateExecutorsResponse
+ */
+UpdateExecutorsResponse Client::updateExecutors(const UpdateExecutorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateExecutorsWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新任务信息
  *
  * @param tmpReq UpdateJobRequest
@@ -2087,6 +2467,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 
   if (!!request.hasClusterId()) {
     body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDependentStrategy()) {
+    body["DependentStrategy"] = request.dependentStrategy();
   }
 
   if (!!request.hasDescription()) {
@@ -2143,6 +2527,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &tmpReq, c
 
   if (!!request.hasStartTime()) {
     body["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStartTimeType()) {
+    body["StartTimeType"] = request.startTimeType();
   }
 
   if (!!request.hasTimeExpression()) {

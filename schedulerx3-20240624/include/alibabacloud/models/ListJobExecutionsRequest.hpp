@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(WorkflowExecutionId, workflowExecutionId_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobExecutionsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(WorkflowExecutionId, workflowExecutionId_);
     };
     ListJobExecutionsRequest() = default ;
     ListJobExecutionsRequest(const ListJobExecutionsRequest &) = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && return this->clusterId_ == nullptr && return this->endTime_ == nullptr && return this->jobExecutionId_ == nullptr && return this->jobId_ == nullptr && return this->jobName_ == nullptr
-        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr; };
+        && return this->pageNum_ == nullptr && return this->pageSize_ == nullptr && return this->startTime_ == nullptr && return this->status_ == nullptr && return this->workflowExecutionId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -120,6 +122,13 @@ namespace Models
     inline ListJobExecutionsRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // workflowExecutionId Field Functions 
+    bool hasWorkflowExecutionId() const { return this->workflowExecutionId_ != nullptr;};
+    void deleteWorkflowExecutionId() { this->workflowExecutionId_ = nullptr;};
+    inline int64_t workflowExecutionId() const { DARABONBA_PTR_GET_DEFAULT(workflowExecutionId_, 0L) };
+    inline ListJobExecutionsRequest& setWorkflowExecutionId(int64_t workflowExecutionId) { DARABONBA_PTR_SET_VALUE(workflowExecutionId_, workflowExecutionId) };
+
+
   protected:
     std::shared_ptr<string> appName_ = nullptr;
     // This parameter is required.
@@ -132,6 +141,7 @@ namespace Models
     std::shared_ptr<int32_t> pageSize_ = nullptr;
     std::shared_ptr<string> startTime_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
+    std::shared_ptr<int64_t> workflowExecutionId_ = nullptr;
   };
 
   } // namespace Models

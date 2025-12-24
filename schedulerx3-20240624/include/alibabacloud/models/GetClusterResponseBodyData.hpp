@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(JobNum, jobNum_);
       DARABONBA_PTR_TO_JSON(KubeConfig, kubeConfig_);
       DARABONBA_PTR_TO_JSON(MaxJobNum, maxJobNum_);
+      DARABONBA_PTR_TO_JSON(MaxWorkflowNum, maxWorkflowNum_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(Spm, spm_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VersionLifecycle, versionLifecycle_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(WorkerNum, workerNum_);
+      DARABONBA_PTR_TO_JSON(WorkflowNum, workflowNum_);
       DARABONBA_PTR_TO_JSON(Zones, zones_);
     };
     friend void from_json(const Darabonba::Json& j, GetClusterResponseBodyData& obj) { 
@@ -52,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(JobNum, jobNum_);
       DARABONBA_PTR_FROM_JSON(KubeConfig, kubeConfig_);
       DARABONBA_PTR_FROM_JSON(MaxJobNum, maxJobNum_);
+      DARABONBA_PTR_FROM_JSON(MaxWorkflowNum, maxWorkflowNum_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(Spm, spm_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -60,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(VersionLifecycle, versionLifecycle_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(WorkerNum, workerNum_);
+      DARABONBA_PTR_FROM_JSON(WorkflowNum, workflowNum_);
       DARABONBA_PTR_FROM_JSON(Zones, zones_);
     };
     GetClusterResponseBodyData() = default ;
@@ -76,9 +80,9 @@ namespace Models
     virtual bool empty() const override { return this->chargeType_ == nullptr
         && return this->clusterId_ == nullptr && return this->clusterName_ == nullptr && return this->clusterSpec_ == nullptr && return this->createTime_ == nullptr && return this->endTime_ == nullptr
         && return this->engineType_ == nullptr && return this->engineVersion_ == nullptr && return this->internetDomain_ == nullptr && return this->intranetDomain_ == nullptr && return this->jobNum_ == nullptr
-        && return this->kubeConfig_ == nullptr && return this->maxJobNum_ == nullptr && return this->productType_ == nullptr && return this->spm_ == nullptr && return this->status_ == nullptr
-        && return this->tags_ == nullptr && return this->vSwitches_ == nullptr && return this->versionLifecycle_ == nullptr && return this->vpcId_ == nullptr && return this->workerNum_ == nullptr
-        && return this->zones_ == nullptr; };
+        && return this->kubeConfig_ == nullptr && return this->maxJobNum_ == nullptr && return this->maxWorkflowNum_ == nullptr && return this->productType_ == nullptr && return this->spm_ == nullptr
+        && return this->status_ == nullptr && return this->tags_ == nullptr && return this->vSwitches_ == nullptr && return this->versionLifecycle_ == nullptr && return this->vpcId_ == nullptr
+        && return this->workerNum_ == nullptr && return this->workflowNum_ == nullptr && return this->zones_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -170,6 +174,13 @@ namespace Models
     inline GetClusterResponseBodyData& setMaxJobNum(int32_t maxJobNum) { DARABONBA_PTR_SET_VALUE(maxJobNum_, maxJobNum) };
 
 
+    // maxWorkflowNum Field Functions 
+    bool hasMaxWorkflowNum() const { return this->maxWorkflowNum_ != nullptr;};
+    void deleteMaxWorkflowNum() { this->maxWorkflowNum_ = nullptr;};
+    inline int32_t maxWorkflowNum() const { DARABONBA_PTR_GET_DEFAULT(maxWorkflowNum_, 0) };
+    inline GetClusterResponseBodyData& setMaxWorkflowNum(int32_t maxWorkflowNum) { DARABONBA_PTR_SET_VALUE(maxWorkflowNum_, maxWorkflowNum) };
+
+
     // productType Field Functions 
     bool hasProductType() const { return this->productType_ != nullptr;};
     void deleteProductType() { this->productType_ = nullptr;};
@@ -230,6 +241,13 @@ namespace Models
     inline GetClusterResponseBodyData& setWorkerNum(int32_t workerNum) { DARABONBA_PTR_SET_VALUE(workerNum_, workerNum) };
 
 
+    // workflowNum Field Functions 
+    bool hasWorkflowNum() const { return this->workflowNum_ != nullptr;};
+    void deleteWorkflowNum() { this->workflowNum_ = nullptr;};
+    inline int32_t workflowNum() const { DARABONBA_PTR_GET_DEFAULT(workflowNum_, 0) };
+    inline GetClusterResponseBodyData& setWorkflowNum(int32_t workflowNum) { DARABONBA_PTR_SET_VALUE(workflowNum_, workflowNum) };
+
+
     // zones Field Functions 
     bool hasZones() const { return this->zones_ != nullptr;};
     void deleteZones() { this->zones_ = nullptr;};
@@ -253,6 +271,7 @@ namespace Models
     std::shared_ptr<int32_t> jobNum_ = nullptr;
     std::shared_ptr<string> kubeConfig_ = nullptr;
     std::shared_ptr<int32_t> maxJobNum_ = nullptr;
+    std::shared_ptr<int32_t> maxWorkflowNum_ = nullptr;
     std::shared_ptr<int32_t> productType_ = nullptr;
     std::shared_ptr<int32_t> spm_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
@@ -262,6 +281,7 @@ namespace Models
     // VPC ID
     std::shared_ptr<string> vpcId_ = nullptr;
     std::shared_ptr<int32_t> workerNum_ = nullptr;
+    std::shared_ptr<int32_t> workflowNum_ = nullptr;
     std::shared_ptr<vector<string>> zones_ = nullptr;
   };
 

@@ -55,6 +55,23 @@ namespace SchedulerX320240624
       Models::CreateClusterResponse createCluster(const Models::CreateClusterRequest &request);
 
       /**
+       * @summary 添加执行器
+       *
+       * @param request CreateExecutorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateExecutorsResponse
+       */
+      Models::CreateExecutorsResponse createExecutorsWithOptions(const Models::CreateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加执行器
+       *
+       * @param request CreateExecutorsRequest
+       * @return CreateExecutorsResponse
+       */
+      Models::CreateExecutorsResponse createExecutors(const Models::CreateExecutorsRequest &request);
+
+      /**
        * @summary 创建任务
        *
        * @param tmpReq CreateJobRequest
@@ -189,6 +206,23 @@ namespace SchedulerX320240624
        * @return GetDesigateInfoResponse
        */
       Models::GetDesigateInfoResponse getDesigateInfo(const Models::GetDesigateInfoRequest &request);
+
+      /**
+       * @summary 查询执行器配置信息
+       *
+       * @param request GetExecutorConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetExecutorConfigResponse
+       */
+      Models::GetExecutorConfigResponse getExecutorConfigWithOptions(const Models::GetExecutorConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询执行器配置信息
+       *
+       * @param request GetExecutorConfigRequest
+       * @return GetExecutorConfigResponse
+       */
+      Models::GetExecutorConfigResponse getExecutorConfig(const Models::GetExecutorConfigRequest &request);
 
       /**
        * @summary 获取任务执行的详细信息
@@ -463,6 +497,23 @@ namespace SchedulerX320240624
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
+       * @summary 获取k8s资源列表
+       *
+       * @param request ListK8sResourceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListK8sResourceResponse
+       */
+      Models::ListK8sResourceResponse listK8sResourceWithOptions(const Models::ListK8sResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取k8s资源列表
+       *
+       * @param request ListK8sResourceRequest
+       * @return ListK8sResourceResponse
+       */
+      Models::ListK8sResourceResponse listK8sResource(const Models::ListK8sResourceRequest &request);
+
+      /**
        * @summary 获取executor的label列表
        *
        * @param request ListLablesRequest
@@ -648,7 +699,7 @@ namespace SchedulerX320240624
       Models::OperateRetryJobExecutionResponse operateRetryJobExecution(const Models::OperateRetryJobExecutionRequest &request);
 
       /**
-       * @summary 停止正在运行的任务实例
+       * @summary 停止运行中的任务实例
        *
        * @param tmpReq OperateStopJobExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -657,12 +708,29 @@ namespace SchedulerX320240624
       Models::OperateStopJobExecutionResponse operateStopJobExecutionWithOptions(const Models::OperateStopJobExecutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止正在运行的任务实例
+       * @summary 停止运行中的任务实例
        *
        * @param request OperateStopJobExecutionRequest
        * @return OperateStopJobExecutionResponse
        */
       Models::OperateStopJobExecutionResponse operateStopJobExecution(const Models::OperateStopJobExecutionRequest &request);
+
+      /**
+       * @summary 同步任务
+       *
+       * @param tmpReq SyncJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncJobsResponse
+       */
+      Models::SyncJobsResponse syncJobsWithOptions(const Models::SyncJobsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步任务
+       *
+       * @param request SyncJobsRequest
+       * @return SyncJobsResponse
+       */
+      Models::SyncJobsResponse syncJobs(const Models::SyncJobsRequest &request);
 
       /**
        * @summary 更新应用分组
@@ -697,6 +765,23 @@ namespace SchedulerX320240624
        * @return UpdateClusterResponse
        */
       Models::UpdateClusterResponse updateCluster(const Models::UpdateClusterRequest &request);
+
+      /**
+       * @summary 更新执行器
+       *
+       * @param request UpdateExecutorsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateExecutorsResponse
+       */
+      Models::UpdateExecutorsResponse updateExecutorsWithOptions(const Models::UpdateExecutorsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新执行器
+       *
+       * @param request UpdateExecutorsRequest
+       * @return UpdateExecutorsResponse
+       */
+      Models::UpdateExecutorsResponse updateExecutors(const Models::UpdateExecutorsRequest &request);
 
       /**
        * @summary 更新任务信息

@@ -16,19 +16,25 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppName, appName_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(Event, event_);
+      DARABONBA_PTR_TO_JSON(EventType, eventType_);
       DARABONBA_PTR_TO_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(Time, time_);
       DARABONBA_PTR_TO_JSON(WorkerAddr, workerAddr_);
+      DARABONBA_PTR_TO_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_TO_JSON(WorkflowName, workflowName_);
     };
     friend void from_json(const Darabonba::Json& j, ListScheduleEventResponseBodyDataRecords& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(Event, event_);
+      DARABONBA_PTR_FROM_JSON(EventType, eventType_);
       DARABONBA_PTR_FROM_JSON(JobExecutionId, jobExecutionId_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(Time, time_);
       DARABONBA_PTR_FROM_JSON(WorkerAddr, workerAddr_);
+      DARABONBA_PTR_FROM_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_FROM_JSON(WorkflowName, workflowName_);
     };
     ListScheduleEventResponseBodyDataRecords() = default ;
     ListScheduleEventResponseBodyDataRecords(const ListScheduleEventResponseBodyDataRecords &) = default ;
@@ -42,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->content_ == nullptr && return this->event_ == nullptr && return this->jobExecutionId_ == nullptr && return this->jobName_ == nullptr && return this->time_ == nullptr
-        && return this->workerAddr_ == nullptr; };
+        && return this->content_ == nullptr && return this->event_ == nullptr && return this->eventType_ == nullptr && return this->jobExecutionId_ == nullptr && return this->jobName_ == nullptr
+        && return this->time_ == nullptr && return this->workerAddr_ == nullptr && return this->workflowExecutionId_ == nullptr && return this->workflowName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -63,6 +69,13 @@ namespace Models
     void deleteEvent() { this->event_ = nullptr;};
     inline string event() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
     inline ListScheduleEventResponseBodyDataRecords& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
+
+
+    // eventType Field Functions 
+    bool hasEventType() const { return this->eventType_ != nullptr;};
+    void deleteEventType() { this->eventType_ = nullptr;};
+    inline string eventType() const { DARABONBA_PTR_GET_DEFAULT(eventType_, "") };
+    inline ListScheduleEventResponseBodyDataRecords& setEventType(string eventType) { DARABONBA_PTR_SET_VALUE(eventType_, eventType) };
 
 
     // jobExecutionId Field Functions 
@@ -93,15 +106,32 @@ namespace Models
     inline ListScheduleEventResponseBodyDataRecords& setWorkerAddr(string workerAddr) { DARABONBA_PTR_SET_VALUE(workerAddr_, workerAddr) };
 
 
+    // workflowExecutionId Field Functions 
+    bool hasWorkflowExecutionId() const { return this->workflowExecutionId_ != nullptr;};
+    void deleteWorkflowExecutionId() { this->workflowExecutionId_ = nullptr;};
+    inline string workflowExecutionId() const { DARABONBA_PTR_GET_DEFAULT(workflowExecutionId_, "") };
+    inline ListScheduleEventResponseBodyDataRecords& setWorkflowExecutionId(string workflowExecutionId) { DARABONBA_PTR_SET_VALUE(workflowExecutionId_, workflowExecutionId) };
+
+
+    // workflowName Field Functions 
+    bool hasWorkflowName() const { return this->workflowName_ != nullptr;};
+    void deleteWorkflowName() { this->workflowName_ = nullptr;};
+    inline string workflowName() const { DARABONBA_PTR_GET_DEFAULT(workflowName_, "") };
+    inline ListScheduleEventResponseBodyDataRecords& setWorkflowName(string workflowName) { DARABONBA_PTR_SET_VALUE(workflowName_, workflowName) };
+
+
   protected:
     std::shared_ptr<string> appName_ = nullptr;
     std::shared_ptr<string> content_ = nullptr;
     std::shared_ptr<string> event_ = nullptr;
+    std::shared_ptr<string> eventType_ = nullptr;
     // 130
     std::shared_ptr<string> jobExecutionId_ = nullptr;
     std::shared_ptr<string> jobName_ = nullptr;
     std::shared_ptr<string> time_ = nullptr;
     std::shared_ptr<string> workerAddr_ = nullptr;
+    std::shared_ptr<string> workflowExecutionId_ = nullptr;
+    std::shared_ptr<string> workflowName_ = nullptr;
   };
 
   } // namespace Models

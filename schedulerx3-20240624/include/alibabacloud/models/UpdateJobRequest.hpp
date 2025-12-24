@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Calendar, calendar_);
       DARABONBA_PTR_TO_JSON(ChildJobId, childJobId_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_TO_JSON(DependentStrategy, dependentStrategy_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_TO_JSON(JobHandler, jobHandler_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RouteStrategy, routeStrategy_);
       DARABONBA_PTR_TO_JSON(Script, script_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(StartTimeType, startTimeType_);
       DARABONBA_PTR_TO_JSON(TimeExpression, timeExpression_);
       DARABONBA_PTR_TO_JSON(TimeType, timeType_);
       DARABONBA_PTR_TO_JSON(Timezone, timezone_);
@@ -46,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Calendar, calendar_);
       DARABONBA_PTR_FROM_JSON(ChildJobId, childJobId_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
+      DARABONBA_PTR_FROM_JSON(DependentStrategy, dependentStrategy_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_FROM_JSON(JobHandler, jobHandler_);
@@ -60,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RouteStrategy, routeStrategy_);
       DARABONBA_PTR_FROM_JSON(Script, script_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(StartTimeType, startTimeType_);
       DARABONBA_PTR_FROM_JSON(TimeExpression, timeExpression_);
       DARABONBA_PTR_FROM_JSON(TimeType, timeType_);
       DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
@@ -77,11 +81,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
-        && return this->attemptInterval_ == nullptr && return this->calendar_ == nullptr && return this->childJobId_ == nullptr && return this->clusterId_ == nullptr && return this->description_ == nullptr
-        && return this->executorBlockStrategy_ == nullptr && return this->jobHandler_ == nullptr && return this->jobId_ == nullptr && return this->maxAttempt_ == nullptr && return this->maxConcurrency_ == nullptr
-        && return this->name_ == nullptr && return this->noticeConfig_ == nullptr && return this->noticeContacts_ == nullptr && return this->parameters_ == nullptr && return this->priority_ == nullptr
-        && return this->routeStrategy_ == nullptr && return this->script_ == nullptr && return this->startTime_ == nullptr && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr
-        && return this->timezone_ == nullptr && return this->weight_ == nullptr; };
+        && return this->attemptInterval_ == nullptr && return this->calendar_ == nullptr && return this->childJobId_ == nullptr && return this->clusterId_ == nullptr && return this->dependentStrategy_ == nullptr
+        && return this->description_ == nullptr && return this->executorBlockStrategy_ == nullptr && return this->jobHandler_ == nullptr && return this->jobId_ == nullptr && return this->maxAttempt_ == nullptr
+        && return this->maxConcurrency_ == nullptr && return this->name_ == nullptr && return this->noticeConfig_ == nullptr && return this->noticeContacts_ == nullptr && return this->parameters_ == nullptr
+        && return this->priority_ == nullptr && return this->routeStrategy_ == nullptr && return this->script_ == nullptr && return this->startTime_ == nullptr && return this->startTimeType_ == nullptr
+        && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timezone_ == nullptr && return this->weight_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -115,6 +119,13 @@ namespace Models
     void deleteClusterId() { this->clusterId_ = nullptr;};
     inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UpdateJobRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // dependentStrategy Field Functions 
+    bool hasDependentStrategy() const { return this->dependentStrategy_ != nullptr;};
+    void deleteDependentStrategy() { this->dependentStrategy_ = nullptr;};
+    inline int32_t dependentStrategy() const { DARABONBA_PTR_GET_DEFAULT(dependentStrategy_, 0) };
+    inline UpdateJobRequest& setDependentStrategy(int32_t dependentStrategy) { DARABONBA_PTR_SET_VALUE(dependentStrategy_, dependentStrategy) };
 
 
     // description Field Functions 
@@ -219,6 +230,13 @@ namespace Models
     inline UpdateJobRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // startTimeType Field Functions 
+    bool hasStartTimeType() const { return this->startTimeType_ != nullptr;};
+    void deleteStartTimeType() { this->startTimeType_ = nullptr;};
+    inline string startTimeType() const { DARABONBA_PTR_GET_DEFAULT(startTimeType_, "") };
+    inline UpdateJobRequest& setStartTimeType(string startTimeType) { DARABONBA_PTR_SET_VALUE(startTimeType_, startTimeType) };
+
+
     // timeExpression Field Functions 
     bool hasTimeExpression() const { return this->timeExpression_ != nullptr;};
     void deleteTimeExpression() { this->timeExpression_ = nullptr;};
@@ -255,6 +273,7 @@ namespace Models
     std::shared_ptr<string> childJobId_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> clusterId_ = nullptr;
+    std::shared_ptr<int32_t> dependentStrategy_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<int32_t> executorBlockStrategy_ = nullptr;
     std::shared_ptr<string> jobHandler_ = nullptr;
@@ -270,6 +289,7 @@ namespace Models
     std::shared_ptr<int32_t> routeStrategy_ = nullptr;
     std::shared_ptr<string> script_ = nullptr;
     std::shared_ptr<int64_t> startTime_ = nullptr;
+    std::shared_ptr<string> startTimeType_ = nullptr;
     std::shared_ptr<string> timeExpression_ = nullptr;
     std::shared_ptr<int32_t> timeType_ = nullptr;
     std::shared_ptr<string> timezone_ = nullptr;

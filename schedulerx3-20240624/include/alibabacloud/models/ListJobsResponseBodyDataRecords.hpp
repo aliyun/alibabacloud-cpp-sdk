@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Creator, creator_);
       DARABONBA_PTR_TO_JSON(CurrentExecuteStatus, currentExecuteStatus_);
       DARABONBA_PTR_TO_JSON(DataOffset, dataOffset_);
+      DARABONBA_PTR_TO_JSON(DependentStrategy, dependentStrategy_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_TO_JSON(JobHandler, jobHandler_);
@@ -31,12 +32,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(NoticeConfig, noticeConfig_);
       DARABONBA_PTR_TO_JSON(NoticeContacts, noticeContacts_);
       DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RouteStrategy, routeStrategy_);
       DARABONBA_PTR_TO_JSON(Script, script_);
+      DARABONBA_PTR_TO_JSON(StartTimeType, startTimeType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(TimeExpression, timeExpression_);
       DARABONBA_PTR_TO_JSON(TimeType, timeType_);
@@ -44,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Timezone, timezone_);
       DARABONBA_PTR_TO_JSON(Updater, updater_);
       DARABONBA_PTR_TO_JSON(Weight, weight_);
+      DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_TO_JSON(Xattrs, xattrs_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobsResponseBodyDataRecords& obj) { 
@@ -55,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Creator, creator_);
       DARABONBA_PTR_FROM_JSON(CurrentExecuteStatus, currentExecuteStatus_);
       DARABONBA_PTR_FROM_JSON(DataOffset, dataOffset_);
+      DARABONBA_PTR_FROM_JSON(DependentStrategy, dependentStrategy_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ExecutorBlockStrategy, executorBlockStrategy_);
       DARABONBA_PTR_FROM_JSON(JobHandler, jobHandler_);
@@ -65,12 +70,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxAttempt, maxAttempt_);
       DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(NoticeConfig, noticeConfig_);
       DARABONBA_PTR_FROM_JSON(NoticeContacts, noticeContacts_);
       DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RouteStrategy, routeStrategy_);
       DARABONBA_PTR_FROM_JSON(Script, script_);
+      DARABONBA_PTR_FROM_JSON(StartTimeType, startTimeType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(TimeExpression, timeExpression_);
       DARABONBA_PTR_FROM_JSON(TimeType, timeType_);
@@ -78,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
       DARABONBA_PTR_FROM_JSON(Updater, updater_);
       DARABONBA_PTR_FROM_JSON(Weight, weight_);
+      DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
       DARABONBA_PTR_FROM_JSON(Xattrs, xattrs_);
     };
     ListJobsResponseBodyDataRecords() = default ;
@@ -93,12 +101,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && return this->attemptInterval_ == nullptr && return this->calendar_ == nullptr && return this->childJobId_ == nullptr && return this->cleanMode_ == nullptr && return this->creator_ == nullptr
-        && return this->currentExecuteStatus_ == nullptr && return this->dataOffset_ == nullptr && return this->description_ == nullptr && return this->executorBlockStrategy_ == nullptr && return this->jobHandler_ == nullptr
-        && return this->jobId_ == nullptr && return this->jobType_ == nullptr && return this->lastExecuteEndTime_ == nullptr && return this->lastExecuteStatus_ == nullptr && return this->maxAttempt_ == nullptr
-        && return this->maxConcurrency_ == nullptr && return this->name_ == nullptr && return this->noticeConfig_ == nullptr && return this->noticeContacts_ == nullptr && return this->parameters_ == nullptr
-        && return this->priority_ == nullptr && return this->routeStrategy_ == nullptr && return this->script_ == nullptr && return this->status_ == nullptr && return this->timeExpression_ == nullptr
-        && return this->timeType_ == nullptr && return this->timeZone_ == nullptr && return this->timezone_ == nullptr && return this->updater_ == nullptr && return this->weight_ == nullptr
-        && return this->xattrs_ == nullptr; };
+        && return this->currentExecuteStatus_ == nullptr && return this->dataOffset_ == nullptr && return this->dependentStrategy_ == nullptr && return this->description_ == nullptr && return this->executorBlockStrategy_ == nullptr
+        && return this->jobHandler_ == nullptr && return this->jobId_ == nullptr && return this->jobType_ == nullptr && return this->lastExecuteEndTime_ == nullptr && return this->lastExecuteStatus_ == nullptr
+        && return this->maxAttempt_ == nullptr && return this->maxConcurrency_ == nullptr && return this->name_ == nullptr && return this->nodeType_ == nullptr && return this->noticeConfig_ == nullptr
+        && return this->noticeContacts_ == nullptr && return this->parameters_ == nullptr && return this->priority_ == nullptr && return this->routeStrategy_ == nullptr && return this->script_ == nullptr
+        && return this->startTimeType_ == nullptr && return this->status_ == nullptr && return this->timeExpression_ == nullptr && return this->timeType_ == nullptr && return this->timeZone_ == nullptr
+        && return this->timezone_ == nullptr && return this->updater_ == nullptr && return this->weight_ == nullptr && return this->workflowId_ == nullptr && return this->xattrs_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -153,6 +161,13 @@ namespace Models
     void deleteDataOffset() { this->dataOffset_ = nullptr;};
     inline int32_t dataOffset() const { DARABONBA_PTR_GET_DEFAULT(dataOffset_, 0) };
     inline ListJobsResponseBodyDataRecords& setDataOffset(int32_t dataOffset) { DARABONBA_PTR_SET_VALUE(dataOffset_, dataOffset) };
+
+
+    // dependentStrategy Field Functions 
+    bool hasDependentStrategy() const { return this->dependentStrategy_ != nullptr;};
+    void deleteDependentStrategy() { this->dependentStrategy_ = nullptr;};
+    inline int32_t dependentStrategy() const { DARABONBA_PTR_GET_DEFAULT(dependentStrategy_, 0) };
+    inline ListJobsResponseBodyDataRecords& setDependentStrategy(int32_t dependentStrategy) { DARABONBA_PTR_SET_VALUE(dependentStrategy_, dependentStrategy) };
 
 
     // description Field Functions 
@@ -225,6 +240,13 @@ namespace Models
     inline ListJobsResponseBodyDataRecords& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline int32_t nodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, 0) };
+    inline ListJobsResponseBodyDataRecords& setNodeType(int32_t nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
     // noticeConfig Field Functions 
     bool hasNoticeConfig() const { return this->noticeConfig_ != nullptr;};
     void deleteNoticeConfig() { this->noticeConfig_ = nullptr;};
@@ -265,6 +287,13 @@ namespace Models
     void deleteScript() { this->script_ = nullptr;};
     inline string script() const { DARABONBA_PTR_GET_DEFAULT(script_, "") };
     inline ListJobsResponseBodyDataRecords& setScript(string script) { DARABONBA_PTR_SET_VALUE(script_, script) };
+
+
+    // startTimeType Field Functions 
+    bool hasStartTimeType() const { return this->startTimeType_ != nullptr;};
+    void deleteStartTimeType() { this->startTimeType_ = nullptr;};
+    inline int32_t startTimeType() const { DARABONBA_PTR_GET_DEFAULT(startTimeType_, 0) };
+    inline ListJobsResponseBodyDataRecords& setStartTimeType(int32_t startTimeType) { DARABONBA_PTR_SET_VALUE(startTimeType_, startTimeType) };
 
 
     // status Field Functions 
@@ -316,6 +345,13 @@ namespace Models
     inline ListJobsResponseBodyDataRecords& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
+    // workflowId Field Functions 
+    bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+    void deleteWorkflowId() { this->workflowId_ = nullptr;};
+    inline int64_t workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
+    inline ListJobsResponseBodyDataRecords& setWorkflowId(int64_t workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
     // xattrs Field Functions 
     bool hasXattrs() const { return this->xattrs_ != nullptr;};
     void deleteXattrs() { this->xattrs_ = nullptr;};
@@ -332,6 +368,7 @@ namespace Models
     std::shared_ptr<string> creator_ = nullptr;
     std::shared_ptr<int32_t> currentExecuteStatus_ = nullptr;
     std::shared_ptr<int32_t> dataOffset_ = nullptr;
+    std::shared_ptr<int32_t> dependentStrategy_ = nullptr;
     std::shared_ptr<string> description_ = nullptr;
     std::shared_ptr<string> executorBlockStrategy_ = nullptr;
     std::shared_ptr<string> jobHandler_ = nullptr;
@@ -342,12 +379,14 @@ namespace Models
     std::shared_ptr<int32_t> maxAttempt_ = nullptr;
     std::shared_ptr<int32_t> maxConcurrency_ = nullptr;
     std::shared_ptr<string> name_ = nullptr;
+    std::shared_ptr<int32_t> nodeType_ = nullptr;
     std::shared_ptr<string> noticeConfig_ = nullptr;
     std::shared_ptr<string> noticeContacts_ = nullptr;
     std::shared_ptr<string> parameters_ = nullptr;
     std::shared_ptr<int32_t> priority_ = nullptr;
     std::shared_ptr<int32_t> routeStrategy_ = nullptr;
     std::shared_ptr<string> script_ = nullptr;
+    std::shared_ptr<int32_t> startTimeType_ = nullptr;
     std::shared_ptr<int32_t> status_ = nullptr;
     std::shared_ptr<string> timeExpression_ = nullptr;
     std::shared_ptr<int32_t> timeType_ = nullptr;
@@ -355,6 +394,7 @@ namespace Models
     std::shared_ptr<string> timezone_ = nullptr;
     std::shared_ptr<string> updater_ = nullptr;
     std::shared_ptr<int32_t> weight_ = nullptr;
+    std::shared_ptr<int64_t> workflowId_ = nullptr;
     std::shared_ptr<string> xattrs_ = nullptr;
   };
 

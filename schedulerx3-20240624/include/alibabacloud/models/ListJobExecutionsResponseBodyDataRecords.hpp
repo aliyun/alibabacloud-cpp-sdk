@@ -33,6 +33,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
       DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
       DARABONBA_PTR_TO_JSON(WorkAddr, workAddr_);
+      DARABONBA_PTR_TO_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
+      DARABONBA_PTR_TO_JSON(WorkflowName, workflowName_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobExecutionsResponseBodyDataRecords& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -55,6 +58,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TotalTokens, totalTokens_);
       DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
       DARABONBA_PTR_FROM_JSON(WorkAddr, workAddr_);
+      DARABONBA_PTR_FROM_JSON(WorkflowExecutionId, workflowExecutionId_);
+      DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
+      DARABONBA_PTR_FROM_JSON(WorkflowName, workflowName_);
     };
     ListJobExecutionsResponseBodyDataRecords() = default ;
     ListJobExecutionsResponseBodyDataRecords(const ListJobExecutionsResponseBodyDataRecords &) = default ;
@@ -71,7 +77,8 @@ namespace Models
         && return this->attempt_ == nullptr && return this->dataTime_ == nullptr && return this->duration_ == nullptr && return this->endTime_ == nullptr && return this->executor_ == nullptr
         && return this->jobExecutionId_ == nullptr && return this->jobId_ == nullptr && return this->jobName_ == nullptr && return this->jobType_ == nullptr && return this->parameters_ == nullptr
         && return this->result_ == nullptr && return this->routeStrategy_ == nullptr && return this->scheduleTime_ == nullptr && return this->serverIp_ == nullptr && return this->status_ == nullptr
-        && return this->timeType_ == nullptr && return this->totalTokens_ == nullptr && return this->triggerType_ == nullptr && return this->workAddr_ == nullptr; };
+        && return this->timeType_ == nullptr && return this->totalTokens_ == nullptr && return this->triggerType_ == nullptr && return this->workAddr_ == nullptr && return this->workflowExecutionId_ == nullptr
+        && return this->workflowId_ == nullptr && return this->workflowName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -212,6 +219,27 @@ namespace Models
     inline ListJobExecutionsResponseBodyDataRecords& setWorkAddr(string workAddr) { DARABONBA_PTR_SET_VALUE(workAddr_, workAddr) };
 
 
+    // workflowExecutionId Field Functions 
+    bool hasWorkflowExecutionId() const { return this->workflowExecutionId_ != nullptr;};
+    void deleteWorkflowExecutionId() { this->workflowExecutionId_ = nullptr;};
+    inline string workflowExecutionId() const { DARABONBA_PTR_GET_DEFAULT(workflowExecutionId_, "") };
+    inline ListJobExecutionsResponseBodyDataRecords& setWorkflowExecutionId(string workflowExecutionId) { DARABONBA_PTR_SET_VALUE(workflowExecutionId_, workflowExecutionId) };
+
+
+    // workflowId Field Functions 
+    bool hasWorkflowId() const { return this->workflowId_ != nullptr;};
+    void deleteWorkflowId() { this->workflowId_ = nullptr;};
+    inline int64_t workflowId() const { DARABONBA_PTR_GET_DEFAULT(workflowId_, 0L) };
+    inline ListJobExecutionsResponseBodyDataRecords& setWorkflowId(int64_t workflowId) { DARABONBA_PTR_SET_VALUE(workflowId_, workflowId) };
+
+
+    // workflowName Field Functions 
+    bool hasWorkflowName() const { return this->workflowName_ != nullptr;};
+    void deleteWorkflowName() { this->workflowName_ = nullptr;};
+    inline string workflowName() const { DARABONBA_PTR_GET_DEFAULT(workflowName_, "") };
+    inline ListJobExecutionsResponseBodyDataRecords& setWorkflowName(string workflowName) { DARABONBA_PTR_SET_VALUE(workflowName_, workflowName) };
+
+
   protected:
     std::shared_ptr<string> appName_ = nullptr;
     std::shared_ptr<int32_t> attempt_ = nullptr;
@@ -233,6 +261,9 @@ namespace Models
     std::shared_ptr<int32_t> totalTokens_ = nullptr;
     std::shared_ptr<int32_t> triggerType_ = nullptr;
     std::shared_ptr<string> workAddr_ = nullptr;
+    std::shared_ptr<string> workflowExecutionId_ = nullptr;
+    std::shared_ptr<int64_t> workflowId_ = nullptr;
+    std::shared_ptr<string> workflowName_ = nullptr;
   };
 
   } // namespace Models

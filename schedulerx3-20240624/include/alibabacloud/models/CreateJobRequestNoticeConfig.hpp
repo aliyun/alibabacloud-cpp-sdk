@@ -13,6 +13,8 @@ namespace Models
   class CreateJobRequestNoticeConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateJobRequestNoticeConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(EndEarly, endEarly_);
+      DARABONBA_PTR_TO_JSON(EndEarlyEnable, endEarlyEnable_);
       DARABONBA_PTR_TO_JSON(FailEnable, failEnable_);
       DARABONBA_PTR_TO_JSON(FailLimitTimes, failLimitTimes_);
       DARABONBA_PTR_TO_JSON(MissWorkerEnable, missWorkerEnable_);
@@ -23,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TimeoutKillEnable, timeoutKillEnable_);
     };
     friend void from_json(const Darabonba::Json& j, CreateJobRequestNoticeConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(EndEarly, endEarly_);
+      DARABONBA_PTR_FROM_JSON(EndEarlyEnable, endEarlyEnable_);
       DARABONBA_PTR_FROM_JSON(FailEnable, failEnable_);
       DARABONBA_PTR_FROM_JSON(FailLimitTimes, failLimitTimes_);
       DARABONBA_PTR_FROM_JSON(MissWorkerEnable, missWorkerEnable_);
@@ -43,9 +47,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->failEnable_ == nullptr
-        && return this->failLimitTimes_ == nullptr && return this->missWorkerEnable_ == nullptr && return this->sendChannel_ == nullptr && return this->successNotice_ == nullptr && return this->timeout_ == nullptr
-        && return this->timeoutEnable_ == nullptr && return this->timeoutKillEnable_ == nullptr; };
+    virtual bool empty() const override { return this->endEarly_ == nullptr
+        && return this->endEarlyEnable_ == nullptr && return this->failEnable_ == nullptr && return this->failLimitTimes_ == nullptr && return this->missWorkerEnable_ == nullptr && return this->sendChannel_ == nullptr
+        && return this->successNotice_ == nullptr && return this->timeout_ == nullptr && return this->timeoutEnable_ == nullptr && return this->timeoutKillEnable_ == nullptr; };
+    // endEarly Field Functions 
+    bool hasEndEarly() const { return this->endEarly_ != nullptr;};
+    void deleteEndEarly() { this->endEarly_ = nullptr;};
+    inline int32_t endEarly() const { DARABONBA_PTR_GET_DEFAULT(endEarly_, 0) };
+    inline CreateJobRequestNoticeConfig& setEndEarly(int32_t endEarly) { DARABONBA_PTR_SET_VALUE(endEarly_, endEarly) };
+
+
+    // endEarlyEnable Field Functions 
+    bool hasEndEarlyEnable() const { return this->endEarlyEnable_ != nullptr;};
+    void deleteEndEarlyEnable() { this->endEarlyEnable_ = nullptr;};
+    inline bool endEarlyEnable() const { DARABONBA_PTR_GET_DEFAULT(endEarlyEnable_, false) };
+    inline CreateJobRequestNoticeConfig& setEndEarlyEnable(bool endEarlyEnable) { DARABONBA_PTR_SET_VALUE(endEarlyEnable_, endEarlyEnable) };
+
+
     // failEnable Field Functions 
     bool hasFailEnable() const { return this->failEnable_ != nullptr;};
     void deleteFailEnable() { this->failEnable_ = nullptr;};
@@ -103,6 +121,8 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<int32_t> endEarly_ = nullptr;
+    std::shared_ptr<bool> endEarlyEnable_ = nullptr;
     std::shared_ptr<bool> failEnable_ = nullptr;
     std::shared_ptr<int32_t> failLimitTimes_ = nullptr;
     std::shared_ptr<bool> missWorkerEnable_ = nullptr;
