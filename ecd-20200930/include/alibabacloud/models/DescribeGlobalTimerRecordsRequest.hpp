@@ -16,11 +16,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeGlobalTimerRecordsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BatchId, batchId_);
       DARABONBA_PTR_TO_JSON(DesktopIds, desktopIds_);
+      DARABONBA_PTR_TO_JSON(DisplayResultName, displayResultName_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResultCategory, resultCategory_);
+      DARABONBA_PTR_TO_JSON(Retryable, retryable_);
       DARABONBA_PTR_TO_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_TO_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_TO_JSON(TimerTypes, timerTypes_);
@@ -28,11 +30,13 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeGlobalTimerRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
       DARABONBA_PTR_FROM_JSON(DesktopIds, desktopIds_);
+      DARABONBA_PTR_FROM_JSON(DisplayResultName, displayResultName_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResultCategory, resultCategory_);
+      DARABONBA_PTR_FROM_JSON(Retryable, retryable_);
       DARABONBA_PTR_FROM_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_FROM_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_FROM_JSON(TimerTypes, timerTypes_);
@@ -49,8 +53,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchId_ == nullptr
-        && return this->desktopIds_ == nullptr && return this->groupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->regionId_ == nullptr
-        && return this->resultCategory_ == nullptr && return this->searchRegionId_ == nullptr && return this->timerResult_ == nullptr && return this->timerTypes_ == nullptr; };
+        && return this->desktopIds_ == nullptr && return this->displayResultName_ == nullptr && return this->groupId_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr
+        && return this->regionId_ == nullptr && return this->resultCategory_ == nullptr && return this->retryable_ == nullptr && return this->searchRegionId_ == nullptr && return this->timerResult_ == nullptr
+        && return this->timerTypes_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -65,6 +70,13 @@ namespace Models
     inline vector<string> desktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
     inline DescribeGlobalTimerRecordsRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
     inline DescribeGlobalTimerRecordsRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
+
+
+    // displayResultName Field Functions 
+    bool hasDisplayResultName() const { return this->displayResultName_ != nullptr;};
+    void deleteDisplayResultName() { this->displayResultName_ = nullptr;};
+    inline string displayResultName() const { DARABONBA_PTR_GET_DEFAULT(displayResultName_, "") };
+    inline DescribeGlobalTimerRecordsRequest& setDisplayResultName(string displayResultName) { DARABONBA_PTR_SET_VALUE(displayResultName_, displayResultName) };
 
 
     // groupId Field Functions 
@@ -102,6 +114,13 @@ namespace Models
     inline DescribeGlobalTimerRecordsRequest& setResultCategory(string resultCategory) { DARABONBA_PTR_SET_VALUE(resultCategory_, resultCategory) };
 
 
+    // retryable Field Functions 
+    bool hasRetryable() const { return this->retryable_ != nullptr;};
+    void deleteRetryable() { this->retryable_ = nullptr;};
+    inline bool retryable() const { DARABONBA_PTR_GET_DEFAULT(retryable_, false) };
+    inline DescribeGlobalTimerRecordsRequest& setRetryable(bool retryable) { DARABONBA_PTR_SET_VALUE(retryable_, retryable) };
+
+
     // searchRegionId Field Functions 
     bool hasSearchRegionId() const { return this->searchRegionId_ != nullptr;};
     void deleteSearchRegionId() { this->searchRegionId_ = nullptr;};
@@ -130,6 +149,7 @@ namespace Models
     std::shared_ptr<string> batchId_ = nullptr;
     // The cloud computer IDs.
     std::shared_ptr<vector<string>> desktopIds_ = nullptr;
+    std::shared_ptr<string> displayResultName_ = nullptr;
     // The ID of the scheduled task group.
     std::shared_ptr<string> groupId_ = nullptr;
     // The number of entries per page.
@@ -151,6 +171,7 @@ namespace Models
     // *   RUNNING: The execution is in progress.
     // *   SKIPPED: The execution is skipped.
     std::shared_ptr<string> resultCategory_ = nullptr;
+    std::shared_ptr<bool> retryable_ = nullptr;
     // The ID of the searched region. You can specify this parameter to filter cloud computers in specific regions.
     std::shared_ptr<string> searchRegionId_ = nullptr;
     // The execution result of the scheduled task.

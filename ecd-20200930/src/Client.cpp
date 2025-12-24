@@ -9393,6 +9393,10 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
     query["DesktopIds"] = request.desktopIds();
   }
 
+  if (!!request.hasDisplayResultName()) {
+    query["DisplayResultName"] = request.displayResultName();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.groupId();
   }
@@ -9411,6 +9415,10 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
 
   if (!!request.hasResultCategory()) {
     query["ResultCategory"] = request.resultCategory();
+  }
+
+  if (!!request.hasRetryable()) {
+    query["Retryable"] = request.retryable();
   }
 
   if (!!request.hasSearchRegionId()) {

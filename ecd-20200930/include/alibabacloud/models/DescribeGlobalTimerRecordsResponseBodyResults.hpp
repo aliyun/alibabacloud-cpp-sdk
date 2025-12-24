@@ -19,9 +19,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_TO_JSON(DisplayResultName, displayResultName_);
       DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(Retryable, retryable_);
       DARABONBA_PTR_TO_JSON(TimerGroupId, timerGroupId_);
+      DARABONBA_PTR_TO_JSON(TimerRecordId, timerRecordId_);
       DARABONBA_PTR_TO_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_TO_JSON(TimerType, timerType_);
     };
@@ -32,9 +35,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
+      DARABONBA_PTR_FROM_JSON(DisplayResultName, displayResultName_);
       DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(Retryable, retryable_);
       DARABONBA_PTR_FROM_JSON(TimerGroupId, timerGroupId_);
+      DARABONBA_PTR_FROM_JSON(TimerRecordId, timerRecordId_);
       DARABONBA_PTR_FROM_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_FROM_JSON(TimerType, timerType_);
     };
@@ -51,7 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionType_ == nullptr
         && return this->batchId_ == nullptr && return this->context_ == nullptr && return this->createTime_ == nullptr && return this->desktopId_ == nullptr && return this->desktopName_ == nullptr
-        && return this->finishTime_ == nullptr && return this->regionId_ == nullptr && return this->timerGroupId_ == nullptr && return this->timerResult_ == nullptr && return this->timerType_ == nullptr; };
+        && return this->displayResultName_ == nullptr && return this->finishTime_ == nullptr && return this->regionId_ == nullptr && return this->retryable_ == nullptr && return this->timerGroupId_ == nullptr
+        && return this->timerRecordId_ == nullptr && return this->timerResult_ == nullptr && return this->timerType_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
@@ -94,6 +101,13 @@ namespace Models
     inline DescribeGlobalTimerRecordsResponseBodyResults& setDesktopName(string desktopName) { DARABONBA_PTR_SET_VALUE(desktopName_, desktopName) };
 
 
+    // displayResultName Field Functions 
+    bool hasDisplayResultName() const { return this->displayResultName_ != nullptr;};
+    void deleteDisplayResultName() { this->displayResultName_ = nullptr;};
+    inline string displayResultName() const { DARABONBA_PTR_GET_DEFAULT(displayResultName_, "") };
+    inline DescribeGlobalTimerRecordsResponseBodyResults& setDisplayResultName(string displayResultName) { DARABONBA_PTR_SET_VALUE(displayResultName_, displayResultName) };
+
+
     // finishTime Field Functions 
     bool hasFinishTime() const { return this->finishTime_ != nullptr;};
     void deleteFinishTime() { this->finishTime_ = nullptr;};
@@ -108,11 +122,25 @@ namespace Models
     inline DescribeGlobalTimerRecordsResponseBodyResults& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // retryable Field Functions 
+    bool hasRetryable() const { return this->retryable_ != nullptr;};
+    void deleteRetryable() { this->retryable_ = nullptr;};
+    inline bool retryable() const { DARABONBA_PTR_GET_DEFAULT(retryable_, false) };
+    inline DescribeGlobalTimerRecordsResponseBodyResults& setRetryable(bool retryable) { DARABONBA_PTR_SET_VALUE(retryable_, retryable) };
+
+
     // timerGroupId Field Functions 
     bool hasTimerGroupId() const { return this->timerGroupId_ != nullptr;};
     void deleteTimerGroupId() { this->timerGroupId_ = nullptr;};
     inline string timerGroupId() const { DARABONBA_PTR_GET_DEFAULT(timerGroupId_, "") };
     inline DescribeGlobalTimerRecordsResponseBodyResults& setTimerGroupId(string timerGroupId) { DARABONBA_PTR_SET_VALUE(timerGroupId_, timerGroupId) };
+
+
+    // timerRecordId Field Functions 
+    bool hasTimerRecordId() const { return this->timerRecordId_ != nullptr;};
+    void deleteTimerRecordId() { this->timerRecordId_ = nullptr;};
+    inline string timerRecordId() const { DARABONBA_PTR_GET_DEFAULT(timerRecordId_, "") };
+    inline DescribeGlobalTimerRecordsResponseBodyResults& setTimerRecordId(string timerRecordId) { DARABONBA_PTR_SET_VALUE(timerRecordId_, timerRecordId) };
 
 
     // timerResult Field Functions 
@@ -140,12 +168,15 @@ namespace Models
     std::shared_ptr<string> desktopId_ = nullptr;
     // The cloud computer name.
     std::shared_ptr<string> desktopName_ = nullptr;
+    std::shared_ptr<string> displayResultName_ = nullptr;
     // The time when the scheduled task ended.
     std::shared_ptr<string> finishTime_ = nullptr;
     // The region ID.
     std::shared_ptr<string> regionId_ = nullptr;
+    std::shared_ptr<bool> retryable_ = nullptr;
     // The ID of the scheduled task group.
     std::shared_ptr<string> timerGroupId_ = nullptr;
+    std::shared_ptr<string> timerRecordId_ = nullptr;
     // The execution result of the scheduled task.
     std::shared_ptr<string> timerResult_ = nullptr;
     // The type of the scheduled task.
