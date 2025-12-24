@@ -4460,6 +4460,10 @@ DescribeVServerGroupsResponse Client::describeVServerGroups(const DescribeVServe
 DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.acceptLanguage();
+  }
+
   if (!!request.hasOwnerAccount()) {
     query["OwnerAccount"] = request.ownerAccount();
   }

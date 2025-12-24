@@ -13,6 +13,7 @@ namespace Models
   class DescribeZonesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeZonesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeZonesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->ownerAccount_ == nullptr
-        && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->regionId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr; };
+    // acceptLanguage Field Functions 
+    bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
+    void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
+    inline string acceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline DescribeZonesRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> acceptLanguage_ = nullptr;
     std::shared_ptr<string> ownerAccount_ = nullptr;
     std::shared_ptr<int64_t> ownerId_ = nullptr;
     // The region ID of the Server Load Balancer (SLB) instance.
