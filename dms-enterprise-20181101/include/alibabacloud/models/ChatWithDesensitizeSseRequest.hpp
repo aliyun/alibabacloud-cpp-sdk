@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModalitiesList, modalitiesList_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(NeedDesensitization, needDesensitization_);
+      DARABONBA_PTR_TO_JSON(Parameters, parameters_);
       DARABONBA_PTR_TO_JSON(PresencePenalty, presencePenalty_);
       DARABONBA_PTR_TO_JSON(ResponseFormat, responseFormat_);
       DARABONBA_PTR_TO_JSON(SearchOptions, searchOptions_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModalitiesList, modalitiesList_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(NeedDesensitization, needDesensitization_);
+      DARABONBA_PTR_FROM_JSON(Parameters, parameters_);
       DARABONBA_PTR_FROM_JSON(PresencePenalty, presencePenalty_);
       DARABONBA_PTR_FROM_JSON(ResponseFormat, responseFormat_);
       DARABONBA_PTR_FROM_JSON(SearchOptions, searchOptions_);
@@ -88,10 +90,10 @@ namespace Models
     virtual bool empty() const override { return this->audioJson_ == nullptr
         && return this->desensitizationRule_ == nullptr && return this->dimensions_ == nullptr && return this->enableCodeInterpreter_ == nullptr && return this->enableSearch_ == nullptr && return this->enableThinking_ == nullptr
         && return this->includeUsage_ == nullptr && return this->input_ == nullptr && return this->instanceId_ == nullptr && return this->logprobs_ == nullptr && return this->maxTokens_ == nullptr
-        && return this->messages_ == nullptr && return this->modalitiesList_ == nullptr && return this->model_ == nullptr && return this->needDesensitization_ == nullptr && return this->presencePenalty_ == nullptr
-        && return this->responseFormat_ == nullptr && return this->searchOptions_ == nullptr && return this->seed_ == nullptr && return this->stop_ == nullptr && return this->stream_ == nullptr
-        && return this->temperature_ == nullptr && return this->thinkingBudget_ == nullptr && return this->topK_ == nullptr && return this->topLogprobs_ == nullptr && return this->topP_ == nullptr
-        && return this->vlHighResolutionImages_ == nullptr && return this->XDashScopeDataInspection_ == nullptr; };
+        && return this->messages_ == nullptr && return this->modalitiesList_ == nullptr && return this->model_ == nullptr && return this->needDesensitization_ == nullptr && return this->parameters_ == nullptr
+        && return this->presencePenalty_ == nullptr && return this->responseFormat_ == nullptr && return this->searchOptions_ == nullptr && return this->seed_ == nullptr && return this->stop_ == nullptr
+        && return this->stream_ == nullptr && return this->temperature_ == nullptr && return this->thinkingBudget_ == nullptr && return this->topK_ == nullptr && return this->topLogprobs_ == nullptr
+        && return this->topP_ == nullptr && return this->vlHighResolutionImages_ == nullptr && return this->XDashScopeDataInspection_ == nullptr; };
     // audioJson Field Functions 
     bool hasAudioJson() const { return this->audioJson_ != nullptr;};
     void deleteAudioJson() { this->audioJson_ = nullptr;};
@@ -199,6 +201,13 @@ namespace Models
     void deleteNeedDesensitization() { this->needDesensitization_ = nullptr;};
     inline bool needDesensitization() const { DARABONBA_PTR_GET_DEFAULT(needDesensitization_, false) };
     inline ChatWithDesensitizeSSERequest& setNeedDesensitization(bool needDesensitization) { DARABONBA_PTR_SET_VALUE(needDesensitization_, needDesensitization) };
+
+
+    // parameters Field Functions 
+    bool hasParameters() const { return this->parameters_ != nullptr;};
+    void deleteParameters() { this->parameters_ = nullptr;};
+    inline string parameters() const { DARABONBA_PTR_GET_DEFAULT(parameters_, "") };
+    inline ChatWithDesensitizeSSERequest& setParameters(string parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
 
 
     // presencePenalty Field Functions 
@@ -313,6 +322,7 @@ namespace Models
     std::shared_ptr<vector<string>> modalitiesList_ = nullptr;
     std::shared_ptr<string> model_ = nullptr;
     std::shared_ptr<bool> needDesensitization_ = nullptr;
+    std::shared_ptr<string> parameters_ = nullptr;
     std::shared_ptr<string> presencePenalty_ = nullptr;
     std::shared_ptr<string> responseFormat_ = nullptr;
     std::shared_ptr<map<string, string>> searchOptions_ = nullptr;

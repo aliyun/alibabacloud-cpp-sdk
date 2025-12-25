@@ -1566,6 +1566,10 @@ FutrueGenerator<ChatWithDesensitizeSSEResponse> Client::chatWithDesensitizeSSEWi
     query["NeedDesensitization"] = request.needDesensitization();
   }
 
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.parameters();
+  }
+
   if (!!request.hasPresencePenalty()) {
     query["PresencePenalty"] = request.presencePenalty();
   }
@@ -1737,6 +1741,10 @@ ChatWithDesensitizeSSEResponse Client::chatWithDesensitizeSSEWithOptions(const C
 
   if (!!request.hasNeedDesensitization()) {
     query["NeedDesensitization"] = request.needDesensitization();
+  }
+
+  if (!!request.hasParameters()) {
+    query["Parameters"] = request.parameters();
   }
 
   if (!!request.hasPresencePenalty()) {
