@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETRESULTTOREVIEWRESPONSEBODYDATAHITRULEREVIEWINFOLISTHITRULEREVIEWINFOREVIEWINFO_HPP_
 #define ALIBABACLOUD_MODELS_GETRESULTTOREVIEWRESPONSEBODYDATAHITRULEREVIEWINFOLISTHITRULEREVIEWINFOREVIEWINFO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReviewTime, reviewTime_);
       DARABONBA_PTR_TO_JSON(Reviewer, reviewer_);
       DARABONBA_PTR_TO_JSON(Rid, rid_);
+      DARABONBA_PTR_TO_JSON(SentenceReviewResults, sentenceReviewResults_);
     };
     friend void from_json(const Darabonba::Json& j, GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(HitId, hitId_);
@@ -25,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReviewTime, reviewTime_);
       DARABONBA_PTR_FROM_JSON(Reviewer, reviewer_);
       DARABONBA_PTR_FROM_JSON(Rid, rid_);
+      DARABONBA_PTR_FROM_JSON(SentenceReviewResults, sentenceReviewResults_);
     };
     GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo() = default ;
     GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo(const GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo &) = default ;
@@ -38,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->hitId_ == nullptr
-        && return this->reviewResult_ == nullptr && return this->reviewTime_ == nullptr && return this->reviewer_ == nullptr && return this->rid_ == nullptr; };
+        && return this->reviewResult_ == nullptr && return this->reviewTime_ == nullptr && return this->reviewer_ == nullptr && return this->rid_ == nullptr && return this->sentenceReviewResults_ == nullptr; };
     // hitId Field Functions 
     bool hasHitId() const { return this->hitId_ != nullptr;};
     void deleteHitId() { this->hitId_ = nullptr;};
@@ -74,12 +77,22 @@ namespace Models
     inline GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo& setRid(int64_t rid) { DARABONBA_PTR_SET_VALUE(rid_, rid) };
 
 
+    // sentenceReviewResults Field Functions 
+    bool hasSentenceReviewResults() const { return this->sentenceReviewResults_ != nullptr;};
+    void deleteSentenceReviewResults() { this->sentenceReviewResults_ = nullptr;};
+    inline const Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults & sentenceReviewResults() const { DARABONBA_PTR_GET_CONST(sentenceReviewResults_, Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults) };
+    inline Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults sentenceReviewResults() { DARABONBA_PTR_GET(sentenceReviewResults_, Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults) };
+    inline GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo& setSentenceReviewResults(const Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults & sentenceReviewResults) { DARABONBA_PTR_SET_VALUE(sentenceReviewResults_, sentenceReviewResults) };
+    inline GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo& setSentenceReviewResults(Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults && sentenceReviewResults) { DARABONBA_PTR_SET_RVALUE(sentenceReviewResults_, sentenceReviewResults) };
+
+
   protected:
     std::shared_ptr<string> hitId_ = nullptr;
     std::shared_ptr<int32_t> reviewResult_ = nullptr;
     std::shared_ptr<string> reviewTime_ = nullptr;
     std::shared_ptr<string> reviewer_ = nullptr;
     std::shared_ptr<int64_t> rid_ = nullptr;
+    std::shared_ptr<Models::GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults> sentenceReviewResults_ = nullptr;
   };
 
   } // namespace Models

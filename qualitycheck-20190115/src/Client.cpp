@@ -688,6 +688,52 @@ CreateTaskAssignRuleResponse Client::createTaskAssignRule(const CreateTaskAssign
 }
 
 /**
+ * @summary 创建用户
+ *
+ * @param request CreateUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBaseMeAgentId()) {
+    body["BaseMeAgentId"] = request.baseMeAgentId();
+  }
+
+  if (!!request.hasJsonStr()) {
+    body["JsonStr"] = request.jsonStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateUser"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserResponse>();
+}
+
+/**
+ * @summary 创建用户
+ *
+ * @param request CreateUserRequest
+ * @return CreateUserResponse
+ */
+CreateUserResponse Client::createUser(const CreateUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUserWithOptions(request, runtime);
+}
+
+/**
  * @param request CreateWarningConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateWarningConfigResponse
@@ -1806,6 +1852,8 @@ GetResultResponse Client::getResult(const GetResultRequest &request) {
 }
 
 /**
+ * @summary 获取质检结果详情用于复核
+ *
  * @param request GetResultToReviewRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetResultToReviewResponse
@@ -1839,6 +1887,8 @@ GetResultToReviewResponse Client::getResultToReviewWithOptions(const GetResultTo
 }
 
 /**
+ * @summary 获取质检结果详情用于复核
+ *
  * @param request GetResultToReviewRequest
  * @return GetResultToReviewResponse
  */
@@ -3533,6 +3583,52 @@ SubmitReviewInfoResponse Client::submitReviewInfoWithOptions(const SubmitReviewI
 SubmitReviewInfoResponse Client::submitReviewInfo(const SubmitReviewInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitReviewInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交复核结果v4
+ *
+ * @param request SubmitReviewInfoV4Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitReviewInfoV4Response
+ */
+SubmitReviewInfoV4Response Client::submitReviewInfoV4WithOptions(const SubmitReviewInfoV4Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBaseMeAgentId()) {
+    body["BaseMeAgentId"] = request.baseMeAgentId();
+  }
+
+  if (!!request.hasJsonStr()) {
+    body["JsonStr"] = request.jsonStr();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitReviewInfoV4"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitReviewInfoV4Response>();
+}
+
+/**
+ * @summary 提交复核结果v4
+ *
+ * @param request SubmitReviewInfoV4Request
+ * @return SubmitReviewInfoV4Response
+ */
+SubmitReviewInfoV4Response Client::submitReviewInfoV4(const SubmitReviewInfoV4Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitReviewInfoV4WithOptions(request, runtime);
 }
 
 /**

@@ -56,6 +56,9 @@
 #include <alibabacloud/models/CreateTaskAssignRuleRequest.hpp>
 #include <alibabacloud/models/CreateTaskAssignRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateTaskAssignRuleResponse.hpp>
+#include <alibabacloud/models/CreateUserRequest.hpp>
+#include <alibabacloud/models/CreateUserResponseBody.hpp>
+#include <alibabacloud/models/CreateUserResponse.hpp>
 #include <alibabacloud/models/CreateWarningConfigRequest.hpp>
 #include <alibabacloud/models/CreateWarningConfigResponseBody.hpp>
 #include <alibabacloud/models/CreateWarningConfigResponse.hpp>
@@ -233,6 +236,9 @@
 #include <alibabacloud/models/SubmitReviewInfoRequest.hpp>
 #include <alibabacloud/models/SubmitReviewInfoResponseBody.hpp>
 #include <alibabacloud/models/SubmitReviewInfoResponse.hpp>
+#include <alibabacloud/models/SubmitReviewInfoV4Request.hpp>
+#include <alibabacloud/models/SubmitReviewInfoV4ResponseBody.hpp>
+#include <alibabacloud/models/SubmitReviewInfoV4Response.hpp>
 #include <alibabacloud/models/SyncQualityCheckRequest.hpp>
 #include <alibabacloud/models/SyncQualityCheckResponseBody.hpp>
 #include <alibabacloud/models/SyncQualityCheckResponse.hpp>
@@ -407,6 +413,8 @@
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoListConditionHitInfoPhrase.hpp>
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoListConditionHitInfo.hpp>
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList.hpp>
+#include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResultsSentenceReviewResults.hpp>
+#include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults.hpp>
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo.hpp>
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfo.hpp>
 #include <alibabacloud/models/GetResultToReviewResponseBodyDataHitRuleReviewInfoList.hpp>

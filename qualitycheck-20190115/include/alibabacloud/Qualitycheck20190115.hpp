@@ -247,6 +247,23 @@ namespace Qualitycheck20190115
       Models::CreateTaskAssignRuleResponse createTaskAssignRule(const Models::CreateTaskAssignRuleRequest &request);
 
       /**
+       * @summary 创建用户
+       *
+       * @param request CreateUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUserWithOptions(const Models::CreateUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建用户
+       *
+       * @param request CreateUserRequest
+       * @return CreateUserResponse
+       */
+      Models::CreateUserResponse createUser(const Models::CreateUserRequest &request);
+
+      /**
        * @param request CreateWarningConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateWarningConfigResponse
@@ -624,6 +641,8 @@ namespace Qualitycheck20190115
       Models::GetResultResponse getResult(const Models::GetResultRequest &request);
 
       /**
+       * @summary 获取质检结果详情用于复核
+       *
        * @param request GetResultToReviewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetResultToReviewResponse
@@ -631,6 +650,8 @@ namespace Qualitycheck20190115
       Models::GetResultToReviewResponse getResultToReviewWithOptions(const Models::GetResultToReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取质检结果详情用于复核
+       *
        * @param request GetResultToReviewRequest
        * @return GetResultToReviewResponse
        */
@@ -1172,6 +1193,23 @@ namespace Qualitycheck20190115
        * @return SubmitReviewInfoResponse
        */
       Models::SubmitReviewInfoResponse submitReviewInfo(const Models::SubmitReviewInfoRequest &request);
+
+      /**
+       * @summary 提交复核结果v4
+       *
+       * @param request SubmitReviewInfoV4Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitReviewInfoV4Response
+       */
+      Models::SubmitReviewInfoV4Response submitReviewInfoV4WithOptions(const Models::SubmitReviewInfoV4Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交复核结果v4
+       *
+       * @param request SubmitReviewInfoV4Request
+       * @return SubmitReviewInfoV4Response
+       */
+      Models::SubmitReviewInfoV4Response submitReviewInfoV4(const Models::SubmitReviewInfoV4Request &request);
 
       /**
        * @param request SyncQualityCheckRequest
