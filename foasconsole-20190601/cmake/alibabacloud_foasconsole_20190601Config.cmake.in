@@ -1,4 +1,0 @@
-@PACKAGE_INIT@
-
-include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_foasconsole_20190601Targets.cmake")
-check_required_components("alibabacloud_foasconsole_20190601")
