@@ -1,0 +1,74 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATELAYOUTDATARESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_UPDATELAYOUTDATARESPONSE_HPP_
+#include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/UpdateLayoutDataResponseBody.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Tdsr20200101
+{
+namespace Models
+{
+  class UpdateLayoutDataResponse : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateLayoutDataResponse& obj) { 
+      DARABONBA_PTR_TO_JSON(headers, headers_);
+      DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateLayoutDataResponse& obj) { 
+      DARABONBA_PTR_FROM_JSON(headers, headers_);
+      DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
+    };
+    UpdateLayoutDataResponse() = default ;
+    UpdateLayoutDataResponse(const UpdateLayoutDataResponse &) = default ;
+    UpdateLayoutDataResponse(UpdateLayoutDataResponse &&) = default ;
+    UpdateLayoutDataResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateLayoutDataResponse() = default ;
+    UpdateLayoutDataResponse& operator=(const UpdateLayoutDataResponse &) = default ;
+    UpdateLayoutDataResponse& operator=(UpdateLayoutDataResponse &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->headers_ == nullptr
+        && return this->statusCode_ == nullptr && return this->body_ == nullptr; };
+    // headers Field Functions 
+    bool hasHeaders() const { return this->headers_ != nullptr;};
+    void deleteHeaders() { this->headers_ = nullptr;};
+    inline const map<string, string> & headers() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
+    inline map<string, string> headers() { DARABONBA_PTR_GET(headers_, map<string, string>) };
+    inline UpdateLayoutDataResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline UpdateLayoutDataResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+
+
+    // statusCode Field Functions 
+    bool hasStatusCode() const { return this->statusCode_ != nullptr;};
+    void deleteStatusCode() { this->statusCode_ = nullptr;};
+    inline int32_t statusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
+    inline UpdateLayoutDataResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+
+
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const UpdateLayoutDataResponseBody & body() const { DARABONBA_PTR_GET_CONST(body_, UpdateLayoutDataResponseBody) };
+    inline UpdateLayoutDataResponseBody body() { DARABONBA_PTR_GET(body_, UpdateLayoutDataResponseBody) };
+    inline UpdateLayoutDataResponse& setBody(const UpdateLayoutDataResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline UpdateLayoutDataResponse& setBody(UpdateLayoutDataResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
+  protected:
+    std::shared_ptr<map<string, string>> headers_ = nullptr;
+    std::shared_ptr<int32_t> statusCode_ = nullptr;
+    std::shared_ptr<UpdateLayoutDataResponseBody> body_ = nullptr;
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Tdsr20200101
+#endif
