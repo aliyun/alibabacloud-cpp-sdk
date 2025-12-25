@@ -113,6 +113,12 @@
 #include <alibabacloud/models/DescribeAccountDelegatedStatusRequest.hpp>
 #include <alibabacloud/models/DescribeAccountDelegatedStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountDelegatedStatusResponse.hpp>
+#include <alibabacloud/models/DescribeAlarmBannerRequest.hpp>
+#include <alibabacloud/models/DescribeAlarmBannerResponseBody.hpp>
+#include <alibabacloud/models/DescribeAlarmBannerResponse.hpp>
+#include <alibabacloud/models/DescribeAlarmListRequest.hpp>
+#include <alibabacloud/models/DescribeAlarmListResponseBody.hpp>
+#include <alibabacloud/models/DescribeAlarmListResponse.hpp>
 #include <alibabacloud/models/DescribeApiExportsRequest.hpp>
 #include <alibabacloud/models/DescribeApiExportsResponseBody.hpp>
 #include <alibabacloud/models/DescribeApiExportsResponse.hpp>
@@ -173,6 +179,9 @@
 #include <alibabacloud/models/DescribeBaseSystemRulesRequest.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponseBody.hpp>
 #include <alibabacloud/models/DescribeBaseSystemRulesResponse.hpp>
+#include <alibabacloud/models/DescribeBotAppKeyRequest.hpp>
+#include <alibabacloud/models/DescribeBotAppKeyResponseBody.hpp>
+#include <alibabacloud/models/DescribeBotAppKeyResponse.hpp>
 #include <alibabacloud/models/DescribeBotRuleLabelsRequest.hpp>
 #include <alibabacloud/models/DescribeBotRuleLabelsResponseBody.hpp>
 #include <alibabacloud/models/DescribeBotRuleLabelsResponse.hpp>
@@ -485,6 +494,12 @@
 #include <alibabacloud/models/DescribeTemplateResourcesRequest.hpp>
 #include <alibabacloud/models/DescribeTemplateResourcesResponseBody.hpp>
 #include <alibabacloud/models/DescribeTemplateResourcesResponse.hpp>
+#include <alibabacloud/models/DescribeThreatEventRequest.hpp>
+#include <alibabacloud/models/DescribeThreatEventResponseBody.hpp>
+#include <alibabacloud/models/DescribeThreatEventResponse.hpp>
+#include <alibabacloud/models/DescribeThreatEventDetailRequest.hpp>
+#include <alibabacloud/models/DescribeThreatEventDetailResponseBody.hpp>
+#include <alibabacloud/models/DescribeThreatEventDetailResponse.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendRequest.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendResponse.hpp>
@@ -690,6 +705,8 @@
 #include <alibabacloud/models/CreateDomainResponseBodyDomainInfo.hpp>
 #include <alibabacloud/models/DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResourcesDetails.hpp>
 #include <alibabacloud/models/DescribeAbnormalCloudResourcesResponseBodyAbnormalCloudResources.hpp>
+#include <alibabacloud/models/DescribeAlarmBannerResponseBodyBannerStatus.hpp>
+#include <alibabacloud/models/DescribeAlarmListResponseBodyAlarms.hpp>
 #include <alibabacloud/models/DescribeApiExportsResponseBodyApiExports.hpp>
 #include <alibabacloud/models/DescribeApisecAbnormalDomainStatisticResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeApisecAbnormalsResponseBodyData.hpp>
@@ -843,6 +860,8 @@
 #include <alibabacloud/models/DescribeSensitiveRequestsResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeSensitiveStatisticResponseBodyData.hpp>
 #include <alibabacloud/models/DescribeTemplateResourceCountResponseBodyResourceCount.hpp>
+#include <alibabacloud/models/DescribeThreatEventResponseBodyThreatEvents.hpp>
+#include <alibabacloud/models/DescribeThreatEventDetailResponseBodyThreatEventDetail.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTrendResponseBodyTrend.hpp>
 #include <alibabacloud/models/DescribeUserAbnormalTypeResponseBodyAbnormal.hpp>
 #include <alibabacloud/models/DescribeUserApiRequestResponseBodyRequests.hpp>

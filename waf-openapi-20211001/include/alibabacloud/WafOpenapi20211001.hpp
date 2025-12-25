@@ -637,6 +637,40 @@ namespace WafOpenapi20211001
       Models::DescribeAccountDelegatedStatusResponse describeAccountDelegatedStatus(const Models::DescribeAccountDelegatedStatusRequest &request);
 
       /**
+       * @summary 查询实例信息
+       *
+       * @param request DescribeAlarmBannerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAlarmBannerResponse
+       */
+      Models::DescribeAlarmBannerResponse describeAlarmBannerWithOptions(const Models::DescribeAlarmBannerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例信息
+       *
+       * @param request DescribeAlarmBannerRequest
+       * @return DescribeAlarmBannerResponse
+       */
+      Models::DescribeAlarmBannerResponse describeAlarmBanner(const Models::DescribeAlarmBannerRequest &request);
+
+      /**
+       * @summary 查询实例信息
+       *
+       * @param request DescribeAlarmListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAlarmListResponse
+       */
+      Models::DescribeAlarmListResponse describeAlarmListWithOptions(const Models::DescribeAlarmListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例信息
+       *
+       * @param request DescribeAlarmListRequest
+       * @return DescribeAlarmListResponse
+       */
+      Models::DescribeAlarmListResponse describeAlarmList(const Models::DescribeAlarmListRequest &request);
+
+      /**
        * @summary Queries the list of data export tasks in the API security module.
        *
        * @param request DescribeApiExportsRequest
@@ -975,6 +1009,23 @@ namespace WafOpenapi20211001
        * @return DescribeBaseSystemRulesResponse
        */
       Models::DescribeBaseSystemRulesResponse describeBaseSystemRules(const Models::DescribeBaseSystemRulesRequest &request);
+
+      /**
+       * @summary 分页查询防护模板
+       *
+       * @param request DescribeBotAppKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBotAppKeyResponse
+       */
+      Models::DescribeBotAppKeyResponse describeBotAppKeyWithOptions(const Models::DescribeBotAppKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询防护模板
+       *
+       * @param request DescribeBotAppKeyRequest
+       * @return DescribeBotAppKeyResponse
+       */
+      Models::DescribeBotAppKeyResponse describeBotAppKey(const Models::DescribeBotAppKeyRequest &request);
 
       /**
        * @summary 分页获取Bot管理规则标签信息
@@ -2739,6 +2790,40 @@ namespace WafOpenapi20211001
        * @return DescribeTemplateResourcesResponse
        */
       Models::DescribeTemplateResourcesResponse describeTemplateResources(const Models::DescribeTemplateResourcesRequest &request);
+
+      /**
+       * @summary 查看攻击事件列表
+       *
+       * @param request DescribeThreatEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeThreatEventResponse
+       */
+      Models::DescribeThreatEventResponse describeThreatEventWithOptions(const Models::DescribeThreatEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看攻击事件列表
+       *
+       * @param request DescribeThreatEventRequest
+       * @return DescribeThreatEventResponse
+       */
+      Models::DescribeThreatEventResponse describeThreatEvent(const Models::DescribeThreatEventRequest &request);
+
+      /**
+       * @summary 查看威胁事件详情
+       *
+       * @param request DescribeThreatEventDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeThreatEventDetailResponse
+       */
+      Models::DescribeThreatEventDetailResponse describeThreatEventDetailWithOptions(const Models::DescribeThreatEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看威胁事件详情
+       *
+       * @param request DescribeThreatEventDetailRequest
+       * @return DescribeThreatEventDetailResponse
+       */
+      Models::DescribeThreatEventDetailResponse describeThreatEventDetail(const Models::DescribeThreatEventDetailRequest &request);
 
       /**
        * @summary Queries the trends of API security risks.

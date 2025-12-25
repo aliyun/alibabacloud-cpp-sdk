@@ -2362,6 +2362,106 @@ DescribeAccountDelegatedStatusResponse Client::describeAccountDelegatedStatus(co
 }
 
 /**
+ * @summary 查询实例信息
+ *
+ * @param request DescribeAlarmBannerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAlarmBannerResponse
+ */
+DescribeAlarmBannerResponse Client::describeAlarmBannerWithOptions(const DescribeAlarmBannerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAlarmBanner"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAlarmBannerResponse>();
+}
+
+/**
+ * @summary 查询实例信息
+ *
+ * @param request DescribeAlarmBannerRequest
+ * @return DescribeAlarmBannerResponse
+ */
+DescribeAlarmBannerResponse Client::describeAlarmBanner(const DescribeAlarmBannerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAlarmBannerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询实例信息
+ *
+ * @param request DescribeAlarmListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAlarmListResponse
+ */
+DescribeAlarmListResponse Client::describeAlarmListWithOptions(const DescribeAlarmListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAlarmList"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAlarmListResponse>();
+}
+
+/**
+ * @summary 查询实例信息
+ *
+ * @param request DescribeAlarmListRequest
+ * @return DescribeAlarmListResponse
+ */
+DescribeAlarmListResponse Client::describeAlarmList(const DescribeAlarmListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAlarmListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of data export tasks in the API security module.
  *
  * @param request DescribeApiExportsRequest
@@ -3871,6 +3971,60 @@ DescribeBaseSystemRulesResponse Client::describeBaseSystemRulesWithOptions(const
 DescribeBaseSystemRulesResponse Client::describeBaseSystemRules(const DescribeBaseSystemRulesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBaseSystemRulesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询防护模板
+ *
+ * @param request DescribeBotAppKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBotAppKeyResponse
+ */
+DescribeBotAppKeyResponse Client::describeBotAppKeyWithOptions(const DescribeBotAppKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasKeyVersion()) {
+    query["KeyVersion"] = request.keyVersion();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBotAppKey"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBotAppKeyResponse>();
+}
+
+/**
+ * @summary 分页查询防护模板
+ *
+ * @param request DescribeBotAppKeyRequest
+ * @return DescribeBotAppKeyResponse
+ */
+DescribeBotAppKeyResponse Client::describeBotAppKey(const DescribeBotAppKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBotAppKeyWithOptions(request, runtime);
 }
 
 /**
@@ -10217,6 +10371,130 @@ DescribeTemplateResourcesResponse Client::describeTemplateResourcesWithOptions(c
 DescribeTemplateResourcesResponse Client::describeTemplateResources(const DescribeTemplateResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeTemplateResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看攻击事件列表
+ *
+ * @param request DescribeThreatEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeThreatEventResponse
+ */
+DescribeThreatEventResponse Client::describeThreatEventWithOptions(const DescribeThreatEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.domainName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeThreatEvent"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeThreatEventResponse>();
+}
+
+/**
+ * @summary 查看攻击事件列表
+ *
+ * @param request DescribeThreatEventRequest
+ * @return DescribeThreatEventResponse
+ */
+DescribeThreatEventResponse Client::describeThreatEvent(const DescribeThreatEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeThreatEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看威胁事件详情
+ *
+ * @param request DescribeThreatEventDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeThreatEventDetailResponse
+ */
+DescribeThreatEventDetailResponse Client::describeThreatEventDetailWithOptions(const DescribeThreatEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.eventId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeThreatEventDetail"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeThreatEventDetailResponse>();
+}
+
+/**
+ * @summary 查看威胁事件详情
+ *
+ * @param request DescribeThreatEventDetailRequest
+ * @return DescribeThreatEventDetailResponse
+ */
+DescribeThreatEventDetailResponse Client::describeThreatEventDetail(const DescribeThreatEventDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeThreatEventDetailWithOptions(request, runtime);
 }
 
 /**
