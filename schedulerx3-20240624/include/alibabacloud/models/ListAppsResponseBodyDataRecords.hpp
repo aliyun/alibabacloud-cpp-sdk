@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Title, title_);
       DARABONBA_PTR_TO_JSON(Updater, updater_);
       DARABONBA_PTR_TO_JSON(WorkerRegistry, workerRegistry_);
+      DARABONBA_PTR_TO_JSON(WorkflowNum, workflowNum_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppsResponseBodyDataRecords& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessToken, accessToken_);
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Title, title_);
       DARABONBA_PTR_FROM_JSON(Updater, updater_);
       DARABONBA_PTR_FROM_JSON(WorkerRegistry, workerRegistry_);
+      DARABONBA_PTR_FROM_JSON(WorkflowNum, workflowNum_);
     };
     ListAppsResponseBodyDataRecords() = default ;
     ListAppsResponseBodyDataRecords(const ListAppsResponseBodyDataRecords &) = default ;
@@ -60,7 +62,7 @@ namespace Models
     virtual bool empty() const override { return this->accessToken_ == nullptr
         && return this->appName_ == nullptr && return this->appType_ == nullptr && return this->creator_ == nullptr && return this->enableLog_ == nullptr && return this->executorNum_ == nullptr
         && return this->id_ == nullptr && return this->jobNum_ == nullptr && return this->labelRouteStrategy_ == nullptr && return this->leader_ == nullptr && return this->maxConcurrency_ == nullptr
-        && return this->maxJobs_ == nullptr && return this->title_ == nullptr && return this->updater_ == nullptr && return this->workerRegistry_ == nullptr; };
+        && return this->maxJobs_ == nullptr && return this->title_ == nullptr && return this->updater_ == nullptr && return this->workerRegistry_ == nullptr && return this->workflowNum_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -166,6 +168,13 @@ namespace Models
     inline ListAppsResponseBodyDataRecords& setWorkerRegistry(string workerRegistry) { DARABONBA_PTR_SET_VALUE(workerRegistry_, workerRegistry) };
 
 
+    // workflowNum Field Functions 
+    bool hasWorkflowNum() const { return this->workflowNum_ != nullptr;};
+    void deleteWorkflowNum() { this->workflowNum_ = nullptr;};
+    inline int32_t workflowNum() const { DARABONBA_PTR_GET_DEFAULT(workflowNum_, 0) };
+    inline ListAppsResponseBodyDataRecords& setWorkflowNum(int32_t workflowNum) { DARABONBA_PTR_SET_VALUE(workflowNum_, workflowNum) };
+
+
   protected:
     // AccessToken
     std::shared_ptr<string> accessToken_ = nullptr;
@@ -183,6 +192,7 @@ namespace Models
     std::shared_ptr<string> title_ = nullptr;
     std::shared_ptr<string> updater_ = nullptr;
     std::shared_ptr<string> workerRegistry_ = nullptr;
+    std::shared_ptr<int32_t> workflowNum_ = nullptr;
   };
 
   } // namespace Models

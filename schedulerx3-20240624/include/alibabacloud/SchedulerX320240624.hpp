@@ -38,6 +38,23 @@ namespace SchedulerX320240624
       Models::CreateAppResponse createApp(const Models::CreateAppRequest &request);
 
       /**
+       * @summary 创建日历
+       *
+       * @param request CreateCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCalendarResponse
+       */
+      Models::CreateCalendarResponse createCalendarWithOptions(const Models::CreateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建日历
+       *
+       * @param request CreateCalendarRequest
+       * @return CreateCalendarResponse
+       */
+      Models::CreateCalendarResponse createCalendar(const Models::CreateCalendarRequest &request);
+
+      /**
        * @summary 创建集群
        *
        * @param tmpReq CreateClusterRequest
@@ -89,6 +106,23 @@ namespace SchedulerX320240624
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
+       * @summary 创建应用
+       *
+       * @param request CreateWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkflowResponse
+       */
+      Models::CreateWorkflowResponse createWorkflowWithOptions(const Models::CreateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建应用
+       *
+       * @param request CreateWorkflowRequest
+       * @return CreateWorkflowResponse
+       */
+      Models::CreateWorkflowResponse createWorkflow(const Models::CreateWorkflowRequest &request);
+
+      /**
        * @summary 删除应用分组
        *
        * @param request DeleteAppRequest
@@ -104,6 +138,23 @@ namespace SchedulerX320240624
        * @return DeleteAppResponse
        */
       Models::DeleteAppResponse deleteApp(const Models::DeleteAppRequest &request);
+
+      /**
+       * @summary 删除日历
+       *
+       * @param request DeleteCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCalendarResponse
+       */
+      Models::DeleteCalendarResponse deleteCalendarWithOptions(const Models::DeleteCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除日历
+       *
+       * @param request DeleteCalendarRequest
+       * @return DeleteCalendarResponse
+       */
+      Models::DeleteCalendarResponse deleteCalendar(const Models::DeleteCalendarRequest &request);
 
       /**
        * @summary 释放删除集群
@@ -140,6 +191,40 @@ namespace SchedulerX320240624
       Models::DeleteJobsResponse deleteJobs(const Models::DeleteJobsRequest &request);
 
       /**
+       * @summary 删除工作流
+       *
+       * @param request DeleteWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkflowResponse
+       */
+      Models::DeleteWorkflowResponse deleteWorkflowWithOptions(const Models::DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作流
+       *
+       * @param request DeleteWorkflowRequest
+       * @return DeleteWorkflowResponse
+       */
+      Models::DeleteWorkflowResponse deleteWorkflow(const Models::DeleteWorkflowRequest &request);
+
+      /**
+       * @summary 批量删除工作流
+       *
+       * @param tmpReq DeleteWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkflowsResponse
+       */
+      Models::DeleteWorkflowsResponse deleteWorkflowsWithOptions(const Models::DeleteWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除工作流
+       *
+       * @param request DeleteWorkflowsRequest
+       * @return DeleteWorkflowsResponse
+       */
+      Models::DeleteWorkflowsResponse deleteWorkflows(const Models::DeleteWorkflowsRequest &request);
+
+      /**
        * @summary 批量导出任务信息
        *
        * @param tmpReq ExportJobsRequest
@@ -157,6 +242,23 @@ namespace SchedulerX320240624
       Models::ExportJobsResponse exportJobs(const Models::ExportJobsRequest &request);
 
       /**
+       * @summary 批量导出工作流信息
+       *
+       * @param tmpReq ExportWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExportWorkflowsResponse
+       */
+      Models::ExportWorkflowsResponse exportWorkflowsWithOptions(const Models::ExportWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量导出工作流信息
+       *
+       * @param request ExportWorkflowsRequest
+       * @return ExportWorkflowsResponse
+       */
+      Models::ExportWorkflowsResponse exportWorkflows(const Models::ExportWorkflowsRequest &request);
+
+      /**
        * @summary 获取指定应用
        *
        * @param request GetAppRequest
@@ -172,6 +274,23 @@ namespace SchedulerX320240624
        * @return GetAppResponse
        */
       Models::GetAppResponse getApp(const Models::GetAppRequest &request);
+
+      /**
+       * @summary 获取日历信息
+       *
+       * @param request GetCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCalendarResponse
+       */
+      Models::GetCalendarResponse getCalendarWithOptions(const Models::GetCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取日历信息
+       *
+       * @param request GetCalendarRequest
+       * @return GetCalendarResponse
+       */
+      Models::GetCalendarResponse getCalendar(const Models::GetCalendarRequest &request);
 
       /**
        * @summary 获取集群详细信息
@@ -310,6 +429,74 @@ namespace SchedulerX320240624
       Models::GetLogEventResponse getLogEvent(const Models::GetLogEventRequest &request);
 
       /**
+       * @summary 获取工作流
+       *
+       * @param request GetWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowResponse
+       */
+      Models::GetWorkflowResponse getWorkflowWithOptions(const Models::GetWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流
+       *
+       * @param request GetWorkflowRequest
+       * @return GetWorkflowResponse
+       */
+      Models::GetWorkflowResponse getWorkflow(const Models::GetWorkflowRequest &request);
+
+      /**
+       * @summary 获取工作流的DAG信息
+       *
+       * @param request GetWorkflowDAGRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowDAGResponse
+       */
+      Models::GetWorkflowDAGResponse getWorkflowDAGWithOptions(const Models::GetWorkflowDAGRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流的DAG信息
+       *
+       * @param request GetWorkflowDAGRequest
+       * @return GetWorkflowDAGResponse
+       */
+      Models::GetWorkflowDAGResponse getWorkflowDAG(const Models::GetWorkflowDAGRequest &request);
+
+      /**
+       * @summary 获取工作流的DAG信息
+       *
+       * @param request GetWorkflowDAGPreviewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowDAGPreviewResponse
+       */
+      Models::GetWorkflowDAGPreviewResponse getWorkflowDAGPreviewWithOptions(const Models::GetWorkflowDAGPreviewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流的DAG信息
+       *
+       * @param request GetWorkflowDAGPreviewRequest
+       * @return GetWorkflowDAGPreviewResponse
+       */
+      Models::GetWorkflowDAGPreviewResponse getWorkflowDAGPreview(const Models::GetWorkflowDAGPreviewRequest &request);
+
+      /**
+       * @summary 获取工作流实例DAG信息
+       *
+       * @param request GetWorkflowExecutionDAGRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkflowExecutionDAGResponse
+       */
+      Models::GetWorkflowExecutionDAGResponse getWorkflowExecutionDAGWithOptions(const Models::GetWorkflowExecutionDAGRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流实例DAG信息
+       *
+       * @param request GetWorkflowExecutionDAGRequest
+       * @return GetWorkflowExecutionDAGResponse
+       */
+      Models::GetWorkflowExecutionDAGResponse getWorkflowExecutionDAG(const Models::GetWorkflowExecutionDAGRequest &request);
+
+      /**
        * @summary 导入日历
        *
        * @param request ImportCalendarRequest
@@ -342,6 +529,23 @@ namespace SchedulerX320240624
        * @return ImportJobsResponse
        */
       Models::ImportJobsResponse importJobs(const Models::ImportJobsRequest &request);
+
+      /**
+       * @summary 批量导入工作流
+       *
+       * @param request ImportWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportWorkflowsResponse
+       */
+      Models::ImportWorkflowsResponse importWorkflowsWithOptions(const Models::ImportWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量导入工作流
+       *
+       * @param request ImportWorkflowsRequest
+       * @return ImportWorkflowsResponse
+       */
+      Models::ImportWorkflowsResponse importWorkflows(const Models::ImportWorkflowsRequest &request);
 
       /**
        * @summary 获取报警事件
@@ -410,6 +614,23 @@ namespace SchedulerX320240624
        * @return ListCalendarNamesResponse
        */
       Models::ListCalendarNamesResponse listCalendarNames(const Models::ListCalendarNamesRequest &request);
+
+      /**
+       * @summary 查询日历
+       *
+       * @param request ListCalendarsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCalendarsResponse
+       */
+      Models::ListCalendarsResponse listCalendarsWithOptions(const Models::ListCalendarsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询日历
+       *
+       * @param request ListCalendarsRequest
+       * @return ListCalendarsResponse
+       */
+      Models::ListCalendarsResponse listCalendars(const Models::ListCalendarsRequest &request);
 
       /**
        * @summary 查询实例列表
@@ -597,6 +818,74 @@ namespace SchedulerX320240624
       Models::ListScheduleTimesResponse listScheduleTimes(const Models::ListScheduleTimesRequest &request);
 
       /**
+       * @summary 获取流程实例列表
+       *
+       * @param request ListWorkflowExecutionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowExecutionsResponse
+       */
+      Models::ListWorkflowExecutionsResponse listWorkflowExecutionsWithOptions(const Models::ListWorkflowExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取流程实例列表
+       *
+       * @param request ListWorkflowExecutionsRequest
+       * @return ListWorkflowExecutionsResponse
+       */
+      Models::ListWorkflowExecutionsResponse listWorkflowExecutions(const Models::ListWorkflowExecutionsRequest &request);
+
+      /**
+       * @summary 获取当前工作流版本列表
+       *
+       * @param request ListWorkflowVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowVersionsResponse
+       */
+      Models::ListWorkflowVersionsResponse listWorkflowVersionsWithOptions(const Models::ListWorkflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取当前工作流版本列表
+       *
+       * @param request ListWorkflowVersionsRequest
+       * @return ListWorkflowVersionsResponse
+       */
+      Models::ListWorkflowVersionsResponse listWorkflowVersions(const Models::ListWorkflowVersionsRequest &request);
+
+      /**
+       * @summary 获取工作流列表
+       *
+       * @param request ListWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkflowsResponse
+       */
+      Models::ListWorkflowsResponse listWorkflowsWithOptions(const Models::ListWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作流列表
+       *
+       * @param request ListWorkflowsRequest
+       * @return ListWorkflowsResponse
+       */
+      Models::ListWorkflowsResponse listWorkflows(const Models::ListWorkflowsRequest &request);
+
+      /**
+       * @summary 补数工作流
+       *
+       * @param request OperateBackfillWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateBackfillWorkflowResponse
+       */
+      Models::OperateBackfillWorkflowResponse operateBackfillWorkflowWithOptions(const Models::OperateBackfillWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 补数工作流
+       *
+       * @param request OperateBackfillWorkflowRequest
+       * @return OperateBackfillWorkflowResponse
+       */
+      Models::OperateBackfillWorkflowResponse operateBackfillWorkflow(const Models::OperateBackfillWorkflowRequest &request);
+
+      /**
        * @summary 指定执行器
        *
        * @param tmpReq OperateDesignateExecutorsRequest
@@ -631,6 +920,23 @@ namespace SchedulerX320240624
       Models::OperateDisableJobsResponse operateDisableJobs(const Models::OperateDisableJobsRequest &request);
 
       /**
+       * @summary 批量禁用工作流
+       *
+       * @param tmpReq OperateDisableWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateDisableWorkflowsResponse
+       */
+      Models::OperateDisableWorkflowsResponse operateDisableWorkflowsWithOptions(const Models::OperateDisableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量禁用工作流
+       *
+       * @param request OperateDisableWorkflowsRequest
+       * @return OperateDisableWorkflowsResponse
+       */
+      Models::OperateDisableWorkflowsResponse operateDisableWorkflows(const Models::OperateDisableWorkflowsRequest &request);
+
+      /**
        * @summary 批量启用任务
        *
        * @param tmpReq OperateEnableJobsRequest
@@ -648,6 +954,23 @@ namespace SchedulerX320240624
       Models::OperateEnableJobsResponse operateEnableJobs(const Models::OperateEnableJobsRequest &request);
 
       /**
+       * @summary 批量启用工作流
+       *
+       * @param tmpReq OperateEnableWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateEnableWorkflowsResponse
+       */
+      Models::OperateEnableWorkflowsResponse operateEnableWorkflowsWithOptions(const Models::OperateEnableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量启用工作流
+       *
+       * @param request OperateEnableWorkflowsRequest
+       * @return OperateEnableWorkflowsResponse
+       */
+      Models::OperateEnableWorkflowsResponse operateEnableWorkflows(const Models::OperateEnableWorkflowsRequest &request);
+
+      /**
        * @summary 运行一次任务
        *
        * @param request OperateExecuteJobRequest
@@ -663,6 +986,91 @@ namespace SchedulerX320240624
        * @return OperateExecuteJobResponse
        */
       Models::OperateExecuteJobResponse operateExecuteJob(const Models::OperateExecuteJobRequest &request);
+
+      /**
+       * @summary 运行一次工作流
+       *
+       * @param request OperateExecuteWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateExecuteWorkflowResponse
+       */
+      Models::OperateExecuteWorkflowResponse operateExecuteWorkflowWithOptions(const Models::OperateExecuteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 运行一次工作流
+       *
+       * @param request OperateExecuteWorkflowRequest
+       * @return OperateExecuteWorkflowResponse
+       */
+      Models::OperateExecuteWorkflowResponse operateExecuteWorkflow(const Models::OperateExecuteWorkflowRequest &request);
+
+      /**
+       * @summary Hold住任务实例
+       *
+       * @param request OperateHoldJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateHoldJobExecutionResponse
+       */
+      Models::OperateHoldJobExecutionResponse operateHoldJobExecutionWithOptions(const Models::OperateHoldJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Hold住任务实例
+       *
+       * @param request OperateHoldJobExecutionRequest
+       * @return OperateHoldJobExecutionResponse
+       */
+      Models::OperateHoldJobExecutionResponse operateHoldJobExecution(const Models::OperateHoldJobExecutionRequest &request);
+
+      /**
+       * @summary 将工作流中未开始的节点置为Held状态
+       *
+       * @param request OperateHoldWorkflowExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateHoldWorkflowExecutionResponse
+       */
+      Models::OperateHoldWorkflowExecutionResponse operateHoldWorkflowExecutionWithOptions(const Models::OperateHoldWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将工作流中未开始的节点置为Held状态
+       *
+       * @param request OperateHoldWorkflowExecutionRequest
+       * @return OperateHoldWorkflowExecutionResponse
+       */
+      Models::OperateHoldWorkflowExecutionResponse operateHoldWorkflowExecution(const Models::OperateHoldWorkflowExecutionRequest &request);
+
+      /**
+       * @summary 标记任务实例为成功状态
+       *
+       * @param request OperateMarkSuccessJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateMarkSuccessJobExecutionResponse
+       */
+      Models::OperateMarkSuccessJobExecutionResponse operateMarkSuccessJobExecutionWithOptions(const Models::OperateMarkSuccessJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 标记任务实例为成功状态
+       *
+       * @param request OperateMarkSuccessJobExecutionRequest
+       * @return OperateMarkSuccessJobExecutionResponse
+       */
+      Models::OperateMarkSuccessJobExecutionResponse operateMarkSuccessJobExecution(const Models::OperateMarkSuccessJobExecutionRequest &request);
+
+      /**
+       * @summary 将工作流实例标记为成功
+       *
+       * @param request OperateMarkSuccessWorkflowExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateMarkSuccessWorkflowExecutionResponse
+       */
+      Models::OperateMarkSuccessWorkflowExecutionResponse operateMarkSuccessWorkflowExecutionWithOptions(const Models::OperateMarkSuccessWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将工作流实例标记为成功
+       *
+       * @param request OperateMarkSuccessWorkflowExecutionRequest
+       * @return OperateMarkSuccessWorkflowExecutionResponse
+       */
+      Models::OperateMarkSuccessWorkflowExecutionResponse operateMarkSuccessWorkflowExecution(const Models::OperateMarkSuccessWorkflowExecutionRequest &request);
 
       /**
        * @summary 重刷任务历史数据
@@ -699,6 +1107,40 @@ namespace SchedulerX320240624
       Models::OperateRetryJobExecutionResponse operateRetryJobExecution(const Models::OperateRetryJobExecutionRequest &request);
 
       /**
+       * @summary 重跑工作流实例
+       *
+       * @param request OperateRetryWorkflowExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateRetryWorkflowExecutionResponse
+       */
+      Models::OperateRetryWorkflowExecutionResponse operateRetryWorkflowExecutionWithOptions(const Models::OperateRetryWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重跑工作流实例
+       *
+       * @param request OperateRetryWorkflowExecutionRequest
+       * @return OperateRetryWorkflowExecutionResponse
+       */
+      Models::OperateRetryWorkflowExecutionResponse operateRetryWorkflowExecution(const Models::OperateRetryWorkflowExecutionRequest &request);
+
+      /**
+       * @summary 跳过任务实例
+       *
+       * @param request OperateSkipJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateSkipJobExecutionResponse
+       */
+      Models::OperateSkipJobExecutionResponse operateSkipJobExecutionWithOptions(const Models::OperateSkipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 跳过任务实例
+       *
+       * @param request OperateSkipJobExecutionRequest
+       * @return OperateSkipJobExecutionResponse
+       */
+      Models::OperateSkipJobExecutionResponse operateSkipJobExecution(const Models::OperateSkipJobExecutionRequest &request);
+
+      /**
        * @summary 停止运行中的任务实例
        *
        * @param tmpReq OperateStopJobExecutionRequest
@@ -714,6 +1156,74 @@ namespace SchedulerX320240624
        * @return OperateStopJobExecutionResponse
        */
       Models::OperateStopJobExecutionResponse operateStopJobExecution(const Models::OperateStopJobExecutionRequest &request);
+
+      /**
+       * @summary 停止正在运行的工作流实例
+       *
+       * @param request OperateStopWorkflowExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateStopWorkflowExecutionResponse
+       */
+      Models::OperateStopWorkflowExecutionResponse operateStopWorkflowExecutionWithOptions(const Models::OperateStopWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止正在运行的工作流实例
+       *
+       * @param request OperateStopWorkflowExecutionRequest
+       * @return OperateStopWorkflowExecutionResponse
+       */
+      Models::OperateStopWorkflowExecutionResponse operateStopWorkflowExecution(const Models::OperateStopWorkflowExecutionRequest &request);
+
+      /**
+       * @summary 将held状态的任务恢复
+       *
+       * @param request OperateUnholdJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateUnholdJobExecutionResponse
+       */
+      Models::OperateUnholdJobExecutionResponse operateUnholdJobExecutionWithOptions(const Models::OperateUnholdJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将held状态的任务恢复
+       *
+       * @param request OperateUnholdJobExecutionRequest
+       * @return OperateUnholdJobExecutionResponse
+       */
+      Models::OperateUnholdJobExecutionResponse operateUnholdJobExecution(const Models::OperateUnholdJobExecutionRequest &request);
+
+      /**
+       * @summary 将工作流中held状态的节点恢复
+       *
+       * @param request OperateUnholdWorkflowExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateUnholdWorkflowExecutionResponse
+       */
+      Models::OperateUnholdWorkflowExecutionResponse operateUnholdWorkflowExecutionWithOptions(const Models::OperateUnholdWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将工作流中held状态的节点恢复
+       *
+       * @param request OperateUnholdWorkflowExecutionRequest
+       * @return OperateUnholdWorkflowExecutionResponse
+       */
+      Models::OperateUnholdWorkflowExecutionResponse operateUnholdWorkflowExecution(const Models::OperateUnholdWorkflowExecutionRequest &request);
+
+      /**
+       * @summary 将skipped状态的任务恢复
+       *
+       * @param request OperateUnskipJobExecutionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateUnskipJobExecutionResponse
+       */
+      Models::OperateUnskipJobExecutionResponse operateUnskipJobExecutionWithOptions(const Models::OperateUnskipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 将skipped状态的任务恢复
+       *
+       * @param request OperateUnskipJobExecutionRequest
+       * @return OperateUnskipJobExecutionResponse
+       */
+      Models::OperateUnskipJobExecutionResponse operateUnskipJobExecution(const Models::OperateUnskipJobExecutionRequest &request);
 
       /**
        * @summary 同步任务
@@ -748,6 +1258,23 @@ namespace SchedulerX320240624
        * @return UpdateAppResponse
        */
       Models::UpdateAppResponse updateApp(const Models::UpdateAppRequest &request);
+
+      /**
+       * @summary 更新日历
+       *
+       * @param request UpdateCalendarRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCalendarResponse
+       */
+      Models::UpdateCalendarResponse updateCalendarWithOptions(const Models::UpdateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新日历
+       *
+       * @param request UpdateCalendarRequest
+       * @return UpdateCalendarResponse
+       */
+      Models::UpdateCalendarResponse updateCalendar(const Models::UpdateCalendarRequest &request);
 
       /**
        * @summary 更新集群
@@ -816,6 +1343,57 @@ namespace SchedulerX320240624
        * @return UpdateJobScriptResponse
        */
       Models::UpdateJobScriptResponse updateJobScript(const Models::UpdateJobScriptRequest &request);
+
+      /**
+       * @summary 更新工作流
+       *
+       * @param request UpdateWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkflowResponse
+       */
+      Models::UpdateWorkflowResponse updateWorkflowWithOptions(const Models::UpdateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作流
+       *
+       * @param request UpdateWorkflowRequest
+       * @return UpdateWorkflowResponse
+       */
+      Models::UpdateWorkflowResponse updateWorkflow(const Models::UpdateWorkflowRequest &request);
+
+      /**
+       * @summary 更新工作流DAG
+       *
+       * @param tmpReq UpdateWorkflowDAGRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkflowDAGResponse
+       */
+      Models::UpdateWorkflowDAGResponse updateWorkflowDAGWithOptions(const Models::UpdateWorkflowDAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新工作流DAG
+       *
+       * @param request UpdateWorkflowDAGRequest
+       * @return UpdateWorkflowDAGResponse
+       */
+      Models::UpdateWorkflowDAGResponse updateWorkflowDAG(const Models::UpdateWorkflowDAGRequest &request);
+
+      /**
+       * @summary 切换工作流DAG版本
+       *
+       * @param request UpdateWorkflowDAGVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateWorkflowDAGVersionResponse
+       */
+      Models::UpdateWorkflowDAGVersionResponse updateWorkflowDAGVersionWithOptions(const Models::UpdateWorkflowDAGVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 切换工作流DAG版本
+       *
+       * @param request UpdateWorkflowDAGVersionRequest
+       * @return UpdateWorkflowDAGVersionResponse
+       */
+      Models::UpdateWorkflowDAGVersionResponse updateWorkflowDAGVersion(const Models::UpdateWorkflowDAGVersionRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace SchedulerX320240624

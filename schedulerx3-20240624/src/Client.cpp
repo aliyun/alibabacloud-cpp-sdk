@@ -106,6 +106,64 @@ CreateAppResponse Client::createApp(const CreateAppRequest &request) {
 }
 
 /**
+ * @summary 创建日历
+ *
+ * @param request CreateCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCalendarResponse
+ */
+CreateCalendarResponse Client::createCalendarWithOptions(const CreateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasMonths()) {
+    body["Months"] = request.months();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCalendar"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCalendarResponse>();
+}
+
+/**
+ * @summary 创建日历
+ *
+ * @param request CreateCalendarRequest
+ * @return CreateCalendarResponse
+ */
+CreateCalendarResponse Client::createCalendar(const CreateCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCalendarWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建集群
  *
  * @param tmpReq CreateClusterRequest
@@ -402,6 +460,88 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
+ * @summary 创建应用
+ *
+ * @param request CreateWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkflowResponse
+ */
+CreateWorkflowResponse Client::createWorkflowWithOptions(const CreateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasCalendar()) {
+    body["Calendar"] = request.calendar();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasMaxConcurrency()) {
+    body["MaxConcurrency"] = request.maxConcurrency();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.status();
+  }
+
+  if (!!request.hasTimeExpression()) {
+    body["TimeExpression"] = request.timeExpression();
+  }
+
+  if (!!request.hasTimeType()) {
+    body["TimeType"] = request.timeType();
+  }
+
+  if (!!request.hasTimezone()) {
+    body["Timezone"] = request.timezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkflowResponse>();
+}
+
+/**
+ * @summary 创建应用
+ *
+ * @param request CreateWorkflowRequest
+ * @return CreateWorkflowResponse
+ */
+CreateWorkflowResponse Client::createWorkflow(const CreateWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createWorkflowWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除应用分组
  *
  * @param request DeleteAppRequest
@@ -445,6 +585,56 @@ DeleteAppResponse Client::deleteAppWithOptions(const DeleteAppRequest &request, 
 DeleteAppResponse Client::deleteApp(const DeleteAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除日历
+ *
+ * @param request DeleteCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCalendarResponse
+ */
+DeleteCalendarResponse Client::deleteCalendarWithOptions(const DeleteCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteCalendar"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCalendarResponse>();
+}
+
+/**
+ * @summary 删除日历
+ *
+ * @param request DeleteCalendarRequest
+ * @return DeleteCalendarResponse
+ */
+DeleteCalendarResponse Client::deleteCalendar(const DeleteCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCalendarWithOptions(request, runtime);
 }
 
 /**
@@ -546,6 +736,120 @@ DeleteJobsResponse Client::deleteJobs(const DeleteJobsRequest &request) {
 }
 
 /**
+ * @summary 删除工作流
+ *
+ * @param request DeleteWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkflowResponse
+ */
+DeleteWorkflowResponse Client::deleteWorkflowWithOptions(const DeleteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDeleteJobs()) {
+    body["DeleteJobs"] = request.deleteJobs();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkflowResponse>();
+}
+
+/**
+ * @summary 删除工作流
+ *
+ * @param request DeleteWorkflowRequest
+ * @return DeleteWorkflowResponse
+ */
+DeleteWorkflowResponse Client::deleteWorkflow(const DeleteWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWorkflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除工作流
+ *
+ * @param tmpReq DeleteWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkflowsResponse
+ */
+DeleteWorkflowsResponse Client::deleteWorkflowsWithOptions(const DeleteWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteWorkflowsShrinkRequest request = DeleteWorkflowsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkflowIds()) {
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDeleteJobs()) {
+    body["DeleteJobs"] = request.deleteJobs();
+  }
+
+  if (!!request.hasWorkflowIdsShrink()) {
+    body["WorkflowIds"] = request.workflowIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkflowsResponse>();
+}
+
+/**
+ * @summary 批量删除工作流
+ *
+ * @param request DeleteWorkflowsRequest
+ * @return DeleteWorkflowsResponse
+ */
+DeleteWorkflowsResponse Client::deleteWorkflows(const DeleteWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWorkflowsWithOptions(request, runtime);
+}
+
+/**
  * @summary 批量导出任务信息
  *
  * @param tmpReq ExportJobsRequest
@@ -606,6 +910,62 @@ ExportJobsResponse Client::exportJobs(const ExportJobsRequest &request) {
 }
 
 /**
+ * @summary 批量导出工作流信息
+ *
+ * @param tmpReq ExportWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportWorkflowsResponse
+ */
+ExportWorkflowsResponse Client::exportWorkflowsWithOptions(const ExportWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExportWorkflowsShrinkRequest request = ExportWorkflowsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkflowId()) {
+    request.setWorkflowIdShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowId(), "WorkflowId", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowIdShrink()) {
+    body["WorkflowId"] = request.workflowIdShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExportWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "byte"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportWorkflowsResponse>();
+}
+
+/**
+ * @summary 批量导出工作流信息
+ *
+ * @param request ExportWorkflowsRequest
+ * @return ExportWorkflowsResponse
+ */
+ExportWorkflowsResponse Client::exportWorkflows(const ExportWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportWorkflowsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取指定应用
  *
  * @param request GetAppRequest
@@ -649,6 +1009,56 @@ GetAppResponse Client::getAppWithOptions(const GetAppRequest &request, const Dar
 GetAppResponse Client::getApp(const GetAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取日历信息
+ *
+ * @param request GetCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCalendarResponse
+ */
+GetCalendarResponse Client::getCalendarWithOptions(const GetCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCalendarName()) {
+    query["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasYear()) {
+    query["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCalendar"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCalendarResponse>();
+}
+
+/**
+ * @summary 获取日历信息
+ *
+ * @param request GetCalendarRequest
+ * @return GetCalendarResponse
+ */
+GetCalendarResponse Client::getCalendar(const GetCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCalendarWithOptions(request, runtime);
 }
 
 /**
@@ -980,6 +1390,210 @@ GetLogEventResponse Client::getLogEvent(const GetLogEventRequest &request) {
 }
 
 /**
+ * @summary 获取工作流
+ *
+ * @param request GetWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowResponse
+ */
+GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowResponse>();
+}
+
+/**
+ * @summary 获取工作流
+ *
+ * @param request GetWorkflowRequest
+ * @return GetWorkflowResponse
+ */
+GetWorkflowResponse Client::getWorkflow(const GetWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取工作流的DAG信息
+ *
+ * @param request GetWorkflowDAGRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowDAGResponse
+ */
+GetWorkflowDAGResponse Client::getWorkflowDAGWithOptions(const GetWorkflowDAGRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkflowDAG"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowDAGResponse>();
+}
+
+/**
+ * @summary 获取工作流的DAG信息
+ *
+ * @param request GetWorkflowDAGRequest
+ * @return GetWorkflowDAGResponse
+ */
+GetWorkflowDAGResponse Client::getWorkflowDAG(const GetWorkflowDAGRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkflowDAGWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取工作流的DAG信息
+ *
+ * @param request GetWorkflowDAGPreviewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowDAGPreviewResponse
+ */
+GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreviewWithOptions(const GetWorkflowDAGPreviewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDagVersion()) {
+    query["DagVersion"] = request.dagVersion();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkflowDAGPreview"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowDAGPreviewResponse>();
+}
+
+/**
+ * @summary 获取工作流的DAG信息
+ *
+ * @param request GetWorkflowDAGPreviewRequest
+ * @return GetWorkflowDAGPreviewResponse
+ */
+GetWorkflowDAGPreviewResponse Client::getWorkflowDAGPreview(const GetWorkflowDAGPreviewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkflowDAGPreviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取工作流实例DAG信息
+ *
+ * @param request GetWorkflowExecutionDAGRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkflowExecutionDAGResponse
+ */
+GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAGWithOptions(const GetWorkflowExecutionDAGRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    query["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkflowExecutionDAG"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkflowExecutionDAGResponse>();
+}
+
+/**
+ * @summary 获取工作流实例DAG信息
+ *
+ * @param request GetWorkflowExecutionDAGRequest
+ * @return GetWorkflowExecutionDAGResponse
+ */
+GetWorkflowExecutionDAGResponse Client::getWorkflowExecutionDAG(const GetWorkflowExecutionDAGRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkflowExecutionDAGWithOptions(request, runtime);
+}
+
+/**
  * @summary 导入日历
  *
  * @param request ImportCalendarRequest
@@ -1085,6 +1699,60 @@ ImportJobsResponse Client::importJobsWithOptions(const ImportJobsRequest &reques
 ImportJobsResponse Client::importJobs(const ImportJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return importJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量导入工作流
+ *
+ * @param request ImportWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportWorkflowsResponse
+ */
+ImportWorkflowsResponse Client::importWorkflowsWithOptions(const ImportWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoCreateApp()) {
+    body["AutoCreateApp"] = request.autoCreateApp();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.content();
+  }
+
+  if (!!request.hasOverwrite()) {
+    body["Overwrite"] = request.overwrite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImportWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportWorkflowsResponse>();
+}
+
+/**
+ * @summary 批量导入工作流
+ *
+ * @param request ImportWorkflowsRequest
+ * @return ImportWorkflowsResponse
+ */
+ImportWorkflowsResponse Client::importWorkflows(const ImportWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importWorkflowsWithOptions(request, runtime);
 }
 
 /**
@@ -1237,6 +1905,68 @@ ListCalendarNamesResponse Client::listCalendarNamesWithOptions(const ListCalenda
 ListCalendarNamesResponse Client::listCalendarNames(const ListCalendarNamesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCalendarNamesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询日历
+ *
+ * @param request ListCalendarsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCalendarsResponse
+ */
+ListCalendarsResponse Client::listCalendarsWithOptions(const ListCalendarsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCalendarName()) {
+    query["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasFetchCalendarDetail()) {
+    query["FetchCalendarDetail"] = request.fetchCalendarDetail();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasYear()) {
+    query["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCalendars"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCalendarsResponse>();
+}
+
+/**
+ * @summary 查询日历
+ *
+ * @param request ListCalendarsRequest
+ * @return ListCalendarsResponse
+ */
+ListCalendarsResponse Client::listCalendars(const ListCalendarsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCalendarsWithOptions(request, runtime);
 }
 
 /**
@@ -1772,6 +2502,286 @@ ListScheduleTimesResponse Client::listScheduleTimes(const ListScheduleTimesReque
 }
 
 /**
+ * @summary 获取流程实例列表
+ *
+ * @param request ListWorkflowExecutionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkflowExecutionsResponse
+ */
+ListWorkflowExecutionsResponse Client::listWorkflowExecutionsWithOptions(const ListWorkflowExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.endTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.startTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    query["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  if (!!request.hasWorkflowName()) {
+    query["WorkflowName"] = request.workflowName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkflowExecutions"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkflowExecutionsResponse>();
+}
+
+/**
+ * @summary 获取流程实例列表
+ *
+ * @param request ListWorkflowExecutionsRequest
+ * @return ListWorkflowExecutionsResponse
+ */
+ListWorkflowExecutionsResponse Client::listWorkflowExecutions(const ListWorkflowExecutionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkflowExecutionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取当前工作流版本列表
+ *
+ * @param request ListWorkflowVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkflowVersionsResponse
+ */
+ListWorkflowVersionsResponse Client::listWorkflowVersionsWithOptions(const ListWorkflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkflowVersions"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkflowVersionsResponse>();
+}
+
+/**
+ * @summary 获取当前工作流版本列表
+ *
+ * @param request ListWorkflowVersionsRequest
+ * @return ListWorkflowVersionsResponse
+ */
+ListWorkflowVersionsResponse Client::listWorkflowVersions(const ListWorkflowVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkflowVersionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取工作流列表
+ *
+ * @param request ListWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkflowsResponse
+ */
+ListWorkflowsResponse Client::listWorkflowsWithOptions(const ListWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.description();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.name();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.pageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.status();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkflowsResponse>();
+}
+
+/**
+ * @summary 获取工作流列表
+ *
+ * @param request ListWorkflowsRequest
+ * @return ListWorkflowsResponse
+ */
+ListWorkflowsResponse Client::listWorkflows(const ListWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkflowsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 补数工作流
+ *
+ * @param request OperateBackfillWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateBackfillWorkflowResponse
+ */
+OperateBackfillWorkflowResponse Client::operateBackfillWorkflowWithOptions(const OperateBackfillWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.endDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["StartDate"] = request.startDate();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateBackfillWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateBackfillWorkflowResponse>();
+}
+
+/**
+ * @summary 补数工作流
+ *
+ * @param request OperateBackfillWorkflowRequest
+ * @return OperateBackfillWorkflowResponse
+ */
+OperateBackfillWorkflowResponse Client::operateBackfillWorkflow(const OperateBackfillWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateBackfillWorkflowWithOptions(request, runtime);
+}
+
+/**
  * @summary 指定执行器
  *
  * @param tmpReq OperateDesignateExecutorsRequest
@@ -1896,6 +2906,62 @@ OperateDisableJobsResponse Client::operateDisableJobs(const OperateDisableJobsRe
 }
 
 /**
+ * @summary 批量禁用工作流
+ *
+ * @param tmpReq OperateDisableWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateDisableWorkflowsResponse
+ */
+OperateDisableWorkflowsResponse Client::operateDisableWorkflowsWithOptions(const OperateDisableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  OperateDisableWorkflowsShrinkRequest request = OperateDisableWorkflowsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkflowIds()) {
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowIdsShrink()) {
+    body["WorkflowIds"] = request.workflowIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateDisableWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateDisableWorkflowsResponse>();
+}
+
+/**
+ * @summary 批量禁用工作流
+ *
+ * @param request OperateDisableWorkflowsRequest
+ * @return OperateDisableWorkflowsResponse
+ */
+OperateDisableWorkflowsResponse Client::operateDisableWorkflows(const OperateDisableWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateDisableWorkflowsWithOptions(request, runtime);
+}
+
+/**
  * @summary 批量启用任务
  *
  * @param tmpReq OperateEnableJobsRequest
@@ -1949,6 +3015,62 @@ OperateEnableJobsResponse Client::operateEnableJobsWithOptions(const OperateEnab
 OperateEnableJobsResponse Client::operateEnableJobs(const OperateEnableJobsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateEnableJobsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量启用工作流
+ *
+ * @param tmpReq OperateEnableWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateEnableWorkflowsResponse
+ */
+OperateEnableWorkflowsResponse Client::operateEnableWorkflowsWithOptions(const OperateEnableWorkflowsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  OperateEnableWorkflowsShrinkRequest request = OperateEnableWorkflowsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWorkflowIds()) {
+    request.setWorkflowIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.workflowIds(), "WorkflowIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowIdsShrink()) {
+    body["WorkflowIds"] = request.workflowIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateEnableWorkflows"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateEnableWorkflowsResponse>();
+}
+
+/**
+ * @summary 批量启用工作流
+ *
+ * @param request OperateEnableWorkflowsRequest
+ * @return OperateEnableWorkflowsResponse
+ */
+OperateEnableWorkflowsResponse Client::operateEnableWorkflows(const OperateEnableWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateEnableWorkflowsWithOptions(request, runtime);
 }
 
 /**
@@ -2011,6 +3133,256 @@ OperateExecuteJobResponse Client::operateExecuteJobWithOptions(const OperateExec
 OperateExecuteJobResponse Client::operateExecuteJob(const OperateExecuteJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateExecuteJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 运行一次工作流
+ *
+ * @param request OperateExecuteWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateExecuteWorkflowResponse
+ */
+OperateExecuteWorkflowResponse Client::operateExecuteWorkflowWithOptions(const OperateExecuteWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateExecuteWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateExecuteWorkflowResponse>();
+}
+
+/**
+ * @summary 运行一次工作流
+ *
+ * @param request OperateExecuteWorkflowRequest
+ * @return OperateExecuteWorkflowResponse
+ */
+OperateExecuteWorkflowResponse Client::operateExecuteWorkflow(const OperateExecuteWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateExecuteWorkflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary Hold住任务实例
+ *
+ * @param request OperateHoldJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateHoldJobExecutionResponse
+ */
+OperateHoldJobExecutionResponse Client::operateHoldJobExecutionWithOptions(const OperateHoldJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateHoldJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateHoldJobExecutionResponse>();
+}
+
+/**
+ * @summary Hold住任务实例
+ *
+ * @param request OperateHoldJobExecutionRequest
+ * @return OperateHoldJobExecutionResponse
+ */
+OperateHoldJobExecutionResponse Client::operateHoldJobExecution(const OperateHoldJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateHoldJobExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将工作流中未开始的节点置为Held状态
+ *
+ * @param request OperateHoldWorkflowExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateHoldWorkflowExecutionResponse
+ */
+OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecutionWithOptions(const OperateHoldWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    body["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateHoldWorkflowExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateHoldWorkflowExecutionResponse>();
+}
+
+/**
+ * @summary 将工作流中未开始的节点置为Held状态
+ *
+ * @param request OperateHoldWorkflowExecutionRequest
+ * @return OperateHoldWorkflowExecutionResponse
+ */
+OperateHoldWorkflowExecutionResponse Client::operateHoldWorkflowExecution(const OperateHoldWorkflowExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateHoldWorkflowExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 标记任务实例为成功状态
+ *
+ * @param request OperateMarkSuccessJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateMarkSuccessJobExecutionResponse
+ */
+OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecutionWithOptions(const OperateMarkSuccessJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateMarkSuccessJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateMarkSuccessJobExecutionResponse>();
+}
+
+/**
+ * @summary 标记任务实例为成功状态
+ *
+ * @param request OperateMarkSuccessJobExecutionRequest
+ * @return OperateMarkSuccessJobExecutionResponse
+ */
+OperateMarkSuccessJobExecutionResponse Client::operateMarkSuccessJobExecution(const OperateMarkSuccessJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateMarkSuccessJobExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将工作流实例标记为成功
+ *
+ * @param request OperateMarkSuccessWorkflowExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateMarkSuccessWorkflowExecutionResponse
+ */
+OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowExecutionWithOptions(const OperateMarkSuccessWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    body["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateMarkSuccessWorkflowExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateMarkSuccessWorkflowExecutionResponse>();
+}
+
+/**
+ * @summary 将工作流实例标记为成功
+ *
+ * @param request OperateMarkSuccessWorkflowExecutionRequest
+ * @return OperateMarkSuccessWorkflowExecutionResponse
+ */
+OperateMarkSuccessWorkflowExecutionResponse Client::operateMarkSuccessWorkflowExecution(const OperateMarkSuccessWorkflowExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateMarkSuccessWorkflowExecutionWithOptions(request, runtime);
 }
 
 /**
@@ -2140,6 +3512,110 @@ OperateRetryJobExecutionResponse Client::operateRetryJobExecution(const OperateR
 }
 
 /**
+ * @summary 重跑工作流实例
+ *
+ * @param request OperateRetryWorkflowExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateRetryWorkflowExecutionResponse
+ */
+OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecutionWithOptions(const OperateRetryWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasOnlyFailed()) {
+    body["OnlyFailed"] = request.onlyFailed();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    body["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateRetryWorkflowExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateRetryWorkflowExecutionResponse>();
+}
+
+/**
+ * @summary 重跑工作流实例
+ *
+ * @param request OperateRetryWorkflowExecutionRequest
+ * @return OperateRetryWorkflowExecutionResponse
+ */
+OperateRetryWorkflowExecutionResponse Client::operateRetryWorkflowExecution(const OperateRetryWorkflowExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateRetryWorkflowExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 跳过任务实例
+ *
+ * @param request OperateSkipJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateSkipJobExecutionResponse
+ */
+OperateSkipJobExecutionResponse Client::operateSkipJobExecutionWithOptions(const OperateSkipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateSkipJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateSkipJobExecutionResponse>();
+}
+
+/**
+ * @summary 跳过任务实例
+ *
+ * @param request OperateSkipJobExecutionRequest
+ * @return OperateSkipJobExecutionResponse
+ */
+OperateSkipJobExecutionResponse Client::operateSkipJobExecution(const OperateSkipJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateSkipJobExecutionWithOptions(request, runtime);
+}
+
+/**
  * @summary 停止运行中的任务实例
  *
  * @param tmpReq OperateStopJobExecutionRequest
@@ -2197,6 +3673,206 @@ OperateStopJobExecutionResponse Client::operateStopJobExecutionWithOptions(const
 OperateStopJobExecutionResponse Client::operateStopJobExecution(const OperateStopJobExecutionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateStopJobExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 停止正在运行的工作流实例
+ *
+ * @param request OperateStopWorkflowExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateStopWorkflowExecutionResponse
+ */
+OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecutionWithOptions(const OperateStopWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    body["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateStopWorkflowExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateStopWorkflowExecutionResponse>();
+}
+
+/**
+ * @summary 停止正在运行的工作流实例
+ *
+ * @param request OperateStopWorkflowExecutionRequest
+ * @return OperateStopWorkflowExecutionResponse
+ */
+OperateStopWorkflowExecutionResponse Client::operateStopWorkflowExecution(const OperateStopWorkflowExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateStopWorkflowExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将held状态的任务恢复
+ *
+ * @param request OperateUnholdJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateUnholdJobExecutionResponse
+ */
+OperateUnholdJobExecutionResponse Client::operateUnholdJobExecutionWithOptions(const OperateUnholdJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateUnholdJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateUnholdJobExecutionResponse>();
+}
+
+/**
+ * @summary 将held状态的任务恢复
+ *
+ * @param request OperateUnholdJobExecutionRequest
+ * @return OperateUnholdJobExecutionResponse
+ */
+OperateUnholdJobExecutionResponse Client::operateUnholdJobExecution(const OperateUnholdJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateUnholdJobExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将工作流中held状态的节点恢复
+ *
+ * @param request OperateUnholdWorkflowExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateUnholdWorkflowExecutionResponse
+ */
+OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecutionWithOptions(const OperateUnholdWorkflowExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasWorkflowExecutionId()) {
+    body["WorkflowExecutionId"] = request.workflowExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "OperateUnholdWorkflowExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateUnholdWorkflowExecutionResponse>();
+}
+
+/**
+ * @summary 将工作流中held状态的节点恢复
+ *
+ * @param request OperateUnholdWorkflowExecutionRequest
+ * @return OperateUnholdWorkflowExecutionResponse
+ */
+OperateUnholdWorkflowExecutionResponse Client::operateUnholdWorkflowExecution(const OperateUnholdWorkflowExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateUnholdWorkflowExecutionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 将skipped状态的任务恢复
+ *
+ * @param request OperateUnskipJobExecutionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateUnskipJobExecutionResponse
+ */
+OperateUnskipJobExecutionResponse Client::operateUnskipJobExecutionWithOptions(const OperateUnskipJobExecutionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppName()) {
+    query["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    query["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasJobExecutionId()) {
+    query["JobExecutionId"] = request.jobExecutionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateUnskipJobExecution"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateUnskipJobExecutionResponse>();
+}
+
+/**
+ * @summary 将skipped状态的任务恢复
+ *
+ * @param request OperateUnskipJobExecutionRequest
+ * @return OperateUnskipJobExecutionResponse
+ */
+OperateUnskipJobExecutionResponse Client::operateUnskipJobExecution(const OperateUnskipJobExecutionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateUnskipJobExecutionWithOptions(request, runtime);
 }
 
 /**
@@ -2327,6 +4003,68 @@ UpdateAppResponse Client::updateAppWithOptions(const UpdateAppRequest &request, 
 UpdateAppResponse Client::updateApp(const UpdateAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新日历
+ *
+ * @param request UpdateCalendarRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCalendarResponse
+ */
+UpdateCalendarResponse Client::updateCalendarWithOptions(const UpdateCalendarRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCalendarName()) {
+    body["CalendarName"] = request.calendarName();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasIncremental()) {
+    body["Incremental"] = request.incremental();
+  }
+
+  if (!!request.hasMonths()) {
+    body["Months"] = request.months();
+  }
+
+  if (!!request.hasYear()) {
+    body["Year"] = request.year();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateCalendar"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCalendarResponse>();
+}
+
+/**
+ * @summary 更新日历
+ *
+ * @param request UpdateCalendarRequest
+ * @return UpdateCalendarResponse
+ */
+UpdateCalendarResponse Client::updateCalendar(const UpdateCalendarRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCalendarWithOptions(request, runtime);
 }
 
 /**
@@ -2633,6 +4371,206 @@ UpdateJobScriptResponse Client::updateJobScriptWithOptions(const UpdateJobScript
 UpdateJobScriptResponse Client::updateJobScript(const UpdateJobScriptRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateJobScriptWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新工作流
+ *
+ * @param request UpdateWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkflowResponse
+ */
+UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasCalendar()) {
+    body["Calendar"] = request.calendar();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasMaxConcurrency()) {
+    body["MaxConcurrency"] = request.maxConcurrency();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasTimeExpression()) {
+    body["TimeExpression"] = request.timeExpression();
+  }
+
+  if (!!request.hasTimeType()) {
+    body["TimeType"] = request.timeType();
+  }
+
+  if (!!request.hasTimezone()) {
+    body["Timezone"] = request.timezone();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateWorkflow"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkflowResponse>();
+}
+
+/**
+ * @summary 更新工作流
+ *
+ * @param request UpdateWorkflowRequest
+ * @return UpdateWorkflowResponse
+ */
+UpdateWorkflowResponse Client::updateWorkflow(const UpdateWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWorkflowWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新工作流DAG
+ *
+ * @param tmpReq UpdateWorkflowDAGRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkflowDAGResponse
+ */
+UpdateWorkflowDAGResponse Client::updateWorkflowDAGWithOptions(const UpdateWorkflowDAGRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateWorkflowDAGShrinkRequest request = UpdateWorkflowDAGShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDag()) {
+    request.setDagShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.dag(), "Dag", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDagShrink()) {
+    body["Dag"] = request.dagShrink();
+  }
+
+  if (!!request.hasDagVersion()) {
+    body["DagVersion"] = request.dagVersion();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateWorkflowDAG"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkflowDAGResponse>();
+}
+
+/**
+ * @summary 更新工作流DAG
+ *
+ * @param request UpdateWorkflowDAGRequest
+ * @return UpdateWorkflowDAGResponse
+ */
+UpdateWorkflowDAGResponse Client::updateWorkflowDAG(const UpdateWorkflowDAGRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWorkflowDAGWithOptions(request, runtime);
+}
+
+/**
+ * @summary 切换工作流DAG版本
+ *
+ * @param request UpdateWorkflowDAGVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWorkflowDAGVersionResponse
+ */
+UpdateWorkflowDAGVersionResponse Client::updateWorkflowDAGVersionWithOptions(const UpdateWorkflowDAGVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppName()) {
+    body["AppName"] = request.appName();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.clusterId();
+  }
+
+  if (!!request.hasDagVersion()) {
+    body["DagVersion"] = request.dagVersion();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    body["WorkflowId"] = request.workflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateWorkflowDAGVersion"},
+    {"version" , "2024-06-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWorkflowDAGVersionResponse>();
+}
+
+/**
+ * @summary 切换工作流DAG版本
+ *
+ * @param request UpdateWorkflowDAGVersionRequest
+ * @return UpdateWorkflowDAGVersionResponse
+ */
+UpdateWorkflowDAGVersionResponse Client::updateWorkflowDAGVersion(const UpdateWorkflowDAGVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateWorkflowDAGVersionWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace SchedulerX320240624
