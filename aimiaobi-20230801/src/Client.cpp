@@ -11275,6 +11275,10 @@ FutrueGenerator<RunTextPolishingResponse> Client::runTextPolishingWithSSE(const 
     body["Content"] = request.content();
   }
 
+  if (!!request.hasOriginContent()) {
+    body["OriginContent"] = request.originContent();
+  }
+
   if (!!request.hasPrompt()) {
     body["Prompt"] = request.prompt();
   }
@@ -11324,6 +11328,10 @@ RunTextPolishingResponse Client::runTextPolishingWithOptions(const RunTextPolish
   json body = {};
   if (!!request.hasContent()) {
     body["Content"] = request.content();
+  }
+
+  if (!!request.hasOriginContent()) {
+    body["OriginContent"] = request.originContent();
   }
 
   if (!!request.hasPrompt()) {

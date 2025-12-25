@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RunTextPolishingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(OriginContent, originContent_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, RunTextPolishingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(OriginContent, originContent_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->prompt_ == nullptr && return this->workspaceId_ == nullptr; };
+        && return this->originContent_ == nullptr && return this->prompt_ == nullptr && return this->workspaceId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
     inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline RunTextPolishingRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // originContent Field Functions 
+    bool hasOriginContent() const { return this->originContent_ != nullptr;};
+    void deleteOriginContent() { this->originContent_ = nullptr;};
+    inline string originContent() const { DARABONBA_PTR_GET_DEFAULT(originContent_, "") };
+    inline RunTextPolishingRequest& setOriginContent(string originContent) { DARABONBA_PTR_SET_VALUE(originContent_, originContent) };
 
 
     // prompt Field Functions 
@@ -59,6 +68,7 @@ namespace Models
   protected:
     // This parameter is required.
     std::shared_ptr<string> content_ = nullptr;
+    std::shared_ptr<string> originContent_ = nullptr;
     std::shared_ptr<string> prompt_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> workspaceId_ = nullptr;
