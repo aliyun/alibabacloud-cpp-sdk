@@ -10,6 +10,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using namespace AlibabaCloud::Cms20240330::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
@@ -295,6 +296,128 @@ CreateBizTraceResponse Client::createBizTrace(const CreateBizTraceRequest &reque
 }
 
 /**
+ * @summary 创建对话
+ *
+ * @param request CreateChatRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateChatResponse
+ */
+FutrueGenerator<CreateChatResponse> Client::createChatWithSSE(const CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.action();
+  }
+
+  if (!!request.hasDigitalEmployeeName()) {
+    body["digitalEmployeeName"] = request.digitalEmployeeName();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.messages();
+  }
+
+  if (!!request.hasThreadId()) {
+    body["threadId"] = request.threadId();
+  }
+
+  if (!!request.hasVariables()) {
+    body["variables"] = request.variables();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateChat"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutrueGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    json data = json(json::parse(resp.event().data()));
+json     __retrun = json(json({
+      {"statusCode" , resp.statusCode()},
+      {"headers" , resp.headers()},
+      {"body" , Darabonba::Core::merge(data,
+          {"RequestId" , resp.event().id()},
+          {"Message" , resp.event().event()}
+      )}
+    })).get<CreateChatResponse>();
+return Darbaonba::FutureGenerator<json>(__retrun);
+  }
+}
+
+/**
+ * @summary 创建对话
+ *
+ * @param request CreateChatRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateChatResponse
+ */
+CreateChatResponse Client::createChatWithOptions(const CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAction()) {
+    body["action"] = request.action();
+  }
+
+  if (!!request.hasDigitalEmployeeName()) {
+    body["digitalEmployeeName"] = request.digitalEmployeeName();
+  }
+
+  if (!!request.hasMessages()) {
+    body["messages"] = request.messages();
+  }
+
+  if (!!request.hasThreadId()) {
+    body["threadId"] = request.threadId();
+  }
+
+  if (!!request.hasVariables()) {
+    body["variables"] = request.variables();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateChat"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateChatResponse>();
+}
+
+/**
+ * @summary 创建对话
+ *
+ * @param request CreateChatRequest
+ * @return CreateChatResponse
+ */
+CreateChatResponse Client::createChat(const CreateChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createChatWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建云资源中心
  *
  * @param headers map
@@ -328,6 +451,71 @@ CreateCloudResourceResponse Client::createCloudResource() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 创建DigitalEmployee
+ *
+ * @param request CreateDigitalEmployeeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDigitalEmployeeResponse
+ */
+CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDefaultRule()) {
+    body["defaultRule"] = request.defaultRule();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.displayName();
+  }
+
+  if (!!request.hasKnowledges()) {
+    body["knowledges"] = request.knowledges();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.name();
+  }
+
+  if (!!request.hasRoleArn()) {
+    body["roleArn"] = request.roleArn();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDigitalEmployee"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digital-employee")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDigitalEmployeeResponse>();
+}
+
+/**
+ * @summary 创建DigitalEmployee
+ *
+ * @param request CreateDigitalEmployeeRequest
+ * @return CreateDigitalEmployeeResponse
+ */
+CreateDigitalEmployeeResponse Client::createDigitalEmployee(const CreateDigitalEmployeeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDigitalEmployeeWithOptions(request, headers, runtime);
 }
 
 /**
@@ -728,6 +916,55 @@ CreateServiceResponse Client::createService(const string &workspace, const Creat
 }
 
 /**
+ * @summary 创建会话
+ *
+ * @param request CreateThreadRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateThreadResponse
+ */
+CreateThreadResponse Client::createThreadWithOptions(const string &name, const CreateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTitle()) {
+    body["title"] = request.title();
+  }
+
+  if (!!request.hasVariables()) {
+    body["variables"] = request.variables();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateThread"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/thread")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateThreadResponse>();
+}
+
+/**
+ * @summary 创建会话
+ *
+ * @param request CreateThreadRequest
+ * @return CreateThreadResponse
+ */
+CreateThreadResponse Client::createThread(const string &name, const CreateThreadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createThreadWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary Create Ticket
  *
  * @param request CreateTicketRequest
@@ -987,6 +1224,42 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
 }
 
 /**
+ * @summary 删除DigitalEmployee
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDigitalEmployeeResponse
+ */
+DeleteDigitalEmployeeResponse Client::deleteDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDigitalEmployee"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digital-employee/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDigitalEmployeeResponse>();
+}
+
+/**
+ * @summary 删除DigitalEmployee
+ *
+ * @return DeleteDigitalEmployeeResponse
+ */
+DeleteDigitalEmployeeResponse Client::deleteDigitalEmployee(const string &name) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDigitalEmployeeWithOptions(name, headers, runtime);
+}
+
+/**
  * @summary Delete EntityStore related storage
  *
  * @param headers map
@@ -1181,6 +1454,42 @@ DeleteServiceResponse Client::deleteService(const string &workspace, const strin
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteServiceWithOptions(workspace, serviceId, headers, runtime);
+}
+
+/**
+ * @summary 删除会话
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteThreadResponse
+ */
+DeleteThreadResponse Client::deleteThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteThread"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/thread/" , Darabonba::Encode::Encoder::percentEncode(threadId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteThreadResponse>();
+}
+
+/**
+ * @summary 删除会话
+ *
+ * @return DeleteThreadResponse
+ */
+DeleteThreadResponse Client::deleteThread(const string &name, const string &threadId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteThreadWithOptions(name, threadId, headers, runtime);
 }
 
 /**
@@ -1808,6 +2117,42 @@ GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request)
 }
 
 /**
+ * @summary 查询 DigitalEmployee
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDigitalEmployeeResponse
+ */
+GetDigitalEmployeeResponse Client::getDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDigitalEmployee"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digital-employee/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDigitalEmployeeResponse>();
+}
+
+/**
+ * @summary 查询 DigitalEmployee
+ *
+ * @return GetDigitalEmployeeResponse
+ */
+GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDigitalEmployeeWithOptions(name, headers, runtime);
+}
+
+/**
  * @summary Get EntityStore related storage information
  *
  * @param headers map
@@ -2211,6 +2556,91 @@ GetServiceObservabilityResponse Client::getServiceObservability(const string &wo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+}
+
+/**
+ * @summary 获取会话
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetThreadResponse
+ */
+GetThreadResponse Client::getThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetThread"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/thread/" , Darabonba::Encode::Encoder::percentEncode(threadId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetThreadResponse>();
+}
+
+/**
+ * @summary 获取会话
+ *
+ * @return GetThreadResponse
+ */
+GetThreadResponse Client::getThread(const string &name, const string &threadId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getThreadWithOptions(name, threadId, headers, runtime);
+}
+
+/**
+ * @summary 获取会话数据
+ *
+ * @param request GetThreadDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetThreadDataResponse
+ */
+GetThreadDataResponse Client::getThreadDataWithOptions(const string &name, const string &threadId, const GetThreadDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetThreadData"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/thread/" , Darabonba::Encode::Encoder::percentEncode(threadId) , "/data")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetThreadDataResponse>();
+}
+
+/**
+ * @summary 获取会话数据
+ *
+ * @param request GetThreadDataRequest
+ * @return GetThreadDataResponse
+ */
+GetThreadDataResponse Client::getThreadData(const string &name, const string &threadId, const GetThreadDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getThreadDataWithOptions(name, threadId, request, headers, runtime);
 }
 
 /**
@@ -2687,6 +3117,59 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listBizTracesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出资源DigitalEmployee
+ *
+ * @param request ListDigitalEmployeesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDigitalEmployeesResponse
+ */
+ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.name();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDigitalEmployees"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digital-employee")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDigitalEmployeesResponse>();
+}
+
+/**
+ * @summary 列出资源DigitalEmployee
+ *
+ * @param request ListDigitalEmployeesRequest
+ * @return ListDigitalEmployeesResponse
+ */
+ListDigitalEmployeesResponse Client::listDigitalEmployees(const ListDigitalEmployeesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listDigitalEmployeesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3500,6 +3983,73 @@ ListServicesResponse Client::listServices(const string &workspace, const ListSer
 }
 
 /**
+ * @summary 列出会话
+ *
+ * @param tmpReq ListThreadsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListThreadsResponse
+ */
+ListThreadsResponse Client::listThreadsWithOptions(const string &name, const ListThreadsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListThreadsShrinkRequest request = ListThreadsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFilter()) {
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "filter", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasFilterShrink()) {
+    query["filter"] = request.filterShrink();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.maxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.nextToken();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.status();
+  }
+
+  if (!!request.hasThreadId()) {
+    query["threadId"] = request.threadId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListThreads"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/threads")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListThreadsResponse>();
+}
+
+/**
+ * @summary 列出会话
+ *
+ * @param request ListThreadsRequest
+ * @return ListThreadsResponse
+ */
+ListThreadsResponse Client::listThreads(const string &name, const ListThreadsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listThreadsWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary Get Workspace List
  *
  * @param tmpReq ListWorkspacesRequest
@@ -3881,6 +4431,67 @@ UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const Up
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新UpdateDigitalEmployee
+ *
+ * @param request UpdateDigitalEmployeeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDigitalEmployeeResponse
+ */
+UpdateDigitalEmployeeResponse Client::updateDigitalEmployeeWithOptions(const string &name, const UpdateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDefaultRule()) {
+    body["defaultRule"] = request.defaultRule();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.description();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.displayName();
+  }
+
+  if (!!request.hasKnowledges()) {
+    body["knowledges"] = request.knowledges();
+  }
+
+  if (!!request.hasRoleArn()) {
+    body["roleArn"] = request.roleArn();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDigitalEmployee"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digital-employee/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDigitalEmployeeResponse>();
+}
+
+/**
+ * @summary 更新UpdateDigitalEmployee
+ *
+ * @param request UpdateDigitalEmployeeRequest
+ * @return UpdateDigitalEmployeeResponse
+ */
+UpdateDigitalEmployeeResponse Client::updateDigitalEmployee(const string &name, const UpdateDigitalEmployeeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDigitalEmployeeWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -4294,6 +4905,55 @@ UpdateSubscriptionResponse Client::updateSubscription(const string &subscription
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateSubscriptionWithOptions(subscriptionId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新会话
+ *
+ * @param request UpdateThreadRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateThreadResponse
+ */
+UpdateThreadResponse Client::updateThreadWithOptions(const string &name, const string &threadId, const UpdateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasStatus()) {
+    body["status"] = request.status();
+  }
+
+  if (!!request.hasTitle()) {
+    body["title"] = request.title();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateThread"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/thread/" , Darabonba::Encode::Encoder::percentEncode(threadId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateThreadResponse>();
+}
+
+/**
+ * @summary 更新会话
+ *
+ * @param request UpdateThreadRequest
+ * @return UpdateThreadResponse
+ */
+UpdateThreadResponse Client::updateThread(const string &name, const string &threadId, const UpdateThreadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateThreadWithOptions(name, threadId, request, headers, runtime);
 }
 
 /**

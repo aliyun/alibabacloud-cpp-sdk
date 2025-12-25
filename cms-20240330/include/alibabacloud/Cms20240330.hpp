@@ -79,6 +79,34 @@ namespace Cms20240330
       Models::CreateBizTraceResponse createBizTrace(const Models::CreateBizTraceRequest &request);
 
       /**
+       * @summary 创建对话
+       *
+       * @param request CreateChatRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateChatResponse
+       */
+      FutrueGenerator<Models::CreateChatResponse> createChatWithSSE(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建对话
+       *
+       * @param request CreateChatRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateChatResponse
+       */
+      Models::CreateChatResponse createChatWithOptions(const Models::CreateChatRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建对话
+       *
+       * @param request CreateChatRequest
+       * @return CreateChatResponse
+       */
+      Models::CreateChatResponse createChat(const Models::CreateChatRequest &request);
+
+      /**
        * @summary 创建云资源中心
        *
        * @param headers map
@@ -93,6 +121,24 @@ namespace Cms20240330
        * @return CreateCloudResourceResponse
        */
       Models::CreateCloudResourceResponse createCloudResource();
+
+      /**
+       * @summary 创建DigitalEmployee
+       *
+       * @param request CreateDigitalEmployeeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDigitalEmployeeResponse
+       */
+      Models::CreateDigitalEmployeeResponse createDigitalEmployeeWithOptions(const Models::CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建DigitalEmployee
+       *
+       * @param request CreateDigitalEmployeeRequest
+       * @return CreateDigitalEmployeeResponse
+       */
+      Models::CreateDigitalEmployeeResponse createDigitalEmployee(const Models::CreateDigitalEmployeeRequest &request);
 
       /**
        * @summary Create storage related to EntityStore
@@ -213,6 +259,24 @@ namespace Cms20240330
       Models::CreateServiceResponse createService(const string &workspace, const Models::CreateServiceRequest &request);
 
       /**
+       * @summary 创建会话
+       *
+       * @param request CreateThreadRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateThreadResponse
+       */
+      Models::CreateThreadResponse createThreadWithOptions(const string &name, const Models::CreateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建会话
+       *
+       * @param request CreateThreadRequest
+       * @return CreateThreadResponse
+       */
+      Models::CreateThreadResponse createThread(const string &name, const Models::CreateThreadRequest &request);
+
+      /**
        * @summary Create Ticket
        *
        * @param request CreateTicketRequest
@@ -319,6 +383,22 @@ namespace Cms20240330
       Models::DeleteCloudResourceResponse deleteCloudResource();
 
       /**
+       * @summary 删除DigitalEmployee
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDigitalEmployeeResponse
+       */
+      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除DigitalEmployee
+       *
+       * @return DeleteDigitalEmployeeResponse
+       */
+      Models::DeleteDigitalEmployeeResponse deleteDigitalEmployee(const string &name);
+
+      /**
        * @summary Delete EntityStore related storage
        *
        * @param headers map
@@ -407,6 +487,22 @@ namespace Cms20240330
        * @return DeleteServiceResponse
        */
       Models::DeleteServiceResponse deleteService(const string &workspace, const string &serviceId);
+
+      /**
+       * @summary 删除会话
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteThreadResponse
+       */
+      Models::DeleteThreadResponse deleteThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除会话
+       *
+       * @return DeleteThreadResponse
+       */
+      Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId);
 
       /**
        * @summary Delete Umodel configuration information
@@ -657,6 +753,22 @@ namespace Cms20240330
       Models::GetCmsServiceResponse getCmsService(const Models::GetCmsServiceRequest &request);
 
       /**
+       * @summary 查询 DigitalEmployee
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDigitalEmployeeResponse
+       */
+      Models::GetDigitalEmployeeResponse getDigitalEmployeeWithOptions(const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 DigitalEmployee
+       *
+       * @return GetDigitalEmployeeResponse
+       */
+      Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name);
+
+      /**
        * @summary Get EntityStore related storage information
        *
        * @param headers map
@@ -817,6 +929,40 @@ namespace Cms20240330
        * @return GetServiceObservabilityResponse
        */
       Models::GetServiceObservabilityResponse getServiceObservability(const string &workspace, const string &type);
+
+      /**
+       * @summary 获取会话
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetThreadResponse
+       */
+      Models::GetThreadResponse getThreadWithOptions(const string &name, const string &threadId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话
+       *
+       * @return GetThreadResponse
+       */
+      Models::GetThreadResponse getThread(const string &name, const string &threadId);
+
+      /**
+       * @summary 获取会话数据
+       *
+       * @param request GetThreadDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetThreadDataResponse
+       */
+      Models::GetThreadDataResponse getThreadDataWithOptions(const string &name, const string &threadId, const Models::GetThreadDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话数据
+       *
+       * @param request GetThreadDataRequest
+       * @return GetThreadDataResponse
+       */
+      Models::GetThreadDataResponse getThreadData(const string &name, const string &threadId, const Models::GetThreadDataRequest &request);
 
       /**
        * @summary Get Umodel configuration information
@@ -985,6 +1131,24 @@ namespace Cms20240330
        * @return ListBizTracesResponse
        */
       Models::ListBizTracesResponse listBizTraces(const Models::ListBizTracesRequest &request);
+
+      /**
+       * @summary 列出资源DigitalEmployee
+       *
+       * @param request ListDigitalEmployeesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDigitalEmployeesResponse
+       */
+      Models::ListDigitalEmployeesResponse listDigitalEmployeesWithOptions(const Models::ListDigitalEmployeesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出资源DigitalEmployee
+       *
+       * @param request ListDigitalEmployeesRequest
+       * @return ListDigitalEmployeesResponse
+       */
+      Models::ListDigitalEmployeesResponse listDigitalEmployees(const Models::ListDigitalEmployeesRequest &request);
 
       /**
        * @summary Query Access Center Policy List Information
@@ -1255,6 +1419,24 @@ namespace Cms20240330
       Models::ListServicesResponse listServices(const string &workspace, const Models::ListServicesRequest &request);
 
       /**
+       * @summary 列出会话
+       *
+       * @param tmpReq ListThreadsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListThreadsResponse
+       */
+      Models::ListThreadsResponse listThreadsWithOptions(const string &name, const Models::ListThreadsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出会话
+       *
+       * @param request ListThreadsRequest
+       * @return ListThreadsResponse
+       */
+      Models::ListThreadsResponse listThreads(const string &name, const Models::ListThreadsRequest &request);
+
+      /**
        * @summary Get Workspace List
        *
        * @param tmpReq ListWorkspacesRequest
@@ -1361,6 +1543,24 @@ namespace Cms20240330
        * @return UpdateBizTraceResponse
        */
       Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
+
+      /**
+       * @summary 更新UpdateDigitalEmployee
+       *
+       * @param request UpdateDigitalEmployeeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDigitalEmployeeResponse
+       */
+      Models::UpdateDigitalEmployeeResponse updateDigitalEmployeeWithOptions(const string &name, const Models::UpdateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新UpdateDigitalEmployee
+       *
+       * @param request UpdateDigitalEmployeeRequest
+       * @return UpdateDigitalEmployeeResponse
+       */
+      Models::UpdateDigitalEmployeeResponse updateDigitalEmployee(const string &name, const Models::UpdateDigitalEmployeeRequest &request);
 
       /**
        * @summary Update the specified policy
@@ -1495,6 +1695,24 @@ namespace Cms20240330
        * @return UpdateSubscriptionResponse
        */
       Models::UpdateSubscriptionResponse updateSubscription(const string &subscriptionId, const Models::UpdateSubscriptionRequest &request);
+
+      /**
+       * @summary 更新会话
+       *
+       * @param request UpdateThreadRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateThreadResponse
+       */
+      Models::UpdateThreadResponse updateThreadWithOptions(const string &name, const string &threadId, const Models::UpdateThreadRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新会话
+       *
+       * @param request UpdateThreadRequest
+       * @return UpdateThreadResponse
+       */
+      Models::UpdateThreadResponse updateThread(const string &name, const string &threadId, const Models::UpdateThreadRequest &request);
 
       /**
        * @summary Update Umodel configuration information

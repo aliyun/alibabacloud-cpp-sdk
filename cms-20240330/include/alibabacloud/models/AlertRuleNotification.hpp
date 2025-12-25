@@ -17,6 +17,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AlertRuleNotification& obj) { 
       DARABONBA_PTR_TO_JSON(contacts, contacts_);
       DARABONBA_PTR_TO_JSON(customWebhooks, customWebhooks_);
+      DARABONBA_PTR_TO_JSON(dingCoolAppWebhooks, dingCoolAppWebhooks_);
       DARABONBA_PTR_TO_JSON(dingWebhooks, dingWebhooks_);
       DARABONBA_PTR_TO_JSON(fsWebhooks, fsWebhooks_);
       DARABONBA_PTR_TO_JSON(groups, groups_);
@@ -28,6 +29,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AlertRuleNotification& obj) { 
       DARABONBA_PTR_FROM_JSON(contacts, contacts_);
       DARABONBA_PTR_FROM_JSON(customWebhooks, customWebhooks_);
+      DARABONBA_PTR_FROM_JSON(dingCoolAppWebhooks, dingCoolAppWebhooks_);
       DARABONBA_PTR_FROM_JSON(dingWebhooks, dingWebhooks_);
       DARABONBA_PTR_FROM_JSON(fsWebhooks, fsWebhooks_);
       DARABONBA_PTR_FROM_JSON(groups, groups_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contacts_ == nullptr
-        && return this->customWebhooks_ == nullptr && return this->dingWebhooks_ == nullptr && return this->fsWebhooks_ == nullptr && return this->groups_ == nullptr && return this->notifyTime_ == nullptr
-        && return this->silenceTime_ == nullptr && return this->slackWebhooks_ == nullptr && return this->wxWebhooks_ == nullptr; };
+        && return this->customWebhooks_ == nullptr && return this->dingCoolAppWebhooks_ == nullptr && return this->dingWebhooks_ == nullptr && return this->fsWebhooks_ == nullptr && return this->groups_ == nullptr
+        && return this->notifyTime_ == nullptr && return this->silenceTime_ == nullptr && return this->slackWebhooks_ == nullptr && return this->wxWebhooks_ == nullptr; };
     // contacts Field Functions 
     bool hasContacts() const { return this->contacts_ != nullptr;};
     void deleteContacts() { this->contacts_ = nullptr;};
@@ -66,6 +68,15 @@ namespace Models
     inline vector<string> customWebhooks() { DARABONBA_PTR_GET(customWebhooks_, vector<string>) };
     inline AlertRuleNotification& setCustomWebhooks(const vector<string> & customWebhooks) { DARABONBA_PTR_SET_VALUE(customWebhooks_, customWebhooks) };
     inline AlertRuleNotification& setCustomWebhooks(vector<string> && customWebhooks) { DARABONBA_PTR_SET_RVALUE(customWebhooks_, customWebhooks) };
+
+
+    // dingCoolAppWebhooks Field Functions 
+    bool hasDingCoolAppWebhooks() const { return this->dingCoolAppWebhooks_ != nullptr;};
+    void deleteDingCoolAppWebhooks() { this->dingCoolAppWebhooks_ = nullptr;};
+    inline const vector<string> & dingCoolAppWebhooks() const { DARABONBA_PTR_GET_CONST(dingCoolAppWebhooks_, vector<string>) };
+    inline vector<string> dingCoolAppWebhooks() { DARABONBA_PTR_GET(dingCoolAppWebhooks_, vector<string>) };
+    inline AlertRuleNotification& setDingCoolAppWebhooks(const vector<string> & dingCoolAppWebhooks) { DARABONBA_PTR_SET_VALUE(dingCoolAppWebhooks_, dingCoolAppWebhooks) };
+    inline AlertRuleNotification& setDingCoolAppWebhooks(vector<string> && dingCoolAppWebhooks) { DARABONBA_PTR_SET_RVALUE(dingCoolAppWebhooks_, dingCoolAppWebhooks) };
 
 
     // dingWebhooks Field Functions 
@@ -132,6 +143,7 @@ namespace Models
   protected:
     std::shared_ptr<vector<string>> contacts_ = nullptr;
     std::shared_ptr<vector<string>> customWebhooks_ = nullptr;
+    std::shared_ptr<vector<string>> dingCoolAppWebhooks_ = nullptr;
     std::shared_ptr<vector<string>> dingWebhooks_ = nullptr;
     std::shared_ptr<vector<string>> fsWebhooks_ = nullptr;
     std::shared_ptr<vector<string>> groups_ = nullptr;

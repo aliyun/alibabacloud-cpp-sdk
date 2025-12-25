@@ -79,8 +79,14 @@
 #include <alibabacloud/models/CreateBizTraceRequest.hpp>
 #include <alibabacloud/models/CreateBizTraceResponseBody.hpp>
 #include <alibabacloud/models/CreateBizTraceResponse.hpp>
+#include <alibabacloud/models/CreateChatRequest.hpp>
+#include <alibabacloud/models/CreateChatResponseBody.hpp>
+#include <alibabacloud/models/CreateChatResponse.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateCloudResourceResponse.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeRequest.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeResponseBody.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/CreateEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/CreateEntityStoreResponse.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyRequest.hpp>
@@ -98,6 +104,9 @@
 #include <alibabacloud/models/CreateServiceRequest.hpp>
 #include <alibabacloud/models/CreateServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceResponse.hpp>
+#include <alibabacloud/models/CreateThreadRequest.hpp>
+#include <alibabacloud/models/CreateThreadResponseBody.hpp>
+#include <alibabacloud/models/CreateThreadResponse.hpp>
 #include <alibabacloud/models/CreateTicketRequest.hpp>
 #include <alibabacloud/models/CreateTicketResponseBody.hpp>
 #include <alibabacloud/models/CreateTicketResponse.hpp>
@@ -113,6 +122,8 @@
 #include <alibabacloud/models/DeleteBizTraceResponse.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteCloudResourceResponse.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeResponseBody.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/DeleteEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/DeleteEntityStoreResponse.hpp>
 #include <alibabacloud/models/DeleteIntegrationPolicyRequest.hpp>
@@ -124,6 +135,8 @@
 #include <alibabacloud/models/DeletePrometheusViewResponse.hpp>
 #include <alibabacloud/models/DeleteServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceResponse.hpp>
+#include <alibabacloud/models/DeleteThreadResponseBody.hpp>
+#include <alibabacloud/models/DeleteThreadResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelResponseBody.hpp>
 #include <alibabacloud/models/DeleteUmodelResponse.hpp>
 #include <alibabacloud/models/DeleteUmodelCommonSchemaRefRequest.hpp>
@@ -160,6 +173,8 @@
 #include <alibabacloud/models/GetCmsServiceRequest.hpp>
 #include <alibabacloud/models/GetCmsServiceResponseBody.hpp>
 #include <alibabacloud/models/GetCmsServiceResponse.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/GetEntityStoreResponseBody.hpp>
 #include <alibabacloud/models/GetEntityStoreResponse.hpp>
 #include <alibabacloud/models/GetEntityStoreDataHeaders.hpp>
@@ -184,6 +199,11 @@
 #include <alibabacloud/models/GetServiceResponse.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponseBody.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponse.hpp>
+#include <alibabacloud/models/GetThreadResponseBody.hpp>
+#include <alibabacloud/models/GetThreadResponse.hpp>
+#include <alibabacloud/models/GetThreadDataRequest.hpp>
+#include <alibabacloud/models/GetThreadDataResponseBody.hpp>
+#include <alibabacloud/models/GetThreadDataResponse.hpp>
 #include <alibabacloud/models/GetUmodelResponseBody.hpp>
 #include <alibabacloud/models/GetUmodelResponse.hpp>
 #include <alibabacloud/models/GetUmodelCommonSchemaRefResponseBody.hpp>
@@ -210,6 +230,9 @@
 #include <alibabacloud/models/ListBizTracesRequest.hpp>
 #include <alibabacloud/models/ListBizTracesResponseBody.hpp>
 #include <alibabacloud/models/ListBizTracesResponse.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesRequest.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesResponseBody.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesResponse.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesRequest.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesShrinkRequest.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesResponseBody.hpp>
@@ -251,6 +274,10 @@
 #include <alibabacloud/models/ListServicesRequest.hpp>
 #include <alibabacloud/models/ListServicesResponseBody.hpp>
 #include <alibabacloud/models/ListServicesResponse.hpp>
+#include <alibabacloud/models/ListThreadsRequest.hpp>
+#include <alibabacloud/models/ListThreadsShrinkRequest.hpp>
+#include <alibabacloud/models/ListThreadsResponseBody.hpp>
+#include <alibabacloud/models/ListThreadsResponse.hpp>
 #include <alibabacloud/models/ListWorkspacesRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesShrinkRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
@@ -270,6 +297,9 @@
 #include <alibabacloud/models/UpdateBizTraceRequest.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponseBody.hpp>
 #include <alibabacloud/models/UpdateBizTraceResponse.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeRequest.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeResponseBody.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeResponse.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponse.hpp>
@@ -291,6 +321,9 @@
 #include <alibabacloud/models/UpdateSubscriptionRequest.hpp>
 #include <alibabacloud/models/UpdateSubscriptionResponseBody.hpp>
 #include <alibabacloud/models/UpdateSubscriptionResponse.hpp>
+#include <alibabacloud/models/UpdateThreadRequest.hpp>
+#include <alibabacloud/models/UpdateThreadResponseBody.hpp>
+#include <alibabacloud/models/UpdateThreadResponse.hpp>
 #include <alibabacloud/models/UpdateUmodelRequest.hpp>
 #include <alibabacloud/models/UpdateUmodelResponseBody.hpp>
 #include <alibabacloud/models/UpdateUmodelResponse.hpp>
@@ -361,6 +394,11 @@
 #include <alibabacloud/models/CreateAddonReleaseResponseBodyReleaseConditions.hpp>
 #include <alibabacloud/models/CreateAddonReleaseResponseBodyRelease.hpp>
 #include <alibabacloud/models/CreateAggTaskGroupRequestTags.hpp>
+#include <alibabacloud/models/CreateChatRequestMessagesContents.hpp>
+#include <alibabacloud/models/CreateChatRequestMessages.hpp>
+#include <alibabacloud/models/CreateChatResponseBodyMessages.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeRequestKnowledgesBailian.hpp>
+#include <alibabacloud/models/CreateDigitalEmployeeRequestKnowledges.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyRequestEntityGroup.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyRequestTags.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyResponseBodyPolicy.hpp>
@@ -368,6 +406,7 @@
 #include <alibabacloud/models/CreatePrometheusViewRequestPrometheusInstances.hpp>
 #include <alibabacloud/models/CreatePrometheusViewRequestTags.hpp>
 #include <alibabacloud/models/CreatePrometheusVirtualInstanceResponseBodyInstance.hpp>
+#include <alibabacloud/models/CreateThreadRequestVariables.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
 #include <alibabacloud/models/GetAddonResponseBodyDataDashboards.hpp>
 #include <alibabacloud/models/GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs.hpp>
@@ -387,6 +426,8 @@
 #include <alibabacloud/models/GetAddonSchemaResponseBodyFields.hpp>
 #include <alibabacloud/models/GetAggTaskGroupResponseBodyAggTaskGroupTags.hpp>
 #include <alibabacloud/models/GetAggTaskGroupResponseBodyAggTaskGroup.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeResponseBodyKnowledgesBailian.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeResponseBodyKnowledges.hpp>
 #include <alibabacloud/models/GetEntityStoreDataResponseBodyResponseStatusStatusItem.hpp>
 #include <alibabacloud/models/GetEntityStoreDataResponseBodyResponseStatus.hpp>
 #include <alibabacloud/models/GetIntegrationPolicyResponseBodyPolicyBindResource.hpp>
@@ -407,6 +448,8 @@
 #include <alibabacloud/models/GetPrometheusViewResponseBodyPrometheusView.hpp>
 #include <alibabacloud/models/GetServiceResponseBodyService.hpp>
 #include <alibabacloud/models/GetServiceObservabilityResponseBodyEntryPointInfo.hpp>
+#include <alibabacloud/models/GetThreadResponseBodyVariables.hpp>
+#include <alibabacloud/models/GetThreadDataResponseBodyMessages.hpp>
 #include <alibabacloud/models/GetUmodelResponseBodyCommonSchemaRef.hpp>
 #include <alibabacloud/models/GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef.hpp>
 #include <alibabacloud/models/GetUmodelDataResponseBodyErrors.hpp>
@@ -433,6 +476,9 @@
 #include <alibabacloud/models/ListAlertActionsResponseBodyAlertActionsSlsParam.hpp>
 #include <alibabacloud/models/ListAlertActionsResponseBodyAlertActionsWebhookParam.hpp>
 #include <alibabacloud/models/ListAlertActionsResponseBodyAlertActions.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges.hpp>
+#include <alibabacloud/models/ListDigitalEmployeesResponseBodyDigitalEmployees.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesRequestTag.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesResponseBodyPoliciesBindResource.hpp>
 #include <alibabacloud/models/ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAnnotations.hpp>
@@ -477,8 +523,13 @@
 #include <alibabacloud/models/ListPrometheusViewsResponseBodyPrometheusViews.hpp>
 #include <alibabacloud/models/ListPrometheusVirtualInstancesResponseBodyInstances.hpp>
 #include <alibabacloud/models/ListServicesResponseBodyServices.hpp>
+#include <alibabacloud/models/ListThreadsRequestFilter.hpp>
+#include <alibabacloud/models/ListThreadsResponseBodyThreadsVariables.hpp>
+#include <alibabacloud/models/ListThreadsResponseBodyThreads.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBodyWorkspaces.hpp>
 #include <alibabacloud/models/UpdateAggTaskGroupRequestTags.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeRequestKnowledgesBailian.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeRequestKnowledges.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyRequestTags.hpp>
 #include <alibabacloud/models/UpdatePrometheusViewRequestPrometheusInstances.hpp>
 
