@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileNamePattern, fileNamePattern_);
       DARABONBA_PTR_TO_JSON(FilePathPrefix, filePathPrefix_);
       DARABONBA_PTR_TO_JSON(Format, format_);
+      DARABONBA_PTR_TO_JSON(SliceDuration, sliceDuration_);
       DARABONBA_PTR_TO_JSON(SliceNamePattern, sliceNamePattern_);
     };
     friend void from_json(const Darabonba::Json& j, StartRtcCloudRecordingRequestStorageParamsFileInfo& obj) { 
       DARABONBA_PTR_FROM_JSON(FileNamePattern, fileNamePattern_);
       DARABONBA_PTR_FROM_JSON(FilePathPrefix, filePathPrefix_);
       DARABONBA_PTR_FROM_JSON(Format, format_);
+      DARABONBA_PTR_FROM_JSON(SliceDuration, sliceDuration_);
       DARABONBA_PTR_FROM_JSON(SliceNamePattern, sliceNamePattern_);
     };
     StartRtcCloudRecordingRequestStorageParamsFileInfo() = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileNamePattern_ == nullptr
-        && return this->filePathPrefix_ == nullptr && return this->format_ == nullptr && return this->sliceNamePattern_ == nullptr; };
+        && return this->filePathPrefix_ == nullptr && return this->format_ == nullptr && return this->sliceDuration_ == nullptr && return this->sliceNamePattern_ == nullptr; };
     // fileNamePattern Field Functions 
     bool hasFileNamePattern() const { return this->fileNamePattern_ != nullptr;};
     void deleteFileNamePattern() { this->fileNamePattern_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     inline StartRtcCloudRecordingRequestStorageParamsFileInfo& setFormat(string format) { DARABONBA_PTR_SET_VALUE(format_, format) };
 
 
+    // sliceDuration Field Functions 
+    bool hasSliceDuration() const { return this->sliceDuration_ != nullptr;};
+    void deleteSliceDuration() { this->sliceDuration_ = nullptr;};
+    inline int64_t sliceDuration() const { DARABONBA_PTR_GET_DEFAULT(sliceDuration_, 0L) };
+    inline StartRtcCloudRecordingRequestStorageParamsFileInfo& setSliceDuration(int64_t sliceDuration) { DARABONBA_PTR_SET_VALUE(sliceDuration_, sliceDuration) };
+
+
     // sliceNamePattern Field Functions 
     bool hasSliceNamePattern() const { return this->sliceNamePattern_ != nullptr;};
     void deleteSliceNamePattern() { this->sliceNamePattern_ = nullptr;};
@@ -73,6 +82,7 @@ namespace Models
     std::shared_ptr<vector<string>> filePathPrefix_ = nullptr;
     // This parameter is required.
     std::shared_ptr<string> format_ = nullptr;
+    std::shared_ptr<int64_t> sliceDuration_ = nullptr;
     std::shared_ptr<string> sliceNamePattern_ = nullptr;
   };
 
