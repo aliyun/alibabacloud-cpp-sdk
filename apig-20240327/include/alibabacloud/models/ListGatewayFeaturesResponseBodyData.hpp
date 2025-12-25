@@ -42,6 +42,7 @@ namespace Models
 
 
   protected:
+    // The list of parameter configurations.
     std::shared_ptr<vector<Models::ListGatewayFeaturesResponseBodyDataItems>> items_ = nullptr;
   };
 

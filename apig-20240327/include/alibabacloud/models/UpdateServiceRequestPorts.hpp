@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The port name.
     std::shared_ptr<string> name_ = nullptr;
+    // The port.
     std::shared_ptr<int32_t> port_ = nullptr;
+    // The protocol.
     std::shared_ptr<string> protocol_ = nullptr;
   };
 

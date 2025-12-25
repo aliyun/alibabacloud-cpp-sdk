@@ -118,14 +118,23 @@ namespace Models
 
 
   protected:
+    // The creation timestamp.
     std::shared_ptr<int64_t> createTimestamp_ = nullptr;
+    // The gateway ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // Kubernetes source information.
     std::shared_ptr<Models::GetSourceResponseBodyDataK8SSourceInfo> k8SSourceInfo_ = nullptr;
+    // The source information when the source type is MSE_NACOS.
     std::shared_ptr<Models::GetSourceResponseBodyDataNacosSourceInfo> nacosSourceInfo_ = nullptr;
+    // The name.
     std::shared_ptr<string> name_ = nullptr;
+    // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The source ID.
     std::shared_ptr<string> sourceId_ = nullptr;
+    // The type.
     std::shared_ptr<string> type_ = nullptr;
+    // The update timestamp.
     std::shared_ptr<int64_t> updateTimestamp_ = nullptr;
   };
 

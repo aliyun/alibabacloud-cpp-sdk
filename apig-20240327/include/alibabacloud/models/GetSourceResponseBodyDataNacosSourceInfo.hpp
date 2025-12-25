@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The endpoint of the Nacos instance.
     std::shared_ptr<string> address_ = nullptr;
+    // The cluster ID.
     std::shared_ptr<string> clusterId_ = nullptr;
+    // The Nacos instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
   };
 

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(namespace, namespace_);
       DARABONBA_PTR_TO_JSON(qualifier, qualifier_);
+      DARABONBA_PTR_TO_JSON(sourceId, sourceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateServiceRequestServiceConfigs& obj) { 
       DARABONBA_PTR_FROM_JSON(addresses, addresses_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(namespace, namespace_);
       DARABONBA_PTR_FROM_JSON(qualifier, qualifier_);
+      DARABONBA_PTR_FROM_JSON(sourceId, sourceId_);
     };
     CreateServiceRequestServiceConfigs() = default ;
     CreateServiceRequestServiceConfigs(const CreateServiceRequestServiceConfigs &) = default ;
@@ -48,7 +50,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addresses_ == nullptr
         && return this->agentServiceConfig_ == nullptr && return this->aiServiceConfig_ == nullptr && return this->dnsServers_ == nullptr && return this->groupName_ == nullptr && return this->name_ == nullptr
-        && return this->namespace_ == nullptr && return this->qualifier_ == nullptr; };
+        && return this->namespace_ == nullptr && return this->qualifier_ == nullptr && return this->sourceId_ == nullptr; };
     // addresses Field Functions 
     bool hasAddresses() const { return this->addresses_ != nullptr;};
     void deleteAddresses() { this->addresses_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline CreateServiceRequestServiceConfigs& setQualifier(string qualifier) { DARABONBA_PTR_SET_VALUE(qualifier_, qualifier) };
 
 
+    // sourceId Field Functions 
+    bool hasSourceId() const { return this->sourceId_ != nullptr;};
+    void deleteSourceId() { this->sourceId_ = nullptr;};
+    inline string sourceId() const { DARABONBA_PTR_GET_DEFAULT(sourceId_, "") };
+    inline CreateServiceRequestServiceConfigs& setSourceId(string sourceId) { DARABONBA_PTR_SET_VALUE(sourceId_, sourceId) };
+
+
   protected:
     // The list of domain names or fixed addresses.
     std::shared_ptr<vector<string>> addresses_ = nullptr;
@@ -132,6 +141,7 @@ namespace Models
     std::shared_ptr<string> namespace_ = nullptr;
     // The function version or alias.
     std::shared_ptr<string> qualifier_ = nullptr;
+    std::shared_ptr<string> sourceId_ = nullptr;
   };
 
   } // namespace Models

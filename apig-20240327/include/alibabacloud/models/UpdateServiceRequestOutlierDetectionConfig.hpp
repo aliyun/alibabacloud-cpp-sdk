@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // The initial isolation duration after a node is isolated (e.g., 30 seconds). The isolation time is calculated as: k \\* base_ejection_time (with k initially set to 1). Each subsequent isolation increases the isolation time (k is incremented by 1), while consecutive healthy checks gradually decrease the isolation time (k is decremented by 1).
     std::shared_ptr<int32_t> baseEjectionTime_ = nullptr;
+    // enable
     std::shared_ptr<bool> enable_ = nullptr;
+    // The panic threshold.
+    // 
+    // When the proportion of healthy nodes in the service is greater than the panic threshold, health checks take effect normally, and requests are only sent to healthy nodes, not to ejected nodes. When the proportion of healthy nodes in the service is less than or equal to the panic threshold, health checks are effectively disabled, and requests are sent to all nodes, including those that have been ejected nodes.
     std::shared_ptr<int32_t> failurePercentageMinimumHosts_ = nullptr;
+    // When the request failure rate of a node reaches this threshold, the system triggers the isolation mechanism of the node.
     std::shared_ptr<int32_t> failurePercentageThreshold_ = nullptr;
+    // The detection interval.
     std::shared_ptr<int32_t> interval_ = nullptr;
   };
 

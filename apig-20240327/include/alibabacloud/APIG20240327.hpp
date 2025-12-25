@@ -965,7 +965,7 @@ namespace APIG20240327
       Models::GetServiceResponse getService(const string &serviceId);
 
       /**
-       * @summary 获取服务来源
+       * @summary Obtains the details of a service source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -974,7 +974,7 @@ namespace APIG20240327
       Models::GetSourceResponse getSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取服务来源
+       * @summary Obtains the details of a service source.
        *
        * @return GetSourceResponse
        */
@@ -1093,7 +1093,7 @@ namespace APIG20240327
       Models::ListEnvironmentsResponse listEnvironments(const Models::ListEnvironmentsRequest &request);
 
       /**
-       * @summary 获取Gateway的Features
+       * @summary Queries the feature parameter configurations of an instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1102,7 +1102,7 @@ namespace APIG20240327
       Models::ListGatewayFeaturesResponse listGatewayFeaturesWithOptions(const string &gatewayId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Gateway的Features
+       * @summary Queries the feature parameter configurations of an instance.
        *
        * @return ListGatewayFeaturesResponse
        */
@@ -1375,6 +1375,24 @@ namespace APIG20240327
        * @return RestartGatewayResponse
        */
       Models::RestartGatewayResponse restartGateway(const string &gatewayId);
+
+      /**
+       * @summary 同步外部MCP server
+       *
+       * @param request SyncMCPServersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SyncMCPServersResponse
+       */
+      Models::SyncMCPServersResponse syncMCPServersWithOptions(const Models::SyncMCPServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 同步外部MCP server
+       *
+       * @param request SyncMCPServersRequest
+       * @return SyncMCPServersResponse
+       */
+      Models::SyncMCPServersResponse syncMCPServers(const Models::SyncMCPServersRequest &request);
 
       /**
        * @summary Undeploys an MCP server.

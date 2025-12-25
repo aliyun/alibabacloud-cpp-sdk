@@ -132,14 +132,23 @@ namespace Models
 
 
   protected:
+    // The list of domain names or fixed addresses.
     std::shared_ptr<vector<string>> addresses_ = nullptr;
+    // The agent service configurations.
     std::shared_ptr<AgentServiceConfig> agentServiceConfig_ = nullptr;
+    // The AI service configurations.
     std::shared_ptr<AiServiceConfig> aiServiceConfig_ = nullptr;
+    // A DNS service address.
     std::shared_ptr<vector<string>> dnsServers_ = nullptr;
+    // The health check configurations.
     std::shared_ptr<UpdateServiceRequestHealthCheckConfig> healthCheckConfig_ = nullptr;
+    // The health check threshold.
     std::shared_ptr<float> healthyPanicThreshold_ = nullptr;
+    // The passive health check configurations.
     std::shared_ptr<UpdateServiceRequestOutlierDetectionConfig> outlierDetectionConfig_ = nullptr;
+    // The port information.
     std::shared_ptr<vector<UpdateServiceRequestPorts>> ports_ = nullptr;
+    // The service protocol.
     std::shared_ptr<string> protocol_ = nullptr;
   };
 

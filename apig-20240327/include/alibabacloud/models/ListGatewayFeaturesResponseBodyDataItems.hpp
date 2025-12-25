@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The parameter definition.
     std::shared_ptr<Models::ListGatewayFeaturesResponseBodyDataItemsDefinition> definition_ = nullptr;
+    // The parameter value.
     std::shared_ptr<string> value_ = nullptr;
   };
 

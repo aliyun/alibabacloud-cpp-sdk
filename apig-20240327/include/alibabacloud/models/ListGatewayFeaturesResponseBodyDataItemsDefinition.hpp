@@ -171,20 +171,51 @@ namespace Models
 
 
   protected:
+    // The default value of the parameter.
     std::shared_ptr<string> defaultValue_ = nullptr;
+    // The parameter description.
     std::shared_ptr<string> description_ = nullptr;
+    // The display name of the parameter.
     std::shared_ptr<string> displayName_ = nullptr;
+    // The parameter group to which the parameter belongs. Valid values:
+    // 
+    // *   Telemetry: an observability parameter
+    // *   Engine: an engine parameter
     std::shared_ptr<string> group_ = nullptr;
+    // The input type of the parameter. Valid values:
+    // 
+    // *   Trigger
+    // *   Input
+    // *   SingleSelect
+    // *   MultiSelect
     std::shared_ptr<string> inputType_ = nullptr;
+    // The maximum length of the value. This parameter is valid when the value type is string.
     std::shared_ptr<int32_t> maxLength_ = nullptr;
+    // The maximum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
     std::shared_ptr<string> maxValue_ = nullptr;
+    // The minimum length of the value. This parameter is valid when the value type is string.
     std::shared_ptr<int32_t> minLength_ = nullptr;
+    // The minimum value of the parameter. This parameter is valid when the value type is int32, int64, or float.
     std::shared_ptr<string> minValue_ = nullptr;
+    // The parameter name.
     std::shared_ptr<string> name_ = nullptr;
+    // Indicates whether the parameter is read-only.
     std::shared_ptr<bool> readOnly_ = nullptr;
+    // The regular expression that the parameter value must fulfill. This parameter is valid when the value type is string.
     std::shared_ptr<string> regex_ = nullptr;
+    // The list of options supported by the parameter value.
     std::shared_ptr<vector<Models::ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions>> valueOptions_ = nullptr;
+    // The value type of the parameter. Valid values:
+    // 
+    // *   bool: boolean
+    // *   string
+    // *   int32: integer
+    // *   int64: long integer
+    // *   json
+    // *   array: JSON array
+    // *   float: floating point
     std::shared_ptr<string> valueType_ = nullptr;
+    // The value unit.
     std::shared_ptr<string> valueUnit_ = nullptr;
   };
 

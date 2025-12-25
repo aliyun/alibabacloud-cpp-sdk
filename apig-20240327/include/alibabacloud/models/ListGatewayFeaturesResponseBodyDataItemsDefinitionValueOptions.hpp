@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key to pass the parameter.
     std::shared_ptr<string> key_ = nullptr;
+    // The display value.
     std::shared_ptr<string> label_ = nullptr;
   };
 

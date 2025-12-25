@@ -2705,7 +2705,7 @@ GetServiceResponse Client::getService(const string &serviceId) {
 }
 
 /**
- * @summary 获取服务来源
+ * @summary Obtains the details of a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2730,7 +2730,7 @@ GetSourceResponse Client::getSourceWithOptions(const string &sourceId, const map
 }
 
 /**
- * @summary 获取服务来源
+ * @summary Obtains the details of a service source.
  *
  * @return GetSourceResponse
  */
@@ -3127,7 +3127,7 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 }
 
 /**
- * @summary 获取Gateway的Features
+ * @summary Queries the feature parameter configurations of an instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3152,7 +3152,7 @@ ListGatewayFeaturesResponse Client::listGatewayFeaturesWithOptions(const string 
 }
 
 /**
- * @summary 获取Gateway的Features
+ * @summary Queries the feature parameter configurations of an instance.
  *
  * @return ListGatewayFeaturesResponse
  */
@@ -4222,6 +4222,67 @@ RestartGatewayResponse Client::restartGateway(const string &gatewayId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return restartGatewayWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 同步外部MCP server
+ *
+ * @param request SyncMCPServersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SyncMCPServersResponse
+ */
+SyncMCPServersResponse Client::syncMCPServersWithOptions(const SyncMCPServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDomainIds()) {
+    body["domainIds"] = request.domainIds();
+  }
+
+  if (!!request.hasGatewayId()) {
+    body["gatewayId"] = request.gatewayId();
+  }
+
+  if (!!request.hasNacosMcpServers()) {
+    body["nacosMcpServers"] = request.nacosMcpServers();
+  }
+
+  if (!!request.hasNamespace()) {
+    body["namespace"] = request._namespace();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.sourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SyncMCPServers"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/mcp-servers/sync-mcp-server")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SyncMCPServersResponse>();
+}
+
+/**
+ * @summary 同步外部MCP server
+ *
+ * @param request SyncMCPServersRequest
+ * @return SyncMCPServersResponse
+ */
+SyncMCPServersResponse Client::syncMCPServers(const SyncMCPServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return syncMCPServersWithOptions(request, headers, runtime);
 }
 
 /**

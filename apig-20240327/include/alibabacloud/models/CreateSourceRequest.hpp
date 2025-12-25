@@ -81,10 +81,18 @@ namespace Models
 
 
   protected:
+    // The gateway instance ID.
     std::shared_ptr<string> gatewayId_ = nullptr;
+    // The source configuration when the source type is K8S.
     std::shared_ptr<CreateSourceRequestK8sSourceConfig> k8sSourceConfig_ = nullptr;
+    // The source configuration when the source type is MSE_NACOS.
     std::shared_ptr<CreateSourceRequestNacosSourceConfig> nacosSourceConfig_ = nullptr;
+    // The resource group ID.
     std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // The source type. Valid values:
+    // 
+    // *   MSE_NACOS: MSE Nacos
+    // *   K8S: Container Service for Kubernetes (ACK)
     std::shared_ptr<string> type_ = nullptr;
   };
 

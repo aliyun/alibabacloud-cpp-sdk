@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The security group rules.
     std::shared_ptr<vector<Models::CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules>> authorizeSecurityGroupRules_ = nullptr;
+    // The ID of the ACK cluster.
     std::shared_ptr<string> clusterId_ = nullptr;
   };
 

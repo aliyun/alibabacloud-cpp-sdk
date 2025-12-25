@@ -69,8 +69,11 @@ namespace Models
 
 
   protected:
+    // The status code.
     std::shared_ptr<string> code_ = nullptr;
+    // The response data.
     std::shared_ptr<GetSourceResponseBodyData> data_ = nullptr;
+    // The response message.
     std::shared_ptr<string> message_ = nullptr;
     // Id of the request
     std::shared_ptr<string> requestId_ = nullptr;

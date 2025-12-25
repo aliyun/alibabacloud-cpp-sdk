@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The rule description.
     std::shared_ptr<string> description_ = nullptr;
+    // The list of port ranges.
     std::shared_ptr<vector<string>> portRanges_ = nullptr;
+    // The ID of a security group.
     std::shared_ptr<string> securityGroupId_ = nullptr;
   };
 

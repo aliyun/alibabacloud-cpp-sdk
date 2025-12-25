@@ -256,6 +256,9 @@
 #include <alibabacloud/models/RemoveConsumerAuthorizationRuleResponse.hpp>
 #include <alibabacloud/models/RestartGatewayResponseBody.hpp>
 #include <alibabacloud/models/RestartGatewayResponse.hpp>
+#include <alibabacloud/models/SyncMcpServersRequest.hpp>
+#include <alibabacloud/models/SyncMcpServersResponseBody.hpp>
+#include <alibabacloud/models/SyncMcpServersResponse.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponseBody.hpp>
 #include <alibabacloud/models/UnDeployMcpServerResponse.hpp>
 #include <alibabacloud/models/UndeployHttpApiRequest.hpp>
@@ -503,6 +506,10 @@
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesResponseBodyDataItemsResourceInfo.hpp>
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesResponseBodyDataItems.hpp>
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesResponseBodyData.hpp>
+#include <alibabacloud/models/SyncMcpServersRequestNacosMcpServers.hpp>
+#include <alibabacloud/models/SyncMcpServersResponseBodyDataFailedMcpServers.hpp>
+#include <alibabacloud/models/SyncMcpServersResponseBodyDataSucceedMcpServers.hpp>
+#include <alibabacloud/models/SyncMcpServersResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateDomainResponseBodyData.hpp>
 #include <alibabacloud/models/UpdateHttpApiRequestIngressConfig.hpp>
 #include <alibabacloud/models/UpdateHttpApiRouteRequestBackendConfigServices.hpp>

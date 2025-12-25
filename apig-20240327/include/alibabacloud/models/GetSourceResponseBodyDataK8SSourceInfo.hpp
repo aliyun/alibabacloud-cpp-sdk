@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the Container Service for Kubernetes (ACK) cluster.
     std::shared_ptr<string> clusterId_ = nullptr;
   };
 

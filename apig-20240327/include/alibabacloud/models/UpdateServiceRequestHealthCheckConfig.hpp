@@ -115,14 +115,28 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable health checks.
     std::shared_ptr<bool> enable_ = nullptr;
+    // The normal status codes to be returned. This parameter is required if the health check protocol is HTTP.
     std::shared_ptr<vector<string>> expectedStatuses_ = nullptr;
+    // The healthy threshold.
     std::shared_ptr<int32_t> healthyThreshold_ = nullptr;
+    // The domain name that you want to use for health checks. Optional. This parameter is available if the health check protocol is HTTP.
     std::shared_ptr<string> httpHost_ = nullptr;
+    // The request path of health checks. This parameter is required if the health check protocol is HTTP.
     std::shared_ptr<string> httpPath_ = nullptr;
+    // The health check interval. Unit: seconds
     std::shared_ptr<int32_t> interval_ = nullptr;
+    // The protocol over which the system performs health checks.
+    // 
+    // Valid values:
+    // 
+    // *   TCP
+    // *   HTTP
     std::shared_ptr<string> protocol_ = nullptr;
+    // The timeout period for a health check response. Unit: seconds
     std::shared_ptr<int32_t> timeout_ = nullptr;
+    // The unhealthy threshold.
     std::shared_ptr<int32_t> unhealthyThreshold_ = nullptr;
   };
 

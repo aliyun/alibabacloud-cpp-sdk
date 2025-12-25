@@ -13,12 +13,14 @@ namespace Models
   class HttpApiDeployConfigServiceConfigs : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const HttpApiDeployConfigServiceConfigs& obj) { 
+      DARABONBA_PTR_TO_JSON(intentCode, intentCode_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
       DARABONBA_PTR_TO_JSON(modelNamePattern, modelNamePattern_);
       DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
       DARABONBA_PTR_TO_JSON(weight, weight_);
     };
     friend void from_json(const Darabonba::Json& j, HttpApiDeployConfigServiceConfigs& obj) { 
+      DARABONBA_PTR_FROM_JSON(intentCode, intentCode_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
       DARABONBA_PTR_FROM_JSON(modelNamePattern, modelNamePattern_);
       DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->modelName_ == nullptr
-        && return this->modelNamePattern_ == nullptr && return this->serviceId_ == nullptr && return this->weight_ == nullptr; };
+    virtual bool empty() const override { return this->intentCode_ == nullptr
+        && return this->modelName_ == nullptr && return this->modelNamePattern_ == nullptr && return this->serviceId_ == nullptr && return this->weight_ == nullptr; };
+    // intentCode Field Functions 
+    bool hasIntentCode() const { return this->intentCode_ != nullptr;};
+    void deleteIntentCode() { this->intentCode_ = nullptr;};
+    inline string intentCode() const { DARABONBA_PTR_GET_DEFAULT(intentCode_, "") };
+    inline HttpApiDeployConfigServiceConfigs& setIntentCode(string intentCode) { DARABONBA_PTR_SET_VALUE(intentCode_, intentCode) };
+
+
     // modelName Field Functions 
     bool hasModelName() const { return this->modelName_ != nullptr;};
     void deleteModelName() { this->modelName_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> intentCode_ = nullptr;
     std::shared_ptr<string> modelName_ = nullptr;
     std::shared_ptr<string> modelNamePattern_ = nullptr;
     std::shared_ptr<string> serviceId_ = nullptr;

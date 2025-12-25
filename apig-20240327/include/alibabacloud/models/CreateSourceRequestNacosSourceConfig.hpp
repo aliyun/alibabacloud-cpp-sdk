@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The Nacos instance ID.
     std::shared_ptr<string> instanceId_ = nullptr;
   };
 
