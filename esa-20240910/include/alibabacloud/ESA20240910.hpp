@@ -1210,6 +1210,43 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTask(const Models::CreateUserDeliveryTaskRequest &request);
 
       /**
+       * @summary 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param tmpReq CreateUserWafRulesetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateUserWafRulesetResponse
+       */
+      Models::CreateUserWafRulesetResponse createUserWafRulesetWithOptions(const Models::CreateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param request CreateUserWafRulesetRequest
+       * @return CreateUserWafRulesetResponse
+       */
+      Models::CreateUserWafRulesetResponse createUserWafRuleset(const Models::CreateUserWafRulesetRequest &request);
+
+      /**
        * @summary Add video processing configurations for a website.
        *
        * @param request CreateVideoProcessingRequest
@@ -2093,6 +2130,43 @@ namespace ESA20240910
        * @return DeleteUserDeliveryTaskResponse
        */
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(const Models::DeleteUserDeliveryTaskRequest &request);
+
+      /**
+       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param request DeleteUserWafRulesetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteUserWafRulesetResponse
+       */
+      Models::DeleteUserWafRulesetResponse deleteUserWafRulesetWithOptions(const Models::DeleteUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param request DeleteUserWafRulesetRequest
+       * @return DeleteUserWafRulesetResponse
+       */
+      Models::DeleteUserWafRulesetResponse deleteUserWafRuleset(const Models::DeleteUserWafRulesetRequest &request);
 
       /**
        * @summary Deletes a video processing configuration.
@@ -3462,6 +3536,23 @@ namespace ESA20240910
       Models::GetRoutineResponse getRoutine(const Models::GetRoutineRequest &request);
 
       /**
+       * @summary 查询Routine默认访问记录访问鉴权token
+       *
+       * @param request GetRoutineAccessTokenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRoutineAccessTokenResponse
+       */
+      Models::GetRoutineAccessTokenResponse getRoutineAccessTokenWithOptions(const Models::GetRoutineAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Routine默认访问记录访问鉴权token
+       *
+       * @param request GetRoutineAccessTokenRequest
+       * @return GetRoutineAccessTokenResponse
+       */
+      Models::GetRoutineAccessTokenResponse getRoutineAccessToken(const Models::GetRoutineAccessTokenRequest &request);
+
+      /**
        * @summary Queries information about a code version of a routine.
        *
        * @param request GetRoutineCodeVersionRequest
@@ -3857,6 +3948,23 @@ namespace ESA20240910
        * @return GetUserLogDeliveryQuotaResponse
        */
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuota(const Models::GetUserLogDeliveryQuotaRequest &request);
+
+      /**
+       * @summary 用于获取实例级别的Web应用防火墙规则集详情
+       *
+       * @param request GetUserWafRulesetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserWafRulesetResponse
+       */
+      Models::GetUserWafRulesetResponse getUserWafRulesetWithOptions(const Models::GetUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于获取实例级别的Web应用防火墙规则集详情
+       *
+       * @param request GetUserWafRulesetRequest
+       * @return GetUserWafRulesetResponse
+       */
+      Models::GetUserWafRulesetResponse getUserWafRuleset(const Models::GetUserWafRulesetRequest &request);
 
       /**
        * @summary Queries the video processing configuration details of a site.
@@ -4952,6 +5060,23 @@ namespace ESA20240910
        * @return ListUserRoutinesResponse
        */
       Models::ListUserRoutinesResponse listUserRoutines(const Models::ListUserRoutinesRequest &request);
+
+      /**
+       * @summary 用于列举实例级别的Web应用防火墙规则集。
+       *
+       * @param tmpReq ListUserWafRulesetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserWafRulesetsResponse
+       */
+      Models::ListUserWafRulesetsResponse listUserWafRulesetsWithOptions(const Models::ListUserWafRulesetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于列举实例级别的Web应用防火墙规则集。
+       *
+       * @param request ListUserWafRulesetsRequest
+       * @return ListUserWafRulesetsResponse
+       */
+      Models::ListUserWafRulesetsResponse listUserWafRulesets(const Models::ListUserWafRulesetsRequest &request);
 
       /**
        * @summary Queries the video processing configurations of a site.
@@ -6474,6 +6599,43 @@ namespace ESA20240910
        * @return UpdateUserDeliveryTaskStatusResponse
        */
       Models::UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatus(const Models::UpdateUserDeliveryTaskStatusRequest &request);
+
+      /**
+       * @summary 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param tmpReq UpdateUserWafRulesetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateUserWafRulesetResponse
+       */
+      Models::UpdateUserWafRulesetResponse updateUserWafRulesetWithOptions(const Models::UpdateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+       *
+       * @description ## 请求说明
+       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       *
+       * @param request UpdateUserWafRulesetRequest
+       * @return UpdateUserWafRulesetResponse
+       */
+      Models::UpdateUserWafRulesetResponse updateUserWafRuleset(const Models::UpdateUserWafRulesetRequest &request);
 
       /**
        * @summary Modifies the video processing configuration of the site.

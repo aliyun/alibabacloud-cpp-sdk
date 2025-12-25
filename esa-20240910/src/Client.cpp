@@ -4291,6 +4291,108 @@ CreateUserDeliveryTaskResponse Client::createUserDeliveryTask(const CreateUserDe
 }
 
 /**
+ * @summary 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param tmpReq CreateUserWafRulesetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateUserWafRulesetResponse
+ */
+CreateUserWafRulesetResponse Client::createUserWafRulesetWithOptions(const CreateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateUserWafRulesetShrinkRequest request = CreateUserWafRulesetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRules()) {
+    request.setRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rules(), "Rules", "json"));
+  }
+
+  if (!!tmpReq.hasShared()) {
+    request.setSharedShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.shared(), "Shared", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasExpression()) {
+    body["Expression"] = request.expression();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasPhase()) {
+    body["Phase"] = request.phase();
+  }
+
+  if (!!request.hasRulesShrink()) {
+    body["Rules"] = request.rulesShrink();
+  }
+
+  if (!!request.hasSharedShrink()) {
+    body["Shared"] = request.sharedShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateUserWafRuleset"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateUserWafRulesetResponse>();
+}
+
+/**
+ * @summary 用于创建实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param request CreateUserWafRulesetRequest
+ * @return CreateUserWafRulesetResponse
+ */
+CreateUserWafRulesetResponse Client::createUserWafRuleset(const CreateUserWafRulesetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createUserWafRulesetWithOptions(request, runtime);
+}
+
+/**
  * @summary Add video processing configurations for a website.
  *
  * @param request CreateVideoProcessingRequest
@@ -6794,6 +6896,74 @@ DeleteUserDeliveryTaskResponse Client::deleteUserDeliveryTaskWithOptions(const D
 DeleteUserDeliveryTaskResponse Client::deleteUserDeliveryTask(const DeleteUserDeliveryTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteUserDeliveryTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用于删除实例级别的Web应用防火墙规则集。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param request DeleteUserWafRulesetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteUserWafRulesetResponse
+ */
+DeleteUserWafRulesetResponse Client::deleteUserWafRulesetWithOptions(const DeleteUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteUserWafRuleset"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteUserWafRulesetResponse>();
+}
+
+/**
+ * @summary 用于删除实例级别的Web应用防火墙规则集。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param request DeleteUserWafRulesetRequest
+ * @return DeleteUserWafRulesetResponse
+ */
+DeleteUserWafRulesetResponse Client::deleteUserWafRuleset(const DeleteUserWafRulesetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteUserWafRulesetWithOptions(request, runtime);
 }
 
 /**
@@ -10094,6 +10264,48 @@ GetRoutineResponse Client::getRoutine(const GetRoutineRequest &request) {
 }
 
 /**
+ * @summary 查询Routine默认访问记录访问鉴权token
+ *
+ * @param request GetRoutineAccessTokenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRoutineAccessTokenResponse
+ */
+GetRoutineAccessTokenResponse Client::getRoutineAccessTokenWithOptions(const GetRoutineAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRoutineAccessToken"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRoutineAccessTokenResponse>();
+}
+
+/**
+ * @summary 查询Routine默认访问记录访问鉴权token
+ *
+ * @param request GetRoutineAccessTokenRequest
+ * @return GetRoutineAccessTokenResponse
+ */
+GetRoutineAccessTokenResponse Client::getRoutineAccessToken(const GetRoutineAccessTokenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRoutineAccessTokenWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about a code version of a routine.
  *
  * @param request GetRoutineCodeVersionRequest
@@ -10957,6 +11169,52 @@ GetUserLogDeliveryQuotaResponse Client::getUserLogDeliveryQuotaWithOptions(const
 GetUserLogDeliveryQuotaResponse Client::getUserLogDeliveryQuota(const GetUserLogDeliveryQuotaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUserLogDeliveryQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用于获取实例级别的Web应用防火墙规则集详情
+ *
+ * @param request GetUserWafRulesetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserWafRulesetResponse
+ */
+GetUserWafRulesetResponse Client::getUserWafRulesetWithOptions(const GetUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.id();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUserWafRuleset"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserWafRulesetResponse>();
+}
+
+/**
+ * @summary 用于获取实例级别的Web应用防火墙规则集详情
+ *
+ * @param request GetUserWafRulesetRequest
+ * @return GetUserWafRulesetResponse
+ */
+GetUserWafRulesetResponse Client::getUserWafRuleset(const GetUserWafRulesetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getUserWafRulesetWithOptions(request, runtime);
 }
 
 /**
@@ -13596,6 +13854,70 @@ ListUserRoutinesResponse Client::listUserRoutinesWithOptions(const ListUserRouti
 ListUserRoutinesResponse Client::listUserRoutines(const ListUserRoutinesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listUserRoutinesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用于列举实例级别的Web应用防火墙规则集。
+ *
+ * @param tmpReq ListUserWafRulesetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserWafRulesetsResponse
+ */
+ListUserWafRulesetsResponse Client::listUserWafRulesetsWithOptions(const ListUserWafRulesetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListUserWafRulesetsShrinkRequest request = ListUserWafRulesetsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasQueryArgs()) {
+    request.setQueryArgsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.queryArgs(), "QueryArgs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  if (!!request.hasPhase()) {
+    query["Phase"] = request.phase();
+  }
+
+  if (!!request.hasQueryArgsShrink()) {
+    query["QueryArgs"] = request.queryArgsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUserWafRulesets"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserWafRulesetsResponse>();
+}
+
+/**
+ * @summary 用于列举实例级别的Web应用防火墙规则集。
+ *
+ * @param request ListUserWafRulesetsRequest
+ * @return ListUserWafRulesetsResponse
+ */
+ListUserWafRulesetsResponse Client::listUserWafRulesets(const ListUserWafRulesetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listUserWafRulesetsWithOptions(request, runtime);
 }
 
 /**
@@ -18844,6 +19166,112 @@ UpdateUserDeliveryTaskStatusResponse Client::updateUserDeliveryTaskStatusWithOpt
 UpdateUserDeliveryTaskStatusResponse Client::updateUserDeliveryTaskStatus(const UpdateUserDeliveryTaskStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateUserDeliveryTaskStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param tmpReq UpdateUserWafRulesetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateUserWafRulesetResponse
+ */
+UpdateUserWafRulesetResponse Client::updateUserWafRulesetWithOptions(const UpdateUserWafRulesetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateUserWafRulesetShrinkRequest request = UpdateUserWafRulesetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRules()) {
+    request.setRulesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.rules(), "Rules", "json"));
+  }
+
+  if (!!tmpReq.hasShared()) {
+    request.setSharedShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.shared(), "Shared", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.description();
+  }
+
+  if (!!request.hasExpression()) {
+    body["Expression"] = request.expression();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.id();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.name();
+  }
+
+  if (!!request.hasPosition()) {
+    body["Position"] = request.position();
+  }
+
+  if (!!request.hasRulesShrink()) {
+    body["Rules"] = request.rulesShrink();
+  }
+
+  if (!!request.hasSharedShrink()) {
+    body["Shared"] = request.sharedShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.status();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateUserWafRuleset"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateUserWafRulesetResponse>();
+}
+
+/**
+ * @summary 用于更新实例级别的Web应用防火墙规则集，支持多种类型的防护规则。
+ *
+ * @description ## 请求说明
+ * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+ * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+ * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+ * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+ * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+ * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+ * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+ * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+ *
+ * @param request UpdateUserWafRulesetRequest
+ * @return UpdateUserWafRulesetResponse
+ */
+UpdateUserWafRulesetResponse Client::updateUserWafRuleset(const UpdateUserWafRulesetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateUserWafRulesetWithOptions(request, runtime);
 }
 
 /**

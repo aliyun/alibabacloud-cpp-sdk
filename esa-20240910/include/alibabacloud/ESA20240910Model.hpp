@@ -210,6 +210,10 @@
 #include <alibabacloud/models/CreateUserDeliveryTaskShrinkRequest.hpp>
 #include <alibabacloud/models/CreateUserDeliveryTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateUserDeliveryTaskResponse.hpp>
+#include <alibabacloud/models/CreateUserWafRulesetRequest.hpp>
+#include <alibabacloud/models/CreateUserWafRulesetShrinkRequest.hpp>
+#include <alibabacloud/models/CreateUserWafRulesetResponseBody.hpp>
+#include <alibabacloud/models/CreateUserWafRulesetResponse.hpp>
 #include <alibabacloud/models/CreateVideoProcessingRequest.hpp>
 #include <alibabacloud/models/CreateVideoProcessingResponseBody.hpp>
 #include <alibabacloud/models/CreateVideoProcessingResponse.hpp>
@@ -365,6 +369,9 @@
 #include <alibabacloud/models/DeleteUserDeliveryTaskRequest.hpp>
 #include <alibabacloud/models/DeleteUserDeliveryTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteUserDeliveryTaskResponse.hpp>
+#include <alibabacloud/models/DeleteUserWafRulesetRequest.hpp>
+#include <alibabacloud/models/DeleteUserWafRulesetResponseBody.hpp>
+#include <alibabacloud/models/DeleteUserWafRulesetResponse.hpp>
 #include <alibabacloud/models/DeleteVideoProcessingRequest.hpp>
 #include <alibabacloud/models/DeleteVideoProcessingResponseBody.hpp>
 #include <alibabacloud/models/DeleteVideoProcessingResponse.hpp>
@@ -599,6 +606,9 @@
 #include <alibabacloud/models/GetRoutineRequest.hpp>
 #include <alibabacloud/models/GetRoutineResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineResponse.hpp>
+#include <alibabacloud/models/GetRoutineAccessTokenRequest.hpp>
+#include <alibabacloud/models/GetRoutineAccessTokenResponseBody.hpp>
+#include <alibabacloud/models/GetRoutineAccessTokenResponse.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionRequest.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponseBody.hpp>
 #include <alibabacloud/models/GetRoutineCodeVersionResponse.hpp>
@@ -660,6 +670,9 @@
 #include <alibabacloud/models/GetUserLogDeliveryQuotaRequest.hpp>
 #include <alibabacloud/models/GetUserLogDeliveryQuotaResponseBody.hpp>
 #include <alibabacloud/models/GetUserLogDeliveryQuotaResponse.hpp>
+#include <alibabacloud/models/GetUserWafRulesetRequest.hpp>
+#include <alibabacloud/models/GetUserWafRulesetResponseBody.hpp>
+#include <alibabacloud/models/GetUserWafRulesetResponse.hpp>
 #include <alibabacloud/models/GetVideoProcessingRequest.hpp>
 #include <alibabacloud/models/GetVideoProcessingResponseBody.hpp>
 #include <alibabacloud/models/GetVideoProcessingResponse.hpp>
@@ -846,6 +859,10 @@
 #include <alibabacloud/models/ListUserRoutinesRequest.hpp>
 #include <alibabacloud/models/ListUserRoutinesResponseBody.hpp>
 #include <alibabacloud/models/ListUserRoutinesResponse.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsRequest.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsShrinkRequest.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsResponseBody.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsResponse.hpp>
 #include <alibabacloud/models/ListVideoProcessingsRequest.hpp>
 #include <alibabacloud/models/ListVideoProcessingsResponseBody.hpp>
 #include <alibabacloud/models/ListVideoProcessingsResponse.hpp>
@@ -1113,6 +1130,10 @@
 #include <alibabacloud/models/UpdateUserDeliveryTaskStatusRequest.hpp>
 #include <alibabacloud/models/UpdateUserDeliveryTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateUserDeliveryTaskStatusResponse.hpp>
+#include <alibabacloud/models/UpdateUserWafRulesetRequest.hpp>
+#include <alibabacloud/models/UpdateUserWafRulesetShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateUserWafRulesetResponseBody.hpp>
+#include <alibabacloud/models/UpdateUserWafRulesetResponse.hpp>
 #include <alibabacloud/models/UpdateVideoProcessingRequest.hpp>
 #include <alibabacloud/models/UpdateVideoProcessingResponseBody.hpp>
 #include <alibabacloud/models/UpdateVideoProcessingResponse.hpp>
@@ -1326,6 +1347,8 @@
 #include <alibabacloud/models/GetSiteOriginClientCertificateResponseBodyResult.hpp>
 #include <alibabacloud/models/GetTransportLayerApplicationResponseBodyRules.hpp>
 #include <alibabacloud/models/GetTransportLayerApplicationResponseBodyStaticIpV4List.hpp>
+#include <alibabacloud/models/GetUserWafRulesetResponseBodyRulesetRules.hpp>
+#include <alibabacloud/models/GetUserWafRulesetResponseBodyRuleset.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogicsValidator.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsLogics.hpp>
 #include <alibabacloud/models/GetWafFilterResponseBodyFilterFieldsSelectorData.hpp>
@@ -1424,6 +1447,8 @@
 #include <alibabacloud/models/ListUserRatePlanInstancesResponseBodyInstanceInfoSites.hpp>
 #include <alibabacloud/models/ListUserRatePlanInstancesResponseBodyInstanceInfo.hpp>
 #include <alibabacloud/models/ListUserRoutinesResponseBodyRoutines.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsRequestQueryArgs.hpp>
+#include <alibabacloud/models/ListUserWafRulesetsResponseBodyRulesets.hpp>
 #include <alibabacloud/models/ListVideoProcessingsResponseBodyConfigs.hpp>
 #include <alibabacloud/models/ListWafManagedRulesRequestManagedRulesetManagedRules.hpp>
 #include <alibabacloud/models/ListWafManagedRulesRequestManagedRuleset.hpp>
