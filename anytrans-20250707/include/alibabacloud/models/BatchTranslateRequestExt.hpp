@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(examples, examples_);
+      DARABONBA_ANY_TO_JSON(paramMap, paramMap_);
       DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
       DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
       DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(examples, examples_);
+      DARABONBA_ANY_FROM_JSON(paramMap, paramMap_);
       DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
       DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
       DARABONBA_PTR_FROM_JSON(textTransform, textTransform_);
@@ -45,7 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr && return this->textTransform_ == nullptr; };
+        && return this->domainHint_ == nullptr && return this->examples_ == nullptr && return this->paramMap_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr
+        && return this->textTransform_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -69,6 +72,15 @@ namespace Models
     inline vector<Models::BatchTranslateRequestExtExamples> examples() { DARABONBA_PTR_GET(examples_, vector<Models::BatchTranslateRequestExtExamples>) };
     inline BatchTranslateRequestExt& setExamples(const vector<Models::BatchTranslateRequestExtExamples> & examples) { DARABONBA_PTR_SET_VALUE(examples_, examples) };
     inline BatchTranslateRequestExt& setExamples(vector<Models::BatchTranslateRequestExtExamples> && examples) { DARABONBA_PTR_SET_RVALUE(examples_, examples) };
+
+
+    // paramMap Field Functions 
+    bool hasParamMap() const { return this->paramMap_ != nullptr;};
+    void deleteParamMap() { this->paramMap_ = nullptr;};
+    inline     const Darabonba::Json & paramMap() const { DARABONBA_GET(paramMap_) };
+    Darabonba::Json & paramMap() { DARABONBA_GET(paramMap_) };
+    inline BatchTranslateRequestExt& setParamMap(const Darabonba::Json & paramMap) { DARABONBA_SET_VALUE(paramMap_, paramMap) };
+    inline BatchTranslateRequestExt& setParamMap(Darabonba::Json & paramMap) { DARABONBA_SET_RVALUE(paramMap_, paramMap) };
 
 
     // sensitives Field Functions 
@@ -102,6 +114,7 @@ namespace Models
     std::shared_ptr<Models::BatchTranslateRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::BatchTranslateRequestExtExamples>> examples_ = nullptr;
+    Darabonba::Json paramMap_ = nullptr;
     std::shared_ptr<vector<string>> sensitives_ = nullptr;
     std::shared_ptr<vector<Models::BatchTranslateRequestExtTerminologies>> terminologies_ = nullptr;
     std::shared_ptr<Models::BatchTranslateRequestExtTextTransform> textTransform_ = nullptr;

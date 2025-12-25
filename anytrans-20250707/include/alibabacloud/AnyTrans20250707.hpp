@@ -221,12 +221,12 @@ namespace AnyTrans20250707
       /**
        * @summary 通义多模态翻译术语查询
        *
-       * @param request TermQueryRequest
+       * @param tmpReq TermQueryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return TermQueryResponse
        */
-      Models::TermQueryResponse termQueryWithOptions(const Models::TermQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::TermQueryResponse termQueryWithOptions(const Models::TermQueryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 通义多模态翻译术语查询

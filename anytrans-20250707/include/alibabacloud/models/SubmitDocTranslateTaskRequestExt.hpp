@@ -18,11 +18,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SubmitDocTranslateTaskRequestExt& obj) { 
       DARABONBA_PTR_TO_JSON(config, config_);
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
+      DARABONBA_ANY_TO_JSON(paramMap, paramMap_);
       DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitDocTranslateTaskRequestExt& obj) { 
       DARABONBA_PTR_FROM_JSON(config, config_);
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
+      DARABONBA_ANY_FROM_JSON(paramMap, paramMap_);
       DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
     };
     SubmitDocTranslateTaskRequestExt() = default ;
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->config_ == nullptr
-        && return this->domainHint_ == nullptr && return this->terminologies_ == nullptr; };
+        && return this->domainHint_ == nullptr && return this->paramMap_ == nullptr && return this->terminologies_ == nullptr; };
     // config Field Functions 
     bool hasConfig() const { return this->config_ != nullptr;};
     void deleteConfig() { this->config_ = nullptr;};
@@ -54,6 +56,15 @@ namespace Models
     inline SubmitDocTranslateTaskRequestExt& setDomainHint(string domainHint) { DARABONBA_PTR_SET_VALUE(domainHint_, domainHint) };
 
 
+    // paramMap Field Functions 
+    bool hasParamMap() const { return this->paramMap_ != nullptr;};
+    void deleteParamMap() { this->paramMap_ = nullptr;};
+    inline     const Darabonba::Json & paramMap() const { DARABONBA_GET(paramMap_) };
+    Darabonba::Json & paramMap() { DARABONBA_GET(paramMap_) };
+    inline SubmitDocTranslateTaskRequestExt& setParamMap(const Darabonba::Json & paramMap) { DARABONBA_SET_VALUE(paramMap_, paramMap) };
+    inline SubmitDocTranslateTaskRequestExt& setParamMap(Darabonba::Json & paramMap) { DARABONBA_SET_RVALUE(paramMap_, paramMap) };
+
+
     // terminologies Field Functions 
     bool hasTerminologies() const { return this->terminologies_ != nullptr;};
     void deleteTerminologies() { this->terminologies_ = nullptr;};
@@ -66,6 +77,7 @@ namespace Models
   protected:
     std::shared_ptr<Models::SubmitDocTranslateTaskRequestExtConfig> config_ = nullptr;
     std::shared_ptr<string> domainHint_ = nullptr;
+    Darabonba::Json paramMap_ = nullptr;
     std::shared_ptr<vector<Models::SubmitDocTranslateTaskRequestExtTerminologies>> terminologies_ = nullptr;
   };
 

@@ -15,9 +15,11 @@ namespace Models
   class TermEditRequestExt : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TermEditRequestExt& obj) { 
+      DARABONBA_ANY_TO_JSON(paramMap, paramMap_);
       DARABONBA_PTR_TO_JSON(terms, terms_);
     };
     friend void from_json(const Darabonba::Json& j, TermEditRequestExt& obj) { 
+      DARABONBA_ANY_FROM_JSON(paramMap, paramMap_);
       DARABONBA_PTR_FROM_JSON(terms, terms_);
     };
     TermEditRequestExt() = default ;
@@ -31,7 +33,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->terms_ == nullptr; };
+    virtual bool empty() const override { return this->paramMap_ == nullptr
+        && return this->terms_ == nullptr; };
+    // paramMap Field Functions 
+    bool hasParamMap() const { return this->paramMap_ != nullptr;};
+    void deleteParamMap() { this->paramMap_ = nullptr;};
+    inline     const Darabonba::Json & paramMap() const { DARABONBA_GET(paramMap_) };
+    Darabonba::Json & paramMap() { DARABONBA_GET(paramMap_) };
+    inline TermEditRequestExt& setParamMap(const Darabonba::Json & paramMap) { DARABONBA_SET_VALUE(paramMap_, paramMap) };
+    inline TermEditRequestExt& setParamMap(Darabonba::Json & paramMap) { DARABONBA_SET_RVALUE(paramMap_, paramMap) };
+
+
     // terms Field Functions 
     bool hasTerms() const { return this->terms_ != nullptr;};
     void deleteTerms() { this->terms_ = nullptr;};
@@ -42,6 +54,7 @@ namespace Models
 
 
   protected:
+    Darabonba::Json paramMap_ = nullptr;
     // This parameter is required.
     std::shared_ptr<vector<Models::TermEditRequestExtTerms>> terms_ = nullptr;
   };

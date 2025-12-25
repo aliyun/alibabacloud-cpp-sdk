@@ -775,14 +775,24 @@ TermEditResponse Client::termEdit(const TermEditRequest &request) {
 /**
  * @summary 通义多模态翻译术语查询
  *
- * @param request TermQueryRequest
+ * @param tmpReq TermQueryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return TermQueryResponse
  */
-TermQueryResponse Client::termQueryWithOptions(const TermQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+TermQueryResponse Client::termQueryWithOptions(const TermQueryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TermQueryShrinkRequest request = TermQueryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExt()) {
+    request.setExtShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.ext(), "ext", "json"));
+  }
+
   json body = {};
+  if (!!request.hasExtShrink()) {
+    body["ext"] = request.extShrink();
+  }
+
   if (!!request.hasScene()) {
     body["scene"] = request.scene();
   }

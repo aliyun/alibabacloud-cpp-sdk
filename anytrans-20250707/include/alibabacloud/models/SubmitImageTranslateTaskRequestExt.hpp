@@ -19,6 +19,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SubmitImageTranslateTaskRequestExt& obj) { 
       DARABONBA_PTR_TO_JSON(domainHint, domainHint_);
       DARABONBA_PTR_TO_JSON(examples, examples_);
+      DARABONBA_ANY_TO_JSON(paramMap, paramMap_);
       DARABONBA_PTR_TO_JSON(sensitives, sensitives_);
       DARABONBA_PTR_TO_JSON(terminologies, terminologies_);
       DARABONBA_PTR_TO_JSON(textTransform, textTransform_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, SubmitImageTranslateTaskRequestExt& obj) { 
       DARABONBA_PTR_FROM_JSON(domainHint, domainHint_);
       DARABONBA_PTR_FROM_JSON(examples, examples_);
+      DARABONBA_ANY_FROM_JSON(paramMap, paramMap_);
       DARABONBA_PTR_FROM_JSON(sensitives, sensitives_);
       DARABONBA_PTR_FROM_JSON(terminologies, terminologies_);
       DARABONBA_PTR_FROM_JSON(textTransform, textTransform_);
@@ -42,7 +44,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainHint_ == nullptr
-        && return this->examples_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr && return this->textTransform_ == nullptr; };
+        && return this->examples_ == nullptr && return this->paramMap_ == nullptr && return this->sensitives_ == nullptr && return this->terminologies_ == nullptr && return this->textTransform_ == nullptr; };
     // domainHint Field Functions 
     bool hasDomainHint() const { return this->domainHint_ != nullptr;};
     void deleteDomainHint() { this->domainHint_ = nullptr;};
@@ -57,6 +59,15 @@ namespace Models
     inline vector<Models::SubmitImageTranslateTaskRequestExtExamples> examples() { DARABONBA_PTR_GET(examples_, vector<Models::SubmitImageTranslateTaskRequestExtExamples>) };
     inline SubmitImageTranslateTaskRequestExt& setExamples(const vector<Models::SubmitImageTranslateTaskRequestExtExamples> & examples) { DARABONBA_PTR_SET_VALUE(examples_, examples) };
     inline SubmitImageTranslateTaskRequestExt& setExamples(vector<Models::SubmitImageTranslateTaskRequestExtExamples> && examples) { DARABONBA_PTR_SET_RVALUE(examples_, examples) };
+
+
+    // paramMap Field Functions 
+    bool hasParamMap() const { return this->paramMap_ != nullptr;};
+    void deleteParamMap() { this->paramMap_ = nullptr;};
+    inline     const Darabonba::Json & paramMap() const { DARABONBA_GET(paramMap_) };
+    Darabonba::Json & paramMap() { DARABONBA_GET(paramMap_) };
+    inline SubmitImageTranslateTaskRequestExt& setParamMap(const Darabonba::Json & paramMap) { DARABONBA_SET_VALUE(paramMap_, paramMap) };
+    inline SubmitImageTranslateTaskRequestExt& setParamMap(Darabonba::Json & paramMap) { DARABONBA_SET_RVALUE(paramMap_, paramMap) };
 
 
     // sensitives Field Functions 
@@ -89,6 +100,7 @@ namespace Models
   protected:
     std::shared_ptr<string> domainHint_ = nullptr;
     std::shared_ptr<vector<Models::SubmitImageTranslateTaskRequestExtExamples>> examples_ = nullptr;
+    Darabonba::Json paramMap_ = nullptr;
     std::shared_ptr<vector<string>> sensitives_ = nullptr;
     std::shared_ptr<vector<Models::SubmitImageTranslateTaskRequestExtTerminologies>> terminologies_ = nullptr;
     std::shared_ptr<Models::SubmitImageTranslateTaskRequestExtTextTransform> textTransform_ = nullptr;

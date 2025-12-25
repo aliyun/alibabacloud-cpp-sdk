@@ -43,6 +43,7 @@
 #include <alibabacloud/models/TermEditResponseBody.hpp>
 #include <alibabacloud/models/TermEditResponse.hpp>
 #include <alibabacloud/models/TermQueryRequest.hpp>
+#include <alibabacloud/models/TermQueryShrinkRequest.hpp>
 #include <alibabacloud/models/TermQueryResponseBody.hpp>
 #include <alibabacloud/models/TermQueryResponse.hpp>
 #include <alibabacloud/models/TextTranslateRequest.hpp>
@@ -105,6 +106,7 @@
 #include <alibabacloud/models/TermEditRequestExt.hpp>
 #include <alibabacloud/models/TermEditResponseBodyDataTerms.hpp>
 #include <alibabacloud/models/TermEditResponseBodyData.hpp>
+#include <alibabacloud/models/TermQueryRequestExt.hpp>
 #include <alibabacloud/models/TermQueryResponseBodyDataTerms.hpp>
 #include <alibabacloud/models/TermQueryResponseBodyData.hpp>
 #include <alibabacloud/models/TextTranslateRequestExtConfig.hpp>
