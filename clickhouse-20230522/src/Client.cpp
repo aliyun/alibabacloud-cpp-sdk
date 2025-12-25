@@ -1846,6 +1846,52 @@ KillProcessResponse Client::killProcess(const KillProcessRequest &request) {
 }
 
 /**
+ * @summary 列举ClickHouse时区参数枚举值
+ *
+ * @param request ListClickHouseDBTimezonesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListClickHouseDBTimezonesResponse
+ */
+ListClickHouseDBTimezonesResponse Client::listClickHouseDBTimezonesWithOptions(const ListClickHouseDBTimezonesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.pageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.pageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListClickHouseDBTimezones"},
+    {"version" , "2023-05-22"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListClickHouseDBTimezonesResponse>();
+}
+
+/**
+ * @summary 列举ClickHouse时区参数枚举值
+ *
+ * @param request ListClickHouseDBTimezonesRequest
+ * @return ListClickHouseDBTimezonesResponse
+ */
+ListClickHouseDBTimezonesResponse Client::listClickHouseDBTimezones(const ListClickHouseDBTimezonesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listClickHouseDBTimezonesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询实例关联的白名单模板清单
  *
  * @param request ListInstanceLinkedWhitelistTemplatesRequest

@@ -97,6 +97,9 @@
 #include <alibabacloud/models/KillProcessRequest.hpp>
 #include <alibabacloud/models/KillProcessResponseBody.hpp>
 #include <alibabacloud/models/KillProcessResponse.hpp>
+#include <alibabacloud/models/ListClickHouseDbTimezonesRequest.hpp>
+#include <alibabacloud/models/ListClickHouseDbTimezonesResponseBody.hpp>
+#include <alibabacloud/models/ListClickHouseDbTimezonesResponse.hpp>
 #include <alibabacloud/models/ListInstanceLinkedWhitelistTemplatesRequest.hpp>
 #include <alibabacloud/models/ListInstanceLinkedWhitelistTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceLinkedWhitelistTemplatesResponse.hpp>
@@ -204,6 +207,7 @@
 #include <alibabacloud/models/GetWhitelistTemplateResponseBodyDataTemplates.hpp>
 #include <alibabacloud/models/GetWhitelistTemplateResponseBodyData.hpp>
 #include <alibabacloud/models/KillProcessResponseBodyData.hpp>
+#include <alibabacloud/models/ListClickHouseDbTimezonesResponseBodyTimeZones.hpp>
 #include <alibabacloud/models/ListInstanceLinkedWhitelistTemplatesResponseBodyDataTemplates.hpp>
 #include <alibabacloud/models/ListInstanceLinkedWhitelistTemplatesResponseBodyData.hpp>
 #include <alibabacloud/models/ListWhitelistTemplatesResponseBodyDataTemplatesDbInstances.hpp>

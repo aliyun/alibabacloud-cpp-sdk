@@ -548,6 +548,23 @@ namespace Clickhouse20230522
       Models::KillProcessResponse killProcess(const Models::KillProcessRequest &request);
 
       /**
+       * @summary 列举ClickHouse时区参数枚举值
+       *
+       * @param request ListClickHouseDBTimezonesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListClickHouseDBTimezonesResponse
+       */
+      Models::ListClickHouseDBTimezonesResponse listClickHouseDBTimezonesWithOptions(const Models::ListClickHouseDBTimezonesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举ClickHouse时区参数枚举值
+       *
+       * @param request ListClickHouseDBTimezonesRequest
+       * @return ListClickHouseDBTimezonesResponse
+       */
+      Models::ListClickHouseDBTimezonesResponse listClickHouseDBTimezones(const Models::ListClickHouseDBTimezonesRequest &request);
+
+      /**
        * @summary 查询实例关联的白名单模板清单
        *
        * @param request ListInstanceLinkedWhitelistTemplatesRequest
