@@ -58,8 +58,6 @@ namespace Models
 
   protected:
     // The port used by ECS instances or elastic container instances as backend servers of the server group.
-    // 
-    // This parameter is required.
     std::shared_ptr<int32_t> port_ = nullptr;
     // The ID of the server group.
     // 
