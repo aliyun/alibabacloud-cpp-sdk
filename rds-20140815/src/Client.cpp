@@ -25343,6 +25343,76 @@ ModifyParameterGroupResponse Client::modifyParameterGroup(const ModifyParameterG
 }
 
 /**
+ * @summary 修改RDS用户磁盘付费类型
+ *
+ * @param request ModifyRCDiskChargeTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyRCDiskChargeTypeResponse
+ */
+ModifyRCDiskChargeTypeResponse Client::modifyRCDiskChargeTypeWithOptions(const ModifyRCDiskChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.autoRenew();
+  }
+
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.autoUseCoupon();
+  }
+
+  if (!!request.hasBusinessInfo()) {
+    query["BusinessInfo"] = request.businessInfo();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.clientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.instanceId();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.payType();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.promotionCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.regionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyRCDiskChargeType"},
+    {"version" , "2014-08-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyRCDiskChargeTypeResponse>();
+}
+
+/**
+ * @summary 修改RDS用户磁盘付费类型
+ *
+ * @param request ModifyRCDiskChargeTypeRequest
+ * @return ModifyRCDiskChargeTypeResponse
+ */
+ModifyRCDiskChargeTypeResponse Client::modifyRCDiskChargeType(const ModifyRCDiskChargeTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyRCDiskChargeTypeWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the disk type or performance level (PL) of the cloud disks of an RDS Custom instance.
  *
  * @description >  To minimize the impacts on your business, we recommend that you change specifications during off-peak hours.

@@ -940,6 +940,9 @@
 #include <alibabacloud/models/ModifyParameterGroupRequest.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponseBody.hpp>
 #include <alibabacloud/models/ModifyParameterGroupResponse.hpp>
+#include <alibabacloud/models/ModifyRcDiskChargeTypeRequest.hpp>
+#include <alibabacloud/models/ModifyRcDiskChargeTypeResponseBody.hpp>
+#include <alibabacloud/models/ModifyRcDiskChargeTypeResponse.hpp>
 #include <alibabacloud/models/ModifyRcDiskSpecRequest.hpp>
 #include <alibabacloud/models/ModifyRcDiskSpecResponseBody.hpp>
 #include <alibabacloud/models/ModifyRcDiskSpecResponse.hpp>

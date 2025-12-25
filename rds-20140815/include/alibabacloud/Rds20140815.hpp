@@ -8509,6 +8509,23 @@ namespace Rds20140815
       Models::ModifyParameterGroupResponse modifyParameterGroup(const Models::ModifyParameterGroupRequest &request);
 
       /**
+       * @summary 修改RDS用户磁盘付费类型
+       *
+       * @param request ModifyRCDiskChargeTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyRCDiskChargeTypeResponse
+       */
+      Models::ModifyRCDiskChargeTypeResponse modifyRCDiskChargeTypeWithOptions(const Models::ModifyRCDiskChargeTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改RDS用户磁盘付费类型
+       *
+       * @param request ModifyRCDiskChargeTypeRequest
+       * @return ModifyRCDiskChargeTypeResponse
+       */
+      Models::ModifyRCDiskChargeTypeResponse modifyRCDiskChargeType(const Models::ModifyRCDiskChargeTypeRequest &request);
+
+      /**
        * @summary Modifies the disk type or performance level (PL) of the cloud disks of an RDS Custom instance.
        *
        * @description >  To minimize the impacts on your business, we recommend that you change specifications during off-peak hours.

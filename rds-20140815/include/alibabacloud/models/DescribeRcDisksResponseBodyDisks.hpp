@@ -15,6 +15,7 @@ namespace Models
   class DescribeRCDisksResponseBodyDisks : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRCDisksResponseBodyDisks& obj) { 
+      DARABONBA_PTR_TO_JSON(AttachedTime, attachedTime_);
       DARABONBA_PTR_TO_JSON(Category, category_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
@@ -43,6 +44,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCDisksResponseBodyDisks& obj) { 
+      DARABONBA_PTR_FROM_JSON(AttachedTime, attachedTime_);
       DARABONBA_PTR_FROM_JSON(Category, category_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DeleteAutoSnapshot, deleteAutoSnapshot_);
@@ -81,12 +83,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->category_ == nullptr
-        && return this->creationTime_ == nullptr && return this->deleteAutoSnapshot_ == nullptr && return this->deleteWithInstance_ == nullptr && return this->description_ == nullptr && return this->device_ == nullptr
-        && return this->diskChargeType_ == nullptr && return this->diskId_ == nullptr && return this->diskName_ == nullptr && return this->encrypted_ == nullptr && return this->expiredTime_ == nullptr
-        && return this->IOPS_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr && return this->performanceLevel_ == nullptr && return this->regionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr && return this->serialNumber_ == nullptr && return this->size_ == nullptr && return this->sourceSnapshotId_ == nullptr && return this->status_ == nullptr
-        && return this->storageClusterId_ == nullptr && return this->storageSetId_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr && return this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->attachedTime_ == nullptr
+        && return this->category_ == nullptr && return this->creationTime_ == nullptr && return this->deleteAutoSnapshot_ == nullptr && return this->deleteWithInstance_ == nullptr && return this->description_ == nullptr
+        && return this->device_ == nullptr && return this->diskChargeType_ == nullptr && return this->diskId_ == nullptr && return this->diskName_ == nullptr && return this->encrypted_ == nullptr
+        && return this->expiredTime_ == nullptr && return this->IOPS_ == nullptr && return this->imageId_ == nullptr && return this->instanceId_ == nullptr && return this->performanceLevel_ == nullptr
+        && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->serialNumber_ == nullptr && return this->size_ == nullptr && return this->sourceSnapshotId_ == nullptr
+        && return this->status_ == nullptr && return this->storageClusterId_ == nullptr && return this->storageSetId_ == nullptr && return this->tag_ == nullptr && return this->type_ == nullptr
+        && return this->zoneId_ == nullptr; };
+    // attachedTime Field Functions 
+    bool hasAttachedTime() const { return this->attachedTime_ != nullptr;};
+    void deleteAttachedTime() { this->attachedTime_ = nullptr;};
+    inline string attachedTime() const { DARABONBA_PTR_GET_DEFAULT(attachedTime_, "") };
+    inline DescribeRCDisksResponseBodyDisks& setAttachedTime(string attachedTime) { DARABONBA_PTR_SET_VALUE(attachedTime_, attachedTime) };
+
+
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -272,6 +282,7 @@ namespace Models
 
 
   protected:
+    std::shared_ptr<string> attachedTime_ = nullptr;
     // The category of the disk. Valid values:
     // 
     // *   **cloud_efficiency**: ultra disk.
