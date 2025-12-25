@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoDeleteState, autoDeleteState_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(ExchangeType, exchangeType_);
+      DARABONBA_PTR_TO_JSON(Internal, internal_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(VHostName, VHostName_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoDeleteState, autoDeleteState_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(ExchangeType, exchangeType_);
+      DARABONBA_PTR_FROM_JSON(Internal, internal_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(VHostName, VHostName_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && return this->autoDeleteState_ == nullptr && return this->createTime_ == nullptr && return this->exchangeType_ == nullptr && return this->name_ == nullptr && return this->VHostName_ == nullptr; };
+        && return this->autoDeleteState_ == nullptr && return this->createTime_ == nullptr && return this->exchangeType_ == nullptr && return this->internal_ == nullptr && return this->name_ == nullptr
+        && return this->VHostName_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     inline ListExchangesResponseBodyDataExchanges& setExchangeType(string exchangeType) { DARABONBA_PTR_SET_VALUE(exchangeType_, exchangeType) };
 
 
+    // internal Field Functions 
+    bool hasInternal() const { return this->internal_ != nullptr;};
+    void deleteInternal() { this->internal_ = nullptr;};
+    inline bool internal() const { DARABONBA_PTR_GET_DEFAULT(internal_, false) };
+    inline ListExchangesResponseBodyDataExchanges& setInternal(bool internal) { DARABONBA_PTR_SET_VALUE(internal_, internal) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -94,6 +104,7 @@ namespace Models
     std::shared_ptr<int64_t> createTime_ = nullptr;
     // The exchange type.
     std::shared_ptr<string> exchangeType_ = nullptr;
+    std::shared_ptr<bool> internal_ = nullptr;
     // The exchange name.
     std::shared_ptr<string> name_ = nullptr;
     // The vhost name.
