@@ -28,6 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_TO_JSON(RenderStyle, renderStyle_);
       DARABONBA_PTR_TO_JSON(SlotType, slotType_);
+      DARABONBA_PTR_TO_JSON(Sound, sound_);
+      DARABONBA_PTR_TO_JSON(SoundDuration, soundDuration_);
       DARABONBA_PTR_TO_JSON(TestMessage, testMessage_);
       DARABONBA_PTR_TO_JSON(Uri, uri_);
     };
@@ -46,6 +48,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReceiptId, receiptId_);
       DARABONBA_PTR_FROM_JSON(RenderStyle, renderStyle_);
       DARABONBA_PTR_FROM_JSON(SlotType, slotType_);
+      DARABONBA_PTR_FROM_JSON(Sound, sound_);
+      DARABONBA_PTR_FROM_JSON(SoundDuration, soundDuration_);
       DARABONBA_PTR_FROM_JSON(TestMessage, testMessage_);
       DARABONBA_PTR_FROM_JSON(Uri, uri_);
     };
@@ -63,7 +67,8 @@ namespace Models
     virtual bool empty() const override { return this->action_ == nullptr
         && return this->badgeAddNum_ == nullptr && return this->badgeSetNum_ == nullptr && return this->category_ == nullptr && return this->extParameters_ == nullptr && return this->extensionExtraData_ == nullptr
         && return this->extensionPush_ == nullptr && return this->imageUrl_ == nullptr && return this->inboxContent_ == nullptr && return this->liveViewPayload_ == nullptr && return this->notifyId_ == nullptr
-        && return this->receiptId_ == nullptr && return this->renderStyle_ == nullptr && return this->slotType_ == nullptr && return this->testMessage_ == nullptr && return this->uri_ == nullptr; };
+        && return this->receiptId_ == nullptr && return this->renderStyle_ == nullptr && return this->slotType_ == nullptr && return this->sound_ == nullptr && return this->soundDuration_ == nullptr
+        && return this->testMessage_ == nullptr && return this->uri_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -164,6 +169,20 @@ namespace Models
     inline PushTaskNotificationHmos& setSlotType(string slotType) { DARABONBA_PTR_SET_VALUE(slotType_, slotType) };
 
 
+    // sound Field Functions 
+    bool hasSound() const { return this->sound_ != nullptr;};
+    void deleteSound() { this->sound_ = nullptr;};
+    inline string sound() const { DARABONBA_PTR_GET_DEFAULT(sound_, "") };
+    inline PushTaskNotificationHmos& setSound(string sound) { DARABONBA_PTR_SET_VALUE(sound_, sound) };
+
+
+    // soundDuration Field Functions 
+    bool hasSoundDuration() const { return this->soundDuration_ != nullptr;};
+    void deleteSoundDuration() { this->soundDuration_ = nullptr;};
+    inline int32_t soundDuration() const { DARABONBA_PTR_GET_DEFAULT(soundDuration_, 0) };
+    inline PushTaskNotificationHmos& setSoundDuration(int32_t soundDuration) { DARABONBA_PTR_SET_VALUE(soundDuration_, soundDuration) };
+
+
     // testMessage Field Functions 
     bool hasTestMessage() const { return this->testMessage_ != nullptr;};
     void deleteTestMessage() { this->testMessage_ = nullptr;};
@@ -193,6 +212,8 @@ namespace Models
     std::shared_ptr<string> receiptId_ = nullptr;
     std::shared_ptr<string> renderStyle_ = nullptr;
     std::shared_ptr<string> slotType_ = nullptr;
+    std::shared_ptr<string> sound_ = nullptr;
+    std::shared_ptr<int32_t> soundDuration_ = nullptr;
     std::shared_ptr<bool> testMessage_ = nullptr;
     std::shared_ptr<string> uri_ = nullptr;
   };
